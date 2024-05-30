@@ -10,9 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.NetworkCloud
 {
     /// <summary>
-    /// Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview.
+    /// Azure REST API version: 2023-10-01-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview.
     /// 
-    /// Other available API versions: 2023-07-01, 2023-10-01-preview.
+    /// Other available API versions: 2023-07-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:networkcloud:BareMetalMachine")]
     public partial class BareMetalMachine : global::Pulumi.CustomResource
@@ -126,6 +126,12 @@ namespace Pulumi.AzureNative.NetworkCloud
         public Output<string> MachineName { get; private set; } = null!;
 
         /// <summary>
+        /// The list of roles that are assigned to the cluster node running on this machine.
+        /// </summary>
+        [Output("machineRoles")]
+        public Output<ImmutableArray<string>> MachineRoles { get; private set; } = null!;
+
+        /// <summary>
         /// The unique internal identifier of the bare metal machine SKU.
         /// </summary>
         [Output("machineSkuId")]
@@ -184,6 +190,12 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// </summary>
         [Output("readyState")]
         public Output<string> ReadyState { get; private set; } = null!;
+
+        /// <summary>
+        /// The runtime protection status of the bare metal machine.
+        /// </summary>
+        [Output("runtimeProtectionStatus")]
+        public Output<Outputs.RuntimeProtectionStatusResponse> RuntimeProtectionStatus { get; private set; } = null!;
 
         /// <summary>
         /// The serial number of the bare metal machine.
@@ -246,7 +258,6 @@ namespace Pulumi.AzureNative.NetworkCloud
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20230501preview:BareMetalMachine" },
                     new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20230701:BareMetalMachine" },
                     new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20231001preview:BareMetalMachine" },
                 },

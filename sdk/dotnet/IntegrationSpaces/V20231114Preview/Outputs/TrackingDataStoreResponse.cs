@@ -19,29 +19,29 @@ namespace Pulumi.AzureNative.IntegrationSpaces.V20231114Preview.Outputs
         /// <summary>
         /// The data store ingestion URI.
         /// </summary>
-        public readonly string DataStoreIngestionUri;
+        public readonly string? DataStoreIngestionUri;
         /// <summary>
         /// The data store resource id.
         /// </summary>
-        public readonly string DataStoreResourceId;
+        public readonly string? DataStoreResourceId;
         /// <summary>
         /// The data store URI.
         /// </summary>
-        public readonly string DataStoreUri;
+        public readonly string? DataStoreUri;
         /// <summary>
         /// The database name.
         /// </summary>
-        public readonly string DatabaseName;
+        public readonly string? DatabaseName;
 
         [OutputConstructor]
         private TrackingDataStoreResponse(
-            string dataStoreIngestionUri,
+            string? dataStoreIngestionUri,
 
-            string dataStoreResourceId,
+            string? dataStoreResourceId,
 
-            string dataStoreUri,
+            string? dataStoreUri,
 
-            string databaseName)
+            string? databaseName)
         {
             DataStoreIngestionUri = dataStoreIngestionUri;
             DataStoreResourceId = dataStoreResourceId;

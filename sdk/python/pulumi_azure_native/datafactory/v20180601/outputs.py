@@ -28651,6 +28651,7 @@ class DynamicsCrmLinkedServiceResponse(dict):
                  type: str,
                  annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
+                 credential: Optional['outputs.CredentialReferenceResponse'] = None,
                  description: Optional[str] = None,
                  encrypted_credential: Optional[str] = None,
                  host_name: Optional[Any] = None,
@@ -28671,6 +28672,7 @@ class DynamicsCrmLinkedServiceResponse(dict):
                Expected value is 'DynamicsCrm'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
+        :param 'CredentialReferenceResponse' credential: The credential reference containing authentication information.
         :param str description: Linked service description.
         :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Any host_name: The host name of the on-premises Dynamics CRM server. The property is required for on-prem and not allowed for online. Type: string (or Expression with resultType string).
@@ -28691,6 +28693,8 @@ class DynamicsCrmLinkedServiceResponse(dict):
             pulumi.set(__self__, "annotations", annotations)
         if connect_via is not None:
             pulumi.set(__self__, "connect_via", connect_via)
+        if credential is not None:
+            pulumi.set(__self__, "credential", credential)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if encrypted_credential is not None:
@@ -28756,6 +28760,14 @@ class DynamicsCrmLinkedServiceResponse(dict):
         The integration runtime reference.
         """
         return pulumi.get(self, "connect_via")
+
+    @property
+    @pulumi.getter
+    def credential(self) -> Optional['outputs.CredentialReferenceResponse']:
+        """
+        The credential reference containing authentication information.
+        """
+        return pulumi.get(self, "credential")
 
     @property
     @pulumi.getter

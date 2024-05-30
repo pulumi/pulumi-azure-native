@@ -96,6 +96,8 @@ __all__ = [
     'DefenderForServersGcpOfferingResponseVmScanners',
     'DenylistCustomAlertRuleResponse',
     'DevOpsConfigurationPropertiesResponse',
+    'DevOpsPolicyAssignmentPropertiesResponse',
+    'DevOpsPolicyDescriptorResponse',
     'ExtensionResponse',
     'GcpCredentialsDetailsPropertiesResponse',
     'GcpOrganizationalDataMemberResponse',
@@ -5100,6 +5102,223 @@ class DevOpsConfigurationPropertiesResponse(dict):
         This field is ignored when AutoDiscovery is enabled.
         """
         return pulumi.get(self, "top_level_inventory_list")
+
+
+@pulumi.output_type
+class DevOpsPolicyAssignmentPropertiesResponse(dict):
+    """
+    Properties of the DevOps policy assignment resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "provisioningStatusMessage":
+            suggest = "provisioning_status_message"
+        elif key == "provisioningStatusUpdateTimeUtc":
+            suggest = "provisioning_status_update_time_utc"
+        elif key == "assignedAt":
+            suggest = "assigned_at"
+        elif key == "descendantBehavior":
+            suggest = "descendant_behavior"
+        elif key == "resourceId":
+            suggest = "resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DevOpsPolicyAssignmentPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DevOpsPolicyAssignmentPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DevOpsPolicyAssignmentPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provisioning_state: str,
+                 provisioning_status_message: str,
+                 provisioning_status_update_time_utc: str,
+                 assigned_at: Optional[str] = None,
+                 descendant_behavior: Optional[str] = None,
+                 policy: Optional['outputs.DevOpsPolicyDescriptorResponse'] = None,
+                 resource_id: Optional[str] = None):
+        """
+        Properties of the DevOps policy assignment resource.
+        :param str provisioning_state: The provisioning state of the resource.
+               
+               Pending - Provisioning pending.
+               Failed - Provisioning failed.
+               Succeeded - Successful provisioning.
+               Canceled - Provisioning canceled.
+               PendingDeletion - Deletion pending.
+               DeletionSuccess - Deletion successful.
+               DeletionFailure - Deletion failure.
+        :param str provisioning_status_message: Gets the resource status message.
+        :param str provisioning_status_update_time_utc: Gets the time when resource was last checked.
+        :param str assigned_at: Gets or sets time when the assignment was created in UTC.
+        :param str descendant_behavior: The behavior of a policy on descendant resources.
+        :param 'DevOpsPolicyDescriptorResponse' policy: Condensed information to identify a DevOps Policy resource.
+        :param str resource_id: Gets or sets the Azure resource id.
+        """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "provisioning_status_message", provisioning_status_message)
+        pulumi.set(__self__, "provisioning_status_update_time_utc", provisioning_status_update_time_utc)
+        if assigned_at is not None:
+            pulumi.set(__self__, "assigned_at", assigned_at)
+        if descendant_behavior is not None:
+            pulumi.set(__self__, "descendant_behavior", descendant_behavior)
+        if policy is not None:
+            pulumi.set(__self__, "policy", policy)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the resource.
+        
+        Pending - Provisioning pending.
+        Failed - Provisioning failed.
+        Succeeded - Successful provisioning.
+        Canceled - Provisioning canceled.
+        PendingDeletion - Deletion pending.
+        DeletionSuccess - Deletion successful.
+        DeletionFailure - Deletion failure.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="provisioningStatusMessage")
+    def provisioning_status_message(self) -> str:
+        """
+        Gets the resource status message.
+        """
+        return pulumi.get(self, "provisioning_status_message")
+
+    @property
+    @pulumi.getter(name="provisioningStatusUpdateTimeUtc")
+    def provisioning_status_update_time_utc(self) -> str:
+        """
+        Gets the time when resource was last checked.
+        """
+        return pulumi.get(self, "provisioning_status_update_time_utc")
+
+    @property
+    @pulumi.getter(name="assignedAt")
+    def assigned_at(self) -> Optional[str]:
+        """
+        Gets or sets time when the assignment was created in UTC.
+        """
+        return pulumi.get(self, "assigned_at")
+
+    @property
+    @pulumi.getter(name="descendantBehavior")
+    def descendant_behavior(self) -> Optional[str]:
+        """
+        The behavior of a policy on descendant resources.
+        """
+        return pulumi.get(self, "descendant_behavior")
+
+    @property
+    @pulumi.getter
+    def policy(self) -> Optional['outputs.DevOpsPolicyDescriptorResponse']:
+        """
+        Condensed information to identify a DevOps Policy resource.
+        """
+        return pulumi.get(self, "policy")
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[str]:
+        """
+        Gets or sets the Azure resource id.
+        """
+        return pulumi.get(self, "resource_id")
+
+
+@pulumi.output_type
+class DevOpsPolicyDescriptorResponse(dict):
+    """
+    Condensed information to identify a DevOps Policy resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "policyId":
+            suggest = "policy_id"
+        elif key == "policyName":
+            suggest = "policy_name"
+        elif key == "policyType":
+            suggest = "policy_type"
+        elif key == "policyVersion":
+            suggest = "policy_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DevOpsPolicyDescriptorResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DevOpsPolicyDescriptorResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DevOpsPolicyDescriptorResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 policy_id: Optional[str] = None,
+                 policy_name: Optional[str] = None,
+                 policy_type: Optional[str] = None,
+                 policy_version: Optional[str] = None):
+        """
+        Condensed information to identify a DevOps Policy resource.
+        :param str policy_id: Gets or sets the policy GUID.
+        :param str policy_name: Gets or sets the policy name.
+        :param str policy_type: DevOps Policy resource types.
+        :param str policy_version: Gets or sets the version.
+        """
+        if policy_id is not None:
+            pulumi.set(__self__, "policy_id", policy_id)
+        if policy_name is not None:
+            pulumi.set(__self__, "policy_name", policy_name)
+        if policy_type is not None:
+            pulumi.set(__self__, "policy_type", policy_type)
+        if policy_version is not None:
+            pulumi.set(__self__, "policy_version", policy_version)
+
+    @property
+    @pulumi.getter(name="policyId")
+    def policy_id(self) -> Optional[str]:
+        """
+        Gets or sets the policy GUID.
+        """
+        return pulumi.get(self, "policy_id")
+
+    @property
+    @pulumi.getter(name="policyName")
+    def policy_name(self) -> Optional[str]:
+        """
+        Gets or sets the policy name.
+        """
+        return pulumi.get(self, "policy_name")
+
+    @property
+    @pulumi.getter(name="policyType")
+    def policy_type(self) -> Optional[str]:
+        """
+        DevOps Policy resource types.
+        """
+        return pulumi.get(self, "policy_type")
+
+    @property
+    @pulumi.getter(name="policyVersion")
+    def policy_version(self) -> Optional[str]:
+        """
+        Gets or sets the version.
+        """
+        return pulumi.get(self, "policy_version")
 
 
 @pulumi.output_type

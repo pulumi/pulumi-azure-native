@@ -65,7 +65,7 @@ def list_git_lab_subgroup(group_fq_name: Optional[str] = None,
     List of RP resources which supports pagination.
     Azure REST API version: 2023-09-01-preview.
 
-    Other available API versions: 2024-04-01.
+    Other available API versions: 2024-04-01, 2024-05-15-preview.
 
 
     :param str group_fq_name: The GitLab group fully-qualified name.
@@ -93,7 +93,7 @@ def list_git_lab_subgroup_output(group_fq_name: Optional[pulumi.Input[str]] = No
     List of RP resources which supports pagination.
     Azure REST API version: 2023-09-01-preview.
 
-    Other available API versions: 2024-04-01.
+    Other available API versions: 2024-04-01, 2024-05-15-preview.
 
 
     :param str group_fq_name: The GitLab group fully-qualified name.

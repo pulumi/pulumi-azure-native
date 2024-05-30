@@ -187,10 +187,10 @@ class BusinessProcessStageArgs:
 @pulumi.input_type
 class TrackingDataStoreArgs:
     def __init__(__self__, *,
-                 data_store_ingestion_uri: pulumi.Input[str],
-                 data_store_resource_id: pulumi.Input[str],
-                 data_store_uri: pulumi.Input[str],
-                 database_name: pulumi.Input[str]):
+                 data_store_ingestion_uri: Optional[pulumi.Input[str]] = None,
+                 data_store_resource_id: Optional[pulumi.Input[str]] = None,
+                 data_store_uri: Optional[pulumi.Input[str]] = None,
+                 database_name: Optional[pulumi.Input[str]] = None):
         """
         The properties of tracking data store.
         :param pulumi.Input[str] data_store_ingestion_uri: The data store ingestion URI.
@@ -198,57 +198,61 @@ class TrackingDataStoreArgs:
         :param pulumi.Input[str] data_store_uri: The data store URI.
         :param pulumi.Input[str] database_name: The database name.
         """
-        pulumi.set(__self__, "data_store_ingestion_uri", data_store_ingestion_uri)
-        pulumi.set(__self__, "data_store_resource_id", data_store_resource_id)
-        pulumi.set(__self__, "data_store_uri", data_store_uri)
-        pulumi.set(__self__, "database_name", database_name)
+        if data_store_ingestion_uri is not None:
+            pulumi.set(__self__, "data_store_ingestion_uri", data_store_ingestion_uri)
+        if data_store_resource_id is not None:
+            pulumi.set(__self__, "data_store_resource_id", data_store_resource_id)
+        if data_store_uri is not None:
+            pulumi.set(__self__, "data_store_uri", data_store_uri)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
 
     @property
     @pulumi.getter(name="dataStoreIngestionUri")
-    def data_store_ingestion_uri(self) -> pulumi.Input[str]:
+    def data_store_ingestion_uri(self) -> Optional[pulumi.Input[str]]:
         """
         The data store ingestion URI.
         """
         return pulumi.get(self, "data_store_ingestion_uri")
 
     @data_store_ingestion_uri.setter
-    def data_store_ingestion_uri(self, value: pulumi.Input[str]):
+    def data_store_ingestion_uri(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "data_store_ingestion_uri", value)
 
     @property
     @pulumi.getter(name="dataStoreResourceId")
-    def data_store_resource_id(self) -> pulumi.Input[str]:
+    def data_store_resource_id(self) -> Optional[pulumi.Input[str]]:
         """
         The data store resource id.
         """
         return pulumi.get(self, "data_store_resource_id")
 
     @data_store_resource_id.setter
-    def data_store_resource_id(self, value: pulumi.Input[str]):
+    def data_store_resource_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "data_store_resource_id", value)
 
     @property
     @pulumi.getter(name="dataStoreUri")
-    def data_store_uri(self) -> pulumi.Input[str]:
+    def data_store_uri(self) -> Optional[pulumi.Input[str]]:
         """
         The data store URI.
         """
         return pulumi.get(self, "data_store_uri")
 
     @data_store_uri.setter
-    def data_store_uri(self, value: pulumi.Input[str]):
+    def data_store_uri(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "data_store_uri", value)
 
     @property
     @pulumi.getter(name="databaseName")
-    def database_name(self) -> pulumi.Input[str]:
+    def database_name(self) -> Optional[pulumi.Input[str]]:
         """
         The database name.
         """
         return pulumi.get(self, "database_name")
 
     @database_name.setter
-    def database_name(self, value: pulumi.Input[str]):
+    def database_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "database_name", value)
 
 

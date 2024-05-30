@@ -563,6 +563,16 @@ export const ContainerType = {
  */
 export type ContainerType = (typeof ContainerType)[keyof typeof ContainerType];
 
+export const ContentSafetyStatus = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * [Required] Specifies the status of content safety.
+ */
+export type ContentSafetyStatus = (typeof ContentSafetyStatus)[keyof typeof ContentSafetyStatus];
+
 export const CredentialsType = {
     AccountKey: "AccountKey",
     Certificate: "Certificate",
@@ -1779,6 +1789,15 @@ export const SecretsType = {
  * [Required] Credential type used to authentication with storage.
  */
 export type SecretsType = (typeof SecretsType)[keyof typeof SecretsType];
+
+export const ServerlessInferenceEndpointAuthMode = {
+    Key: "Key",
+} as const;
+
+/**
+ * [Required] Specifies the authentication mode for the Serverless endpoint.
+ */
+export type ServerlessInferenceEndpointAuthMode = (typeof ServerlessInferenceEndpointAuthMode)[keyof typeof ServerlessInferenceEndpointAuthMode];
 
 export const ServiceDataAccessAuthIdentity = {
     /**

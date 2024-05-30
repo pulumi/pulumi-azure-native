@@ -25,10 +25,20 @@ export const getFrontendsInterface: typeof import("./getFrontendsInterface").get
 export const getFrontendsInterfaceOutput: typeof import("./getFrontendsInterface").getFrontendsInterfaceOutput = null as any;
 utilities.lazyLoad(exports, ["getFrontendsInterface","getFrontendsInterfaceOutput"], () => require("./getFrontendsInterface"));
 
+export { GetSecurityPoliciesInterfaceArgs, GetSecurityPoliciesInterfaceResult, GetSecurityPoliciesInterfaceOutputArgs } from "./getSecurityPoliciesInterface";
+export const getSecurityPoliciesInterface: typeof import("./getSecurityPoliciesInterface").getSecurityPoliciesInterface = null as any;
+export const getSecurityPoliciesInterfaceOutput: typeof import("./getSecurityPoliciesInterface").getSecurityPoliciesInterfaceOutput = null as any;
+utilities.lazyLoad(exports, ["getSecurityPoliciesInterface","getSecurityPoliciesInterfaceOutput"], () => require("./getSecurityPoliciesInterface"));
+
 export { GetTrafficControllerInterfaceArgs, GetTrafficControllerInterfaceResult, GetTrafficControllerInterfaceOutputArgs } from "./getTrafficControllerInterface";
 export const getTrafficControllerInterface: typeof import("./getTrafficControllerInterface").getTrafficControllerInterface = null as any;
 export const getTrafficControllerInterfaceOutput: typeof import("./getTrafficControllerInterface").getTrafficControllerInterfaceOutput = null as any;
 utilities.lazyLoad(exports, ["getTrafficControllerInterface","getTrafficControllerInterfaceOutput"], () => require("./getTrafficControllerInterface"));
+
+export { SecurityPoliciesInterfaceArgs } from "./securityPoliciesInterface";
+export type SecurityPoliciesInterface = import("./securityPoliciesInterface").SecurityPoliciesInterface;
+export const SecurityPoliciesInterface: typeof import("./securityPoliciesInterface").SecurityPoliciesInterface = null as any;
+utilities.lazyLoad(exports, ["SecurityPoliciesInterface"], () => require("./securityPoliciesInterface"));
 
 export { TrafficControllerInterfaceArgs } from "./trafficControllerInterface";
 export type TrafficControllerInterface = import("./trafficControllerInterface").TrafficControllerInterface;
@@ -43,11 +53,13 @@ export * from "../types/enums/servicenetworking";
 import * as v20221001preview from "./v20221001preview";
 import * as v20230501preview from "./v20230501preview";
 import * as v20231101 from "./v20231101";
+import * as v20240501preview from "./v20240501preview";
 
 export {
     v20221001preview,
     v20230501preview,
     v20231101,
+    v20240501preview,
 };
 
 const _module = {
@@ -58,6 +70,8 @@ const _module = {
                 return new AssociationsInterface(name, <any>undefined, { urn })
             case "azure-native:servicenetworking:FrontendsInterface":
                 return new FrontendsInterface(name, <any>undefined, { urn })
+            case "azure-native:servicenetworking:SecurityPoliciesInterface":
+                return new SecurityPoliciesInterface(name, <any>undefined, { urn })
             case "azure-native:servicenetworking:TrafficControllerInterface":
                 return new TrafficControllerInterface(name, <any>undefined, { urn })
             default:

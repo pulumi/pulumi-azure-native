@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SignalRService
     /// A custom certificate.
     /// Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2022-02-01.
     /// 
-    /// Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview.
+    /// Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:signalrservice:SignalRCustomCertificate")]
     public partial class SignalRCustomCertificate : global::Pulumi.CustomResource
@@ -92,6 +92,7 @@ namespace Pulumi.AzureNative.SignalRService
                     new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20230601preview:SignalRCustomCertificate" },
                     new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20230801preview:SignalRCustomCertificate" },
                     new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20240101preview:SignalRCustomCertificate" },
+                    new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20240301:SignalRCustomCertificate" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

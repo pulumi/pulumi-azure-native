@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * An Azure Cosmos DB Throughputpool.
  * Azure REST API version: 2023-11-15-preview.
  *
- * Other available API versions: 2024-02-15-preview.
+ * Other available API versions: 2024-02-15-preview, 2024-05-15-preview.
  */
 export class ThroughputPool extends pulumi.CustomResource {
     /**
@@ -102,7 +102,7 @@ export class ThroughputPool extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:documentdb/v20231115preview:ThroughputPool" }, { type: "azure-native:documentdb/v20240215preview:ThroughputPool" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:documentdb/v20231115preview:ThroughputPool" }, { type: "azure-native:documentdb/v20240215preview:ThroughputPool" }, { type: "azure-native:documentdb/v20240515preview:ThroughputPool" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ThroughputPool.__pulumiType, name, resourceInputs, opts);
     }

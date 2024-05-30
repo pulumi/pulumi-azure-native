@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Get properties of the provided bare metal machine.
- * Azure REST API version: 2023-05-01-preview.
+ * Azure REST API version: 2023-10-01-preview.
  *
- * Other available API versions: 2023-07-01, 2023-10-01-preview.
+ * Other available API versions: 2023-07-01.
  */
 export function getBareMetalMachine(args: GetBareMetalMachineArgs, opts?: pulumi.InvokeOptions): Promise<GetBareMetalMachineResult> {
 
@@ -111,6 +111,10 @@ export interface GetBareMetalMachineResult {
      */
     readonly machineName: string;
     /**
+     * The list of roles that are assigned to the cluster node running on this machine.
+     */
+    readonly machineRoles: string[];
+    /**
      * The unique internal identifier of the bare metal machine SKU.
      */
     readonly machineSkuId: string;
@@ -151,6 +155,10 @@ export interface GetBareMetalMachineResult {
      */
     readonly readyState: string;
     /**
+     * The runtime protection status of the bare metal machine.
+     */
+    readonly runtimeProtectionStatus: outputs.networkcloud.RuntimeProtectionStatusResponse;
+    /**
      * The serial number of the bare metal machine.
      */
     readonly serialNumber: string;
@@ -177,9 +185,9 @@ export interface GetBareMetalMachineResult {
 }
 /**
  * Get properties of the provided bare metal machine.
- * Azure REST API version: 2023-05-01-preview.
+ * Azure REST API version: 2023-10-01-preview.
  *
- * Other available API versions: 2023-07-01, 2023-10-01-preview.
+ * Other available API versions: 2023-07-01.
  */
 export function getBareMetalMachineOutput(args: GetBareMetalMachineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBareMetalMachineResult> {
     return pulumi.output(args).apply((a: any) => getBareMetalMachine(a, opts))

@@ -136,7 +136,7 @@ export class MetricsConfiguration extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:networkcloud:MetricsConfiguration" }, { type: "azure-native:networkcloud/v20230501preview:MetricsConfiguration" }, { type: "azure-native:networkcloud/v20230701:MetricsConfiguration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:networkcloud:MetricsConfiguration" }, { type: "azure-native:networkcloud/v20230701:MetricsConfiguration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(MetricsConfiguration.__pulumiType, name, resourceInputs, opts);
     }

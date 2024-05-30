@@ -277,7 +277,7 @@ class Service(pulumi.CustomResource):
         Describes an Azure Cognitive Search service and its current state.
         Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-08-01.
 
-        Other available API versions: 2021-04-01-preview, 2023-11-01, 2024-03-01-preview.
+        Other available API versions: 2021-04-01-preview, 2023-11-01, 2024-03-01-preview, 2024-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -306,7 +306,7 @@ class Service(pulumi.CustomResource):
         Describes an Azure Cognitive Search service and its current state.
         Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-08-01.
 
-        Other available API versions: 2021-04-01-preview, 2023-11-01, 2024-03-01-preview.
+        Other available API versions: 2021-04-01-preview, 2023-11-01, 2024-03-01-preview, 2024-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param ServiceArgs args: The arguments to use to populate this resource's properties.
@@ -377,7 +377,7 @@ class Service(pulumi.CustomResource):
             __props__.__dict__["status"] = None
             __props__.__dict__["status_details"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:search/v20150819:Service"), pulumi.Alias(type_="azure-native:search/v20191001preview:Service"), pulumi.Alias(type_="azure-native:search/v20200313:Service"), pulumi.Alias(type_="azure-native:search/v20200801:Service"), pulumi.Alias(type_="azure-native:search/v20200801preview:Service"), pulumi.Alias(type_="azure-native:search/v20210401preview:Service"), pulumi.Alias(type_="azure-native:search/v20220901:Service"), pulumi.Alias(type_="azure-native:search/v20231101:Service"), pulumi.Alias(type_="azure-native:search/v20240301preview:Service")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:search/v20150819:Service"), pulumi.Alias(type_="azure-native:search/v20191001preview:Service"), pulumi.Alias(type_="azure-native:search/v20200313:Service"), pulumi.Alias(type_="azure-native:search/v20200801:Service"), pulumi.Alias(type_="azure-native:search/v20200801preview:Service"), pulumi.Alias(type_="azure-native:search/v20210401preview:Service"), pulumi.Alias(type_="azure-native:search/v20220901:Service"), pulumi.Alias(type_="azure-native:search/v20231101:Service"), pulumi.Alias(type_="azure-native:search/v20240301preview:Service"), pulumi.Alias(type_="azure-native:search/v20240601preview:Service")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Service, __self__).__init__(
             'azure-native:search:Service',

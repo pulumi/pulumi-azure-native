@@ -109,7 +109,7 @@ class GetApplicationResult:
 
     @property
     @pulumi.getter(name="trackingDataStores")
-    def tracking_data_stores(self) -> Mapping[str, 'outputs.TrackingDataStoreResponse']:
+    def tracking_data_stores(self) -> Optional[Mapping[str, 'outputs.TrackingDataStoreResponse']]:
         """
         The tracking data stores.
         """

@@ -23,6 +23,7 @@ from .custom_assessment_automation import *
 from .custom_entity_store_assignment import *
 from .defender_for_storage import *
 from .dev_ops_configuration import *
+from .dev_ops_policy_assignment import *
 from .device_security_group import *
 from .get_adaptive_application_control import *
 from .get_advanced_threat_protection import *
@@ -41,6 +42,7 @@ from .get_custom_assessment_automation import *
 from .get_custom_entity_store_assignment import *
 from .get_defender_for_storage import *
 from .get_dev_ops_configuration import *
+from .get_dev_ops_policy_assignment import *
 from .get_device_security_group import *
 from .get_governance_assignment import *
 from .get_governance_rule import *
@@ -125,6 +127,8 @@ if typing.TYPE_CHECKING:
     v20240301preview = __v20240301preview
     import pulumi_azure_native.security.v20240401 as __v20240401
     v20240401 = __v20240401
+    import pulumi_azure_native.security.v20240515preview as __v20240515preview
+    v20240515preview = __v20240515preview
 else:
     v20170801preview = _utilities.lazy_import('pulumi_azure_native.security.v20170801preview')
     v20190101 = _utilities.lazy_import('pulumi_azure_native.security.v20190101')
@@ -150,4 +154,5 @@ else:
     v20240101 = _utilities.lazy_import('pulumi_azure_native.security.v20240101')
     v20240301preview = _utilities.lazy_import('pulumi_azure_native.security.v20240301preview')
     v20240401 = _utilities.lazy_import('pulumi_azure_native.security.v20240401')
+    v20240515preview = _utilities.lazy_import('pulumi_azure_native.security.v20240515preview')
 

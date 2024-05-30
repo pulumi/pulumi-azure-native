@@ -452,12 +452,16 @@ class ClusterPoolResourcePropertiesClusterPoolProfileArgs:
 @pulumi.input_type
 class ClusterPoolResourcePropertiesComputeProfileArgs:
     def __init__(__self__, *,
-                 vm_size: pulumi.Input[str]):
+                 vm_size: pulumi.Input[str],
+                 availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         CLuster pool compute profile.
         :param pulumi.Input[str] vm_size: The virtual machine SKU.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: The list of Availability zones to use for AKS VMSS nodes.
         """
         pulumi.set(__self__, "vm_size", vm_size)
+        if availability_zones is not None:
+            pulumi.set(__self__, "availability_zones", availability_zones)
 
     @property
     @pulumi.getter(name="vmSize")
@@ -470,6 +474,18 @@ class ClusterPoolResourcePropertiesComputeProfileArgs:
     @vm_size.setter
     def vm_size(self, value: pulumi.Input[str]):
         pulumi.set(self, "vm_size", value)
+
+    @property
+    @pulumi.getter(name="availabilityZones")
+    def availability_zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of Availability zones to use for AKS VMSS nodes.
+        """
+        return pulumi.get(self, "availability_zones")
+
+    @availability_zones.setter
+    def availability_zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "availability_zones", value)
 
 
 @pulumi.input_type
@@ -1092,12 +1108,16 @@ class ComparisonRuleArgs:
 @pulumi.input_type
 class ComputeProfileArgs:
     def __init__(__self__, *,
-                 nodes: pulumi.Input[Sequence[pulumi.Input['NodeProfileArgs']]]):
+                 nodes: pulumi.Input[Sequence[pulumi.Input['NodeProfileArgs']]],
+                 availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The compute profile.
         :param pulumi.Input[Sequence[pulumi.Input['NodeProfileArgs']]] nodes: The nodes definitions.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: The list of Availability zones to use for AKS VMSS nodes.
         """
         pulumi.set(__self__, "nodes", nodes)
+        if availability_zones is not None:
+            pulumi.set(__self__, "availability_zones", availability_zones)
 
     @property
     @pulumi.getter
@@ -1110,6 +1130,18 @@ class ComputeProfileArgs:
     @nodes.setter
     def nodes(self, value: pulumi.Input[Sequence[pulumi.Input['NodeProfileArgs']]]):
         pulumi.set(self, "nodes", value)
+
+    @property
+    @pulumi.getter(name="availabilityZones")
+    def availability_zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of Availability zones to use for AKS VMSS nodes.
+        """
+        return pulumi.get(self, "availability_zones")
+
+    @availability_zones.setter
+    def availability_zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "availability_zones", value)
 
 
 @pulumi.input_type

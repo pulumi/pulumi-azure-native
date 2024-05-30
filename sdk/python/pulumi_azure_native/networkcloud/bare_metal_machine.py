@@ -271,9 +271,9 @@ class BareMetalMachine(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview.
+        Azure REST API version: 2023-10-01-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview.
 
-        Other available API versions: 2023-07-01, 2023-10-01-preview.
+        Other available API versions: 2023-07-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -300,9 +300,9 @@ class BareMetalMachine(pulumi.CustomResource):
                  args: BareMetalMachineArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview.
+        Azure REST API version: 2023-10-01-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview.
 
-        Other available API versions: 2023-07-01, 2023-10-01-preview.
+        Other available API versions: 2023-07-01.
 
         :param str resource_name: The name of the resource.
         :param BareMetalMachineArgs args: The arguments to use to populate this resource's properties.
@@ -392,6 +392,7 @@ class BareMetalMachine(pulumi.CustomResource):
             __props__.__dict__["hybrid_aks_clusters_associated_ids"] = None
             __props__.__dict__["kubernetes_node_name"] = None
             __props__.__dict__["kubernetes_version"] = None
+            __props__.__dict__["machine_roles"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["oam_ipv4_address"] = None
             __props__.__dict__["oam_ipv6_address"] = None
@@ -399,11 +400,12 @@ class BareMetalMachine(pulumi.CustomResource):
             __props__.__dict__["power_state"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["ready_state"] = None
+            __props__.__dict__["runtime_protection_status"] = None
             __props__.__dict__["service_tag"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["virtual_machines_associated_ids"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:networkcloud/v20230501preview:BareMetalMachine"), pulumi.Alias(type_="azure-native:networkcloud/v20230701:BareMetalMachine"), pulumi.Alias(type_="azure-native:networkcloud/v20231001preview:BareMetalMachine")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:networkcloud/v20230701:BareMetalMachine"), pulumi.Alias(type_="azure-native:networkcloud/v20231001preview:BareMetalMachine")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BareMetalMachine, __self__).__init__(
             'azure-native:networkcloud:BareMetalMachine',
@@ -445,6 +447,7 @@ class BareMetalMachine(pulumi.CustomResource):
         __props__.__dict__["location"] = None
         __props__.__dict__["machine_details"] = None
         __props__.__dict__["machine_name"] = None
+        __props__.__dict__["machine_roles"] = None
         __props__.__dict__["machine_sku_id"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["oam_ipv4_address"] = None
@@ -455,6 +458,7 @@ class BareMetalMachine(pulumi.CustomResource):
         __props__.__dict__["rack_id"] = None
         __props__.__dict__["rack_slot"] = None
         __props__.__dict__["ready_state"] = None
+        __props__.__dict__["runtime_protection_status"] = None
         __props__.__dict__["serial_number"] = None
         __props__.__dict__["service_tag"] = None
         __props__.__dict__["system_data"] = None
@@ -608,6 +612,14 @@ class BareMetalMachine(pulumi.CustomResource):
         return pulumi.get(self, "machine_name")
 
     @property
+    @pulumi.getter(name="machineRoles")
+    def machine_roles(self) -> pulumi.Output[Sequence[str]]:
+        """
+        The list of roles that are assigned to the cluster node running on this machine.
+        """
+        return pulumi.get(self, "machine_roles")
+
+    @property
     @pulumi.getter(name="machineSkuId")
     def machine_sku_id(self) -> pulumi.Output[str]:
         """
@@ -686,6 +698,14 @@ class BareMetalMachine(pulumi.CustomResource):
         The indicator of whether the bare metal machine is ready to receive workloads.
         """
         return pulumi.get(self, "ready_state")
+
+    @property
+    @pulumi.getter(name="runtimeProtectionStatus")
+    def runtime_protection_status(self) -> pulumi.Output['outputs.RuntimeProtectionStatusResponse']:
+        """
+        The runtime protection status of the bare metal machine.
+        """
+        return pulumi.get(self, "runtime_protection_status")
 
     @property
     @pulumi.getter(name="serialNumber")

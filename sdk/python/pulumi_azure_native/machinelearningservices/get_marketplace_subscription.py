@@ -101,7 +101,7 @@ def get_marketplace_subscription(name: Optional[str] = None,
     Azure Resource Manager resource envelope.
     Azure REST API version: 2024-01-01-preview.
 
-    Other available API versions: 2024-04-01-preview.
+    Other available API versions: 2024-04-01, 2024-04-01-preview.
 
 
     :param str name: Container name.
@@ -132,7 +132,7 @@ def get_marketplace_subscription_output(name: Optional[pulumi.Input[str]] = None
     Azure Resource Manager resource envelope.
     Azure REST API version: 2024-01-01-preview.
 
-    Other available API versions: 2024-04-01-preview.
+    Other available API versions: 2024-04-01, 2024-04-01-preview.
 
 
     :param str name: Container name.

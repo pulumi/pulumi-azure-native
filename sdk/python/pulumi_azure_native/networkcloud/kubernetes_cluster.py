@@ -227,9 +227,9 @@ class KubernetesCluster(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Azure REST API version: 2023-05-01-preview.
+        Azure REST API version: 2023-10-01-preview.
 
-        Other available API versions: 2023-07-01, 2023-10-01-preview.
+        Other available API versions: 2023-07-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -253,9 +253,9 @@ class KubernetesCluster(pulumi.CustomResource):
                  args: KubernetesClusterArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Azure REST API version: 2023-05-01-preview.
+        Azure REST API version: 2023-10-01-preview.
 
-        Other available API versions: 2023-07-01, 2023-10-01-preview.
+        Other available API versions: 2023-07-01.
 
         :param str resource_name: The name of the resource.
         :param KubernetesClusterArgs args: The arguments to use to populate this resource's properties.
@@ -330,7 +330,7 @@ class KubernetesCluster(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:networkcloud/v20230501preview:KubernetesCluster"), pulumi.Alias(type_="azure-native:networkcloud/v20230701:KubernetesCluster"), pulumi.Alias(type_="azure-native:networkcloud/v20231001preview:KubernetesCluster")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:networkcloud/v20230701:KubernetesCluster"), pulumi.Alias(type_="azure-native:networkcloud/v20231001preview:KubernetesCluster")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(KubernetesCluster, __self__).__init__(
             'azure-native:networkcloud:KubernetesCluster',

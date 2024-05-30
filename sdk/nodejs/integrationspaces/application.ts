@@ -65,7 +65,7 @@ export class Application extends pulumi.CustomResource {
     /**
      * The tracking data stores.
      */
-    public readonly trackingDataStores!: pulumi.Output<{[key: string]: outputs.integrationspaces.TrackingDataStoreResponse}>;
+    public readonly trackingDataStores!: pulumi.Output<{[key: string]: outputs.integrationspaces.TrackingDataStoreResponse} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
@@ -87,9 +87,6 @@ export class Application extends pulumi.CustomResource {
             }
             if ((!args || args.spaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'spaceName'");
-            }
-            if ((!args || args.trackingDataStores === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'trackingDataStores'");
             }
             resourceInputs["applicationName"] = args ? args.applicationName : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
@@ -150,5 +147,5 @@ export interface ApplicationArgs {
     /**
      * The tracking data stores.
      */
-    trackingDataStores: pulumi.Input<{[key: string]: pulumi.Input<inputs.integrationspaces.TrackingDataStoreArgs>}>;
+    trackingDataStores?: pulumi.Input<{[key: string]: pulumi.Input<inputs.integrationspaces.TrackingDataStoreArgs>}>;
 }

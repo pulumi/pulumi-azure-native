@@ -99,7 +99,7 @@ export class ThroughputPool extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:documentdb:ThroughputPool" }, { type: "azure-native:documentdb/v20240215preview:ThroughputPool" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:documentdb:ThroughputPool" }, { type: "azure-native:documentdb/v20240215preview:ThroughputPool" }, { type: "azure-native:documentdb/v20240515preview:ThroughputPool" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ThroughputPool.__pulumiType, name, resourceInputs, opts);
     }

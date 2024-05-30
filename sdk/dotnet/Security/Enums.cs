@@ -425,6 +425,69 @@ namespace Pulumi.AzureNative.Security
     }
 
     /// <summary>
+    /// The behavior of a policy on descendant resources.
+    /// </summary>
+    [EnumType]
+    public readonly struct DescendantBehavior : IEquatable<DescendantBehavior>
+    {
+        private readonly string _value;
+
+        private DescendantBehavior(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DescendantBehavior Unknown { get; } = new DescendantBehavior("Unknown");
+        public static DescendantBehavior Override { get; } = new DescendantBehavior("Override");
+        public static DescendantBehavior FallBack { get; } = new DescendantBehavior("FallBack");
+
+        public static bool operator ==(DescendantBehavior left, DescendantBehavior right) => left.Equals(right);
+        public static bool operator !=(DescendantBehavior left, DescendantBehavior right) => !left.Equals(right);
+
+        public static explicit operator string(DescendantBehavior value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DescendantBehavior other && Equals(other);
+        public bool Equals(DescendantBehavior other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// DevOps Policy resource types.
+    /// </summary>
+    [EnumType]
+    public readonly struct DevOpsPolicyType : IEquatable<DevOpsPolicyType>
+    {
+        private readonly string _value;
+
+        private DevOpsPolicyType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DevOpsPolicyType Unknown { get; } = new DevOpsPolicyType("Unknown");
+        public static DevOpsPolicyType Pipeline { get; } = new DevOpsPolicyType("Pipeline");
+
+        public static bool operator ==(DevOpsPolicyType left, DevOpsPolicyType right) => left.Equals(right);
+        public static bool operator !=(DevOpsPolicyType left, DevOpsPolicyType right) => !left.Equals(right);
+
+        public static explicit operator string(DevOpsPolicyType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DevOpsPolicyType other && Equals(other);
+        public bool Equals(DevOpsPolicyType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The provisioning state of the resource.
     /// 
     /// Pending - Provisioning pending.

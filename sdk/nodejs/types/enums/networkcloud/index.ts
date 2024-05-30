@@ -2,12 +2,10 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export sub-modules:
-import * as v20230501preview from "./v20230501preview";
 import * as v20230701 from "./v20230701";
 import * as v20231001preview from "./v20231001preview";
 
 export {
-    v20230501preview,
     v20230701,
     v20231001preview,
 };
@@ -83,6 +81,16 @@ export const CloudServicesNetworkEnableDefaultEgressEndpoints = {
  */
 export type CloudServicesNetworkEnableDefaultEgressEndpoints = (typeof CloudServicesNetworkEnableDefaultEgressEndpoints)[keyof typeof CloudServicesNetworkEnableDefaultEgressEndpoints];
 
+export const ClusterSecretArchiveEnabled = {
+    True: "True",
+    False: "False",
+} as const;
+
+/**
+ * The indicator if the specified key vault should be used to archive the secrets of the cluster.
+ */
+export type ClusterSecretArchiveEnabled = (typeof ClusterSecretArchiveEnabled)[keyof typeof ClusterSecretArchiveEnabled];
+
 export const ClusterType = {
     SingleRack: "SingleRack",
     MultiRack: "MultiRack",
@@ -92,6 +100,15 @@ export const ClusterType = {
  * The type of rack configuration for the cluster.
  */
 export type ClusterType = (typeof ClusterType)[keyof typeof ClusterType];
+
+export const ClusterUpdateStrategyType = {
+    Rack: "Rack",
+} as const;
+
+/**
+ * The mode of operation for runtime protection.
+ */
+export type ClusterUpdateStrategyType = (typeof ClusterUpdateStrategyType)[keyof typeof ClusterUpdateStrategyType];
 
 export const ConsoleEnabled = {
     True: "True",
@@ -206,6 +223,19 @@ export const OsDiskDeleteOption = {
  * The strategy for deleting the OS disk.
  */
 export type OsDiskDeleteOption = (typeof OsDiskDeleteOption)[keyof typeof OsDiskDeleteOption];
+
+export const RuntimeProtectionEnforcementLevel = {
+    Audit: "Audit",
+    Disabled: "Disabled",
+    OnDemand: "OnDemand",
+    Passive: "Passive",
+    RealTime: "RealTime",
+} as const;
+
+/**
+ * The mode of operation for runtime protection.
+ */
+export type RuntimeProtectionEnforcementLevel = (typeof RuntimeProtectionEnforcementLevel)[keyof typeof RuntimeProtectionEnforcementLevel];
 
 export const ValidationThresholdGrouping = {
     PerCluster: "PerCluster",

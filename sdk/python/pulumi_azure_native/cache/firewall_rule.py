@@ -110,7 +110,7 @@ class FirewallRule(pulumi.CustomResource):
         A firewall rule on a redis cache has a name, and describes a contiguous range of IP addresses permitted to connect
         Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2020-06-01.
 
-        Other available API versions: 2023-05-01-preview, 2023-08-01, 2024-03-01.
+        Other available API versions: 2023-05-01-preview, 2023-08-01, 2024-03-01, 2024-04-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -130,7 +130,7 @@ class FirewallRule(pulumi.CustomResource):
         A firewall rule on a redis cache has a name, and describes a contiguous range of IP addresses permitted to connect
         Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2020-06-01.
 
-        Other available API versions: 2023-05-01-preview, 2023-08-01, 2024-03-01.
+        Other available API versions: 2023-05-01-preview, 2023-08-01, 2024-03-01, 2024-04-01-preview.
 
         :param str resource_name: The name of the resource.
         :param FirewallRuleArgs args: The arguments to use to populate this resource's properties.
@@ -176,7 +176,7 @@ class FirewallRule(pulumi.CustomResource):
             __props__.__dict__["start_ip"] = start_ip
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cache/v20160401:FirewallRule"), pulumi.Alias(type_="azure-native:cache/v20170201:FirewallRule"), pulumi.Alias(type_="azure-native:cache/v20171001:FirewallRule"), pulumi.Alias(type_="azure-native:cache/v20180301:FirewallRule"), pulumi.Alias(type_="azure-native:cache/v20190701:FirewallRule"), pulumi.Alias(type_="azure-native:cache/v20200601:FirewallRule"), pulumi.Alias(type_="azure-native:cache/v20201201:FirewallRule"), pulumi.Alias(type_="azure-native:cache/v20210601:FirewallRule"), pulumi.Alias(type_="azure-native:cache/v20220501:FirewallRule"), pulumi.Alias(type_="azure-native:cache/v20220601:FirewallRule"), pulumi.Alias(type_="azure-native:cache/v20230401:FirewallRule"), pulumi.Alias(type_="azure-native:cache/v20230501preview:FirewallRule"), pulumi.Alias(type_="azure-native:cache/v20230801:FirewallRule"), pulumi.Alias(type_="azure-native:cache/v20240301:FirewallRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cache/v20160401:FirewallRule"), pulumi.Alias(type_="azure-native:cache/v20170201:FirewallRule"), pulumi.Alias(type_="azure-native:cache/v20171001:FirewallRule"), pulumi.Alias(type_="azure-native:cache/v20180301:FirewallRule"), pulumi.Alias(type_="azure-native:cache/v20190701:FirewallRule"), pulumi.Alias(type_="azure-native:cache/v20200601:FirewallRule"), pulumi.Alias(type_="azure-native:cache/v20201201:FirewallRule"), pulumi.Alias(type_="azure-native:cache/v20210601:FirewallRule"), pulumi.Alias(type_="azure-native:cache/v20220501:FirewallRule"), pulumi.Alias(type_="azure-native:cache/v20220601:FirewallRule"), pulumi.Alias(type_="azure-native:cache/v20230401:FirewallRule"), pulumi.Alias(type_="azure-native:cache/v20230501preview:FirewallRule"), pulumi.Alias(type_="azure-native:cache/v20230801:FirewallRule"), pulumi.Alias(type_="azure-native:cache/v20240301:FirewallRule"), pulumi.Alias(type_="azure-native:cache/v20240401preview:FirewallRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(FirewallRule, __self__).__init__(
             'azure-native:cache:FirewallRule',

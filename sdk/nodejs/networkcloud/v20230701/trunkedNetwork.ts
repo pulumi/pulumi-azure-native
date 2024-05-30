@@ -165,7 +165,7 @@ export class TrunkedNetwork extends pulumi.CustomResource {
             resourceInputs["vlans"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:networkcloud:TrunkedNetwork" }, { type: "azure-native:networkcloud/v20230501preview:TrunkedNetwork" }, { type: "azure-native:networkcloud/v20231001preview:TrunkedNetwork" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:networkcloud:TrunkedNetwork" }, { type: "azure-native:networkcloud/v20231001preview:TrunkedNetwork" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(TrunkedNetwork.__pulumiType, name, resourceInputs, opts);
     }

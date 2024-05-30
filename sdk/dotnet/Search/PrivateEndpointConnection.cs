@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Search
     /// Describes an existing Private Endpoint connection to the Azure Cognitive Search service.
     /// Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-08-01.
     /// 
-    /// Other available API versions: 2019-10-01-preview, 2023-11-01, 2024-03-01-preview.
+    /// Other available API versions: 2019-10-01-preview, 2023-11-01, 2024-03-01-preview, 2024-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:search:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
@@ -69,6 +69,7 @@ namespace Pulumi.AzureNative.Search
                     new global::Pulumi.Alias { Type = "azure-native:search/v20220901:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:search/v20231101:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:search/v20240301preview:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:search/v20240601preview:PrivateEndpointConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -79,7 +79,7 @@ export class OpenAI extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:elastic:OpenAI" }, { type: "azure-native:elastic/v20240301:OpenAI" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:elastic:OpenAI" }, { type: "azure-native:elastic/v20240301:OpenAI" }, { type: "azure-native:elastic/v20240501preview:OpenAI" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(OpenAI.__pulumiType, name, resourceInputs, opts);
     }

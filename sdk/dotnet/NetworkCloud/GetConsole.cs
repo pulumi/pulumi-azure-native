@@ -13,18 +13,18 @@ namespace Pulumi.AzureNative.NetworkCloud
     {
         /// <summary>
         /// Get properties of the provided virtual machine console.
-        /// Azure REST API version: 2023-05-01-preview.
+        /// Azure REST API version: 2023-10-01-preview.
         /// 
-        /// Other available API versions: 2023-07-01, 2023-10-01-preview.
+        /// Other available API versions: 2023-07-01.
         /// </summary>
         public static Task<GetConsoleResult> InvokeAsync(GetConsoleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConsoleResult>("azure-native:networkcloud:getConsole", args ?? new GetConsoleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get properties of the provided virtual machine console.
-        /// Azure REST API version: 2023-05-01-preview.
+        /// Azure REST API version: 2023-10-01-preview.
         /// 
-        /// Other available API versions: 2023-07-01, 2023-10-01-preview.
+        /// Other available API versions: 2023-07-01.
         /// </summary>
         public static Output<GetConsoleResult> Invoke(GetConsoleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConsoleResult>("azure-native:networkcloud:getConsole", args ?? new GetConsoleInvokeArgs(), options.WithDefaults());

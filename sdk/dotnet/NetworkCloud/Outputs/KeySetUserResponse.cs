@@ -25,6 +25,10 @@ namespace Pulumi.AzureNative.NetworkCloud.Outputs
         /// The SSH public key that will be provisioned for user access. The user is expected to have the corresponding SSH private key for logging in.
         /// </summary>
         public readonly Outputs.SshPublicKeyResponse SshPublicKey;
+        /// <summary>
+        /// The user principal name (email format) used to validate this user's group membership.
+        /// </summary>
+        public readonly string? UserPrincipalName;
 
         [OutputConstructor]
         private KeySetUserResponse(
@@ -32,11 +36,14 @@ namespace Pulumi.AzureNative.NetworkCloud.Outputs
 
             string? description,
 
-            Outputs.SshPublicKeyResponse sshPublicKey)
+            Outputs.SshPublicKeyResponse sshPublicKey,
+
+            string? userPrincipalName)
         {
             AzureUserName = azureUserName;
             Description = description;
             SshPublicKey = sshPublicKey;
+            UserPrincipalName = userPrincipalName;
         }
     }
 }

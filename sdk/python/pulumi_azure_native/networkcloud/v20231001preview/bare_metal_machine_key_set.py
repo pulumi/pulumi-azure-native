@@ -321,7 +321,7 @@ class BareMetalMachineKeySet(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["user_list_status"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:networkcloud:BareMetalMachineKeySet"), pulumi.Alias(type_="azure-native:networkcloud/v20230501preview:BareMetalMachineKeySet"), pulumi.Alias(type_="azure-native:networkcloud/v20230701:BareMetalMachineKeySet")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:networkcloud:BareMetalMachineKeySet"), pulumi.Alias(type_="azure-native:networkcloud/v20230701:BareMetalMachineKeySet")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BareMetalMachineKeySet, __self__).__init__(
             'azure-native:networkcloud/v20231001preview:BareMetalMachineKeySet',

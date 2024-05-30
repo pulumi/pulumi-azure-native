@@ -1031,6 +1031,37 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20240401
     }
 
     /// <summary>
+    /// [Required] Specifies the status of content safety.
+    /// </summary>
+    [EnumType]
+    public readonly struct ContentSafetyStatus : IEquatable<ContentSafetyStatus>
+    {
+        private readonly string _value;
+
+        private ContentSafetyStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ContentSafetyStatus Enabled { get; } = new ContentSafetyStatus("Enabled");
+        public static ContentSafetyStatus Disabled { get; } = new ContentSafetyStatus("Disabled");
+
+        public static bool operator ==(ContentSafetyStatus left, ContentSafetyStatus right) => left.Equals(right);
+        public static bool operator !=(ContentSafetyStatus left, ContentSafetyStatus right) => !left.Equals(right);
+
+        public static explicit operator string(ContentSafetyStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ContentSafetyStatus other && Equals(other);
+        public bool Equals(ContentSafetyStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// [Required] Credential type used to authentication with storage.
     /// </summary>
     [EnumType]
@@ -3899,6 +3930,36 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20240401
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is SecretsType other && Equals(other);
         public bool Equals(SecretsType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// [Required] Specifies the authentication mode for the Serverless endpoint.
+    /// </summary>
+    [EnumType]
+    public readonly struct ServerlessInferenceEndpointAuthMode : IEquatable<ServerlessInferenceEndpointAuthMode>
+    {
+        private readonly string _value;
+
+        private ServerlessInferenceEndpointAuthMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ServerlessInferenceEndpointAuthMode Key { get; } = new ServerlessInferenceEndpointAuthMode("Key");
+
+        public static bool operator ==(ServerlessInferenceEndpointAuthMode left, ServerlessInferenceEndpointAuthMode right) => left.Equals(right);
+        public static bool operator !=(ServerlessInferenceEndpointAuthMode left, ServerlessInferenceEndpointAuthMode right) => !left.Equals(right);
+
+        public static explicit operator string(ServerlessInferenceEndpointAuthMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ServerlessInferenceEndpointAuthMode other && Equals(other);
+        public bool Equals(ServerlessInferenceEndpointAuthMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

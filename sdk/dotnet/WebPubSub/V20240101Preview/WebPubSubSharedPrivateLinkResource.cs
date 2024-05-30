@@ -98,6 +98,7 @@ namespace Pulumi.AzureNative.WebPubSub.V20240101Preview
                     new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20230301preview:WebPubSubSharedPrivateLinkResource" },
                     new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20230601preview:WebPubSubSharedPrivateLinkResource" },
                     new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20230801preview:WebPubSubSharedPrivateLinkResource" },
+                    new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20240301:WebPubSubSharedPrivateLinkResource" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

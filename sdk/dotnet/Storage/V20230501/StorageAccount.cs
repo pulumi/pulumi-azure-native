@@ -88,6 +88,12 @@ namespace Pulumi.AzureNative.Storage.V20230501
         public Output<string?> DnsEndpointType { get; private set; } = null!;
 
         /// <summary>
+        /// Enables extended group support with local users feature, if set to true
+        /// </summary>
+        [Output("enableExtendedGroups")]
+        public Output<bool?> EnableExtendedGroups { get; private set; } = null!;
+
+        /// <summary>
         /// Allows https traffic only to storage service if sets to true.
         /// </summary>
         [Output("enableHttpsTrafficOnly")]
@@ -435,6 +441,12 @@ namespace Pulumi.AzureNative.Storage.V20230501
         /// </summary>
         [Input("dnsEndpointType")]
         public InputUnion<string, Pulumi.AzureNative.Storage.V20230501.DnsEndpointType>? DnsEndpointType { get; set; }
+
+        /// <summary>
+        /// Enables extended group support with local users feature, if set to true
+        /// </summary>
+        [Input("enableExtendedGroups")]
+        public Input<bool>? EnableExtendedGroups { get; set; }
 
         /// <summary>
         /// Allows https traffic only to storage service if sets to true. The default value is true since API version 2019-04-01.

@@ -303,7 +303,7 @@ export class BareMetalMachine extends pulumi.CustomResource {
             resourceInputs["virtualMachinesAssociatedIds"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:networkcloud:BareMetalMachine" }, { type: "azure-native:networkcloud/v20230501preview:BareMetalMachine" }, { type: "azure-native:networkcloud/v20230701:BareMetalMachine" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:networkcloud:BareMetalMachine" }, { type: "azure-native:networkcloud/v20230701:BareMetalMachine" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BareMetalMachine.__pulumiType, name, resourceInputs, opts);
     }

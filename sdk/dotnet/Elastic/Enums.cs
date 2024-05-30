@@ -69,6 +69,40 @@ namespace Pulumi.AzureNative.Elastic
     }
 
     /// <summary>
+    /// The operation for the patch on the resource.
+    /// </summary>
+    [EnumType]
+    public readonly struct Operation : IEquatable<Operation>
+    {
+        private readonly string _value;
+
+        private Operation(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static Operation AddBegin { get; } = new Operation("AddBegin");
+        public static Operation AddComplete { get; } = new Operation("AddComplete");
+        public static Operation DeleteBegin { get; } = new Operation("DeleteBegin");
+        public static Operation DeleteComplete { get; } = new Operation("DeleteComplete");
+        public static Operation Active { get; } = new Operation("Active");
+
+        public static bool operator ==(Operation left, Operation right) => left.Equals(right);
+        public static bool operator !=(Operation left, Operation right) => !left.Equals(right);
+
+        public static explicit operator string(Operation value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is Operation other && Equals(other);
+        public bool Equals(Operation other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Provisioning state of the monitoring tag rules.
     /// </summary>
     [EnumType]
@@ -99,6 +133,39 @@ namespace Pulumi.AzureNative.Elastic
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ProvisioningState other && Equals(other);
         public bool Equals(ProvisioningState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The state of monitoring.
+    /// </summary>
+    [EnumType]
+    public readonly struct Status : IEquatable<Status>
+    {
+        private readonly string _value;
+
+        private Status(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static Status InProgress { get; } = new Status("InProgress");
+        public static Status Active { get; } = new Status("Active");
+        public static Status Failed { get; } = new Status("Failed");
+        public static Status Deleting { get; } = new Status("Deleting");
+
+        public static bool operator ==(Status left, Status right) => left.Equals(right);
+        public static bool operator !=(Status left, Status right) => !left.Equals(right);
+
+        public static explicit operator string(Status value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is Status other && Equals(other);
+        public bool Equals(Status other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

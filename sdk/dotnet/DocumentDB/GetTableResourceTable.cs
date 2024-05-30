@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.DocumentDB
         /// Gets the Tables under an existing Azure Cosmos DB database account with the provided name.
         /// Azure REST API version: 2023-04-15.
         /// 
-        /// Other available API versions: 2019-08-01, 2023-03-15-preview, 2023-09-15, 2023-09-15-preview, 2023-11-15, 2023-11-15-preview, 2024-02-15-preview, 2024-05-15.
+        /// Other available API versions: 2019-08-01, 2023-03-15-preview, 2023-09-15, 2023-09-15-preview, 2023-11-15, 2023-11-15-preview, 2024-02-15-preview, 2024-05-15, 2024-05-15-preview.
         /// </summary>
         public static Task<GetTableResourceTableResult> InvokeAsync(GetTableResourceTableArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTableResourceTableResult>("azure-native:documentdb:getTableResourceTable", args ?? new GetTableResourceTableArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.DocumentDB
         /// Gets the Tables under an existing Azure Cosmos DB database account with the provided name.
         /// Azure REST API version: 2023-04-15.
         /// 
-        /// Other available API versions: 2019-08-01, 2023-03-15-preview, 2023-09-15, 2023-09-15-preview, 2023-11-15, 2023-11-15-preview, 2024-02-15-preview, 2024-05-15.
+        /// Other available API versions: 2019-08-01, 2023-03-15-preview, 2023-09-15, 2023-09-15-preview, 2023-11-15, 2023-11-15-preview, 2024-02-15-preview, 2024-05-15, 2024-05-15-preview.
         /// </summary>
         public static Output<GetTableResourceTableResult> Invoke(GetTableResourceTableInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTableResourceTableResult>("azure-native:documentdb:getTableResourceTable", args ?? new GetTableResourceTableInvokeArgs(), options.WithDefaults());

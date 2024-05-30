@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Capture properties of Open AI resource Integration.
  * Azure REST API version: 2024-03-01.
  *
- * Other available API versions: 2024-01-01-preview.
+ * Other available API versions: 2024-01-01-preview, 2024-05-01-preview.
  */
 export class OpenAI extends pulumi.CustomResource {
     /**
@@ -82,7 +82,7 @@ export class OpenAI extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:elastic/v20240101preview:OpenAI" }, { type: "azure-native:elastic/v20240301:OpenAI" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:elastic/v20240101preview:OpenAI" }, { type: "azure-native:elastic/v20240301:OpenAI" }, { type: "azure-native:elastic/v20240501preview:OpenAI" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(OpenAI.__pulumiType, name, resourceInputs, opts);
     }

@@ -20,6 +20,8 @@ __all__ = [
     'BareMetalMachineConfigurationDataArgs',
     'BgpAdvertisementArgs',
     'BgpServiceLoadBalancerConfigurationArgs',
+    'ClusterSecretArchiveArgs',
+    'ClusterUpdateStrategyArgs',
     'ControlPlaneNodeConfigurationArgs',
     'EgressEndpointArgs',
     'EndpointDependencyArgs',
@@ -36,6 +38,7 @@ __all__ = [
     'NetworkConfigurationArgs',
     'OsDiskArgs',
     'RackDefinitionArgs',
+    'RuntimeProtectionConfigurationArgs',
     'ServiceLoadBalancerBgpPeerArgs',
     'ServicePrincipalInformationArgs',
     'SshPublicKeyArgs',
@@ -523,6 +526,134 @@ class BgpServiceLoadBalancerConfigurationArgs:
     @ip_address_pools.setter
     def ip_address_pools(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IpAddressPoolArgs']]]]):
         pulumi.set(self, "ip_address_pools", value)
+
+
+@pulumi.input_type
+class ClusterSecretArchiveArgs:
+    def __init__(__self__, *,
+                 key_vault_id: pulumi.Input[str],
+                 use_key_vault: Optional[pulumi.Input[Union[str, 'ClusterSecretArchiveEnabled']]] = None):
+        """
+        :param pulumi.Input[str] key_vault_id: The resource ID of the key vault to archive the secrets of the cluster.
+        :param pulumi.Input[Union[str, 'ClusterSecretArchiveEnabled']] use_key_vault: The indicator if the specified key vault should be used to archive the secrets of the cluster.
+        """
+        pulumi.set(__self__, "key_vault_id", key_vault_id)
+        if use_key_vault is None:
+            use_key_vault = 'False'
+        if use_key_vault is not None:
+            pulumi.set(__self__, "use_key_vault", use_key_vault)
+
+    @property
+    @pulumi.getter(name="keyVaultId")
+    def key_vault_id(self) -> pulumi.Input[str]:
+        """
+        The resource ID of the key vault to archive the secrets of the cluster.
+        """
+        return pulumi.get(self, "key_vault_id")
+
+    @key_vault_id.setter
+    def key_vault_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key_vault_id", value)
+
+    @property
+    @pulumi.getter(name="useKeyVault")
+    def use_key_vault(self) -> Optional[pulumi.Input[Union[str, 'ClusterSecretArchiveEnabled']]]:
+        """
+        The indicator if the specified key vault should be used to archive the secrets of the cluster.
+        """
+        return pulumi.get(self, "use_key_vault")
+
+    @use_key_vault.setter
+    def use_key_vault(self, value: Optional[pulumi.Input[Union[str, 'ClusterSecretArchiveEnabled']]]):
+        pulumi.set(self, "use_key_vault", value)
+
+
+@pulumi.input_type
+class ClusterUpdateStrategyArgs:
+    def __init__(__self__, *,
+                 strategy_type: pulumi.Input[Union[str, 'ClusterUpdateStrategyType']],
+                 threshold_type: pulumi.Input[Union[str, 'ValidationThresholdType']],
+                 threshold_value: pulumi.Input[float],
+                 max_unavailable: Optional[pulumi.Input[float]] = None,
+                 wait_time_minutes: Optional[pulumi.Input[float]] = None):
+        """
+        :param pulumi.Input[Union[str, 'ClusterUpdateStrategyType']] strategy_type: The mode of operation for runtime protection.
+        :param pulumi.Input[Union[str, 'ValidationThresholdType']] threshold_type: Selection of how the threshold should be evaluated.
+        :param pulumi.Input[float] threshold_value: The numeric threshold value.
+        :param pulumi.Input[float] max_unavailable: The maximum number of worker nodes that can be offline within the increment of update, e.g., rack-by-rack.
+               Limited by the maximum number of machines in the increment. Defaults to the whole increment size.
+        :param pulumi.Input[float] wait_time_minutes: The time to wait between the increments of update defined by the strategy.
+        """
+        pulumi.set(__self__, "strategy_type", strategy_type)
+        pulumi.set(__self__, "threshold_type", threshold_type)
+        pulumi.set(__self__, "threshold_value", threshold_value)
+        if max_unavailable is not None:
+            pulumi.set(__self__, "max_unavailable", max_unavailable)
+        if wait_time_minutes is None:
+            wait_time_minutes = 15
+        if wait_time_minutes is not None:
+            pulumi.set(__self__, "wait_time_minutes", wait_time_minutes)
+
+    @property
+    @pulumi.getter(name="strategyType")
+    def strategy_type(self) -> pulumi.Input[Union[str, 'ClusterUpdateStrategyType']]:
+        """
+        The mode of operation for runtime protection.
+        """
+        return pulumi.get(self, "strategy_type")
+
+    @strategy_type.setter
+    def strategy_type(self, value: pulumi.Input[Union[str, 'ClusterUpdateStrategyType']]):
+        pulumi.set(self, "strategy_type", value)
+
+    @property
+    @pulumi.getter(name="thresholdType")
+    def threshold_type(self) -> pulumi.Input[Union[str, 'ValidationThresholdType']]:
+        """
+        Selection of how the threshold should be evaluated.
+        """
+        return pulumi.get(self, "threshold_type")
+
+    @threshold_type.setter
+    def threshold_type(self, value: pulumi.Input[Union[str, 'ValidationThresholdType']]):
+        pulumi.set(self, "threshold_type", value)
+
+    @property
+    @pulumi.getter(name="thresholdValue")
+    def threshold_value(self) -> pulumi.Input[float]:
+        """
+        The numeric threshold value.
+        """
+        return pulumi.get(self, "threshold_value")
+
+    @threshold_value.setter
+    def threshold_value(self, value: pulumi.Input[float]):
+        pulumi.set(self, "threshold_value", value)
+
+    @property
+    @pulumi.getter(name="maxUnavailable")
+    def max_unavailable(self) -> Optional[pulumi.Input[float]]:
+        """
+        The maximum number of worker nodes that can be offline within the increment of update, e.g., rack-by-rack.
+        Limited by the maximum number of machines in the increment. Defaults to the whole increment size.
+        """
+        return pulumi.get(self, "max_unavailable")
+
+    @max_unavailable.setter
+    def max_unavailable(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "max_unavailable", value)
+
+    @property
+    @pulumi.getter(name="waitTimeMinutes")
+    def wait_time_minutes(self) -> Optional[pulumi.Input[float]]:
+        """
+        The time to wait between the increments of update defined by the strategy.
+        """
+        return pulumi.get(self, "wait_time_minutes")
+
+    @wait_time_minutes.setter
+    def wait_time_minutes(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "wait_time_minutes", value)
 
 
 @pulumi.input_type
@@ -1015,16 +1146,20 @@ class KeySetUserArgs:
     def __init__(__self__, *,
                  azure_user_name: pulumi.Input[str],
                  ssh_public_key: pulumi.Input['SshPublicKeyArgs'],
-                 description: Optional[pulumi.Input[str]] = None):
+                 description: Optional[pulumi.Input[str]] = None,
+                 user_principal_name: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] azure_user_name: The user name that will be used for access.
         :param pulumi.Input['SshPublicKeyArgs'] ssh_public_key: The SSH public key that will be provisioned for user access. The user is expected to have the corresponding SSH private key for logging in.
         :param pulumi.Input[str] description: The free-form description for this user.
+        :param pulumi.Input[str] user_principal_name: The user principal name (email format) used to validate this user's group membership.
         """
         pulumi.set(__self__, "azure_user_name", azure_user_name)
         pulumi.set(__self__, "ssh_public_key", ssh_public_key)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if user_principal_name is not None:
+            pulumi.set(__self__, "user_principal_name", user_principal_name)
 
     @property
     @pulumi.getter(name="azureUserName")
@@ -1061,6 +1196,18 @@ class KeySetUserArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="userPrincipalName")
+    def user_principal_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The user principal name (email format) used to validate this user's group membership.
+        """
+        return pulumi.get(self, "user_principal_name")
+
+    @user_principal_name.setter
+    def user_principal_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_principal_name", value)
 
 
 @pulumi.input_type
@@ -1669,6 +1816,31 @@ class RackDefinitionArgs:
     @storage_appliance_configuration_data.setter
     def storage_appliance_configuration_data(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StorageApplianceConfigurationDataArgs']]]]):
         pulumi.set(self, "storage_appliance_configuration_data", value)
+
+
+@pulumi.input_type
+class RuntimeProtectionConfigurationArgs:
+    def __init__(__self__, *,
+                 enforcement_level: Optional[pulumi.Input[Union[str, 'RuntimeProtectionEnforcementLevel']]] = None):
+        """
+        :param pulumi.Input[Union[str, 'RuntimeProtectionEnforcementLevel']] enforcement_level: The mode of operation for runtime protection.
+        """
+        if enforcement_level is None:
+            enforcement_level = 'Disabled'
+        if enforcement_level is not None:
+            pulumi.set(__self__, "enforcement_level", enforcement_level)
+
+    @property
+    @pulumi.getter(name="enforcementLevel")
+    def enforcement_level(self) -> Optional[pulumi.Input[Union[str, 'RuntimeProtectionEnforcementLevel']]]:
+        """
+        The mode of operation for runtime protection.
+        """
+        return pulumi.get(self, "enforcement_level")
+
+    @enforcement_level.setter
+    def enforcement_level(self, value: Optional[pulumi.Input[Union[str, 'RuntimeProtectionEnforcementLevel']]]):
+        pulumi.set(self, "enforcement_level", value)
 
 
 @pulumi.input_type

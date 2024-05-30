@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Security
         /// DevOps Configuration resource.
         /// Azure REST API version: 2023-09-01-preview.
         /// 
-        /// Other available API versions: 2024-04-01.
+        /// Other available API versions: 2024-04-01, 2024-05-15-preview.
         /// </summary>
         public static Task<GetDevOpsConfigurationResult> InvokeAsync(GetDevOpsConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDevOpsConfigurationResult>("azure-native:security:getDevOpsConfiguration", args ?? new GetDevOpsConfigurationArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Security
         /// DevOps Configuration resource.
         /// Azure REST API version: 2023-09-01-preview.
         /// 
-        /// Other available API versions: 2024-04-01.
+        /// Other available API versions: 2024-04-01, 2024-05-15-preview.
         /// </summary>
         public static Output<GetDevOpsConfigurationResult> Invoke(GetDevOpsConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDevOpsConfigurationResult>("azure-native:security:getDevOpsConfiguration", args ?? new GetDevOpsConfigurationInvokeArgs(), options.WithDefaults());

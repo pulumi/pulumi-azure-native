@@ -134,7 +134,7 @@ class GetVirtualMachineResult:
     @pulumi.getter(name="bareMetalMachineId")
     def bare_metal_machine_id(self) -> str:
         """
-        The resource ID of the bare metal machine the virtual machine has landed to.
+        The resource ID of the bare metal machine that hosts the virtual machine.
         """
         return pulumi.get(self, "bare_metal_machine_id")
 
@@ -407,9 +407,9 @@ def get_virtual_machine(resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualMachineResult:
     """
     Get properties of the provided virtual machine.
-    Azure REST API version: 2023-05-01-preview.
+    Azure REST API version: 2023-10-01-preview.
 
-    Other available API versions: 2023-07-01, 2023-10-01-preview.
+    Other available API versions: 2023-07-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -461,9 +461,9 @@ def get_virtual_machine_output(resource_group_name: Optional[pulumi.Input[str]] 
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualMachineResult]:
     """
     Get properties of the provided virtual machine.
-    Azure REST API version: 2023-05-01-preview.
+    Azure REST API version: 2023-10-01-preview.
 
-    Other available API versions: 2023-07-01, 2023-10-01-preview.
+    Other available API versions: 2023-07-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

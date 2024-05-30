@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * A class represent a replica resource.
  * Azure REST API version: 2023-03-01-preview.
  *
- * Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview.
+ * Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01.
  */
 export class WebPubSubReplica extends pulumi.CustomResource {
     /**
@@ -106,7 +106,7 @@ export class WebPubSubReplica extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:webpubsub/v20230301preview:WebPubSubReplica" }, { type: "azure-native:webpubsub/v20230601preview:WebPubSubReplica" }, { type: "azure-native:webpubsub/v20230801preview:WebPubSubReplica" }, { type: "azure-native:webpubsub/v20240101preview:WebPubSubReplica" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:webpubsub/v20230301preview:WebPubSubReplica" }, { type: "azure-native:webpubsub/v20230601preview:WebPubSubReplica" }, { type: "azure-native:webpubsub/v20230801preview:WebPubSubReplica" }, { type: "azure-native:webpubsub/v20240101preview:WebPubSubReplica" }, { type: "azure-native:webpubsub/v20240301:WebPubSubReplica" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WebPubSubReplica.__pulumiType, name, resourceInputs, opts);
     }

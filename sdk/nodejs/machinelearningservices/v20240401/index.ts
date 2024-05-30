@@ -175,6 +175,11 @@ export const getManagedNetworkSettingsRule: typeof import("./getManagedNetworkSe
 export const getManagedNetworkSettingsRuleOutput: typeof import("./getManagedNetworkSettingsRule").getManagedNetworkSettingsRuleOutput = null as any;
 utilities.lazyLoad(exports, ["getManagedNetworkSettingsRule","getManagedNetworkSettingsRuleOutput"], () => require("./getManagedNetworkSettingsRule"));
 
+export { GetMarketplaceSubscriptionArgs, GetMarketplaceSubscriptionResult, GetMarketplaceSubscriptionOutputArgs } from "./getMarketplaceSubscription";
+export const getMarketplaceSubscription: typeof import("./getMarketplaceSubscription").getMarketplaceSubscription = null as any;
+export const getMarketplaceSubscriptionOutput: typeof import("./getMarketplaceSubscription").getMarketplaceSubscriptionOutput = null as any;
+utilities.lazyLoad(exports, ["getMarketplaceSubscription","getMarketplaceSubscriptionOutput"], () => require("./getMarketplaceSubscription"));
+
 export { GetModelContainerArgs, GetModelContainerResult, GetModelContainerOutputArgs } from "./getModelContainer";
 export const getModelContainer: typeof import("./getModelContainer").getModelContainer = null as any;
 export const getModelContainerOutput: typeof import("./getModelContainer").getModelContainerOutput = null as any;
@@ -270,6 +275,11 @@ export const getSchedule: typeof import("./getSchedule").getSchedule = null as a
 export const getScheduleOutput: typeof import("./getSchedule").getScheduleOutput = null as any;
 utilities.lazyLoad(exports, ["getSchedule","getScheduleOutput"], () => require("./getSchedule"));
 
+export { GetServerlessEndpointArgs, GetServerlessEndpointResult, GetServerlessEndpointOutputArgs } from "./getServerlessEndpoint";
+export const getServerlessEndpoint: typeof import("./getServerlessEndpoint").getServerlessEndpoint = null as any;
+export const getServerlessEndpointOutput: typeof import("./getServerlessEndpoint").getServerlessEndpointOutput = null as any;
+utilities.lazyLoad(exports, ["getServerlessEndpoint","getServerlessEndpointOutput"], () => require("./getServerlessEndpoint"));
+
 export { GetWorkspaceArgs, GetWorkspaceResult, GetWorkspaceOutputArgs } from "./getWorkspace";
 export const getWorkspace: typeof import("./getWorkspace").getWorkspace = null as any;
 export const getWorkspaceOutput: typeof import("./getWorkspace").getWorkspaceOutput = null as any;
@@ -310,6 +320,11 @@ export const listOnlineEndpointKeys: typeof import("./listOnlineEndpointKeys").l
 export const listOnlineEndpointKeysOutput: typeof import("./listOnlineEndpointKeys").listOnlineEndpointKeysOutput = null as any;
 utilities.lazyLoad(exports, ["listOnlineEndpointKeys","listOnlineEndpointKeysOutput"], () => require("./listOnlineEndpointKeys"));
 
+export { ListServerlessEndpointKeysArgs, ListServerlessEndpointKeysResult, ListServerlessEndpointKeysOutputArgs } from "./listServerlessEndpointKeys";
+export const listServerlessEndpointKeys: typeof import("./listServerlessEndpointKeys").listServerlessEndpointKeys = null as any;
+export const listServerlessEndpointKeysOutput: typeof import("./listServerlessEndpointKeys").listServerlessEndpointKeysOutput = null as any;
+utilities.lazyLoad(exports, ["listServerlessEndpointKeys","listServerlessEndpointKeysOutput"], () => require("./listServerlessEndpointKeys"));
+
 export { ListWorkspaceConnectionSecretsArgs, ListWorkspaceConnectionSecretsResult, ListWorkspaceConnectionSecretsOutputArgs } from "./listWorkspaceConnectionSecrets";
 export const listWorkspaceConnectionSecrets: typeof import("./listWorkspaceConnectionSecrets").listWorkspaceConnectionSecrets = null as any;
 export const listWorkspaceConnectionSecretsOutput: typeof import("./listWorkspaceConnectionSecrets").listWorkspaceConnectionSecretsOutput = null as any;
@@ -339,6 +354,11 @@ export { ManagedNetworkSettingsRuleArgs } from "./managedNetworkSettingsRule";
 export type ManagedNetworkSettingsRule = import("./managedNetworkSettingsRule").ManagedNetworkSettingsRule;
 export const ManagedNetworkSettingsRule: typeof import("./managedNetworkSettingsRule").ManagedNetworkSettingsRule = null as any;
 utilities.lazyLoad(exports, ["ManagedNetworkSettingsRule"], () => require("./managedNetworkSettingsRule"));
+
+export { MarketplaceSubscriptionArgs } from "./marketplaceSubscription";
+export type MarketplaceSubscription = import("./marketplaceSubscription").MarketplaceSubscription;
+export const MarketplaceSubscription: typeof import("./marketplaceSubscription").MarketplaceSubscription = null as any;
+utilities.lazyLoad(exports, ["MarketplaceSubscription"], () => require("./marketplaceSubscription"));
 
 export { ModelContainerArgs } from "./modelContainer";
 export type ModelContainer = import("./modelContainer").ModelContainer;
@@ -425,6 +445,11 @@ export type Schedule = import("./schedule").Schedule;
 export const Schedule: typeof import("./schedule").Schedule = null as any;
 utilities.lazyLoad(exports, ["Schedule"], () => require("./schedule"));
 
+export { ServerlessEndpointArgs } from "./serverlessEndpoint";
+export type ServerlessEndpoint = import("./serverlessEndpoint").ServerlessEndpoint;
+export const ServerlessEndpoint: typeof import("./serverlessEndpoint").ServerlessEndpoint = null as any;
+utilities.lazyLoad(exports, ["ServerlessEndpoint"], () => require("./serverlessEndpoint"));
+
 export { WorkspaceArgs } from "./workspace";
 export type Workspace = import("./workspace").Workspace;
 export const Workspace: typeof import("./workspace").Workspace = null as any;
@@ -479,6 +504,8 @@ const _module = {
                 return new Job(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices/v20240401:ManagedNetworkSettingsRule":
                 return new ManagedNetworkSettingsRule(name, <any>undefined, { urn })
+            case "azure-native:machinelearningservices/v20240401:MarketplaceSubscription":
+                return new MarketplaceSubscription(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices/v20240401:ModelContainer":
                 return new ModelContainer(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices/v20240401:ModelVersion":
@@ -513,6 +540,8 @@ const _module = {
                 return new RegistryModelVersion(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices/v20240401:Schedule":
                 return new Schedule(name, <any>undefined, { urn })
+            case "azure-native:machinelearningservices/v20240401:ServerlessEndpoint":
+                return new ServerlessEndpoint(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices/v20240401:Workspace":
                 return new Workspace(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices/v20240401:WorkspaceConnection":

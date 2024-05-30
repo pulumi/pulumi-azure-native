@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetClusterResult:
-    def __init__(__self__, aggregator_or_single_rack_definition=None, analytics_workspace_id=None, available_upgrade_versions=None, cluster_capacity=None, cluster_connection_status=None, cluster_extended_location=None, cluster_location=None, cluster_manager_connection_status=None, cluster_manager_id=None, cluster_service_principal=None, cluster_type=None, cluster_version=None, compute_deployment_threshold=None, compute_rack_definitions=None, detailed_status=None, detailed_status_message=None, extended_location=None, hybrid_aks_extended_location=None, id=None, location=None, managed_resource_group_configuration=None, manual_action_count=None, name=None, network_fabric_id=None, provisioning_state=None, support_expiry_date=None, system_data=None, tags=None, type=None, workload_resource_ids=None):
+    def __init__(__self__, aggregator_or_single_rack_definition=None, analytics_workspace_id=None, available_upgrade_versions=None, cluster_capacity=None, cluster_connection_status=None, cluster_extended_location=None, cluster_location=None, cluster_manager_connection_status=None, cluster_manager_id=None, cluster_service_principal=None, cluster_type=None, cluster_version=None, compute_deployment_threshold=None, compute_rack_definitions=None, detailed_status=None, detailed_status_message=None, extended_location=None, hybrid_aks_extended_location=None, id=None, location=None, managed_resource_group_configuration=None, manual_action_count=None, name=None, network_fabric_id=None, provisioning_state=None, runtime_protection_configuration=None, secret_archive=None, support_expiry_date=None, system_data=None, tags=None, type=None, update_strategy=None, workload_resource_ids=None):
         if aggregator_or_single_rack_definition and not isinstance(aggregator_or_single_rack_definition, dict):
             raise TypeError("Expected argument 'aggregator_or_single_rack_definition' to be a dict")
         pulumi.set(__self__, "aggregator_or_single_rack_definition", aggregator_or_single_rack_definition)
@@ -95,6 +95,12 @@ class GetClusterResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if runtime_protection_configuration and not isinstance(runtime_protection_configuration, dict):
+            raise TypeError("Expected argument 'runtime_protection_configuration' to be a dict")
+        pulumi.set(__self__, "runtime_protection_configuration", runtime_protection_configuration)
+        if secret_archive and not isinstance(secret_archive, dict):
+            raise TypeError("Expected argument 'secret_archive' to be a dict")
+        pulumi.set(__self__, "secret_archive", secret_archive)
         if support_expiry_date and not isinstance(support_expiry_date, str):
             raise TypeError("Expected argument 'support_expiry_date' to be a str")
         pulumi.set(__self__, "support_expiry_date", support_expiry_date)
@@ -107,6 +113,9 @@ class GetClusterResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+        if update_strategy and not isinstance(update_strategy, dict):
+            raise TypeError("Expected argument 'update_strategy' to be a dict")
+        pulumi.set(__self__, "update_strategy", update_strategy)
         if workload_resource_ids and not isinstance(workload_resource_ids, list):
             raise TypeError("Expected argument 'workload_resource_ids' to be a list")
         pulumi.set(__self__, "workload_resource_ids", workload_resource_ids)
@@ -313,6 +322,22 @@ class GetClusterResult:
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="runtimeProtectionConfiguration")
+    def runtime_protection_configuration(self) -> Optional['outputs.RuntimeProtectionConfigurationResponse']:
+        """
+        The settings for cluster runtime protection.
+        """
+        return pulumi.get(self, "runtime_protection_configuration")
+
+    @property
+    @pulumi.getter(name="secretArchive")
+    def secret_archive(self) -> Optional['outputs.ClusterSecretArchiveResponse']:
+        """
+        The configuration for use of a key vault to store secrets for later retrieval by the operator.
+        """
+        return pulumi.get(self, "secret_archive")
+
+    @property
     @pulumi.getter(name="supportExpiryDate")
     def support_expiry_date(self) -> str:
         """
@@ -343,6 +368,14 @@ class GetClusterResult:
         The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="updateStrategy")
+    def update_strategy(self) -> Optional['outputs.ClusterUpdateStrategyResponse']:
+        """
+        The strategy for updating the cluster.
+        """
+        return pulumi.get(self, "update_strategy")
 
     @property
     @pulumi.getter(name="workloadResourceIds")
@@ -384,10 +417,13 @@ class AwaitableGetClusterResult(GetClusterResult):
             name=self.name,
             network_fabric_id=self.network_fabric_id,
             provisioning_state=self.provisioning_state,
+            runtime_protection_configuration=self.runtime_protection_configuration,
+            secret_archive=self.secret_archive,
             support_expiry_date=self.support_expiry_date,
             system_data=self.system_data,
             tags=self.tags,
             type=self.type,
+            update_strategy=self.update_strategy,
             workload_resource_ids=self.workload_resource_ids)
 
 
@@ -396,9 +432,9 @@ def get_cluster(cluster_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClusterResult:
     """
     Get properties of the provided cluster.
-    Azure REST API version: 2023-05-01-preview.
+    Azure REST API version: 2023-10-01-preview.
 
-    Other available API versions: 2023-07-01, 2023-10-01-preview.
+    Other available API versions: 2023-07-01.
 
 
     :param str cluster_name: The name of the cluster.
@@ -436,10 +472,13 @@ def get_cluster(cluster_name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         network_fabric_id=pulumi.get(__ret__, 'network_fabric_id'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        runtime_protection_configuration=pulumi.get(__ret__, 'runtime_protection_configuration'),
+        secret_archive=pulumi.get(__ret__, 'secret_archive'),
         support_expiry_date=pulumi.get(__ret__, 'support_expiry_date'),
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
+        update_strategy=pulumi.get(__ret__, 'update_strategy'),
         workload_resource_ids=pulumi.get(__ret__, 'workload_resource_ids'))
 
 
@@ -449,9 +488,9 @@ def get_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterResult]:
     """
     Get properties of the provided cluster.
-    Azure REST API version: 2023-05-01-preview.
+    Azure REST API version: 2023-10-01-preview.
 
-    Other available API versions: 2023-07-01, 2023-10-01-preview.
+    Other available API versions: 2023-07-01.
 
 
     :param str cluster_name: The name of the cluster.

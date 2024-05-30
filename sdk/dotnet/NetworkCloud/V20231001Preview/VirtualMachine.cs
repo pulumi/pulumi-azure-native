@@ -218,7 +218,6 @@ namespace Pulumi.AzureNative.NetworkCloud.V20231001Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:networkcloud:VirtualMachine" },
-                    new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20230501preview:VirtualMachine" },
                     new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20230701:VirtualMachine" },
                 },
             };

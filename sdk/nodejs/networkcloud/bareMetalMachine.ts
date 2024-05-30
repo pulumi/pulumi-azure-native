@@ -8,9 +8,9 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview.
+ * Azure REST API version: 2023-10-01-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview.
  *
- * Other available API versions: 2023-07-01, 2023-10-01-preview.
+ * Other available API versions: 2023-07-01.
  */
 export class BareMetalMachine extends pulumi.CustomResource {
     /**
@@ -112,6 +112,10 @@ export class BareMetalMachine extends pulumi.CustomResource {
      */
     public readonly machineName!: pulumi.Output<string>;
     /**
+     * The list of roles that are assigned to the cluster node running on this machine.
+     */
+    public /*out*/ readonly machineRoles!: pulumi.Output<string[]>;
+    /**
      * The unique internal identifier of the bare metal machine SKU.
      */
     public readonly machineSkuId!: pulumi.Output<string>;
@@ -151,6 +155,10 @@ export class BareMetalMachine extends pulumi.CustomResource {
      * The indicator of whether the bare metal machine is ready to receive workloads.
      */
     public /*out*/ readonly readyState!: pulumi.Output<string>;
+    /**
+     * The runtime protection status of the bare metal machine.
+     */
+    public /*out*/ readonly runtimeProtectionStatus!: pulumi.Output<outputs.networkcloud.RuntimeProtectionStatusResponse>;
     /**
      * The serial number of the bare metal machine.
      */
@@ -248,6 +256,7 @@ export class BareMetalMachine extends pulumi.CustomResource {
             resourceInputs["hybridAksClustersAssociatedIds"] = undefined /*out*/;
             resourceInputs["kubernetesNodeName"] = undefined /*out*/;
             resourceInputs["kubernetesVersion"] = undefined /*out*/;
+            resourceInputs["machineRoles"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["oamIpv4Address"] = undefined /*out*/;
             resourceInputs["oamIpv6Address"] = undefined /*out*/;
@@ -255,6 +264,7 @@ export class BareMetalMachine extends pulumi.CustomResource {
             resourceInputs["powerState"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["readyState"] = undefined /*out*/;
+            resourceInputs["runtimeProtectionStatus"] = undefined /*out*/;
             resourceInputs["serviceTag"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -278,6 +288,7 @@ export class BareMetalMachine extends pulumi.CustomResource {
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["machineDetails"] = undefined /*out*/;
             resourceInputs["machineName"] = undefined /*out*/;
+            resourceInputs["machineRoles"] = undefined /*out*/;
             resourceInputs["machineSkuId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["oamIpv4Address"] = undefined /*out*/;
@@ -288,6 +299,7 @@ export class BareMetalMachine extends pulumi.CustomResource {
             resourceInputs["rackId"] = undefined /*out*/;
             resourceInputs["rackSlot"] = undefined /*out*/;
             resourceInputs["readyState"] = undefined /*out*/;
+            resourceInputs["runtimeProtectionStatus"] = undefined /*out*/;
             resourceInputs["serialNumber"] = undefined /*out*/;
             resourceInputs["serviceTag"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
@@ -296,7 +308,7 @@ export class BareMetalMachine extends pulumi.CustomResource {
             resourceInputs["virtualMachinesAssociatedIds"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:networkcloud/v20230501preview:BareMetalMachine" }, { type: "azure-native:networkcloud/v20230701:BareMetalMachine" }, { type: "azure-native:networkcloud/v20231001preview:BareMetalMachine" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:networkcloud/v20230701:BareMetalMachine" }, { type: "azure-native:networkcloud/v20231001preview:BareMetalMachine" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BareMetalMachine.__pulumiType, name, resourceInputs, opts);
     }

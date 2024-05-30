@@ -10,9 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.NetworkCloud
 {
     /// <summary>
-    /// Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview.
+    /// Azure REST API version: 2023-10-01-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview.
     /// 
-    /// Other available API versions: 2023-07-01, 2023-10-01-preview.
+    /// Other available API versions: 2023-07-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:networkcloud:L2Network")]
     public partial class L2Network : global::Pulumi.CustomResource
@@ -138,7 +138,6 @@ namespace Pulumi.AzureNative.NetworkCloud
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20230501preview:L2Network" },
                     new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20230701:L2Network" },
                     new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20231001preview:L2Network" },
                 },

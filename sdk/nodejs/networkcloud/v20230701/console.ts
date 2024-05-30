@@ -151,7 +151,7 @@ export class Console extends pulumi.CustomResource {
             resourceInputs["virtualMachineAccessId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:networkcloud:Console" }, { type: "azure-native:networkcloud/v20230501preview:Console" }, { type: "azure-native:networkcloud/v20231001preview:Console" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:networkcloud:Console" }, { type: "azure-native:networkcloud/v20231001preview:Console" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Console.__pulumiType, name, resourceInputs, opts);
     }

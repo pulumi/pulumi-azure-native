@@ -17,6 +17,8 @@ __all__ = [
     'Categories',
     'CloudName',
     'DataSource',
+    'DescendantBehavior',
+    'DevOpsPolicyType',
     'DevOpsProvisioningState',
     'Enforce',
     'EnvironmentType',
@@ -199,6 +201,23 @@ class DataSource(str, Enum):
     """
     Devices twin data
     """
+
+
+class DescendantBehavior(str, Enum):
+    """
+    The behavior of a policy on descendant resources.
+    """
+    UNKNOWN = "Unknown"
+    OVERRIDE = "Override"
+    FALL_BACK = "FallBack"
+
+
+class DevOpsPolicyType(str, Enum):
+    """
+    DevOps Policy resource types.
+    """
+    UNKNOWN = "Unknown"
+    PIPELINE = "Pipeline"
 
 
 class DevOpsProvisioningState(str, Enum):

@@ -110,7 +110,7 @@ class FrontendsInterface(pulumi.CustomResource):
                  traffic_controller_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Frontend Subresource of Traffic Controller.
+        Frontend Sub Resource of Traffic Controller.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -127,7 +127,7 @@ class FrontendsInterface(pulumi.CustomResource):
                  args: FrontendsInterfaceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Frontend Subresource of Traffic Controller.
+        Frontend Sub Resource of Traffic Controller.
 
         :param str resource_name: The name of the resource.
         :param FrontendsInterfaceArgs args: The arguments to use to populate this resource's properties.
@@ -172,7 +172,7 @@ class FrontendsInterface(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:servicenetworking:FrontendsInterface"), pulumi.Alias(type_="azure-native:servicenetworking/v20221001preview:FrontendsInterface"), pulumi.Alias(type_="azure-native:servicenetworking/v20230501preview:FrontendsInterface")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:servicenetworking:FrontendsInterface"), pulumi.Alias(type_="azure-native:servicenetworking/v20221001preview:FrontendsInterface"), pulumi.Alias(type_="azure-native:servicenetworking/v20230501preview:FrontendsInterface"), pulumi.Alias(type_="azure-native:servicenetworking/v20240501preview:FrontendsInterface")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(FrontendsInterface, __self__).__init__(
             'azure-native:servicenetworking/v20231101:FrontendsInterface',

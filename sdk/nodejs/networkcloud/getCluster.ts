@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Get properties of the provided cluster.
- * Azure REST API version: 2023-05-01-preview.
+ * Azure REST API version: 2023-10-01-preview.
  *
- * Other available API versions: 2023-07-01, 2023-10-01-preview.
+ * Other available API versions: 2023-07-01.
  */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
 
@@ -136,6 +136,14 @@ export interface GetClusterResult {
      */
     readonly provisioningState: string;
     /**
+     * The settings for cluster runtime protection.
+     */
+    readonly runtimeProtectionConfiguration?: outputs.networkcloud.RuntimeProtectionConfigurationResponse;
+    /**
+     * The configuration for use of a key vault to store secrets for later retrieval by the operator.
+     */
+    readonly secretArchive?: outputs.networkcloud.ClusterSecretArchiveResponse;
+    /**
      * The support end date of the runtime version of the cluster.
      */
     readonly supportExpiryDate: string;
@@ -152,15 +160,19 @@ export interface GetClusterResult {
      */
     readonly type: string;
     /**
+     * The strategy for updating the cluster.
+     */
+    readonly updateStrategy?: outputs.networkcloud.ClusterUpdateStrategyResponse;
+    /**
      * The list of workload resource IDs that are hosted within this cluster.
      */
     readonly workloadResourceIds: string[];
 }
 /**
  * Get properties of the provided cluster.
- * Azure REST API version: 2023-05-01-preview.
+ * Azure REST API version: 2023-10-01-preview.
  *
- * Other available API versions: 2023-07-01, 2023-10-01-preview.
+ * Other available API versions: 2023-07-01.
  */
 export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterResult> {
     return pulumi.output(args).apply((a: any) => getCluster(a, opts))

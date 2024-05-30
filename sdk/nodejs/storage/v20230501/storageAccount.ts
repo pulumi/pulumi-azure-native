@@ -86,6 +86,10 @@ export class StorageAccount extends pulumi.CustomResource {
      */
     public readonly dnsEndpointType!: pulumi.Output<string | undefined>;
     /**
+     * Enables extended group support with local users feature, if set to true
+     */
+    public readonly enableExtendedGroups!: pulumi.Output<boolean | undefined>;
+    /**
      * Allows https traffic only to storage service if sets to true.
      */
     public readonly enableHttpsTrafficOnly!: pulumi.Output<boolean | undefined>;
@@ -260,6 +264,7 @@ export class StorageAccount extends pulumi.CustomResource {
             resourceInputs["customDomain"] = args ? args.customDomain : undefined;
             resourceInputs["defaultToOAuthAuthentication"] = args ? args.defaultToOAuthAuthentication : undefined;
             resourceInputs["dnsEndpointType"] = args ? args.dnsEndpointType : undefined;
+            resourceInputs["enableExtendedGroups"] = args ? args.enableExtendedGroups : undefined;
             resourceInputs["enableHttpsTrafficOnly"] = args ? args.enableHttpsTrafficOnly : undefined;
             resourceInputs["enableNfsV3"] = args ? args.enableNfsV3 : undefined;
             resourceInputs["encryption"] = args ? (args.encryption ? pulumi.output(args.encryption).apply(inputs.storage.v20230501.encryptionArgsProvideDefaults) : undefined) : undefined;
@@ -313,6 +318,7 @@ export class StorageAccount extends pulumi.CustomResource {
             resourceInputs["customDomain"] = undefined /*out*/;
             resourceInputs["defaultToOAuthAuthentication"] = undefined /*out*/;
             resourceInputs["dnsEndpointType"] = undefined /*out*/;
+            resourceInputs["enableExtendedGroups"] = undefined /*out*/;
             resourceInputs["enableHttpsTrafficOnly"] = undefined /*out*/;
             resourceInputs["enableNfsV3"] = undefined /*out*/;
             resourceInputs["encryption"] = undefined /*out*/;
@@ -401,6 +407,10 @@ export interface StorageAccountArgs {
      * Allows you to specify the type of endpoint. Set this to AzureDNSZone to create a large number of accounts in a single subscription, which creates accounts in an Azure DNS Zone and the endpoint URL will have an alphanumeric DNS Zone identifier.
      */
     dnsEndpointType?: pulumi.Input<string | enums.storage.v20230501.DnsEndpointType>;
+    /**
+     * Enables extended group support with local users feature, if set to true
+     */
+    enableExtendedGroups?: pulumi.Input<boolean>;
     /**
      * Allows https traffic only to storage service if sets to true. The default value is true since API version 2019-04-01.
      */

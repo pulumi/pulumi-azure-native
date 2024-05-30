@@ -56,7 +56,7 @@ namespace Pulumi.AzureNative.IntegrationSpaces
         /// The tracking data stores.
         /// </summary>
         [Output("trackingDataStores")]
-        public Output<ImmutableDictionary<string, Outputs.TrackingDataStoreResponse>> TrackingDataStores { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, Outputs.TrackingDataStoreResponse>?> TrackingDataStores { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -155,7 +155,7 @@ namespace Pulumi.AzureNative.IntegrationSpaces
             set => _tags = value;
         }
 
-        [Input("trackingDataStores", required: true)]
+        [Input("trackingDataStores")]
         private InputMap<Inputs.TrackingDataStoreArgs>? _trackingDataStores;
 
         /// <summary>

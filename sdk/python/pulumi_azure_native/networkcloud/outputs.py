@@ -25,6 +25,8 @@ __all__ = [
     'ClusterAvailableUpgradeVersionResponse',
     'ClusterAvailableVersionResponse',
     'ClusterCapacityResponse',
+    'ClusterSecretArchiveResponse',
+    'ClusterUpdateStrategyResponse',
     'ControlPlaneNodeConfigurationResponse',
     'EgressEndpointResponse',
     'EndpointDependencyResponse',
@@ -49,6 +51,8 @@ __all__ = [
     'NicResponse',
     'OsDiskResponse',
     'RackDefinitionResponse',
+    'RuntimeProtectionConfigurationResponse',
+    'RuntimeProtectionStatusResponse',
     'ServiceLoadBalancerBgpPeerResponse',
     'ServicePrincipalInformationResponse',
     'SshPublicKeyResponse',
@@ -941,6 +945,150 @@ class ClusterCapacityResponse(dict):
 
 
 @pulumi.output_type
+class ClusterSecretArchiveResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyVaultId":
+            suggest = "key_vault_id"
+        elif key == "useKeyVault":
+            suggest = "use_key_vault"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterSecretArchiveResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterSecretArchiveResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterSecretArchiveResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 key_vault_id: str,
+                 use_key_vault: Optional[str] = None):
+        """
+        :param str key_vault_id: The resource ID of the key vault to archive the secrets of the cluster.
+        :param str use_key_vault: The indicator if the specified key vault should be used to archive the secrets of the cluster.
+        """
+        pulumi.set(__self__, "key_vault_id", key_vault_id)
+        if use_key_vault is None:
+            use_key_vault = 'False'
+        if use_key_vault is not None:
+            pulumi.set(__self__, "use_key_vault", use_key_vault)
+
+    @property
+    @pulumi.getter(name="keyVaultId")
+    def key_vault_id(self) -> str:
+        """
+        The resource ID of the key vault to archive the secrets of the cluster.
+        """
+        return pulumi.get(self, "key_vault_id")
+
+    @property
+    @pulumi.getter(name="useKeyVault")
+    def use_key_vault(self) -> Optional[str]:
+        """
+        The indicator if the specified key vault should be used to archive the secrets of the cluster.
+        """
+        return pulumi.get(self, "use_key_vault")
+
+
+@pulumi.output_type
+class ClusterUpdateStrategyResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "strategyType":
+            suggest = "strategy_type"
+        elif key == "thresholdType":
+            suggest = "threshold_type"
+        elif key == "thresholdValue":
+            suggest = "threshold_value"
+        elif key == "maxUnavailable":
+            suggest = "max_unavailable"
+        elif key == "waitTimeMinutes":
+            suggest = "wait_time_minutes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterUpdateStrategyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterUpdateStrategyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterUpdateStrategyResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 strategy_type: str,
+                 threshold_type: str,
+                 threshold_value: float,
+                 max_unavailable: Optional[float] = None,
+                 wait_time_minutes: Optional[float] = None):
+        """
+        :param str strategy_type: The mode of operation for runtime protection.
+        :param str threshold_type: Selection of how the threshold should be evaluated.
+        :param float threshold_value: The numeric threshold value.
+        :param float max_unavailable: The maximum number of worker nodes that can be offline within the increment of update, e.g., rack-by-rack.
+               Limited by the maximum number of machines in the increment. Defaults to the whole increment size.
+        :param float wait_time_minutes: The time to wait between the increments of update defined by the strategy.
+        """
+        pulumi.set(__self__, "strategy_type", strategy_type)
+        pulumi.set(__self__, "threshold_type", threshold_type)
+        pulumi.set(__self__, "threshold_value", threshold_value)
+        if max_unavailable is not None:
+            pulumi.set(__self__, "max_unavailable", max_unavailable)
+        if wait_time_minutes is None:
+            wait_time_minutes = 15
+        if wait_time_minutes is not None:
+            pulumi.set(__self__, "wait_time_minutes", wait_time_minutes)
+
+    @property
+    @pulumi.getter(name="strategyType")
+    def strategy_type(self) -> str:
+        """
+        The mode of operation for runtime protection.
+        """
+        return pulumi.get(self, "strategy_type")
+
+    @property
+    @pulumi.getter(name="thresholdType")
+    def threshold_type(self) -> str:
+        """
+        Selection of how the threshold should be evaluated.
+        """
+        return pulumi.get(self, "threshold_type")
+
+    @property
+    @pulumi.getter(name="thresholdValue")
+    def threshold_value(self) -> float:
+        """
+        The numeric threshold value.
+        """
+        return pulumi.get(self, "threshold_value")
+
+    @property
+    @pulumi.getter(name="maxUnavailable")
+    def max_unavailable(self) -> Optional[float]:
+        """
+        The maximum number of worker nodes that can be offline within the increment of update, e.g., rack-by-rack.
+        Limited by the maximum number of machines in the increment. Defaults to the whole increment size.
+        """
+        return pulumi.get(self, "max_unavailable")
+
+    @property
+    @pulumi.getter(name="waitTimeMinutes")
+    def wait_time_minutes(self) -> Optional[float]:
+        """
+        The time to wait between the increments of update defined by the strategy.
+        """
+        return pulumi.get(self, "wait_time_minutes")
+
+
+@pulumi.output_type
 class ControlPlaneNodeConfigurationResponse(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1668,6 +1816,8 @@ class KeySetUserResponse(dict):
             suggest = "azure_user_name"
         elif key == "sshPublicKey":
             suggest = "ssh_public_key"
+        elif key == "userPrincipalName":
+            suggest = "user_principal_name"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in KeySetUserResponse. Access the value via the '{suggest}' property getter instead.")
@@ -1683,16 +1833,20 @@ class KeySetUserResponse(dict):
     def __init__(__self__, *,
                  azure_user_name: str,
                  ssh_public_key: 'outputs.SshPublicKeyResponse',
-                 description: Optional[str] = None):
+                 description: Optional[str] = None,
+                 user_principal_name: Optional[str] = None):
         """
         :param str azure_user_name: The user name that will be used for access.
         :param 'SshPublicKeyResponse' ssh_public_key: The SSH public key that will be provisioned for user access. The user is expected to have the corresponding SSH private key for logging in.
         :param str description: The free-form description for this user.
+        :param str user_principal_name: The user principal name (email format) used to validate this user's group membership.
         """
         pulumi.set(__self__, "azure_user_name", azure_user_name)
         pulumi.set(__self__, "ssh_public_key", ssh_public_key)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if user_principal_name is not None:
+            pulumi.set(__self__, "user_principal_name", user_principal_name)
 
     @property
     @pulumi.getter(name="azureUserName")
@@ -1717,6 +1871,14 @@ class KeySetUserResponse(dict):
         The free-form description for this user.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="userPrincipalName")
+    def user_principal_name(self) -> Optional[str]:
+        """
+        The user principal name (email format) used to validate this user's group membership.
+        """
+        return pulumi.get(self, "user_principal_name")
 
 
 @pulumi.output_type
@@ -2792,6 +2954,131 @@ class RackDefinitionResponse(dict):
         The list of storage appliance configuration data for this rack.
         """
         return pulumi.get(self, "storage_appliance_configuration_data")
+
+
+@pulumi.output_type
+class RuntimeProtectionConfigurationResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enforcementLevel":
+            suggest = "enforcement_level"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuntimeProtectionConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuntimeProtectionConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuntimeProtectionConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enforcement_level: Optional[str] = None):
+        """
+        :param str enforcement_level: The mode of operation for runtime protection.
+        """
+        if enforcement_level is None:
+            enforcement_level = 'Disabled'
+        if enforcement_level is not None:
+            pulumi.set(__self__, "enforcement_level", enforcement_level)
+
+    @property
+    @pulumi.getter(name="enforcementLevel")
+    def enforcement_level(self) -> Optional[str]:
+        """
+        The mode of operation for runtime protection.
+        """
+        return pulumi.get(self, "enforcement_level")
+
+
+@pulumi.output_type
+class RuntimeProtectionStatusResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "definitionsLastUpdated":
+            suggest = "definitions_last_updated"
+        elif key == "definitionsVersion":
+            suggest = "definitions_version"
+        elif key == "scanCompletedTime":
+            suggest = "scan_completed_time"
+        elif key == "scanScheduledTime":
+            suggest = "scan_scheduled_time"
+        elif key == "scanStartedTime":
+            suggest = "scan_started_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuntimeProtectionStatusResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuntimeProtectionStatusResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuntimeProtectionStatusResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 definitions_last_updated: str,
+                 definitions_version: str,
+                 scan_completed_time: str,
+                 scan_scheduled_time: str,
+                 scan_started_time: str):
+        """
+        :param str definitions_last_updated: The timestamp when the malware definitions were last updated.
+        :param str definitions_version: The version of the malware definitions.
+        :param str scan_completed_time: The timestamp of the most recently completed scan, or empty if there has never been a scan.
+        :param str scan_scheduled_time: The timestamp of the most recently scheduled scan, or empty if no scan has been scheduled.
+        :param str scan_started_time: The timestamp of the most recently started scan, or empty if there has never been a scan.
+        """
+        pulumi.set(__self__, "definitions_last_updated", definitions_last_updated)
+        pulumi.set(__self__, "definitions_version", definitions_version)
+        pulumi.set(__self__, "scan_completed_time", scan_completed_time)
+        pulumi.set(__self__, "scan_scheduled_time", scan_scheduled_time)
+        pulumi.set(__self__, "scan_started_time", scan_started_time)
+
+    @property
+    @pulumi.getter(name="definitionsLastUpdated")
+    def definitions_last_updated(self) -> str:
+        """
+        The timestamp when the malware definitions were last updated.
+        """
+        return pulumi.get(self, "definitions_last_updated")
+
+    @property
+    @pulumi.getter(name="definitionsVersion")
+    def definitions_version(self) -> str:
+        """
+        The version of the malware definitions.
+        """
+        return pulumi.get(self, "definitions_version")
+
+    @property
+    @pulumi.getter(name="scanCompletedTime")
+    def scan_completed_time(self) -> str:
+        """
+        The timestamp of the most recently completed scan, or empty if there has never been a scan.
+        """
+        return pulumi.get(self, "scan_completed_time")
+
+    @property
+    @pulumi.getter(name="scanScheduledTime")
+    def scan_scheduled_time(self) -> str:
+        """
+        The timestamp of the most recently scheduled scan, or empty if no scan has been scheduled.
+        """
+        return pulumi.get(self, "scan_scheduled_time")
+
+    @property
+    @pulumi.getter(name="scanStartedTime")
+    def scan_started_time(self) -> str:
+        """
+        The timestamp of the most recently started scan, or empty if there has never been a scan.
+        """
+        return pulumi.get(self, "scan_started_time")
 
 
 @pulumi.output_type

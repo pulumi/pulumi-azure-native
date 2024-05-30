@@ -609,10 +609,10 @@ class TrackingDataStoreResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 data_store_ingestion_uri: str,
-                 data_store_resource_id: str,
-                 data_store_uri: str,
-                 database_name: str):
+                 data_store_ingestion_uri: Optional[str] = None,
+                 data_store_resource_id: Optional[str] = None,
+                 data_store_uri: Optional[str] = None,
+                 database_name: Optional[str] = None):
         """
         The properties of tracking data store.
         :param str data_store_ingestion_uri: The data store ingestion URI.
@@ -620,14 +620,18 @@ class TrackingDataStoreResponse(dict):
         :param str data_store_uri: The data store URI.
         :param str database_name: The database name.
         """
-        pulumi.set(__self__, "data_store_ingestion_uri", data_store_ingestion_uri)
-        pulumi.set(__self__, "data_store_resource_id", data_store_resource_id)
-        pulumi.set(__self__, "data_store_uri", data_store_uri)
-        pulumi.set(__self__, "database_name", database_name)
+        if data_store_ingestion_uri is not None:
+            pulumi.set(__self__, "data_store_ingestion_uri", data_store_ingestion_uri)
+        if data_store_resource_id is not None:
+            pulumi.set(__self__, "data_store_resource_id", data_store_resource_id)
+        if data_store_uri is not None:
+            pulumi.set(__self__, "data_store_uri", data_store_uri)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
 
     @property
     @pulumi.getter(name="dataStoreIngestionUri")
-    def data_store_ingestion_uri(self) -> str:
+    def data_store_ingestion_uri(self) -> Optional[str]:
         """
         The data store ingestion URI.
         """
@@ -635,7 +639,7 @@ class TrackingDataStoreResponse(dict):
 
     @property
     @pulumi.getter(name="dataStoreResourceId")
-    def data_store_resource_id(self) -> str:
+    def data_store_resource_id(self) -> Optional[str]:
         """
         The data store resource id.
         """
@@ -643,7 +647,7 @@ class TrackingDataStoreResponse(dict):
 
     @property
     @pulumi.getter(name="dataStoreUri")
-    def data_store_uri(self) -> str:
+    def data_store_uri(self) -> Optional[str]:
         """
         The data store URI.
         """
@@ -651,7 +655,7 @@ class TrackingDataStoreResponse(dict):
 
     @property
     @pulumi.getter(name="databaseName")
-    def database_name(self) -> str:
+    def database_name(self) -> Optional[str]:
         """
         The database name.
         """

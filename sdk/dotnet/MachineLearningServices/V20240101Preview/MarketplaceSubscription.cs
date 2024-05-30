@@ -65,6 +65,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20240101Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices:MarketplaceSubscription" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20240401:MarketplaceSubscription" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20240401preview:MarketplaceSubscription" },
                 },
             };

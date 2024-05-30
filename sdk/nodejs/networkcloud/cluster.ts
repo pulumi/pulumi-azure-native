@@ -8,9 +8,9 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview.
+ * Azure REST API version: 2023-10-01-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview.
  *
- * Other available API versions: 2023-07-01, 2023-10-01-preview.
+ * Other available API versions: 2023-07-01.
  */
 export class Cluster extends pulumi.CustomResource {
     /**
@@ -137,6 +137,14 @@ export class Cluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
+     * The settings for cluster runtime protection.
+     */
+    public readonly runtimeProtectionConfiguration!: pulumi.Output<outputs.networkcloud.RuntimeProtectionConfigurationResponse | undefined>;
+    /**
+     * The configuration for use of a key vault to store secrets for later retrieval by the operator.
+     */
+    public readonly secretArchive!: pulumi.Output<outputs.networkcloud.ClusterSecretArchiveResponse | undefined>;
+    /**
      * The support end date of the runtime version of the cluster.
      */
     public /*out*/ readonly supportExpiryDate!: pulumi.Output<string>;
@@ -152,6 +160,10 @@ export class Cluster extends pulumi.CustomResource {
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * The strategy for updating the cluster.
+     */
+    public readonly updateStrategy!: pulumi.Output<outputs.networkcloud.ClusterUpdateStrategyResponse | undefined>;
     /**
      * The list of workload resource IDs that are hosted within this cluster.
      */
@@ -200,7 +212,10 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["managedResourceGroupConfiguration"] = args ? args.managedResourceGroupConfiguration : undefined;
             resourceInputs["networkFabricId"] = args ? args.networkFabricId : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["runtimeProtectionConfiguration"] = args ? (args.runtimeProtectionConfiguration ? pulumi.output(args.runtimeProtectionConfiguration).apply(inputs.networkcloud.runtimeProtectionConfigurationArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["secretArchive"] = args ? (args.secretArchive ? pulumi.output(args.secretArchive).apply(inputs.networkcloud.clusterSecretArchiveArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["updateStrategy"] = args ? (args.updateStrategy ? pulumi.output(args.updateStrategy).apply(inputs.networkcloud.clusterUpdateStrategyArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["availableUpgradeVersions"] = undefined /*out*/;
             resourceInputs["clusterCapacity"] = undefined /*out*/;
             resourceInputs["clusterConnectionStatus"] = undefined /*out*/;
@@ -242,14 +257,17 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["networkFabricId"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["runtimeProtectionConfiguration"] = undefined /*out*/;
+            resourceInputs["secretArchive"] = undefined /*out*/;
             resourceInputs["supportExpiryDate"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["updateStrategy"] = undefined /*out*/;
             resourceInputs["workloadResourceIds"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:networkcloud/v20230501preview:Cluster" }, { type: "azure-native:networkcloud/v20230701:Cluster" }, { type: "azure-native:networkcloud/v20231001preview:Cluster" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:networkcloud/v20230701:Cluster" }, { type: "azure-native:networkcloud/v20231001preview:Cluster" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Cluster.__pulumiType, name, resourceInputs, opts);
     }
@@ -317,7 +335,19 @@ export interface ClusterArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
+     * The settings for cluster runtime protection.
+     */
+    runtimeProtectionConfiguration?: pulumi.Input<inputs.networkcloud.RuntimeProtectionConfigurationArgs>;
+    /**
+     * The configuration for use of a key vault to store secrets for later retrieval by the operator.
+     */
+    secretArchive?: pulumi.Input<inputs.networkcloud.ClusterSecretArchiveArgs>;
+    /**
      * Resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The strategy for updating the cluster.
+     */
+    updateStrategy?: pulumi.Input<inputs.networkcloud.ClusterUpdateStrategyArgs>;
 }

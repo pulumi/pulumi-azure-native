@@ -207,7 +207,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:networkcloud:KubernetesCluster" }, { type: "azure-native:networkcloud/v20230501preview:KubernetesCluster" }, { type: "azure-native:networkcloud/v20231001preview:KubernetesCluster" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:networkcloud:KubernetesCluster" }, { type: "azure-native:networkcloud/v20231001preview:KubernetesCluster" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(KubernetesCluster.__pulumiType, name, resourceInputs, opts);
     }

@@ -10,9 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.NetworkCloud
 {
     /// <summary>
-    /// Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview.
+    /// Azure REST API version: 2023-10-01-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview.
     /// 
-    /// Other available API versions: 2023-07-01, 2023-10-01-preview.
+    /// Other available API versions: 2023-07-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:networkcloud:VirtualMachine")]
     public partial class VirtualMachine : global::Pulumi.CustomResource
@@ -30,7 +30,7 @@ namespace Pulumi.AzureNative.NetworkCloud
         public Output<string> AvailabilityZone { get; private set; } = null!;
 
         /// <summary>
-        /// The resource ID of the bare metal machine the virtual machine has landed to.
+        /// The resource ID of the bare metal machine that hosts the virtual machine.
         /// </summary>
         [Output("bareMetalMachineId")]
         public Output<string> BareMetalMachineId { get; private set; } = null!;
@@ -222,7 +222,6 @@ namespace Pulumi.AzureNative.NetworkCloud
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20230501preview:VirtualMachine" },
                     new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20230701:VirtualMachine" },
                     new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20231001preview:VirtualMachine" },
                 },

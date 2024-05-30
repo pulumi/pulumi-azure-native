@@ -12,6 +12,7 @@ from ._enums import *
 
 __all__ = [
     'AssociationSubnetArgs',
+    'WafPolicyArgs',
 ]
 
 @pulumi.input_type
@@ -29,6 +30,29 @@ class AssociationSubnetArgs:
     def id(self) -> pulumi.Input[str]:
         """
         Association ID.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
+class WafPolicyArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[str]):
+        """
+        Web Application Firewall Policy
+        :param pulumi.Input[str] id: Resource ID of the WAF
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        """
+        Resource ID of the WAF
         """
         return pulumi.get(self, "id")
 

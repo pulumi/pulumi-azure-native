@@ -127,7 +127,7 @@ class LinkedServer(pulumi.CustomResource):
         Response to put/get linked server (with properties) for Redis cache.
         Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2020-06-01.
 
-        Other available API versions: 2023-05-01-preview, 2023-08-01, 2024-03-01.
+        Other available API versions: 2023-05-01-preview, 2023-08-01, 2024-03-01, 2024-04-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -148,7 +148,7 @@ class LinkedServer(pulumi.CustomResource):
         Response to put/get linked server (with properties) for Redis cache.
         Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2020-06-01.
 
-        Other available API versions: 2023-05-01-preview, 2023-08-01, 2024-03-01.
+        Other available API versions: 2023-05-01-preview, 2023-08-01, 2024-03-01, 2024-04-01-preview.
 
         :param str resource_name: The name of the resource.
         :param LinkedServerArgs args: The arguments to use to populate this resource's properties.
@@ -200,7 +200,7 @@ class LinkedServer(pulumi.CustomResource):
             __props__.__dict__["primary_host_name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cache/v20170201:LinkedServer"), pulumi.Alias(type_="azure-native:cache/v20171001:LinkedServer"), pulumi.Alias(type_="azure-native:cache/v20180301:LinkedServer"), pulumi.Alias(type_="azure-native:cache/v20190701:LinkedServer"), pulumi.Alias(type_="azure-native:cache/v20200601:LinkedServer"), pulumi.Alias(type_="azure-native:cache/v20201201:LinkedServer"), pulumi.Alias(type_="azure-native:cache/v20210601:LinkedServer"), pulumi.Alias(type_="azure-native:cache/v20220501:LinkedServer"), pulumi.Alias(type_="azure-native:cache/v20220601:LinkedServer"), pulumi.Alias(type_="azure-native:cache/v20230401:LinkedServer"), pulumi.Alias(type_="azure-native:cache/v20230501preview:LinkedServer"), pulumi.Alias(type_="azure-native:cache/v20230801:LinkedServer"), pulumi.Alias(type_="azure-native:cache/v20240301:LinkedServer")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cache/v20170201:LinkedServer"), pulumi.Alias(type_="azure-native:cache/v20171001:LinkedServer"), pulumi.Alias(type_="azure-native:cache/v20180301:LinkedServer"), pulumi.Alias(type_="azure-native:cache/v20190701:LinkedServer"), pulumi.Alias(type_="azure-native:cache/v20200601:LinkedServer"), pulumi.Alias(type_="azure-native:cache/v20201201:LinkedServer"), pulumi.Alias(type_="azure-native:cache/v20210601:LinkedServer"), pulumi.Alias(type_="azure-native:cache/v20220501:LinkedServer"), pulumi.Alias(type_="azure-native:cache/v20220601:LinkedServer"), pulumi.Alias(type_="azure-native:cache/v20230401:LinkedServer"), pulumi.Alias(type_="azure-native:cache/v20230501preview:LinkedServer"), pulumi.Alias(type_="azure-native:cache/v20230801:LinkedServer"), pulumi.Alias(type_="azure-native:cache/v20240301:LinkedServer"), pulumi.Alias(type_="azure-native:cache/v20240401preview:LinkedServer")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(LinkedServer, __self__).__init__(
             'azure-native:cache:LinkedServer',

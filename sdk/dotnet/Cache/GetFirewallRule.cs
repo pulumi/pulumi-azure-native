@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Cache
         /// Gets a single firewall rule in a specified redis cache.
         /// Azure REST API version: 2023-04-01.
         /// 
-        /// Other available API versions: 2023-05-01-preview, 2023-08-01, 2024-03-01.
+        /// Other available API versions: 2023-05-01-preview, 2023-08-01, 2024-03-01, 2024-04-01-preview.
         /// </summary>
         public static Task<GetFirewallRuleResult> InvokeAsync(GetFirewallRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFirewallRuleResult>("azure-native:cache:getFirewallRule", args ?? new GetFirewallRuleArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Cache
         /// Gets a single firewall rule in a specified redis cache.
         /// Azure REST API version: 2023-04-01.
         /// 
-        /// Other available API versions: 2023-05-01-preview, 2023-08-01, 2024-03-01.
+        /// Other available API versions: 2023-05-01-preview, 2023-08-01, 2024-03-01, 2024-04-01-preview.
         /// </summary>
         public static Output<GetFirewallRuleResult> Invoke(GetFirewallRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFirewallRuleResult>("azure-native:cache:getFirewallRule", args ?? new GetFirewallRuleInvokeArgs(), options.WithDefaults());

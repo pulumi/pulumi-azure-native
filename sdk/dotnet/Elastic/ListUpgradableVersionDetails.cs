@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Elastic
         /// Stack Versions that this version can upgrade to
         /// Azure REST API version: 2023-06-01.
         /// 
-        /// Other available API versions: 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview, 2023-11-01-preview, 2024-01-01-preview, 2024-03-01.
+        /// Other available API versions: 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview, 2023-11-01-preview, 2024-01-01-preview, 2024-03-01, 2024-05-01-preview.
         /// </summary>
         public static Task<ListUpgradableVersionDetailsResult> InvokeAsync(ListUpgradableVersionDetailsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListUpgradableVersionDetailsResult>("azure-native:elastic:listUpgradableVersionDetails", args ?? new ListUpgradableVersionDetailsArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Elastic
         /// Stack Versions that this version can upgrade to
         /// Azure REST API version: 2023-06-01.
         /// 
-        /// Other available API versions: 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview, 2023-11-01-preview, 2024-01-01-preview, 2024-03-01.
+        /// Other available API versions: 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview, 2023-11-01-preview, 2024-01-01-preview, 2024-03-01, 2024-05-01-preview.
         /// </summary>
         public static Output<ListUpgradableVersionDetailsResult> Invoke(ListUpgradableVersionDetailsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListUpgradableVersionDetailsResult>("azure-native:elastic:listUpgradableVersionDetails", args ?? new ListUpgradableVersionDetailsInvokeArgs(), options.WithDefaults());

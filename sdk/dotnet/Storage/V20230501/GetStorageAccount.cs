@@ -130,6 +130,10 @@ namespace Pulumi.AzureNative.Storage.V20230501
         /// </summary>
         public readonly string? DnsEndpointType;
         /// <summary>
+        /// Enables extended group support with local users feature, if set to true
+        /// </summary>
+        public readonly bool? EnableExtendedGroups;
+        /// <summary>
         /// Allows https traffic only to storage service if sets to true.
         /// </summary>
         public readonly bool? EnableHttpsTrafficOnly;
@@ -304,6 +308,8 @@ namespace Pulumi.AzureNative.Storage.V20230501
 
             string? dnsEndpointType,
 
+            bool? enableExtendedGroups,
+
             bool? enableHttpsTrafficOnly,
 
             bool? enableNfsV3,
@@ -390,6 +396,7 @@ namespace Pulumi.AzureNative.Storage.V20230501
             CustomDomain = customDomain;
             DefaultToOAuthAuthentication = defaultToOAuthAuthentication;
             DnsEndpointType = dnsEndpointType;
+            EnableExtendedGroups = enableExtendedGroups;
             EnableHttpsTrafficOnly = enableHttpsTrafficOnly;
             EnableNfsV3 = enableNfsV3;
             Encryption = encryption;

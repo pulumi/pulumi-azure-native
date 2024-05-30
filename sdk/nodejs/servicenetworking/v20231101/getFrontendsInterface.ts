@@ -36,7 +36,7 @@ export interface GetFrontendsInterfaceArgs {
 }
 
 /**
- * Frontend Subresource of Traffic Controller.
+ * Frontend Sub Resource of Traffic Controller.
  */
 export interface GetFrontendsInterfaceResult {
     /**

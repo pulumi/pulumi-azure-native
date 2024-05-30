@@ -110,7 +110,6 @@ namespace Pulumi.AzureNative.NetworkCloud.V20230701
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:networkcloud:Volume" },
-                    new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20230501preview:Volume" },
                     new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20231001preview:Volume" },
                 },
             };

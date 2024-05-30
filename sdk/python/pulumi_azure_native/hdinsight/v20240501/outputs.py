@@ -688,6 +688,8 @@ class ClusterPoolResourcePropertiesResponseComputeProfile(dict):
         suggest = None
         if key == "vmSize":
             suggest = "vm_size"
+        elif key == "availabilityZones":
+            suggest = "availability_zones"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ClusterPoolResourcePropertiesResponseComputeProfile. Access the value via the '{suggest}' property getter instead.")
@@ -702,14 +704,18 @@ class ClusterPoolResourcePropertiesResponseComputeProfile(dict):
 
     def __init__(__self__, *,
                  count: int,
-                 vm_size: str):
+                 vm_size: str,
+                 availability_zones: Optional[Sequence[str]] = None):
         """
         CLuster pool compute profile.
         :param int count: The number of virtual machines.
         :param str vm_size: The virtual machine SKU.
+        :param Sequence[str] availability_zones: The list of Availability zones to use for AKS VMSS nodes.
         """
         pulumi.set(__self__, "count", count)
         pulumi.set(__self__, "vm_size", vm_size)
+        if availability_zones is not None:
+            pulumi.set(__self__, "availability_zones", availability_zones)
 
     @property
     @pulumi.getter
@@ -726,6 +732,14 @@ class ClusterPoolResourcePropertiesResponseComputeProfile(dict):
         The virtual machine SKU.
         """
         return pulumi.get(self, "vm_size")
+
+    @property
+    @pulumi.getter(name="availabilityZones")
+    def availability_zones(self) -> Optional[Sequence[str]]:
+        """
+        The list of Availability zones to use for AKS VMSS nodes.
+        """
+        return pulumi.get(self, "availability_zones")
 
 
 @pulumi.output_type
@@ -1393,13 +1407,34 @@ class ComputeProfileResponse(dict):
     """
     The compute profile.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "availabilityZones":
+            suggest = "availability_zones"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ComputeProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ComputeProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ComputeProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
-                 nodes: Sequence['outputs.NodeProfileResponse']):
+                 nodes: Sequence['outputs.NodeProfileResponse'],
+                 availability_zones: Optional[Sequence[str]] = None):
         """
         The compute profile.
         :param Sequence['NodeProfileResponse'] nodes: The nodes definitions.
+        :param Sequence[str] availability_zones: The list of Availability zones to use for AKS VMSS nodes.
         """
         pulumi.set(__self__, "nodes", nodes)
+        if availability_zones is not None:
+            pulumi.set(__self__, "availability_zones", availability_zones)
 
     @property
     @pulumi.getter
@@ -1408,6 +1443,14 @@ class ComputeProfileResponse(dict):
         The nodes definitions.
         """
         return pulumi.get(self, "nodes")
+
+    @property
+    @pulumi.getter(name="availabilityZones")
+    def availability_zones(self) -> Optional[Sequence[str]]:
+        """
+        The list of Availability zones to use for AKS VMSS nodes.
+        """
+        return pulumi.get(self, "availability_zones")
 
 
 @pulumi.output_type

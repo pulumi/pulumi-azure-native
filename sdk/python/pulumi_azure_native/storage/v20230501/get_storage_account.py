@@ -22,7 +22,7 @@ class GetStorageAccountResult:
     """
     The storage account.
     """
-    def __init__(__self__, access_tier=None, account_migration_in_progress=None, allow_blob_public_access=None, allow_cross_tenant_replication=None, allow_shared_key_access=None, allowed_copy_scope=None, azure_files_identity_based_authentication=None, blob_restore_status=None, creation_time=None, custom_domain=None, default_to_o_auth_authentication=None, dns_endpoint_type=None, enable_https_traffic_only=None, enable_nfs_v3=None, encryption=None, extended_location=None, failover_in_progress=None, geo_replication_stats=None, id=None, identity=None, immutable_storage_with_versioning=None, is_hns_enabled=None, is_local_user_enabled=None, is_sftp_enabled=None, is_sku_conversion_blocked=None, key_creation_time=None, key_policy=None, kind=None, large_file_shares_state=None, last_geo_failover_time=None, location=None, minimum_tls_version=None, name=None, network_rule_set=None, primary_endpoints=None, primary_location=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, routing_preference=None, sas_policy=None, secondary_endpoints=None, secondary_location=None, sku=None, status_of_primary=None, status_of_secondary=None, storage_account_sku_conversion_status=None, tags=None, type=None):
+    def __init__(__self__, access_tier=None, account_migration_in_progress=None, allow_blob_public_access=None, allow_cross_tenant_replication=None, allow_shared_key_access=None, allowed_copy_scope=None, azure_files_identity_based_authentication=None, blob_restore_status=None, creation_time=None, custom_domain=None, default_to_o_auth_authentication=None, dns_endpoint_type=None, enable_extended_groups=None, enable_https_traffic_only=None, enable_nfs_v3=None, encryption=None, extended_location=None, failover_in_progress=None, geo_replication_stats=None, id=None, identity=None, immutable_storage_with_versioning=None, is_hns_enabled=None, is_local_user_enabled=None, is_sftp_enabled=None, is_sku_conversion_blocked=None, key_creation_time=None, key_policy=None, kind=None, large_file_shares_state=None, last_geo_failover_time=None, location=None, minimum_tls_version=None, name=None, network_rule_set=None, primary_endpoints=None, primary_location=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, routing_preference=None, sas_policy=None, secondary_endpoints=None, secondary_location=None, sku=None, status_of_primary=None, status_of_secondary=None, storage_account_sku_conversion_status=None, tags=None, type=None):
         if access_tier and not isinstance(access_tier, str):
             raise TypeError("Expected argument 'access_tier' to be a str")
         pulumi.set(__self__, "access_tier", access_tier)
@@ -59,6 +59,9 @@ class GetStorageAccountResult:
         if dns_endpoint_type and not isinstance(dns_endpoint_type, str):
             raise TypeError("Expected argument 'dns_endpoint_type' to be a str")
         pulumi.set(__self__, "dns_endpoint_type", dns_endpoint_type)
+        if enable_extended_groups and not isinstance(enable_extended_groups, bool):
+            raise TypeError("Expected argument 'enable_extended_groups' to be a bool")
+        pulumi.set(__self__, "enable_extended_groups", enable_extended_groups)
         if enable_https_traffic_only and not isinstance(enable_https_traffic_only, bool):
             raise TypeError("Expected argument 'enable_https_traffic_only' to be a bool")
         pulumi.set(__self__, "enable_https_traffic_only", enable_https_traffic_only)
@@ -266,6 +269,14 @@ class GetStorageAccountResult:
         Allows you to specify the type of endpoint. Set this to AzureDNSZone to create a large number of accounts in a single subscription, which creates accounts in an Azure DNS Zone and the endpoint URL will have an alphanumeric DNS Zone identifier.
         """
         return pulumi.get(self, "dns_endpoint_type")
+
+    @property
+    @pulumi.getter(name="enableExtendedGroups")
+    def enable_extended_groups(self) -> Optional[bool]:
+        """
+        Enables extended group support with local users feature, if set to true
+        """
+        return pulumi.get(self, "enable_extended_groups")
 
     @property
     @pulumi.getter(name="enableHttpsTrafficOnly")
@@ -582,6 +593,7 @@ class AwaitableGetStorageAccountResult(GetStorageAccountResult):
             custom_domain=self.custom_domain,
             default_to_o_auth_authentication=self.default_to_o_auth_authentication,
             dns_endpoint_type=self.dns_endpoint_type,
+            enable_extended_groups=self.enable_extended_groups,
             enable_https_traffic_only=self.enable_https_traffic_only,
             enable_nfs_v3=self.enable_nfs_v3,
             encryption=self.encryption,
@@ -653,6 +665,7 @@ def get_storage_account(account_name: Optional[str] = None,
         custom_domain=pulumi.get(__ret__, 'custom_domain'),
         default_to_o_auth_authentication=pulumi.get(__ret__, 'default_to_o_auth_authentication'),
         dns_endpoint_type=pulumi.get(__ret__, 'dns_endpoint_type'),
+        enable_extended_groups=pulumi.get(__ret__, 'enable_extended_groups'),
         enable_https_traffic_only=pulumi.get(__ret__, 'enable_https_traffic_only'),
         enable_nfs_v3=pulumi.get(__ret__, 'enable_nfs_v3'),
         encryption=pulumi.get(__ret__, 'encryption'),

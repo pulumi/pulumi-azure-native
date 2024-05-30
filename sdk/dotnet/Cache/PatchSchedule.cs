@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cache
     /// Response to put/get patch schedules for Redis cache.
     /// Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2020-06-01.
     /// 
-    /// Other available API versions: 2023-05-01-preview, 2023-08-01, 2024-03-01.
+    /// Other available API versions: 2023-05-01-preview, 2023-08-01, 2024-03-01, 2024-04-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:cache:PatchSchedule")]
     public partial class PatchSchedule : global::Pulumi.CustomResource
@@ -79,6 +79,7 @@ namespace Pulumi.AzureNative.Cache
                     new global::Pulumi.Alias { Type = "azure-native:cache/v20230501preview:PatchSchedule" },
                     new global::Pulumi.Alias { Type = "azure-native:cache/v20230801:PatchSchedule" },
                     new global::Pulumi.Alias { Type = "azure-native:cache/v20240301:PatchSchedule" },
+                    new global::Pulumi.Alias { Type = "azure-native:cache/v20240401preview:PatchSchedule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

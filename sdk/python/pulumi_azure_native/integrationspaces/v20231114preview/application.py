@@ -18,24 +18,23 @@ class ApplicationArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  space_name: pulumi.Input[str],
-                 tracking_data_stores: pulumi.Input[Mapping[str, pulumi.Input['TrackingDataStoreArgs']]],
                  application_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tracking_data_stores: Optional[pulumi.Input[Mapping[str, pulumi.Input['TrackingDataStoreArgs']]]] = None):
         """
         The set of arguments for constructing a Application resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] space_name: The name of the space
-        :param pulumi.Input[Mapping[str, pulumi.Input['TrackingDataStoreArgs']]] tracking_data_stores: The tracking data stores.
         :param pulumi.Input[str] application_name: The name of the Application
         :param pulumi.Input[str] description: The description of the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        :param pulumi.Input[Mapping[str, pulumi.Input['TrackingDataStoreArgs']]] tracking_data_stores: The tracking data stores.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "space_name", space_name)
-        pulumi.set(__self__, "tracking_data_stores", tracking_data_stores)
         if application_name is not None:
             pulumi.set(__self__, "application_name", application_name)
         if description is not None:
@@ -44,6 +43,8 @@ class ApplicationArgs:
             pulumi.set(__self__, "location", location)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tracking_data_stores is not None:
+            pulumi.set(__self__, "tracking_data_stores", tracking_data_stores)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -68,18 +69,6 @@ class ApplicationArgs:
     @space_name.setter
     def space_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "space_name", value)
-
-    @property
-    @pulumi.getter(name="trackingDataStores")
-    def tracking_data_stores(self) -> pulumi.Input[Mapping[str, pulumi.Input['TrackingDataStoreArgs']]]:
-        """
-        The tracking data stores.
-        """
-        return pulumi.get(self, "tracking_data_stores")
-
-    @tracking_data_stores.setter
-    def tracking_data_stores(self, value: pulumi.Input[Mapping[str, pulumi.Input['TrackingDataStoreArgs']]]):
-        pulumi.set(self, "tracking_data_stores", value)
 
     @property
     @pulumi.getter(name="applicationName")
@@ -128,6 +117,18 @@ class ApplicationArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="trackingDataStores")
+    def tracking_data_stores(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['TrackingDataStoreArgs']]]]:
+        """
+        The tracking data stores.
+        """
+        return pulumi.get(self, "tracking_data_stores")
+
+    @tracking_data_stores.setter
+    def tracking_data_stores(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['TrackingDataStoreArgs']]]]):
+        pulumi.set(self, "tracking_data_stores", value)
 
 
 class Application(pulumi.CustomResource):
@@ -206,8 +207,6 @@ class Application(pulumi.CustomResource):
                 raise TypeError("Missing required property 'space_name'")
             __props__.__dict__["space_name"] = space_name
             __props__.__dict__["tags"] = tags
-            if tracking_data_stores is None and not opts.urn:
-                raise TypeError("Missing required property 'tracking_data_stores'")
             __props__.__dict__["tracking_data_stores"] = tracking_data_stores
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
@@ -297,7 +296,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="trackingDataStores")
-    def tracking_data_stores(self) -> pulumi.Output[Mapping[str, 'outputs.TrackingDataStoreResponse']]:
+    def tracking_data_stores(self) -> pulumi.Output[Optional[Mapping[str, 'outputs.TrackingDataStoreResponse']]]:
         """
         The tracking data stores.
         """

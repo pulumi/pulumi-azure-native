@@ -18,26 +18,26 @@ namespace Pulumi.AzureNative.IntegrationSpaces.V20231114Preview.Inputs
         /// <summary>
         /// The data store ingestion URI.
         /// </summary>
-        [Input("dataStoreIngestionUri", required: true)]
-        public Input<string> DataStoreIngestionUri { get; set; } = null!;
+        [Input("dataStoreIngestionUri")]
+        public Input<string>? DataStoreIngestionUri { get; set; }
 
         /// <summary>
         /// The data store resource id.
         /// </summary>
-        [Input("dataStoreResourceId", required: true)]
-        public Input<string> DataStoreResourceId { get; set; } = null!;
+        [Input("dataStoreResourceId")]
+        public Input<string>? DataStoreResourceId { get; set; }
 
         /// <summary>
         /// The data store URI.
         /// </summary>
-        [Input("dataStoreUri", required: true)]
-        public Input<string> DataStoreUri { get; set; } = null!;
+        [Input("dataStoreUri")]
+        public Input<string>? DataStoreUri { get; set; }
 
         /// <summary>
         /// The database name.
         /// </summary>
-        [Input("databaseName", required: true)]
-        public Input<string> DatabaseName { get; set; } = null!;
+        [Input("databaseName")]
+        public Input<string>? DatabaseName { get; set; }
 
         public TrackingDataStoreArgs()
         {

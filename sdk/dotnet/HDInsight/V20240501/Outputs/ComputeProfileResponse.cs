@@ -17,13 +17,21 @@ namespace Pulumi.AzureNative.HDInsight.V20240501.Outputs
     public sealed class ComputeProfileResponse
     {
         /// <summary>
+        /// The list of Availability zones to use for AKS VMSS nodes.
+        /// </summary>
+        public readonly ImmutableArray<string> AvailabilityZones;
+        /// <summary>
         /// The nodes definitions.
         /// </summary>
         public readonly ImmutableArray<Outputs.NodeProfileResponse> Nodes;
 
         [OutputConstructor]
-        private ComputeProfileResponse(ImmutableArray<Outputs.NodeProfileResponse> nodes)
+        private ComputeProfileResponse(
+            ImmutableArray<string> availabilityZones,
+
+            ImmutableArray<Outputs.NodeProfileResponse> nodes)
         {
+            AvailabilityZones = availabilityZones;
             Nodes = nodes;
         }
     }

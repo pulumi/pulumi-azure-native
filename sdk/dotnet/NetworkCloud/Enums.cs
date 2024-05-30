@@ -226,6 +226,37 @@ namespace Pulumi.AzureNative.NetworkCloud
     }
 
     /// <summary>
+    /// The indicator if the specified key vault should be used to archive the secrets of the cluster.
+    /// </summary>
+    [EnumType]
+    public readonly struct ClusterSecretArchiveEnabled : IEquatable<ClusterSecretArchiveEnabled>
+    {
+        private readonly string _value;
+
+        private ClusterSecretArchiveEnabled(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ClusterSecretArchiveEnabled True { get; } = new ClusterSecretArchiveEnabled("True");
+        public static ClusterSecretArchiveEnabled False { get; } = new ClusterSecretArchiveEnabled("False");
+
+        public static bool operator ==(ClusterSecretArchiveEnabled left, ClusterSecretArchiveEnabled right) => left.Equals(right);
+        public static bool operator !=(ClusterSecretArchiveEnabled left, ClusterSecretArchiveEnabled right) => !left.Equals(right);
+
+        public static explicit operator string(ClusterSecretArchiveEnabled value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ClusterSecretArchiveEnabled other && Equals(other);
+        public bool Equals(ClusterSecretArchiveEnabled other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type of rack configuration for the cluster.
     /// </summary>
     [EnumType]
@@ -249,6 +280,36 @@ namespace Pulumi.AzureNative.NetworkCloud
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ClusterType other && Equals(other);
         public bool Equals(ClusterType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The mode of operation for runtime protection.
+    /// </summary>
+    [EnumType]
+    public readonly struct ClusterUpdateStrategyType : IEquatable<ClusterUpdateStrategyType>
+    {
+        private readonly string _value;
+
+        private ClusterUpdateStrategyType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ClusterUpdateStrategyType Rack { get; } = new ClusterUpdateStrategyType("Rack");
+
+        public static bool operator ==(ClusterUpdateStrategyType left, ClusterUpdateStrategyType right) => left.Equals(right);
+        public static bool operator !=(ClusterUpdateStrategyType left, ClusterUpdateStrategyType right) => !left.Equals(right);
+
+        public static explicit operator string(ClusterUpdateStrategyType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ClusterUpdateStrategyType other && Equals(other);
+        public bool Equals(ClusterUpdateStrategyType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -594,6 +655,40 @@ namespace Pulumi.AzureNative.NetworkCloud
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is OsDiskDeleteOption other && Equals(other);
         public bool Equals(OsDiskDeleteOption other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The mode of operation for runtime protection.
+    /// </summary>
+    [EnumType]
+    public readonly struct RuntimeProtectionEnforcementLevel : IEquatable<RuntimeProtectionEnforcementLevel>
+    {
+        private readonly string _value;
+
+        private RuntimeProtectionEnforcementLevel(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RuntimeProtectionEnforcementLevel Audit { get; } = new RuntimeProtectionEnforcementLevel("Audit");
+        public static RuntimeProtectionEnforcementLevel Disabled { get; } = new RuntimeProtectionEnforcementLevel("Disabled");
+        public static RuntimeProtectionEnforcementLevel OnDemand { get; } = new RuntimeProtectionEnforcementLevel("OnDemand");
+        public static RuntimeProtectionEnforcementLevel Passive { get; } = new RuntimeProtectionEnforcementLevel("Passive");
+        public static RuntimeProtectionEnforcementLevel RealTime { get; } = new RuntimeProtectionEnforcementLevel("RealTime");
+
+        public static bool operator ==(RuntimeProtectionEnforcementLevel left, RuntimeProtectionEnforcementLevel right) => left.Equals(right);
+        public static bool operator !=(RuntimeProtectionEnforcementLevel left, RuntimeProtectionEnforcementLevel right) => !left.Equals(right);
+
+        public static explicit operator string(RuntimeProtectionEnforcementLevel value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RuntimeProtectionEnforcementLevel other && Equals(other);
+        public bool Equals(RuntimeProtectionEnforcementLevel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

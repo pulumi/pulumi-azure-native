@@ -27,6 +27,7 @@ __all__ = [
     'ConnectionAuthType',
     'ConnectionCategory',
     'ContainerType',
+    'ContentSafetyStatus',
     'CredentialsType',
     'DataCollectionMode',
     'DataType',
@@ -106,6 +107,7 @@ __all__ = [
     'ScheduleStatus',
     'SeasonalityMode',
     'SecretsType',
+    'ServerlessInferenceEndpointAuthMode',
     'ServiceDataAccessAuthIdentity',
     'ShortSeriesHandlingConfiguration',
     'SkuTier',
@@ -644,6 +646,14 @@ class ContainerType(str, Enum):
     """
     STORAGE_INITIALIZER = "StorageInitializer"
     INFERENCE_SERVER = "InferenceServer"
+
+
+class ContentSafetyStatus(str, Enum):
+    """
+    [Required] Specifies the status of content safety.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
 
 
 class CredentialsType(str, Enum):
@@ -1703,6 +1713,13 @@ class SecretsType(str, Enum):
     CERTIFICATE = "Certificate"
     SAS = "Sas"
     SERVICE_PRINCIPAL = "ServicePrincipal"
+
+
+class ServerlessInferenceEndpointAuthMode(str, Enum):
+    """
+    [Required] Specifies the authentication mode for the Serverless endpoint.
+    """
+    KEY = "Key"
 
 
 class ServiceDataAccessAuthIdentity(str, Enum):

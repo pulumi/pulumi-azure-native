@@ -30216,6 +30216,7 @@ class DynamicsCrmLinkedServiceArgs:
                  type: pulumi.Input[str],
                  annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
+                 credential: Optional[pulumi.Input['CredentialReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  encrypted_credential: Optional[pulumi.Input[str]] = None,
                  host_name: Optional[Any] = None,
@@ -30236,6 +30237,7 @@ class DynamicsCrmLinkedServiceArgs:
                Expected value is 'DynamicsCrm'.
         :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
+        :param pulumi.Input['CredentialReferenceArgs'] credential: The credential reference containing authentication information.
         :param pulumi.Input[str] description: Linked service description.
         :param pulumi.Input[str] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Any host_name: The host name of the on-premises Dynamics CRM server. The property is required for on-prem and not allowed for online. Type: string (or Expression with resultType string).
@@ -30256,6 +30258,8 @@ class DynamicsCrmLinkedServiceArgs:
             pulumi.set(__self__, "annotations", annotations)
         if connect_via is not None:
             pulumi.set(__self__, "connect_via", connect_via)
+        if credential is not None:
+            pulumi.set(__self__, "credential", credential)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if encrypted_credential is not None:
@@ -30341,6 +30345,18 @@ class DynamicsCrmLinkedServiceArgs:
     @connect_via.setter
     def connect_via(self, value: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']]):
         pulumi.set(self, "connect_via", value)
+
+    @property
+    @pulumi.getter
+    def credential(self) -> Optional[pulumi.Input['CredentialReferenceArgs']]:
+        """
+        The credential reference containing authentication information.
+        """
+        return pulumi.get(self, "credential")
+
+    @credential.setter
+    def credential(self, value: Optional[pulumi.Input['CredentialReferenceArgs']]):
+        pulumi.set(self, "credential", value)
 
     @property
     @pulumi.getter

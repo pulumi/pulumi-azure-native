@@ -40,6 +40,7 @@ from .get_featurestore_entity_container_entity import *
 from .get_featurestore_entity_version import *
 from .get_job import *
 from .get_managed_network_settings_rule import *
+from .get_marketplace_subscription import *
 from .get_model_container import *
 from .get_model_version import *
 from .get_online_deployment import *
@@ -59,6 +60,7 @@ from .get_registry_environment_version import *
 from .get_registry_model_container import *
 from .get_registry_model_version import *
 from .get_schedule import *
+from .get_serverless_endpoint import *
 from .get_workspace import *
 from .get_workspace_connection import *
 from .job import *
@@ -67,12 +69,14 @@ from .list_compute_keys import *
 from .list_compute_nodes import *
 from .list_datastore_secrets import *
 from .list_online_endpoint_keys import *
+from .list_serverless_endpoint_keys import *
 from .list_workspace_connection_secrets import *
 from .list_workspace_keys import *
 from .list_workspace_notebook_access_token import *
 from .list_workspace_notebook_keys import *
 from .list_workspace_storage_account_keys import *
 from .managed_network_settings_rule import *
+from .marketplace_subscription import *
 from .model_container import *
 from .model_version import *
 from .online_deployment import *
@@ -90,6 +94,7 @@ from .registry_environment_version import *
 from .registry_model_container import *
 from .registry_model_version import *
 from .schedule import *
+from .serverless_endpoint import *
 from .workspace import *
 from .workspace_connection import *
 from ._inputs import *

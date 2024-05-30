@@ -85,6 +85,7 @@ __all__ = [
     'ComputeStartStopScheduleResponse',
     'ContainerResourceRequirementsResponse',
     'ContainerResourceSettingsResponse',
+    'ContentSafetyResponse',
     'CosmosDbSettingsResponse',
     'CreateMonitorActionResponse',
     'CronResponse',
@@ -182,10 +183,13 @@ __all__ = [
     'ManagedNetworkSettingsResponse',
     'ManagedOnlineDeploymentResponse',
     'ManagedServiceIdentityResponse',
+    'MarketplacePlanResponse',
+    'MarketplaceSubscriptionResponse',
     'MaterializationComputeResourceResponse',
     'MaterializationSettingsResponse',
     'MedianStoppingPolicyResponse',
     'ModelContainerResponse',
+    'ModelSettingsResponse',
     'ModelVersionResponse',
     'MonitorDefinitionResponse',
     'MonitorEmailNotificationSettingsResponse',
@@ -249,6 +253,8 @@ __all__ = [
     'ScriptReferenceResponse',
     'ScriptsToExecuteResponse',
     'ServerlessComputeSettingsResponse',
+    'ServerlessEndpointResponse',
+    'ServerlessInferenceEndpointResponse',
     'ServiceManagedResourcesSettingsResponse',
     'ServicePrincipalAuthTypeWorkspaceConnectionPropertiesResponse',
     'ServicePrincipalDatastoreCredentialsResponse',
@@ -7701,6 +7707,41 @@ class ContainerResourceSettingsResponse(dict):
         https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
         """
         return pulumi.get(self, "memory")
+
+
+@pulumi.output_type
+class ContentSafetyResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "contentSafetyStatus":
+            suggest = "content_safety_status"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContentSafetyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContentSafetyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContentSafetyResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 content_safety_status: str):
+        """
+        :param str content_safety_status: [Required] Specifies the status of content safety.
+        """
+        pulumi.set(__self__, "content_safety_status", content_safety_status)
+
+    @property
+    @pulumi.getter(name="contentSafetyStatus")
+    def content_safety_status(self) -> str:
+        """
+        [Required] Specifies the status of content safety.
+        """
+        return pulumi.get(self, "content_safety_status")
 
 
 @pulumi.output_type
@@ -18581,6 +18622,141 @@ class ManagedServiceIdentityResponse(dict):
 
 
 @pulumi.output_type
+class MarketplacePlanResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "offerId":
+            suggest = "offer_id"
+        elif key == "planId":
+            suggest = "plan_id"
+        elif key == "publisherId":
+            suggest = "publisher_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MarketplacePlanResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MarketplacePlanResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MarketplacePlanResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 offer_id: str,
+                 plan_id: str,
+                 publisher_id: str):
+        """
+        :param str offer_id: The identifying name of the Offer of the Marketplace Plan.
+        :param str plan_id: The identifying name of the Plan of the Marketplace Plan.
+        :param str publisher_id: The identifying name of the Publisher of the Marketplace Plan.
+        """
+        pulumi.set(__self__, "offer_id", offer_id)
+        pulumi.set(__self__, "plan_id", plan_id)
+        pulumi.set(__self__, "publisher_id", publisher_id)
+
+    @property
+    @pulumi.getter(name="offerId")
+    def offer_id(self) -> str:
+        """
+        The identifying name of the Offer of the Marketplace Plan.
+        """
+        return pulumi.get(self, "offer_id")
+
+    @property
+    @pulumi.getter(name="planId")
+    def plan_id(self) -> str:
+        """
+        The identifying name of the Plan of the Marketplace Plan.
+        """
+        return pulumi.get(self, "plan_id")
+
+    @property
+    @pulumi.getter(name="publisherId")
+    def publisher_id(self) -> str:
+        """
+        The identifying name of the Publisher of the Marketplace Plan.
+        """
+        return pulumi.get(self, "publisher_id")
+
+
+@pulumi.output_type
+class MarketplaceSubscriptionResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "marketplacePlan":
+            suggest = "marketplace_plan"
+        elif key == "marketplaceSubscriptionStatus":
+            suggest = "marketplace_subscription_status"
+        elif key == "modelId":
+            suggest = "model_id"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MarketplaceSubscriptionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MarketplaceSubscriptionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MarketplaceSubscriptionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 marketplace_plan: 'outputs.MarketplacePlanResponse',
+                 marketplace_subscription_status: str,
+                 model_id: str,
+                 provisioning_state: str):
+        """
+        :param 'MarketplacePlanResponse' marketplace_plan: Marketplace Plan associated with the Marketplace Subscription.
+        :param str marketplace_subscription_status: Current status of the Marketplace Subscription.
+        :param str model_id: [Required] Target Marketplace Model ID to create a Marketplace Subscription for.
+        :param str provisioning_state: Provisioning State of the Marketplace Subscription.
+        """
+        pulumi.set(__self__, "marketplace_plan", marketplace_plan)
+        pulumi.set(__self__, "marketplace_subscription_status", marketplace_subscription_status)
+        pulumi.set(__self__, "model_id", model_id)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+
+    @property
+    @pulumi.getter(name="marketplacePlan")
+    def marketplace_plan(self) -> 'outputs.MarketplacePlanResponse':
+        """
+        Marketplace Plan associated with the Marketplace Subscription.
+        """
+        return pulumi.get(self, "marketplace_plan")
+
+    @property
+    @pulumi.getter(name="marketplaceSubscriptionStatus")
+    def marketplace_subscription_status(self) -> str:
+        """
+        Current status of the Marketplace Subscription.
+        """
+        return pulumi.get(self, "marketplace_subscription_status")
+
+    @property
+    @pulumi.getter(name="modelId")
+    def model_id(self) -> str:
+        """
+        [Required] Target Marketplace Model ID to create a Marketplace Subscription for.
+        """
+        return pulumi.get(self, "model_id")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning State of the Marketplace Subscription.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+
+@pulumi.output_type
 class MaterializationComputeResourceResponse(dict):
     """
     DTO object representing compute resource
@@ -18892,6 +19068,42 @@ class ModelContainerResponse(dict):
         Tag dictionary. Tags can be added, removed, and updated.
         """
         return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
+class ModelSettingsResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "modelId":
+            suggest = "model_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 model_id: Optional[str] = None):
+        """
+        :param str model_id: The unique model identifier that this ServerlessEndpoint should provision.
+        """
+        if model_id is not None:
+            pulumi.set(__self__, "model_id", model_id)
+
+    @property
+    @pulumi.getter(name="modelId")
+    def model_id(self) -> Optional[str]:
+        """
+        The unique model identifier that this ServerlessEndpoint should provision.
+        """
+        return pulumi.get(self, "model_id")
 
 
 @pulumi.output_type
@@ -24074,6 +24286,150 @@ class ServerlessComputeSettingsResponse(dict):
         The flag to signal if serverless compute nodes deployed in custom vNet would have no public IP addresses for a workspace with private endpoint
         """
         return pulumi.get(self, "serverless_compute_no_public_ip")
+
+
+@pulumi.output_type
+class ServerlessEndpointResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authMode":
+            suggest = "auth_mode"
+        elif key == "endpointState":
+            suggest = "endpoint_state"
+        elif key == "inferenceEndpoint":
+            suggest = "inference_endpoint"
+        elif key == "marketplaceSubscriptionId":
+            suggest = "marketplace_subscription_id"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "contentSafety":
+            suggest = "content_safety"
+        elif key == "modelSettings":
+            suggest = "model_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServerlessEndpointResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServerlessEndpointResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServerlessEndpointResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auth_mode: str,
+                 endpoint_state: str,
+                 inference_endpoint: 'outputs.ServerlessInferenceEndpointResponse',
+                 marketplace_subscription_id: str,
+                 provisioning_state: str,
+                 content_safety: Optional['outputs.ContentSafetyResponse'] = None,
+                 model_settings: Optional['outputs.ModelSettingsResponse'] = None):
+        """
+        :param str auth_mode: [Required] Specifies the authentication mode for the Serverless endpoint.
+        :param str endpoint_state: The current state of the ServerlessEndpoint.
+        :param 'ServerlessInferenceEndpointResponse' inference_endpoint: The inference uri to target when making requests against the serverless endpoint
+        :param str marketplace_subscription_id: The MarketplaceSubscription Azure ID associated to this ServerlessEndpoint.
+        :param str provisioning_state: Provisioning state for the endpoint.
+        :param 'ContentSafetyResponse' content_safety: Specifies the content safety options. If omitted, the default content safety settings will be configured
+        :param 'ModelSettingsResponse' model_settings: The model settings (model id) for the model being serviced on the ServerlessEndpoint.
+        """
+        pulumi.set(__self__, "auth_mode", auth_mode)
+        pulumi.set(__self__, "endpoint_state", endpoint_state)
+        pulumi.set(__self__, "inference_endpoint", inference_endpoint)
+        pulumi.set(__self__, "marketplace_subscription_id", marketplace_subscription_id)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if content_safety is not None:
+            pulumi.set(__self__, "content_safety", content_safety)
+        if model_settings is not None:
+            pulumi.set(__self__, "model_settings", model_settings)
+
+    @property
+    @pulumi.getter(name="authMode")
+    def auth_mode(self) -> str:
+        """
+        [Required] Specifies the authentication mode for the Serverless endpoint.
+        """
+        return pulumi.get(self, "auth_mode")
+
+    @property
+    @pulumi.getter(name="endpointState")
+    def endpoint_state(self) -> str:
+        """
+        The current state of the ServerlessEndpoint.
+        """
+        return pulumi.get(self, "endpoint_state")
+
+    @property
+    @pulumi.getter(name="inferenceEndpoint")
+    def inference_endpoint(self) -> 'outputs.ServerlessInferenceEndpointResponse':
+        """
+        The inference uri to target when making requests against the serverless endpoint
+        """
+        return pulumi.get(self, "inference_endpoint")
+
+    @property
+    @pulumi.getter(name="marketplaceSubscriptionId")
+    def marketplace_subscription_id(self) -> str:
+        """
+        The MarketplaceSubscription Azure ID associated to this ServerlessEndpoint.
+        """
+        return pulumi.get(self, "marketplace_subscription_id")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning state for the endpoint.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="contentSafety")
+    def content_safety(self) -> Optional['outputs.ContentSafetyResponse']:
+        """
+        Specifies the content safety options. If omitted, the default content safety settings will be configured
+        """
+        return pulumi.get(self, "content_safety")
+
+    @property
+    @pulumi.getter(name="modelSettings")
+    def model_settings(self) -> Optional['outputs.ModelSettingsResponse']:
+        """
+        The model settings (model id) for the model being serviced on the ServerlessEndpoint.
+        """
+        return pulumi.get(self, "model_settings")
+
+
+@pulumi.output_type
+class ServerlessInferenceEndpointResponse(dict):
+    def __init__(__self__, *,
+                 headers: Mapping[str, str],
+                 uri: str):
+        """
+        :param Mapping[str, str] headers: Specifies any required headers to target this serverless endpoint.
+        :param str uri: [Required] The inference uri to target when making requests against the Serverless Endpoint.
+        """
+        pulumi.set(__self__, "headers", headers)
+        pulumi.set(__self__, "uri", uri)
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Mapping[str, str]:
+        """
+        Specifies any required headers to target this serverless endpoint.
+        """
+        return pulumi.get(self, "headers")
+
+    @property
+    @pulumi.getter
+    def uri(self) -> str:
+        """
+        [Required] The inference uri to target when making requests against the Serverless Endpoint.
+        """
+        return pulumi.get(self, "uri")
 
 
 @pulumi.output_type

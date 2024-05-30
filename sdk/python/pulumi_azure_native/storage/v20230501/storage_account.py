@@ -30,6 +30,7 @@ class StorageAccountArgs:
                  custom_domain: Optional[pulumi.Input['CustomDomainArgs']] = None,
                  default_to_o_auth_authentication: Optional[pulumi.Input[bool]] = None,
                  dns_endpoint_type: Optional[pulumi.Input[Union[str, 'DnsEndpointType']]] = None,
+                 enable_extended_groups: Optional[pulumi.Input[bool]] = None,
                  enable_https_traffic_only: Optional[pulumi.Input[bool]] = None,
                  enable_nfs_v3: Optional[pulumi.Input[bool]] = None,
                  encryption: Optional[pulumi.Input['EncryptionArgs']] = None,
@@ -63,6 +64,7 @@ class StorageAccountArgs:
         :param pulumi.Input['CustomDomainArgs'] custom_domain: User domain assigned to the storage account. Name is the CNAME source. Only one custom domain is supported per storage account at this time. To clear the existing custom domain, use an empty string for the custom domain name property.
         :param pulumi.Input[bool] default_to_o_auth_authentication: A boolean flag which indicates whether the default authentication is OAuth or not. The default interpretation is false for this property.
         :param pulumi.Input[Union[str, 'DnsEndpointType']] dns_endpoint_type: Allows you to specify the type of endpoint. Set this to AzureDNSZone to create a large number of accounts in a single subscription, which creates accounts in an Azure DNS Zone and the endpoint URL will have an alphanumeric DNS Zone identifier.
+        :param pulumi.Input[bool] enable_extended_groups: Enables extended group support with local users feature, if set to true
         :param pulumi.Input[bool] enable_https_traffic_only: Allows https traffic only to storage service if sets to true. The default value is true since API version 2019-04-01.
         :param pulumi.Input[bool] enable_nfs_v3: NFS 3.0 protocol support enabled if set to true.
         :param pulumi.Input['EncryptionArgs'] encryption: Encryption settings to be used for server-side encryption for the storage account.
@@ -105,6 +107,8 @@ class StorageAccountArgs:
             pulumi.set(__self__, "default_to_o_auth_authentication", default_to_o_auth_authentication)
         if dns_endpoint_type is not None:
             pulumi.set(__self__, "dns_endpoint_type", dns_endpoint_type)
+        if enable_extended_groups is not None:
+            pulumi.set(__self__, "enable_extended_groups", enable_extended_groups)
         if enable_https_traffic_only is not None:
             pulumi.set(__self__, "enable_https_traffic_only", enable_https_traffic_only)
         if enable_nfs_v3 is not None:
@@ -297,6 +301,18 @@ class StorageAccountArgs:
     @dns_endpoint_type.setter
     def dns_endpoint_type(self, value: Optional[pulumi.Input[Union[str, 'DnsEndpointType']]]):
         pulumi.set(self, "dns_endpoint_type", value)
+
+    @property
+    @pulumi.getter(name="enableExtendedGroups")
+    def enable_extended_groups(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enables extended group support with local users feature, if set to true
+        """
+        return pulumi.get(self, "enable_extended_groups")
+
+    @enable_extended_groups.setter
+    def enable_extended_groups(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_extended_groups", value)
 
     @property
     @pulumi.getter(name="enableHttpsTrafficOnly")
@@ -530,6 +546,7 @@ class StorageAccount(pulumi.CustomResource):
                  custom_domain: Optional[pulumi.Input[pulumi.InputType['CustomDomainArgs']]] = None,
                  default_to_o_auth_authentication: Optional[pulumi.Input[bool]] = None,
                  dns_endpoint_type: Optional[pulumi.Input[Union[str, 'DnsEndpointType']]] = None,
+                 enable_extended_groups: Optional[pulumi.Input[bool]] = None,
                  enable_https_traffic_only: Optional[pulumi.Input[bool]] = None,
                  enable_nfs_v3: Optional[pulumi.Input[bool]] = None,
                  encryption: Optional[pulumi.Input[pulumi.InputType['EncryptionArgs']]] = None,
@@ -567,6 +584,7 @@ class StorageAccount(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['CustomDomainArgs']] custom_domain: User domain assigned to the storage account. Name is the CNAME source. Only one custom domain is supported per storage account at this time. To clear the existing custom domain, use an empty string for the custom domain name property.
         :param pulumi.Input[bool] default_to_o_auth_authentication: A boolean flag which indicates whether the default authentication is OAuth or not. The default interpretation is false for this property.
         :param pulumi.Input[Union[str, 'DnsEndpointType']] dns_endpoint_type: Allows you to specify the type of endpoint. Set this to AzureDNSZone to create a large number of accounts in a single subscription, which creates accounts in an Azure DNS Zone and the endpoint URL will have an alphanumeric DNS Zone identifier.
+        :param pulumi.Input[bool] enable_extended_groups: Enables extended group support with local users feature, if set to true
         :param pulumi.Input[bool] enable_https_traffic_only: Allows https traffic only to storage service if sets to true. The default value is true since API version 2019-04-01.
         :param pulumi.Input[bool] enable_nfs_v3: NFS 3.0 protocol support enabled if set to true.
         :param pulumi.Input[pulumi.InputType['EncryptionArgs']] encryption: Encryption settings to be used for server-side encryption for the storage account.
@@ -623,6 +641,7 @@ class StorageAccount(pulumi.CustomResource):
                  custom_domain: Optional[pulumi.Input[pulumi.InputType['CustomDomainArgs']]] = None,
                  default_to_o_auth_authentication: Optional[pulumi.Input[bool]] = None,
                  dns_endpoint_type: Optional[pulumi.Input[Union[str, 'DnsEndpointType']]] = None,
+                 enable_extended_groups: Optional[pulumi.Input[bool]] = None,
                  enable_https_traffic_only: Optional[pulumi.Input[bool]] = None,
                  enable_nfs_v3: Optional[pulumi.Input[bool]] = None,
                  encryption: Optional[pulumi.Input[pulumi.InputType['EncryptionArgs']]] = None,
@@ -663,6 +682,7 @@ class StorageAccount(pulumi.CustomResource):
             __props__.__dict__["custom_domain"] = custom_domain
             __props__.__dict__["default_to_o_auth_authentication"] = default_to_o_auth_authentication
             __props__.__dict__["dns_endpoint_type"] = dns_endpoint_type
+            __props__.__dict__["enable_extended_groups"] = enable_extended_groups
             __props__.__dict__["enable_https_traffic_only"] = enable_https_traffic_only
             __props__.__dict__["enable_nfs_v3"] = enable_nfs_v3
             __props__.__dict__["encryption"] = encryption
@@ -745,6 +765,7 @@ class StorageAccount(pulumi.CustomResource):
         __props__.__dict__["custom_domain"] = None
         __props__.__dict__["default_to_o_auth_authentication"] = None
         __props__.__dict__["dns_endpoint_type"] = None
+        __props__.__dict__["enable_extended_groups"] = None
         __props__.__dict__["enable_https_traffic_only"] = None
         __props__.__dict__["enable_nfs_v3"] = None
         __props__.__dict__["encryption"] = None
@@ -878,6 +899,14 @@ class StorageAccount(pulumi.CustomResource):
         Allows you to specify the type of endpoint. Set this to AzureDNSZone to create a large number of accounts in a single subscription, which creates accounts in an Azure DNS Zone and the endpoint URL will have an alphanumeric DNS Zone identifier.
         """
         return pulumi.get(self, "dns_endpoint_type")
+
+    @property
+    @pulumi.getter(name="enableExtendedGroups")
+    def enable_extended_groups(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Enables extended group support with local users feature, if set to true
+        """
+        return pulumi.get(self, "enable_extended_groups")
 
     @property
     @pulumi.getter(name="enableHttpsTrafficOnly")

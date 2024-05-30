@@ -12,7 +12,9 @@ __all__ = [
     'BgpMultiHop',
     'BmcKeySetPrivilegeLevel',
     'CloudServicesNetworkEnableDefaultEgressEndpoints',
+    'ClusterSecretArchiveEnabled',
     'ClusterType',
+    'ClusterUpdateStrategyType',
     'ConsoleEnabled',
     'DefaultGateway',
     'FabricPeeringEnabled',
@@ -24,6 +26,7 @@ __all__ = [
     'L3NetworkConfigurationIpamEnabled',
     'OsDiskCreateOption',
     'OsDiskDeleteOption',
+    'RuntimeProtectionEnforcementLevel',
     'ValidationThresholdGrouping',
     'ValidationThresholdType',
     'VirtualMachineBootMethod',
@@ -94,12 +97,27 @@ class CloudServicesNetworkEnableDefaultEgressEndpoints(str, Enum):
     FALSE = "False"
 
 
+class ClusterSecretArchiveEnabled(str, Enum):
+    """
+    The indicator if the specified key vault should be used to archive the secrets of the cluster.
+    """
+    TRUE = "True"
+    FALSE = "False"
+
+
 class ClusterType(str, Enum):
     """
     The type of rack configuration for the cluster.
     """
     SINGLE_RACK = "SingleRack"
     MULTI_RACK = "MultiRack"
+
+
+class ClusterUpdateStrategyType(str, Enum):
+    """
+    The mode of operation for runtime protection.
+    """
+    RACK = "Rack"
 
 
 class ConsoleEnabled(str, Enum):
@@ -192,6 +210,17 @@ class OsDiskDeleteOption(str, Enum):
     The strategy for deleting the OS disk.
     """
     DELETE = "Delete"
+
+
+class RuntimeProtectionEnforcementLevel(str, Enum):
+    """
+    The mode of operation for runtime protection.
+    """
+    AUDIT = "Audit"
+    DISABLED = "Disabled"
+    ON_DEMAND = "OnDemand"
+    PASSIVE = "Passive"
+    REAL_TIME = "RealTime"
 
 
 class ValidationThresholdGrouping(str, Enum):

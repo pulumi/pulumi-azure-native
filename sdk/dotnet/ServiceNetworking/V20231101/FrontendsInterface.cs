@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ServiceNetworking.V20231101
 {
     /// <summary>
-    /// Frontend Subresource of Traffic Controller.
+    /// Frontend Sub Resource of Traffic Controller.
     /// </summary>
     [AzureNativeResourceType("azure-native:servicenetworking/v20231101:FrontendsInterface")]
     public partial class FrontendsInterface : global::Pulumi.CustomResource
@@ -85,6 +85,7 @@ namespace Pulumi.AzureNative.ServiceNetworking.V20231101
                     new global::Pulumi.Alias { Type = "azure-native:servicenetworking:FrontendsInterface" },
                     new global::Pulumi.Alias { Type = "azure-native:servicenetworking/v20221001preview:FrontendsInterface" },
                     new global::Pulumi.Alias { Type = "azure-native:servicenetworking/v20230501preview:FrontendsInterface" },
+                    new global::Pulumi.Alias { Type = "azure-native:servicenetworking/v20240501preview:FrontendsInterface" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

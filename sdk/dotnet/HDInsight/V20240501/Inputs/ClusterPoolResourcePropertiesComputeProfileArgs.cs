@@ -15,6 +15,18 @@ namespace Pulumi.AzureNative.HDInsight.V20240501.Inputs
     /// </summary>
     public sealed class ClusterPoolResourcePropertiesComputeProfileArgs : global::Pulumi.ResourceArgs
     {
+        [Input("availabilityZones")]
+        private InputList<string>? _availabilityZones;
+
+        /// <summary>
+        /// The list of Availability zones to use for AKS VMSS nodes.
+        /// </summary>
+        public InputList<string> AvailabilityZones
+        {
+            get => _availabilityZones ?? (_availabilityZones = new InputList<string>());
+            set => _availabilityZones = value;
+        }
+
         /// <summary>
         /// The virtual machine SKU.
         /// </summary>

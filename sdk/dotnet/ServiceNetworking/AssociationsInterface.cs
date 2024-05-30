@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceNetworking
     /// Association Subresource of Traffic Controller
     /// Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2022-10-01-preview.
     /// 
-    /// Other available API versions: 2022-10-01-preview, 2023-11-01.
+    /// Other available API versions: 2022-10-01-preview, 2023-11-01, 2024-05-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:servicenetworking:AssociationsInterface")]
     public partial class AssociationsInterface : global::Pulumi.CustomResource
@@ -94,6 +94,7 @@ namespace Pulumi.AzureNative.ServiceNetworking
                     new global::Pulumi.Alias { Type = "azure-native:servicenetworking/v20221001preview:AssociationsInterface" },
                     new global::Pulumi.Alias { Type = "azure-native:servicenetworking/v20230501preview:AssociationsInterface" },
                     new global::Pulumi.Alias { Type = "azure-native:servicenetworking/v20231101:AssociationsInterface" },
+                    new global::Pulumi.Alias { Type = "azure-native:servicenetworking/v20240501preview:AssociationsInterface" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

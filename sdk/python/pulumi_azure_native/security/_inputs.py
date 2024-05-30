@@ -89,6 +89,8 @@ __all__ = [
     'DefenderForServersGcpOfferingArgs',
     'DenylistCustomAlertRuleArgs',
     'DevOpsConfigurationPropertiesArgs',
+    'DevOpsPolicyAssignmentPropertiesArgs',
+    'DevOpsPolicyDescriptorArgs',
     'ExtensionArgs',
     'GcpCredentialsDetailsPropertiesArgs',
     'GcpOrganizationalDataMemberArgs',
@@ -3613,6 +3615,150 @@ class DevOpsConfigurationPropertiesArgs:
     @top_level_inventory_list.setter
     def top_level_inventory_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "top_level_inventory_list", value)
+
+
+@pulumi.input_type
+class DevOpsPolicyAssignmentPropertiesArgs:
+    def __init__(__self__, *,
+                 assigned_at: Optional[pulumi.Input[str]] = None,
+                 descendant_behavior: Optional[pulumi.Input[Union[str, 'DescendantBehavior']]] = None,
+                 policy: Optional[pulumi.Input['DevOpsPolicyDescriptorArgs']] = None,
+                 resource_id: Optional[pulumi.Input[str]] = None):
+        """
+        Properties of the DevOps policy assignment resource.
+        :param pulumi.Input[str] assigned_at: Gets or sets time when the assignment was created in UTC.
+        :param pulumi.Input[Union[str, 'DescendantBehavior']] descendant_behavior: The behavior of a policy on descendant resources.
+        :param pulumi.Input['DevOpsPolicyDescriptorArgs'] policy: Condensed information to identify a DevOps Policy resource.
+        :param pulumi.Input[str] resource_id: Gets or sets the Azure resource id.
+        """
+        if assigned_at is not None:
+            pulumi.set(__self__, "assigned_at", assigned_at)
+        if descendant_behavior is not None:
+            pulumi.set(__self__, "descendant_behavior", descendant_behavior)
+        if policy is not None:
+            pulumi.set(__self__, "policy", policy)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter(name="assignedAt")
+    def assigned_at(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets time when the assignment was created in UTC.
+        """
+        return pulumi.get(self, "assigned_at")
+
+    @assigned_at.setter
+    def assigned_at(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "assigned_at", value)
+
+    @property
+    @pulumi.getter(name="descendantBehavior")
+    def descendant_behavior(self) -> Optional[pulumi.Input[Union[str, 'DescendantBehavior']]]:
+        """
+        The behavior of a policy on descendant resources.
+        """
+        return pulumi.get(self, "descendant_behavior")
+
+    @descendant_behavior.setter
+    def descendant_behavior(self, value: Optional[pulumi.Input[Union[str, 'DescendantBehavior']]]):
+        pulumi.set(self, "descendant_behavior", value)
+
+    @property
+    @pulumi.getter
+    def policy(self) -> Optional[pulumi.Input['DevOpsPolicyDescriptorArgs']]:
+        """
+        Condensed information to identify a DevOps Policy resource.
+        """
+        return pulumi.get(self, "policy")
+
+    @policy.setter
+    def policy(self, value: Optional[pulumi.Input['DevOpsPolicyDescriptorArgs']]):
+        pulumi.set(self, "policy", value)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the Azure resource id.
+        """
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_id", value)
+
+
+@pulumi.input_type
+class DevOpsPolicyDescriptorArgs:
+    def __init__(__self__, *,
+                 policy_id: Optional[pulumi.Input[str]] = None,
+                 policy_name: Optional[pulumi.Input[str]] = None,
+                 policy_type: Optional[pulumi.Input[Union[str, 'DevOpsPolicyType']]] = None,
+                 policy_version: Optional[pulumi.Input[str]] = None):
+        """
+        Condensed information to identify a DevOps Policy resource.
+        :param pulumi.Input[str] policy_id: Gets or sets the policy GUID.
+        :param pulumi.Input[str] policy_name: Gets or sets the policy name.
+        :param pulumi.Input[Union[str, 'DevOpsPolicyType']] policy_type: DevOps Policy resource types.
+        :param pulumi.Input[str] policy_version: Gets or sets the version.
+        """
+        if policy_id is not None:
+            pulumi.set(__self__, "policy_id", policy_id)
+        if policy_name is not None:
+            pulumi.set(__self__, "policy_name", policy_name)
+        if policy_type is not None:
+            pulumi.set(__self__, "policy_type", policy_type)
+        if policy_version is not None:
+            pulumi.set(__self__, "policy_version", policy_version)
+
+    @property
+    @pulumi.getter(name="policyId")
+    def policy_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the policy GUID.
+        """
+        return pulumi.get(self, "policy_id")
+
+    @policy_id.setter
+    def policy_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "policy_id", value)
+
+    @property
+    @pulumi.getter(name="policyName")
+    def policy_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the policy name.
+        """
+        return pulumi.get(self, "policy_name")
+
+    @policy_name.setter
+    def policy_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "policy_name", value)
+
+    @property
+    @pulumi.getter(name="policyType")
+    def policy_type(self) -> Optional[pulumi.Input[Union[str, 'DevOpsPolicyType']]]:
+        """
+        DevOps Policy resource types.
+        """
+        return pulumi.get(self, "policy_type")
+
+    @policy_type.setter
+    def policy_type(self, value: Optional[pulumi.Input[Union[str, 'DevOpsPolicyType']]]):
+        pulumi.set(self, "policy_type", value)
+
+    @property
+    @pulumi.getter(name="policyVersion")
+    def policy_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the version.
+        """
+        return pulumi.get(self, "policy_version")
+
+    @policy_version.setter
+    def policy_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "policy_version", value)
 
 
 @pulumi.input_type

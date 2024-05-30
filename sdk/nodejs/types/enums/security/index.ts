@@ -20,6 +20,7 @@ import * as v20231201preview from "./v20231201preview";
 import * as v20240101 from "./v20240101";
 import * as v20240301preview from "./v20240301preview";
 import * as v20240401 from "./v20240401";
+import * as v20240515preview from "./v20240515preview";
 
 export {
     v20170801preview,
@@ -40,6 +41,7 @@ export {
     v20240101,
     v20240301preview,
     v20240401,
+    v20240515preview,
 };
 
 export const ActionType = {
@@ -206,6 +208,27 @@ export const DataSource = {
 } as const;
 
 export type DataSource = (typeof DataSource)[keyof typeof DataSource];
+
+export const DescendantBehavior = {
+    Unknown: "Unknown",
+    Override: "Override",
+    FallBack: "FallBack",
+} as const;
+
+/**
+ * The behavior of a policy on descendant resources.
+ */
+export type DescendantBehavior = (typeof DescendantBehavior)[keyof typeof DescendantBehavior];
+
+export const DevOpsPolicyType = {
+    Unknown: "Unknown",
+    Pipeline: "Pipeline",
+} as const;
+
+/**
+ * DevOps Policy resource types.
+ */
+export type DevOpsPolicyType = (typeof DevOpsPolicyType)[keyof typeof DevOpsPolicyType];
 
 export const DevOpsProvisioningState = {
     Succeeded: "Succeeded",

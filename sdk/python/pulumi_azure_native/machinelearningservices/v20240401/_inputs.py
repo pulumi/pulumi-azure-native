@@ -76,6 +76,7 @@ __all__ = [
     'ComputeStartStopScheduleArgs',
     'ContainerResourceRequirementsArgs',
     'ContainerResourceSettingsArgs',
+    'ContentSafetyArgs',
     'CosmosDbSettingsArgs',
     'CreateMonitorActionArgs',
     'CronTriggerArgs',
@@ -169,10 +170,12 @@ __all__ = [
     'ManagedNetworkSettingsArgs',
     'ManagedOnlineDeploymentArgs',
     'ManagedServiceIdentityArgs',
+    'MarketplaceSubscriptionArgs',
     'MaterializationComputeResourceArgs',
     'MaterializationSettingsArgs',
     'MedianStoppingPolicyArgs',
     'ModelContainerArgs',
+    'ModelSettingsArgs',
     'ModelVersionArgs',
     'MonitorDefinitionArgs',
     'MonitorEmailNotificationSettingsArgs',
@@ -230,6 +233,7 @@ __all__ = [
     'ScriptReferenceArgs',
     'ScriptsToExecuteArgs',
     'ServerlessComputeSettingsArgs',
+    'ServerlessEndpointArgs',
     'ServiceManagedResourcesSettingsArgs',
     'ServicePrincipalAuthTypeWorkspaceConnectionPropertiesArgs',
     'ServicePrincipalDatastoreCredentialsArgs',
@@ -6197,6 +6201,28 @@ class ContainerResourceSettingsArgs:
     @memory.setter
     def memory(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "memory", value)
+
+
+@pulumi.input_type
+class ContentSafetyArgs:
+    def __init__(__self__, *,
+                 content_safety_status: pulumi.Input[Union[str, 'ContentSafetyStatus']]):
+        """
+        :param pulumi.Input[Union[str, 'ContentSafetyStatus']] content_safety_status: [Required] Specifies the status of content safety.
+        """
+        pulumi.set(__self__, "content_safety_status", content_safety_status)
+
+    @property
+    @pulumi.getter(name="contentSafetyStatus")
+    def content_safety_status(self) -> pulumi.Input[Union[str, 'ContentSafetyStatus']]:
+        """
+        [Required] Specifies the status of content safety.
+        """
+        return pulumi.get(self, "content_safety_status")
+
+    @content_safety_status.setter
+    def content_safety_status(self, value: pulumi.Input[Union[str, 'ContentSafetyStatus']]):
+        pulumi.set(self, "content_safety_status", value)
 
 
 @pulumi.input_type
@@ -16362,6 +16388,28 @@ class ManagedServiceIdentityArgs:
 
 
 @pulumi.input_type
+class MarketplaceSubscriptionArgs:
+    def __init__(__self__, *,
+                 model_id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] model_id: [Required] Target Marketplace Model ID to create a Marketplace Subscription for.
+        """
+        pulumi.set(__self__, "model_id", model_id)
+
+    @property
+    @pulumi.getter(name="modelId")
+    def model_id(self) -> pulumi.Input[str]:
+        """
+        [Required] Target Marketplace Model ID to create a Marketplace Subscription for.
+        """
+        return pulumi.get(self, "model_id")
+
+    @model_id.setter
+    def model_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "model_id", value)
+
+
+@pulumi.input_type
 class MaterializationComputeResourceArgs:
     def __init__(__self__, *,
                  instance_type: Optional[pulumi.Input[str]] = None):
@@ -16606,6 +16654,29 @@ class ModelContainerArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+
+@pulumi.input_type
+class ModelSettingsArgs:
+    def __init__(__self__, *,
+                 model_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] model_id: The unique model identifier that this ServerlessEndpoint should provision.
+        """
+        if model_id is not None:
+            pulumi.set(__self__, "model_id", model_id)
+
+    @property
+    @pulumi.getter(name="modelId")
+    def model_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The unique model identifier that this ServerlessEndpoint should provision.
+        """
+        return pulumi.get(self, "model_id")
+
+    @model_id.setter
+    def model_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "model_id", value)
 
 
 @pulumi.input_type
@@ -21080,6 +21151,60 @@ class ServerlessComputeSettingsArgs:
     @serverless_compute_no_public_ip.setter
     def serverless_compute_no_public_ip(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "serverless_compute_no_public_ip", value)
+
+
+@pulumi.input_type
+class ServerlessEndpointArgs:
+    def __init__(__self__, *,
+                 auth_mode: pulumi.Input[Union[str, 'ServerlessInferenceEndpointAuthMode']],
+                 content_safety: Optional[pulumi.Input['ContentSafetyArgs']] = None,
+                 model_settings: Optional[pulumi.Input['ModelSettingsArgs']] = None):
+        """
+        :param pulumi.Input[Union[str, 'ServerlessInferenceEndpointAuthMode']] auth_mode: [Required] Specifies the authentication mode for the Serverless endpoint.
+        :param pulumi.Input['ContentSafetyArgs'] content_safety: Specifies the content safety options. If omitted, the default content safety settings will be configured
+        :param pulumi.Input['ModelSettingsArgs'] model_settings: The model settings (model id) for the model being serviced on the ServerlessEndpoint.
+        """
+        pulumi.set(__self__, "auth_mode", auth_mode)
+        if content_safety is not None:
+            pulumi.set(__self__, "content_safety", content_safety)
+        if model_settings is not None:
+            pulumi.set(__self__, "model_settings", model_settings)
+
+    @property
+    @pulumi.getter(name="authMode")
+    def auth_mode(self) -> pulumi.Input[Union[str, 'ServerlessInferenceEndpointAuthMode']]:
+        """
+        [Required] Specifies the authentication mode for the Serverless endpoint.
+        """
+        return pulumi.get(self, "auth_mode")
+
+    @auth_mode.setter
+    def auth_mode(self, value: pulumi.Input[Union[str, 'ServerlessInferenceEndpointAuthMode']]):
+        pulumi.set(self, "auth_mode", value)
+
+    @property
+    @pulumi.getter(name="contentSafety")
+    def content_safety(self) -> Optional[pulumi.Input['ContentSafetyArgs']]:
+        """
+        Specifies the content safety options. If omitted, the default content safety settings will be configured
+        """
+        return pulumi.get(self, "content_safety")
+
+    @content_safety.setter
+    def content_safety(self, value: Optional[pulumi.Input['ContentSafetyArgs']]):
+        pulumi.set(self, "content_safety", value)
+
+    @property
+    @pulumi.getter(name="modelSettings")
+    def model_settings(self) -> Optional[pulumi.Input['ModelSettingsArgs']]:
+        """
+        The model settings (model id) for the model being serviced on the ServerlessEndpoint.
+        """
+        return pulumi.get(self, "model_settings")
+
+    @model_settings.setter
+    def model_settings(self, value: Optional[pulumi.Input['ModelSettingsArgs']]):
+        pulumi.set(self, "model_settings", value)
 
 
 @pulumi.input_type

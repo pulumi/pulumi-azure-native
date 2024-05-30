@@ -70,7 +70,7 @@ export interface GetApplicationResult {
     /**
      * The tracking data stores.
      */
-    readonly trackingDataStores: {[key: string]: outputs.integrationspaces.v20231114preview.TrackingDataStoreResponse};
+    readonly trackingDataStores?: {[key: string]: outputs.integrationspaces.v20231114preview.TrackingDataStoreResponse};
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */

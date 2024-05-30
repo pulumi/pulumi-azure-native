@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SignalRService
     /// A private endpoint connection to an azure resource
     /// Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-05-01.
     /// 
-    /// Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview.
+    /// Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:signalrservice:SignalRPrivateEndpointConnection")]
     public partial class SignalRPrivateEndpointConnection : global::Pulumi.CustomResource
@@ -98,6 +98,7 @@ namespace Pulumi.AzureNative.SignalRService
                     new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20230601preview:SignalRPrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20230801preview:SignalRPrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20240101preview:SignalRPrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20240301:SignalRPrivateEndpointConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

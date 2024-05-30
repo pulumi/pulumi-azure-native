@@ -13,18 +13,18 @@ namespace Pulumi.AzureNative.NetworkCloud
     {
         /// <summary>
         /// Get properties of the provided cluster.
-        /// Azure REST API version: 2023-05-01-preview.
+        /// Azure REST API version: 2023-10-01-preview.
         /// 
-        /// Other available API versions: 2023-07-01, 2023-10-01-preview.
+        /// Other available API versions: 2023-07-01.
         /// </summary>
         public static Task<GetClusterResult> InvokeAsync(GetClusterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("azure-native:networkcloud:getCluster", args ?? new GetClusterArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get properties of the provided cluster.
-        /// Azure REST API version: 2023-05-01-preview.
+        /// Azure REST API version: 2023-10-01-preview.
         /// 
-        /// Other available API versions: 2023-07-01, 2023-10-01-preview.
+        /// Other available API versions: 2023-07-01.
         /// </summary>
         public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterResult>("azure-native:networkcloud:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());
@@ -177,6 +177,14 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
+        /// The settings for cluster runtime protection.
+        /// </summary>
+        public readonly Outputs.RuntimeProtectionConfigurationResponse? RuntimeProtectionConfiguration;
+        /// <summary>
+        /// The configuration for use of a key vault to store secrets for later retrieval by the operator.
+        /// </summary>
+        public readonly Outputs.ClusterSecretArchiveResponse? SecretArchive;
+        /// <summary>
         /// The support end date of the runtime version of the cluster.
         /// </summary>
         public readonly string SupportExpiryDate;
@@ -192,6 +200,10 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The strategy for updating the cluster.
+        /// </summary>
+        public readonly Outputs.ClusterUpdateStrategyResponse? UpdateStrategy;
         /// <summary>
         /// The list of workload resource IDs that are hosted within this cluster.
         /// </summary>
@@ -249,6 +261,10 @@ namespace Pulumi.AzureNative.NetworkCloud
 
             string provisioningState,
 
+            Outputs.RuntimeProtectionConfigurationResponse? runtimeProtectionConfiguration,
+
+            Outputs.ClusterSecretArchiveResponse? secretArchive,
+
             string supportExpiryDate,
 
             Outputs.SystemDataResponse systemData,
@@ -256,6 +272,8 @@ namespace Pulumi.AzureNative.NetworkCloud
             ImmutableDictionary<string, string>? tags,
 
             string type,
+
+            Outputs.ClusterUpdateStrategyResponse? updateStrategy,
 
             ImmutableArray<string> workloadResourceIds)
         {
@@ -284,10 +302,13 @@ namespace Pulumi.AzureNative.NetworkCloud
             Name = name;
             NetworkFabricId = networkFabricId;
             ProvisioningState = provisioningState;
+            RuntimeProtectionConfiguration = runtimeProtectionConfiguration;
+            SecretArchive = secretArchive;
             SupportExpiryDate = supportExpiryDate;
             SystemData = systemData;
             Tags = tags;
             Type = type;
+            UpdateStrategy = updateStrategy;
             WorkloadResourceIds = workloadResourceIds;
         }
     }

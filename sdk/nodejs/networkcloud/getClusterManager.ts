@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Get the properties of the provided cluster manager.
- * Azure REST API version: 2023-05-01-preview.
+ * Azure REST API version: 2023-10-01-preview.
  *
- * Other available API versions: 2023-07-01, 2023-10-01-preview.
+ * Other available API versions: 2023-07-01.
  */
 export function getClusterManager(args: GetClusterManagerArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterManagerResult> {
 
@@ -101,9 +101,9 @@ export interface GetClusterManagerResult {
 }
 /**
  * Get the properties of the provided cluster manager.
- * Azure REST API version: 2023-05-01-preview.
+ * Azure REST API version: 2023-10-01-preview.
  *
- * Other available API versions: 2023-07-01, 2023-10-01-preview.
+ * Other available API versions: 2023-07-01.
  */
 export function getClusterManagerOutput(args: GetClusterManagerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterManagerResult> {
     return pulumi.output(args).apply((a: any) => getClusterManager(a, opts))

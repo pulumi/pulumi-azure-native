@@ -20,6 +20,9 @@ namespace Pulumi.AzureNative.ServiceNetworking.V20231101
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Association of Type Subnet
+        /// </summary>
         public static AssociationType Subnets { get; } = new AssociationType("subnets");
 
         public static bool operator ==(AssociationType left, AssociationType right) => left.Equals(right);

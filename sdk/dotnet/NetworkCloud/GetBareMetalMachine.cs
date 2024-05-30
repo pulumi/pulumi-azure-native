@@ -13,18 +13,18 @@ namespace Pulumi.AzureNative.NetworkCloud
     {
         /// <summary>
         /// Get properties of the provided bare metal machine.
-        /// Azure REST API version: 2023-05-01-preview.
+        /// Azure REST API version: 2023-10-01-preview.
         /// 
-        /// Other available API versions: 2023-07-01, 2023-10-01-preview.
+        /// Other available API versions: 2023-07-01.
         /// </summary>
         public static Task<GetBareMetalMachineResult> InvokeAsync(GetBareMetalMachineArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBareMetalMachineResult>("azure-native:networkcloud:getBareMetalMachine", args ?? new GetBareMetalMachineArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get properties of the provided bare metal machine.
-        /// Azure REST API version: 2023-05-01-preview.
+        /// Azure REST API version: 2023-10-01-preview.
         /// 
-        /// Other available API versions: 2023-07-01, 2023-10-01-preview.
+        /// Other available API versions: 2023-07-01.
         /// </summary>
         public static Output<GetBareMetalMachineResult> Invoke(GetBareMetalMachineInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBareMetalMachineResult>("azure-native:networkcloud:getBareMetalMachine", args ?? new GetBareMetalMachineInvokeArgs(), options.WithDefaults());
@@ -152,6 +152,10 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// </summary>
         public readonly string MachineName;
         /// <summary>
+        /// The list of roles that are assigned to the cluster node running on this machine.
+        /// </summary>
+        public readonly ImmutableArray<string> MachineRoles;
+        /// <summary>
         /// The unique internal identifier of the bare metal machine SKU.
         /// </summary>
         public readonly string MachineSkuId;
@@ -191,6 +195,10 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// The indicator of whether the bare metal machine is ready to receive workloads.
         /// </summary>
         public readonly string ReadyState;
+        /// <summary>
+        /// The runtime protection status of the bare metal machine.
+        /// </summary>
+        public readonly Outputs.RuntimeProtectionStatusResponse RuntimeProtectionStatus;
         /// <summary>
         /// The serial number of the bare metal machine.
         /// </summary>
@@ -256,6 +264,8 @@ namespace Pulumi.AzureNative.NetworkCloud
 
             string machineName,
 
+            ImmutableArray<string> machineRoles,
+
             string machineSkuId,
 
             string name,
@@ -275,6 +285,8 @@ namespace Pulumi.AzureNative.NetworkCloud
             double rackSlot,
 
             string readyState,
+
+            Outputs.RuntimeProtectionStatusResponse runtimeProtectionStatus,
 
             string serialNumber,
 
@@ -307,6 +319,7 @@ namespace Pulumi.AzureNative.NetworkCloud
             Location = location;
             MachineDetails = machineDetails;
             MachineName = machineName;
+            MachineRoles = machineRoles;
             MachineSkuId = machineSkuId;
             Name = name;
             OamIpv4Address = oamIpv4Address;
@@ -317,6 +330,7 @@ namespace Pulumi.AzureNative.NetworkCloud
             RackId = rackId;
             RackSlot = rackSlot;
             ReadyState = readyState;
+            RuntimeProtectionStatus = runtimeProtectionStatus;
             SerialNumber = serialNumber;
             ServiceTag = serviceTag;
             SystemData = systemData;

@@ -20,7 +20,7 @@ __all__ = [
 @pulumi.output_type
 class GetFrontendsInterfaceResult:
     """
-    Frontend Subresource of Traffic Controller.
+    Frontend Sub Resource of Traffic Controller.
     """
     def __init__(__self__, fqdn=None, id=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None):
         if fqdn and not isinstance(fqdn, str):

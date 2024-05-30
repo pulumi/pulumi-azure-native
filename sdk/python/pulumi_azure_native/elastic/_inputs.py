@@ -16,9 +16,11 @@ __all__ = [
     'IdentityPropertiesArgs',
     'LogRulesArgs',
     'MonitorPropertiesArgs',
+    'MonitoredSubscriptionArgs',
     'MonitoringTagRulesPropertiesArgs',
     'OpenAIIntegrationPropertiesArgs',
     'ResourceSkuArgs',
+    'SubscriptionListArgs',
     'UserInfoArgs',
 ]
 
@@ -351,6 +353,78 @@ class MonitorPropertiesArgs:
 
 
 @pulumi.input_type
+class MonitoredSubscriptionArgs:
+    def __init__(__self__, *,
+                 error: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[Union[str, 'Status']]] = None,
+                 subscription_id: Optional[pulumi.Input[str]] = None,
+                 tag_rules: Optional[pulumi.Input['MonitoringTagRulesPropertiesArgs']] = None):
+        """
+        The list of subscriptions and it's monitoring status by current Elastic monitor.
+        :param pulumi.Input[str] error: The reason of not monitoring the subscription.
+        :param pulumi.Input[Union[str, 'Status']] status: The state of monitoring.
+        :param pulumi.Input[str] subscription_id: The subscriptionId to be monitored.
+        :param pulumi.Input['MonitoringTagRulesPropertiesArgs'] tag_rules: Definition of the properties for a TagRules resource.
+        """
+        if error is not None:
+            pulumi.set(__self__, "error", error)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if subscription_id is not None:
+            pulumi.set(__self__, "subscription_id", subscription_id)
+        if tag_rules is not None:
+            pulumi.set(__self__, "tag_rules", tag_rules)
+
+    @property
+    @pulumi.getter
+    def error(self) -> Optional[pulumi.Input[str]]:
+        """
+        The reason of not monitoring the subscription.
+        """
+        return pulumi.get(self, "error")
+
+    @error.setter
+    def error(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "error", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[Union[str, 'Status']]]:
+        """
+        The state of monitoring.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[Union[str, 'Status']]]):
+        pulumi.set(self, "status", value)
+
+    @property
+    @pulumi.getter(name="subscriptionId")
+    def subscription_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The subscriptionId to be monitored.
+        """
+        return pulumi.get(self, "subscription_id")
+
+    @subscription_id.setter
+    def subscription_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subscription_id", value)
+
+    @property
+    @pulumi.getter(name="tagRules")
+    def tag_rules(self) -> Optional[pulumi.Input['MonitoringTagRulesPropertiesArgs']]:
+        """
+        Definition of the properties for a TagRules resource.
+        """
+        return pulumi.get(self, "tag_rules")
+
+    @tag_rules.setter
+    def tag_rules(self, value: Optional[pulumi.Input['MonitoringTagRulesPropertiesArgs']]):
+        pulumi.set(self, "tag_rules", value)
+
+
+@pulumi.input_type
 class MonitoringTagRulesPropertiesArgs:
     def __init__(__self__, *,
                  log_rules: Optional[pulumi.Input['LogRulesArgs']] = None,
@@ -467,6 +541,46 @@ class ResourceSkuArgs:
     @name.setter
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class SubscriptionListArgs:
+    def __init__(__self__, *,
+                 monitored_subscription_list: Optional[pulumi.Input[Sequence[pulumi.Input['MonitoredSubscriptionArgs']]]] = None,
+                 operation: Optional[pulumi.Input[Union[str, 'Operation']]] = None):
+        """
+        The request to update subscriptions needed to be monitored by the Elastic monitor resource.
+        :param pulumi.Input[Sequence[pulumi.Input['MonitoredSubscriptionArgs']]] monitored_subscription_list: List of subscriptions and the state of the monitoring.
+        :param pulumi.Input[Union[str, 'Operation']] operation: The operation for the patch on the resource.
+        """
+        if monitored_subscription_list is not None:
+            pulumi.set(__self__, "monitored_subscription_list", monitored_subscription_list)
+        if operation is not None:
+            pulumi.set(__self__, "operation", operation)
+
+    @property
+    @pulumi.getter(name="monitoredSubscriptionList")
+    def monitored_subscription_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MonitoredSubscriptionArgs']]]]:
+        """
+        List of subscriptions and the state of the monitoring.
+        """
+        return pulumi.get(self, "monitored_subscription_list")
+
+    @monitored_subscription_list.setter
+    def monitored_subscription_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MonitoredSubscriptionArgs']]]]):
+        pulumi.set(self, "monitored_subscription_list", value)
+
+    @property
+    @pulumi.getter
+    def operation(self) -> Optional[pulumi.Input[Union[str, 'Operation']]]:
+        """
+        The operation for the patch on the resource.
+        """
+        return pulumi.get(self, "operation")
+
+    @operation.setter
+    def operation(self, value: Optional[pulumi.Input[Union[str, 'Operation']]]):
+        pulumi.set(self, "operation", value)
 
 
 @pulumi.input_type

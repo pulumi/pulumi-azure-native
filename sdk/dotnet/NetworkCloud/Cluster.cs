@@ -10,9 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.NetworkCloud
 {
     /// <summary>
-    /// Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview.
+    /// Azure REST API version: 2023-10-01-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview.
     /// 
-    /// Other available API versions: 2023-07-01, 2023-10-01-preview.
+    /// Other available API versions: 2023-07-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:networkcloud:Cluster")]
     public partial class Cluster : global::Pulumi.CustomResource
@@ -163,6 +163,18 @@ namespace Pulumi.AzureNative.NetworkCloud
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
+        /// The settings for cluster runtime protection.
+        /// </summary>
+        [Output("runtimeProtectionConfiguration")]
+        public Output<Outputs.RuntimeProtectionConfigurationResponse?> RuntimeProtectionConfiguration { get; private set; } = null!;
+
+        /// <summary>
+        /// The configuration for use of a key vault to store secrets for later retrieval by the operator.
+        /// </summary>
+        [Output("secretArchive")]
+        public Output<Outputs.ClusterSecretArchiveResponse?> SecretArchive { get; private set; } = null!;
+
+        /// <summary>
         /// The support end date of the runtime version of the cluster.
         /// </summary>
         [Output("supportExpiryDate")]
@@ -185,6 +197,12 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The strategy for updating the cluster.
+        /// </summary>
+        [Output("updateStrategy")]
+        public Output<Outputs.ClusterUpdateStrategyResponse?> UpdateStrategy { get; private set; } = null!;
 
         /// <summary>
         /// The list of workload resource IDs that are hosted within this cluster.
@@ -217,7 +235,6 @@ namespace Pulumi.AzureNative.NetworkCloud
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20230501preview:Cluster" },
                     new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20230701:Cluster" },
                     new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20231001preview:Cluster" },
                 },
@@ -334,6 +351,18 @@ namespace Pulumi.AzureNative.NetworkCloud
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
+        /// <summary>
+        /// The settings for cluster runtime protection.
+        /// </summary>
+        [Input("runtimeProtectionConfiguration")]
+        public Input<Inputs.RuntimeProtectionConfigurationArgs>? RuntimeProtectionConfiguration { get; set; }
+
+        /// <summary>
+        /// The configuration for use of a key vault to store secrets for later retrieval by the operator.
+        /// </summary>
+        [Input("secretArchive")]
+        public Input<Inputs.ClusterSecretArchiveArgs>? SecretArchive { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -345,6 +374,12 @@ namespace Pulumi.AzureNative.NetworkCloud
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// The strategy for updating the cluster.
+        /// </summary>
+        [Input("updateStrategy")]
+        public Input<Inputs.ClusterUpdateStrategyArgs>? UpdateStrategy { get; set; }
 
         public ClusterArgs()
         {

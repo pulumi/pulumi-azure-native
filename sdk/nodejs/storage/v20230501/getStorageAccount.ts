@@ -88,6 +88,10 @@ export interface GetStorageAccountResult {
      */
     readonly dnsEndpointType?: string;
     /**
+     * Enables extended group support with local users feature, if set to true
+     */
+    readonly enableExtendedGroups?: boolean;
+    /**
      * Allows https traffic only to storage service if sets to true.
      */
     readonly enableHttpsTrafficOnly?: boolean;

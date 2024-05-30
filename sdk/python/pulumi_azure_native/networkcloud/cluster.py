@@ -31,7 +31,10 @@ class ClusterArgs:
                  compute_rack_definitions: Optional[pulumi.Input[Sequence[pulumi.Input['RackDefinitionArgs']]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  managed_resource_group_configuration: Optional[pulumi.Input['ManagedResourceGroupConfigurationArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 runtime_protection_configuration: Optional[pulumi.Input['RuntimeProtectionConfigurationArgs']] = None,
+                 secret_archive: Optional[pulumi.Input['ClusterSecretArchiveArgs']] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 update_strategy: Optional[pulumi.Input['ClusterUpdateStrategyArgs']] = None):
         """
         The set of arguments for constructing a Cluster resource.
         :param pulumi.Input['RackDefinitionArgs'] aggregator_or_single_rack_definition: The rack definition that is intended to reflect only a single rack in a single rack cluster, or an aggregator rack in a multi-rack cluster.
@@ -49,7 +52,10 @@ class ClusterArgs:
                cluster, or an empty list in a single-rack cluster.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input['ManagedResourceGroupConfigurationArgs'] managed_resource_group_configuration: The configuration of the managed resource group associated with the resource.
+        :param pulumi.Input['RuntimeProtectionConfigurationArgs'] runtime_protection_configuration: The settings for cluster runtime protection.
+        :param pulumi.Input['ClusterSecretArchiveArgs'] secret_archive: The configuration for use of a key vault to store secrets for later retrieval by the operator.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        :param pulumi.Input['ClusterUpdateStrategyArgs'] update_strategy: The strategy for updating the cluster.
         """
         pulumi.set(__self__, "aggregator_or_single_rack_definition", aggregator_or_single_rack_definition)
         pulumi.set(__self__, "cluster_type", cluster_type)
@@ -73,8 +79,14 @@ class ClusterArgs:
             pulumi.set(__self__, "location", location)
         if managed_resource_group_configuration is not None:
             pulumi.set(__self__, "managed_resource_group_configuration", managed_resource_group_configuration)
+        if runtime_protection_configuration is not None:
+            pulumi.set(__self__, "runtime_protection_configuration", runtime_protection_configuration)
+        if secret_archive is not None:
+            pulumi.set(__self__, "secret_archive", secret_archive)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if update_strategy is not None:
+            pulumi.set(__self__, "update_strategy", update_strategy)
 
     @property
     @pulumi.getter(name="aggregatorOrSingleRackDefinition")
@@ -246,6 +258,30 @@ class ClusterArgs:
         pulumi.set(self, "managed_resource_group_configuration", value)
 
     @property
+    @pulumi.getter(name="runtimeProtectionConfiguration")
+    def runtime_protection_configuration(self) -> Optional[pulumi.Input['RuntimeProtectionConfigurationArgs']]:
+        """
+        The settings for cluster runtime protection.
+        """
+        return pulumi.get(self, "runtime_protection_configuration")
+
+    @runtime_protection_configuration.setter
+    def runtime_protection_configuration(self, value: Optional[pulumi.Input['RuntimeProtectionConfigurationArgs']]):
+        pulumi.set(self, "runtime_protection_configuration", value)
+
+    @property
+    @pulumi.getter(name="secretArchive")
+    def secret_archive(self) -> Optional[pulumi.Input['ClusterSecretArchiveArgs']]:
+        """
+        The configuration for use of a key vault to store secrets for later retrieval by the operator.
+        """
+        return pulumi.get(self, "secret_archive")
+
+    @secret_archive.setter
+    def secret_archive(self, value: Optional[pulumi.Input['ClusterSecretArchiveArgs']]):
+        pulumi.set(self, "secret_archive", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -256,6 +292,18 @@ class ClusterArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="updateStrategy")
+    def update_strategy(self) -> Optional[pulumi.Input['ClusterUpdateStrategyArgs']]:
+        """
+        The strategy for updating the cluster.
+        """
+        return pulumi.get(self, "update_strategy")
+
+    @update_strategy.setter
+    def update_strategy(self, value: Optional[pulumi.Input['ClusterUpdateStrategyArgs']]):
+        pulumi.set(self, "update_strategy", value)
 
 
 class Cluster(pulumi.CustomResource):
@@ -277,12 +325,15 @@ class Cluster(pulumi.CustomResource):
                  managed_resource_group_configuration: Optional[pulumi.Input[pulumi.InputType['ManagedResourceGroupConfigurationArgs']]] = None,
                  network_fabric_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 runtime_protection_configuration: Optional[pulumi.Input[pulumi.InputType['RuntimeProtectionConfigurationArgs']]] = None,
+                 secret_archive: Optional[pulumi.Input[pulumi.InputType['ClusterSecretArchiveArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 update_strategy: Optional[pulumi.Input[pulumi.InputType['ClusterUpdateStrategyArgs']]] = None,
                  __props__=None):
         """
-        Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview.
+        Azure REST API version: 2023-10-01-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview.
 
-        Other available API versions: 2023-07-01, 2023-10-01-preview.
+        Other available API versions: 2023-07-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -301,7 +352,10 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ManagedResourceGroupConfigurationArgs']] managed_resource_group_configuration: The configuration of the managed resource group associated with the resource.
         :param pulumi.Input[str] network_fabric_id: The resource ID of the Network Fabric associated with the cluster.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[pulumi.InputType['RuntimeProtectionConfigurationArgs']] runtime_protection_configuration: The settings for cluster runtime protection.
+        :param pulumi.Input[pulumi.InputType['ClusterSecretArchiveArgs']] secret_archive: The configuration for use of a key vault to store secrets for later retrieval by the operator.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        :param pulumi.Input[pulumi.InputType['ClusterUpdateStrategyArgs']] update_strategy: The strategy for updating the cluster.
         """
         ...
     @overload
@@ -310,9 +364,9 @@ class Cluster(pulumi.CustomResource):
                  args: ClusterArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview.
+        Azure REST API version: 2023-10-01-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview.
 
-        Other available API versions: 2023-07-01, 2023-10-01-preview.
+        Other available API versions: 2023-07-01.
 
         :param str resource_name: The name of the resource.
         :param ClusterArgs args: The arguments to use to populate this resource's properties.
@@ -343,7 +397,10 @@ class Cluster(pulumi.CustomResource):
                  managed_resource_group_configuration: Optional[pulumi.Input[pulumi.InputType['ManagedResourceGroupConfigurationArgs']]] = None,
                  network_fabric_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 runtime_protection_configuration: Optional[pulumi.Input[pulumi.InputType['RuntimeProtectionConfigurationArgs']]] = None,
+                 secret_archive: Optional[pulumi.Input[pulumi.InputType['ClusterSecretArchiveArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 update_strategy: Optional[pulumi.Input[pulumi.InputType['ClusterUpdateStrategyArgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -379,7 +436,10 @@ class Cluster(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["runtime_protection_configuration"] = runtime_protection_configuration
+            __props__.__dict__["secret_archive"] = secret_archive
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["update_strategy"] = update_strategy
             __props__.__dict__["available_upgrade_versions"] = None
             __props__.__dict__["cluster_capacity"] = None
             __props__.__dict__["cluster_connection_status"] = None
@@ -396,7 +456,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["workload_resource_ids"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:networkcloud/v20230501preview:Cluster"), pulumi.Alias(type_="azure-native:networkcloud/v20230701:Cluster"), pulumi.Alias(type_="azure-native:networkcloud/v20231001preview:Cluster")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:networkcloud/v20230701:Cluster"), pulumi.Alias(type_="azure-native:networkcloud/v20231001preview:Cluster")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Cluster, __self__).__init__(
             'azure-native:networkcloud:Cluster',
@@ -444,10 +504,13 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["network_fabric_id"] = None
         __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["runtime_protection_configuration"] = None
+        __props__.__dict__["secret_archive"] = None
         __props__.__dict__["support_expiry_date"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
+        __props__.__dict__["update_strategy"] = None
         __props__.__dict__["workload_resource_ids"] = None
         return Cluster(resource_name, opts=opts, __props__=__props__)
 
@@ -645,6 +708,22 @@ class Cluster(pulumi.CustomResource):
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="runtimeProtectionConfiguration")
+    def runtime_protection_configuration(self) -> pulumi.Output[Optional['outputs.RuntimeProtectionConfigurationResponse']]:
+        """
+        The settings for cluster runtime protection.
+        """
+        return pulumi.get(self, "runtime_protection_configuration")
+
+    @property
+    @pulumi.getter(name="secretArchive")
+    def secret_archive(self) -> pulumi.Output[Optional['outputs.ClusterSecretArchiveResponse']]:
+        """
+        The configuration for use of a key vault to store secrets for later retrieval by the operator.
+        """
+        return pulumi.get(self, "secret_archive")
+
+    @property
     @pulumi.getter(name="supportExpiryDate")
     def support_expiry_date(self) -> pulumi.Output[str]:
         """
@@ -675,6 +754,14 @@ class Cluster(pulumi.CustomResource):
         The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="updateStrategy")
+    def update_strategy(self) -> pulumi.Output[Optional['outputs.ClusterUpdateStrategyResponse']]:
+        """
+        The strategy for updating the cluster.
+        """
+        return pulumi.get(self, "update_strategy")
 
     @property
     @pulumi.getter(name="workloadResourceIds")

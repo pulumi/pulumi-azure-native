@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Get properties of the provided layer 3 (L3) network.
- * Azure REST API version: 2023-05-01-preview.
+ * Azure REST API version: 2023-10-01-preview.
  *
- * Other available API versions: 2023-07-01, 2023-10-01-preview.
+ * Other available API versions: 2023-07-01.
  */
 export function getL3Network(args: GetL3NetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetL3NetworkResult> {
 
@@ -127,9 +127,9 @@ export interface GetL3NetworkResult {
 }
 /**
  * Get properties of the provided layer 3 (L3) network.
- * Azure REST API version: 2023-05-01-preview.
+ * Azure REST API version: 2023-10-01-preview.
  *
- * Other available API versions: 2023-07-01, 2023-10-01-preview.
+ * Other available API versions: 2023-07-01.
  */
 export function getL3NetworkOutput(args: GetL3NetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetL3NetworkResult> {
     return pulumi.output(args).apply((a: any) => getL3Network(a, opts))

@@ -27,9 +27,12 @@ if typing.TYPE_CHECKING:
     v20231101 = __v20231101
     import pulumi_azure_native.search.v20240301preview as __v20240301preview
     v20240301preview = __v20240301preview
+    import pulumi_azure_native.search.v20240601preview as __v20240601preview
+    v20240601preview = __v20240601preview
 else:
     v20210401preview = _utilities.lazy_import('pulumi_azure_native.search.v20210401preview')
     v20220901 = _utilities.lazy_import('pulumi_azure_native.search.v20220901')
     v20231101 = _utilities.lazy_import('pulumi_azure_native.search.v20231101')
     v20240301preview = _utilities.lazy_import('pulumi_azure_native.search.v20240301preview')
+    v20240601preview = _utilities.lazy_import('pulumi_azure_native.search.v20240601preview')
 

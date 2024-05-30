@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Gets the patching schedule of a redis cache.
  * Azure REST API version: 2023-04-01.
  *
- * Other available API versions: 2023-05-01-preview, 2023-08-01, 2024-03-01.
+ * Other available API versions: 2023-05-01-preview, 2023-08-01, 2024-03-01, 2024-04-01-preview.
  */
 export function getPatchSchedule(args: GetPatchScheduleArgs, opts?: pulumi.InvokeOptions): Promise<GetPatchScheduleResult> {
 
@@ -67,7 +67,7 @@ export interface GetPatchScheduleResult {
  * Gets the patching schedule of a redis cache.
  * Azure REST API version: 2023-04-01.
  *
- * Other available API versions: 2023-05-01-preview, 2023-08-01, 2024-03-01.
+ * Other available API versions: 2023-05-01-preview, 2023-08-01, 2024-03-01, 2024-04-01-preview.
  */
 export function getPatchScheduleOutput(args: GetPatchScheduleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPatchScheduleResult> {
     return pulumi.output(args).apply((a: any) => getPatchSchedule(a, opts))

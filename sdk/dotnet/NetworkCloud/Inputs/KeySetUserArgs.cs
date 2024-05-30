@@ -30,6 +30,12 @@ namespace Pulumi.AzureNative.NetworkCloud.Inputs
         [Input("sshPublicKey", required: true)]
         public Input<Inputs.SshPublicKeyArgs> SshPublicKey { get; set; } = null!;
 
+        /// <summary>
+        /// The user principal name (email format) used to validate this user's group membership.
+        /// </summary>
+        [Input("userPrincipalName")]
+        public Input<string>? UserPrincipalName { get; set; }
+
         public KeySetUserArgs()
         {
         }

@@ -14,6 +14,7 @@ __all__ = [
     'AssociationSubnetResponse',
     'ResourceIdResponse',
     'SystemDataResponse',
+    'WafPolicyResponse',
 ]
 
 @pulumi.output_type
@@ -168,5 +169,27 @@ class SystemDataResponse(dict):
         The type of identity that last modified the resource.
         """
         return pulumi.get(self, "last_modified_by_type")
+
+
+@pulumi.output_type
+class WafPolicyResponse(dict):
+    """
+    Web Application Firewall Policy
+    """
+    def __init__(__self__, *,
+                 id: str):
+        """
+        Web Application Firewall Policy
+        :param str id: Resource ID of the WAF
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID of the WAF
+        """
+        return pulumi.get(self, "id")
 
 

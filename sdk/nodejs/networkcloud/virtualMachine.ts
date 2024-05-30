@@ -8,9 +8,9 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview.
+ * Azure REST API version: 2023-10-01-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview.
  *
- * Other available API versions: 2023-07-01, 2023-10-01-preview.
+ * Other available API versions: 2023-07-01.
  */
 export class VirtualMachine extends pulumi.CustomResource {
     /**
@@ -48,7 +48,7 @@ export class VirtualMachine extends pulumi.CustomResource {
      */
     public /*out*/ readonly availabilityZone!: pulumi.Output<string>;
     /**
-     * The resource ID of the bare metal machine the virtual machine has landed to.
+     * The resource ID of the bare metal machine that hosts the virtual machine.
      */
     public /*out*/ readonly bareMetalMachineId!: pulumi.Output<string>;
     /**
@@ -260,7 +260,7 @@ export class VirtualMachine extends pulumi.CustomResource {
             resourceInputs["volumes"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:networkcloud/v20230501preview:VirtualMachine" }, { type: "azure-native:networkcloud/v20230701:VirtualMachine" }, { type: "azure-native:networkcloud/v20231001preview:VirtualMachine" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:networkcloud/v20230701:VirtualMachine" }, { type: "azure-native:networkcloud/v20231001preview:VirtualMachine" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VirtualMachine.__pulumiType, name, resourceInputs, opts);
     }

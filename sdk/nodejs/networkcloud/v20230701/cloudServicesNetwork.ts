@@ -165,7 +165,7 @@ export class CloudServicesNetwork extends pulumi.CustomResource {
             resourceInputs["virtualMachinesAssociatedIds"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:networkcloud:CloudServicesNetwork" }, { type: "azure-native:networkcloud/v20230501preview:CloudServicesNetwork" }, { type: "azure-native:networkcloud/v20231001preview:CloudServicesNetwork" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:networkcloud:CloudServicesNetwork" }, { type: "azure-native:networkcloud/v20231001preview:CloudServicesNetwork" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CloudServicesNetwork.__pulumiType, name, resourceInputs, opts);
     }

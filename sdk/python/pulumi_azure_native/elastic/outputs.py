@@ -27,11 +27,13 @@ __all__ = [
     'MarketplaceSaaSInfoResponseMarketplaceSubscription',
     'MonitorPropertiesResponse',
     'MonitoredResourceResponse',
+    'MonitoredSubscriptionResponse',
     'MonitoringTagRulesPropertiesResponse',
     'OpenAIIntegrationPropertiesResponse',
     'OpenAIIntegrationStatusResponsePropertiesResponse',
     'PartnerBillingEntityResponse',
     'ResourceSkuResponse',
+    'SubscriptionListResponse',
     'SystemDataResponse',
     'UserApiKeyResponsePropertiesResponse',
     'VMResourcesResponse',
@@ -1038,6 +1040,84 @@ class MonitoredResourceResponse(dict):
 
 
 @pulumi.output_type
+class MonitoredSubscriptionResponse(dict):
+    """
+    The list of subscriptions and it's monitoring status by current Elastic monitor.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "subscriptionId":
+            suggest = "subscription_id"
+        elif key == "tagRules":
+            suggest = "tag_rules"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MonitoredSubscriptionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MonitoredSubscriptionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MonitoredSubscriptionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 error: Optional[str] = None,
+                 status: Optional[str] = None,
+                 subscription_id: Optional[str] = None,
+                 tag_rules: Optional['outputs.MonitoringTagRulesPropertiesResponse'] = None):
+        """
+        The list of subscriptions and it's monitoring status by current Elastic monitor.
+        :param str error: The reason of not monitoring the subscription.
+        :param str status: The state of monitoring.
+        :param str subscription_id: The subscriptionId to be monitored.
+        :param 'MonitoringTagRulesPropertiesResponse' tag_rules: Definition of the properties for a TagRules resource.
+        """
+        if error is not None:
+            pulumi.set(__self__, "error", error)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if subscription_id is not None:
+            pulumi.set(__self__, "subscription_id", subscription_id)
+        if tag_rules is not None:
+            pulumi.set(__self__, "tag_rules", tag_rules)
+
+    @property
+    @pulumi.getter
+    def error(self) -> Optional[str]:
+        """
+        The reason of not monitoring the subscription.
+        """
+        return pulumi.get(self, "error")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        The state of monitoring.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="subscriptionId")
+    def subscription_id(self) -> Optional[str]:
+        """
+        The subscriptionId to be monitored.
+        """
+        return pulumi.get(self, "subscription_id")
+
+    @property
+    @pulumi.getter(name="tagRules")
+    def tag_rules(self) -> Optional['outputs.MonitoringTagRulesPropertiesResponse']:
+        """
+        Definition of the properties for a TagRules resource.
+        """
+        return pulumi.get(self, "tag_rules")
+
+
+@pulumi.output_type
 class MonitoringTagRulesPropertiesResponse(dict):
     """
     Definition of the properties for a TagRules resource.
@@ -1260,6 +1340,59 @@ class ResourceSkuResponse(dict):
         Name of the SKU.
         """
         return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class SubscriptionListResponse(dict):
+    """
+    The request to update subscriptions needed to be monitored by the Elastic monitor resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "monitoredSubscriptionList":
+            suggest = "monitored_subscription_list"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SubscriptionListResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SubscriptionListResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SubscriptionListResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provisioning_state: str,
+                 monitored_subscription_list: Optional[Sequence['outputs.MonitoredSubscriptionResponse']] = None):
+        """
+        The request to update subscriptions needed to be monitored by the Elastic monitor resource.
+        :param str provisioning_state: Provisioning State of the resource
+        :param Sequence['MonitoredSubscriptionResponse'] monitored_subscription_list: List of subscriptions and the state of the monitoring.
+        """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if monitored_subscription_list is not None:
+            pulumi.set(__self__, "monitored_subscription_list", monitored_subscription_list)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning State of the resource
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="monitoredSubscriptionList")
+    def monitored_subscription_list(self) -> Optional[Sequence['outputs.MonitoredSubscriptionResponse']]:
+        """
+        List of subscriptions and the state of the monitoring.
+        """
+        return pulumi.get(self, "monitored_subscription_list")
 
 
 @pulumi.output_type
