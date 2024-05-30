@@ -171,6 +171,8 @@ AzureData:
     tracking: 2019-07-24-preview
 AzureDataTransfer:
     tracking: 2023-10-11-preview
+AzureFleet:
+    tracking: 2024-05-01-preview
 AzureLargeInstance: {}
 AzurePlaywrightService:
     tracking: 2023-10-01-preview
@@ -500,6 +502,9 @@ DBforMySQL:
         - provider: DBforMySQL
           resourcename: Server
           detail: version 2023-12-30 is greater than 2017-12-01
+        - provider: DBforMySQL
+          resourcename: Server
+          detail: version 2024-02-01-preview is greater than 2017-12-01
 DBforPostgreSQL:
     tracking: "2022-12-01"
     additions:
@@ -781,6 +786,7 @@ Education:
 Elastic:
     tracking: "2023-06-01"
     additions:
+        MonitoredSubscription: 2024-05-01-preview
         OpenAI: "2024-03-01"
         getBillingInfo: 2023-07-01-preview
         getOpenAIStatus: "2024-03-01"
@@ -1365,6 +1371,24 @@ NetworkAnalytics:
     tracking: "2023-11-15"
 NetworkCloud:
     tracking: 2023-05-01-preview
+    additions:
+        AgentPool: 2023-10-01-preview
+        BareMetalMachine: 2023-10-01-preview
+        BareMetalMachineKeySet: 2023-10-01-preview
+        BmcKeySet: 2023-10-01-preview
+        CloudServicesNetwork: 2023-10-01-preview
+        Cluster: 2023-10-01-preview
+        ClusterManager: 2023-10-01-preview
+        Console: 2023-10-01-preview
+        KubernetesCluster: 2023-10-01-preview
+        L2Network: 2023-10-01-preview
+        L3Network: 2023-10-01-preview
+        MetricsConfiguration: 2023-10-01-preview
+        Rack: 2023-10-01-preview
+        StorageAppliance: 2023-10-01-preview
+        TrunkedNetwork: 2023-10-01-preview
+        VirtualMachine: 2023-10-01-preview
+        Volume: 2023-10-01-preview
 NetworkFunction:
     tracking: "2022-11-01"
 NotificationHubs:
@@ -1532,6 +1556,7 @@ Security:
         CustomEntityStoreAssignment: 2021-07-01-preview
         DefenderForStorage: 2022-12-01-preview
         DevOpsConfiguration: 2023-09-01-preview
+        DevOpsPolicyAssignment: 2024-05-15-preview
         DeviceSecurityGroup: "2019-08-01"
         GovernanceAssignment: 2022-01-01-preview
         GovernanceRule: 2022-01-01-preview
@@ -1596,6 +1621,8 @@ ServiceLinker:
     tracking: 2022-11-01-preview
 ServiceNetworking:
     tracking: 2023-05-01-preview
+    additions:
+        SecurityPoliciesInterface: 2024-05-01-preview
 SignalRService:
     tracking: "2023-02-01"
     additions:

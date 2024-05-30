@@ -2836,6 +2836,14 @@
       "listListSchema"
     ]
   },
+  "AzureFleet": {
+    "2023-11-01-preview": [
+      "Fleet"
+    ],
+    "2024-05-01-preview": [
+      "Fleet"
+    ]
+  },
   "AzureLargeInstance": {
     "": []
   },
@@ -3545,6 +3553,22 @@
       "listRedisKeys"
     ],
     "2024-03-01-preview": [
+      "Database",
+      "EnterprisePrivateEndpointConnection",
+      "RedisEnterprise",
+      "listDatabaseKeys"
+    ],
+    "2024-04-01-preview": [
+      "AccessPolicy",
+      "AccessPolicyAssignment",
+      "FirewallRule",
+      "LinkedServer",
+      "PatchSchedule",
+      "PrivateEndpointConnection",
+      "Redis",
+      "listRedisKeys"
+    ],
+    "2024-06-01-preview": [
       "Database",
       "EnterprisePrivateEndpointConnection",
       "RedisEnterprise",
@@ -6504,6 +6528,9 @@
     "2023-12-30": [
       "Server",
       "getGetPrivateDnsZoneSuffixExecute"
+    ],
+    "2024-02-01-preview": [
+      "Server"
     ]
   },
   "DBforPostgreSQL": {
@@ -9315,6 +9342,37 @@
       "listDatabaseAccountConnectionStrings",
       "listDatabaseAccountKeys",
       "listNotebookWorkspaceConnectionInfo"
+    ],
+    "2024-05-15-preview": [
+      "CassandraCluster",
+      "CassandraDataCenter",
+      "CassandraResourceCassandraKeyspace",
+      "CassandraResourceCassandraTable",
+      "CassandraResourceCassandraView",
+      "DatabaseAccount",
+      "GraphResourceGraph",
+      "GremlinResourceGremlinDatabase",
+      "GremlinResourceGremlinGraph",
+      "MongoDBResourceMongoDBCollection",
+      "MongoDBResourceMongoDBDatabase",
+      "MongoDBResourceMongoRoleDefinition",
+      "MongoDBResourceMongoUserDefinition",
+      "NotebookWorkspace",
+      "PrivateEndpointConnection",
+      "Service",
+      "SqlResourceSqlContainer",
+      "SqlResourceSqlDatabase",
+      "SqlResourceSqlRoleAssignment",
+      "SqlResourceSqlRoleDefinition",
+      "SqlResourceSqlStoredProcedure",
+      "SqlResourceSqlTrigger",
+      "SqlResourceSqlUserDefinedFunction",
+      "TableResourceTable",
+      "ThroughputPool",
+      "ThroughputPoolAccount",
+      "listDatabaseAccountConnectionStrings",
+      "listDatabaseAccountKeys",
+      "listNotebookWorkspaceConnectionInfo"
     ]
   },
   "DomainRegistration": {
@@ -9638,6 +9696,23 @@
     ],
     "2024-03-01": [
       "Monitor",
+      "OpenAI",
+      "TagRule",
+      "getBillingInfo",
+      "getOpenAIStatus",
+      "getOrganizationApiKey",
+      "getOrganizationElasticToAzureSubscriptionMapping",
+      "listAllTrafficFilter",
+      "listConnectedPartnerResource",
+      "listDeploymentInfo",
+      "listMonitoredResource",
+      "listUpgradableVersionDetails",
+      "listVMHost",
+      "listlistAssociatedTrafficFilter"
+    ],
+    "2024-05-01-preview": [
+      "Monitor",
+      "MonitoredSubscription",
       "OpenAI",
       "TagRule",
       "getBillingInfo",
@@ -12555,6 +12630,7 @@
       "FeaturestoreEntityVersion",
       "Job",
       "ManagedNetworkSettingsRule",
+      "MarketplaceSubscription",
       "ModelContainer",
       "ModelVersion",
       "OnlineDeployment",
@@ -12572,6 +12648,7 @@
       "RegistryModelContainer",
       "RegistryModelVersion",
       "Schedule",
+      "ServerlessEndpoint",
       "Workspace",
       "WorkspaceConnection",
       "getOnlineDeploymentLogs",
@@ -12581,6 +12658,7 @@
       "listComputeNodes",
       "listDatastoreSecrets",
       "listOnlineEndpointKeys",
+      "listServerlessEndpointKeys",
       "listWorkspaceConnectionSecrets",
       "listWorkspaceKeys",
       "listWorkspaceNotebookAccessToken",
@@ -17364,25 +17442,6 @@
     ]
   },
   "NetworkCloud": {
-    "2023-05-01-preview": [
-      "AgentPool",
-      "BareMetalMachine",
-      "BareMetalMachineKeySet",
-      "BmcKeySet",
-      "CloudServicesNetwork",
-      "Cluster",
-      "ClusterManager",
-      "Console",
-      "KubernetesCluster",
-      "L2Network",
-      "L3Network",
-      "MetricsConfiguration",
-      "Rack",
-      "StorageAppliance",
-      "TrunkedNetwork",
-      "VirtualMachine",
-      "Volume"
-    ],
     "2023-07-01": [
       "AgentPool",
       "BareMetalMachine",
@@ -19028,6 +19087,13 @@
       "SharedPrivateLinkResource",
       "listAdminKey",
       "listQueryKeyBySearchService"
+    ],
+    "2024-06-01-preview": [
+      "PrivateEndpointConnection",
+      "Service",
+      "SharedPrivateLinkResource",
+      "listAdminKey",
+      "listQueryKeyBySearchService"
     ]
   },
   "Security": {
@@ -19143,6 +19209,14 @@
     ],
     "2024-04-01": [
       "DevOpsConfiguration",
+      "listAzureDevOpsOrgAvailable",
+      "listGitHubOwnerAvailable",
+      "listGitLabGroupAvailable",
+      "listGitLabSubgroup"
+    ],
+    "2024-05-15-preview": [
+      "DevOpsConfiguration",
+      "DevOpsPolicyAssignment",
       "listAzureDevOpsOrgAvailable",
       "listGitHubOwnerAvailable",
       "listGitLabGroupAvailable",
@@ -20420,6 +20494,12 @@
       "AssociationsInterface",
       "FrontendsInterface",
       "TrafficControllerInterface"
+    ],
+    "2024-05-01-preview": [
+      "AssociationsInterface",
+      "FrontendsInterface",
+      "SecurityPoliciesInterface",
+      "TrafficControllerInterface"
     ]
   },
   "SignalRService": {
@@ -20517,6 +20597,15 @@
       "listSignalRKeys"
     ],
     "2024-01-01-preview": [
+      "SignalR",
+      "SignalRCustomCertificate",
+      "SignalRCustomDomain",
+      "SignalRPrivateEndpointConnection",
+      "SignalRReplica",
+      "SignalRSharedPrivateLinkResource",
+      "listSignalRKeys"
+    ],
+    "2024-03-01": [
       "SignalR",
       "SignalRCustomCertificate",
       "SignalRCustomDomain",
@@ -24304,6 +24393,16 @@
       "listWebPubSubKeys"
     ],
     "2024-01-01-preview": [
+      "WebPubSub",
+      "WebPubSubCustomCertificate",
+      "WebPubSubCustomDomain",
+      "WebPubSubHub",
+      "WebPubSubPrivateEndpointConnection",
+      "WebPubSubReplica",
+      "WebPubSubSharedPrivateLinkResource",
+      "listWebPubSubKeys"
+    ],
+    "2024-03-01": [
       "WebPubSub",
       "WebPubSubCustomCertificate",
       "WebPubSubCustomDomain",
