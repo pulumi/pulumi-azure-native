@@ -598,6 +598,10 @@ func diffKeyedArrays(properties map[string]resources.AzureAPIProperty,
 		if !ok {
 			return nil, false
 		}
+		if _, ok := newSeen[hash]; ok {
+			logging.V(9).Infof("WARNING: diffKeyedArray: duplicate key values, treating as normal array\n")
+			return nil, false
+		}
 		newSeen[hash] = struct{}{}
 
 		oldItem, ok := oldIdValues[hash]
@@ -609,8 +613,6 @@ func diffKeyedArrays(properties map[string]resources.AzureAPIProperty,
 				sames[i] = newItem
 			} else if diff.Object != nil || diff.Array != nil {
 				updates[i] = *diff
-			} else { // diffs in primitives only
-
 			}
 		}
 	}
