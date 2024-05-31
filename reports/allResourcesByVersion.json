@@ -7952,6 +7952,11 @@
     "2023-08-01": [
       "Workflow",
       "getGitHubOAuth"
+    ],
+    "2024-05-01-preview": [
+      "IacProfile",
+      "Workflow",
+      "getGitHubOAuth"
     ]
   },
   "DevOps": {

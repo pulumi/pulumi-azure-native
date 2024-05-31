@@ -933,6 +933,7 @@
     "getProjectInheritedSettings": "2024-05-01-preview"
   },
   "DevHub": {
+    "IacProfile": "2024-05-01-preview",
     "Workflow": "2022-10-11-preview",
     "getGitHubOAuth": "2022-10-11-preview"
   },
