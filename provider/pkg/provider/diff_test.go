@@ -789,25 +789,25 @@ func TestDiffKeyedArrays(t *testing.T) {
 	})
 
 	t.Run("recognizes invalid keyed array", func(t *testing.T) {
-		olds := [][]resource.PropertyValue{
-			{
-				// ok
+		olds := map[string][]resource.PropertyValue{
+			"not an object": {
 				{V: resource.PropertyMap{"p1": {V: "oldvalue"}}},
-				// not ok - primitive
 				{V: "oldvalue"},
 			},
-			{
-				// ok
+			"missing keys": {
 				{V: resource.PropertyMap{"p1": {V: "oldvalue"}}},
-				// not ok - missing key
 				{V: resource.PropertyMap{"foo": {V: "bar"}}},
+			},
+			"duplicate key value": {
+				{V: resource.PropertyMap{"p1": {V: "oldvalue"}}},
+				{V: resource.PropertyMap{"p1": {V: "oldvalue"}}},
 			},
 		}
 
-		for _, old := range olds {
+		for name, old := range olds {
 			diff, ok := diffKeyedArrays(map[string]resources.AzureAPIProperty{}, []string{"p1"}, old, old, "")
-			require.False(t, ok)
-			require.Nil(t, diff)
+			require.False(t, ok, name)
+			require.Nil(t, diff, name)
 		}
 	})
 }
