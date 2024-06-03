@@ -7952,6 +7952,11 @@
     "2023-08-01": [
       "Workflow",
       "getGitHubOAuth"
+    ],
+    "2024-05-01-preview": [
+      "IacProfile",
+      "Workflow",
+      "getGitHubOAuth"
     ]
   },
   "DevOps": {
@@ -10780,6 +10785,16 @@
       "PrivateLinkScope"
     ],
     "2024-03-31-preview": [
+      "Gateway",
+      "License",
+      "LicenseProfile",
+      "Machine",
+      "MachineExtension",
+      "MachineRunCommand",
+      "PrivateEndpointConnection",
+      "PrivateLinkScope"
+    ],
+    "2024-05-20-preview": [
       "Gateway",
       "License",
       "LicenseProfile",
@@ -22632,6 +22647,11 @@
       "DedicatedCloudNode",
       "DedicatedCloudService",
       "VirtualMachine"
+    ]
+  },
+  "VerifiedId": {
+    "2024-01-26-preview": [
+      "Authority"
     ]
   },
   "VideoAnalyzer": {

@@ -933,6 +933,7 @@
     "getProjectInheritedSettings": "2024-05-01-preview"
   },
   "DevHub": {
+    "IacProfile": "2024-05-01-preview",
     "Workflow": "2022-10-11-preview",
     "getGitHubOAuth": "2022-10-11-preview"
   },
@@ -2609,6 +2610,9 @@
     "DedicatedCloudNode": "2019-04-01",
     "DedicatedCloudService": "2019-04-01",
     "VirtualMachine": "2019-04-01"
+  },
+  "VerifiedId": {
+    "Authority": "2024-01-26-preview"
   },
   "VideoAnalyzer": {
     "AccessPolicy": "2021-11-01-preview",

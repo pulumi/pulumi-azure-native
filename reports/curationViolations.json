@@ -120,6 +120,10 @@
     "Detail": "expected no additions but found some"
   },
   {
+    "Provider": "DevHub",
+    "Detail": "expected no additions but found some"
+  },
+  {
     "Provider": "DevOpsInfrastructure",
     "Detail": "expected tracking stable but found preview"
   },
@@ -338,6 +342,10 @@
   {
     "Provider": "TestBase",
     "Detail": "expected no additions but found some"
+  },
+  {
+    "Provider": "VerifiedId",
+    "Detail": "expected tracking stable but found preview"
   },
   {
     "Provider": "Workloads",

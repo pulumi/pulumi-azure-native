@@ -4641,6 +4641,13 @@
     "Property": "location"
   },
   {
+    "Module": "hybridcompute/v20240520preview",
+    "Provider": "HybridCompute",
+    "ResourceName": "Machine",
+    "ReferenceName": "TrackedResource",
+    "Property": "location"
+  },
+  {
     "Module": "hybridnetwork",
     "Provider": "HybridNetwork",
     "ResourceName": "ArtifactManifest",

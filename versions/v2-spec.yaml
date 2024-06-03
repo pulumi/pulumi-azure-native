@@ -730,6 +730,8 @@ DevCenter:
         getProjectInheritedSettings: 2024-05-01-preview
 DevHub:
     tracking: 2022-10-11-preview
+    additions:
+        IacProfile: 2024-05-01-preview
 DevOps: {}
 DevOpsInfrastructure:
     tracking: 2023-10-30-preview
@@ -1703,6 +1705,8 @@ TimeSeriesInsights:
         PrivateEndpointConnection: 2021-03-31-preview
 VMwareCloudSimple:
     tracking: "2019-04-01"
+VerifiedId:
+    tracking: 2024-01-26-preview
 VideoAnalyzer:
     tracking: 2021-11-01-preview
 VideoIndexer:
