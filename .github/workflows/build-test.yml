@@ -197,7 +197,7 @@ jobs:
           OIDC_ARM_CLIENT_ID: ${{ inputs.oidc_arm_client_id }}
         run: |
           set -euo pipefail
-          cd examples && go test -v -json -cover -timeout 2h -tags=${{ matrix.language }} -skip TestPulumiExamples -parallel 16 . 2>&1 | tee /tmp/gotest.log | gotestfmt
+          cd examples && go test -v -cover -timeout 2h -tags=${{ matrix.language }} -skip TestPulumiExamples -parallel 16 .
 
       - name: Run short tests
         if: inputs.short_test
