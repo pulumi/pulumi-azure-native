@@ -1383,21 +1383,26 @@ func (k *azureNativeProvider) Delete(ctx context.Context, req *rpc.DeleteRequest
 		if err != nil {
 			return nil, azure.AzureError(err)
 		}
-	case res.Singleton && !defaults.SkipDeleteOperation(res.Path):
+	case res.Singleton:
 		// Singleton resources can't be deleted (or created), set them to the default state.
-		if body, ok := res.BodyParameter(); ok {
-			requestBody := k.converter.SdkInputsToRequestBody(body.Body.Properties, res.DefaultBody, id)
-
-			queryParams := map[string]interface{}{"api-version": res.APIVersion}
-
-			// Submit the `PUT` or `PATCH` against the ARM endpoint
-			op := k.azureClient.Put
-			if res.UpdateMethod == "PATCH" {
-				op = k.azureClient.Patch
+		for _, param := range res.PutParameters {
+			if defaults.SkipDeleteOperation(res.Path) {
+				continue
 			}
-			_, _, err := op(ctx, id, requestBody, queryParams, res.PutAsyncStyle)
-			if err != nil {
-				return nil, azure.AzureError(err)
+			if param.Location == "body" {
+				requestBody := k.converter.SdkInputsToRequestBody(param.Body.Properties, res.DefaultBody, id)
+
+				queryParams := map[string]interface{}{"api-version": res.APIVersion}
+
+				// Submit the `PUT` or `PATCH` against the ARM endpoint
+				op := k.azureClient.Put
+				if res.UpdateMethod == "PATCH" {
+					op = k.azureClient.Patch
+				}
+				_, _, err := op(ctx, id, requestBody, queryParams, res.PutAsyncStyle)
+				if err != nil {
+					return nil, azure.AzureError(err)
+				}
 			}
 		}
 	default:
