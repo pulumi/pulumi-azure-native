@@ -4641,6 +4641,13 @@
     "Property": "location"
   },
   {
+    "Module": "hybridcompute/v20240520preview",
+    "Provider": "HybridCompute",
+    "ResourceName": "Machine",
+    "ReferenceName": "TrackedResource",
+    "Property": "location"
+  },
+  {
     "Module": "hybridnetwork",
     "Provider": "HybridNetwork",
     "ResourceName": "ArtifactManifest",
@@ -48137,6 +48144,76 @@
     "ResourceName": "ServiceEndpoint",
     "ReferenceName": "ServiceEndpointResource",
     "Property": "preAllocatedCapacity"
+  },
+  {
+    "Module": "scvmm/v20231007",
+    "Provider": "ScVmm",
+    "ResourceName": "VirtualMachineInstance",
+    "ReferenceName": "InfrastructureProfile",
+    "Property": "biosGuid"
+  },
+  {
+    "Module": "scvmm/v20231007",
+    "Provider": "ScVmm",
+    "ResourceName": "VirtualMachineInstance",
+    "ReferenceName": "InfrastructureProfile",
+    "Property": "cloudId"
+  },
+  {
+    "Module": "scvmm/v20231007",
+    "Provider": "ScVmm",
+    "ResourceName": "VirtualMachineInstance",
+    "ReferenceName": "InfrastructureProfile",
+    "Property": "generation"
+  },
+  {
+    "Module": "scvmm/v20231007",
+    "Provider": "ScVmm",
+    "ResourceName": "VirtualMachineInstance",
+    "ReferenceName": "InfrastructureProfile",
+    "Property": "inventoryItemId"
+  },
+  {
+    "Module": "scvmm/v20231007",
+    "Provider": "ScVmm",
+    "ResourceName": "VirtualMachineInstance",
+    "ReferenceName": "InfrastructureProfile",
+    "Property": "templateId"
+  },
+  {
+    "Module": "scvmm/v20231007",
+    "Provider": "ScVmm",
+    "ResourceName": "VirtualMachineInstance",
+    "ReferenceName": "InfrastructureProfile",
+    "Property": "uuid"
+  },
+  {
+    "Module": "scvmm/v20231007",
+    "Provider": "ScVmm",
+    "ResourceName": "VirtualMachineInstance",
+    "ReferenceName": "InfrastructureProfile",
+    "Property": "vmName"
+  },
+  {
+    "Module": "scvmm/v20231007",
+    "Provider": "ScVmm",
+    "ResourceName": "VirtualMachineInstance",
+    "ReferenceName": "InfrastructureProfile",
+    "Property": "vmmServerId"
+  },
+  {
+    "Module": "scvmm/v20231007",
+    "Provider": "ScVmm",
+    "ResourceName": "VirtualMachineInstance",
+    "ReferenceName": "CreateDiffDisk",
+    "Property": "createDiffDisk"
+  },
+  {
+    "Module": "scvmm/v20231007",
+    "Provider": "ScVmm",
+    "ResourceName": "VirtualMachineInstance",
+    "ReferenceName": "VirtualDisk",
+    "Property": "templateDiskId"
   },
   {
     "Module": "security",

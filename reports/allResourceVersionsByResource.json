@@ -1897,8 +1897,30 @@
     ]
   },
   "AppComplianceAutomation": {
+    "Evidence": [
+      "2024-06-27"
+    ],
     "Report": [
-      "2022-11-16-preview"
+      "2022-11-16-preview",
+      "2024-06-27"
+    ],
+    "ScopingConfiguration": [
+      "2024-06-27"
+    ],
+    "Webhook": [
+      "2024-06-27"
+    ],
+    "getProviderActionCollectionCount": [
+      "2024-06-27"
+    ],
+    "getProviderActionOverviewStatus": [
+      "2024-06-27"
+    ],
+    "getReportScopingQuestions": [
+      "2024-06-27"
+    ],
+    "listProviderActionInUseStorageAccounts": [
+      "2024-06-27"
     ]
   },
   "AppConfiguration": {
@@ -7994,15 +8016,20 @@
     ]
   },
   "DevHub": {
+    "IacProfile": [
+      "2024-05-01-preview"
+    ],
     "Workflow": [
       "2022-04-01-preview",
       "2022-10-11-preview",
-      "2023-08-01"
+      "2023-08-01",
+      "2024-05-01-preview"
     ],
     "getGitHubOAuth": [
       "2022-04-01-preview",
       "2022-10-11-preview",
-      "2023-08-01"
+      "2023-08-01",
+      "2024-05-01-preview"
     ]
   },
   "DevOps": {},
@@ -10696,17 +10723,20 @@
   },
   "HybridCompute": {
     "Gateway": [
-      "2024-03-31-preview"
+      "2024-03-31-preview",
+      "2024-05-20-preview"
     ],
     "License": [
       "2023-06-20-preview",
       "2023-10-03-preview",
-      "2024-03-31-preview"
+      "2024-03-31-preview",
+      "2024-05-20-preview"
     ],
     "LicenseProfile": [
       "2023-06-20-preview",
       "2023-10-03-preview",
-      "2024-03-31-preview"
+      "2024-03-31-preview",
+      "2024-05-20-preview"
     ],
     "Machine": [
       "2019-03-18-preview",
@@ -10731,7 +10761,8 @@
       "2023-03-15-preview",
       "2023-06-20-preview",
       "2023-10-03-preview",
-      "2024-03-31-preview"
+      "2024-03-31-preview",
+      "2024-05-20-preview"
     ],
     "MachineExtension": [
       "2019-08-02-preview",
@@ -10755,11 +10786,13 @@
       "2023-03-15-preview",
       "2023-06-20-preview",
       "2023-10-03-preview",
-      "2024-03-31-preview"
+      "2024-03-31-preview",
+      "2024-05-20-preview"
     ],
     "MachineRunCommand": [
       "2023-10-03-preview",
-      "2024-03-31-preview"
+      "2024-03-31-preview",
+      "2024-05-20-preview"
     ],
     "PrivateEndpointConnection": [
       "2020-08-15-preview",
@@ -10779,7 +10812,8 @@
       "2023-03-15-preview",
       "2023-06-20-preview",
       "2023-10-03-preview",
-      "2024-03-31-preview"
+      "2024-03-31-preview",
+      "2024-05-20-preview"
     ],
     "PrivateLinkScope": [
       "2020-08-15-preview",
@@ -10799,7 +10833,8 @@
       "2023-03-15-preview",
       "2023-06-20-preview",
       "2023-10-03-preview",
-      "2024-03-31-preview"
+      "2024-03-31-preview",
+      "2024-05-20-preview"
     ],
     "PrivateLinkScopedResource": [
       "2020-08-15-preview"
@@ -19478,7 +19513,8 @@
     ],
     "GuestAgent": [
       "2022-05-21-preview",
-      "2023-04-01-preview"
+      "2023-04-01-preview",
+      "2023-10-07"
     ],
     "HybridIdentityMetadata": [
       "2022-05-21-preview",
@@ -19495,8 +19531,7 @@
       "2023-04-01-preview"
     ],
     "VMInstanceGuestAgent": [
-      "2023-04-01-preview",
-      "2023-10-07"
+      "2023-04-01-preview"
     ],
     "VirtualMachine": [
       "2020-06-05-preview",
@@ -23322,6 +23357,11 @@
       "2019-04-01"
     ]
   },
+  "VerifiedId": {
+    "Authority": [
+      "2024-01-26-preview"
+    ]
+  },
   "VideoAnalyzer": {
     "AccessPolicy": [
       "2021-05-01-preview",
@@ -23377,7 +23417,8 @@
   "VirtualMachineImages": {
     "Trigger": [
       "2022-07-01",
-      "2023-07-01"
+      "2023-07-01",
+      "2024-02-01"
     ],
     "VirtualMachineImageTemplate": [
       "2018-02-01-preview",
@@ -23387,7 +23428,8 @@
       "2021-10-01",
       "2022-02-14",
       "2022-07-01",
-      "2023-07-01"
+      "2023-07-01",
+      "2024-02-01"
     ]
   },
   "VisualStudio": {

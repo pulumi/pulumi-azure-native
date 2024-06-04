@@ -94,6 +94,14 @@ App:
         listJobSecrets: 2023-04-01-preview
 AppComplianceAutomation:
     tracking: 2022-11-16-preview
+    additions:
+        Evidence: "2024-06-27"
+        ScopingConfiguration: "2024-06-27"
+        Webhook: "2024-06-27"
+        getProviderActionCollectionCount: "2024-06-27"
+        getProviderActionOverviewStatus: "2024-06-27"
+        getReportScopingQuestions: "2024-06-27"
+        listProviderActionInUseStorageAccounts: "2024-06-27"
 AppConfiguration:
     tracking: "2023-03-01"
 AppPlatform:
@@ -730,6 +738,8 @@ DevCenter:
         getProjectInheritedSettings: 2024-05-01-preview
 DevHub:
     tracking: 2022-10-11-preview
+    additions:
+        IacProfile: 2024-05-01-preview
 DevOps: {}
 DevOpsInfrastructure:
     tracking: 2023-10-30-preview
@@ -1703,6 +1713,8 @@ TimeSeriesInsights:
         PrivateEndpointConnection: 2021-03-31-preview
 VMwareCloudSimple:
     tracking: "2019-04-01"
+VerifiedId:
+    tracking: 2024-01-26-preview
 VideoAnalyzer:
     tracking: 2021-11-01-preview
 VideoIndexer:
