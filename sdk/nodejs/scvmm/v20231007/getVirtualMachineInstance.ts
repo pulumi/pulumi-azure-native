@@ -20,7 +20,7 @@ export function getVirtualMachineInstance(args: GetVirtualMachineInstanceArgs, o
 
 export interface GetVirtualMachineInstanceArgs {
     /**
-     * The fully qualified Azure Resource manager identifier of the Hybrid Compute machine resource to be extended.
+     * The fully qualified Azure Resource manager identifier of the resource.
      */
     resourceUri: string;
 }
@@ -32,7 +32,7 @@ export interface GetVirtualMachineInstanceResult {
     /**
      * Availability Sets in vm.
      */
-    readonly availabilitySets?: outputs.scvmm.v20231007.VirtualMachineInstancePropertiesResponseAvailabilitySets[];
+    readonly availabilitySets?: outputs.scvmm.v20231007.AvailabilitySetListItemResponse[];
     /**
      * Gets or sets the extended location.
      */
@@ -60,7 +60,7 @@ export interface GetVirtualMachineInstanceResult {
     /**
      * OS properties.
      */
-    readonly osProfile?: outputs.scvmm.v20231007.OsProfileForVMInstanceResponse;
+    readonly osProfile?: outputs.scvmm.v20231007.OsProfileForVmInstanceResponse;
     /**
      * Gets the power state of the virtual machine.
      */
@@ -91,7 +91,7 @@ export function getVirtualMachineInstanceOutput(args: GetVirtualMachineInstanceO
 
 export interface GetVirtualMachineInstanceOutputArgs {
     /**
-     * The fully qualified Azure Resource manager identifier of the Hybrid Compute machine resource to be extended.
+     * The fully qualified Azure Resource manager identifier of the resource.
      */
     resourceUri: pulumi.Input<string>;
 }

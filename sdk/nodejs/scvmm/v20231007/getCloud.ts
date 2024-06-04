@@ -39,7 +39,7 @@ export interface GetCloudResult {
      */
     readonly cloudCapacity: outputs.scvmm.v20231007.CloudCapacityResponse;
     /**
-     * Name of the cloud in VMMServer.
+     * Name of the cloud in VmmServer.
      */
     readonly cloudName: string;
     /**
@@ -69,7 +69,7 @@ export interface GetCloudResult {
     /**
      * List of QoS policies available for the cloud.
      */
-    readonly storageQoSPolicies: outputs.scvmm.v20231007.StorageQoSPolicyResponse[];
+    readonly storageQosPolicies: outputs.scvmm.v20231007.StorageQosPolicyResponse[];
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */

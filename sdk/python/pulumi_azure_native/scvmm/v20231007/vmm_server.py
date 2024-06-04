@@ -19,7 +19,7 @@ class VmmServerArgs:
                  extended_location: pulumi.Input['ExtendedLocationArgs'],
                  fqdn: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
-                 credentials: Optional[pulumi.Input['VMMCredentialArgs']] = None,
+                 credentials: Optional[pulumi.Input['VmmCredentialArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -29,11 +29,11 @@ class VmmServerArgs:
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: The extended location.
         :param pulumi.Input[str] fqdn: Fqdn is the hostname/ip of the vmmServer.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input['VMMCredentialArgs'] credentials: Credentials to connect to VMMServer.
+        :param pulumi.Input['VmmCredentialArgs'] credentials: Credentials to connect to VmmServer.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[int] port: Port is the port on which the vmmServer is listening.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[str] vmm_server_name: Name of the VMMServer.
+        :param pulumi.Input[str] vmm_server_name: Name of the VmmServer.
         """
         pulumi.set(__self__, "extended_location", extended_location)
         pulumi.set(__self__, "fqdn", fqdn)
@@ -87,14 +87,14 @@ class VmmServerArgs:
 
     @property
     @pulumi.getter
-    def credentials(self) -> Optional[pulumi.Input['VMMCredentialArgs']]:
+    def credentials(self) -> Optional[pulumi.Input['VmmCredentialArgs']]:
         """
-        Credentials to connect to VMMServer.
+        Credentials to connect to VmmServer.
         """
         return pulumi.get(self, "credentials")
 
     @credentials.setter
-    def credentials(self, value: Optional[pulumi.Input['VMMCredentialArgs']]):
+    def credentials(self, value: Optional[pulumi.Input['VmmCredentialArgs']]):
         pulumi.set(self, "credentials", value)
 
     @property
@@ -137,7 +137,7 @@ class VmmServerArgs:
     @pulumi.getter(name="vmmServerName")
     def vmm_server_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the VMMServer.
+        Name of the VmmServer.
         """
         return pulumi.get(self, "vmm_server_name")
 
@@ -151,7 +151,7 @@ class VmmServer(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 credentials: Optional[pulumi.Input[pulumi.InputType['VMMCredentialArgs']]] = None,
+                 credentials: Optional[pulumi.Input[pulumi.InputType['VmmCredentialArgs']]] = None,
                  extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
                  fqdn: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -165,14 +165,14 @@ class VmmServer(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['VMMCredentialArgs']] credentials: Credentials to connect to VMMServer.
+        :param pulumi.Input[pulumi.InputType['VmmCredentialArgs']] credentials: Credentials to connect to VmmServer.
         :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: The extended location.
         :param pulumi.Input[str] fqdn: Fqdn is the hostname/ip of the vmmServer.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[int] port: Port is the port on which the vmmServer is listening.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[str] vmm_server_name: Name of the VMMServer.
+        :param pulumi.Input[str] vmm_server_name: Name of the VmmServer.
         """
         ...
     @overload
@@ -198,7 +198,7 @@ class VmmServer(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 credentials: Optional[pulumi.Input[pulumi.InputType['VMMCredentialArgs']]] = None,
+                 credentials: Optional[pulumi.Input[pulumi.InputType['VmmCredentialArgs']]] = None,
                  extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
                  fqdn: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -287,9 +287,9 @@ class VmmServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def credentials(self) -> pulumi.Output[Optional['outputs.VMMCredentialResponse']]:
+    def credentials(self) -> pulumi.Output[Optional['outputs.VmmCredentialResponse']]:
         """
-        Credentials to connect to VMMServer.
+        Credentials to connect to VmmServer.
         """
         return pulumi.get(self, "credentials")
 

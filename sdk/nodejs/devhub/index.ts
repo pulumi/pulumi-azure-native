@@ -10,10 +10,20 @@ export const getGitHubOAuth: typeof import("./getGitHubOAuth").getGitHubOAuth = 
 export const getGitHubOAuthOutput: typeof import("./getGitHubOAuth").getGitHubOAuthOutput = null as any;
 utilities.lazyLoad(exports, ["getGitHubOAuth","getGitHubOAuthOutput"], () => require("./getGitHubOAuth"));
 
+export { GetIacProfileArgs, GetIacProfileResult, GetIacProfileOutputArgs } from "./getIacProfile";
+export const getIacProfile: typeof import("./getIacProfile").getIacProfile = null as any;
+export const getIacProfileOutput: typeof import("./getIacProfile").getIacProfileOutput = null as any;
+utilities.lazyLoad(exports, ["getIacProfile","getIacProfileOutput"], () => require("./getIacProfile"));
+
 export { GetWorkflowArgs, GetWorkflowResult, GetWorkflowOutputArgs } from "./getWorkflow";
 export const getWorkflow: typeof import("./getWorkflow").getWorkflow = null as any;
 export const getWorkflowOutput: typeof import("./getWorkflow").getWorkflowOutput = null as any;
 utilities.lazyLoad(exports, ["getWorkflow","getWorkflowOutput"], () => require("./getWorkflow"));
+
+export { IacProfileArgs } from "./iacProfile";
+export type IacProfile = import("./iacProfile").IacProfile;
+export const IacProfile: typeof import("./iacProfile").IacProfile = null as any;
+utilities.lazyLoad(exports, ["IacProfile"], () => require("./iacProfile"));
 
 export { WorkflowArgs } from "./workflow";
 export type Workflow = import("./workflow").Workflow;
@@ -28,17 +38,21 @@ export * from "../types/enums/devhub";
 import * as v20220401preview from "./v20220401preview";
 import * as v20221011preview from "./v20221011preview";
 import * as v20230801 from "./v20230801";
+import * as v20240501preview from "./v20240501preview";
 
 export {
     v20220401preview,
     v20221011preview,
     v20230801,
+    v20240501preview,
 };
 
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:devhub:IacProfile":
+                return new IacProfile(name, <any>undefined, { urn })
             case "azure-native:devhub:Workflow":
                 return new Workflow(name, <any>undefined, { urn })
             default:

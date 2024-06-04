@@ -232,7 +232,7 @@ class Cloud(pulumi.CustomResource):
             __props__.__dict__["cloud_name"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
-            __props__.__dict__["storage_qo_s_policies"] = None
+            __props__.__dict__["storage_qos_policies"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:scvmm:Cloud"), pulumi.Alias(type_="azure-native:scvmm/v20200605preview:Cloud"), pulumi.Alias(type_="azure-native:scvmm/v20220521preview:Cloud"), pulumi.Alias(type_="azure-native:scvmm/v20230401preview:Cloud")])
@@ -266,7 +266,7 @@ class Cloud(pulumi.CustomResource):
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
-        __props__.__dict__["storage_qo_s_policies"] = None
+        __props__.__dict__["storage_qos_policies"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
@@ -286,7 +286,7 @@ class Cloud(pulumi.CustomResource):
     @pulumi.getter(name="cloudName")
     def cloud_name(self) -> pulumi.Output[str]:
         """
-        Name of the cloud in VMMServer.
+        Name of the cloud in VmmServer.
         """
         return pulumi.get(self, "cloud_name")
 
@@ -331,12 +331,12 @@ class Cloud(pulumi.CustomResource):
         return pulumi.get(self, "provisioning_state")
 
     @property
-    @pulumi.getter(name="storageQoSPolicies")
-    def storage_qo_s_policies(self) -> pulumi.Output[Sequence['outputs.StorageQoSPolicyResponse']]:
+    @pulumi.getter(name="storageQosPolicies")
+    def storage_qos_policies(self) -> pulumi.Output[Sequence['outputs.StorageQosPolicyResponse']]:
         """
         List of QoS policies available for the cloud.
         """
-        return pulumi.get(self, "storage_qo_s_policies")
+        return pulumi.get(self, "storage_qos_policies")
 
     @property
     @pulumi.getter(name="systemData")

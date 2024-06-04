@@ -79,9 +79,9 @@ class GetVmmServerResult:
 
     @property
     @pulumi.getter
-    def credentials(self) -> Optional['outputs.VMMCredentialResponse']:
+    def credentials(self) -> Optional['outputs.VmmCredentialResponse']:
         """
-        Credentials to connect to VMMServer.
+        Credentials to connect to VmmServer.
         """
         return pulumi.get(self, "credentials")
 
@@ -217,11 +217,11 @@ def get_vmm_server(resource_group_name: Optional[str] = None,
                    vmm_server_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVmmServerResult:
     """
-    Implements VMMServer GET method.
+    Implements VmmServer GET method.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
-    :param str vmm_server_name: Name of the VMMServer.
+    :param str vmm_server_name: Name of the VmmServer.
     """
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
@@ -252,10 +252,10 @@ def get_vmm_server_output(resource_group_name: Optional[pulumi.Input[str]] = Non
                           vmm_server_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVmmServerResult]:
     """
-    Implements VMMServer GET method.
+    Implements VmmServer GET method.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
-    :param str vmm_server_name: Name of the VMMServer.
+    :param str vmm_server_name: Name of the VmmServer.
     """
     ...

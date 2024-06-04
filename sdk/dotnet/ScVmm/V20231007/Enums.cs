@@ -20,7 +20,13 @@ namespace Pulumi.AzureNative.ScVmm.V20231007
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Dynamically allocated address.
+        /// </summary>
         public static AllocationMethod Dynamic { get; } = new AllocationMethod("Dynamic");
+        /// <summary>
+        /// Statically allocated address.
+        /// </summary>
         public static AllocationMethod Static { get; } = new AllocationMethod("Static");
 
         public static bool operator ==(AllocationMethod left, AllocationMethod right) => left.Equals(right);
@@ -51,8 +57,14 @@ namespace Pulumi.AzureNative.ScVmm.V20231007
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static CreateDiffDisk @False { get; } = new CreateDiffDisk("false");
+        /// <summary>
+        /// Enable create diff disk.
+        /// </summary>
         public static CreateDiffDisk @True { get; } = new CreateDiffDisk("true");
+        /// <summary>
+        /// Disable create diff disk.
+        /// </summary>
+        public static CreateDiffDisk @False { get; } = new CreateDiffDisk("false");
 
         public static bool operator ==(CreateDiffDisk left, CreateDiffDisk right) => left.Equals(right);
         public static bool operator !=(CreateDiffDisk left, CreateDiffDisk right) => !left.Equals(right);
@@ -82,8 +94,14 @@ namespace Pulumi.AzureNative.ScVmm.V20231007
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static DynamicMemoryEnabled @False { get; } = new DynamicMemoryEnabled("false");
+        /// <summary>
+        /// Enable dynamic memory.
+        /// </summary>
         public static DynamicMemoryEnabled @True { get; } = new DynamicMemoryEnabled("true");
+        /// <summary>
+        /// Disable dynamic memory.
+        /// </summary>
+        public static DynamicMemoryEnabled @False { get; } = new DynamicMemoryEnabled("false");
 
         public static bool operator ==(DynamicMemoryEnabled left, DynamicMemoryEnabled right) => left.Equals(right);
         public static bool operator !=(DynamicMemoryEnabled left, DynamicMemoryEnabled right) => !left.Equals(right);
@@ -113,10 +131,22 @@ namespace Pulumi.AzureNative.ScVmm.V20231007
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Cloud inventory type
+        /// </summary>
         public static InventoryType Cloud { get; } = new InventoryType("Cloud");
+        /// <summary>
+        /// VirtualNetwork inventory type
+        /// </summary>
         public static InventoryType VirtualNetwork { get; } = new InventoryType("VirtualNetwork");
-        public static InventoryType VirtualMachineTemplate { get; } = new InventoryType("VirtualMachineTemplate");
+        /// <summary>
+        /// VirtualMachine inventory type
+        /// </summary>
         public static InventoryType VirtualMachine { get; } = new InventoryType("VirtualMachine");
+        /// <summary>
+        /// VirtualMachineTemplate inventory type
+        /// </summary>
+        public static InventoryType VirtualMachineTemplate { get; } = new InventoryType("VirtualMachineTemplate");
 
         public static bool operator ==(InventoryType left, InventoryType right) => left.Equals(right);
         public static bool operator !=(InventoryType left, InventoryType right) => !left.Equals(right);
@@ -146,8 +176,14 @@ namespace Pulumi.AzureNative.ScVmm.V20231007
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static LimitCpuForMigration @False { get; } = new LimitCpuForMigration("false");
+        /// <summary>
+        /// Enable limit CPU for migration.
+        /// </summary>
         public static LimitCpuForMigration @True { get; } = new LimitCpuForMigration("true");
+        /// <summary>
+        /// Disable limit CPU for migration.
+        /// </summary>
+        public static LimitCpuForMigration @False { get; } = new LimitCpuForMigration("false");
 
         public static bool operator ==(LimitCpuForMigration left, LimitCpuForMigration right) => left.Equals(right);
         public static bool operator !=(LimitCpuForMigration left, LimitCpuForMigration right) => !left.Equals(right);
@@ -177,8 +213,17 @@ namespace Pulumi.AzureNative.ScVmm.V20231007
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Install guest agent.
+        /// </summary>
         public static ProvisioningAction Install { get; } = new ProvisioningAction("install");
+        /// <summary>
+        /// Uninstall guest agent.
+        /// </summary>
         public static ProvisioningAction Uninstall { get; } = new ProvisioningAction("uninstall");
+        /// <summary>
+        /// Repair guest agent.
+        /// </summary>
         public static ProvisioningAction Repair { get; } = new ProvisioningAction("repair");
 
         public static bool operator ==(ProvisioningAction left, ProvisioningAction right) => left.Equals(right);

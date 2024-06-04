@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Describes a Run Command
  * Azure REST API version: 2023-10-03-preview.
  *
- * Other available API versions: 2024-03-31-preview.
+ * Other available API versions: 2024-03-31-preview, 2024-05-20-preview.
  */
 export class MachineRunCommand extends pulumi.CustomResource {
     /**
@@ -172,7 +172,7 @@ export class MachineRunCommand extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:hybridcompute/v20231003preview:MachineRunCommand" }, { type: "azure-native:hybridcompute/v20240331preview:MachineRunCommand" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:hybridcompute/v20231003preview:MachineRunCommand" }, { type: "azure-native:hybridcompute/v20240331preview:MachineRunCommand" }, { type: "azure-native:hybridcompute/v20240520preview:MachineRunCommand" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(MachineRunCommand.__pulumiType, name, resourceInputs, opts);
     }

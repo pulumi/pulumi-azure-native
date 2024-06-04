@@ -65,7 +65,7 @@ class GetVirtualMachineInstanceResult:
 
     @property
     @pulumi.getter(name="availabilitySets")
-    def availability_sets(self) -> Optional[Sequence['outputs.VirtualMachineInstancePropertiesResponseAvailabilitySets']]:
+    def availability_sets(self) -> Optional[Sequence['outputs.AvailabilitySetListItemResponse']]:
         """
         Availability Sets in vm.
         """
@@ -121,7 +121,7 @@ class GetVirtualMachineInstanceResult:
 
     @property
     @pulumi.getter(name="osProfile")
-    def os_profile(self) -> Optional['outputs.OsProfileForVMInstanceResponse']:
+    def os_profile(self) -> Optional['outputs.OsProfileForVmInstanceResponse']:
         """
         OS properties.
         """
@@ -195,7 +195,7 @@ def get_virtual_machine_instance(resource_uri: Optional[str] = None,
     Retrieves information about a virtual machine instance.
 
 
-    :param str resource_uri: The fully qualified Azure Resource manager identifier of the Hybrid Compute machine resource to be extended.
+    :param str resource_uri: The fully qualified Azure Resource manager identifier of the resource.
     """
     __args__ = dict()
     __args__['resourceUri'] = resource_uri
@@ -225,6 +225,6 @@ def get_virtual_machine_instance_output(resource_uri: Optional[pulumi.Input[str]
     Retrieves information about a virtual machine instance.
 
 
-    :param str resource_uri: The fully qualified Azure Resource manager identifier of the Hybrid Compute machine resource to be extended.
+    :param str resource_uri: The fully qualified Azure Resource manager identifier of the resource.
     """
     ...

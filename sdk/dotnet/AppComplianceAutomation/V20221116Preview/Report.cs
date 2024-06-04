@@ -65,6 +65,7 @@ namespace Pulumi.AzureNative.AppComplianceAutomation.V20221116Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:appcomplianceautomation:Report" },
+                    new global::Pulumi.Alias { Type = "azure-native:appcomplianceautomation/v20240627:Report" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

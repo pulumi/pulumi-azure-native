@@ -43,7 +43,7 @@ namespace Pulumi.AzureNative.ScVmm.V20231007.Outputs
         /// <summary>
         /// Last restored checkpoint in the vm.
         /// </summary>
-        public readonly Outputs.CheckpointResponse LastRestoredVMCheckpoint;
+        public readonly Outputs.CheckpointResponse LastRestoredVmCheckpoint;
         /// <summary>
         /// ARM Id of the template resource to use for deploying the vm.
         /// </summary>
@@ -53,7 +53,7 @@ namespace Pulumi.AzureNative.ScVmm.V20231007.Outputs
         /// </summary>
         public readonly string? Uuid;
         /// <summary>
-        /// VMName is the name of VM on the SCVMM server.
+        /// VMName is the name of VM on the SCVmm server.
         /// </summary>
         public readonly string? VmName;
         /// <summary>
@@ -75,7 +75,7 @@ namespace Pulumi.AzureNative.ScVmm.V20231007.Outputs
 
             string? inventoryItemId,
 
-            Outputs.CheckpointResponse lastRestoredVMCheckpoint,
+            Outputs.CheckpointResponse lastRestoredVmCheckpoint,
 
             string? templateId,
 
@@ -91,7 +91,7 @@ namespace Pulumi.AzureNative.ScVmm.V20231007.Outputs
             CloudId = cloudId;
             Generation = generation;
             InventoryItemId = inventoryItemId;
-            LastRestoredVMCheckpoint = lastRestoredVMCheckpoint;
+            LastRestoredVmCheckpoint = lastRestoredVmCheckpoint;
             TemplateId = templateId;
             Uuid = uuid;
             VmName = vmName;

@@ -28,7 +28,7 @@ namespace Pulumi.AzureNative.ScVmm.V20231007
     public sealed class GetVirtualMachineInstanceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The fully qualified Azure Resource manager identifier of the Hybrid Compute machine resource to be extended.
+        /// The fully qualified Azure Resource manager identifier of the resource.
         /// </summary>
         [Input("resourceUri", required: true)]
         public string ResourceUri { get; set; } = null!;
@@ -42,7 +42,7 @@ namespace Pulumi.AzureNative.ScVmm.V20231007
     public sealed class GetVirtualMachineInstanceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The fully qualified Azure Resource manager identifier of the Hybrid Compute machine resource to be extended.
+        /// The fully qualified Azure Resource manager identifier of the resource.
         /// </summary>
         [Input("resourceUri", required: true)]
         public Input<string> ResourceUri { get; set; } = null!;
@@ -60,7 +60,7 @@ namespace Pulumi.AzureNative.ScVmm.V20231007
         /// <summary>
         /// Availability Sets in vm.
         /// </summary>
-        public readonly ImmutableArray<Outputs.VirtualMachineInstancePropertiesResponseAvailabilitySets> AvailabilitySets;
+        public readonly ImmutableArray<Outputs.AvailabilitySetListItemResponse> AvailabilitySets;
         /// <summary>
         /// Gets or sets the extended location.
         /// </summary>
@@ -88,7 +88,7 @@ namespace Pulumi.AzureNative.ScVmm.V20231007
         /// <summary>
         /// OS properties.
         /// </summary>
-        public readonly Outputs.OsProfileForVMInstanceResponse? OsProfile;
+        public readonly Outputs.OsProfileForVmInstanceResponse? OsProfile;
         /// <summary>
         /// Gets the power state of the virtual machine.
         /// </summary>
@@ -112,7 +112,7 @@ namespace Pulumi.AzureNative.ScVmm.V20231007
 
         [OutputConstructor]
         private GetVirtualMachineInstanceResult(
-            ImmutableArray<Outputs.VirtualMachineInstancePropertiesResponseAvailabilitySets> availabilitySets,
+            ImmutableArray<Outputs.AvailabilitySetListItemResponse> availabilitySets,
 
             Outputs.ExtendedLocationResponse extendedLocation,
 
@@ -126,7 +126,7 @@ namespace Pulumi.AzureNative.ScVmm.V20231007
 
             Outputs.NetworkProfileResponse? networkProfile,
 
-            Outputs.OsProfileForVMInstanceResponse? osProfile,
+            Outputs.OsProfileForVmInstanceResponse? osProfile,
 
             string powerState,
 

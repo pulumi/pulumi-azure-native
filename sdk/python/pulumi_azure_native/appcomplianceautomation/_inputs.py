@@ -8,10 +8,12 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from ._enums import *
 
 __all__ = [
     'ReportPropertiesArgs',
     'ResourceMetadataArgs',
+    'ScopingAnswerArgs',
 ]
 
 @pulumi.input_type
@@ -170,5 +172,43 @@ class ResourceMetadataArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+
+@pulumi.input_type
+class ScopingAnswerArgs:
+    def __init__(__self__, *,
+                 answers: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 question_id: pulumi.Input[str]):
+        """
+        Scoping answer.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] answers: Question answer value list.
+        :param pulumi.Input[str] question_id: Question id.
+        """
+        pulumi.set(__self__, "answers", answers)
+        pulumi.set(__self__, "question_id", question_id)
+
+    @property
+    @pulumi.getter
+    def answers(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Question answer value list.
+        """
+        return pulumi.get(self, "answers")
+
+    @answers.setter
+    def answers(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "answers", value)
+
+    @property
+    @pulumi.getter(name="questionId")
+    def question_id(self) -> pulumi.Input[str]:
+        """
+        Question id.
+        """
+        return pulumi.get(self, "question_id")
+
+    @question_id.setter
+    def question_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "question_id", value)
 
 

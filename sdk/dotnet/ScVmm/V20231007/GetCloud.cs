@@ -74,7 +74,7 @@ namespace Pulumi.AzureNative.ScVmm.V20231007
         /// </summary>
         public readonly Outputs.CloudCapacityResponse CloudCapacity;
         /// <summary>
-        /// Name of the cloud in VMMServer.
+        /// Name of the cloud in VmmServer.
         /// </summary>
         public readonly string CloudName;
         /// <summary>
@@ -104,7 +104,7 @@ namespace Pulumi.AzureNative.ScVmm.V20231007
         /// <summary>
         /// List of QoS policies available for the cloud.
         /// </summary>
-        public readonly ImmutableArray<Outputs.StorageQoSPolicyResponse> StorageQoSPolicies;
+        public readonly ImmutableArray<Outputs.StorageQosPolicyResponse> StorageQosPolicies;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
@@ -144,7 +144,7 @@ namespace Pulumi.AzureNative.ScVmm.V20231007
 
             string provisioningState,
 
-            ImmutableArray<Outputs.StorageQoSPolicyResponse> storageQoSPolicies,
+            ImmutableArray<Outputs.StorageQosPolicyResponse> storageQosPolicies,
 
             Outputs.SystemDataResponse systemData,
 
@@ -164,7 +164,7 @@ namespace Pulumi.AzureNative.ScVmm.V20231007
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;
-            StorageQoSPolicies = storageQoSPolicies;
+            StorageQosPolicies = storageQosPolicies;
             SystemData = systemData;
             Tags = tags;
             Type = type;

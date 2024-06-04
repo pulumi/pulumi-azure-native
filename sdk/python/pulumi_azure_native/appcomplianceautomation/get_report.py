@@ -99,6 +99,8 @@ def get_report(report_name: Optional[str] = None,
     Get the AppComplianceAutomation report and its properties.
     Azure REST API version: 2022-11-16-preview.
 
+    Other available API versions: 2024-06-27.
+
 
     :param str report_name: Report Name.
     """
@@ -121,6 +123,8 @@ def get_report_output(report_name: Optional[pulumi.Input[str]] = None,
     """
     Get the AppComplianceAutomation report and its properties.
     Azure REST API version: 2022-11-16-preview.
+
+    Other available API versions: 2024-06-27.
 
 
     :param str report_name: Report Name.

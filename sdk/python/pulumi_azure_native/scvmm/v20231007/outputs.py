@@ -12,6 +12,7 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'AvailabilitySetListItemResponse',
     'CheckpointResponse',
     'CloudCapacityResponse',
     'ExtendedLocationResponse',
@@ -21,15 +22,49 @@ __all__ = [
     'InfrastructureProfileResponse',
     'NetworkInterfaceResponse',
     'NetworkProfileResponse',
-    'OsProfileForVMInstanceResponse',
+    'OsProfileForVmInstanceResponse',
     'StorageProfileResponse',
-    'StorageQoSPolicyDetailsResponse',
-    'StorageQoSPolicyResponse',
+    'StorageQosPolicyDetailsResponse',
+    'StorageQosPolicyResponse',
     'SystemDataResponse',
-    'VMMCredentialResponse',
     'VirtualDiskResponse',
-    'VirtualMachineInstancePropertiesResponseAvailabilitySets',
+    'VmmCredentialResponse',
 ]
+
+@pulumi.output_type
+class AvailabilitySetListItemResponse(dict):
+    """
+    Availability Set model
+    """
+    def __init__(__self__, *,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None):
+        """
+        Availability Set model
+        :param str id: Gets the ARM Id of the microsoft.scvmm/availabilitySets resource.
+        :param str name: Gets or sets the name of the availability set.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Gets the ARM Id of the microsoft.scvmm/availabilitySets resource.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Gets or sets the name of the availability set.
+        """
+        return pulumi.get(self, "name")
+
 
 @pulumi.output_type
 class CheckpointResponse(dict):
@@ -39,9 +74,9 @@ class CheckpointResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "checkpointID":
+        if key == "checkpointId":
             suggest = "checkpoint_id"
-        elif key == "parentCheckpointID":
+        elif key == "parentCheckpointId":
             suggest = "parent_checkpoint_id"
 
         if suggest:
@@ -77,7 +112,7 @@ class CheckpointResponse(dict):
             pulumi.set(__self__, "parent_checkpoint_id", parent_checkpoint_id)
 
     @property
-    @pulumi.getter(name="checkpointID")
+    @pulumi.getter(name="checkpointId")
     def checkpoint_id(self) -> Optional[str]:
         """
         Gets ID of the checkpoint.
@@ -101,7 +136,7 @@ class CheckpointResponse(dict):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="parentCheckpointID")
+    @pulumi.getter(name="parentCheckpointId")
     def parent_checkpoint_id(self) -> Optional[str]:
         """
         Gets ID of parent of the checkpoint.
@@ -136,25 +171,22 @@ class CloudCapacityResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 cpu_count: Optional[float] = None,
-                 memory_mb: Optional[float] = None,
-                 vm_count: Optional[float] = None):
+                 cpu_count: float,
+                 memory_mb: float,
+                 vm_count: float):
         """
         Cloud Capacity model
         :param float cpu_count: CPUCount specifies the maximum number of CPUs that can be allocated in the cloud.
         :param float memory_mb: MemoryMB specifies a memory usage limit in megabytes.
         :param float vm_count: VMCount gives the max number of VMs that can be deployed in the cloud.
         """
-        if cpu_count is not None:
-            pulumi.set(__self__, "cpu_count", cpu_count)
-        if memory_mb is not None:
-            pulumi.set(__self__, "memory_mb", memory_mb)
-        if vm_count is not None:
-            pulumi.set(__self__, "vm_count", vm_count)
+        pulumi.set(__self__, "cpu_count", cpu_count)
+        pulumi.set(__self__, "memory_mb", memory_mb)
+        pulumi.set(__self__, "vm_count", vm_count)
 
     @property
     @pulumi.getter(name="cpuCount")
-    def cpu_count(self) -> Optional[float]:
+    def cpu_count(self) -> float:
         """
         CPUCount specifies the maximum number of CPUs that can be allocated in the cloud.
         """
@@ -162,7 +194,7 @@ class CloudCapacityResponse(dict):
 
     @property
     @pulumi.getter(name="memoryMB")
-    def memory_mb(self) -> Optional[float]:
+    def memory_mb(self) -> float:
         """
         MemoryMB specifies a memory usage limit in megabytes.
         """
@@ -170,7 +202,7 @@ class CloudCapacityResponse(dict):
 
     @property
     @pulumi.getter(name="vmCount")
-    def vm_count(self) -> Optional[float]:
+    def vm_count(self) -> float:
         """
         VMCount gives the max number of VMs that can be deployed in the cloud.
         """
@@ -405,7 +437,7 @@ class InfrastructureProfileResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "lastRestoredVMCheckpoint":
+        if key == "lastRestoredVmCheckpoint":
             suggest = "last_restored_vm_checkpoint"
         elif key == "biosGuid":
             suggest = "bios_guid"
@@ -434,10 +466,10 @@ class InfrastructureProfileResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 checkpoints: Sequence['outputs.CheckpointResponse'],
                  last_restored_vm_checkpoint: 'outputs.CheckpointResponse',
                  bios_guid: Optional[str] = None,
                  checkpoint_type: Optional[str] = None,
-                 checkpoints: Optional[Sequence['outputs.CheckpointResponse']] = None,
                  cloud_id: Optional[str] = None,
                  generation: Optional[int] = None,
                  inventory_item_id: Optional[str] = None,
@@ -447,25 +479,24 @@ class InfrastructureProfileResponse(dict):
                  vmm_server_id: Optional[str] = None):
         """
         Specifies the vmmServer infrastructure specific settings for the virtual machine instance.
+        :param Sequence['CheckpointResponse'] checkpoints: Checkpoints in the vm.
         :param 'CheckpointResponse' last_restored_vm_checkpoint: Last restored checkpoint in the vm.
         :param str bios_guid: Gets or sets the bios guid for the vm.
         :param str checkpoint_type: Type of checkpoint supported for the vm.
-        :param Sequence['CheckpointResponse'] checkpoints: Checkpoints in the vm.
         :param str cloud_id: ARM Id of the cloud resource to use for deploying the vm.
         :param int generation: Gets or sets the generation for the vm.
         :param str inventory_item_id: Gets or sets the inventory Item ID for the resource.
         :param str template_id: ARM Id of the template resource to use for deploying the vm.
         :param str uuid: Unique ID of the virtual machine.
-        :param str vm_name: VMName is the name of VM on the SCVMM server.
+        :param str vm_name: VMName is the name of VM on the SCVmm server.
         :param str vmm_server_id: ARM Id of the vmmServer resource in which this resource resides.
         """
+        pulumi.set(__self__, "checkpoints", checkpoints)
         pulumi.set(__self__, "last_restored_vm_checkpoint", last_restored_vm_checkpoint)
         if bios_guid is not None:
             pulumi.set(__self__, "bios_guid", bios_guid)
         if checkpoint_type is not None:
             pulumi.set(__self__, "checkpoint_type", checkpoint_type)
-        if checkpoints is not None:
-            pulumi.set(__self__, "checkpoints", checkpoints)
         if cloud_id is not None:
             pulumi.set(__self__, "cloud_id", cloud_id)
         if generation is not None:
@@ -482,7 +513,15 @@ class InfrastructureProfileResponse(dict):
             pulumi.set(__self__, "vmm_server_id", vmm_server_id)
 
     @property
-    @pulumi.getter(name="lastRestoredVMCheckpoint")
+    @pulumi.getter
+    def checkpoints(self) -> Sequence['outputs.CheckpointResponse']:
+        """
+        Checkpoints in the vm.
+        """
+        return pulumi.get(self, "checkpoints")
+
+    @property
+    @pulumi.getter(name="lastRestoredVmCheckpoint")
     def last_restored_vm_checkpoint(self) -> 'outputs.CheckpointResponse':
         """
         Last restored checkpoint in the vm.
@@ -504,14 +543,6 @@ class InfrastructureProfileResponse(dict):
         Type of checkpoint supported for the vm.
         """
         return pulumi.get(self, "checkpoint_type")
-
-    @property
-    @pulumi.getter
-    def checkpoints(self) -> Optional[Sequence['outputs.CheckpointResponse']]:
-        """
-        Checkpoints in the vm.
-        """
-        return pulumi.get(self, "checkpoints")
 
     @property
     @pulumi.getter(name="cloudId")
@@ -557,7 +588,7 @@ class InfrastructureProfileResponse(dict):
     @pulumi.getter(name="vmName")
     def vm_name(self) -> Optional[str]:
         """
-        VMName is the name of VM on the SCVMM server.
+        VMName is the name of VM on the SCVmm server.
         """
         return pulumi.get(self, "vm_name")
 
@@ -785,7 +816,7 @@ class NetworkProfileResponse(dict):
 
 
 @pulumi.output_type
-class OsProfileForVMInstanceResponse(dict):
+class OsProfileForVmInstanceResponse(dict):
     """
     Defines the resource properties.
     """
@@ -802,14 +833,14 @@ class OsProfileForVMInstanceResponse(dict):
             suggest = "computer_name"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in OsProfileForVMInstanceResponse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in OsProfileForVmInstanceResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        OsProfileForVMInstanceResponse.__key_warning(key)
+        OsProfileForVmInstanceResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        OsProfileForVMInstanceResponse.__key_warning(key)
+        OsProfileForVmInstanceResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -887,7 +918,7 @@ class StorageProfileResponse(dict):
 
 
 @pulumi.output_type
-class StorageQoSPolicyDetailsResponse(dict):
+class StorageQosPolicyDetailsResponse(dict):
     """
     The StorageQoSPolicyDetails definition.
     """
@@ -922,7 +953,7 @@ class StorageQoSPolicyDetailsResponse(dict):
 
 
 @pulumi.output_type
-class StorageQoSPolicyResponse(dict):
+class StorageQosPolicyResponse(dict):
     """
     The StorageQoSPolicy definition.
     """
@@ -939,14 +970,14 @@ class StorageQoSPolicyResponse(dict):
             suggest = "policy_id"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in StorageQoSPolicyResponse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in StorageQosPolicyResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        StorageQoSPolicyResponse.__key_warning(key)
+        StorageQosPolicyResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        StorageQoSPolicyResponse.__key_warning(key)
+        StorageQosPolicyResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -1138,29 +1169,6 @@ class SystemDataResponse(dict):
 
 
 @pulumi.output_type
-class VMMCredentialResponse(dict):
-    """
-    Credentials to connect to VMMServer.
-    """
-    def __init__(__self__, *,
-                 username: Optional[str] = None):
-        """
-        Credentials to connect to VMMServer.
-        :param str username: Username to use to connect to VMMServer.
-        """
-        if username is not None:
-            pulumi.set(__self__, "username", username)
-
-    @property
-    @pulumi.getter
-    def username(self) -> Optional[str]:
-        """
-        Username to use to connect to VMMServer.
-        """
-        return pulumi.get(self, "username")
-
-
-@pulumi.output_type
 class VirtualDiskResponse(dict):
     """
     Virtual disk model
@@ -1184,8 +1192,8 @@ class VirtualDiskResponse(dict):
             suggest = "disk_id"
         elif key == "diskSizeGB":
             suggest = "disk_size_gb"
-        elif key == "storageQoSPolicy":
-            suggest = "storage_qo_s_policy"
+        elif key == "storageQosPolicy":
+            suggest = "storage_qos_policy"
         elif key == "templateDiskId":
             suggest = "template_disk_id"
         elif key == "vhdType":
@@ -1214,7 +1222,7 @@ class VirtualDiskResponse(dict):
                  disk_size_gb: Optional[int] = None,
                  lun: Optional[int] = None,
                  name: Optional[str] = None,
-                 storage_qo_s_policy: Optional['outputs.StorageQoSPolicyDetailsResponse'] = None,
+                 storage_qos_policy: Optional['outputs.StorageQosPolicyDetailsResponse'] = None,
                  template_disk_id: Optional[str] = None,
                  vhd_type: Optional[str] = None):
         """
@@ -1230,7 +1238,7 @@ class VirtualDiskResponse(dict):
         :param int disk_size_gb: Gets or sets the disk total size.
         :param int lun: Gets or sets the disk lun.
         :param str name: Gets or sets the name of the disk.
-        :param 'StorageQoSPolicyDetailsResponse' storage_qo_s_policy: The QoS policy for the disk.
+        :param 'StorageQosPolicyDetailsResponse' storage_qos_policy: The QoS policy for the disk.
         :param str template_disk_id: Gets or sets the disk id in the template.
         :param str vhd_type: Gets or sets the disk vhd type.
         """
@@ -1252,8 +1260,8 @@ class VirtualDiskResponse(dict):
             pulumi.set(__self__, "lun", lun)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if storage_qo_s_policy is not None:
-            pulumi.set(__self__, "storage_qo_s_policy", storage_qo_s_policy)
+        if storage_qos_policy is not None:
+            pulumi.set(__self__, "storage_qos_policy", storage_qos_policy)
         if template_disk_id is not None:
             pulumi.set(__self__, "template_disk_id", template_disk_id)
         if vhd_type is not None:
@@ -1348,12 +1356,12 @@ class VirtualDiskResponse(dict):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="storageQoSPolicy")
-    def storage_qo_s_policy(self) -> Optional['outputs.StorageQoSPolicyDetailsResponse']:
+    @pulumi.getter(name="storageQosPolicy")
+    def storage_qos_policy(self) -> Optional['outputs.StorageQosPolicyDetailsResponse']:
         """
         The QoS policy for the disk.
         """
-        return pulumi.get(self, "storage_qo_s_policy")
+        return pulumi.get(self, "storage_qos_policy")
 
     @property
     @pulumi.getter(name="templateDiskId")
@@ -1373,37 +1381,25 @@ class VirtualDiskResponse(dict):
 
 
 @pulumi.output_type
-class VirtualMachineInstancePropertiesResponseAvailabilitySets(dict):
+class VmmCredentialResponse(dict):
     """
-    Availability Set model
+    Credentials to connect to VmmServer.
     """
     def __init__(__self__, *,
-                 id: Optional[str] = None,
-                 name: Optional[str] = None):
+                 username: Optional[str] = None):
         """
-        Availability Set model
-        :param str id: Gets the ARM Id of the microsoft.scvmm/availabilitySets resource.
-        :param str name: Gets or sets the name of the availability set.
+        Credentials to connect to VmmServer.
+        :param str username: Username to use to connect to VmmServer.
         """
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
 
     @property
     @pulumi.getter
-    def id(self) -> Optional[str]:
+    def username(self) -> Optional[str]:
         """
-        Gets the ARM Id of the microsoft.scvmm/availabilitySets resource.
+        Username to use to connect to VmmServer.
         """
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[str]:
-        """
-        Gets or sets the name of the availability set.
-        """
-        return pulumi.get(self, "name")
+        return pulumi.get(self, "username")
 
 

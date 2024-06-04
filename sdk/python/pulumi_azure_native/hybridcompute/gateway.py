@@ -132,6 +132,8 @@ class Gateway(pulumi.CustomResource):
         Describes an Arc Gateway.
         Azure REST API version: 2024-03-31-preview.
 
+        Other available API versions: 2024-05-20-preview.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_features: Specifies the list of features that are enabled for this Gateway.
@@ -150,6 +152,8 @@ class Gateway(pulumi.CustomResource):
         """
         Describes an Arc Gateway.
         Azure REST API version: 2024-03-31-preview.
+
+        Other available API versions: 2024-05-20-preview.
 
         :param str resource_name: The name of the resource.
         :param GatewayArgs args: The arguments to use to populate this resource's properties.
@@ -195,7 +199,7 @@ class Gateway(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hybridcompute/v20240331preview:Gateway")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hybridcompute/v20240331preview:Gateway"), pulumi.Alias(type_="azure-native:hybridcompute/v20240520preview:Gateway")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Gateway, __self__).__init__(
             'azure-native:hybridcompute:Gateway',

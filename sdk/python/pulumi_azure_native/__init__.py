@@ -437,6 +437,8 @@ if typing.TYPE_CHECKING:
     testbase = __testbase
     import pulumi_azure_native.timeseriesinsights as __timeseriesinsights
     timeseriesinsights = __timeseriesinsights
+    import pulumi_azure_native.verifiedid as __verifiedid
+    verifiedid = __verifiedid
     import pulumi_azure_native.videoanalyzer as __videoanalyzer
     videoanalyzer = __videoanalyzer
     import pulumi_azure_native.videoindexer as __videoindexer
@@ -674,6 +676,7 @@ else:
     syntex = _utilities.lazy_import('pulumi_azure_native.syntex')
     testbase = _utilities.lazy_import('pulumi_azure_native.testbase')
     timeseriesinsights = _utilities.lazy_import('pulumi_azure_native.timeseriesinsights')
+    verifiedid = _utilities.lazy_import('pulumi_azure_native.verifiedid')
     videoanalyzer = _utilities.lazy_import('pulumi_azure_native.videoanalyzer')
     videoindexer = _utilities.lazy_import('pulumi_azure_native.videoindexer')
     virtualmachineimages = _utilities.lazy_import('pulumi_azure_native.virtualmachineimages')
@@ -1699,7 +1702,10 @@ _utilities.register(
   "mod": "appcomplianceautomation",
   "fqn": "pulumi_azure_native.appcomplianceautomation",
   "classes": {
-   "azure-native:appcomplianceautomation:Report": "Report"
+   "azure-native:appcomplianceautomation:Evidence": "Evidence",
+   "azure-native:appcomplianceautomation:Report": "Report",
+   "azure-native:appcomplianceautomation:ScopingConfiguration": "ScopingConfiguration",
+   "azure-native:appcomplianceautomation:Webhook": "Webhook"
   }
  },
  {
@@ -1708,6 +1714,17 @@ _utilities.register(
   "fqn": "pulumi_azure_native.appcomplianceautomation.v20221116preview",
   "classes": {
    "azure-native:appcomplianceautomation/v20221116preview:Report": "Report"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "appcomplianceautomation/v20240627",
+  "fqn": "pulumi_azure_native.appcomplianceautomation.v20240627",
+  "classes": {
+   "azure-native:appcomplianceautomation/v20240627:Evidence": "Evidence",
+   "azure-native:appcomplianceautomation/v20240627:Report": "Report",
+   "azure-native:appcomplianceautomation/v20240627:ScopingConfiguration": "ScopingConfiguration",
+   "azure-native:appcomplianceautomation/v20240627:Webhook": "Webhook"
   }
  },
  {
@@ -6809,6 +6826,7 @@ _utilities.register(
   "mod": "devhub",
   "fqn": "pulumi_azure_native.devhub",
   "classes": {
+   "azure-native:devhub:IacProfile": "IacProfile",
    "azure-native:devhub:Workflow": "Workflow"
   }
  },
@@ -6826,6 +6844,15 @@ _utilities.register(
   "fqn": "pulumi_azure_native.devhub.v20230801",
   "classes": {
    "azure-native:devhub/v20230801:Workflow": "Workflow"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "devhub/v20240501preview",
+  "fqn": "pulumi_azure_native.devhub.v20240501preview",
+  "classes": {
+   "azure-native:devhub/v20240501preview:IacProfile": "IacProfile",
+   "azure-native:devhub/v20240501preview:Workflow": "Workflow"
   }
  },
  {
@@ -8492,6 +8519,21 @@ _utilities.register(
    "azure-native:hybridcompute/v20240331preview:MachineRunCommand": "MachineRunCommand",
    "azure-native:hybridcompute/v20240331preview:PrivateEndpointConnection": "PrivateEndpointConnection",
    "azure-native:hybridcompute/v20240331preview:PrivateLinkScope": "PrivateLinkScope"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "hybridcompute/v20240520preview",
+  "fqn": "pulumi_azure_native.hybridcompute.v20240520preview",
+  "classes": {
+   "azure-native:hybridcompute/v20240520preview:Gateway": "Gateway",
+   "azure-native:hybridcompute/v20240520preview:License": "License",
+   "azure-native:hybridcompute/v20240520preview:LicenseProfile": "LicenseProfile",
+   "azure-native:hybridcompute/v20240520preview:Machine": "Machine",
+   "azure-native:hybridcompute/v20240520preview:MachineExtension": "MachineExtension",
+   "azure-native:hybridcompute/v20240520preview:MachineRunCommand": "MachineRunCommand",
+   "azure-native:hybridcompute/v20240520preview:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:hybridcompute/v20240520preview:PrivateLinkScope": "PrivateLinkScope"
   }
  },
  {
@@ -13830,8 +13872,8 @@ _utilities.register(
   "classes": {
    "azure-native:scvmm/v20231007:AvailabilitySet": "AvailabilitySet",
    "azure-native:scvmm/v20231007:Cloud": "Cloud",
+   "azure-native:scvmm/v20231007:GuestAgent": "GuestAgent",
    "azure-native:scvmm/v20231007:InventoryItem": "InventoryItem",
-   "azure-native:scvmm/v20231007:VMInstanceGuestAgent": "VMInstanceGuestAgent",
    "azure-native:scvmm/v20231007:VirtualMachineInstance": "VirtualMachineInstance",
    "azure-native:scvmm/v20231007:VirtualMachineTemplate": "VirtualMachineTemplate",
    "azure-native:scvmm/v20231007:VirtualNetwork": "VirtualNetwork",
@@ -16609,6 +16651,22 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "verifiedid",
+  "fqn": "pulumi_azure_native.verifiedid",
+  "classes": {
+   "azure-native:verifiedid:Authority": "Authority"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "verifiedid/v20240126preview",
+  "fqn": "pulumi_azure_native.verifiedid.v20240126preview",
+  "classes": {
+   "azure-native:verifiedid/v20240126preview:Authority": "Authority"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "videoanalyzer",
   "fqn": "pulumi_azure_native.videoanalyzer",
   "classes": {
@@ -16703,6 +16761,15 @@ _utilities.register(
   "classes": {
    "azure-native:virtualmachineimages/v20230701:Trigger": "Trigger",
    "azure-native:virtualmachineimages/v20230701:VirtualMachineImageTemplate": "VirtualMachineImageTemplate"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "virtualmachineimages/v20240201",
+  "fqn": "pulumi_azure_native.virtualmachineimages.v20240201",
+  "classes": {
+   "azure-native:virtualmachineimages/v20240201:Trigger": "Trigger",
+   "azure-native:virtualmachineimages/v20240201:VirtualMachineImageTemplate": "VirtualMachineImageTemplate"
   }
  },
  {

@@ -95,6 +95,14 @@
     "Namespaces_CheckNameAvailability": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.App/managedEnvironments/{environmentName}/checkNameAvailability"
   },
   "AppComplianceAutomation": {
+    "Evidence_Download": "/providers/Microsoft.AppComplianceAutomation/reports/{reportName}/evidences/{evidenceName}/download",
+    "ProviderActions_CheckNameAvailability": "/providers/Microsoft.AppComplianceAutomation/checkNameAvailability",
+    "ProviderActions_Onboard": "/providers/Microsoft.AppComplianceAutomation/onboard",
+    "ProviderActions_TriggerEvaluation": "/providers/Microsoft.AppComplianceAutomation/triggerEvaluation",
+    "Report_Fix": "/providers/Microsoft.AppComplianceAutomation/reports/{reportName}/fix",
+    "Report_NestedResourceCheckNameAvailability": "/providers/Microsoft.AppComplianceAutomation/reports/{reportName}/checkNameAvailability",
+    "Report_SyncCertRecord": "/providers/Microsoft.AppComplianceAutomation/reports/{reportName}/syncCertRecord",
+    "Report_Verify": "/providers/Microsoft.AppComplianceAutomation/reports/{reportName}/verify",
     "Snapshot_Download": "/providers/Microsoft.AppComplianceAutomation/reports/{reportName}/snapshots/{snapshotName}/download"
   },
   "AppConfiguration": {
@@ -862,7 +870,10 @@
     "ProjectCatalogs_Sync": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevCenter/projects/{projectName}/catalogs/{catalogName}/sync"
   },
   "DevHub": {
-    "GeneratePreviewArtifacts": "/subscriptions/{subscriptionId}/providers/Microsoft.DevHub/locations/{location}/generatePreviewArtifacts"
+    "GeneratePreviewArtifacts": "/subscriptions/{subscriptionId}/providers/Microsoft.DevHub/locations/{location}/generatePreviewArtifacts",
+    "IacProfiles_Export": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevHub/iacProfiles/{iacProfileName}/export",
+    "IacProfiles_Scale": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevHub/iacProfiles/{iacProfileName}/scale",
+    "IacProfiles_Sync": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevHub/iacProfiles/{iacProfileName}/sync"
   },
   "DevSpaces": {
     "ContainerHostMappings_GetContainerHostMapping": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevSpaces/locations/{location}/checkContainerHostMapping"
@@ -1151,12 +1162,15 @@
     "ActionGroups_CreateNotificationsAtResourceGroupLevel": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/createNotifications",
     "ActionGroups_EnableReceiver": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/actionGroups/{actionGroupName}/subscribe",
     "ActionGroups_PostTestNotifications": "/subscriptions/{subscriptionId}/providers/Microsoft.Insights/createNotifications",
+    "ActionGroups_ReconcileNSP": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/actionGroups/{actionGroupName}/networkSecurityPerimeterConfigurations/{networkSecurityPerimeterConfigurationName}/reconcile",
     "Components_Purge": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/components/{resourceName}/purge",
     "CreateNotificationsAtTenantActionGroupResourceLevel": "/providers/Microsoft.Management/managementGroups/{managementGroupId}/providers/Microsoft.Insights/tenantActionGroups/{tenantActionGroupName}/createNotifications",
+    "DataCollectionEndpoints_ReconcileNSP": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/dataCollectionEndpoints/{dataCollectionEndpointName}/networkSecurityPerimeterConfigurations/{networkSecurityPerimeterConfigurationName}/reconcile",
     "EASubscriptionMigrateToNewPricingModel_Post": "/subscriptions/{subscriptionId}/providers/microsoft.insights/migrateToNewPricingModel",
     "EASubscriptionRollbackToLegacyPricingModel_Post": "/subscriptions/{subscriptionId}/providers/microsoft.insights/rollbackToLegacyPricingModel",
     "ExportConfigurations_Create": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/components/{resourceName}/exportconfiguration",
     "Metrics_ListAtSubscriptionScopePost": "/subscriptions/{subscriptionId}/providers/Microsoft.Insights/metrics",
+    "ScheduledQueryRule_ReconcileNSP": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/scheduledQueryRules/{ruleName}/networkSecurityPerimeterConfigurations/{networkSecurityPerimeterConfigurationName}/reconcile",
     "WorkItemConfigurations_Create": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/components/{resourceName}/WorkItemConfigs"
   },
   "IntegrationSpaces": {

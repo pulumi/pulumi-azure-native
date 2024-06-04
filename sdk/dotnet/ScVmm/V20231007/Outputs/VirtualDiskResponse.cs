@@ -55,7 +55,7 @@ namespace Pulumi.AzureNative.ScVmm.V20231007.Outputs
         /// <summary>
         /// The QoS policy for the disk.
         /// </summary>
-        public readonly Outputs.StorageQoSPolicyDetailsResponse? StorageQoSPolicy;
+        public readonly Outputs.StorageQosPolicyDetailsResponse? StorageQosPolicy;
         /// <summary>
         /// Gets or sets the disk id in the template.
         /// </summary>
@@ -93,7 +93,7 @@ namespace Pulumi.AzureNative.ScVmm.V20231007.Outputs
 
             string? name,
 
-            Outputs.StorageQoSPolicyDetailsResponse? storageQoSPolicy,
+            Outputs.StorageQosPolicyDetailsResponse? storageQosPolicy,
 
             string? templateDiskId,
 
@@ -112,7 +112,7 @@ namespace Pulumi.AzureNative.ScVmm.V20231007.Outputs
             Lun = lun;
             MaxDiskSizeGB = maxDiskSizeGB;
             Name = name;
-            StorageQoSPolicy = storageQoSPolicy;
+            StorageQosPolicy = storageQosPolicy;
             TemplateDiskId = templateDiskId;
             VhdFormatType = vhdFormatType;
             VhdType = vhdType;

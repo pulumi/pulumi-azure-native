@@ -227,6 +227,7 @@ import * as syntex from "./syntex";
 import * as testbase from "./testbase";
 import * as timeseriesinsights from "./timeseriesinsights";
 import * as types from "./types";
+import * as verifiedid from "./verifiedid";
 import * as videoanalyzer from "./videoanalyzer";
 import * as videoindexer from "./videoindexer";
 import * as virtualmachineimages from "./virtualmachineimages";
@@ -455,6 +456,7 @@ export {
     testbase,
     timeseriesinsights,
     types,
+    verifiedid,
     videoanalyzer,
     videoindexer,
     virtualmachineimages,

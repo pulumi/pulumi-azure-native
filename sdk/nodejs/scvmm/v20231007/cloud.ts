@@ -42,7 +42,7 @@ export class Cloud extends pulumi.CustomResource {
      */
     public /*out*/ readonly cloudCapacity!: pulumi.Output<outputs.scvmm.v20231007.CloudCapacityResponse>;
     /**
-     * Name of the cloud in VMMServer.
+     * Name of the cloud in VmmServer.
      */
     public /*out*/ readonly cloudName!: pulumi.Output<string>;
     /**
@@ -68,7 +68,7 @@ export class Cloud extends pulumi.CustomResource {
     /**
      * List of QoS policies available for the cloud.
      */
-    public /*out*/ readonly storageQoSPolicies!: pulumi.Output<outputs.scvmm.v20231007.StorageQoSPolicyResponse[]>;
+    public /*out*/ readonly storageQosPolicies!: pulumi.Output<outputs.scvmm.v20231007.StorageQosPolicyResponse[]>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -119,7 +119,7 @@ export class Cloud extends pulumi.CustomResource {
             resourceInputs["cloudName"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["storageQoSPolicies"] = undefined /*out*/;
+            resourceInputs["storageQosPolicies"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
@@ -130,7 +130,7 @@ export class Cloud extends pulumi.CustomResource {
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["storageQoSPolicies"] = undefined /*out*/;
+            resourceInputs["storageQosPolicies"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

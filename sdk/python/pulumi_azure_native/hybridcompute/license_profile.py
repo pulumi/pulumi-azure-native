@@ -130,7 +130,7 @@ class LicenseProfile(pulumi.CustomResource):
         Describes a license profile in a hybrid machine.
         Azure REST API version: 2023-06-20-preview.
 
-        Other available API versions: 2023-10-03-preview, 2024-03-31-preview.
+        Other available API versions: 2023-10-03-preview, 2024-03-31-preview, 2024-05-20-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -151,7 +151,7 @@ class LicenseProfile(pulumi.CustomResource):
         Describes a license profile in a hybrid machine.
         Azure REST API version: 2023-06-20-preview.
 
-        Other available API versions: 2023-10-03-preview, 2024-03-31-preview.
+        Other available API versions: 2023-10-03-preview, 2024-03-31-preview, 2024-05-20-preview.
 
         :param str resource_name: The name of the resource.
         :param LicenseProfileArgs args: The arguments to use to populate this resource's properties.
@@ -202,7 +202,7 @@ class LicenseProfile(pulumi.CustomResource):
             __props__.__dict__["server_type"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hybridcompute/v20230620preview:LicenseProfile"), pulumi.Alias(type_="azure-native:hybridcompute/v20231003preview:LicenseProfile"), pulumi.Alias(type_="azure-native:hybridcompute/v20240331preview:LicenseProfile")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hybridcompute/v20230620preview:LicenseProfile"), pulumi.Alias(type_="azure-native:hybridcompute/v20231003preview:LicenseProfile"), pulumi.Alias(type_="azure-native:hybridcompute/v20240331preview:LicenseProfile"), pulumi.Alias(type_="azure-native:hybridcompute/v20240520preview:LicenseProfile")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(LicenseProfile, __self__).__init__(
             'azure-native:hybridcompute:LicenseProfile',

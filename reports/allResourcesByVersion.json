@@ -1681,6 +1681,16 @@
   "AppComplianceAutomation": {
     "2022-11-16-preview": [
       "Report"
+    ],
+    "2024-06-27": [
+      "Evidence",
+      "Report",
+      "ScopingConfiguration",
+      "Webhook",
+      "getProviderActionCollectionCount",
+      "getProviderActionOverviewStatus",
+      "getReportScopingQuestions",
+      "listProviderActionInUseStorageAccounts"
     ]
   },
   "AppConfiguration": {
@@ -7952,6 +7962,11 @@
     "2023-08-01": [
       "Workflow",
       "getGitHubOAuth"
+    ],
+    "2024-05-01-preview": [
+      "IacProfile",
+      "Workflow",
+      "getGitHubOAuth"
     ]
   },
   "DevOps": {
@@ -10780,6 +10795,16 @@
       "PrivateLinkScope"
     ],
     "2024-03-31-preview": [
+      "Gateway",
+      "License",
+      "LicenseProfile",
+      "Machine",
+      "MachineExtension",
+      "MachineRunCommand",
+      "PrivateEndpointConnection",
+      "PrivateLinkScope"
+    ],
+    "2024-05-20-preview": [
       "Gateway",
       "License",
       "LicenseProfile",
@@ -18996,8 +19021,8 @@
     "2023-10-07": [
       "AvailabilitySet",
       "Cloud",
+      "GuestAgent",
       "InventoryItem",
-      "VMInstanceGuestAgent",
       "VirtualMachineInstance",
       "VirtualMachineTemplate",
       "VirtualNetwork",
@@ -22634,6 +22659,11 @@
       "VirtualMachine"
     ]
   },
+  "VerifiedId": {
+    "2024-01-26-preview": [
+      "Authority"
+    ]
+  },
   "VideoAnalyzer": {
     "2021-05-01-preview": [
       "AccessPolicy",
@@ -22706,6 +22736,10 @@
       "VirtualMachineImageTemplate"
     ],
     "2023-07-01": [
+      "Trigger",
+      "VirtualMachineImageTemplate"
+    ],
+    "2024-02-01": [
       "Trigger",
       "VirtualMachineImageTemplate"
     ]

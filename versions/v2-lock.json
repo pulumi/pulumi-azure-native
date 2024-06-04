@@ -206,7 +206,14 @@
     "listJobSecrets": "2023-04-01-preview"
   },
   "AppComplianceAutomation": {
-    "Report": "2022-11-16-preview"
+    "Evidence": "2024-06-27",
+    "Report": "2022-11-16-preview",
+    "ScopingConfiguration": "2024-06-27",
+    "Webhook": "2024-06-27",
+    "getProviderActionCollectionCount": "2024-06-27",
+    "getProviderActionOverviewStatus": "2024-06-27",
+    "getReportScopingQuestions": "2024-06-27",
+    "listProviderActionInUseStorageAccounts": "2024-06-27"
   },
   "AppConfiguration": {
     "ConfigurationStore": "2023-03-01",
@@ -933,6 +940,7 @@
     "getProjectInheritedSettings": "2024-05-01-preview"
   },
   "DevHub": {
+    "IacProfile": "2024-05-01-preview",
     "Workflow": "2022-10-11-preview",
     "getGitHubOAuth": "2022-10-11-preview"
   },
@@ -2609,6 +2617,9 @@
     "DedicatedCloudNode": "2019-04-01",
     "DedicatedCloudService": "2019-04-01",
     "VirtualMachine": "2019-04-01"
+  },
+  "VerifiedId": {
+    "Authority": "2024-01-26-preview"
   },
   "VideoAnalyzer": {
     "AccessPolicy": "2021-11-01-preview",

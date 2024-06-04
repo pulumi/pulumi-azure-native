@@ -117,7 +117,7 @@ export class Gateway extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:hybridcompute:Gateway" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:hybridcompute:Gateway" }, { type: "azure-native:hybridcompute/v20240520preview:Gateway" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Gateway.__pulumiType, name, resourceInputs, opts);
     }

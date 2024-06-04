@@ -11,7 +11,7 @@ from ... import _utilities
 from ._enums import *
 
 __all__ = [
-    'CheckpointArgs',
+    'AvailabilitySetListItemArgs',
     'ExtendedLocationArgs',
     'GuestCredentialArgs',
     'HardwareProfileArgs',
@@ -19,84 +19,51 @@ __all__ = [
     'InfrastructureProfileArgs',
     'NetworkInterfaceArgs',
     'NetworkProfileArgs',
-    'OsProfileForVMInstanceArgs',
+    'OsProfileForVmInstanceArgs',
     'StorageProfileArgs',
-    'StorageQoSPolicyDetailsArgs',
-    'VMMCredentialArgs',
+    'StorageQosPolicyDetailsArgs',
     'VirtualDiskArgs',
-    'VirtualMachineInstancePropertiesAvailabilitySetsArgs',
+    'VmmCredentialArgs',
 ]
 
 @pulumi.input_type
-class CheckpointArgs:
+class AvailabilitySetListItemArgs:
     def __init__(__self__, *,
-                 checkpoint_id: Optional[pulumi.Input[str]] = None,
-                 description: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
-                 parent_checkpoint_id: Optional[pulumi.Input[str]] = None):
+                 id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
         """
-        Defines the resource properties.
-        :param pulumi.Input[str] checkpoint_id: Gets ID of the checkpoint.
-        :param pulumi.Input[str] description: Gets description of the checkpoint.
-        :param pulumi.Input[str] name: Gets name of the checkpoint.
-        :param pulumi.Input[str] parent_checkpoint_id: Gets ID of parent of the checkpoint.
+        Availability Set model
+        :param pulumi.Input[str] id: Gets the ARM Id of the microsoft.scvmm/availabilitySets resource.
+        :param pulumi.Input[str] name: Gets or sets the name of the availability set.
         """
-        if checkpoint_id is not None:
-            pulumi.set(__self__, "checkpoint_id", checkpoint_id)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if parent_checkpoint_id is not None:
-            pulumi.set(__self__, "parent_checkpoint_id", parent_checkpoint_id)
-
-    @property
-    @pulumi.getter(name="checkpointID")
-    def checkpoint_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Gets ID of the checkpoint.
-        """
-        return pulumi.get(self, "checkpoint_id")
-
-    @checkpoint_id.setter
-    def checkpoint_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "checkpoint_id", value)
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[str]]:
+    def id(self) -> Optional[pulumi.Input[str]]:
         """
-        Gets description of the checkpoint.
+        Gets the ARM Id of the microsoft.scvmm/availabilitySets resource.
         """
-        return pulumi.get(self, "description")
+        return pulumi.get(self, "id")
 
-    @description.setter
-    def description(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "description", value)
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
 
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Gets name of the checkpoint.
+        Gets or sets the name of the availability set.
         """
         return pulumi.get(self, "name")
 
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter(name="parentCheckpointID")
-    def parent_checkpoint_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Gets ID of parent of the checkpoint.
-        """
-        return pulumi.get(self, "parent_checkpoint_id")
-
-    @parent_checkpoint_id.setter
-    def parent_checkpoint_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "parent_checkpoint_id", value)
 
 
 @pulumi.input_type
@@ -310,7 +277,6 @@ class InfrastructureProfileArgs:
     def __init__(__self__, *,
                  bios_guid: Optional[pulumi.Input[str]] = None,
                  checkpoint_type: Optional[pulumi.Input[str]] = None,
-                 checkpoints: Optional[pulumi.Input[Sequence[pulumi.Input['CheckpointArgs']]]] = None,
                  cloud_id: Optional[pulumi.Input[str]] = None,
                  generation: Optional[pulumi.Input[int]] = None,
                  inventory_item_id: Optional[pulumi.Input[str]] = None,
@@ -322,21 +288,18 @@ class InfrastructureProfileArgs:
         Specifies the vmmServer infrastructure specific settings for the virtual machine instance.
         :param pulumi.Input[str] bios_guid: Gets or sets the bios guid for the vm.
         :param pulumi.Input[str] checkpoint_type: Type of checkpoint supported for the vm.
-        :param pulumi.Input[Sequence[pulumi.Input['CheckpointArgs']]] checkpoints: Checkpoints in the vm.
         :param pulumi.Input[str] cloud_id: ARM Id of the cloud resource to use for deploying the vm.
         :param pulumi.Input[int] generation: Gets or sets the generation for the vm.
         :param pulumi.Input[str] inventory_item_id: Gets or sets the inventory Item ID for the resource.
         :param pulumi.Input[str] template_id: ARM Id of the template resource to use for deploying the vm.
         :param pulumi.Input[str] uuid: Unique ID of the virtual machine.
-        :param pulumi.Input[str] vm_name: VMName is the name of VM on the SCVMM server.
+        :param pulumi.Input[str] vm_name: VMName is the name of VM on the SCVmm server.
         :param pulumi.Input[str] vmm_server_id: ARM Id of the vmmServer resource in which this resource resides.
         """
         if bios_guid is not None:
             pulumi.set(__self__, "bios_guid", bios_guid)
         if checkpoint_type is not None:
             pulumi.set(__self__, "checkpoint_type", checkpoint_type)
-        if checkpoints is not None:
-            pulumi.set(__self__, "checkpoints", checkpoints)
         if cloud_id is not None:
             pulumi.set(__self__, "cloud_id", cloud_id)
         if generation is not None:
@@ -375,18 +338,6 @@ class InfrastructureProfileArgs:
     @checkpoint_type.setter
     def checkpoint_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "checkpoint_type", value)
-
-    @property
-    @pulumi.getter
-    def checkpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CheckpointArgs']]]]:
-        """
-        Checkpoints in the vm.
-        """
-        return pulumi.get(self, "checkpoints")
-
-    @checkpoints.setter
-    def checkpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CheckpointArgs']]]]):
-        pulumi.set(self, "checkpoints", value)
 
     @property
     @pulumi.getter(name="cloudId")
@@ -452,7 +403,7 @@ class InfrastructureProfileArgs:
     @pulumi.getter(name="vmName")
     def vm_name(self) -> Optional[pulumi.Input[str]]:
         """
-        VMName is the name of VM on the SCVMM server.
+        VMName is the name of VM on the SCVmm server.
         """
         return pulumi.get(self, "vm_name")
 
@@ -618,7 +569,7 @@ class NetworkProfileArgs:
 
 
 @pulumi.input_type
-class OsProfileForVMInstanceArgs:
+class OsProfileForVmInstanceArgs:
     def __init__(__self__, *,
                  admin_password: Optional[pulumi.Input[str]] = None,
                  computer_name: Optional[pulumi.Input[str]] = None):
@@ -682,7 +633,7 @@ class StorageProfileArgs:
 
 
 @pulumi.input_type
-class StorageQoSPolicyDetailsArgs:
+class StorageQosPolicyDetailsArgs:
     def __init__(__self__, *,
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None):
@@ -722,46 +673,6 @@ class StorageQoSPolicyDetailsArgs:
 
 
 @pulumi.input_type
-class VMMCredentialArgs:
-    def __init__(__self__, *,
-                 password: Optional[pulumi.Input[str]] = None,
-                 username: Optional[pulumi.Input[str]] = None):
-        """
-        Credentials to connect to VMMServer.
-        :param pulumi.Input[str] password: Password to use to connect to VMMServer.
-        :param pulumi.Input[str] username: Username to use to connect to VMMServer.
-        """
-        if password is not None:
-            pulumi.set(__self__, "password", password)
-        if username is not None:
-            pulumi.set(__self__, "username", username)
-
-    @property
-    @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[str]]:
-        """
-        Password to use to connect to VMMServer.
-        """
-        return pulumi.get(self, "password")
-
-    @password.setter
-    def password(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "password", value)
-
-    @property
-    @pulumi.getter
-    def username(self) -> Optional[pulumi.Input[str]]:
-        """
-        Username to use to connect to VMMServer.
-        """
-        return pulumi.get(self, "username")
-
-    @username.setter
-    def username(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "username", value)
-
-
-@pulumi.input_type
 class VirtualDiskArgs:
     def __init__(__self__, *,
                  bus: Optional[pulumi.Input[int]] = None,
@@ -771,7 +682,7 @@ class VirtualDiskArgs:
                  disk_size_gb: Optional[pulumi.Input[int]] = None,
                  lun: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 storage_qo_s_policy: Optional[pulumi.Input['StorageQoSPolicyDetailsArgs']] = None,
+                 storage_qos_policy: Optional[pulumi.Input['StorageQosPolicyDetailsArgs']] = None,
                  template_disk_id: Optional[pulumi.Input[str]] = None,
                  vhd_type: Optional[pulumi.Input[str]] = None):
         """
@@ -783,7 +694,7 @@ class VirtualDiskArgs:
         :param pulumi.Input[int] disk_size_gb: Gets or sets the disk total size.
         :param pulumi.Input[int] lun: Gets or sets the disk lun.
         :param pulumi.Input[str] name: Gets or sets the name of the disk.
-        :param pulumi.Input['StorageQoSPolicyDetailsArgs'] storage_qo_s_policy: The QoS policy for the disk.
+        :param pulumi.Input['StorageQosPolicyDetailsArgs'] storage_qos_policy: The QoS policy for the disk.
         :param pulumi.Input[str] template_disk_id: Gets or sets the disk id in the template.
         :param pulumi.Input[str] vhd_type: Gets or sets the disk vhd type.
         """
@@ -801,8 +712,8 @@ class VirtualDiskArgs:
             pulumi.set(__self__, "lun", lun)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if storage_qo_s_policy is not None:
-            pulumi.set(__self__, "storage_qo_s_policy", storage_qo_s_policy)
+        if storage_qos_policy is not None:
+            pulumi.set(__self__, "storage_qos_policy", storage_qos_policy)
         if template_disk_id is not None:
             pulumi.set(__self__, "template_disk_id", template_disk_id)
         if vhd_type is not None:
@@ -893,16 +804,16 @@ class VirtualDiskArgs:
         pulumi.set(self, "name", value)
 
     @property
-    @pulumi.getter(name="storageQoSPolicy")
-    def storage_qo_s_policy(self) -> Optional[pulumi.Input['StorageQoSPolicyDetailsArgs']]:
+    @pulumi.getter(name="storageQosPolicy")
+    def storage_qos_policy(self) -> Optional[pulumi.Input['StorageQosPolicyDetailsArgs']]:
         """
         The QoS policy for the disk.
         """
-        return pulumi.get(self, "storage_qo_s_policy")
+        return pulumi.get(self, "storage_qos_policy")
 
-    @storage_qo_s_policy.setter
-    def storage_qo_s_policy(self, value: Optional[pulumi.Input['StorageQoSPolicyDetailsArgs']]):
-        pulumi.set(self, "storage_qo_s_policy", value)
+    @storage_qos_policy.setter
+    def storage_qos_policy(self, value: Optional[pulumi.Input['StorageQosPolicyDetailsArgs']]):
+        pulumi.set(self, "storage_qos_policy", value)
 
     @property
     @pulumi.getter(name="templateDiskId")
@@ -930,42 +841,42 @@ class VirtualDiskArgs:
 
 
 @pulumi.input_type
-class VirtualMachineInstancePropertiesAvailabilitySetsArgs:
+class VmmCredentialArgs:
     def __init__(__self__, *,
-                 id: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None):
+                 password: Optional[pulumi.Input[str]] = None,
+                 username: Optional[pulumi.Input[str]] = None):
         """
-        Availability Set model
-        :param pulumi.Input[str] id: Gets the ARM Id of the microsoft.scvmm/availabilitySets resource.
-        :param pulumi.Input[str] name: Gets or sets the name of the availability set.
+        Credentials to connect to VmmServer.
+        :param pulumi.Input[str] password: Password to use to connect to VmmServer.
+        :param pulumi.Input[str] username: Username to use to connect to VmmServer.
         """
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
 
     @property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[str]]:
+    def password(self) -> Optional[pulumi.Input[str]]:
         """
-        Gets the ARM Id of the microsoft.scvmm/availabilitySets resource.
+        Password to use to connect to VmmServer.
         """
-        return pulumi.get(self, "id")
+        return pulumi.get(self, "password")
 
-    @id.setter
-    def id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "id", value)
+    @password.setter
+    def password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "password", value)
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
+    def username(self) -> Optional[pulumi.Input[str]]:
         """
-        Gets or sets the name of the availability set.
+        Username to use to connect to VmmServer.
         """
-        return pulumi.get(self, "name")
+        return pulumi.get(self, "username")
 
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
+    @username.setter
+    def username(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "username", value)
 
 

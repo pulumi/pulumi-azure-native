@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.AppComplianceAutomation
         /// <summary>
         /// Get the AppComplianceAutomation report and its properties.
         /// Azure REST API version: 2022-11-16-preview.
+        /// 
+        /// Other available API versions: 2024-06-27.
         /// </summary>
         public static Task<GetReportResult> InvokeAsync(GetReportArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetReportResult>("azure-native:appcomplianceautomation:getReport", args ?? new GetReportArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.AppComplianceAutomation
         /// <summary>
         /// Get the AppComplianceAutomation report and its properties.
         /// Azure REST API version: 2022-11-16-preview.
+        /// 
+        /// Other available API versions: 2024-06-27.
         /// </summary>
         public static Output<GetReportResult> Invoke(GetReportInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetReportResult>("azure-native:appcomplianceautomation:getReport", args ?? new GetReportInvokeArgs(), options.WithDefaults());

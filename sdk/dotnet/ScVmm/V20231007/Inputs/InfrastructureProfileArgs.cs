@@ -27,18 +27,6 @@ namespace Pulumi.AzureNative.ScVmm.V20231007.Inputs
         [Input("checkpointType")]
         public Input<string>? CheckpointType { get; set; }
 
-        [Input("checkpoints")]
-        private InputList<Inputs.CheckpointArgs>? _checkpoints;
-
-        /// <summary>
-        /// Checkpoints in the vm.
-        /// </summary>
-        public InputList<Inputs.CheckpointArgs> Checkpoints
-        {
-            get => _checkpoints ?? (_checkpoints = new InputList<Inputs.CheckpointArgs>());
-            set => _checkpoints = value;
-        }
-
         /// <summary>
         /// ARM Id of the cloud resource to use for deploying the vm.
         /// </summary>
@@ -70,7 +58,7 @@ namespace Pulumi.AzureNative.ScVmm.V20231007.Inputs
         public Input<string>? Uuid { get; set; }
 
         /// <summary>
-        /// VMName is the name of VM on the SCVMM server.
+        /// VMName is the name of VM on the SCVmm server.
         /// </summary>
         [Input("vmName")]
         public Input<string>? VmName { get; set; }

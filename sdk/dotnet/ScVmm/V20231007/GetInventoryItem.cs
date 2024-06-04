@@ -40,7 +40,7 @@ namespace Pulumi.AzureNative.ScVmm.V20231007
         public string ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the VMMServer.
+        /// Name of the VmmServer.
         /// </summary>
         [Input("vmmServerName", required: true)]
         public string VmmServerName { get; set; } = null!;
@@ -66,7 +66,7 @@ namespace Pulumi.AzureNative.ScVmm.V20231007
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the VMMServer.
+        /// Name of the VmmServer.
         /// </summary>
         [Input("vmmServerName", required: true)]
         public Input<string> VmmServerName { get; set; } = null!;
@@ -86,7 +86,7 @@ namespace Pulumi.AzureNative.ScVmm.V20231007
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Gets the Managed Object name in VMM for the inventory item.
+        /// Gets the Managed Object name in Vmm for the inventory item.
         /// </summary>
         public readonly string InventoryItemName;
         /// <summary>
@@ -118,7 +118,7 @@ namespace Pulumi.AzureNative.ScVmm.V20231007
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// Gets the UUID (which is assigned by VMM) for the inventory item.
+        /// Gets the UUID (which is assigned by Vmm) for the inventory item.
         /// </summary>
         public readonly string Uuid;
 

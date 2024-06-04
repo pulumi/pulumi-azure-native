@@ -25,15 +25,15 @@ export const getCloud: typeof import("./getCloud").getCloud = null as any;
 export const getCloudOutput: typeof import("./getCloud").getCloudOutput = null as any;
 utilities.lazyLoad(exports, ["getCloud","getCloudOutput"], () => require("./getCloud"));
 
+export { GetGuestAgentArgs, GetGuestAgentResult, GetGuestAgentOutputArgs } from "./getGuestAgent";
+export const getGuestAgent: typeof import("./getGuestAgent").getGuestAgent = null as any;
+export const getGuestAgentOutput: typeof import("./getGuestAgent").getGuestAgentOutput = null as any;
+utilities.lazyLoad(exports, ["getGuestAgent","getGuestAgentOutput"], () => require("./getGuestAgent"));
+
 export { GetInventoryItemArgs, GetInventoryItemResult, GetInventoryItemOutputArgs } from "./getInventoryItem";
 export const getInventoryItem: typeof import("./getInventoryItem").getInventoryItem = null as any;
 export const getInventoryItemOutput: typeof import("./getInventoryItem").getInventoryItemOutput = null as any;
 utilities.lazyLoad(exports, ["getInventoryItem","getInventoryItemOutput"], () => require("./getInventoryItem"));
-
-export { GetVMInstanceGuestAgentArgs, GetVMInstanceGuestAgentResult, GetVMInstanceGuestAgentOutputArgs } from "./getVMInstanceGuestAgent";
-export const getVMInstanceGuestAgent: typeof import("./getVMInstanceGuestAgent").getVMInstanceGuestAgent = null as any;
-export const getVMInstanceGuestAgentOutput: typeof import("./getVMInstanceGuestAgent").getVMInstanceGuestAgentOutput = null as any;
-utilities.lazyLoad(exports, ["getVMInstanceGuestAgent","getVMInstanceGuestAgentOutput"], () => require("./getVMInstanceGuestAgent"));
 
 export { GetVirtualMachineInstanceArgs, GetVirtualMachineInstanceResult, GetVirtualMachineInstanceOutputArgs } from "./getVirtualMachineInstance";
 export const getVirtualMachineInstance: typeof import("./getVirtualMachineInstance").getVirtualMachineInstance = null as any;
@@ -55,6 +55,11 @@ export const getVmmServer: typeof import("./getVmmServer").getVmmServer = null a
 export const getVmmServerOutput: typeof import("./getVmmServer").getVmmServerOutput = null as any;
 utilities.lazyLoad(exports, ["getVmmServer","getVmmServerOutput"], () => require("./getVmmServer"));
 
+export { GuestAgentArgs } from "./guestAgent";
+export type GuestAgent = import("./guestAgent").GuestAgent;
+export const GuestAgent: typeof import("./guestAgent").GuestAgent = null as any;
+utilities.lazyLoad(exports, ["GuestAgent"], () => require("./guestAgent"));
+
 export { InventoryItemArgs } from "./inventoryItem";
 export type InventoryItem = import("./inventoryItem").InventoryItem;
 export const InventoryItem: typeof import("./inventoryItem").InventoryItem = null as any;
@@ -75,11 +80,6 @@ export type VirtualNetwork = import("./virtualNetwork").VirtualNetwork;
 export const VirtualNetwork: typeof import("./virtualNetwork").VirtualNetwork = null as any;
 utilities.lazyLoad(exports, ["VirtualNetwork"], () => require("./virtualNetwork"));
 
-export { VMInstanceGuestAgentArgs } from "./vminstanceGuestAgent";
-export type VMInstanceGuestAgent = import("./vminstanceGuestAgent").VMInstanceGuestAgent;
-export const VMInstanceGuestAgent: typeof import("./vminstanceGuestAgent").VMInstanceGuestAgent = null as any;
-utilities.lazyLoad(exports, ["VMInstanceGuestAgent"], () => require("./vminstanceGuestAgent"));
-
 export { VmmServerArgs } from "./vmmServer";
 export type VmmServer = import("./vmmServer").VmmServer;
 export const VmmServer: typeof import("./vmmServer").VmmServer = null as any;
@@ -97,10 +97,10 @@ const _module = {
                 return new AvailabilitySet(name, <any>undefined, { urn })
             case "azure-native:scvmm/v20231007:Cloud":
                 return new Cloud(name, <any>undefined, { urn })
+            case "azure-native:scvmm/v20231007:GuestAgent":
+                return new GuestAgent(name, <any>undefined, { urn })
             case "azure-native:scvmm/v20231007:InventoryItem":
                 return new InventoryItem(name, <any>undefined, { urn })
-            case "azure-native:scvmm/v20231007:VMInstanceGuestAgent":
-                return new VMInstanceGuestAgent(name, <any>undefined, { urn })
             case "azure-native:scvmm/v20231007:VirtualMachineInstance":
                 return new VirtualMachineInstance(name, <any>undefined, { urn })
             case "azure-native:scvmm/v20231007:VirtualMachineTemplate":

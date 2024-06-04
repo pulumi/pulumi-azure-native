@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.ScVmm.V20231007
     public static class GetVmmServer
     {
         /// <summary>
-        /// Implements VMMServer GET method.
+        /// Implements VmmServer GET method.
         /// </summary>
         public static Task<GetVmmServerResult> InvokeAsync(GetVmmServerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVmmServerResult>("azure-native:scvmm/v20231007:getVmmServer", args ?? new GetVmmServerArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Implements VMMServer GET method.
+        /// Implements VmmServer GET method.
         /// </summary>
         public static Output<GetVmmServerResult> Invoke(GetVmmServerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVmmServerResult>("azure-native:scvmm/v20231007:getVmmServer", args ?? new GetVmmServerInvokeArgs(), options.WithDefaults());
@@ -34,7 +34,7 @@ namespace Pulumi.AzureNative.ScVmm.V20231007
         public string ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the VMMServer.
+        /// Name of the VmmServer.
         /// </summary>
         [Input("vmmServerName", required: true)]
         public string VmmServerName { get; set; } = null!;
@@ -54,7 +54,7 @@ namespace Pulumi.AzureNative.ScVmm.V20231007
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the VMMServer.
+        /// Name of the VmmServer.
         /// </summary>
         [Input("vmmServerName", required: true)]
         public Input<string> VmmServerName { get; set; } = null!;
@@ -74,9 +74,9 @@ namespace Pulumi.AzureNative.ScVmm.V20231007
         /// </summary>
         public readonly string ConnectionStatus;
         /// <summary>
-        /// Credentials to connect to VMMServer.
+        /// Credentials to connect to VmmServer.
         /// </summary>
-        public readonly Outputs.VMMCredentialResponse? Credentials;
+        public readonly Outputs.VmmCredentialResponse? Credentials;
         /// <summary>
         /// Gets any error message if connection to vmmServer is having any issue.
         /// </summary>
@@ -134,7 +134,7 @@ namespace Pulumi.AzureNative.ScVmm.V20231007
         private GetVmmServerResult(
             string connectionStatus,
 
-            Outputs.VMMCredentialResponse? credentials,
+            Outputs.VmmCredentialResponse? credentials,
 
             string errorMessage,
 

@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.ScVmm.V20231007.Outputs
         /// <summary>
         /// Gets ID of the checkpoint.
         /// </summary>
-        public readonly string? CheckpointID;
+        public readonly string? CheckpointId;
         /// <summary>
         /// Gets description of the checkpoint.
         /// </summary>
@@ -31,22 +31,22 @@ namespace Pulumi.AzureNative.ScVmm.V20231007.Outputs
         /// <summary>
         /// Gets ID of parent of the checkpoint.
         /// </summary>
-        public readonly string? ParentCheckpointID;
+        public readonly string? ParentCheckpointId;
 
         [OutputConstructor]
         private CheckpointResponse(
-            string? checkpointID,
+            string? checkpointId,
 
             string? description,
 
             string? name,
 
-            string? parentCheckpointID)
+            string? parentCheckpointId)
         {
-            CheckpointID = checkpointID;
+            CheckpointId = checkpointId;
             Description = description;
             Name = name;
-            ParentCheckpointID = parentCheckpointID;
+            ParentCheckpointId = parentCheckpointId;
         }
     }
 }

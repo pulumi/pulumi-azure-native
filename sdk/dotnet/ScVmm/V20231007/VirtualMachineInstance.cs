@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.ScVmm.V20231007
         /// Availability Sets in vm.
         /// </summary>
         [Output("availabilitySets")]
-        public Output<ImmutableArray<Outputs.VirtualMachineInstancePropertiesResponseAvailabilitySets>> AvailabilitySets { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.AvailabilitySetListItemResponse>> AvailabilitySets { get; private set; } = null!;
 
         /// <summary>
         /// Gets or sets the extended location.
@@ -55,7 +55,7 @@ namespace Pulumi.AzureNative.ScVmm.V20231007
         /// OS properties.
         /// </summary>
         [Output("osProfile")]
-        public Output<Outputs.OsProfileForVMInstanceResponse?> OsProfile { get; private set; } = null!;
+        public Output<Outputs.OsProfileForVmInstanceResponse?> OsProfile { get; private set; } = null!;
 
         /// <summary>
         /// Gets the power state of the virtual machine.
@@ -138,14 +138,14 @@ namespace Pulumi.AzureNative.ScVmm.V20231007
     public sealed class VirtualMachineInstanceArgs : global::Pulumi.ResourceArgs
     {
         [Input("availabilitySets")]
-        private InputList<Inputs.VirtualMachineInstancePropertiesAvailabilitySetsArgs>? _availabilitySets;
+        private InputList<Inputs.AvailabilitySetListItemArgs>? _availabilitySets;
 
         /// <summary>
         /// Availability Sets in vm.
         /// </summary>
-        public InputList<Inputs.VirtualMachineInstancePropertiesAvailabilitySetsArgs> AvailabilitySets
+        public InputList<Inputs.AvailabilitySetListItemArgs> AvailabilitySets
         {
-            get => _availabilitySets ?? (_availabilitySets = new InputList<Inputs.VirtualMachineInstancePropertiesAvailabilitySetsArgs>());
+            get => _availabilitySets ?? (_availabilitySets = new InputList<Inputs.AvailabilitySetListItemArgs>());
             set => _availabilitySets = value;
         }
 
@@ -177,10 +177,10 @@ namespace Pulumi.AzureNative.ScVmm.V20231007
         /// OS properties.
         /// </summary>
         [Input("osProfile")]
-        public Input<Inputs.OsProfileForVMInstanceArgs>? OsProfile { get; set; }
+        public Input<Inputs.OsProfileForVmInstanceArgs>? OsProfile { get; set; }
 
         /// <summary>
-        /// The fully qualified Azure Resource manager identifier of the Hybrid Compute machine resource to be extended.
+        /// The fully qualified Azure Resource manager identifier of the resource.
         /// </summary>
         [Input("resourceUri", required: true)]
         public Input<string> ResourceUri { get; set; } = null!;

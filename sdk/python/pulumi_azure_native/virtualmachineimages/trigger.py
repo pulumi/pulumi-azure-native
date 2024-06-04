@@ -95,7 +95,7 @@ class Trigger(pulumi.CustomResource):
         Represents a trigger that can invoke an image template build.
         Azure REST API version: 2022-07-01.
 
-        Other available API versions: 2023-07-01.
+        Other available API versions: 2023-07-01, 2024-02-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -114,7 +114,7 @@ class Trigger(pulumi.CustomResource):
         Represents a trigger that can invoke an image template build.
         Azure REST API version: 2022-07-01.
 
-        Other available API versions: 2023-07-01.
+        Other available API versions: 2023-07-01, 2024-02-01.
 
         :param str resource_name: The name of the resource.
         :param TriggerArgs args: The arguments to use to populate this resource's properties.
@@ -159,7 +159,7 @@ class Trigger(pulumi.CustomResource):
             __props__.__dict__["status"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:virtualmachineimages/v20220701:Trigger"), pulumi.Alias(type_="azure-native:virtualmachineimages/v20230701:Trigger")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:virtualmachineimages/v20220701:Trigger"), pulumi.Alias(type_="azure-native:virtualmachineimages/v20230701:Trigger"), pulumi.Alias(type_="azure-native:virtualmachineimages/v20240201:Trigger")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Trigger, __self__).__init__(
             'azure-native:virtualmachineimages:Trigger',

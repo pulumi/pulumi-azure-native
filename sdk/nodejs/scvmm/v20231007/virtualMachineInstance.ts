@@ -40,7 +40,7 @@ export class VirtualMachineInstance extends pulumi.CustomResource {
     /**
      * Availability Sets in vm.
      */
-    public readonly availabilitySets!: pulumi.Output<outputs.scvmm.v20231007.VirtualMachineInstancePropertiesResponseAvailabilitySets[] | undefined>;
+    public readonly availabilitySets!: pulumi.Output<outputs.scvmm.v20231007.AvailabilitySetListItemResponse[] | undefined>;
     /**
      * Gets or sets the extended location.
      */
@@ -64,7 +64,7 @@ export class VirtualMachineInstance extends pulumi.CustomResource {
     /**
      * OS properties.
      */
-    public readonly osProfile!: pulumi.Output<outputs.scvmm.v20231007.OsProfileForVMInstanceResponse | undefined>;
+    public readonly osProfile!: pulumi.Output<outputs.scvmm.v20231007.OsProfileForVmInstanceResponse | undefined>;
     /**
      * Gets the power state of the virtual machine.
      */
@@ -144,7 +144,7 @@ export interface VirtualMachineInstanceArgs {
     /**
      * Availability Sets in vm.
      */
-    availabilitySets?: pulumi.Input<pulumi.Input<inputs.scvmm.v20231007.VirtualMachineInstancePropertiesAvailabilitySetsArgs>[]>;
+    availabilitySets?: pulumi.Input<pulumi.Input<inputs.scvmm.v20231007.AvailabilitySetListItemArgs>[]>;
     /**
      * Gets or sets the extended location.
      */
@@ -164,9 +164,9 @@ export interface VirtualMachineInstanceArgs {
     /**
      * OS properties.
      */
-    osProfile?: pulumi.Input<inputs.scvmm.v20231007.OsProfileForVMInstanceArgs>;
+    osProfile?: pulumi.Input<inputs.scvmm.v20231007.OsProfileForVmInstanceArgs>;
     /**
-     * The fully qualified Azure Resource manager identifier of the Hybrid Compute machine resource to be extended.
+     * The fully qualified Azure Resource manager identifier of the resource.
      */
     resourceUri: pulumi.Input<string>;
     /**

@@ -3,7 +3,13 @@
 
 
 export const AllocationMethod = {
+    /**
+     * Dynamically allocated address.
+     */
     Dynamic: "Dynamic",
+    /**
+     * Statically allocated address.
+     */
     Static: "Static",
 } as const;
 
@@ -13,8 +19,14 @@ export const AllocationMethod = {
 export type AllocationMethod = (typeof AllocationMethod)[keyof typeof AllocationMethod];
 
 export const CreateDiffDisk = {
-    False: "false",
+    /**
+     * Enable create diff disk.
+     */
     True: "true",
+    /**
+     * Disable create diff disk.
+     */
+    False: "false",
 } as const;
 
 /**
@@ -23,8 +35,14 @@ export const CreateDiffDisk = {
 export type CreateDiffDisk = (typeof CreateDiffDisk)[keyof typeof CreateDiffDisk];
 
 export const DynamicMemoryEnabled = {
-    False: "false",
+    /**
+     * Enable dynamic memory.
+     */
     True: "true",
+    /**
+     * Disable dynamic memory.
+     */
+    False: "false",
 } as const;
 
 /**
@@ -33,10 +51,22 @@ export const DynamicMemoryEnabled = {
 export type DynamicMemoryEnabled = (typeof DynamicMemoryEnabled)[keyof typeof DynamicMemoryEnabled];
 
 export const InventoryType = {
+    /**
+     * Cloud inventory type
+     */
     Cloud: "Cloud",
+    /**
+     * VirtualNetwork inventory type
+     */
     VirtualNetwork: "VirtualNetwork",
-    VirtualMachineTemplate: "VirtualMachineTemplate",
+    /**
+     * VirtualMachine inventory type
+     */
     VirtualMachine: "VirtualMachine",
+    /**
+     * VirtualMachineTemplate inventory type
+     */
+    VirtualMachineTemplate: "VirtualMachineTemplate",
 } as const;
 
 /**
@@ -45,8 +75,14 @@ export const InventoryType = {
 export type InventoryType = (typeof InventoryType)[keyof typeof InventoryType];
 
 export const LimitCpuForMigration = {
-    False: "false",
+    /**
+     * Enable limit CPU for migration.
+     */
     True: "true",
+    /**
+     * Disable limit CPU for migration.
+     */
+    False: "false",
 } as const;
 
 /**
@@ -55,8 +91,17 @@ export const LimitCpuForMigration = {
 export type LimitCpuForMigration = (typeof LimitCpuForMigration)[keyof typeof LimitCpuForMigration];
 
 export const ProvisioningAction = {
+    /**
+     * Install guest agent.
+     */
     Install: "install",
+    /**
+     * Uninstall guest agent.
+     */
     Uninstall: "uninstall",
+    /**
+     * Repair guest agent.
+     */
     Repair: "repair",
 } as const;
 

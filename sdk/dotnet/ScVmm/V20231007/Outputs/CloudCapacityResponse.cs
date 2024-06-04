@@ -19,23 +19,23 @@ namespace Pulumi.AzureNative.ScVmm.V20231007.Outputs
         /// <summary>
         /// CPUCount specifies the maximum number of CPUs that can be allocated in the cloud.
         /// </summary>
-        public readonly double? CpuCount;
+        public readonly double CpuCount;
         /// <summary>
         /// MemoryMB specifies a memory usage limit in megabytes.
         /// </summary>
-        public readonly double? MemoryMB;
+        public readonly double MemoryMB;
         /// <summary>
         /// VMCount gives the max number of VMs that can be deployed in the cloud.
         /// </summary>
-        public readonly double? VmCount;
+        public readonly double VmCount;
 
         [OutputConstructor]
         private CloudCapacityResponse(
-            double? cpuCount,
+            double cpuCount,
 
-            double? memoryMB,
+            double memoryMB,
 
-            double? vmCount)
+            double vmCount)
         {
             CpuCount = cpuCount;
             MemoryMB = memoryMB;

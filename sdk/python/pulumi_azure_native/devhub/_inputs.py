@@ -14,6 +14,9 @@ __all__ = [
     'ACRArgs',
     'DeploymentPropertiesArgs',
     'GitHubWorkflowProfileOidcCredentialsArgs',
+    'IacTemplateDetailsArgs',
+    'IacTemplatePropertiesArgs',
+    'StagePropertiesArgs',
     'WorkflowRunArgs',
 ]
 
@@ -210,6 +213,193 @@ class GitHubWorkflowProfileOidcCredentialsArgs:
     @azure_tenant_id.setter
     def azure_tenant_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "azure_tenant_id", value)
+
+
+@pulumi.input_type
+class IacTemplateDetailsArgs:
+    def __init__(__self__, *,
+                 count: Optional[pulumi.Input[int]] = None,
+                 naming_convention: Optional[pulumi.Input[str]] = None,
+                 product_name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[int] count: Count of the product
+        :param pulumi.Input[str] naming_convention: Naming convention of this product
+        :param pulumi.Input[str] product_name: The name of the products.
+        """
+        if count is not None:
+            pulumi.set(__self__, "count", count)
+        if naming_convention is not None:
+            pulumi.set(__self__, "naming_convention", naming_convention)
+        if product_name is not None:
+            pulumi.set(__self__, "product_name", product_name)
+
+    @property
+    @pulumi.getter
+    def count(self) -> Optional[pulumi.Input[int]]:
+        """
+        Count of the product
+        """
+        return pulumi.get(self, "count")
+
+    @count.setter
+    def count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "count", value)
+
+    @property
+    @pulumi.getter(name="namingConvention")
+    def naming_convention(self) -> Optional[pulumi.Input[str]]:
+        """
+        Naming convention of this product
+        """
+        return pulumi.get(self, "naming_convention")
+
+    @naming_convention.setter
+    def naming_convention(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "naming_convention", value)
+
+    @property
+    @pulumi.getter(name="productName")
+    def product_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the products.
+        """
+        return pulumi.get(self, "product_name")
+
+    @product_name.setter
+    def product_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "product_name", value)
+
+
+@pulumi.input_type
+class IacTemplatePropertiesArgs:
+    def __init__(__self__, *,
+                 instance_name: Optional[pulumi.Input[str]] = None,
+                 instance_stage: Optional[pulumi.Input[str]] = None,
+                 source_resource_id: Optional[pulumi.Input[str]] = None,
+                 template_details: Optional[pulumi.Input[Sequence[pulumi.Input['IacTemplateDetailsArgs']]]] = None,
+                 template_name: Optional[pulumi.Input[str]] = None):
+        """
+        Properties of a IacTemplate.
+        :param pulumi.Input[str] instance_name: the sample instance name of the template
+        :param pulumi.Input[str] instance_stage: the source stage of the template
+        :param pulumi.Input[str] source_resource_id: the source store of the template
+        :param pulumi.Input[str] template_name: Template Name
+        """
+        if instance_name is not None:
+            pulumi.set(__self__, "instance_name", instance_name)
+        if instance_stage is not None:
+            pulumi.set(__self__, "instance_stage", instance_stage)
+        if source_resource_id is not None:
+            pulumi.set(__self__, "source_resource_id", source_resource_id)
+        if template_details is not None:
+            pulumi.set(__self__, "template_details", template_details)
+        if template_name is not None:
+            pulumi.set(__self__, "template_name", template_name)
+
+    @property
+    @pulumi.getter(name="instanceName")
+    def instance_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        the sample instance name of the template
+        """
+        return pulumi.get(self, "instance_name")
+
+    @instance_name.setter
+    def instance_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "instance_name", value)
+
+    @property
+    @pulumi.getter(name="instanceStage")
+    def instance_stage(self) -> Optional[pulumi.Input[str]]:
+        """
+        the source stage of the template
+        """
+        return pulumi.get(self, "instance_stage")
+
+    @instance_stage.setter
+    def instance_stage(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "instance_stage", value)
+
+    @property
+    @pulumi.getter(name="sourceResourceId")
+    def source_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        the source store of the template
+        """
+        return pulumi.get(self, "source_resource_id")
+
+    @source_resource_id.setter
+    def source_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_resource_id", value)
+
+    @property
+    @pulumi.getter(name="templateDetails")
+    def template_details(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IacTemplateDetailsArgs']]]]:
+        return pulumi.get(self, "template_details")
+
+    @template_details.setter
+    def template_details(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IacTemplateDetailsArgs']]]]):
+        pulumi.set(self, "template_details", value)
+
+    @property
+    @pulumi.getter(name="templateName")
+    def template_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Template Name
+        """
+        return pulumi.get(self, "template_name")
+
+    @template_name.setter
+    def template_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "template_name", value)
+
+
+@pulumi.input_type
+class StagePropertiesArgs:
+    def __init__(__self__, *,
+                 dependencies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 git_environment: Optional[pulumi.Input[str]] = None,
+                 stage_name: Optional[pulumi.Input[str]] = None):
+        """
+        Properties of a Stage.
+        :param pulumi.Input[str] stage_name: Stage Name
+        """
+        if dependencies is not None:
+            pulumi.set(__self__, "dependencies", dependencies)
+        if git_environment is not None:
+            pulumi.set(__self__, "git_environment", git_environment)
+        if stage_name is not None:
+            pulumi.set(__self__, "stage_name", stage_name)
+
+    @property
+    @pulumi.getter
+    def dependencies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "dependencies")
+
+    @dependencies.setter
+    def dependencies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "dependencies", value)
+
+    @property
+    @pulumi.getter(name="gitEnvironment")
+    def git_environment(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "git_environment")
+
+    @git_environment.setter
+    def git_environment(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "git_environment", value)
+
+    @property
+    @pulumi.getter(name="stageName")
+    def stage_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Stage Name
+        """
+        return pulumi.get(self, "stage_name")
+
+    @stage_name.setter
+    def stage_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "stage_name", value)
 
 
 @pulumi.input_type

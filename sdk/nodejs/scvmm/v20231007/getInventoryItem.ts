@@ -30,7 +30,7 @@ export interface GetInventoryItemArgs {
      */
     resourceGroupName: string;
     /**
-     * Name of the VMMServer.
+     * Name of the VmmServer.
      */
     vmmServerName: string;
 }
@@ -44,7 +44,7 @@ export interface GetInventoryItemResult {
      */
     readonly id: string;
     /**
-     * Gets the Managed Object name in VMM for the inventory item.
+     * Gets the Managed Object name in Vmm for the inventory item.
      */
     readonly inventoryItemName: string;
     /**
@@ -76,7 +76,7 @@ export interface GetInventoryItemResult {
      */
     readonly type: string;
     /**
-     * Gets the UUID (which is assigned by VMM) for the inventory item.
+     * Gets the UUID (which is assigned by Vmm) for the inventory item.
      */
     readonly uuid: string;
 }
@@ -97,7 +97,7 @@ export interface GetInventoryItemOutputArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * Name of the VMMServer.
+     * Name of the VmmServer.
      */
     vmmServerName: pulumi.Input<string>;
 }

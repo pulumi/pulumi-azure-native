@@ -8,12 +8,16 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 from ._enums import *
 
 __all__ = [
     'ACRResponse',
     'DeploymentPropertiesResponse',
     'GitHubWorkflowProfileResponseOidcCredentials',
+    'IacTemplateDetailsResponse',
+    'IacTemplatePropertiesResponse',
+    'StagePropertiesResponse',
     'SystemDataResponse',
     'WorkflowRunResponse',
 ]
@@ -238,6 +242,231 @@ class GitHubWorkflowProfileResponseOidcCredentials(dict):
         Azure Directory (tenant) ID
         """
         return pulumi.get(self, "azure_tenant_id")
+
+
+@pulumi.output_type
+class IacTemplateDetailsResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "namingConvention":
+            suggest = "naming_convention"
+        elif key == "productName":
+            suggest = "product_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IacTemplateDetailsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IacTemplateDetailsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IacTemplateDetailsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 count: Optional[int] = None,
+                 naming_convention: Optional[str] = None,
+                 product_name: Optional[str] = None):
+        """
+        :param int count: Count of the product
+        :param str naming_convention: Naming convention of this product
+        :param str product_name: The name of the products.
+        """
+        if count is not None:
+            pulumi.set(__self__, "count", count)
+        if naming_convention is not None:
+            pulumi.set(__self__, "naming_convention", naming_convention)
+        if product_name is not None:
+            pulumi.set(__self__, "product_name", product_name)
+
+    @property
+    @pulumi.getter
+    def count(self) -> Optional[int]:
+        """
+        Count of the product
+        """
+        return pulumi.get(self, "count")
+
+    @property
+    @pulumi.getter(name="namingConvention")
+    def naming_convention(self) -> Optional[str]:
+        """
+        Naming convention of this product
+        """
+        return pulumi.get(self, "naming_convention")
+
+    @property
+    @pulumi.getter(name="productName")
+    def product_name(self) -> Optional[str]:
+        """
+        The name of the products.
+        """
+        return pulumi.get(self, "product_name")
+
+
+@pulumi.output_type
+class IacTemplatePropertiesResponse(dict):
+    """
+    Properties of a IacTemplate.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "quickStartTemplateType":
+            suggest = "quick_start_template_type"
+        elif key == "instanceName":
+            suggest = "instance_name"
+        elif key == "instanceStage":
+            suggest = "instance_stage"
+        elif key == "sourceResourceId":
+            suggest = "source_resource_id"
+        elif key == "templateDetails":
+            suggest = "template_details"
+        elif key == "templateName":
+            suggest = "template_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IacTemplatePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IacTemplatePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IacTemplatePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 quick_start_template_type: str,
+                 instance_name: Optional[str] = None,
+                 instance_stage: Optional[str] = None,
+                 source_resource_id: Optional[str] = None,
+                 template_details: Optional[Sequence['outputs.IacTemplateDetailsResponse']] = None,
+                 template_name: Optional[str] = None):
+        """
+        Properties of a IacTemplate.
+        :param str quick_start_template_type: Determines the authorization status of requests.
+        :param str instance_name: the sample instance name of the template
+        :param str instance_stage: the source stage of the template
+        :param str source_resource_id: the source store of the template
+        :param str template_name: Template Name
+        """
+        pulumi.set(__self__, "quick_start_template_type", quick_start_template_type)
+        if instance_name is not None:
+            pulumi.set(__self__, "instance_name", instance_name)
+        if instance_stage is not None:
+            pulumi.set(__self__, "instance_stage", instance_stage)
+        if source_resource_id is not None:
+            pulumi.set(__self__, "source_resource_id", source_resource_id)
+        if template_details is not None:
+            pulumi.set(__self__, "template_details", template_details)
+        if template_name is not None:
+            pulumi.set(__self__, "template_name", template_name)
+
+    @property
+    @pulumi.getter(name="quickStartTemplateType")
+    def quick_start_template_type(self) -> str:
+        """
+        Determines the authorization status of requests.
+        """
+        return pulumi.get(self, "quick_start_template_type")
+
+    @property
+    @pulumi.getter(name="instanceName")
+    def instance_name(self) -> Optional[str]:
+        """
+        the sample instance name of the template
+        """
+        return pulumi.get(self, "instance_name")
+
+    @property
+    @pulumi.getter(name="instanceStage")
+    def instance_stage(self) -> Optional[str]:
+        """
+        the source stage of the template
+        """
+        return pulumi.get(self, "instance_stage")
+
+    @property
+    @pulumi.getter(name="sourceResourceId")
+    def source_resource_id(self) -> Optional[str]:
+        """
+        the source store of the template
+        """
+        return pulumi.get(self, "source_resource_id")
+
+    @property
+    @pulumi.getter(name="templateDetails")
+    def template_details(self) -> Optional[Sequence['outputs.IacTemplateDetailsResponse']]:
+        return pulumi.get(self, "template_details")
+
+    @property
+    @pulumi.getter(name="templateName")
+    def template_name(self) -> Optional[str]:
+        """
+        Template Name
+        """
+        return pulumi.get(self, "template_name")
+
+
+@pulumi.output_type
+class StagePropertiesResponse(dict):
+    """
+    Properties of a Stage.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "gitEnvironment":
+            suggest = "git_environment"
+        elif key == "stageName":
+            suggest = "stage_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StagePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StagePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StagePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 dependencies: Optional[Sequence[str]] = None,
+                 git_environment: Optional[str] = None,
+                 stage_name: Optional[str] = None):
+        """
+        Properties of a Stage.
+        :param str stage_name: Stage Name
+        """
+        if dependencies is not None:
+            pulumi.set(__self__, "dependencies", dependencies)
+        if git_environment is not None:
+            pulumi.set(__self__, "git_environment", git_environment)
+        if stage_name is not None:
+            pulumi.set(__self__, "stage_name", stage_name)
+
+    @property
+    @pulumi.getter
+    def dependencies(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "dependencies")
+
+    @property
+    @pulumi.getter(name="gitEnvironment")
+    def git_environment(self) -> Optional[str]:
+        return pulumi.get(self, "git_environment")
+
+    @property
+    @pulumi.getter(name="stageName")
+    def stage_name(self) -> Optional[str]:
+        """
+        Stage Name
+        """
+        return pulumi.get(self, "stage_name")
 
 
 @pulumi.output_type

@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.HybridCompute
         /// <summary>
         /// Retrieves information about the view of a gateway.
         /// Azure REST API version: 2024-03-31-preview.
+        /// 
+        /// Other available API versions: 2024-05-20-preview.
         /// </summary>
         public static Task<GetGatewayResult> InvokeAsync(GetGatewayArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGatewayResult>("azure-native:hybridcompute:getGateway", args ?? new GetGatewayArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.HybridCompute
         /// <summary>
         /// Retrieves information about the view of a gateway.
         /// Azure REST API version: 2024-03-31-preview.
+        /// 
+        /// Other available API versions: 2024-05-20-preview.
         /// </summary>
         public static Output<GetGatewayResult> Invoke(GetGatewayInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGatewayResult>("azure-native:hybridcompute:getGateway", args ?? new GetGatewayInvokeArgs(), options.WithDefaults());

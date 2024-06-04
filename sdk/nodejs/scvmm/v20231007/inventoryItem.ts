@@ -38,7 +38,7 @@ export class InventoryItem extends pulumi.CustomResource {
     }
 
     /**
-     * Gets the Managed Object name in VMM for the inventory item.
+     * Gets the Managed Object name in Vmm for the inventory item.
      */
     public /*out*/ readonly inventoryItemName!: pulumi.Output<string>;
     /**
@@ -70,7 +70,7 @@ export class InventoryItem extends pulumi.CustomResource {
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
-     * Gets the UUID (which is assigned by VMM) for the inventory item.
+     * Gets the UUID (which is assigned by Vmm) for the inventory item.
      */
     public /*out*/ readonly uuid!: pulumi.Output<string>;
 
@@ -145,7 +145,7 @@ export interface InventoryItemArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * Name of the VMMServer.
+     * Name of the VmmServer.
      */
     vmmServerName: pulumi.Input<string>;
 }

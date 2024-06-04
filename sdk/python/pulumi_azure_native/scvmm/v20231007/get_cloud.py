@@ -22,7 +22,7 @@ class GetCloudResult:
     """
     The Clouds resource definition.
     """
-    def __init__(__self__, cloud_capacity=None, cloud_name=None, extended_location=None, id=None, inventory_item_id=None, location=None, name=None, provisioning_state=None, storage_qo_s_policies=None, system_data=None, tags=None, type=None, uuid=None, vmm_server_id=None):
+    def __init__(__self__, cloud_capacity=None, cloud_name=None, extended_location=None, id=None, inventory_item_id=None, location=None, name=None, provisioning_state=None, storage_qos_policies=None, system_data=None, tags=None, type=None, uuid=None, vmm_server_id=None):
         if cloud_capacity and not isinstance(cloud_capacity, dict):
             raise TypeError("Expected argument 'cloud_capacity' to be a dict")
         pulumi.set(__self__, "cloud_capacity", cloud_capacity)
@@ -47,9 +47,9 @@ class GetCloudResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if storage_qo_s_policies and not isinstance(storage_qo_s_policies, list):
-            raise TypeError("Expected argument 'storage_qo_s_policies' to be a list")
-        pulumi.set(__self__, "storage_qo_s_policies", storage_qo_s_policies)
+        if storage_qos_policies and not isinstance(storage_qos_policies, list):
+            raise TypeError("Expected argument 'storage_qos_policies' to be a list")
+        pulumi.set(__self__, "storage_qos_policies", storage_qos_policies)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -78,7 +78,7 @@ class GetCloudResult:
     @pulumi.getter(name="cloudName")
     def cloud_name(self) -> str:
         """
-        Name of the cloud in VMMServer.
+        Name of the cloud in VmmServer.
         """
         return pulumi.get(self, "cloud_name")
 
@@ -131,12 +131,12 @@ class GetCloudResult:
         return pulumi.get(self, "provisioning_state")
 
     @property
-    @pulumi.getter(name="storageQoSPolicies")
-    def storage_qo_s_policies(self) -> Sequence['outputs.StorageQoSPolicyResponse']:
+    @pulumi.getter(name="storageQosPolicies")
+    def storage_qos_policies(self) -> Sequence['outputs.StorageQosPolicyResponse']:
         """
         List of QoS policies available for the cloud.
         """
-        return pulumi.get(self, "storage_qo_s_policies")
+        return pulumi.get(self, "storage_qos_policies")
 
     @property
     @pulumi.getter(name="systemData")
@@ -193,7 +193,7 @@ class AwaitableGetCloudResult(GetCloudResult):
             location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
-            storage_qo_s_policies=self.storage_qo_s_policies,
+            storage_qos_policies=self.storage_qos_policies,
             system_data=self.system_data,
             tags=self.tags,
             type=self.type,
@@ -226,7 +226,7 @@ def get_cloud(cloud_resource_name: Optional[str] = None,
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
-        storage_qo_s_policies=pulumi.get(__ret__, 'storage_qo_s_policies'),
+        storage_qos_policies=pulumi.get(__ret__, 'storage_qos_policies'),
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),

@@ -10,6 +10,7 @@ import * as analysisservices from "./analysisservices";
 import * as apicenter from "./apicenter";
 import * as apimanagement from "./apimanagement";
 import * as app from "./app";
+import * as appcomplianceautomation from "./appcomplianceautomation";
 import * as appconfiguration from "./appconfiguration";
 import * as appplatform from "./appplatform";
 import * as attestation from "./attestation";
@@ -211,6 +212,7 @@ export {
     apicenter,
     apimanagement,
     app,
+    appcomplianceautomation,
     appconfiguration,
     appplatform,
     attestation,

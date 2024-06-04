@@ -8,6 +8,7 @@ import * as v20221227 from "./v20221227";
 import * as v20230620preview from "./v20230620preview";
 import * as v20231003preview from "./v20231003preview";
 import * as v20240331preview from "./v20240331preview";
+import * as v20240520preview from "./v20240520preview";
 
 export {
     v20200815preview,
@@ -16,6 +17,7 @@ export {
     v20230620preview,
     v20231003preview,
     v20240331preview,
+    v20240520preview,
 };
 
 export const AssessmentModeTypes = {

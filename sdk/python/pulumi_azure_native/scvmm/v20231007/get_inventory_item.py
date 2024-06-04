@@ -66,7 +66,7 @@ class GetInventoryItemResult:
     @pulumi.getter(name="inventoryItemName")
     def inventory_item_name(self) -> str:
         """
-        Gets the Managed Object name in VMM for the inventory item.
+        Gets the Managed Object name in Vmm for the inventory item.
         """
         return pulumi.get(self, "inventory_item_name")
 
@@ -130,7 +130,7 @@ class GetInventoryItemResult:
     @pulumi.getter
     def uuid(self) -> str:
         """
-        Gets the UUID (which is assigned by VMM) for the inventory item.
+        Gets the UUID (which is assigned by Vmm) for the inventory item.
         """
         return pulumi.get(self, "uuid")
 
@@ -163,7 +163,7 @@ def get_inventory_item(inventory_item_resource_name: Optional[str] = None,
 
     :param str inventory_item_resource_name: Name of the inventoryItem.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
-    :param str vmm_server_name: Name of the VMMServer.
+    :param str vmm_server_name: Name of the VmmServer.
     """
     __args__ = dict()
     __args__['inventoryItemResourceName'] = inventory_item_resource_name
@@ -196,6 +196,6 @@ def get_inventory_item_output(inventory_item_resource_name: Optional[pulumi.Inpu
 
     :param str inventory_item_resource_name: Name of the inventoryItem.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
-    :param str vmm_server_name: Name of the VMMServer.
+    :param str vmm_server_name: Name of the VmmServer.
     """
     ...

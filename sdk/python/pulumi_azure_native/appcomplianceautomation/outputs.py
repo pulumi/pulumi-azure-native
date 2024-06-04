@@ -9,12 +9,17 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = [
     'OverviewStatusResponse',
     'ReportComplianceStatusResponse',
     'ReportPropertiesResponse',
     'ResourceMetadataResponse',
+    'ScopingAnswerResponse',
+    'ScopingQuestionResponse',
+    'StatusItemResponse',
+    'StorageInfoResponse',
     'SystemDataResponse',
 ]
 
@@ -390,6 +395,227 @@ class ResourceMetadataResponse(dict):
         Resource's tag type.
         """
         return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
+class ScopingAnswerResponse(dict):
+    """
+    Scoping answer.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "questionId":
+            suggest = "question_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScopingAnswerResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScopingAnswerResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScopingAnswerResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 answers: Sequence[str],
+                 question_id: str):
+        """
+        Scoping answer.
+        :param Sequence[str] answers: Question answer value list.
+        :param str question_id: Question id.
+        """
+        pulumi.set(__self__, "answers", answers)
+        pulumi.set(__self__, "question_id", question_id)
+
+    @property
+    @pulumi.getter
+    def answers(self) -> Sequence[str]:
+        """
+        Question answer value list.
+        """
+        return pulumi.get(self, "answers")
+
+    @property
+    @pulumi.getter(name="questionId")
+    def question_id(self) -> str:
+        """
+        Question id.
+        """
+        return pulumi.get(self, "question_id")
+
+
+@pulumi.output_type
+class ScopingQuestionResponse(dict):
+    """
+    The definition of a scoping question.
+    """
+    def __init__(__self__, *,
+                 input_type: str,
+                 option_ids: Sequence[str],
+                 question_id: str,
+                 rules: Sequence[str],
+                 show_sub_questions_value: str,
+                 superior_question_id: str):
+        """
+        The definition of a scoping question.
+        :param str input_type: Input type of the question answer.
+        :param Sequence[str] option_ids: Option id list.
+        :param str question_id: Question id.
+        :param Sequence[str] rules: The rule of the question.
+        :param str show_sub_questions_value: The answer value to show the sub questions.
+        :param str superior_question_id: Superior question id.
+        """
+        pulumi.set(__self__, "input_type", input_type)
+        pulumi.set(__self__, "option_ids", option_ids)
+        pulumi.set(__self__, "question_id", question_id)
+        pulumi.set(__self__, "rules", rules)
+        pulumi.set(__self__, "show_sub_questions_value", show_sub_questions_value)
+        pulumi.set(__self__, "superior_question_id", superior_question_id)
+
+    @property
+    @pulumi.getter(name="inputType")
+    def input_type(self) -> str:
+        """
+        Input type of the question answer.
+        """
+        return pulumi.get(self, "input_type")
+
+    @property
+    @pulumi.getter(name="optionIds")
+    def option_ids(self) -> Sequence[str]:
+        """
+        Option id list.
+        """
+        return pulumi.get(self, "option_ids")
+
+    @property
+    @pulumi.getter(name="questionId")
+    def question_id(self) -> str:
+        """
+        Question id.
+        """
+        return pulumi.get(self, "question_id")
+
+    @property
+    @pulumi.getter
+    def rules(self) -> Sequence[str]:
+        """
+        The rule of the question.
+        """
+        return pulumi.get(self, "rules")
+
+    @property
+    @pulumi.getter(name="showSubQuestionsValue")
+    def show_sub_questions_value(self) -> str:
+        """
+        The answer value to show the sub questions.
+        """
+        return pulumi.get(self, "show_sub_questions_value")
+
+    @property
+    @pulumi.getter(name="superiorQuestionId")
+    def superior_question_id(self) -> str:
+        """
+        Superior question id.
+        """
+        return pulumi.get(self, "superior_question_id")
+
+
+@pulumi.output_type
+class StatusItemResponse(dict):
+    """
+    Single status.
+    """
+    def __init__(__self__, *,
+                 status_name: Optional[str] = None,
+                 status_value: Optional[str] = None):
+        """
+        Single status.
+        :param str status_name: Status name - e.g. "Active", "Failed".
+        :param str status_value: Status value. e.g. "100", or "100%".
+        """
+        if status_name is not None:
+            pulumi.set(__self__, "status_name", status_name)
+        if status_value is not None:
+            pulumi.set(__self__, "status_value", status_value)
+
+    @property
+    @pulumi.getter(name="statusName")
+    def status_name(self) -> Optional[str]:
+        """
+        Status name - e.g. "Active", "Failed".
+        """
+        return pulumi.get(self, "status_name")
+
+    @property
+    @pulumi.getter(name="statusValue")
+    def status_value(self) -> Optional[str]:
+        """
+        Status value. e.g. "100", or "100%".
+        """
+        return pulumi.get(self, "status_value")
+
+
+@pulumi.output_type
+class StorageInfoResponse(dict):
+    """
+    The information of 'bring your own storage' account binding to the report
+    """
+    def __init__(__self__, *,
+                 account_name: Optional[str] = None,
+                 location: Optional[str] = None,
+                 resource_group: Optional[str] = None,
+                 subscription_id: Optional[str] = None):
+        """
+        The information of 'bring your own storage' account binding to the report
+        :param str account_name: 'bring your own storage' account name
+        :param str location: The region of 'bring your own storage' account
+        :param str resource_group: The resourceGroup which 'bring your own storage' account belongs to
+        :param str subscription_id: The subscription id which 'bring your own storage' account belongs to
+        """
+        if account_name is not None:
+            pulumi.set(__self__, "account_name", account_name)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if resource_group is not None:
+            pulumi.set(__self__, "resource_group", resource_group)
+        if subscription_id is not None:
+            pulumi.set(__self__, "subscription_id", subscription_id)
+
+    @property
+    @pulumi.getter(name="accountName")
+    def account_name(self) -> Optional[str]:
+        """
+        'bring your own storage' account name
+        """
+        return pulumi.get(self, "account_name")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        The region of 'bring your own storage' account
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="resourceGroup")
+    def resource_group(self) -> Optional[str]:
+        """
+        The resourceGroup which 'bring your own storage' account belongs to
+        """
+        return pulumi.get(self, "resource_group")
+
+    @property
+    @pulumi.getter(name="subscriptionId")
+    def subscription_id(self) -> Optional[str]:
+        """
+        The subscription id which 'bring your own storage' account belongs to
+        """
+        return pulumi.get(self, "subscription_id")
 
 
 @pulumi.output_type

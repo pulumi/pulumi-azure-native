@@ -99,8 +99,6 @@ class VMInstanceGuestAgent(pulumi.CustomResource):
         Defines the GuestAgent.
         Azure REST API version: 2023-04-01-preview.
 
-        Other available API versions: 2023-10-07.
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['GuestCredentialArgs']] credentials: Username / Password Credentials to provision guest agent.
@@ -117,8 +115,6 @@ class VMInstanceGuestAgent(pulumi.CustomResource):
         """
         Defines the GuestAgent.
         Azure REST API version: 2023-04-01-preview.
-
-        Other available API versions: 2023-10-07.
 
         :param str resource_name: The name of the resource.
         :param VMInstanceGuestAgentArgs args: The arguments to use to populate this resource's properties.

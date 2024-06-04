@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.ScVmm.V20231007
         public Output<Outputs.CloudCapacityResponse> CloudCapacity { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the cloud in VMMServer.
+        /// Name of the cloud in VmmServer.
         /// </summary>
         [Output("cloudName")]
         public Output<string> CloudName { get; private set; } = null!;
@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.ScVmm.V20231007
         /// <summary>
         /// List of QoS policies available for the cloud.
         /// </summary>
-        [Output("storageQoSPolicies")]
-        public Output<ImmutableArray<Outputs.StorageQoSPolicyResponse>> StorageQoSPolicies { get; private set; } = null!;
+        [Output("storageQosPolicies")]
+        public Output<ImmutableArray<Outputs.StorageQosPolicyResponse>> StorageQosPolicies { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.

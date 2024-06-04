@@ -23,6 +23,7 @@ namespace Pulumi.AzureNative.Storage.V20230501
         public static AccessTier Hot { get; } = new AccessTier("Hot");
         public static AccessTier Cool { get; } = new AccessTier("Cool");
         public static AccessTier Premium { get; } = new AccessTier("Premium");
+        public static AccessTier Cold { get; } = new AccessTier("Cold");
 
         public static bool operator ==(AccessTier left, AccessTier right) => left.Equals(right);
         public static bool operator !=(AccessTier left, AccessTier right) => !left.Equals(right);
@@ -812,6 +813,7 @@ namespace Pulumi.AzureNative.Storage.V20230501
         public static MinimumTlsVersion TLS1_0 { get; } = new MinimumTlsVersion("TLS1_0");
         public static MinimumTlsVersion TLS1_1 { get; } = new MinimumTlsVersion("TLS1_1");
         public static MinimumTlsVersion TLS1_2 { get; } = new MinimumTlsVersion("TLS1_2");
+        public static MinimumTlsVersion TLS1_3 { get; } = new MinimumTlsVersion("TLS1_3");
 
         public static bool operator ==(MinimumTlsVersion left, MinimumTlsVersion right) => left.Equals(right);
         public static bool operator !=(MinimumTlsVersion left, MinimumTlsVersion right) => !left.Equals(right);

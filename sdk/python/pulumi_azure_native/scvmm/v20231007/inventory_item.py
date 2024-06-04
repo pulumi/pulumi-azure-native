@@ -25,7 +25,7 @@ class InventoryItemArgs:
         The set of arguments for constructing a InventoryItem resource.
         :param pulumi.Input[Union[str, 'InventoryType']] inventory_type: They inventory type.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[str] vmm_server_name: Name of the VMMServer.
+        :param pulumi.Input[str] vmm_server_name: Name of the VmmServer.
         :param pulumi.Input[str] inventory_item_resource_name: Name of the inventoryItem.
         :param pulumi.Input[str] kind: Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         """
@@ -65,7 +65,7 @@ class InventoryItemArgs:
     @pulumi.getter(name="vmmServerName")
     def vmm_server_name(self) -> pulumi.Input[str]:
         """
-        Name of the VMMServer.
+        Name of the VmmServer.
         """
         return pulumi.get(self, "vmm_server_name")
 
@@ -118,7 +118,7 @@ class InventoryItem(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'InventoryType']] inventory_type: They inventory type.
         :param pulumi.Input[str] kind: Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[str] vmm_server_name: Name of the VMMServer.
+        :param pulumi.Input[str] vmm_server_name: Name of the VmmServer.
         """
         ...
     @overload
@@ -215,7 +215,7 @@ class InventoryItem(pulumi.CustomResource):
     @pulumi.getter(name="inventoryItemName")
     def inventory_item_name(self) -> pulumi.Output[str]:
         """
-        Gets the Managed Object name in VMM for the inventory item.
+        Gets the Managed Object name in Vmm for the inventory item.
         """
         return pulumi.get(self, "inventory_item_name")
 
@@ -279,7 +279,7 @@ class InventoryItem(pulumi.CustomResource):
     @pulumi.getter
     def uuid(self) -> pulumi.Output[str]:
         """
-        Gets the UUID (which is assigned by VMM) for the inventory item.
+        Gets the UUID (which is assigned by Vmm) for the inventory item.
         """
         return pulumi.get(self, "uuid")
 

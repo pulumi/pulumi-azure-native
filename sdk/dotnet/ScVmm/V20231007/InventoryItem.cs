@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.ScVmm.V20231007
     public partial class InventoryItem : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Gets the Managed Object name in VMM for the inventory item.
+        /// Gets the Managed Object name in Vmm for the inventory item.
         /// </summary>
         [Output("inventoryItemName")]
         public Output<string> InventoryItemName { get; private set; } = null!;
@@ -64,7 +64,7 @@ namespace Pulumi.AzureNative.ScVmm.V20231007
         public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
-        /// Gets the UUID (which is assigned by VMM) for the inventory item.
+        /// Gets the UUID (which is assigned by Vmm) for the inventory item.
         /// </summary>
         [Output("uuid")]
         public Output<string> Uuid { get; private set; } = null!;
@@ -146,7 +146,7 @@ namespace Pulumi.AzureNative.ScVmm.V20231007
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the VMMServer.
+        /// Name of the VmmServer.
         /// </summary>
         [Input("vmmServerName", required: true)]
         public Input<string> VmmServerName { get; set; } = null!;

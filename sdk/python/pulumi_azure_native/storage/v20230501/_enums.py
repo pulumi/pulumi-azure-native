@@ -58,6 +58,7 @@ class AccessTier(str, Enum):
     HOT = "Hot"
     COOL = "Cool"
     PREMIUM = "Premium"
+    COLD = "Cold"
 
 
 class AccountImmutabilityPolicyState(str, Enum):
@@ -272,6 +273,7 @@ class MinimumTlsVersion(str, Enum):
     TLS1_0 = "TLS1_0"
     TLS1_1 = "TLS1_1"
     TLS1_2 = "TLS1_2"
+    TLS1_3 = "TLS1_3"
 
 
 class Name(str, Enum):

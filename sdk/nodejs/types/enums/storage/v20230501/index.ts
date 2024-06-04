@@ -6,6 +6,7 @@ export const AccessTier = {
     Hot: "Hot",
     Cool: "Cool",
     Premium: "Premium",
+    Cold: "Cold",
 } as const;
 
 /**
@@ -270,6 +271,7 @@ export const MinimumTlsVersion = {
     TLS1_0: "TLS1_0",
     TLS1_1: "TLS1_1",
     TLS1_2: "TLS1_2",
+    TLS1_3: "TLS1_3",
 } as const;
 
 /**

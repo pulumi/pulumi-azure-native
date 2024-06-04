@@ -22,10 +22,10 @@ namespace Pulumi.AzureNative.ScVmm.V20231007
         public Output<string> ConnectionStatus { get; private set; } = null!;
 
         /// <summary>
-        /// Credentials to connect to VMMServer.
+        /// Credentials to connect to VmmServer.
         /// </summary>
         [Output("credentials")]
-        public Output<Outputs.VMMCredentialResponse?> Credentials { get; private set; } = null!;
+        public Output<Outputs.VmmCredentialResponse?> Credentials { get; private set; } = null!;
 
         /// <summary>
         /// Gets any error message if connection to vmmServer is having any issue.
@@ -152,10 +152,10 @@ namespace Pulumi.AzureNative.ScVmm.V20231007
     public sealed class VmmServerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Credentials to connect to VMMServer.
+        /// Credentials to connect to VmmServer.
         /// </summary>
         [Input("credentials")]
-        public Input<Inputs.VMMCredentialArgs>? Credentials { get; set; }
+        public Input<Inputs.VmmCredentialArgs>? Credentials { get; set; }
 
         /// <summary>
         /// The extended location.
@@ -200,7 +200,7 @@ namespace Pulumi.AzureNative.ScVmm.V20231007
         }
 
         /// <summary>
-        /// Name of the VMMServer.
+        /// Name of the VmmServer.
         /// </summary>
         [Input("vmmServerName")]
         public Input<string>? VmmServerName { get; set; }

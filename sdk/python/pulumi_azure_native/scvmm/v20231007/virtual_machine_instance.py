@@ -19,21 +19,21 @@ class VirtualMachineInstanceArgs:
     def __init__(__self__, *,
                  extended_location: pulumi.Input['ExtendedLocationArgs'],
                  resource_uri: pulumi.Input[str],
-                 availability_sets: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineInstancePropertiesAvailabilitySetsArgs']]]] = None,
+                 availability_sets: Optional[pulumi.Input[Sequence[pulumi.Input['AvailabilitySetListItemArgs']]]] = None,
                  hardware_profile: Optional[pulumi.Input['HardwareProfileArgs']] = None,
                  infrastructure_profile: Optional[pulumi.Input['InfrastructureProfileArgs']] = None,
                  network_profile: Optional[pulumi.Input['NetworkProfileArgs']] = None,
-                 os_profile: Optional[pulumi.Input['OsProfileForVMInstanceArgs']] = None,
+                 os_profile: Optional[pulumi.Input['OsProfileForVmInstanceArgs']] = None,
                  storage_profile: Optional[pulumi.Input['StorageProfileArgs']] = None):
         """
         The set of arguments for constructing a VirtualMachineInstance resource.
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: Gets or sets the extended location.
-        :param pulumi.Input[str] resource_uri: The fully qualified Azure Resource manager identifier of the Hybrid Compute machine resource to be extended.
-        :param pulumi.Input[Sequence[pulumi.Input['VirtualMachineInstancePropertiesAvailabilitySetsArgs']]] availability_sets: Availability Sets in vm.
+        :param pulumi.Input[str] resource_uri: The fully qualified Azure Resource manager identifier of the resource.
+        :param pulumi.Input[Sequence[pulumi.Input['AvailabilitySetListItemArgs']]] availability_sets: Availability Sets in vm.
         :param pulumi.Input['HardwareProfileArgs'] hardware_profile: Hardware properties.
         :param pulumi.Input['InfrastructureProfileArgs'] infrastructure_profile: Gets the infrastructure profile.
         :param pulumi.Input['NetworkProfileArgs'] network_profile: Network properties.
-        :param pulumi.Input['OsProfileForVMInstanceArgs'] os_profile: OS properties.
+        :param pulumi.Input['OsProfileForVmInstanceArgs'] os_profile: OS properties.
         :param pulumi.Input['StorageProfileArgs'] storage_profile: Storage properties.
         """
         pulumi.set(__self__, "extended_location", extended_location)
@@ -67,7 +67,7 @@ class VirtualMachineInstanceArgs:
     @pulumi.getter(name="resourceUri")
     def resource_uri(self) -> pulumi.Input[str]:
         """
-        The fully qualified Azure Resource manager identifier of the Hybrid Compute machine resource to be extended.
+        The fully qualified Azure Resource manager identifier of the resource.
         """
         return pulumi.get(self, "resource_uri")
 
@@ -77,14 +77,14 @@ class VirtualMachineInstanceArgs:
 
     @property
     @pulumi.getter(name="availabilitySets")
-    def availability_sets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineInstancePropertiesAvailabilitySetsArgs']]]]:
+    def availability_sets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AvailabilitySetListItemArgs']]]]:
         """
         Availability Sets in vm.
         """
         return pulumi.get(self, "availability_sets")
 
     @availability_sets.setter
-    def availability_sets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineInstancePropertiesAvailabilitySetsArgs']]]]):
+    def availability_sets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AvailabilitySetListItemArgs']]]]):
         pulumi.set(self, "availability_sets", value)
 
     @property
@@ -125,14 +125,14 @@ class VirtualMachineInstanceArgs:
 
     @property
     @pulumi.getter(name="osProfile")
-    def os_profile(self) -> Optional[pulumi.Input['OsProfileForVMInstanceArgs']]:
+    def os_profile(self) -> Optional[pulumi.Input['OsProfileForVmInstanceArgs']]:
         """
         OS properties.
         """
         return pulumi.get(self, "os_profile")
 
     @os_profile.setter
-    def os_profile(self, value: Optional[pulumi.Input['OsProfileForVMInstanceArgs']]):
+    def os_profile(self, value: Optional[pulumi.Input['OsProfileForVmInstanceArgs']]):
         pulumi.set(self, "os_profile", value)
 
     @property
@@ -153,12 +153,12 @@ class VirtualMachineInstance(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 availability_sets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualMachineInstancePropertiesAvailabilitySetsArgs']]]]] = None,
+                 availability_sets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AvailabilitySetListItemArgs']]]]] = None,
                  extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
                  hardware_profile: Optional[pulumi.Input[pulumi.InputType['HardwareProfileArgs']]] = None,
                  infrastructure_profile: Optional[pulumi.Input[pulumi.InputType['InfrastructureProfileArgs']]] = None,
                  network_profile: Optional[pulumi.Input[pulumi.InputType['NetworkProfileArgs']]] = None,
-                 os_profile: Optional[pulumi.Input[pulumi.InputType['OsProfileForVMInstanceArgs']]] = None,
+                 os_profile: Optional[pulumi.Input[pulumi.InputType['OsProfileForVmInstanceArgs']]] = None,
                  resource_uri: Optional[pulumi.Input[str]] = None,
                  storage_profile: Optional[pulumi.Input[pulumi.InputType['StorageProfileArgs']]] = None,
                  __props__=None):
@@ -167,13 +167,13 @@ class VirtualMachineInstance(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualMachineInstancePropertiesAvailabilitySetsArgs']]]] availability_sets: Availability Sets in vm.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AvailabilitySetListItemArgs']]]] availability_sets: Availability Sets in vm.
         :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: Gets or sets the extended location.
         :param pulumi.Input[pulumi.InputType['HardwareProfileArgs']] hardware_profile: Hardware properties.
         :param pulumi.Input[pulumi.InputType['InfrastructureProfileArgs']] infrastructure_profile: Gets the infrastructure profile.
         :param pulumi.Input[pulumi.InputType['NetworkProfileArgs']] network_profile: Network properties.
-        :param pulumi.Input[pulumi.InputType['OsProfileForVMInstanceArgs']] os_profile: OS properties.
-        :param pulumi.Input[str] resource_uri: The fully qualified Azure Resource manager identifier of the Hybrid Compute machine resource to be extended.
+        :param pulumi.Input[pulumi.InputType['OsProfileForVmInstanceArgs']] os_profile: OS properties.
+        :param pulumi.Input[str] resource_uri: The fully qualified Azure Resource manager identifier of the resource.
         :param pulumi.Input[pulumi.InputType['StorageProfileArgs']] storage_profile: Storage properties.
         """
         ...
@@ -200,12 +200,12 @@ class VirtualMachineInstance(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 availability_sets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualMachineInstancePropertiesAvailabilitySetsArgs']]]]] = None,
+                 availability_sets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AvailabilitySetListItemArgs']]]]] = None,
                  extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
                  hardware_profile: Optional[pulumi.Input[pulumi.InputType['HardwareProfileArgs']]] = None,
                  infrastructure_profile: Optional[pulumi.Input[pulumi.InputType['InfrastructureProfileArgs']]] = None,
                  network_profile: Optional[pulumi.Input[pulumi.InputType['NetworkProfileArgs']]] = None,
-                 os_profile: Optional[pulumi.Input[pulumi.InputType['OsProfileForVMInstanceArgs']]] = None,
+                 os_profile: Optional[pulumi.Input[pulumi.InputType['OsProfileForVmInstanceArgs']]] = None,
                  resource_uri: Optional[pulumi.Input[str]] = None,
                  storage_profile: Optional[pulumi.Input[pulumi.InputType['StorageProfileArgs']]] = None,
                  __props__=None):
@@ -274,7 +274,7 @@ class VirtualMachineInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="availabilitySets")
-    def availability_sets(self) -> pulumi.Output[Optional[Sequence['outputs.VirtualMachineInstancePropertiesResponseAvailabilitySets']]]:
+    def availability_sets(self) -> pulumi.Output[Optional[Sequence['outputs.AvailabilitySetListItemResponse']]]:
         """
         Availability Sets in vm.
         """
@@ -322,7 +322,7 @@ class VirtualMachineInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="osProfile")
-    def os_profile(self) -> pulumi.Output[Optional['outputs.OsProfileForVMInstanceResponse']]:
+    def os_profile(self) -> pulumi.Output[Optional['outputs.OsProfileForVmInstanceResponse']]:
         """
         OS properties.
         """

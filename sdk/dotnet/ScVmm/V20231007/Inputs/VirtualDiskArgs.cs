@@ -60,8 +60,8 @@ namespace Pulumi.AzureNative.ScVmm.V20231007.Inputs
         /// <summary>
         /// The QoS policy for the disk.
         /// </summary>
-        [Input("storageQoSPolicy")]
-        public Input<Inputs.StorageQoSPolicyDetailsArgs>? StorageQoSPolicy { get; set; }
+        [Input("storageQosPolicy")]
+        public Input<Inputs.StorageQosPolicyDetailsArgs>? StorageQosPolicy { get; set; }
 
         /// <summary>
         /// Gets or sets the disk id in the template.

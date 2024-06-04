@@ -42,9 +42,9 @@ export class VmmServer extends pulumi.CustomResource {
      */
     public /*out*/ readonly connectionStatus!: pulumi.Output<string>;
     /**
-     * Credentials to connect to VMMServer.
+     * Credentials to connect to VmmServer.
      */
-    public readonly credentials!: pulumi.Output<outputs.scvmm.v20231007.VMMCredentialResponse | undefined>;
+    public readonly credentials!: pulumi.Output<outputs.scvmm.v20231007.VmmCredentialResponse | undefined>;
     /**
      * Gets any error message if connection to vmmServer is having any issue.
      */
@@ -158,9 +158,9 @@ export class VmmServer extends pulumi.CustomResource {
  */
 export interface VmmServerArgs {
     /**
-     * Credentials to connect to VMMServer.
+     * Credentials to connect to VmmServer.
      */
-    credentials?: pulumi.Input<inputs.scvmm.v20231007.VMMCredentialArgs>;
+    credentials?: pulumi.Input<inputs.scvmm.v20231007.VmmCredentialArgs>;
     /**
      * The extended location.
      */
@@ -186,7 +186,7 @@ export interface VmmServerArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Name of the VMMServer.
+     * Name of the VmmServer.
      */
     vmmServerName?: pulumi.Input<string>;
 }

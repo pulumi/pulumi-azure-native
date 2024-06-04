@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Implements VMMServer GET method.
+ * Implements VmmServer GET method.
  */
 export function getVmmServer(args: GetVmmServerArgs, opts?: pulumi.InvokeOptions): Promise<GetVmmServerResult> {
 
@@ -25,7 +25,7 @@ export interface GetVmmServerArgs {
      */
     resourceGroupName: string;
     /**
-     * Name of the VMMServer.
+     * Name of the VmmServer.
      */
     vmmServerName: string;
 }
@@ -39,9 +39,9 @@ export interface GetVmmServerResult {
      */
     readonly connectionStatus: string;
     /**
-     * Credentials to connect to VMMServer.
+     * Credentials to connect to VmmServer.
      */
-    readonly credentials?: outputs.scvmm.v20231007.VMMCredentialResponse;
+    readonly credentials?: outputs.scvmm.v20231007.VmmCredentialResponse;
     /**
      * Gets any error message if connection to vmmServer is having any issue.
      */
@@ -96,7 +96,7 @@ export interface GetVmmServerResult {
     readonly version: string;
 }
 /**
- * Implements VMMServer GET method.
+ * Implements VmmServer GET method.
  */
 export function getVmmServerOutput(args: GetVmmServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVmmServerResult> {
     return pulumi.output(args).apply((a: any) => getVmmServer(a, opts))
@@ -108,7 +108,7 @@ export interface GetVmmServerOutputArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * Name of the VMMServer.
+     * Name of the VmmServer.
      */
     vmmServerName: pulumi.Input<string>;
 }
