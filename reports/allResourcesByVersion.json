@@ -7618,7 +7618,8 @@
       "HostPool",
       "MSIXPackage",
       "ScalingPlan",
-      "Workspace"
+      "Workspace",
+      "getHostPoolRegistrationToken"
     ],
     "2021-02-01-preview": [
       "Application",
@@ -7626,7 +7627,8 @@
       "HostPool",
       "MSIXPackage",
       "ScalingPlan",
-      "Workspace"
+      "Workspace",
+      "getHostPoolRegistrationToken"
     ],
     "2021-03-09-preview": [
       "Application",
@@ -7634,7 +7636,8 @@
       "HostPool",
       "MSIXPackage",
       "ScalingPlan",
-      "Workspace"
+      "Workspace",
+      "getHostPoolRegistrationToken"
     ],
     "2021-04-01-preview": [
       "Application",
@@ -7644,7 +7647,8 @@
       "PrivateEndpointConnectionByHostPool",
       "PrivateEndpointConnectionByWorkspace",
       "ScalingPlan",
-      "Workspace"
+      "Workspace",
+      "getHostPoolRegistrationToken"
     ],
     "2021-07-12": [
       "Application",
@@ -7652,7 +7656,8 @@
       "HostPool",
       "MSIXPackage",
       "ScalingPlan",
-      "Workspace"
+      "Workspace",
+      "getHostPoolRegistrationToken"
     ],
     "2021-09-03-preview": [
       "Application",
@@ -7662,7 +7667,8 @@
       "PrivateEndpointConnectionByHostPool",
       "PrivateEndpointConnectionByWorkspace",
       "ScalingPlan",
-      "Workspace"
+      "Workspace",
+      "getHostPoolRegistrationToken"
     ],
     "2022-02-10-preview": [
       "Application",
@@ -7672,7 +7678,8 @@
       "PrivateEndpointConnectionByHostPool",
       "PrivateEndpointConnectionByWorkspace",
       "ScalingPlan",
-      "Workspace"
+      "Workspace",
+      "getHostPoolRegistrationToken"
     ],
     "2022-04-01-preview": [
       "Application",
@@ -7683,7 +7690,8 @@
       "PrivateEndpointConnectionByWorkspace",
       "ScalingPlan",
       "ScalingPlanPooledSchedule",
-      "Workspace"
+      "Workspace",
+      "getHostPoolRegistrationToken"
     ],
     "2022-09-09": [
       "Application",
@@ -7692,7 +7700,8 @@
       "MSIXPackage",
       "ScalingPlan",
       "ScalingPlanPooledSchedule",
-      "Workspace"
+      "Workspace",
+      "getHostPoolRegistrationToken"
     ],
     "2022-10-14-preview": [
       "Application",
@@ -7703,7 +7712,8 @@
       "PrivateEndpointConnectionByWorkspace",
       "ScalingPlan",
       "ScalingPlanPooledSchedule",
-      "Workspace"
+      "Workspace",
+      "getHostPoolRegistrationToken"
     ],
     "2023-07-07-preview": [
       "Application",
@@ -7715,7 +7725,8 @@
       "ScalingPlan",
       "ScalingPlanPersonalSchedule",
       "ScalingPlanPooledSchedule",
-      "Workspace"
+      "Workspace",
+      "getHostPoolRegistrationToken"
     ],
     "2023-09-05": [
       "Application",
@@ -7727,7 +7738,8 @@
       "ScalingPlan",
       "ScalingPlanPersonalSchedule",
       "ScalingPlanPooledSchedule",
-      "Workspace"
+      "Workspace",
+      "getHostPoolRegistrationToken"
     ],
     "2023-10-04-preview": [
       "AppAttachPackage",
@@ -7740,7 +7752,8 @@
       "ScalingPlan",
       "ScalingPlanPersonalSchedule",
       "ScalingPlanPooledSchedule",
-      "Workspace"
+      "Workspace",
+      "getHostPoolRegistrationToken"
     ],
     "2023-11-01-preview": [
       "AppAttachPackage",
@@ -7753,7 +7766,8 @@
       "ScalingPlan",
       "ScalingPlanPersonalSchedule",
       "ScalingPlanPooledSchedule",
-      "Workspace"
+      "Workspace",
+      "getHostPoolRegistrationToken"
     ],
     "2024-01-16-preview": [
       "AppAttachPackage",
@@ -7766,7 +7780,8 @@
       "ScalingPlan",
       "ScalingPlanPersonalSchedule",
       "ScalingPlanPooledSchedule",
-      "Workspace"
+      "Workspace",
+      "getHostPoolRegistrationToken"
     ],
     "2024-03-06-preview": [
       "AppAttachPackage",
@@ -7779,7 +7794,8 @@
       "ScalingPlan",
       "ScalingPlanPersonalSchedule",
       "ScalingPlanPooledSchedule",
-      "Workspace"
+      "Workspace",
+      "getHostPoolRegistrationToken"
     ],
     "2024-04-03": [
       "AppAttachPackage",
@@ -7792,7 +7808,8 @@
       "ScalingPlan",
       "ScalingPlanPersonalSchedule",
       "ScalingPlanPooledSchedule",
-      "Workspace"
+      "Workspace",
+      "getHostPoolRegistrationToken"
     ]
   },
   "DevCenter": {
