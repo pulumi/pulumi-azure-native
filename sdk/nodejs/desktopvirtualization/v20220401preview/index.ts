@@ -20,6 +20,11 @@ export const getHostPool: typeof import("./getHostPool").getHostPool = null as a
 export const getHostPoolOutput: typeof import("./getHostPool").getHostPoolOutput = null as any;
 utilities.lazyLoad(exports, ["getHostPool","getHostPoolOutput"], () => require("./getHostPool"));
 
+export { GetHostPoolRegistrationTokenArgs, GetHostPoolRegistrationTokenResult, GetHostPoolRegistrationTokenOutputArgs } from "./getHostPoolRegistrationToken";
+export const getHostPoolRegistrationToken: typeof import("./getHostPoolRegistrationToken").getHostPoolRegistrationToken = null as any;
+export const getHostPoolRegistrationTokenOutput: typeof import("./getHostPoolRegistrationToken").getHostPoolRegistrationTokenOutput = null as any;
+utilities.lazyLoad(exports, ["getHostPoolRegistrationToken","getHostPoolRegistrationTokenOutput"], () => require("./getHostPoolRegistrationToken"));
+
 export { HostPoolArgs } from "./hostPool";
 export type HostPool = import("./hostPool").HostPool;
 export const HostPool: typeof import("./hostPool").HostPool = null as any;

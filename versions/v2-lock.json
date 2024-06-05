@@ -913,7 +913,8 @@
     "ScalingPlan": "2022-09-09",
     "ScalingPlanPersonalSchedule": "2023-07-07-preview",
     "ScalingPlanPooledSchedule": "2022-09-09",
-    "Workspace": "2022-09-09"
+    "Workspace": "2022-09-09",
+    "getHostPoolRegistrationToken": "2022-09-09"
   },
   "DevCenter": {
     "AttachedNetworkByDevCenter": "2023-04-01",

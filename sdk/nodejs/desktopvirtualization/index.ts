@@ -40,6 +40,11 @@ export const getHostPool: typeof import("./getHostPool").getHostPool = null as a
 export const getHostPoolOutput: typeof import("./getHostPool").getHostPoolOutput = null as any;
 utilities.lazyLoad(exports, ["getHostPool","getHostPoolOutput"], () => require("./getHostPool"));
 
+export { GetHostPoolRegistrationTokenArgs, GetHostPoolRegistrationTokenResult, GetHostPoolRegistrationTokenOutputArgs } from "./getHostPoolRegistrationToken";
+export const getHostPoolRegistrationToken: typeof import("./getHostPoolRegistrationToken").getHostPoolRegistrationToken = null as any;
+export const getHostPoolRegistrationTokenOutput: typeof import("./getHostPoolRegistrationToken").getHostPoolRegistrationTokenOutput = null as any;
+utilities.lazyLoad(exports, ["getHostPoolRegistrationToken","getHostPoolRegistrationTokenOutput"], () => require("./getHostPoolRegistrationToken"));
+
 export { GetMSIXPackageArgs, GetMSIXPackageResult, GetMSIXPackageOutputArgs } from "./getMSIXPackage";
 export const getMSIXPackage: typeof import("./getMSIXPackage").getMSIXPackage = null as any;
 export const getMSIXPackageOutput: typeof import("./getMSIXPackage").getMSIXPackageOutput = null as any;

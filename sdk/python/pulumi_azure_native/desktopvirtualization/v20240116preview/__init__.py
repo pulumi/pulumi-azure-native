@@ -13,6 +13,7 @@ from .get_app_attach_package import *
 from .get_application import *
 from .get_application_group import *
 from .get_host_pool import *
+from .get_host_pool_registration_token import *
 from .get_msix_package import *
 from .get_private_endpoint_connection_by_host_pool import *
 from .get_private_endpoint_connection_by_workspace import *

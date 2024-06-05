@@ -646,7 +646,8 @@ func addResourcesAndInvokes(version VersionResources, fileLocation, path, provid
 			prefix = "list"
 		case strings.HasPrefix(operationName, "get"):
 			prefix = "get"
-		case strings.HasPrefix(operationId, "get") && pathItem.Put == nil &&
+		case (strings.HasPrefix(operationId, "get") || strings.HasPrefix(operationId, "retrieve")) &&
+			pathItem.Put == nil &&
 			(strings.Contains(operationName, "key") ||
 				strings.Contains(operationName, "token") ||
 				strings.Contains(operationName, "credential")):

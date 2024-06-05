@@ -9,6 +9,7 @@ from ._enums import *
 from .application_group import *
 from .get_application_group import *
 from .get_host_pool import *
+from .get_host_pool_registration_token import *
 from .host_pool import *
 from ._inputs import *
 from . import outputs

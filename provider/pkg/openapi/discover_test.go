@@ -1,20 +1,35 @@
 package openapi
 
 import (
+	"fmt"
+	"net/http"
 	"testing"
 
 	"github.com/go-openapi/spec"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi/defaults"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+	"golang.org/x/exp/maps"
 )
 
-func TestListDiagnosticCategoriesShouldBeAdded(t *testing.T) {
-	path := "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/diagnosticSettingsCategories"
+func createTestSwaggerForInvoke(path, operationId string, httpMethod string) Spec {
+	op := &spec.Operation{
+		OperationProps: spec.OperationProps{
+			ID: operationId,
+		},
+	}
 
-	version := NewVersionResources()
+	props := spec.PathItemProps{}
+	switch httpMethod {
+	case http.MethodGet:
+		props.Get = op
+	case http.MethodPost:
+		props.Post = op
+	default:
+		panic("unsupported HTTP method " + httpMethod)
+	}
 
-	swagger := Spec{
+	return Spec{
 		Swagger: spec.Swagger{
 			SwaggerProps: spec.SwaggerProps{
 				Info: &spec.Info{
@@ -25,28 +40,47 @@ func TestListDiagnosticCategoriesShouldBeAdded(t *testing.T) {
 				Paths: &spec.Paths{
 					Paths: map[string]spec.PathItem{
 						path: {
-							PathItemProps: spec.PathItemProps{
-								Get: &spec.Operation{
-									OperationProps: spec.OperationProps{
-										ID: "DiagnosticSettingsCategory_List",
-									},
-								},
-							},
+							PathItemProps: props,
 						},
 					},
 				},
 			},
 		},
 	}
+}
 
-	addResourcesAndInvokes(version, "/file/path", path, "insights", &swagger)
+func TestAddInvokes(t *testing.T) {
+	for tcName, tc := range map[string]struct {
+		path        string
+		operationId string
+		httpMethod  string
+		expected    string
+	}{
+		"listDiagnosticSettingsCategory": {
+			path:        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/diagnosticSettingsCategories",
+			operationId: "DiagnosticSettingsCategory_List",
+			httpMethod:  http.MethodGet,
+			expected:    "listDiagnosticSettingsCategory",
+		},
+		"retrieveRegistrationToken": {
+			path:        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DesktopVirtualization/hostPools/{hostPoolName}/retrieveRegistrationToken",
+			operationId: "HostPools_RetrieveRegistrationToken",
+			httpMethod:  http.MethodPost,
+			expected:    "getHostPoolRegistrationToken",
+		},
+	} {
+		version := NewVersionResources()
+		spec := createTestSwaggerForInvoke(tc.path, tc.operationId, tc.httpMethod)
 
-	assert.Empty(t, version.Resources)
-	assert.NotEmpty(t, version.Invokes)
+		addResourcesAndInvokes(version, "/file/path", tc.path, "foo", &spec)
 
-	invoke, ok := version.Invokes["listDiagnosticSettingsCategory"]
-	assert.True(t, ok)
-	assert.Equal(t, path, invoke.Path)
+		assert.Empty(t, version.Resources, tcName)
+		assert.NotEmpty(t, version.Invokes, tcName)
+
+		invoke, ok := version.Invokes[tc.expected]
+		require.True(t, ok, fmt.Sprintf("%s: found invokes: %v", tcName, maps.Keys(version.Invokes)))
+		assert.Equal(t, tc.path, invoke.Path, tcName)
+	}
 }
 
 func TestDefaultState(t *testing.T) {
