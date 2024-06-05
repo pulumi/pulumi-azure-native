@@ -10,24 +10,38 @@ import (
 )
 
 func TestParsePathParams(t *testing.T) {
-	const accessPolicyAzureId = "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/pulumi-dev-shared/providers/Microsoft.KeyVault/vaults/pulumi-testing/accessPolicy"
-	params, err := parseKeyVaultPathParams(accessPolicyAzureId)
-	require.NoError(t, err)
-	assert.Equal(t, "pulumi-testing", params.VaultName)
-	assert.Equal(t, "pulumi-dev-shared", params.ResourceGroup)
+	t.Run("Valid legacy path", func(t *testing.T) {
+		const accessPolicyAzureId = "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/pulumi-dev-shared/providers/Microsoft.KeyVault/vaults/pulumi-testing/accessPolicy"
+		params, err := parseKeyVaultPathParams(accessPolicyAzureId)
+		require.NoError(t, err)
+		assert.Equal(t, "pulumi-testing", params.VaultName)
+		assert.Equal(t, "pulumi-dev-shared", params.ResourceGroup)
+		assert.Nil(t, params.ObjectId)
+	})
 
-	for _, invalidId := range []string{
-		"",
-		"/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/pulumi-dev-shared",
-		"/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/pulumi-dev-shared/providers/Microsoft.KeyVault",
-		"/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/pulumi-dev-shared/providers/Microsoft.KeyVault/vaults/pulumi-testing",
-		"/subscriptions//resourceGroups/pulumi-dev-shared/providers/Microsoft.KeyVault/vaults/pulumi-testing/accessPolicy",
-		"/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups//providers/Microsoft.KeyVault/vaults/pulumi-testing/accessPolicy",
-		"/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/pulumi-dev-shared/providers/Microsoft.KeyVault/vaults//accessPolicy",
-	} {
-		_, err := parseKeyVaultPathParams(invalidId)
-		assert.Error(t, err, invalidId)
-	}
+	t.Run("Valid path", func(t *testing.T) {
+		const accessPolicyAzureId = "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/pulumi-dev-shared/providers/Microsoft.KeyVault/vaults/pulumi-testing/accessPolicy/a5907b7f-6627-4a74-b831-b40bc5ceefdc"
+		params, err := parseKeyVaultPathParams(accessPolicyAzureId)
+		require.NoError(t, err)
+		assert.Equal(t, "pulumi-testing", params.VaultName)
+		assert.Equal(t, "pulumi-dev-shared", params.ResourceGroup)
+		assert.Equal(t, "a5907b7f-6627-4a74-b831-b40bc5ceefdc", *params.ObjectId)
+	})
+
+	t.Run("Invalid paths", func(t *testing.T) {
+		for _, invalidId := range []string{
+			"",
+			"/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/pulumi-dev-shared",
+			"/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/pulumi-dev-shared/providers/Microsoft.KeyVault",
+			"/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/pulumi-dev-shared/providers/Microsoft.KeyVault/vaults/pulumi-testing",
+			"/subscriptions//resourceGroups/pulumi-dev-shared/providers/Microsoft.KeyVault/vaults/pulumi-testing/accessPolicy",
+			"/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups//providers/Microsoft.KeyVault/vaults/pulumi-testing/accessPolicy",
+			"/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/pulumi-dev-shared/providers/Microsoft.KeyVault/vaults//accessPolicy",
+		} {
+			_, err := parseKeyVaultPathParams(invalidId)
+			assert.Error(t, err, invalidId)
+		}
+	})
 }
 
 func TestAzureIdFromProperties(t *testing.T) {
