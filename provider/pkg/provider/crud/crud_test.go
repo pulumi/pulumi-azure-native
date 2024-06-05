@@ -44,6 +44,21 @@ func TestPathParamsErrorHandling(t *testing.T) {
 		}
 	})
 
+	t.Run("Path param from props", func(t *testing.T) {
+		id, _, err := PrepareAzureRESTIdAndQuery("/path/{p1}",
+			[]resources.AzureAPIParameter{
+				{
+					Name:     "p1",
+					Location: "path",
+					Value:    &resources.AzureAPIProperty{Type: "string"},
+				},
+			}, map[string]any{
+				"p1": "val",
+			}, nil)
+		require.NoError(t, err)
+		assert.Equal(t, "/path/val", id)
+	})
+
 	t.Run("Nested path param lookup from props", func(t *testing.T) {
 		id, _, err := PrepareAzureRESTIdAndQuery("/path/{container.p1}",
 			[]resources.AzureAPIParameter{
@@ -59,5 +74,24 @@ func TestPathParamsErrorHandling(t *testing.T) {
 			}, nil)
 		require.NoError(t, err)
 		assert.Equal(t, "/path/innerVal", id)
+	})
+
+	t.Run("Deeply nested path param", func(t *testing.T) {
+		id, _, err := PrepareAzureRESTIdAndQuery("/path/{container.inner.p1}",
+			[]resources.AzureAPIParameter{
+				{
+					Name:     "container.inner.p1",
+					Location: "path",
+					Value:    &resources.AzureAPIProperty{Type: "string"}, // correct, but value is not
+				},
+			}, map[string]any{
+				"container": map[string]any{
+					"inner": map[string]any{
+						"p1": "deepVal",
+					},
+				},
+			}, nil)
+		require.NoError(t, err)
+		assert.Equal(t, "/path/deepVal", id)
 	})
 }
