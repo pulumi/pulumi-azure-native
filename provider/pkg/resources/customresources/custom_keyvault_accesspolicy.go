@@ -25,6 +25,7 @@ const (
 // This used to be "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{vaultName}/accessPolicy"
 // This was updated to include the objectId in the path so it accurately represents the logical resource so we can perform imports by ID.
 // However, it's not possible to update an existing id, so we have to ensure we can still work with the old id format - where we fetch the objectId from the properties.
+// The objectId is prefixed with `policy.` because it's filled in from the `objectId` within the `policy` property.
 const path = "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{vaultName}/accessPolicy/{policy.objectId}"
 
 var keyVaultAccessPolicyProperties = map[string]schema.PropertySpec{
