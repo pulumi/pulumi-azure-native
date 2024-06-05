@@ -310,7 +310,21 @@ func resourceProvider(path, defaultValue string) string {
 	return defaultValue
 }
 
-var verbReplacer = strings.NewReplacer("GetProperties", "", "Get", "", "getByName", "", "get", "", "ListByResourceName", "", "List", "", "list", "", "CheckEntityExists", "")
+var verbReplacer = strings.NewReplacer(
+	"GetProperties", "",
+	"Get", "",
+	"getByName", "",
+	"get", "",
+	"ListByResourceName", "",
+	"List", "",
+	"list", "",
+	"CheckEntityExists", "",
+
+	// Specifically for DesktopVirtualization getHostPoolRegistrationToken.
+	// In v3 we should replace all instances of "retrieve" #3329.
+	"RetrieveRegistration", "Registration",
+)
+
 var wellKnownNames = map[string]string{
 	"AssessmentsMetadata": "AssessmentMetadata",
 	"Caches":              "Cache",
