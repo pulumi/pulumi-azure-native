@@ -130,7 +130,9 @@ func PrepareAzureRESTIdAndQuery(path string, parameters []resources.AzureAPIPara
 			sdkName = param.Value.SdkName
 		}
 		// Look in both `method` and `client` inputs with `method` first
-		val, has = methodInputs[sdkName]
+		// Navigate into each level of the path to find the value.
+
+		val, has = findInContainer(methodInputs, strings.Split(sdkName, "."))
 		if !has {
 			val, has = clientInputs[sdkName]
 		}
@@ -151,6 +153,24 @@ func PrepareAzureRESTIdAndQuery(path string, parameters []resources.AzureAPIPara
 	}
 
 	return id, params["query"], nil
+}
+
+func findInContainer(container map[string]any, path []string) (interface{}, bool) {
+	currentContainer := container
+	for i, pathPart := range path {
+		if currentContainer == nil {
+			return nil, false
+		}
+		inner, has := currentContainer[pathPart]
+		if !has {
+			return nil, false
+		}
+		if i == len(path)-1 {
+			return inner, true
+		}
+		currentContainer, _ = inner.(map[string]any)
+	}
+	return nil, false
 }
 
 func PrepareAzureRESTBody(id string, parameters []resources.AzureAPIParameter, requiredContainers [][]string,

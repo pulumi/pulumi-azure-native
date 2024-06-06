@@ -1,0 +1,44 @@
+name: keyvault-accesspolicy
+runtime: yaml
+description: API-related resources
+variables:
+  config:
+    fn::invoke:
+      function: azure-native:authorization:getClientConfig
+resources:
+  rg:
+    type: azure-native:resources:ResourceGroup
+  vault:
+    type: azure-native:keyvault:Vault
+    properties:
+      resourceGroupName: ${rg.name}
+      location: ${rg.location}
+      properties:
+        sku:
+          family: A
+          name: standard
+        tenantId: ${config.tenantId}
+        enabledForDeployment: false
+      
+  ap1:
+    type: azure-native:keyvault:AccessPolicy
+    properties:
+      resourceGroupName: ${rg.name}
+      vaultName: ${vault.name}
+      policy:
+        objectId: ${config.objectId}
+        permissions:
+          keys:
+            - "get"
+            - "create"
+            - "delete"
+            - "list"
+          secrets:
+            - "get"
+            - "list"
+            - "set"
+            - "delete"
+        tenantId: ${config.tenantId}
+outputs:
+  ap1Id: ${ap1.id}
+  ap1ObjectId: ${ap1.policy.objectId}

@@ -22,7 +22,11 @@ const (
 	policy    = "policy"
 )
 
-const path = "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{vaultName}/accessPolicy"
+// This used to be "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{vaultName}/accessPolicy"
+// This was updated to include the objectId in the path so it accurately represents the logical resource so we can perform imports by ID.
+// However, it's not possible to update an existing id, so we have to ensure we can still work with the old id format - where we fetch the objectId from the properties.
+// The objectId is prefixed with `policy.` because it's filled in from the `objectId` within the `policy` property.
+const path = "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{vaultName}/accessPolicy/{policy.objectId}"
 
 var keyVaultAccessPolicyProperties = map[string]schema.PropertySpec{
 	resourceGroupName: {
@@ -60,6 +64,7 @@ func keyVaultAccessPolicy(client *armkeyvault.VaultsClient) *CustomResource {
 				{Name: subscriptionId, Location: "path", IsRequired: true, Value: &AzureAPIProperty{Type: "string"}},
 				{Name: resourceGroupName, Location: "path", IsRequired: true, Value: &AzureAPIProperty{Type: "string"}},
 				{Name: vaultName, Location: "path", IsRequired: true, Value: &AzureAPIProperty{Type: "string"}},
+				{Name: "policy.objectId", Location: "path", Value: &AzureAPIProperty{Type: "string"}},
 				{
 					Name:     "properties",
 					Location: "body",
@@ -96,9 +101,15 @@ func (c *accessPolicyClient) read(ctx context.Context, id string, properties res
 		return nil, false, err
 	}
 
-	// input from body
-	policyObj := properties[policy].ObjectValue()
-	objectId := policyObj["objectId"].StringValue()
+	// The old id format doesn't have the objectId in the path, so we fetch it from the properties instead.
+	var objectId string
+	if parsedId.ObjectId != nil {
+		objectId = *parsedId.ObjectId
+	} else {
+		// input from body
+		policyObj := properties[policy].ObjectValue()
+		objectId = policyObj["objectId"].StringValue()
+	}
 
 	vaultResult, err := c.client.Get(ctx, parsedId.ResourceGroup, parsedId.VaultName, &armkeyvault.VaultsClientGetOptions{})
 	if err != nil {
@@ -233,17 +244,25 @@ func (c *accessPolicyClient) modify(ctx context.Context, properties resource.Pro
 type vaultPathParams struct {
 	ResourceGroup string
 	VaultName     string
+	ObjectId      *string
 }
 
 func parseKeyVaultPathParams(id string) (vaultPathParams, error) {
-	idMatcher := regexp.MustCompile(`(?i)^/subscriptions/.+?/resourceGroups/(.+?)/providers/Microsoft.KeyVault/vaults/(.+?)/accessPolicy$`)
+	idMatcher := regexp.MustCompile(`(?i)^/subscriptions/.+?/resourceGroups/(.+?)/providers/Microsoft.KeyVault/vaults/(.+?)/accessPolicy/?(.*)$`)
 	matches := idMatcher.FindStringSubmatch(id)
-	if len(matches) != 3 {
-		return vaultPathParams{}, fmt.Errorf("unable to parse key vault access policy id in the form /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{vaultName}/accessPolicy: %s", id)
+	if len(matches) < 3 {
+		return vaultPathParams{}, fmt.Errorf("unable to parse key vault access policy id in the form /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{vaultName}/accessPolicy/{objectId}: %s", id)
+	}
+	// Old ids don't have the objectId in the path, so it's optional.
+	// If it's not present, we'll fetch it from the properties.
+	var objectId *string
+	if len(matches) == 4 && matches[3] != "" {
+		objectId = &matches[3]
 	}
 	return vaultPathParams{
 		ResourceGroup: matches[1],
 		VaultName:     matches[2],
+		ObjectId:      objectId,
 	}, nil
 }
 
