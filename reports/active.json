@@ -43727,41 +43727,6 @@
       "2024-02-16-preview"
     ]
   },
-  "vsonline": {
-    "": [
-      "2019-07-01-alpha",
-      "2019-07-01-beta",
-      "2019-07-01-preview",
-      "2019-07-01-privatepreview",
-      "2020-05-26-alpha",
-      "2020-05-26-beta",
-      "2020-05-26-preview",
-      "2020-05-26-privatepreview"
-    ],
-    "accounts": [
-      "2019-07-01-alpha",
-      "2019-07-01-beta",
-      "2019-07-01-preview"
-    ],
-    "operations": [
-      "2019-07-01-alpha",
-      "2019-07-01-beta",
-      "2019-07-01-preview",
-      "2019-07-01-privatepreview",
-      "2020-05-26-alpha",
-      "2020-05-26-beta",
-      "2020-05-26-preview",
-      "2020-05-26-privatepreview"
-    ],
-    "plans": [
-      "2019-07-01-alpha",
-      "2019-07-01-beta",
-      "2019-07-01-preview",
-      "2020-05-26-alpha",
-      "2020-05-26-beta",
-      "2020-05-26-preview"
-    ]
-  },
   "web": {
     "": [
       "2014-04-01",
