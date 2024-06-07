@@ -40,6 +40,8 @@ import (
 
 // Note - this needs to be kept in sync with the layout in the SDK package
 const goBasePath = "github.com/pulumi/pulumi-azure-native-sdk/v2"
+const goModuleRepoPath = "github.com/pulumi/pulumi-azure-native-sdk"
+const goModuleVersion = "/v2"
 
 type ResourceDeprecation struct {
 	ReplacementToken string
@@ -311,7 +313,7 @@ func PulumiSchema(rootDir string, providerMap openapi.AzureProviders, versioning
 				javaPackages[module] = fmt.Sprintf("%s.%s", strings.ToLower(providerName), version)
 			}
 			pythonModuleNames[module] = module
-			golangImportAliases[filepath.Join(goBasePath, module, "v2")] = strings.ToLower(providerName)
+			golangImportAliases[filepath.Join(goModuleRepoPath, gen.versionedModuleName())] = strings.ToLower(providerName)
 
 			// Populate resources and get invokes.
 			items := versionMap[version]
@@ -345,6 +347,7 @@ func PulumiSchema(rootDir string, providerMap openapi.AzureProviders, versioning
 	pkg.Language["go"] = rawMessage(map[string]interface{}{
 		"importBasePath":                 goBasePath,
 		"packageImportAliases":           golangImportAliases,
+		"importPathPattern":              "github.com/pulumi/pulumi-azure-native-sdk/{module}/v2",
 		"rootPackageName":                "pulumiazurenativesdk",
 		"generateResourceContainerTypes": false,
 		"disableInputTypeRegistrations":  true,
@@ -1049,6 +1052,14 @@ func (g *packageGenerator) genFunctions(typeName, path string, specParams []spec
 // moduleName produces the module name from the provider name and the API version (e.g. (`Compute`, `2020-07-01` => `compute/v20200701`).
 func (g *packageGenerator) moduleName() string {
 	return g.providerApiToModule(g.apiVersion)
+}
+
+func (g *packageGenerator) versionedModuleName() string {
+	versionedModule := strings.ToLower(g.provider) + goModuleVersion
+	if g.apiVersion == "" {
+		return versionedModule
+	}
+	return fmt.Sprintf("%s/%s", versionedModule, g.apiVersion)
 }
 
 func (g *packageGenerator) providerApiToModule(apiVersion string) string {
