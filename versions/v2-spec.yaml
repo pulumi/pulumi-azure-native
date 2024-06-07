@@ -39,6 +39,8 @@ ApiCenter:
 ApiManagement:
     tracking: "2022-08-01"
     additions:
+        ApiGateway: 2023-09-01-preview
+        ApiGatewayConfigConnection: 2023-09-01-preview
         PolicyRestriction: 2023-05-01-preview
         ProductApiLink: 2022-09-01-preview
         ProductGroupLink: 2022-09-01-preview
@@ -48,15 +50,20 @@ ApiManagement:
         TagProductLink: 2022-09-01-preview
         Workspace: 2022-09-01-preview
         WorkspaceApi: 2022-09-01-preview
+        WorkspaceApiDiagnostic: 2023-09-01-preview
         WorkspaceApiOperation: 2022-09-01-preview
         WorkspaceApiOperationPolicy: 2022-09-01-preview
         WorkspaceApiPolicy: 2022-09-01-preview
         WorkspaceApiRelease: 2022-09-01-preview
         WorkspaceApiSchema: 2022-09-01-preview
         WorkspaceApiVersionSet: 2022-09-01-preview
+        WorkspaceBackend: 2023-09-01-preview
+        WorkspaceCertificate: 2023-09-01-preview
+        WorkspaceDiagnostic: 2023-09-01-preview
         WorkspaceGlobalSchema: 2022-09-01-preview
         WorkspaceGroup: 2022-09-01-preview
         WorkspaceGroupUser: 2022-09-01-preview
+        WorkspaceLogger: 2023-09-01-preview
         WorkspaceNamedValue: 2022-09-01-preview
         WorkspaceNotificationRecipientEmail: 2022-09-01-preview
         WorkspaceNotificationRecipientUser: 2022-09-01-preview
@@ -202,6 +209,8 @@ AzureStackHCI:
         MachineExtension: 2022-12-15-preview
         MarketplaceGalleryImage: 2022-12-15-preview
         NetworkInterface: 2022-12-15-preview
+        NetworkSecurityGroup: 2024-02-01-preview
+        SecurityRule: 2024-02-01-preview
         SecuritySetting: 2023-11-01-preview
         StorageContainer: 2022-12-15-preview
         VirtualHardDisk: 2022-12-15-preview

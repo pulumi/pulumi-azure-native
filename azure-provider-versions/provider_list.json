@@ -14348,6 +14348,7 @@
       {
         "resourceType": "ManagedClusters/eventGridFilters",
         "apiVersions": [
+          "2024-04-02-preview",
           "2024-03-02-preview",
           "2024-02-02-preview",
           "2024-02-01",
@@ -14496,6 +14497,7 @@
       {
         "resourceType": "locations/kubernetesVersions",
         "apiVersions": [
+          "2024-04-02-preview",
           "2024-03-02-preview",
           "2024-02-02-preview",
           "2024-02-01",
@@ -14524,6 +14526,7 @@
       {
         "resourceType": "locations/meshRevisionProfiles",
         "apiVersions": [
+          "2024-04-02-preview",
           "2024-03-02-preview",
           "2024-02-02-preview",
           "2024-02-01",
@@ -14544,6 +14547,7 @@
       {
         "resourceType": "locations/nodeImageVersions",
         "apiVersions": [
+          "2024-04-02-preview",
           "2024-03-02-preview",
           "2024-02-02-preview",
           "2024-02-01"
@@ -14552,6 +14556,7 @@
       {
         "resourceType": "locations/notifyNetworkSecurityPerimeterUpdatesAvailable",
         "apiVersions": [
+          "2024-04-02-preview",
           "2024-03-02-preview",
           "2024-02-02-preview",
           "2024-01-02-preview",
@@ -14578,6 +14583,7 @@
       {
         "resourceType": "locations/operationresults",
         "apiVersions": [
+          "2024-04-02-preview",
           "2024-03-02-preview",
           "2024-02-02-preview",
           "2024-02-01",
@@ -14650,6 +14656,7 @@
       {
         "resourceType": "locations/operations",
         "apiVersions": [
+          "2024-04-02-preview",
           "2024-03-02-preview",
           "2024-02-02-preview",
           "2024-02-01",
@@ -14786,6 +14793,7 @@
       {
         "resourceType": "locations/osOptions",
         "apiVersions": [
+          "2024-04-02-preview",
           "2024-03-02-preview",
           "2024-02-02-preview",
           "2024-02-01",
@@ -14839,6 +14847,7 @@
       {
         "resourceType": "locations/safeguardsVersions",
         "apiVersions": [
+          "2024-04-02-preview",
           "2024-03-02-preview",
           "2024-02-02-preview",
           "2024-01-02-preview",
@@ -14848,6 +14857,7 @@
       {
         "resourceType": "locations/trustedAccessRoles",
         "apiVersions": [
+          "2024-04-02-preview",
           "2024-03-02-preview",
           "2024-02-02-preview",
           "2024-02-01",
@@ -14878,6 +14888,7 @@
       {
         "resourceType": "locations/usages",
         "apiVersions": [
+          "2024-04-02-preview",
           "2024-03-02-preview",
           "2024-02-02-preview",
           "2024-02-01",
@@ -14892,6 +14903,7 @@
       {
         "resourceType": "managedClusters",
         "apiVersions": [
+          "2024-04-02-preview",
           "2024-03-02-preview",
           "2024-02-02-preview",
           "2024-02-01",
@@ -14963,6 +14975,7 @@
       {
         "resourceType": "managedclustersnapshots",
         "apiVersions": [
+          "2024-04-02-preview",
           "2024-03-02-preview",
           "2024-02-02-preview",
           "2024-01-02-preview",
@@ -14988,6 +15001,7 @@
       {
         "resourceType": "operations",
         "apiVersions": [
+          "2024-04-02-preview",
           "2024-03-02-preview",
           "2024-02-02-preview",
           "2024-02-01",
@@ -15065,6 +15079,7 @@
       {
         "resourceType": "snapshots",
         "apiVersions": [
+          "2024-04-02-preview",
           "2024-03-02-preview",
           "2024-02-02-preview",
           "2024-02-01",
@@ -41439,6 +41454,12 @@
         ]
       },
       {
+        "resourceType": "trustedIps",
+        "apiVersions": [
+          "2024-07-01-preview"
+        ]
+      },
+      {
         "resourceType": "vmScanners",
         "apiVersions": [
           "2022-03-01-preview"
@@ -51815,43 +51836,6 @@
         "apiVersions": [
           "2020-10-01-preview",
           "2019-12-20-privatepreview"
-        ]
-      }
-    ]
-  },
-  {
-    "namespace": "Microsoft.VSOnline",
-    "resourceTypes": [
-      {
-        "resourceType": "accounts",
-        "apiVersions": [
-          "2019-07-01-preview",
-          "2019-07-01-beta",
-          "2019-07-01-alpha"
-        ]
-      },
-      {
-        "resourceType": "operations",
-        "apiVersions": [
-          "2020-05-26-privatepreview",
-          "2020-05-26-preview",
-          "2020-05-26-beta",
-          "2020-05-26-alpha",
-          "2019-07-01-privatepreview",
-          "2019-07-01-preview",
-          "2019-07-01-beta",
-          "2019-07-01-alpha"
-        ]
-      },
-      {
-        "resourceType": "plans",
-        "apiVersions": [
-          "2020-05-26-preview",
-          "2020-05-26-beta",
-          "2020-05-26-alpha",
-          "2019-07-01-preview",
-          "2019-07-01-beta",
-          "2019-07-01-alpha"
         ]
       }
     ]
