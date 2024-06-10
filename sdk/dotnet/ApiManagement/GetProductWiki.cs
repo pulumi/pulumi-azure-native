@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.ApiManagement
         /// Gets the details of the Wiki for a Product specified by its identifier.
         /// Azure REST API version: 2022-08-01.
         /// 
-        /// Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview.
+        /// Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview.
         /// </summary>
         public static Task<GetProductWikiResult> InvokeAsync(GetProductWikiArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetProductWikiResult>("azure-native:apimanagement:getProductWiki", args ?? new GetProductWikiArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.ApiManagement
         /// Gets the details of the Wiki for a Product specified by its identifier.
         /// Azure REST API version: 2022-08-01.
         /// 
-        /// Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview.
+        /// Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview.
         /// </summary>
         public static Output<GetProductWikiResult> Invoke(GetProductWikiInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProductWikiResult>("azure-native:apimanagement:getProductWiki", args ?? new GetProductWikiInvokeArgs(), options.WithDefaults());

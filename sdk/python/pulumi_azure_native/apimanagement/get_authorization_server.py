@@ -293,7 +293,7 @@ def get_authorization_server(authsid: Optional[str] = None,
     Gets the details of the authorization server specified by its identifier.
     Azure REST API version: 2022-08-01.
 
-    Other available API versions: 2016-07-07, 2016-10-10, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview.
+    Other available API versions: 2016-07-07, 2016-10-10, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview.
 
 
     :param str authsid: Identifier of the authorization server.
@@ -340,7 +340,7 @@ def get_authorization_server_output(authsid: Optional[pulumi.Input[str]] = None,
     Gets the details of the authorization server specified by its identifier.
     Azure REST API version: 2022-08-01.
 
-    Other available API versions: 2016-07-07, 2016-10-10, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview.
+    Other available API versions: 2016-07-07, 2016-10-10, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview.
 
 
     :param str authsid: Identifier of the authorization server.

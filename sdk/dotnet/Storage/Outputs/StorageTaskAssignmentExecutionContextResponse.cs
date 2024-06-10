@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.Storage.Outputs
         /// <summary>
         /// Execution target of the storage task assignment
         /// </summary>
-        public readonly Outputs.ExecutionTargetResponse Target;
+        public readonly Outputs.ExecutionTargetResponse? Target;
         /// <summary>
         /// Execution trigger of the storage task assignment
         /// </summary>
@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Storage.Outputs
 
         [OutputConstructor]
         private StorageTaskAssignmentExecutionContextResponse(
-            Outputs.ExecutionTargetResponse target,
+            Outputs.ExecutionTargetResponse? target,
 
             Outputs.ExecutionTriggerResponse trigger)
         {

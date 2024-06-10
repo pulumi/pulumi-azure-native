@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.ApiManagement
         /// Gets the details of the Wiki for an API specified by its identifier.
         /// Azure REST API version: 2022-08-01.
         /// 
-        /// Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview.
+        /// Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview.
         /// </summary>
         public static Task<GetApiWikiResult> InvokeAsync(GetApiWikiArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApiWikiResult>("azure-native:apimanagement:getApiWiki", args ?? new GetApiWikiArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.ApiManagement
         /// Gets the details of the Wiki for an API specified by its identifier.
         /// Azure REST API version: 2022-08-01.
         /// 
-        /// Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview.
+        /// Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview.
         /// </summary>
         public static Output<GetApiWikiResult> Invoke(GetApiWikiInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApiWikiResult>("azure-native:apimanagement:getApiWiki", args ?? new GetApiWikiInvokeArgs(), options.WithDefaults());

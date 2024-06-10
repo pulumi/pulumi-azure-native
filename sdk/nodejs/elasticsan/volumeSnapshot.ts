@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Response for Volume Snapshot request.
  * Azure REST API version: 2023-01-01.
+ *
+ * Other available API versions: 2024-05-01.
  */
 export class VolumeSnapshot extends pulumi.CustomResource {
     /**
@@ -111,7 +113,7 @@ export class VolumeSnapshot extends pulumi.CustomResource {
             resourceInputs["volumeName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:elasticsan/v20230101:VolumeSnapshot" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:elasticsan/v20230101:VolumeSnapshot" }, { type: "azure-native:elasticsan/v20240501:VolumeSnapshot" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VolumeSnapshot.__pulumiType, name, resourceInputs, opts);
     }

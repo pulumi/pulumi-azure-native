@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
  * Gets the product link for the tag.
  * Azure REST API version: 2022-09-01-preview.
  *
- * Other available API versions: 2023-03-01-preview, 2023-05-01-preview.
+ * Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview.
  */
 export function getTagProductLink(args: GetTagProductLinkArgs, opts?: pulumi.InvokeOptions): Promise<GetTagProductLinkResult> {
 
@@ -65,7 +65,7 @@ export interface GetTagProductLinkResult {
  * Gets the product link for the tag.
  * Azure REST API version: 2022-09-01-preview.
  *
- * Other available API versions: 2023-03-01-preview, 2023-05-01-preview.
+ * Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview.
  */
 export function getTagProductLinkOutput(args: GetTagProductLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTagProductLinkResult> {
     return pulumi.output(args).apply((a: any) => getTagProductLink(a, opts))

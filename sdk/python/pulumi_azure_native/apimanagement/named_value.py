@@ -164,7 +164,7 @@ class NamedValue(pulumi.CustomResource):
         NamedValue details.
         Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2020-12-01.
 
-        Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview.
+        Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -187,7 +187,7 @@ class NamedValue(pulumi.CustomResource):
         NamedValue details.
         Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2020-12-01.
 
-        Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview.
+        Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview.
 
         :param str resource_name: The name of the resource.
         :param NamedValueArgs args: The arguments to use to populate this resource's properties.
@@ -237,7 +237,7 @@ class NamedValue(pulumi.CustomResource):
             __props__.__dict__["value"] = value
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20191201:NamedValue"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:NamedValue"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:NamedValue"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:NamedValue"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:NamedValue"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:NamedValue"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:NamedValue"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:NamedValue"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:NamedValue"), pulumi.Alias(type_="azure-native:apimanagement/v20220801:NamedValue"), pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:NamedValue"), pulumi.Alias(type_="azure-native:apimanagement/v20230301preview:NamedValue"), pulumi.Alias(type_="azure-native:apimanagement/v20230501preview:NamedValue")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20191201:NamedValue"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:NamedValue"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:NamedValue"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:NamedValue"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:NamedValue"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:NamedValue"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:NamedValue"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:NamedValue"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:NamedValue"), pulumi.Alias(type_="azure-native:apimanagement/v20220801:NamedValue"), pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:NamedValue"), pulumi.Alias(type_="azure-native:apimanagement/v20230301preview:NamedValue"), pulumi.Alias(type_="azure-native:apimanagement/v20230501preview:NamedValue"), pulumi.Alias(type_="azure-native:apimanagement/v20230901preview:NamedValue")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(NamedValue, __self__).__init__(
             'azure-native:apimanagement:NamedValue',

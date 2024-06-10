@@ -12,6 +12,7 @@ __all__ = [
     'AuthorizationMethod',
     'AuthorizationType',
     'BackendProtocol',
+    'BackendType',
     'BearerTokenSendingMethod',
     'BearerTokenSendingMethods',
     'CertificateSource',
@@ -129,6 +130,20 @@ class BackendProtocol(str, Enum):
     SOAP = "soap"
     """
     The Backend is a SOAP service.
+    """
+
+
+class BackendType(str, Enum):
+    """
+    Type of the backend. A backend can be either Single or Pool.
+    """
+    SINGLE = "Single"
+    """
+    supports single backend
+    """
+    POOL = "Pool"
+    """
+    supports pool backend
     """
 
 

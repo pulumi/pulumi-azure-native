@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
  * Content type contract details.
  * Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2020-12-01.
  *
- * Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview.
+ * Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview.
  */
 export class ContentType extends pulumi.CustomResource {
     /**
@@ -92,7 +92,7 @@ export class ContentType extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20191201:ContentType" }, { type: "azure-native:apimanagement/v20200601preview:ContentType" }, { type: "azure-native:apimanagement/v20201201:ContentType" }, { type: "azure-native:apimanagement/v20210101preview:ContentType" }, { type: "azure-native:apimanagement/v20210401preview:ContentType" }, { type: "azure-native:apimanagement/v20210801:ContentType" }, { type: "azure-native:apimanagement/v20211201preview:ContentType" }, { type: "azure-native:apimanagement/v20220401preview:ContentType" }, { type: "azure-native:apimanagement/v20220801:ContentType" }, { type: "azure-native:apimanagement/v20220901preview:ContentType" }, { type: "azure-native:apimanagement/v20230301preview:ContentType" }, { type: "azure-native:apimanagement/v20230501preview:ContentType" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20191201:ContentType" }, { type: "azure-native:apimanagement/v20200601preview:ContentType" }, { type: "azure-native:apimanagement/v20201201:ContentType" }, { type: "azure-native:apimanagement/v20210101preview:ContentType" }, { type: "azure-native:apimanagement/v20210401preview:ContentType" }, { type: "azure-native:apimanagement/v20210801:ContentType" }, { type: "azure-native:apimanagement/v20211201preview:ContentType" }, { type: "azure-native:apimanagement/v20220401preview:ContentType" }, { type: "azure-native:apimanagement/v20220801:ContentType" }, { type: "azure-native:apimanagement/v20220901preview:ContentType" }, { type: "azure-native:apimanagement/v20230301preview:ContentType" }, { type: "azure-native:apimanagement/v20230501preview:ContentType" }, { type: "azure-native:apimanagement/v20230901preview:ContentType" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ContentType.__pulumiType, name, resourceInputs, opts);
     }

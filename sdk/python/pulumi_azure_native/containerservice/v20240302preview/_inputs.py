@@ -190,7 +190,7 @@ class AdvancedNetworkingArgs:
     def __init__(__self__, *,
                  observability: Optional[pulumi.Input['AdvancedNetworkingObservabilityArgs']] = None):
         """
-        Advanced Networking profile for enabling observability on a cluster. For more information see aka.ms/aksadvancednetworking.
+        Advanced Networking profile for enabling observability on a cluster. Note that enabling advanced networking features may incur additional costs. For more information see aka.ms/aksadvancednetworking.
         :param pulumi.Input['AdvancedNetworkingObservabilityArgs'] observability: Observability profile to enable advanced network metrics and flow logs with historical contexts.
         """
         if observability is not None:
@@ -761,7 +761,7 @@ class ContainerServiceNetworkProfileArgs:
                  static_egress_gateway_profile: Optional[pulumi.Input['ManagedClusterStaticEgressGatewayProfileArgs']] = None):
         """
         Profile of network configuration.
-        :param pulumi.Input['AdvancedNetworkingArgs'] advanced_networking: Advanced Networking profile for enabling observability on a cluster. For more information see aka.ms/aksadvancednetworking.
+        :param pulumi.Input['AdvancedNetworkingArgs'] advanced_networking: Advanced Networking profile for enabling observability on a cluster. Note that enabling advanced networking features may incur additional costs. For more information see aka.ms/aksadvancednetworking.
         :param pulumi.Input[str] dns_service_ip: An IP address assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range specified in serviceCidr.
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'IpFamily']]]] ip_families: IP families are used to determine single-stack or dual-stack clusters. For single-stack, the expected value is IPv4. For dual-stack, the expected values are IPv4 and IPv6.
         :param pulumi.Input['ContainerServiceNetworkProfileKubeProxyConfigArgs'] kube_proxy_config: Holds configuration customizations for kube-proxy. Any values not defined will use the kube-proxy defaulting behavior. See https://v<version>.docs.kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/ where <version> is represented by a <major version>-<minor version> string. Kubernetes version 1.23 would be '1-23'.
@@ -832,7 +832,7 @@ class ContainerServiceNetworkProfileArgs:
     @pulumi.getter(name="advancedNetworking")
     def advanced_networking(self) -> Optional[pulumi.Input['AdvancedNetworkingArgs']]:
         """
-        Advanced Networking profile for enabling observability on a cluster. For more information see aka.ms/aksadvancednetworking.
+        Advanced Networking profile for enabling observability on a cluster. Note that enabling advanced networking features may incur additional costs. For more information see aka.ms/aksadvancednetworking.
         """
         return pulumi.get(self, "advanced_networking")
 

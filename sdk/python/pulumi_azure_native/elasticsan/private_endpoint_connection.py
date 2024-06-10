@@ -114,7 +114,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
          Response for PrivateEndpoint Connection object
         Azure REST API version: 2022-12-01-preview.
 
-        Other available API versions: 2023-01-01.
+        Other available API versions: 2023-01-01, 2024-05-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -134,7 +134,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
          Response for PrivateEndpoint Connection object
         Azure REST API version: 2022-12-01-preview.
 
-        Other available API versions: 2023-01-01.
+        Other available API versions: 2023-01-01, 2024-05-01.
 
         :param str resource_name: The name of the resource.
         :param PrivateEndpointConnectionArgs args: The arguments to use to populate this resource's properties.
@@ -181,7 +181,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:elasticsan/v20221201preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:elasticsan/v20230101:PrivateEndpointConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:elasticsan/v20221201preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:elasticsan/v20230101:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:elasticsan/v20240501:PrivateEndpointConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateEndpointConnection, __self__).__init__(
             'azure-native:elasticsan:PrivateEndpointConnection',

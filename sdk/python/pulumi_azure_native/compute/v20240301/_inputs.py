@@ -91,7 +91,6 @@ __all__ = [
     'VaultSecretGroupArgs',
     'VirtualHardDiskArgs',
     'VirtualMachineExtensionInstanceViewArgs',
-    'VirtualMachineExtensionArgs',
     'VirtualMachineIdentityArgs',
     'VirtualMachineIpTagArgs',
     'VirtualMachineNetworkInterfaceConfigurationArgs',
@@ -3432,41 +3431,56 @@ class ScheduledEventsProfileArgs:
 @pulumi.input_type
 class SecurityPostureReferenceArgs:
     def __init__(__self__, *,
-                 exclude_extensions: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineExtensionArgs']]]] = None,
-                 id: Optional[pulumi.Input[str]] = None):
+                 id: pulumi.Input[str],
+                 exclude_extensions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 is_overridable: Optional[pulumi.Input[bool]] = None):
         """
-        Specifies the security posture to be used for all virtual machines in the scale set. Minimum api-version: 2023-03-01
-        :param pulumi.Input[Sequence[pulumi.Input['VirtualMachineExtensionArgs']]] exclude_extensions: List of virtual machine extensions to exclude when applying the Security Posture.
-        :param pulumi.Input[str] id: The security posture reference id in the form of /CommunityGalleries/{communityGalleryName}/securityPostures/{securityPostureName}/versions/{major.minor.patch}|{major.*}|latest
+        Specifies the security posture to be used in the scale set. Minimum api-version: 2023-03-01
+        :param pulumi.Input[str] id: The security posture reference id in the form of /CommunityGalleries/{communityGalleryName}/securityPostures/{securityPostureName}/versions/{major.minor.patch}|latest
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] exclude_extensions: The list of virtual machine extension names to exclude when applying the security posture.
+        :param pulumi.Input[bool] is_overridable: Whether the security posture can be overridden by the user.
         """
+        pulumi.set(__self__, "id", id)
         if exclude_extensions is not None:
             pulumi.set(__self__, "exclude_extensions", exclude_extensions)
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-
-    @property
-    @pulumi.getter(name="excludeExtensions")
-    def exclude_extensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineExtensionArgs']]]]:
-        """
-        List of virtual machine extensions to exclude when applying the Security Posture.
-        """
-        return pulumi.get(self, "exclude_extensions")
-
-    @exclude_extensions.setter
-    def exclude_extensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineExtensionArgs']]]]):
-        pulumi.set(self, "exclude_extensions", value)
+        if is_overridable is not None:
+            pulumi.set(__self__, "is_overridable", is_overridable)
 
     @property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[str]]:
+    def id(self) -> pulumi.Input[str]:
         """
-        The security posture reference id in the form of /CommunityGalleries/{communityGalleryName}/securityPostures/{securityPostureName}/versions/{major.minor.patch}|{major.*}|latest
+        The security posture reference id in the form of /CommunityGalleries/{communityGalleryName}/securityPostures/{securityPostureName}/versions/{major.minor.patch}|latest
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[str]]):
+    def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter(name="excludeExtensions")
+    def exclude_extensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of virtual machine extension names to exclude when applying the security posture.
+        """
+        return pulumi.get(self, "exclude_extensions")
+
+    @exclude_extensions.setter
+    def exclude_extensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "exclude_extensions", value)
+
+    @property
+    @pulumi.getter(name="isOverridable")
+    def is_overridable(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether the security posture can be overridden by the user.
+        """
+        return pulumi.get(self, "is_overridable")
+
+    @is_overridable.setter
+    def is_overridable(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_overridable", value)
 
 
 @pulumi.input_type
@@ -4374,238 +4388,6 @@ class VirtualMachineExtensionInstanceViewArgs:
     @substatuses.setter
     def substatuses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceViewStatusArgs']]]]):
         pulumi.set(self, "substatuses", value)
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies the type of the extension; an example is "CustomScriptExtension".
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "type", value)
-
-    @property
-    @pulumi.getter(name="typeHandlerVersion")
-    def type_handler_version(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies the version of the script handler.
-        """
-        return pulumi.get(self, "type_handler_version")
-
-    @type_handler_version.setter
-    def type_handler_version(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "type_handler_version", value)
-
-
-@pulumi.input_type
-class VirtualMachineExtensionArgs:
-    def __init__(__self__, *,
-                 auto_upgrade_minor_version: Optional[pulumi.Input[bool]] = None,
-                 enable_automatic_upgrade: Optional[pulumi.Input[bool]] = None,
-                 force_update_tag: Optional[pulumi.Input[str]] = None,
-                 instance_view: Optional[pulumi.Input['VirtualMachineExtensionInstanceViewArgs']] = None,
-                 location: Optional[pulumi.Input[str]] = None,
-                 protected_settings: Optional[Any] = None,
-                 protected_settings_from_key_vault: Optional[pulumi.Input['KeyVaultSecretReferenceArgs']] = None,
-                 provision_after_extensions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 publisher: Optional[pulumi.Input[str]] = None,
-                 settings: Optional[Any] = None,
-                 suppress_failures: Optional[pulumi.Input[bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 type: Optional[pulumi.Input[str]] = None,
-                 type_handler_version: Optional[pulumi.Input[str]] = None):
-        """
-        Describes a Virtual Machine Extension.
-        :param pulumi.Input[bool] auto_upgrade_minor_version: Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
-        :param pulumi.Input[bool] enable_automatic_upgrade: Indicates whether the extension should be automatically upgraded by the platform if there is a newer version of the extension available.
-        :param pulumi.Input[str] force_update_tag: How the extension handler should be forced to update even if the extension configuration has not changed.
-        :param pulumi.Input['VirtualMachineExtensionInstanceViewArgs'] instance_view: The virtual machine extension instance view.
-        :param pulumi.Input[str] location: Resource location
-        :param Any protected_settings: The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
-        :param pulumi.Input['KeyVaultSecretReferenceArgs'] protected_settings_from_key_vault: The extensions protected settings that are passed by reference, and consumed from key vault
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] provision_after_extensions: Collection of extension names after which this extension needs to be provisioned.
-        :param pulumi.Input[str] publisher: The name of the extension handler publisher.
-        :param Any settings: Json formatted public settings for the extension.
-        :param pulumi.Input[bool] suppress_failures: Indicates whether failures stemming from the extension will be suppressed (Operational failures such as not connecting to the VM will not be suppressed regardless of this value). The default is false.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
-        :param pulumi.Input[str] type: Specifies the type of the extension; an example is "CustomScriptExtension".
-        :param pulumi.Input[str] type_handler_version: Specifies the version of the script handler.
-        """
-        if auto_upgrade_minor_version is not None:
-            pulumi.set(__self__, "auto_upgrade_minor_version", auto_upgrade_minor_version)
-        if enable_automatic_upgrade is not None:
-            pulumi.set(__self__, "enable_automatic_upgrade", enable_automatic_upgrade)
-        if force_update_tag is not None:
-            pulumi.set(__self__, "force_update_tag", force_update_tag)
-        if instance_view is not None:
-            pulumi.set(__self__, "instance_view", instance_view)
-        if location is not None:
-            pulumi.set(__self__, "location", location)
-        if protected_settings is not None:
-            pulumi.set(__self__, "protected_settings", protected_settings)
-        if protected_settings_from_key_vault is not None:
-            pulumi.set(__self__, "protected_settings_from_key_vault", protected_settings_from_key_vault)
-        if provision_after_extensions is not None:
-            pulumi.set(__self__, "provision_after_extensions", provision_after_extensions)
-        if publisher is not None:
-            pulumi.set(__self__, "publisher", publisher)
-        if settings is not None:
-            pulumi.set(__self__, "settings", settings)
-        if suppress_failures is not None:
-            pulumi.set(__self__, "suppress_failures", suppress_failures)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-        if type_handler_version is not None:
-            pulumi.set(__self__, "type_handler_version", type_handler_version)
-
-    @property
-    @pulumi.getter(name="autoUpgradeMinorVersion")
-    def auto_upgrade_minor_version(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
-        """
-        return pulumi.get(self, "auto_upgrade_minor_version")
-
-    @auto_upgrade_minor_version.setter
-    def auto_upgrade_minor_version(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "auto_upgrade_minor_version", value)
-
-    @property
-    @pulumi.getter(name="enableAutomaticUpgrade")
-    def enable_automatic_upgrade(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicates whether the extension should be automatically upgraded by the platform if there is a newer version of the extension available.
-        """
-        return pulumi.get(self, "enable_automatic_upgrade")
-
-    @enable_automatic_upgrade.setter
-    def enable_automatic_upgrade(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "enable_automatic_upgrade", value)
-
-    @property
-    @pulumi.getter(name="forceUpdateTag")
-    def force_update_tag(self) -> Optional[pulumi.Input[str]]:
-        """
-        How the extension handler should be forced to update even if the extension configuration has not changed.
-        """
-        return pulumi.get(self, "force_update_tag")
-
-    @force_update_tag.setter
-    def force_update_tag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "force_update_tag", value)
-
-    @property
-    @pulumi.getter(name="instanceView")
-    def instance_view(self) -> Optional[pulumi.Input['VirtualMachineExtensionInstanceViewArgs']]:
-        """
-        The virtual machine extension instance view.
-        """
-        return pulumi.get(self, "instance_view")
-
-    @instance_view.setter
-    def instance_view(self, value: Optional[pulumi.Input['VirtualMachineExtensionInstanceViewArgs']]):
-        pulumi.set(self, "instance_view", value)
-
-    @property
-    @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[str]]:
-        """
-        Resource location
-        """
-        return pulumi.get(self, "location")
-
-    @location.setter
-    def location(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "location", value)
-
-    @property
-    @pulumi.getter(name="protectedSettings")
-    def protected_settings(self) -> Optional[Any]:
-        """
-        The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
-        """
-        return pulumi.get(self, "protected_settings")
-
-    @protected_settings.setter
-    def protected_settings(self, value: Optional[Any]):
-        pulumi.set(self, "protected_settings", value)
-
-    @property
-    @pulumi.getter(name="protectedSettingsFromKeyVault")
-    def protected_settings_from_key_vault(self) -> Optional[pulumi.Input['KeyVaultSecretReferenceArgs']]:
-        """
-        The extensions protected settings that are passed by reference, and consumed from key vault
-        """
-        return pulumi.get(self, "protected_settings_from_key_vault")
-
-    @protected_settings_from_key_vault.setter
-    def protected_settings_from_key_vault(self, value: Optional[pulumi.Input['KeyVaultSecretReferenceArgs']]):
-        pulumi.set(self, "protected_settings_from_key_vault", value)
-
-    @property
-    @pulumi.getter(name="provisionAfterExtensions")
-    def provision_after_extensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Collection of extension names after which this extension needs to be provisioned.
-        """
-        return pulumi.get(self, "provision_after_extensions")
-
-    @provision_after_extensions.setter
-    def provision_after_extensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "provision_after_extensions", value)
-
-    @property
-    @pulumi.getter
-    def publisher(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the extension handler publisher.
-        """
-        return pulumi.get(self, "publisher")
-
-    @publisher.setter
-    def publisher(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "publisher", value)
-
-    @property
-    @pulumi.getter
-    def settings(self) -> Optional[Any]:
-        """
-        Json formatted public settings for the extension.
-        """
-        return pulumi.get(self, "settings")
-
-    @settings.setter
-    def settings(self, value: Optional[Any]):
-        pulumi.set(self, "settings", value)
-
-    @property
-    @pulumi.getter(name="suppressFailures")
-    def suppress_failures(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicates whether failures stemming from the extension will be suppressed (Operational failures such as not connecting to the VM will not be suppressed regardless of this value). The default is false.
-        """
-        return pulumi.get(self, "suppress_failures")
-
-    @suppress_failures.setter
-    def suppress_failures(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "suppress_failures", value)
-
-    @property
-    @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Resource tags
-        """
-        return pulumi.get(self, "tags")
-
-    @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "tags", value)
 
     @property
     @pulumi.getter
@@ -6973,7 +6755,7 @@ class VirtualMachineScaleSetVMProfileArgs:
         :param pulumi.Input['VirtualMachineScaleSetOSProfileArgs'] os_profile: Specifies the operating system settings for the virtual machines in the scale set.
         :param pulumi.Input[Union[str, 'VirtualMachinePriorityTypes']] priority: Specifies the priority for the virtual machines in the scale set. Minimum api-version: 2017-10-30-preview.
         :param pulumi.Input['ScheduledEventsProfileArgs'] scheduled_events_profile: Specifies Scheduled Event related configurations.
-        :param pulumi.Input['SecurityPostureReferenceArgs'] security_posture_reference: Specifies the security posture to be used for all virtual machines in the scale set. Minimum api-version: 2023-03-01
+        :param pulumi.Input['SecurityPostureReferenceArgs'] security_posture_reference: Specifies the security posture to be used in the scale set. Minimum api-version: 2023-03-01
         :param pulumi.Input['SecurityProfileArgs'] security_profile: Specifies the Security related profile settings for the virtual machines in the scale set.
         :param pulumi.Input['ServiceArtifactReferenceArgs'] service_artifact_reference: Specifies the service artifact reference id used to set same image version for all virtual machines in the scale set when using 'latest' image version. Minimum api-version: 2022-11-01
         :param pulumi.Input['VirtualMachineScaleSetStorageProfileArgs'] storage_profile: Specifies the storage settings for the virtual machine disks.
@@ -7162,7 +6944,7 @@ class VirtualMachineScaleSetVMProfileArgs:
     @pulumi.getter(name="securityPostureReference")
     def security_posture_reference(self) -> Optional[pulumi.Input['SecurityPostureReferenceArgs']]:
         """
-        Specifies the security posture to be used for all virtual machines in the scale set. Minimum api-version: 2023-03-01
+        Specifies the security posture to be used in the scale set. Minimum api-version: 2023-03-01
         """
         return pulumi.get(self, "security_posture_reference")
 

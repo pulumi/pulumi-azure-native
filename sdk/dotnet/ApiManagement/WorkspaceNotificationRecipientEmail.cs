@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ApiManagement
     /// Recipient Email details.
     /// Azure REST API version: 2022-09-01-preview.
     /// 
-    /// Other available API versions: 2023-03-01-preview, 2023-05-01-preview.
+    /// Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:WorkspaceNotificationRecipientEmail")]
     public partial class WorkspaceNotificationRecipientEmail : global::Pulumi.CustomResource
@@ -64,6 +64,7 @@ namespace Pulumi.AzureNative.ApiManagement
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220901preview:WorkspaceNotificationRecipientEmail" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230301preview:WorkspaceNotificationRecipientEmail" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230501preview:WorkspaceNotificationRecipientEmail" },
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230901preview:WorkspaceNotificationRecipientEmail" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ApiManagement
     /// GraphQL API Resolver details.
     /// Azure REST API version: 2022-08-01.
     /// 
-    /// Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview.
+    /// Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:GraphQLApiResolver")]
     public partial class GraphQLApiResolver : global::Pulumi.CustomResource
@@ -77,6 +77,7 @@ namespace Pulumi.AzureNative.ApiManagement
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220901preview:GraphQLApiResolver" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230301preview:GraphQLApiResolver" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230501preview:GraphQLApiResolver" },
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230901preview:GraphQLApiResolver" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

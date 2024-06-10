@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ApiManagement
     /// External OAuth authorization server settings.
     /// Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2020-12-01.
     /// 
-    /// Other available API versions: 2016-07-07, 2016-10-10, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview.
+    /// Other available API versions: 2016-07-07, 2016-10-10, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:AuthorizationServer")]
     public partial class AuthorizationServer : global::Pulumi.CustomResource
@@ -182,6 +182,7 @@ namespace Pulumi.AzureNative.ApiManagement
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220901preview:AuthorizationServer" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230301preview:AuthorizationServer" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230501preview:AuthorizationServer" },
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230901preview:AuthorizationServer" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

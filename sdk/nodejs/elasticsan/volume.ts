@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Response for Volume request.
  * Azure REST API version: 2021-11-20-preview. Prior API version in Azure Native 1.x: 2021-11-20-preview.
  *
- * Other available API versions: 2022-12-01-preview, 2023-01-01.
+ * Other available API versions: 2022-12-01-preview, 2023-01-01, 2024-05-01.
  */
 export class Volume extends pulumi.CustomResource {
     /**
@@ -116,7 +116,7 @@ export class Volume extends pulumi.CustomResource {
             resourceInputs["volumeId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:elasticsan/v20211120preview:Volume" }, { type: "azure-native:elasticsan/v20221201preview:Volume" }, { type: "azure-native:elasticsan/v20230101:Volume" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:elasticsan/v20211120preview:Volume" }, { type: "azure-native:elasticsan/v20221201preview:Volume" }, { type: "azure-native:elasticsan/v20230101:Volume" }, { type: "azure-native:elasticsan/v20240501:Volume" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Volume.__pulumiType, name, resourceInputs, opts);
     }

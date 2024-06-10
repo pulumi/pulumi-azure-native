@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  *  Response for PrivateEndpoint Connection object
  * Azure REST API version: 2022-12-01-preview.
  *
- * Other available API versions: 2023-01-01.
+ * Other available API versions: 2023-01-01, 2024-05-01.
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**
@@ -109,7 +109,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:elasticsan/v20221201preview:PrivateEndpointConnection" }, { type: "azure-native:elasticsan/v20230101:PrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:elasticsan/v20221201preview:PrivateEndpointConnection" }, { type: "azure-native:elasticsan/v20230101:PrivateEndpointConnection" }, { type: "azure-native:elasticsan/v20240501:PrivateEndpointConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateEndpointConnection.__pulumiType, name, resourceInputs, opts);
     }

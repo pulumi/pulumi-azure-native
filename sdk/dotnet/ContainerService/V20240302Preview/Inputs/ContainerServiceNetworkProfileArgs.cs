@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.ContainerService.V20240302Preview.Inputs
     public sealed class ContainerServiceNetworkProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Advanced Networking profile for enabling observability on a cluster. For more information see aka.ms/aksadvancednetworking.
+        /// Advanced Networking profile for enabling observability on a cluster. Note that enabling advanced networking features may incur additional costs. For more information see aka.ms/aksadvancednetworking.
         /// </summary>
         [Input("advancedNetworking")]
         public Input<Inputs.AdvancedNetworkingArgs>? AdvancedNetworking { get; set; }

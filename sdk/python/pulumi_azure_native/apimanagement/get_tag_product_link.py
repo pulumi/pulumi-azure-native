@@ -89,7 +89,7 @@ def get_tag_product_link(product_link_id: Optional[str] = None,
     Gets the product link for the tag.
     Azure REST API version: 2022-09-01-preview.
 
-    Other available API versions: 2023-03-01-preview, 2023-05-01-preview.
+    Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview.
 
 
     :param str product_link_id: Tag-product link identifier. Must be unique in the current API Management service instance.
@@ -122,7 +122,7 @@ def get_tag_product_link_output(product_link_id: Optional[pulumi.Input[str]] = N
     Gets the product link for the tag.
     Azure REST API version: 2022-09-01-preview.
 
-    Other available API versions: 2023-03-01-preview, 2023-05-01-preview.
+    Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview.
 
 
     :param str product_link_id: Tag-product link identifier. Must be unique in the current API Management service instance.

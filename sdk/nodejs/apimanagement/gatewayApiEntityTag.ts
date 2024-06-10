@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * API details.
  * Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2020-12-01.
  *
- * Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview.
+ * Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview.
  */
 export class GatewayApiEntityTag extends pulumi.CustomResource {
     /**
@@ -207,7 +207,7 @@ export class GatewayApiEntityTag extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20191201:GatewayApiEntityTag" }, { type: "azure-native:apimanagement/v20191201preview:GatewayApiEntityTag" }, { type: "azure-native:apimanagement/v20200601preview:GatewayApiEntityTag" }, { type: "azure-native:apimanagement/v20201201:GatewayApiEntityTag" }, { type: "azure-native:apimanagement/v20210101preview:GatewayApiEntityTag" }, { type: "azure-native:apimanagement/v20210401preview:GatewayApiEntityTag" }, { type: "azure-native:apimanagement/v20210801:GatewayApiEntityTag" }, { type: "azure-native:apimanagement/v20211201preview:GatewayApiEntityTag" }, { type: "azure-native:apimanagement/v20220401preview:GatewayApiEntityTag" }, { type: "azure-native:apimanagement/v20220801:GatewayApiEntityTag" }, { type: "azure-native:apimanagement/v20220901preview:GatewayApiEntityTag" }, { type: "azure-native:apimanagement/v20230301preview:GatewayApiEntityTag" }, { type: "azure-native:apimanagement/v20230501preview:GatewayApiEntityTag" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20191201:GatewayApiEntityTag" }, { type: "azure-native:apimanagement/v20191201preview:GatewayApiEntityTag" }, { type: "azure-native:apimanagement/v20200601preview:GatewayApiEntityTag" }, { type: "azure-native:apimanagement/v20201201:GatewayApiEntityTag" }, { type: "azure-native:apimanagement/v20210101preview:GatewayApiEntityTag" }, { type: "azure-native:apimanagement/v20210401preview:GatewayApiEntityTag" }, { type: "azure-native:apimanagement/v20210801:GatewayApiEntityTag" }, { type: "azure-native:apimanagement/v20211201preview:GatewayApiEntityTag" }, { type: "azure-native:apimanagement/v20220401preview:GatewayApiEntityTag" }, { type: "azure-native:apimanagement/v20220801:GatewayApiEntityTag" }, { type: "azure-native:apimanagement/v20220901preview:GatewayApiEntityTag" }, { type: "azure-native:apimanagement/v20230301preview:GatewayApiEntityTag" }, { type: "azure-native:apimanagement/v20230501preview:GatewayApiEntityTag" }, { type: "azure-native:apimanagement/v20230901preview:GatewayApiEntityTag" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(GatewayApiEntityTag.__pulumiType, name, resourceInputs, opts);
     }

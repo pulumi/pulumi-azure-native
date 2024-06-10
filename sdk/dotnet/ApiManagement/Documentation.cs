@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ApiManagement
     /// Markdown documentation details.
     /// Azure REST API version: 2022-08-01.
     /// 
-    /// Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview.
+    /// Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:Documentation")]
     public partial class Documentation : global::Pulumi.CustomResource
@@ -71,6 +71,7 @@ namespace Pulumi.AzureNative.ApiManagement
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220901preview:Documentation" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230301preview:Documentation" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230501preview:Documentation" },
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230901preview:Documentation" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

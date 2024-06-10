@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
  * Product-API link details.
  * Azure REST API version: 2022-09-01-preview.
  *
- * Other available API versions: 2023-03-01-preview, 2023-05-01-preview.
+ * Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview.
  */
 export class WorkspaceProductApiLink extends pulumi.CustomResource {
     /**
@@ -90,7 +90,7 @@ export class WorkspaceProductApiLink extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20220901preview:WorkspaceProductApiLink" }, { type: "azure-native:apimanagement/v20230301preview:WorkspaceProductApiLink" }, { type: "azure-native:apimanagement/v20230501preview:WorkspaceProductApiLink" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20220901preview:WorkspaceProductApiLink" }, { type: "azure-native:apimanagement/v20230301preview:WorkspaceProductApiLink" }, { type: "azure-native:apimanagement/v20230501preview:WorkspaceProductApiLink" }, { type: "azure-native:apimanagement/v20230901preview:WorkspaceProductApiLink" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WorkspaceProductApiLink.__pulumiType, name, resourceInputs, opts);
     }

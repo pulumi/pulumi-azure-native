@@ -5,11 +5,13 @@
 import * as v20211120preview from "./v20211120preview";
 import * as v20221201preview from "./v20221201preview";
 import * as v20230101 from "./v20230101";
+import * as v20240501 from "./v20240501";
 
 export {
     v20211120preview,
     v20221201preview,
     v20230101,
+    v20240501,
 };
 
 export const Action = {

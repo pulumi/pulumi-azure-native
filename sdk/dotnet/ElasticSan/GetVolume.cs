@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.ElasticSan
         /// Get an Volume.
         /// Azure REST API version: 2021-11-20-preview.
         /// 
-        /// Other available API versions: 2022-12-01-preview, 2023-01-01.
+        /// Other available API versions: 2022-12-01-preview, 2023-01-01, 2024-05-01.
         /// </summary>
         public static Task<GetVolumeResult> InvokeAsync(GetVolumeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVolumeResult>("azure-native:elasticsan:getVolume", args ?? new GetVolumeArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.ElasticSan
         /// Get an Volume.
         /// Azure REST API version: 2021-11-20-preview.
         /// 
-        /// Other available API versions: 2022-12-01-preview, 2023-01-01.
+        /// Other available API versions: 2022-12-01-preview, 2023-01-01, 2024-05-01.
         /// </summary>
         public static Output<GetVolumeResult> Invoke(GetVolumeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVolumeResult>("azure-native:elasticsan:getVolume", args ?? new GetVolumeInvokeArgs(), options.WithDefaults());

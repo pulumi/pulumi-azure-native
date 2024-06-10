@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
  * Contract details.
  * Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2020-12-01.
  *
- * Other available API versions: 2019-01-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview.
+ * Other available API versions: 2019-01-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview.
  */
 export class ApiTagDescription extends pulumi.CustomResource {
     /**
@@ -107,7 +107,7 @@ export class ApiTagDescription extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20170301:ApiTagDescription" }, { type: "azure-native:apimanagement/v20180101:ApiTagDescription" }, { type: "azure-native:apimanagement/v20180601preview:ApiTagDescription" }, { type: "azure-native:apimanagement/v20190101:ApiTagDescription" }, { type: "azure-native:apimanagement/v20191201:ApiTagDescription" }, { type: "azure-native:apimanagement/v20191201preview:ApiTagDescription" }, { type: "azure-native:apimanagement/v20200601preview:ApiTagDescription" }, { type: "azure-native:apimanagement/v20201201:ApiTagDescription" }, { type: "azure-native:apimanagement/v20210101preview:ApiTagDescription" }, { type: "azure-native:apimanagement/v20210401preview:ApiTagDescription" }, { type: "azure-native:apimanagement/v20210801:ApiTagDescription" }, { type: "azure-native:apimanagement/v20211201preview:ApiTagDescription" }, { type: "azure-native:apimanagement/v20220401preview:ApiTagDescription" }, { type: "azure-native:apimanagement/v20220801:ApiTagDescription" }, { type: "azure-native:apimanagement/v20220901preview:ApiTagDescription" }, { type: "azure-native:apimanagement/v20230301preview:ApiTagDescription" }, { type: "azure-native:apimanagement/v20230501preview:ApiTagDescription" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20170301:ApiTagDescription" }, { type: "azure-native:apimanagement/v20180101:ApiTagDescription" }, { type: "azure-native:apimanagement/v20180601preview:ApiTagDescription" }, { type: "azure-native:apimanagement/v20190101:ApiTagDescription" }, { type: "azure-native:apimanagement/v20191201:ApiTagDescription" }, { type: "azure-native:apimanagement/v20191201preview:ApiTagDescription" }, { type: "azure-native:apimanagement/v20200601preview:ApiTagDescription" }, { type: "azure-native:apimanagement/v20201201:ApiTagDescription" }, { type: "azure-native:apimanagement/v20210101preview:ApiTagDescription" }, { type: "azure-native:apimanagement/v20210401preview:ApiTagDescription" }, { type: "azure-native:apimanagement/v20210801:ApiTagDescription" }, { type: "azure-native:apimanagement/v20211201preview:ApiTagDescription" }, { type: "azure-native:apimanagement/v20220401preview:ApiTagDescription" }, { type: "azure-native:apimanagement/v20220801:ApiTagDescription" }, { type: "azure-native:apimanagement/v20220901preview:ApiTagDescription" }, { type: "azure-native:apimanagement/v20230301preview:ApiTagDescription" }, { type: "azure-native:apimanagement/v20230501preview:ApiTagDescription" }, { type: "azure-native:apimanagement/v20230901preview:ApiTagDescription" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ApiTagDescription.__pulumiType, name, resourceInputs, opts);
     }

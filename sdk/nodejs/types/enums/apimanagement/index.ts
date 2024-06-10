@@ -14,6 +14,7 @@ import * as v20220801 from "./v20220801";
 import * as v20220901preview from "./v20220901preview";
 import * as v20230301preview from "./v20230301preview";
 import * as v20230501preview from "./v20230501preview";
+import * as v20230901preview from "./v20230901preview";
 
 export {
     v20161010,
@@ -28,6 +29,7 @@ export {
     v20220901preview,
     v20230301preview,
     v20230501preview,
+    v20230901preview,
 };
 
 export const AlwaysLog = {
@@ -122,6 +124,22 @@ export const BackendProtocol = {
  * Backend communication protocol.
  */
 export type BackendProtocol = (typeof BackendProtocol)[keyof typeof BackendProtocol];
+
+export const BackendType = {
+    /**
+     * supports single backend
+     */
+    Single: "Single",
+    /**
+     * supports pool backend
+     */
+    Pool: "Pool",
+} as const;
+
+/**
+ * Type of the backend. A backend can be either Single or Pool.
+ */
+export type BackendType = (typeof BackendType)[keyof typeof BackendType];
 
 export const BearerTokenSendingMethod = {
     AuthorizationHeader: "authorizationHeader",

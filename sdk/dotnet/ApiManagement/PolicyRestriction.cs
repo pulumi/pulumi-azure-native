@@ -12,6 +12,8 @@ namespace Pulumi.AzureNative.ApiManagement
     /// <summary>
     /// Policy restriction contract details.
     /// Azure REST API version: 2023-05-01-preview.
+    /// 
+    /// Other available API versions: 2023-09-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:PolicyRestriction")]
     public partial class PolicyRestriction : global::Pulumi.CustomResource
@@ -66,6 +68,7 @@ namespace Pulumi.AzureNative.ApiManagement
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230501preview:PolicyRestriction" },
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230901preview:PolicyRestriction" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

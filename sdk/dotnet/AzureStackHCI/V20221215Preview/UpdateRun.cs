@@ -152,6 +152,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20221215Preview
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20231101preview:UpdateRun" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240101:UpdateRun" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240215preview:UpdateRun" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240401:UpdateRun" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Storage.V20230501.Inputs
             set => _excludePrefix = value;
         }
 
-        [Input("prefix", required: true)]
+        [Input("prefix")]
         private InputList<string>? _prefix;
 
         /// <summary>

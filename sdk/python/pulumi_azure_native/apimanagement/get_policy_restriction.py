@@ -100,6 +100,8 @@ def get_policy_restriction(policy_restriction_id: Optional[str] = None,
     Get the policy restriction of the Api Management service.
     Azure REST API version: 2023-05-01-preview.
 
+    Other available API versions: 2023-09-01-preview.
+
 
     :param str policy_restriction_id: Policy restrictions after an entity level
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -128,6 +130,8 @@ def get_policy_restriction_output(policy_restriction_id: Optional[pulumi.Input[s
     """
     Get the policy restriction of the Api Management service.
     Azure REST API version: 2023-05-01-preview.
+
+    Other available API versions: 2023-09-01-preview.
 
 
     :param str policy_restriction_id: Policy restrictions after an entity level

@@ -46,10 +46,6 @@ export class StorageTaskAssignment extends pulumi.CustomResource {
      */
     public readonly properties!: pulumi.Output<outputs.storage.v20230501.StorageTaskAssignmentPropertiesResponse>;
     /**
-     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
-     */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.storage.v20230501.SystemDataResponse>;
-    /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -68,6 +64,9 @@ export class StorageTaskAssignment extends pulumi.CustomResource {
             if ((!args || args.accountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -76,12 +75,10 @@ export class StorageTaskAssignment extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["storageTaskAssignmentName"] = args ? args.storageTaskAssignmentName : undefined;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
-            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -102,7 +99,7 @@ export interface StorageTaskAssignmentArgs {
     /**
      * Properties of the storage task assignment.
      */
-    properties?: pulumi.Input<inputs.storage.v20230501.StorageTaskAssignmentPropertiesArgs>;
+    properties: pulumi.Input<inputs.storage.v20230501.StorageTaskAssignmentPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

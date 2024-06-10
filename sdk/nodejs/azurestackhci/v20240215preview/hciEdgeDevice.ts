@@ -91,7 +91,7 @@ export class HciEdgeDevice extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci:HciEdgeDevice" }, { type: "azure-native:azurestackhci/v20230801preview:HciEdgeDevice" }, { type: "azure-native:azurestackhci/v20231101preview:HciEdgeDevice" }, { type: "azure-native:azurestackhci/v20240101:HciEdgeDevice" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci:HciEdgeDevice" }, { type: "azure-native:azurestackhci/v20230801preview:HciEdgeDevice" }, { type: "azure-native:azurestackhci/v20231101preview:HciEdgeDevice" }, { type: "azure-native:azurestackhci/v20240101:HciEdgeDevice" }, { type: "azure-native:azurestackhci/v20240401:HciEdgeDevice" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(HciEdgeDevice.__pulumiType, name, resourceInputs, opts);
     }

@@ -124,7 +124,7 @@ def get_group(group_id: Optional[str] = None,
     Gets the details of the group specified by its identifier.
     Azure REST API version: 2022-08-01.
 
-    Other available API versions: 2016-07-07, 2016-10-10, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview.
+    Other available API versions: 2016-07-07, 2016-10-10, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview.
 
 
     :param str group_id: Group identifier. Must be unique in the current API Management service instance.
@@ -157,7 +157,7 @@ def get_group_output(group_id: Optional[pulumi.Input[str]] = None,
     Gets the details of the group specified by its identifier.
     Azure REST API version: 2022-08-01.
 
-    Other available API versions: 2016-07-07, 2016-10-10, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview.
+    Other available API versions: 2016-07-07, 2016-10-10, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview.
 
 
     :param str group_id: Group identifier. Must be unique in the current API Management service instance.

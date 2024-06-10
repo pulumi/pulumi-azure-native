@@ -167,7 +167,7 @@ class LogicalNetwork(pulumi.CustomResource):
         The logical network resource definition.
         Azure REST API version: 2023-09-01-preview.
 
-        Other available API versions: 2024-01-01.
+        Other available API versions: 2024-01-01, 2024-02-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -190,7 +190,7 @@ class LogicalNetwork(pulumi.CustomResource):
         The logical network resource definition.
         Azure REST API version: 2023-09-01-preview.
 
-        Other available API versions: 2024-01-01.
+        Other available API versions: 2024-01-01, 2024-02-01-preview.
 
         :param str resource_name: The name of the resource.
         :param LogicalNetworkArgs args: The arguments to use to populate this resource's properties.
@@ -239,7 +239,7 @@ class LogicalNetwork(pulumi.CustomResource):
             __props__.__dict__["status"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurestackhci/v20230901preview:LogicalNetwork"), pulumi.Alias(type_="azure-native:azurestackhci/v20240101:LogicalNetwork")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurestackhci/v20230901preview:LogicalNetwork"), pulumi.Alias(type_="azure-native:azurestackhci/v20240101:LogicalNetwork"), pulumi.Alias(type_="azure-native:azurestackhci/v20240201preview:LogicalNetwork")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(LogicalNetwork, __self__).__init__(
             'azure-native:azurestackhci:LogicalNetwork',

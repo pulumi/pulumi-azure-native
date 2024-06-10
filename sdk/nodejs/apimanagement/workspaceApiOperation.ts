@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * API Operation details.
  * Azure REST API version: 2022-09-01-preview.
  *
- * Other available API versions: 2023-03-01-preview, 2023-05-01-preview.
+ * Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview.
  */
 export class WorkspaceApiOperation extends pulumi.CustomResource {
     /**
@@ -141,7 +141,7 @@ export class WorkspaceApiOperation extends pulumi.CustomResource {
             resourceInputs["urlTemplate"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20220901preview:WorkspaceApiOperation" }, { type: "azure-native:apimanagement/v20230301preview:WorkspaceApiOperation" }, { type: "azure-native:apimanagement/v20230501preview:WorkspaceApiOperation" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20220901preview:WorkspaceApiOperation" }, { type: "azure-native:apimanagement/v20230301preview:WorkspaceApiOperation" }, { type: "azure-native:apimanagement/v20230501preview:WorkspaceApiOperation" }, { type: "azure-native:apimanagement/v20230901preview:WorkspaceApiOperation" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WorkspaceApiOperation.__pulumiType, name, resourceInputs, opts);
     }

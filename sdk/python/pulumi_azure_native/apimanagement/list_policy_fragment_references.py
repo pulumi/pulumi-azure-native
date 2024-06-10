@@ -79,7 +79,7 @@ def list_policy_fragment_references(id: Optional[str] = None,
     Lists policy resources that reference the policy fragment.
     Azure REST API version: 2022-08-01.
 
-    Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview.
+    Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview.
 
 
     :param str id: A resource identifier.
@@ -114,7 +114,7 @@ def list_policy_fragment_references_output(id: Optional[pulumi.Input[str]] = Non
     Lists policy resources that reference the policy fragment.
     Azure REST API version: 2022-08-01.
 
-    Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview.
+    Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview.
 
 
     :param str id: A resource identifier.

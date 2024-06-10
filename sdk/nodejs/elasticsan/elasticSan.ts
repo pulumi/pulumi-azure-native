@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Response for ElasticSan request.
  * Azure REST API version: 2021-11-20-preview. Prior API version in Azure Native 1.x: 2021-11-20-preview.
  *
- * Other available API versions: 2022-12-01-preview, 2023-01-01.
+ * Other available API versions: 2022-12-01-preview, 2023-01-01, 2024-05-01.
  */
 export class ElasticSan extends pulumi.CustomResource {
     /**
@@ -159,7 +159,7 @@ export class ElasticSan extends pulumi.CustomResource {
             resourceInputs["volumeGroupCount"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:elasticsan/v20211120preview:ElasticSan" }, { type: "azure-native:elasticsan/v20221201preview:ElasticSan" }, { type: "azure-native:elasticsan/v20230101:ElasticSan" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:elasticsan/v20211120preview:ElasticSan" }, { type: "azure-native:elasticsan/v20221201preview:ElasticSan" }, { type: "azure-native:elasticsan/v20230101:ElasticSan" }, { type: "azure-native:elasticsan/v20240501:ElasticSan" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ElasticSan.__pulumiType, name, resourceInputs, opts);
     }

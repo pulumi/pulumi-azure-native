@@ -557,6 +557,125 @@ namespace Pulumi.AzureNative.AzureStackHCI
     }
 
     /// <summary>
+    /// The network traffic is allowed or denied.
+    /// </summary>
+    [EnumType]
+    public readonly struct SecurityRuleAccess : IEquatable<SecurityRuleAccess>
+    {
+        private readonly string _value;
+
+        private SecurityRuleAccess(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Network traffic is allowed
+        /// </summary>
+        public static SecurityRuleAccess Allow { get; } = new SecurityRuleAccess("Allow");
+        /// <summary>
+        /// Network traffic is denied
+        /// </summary>
+        public static SecurityRuleAccess Deny { get; } = new SecurityRuleAccess("Deny");
+
+        public static bool operator ==(SecurityRuleAccess left, SecurityRuleAccess right) => left.Equals(right);
+        public static bool operator !=(SecurityRuleAccess left, SecurityRuleAccess right) => !left.Equals(right);
+
+        public static explicit operator string(SecurityRuleAccess value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SecurityRuleAccess other && Equals(other);
+        public bool Equals(SecurityRuleAccess other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The direction of the rule. The direction specifies if rule will be evaluated on incoming or outgoing traffic.
+    /// </summary>
+    [EnumType]
+    public readonly struct SecurityRuleDirection : IEquatable<SecurityRuleDirection>
+    {
+        private readonly string _value;
+
+        private SecurityRuleDirection(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Rule is evaluated on incoming traffic
+        /// </summary>
+        public static SecurityRuleDirection Inbound { get; } = new SecurityRuleDirection("Inbound");
+        /// <summary>
+        /// Rule is evaluated on outgoing traffic
+        /// </summary>
+        public static SecurityRuleDirection Outbound { get; } = new SecurityRuleDirection("Outbound");
+
+        public static bool operator ==(SecurityRuleDirection left, SecurityRuleDirection right) => left.Equals(right);
+        public static bool operator !=(SecurityRuleDirection left, SecurityRuleDirection right) => !left.Equals(right);
+
+        public static explicit operator string(SecurityRuleDirection value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SecurityRuleDirection other && Equals(other);
+        public bool Equals(SecurityRuleDirection other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Network protocol this rule applies to.
+    /// </summary>
+    [EnumType]
+    public readonly struct SecurityRuleProtocol : IEquatable<SecurityRuleProtocol>
+    {
+        private readonly string _value;
+
+        private SecurityRuleProtocol(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Transmission Control Protocol
+        /// </summary>
+        public static SecurityRuleProtocol Tcp { get; } = new SecurityRuleProtocol("Tcp");
+        /// <summary>
+        /// User Datagram Protocol
+        /// </summary>
+        public static SecurityRuleProtocol Udp { get; } = new SecurityRuleProtocol("Udp");
+        /// <summary>
+        /// Internet Control Message Protocol
+        /// </summary>
+        public static SecurityRuleProtocol Icmp { get; } = new SecurityRuleProtocol("Icmp");
+        /// <summary>
+        /// Wildcard rule for all protocols
+        /// </summary>
+        public static SecurityRuleProtocol Asterisk { get; } = new SecurityRuleProtocol("*");
+
+        public static bool operator ==(SecurityRuleProtocol left, SecurityRuleProtocol right) => left.Equals(right);
+        public static bool operator !=(SecurityRuleProtocol left, SecurityRuleProtocol right) => !left.Equals(right);
+
+        public static explicit operator string(SecurityRuleProtocol value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SecurityRuleProtocol other && Equals(other);
+        public bool Equals(SecurityRuleProtocol other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Specifies the SecurityType of the virtual machine. EnableTPM and SecureBootEnabled must be set to true for SecurityType to function.
     /// </summary>
     [EnumType]

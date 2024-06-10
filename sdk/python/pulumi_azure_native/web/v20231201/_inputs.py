@@ -2832,12 +2832,12 @@ class FunctionsDeploymentAuthenticationArgs:
 class FunctionsDeploymentStorageArgs:
     def __init__(__self__, *,
                  authentication: Optional[pulumi.Input['FunctionsDeploymentAuthenticationArgs']] = None,
-                 type: Optional[pulumi.Input[Union[str, 'StorageType']]] = None,
+                 type: Optional[pulumi.Input[Union[str, 'FunctionsDeploymentStorageType']]] = None,
                  value: Optional[pulumi.Input[str]] = None):
         """
         Storage for deployed package used by the function app.
         :param pulumi.Input['FunctionsDeploymentAuthenticationArgs'] authentication: Authentication method to access the storage account for deployment.
-        :param pulumi.Input[Union[str, 'StorageType']] type: Property to select Azure Storage type. Available options: blobContainer.
+        :param pulumi.Input[Union[str, 'FunctionsDeploymentStorageType']] type: Property to select Azure Storage type. Available options: blobContainer.
         :param pulumi.Input[str] value: Property to set the URL for the selected Azure Storage type. Example: For blobContainer, the value could be https://<storageAccountName>.blob.core.windows.net/<containerName>.
         """
         if authentication is not None:
@@ -2861,14 +2861,14 @@ class FunctionsDeploymentStorageArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[Union[str, 'StorageType']]]:
+    def type(self) -> Optional[pulumi.Input[Union[str, 'FunctionsDeploymentStorageType']]]:
         """
         Property to select Azure Storage type. Available options: blobContainer.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[Union[str, 'StorageType']]]):
+    def type(self, value: Optional[pulumi.Input[Union[str, 'FunctionsDeploymentStorageType']]]):
         pulumi.set(self, "type", value)
 
     @property

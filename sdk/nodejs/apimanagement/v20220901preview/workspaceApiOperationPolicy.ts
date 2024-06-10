@@ -100,7 +100,7 @@ export class WorkspaceApiOperationPolicy extends pulumi.CustomResource {
             resourceInputs["value"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:WorkspaceApiOperationPolicy" }, { type: "azure-native:apimanagement/v20230301preview:WorkspaceApiOperationPolicy" }, { type: "azure-native:apimanagement/v20230501preview:WorkspaceApiOperationPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:WorkspaceApiOperationPolicy" }, { type: "azure-native:apimanagement/v20230301preview:WorkspaceApiOperationPolicy" }, { type: "azure-native:apimanagement/v20230501preview:WorkspaceApiOperationPolicy" }, { type: "azure-native:apimanagement/v20230901preview:WorkspaceApiOperationPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WorkspaceApiOperationPolicy.__pulumiType, name, resourceInputs, opts);
     }

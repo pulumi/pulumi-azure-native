@@ -82,7 +82,7 @@ namespace Pulumi.AzureNative.Storage.V20230501
     public sealed class GetStorageTaskAssignmentResult
     {
         /// <summary>
-        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -93,10 +93,6 @@ namespace Pulumi.AzureNative.Storage.V20230501
         /// Properties of the storage task assignment.
         /// </summary>
         public readonly Outputs.StorageTaskAssignmentPropertiesResponse Properties;
-        /// <summary>
-        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-        /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
@@ -110,14 +106,11 @@ namespace Pulumi.AzureNative.Storage.V20230501
 
             Outputs.StorageTaskAssignmentPropertiesResponse properties,
 
-            Outputs.SystemDataResponse systemData,
-
             string type)
         {
             Id = id;
             Name = name;
             Properties = properties;
-            SystemData = systemData;
             Type = type;
         }
     }

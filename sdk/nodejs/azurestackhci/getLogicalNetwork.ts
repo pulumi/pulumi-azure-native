@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * The logical network resource definition.
  * Azure REST API version: 2023-09-01-preview.
  *
- * Other available API versions: 2024-01-01.
+ * Other available API versions: 2024-01-01, 2024-02-01-preview.
  */
 export function getLogicalNetwork(args: GetLogicalNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetLogicalNetworkResult> {
 
@@ -90,7 +90,7 @@ export interface GetLogicalNetworkResult {
  * The logical network resource definition.
  * Azure REST API version: 2023-09-01-preview.
  *
- * Other available API versions: 2024-01-01.
+ * Other available API versions: 2024-01-01, 2024-02-01-preview.
  */
 export function getLogicalNetworkOutput(args: GetLogicalNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLogicalNetworkResult> {
     return pulumi.output(args).apply((a: any) => getLogicalNetwork(a, opts))

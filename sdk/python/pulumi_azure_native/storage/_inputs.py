@@ -1305,28 +1305,17 @@ class EncryptionArgs:
 @pulumi.input_type
 class ExecutionTargetArgs:
     def __init__(__self__, *,
-                 prefix: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 exclude_prefix: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+                 exclude_prefix: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 prefix: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Target helps provide filter parameters for the objects in the storage account and forms the execution context for the storage task
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] prefix: Required list of object prefixes to be included for task execution
         :param pulumi.Input[Sequence[pulumi.Input[str]]] exclude_prefix: List of object prefixes to be excluded from task execution. If there is a conflict between include and exclude prefixes, the exclude prefix will be the determining factor
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] prefix: Required list of object prefixes to be included for task execution
         """
-        pulumi.set(__self__, "prefix", prefix)
         if exclude_prefix is not None:
             pulumi.set(__self__, "exclude_prefix", exclude_prefix)
-
-    @property
-    @pulumi.getter
-    def prefix(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        Required list of object prefixes to be included for task execution
-        """
-        return pulumi.get(self, "prefix")
-
-    @prefix.setter
-    def prefix(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(self, "prefix", value)
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
 
     @property
     @pulumi.getter(name="excludePrefix")
@@ -1339,6 +1328,18 @@ class ExecutionTargetArgs:
     @exclude_prefix.setter
     def exclude_prefix(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "exclude_prefix", value)
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Required list of object prefixes to be included for task execution
+        """
+        return pulumi.get(self, "prefix")
+
+    @prefix.setter
+    def prefix(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "prefix", value)
 
 
 @pulumi.input_type
@@ -2959,27 +2960,16 @@ class SshPublicKeyArgs:
 @pulumi.input_type
 class StorageTaskAssignmentExecutionContextArgs:
     def __init__(__self__, *,
-                 target: pulumi.Input['ExecutionTargetArgs'],
-                 trigger: pulumi.Input['ExecutionTriggerArgs']):
+                 trigger: pulumi.Input['ExecutionTriggerArgs'],
+                 target: Optional[pulumi.Input['ExecutionTargetArgs']] = None):
         """
         Execution context of the storage task assignment.
-        :param pulumi.Input['ExecutionTargetArgs'] target: Execution target of the storage task assignment
         :param pulumi.Input['ExecutionTriggerArgs'] trigger: Execution trigger of the storage task assignment
+        :param pulumi.Input['ExecutionTargetArgs'] target: Execution target of the storage task assignment
         """
-        pulumi.set(__self__, "target", target)
         pulumi.set(__self__, "trigger", trigger)
-
-    @property
-    @pulumi.getter
-    def target(self) -> pulumi.Input['ExecutionTargetArgs']:
-        """
-        Execution target of the storage task assignment
-        """
-        return pulumi.get(self, "target")
-
-    @target.setter
-    def target(self, value: pulumi.Input['ExecutionTargetArgs']):
-        pulumi.set(self, "target", value)
+        if target is not None:
+            pulumi.set(__self__, "target", target)
 
     @property
     @pulumi.getter
@@ -2992,6 +2982,18 @@ class StorageTaskAssignmentExecutionContextArgs:
     @trigger.setter
     def trigger(self, value: pulumi.Input['ExecutionTriggerArgs']):
         pulumi.set(self, "trigger", value)
+
+    @property
+    @pulumi.getter
+    def target(self) -> Optional[pulumi.Input['ExecutionTargetArgs']]:
+        """
+        Execution target of the storage task assignment
+        """
+        return pulumi.get(self, "target")
+
+    @target.setter
+    def target(self, value: Optional[pulumi.Input['ExecutionTargetArgs']]):
+        pulumi.set(self, "target", value)
 
 
 @pulumi.input_type

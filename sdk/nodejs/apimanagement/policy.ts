@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Policy Contract details.
  * Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2020-12-01.
  *
- * Other available API versions: 2018-06-01-preview, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview.
+ * Other available API versions: 2018-06-01-preview, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview.
  */
 export class Policy extends pulumi.CustomResource {
     /**
@@ -91,7 +91,7 @@ export class Policy extends pulumi.CustomResource {
             resourceInputs["value"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20170301:Policy" }, { type: "azure-native:apimanagement/v20180101:Policy" }, { type: "azure-native:apimanagement/v20180601preview:Policy" }, { type: "azure-native:apimanagement/v20190101:Policy" }, { type: "azure-native:apimanagement/v20191201:Policy" }, { type: "azure-native:apimanagement/v20191201preview:Policy" }, { type: "azure-native:apimanagement/v20200601preview:Policy" }, { type: "azure-native:apimanagement/v20201201:Policy" }, { type: "azure-native:apimanagement/v20210101preview:Policy" }, { type: "azure-native:apimanagement/v20210401preview:Policy" }, { type: "azure-native:apimanagement/v20210801:Policy" }, { type: "azure-native:apimanagement/v20211201preview:Policy" }, { type: "azure-native:apimanagement/v20220401preview:Policy" }, { type: "azure-native:apimanagement/v20220801:Policy" }, { type: "azure-native:apimanagement/v20220901preview:Policy" }, { type: "azure-native:apimanagement/v20230301preview:Policy" }, { type: "azure-native:apimanagement/v20230501preview:Policy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20170301:Policy" }, { type: "azure-native:apimanagement/v20180101:Policy" }, { type: "azure-native:apimanagement/v20180601preview:Policy" }, { type: "azure-native:apimanagement/v20190101:Policy" }, { type: "azure-native:apimanagement/v20191201:Policy" }, { type: "azure-native:apimanagement/v20191201preview:Policy" }, { type: "azure-native:apimanagement/v20200601preview:Policy" }, { type: "azure-native:apimanagement/v20201201:Policy" }, { type: "azure-native:apimanagement/v20210101preview:Policy" }, { type: "azure-native:apimanagement/v20210401preview:Policy" }, { type: "azure-native:apimanagement/v20210801:Policy" }, { type: "azure-native:apimanagement/v20211201preview:Policy" }, { type: "azure-native:apimanagement/v20220401preview:Policy" }, { type: "azure-native:apimanagement/v20220801:Policy" }, { type: "azure-native:apimanagement/v20220901preview:Policy" }, { type: "azure-native:apimanagement/v20230301preview:Policy" }, { type: "azure-native:apimanagement/v20230501preview:Policy" }, { type: "azure-native:apimanagement/v20230901preview:Policy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Policy.__pulumiType, name, resourceInputs, opts);
     }

@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Web.V20231201.Inputs
         /// Property to select Azure Storage type. Available options: blobContainer.
         /// </summary>
         [Input("type")]
-        public InputUnion<string, Pulumi.AzureNative.Web.V20231201.StorageType>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Web.V20231201.FunctionsDeploymentStorageType>? Type { get; set; }
 
         /// <summary>
         /// Property to set the URL for the selected Azure Storage type. Example: For blobContainer, the value could be https://&lt;storageAccountName&gt;.blob.core.windows.net/&lt;containerName&gt;.

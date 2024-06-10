@@ -15,6 +15,7 @@ __all__ = [
     'AdditionalLocationResponse',
     'ApiContactInformationResponse',
     'ApiLicenseInformationResponse',
+    'ApiManagementGatewaySkuPropertiesResponse',
     'ApiManagementServiceIdentityResponse',
     'ApiManagementServiceSkuPropertiesResponse',
     'ApiVersionConstraintResponse',
@@ -25,17 +26,27 @@ __all__ = [
     'AuthorizationProviderOAuth2GrantTypesResponse',
     'AuthorizationProviderOAuth2SettingsResponse',
     'BackendAuthorizationHeaderCredentialsResponse',
+    'BackendBaseParametersResponsePool',
+    'BackendCircuitBreakerResponse',
+    'BackendConfigurationResponse',
     'BackendCredentialsContractResponse',
+    'BackendPoolItemResponse',
     'BackendPropertiesResponse',
     'BackendProxyContractResponse',
     'BackendServiceFabricClusterPropertiesResponse',
+    'BackendSubnetConfigurationResponse',
     'BackendTlsPropertiesResponse',
     'BodyDiagnosticSettingsResponse',
     'CertificateConfigurationResponse',
     'CertificateInformationResponse',
+    'CircuitBreakerFailureConditionResponse',
+    'CircuitBreakerRuleResponse',
     'DataMaskingEntityResponse',
     'DataMaskingResponse',
     'EmailTemplateParametersContractPropertiesResponse',
+    'FailureStatusCodeRangeResponse',
+    'FrontendConfigurationResponse',
+    'GatewayConfigurationApiResponse',
     'GroupContractPropertiesResponse',
     'HostnameConfigurationResponse',
     'HttpMessageDiagnosticResponse',
@@ -330,6 +341,40 @@ class ApiLicenseInformationResponse(dict):
         A URL to the license used for the API. MUST be in the format of a URL
         """
         return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class ApiManagementGatewaySkuPropertiesResponse(dict):
+    """
+    API Management gateway resource SKU properties.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 capacity: Optional[int] = None):
+        """
+        API Management gateway resource SKU properties.
+        :param str name: Name of the Sku.
+        :param int capacity: Capacity of the SKU (number of deployed units of the SKU)
+        """
+        pulumi.set(__self__, "name", name)
+        if capacity is not None:
+            pulumi.set(__self__, "capacity", capacity)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the Sku.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def capacity(self) -> Optional[int]:
+        """
+        Capacity of the SKU (number of deployed units of the SKU)
+        """
+        return pulumi.get(self, "capacity")
 
 
 @pulumi.output_type
@@ -867,6 +912,71 @@ class BackendAuthorizationHeaderCredentialsResponse(dict):
 
 
 @pulumi.output_type
+class BackendBaseParametersResponsePool(dict):
+    def __init__(__self__, *,
+                 services: Optional[Sequence['outputs.BackendPoolItemResponse']] = None):
+        """
+        :param Sequence['BackendPoolItemResponse'] services: The list of backend entities belonging to a pool.
+        """
+        if services is not None:
+            pulumi.set(__self__, "services", services)
+
+    @property
+    @pulumi.getter
+    def services(self) -> Optional[Sequence['outputs.BackendPoolItemResponse']]:
+        """
+        The list of backend entities belonging to a pool.
+        """
+        return pulumi.get(self, "services")
+
+
+@pulumi.output_type
+class BackendCircuitBreakerResponse(dict):
+    """
+    The configuration of the backend circuit breaker
+    """
+    def __init__(__self__, *,
+                 rules: Optional[Sequence['outputs.CircuitBreakerRuleResponse']] = None):
+        """
+        The configuration of the backend circuit breaker
+        :param Sequence['CircuitBreakerRuleResponse'] rules: The rules for tripping the backend.
+        """
+        if rules is not None:
+            pulumi.set(__self__, "rules", rules)
+
+    @property
+    @pulumi.getter
+    def rules(self) -> Optional[Sequence['outputs.CircuitBreakerRuleResponse']]:
+        """
+        The rules for tripping the backend.
+        """
+        return pulumi.get(self, "rules")
+
+
+@pulumi.output_type
+class BackendConfigurationResponse(dict):
+    """
+    Information regarding how the gateway should integrate with backend systems.
+    """
+    def __init__(__self__, *,
+                 subnet: Optional['outputs.BackendSubnetConfigurationResponse'] = None):
+        """
+        Information regarding how the gateway should integrate with backend systems.
+        :param 'BackendSubnetConfigurationResponse' subnet: The default hostname of the data-plane gateway to which requests can be sent.
+        """
+        if subnet is not None:
+            pulumi.set(__self__, "subnet", subnet)
+
+    @property
+    @pulumi.getter
+    def subnet(self) -> Optional['outputs.BackendSubnetConfigurationResponse']:
+        """
+        The default hostname of the data-plane gateway to which requests can be sent.
+        """
+        return pulumi.get(self, "subnet")
+
+
+@pulumi.output_type
 class BackendCredentialsContractResponse(dict):
     """
     Details of the Credentials used to connect to Backend.
@@ -952,6 +1062,52 @@ class BackendCredentialsContractResponse(dict):
         Query Parameter description.
         """
         return pulumi.get(self, "query")
+
+
+@pulumi.output_type
+class BackendPoolItemResponse(dict):
+    """
+    Backend pool service information
+    """
+    def __init__(__self__, *,
+                 id: str,
+                 priority: Optional[int] = None,
+                 weight: Optional[int] = None):
+        """
+        Backend pool service information
+        :param str id: The unique ARM id of the backend entity. The ARM id should refer to an already existing backend entity.
+        :param int priority: The priority of the backend entity in the backend pool. Must be between 0 and 100. It can be also null if the value not specified.
+        :param int weight: The weight of the backend entity in the backend pool. Must be between 0 and 100. It can be also null if the value not specified.
+        """
+        pulumi.set(__self__, "id", id)
+        if priority is not None:
+            pulumi.set(__self__, "priority", priority)
+        if weight is not None:
+            pulumi.set(__self__, "weight", weight)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The unique ARM id of the backend entity. The ARM id should refer to an already existing backend entity.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def priority(self) -> Optional[int]:
+        """
+        The priority of the backend entity in the backend pool. Must be between 0 and 100. It can be also null if the value not specified.
+        """
+        return pulumi.get(self, "priority")
+
+    @property
+    @pulumi.getter
+    def weight(self) -> Optional[int]:
+        """
+        The weight of the backend entity in the backend pool. Must be between 0 and 100. It can be also null if the value not specified.
+        """
+        return pulumi.get(self, "weight")
 
 
 @pulumi.output_type
@@ -1147,6 +1303,29 @@ class BackendServiceFabricClusterPropertiesResponse(dict):
         Server X509 Certificate Names Collection
         """
         return pulumi.get(self, "server_x509_names")
+
+
+@pulumi.output_type
+class BackendSubnetConfigurationResponse(dict):
+    """
+    Information regarding how the subnet to which the gateway should be injected.
+    """
+    def __init__(__self__, *,
+                 id: Optional[str] = None):
+        """
+        Information regarding how the subnet to which the gateway should be injected.
+        :param str id: The ARM ID of the subnet in which the backend systems are hosted.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        The ARM ID of the subnet in which the backend systems are hosted.
+        """
+        return pulumi.get(self, "id")
 
 
 @pulumi.output_type
@@ -1354,6 +1533,176 @@ class CertificateInformationResponse(dict):
 
 
 @pulumi.output_type
+class CircuitBreakerFailureConditionResponse(dict):
+    """
+    The trip conditions of the circuit breaker
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "errorReasons":
+            suggest = "error_reasons"
+        elif key == "statusCodeRanges":
+            suggest = "status_code_ranges"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CircuitBreakerFailureConditionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CircuitBreakerFailureConditionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CircuitBreakerFailureConditionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 count: Optional[float] = None,
+                 error_reasons: Optional[Sequence[str]] = None,
+                 interval: Optional[str] = None,
+                 percentage: Optional[float] = None,
+                 status_code_ranges: Optional[Sequence['outputs.FailureStatusCodeRangeResponse']] = None):
+        """
+        The trip conditions of the circuit breaker
+        :param float count: The threshold for opening the circuit.
+        :param Sequence[str] error_reasons: The error reasons which are considered as failure.
+        :param str interval: The interval during which the failures are counted.
+        :param float percentage: The threshold for opening the circuit.
+        :param Sequence['FailureStatusCodeRangeResponse'] status_code_ranges: The status code ranges which are considered as failure.
+        """
+        if count is not None:
+            pulumi.set(__self__, "count", count)
+        if error_reasons is not None:
+            pulumi.set(__self__, "error_reasons", error_reasons)
+        if interval is not None:
+            pulumi.set(__self__, "interval", interval)
+        if percentage is not None:
+            pulumi.set(__self__, "percentage", percentage)
+        if status_code_ranges is not None:
+            pulumi.set(__self__, "status_code_ranges", status_code_ranges)
+
+    @property
+    @pulumi.getter
+    def count(self) -> Optional[float]:
+        """
+        The threshold for opening the circuit.
+        """
+        return pulumi.get(self, "count")
+
+    @property
+    @pulumi.getter(name="errorReasons")
+    def error_reasons(self) -> Optional[Sequence[str]]:
+        """
+        The error reasons which are considered as failure.
+        """
+        return pulumi.get(self, "error_reasons")
+
+    @property
+    @pulumi.getter
+    def interval(self) -> Optional[str]:
+        """
+        The interval during which the failures are counted.
+        """
+        return pulumi.get(self, "interval")
+
+    @property
+    @pulumi.getter
+    def percentage(self) -> Optional[float]:
+        """
+        The threshold for opening the circuit.
+        """
+        return pulumi.get(self, "percentage")
+
+    @property
+    @pulumi.getter(name="statusCodeRanges")
+    def status_code_ranges(self) -> Optional[Sequence['outputs.FailureStatusCodeRangeResponse']]:
+        """
+        The status code ranges which are considered as failure.
+        """
+        return pulumi.get(self, "status_code_ranges")
+
+
+@pulumi.output_type
+class CircuitBreakerRuleResponse(dict):
+    """
+    Rule configuration to trip the backend.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "acceptRetryAfter":
+            suggest = "accept_retry_after"
+        elif key == "failureCondition":
+            suggest = "failure_condition"
+        elif key == "tripDuration":
+            suggest = "trip_duration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CircuitBreakerRuleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CircuitBreakerRuleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CircuitBreakerRuleResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 accept_retry_after: Optional[bool] = None,
+                 failure_condition: Optional['outputs.CircuitBreakerFailureConditionResponse'] = None,
+                 name: Optional[str] = None,
+                 trip_duration: Optional[str] = None):
+        """
+        Rule configuration to trip the backend.
+        :param bool accept_retry_after: flag to accept Retry-After header from the backend.
+        :param 'CircuitBreakerFailureConditionResponse' failure_condition: The conditions for tripping the circuit breaker.
+        :param str name: The rule name.
+        :param str trip_duration: The duration for which the circuit will be tripped.
+        """
+        if accept_retry_after is not None:
+            pulumi.set(__self__, "accept_retry_after", accept_retry_after)
+        if failure_condition is not None:
+            pulumi.set(__self__, "failure_condition", failure_condition)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if trip_duration is not None:
+            pulumi.set(__self__, "trip_duration", trip_duration)
+
+    @property
+    @pulumi.getter(name="acceptRetryAfter")
+    def accept_retry_after(self) -> Optional[bool]:
+        """
+        flag to accept Retry-After header from the backend.
+        """
+        return pulumi.get(self, "accept_retry_after")
+
+    @property
+    @pulumi.getter(name="failureCondition")
+    def failure_condition(self) -> Optional['outputs.CircuitBreakerFailureConditionResponse']:
+        """
+        The conditions for tripping the circuit breaker.
+        """
+        return pulumi.get(self, "failure_condition")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The rule name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="tripDuration")
+    def trip_duration(self) -> Optional[str]:
+        """
+        The duration for which the circuit will be tripped.
+        """
+        return pulumi.get(self, "trip_duration")
+
+
+@pulumi.output_type
 class DataMaskingEntityResponse(dict):
     def __init__(__self__, *,
                  mode: Optional[str] = None,
@@ -1477,6 +1826,102 @@ class EmailTemplateParametersContractPropertiesResponse(dict):
         Template parameter title.
         """
         return pulumi.get(self, "title")
+
+
+@pulumi.output_type
+class FailureStatusCodeRangeResponse(dict):
+    """
+    The failure http status code range
+    """
+    def __init__(__self__, *,
+                 max: Optional[int] = None,
+                 min: Optional[int] = None):
+        """
+        The failure http status code range
+        :param int max: The maximum http status code.
+        :param int min: The minimum http status code.
+        """
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
+
+    @property
+    @pulumi.getter
+    def max(self) -> Optional[int]:
+        """
+        The maximum http status code.
+        """
+        return pulumi.get(self, "max")
+
+    @property
+    @pulumi.getter
+    def min(self) -> Optional[int]:
+        """
+        The minimum http status code.
+        """
+        return pulumi.get(self, "min")
+
+
+@pulumi.output_type
+class FrontendConfigurationResponse(dict):
+    """
+    Information regarding how the gateway should be exposed.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultHostname":
+            suggest = "default_hostname"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FrontendConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FrontendConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FrontendConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 default_hostname: str):
+        """
+        Information regarding how the gateway should be exposed.
+        :param str default_hostname: The default hostname of the data-plane gateway to which requests can be sent. This is only applicable for API gateway with Standard SKU.
+        """
+        pulumi.set(__self__, "default_hostname", default_hostname)
+
+    @property
+    @pulumi.getter(name="defaultHostname")
+    def default_hostname(self) -> str:
+        """
+        The default hostname of the data-plane gateway to which requests can be sent. This is only applicable for API gateway with Standard SKU.
+        """
+        return pulumi.get(self, "default_hostname")
+
+
+@pulumi.output_type
+class GatewayConfigurationApiResponse(dict):
+    """
+    Information regarding the Configuration API of the API Management gateway. This is only applicable for API gateway with Standard SKU.
+    """
+    def __init__(__self__, *,
+                 hostname: str):
+        """
+        Information regarding the Configuration API of the API Management gateway. This is only applicable for API gateway with Standard SKU.
+        :param str hostname: Hostname to which the agent connects to propagate configuration to the cloud.
+        """
+        pulumi.set(__self__, "hostname", hostname)
+
+    @property
+    @pulumi.getter
+    def hostname(self) -> str:
+        """
+        Hostname to which the agent connects to propagate configuration to the cloud.
+        """
+        return pulumi.get(self, "hostname")
 
 
 @pulumi.output_type

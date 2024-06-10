@@ -123,7 +123,7 @@ export class LogicalNetwork extends pulumi.CustomResource {
             resourceInputs["vmSwitchName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci:LogicalNetwork" }, { type: "azure-native:azurestackhci/v20240101:LogicalNetwork" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci:LogicalNetwork" }, { type: "azure-native:azurestackhci/v20240101:LogicalNetwork" }, { type: "azure-native:azurestackhci/v20240201preview:LogicalNetwork" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(LogicalNetwork.__pulumiType, name, resourceInputs, opts);
     }

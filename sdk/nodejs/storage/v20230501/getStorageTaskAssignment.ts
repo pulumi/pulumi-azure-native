@@ -40,7 +40,7 @@ export interface GetStorageTaskAssignmentArgs {
  */
 export interface GetStorageTaskAssignmentResult {
     /**
-     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
@@ -51,10 +51,6 @@ export interface GetStorageTaskAssignmentResult {
      * Properties of the storage task assignment.
      */
     readonly properties: outputs.storage.v20230501.StorageTaskAssignmentPropertiesResponse;
-    /**
-     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
-     */
-    readonly systemData: outputs.storage.v20230501.SystemDataResponse;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */

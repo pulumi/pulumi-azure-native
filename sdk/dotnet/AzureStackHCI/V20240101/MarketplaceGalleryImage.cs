@@ -129,6 +129,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20240101
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20221215preview:MarketplaceGalleryImage" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230701preview:MarketplaceGalleryImage" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230901preview:MarketplaceGalleryImage" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240201preview:MarketplaceGalleryImage" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

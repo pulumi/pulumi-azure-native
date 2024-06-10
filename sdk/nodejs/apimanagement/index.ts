@@ -15,6 +15,16 @@ export type ApiDiagnostic = import("./apiDiagnostic").ApiDiagnostic;
 export const ApiDiagnostic: typeof import("./apiDiagnostic").ApiDiagnostic = null as any;
 utilities.lazyLoad(exports, ["ApiDiagnostic"], () => require("./apiDiagnostic"));
 
+export { ApiGatewayArgs } from "./apiGateway";
+export type ApiGateway = import("./apiGateway").ApiGateway;
+export const ApiGateway: typeof import("./apiGateway").ApiGateway = null as any;
+utilities.lazyLoad(exports, ["ApiGateway"], () => require("./apiGateway"));
+
+export { ApiGatewayConfigConnectionArgs } from "./apiGatewayConfigConnection";
+export type ApiGatewayConfigConnection = import("./apiGatewayConfigConnection").ApiGatewayConfigConnection;
+export const ApiGatewayConfigConnection: typeof import("./apiGatewayConfigConnection").ApiGatewayConfigConnection = null as any;
+utilities.lazyLoad(exports, ["ApiGatewayConfigConnection"], () => require("./apiGatewayConfigConnection"));
+
 export { ApiIssueArgs } from "./apiIssue";
 export type ApiIssue = import("./apiIssue").ApiIssue;
 export const ApiIssue: typeof import("./apiIssue").ApiIssue = null as any;
@@ -164,6 +174,16 @@ export { GetApiDiagnosticArgs, GetApiDiagnosticResult, GetApiDiagnosticOutputArg
 export const getApiDiagnostic: typeof import("./getApiDiagnostic").getApiDiagnostic = null as any;
 export const getApiDiagnosticOutput: typeof import("./getApiDiagnostic").getApiDiagnosticOutput = null as any;
 utilities.lazyLoad(exports, ["getApiDiagnostic","getApiDiagnosticOutput"], () => require("./getApiDiagnostic"));
+
+export { GetApiGatewayArgs, GetApiGatewayResult, GetApiGatewayOutputArgs } from "./getApiGateway";
+export const getApiGateway: typeof import("./getApiGateway").getApiGateway = null as any;
+export const getApiGatewayOutput: typeof import("./getApiGateway").getApiGatewayOutput = null as any;
+utilities.lazyLoad(exports, ["getApiGateway","getApiGatewayOutput"], () => require("./getApiGateway"));
+
+export { GetApiGatewayConfigConnectionArgs, GetApiGatewayConfigConnectionResult, GetApiGatewayConfigConnectionOutputArgs } from "./getApiGatewayConfigConnection";
+export const getApiGatewayConfigConnection: typeof import("./getApiGatewayConfigConnection").getApiGatewayConfigConnection = null as any;
+export const getApiGatewayConfigConnectionOutput: typeof import("./getApiGatewayConfigConnection").getApiGatewayConfigConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getApiGatewayConfigConnection","getApiGatewayConfigConnectionOutput"], () => require("./getApiGatewayConfigConnection"));
 
 export { GetApiIssueArgs, GetApiIssueResult, GetApiIssueOutputArgs } from "./getApiIssue";
 export const getApiIssue: typeof import("./getApiIssue").getApiIssue = null as any;
@@ -465,6 +485,11 @@ export const getWorkspaceApi: typeof import("./getWorkspaceApi").getWorkspaceApi
 export const getWorkspaceApiOutput: typeof import("./getWorkspaceApi").getWorkspaceApiOutput = null as any;
 utilities.lazyLoad(exports, ["getWorkspaceApi","getWorkspaceApiOutput"], () => require("./getWorkspaceApi"));
 
+export { GetWorkspaceApiDiagnosticArgs, GetWorkspaceApiDiagnosticResult, GetWorkspaceApiDiagnosticOutputArgs } from "./getWorkspaceApiDiagnostic";
+export const getWorkspaceApiDiagnostic: typeof import("./getWorkspaceApiDiagnostic").getWorkspaceApiDiagnostic = null as any;
+export const getWorkspaceApiDiagnosticOutput: typeof import("./getWorkspaceApiDiagnostic").getWorkspaceApiDiagnosticOutput = null as any;
+utilities.lazyLoad(exports, ["getWorkspaceApiDiagnostic","getWorkspaceApiDiagnosticOutput"], () => require("./getWorkspaceApiDiagnostic"));
+
 export { GetWorkspaceApiOperationArgs, GetWorkspaceApiOperationResult, GetWorkspaceApiOperationOutputArgs } from "./getWorkspaceApiOperation";
 export const getWorkspaceApiOperation: typeof import("./getWorkspaceApiOperation").getWorkspaceApiOperation = null as any;
 export const getWorkspaceApiOperationOutput: typeof import("./getWorkspaceApiOperation").getWorkspaceApiOperationOutput = null as any;
@@ -495,6 +520,21 @@ export const getWorkspaceApiVersionSet: typeof import("./getWorkspaceApiVersionS
 export const getWorkspaceApiVersionSetOutput: typeof import("./getWorkspaceApiVersionSet").getWorkspaceApiVersionSetOutput = null as any;
 utilities.lazyLoad(exports, ["getWorkspaceApiVersionSet","getWorkspaceApiVersionSetOutput"], () => require("./getWorkspaceApiVersionSet"));
 
+export { GetWorkspaceBackendArgs, GetWorkspaceBackendResult, GetWorkspaceBackendOutputArgs } from "./getWorkspaceBackend";
+export const getWorkspaceBackend: typeof import("./getWorkspaceBackend").getWorkspaceBackend = null as any;
+export const getWorkspaceBackendOutput: typeof import("./getWorkspaceBackend").getWorkspaceBackendOutput = null as any;
+utilities.lazyLoad(exports, ["getWorkspaceBackend","getWorkspaceBackendOutput"], () => require("./getWorkspaceBackend"));
+
+export { GetWorkspaceCertificateArgs, GetWorkspaceCertificateResult, GetWorkspaceCertificateOutputArgs } from "./getWorkspaceCertificate";
+export const getWorkspaceCertificate: typeof import("./getWorkspaceCertificate").getWorkspaceCertificate = null as any;
+export const getWorkspaceCertificateOutput: typeof import("./getWorkspaceCertificate").getWorkspaceCertificateOutput = null as any;
+utilities.lazyLoad(exports, ["getWorkspaceCertificate","getWorkspaceCertificateOutput"], () => require("./getWorkspaceCertificate"));
+
+export { GetWorkspaceDiagnosticArgs, GetWorkspaceDiagnosticResult, GetWorkspaceDiagnosticOutputArgs } from "./getWorkspaceDiagnostic";
+export const getWorkspaceDiagnostic: typeof import("./getWorkspaceDiagnostic").getWorkspaceDiagnostic = null as any;
+export const getWorkspaceDiagnosticOutput: typeof import("./getWorkspaceDiagnostic").getWorkspaceDiagnosticOutput = null as any;
+utilities.lazyLoad(exports, ["getWorkspaceDiagnostic","getWorkspaceDiagnosticOutput"], () => require("./getWorkspaceDiagnostic"));
+
 export { GetWorkspaceGlobalSchemaArgs, GetWorkspaceGlobalSchemaResult, GetWorkspaceGlobalSchemaOutputArgs } from "./getWorkspaceGlobalSchema";
 export const getWorkspaceGlobalSchema: typeof import("./getWorkspaceGlobalSchema").getWorkspaceGlobalSchema = null as any;
 export const getWorkspaceGlobalSchemaOutput: typeof import("./getWorkspaceGlobalSchema").getWorkspaceGlobalSchemaOutput = null as any;
@@ -504,6 +544,11 @@ export { GetWorkspaceGroupArgs, GetWorkspaceGroupResult, GetWorkspaceGroupOutput
 export const getWorkspaceGroup: typeof import("./getWorkspaceGroup").getWorkspaceGroup = null as any;
 export const getWorkspaceGroupOutput: typeof import("./getWorkspaceGroup").getWorkspaceGroupOutput = null as any;
 utilities.lazyLoad(exports, ["getWorkspaceGroup","getWorkspaceGroupOutput"], () => require("./getWorkspaceGroup"));
+
+export { GetWorkspaceLoggerArgs, GetWorkspaceLoggerResult, GetWorkspaceLoggerOutputArgs } from "./getWorkspaceLogger";
+export const getWorkspaceLogger: typeof import("./getWorkspaceLogger").getWorkspaceLogger = null as any;
+export const getWorkspaceLoggerOutput: typeof import("./getWorkspaceLogger").getWorkspaceLoggerOutput = null as any;
+utilities.lazyLoad(exports, ["getWorkspaceLogger","getWorkspaceLoggerOutput"], () => require("./getWorkspaceLogger"));
 
 export { GetWorkspaceNamedValueArgs, GetWorkspaceNamedValueResult, GetWorkspaceNamedValueOutputArgs } from "./getWorkspaceNamedValue";
 export const getWorkspaceNamedValue: typeof import("./getWorkspaceNamedValue").getWorkspaceNamedValue = null as any;
@@ -800,6 +845,11 @@ export type WorkspaceApi = import("./workspaceApi").WorkspaceApi;
 export const WorkspaceApi: typeof import("./workspaceApi").WorkspaceApi = null as any;
 utilities.lazyLoad(exports, ["WorkspaceApi"], () => require("./workspaceApi"));
 
+export { WorkspaceApiDiagnosticArgs } from "./workspaceApiDiagnostic";
+export type WorkspaceApiDiagnostic = import("./workspaceApiDiagnostic").WorkspaceApiDiagnostic;
+export const WorkspaceApiDiagnostic: typeof import("./workspaceApiDiagnostic").WorkspaceApiDiagnostic = null as any;
+utilities.lazyLoad(exports, ["WorkspaceApiDiagnostic"], () => require("./workspaceApiDiagnostic"));
+
 export { WorkspaceApiOperationArgs } from "./workspaceApiOperation";
 export type WorkspaceApiOperation = import("./workspaceApiOperation").WorkspaceApiOperation;
 export const WorkspaceApiOperation: typeof import("./workspaceApiOperation").WorkspaceApiOperation = null as any;
@@ -830,6 +880,21 @@ export type WorkspaceApiVersionSet = import("./workspaceApiVersionSet").Workspac
 export const WorkspaceApiVersionSet: typeof import("./workspaceApiVersionSet").WorkspaceApiVersionSet = null as any;
 utilities.lazyLoad(exports, ["WorkspaceApiVersionSet"], () => require("./workspaceApiVersionSet"));
 
+export { WorkspaceBackendArgs } from "./workspaceBackend";
+export type WorkspaceBackend = import("./workspaceBackend").WorkspaceBackend;
+export const WorkspaceBackend: typeof import("./workspaceBackend").WorkspaceBackend = null as any;
+utilities.lazyLoad(exports, ["WorkspaceBackend"], () => require("./workspaceBackend"));
+
+export { WorkspaceCertificateArgs } from "./workspaceCertificate";
+export type WorkspaceCertificate = import("./workspaceCertificate").WorkspaceCertificate;
+export const WorkspaceCertificate: typeof import("./workspaceCertificate").WorkspaceCertificate = null as any;
+utilities.lazyLoad(exports, ["WorkspaceCertificate"], () => require("./workspaceCertificate"));
+
+export { WorkspaceDiagnosticArgs } from "./workspaceDiagnostic";
+export type WorkspaceDiagnostic = import("./workspaceDiagnostic").WorkspaceDiagnostic;
+export const WorkspaceDiagnostic: typeof import("./workspaceDiagnostic").WorkspaceDiagnostic = null as any;
+utilities.lazyLoad(exports, ["WorkspaceDiagnostic"], () => require("./workspaceDiagnostic"));
+
 export { WorkspaceGlobalSchemaArgs } from "./workspaceGlobalSchema";
 export type WorkspaceGlobalSchema = import("./workspaceGlobalSchema").WorkspaceGlobalSchema;
 export const WorkspaceGlobalSchema: typeof import("./workspaceGlobalSchema").WorkspaceGlobalSchema = null as any;
@@ -844,6 +909,11 @@ export { WorkspaceGroupUserArgs } from "./workspaceGroupUser";
 export type WorkspaceGroupUser = import("./workspaceGroupUser").WorkspaceGroupUser;
 export const WorkspaceGroupUser: typeof import("./workspaceGroupUser").WorkspaceGroupUser = null as any;
 utilities.lazyLoad(exports, ["WorkspaceGroupUser"], () => require("./workspaceGroupUser"));
+
+export { WorkspaceLoggerArgs } from "./workspaceLogger";
+export type WorkspaceLogger = import("./workspaceLogger").WorkspaceLogger;
+export const WorkspaceLogger: typeof import("./workspaceLogger").WorkspaceLogger = null as any;
+utilities.lazyLoad(exports, ["WorkspaceLogger"], () => require("./workspaceLogger"));
 
 export { WorkspaceNamedValueArgs } from "./workspaceNamedValue";
 export type WorkspaceNamedValue = import("./workspaceNamedValue").WorkspaceNamedValue;
@@ -937,6 +1007,7 @@ import * as v20220801 from "./v20220801";
 import * as v20220901preview from "./v20220901preview";
 import * as v20230301preview from "./v20230301preview";
 import * as v20230501preview from "./v20230501preview";
+import * as v20230901preview from "./v20230901preview";
 
 export {
     v20161010,
@@ -956,6 +1027,7 @@ export {
     v20220901preview,
     v20230301preview,
     v20230501preview,
+    v20230901preview,
 };
 
 const _module = {
@@ -966,6 +1038,10 @@ const _module = {
                 return new Api(name, <any>undefined, { urn })
             case "azure-native:apimanagement:ApiDiagnostic":
                 return new ApiDiagnostic(name, <any>undefined, { urn })
+            case "azure-native:apimanagement:ApiGateway":
+                return new ApiGateway(name, <any>undefined, { urn })
+            case "azure-native:apimanagement:ApiGatewayConfigConnection":
+                return new ApiGatewayConfigConnection(name, <any>undefined, { urn })
             case "azure-native:apimanagement:ApiIssue":
                 return new ApiIssue(name, <any>undefined, { urn })
             case "azure-native:apimanagement:ApiIssueAttachment":
@@ -1090,6 +1166,8 @@ const _module = {
                 return new Workspace(name, <any>undefined, { urn })
             case "azure-native:apimanagement:WorkspaceApi":
                 return new WorkspaceApi(name, <any>undefined, { urn })
+            case "azure-native:apimanagement:WorkspaceApiDiagnostic":
+                return new WorkspaceApiDiagnostic(name, <any>undefined, { urn })
             case "azure-native:apimanagement:WorkspaceApiOperation":
                 return new WorkspaceApiOperation(name, <any>undefined, { urn })
             case "azure-native:apimanagement:WorkspaceApiOperationPolicy":
@@ -1102,12 +1180,20 @@ const _module = {
                 return new WorkspaceApiSchema(name, <any>undefined, { urn })
             case "azure-native:apimanagement:WorkspaceApiVersionSet":
                 return new WorkspaceApiVersionSet(name, <any>undefined, { urn })
+            case "azure-native:apimanagement:WorkspaceBackend":
+                return new WorkspaceBackend(name, <any>undefined, { urn })
+            case "azure-native:apimanagement:WorkspaceCertificate":
+                return new WorkspaceCertificate(name, <any>undefined, { urn })
+            case "azure-native:apimanagement:WorkspaceDiagnostic":
+                return new WorkspaceDiagnostic(name, <any>undefined, { urn })
             case "azure-native:apimanagement:WorkspaceGlobalSchema":
                 return new WorkspaceGlobalSchema(name, <any>undefined, { urn })
             case "azure-native:apimanagement:WorkspaceGroup":
                 return new WorkspaceGroup(name, <any>undefined, { urn })
             case "azure-native:apimanagement:WorkspaceGroupUser":
                 return new WorkspaceGroupUser(name, <any>undefined, { urn })
+            case "azure-native:apimanagement:WorkspaceLogger":
+                return new WorkspaceLogger(name, <any>undefined, { urn })
             case "azure-native:apimanagement:WorkspaceNamedValue":
                 return new WorkspaceNamedValue(name, <any>undefined, { urn })
             case "azure-native:apimanagement:WorkspaceNotificationRecipientEmail":

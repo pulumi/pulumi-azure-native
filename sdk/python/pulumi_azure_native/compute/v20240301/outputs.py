@@ -5716,13 +5716,15 @@ class ScheduledEventsProfileResponse(dict):
 @pulumi.output_type
 class SecurityPostureReferenceResponse(dict):
     """
-    Specifies the security posture to be used for all virtual machines in the scale set. Minimum api-version: 2023-03-01
+    Specifies the security posture to be used in the scale set. Minimum api-version: 2023-03-01
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
         if key == "excludeExtensions":
             suggest = "exclude_extensions"
+        elif key == "isOverridable":
+            suggest = "is_overridable"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in SecurityPostureReferenceResponse. Access the value via the '{suggest}' property getter instead.")
@@ -5736,33 +5738,44 @@ class SecurityPostureReferenceResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 exclude_extensions: Optional[Sequence['outputs.VirtualMachineExtensionResponse']] = None,
-                 id: Optional[str] = None):
+                 id: str,
+                 exclude_extensions: Optional[Sequence[str]] = None,
+                 is_overridable: Optional[bool] = None):
         """
-        Specifies the security posture to be used for all virtual machines in the scale set. Minimum api-version: 2023-03-01
-        :param Sequence['VirtualMachineExtensionResponse'] exclude_extensions: List of virtual machine extensions to exclude when applying the Security Posture.
-        :param str id: The security posture reference id in the form of /CommunityGalleries/{communityGalleryName}/securityPostures/{securityPostureName}/versions/{major.minor.patch}|{major.*}|latest
+        Specifies the security posture to be used in the scale set. Minimum api-version: 2023-03-01
+        :param str id: The security posture reference id in the form of /CommunityGalleries/{communityGalleryName}/securityPostures/{securityPostureName}/versions/{major.minor.patch}|latest
+        :param Sequence[str] exclude_extensions: The list of virtual machine extension names to exclude when applying the security posture.
+        :param bool is_overridable: Whether the security posture can be overridden by the user.
         """
+        pulumi.set(__self__, "id", id)
         if exclude_extensions is not None:
             pulumi.set(__self__, "exclude_extensions", exclude_extensions)
-        if id is not None:
-            pulumi.set(__self__, "id", id)
+        if is_overridable is not None:
+            pulumi.set(__self__, "is_overridable", is_overridable)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The security posture reference id in the form of /CommunityGalleries/{communityGalleryName}/securityPostures/{securityPostureName}/versions/{major.minor.patch}|latest
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="excludeExtensions")
-    def exclude_extensions(self) -> Optional[Sequence['outputs.VirtualMachineExtensionResponse']]:
+    def exclude_extensions(self) -> Optional[Sequence[str]]:
         """
-        List of virtual machine extensions to exclude when applying the Security Posture.
+        The list of virtual machine extension names to exclude when applying the security posture.
         """
         return pulumi.get(self, "exclude_extensions")
 
     @property
-    @pulumi.getter
-    def id(self) -> Optional[str]:
+    @pulumi.getter(name="isOverridable")
+    def is_overridable(self) -> Optional[bool]:
         """
-        The security posture reference id in the form of /CommunityGalleries/{communityGalleryName}/securityPostures/{securityPostureName}/versions/{major.minor.patch}|{major.*}|latest
+        Whether the security posture can be overridden by the user.
         """
-        return pulumi.get(self, "id")
+        return pulumi.get(self, "is_overridable")
 
 
 @pulumi.output_type
@@ -10656,7 +10669,7 @@ class VirtualMachineScaleSetVMProfileResponse(dict):
         :param 'VirtualMachineScaleSetOSProfileResponse' os_profile: Specifies the operating system settings for the virtual machines in the scale set.
         :param str priority: Specifies the priority for the virtual machines in the scale set. Minimum api-version: 2017-10-30-preview.
         :param 'ScheduledEventsProfileResponse' scheduled_events_profile: Specifies Scheduled Event related configurations.
-        :param 'SecurityPostureReferenceResponse' security_posture_reference: Specifies the security posture to be used for all virtual machines in the scale set. Minimum api-version: 2023-03-01
+        :param 'SecurityPostureReferenceResponse' security_posture_reference: Specifies the security posture to be used in the scale set. Minimum api-version: 2023-03-01
         :param 'SecurityProfileResponse' security_profile: Specifies the Security related profile settings for the virtual machines in the scale set.
         :param 'ServiceArtifactReferenceResponse' service_artifact_reference: Specifies the service artifact reference id used to set same image version for all virtual machines in the scale set when using 'latest' image version. Minimum api-version: 2022-11-01
         :param 'VirtualMachineScaleSetStorageProfileResponse' storage_profile: Specifies the storage settings for the virtual machine disks.
@@ -10806,7 +10819,7 @@ class VirtualMachineScaleSetVMProfileResponse(dict):
     @pulumi.getter(name="securityPostureReference")
     def security_posture_reference(self) -> Optional['outputs.SecurityPostureReferenceResponse']:
         """
-        Specifies the security posture to be used for all virtual machines in the scale set. Minimum api-version: 2023-03-01
+        Specifies the security posture to be used in the scale set. Minimum api-version: 2023-03-01
         """
         return pulumi.get(self, "security_posture_reference")
 

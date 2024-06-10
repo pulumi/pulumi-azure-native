@@ -595,6 +595,36 @@ namespace Pulumi.AzureNative.Web.V20231201
     }
 
     /// <summary>
+    /// Property to select Azure Storage type. Available options: blobContainer.
+    /// </summary>
+    [EnumType]
+    public readonly struct FunctionsDeploymentStorageType : IEquatable<FunctionsDeploymentStorageType>
+    {
+        private readonly string _value;
+
+        private FunctionsDeploymentStorageType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FunctionsDeploymentStorageType BlobContainer { get; } = new FunctionsDeploymentStorageType("blobContainer");
+
+        public static bool operator ==(FunctionsDeploymentStorageType left, FunctionsDeploymentStorageType right) => left.Equals(right);
+        public static bool operator !=(FunctionsDeploymentStorageType left, FunctionsDeploymentStorageType right) => !left.Equals(right);
+
+        public static explicit operator string(FunctionsDeploymentStorageType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FunctionsDeploymentStorageType other && Equals(other);
+        public bool Equals(FunctionsDeploymentStorageType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Hostname type.
     /// </summary>
     [EnumType]
@@ -1130,9 +1160,6 @@ namespace Pulumi.AzureNative.Web.V20231201
         public override string ToString() => _value;
     }
 
-    /// <summary>
-    /// Property to select Azure Storage type. Available options: blobContainer.
-    /// </summary>
     [EnumType]
     public readonly struct StorageType : IEquatable<StorageType>
     {
@@ -1143,7 +1170,8 @@ namespace Pulumi.AzureNative.Web.V20231201
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static StorageType BlobContainer { get; } = new StorageType("blobContainer");
+        public static StorageType LocalNode { get; } = new StorageType("LocalNode");
+        public static StorageType NetworkFileSystem { get; } = new StorageType("NetworkFileSystem");
 
         public static bool operator ==(StorageType left, StorageType right) => left.Equals(right);
         public static bool operator !=(StorageType left, StorageType right) => !left.Equals(right);

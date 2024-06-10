@@ -162,7 +162,7 @@ class WorkspaceGroup(pulumi.CustomResource):
         Contract details.
         Azure REST API version: 2022-09-01-preview.
 
-        Other available API versions: 2023-03-01-preview, 2023-05-01-preview.
+        Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -185,7 +185,7 @@ class WorkspaceGroup(pulumi.CustomResource):
         Contract details.
         Azure REST API version: 2022-09-01-preview.
 
-        Other available API versions: 2023-03-01-preview, 2023-05-01-preview.
+        Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview.
 
         :param str resource_name: The name of the resource.
         :param WorkspaceGroupArgs args: The arguments to use to populate this resource's properties.
@@ -237,7 +237,7 @@ class WorkspaceGroup(pulumi.CustomResource):
             __props__.__dict__["workspace_id"] = workspace_id
             __props__.__dict__["built_in"] = None
             __props__.__dict__["name"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:WorkspaceGroup"), pulumi.Alias(type_="azure-native:apimanagement/v20230301preview:WorkspaceGroup"), pulumi.Alias(type_="azure-native:apimanagement/v20230501preview:WorkspaceGroup")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:WorkspaceGroup"), pulumi.Alias(type_="azure-native:apimanagement/v20230301preview:WorkspaceGroup"), pulumi.Alias(type_="azure-native:apimanagement/v20230501preview:WorkspaceGroup"), pulumi.Alias(type_="azure-native:apimanagement/v20230901preview:WorkspaceGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WorkspaceGroup, __self__).__init__(
             'azure-native:apimanagement:WorkspaceGroup',

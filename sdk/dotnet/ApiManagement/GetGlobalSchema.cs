@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.ApiManagement
         /// Gets the details of the Schema specified by its identifier.
         /// Azure REST API version: 2022-08-01.
         /// 
-        /// Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview.
+        /// Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview.
         /// </summary>
         public static Task<GetGlobalSchemaResult> InvokeAsync(GetGlobalSchemaArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGlobalSchemaResult>("azure-native:apimanagement:getGlobalSchema", args ?? new GetGlobalSchemaArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.ApiManagement
         /// Gets the details of the Schema specified by its identifier.
         /// Azure REST API version: 2022-08-01.
         /// 
-        /// Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview.
+        /// Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview.
         /// </summary>
         public static Output<GetGlobalSchemaResult> Invoke(GetGlobalSchemaInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGlobalSchemaResult>("azure-native:apimanagement:getGlobalSchema", args ?? new GetGlobalSchemaInvokeArgs(), options.WithDefaults());

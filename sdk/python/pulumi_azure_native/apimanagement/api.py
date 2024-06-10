@@ -513,7 +513,7 @@ class Api(pulumi.CustomResource):
         API details.
         Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2020-12-01.
 
-        Other available API versions: 2016-07-07, 2016-10-10, 2017-03-01, 2018-06-01-preview, 2020-12-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview.
+        Other available API versions: 2016-07-07, 2016-10-10, 2017-03-01, 2018-06-01-preview, 2020-12-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -560,7 +560,7 @@ class Api(pulumi.CustomResource):
         API details.
         Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2020-12-01.
 
-        Other available API versions: 2016-07-07, 2016-10-10, 2017-03-01, 2018-06-01-preview, 2020-12-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview.
+        Other available API versions: 2016-07-07, 2016-10-10, 2017-03-01, 2018-06-01-preview, 2020-12-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview.
 
         :param str resource_name: The name of the resource.
         :param ApiArgs args: The arguments to use to populate this resource's properties.
@@ -651,7 +651,7 @@ class Api(pulumi.CustomResource):
             __props__.__dict__["is_online"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20160707:Api"), pulumi.Alias(type_="azure-native:apimanagement/v20161010:Api"), pulumi.Alias(type_="azure-native:apimanagement/v20170301:Api"), pulumi.Alias(type_="azure-native:apimanagement/v20180101:Api"), pulumi.Alias(type_="azure-native:apimanagement/v20180601preview:Api"), pulumi.Alias(type_="azure-native:apimanagement/v20190101:Api"), pulumi.Alias(type_="azure-native:apimanagement/v20191201:Api"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:Api"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:Api"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:Api"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:Api"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:Api"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:Api"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:Api"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:Api"), pulumi.Alias(type_="azure-native:apimanagement/v20220801:Api"), pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:Api"), pulumi.Alias(type_="azure-native:apimanagement/v20230301preview:Api"), pulumi.Alias(type_="azure-native:apimanagement/v20230501preview:Api")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20160707:Api"), pulumi.Alias(type_="azure-native:apimanagement/v20161010:Api"), pulumi.Alias(type_="azure-native:apimanagement/v20170301:Api"), pulumi.Alias(type_="azure-native:apimanagement/v20180101:Api"), pulumi.Alias(type_="azure-native:apimanagement/v20180601preview:Api"), pulumi.Alias(type_="azure-native:apimanagement/v20190101:Api"), pulumi.Alias(type_="azure-native:apimanagement/v20191201:Api"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:Api"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:Api"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:Api"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:Api"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:Api"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:Api"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:Api"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:Api"), pulumi.Alias(type_="azure-native:apimanagement/v20220801:Api"), pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:Api"), pulumi.Alias(type_="azure-native:apimanagement/v20230301preview:Api"), pulumi.Alias(type_="azure-native:apimanagement/v20230501preview:Api"), pulumi.Alias(type_="azure-native:apimanagement/v20230901preview:Api")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Api, __self__).__init__(
             'azure-native:apimanagement:Api',

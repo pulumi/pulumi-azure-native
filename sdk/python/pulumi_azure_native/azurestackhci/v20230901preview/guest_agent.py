@@ -133,7 +133,7 @@ class GuestAgent(pulumi.CustomResource):
             __props__.__dict__["status"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurestackhci/v20230701preview:GuestAgent"), pulumi.Alias(type_="azure-native:azurestackhci/v20240101:GuestAgent")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurestackhci/v20230701preview:GuestAgent"), pulumi.Alias(type_="azure-native:azurestackhci/v20240101:GuestAgent"), pulumi.Alias(type_="azure-native:azurestackhci/v20240201preview:GuestAgent")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(GuestAgent, __self__).__init__(
             'azure-native:azurestackhci/v20230901preview:GuestAgent',

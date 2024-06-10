@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
     /// Security settings proxy resource
     /// Azure REST API version: 2023-11-01-preview.
     /// 
-    /// Other available API versions: 2024-01-01, 2024-02-15-preview.
+    /// Other available API versions: 2024-01-01, 2024-02-15-preview, 2024-04-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:azurestackhci:SecuritySetting")]
     public partial class SecuritySetting : global::Pulumi.CustomResource
@@ -82,6 +82,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20231101preview:SecuritySetting" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240101:SecuritySetting" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240215preview:SecuritySetting" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240401:SecuritySetting" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

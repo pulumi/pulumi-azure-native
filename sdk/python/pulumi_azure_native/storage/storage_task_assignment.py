@@ -18,20 +18,19 @@ __all__ = ['StorageTaskAssignmentArgs', 'StorageTaskAssignment']
 class StorageTaskAssignmentArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[str],
+                 properties: pulumi.Input['StorageTaskAssignmentPropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
-                 properties: Optional[pulumi.Input['StorageTaskAssignmentPropertiesArgs']] = None,
                  storage_task_assignment_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a StorageTaskAssignment resource.
         :param pulumi.Input[str] account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['StorageTaskAssignmentPropertiesArgs'] properties: Properties of the storage task assignment.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] storage_task_assignment_name: The name of the storage task assignment within the specified resource group. Storage task assignment names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
         """
         pulumi.set(__self__, "account_name", account_name)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if properties is not None:
-            pulumi.set(__self__, "properties", properties)
         if storage_task_assignment_name is not None:
             pulumi.set(__self__, "storage_task_assignment_name", storage_task_assignment_name)
 
@@ -48,6 +47,18 @@ class StorageTaskAssignmentArgs:
         pulumi.set(self, "account_name", value)
 
     @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['StorageTaskAssignmentPropertiesArgs']:
+        """
+        Properties of the storage task assignment.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['StorageTaskAssignmentPropertiesArgs']):
+        pulumi.set(self, "properties", value)
+
+    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
@@ -58,18 +69,6 @@ class StorageTaskAssignmentArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @property
-    @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['StorageTaskAssignmentPropertiesArgs']]:
-        """
-        Properties of the storage task assignment.
-        """
-        return pulumi.get(self, "properties")
-
-    @properties.setter
-    def properties(self, value: Optional[pulumi.Input['StorageTaskAssignmentPropertiesArgs']]):
-        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="storageTaskAssignmentName")
@@ -146,13 +145,14 @@ class StorageTaskAssignment(pulumi.CustomResource):
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
             __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["storage_task_assignment_name"] = storage_task_assignment_name
             __props__.__dict__["name"] = None
-            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:storage/v20230501:StorageTaskAssignment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -180,7 +180,6 @@ class StorageTaskAssignment(pulumi.CustomResource):
 
         __props__.__dict__["name"] = None
         __props__.__dict__["properties"] = None
-        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return StorageTaskAssignment(resource_name, opts=opts, __props__=__props__)
 
@@ -199,14 +198,6 @@ class StorageTaskAssignment(pulumi.CustomResource):
         Properties of the storage task assignment.
         """
         return pulumi.get(self, "properties")
-
-    @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
-        """
-        Azure Resource Manager metadata containing createdBy and modifiedBy information.
-        """
-        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

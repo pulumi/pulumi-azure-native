@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.ApiManagement
         /// Gets the operation link for the tag.
         /// Azure REST API version: 2022-09-01-preview.
         /// 
-        /// Other available API versions: 2023-03-01-preview, 2023-05-01-preview.
+        /// Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview.
         /// </summary>
         public static Task<GetWorkspaceTagOperationLinkResult> InvokeAsync(GetWorkspaceTagOperationLinkArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceTagOperationLinkResult>("azure-native:apimanagement:getWorkspaceTagOperationLink", args ?? new GetWorkspaceTagOperationLinkArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.ApiManagement
         /// Gets the operation link for the tag.
         /// Azure REST API version: 2022-09-01-preview.
         /// 
-        /// Other available API versions: 2023-03-01-preview, 2023-05-01-preview.
+        /// Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview.
         /// </summary>
         public static Output<GetWorkspaceTagOperationLinkResult> Invoke(GetWorkspaceTagOperationLinkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceTagOperationLinkResult>("azure-native:apimanagement:getWorkspaceTagOperationLink", args ?? new GetWorkspaceTagOperationLinkInvokeArgs(), options.WithDefaults());

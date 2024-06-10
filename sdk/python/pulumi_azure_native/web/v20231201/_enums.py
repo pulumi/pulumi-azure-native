@@ -23,6 +23,7 @@ __all__ = [
     'FrequencyUnit',
     'FrontEndServiceType',
     'FtpsState',
+    'FunctionsDeploymentStorageType',
     'HostNameType',
     'HostType',
     'IngressTransportMethod',
@@ -220,6 +221,13 @@ class FtpsState(str, Enum):
     DISABLED = "Disabled"
 
 
+class FunctionsDeploymentStorageType(str, Enum):
+    """
+    Property to select Azure Storage type. Available options: blobContainer.
+    """
+    BLOB_CONTAINER = "blobContainer"
+
+
 class HostNameType(str, Enum):
     """
     Hostname type.
@@ -389,10 +397,8 @@ class StagingEnvironmentPolicy(str, Enum):
 
 
 class StorageType(str, Enum):
-    """
-    Property to select Azure Storage type. Available options: blobContainer.
-    """
-    BLOB_CONTAINER = "blobContainer"
+    LOCAL_NODE = "LocalNode"
+    NETWORK_FILE_SYSTEM = "NetworkFileSystem"
 
 
 class SupportedTlsVersions(str, Enum):

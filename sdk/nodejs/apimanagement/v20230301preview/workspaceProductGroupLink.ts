@@ -87,7 +87,7 @@ export class WorkspaceProductGroupLink extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:WorkspaceProductGroupLink" }, { type: "azure-native:apimanagement/v20220901preview:WorkspaceProductGroupLink" }, { type: "azure-native:apimanagement/v20230501preview:WorkspaceProductGroupLink" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:WorkspaceProductGroupLink" }, { type: "azure-native:apimanagement/v20220901preview:WorkspaceProductGroupLink" }, { type: "azure-native:apimanagement/v20230501preview:WorkspaceProductGroupLink" }, { type: "azure-native:apimanagement/v20230901preview:WorkspaceProductGroupLink" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WorkspaceProductGroupLink.__pulumiType, name, resourceInputs, opts);
     }

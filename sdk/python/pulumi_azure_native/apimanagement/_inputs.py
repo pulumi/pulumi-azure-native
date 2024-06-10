@@ -15,6 +15,7 @@ __all__ = [
     'ApiContactInformationArgs',
     'ApiCreateOrUpdatePropertiesWsdlSelectorArgs',
     'ApiLicenseInformationArgs',
+    'ApiManagementGatewaySkuPropertiesArgs',
     'ApiManagementServiceIdentityArgs',
     'ApiManagementServiceSkuPropertiesArgs',
     'ApiVersionConstraintArgs',
@@ -24,17 +25,25 @@ __all__ = [
     'AuthorizationProviderOAuth2GrantTypesArgs',
     'AuthorizationProviderOAuth2SettingsArgs',
     'BackendAuthorizationHeaderCredentialsArgs',
+    'BackendBaseParametersPoolArgs',
+    'BackendCircuitBreakerArgs',
+    'BackendConfigurationArgs',
     'BackendCredentialsContractArgs',
+    'BackendPoolItemArgs',
     'BackendPropertiesArgs',
     'BackendProxyContractArgs',
     'BackendServiceFabricClusterPropertiesArgs',
+    'BackendSubnetConfigurationArgs',
     'BackendTlsPropertiesArgs',
     'BodyDiagnosticSettingsArgs',
     'CertificateConfigurationArgs',
     'CertificateInformationArgs',
+    'CircuitBreakerFailureConditionArgs',
+    'CircuitBreakerRuleArgs',
     'DataMaskingEntityArgs',
     'DataMaskingArgs',
     'EmailTemplateParametersContractPropertiesArgs',
+    'FailureStatusCodeRangeArgs',
     'HostnameConfigurationArgs',
     'HttpMessageDiagnosticArgs',
     'KeyVaultContractCreatePropertiesArgs',
@@ -316,6 +325,45 @@ class ApiLicenseInformationArgs:
     @url.setter
     def url(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "url", value)
+
+
+@pulumi.input_type
+class ApiManagementGatewaySkuPropertiesArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[Union[str, 'SkuType']],
+                 capacity: Optional[pulumi.Input[int]] = None):
+        """
+        API Management gateway resource SKU properties.
+        :param pulumi.Input[Union[str, 'SkuType']] name: Name of the Sku.
+        :param pulumi.Input[int] capacity: Capacity of the SKU (number of deployed units of the SKU)
+        """
+        pulumi.set(__self__, "name", name)
+        if capacity is not None:
+            pulumi.set(__self__, "capacity", capacity)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[Union[str, 'SkuType']]:
+        """
+        Name of the Sku.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[Union[str, 'SkuType']]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def capacity(self) -> Optional[pulumi.Input[int]]:
+        """
+        Capacity of the SKU (number of deployed units of the SKU)
+        """
+        return pulumi.get(self, "capacity")
+
+    @capacity.setter
+    def capacity(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "capacity", value)
 
 
 @pulumi.input_type
@@ -760,6 +808,77 @@ class BackendAuthorizationHeaderCredentialsArgs:
 
 
 @pulumi.input_type
+class BackendBaseParametersPoolArgs:
+    def __init__(__self__, *,
+                 services: Optional[pulumi.Input[Sequence[pulumi.Input['BackendPoolItemArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['BackendPoolItemArgs']]] services: The list of backend entities belonging to a pool.
+        """
+        if services is not None:
+            pulumi.set(__self__, "services", services)
+
+    @property
+    @pulumi.getter
+    def services(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BackendPoolItemArgs']]]]:
+        """
+        The list of backend entities belonging to a pool.
+        """
+        return pulumi.get(self, "services")
+
+    @services.setter
+    def services(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BackendPoolItemArgs']]]]):
+        pulumi.set(self, "services", value)
+
+
+@pulumi.input_type
+class BackendCircuitBreakerArgs:
+    def __init__(__self__, *,
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['CircuitBreakerRuleArgs']]]] = None):
+        """
+        The configuration of the backend circuit breaker
+        :param pulumi.Input[Sequence[pulumi.Input['CircuitBreakerRuleArgs']]] rules: The rules for tripping the backend.
+        """
+        if rules is not None:
+            pulumi.set(__self__, "rules", rules)
+
+    @property
+    @pulumi.getter
+    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CircuitBreakerRuleArgs']]]]:
+        """
+        The rules for tripping the backend.
+        """
+        return pulumi.get(self, "rules")
+
+    @rules.setter
+    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CircuitBreakerRuleArgs']]]]):
+        pulumi.set(self, "rules", value)
+
+
+@pulumi.input_type
+class BackendConfigurationArgs:
+    def __init__(__self__, *,
+                 subnet: Optional[pulumi.Input['BackendSubnetConfigurationArgs']] = None):
+        """
+        Information regarding how the gateway should integrate with backend systems.
+        :param pulumi.Input['BackendSubnetConfigurationArgs'] subnet: The default hostname of the data-plane gateway to which requests can be sent.
+        """
+        if subnet is not None:
+            pulumi.set(__self__, "subnet", subnet)
+
+    @property
+    @pulumi.getter
+    def subnet(self) -> Optional[pulumi.Input['BackendSubnetConfigurationArgs']]:
+        """
+        The default hostname of the data-plane gateway to which requests can be sent.
+        """
+        return pulumi.get(self, "subnet")
+
+    @subnet.setter
+    def subnet(self, value: Optional[pulumi.Input['BackendSubnetConfigurationArgs']]):
+        pulumi.set(self, "subnet", value)
+
+
+@pulumi.input_type
 class BackendCredentialsContractArgs:
     def __init__(__self__, *,
                  authorization: Optional[pulumi.Input['BackendAuthorizationHeaderCredentialsArgs']] = None,
@@ -845,6 +964,61 @@ class BackendCredentialsContractArgs:
     @query.setter
     def query(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[str]]]]]]):
         pulumi.set(self, "query", value)
+
+
+@pulumi.input_type
+class BackendPoolItemArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[str],
+                 priority: Optional[pulumi.Input[int]] = None,
+                 weight: Optional[pulumi.Input[int]] = None):
+        """
+        Backend pool service information
+        :param pulumi.Input[str] id: The unique ARM id of the backend entity. The ARM id should refer to an already existing backend entity.
+        :param pulumi.Input[int] priority: The priority of the backend entity in the backend pool. Must be between 0 and 100. It can be also null if the value not specified.
+        :param pulumi.Input[int] weight: The weight of the backend entity in the backend pool. Must be between 0 and 100. It can be also null if the value not specified.
+        """
+        pulumi.set(__self__, "id", id)
+        if priority is not None:
+            pulumi.set(__self__, "priority", priority)
+        if weight is not None:
+            pulumi.set(__self__, "weight", weight)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        """
+        The unique ARM id of the backend entity. The ARM id should refer to an already existing backend entity.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def priority(self) -> Optional[pulumi.Input[int]]:
+        """
+        The priority of the backend entity in the backend pool. Must be between 0 and 100. It can be also null if the value not specified.
+        """
+        return pulumi.get(self, "priority")
+
+    @priority.setter
+    def priority(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "priority", value)
+
+    @property
+    @pulumi.getter
+    def weight(self) -> Optional[pulumi.Input[int]]:
+        """
+        The weight of the backend entity in the backend pool. Must be between 0 and 100. It can be also null if the value not specified.
+        """
+        return pulumi.get(self, "weight")
+
+    @weight.setter
+    def weight(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "weight", value)
 
 
 @pulumi.input_type
@@ -1027,6 +1201,30 @@ class BackendServiceFabricClusterPropertiesArgs:
     @server_x509_names.setter
     def server_x509_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['X509CertificateNameArgs']]]]):
         pulumi.set(self, "server_x509_names", value)
+
+
+@pulumi.input_type
+class BackendSubnetConfigurationArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[str]] = None):
+        """
+        Information regarding how the subnet to which the gateway should be injected.
+        :param pulumi.Input[str] id: The ARM ID of the subnet in which the backend systems are hosted.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARM ID of the subnet in which the backend systems are hosted.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
 
 
 @pulumi.input_type
@@ -1222,6 +1420,166 @@ class CertificateInformationArgs:
 
 
 @pulumi.input_type
+class CircuitBreakerFailureConditionArgs:
+    def __init__(__self__, *,
+                 count: Optional[pulumi.Input[float]] = None,
+                 error_reasons: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 interval: Optional[pulumi.Input[str]] = None,
+                 percentage: Optional[pulumi.Input[float]] = None,
+                 status_code_ranges: Optional[pulumi.Input[Sequence[pulumi.Input['FailureStatusCodeRangeArgs']]]] = None):
+        """
+        The trip conditions of the circuit breaker
+        :param pulumi.Input[float] count: The threshold for opening the circuit.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] error_reasons: The error reasons which are considered as failure.
+        :param pulumi.Input[str] interval: The interval during which the failures are counted.
+        :param pulumi.Input[float] percentage: The threshold for opening the circuit.
+        :param pulumi.Input[Sequence[pulumi.Input['FailureStatusCodeRangeArgs']]] status_code_ranges: The status code ranges which are considered as failure.
+        """
+        if count is not None:
+            pulumi.set(__self__, "count", count)
+        if error_reasons is not None:
+            pulumi.set(__self__, "error_reasons", error_reasons)
+        if interval is not None:
+            pulumi.set(__self__, "interval", interval)
+        if percentage is not None:
+            pulumi.set(__self__, "percentage", percentage)
+        if status_code_ranges is not None:
+            pulumi.set(__self__, "status_code_ranges", status_code_ranges)
+
+    @property
+    @pulumi.getter
+    def count(self) -> Optional[pulumi.Input[float]]:
+        """
+        The threshold for opening the circuit.
+        """
+        return pulumi.get(self, "count")
+
+    @count.setter
+    def count(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "count", value)
+
+    @property
+    @pulumi.getter(name="errorReasons")
+    def error_reasons(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The error reasons which are considered as failure.
+        """
+        return pulumi.get(self, "error_reasons")
+
+    @error_reasons.setter
+    def error_reasons(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "error_reasons", value)
+
+    @property
+    @pulumi.getter
+    def interval(self) -> Optional[pulumi.Input[str]]:
+        """
+        The interval during which the failures are counted.
+        """
+        return pulumi.get(self, "interval")
+
+    @interval.setter
+    def interval(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "interval", value)
+
+    @property
+    @pulumi.getter
+    def percentage(self) -> Optional[pulumi.Input[float]]:
+        """
+        The threshold for opening the circuit.
+        """
+        return pulumi.get(self, "percentage")
+
+    @percentage.setter
+    def percentage(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "percentage", value)
+
+    @property
+    @pulumi.getter(name="statusCodeRanges")
+    def status_code_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FailureStatusCodeRangeArgs']]]]:
+        """
+        The status code ranges which are considered as failure.
+        """
+        return pulumi.get(self, "status_code_ranges")
+
+    @status_code_ranges.setter
+    def status_code_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FailureStatusCodeRangeArgs']]]]):
+        pulumi.set(self, "status_code_ranges", value)
+
+
+@pulumi.input_type
+class CircuitBreakerRuleArgs:
+    def __init__(__self__, *,
+                 accept_retry_after: Optional[pulumi.Input[bool]] = None,
+                 failure_condition: Optional[pulumi.Input['CircuitBreakerFailureConditionArgs']] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 trip_duration: Optional[pulumi.Input[str]] = None):
+        """
+        Rule configuration to trip the backend.
+        :param pulumi.Input[bool] accept_retry_after: flag to accept Retry-After header from the backend.
+        :param pulumi.Input['CircuitBreakerFailureConditionArgs'] failure_condition: The conditions for tripping the circuit breaker.
+        :param pulumi.Input[str] name: The rule name.
+        :param pulumi.Input[str] trip_duration: The duration for which the circuit will be tripped.
+        """
+        if accept_retry_after is not None:
+            pulumi.set(__self__, "accept_retry_after", accept_retry_after)
+        if failure_condition is not None:
+            pulumi.set(__self__, "failure_condition", failure_condition)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if trip_duration is not None:
+            pulumi.set(__self__, "trip_duration", trip_duration)
+
+    @property
+    @pulumi.getter(name="acceptRetryAfter")
+    def accept_retry_after(self) -> Optional[pulumi.Input[bool]]:
+        """
+        flag to accept Retry-After header from the backend.
+        """
+        return pulumi.get(self, "accept_retry_after")
+
+    @accept_retry_after.setter
+    def accept_retry_after(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "accept_retry_after", value)
+
+    @property
+    @pulumi.getter(name="failureCondition")
+    def failure_condition(self) -> Optional[pulumi.Input['CircuitBreakerFailureConditionArgs']]:
+        """
+        The conditions for tripping the circuit breaker.
+        """
+        return pulumi.get(self, "failure_condition")
+
+    @failure_condition.setter
+    def failure_condition(self, value: Optional[pulumi.Input['CircuitBreakerFailureConditionArgs']]):
+        pulumi.set(self, "failure_condition", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The rule name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="tripDuration")
+    def trip_duration(self) -> Optional[pulumi.Input[str]]:
+        """
+        The duration for which the circuit will be tripped.
+        """
+        return pulumi.get(self, "trip_duration")
+
+    @trip_duration.setter
+    def trip_duration(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "trip_duration", value)
+
+
+@pulumi.input_type
 class DataMaskingEntityArgs:
     def __init__(__self__, *,
                  mode: Optional[pulumi.Input[Union[str, 'DataMaskingMode']]] = None,
@@ -1353,6 +1711,46 @@ class EmailTemplateParametersContractPropertiesArgs:
     @title.setter
     def title(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "title", value)
+
+
+@pulumi.input_type
+class FailureStatusCodeRangeArgs:
+    def __init__(__self__, *,
+                 max: Optional[pulumi.Input[int]] = None,
+                 min: Optional[pulumi.Input[int]] = None):
+        """
+        The failure http status code range
+        :param pulumi.Input[int] max: The maximum http status code.
+        :param pulumi.Input[int] min: The minimum http status code.
+        """
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
+
+    @property
+    @pulumi.getter
+    def max(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum http status code.
+        """
+        return pulumi.get(self, "max")
+
+    @max.setter
+    def max(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max", value)
+
+    @property
+    @pulumi.getter
+    def min(self) -> Optional[pulumi.Input[int]]:
+        """
+        The minimum http status code.
+        """
+        return pulumi.get(self, "min")
+
+    @min.setter
+    def min(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "min", value)
 
 
 @pulumi.input_type

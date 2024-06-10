@@ -105,6 +105,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20220801
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220901preview:EmailTemplate" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230301preview:EmailTemplate" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230501preview:EmailTemplate" },
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230901preview:EmailTemplate" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

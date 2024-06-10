@@ -101,7 +101,7 @@ def get_policy(format: Optional[str] = None,
     Get the Global policy definition of the Api Management service.
     Azure REST API version: 2022-08-01.
 
-    Other available API versions: 2018-06-01-preview, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview.
+    Other available API versions: 2018-06-01-preview, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview.
 
 
     :param str format: Policy Export Format.
@@ -135,7 +135,7 @@ def get_policy_output(format: Optional[pulumi.Input[Optional[str]]] = None,
     Get the Global policy definition of the Api Management service.
     Azure REST API version: 2022-08-01.
 
-    Other available API versions: 2018-06-01-preview, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview.
+    Other available API versions: 2018-06-01-preview, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview.
 
 
     :param str format: Policy Export Format.

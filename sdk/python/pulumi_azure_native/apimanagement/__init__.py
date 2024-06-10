@@ -8,6 +8,8 @@ import typing
 from ._enums import *
 from .api import *
 from .api_diagnostic import *
+from .api_gateway import *
+from .api_gateway_config_connection import *
 from .api_issue import *
 from .api_issue_attachment import *
 from .api_issue_comment import *
@@ -38,6 +40,8 @@ from .gateway_certificate_authority import *
 from .gateway_hostname_configuration import *
 from .get_api import *
 from .get_api_diagnostic import *
+from .get_api_gateway import *
+from .get_api_gateway_config_connection import *
 from .get_api_issue import *
 from .get_api_issue_attachment import *
 from .get_api_issue_comment import *
@@ -98,14 +102,19 @@ from .get_user import *
 from .get_user_shared_access_token import *
 from .get_workspace import *
 from .get_workspace_api import *
+from .get_workspace_api_diagnostic import *
 from .get_workspace_api_operation import *
 from .get_workspace_api_operation_policy import *
 from .get_workspace_api_policy import *
 from .get_workspace_api_release import *
 from .get_workspace_api_schema import *
 from .get_workspace_api_version_set import *
+from .get_workspace_backend import *
+from .get_workspace_certificate import *
+from .get_workspace_diagnostic import *
 from .get_workspace_global_schema import *
 from .get_workspace_group import *
+from .get_workspace_logger import *
 from .get_workspace_named_value import *
 from .get_workspace_policy import *
 from .get_workspace_policy_fragment import *
@@ -165,15 +174,20 @@ from .tag_product_link import *
 from .user import *
 from .workspace import *
 from .workspace_api import *
+from .workspace_api_diagnostic import *
 from .workspace_api_operation import *
 from .workspace_api_operation_policy import *
 from .workspace_api_policy import *
 from .workspace_api_release import *
 from .workspace_api_schema import *
 from .workspace_api_version_set import *
+from .workspace_backend import *
+from .workspace_certificate import *
+from .workspace_diagnostic import *
 from .workspace_global_schema import *
 from .workspace_group import *
 from .workspace_group_user import *
+from .workspace_logger import *
 from .workspace_named_value import *
 from .workspace_notification_recipient_email import *
 from .workspace_notification_recipient_user import *
@@ -227,6 +241,8 @@ if typing.TYPE_CHECKING:
     v20230301preview = __v20230301preview
     import pulumi_azure_native.apimanagement.v20230501preview as __v20230501preview
     v20230501preview = __v20230501preview
+    import pulumi_azure_native.apimanagement.v20230901preview as __v20230901preview
+    v20230901preview = __v20230901preview
 else:
     v20161010 = _utilities.lazy_import('pulumi_azure_native.apimanagement.v20161010')
     v20170301 = _utilities.lazy_import('pulumi_azure_native.apimanagement.v20170301')
@@ -245,4 +261,5 @@ else:
     v20220901preview = _utilities.lazy_import('pulumi_azure_native.apimanagement.v20220901preview')
     v20230301preview = _utilities.lazy_import('pulumi_azure_native.apimanagement.v20230301preview')
     v20230501preview = _utilities.lazy_import('pulumi_azure_native.apimanagement.v20230501preview')
+    v20230901preview = _utilities.lazy_import('pulumi_azure_native.apimanagement.v20230901preview')
 

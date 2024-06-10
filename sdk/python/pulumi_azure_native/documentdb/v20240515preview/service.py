@@ -10,6 +10,7 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
+from ._inputs import *
 
 __all__ = ['ServiceArgs', 'Service']
 
@@ -18,26 +19,19 @@ class ServiceArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
-                 service_type: pulumi.Input[Union[str, 'ServiceType']],
-                 instance_count: Optional[pulumi.Input[int]] = None,
-                 instance_size: Optional[pulumi.Input[Union[str, 'ServiceSize']]] = None,
+                 properties: Optional[pulumi.Input[Union['DataTransferServiceResourceCreateUpdatePropertiesArgs', 'GraphAPIComputeServiceResourceCreateUpdatePropertiesArgs', 'MaterializedViewsBuilderServiceResourceCreateUpdatePropertiesArgs', 'SqlDedicatedGatewayServiceResourceCreateUpdatePropertiesArgs']]] = None,
                  service_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Service resource.
         :param pulumi.Input[str] account_name: Cosmos DB database account name.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[Union[str, 'ServiceType']] service_type: ServiceType for the service.
-        :param pulumi.Input[int] instance_count: Instance count for the service.
-        :param pulumi.Input[Union[str, 'ServiceSize']] instance_size: Instance type for the service.
+        :param pulumi.Input[Union['DataTransferServiceResourceCreateUpdatePropertiesArgs', 'GraphAPIComputeServiceResourceCreateUpdatePropertiesArgs', 'MaterializedViewsBuilderServiceResourceCreateUpdatePropertiesArgs', 'SqlDedicatedGatewayServiceResourceCreateUpdatePropertiesArgs']] properties: Properties in ServiceResourceCreateUpdateParameters.
         :param pulumi.Input[str] service_name: Cosmos DB service name.
         """
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "service_type", service_type)
-        if instance_count is not None:
-            pulumi.set(__self__, "instance_count", instance_count)
-        if instance_size is not None:
-            pulumi.set(__self__, "instance_size", instance_size)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
         if service_name is not None:
             pulumi.set(__self__, "service_name", service_name)
 
@@ -66,40 +60,16 @@ class ServiceArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @property
-    @pulumi.getter(name="serviceType")
-    def service_type(self) -> pulumi.Input[Union[str, 'ServiceType']]:
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input[Union['DataTransferServiceResourceCreateUpdatePropertiesArgs', 'GraphAPIComputeServiceResourceCreateUpdatePropertiesArgs', 'MaterializedViewsBuilderServiceResourceCreateUpdatePropertiesArgs', 'SqlDedicatedGatewayServiceResourceCreateUpdatePropertiesArgs']]]:
         """
-        ServiceType for the service.
+        Properties in ServiceResourceCreateUpdateParameters.
         """
-        return pulumi.get(self, "service_type")
+        return pulumi.get(self, "properties")
 
-    @service_type.setter
-    def service_type(self, value: pulumi.Input[Union[str, 'ServiceType']]):
-        pulumi.set(self, "service_type", value)
-
-    @property
-    @pulumi.getter(name="instanceCount")
-    def instance_count(self) -> Optional[pulumi.Input[int]]:
-        """
-        Instance count for the service.
-        """
-        return pulumi.get(self, "instance_count")
-
-    @instance_count.setter
-    def instance_count(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "instance_count", value)
-
-    @property
-    @pulumi.getter(name="instanceSize")
-    def instance_size(self) -> Optional[pulumi.Input[Union[str, 'ServiceSize']]]:
-        """
-        Instance type for the service.
-        """
-        return pulumi.get(self, "instance_size")
-
-    @instance_size.setter
-    def instance_size(self, value: Optional[pulumi.Input[Union[str, 'ServiceSize']]]):
-        pulumi.set(self, "instance_size", value)
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input[Union['DataTransferServiceResourceCreateUpdatePropertiesArgs', 'GraphAPIComputeServiceResourceCreateUpdatePropertiesArgs', 'MaterializedViewsBuilderServiceResourceCreateUpdatePropertiesArgs', 'SqlDedicatedGatewayServiceResourceCreateUpdatePropertiesArgs']]]):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="serviceName")
@@ -120,11 +90,9 @@ class Service(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
-                 instance_count: Optional[pulumi.Input[int]] = None,
-                 instance_size: Optional[pulumi.Input[Union[str, 'ServiceSize']]] = None,
+                 properties: Optional[pulumi.Input[Union[pulumi.InputType['DataTransferServiceResourceCreateUpdatePropertiesArgs'], pulumi.InputType['GraphAPIComputeServiceResourceCreateUpdatePropertiesArgs'], pulumi.InputType['MaterializedViewsBuilderServiceResourceCreateUpdatePropertiesArgs'], pulumi.InputType['SqlDedicatedGatewayServiceResourceCreateUpdatePropertiesArgs']]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
-                 service_type: Optional[pulumi.Input[Union[str, 'ServiceType']]] = None,
                  __props__=None):
         """
         Properties for the database account.
@@ -132,11 +100,9 @@ class Service(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: Cosmos DB database account name.
-        :param pulumi.Input[int] instance_count: Instance count for the service.
-        :param pulumi.Input[Union[str, 'ServiceSize']] instance_size: Instance type for the service.
+        :param pulumi.Input[Union[pulumi.InputType['DataTransferServiceResourceCreateUpdatePropertiesArgs'], pulumi.InputType['GraphAPIComputeServiceResourceCreateUpdatePropertiesArgs'], pulumi.InputType['MaterializedViewsBuilderServiceResourceCreateUpdatePropertiesArgs'], pulumi.InputType['SqlDedicatedGatewayServiceResourceCreateUpdatePropertiesArgs']]] properties: Properties in ServiceResourceCreateUpdateParameters.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] service_name: Cosmos DB service name.
-        :param pulumi.Input[Union[str, 'ServiceType']] service_type: ServiceType for the service.
         """
         ...
     @overload
@@ -163,11 +129,9 @@ class Service(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
-                 instance_count: Optional[pulumi.Input[int]] = None,
-                 instance_size: Optional[pulumi.Input[Union[str, 'ServiceSize']]] = None,
+                 properties: Optional[pulumi.Input[Union[pulumi.InputType['DataTransferServiceResourceCreateUpdatePropertiesArgs'], pulumi.InputType['GraphAPIComputeServiceResourceCreateUpdatePropertiesArgs'], pulumi.InputType['MaterializedViewsBuilderServiceResourceCreateUpdatePropertiesArgs'], pulumi.InputType['SqlDedicatedGatewayServiceResourceCreateUpdatePropertiesArgs']]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
-                 service_type: Optional[pulumi.Input[Union[str, 'ServiceType']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -180,17 +144,12 @@ class Service(pulumi.CustomResource):
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
-            __props__.__dict__["instance_count"] = instance_count
-            __props__.__dict__["instance_size"] = instance_size
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["service_name"] = service_name
-            if service_type is None and not opts.urn:
-                raise TypeError("Missing required property 'service_type'")
-            __props__.__dict__["service_type"] = service_type
             __props__.__dict__["name"] = None
-            __props__.__dict__["properties"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:documentdb:Service"), pulumi.Alias(type_="azure-native:documentdb/v20210401preview:Service"), pulumi.Alias(type_="azure-native:documentdb/v20210701preview:Service"), pulumi.Alias(type_="azure-native:documentdb/v20211015preview:Service"), pulumi.Alias(type_="azure-native:documentdb/v20211115preview:Service"), pulumi.Alias(type_="azure-native:documentdb/v20220215preview:Service"), pulumi.Alias(type_="azure-native:documentdb/v20220515:Service"), pulumi.Alias(type_="azure-native:documentdb/v20220515preview:Service"), pulumi.Alias(type_="azure-native:documentdb/v20220815:Service"), pulumi.Alias(type_="azure-native:documentdb/v20220815preview:Service"), pulumi.Alias(type_="azure-native:documentdb/v20221115:Service"), pulumi.Alias(type_="azure-native:documentdb/v20221115preview:Service"), pulumi.Alias(type_="azure-native:documentdb/v20230301preview:Service"), pulumi.Alias(type_="azure-native:documentdb/v20230315:Service"), pulumi.Alias(type_="azure-native:documentdb/v20230315preview:Service"), pulumi.Alias(type_="azure-native:documentdb/v20230415:Service"), pulumi.Alias(type_="azure-native:documentdb/v20230915:Service"), pulumi.Alias(type_="azure-native:documentdb/v20230915preview:Service"), pulumi.Alias(type_="azure-native:documentdb/v20231115:Service"), pulumi.Alias(type_="azure-native:documentdb/v20231115preview:Service"), pulumi.Alias(type_="azure-native:documentdb/v20240215preview:Service"), pulumi.Alias(type_="azure-native:documentdb/v20240515:Service")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

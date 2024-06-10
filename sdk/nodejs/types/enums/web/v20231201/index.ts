@@ -211,6 +211,15 @@ export const FtpsState = {
  */
 export type FtpsState = (typeof FtpsState)[keyof typeof FtpsState];
 
+export const FunctionsDeploymentStorageType = {
+    BlobContainer: "blobContainer",
+} as const;
+
+/**
+ * Property to select Azure Storage type. Available options: blobContainer.
+ */
+export type FunctionsDeploymentStorageType = (typeof FunctionsDeploymentStorageType)[keyof typeof FunctionsDeploymentStorageType];
+
 export const HostNameType = {
     Verified: "Verified",
     Managed: "Managed",
@@ -412,12 +421,10 @@ export const StagingEnvironmentPolicy = {
 export type StagingEnvironmentPolicy = (typeof StagingEnvironmentPolicy)[keyof typeof StagingEnvironmentPolicy];
 
 export const StorageType = {
-    BlobContainer: "blobContainer",
+    LocalNode: "LocalNode",
+    NetworkFileSystem: "NetworkFileSystem",
 } as const;
 
-/**
- * Property to select Azure Storage type. Available options: blobContainer.
- */
 export type StorageType = (typeof StorageType)[keyof typeof StorageType];
 
 export const SupportedTlsVersions = {

@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Get a ElasticSan.
  * Azure REST API version: 2021-11-20-preview.
  *
- * Other available API versions: 2022-12-01-preview, 2023-01-01.
+ * Other available API versions: 2022-12-01-preview, 2023-01-01, 2024-05-01.
  */
 export function getElasticSan(args: GetElasticSanArgs, opts?: pulumi.InvokeOptions): Promise<GetElasticSanResult> {
 
@@ -106,7 +106,7 @@ export interface GetElasticSanResult {
  * Get a ElasticSan.
  * Azure REST API version: 2021-11-20-preview.
  *
- * Other available API versions: 2022-12-01-preview, 2023-01-01.
+ * Other available API versions: 2022-12-01-preview, 2023-01-01, 2024-05-01.
  */
 export function getElasticSanOutput(args: GetElasticSanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetElasticSanResult> {
     return pulumi.output(args).apply((a: any) => getElasticSan(a, opts))

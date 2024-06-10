@@ -184,7 +184,7 @@ def get_logical_network(logical_network_name: Optional[str] = None,
     The logical network resource definition.
     Azure REST API version: 2023-09-01-preview.
 
-    Other available API versions: 2024-01-01.
+    Other available API versions: 2024-01-01, 2024-02-01-preview.
 
 
     :param str logical_network_name: Name of the logical network
@@ -219,7 +219,7 @@ def get_logical_network_output(logical_network_name: Optional[pulumi.Input[str]]
     The logical network resource definition.
     Azure REST API version: 2023-09-01-preview.
 
-    Other available API versions: 2024-01-01.
+    Other available API versions: 2024-01-01, 2024-02-01-preview.
 
 
     :param str logical_network_name: Name of the logical network

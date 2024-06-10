@@ -89,7 +89,7 @@ def get_product_group_link(group_link_id: Optional[str] = None,
     Gets the group link for the product.
     Azure REST API version: 2022-09-01-preview.
 
-    Other available API versions: 2023-03-01-preview, 2023-05-01-preview.
+    Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview.
 
 
     :param str group_link_id: Product-Group link identifier. Must be unique in the current API Management service instance.
@@ -122,7 +122,7 @@ def get_product_group_link_output(group_link_id: Optional[pulumi.Input[str]] = N
     Gets the group link for the product.
     Azure REST API version: 2022-09-01-preview.
 
-    Other available API versions: 2023-03-01-preview, 2023-05-01-preview.
+    Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview.
 
 
     :param str group_link_id: Product-Group link identifier. Must be unique in the current API Management service instance.

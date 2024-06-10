@@ -138,6 +138,8 @@ def get_volume_snapshot(elastic_san_name: Optional[str] = None,
     Get a Volume Snapshot.
     Azure REST API version: 2023-01-01.
 
+    Other available API versions: 2024-05-01.
+
 
     :param str elastic_san_name: The name of the ElasticSan.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -172,6 +174,8 @@ def get_volume_snapshot_output(elastic_san_name: Optional[pulumi.Input[str]] = N
     """
     Get a Volume Snapshot.
     Azure REST API version: 2023-01-01.
+
+    Other available API versions: 2024-05-01.
 
 
     :param str elastic_san_name: The name of the ElasticSan.

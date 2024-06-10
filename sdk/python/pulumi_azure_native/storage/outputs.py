@@ -1826,24 +1826,17 @@ class ExecutionTargetResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 prefix: Sequence[str],
-                 exclude_prefix: Optional[Sequence[str]] = None):
+                 exclude_prefix: Optional[Sequence[str]] = None,
+                 prefix: Optional[Sequence[str]] = None):
         """
         Target helps provide filter parameters for the objects in the storage account and forms the execution context for the storage task
-        :param Sequence[str] prefix: Required list of object prefixes to be included for task execution
         :param Sequence[str] exclude_prefix: List of object prefixes to be excluded from task execution. If there is a conflict between include and exclude prefixes, the exclude prefix will be the determining factor
+        :param Sequence[str] prefix: Required list of object prefixes to be included for task execution
         """
-        pulumi.set(__self__, "prefix", prefix)
         if exclude_prefix is not None:
             pulumi.set(__self__, "exclude_prefix", exclude_prefix)
-
-    @property
-    @pulumi.getter
-    def prefix(self) -> Sequence[str]:
-        """
-        Required list of object prefixes to be included for task execution
-        """
-        return pulumi.get(self, "prefix")
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
 
     @property
     @pulumi.getter(name="excludePrefix")
@@ -1852,6 +1845,14 @@ class ExecutionTargetResponse(dict):
         List of object prefixes to be excluded from task execution. If there is a conflict between include and exclude prefixes, the exclude prefix will be the determining factor
         """
         return pulumi.get(self, "exclude_prefix")
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> Optional[Sequence[str]]:
+        """
+        Required list of object prefixes to be included for task execution
+        """
+        return pulumi.get(self, "prefix")
 
 
 @pulumi.output_type
@@ -4483,23 +4484,16 @@ class StorageTaskAssignmentExecutionContextResponse(dict):
     Execution context of the storage task assignment.
     """
     def __init__(__self__, *,
-                 target: 'outputs.ExecutionTargetResponse',
-                 trigger: 'outputs.ExecutionTriggerResponse'):
+                 trigger: 'outputs.ExecutionTriggerResponse',
+                 target: Optional['outputs.ExecutionTargetResponse'] = None):
         """
         Execution context of the storage task assignment.
-        :param 'ExecutionTargetResponse' target: Execution target of the storage task assignment
         :param 'ExecutionTriggerResponse' trigger: Execution trigger of the storage task assignment
+        :param 'ExecutionTargetResponse' target: Execution target of the storage task assignment
         """
-        pulumi.set(__self__, "target", target)
         pulumi.set(__self__, "trigger", trigger)
-
-    @property
-    @pulumi.getter
-    def target(self) -> 'outputs.ExecutionTargetResponse':
-        """
-        Execution target of the storage task assignment
-        """
-        return pulumi.get(self, "target")
+        if target is not None:
+            pulumi.set(__self__, "target", target)
 
     @property
     @pulumi.getter
@@ -4508,6 +4502,14 @@ class StorageTaskAssignmentExecutionContextResponse(dict):
         Execution trigger of the storage task assignment
         """
         return pulumi.get(self, "trigger")
+
+    @property
+    @pulumi.getter
+    def target(self) -> Optional['outputs.ExecutionTargetResponse']:
+        """
+        Execution target of the storage task assignment
+        """
+        return pulumi.get(self, "target")
 
 
 @pulumi.output_type

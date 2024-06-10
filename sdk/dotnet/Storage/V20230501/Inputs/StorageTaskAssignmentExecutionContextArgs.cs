@@ -18,8 +18,8 @@ namespace Pulumi.AzureNative.Storage.V20230501.Inputs
         /// <summary>
         /// Execution target of the storage task assignment
         /// </summary>
-        [Input("target", required: true)]
-        public Input<Inputs.ExecutionTargetArgs> Target { get; set; } = null!;
+        [Input("target")]
+        public Input<Inputs.ExecutionTargetArgs>? Target { get; set; }
 
         /// <summary>
         /// Execution trigger of the storage task assignment

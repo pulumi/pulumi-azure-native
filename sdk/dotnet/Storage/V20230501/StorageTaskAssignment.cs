@@ -28,12 +28,6 @@ namespace Pulumi.AzureNative.Storage.V20230501
         public Output<Outputs.StorageTaskAssignmentPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
-        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-        /// </summary>
-        [Output("systemData")]
-        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
-
-        /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
@@ -97,8 +91,8 @@ namespace Pulumi.AzureNative.Storage.V20230501
         /// <summary>
         /// Properties of the storage task assignment.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.StorageTaskAssignmentPropertiesArgs>? Properties { get; set; }
+        [Input("properties", required: true)]
+        public Input<Inputs.StorageTaskAssignmentPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

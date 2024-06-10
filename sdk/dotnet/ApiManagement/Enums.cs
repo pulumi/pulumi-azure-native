@@ -247,6 +247,43 @@ namespace Pulumi.AzureNative.ApiManagement
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// Type of the backend. A backend can be either Single or Pool.
+    /// </summary>
+    [EnumType]
+    public readonly struct BackendType : IEquatable<BackendType>
+    {
+        private readonly string _value;
+
+        private BackendType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// supports single backend
+        /// </summary>
+        public static BackendType Single { get; } = new BackendType("Single");
+        /// <summary>
+        /// supports pool backend
+        /// </summary>
+        public static BackendType Pool { get; } = new BackendType("Pool");
+
+        public static bool operator ==(BackendType left, BackendType right) => left.Equals(right);
+        public static bool operator !=(BackendType left, BackendType right) => !left.Equals(right);
+
+        public static explicit operator string(BackendType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is BackendType other && Equals(other);
+        public bool Equals(BackendType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct BearerTokenSendingMethod : IEquatable<BearerTokenSendingMethod>
     {

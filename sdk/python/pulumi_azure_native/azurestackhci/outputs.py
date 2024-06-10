@@ -51,6 +51,7 @@ __all__ = [
     'IntentsResponse',
     'InterfaceDNSSettingsResponse',
     'IpPoolsResponse',
+    'LogicalNetworkArmReferenceResponse',
     'LogicalNetworkPropertiesResponseDhcpOptions',
     'LogicalNetworkStatusResponse',
     'LogicalNetworkStatusResponseProvisioningStatus',
@@ -59,6 +60,7 @@ __all__ = [
     'MarketplaceGalleryImageStatusResponse',
     'MarketplaceGalleryImageStatusResponseDownloadStatus',
     'MarketplaceGalleryImageStatusResponseProvisioningStatus',
+    'NetworkInterfaceArmReferenceResponse',
     'NetworkInterfaceStatusResponse',
     'NetworkInterfaceStatusResponseProvisioningStatus',
     'NicDetailResponse',
@@ -2835,6 +2837,29 @@ class IpPoolsResponse(dict):
 
 
 @pulumi.output_type
+class LogicalNetworkArmReferenceResponse(dict):
+    """
+    The ARM ID for a Logical Network.
+    """
+    def __init__(__self__, *,
+                 id: Optional[str] = None):
+        """
+        The ARM ID for a Logical Network.
+        :param str id: The ARM ID for a Logical Network.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        The ARM ID for a Logical Network.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
 class LogicalNetworkPropertiesResponseDhcpOptions(dict):
     """
     DhcpOptions contains an array of DNS servers available to VMs deployed in the logical network. Standard DHCP option for a subnet overrides logical network DHCP options.
@@ -3320,6 +3345,29 @@ class MarketplaceGalleryImageStatusResponseProvisioningStatus(dict):
         The status of the operation performed on the gallery image [Succeeded, Failed, InProgress]
         """
         return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class NetworkInterfaceArmReferenceResponse(dict):
+    """
+    The ARM ID for a Network Interface.
+    """
+    def __init__(__self__, *,
+                 id: Optional[str] = None):
+        """
+        The ARM ID for a Network Interface.
+        :param str id: The ARM ID for a Network Interface.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        The ARM ID for a Network Interface.
+        """
+        return pulumi.get(self, "id")
 
 
 @pulumi.output_type

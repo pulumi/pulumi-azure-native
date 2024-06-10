@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * The Private Endpoint Connection resource.
  * Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2021-04-01-preview.
  *
- * Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview.
+ * Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview.
  */
 export class PrivateEndpointConnectionByName extends pulumi.CustomResource {
     /**
@@ -96,7 +96,7 @@ export class PrivateEndpointConnectionByName extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20210401preview:PrivateEndpointConnectionByName" }, { type: "azure-native:apimanagement/v20210801:PrivateEndpointConnectionByName" }, { type: "azure-native:apimanagement/v20211201preview:PrivateEndpointConnectionByName" }, { type: "azure-native:apimanagement/v20220401preview:PrivateEndpointConnectionByName" }, { type: "azure-native:apimanagement/v20220801:PrivateEndpointConnectionByName" }, { type: "azure-native:apimanagement/v20220901preview:PrivateEndpointConnectionByName" }, { type: "azure-native:apimanagement/v20230301preview:PrivateEndpointConnectionByName" }, { type: "azure-native:apimanagement/v20230501preview:PrivateEndpointConnectionByName" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20210401preview:PrivateEndpointConnectionByName" }, { type: "azure-native:apimanagement/v20210801:PrivateEndpointConnectionByName" }, { type: "azure-native:apimanagement/v20211201preview:PrivateEndpointConnectionByName" }, { type: "azure-native:apimanagement/v20220401preview:PrivateEndpointConnectionByName" }, { type: "azure-native:apimanagement/v20220801:PrivateEndpointConnectionByName" }, { type: "azure-native:apimanagement/v20220901preview:PrivateEndpointConnectionByName" }, { type: "azure-native:apimanagement/v20230301preview:PrivateEndpointConnectionByName" }, { type: "azure-native:apimanagement/v20230501preview:PrivateEndpointConnectionByName" }, { type: "azure-native:apimanagement/v20230901preview:PrivateEndpointConnectionByName" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateEndpointConnectionByName.__pulumiType, name, resourceInputs, opts);
     }

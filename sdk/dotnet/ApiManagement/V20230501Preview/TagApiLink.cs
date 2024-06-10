@@ -61,6 +61,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20230501Preview
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement:TagApiLink" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220901preview:TagApiLink" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230301preview:TagApiLink" },
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230901preview:TagApiLink" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

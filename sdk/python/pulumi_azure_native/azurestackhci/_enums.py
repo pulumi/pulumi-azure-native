@@ -22,6 +22,9 @@ __all__ = [
     'PrivateIPAllocationMethodEnum',
     'ProvisioningAction',
     'ResourceIdentityType',
+    'SecurityRuleAccess',
+    'SecurityRuleDirection',
+    'SecurityRuleProtocol',
     'SecurityTypes',
     'SoftwareAssuranceIntent',
     'SoftwareAssuranceStatus',
@@ -189,6 +192,56 @@ class ResourceIdentityType(str, Enum):
     The identity type.
     """
     SYSTEM_ASSIGNED = "SystemAssigned"
+
+
+class SecurityRuleAccess(str, Enum):
+    """
+    The network traffic is allowed or denied.
+    """
+    ALLOW = "Allow"
+    """
+    Network traffic is allowed
+    """
+    DENY = "Deny"
+    """
+    Network traffic is denied
+    """
+
+
+class SecurityRuleDirection(str, Enum):
+    """
+    The direction of the rule. The direction specifies if rule will be evaluated on incoming or outgoing traffic.
+    """
+    INBOUND = "Inbound"
+    """
+    Rule is evaluated on incoming traffic
+    """
+    OUTBOUND = "Outbound"
+    """
+    Rule is evaluated on outgoing traffic
+    """
+
+
+class SecurityRuleProtocol(str, Enum):
+    """
+    Network protocol this rule applies to.
+    """
+    TCP = "Tcp"
+    """
+    Transmission Control Protocol
+    """
+    UDP = "Udp"
+    """
+    User Datagram Protocol
+    """
+    ICMP = "Icmp"
+    """
+    Internet Control Message Protocol
+    """
+    ASTERISK = "*"
+    """
+    Wildcard rule for all protocols
+    """
 
 
 class SecurityTypes(str, Enum):

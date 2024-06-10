@@ -196,7 +196,7 @@ class GatewayHostnameConfiguration(pulumi.CustomResource):
         Gateway hostname configuration details.
         Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2020-12-01.
 
-        Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview.
+        Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -221,7 +221,7 @@ class GatewayHostnameConfiguration(pulumi.CustomResource):
         Gateway hostname configuration details.
         Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2020-12-01.
 
-        Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview.
+        Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview.
 
         :param str resource_name: The name of the resource.
         :param GatewayHostnameConfigurationArgs args: The arguments to use to populate this resource's properties.
@@ -275,7 +275,7 @@ class GatewayHostnameConfiguration(pulumi.CustomResource):
             __props__.__dict__["tls11_enabled"] = tls11_enabled
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20191201:GatewayHostnameConfiguration"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:GatewayHostnameConfiguration"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:GatewayHostnameConfiguration"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:GatewayHostnameConfiguration"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:GatewayHostnameConfiguration"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:GatewayHostnameConfiguration"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:GatewayHostnameConfiguration"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:GatewayHostnameConfiguration"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:GatewayHostnameConfiguration"), pulumi.Alias(type_="azure-native:apimanagement/v20220801:GatewayHostnameConfiguration"), pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:GatewayHostnameConfiguration"), pulumi.Alias(type_="azure-native:apimanagement/v20230301preview:GatewayHostnameConfiguration"), pulumi.Alias(type_="azure-native:apimanagement/v20230501preview:GatewayHostnameConfiguration")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20191201:GatewayHostnameConfiguration"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:GatewayHostnameConfiguration"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:GatewayHostnameConfiguration"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:GatewayHostnameConfiguration"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:GatewayHostnameConfiguration"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:GatewayHostnameConfiguration"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:GatewayHostnameConfiguration"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:GatewayHostnameConfiguration"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:GatewayHostnameConfiguration"), pulumi.Alias(type_="azure-native:apimanagement/v20220801:GatewayHostnameConfiguration"), pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:GatewayHostnameConfiguration"), pulumi.Alias(type_="azure-native:apimanagement/v20230301preview:GatewayHostnameConfiguration"), pulumi.Alias(type_="azure-native:apimanagement/v20230501preview:GatewayHostnameConfiguration"), pulumi.Alias(type_="azure-native:apimanagement/v20230901preview:GatewayHostnameConfiguration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(GatewayHostnameConfiguration, __self__).__init__(
             'azure-native:apimanagement:GatewayHostnameConfiguration',
