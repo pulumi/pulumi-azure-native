@@ -78,6 +78,7 @@
     "UserConfirmationPassword_Send": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/users/{userId}/confirmations/password/send",
     "User_GenerateSsoUrl": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/users/{userId}/generateSsoUrl",
     "Users_GenerateSsoUrl": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/users/{uid}/generateSsoUrl",
+    "WorkspaceCertificate_RefreshSecret": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/certificates/{certificateId}/refreshSecret",
     "WorkspaceNamedValue_RefreshSecret": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/namedValues/{namedValueId}/refreshSecret",
     "WorkspaceSubscription_RegeneratePrimaryKey": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/subscriptions/{sid}/regeneratePrimaryKey",
     "WorkspaceSubscription_RegenerateSecondaryKey": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/subscriptions/{sid}/regenerateSecondaryKey"
@@ -243,7 +244,9 @@
     "EdgeDevices_Validate": "/{resourceUri}/providers/Microsoft.AzureStackHCI/edgeDevices/{edgeDeviceName}/validate",
     "Extensions_Upgrade": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureStackHCI/clusters/{clusterName}/arcSettings/{arcSettingName}/extensions/{extensionName}/upgrade",
     "Updates_Post": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureStackHCI/clusters/{clusterName}/updates/{updateName}/apply",
+    "VirtualMachineInstances_Pause": "/{resourceUri}/providers/Microsoft.AzureStackHCI/virtualMachineInstances/default/pause",
     "VirtualMachineInstances_Restart": "/{resourceUri}/providers/Microsoft.AzureStackHCI/virtualMachineInstances/default/restart",
+    "VirtualMachineInstances_Save": "/{resourceUri}/providers/Microsoft.AzureStackHCI/virtualMachineInstances/default/save",
     "VirtualMachineInstances_Start": "/{resourceUri}/providers/Microsoft.AzureStackHCI/virtualMachineInstances/default/start",
     "VirtualMachineInstances_Stop": "/{resourceUri}/providers/Microsoft.AzureStackHCI/virtualMachineInstances/default/stop",
     "VirtualMachines_Restart": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureStackHCI/virtualMachines/{virtualMachineName}/restart",
