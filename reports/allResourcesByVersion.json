@@ -2956,6 +2956,15 @@
       "listListPendingConnection",
       "listListPendingFlow",
       "listListSchema"
+    ],
+    "2024-05-07": [
+      "Connection",
+      "Flow",
+      "Pipeline",
+      "listAzureDataTransferApprovedSchemas",
+      "listListPendingConnection",
+      "listListPendingFlow",
+      "listListSchema"
     ]
   },
   "AzureFleet": {
@@ -22383,6 +22392,13 @@
       "StorageMover"
     ],
     "2023-10-01": [
+      "Agent",
+      "Endpoint",
+      "JobDefinition",
+      "Project",
+      "StorageMover"
+    ],
+    "2024-07-01": [
       "Agent",
       "Endpoint",
       "JobDefinition",

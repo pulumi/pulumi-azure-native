@@ -31317,8 +31317,6 @@
       {
         "resourceType": "azureWebCategories",
         "apiVersions": [
-          "2024-03-01",
-          "2024-01-01",
           "2023-11-01",
           "2023-09-01",
           "2023-06-01",
@@ -32155,8 +32153,6 @@
       {
         "resourceType": "expressRouteProviderPorts",
         "apiVersions": [
-          "2024-03-01",
-          "2024-01-01",
           "2023-11-01",
           "2023-09-01",
           "2023-06-01",
@@ -32266,8 +32262,6 @@
       {
         "resourceType": "firewallPolicies",
         "apiVersions": [
-          "2024-03-01",
-          "2024-01-01",
           "2023-11-01",
           "2023-09-01",
           "2023-06-01",
@@ -32456,8 +32450,6 @@
       {
         "resourceType": "ipGroups",
         "apiVersions": [
-          "2024-03-01",
-          "2024-01-01",
           "2023-11-01",
           "2023-09-01",
           "2023-06-01",
@@ -33344,8 +33336,6 @@
       {
         "resourceType": "locations/hybridEdgeZone",
         "apiVersions": [
-          "2024-03-01",
-          "2024-01-01",
           "2023-11-01",
           "2023-09-01",
           "2023-06-01",
@@ -33385,8 +33375,6 @@
       {
         "resourceType": "locations/nfvOperationResults",
         "apiVersions": [
-          "2024-03-01",
-          "2024-01-01",
           "2023-11-01",
           "2023-09-01",
           "2023-06-01",
@@ -33442,8 +33430,6 @@
       {
         "resourceType": "locations/nfvOperations",
         "apiVersions": [
-          "2024-03-01",
-          "2024-01-01",
           "2023-11-01",
           "2023-09-01",
           "2023-06-01",
@@ -34505,8 +34491,6 @@
       {
         "resourceType": "networkVirtualApplianceSkus",
         "apiVersions": [
-          "2024-03-01",
-          "2024-01-01",
           "2023-11-01",
           "2023-09-01",
           "2023-06-01",
@@ -34539,8 +34523,6 @@
       {
         "resourceType": "networkVirtualAppliances",
         "apiVersions": [
-          "2024-03-01",
-          "2024-01-01",
           "2023-11-01",
           "2023-09-01",
           "2023-06-01",
@@ -36079,8 +36061,6 @@
       {
         "resourceType": "virtualRouters",
         "apiVersions": [
-          "2024-03-01",
-          "2024-01-01",
           "2023-11-01",
           "2023-09-01",
           "2023-06-01",
@@ -51852,7 +51832,7 @@
     ]
   },
   {
-    "namespace": "Microsoft.VMware",
+    "namespace": "Microsoft.VMWare",
     "resourceTypes": [
       {
         "resourceType": "Locations",

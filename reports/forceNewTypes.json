@@ -1484,6 +1484,13 @@
     "Property": "location"
   },
   {
+    "Module": "azuredatatransfer/v20240507",
+    "Provider": "AzureDataTransfer",
+    "ResourceName": "Flow",
+    "ReferenceName": "selectedResource",
+    "Property": "location"
+  },
+  {
     "Module": "azuresphere",
     "Provider": "AzureSphere",
     "ResourceName": "Deployment",
@@ -48980,6 +48987,104 @@
   },
   {
     "Module": "storagemover/v20231001",
+    "Provider": "StorageMover",
+    "ResourceName": "Endpoint",
+    "ReferenceName": "EndpointType",
+    "Property": "endpointType"
+  },
+  {
+    "Module": "storagemover/v20240701",
+    "Provider": "StorageMover",
+    "ResourceName": "Endpoint",
+    "ReferenceName": "AzureStorageBlobContainerEndpointProperties",
+    "Property": "blobContainerName"
+  },
+  {
+    "Module": "storagemover/v20240701",
+    "Provider": "StorageMover",
+    "ResourceName": "Endpoint",
+    "ReferenceName": "AzureStorageBlobContainerEndpointProperties",
+    "Property": "storageAccountResourceId"
+  },
+  {
+    "Module": "storagemover/v20240701",
+    "Provider": "StorageMover",
+    "ResourceName": "Endpoint",
+    "ReferenceName": "EndpointType",
+    "Property": "endpointType"
+  },
+  {
+    "Module": "storagemover/v20240701",
+    "Provider": "StorageMover",
+    "ResourceName": "Endpoint",
+    "ReferenceName": "AzureStorageSmbFileShareEndpointProperties",
+    "Property": "fileShareName"
+  },
+  {
+    "Module": "storagemover/v20240701",
+    "Provider": "StorageMover",
+    "ResourceName": "Endpoint",
+    "ReferenceName": "AzureStorageSmbFileShareEndpointProperties",
+    "Property": "storageAccountResourceId"
+  },
+  {
+    "Module": "storagemover/v20240701",
+    "Provider": "StorageMover",
+    "ResourceName": "Endpoint",
+    "ReferenceName": "EndpointType",
+    "Property": "endpointType"
+  },
+  {
+    "Module": "storagemover/v20240701",
+    "Provider": "StorageMover",
+    "ResourceName": "Endpoint",
+    "ReferenceName": "NfsMountEndpointProperties",
+    "Property": "export"
+  },
+  {
+    "Module": "storagemover/v20240701",
+    "Provider": "StorageMover",
+    "ResourceName": "Endpoint",
+    "ReferenceName": "NfsMountEndpointProperties",
+    "Property": "host"
+  },
+  {
+    "Module": "storagemover/v20240701",
+    "Provider": "StorageMover",
+    "ResourceName": "Endpoint",
+    "ReferenceName": "NfsMountEndpointProperties",
+    "Property": "nfsVersion"
+  },
+  {
+    "Module": "storagemover/v20240701",
+    "Provider": "StorageMover",
+    "ResourceName": "Endpoint",
+    "ReferenceName": "EndpointType",
+    "Property": "endpointType"
+  },
+  {
+    "Module": "storagemover/v20240701",
+    "Provider": "StorageMover",
+    "ResourceName": "Endpoint",
+    "ReferenceName": "CredentialType",
+    "Property": "type"
+  },
+  {
+    "Module": "storagemover/v20240701",
+    "Provider": "StorageMover",
+    "ResourceName": "Endpoint",
+    "ReferenceName": "SmbMountEndpointProperties",
+    "Property": "host"
+  },
+  {
+    "Module": "storagemover/v20240701",
+    "Provider": "StorageMover",
+    "ResourceName": "Endpoint",
+    "ReferenceName": "SmbMountEndpointProperties",
+    "Property": "shareName"
+  },
+  {
+    "Module": "storagemover/v20240701",
     "Provider": "StorageMover",
     "ResourceName": "Endpoint",
     "ReferenceName": "EndpointType",
