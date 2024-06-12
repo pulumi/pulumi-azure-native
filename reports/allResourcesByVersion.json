@@ -2956,6 +2956,15 @@
       "listListPendingConnection",
       "listListPendingFlow",
       "listListSchema"
+    ],
+    "2024-05-07": [
+      "Connection",
+      "Flow",
+      "Pipeline",
+      "listAzureDataTransferApprovedSchemas",
+      "listListPendingConnection",
+      "listListPendingFlow",
+      "listListSchema"
     ]
   },
   "AzureFleet": {
@@ -6347,6 +6356,19 @@
       "FleetUpdateStrategy",
       "UpdateRun",
       "listFleetCredentials"
+    ],
+    "2024-04-02-preview": [
+      "AgentPool",
+      "LoadBalancer",
+      "MaintenanceConfiguration",
+      "ManagedCluster",
+      "ManagedClusterSnapshot",
+      "PrivateEndpointConnection",
+      "Snapshot",
+      "TrustedAccessRoleBinding",
+      "listManagedClusterAdminCredentials",
+      "listManagedClusterMonitoringUserCredentials",
+      "listManagedClusterUserCredentials"
     ]
   },
   "ContainerStorage": {
@@ -14039,6 +14061,23 @@
       "getSubvolumeMetadata",
       "getVolumeGroupIdForLdapUser",
       "listVolumeReplications"
+    ],
+    "2023-11-01-preview": [
+      "Account",
+      "Backup",
+      "BackupPolicy",
+      "BackupVault",
+      "Pool",
+      "Snapshot",
+      "SnapshotPolicy",
+      "Subvolume",
+      "Volume",
+      "VolumeGroup",
+      "VolumeQuotaRule",
+      "getAccountChangeKeyVaultInformation",
+      "getSubvolumeMetadata",
+      "getVolumeGroupIdForLdapUser",
+      "listVolumeReplications"
     ]
   },
   "Network": {
@@ -18774,6 +18813,17 @@
       "ProtectionContainer",
       "ProtectionIntent",
       "ProtectionPolicy",
+      "ReplicationFabric",
+      "ReplicationMigrationItem",
+      "ReplicationNetworkMapping",
+      "ReplicationPolicy",
+      "ReplicationProtectedItem",
+      "ReplicationProtectionCluster",
+      "ReplicationProtectionContainerMapping",
+      "ReplicationRecoveryPlan",
+      "ReplicationRecoveryServicesProvider",
+      "ReplicationStorageClassificationMapping",
+      "ReplicationvCenter",
       "ResourceGuardProxy",
       "Vault"
     ],
@@ -18909,7 +18959,16 @@
     "2018-09-01-preview": [
       "GraphQuery"
     ],
+    "2019-04-01": [
+      "GraphQuery"
+    ],
     "2020-04-01-preview": [
+      "GraphQuery"
+    ],
+    "2021-03-01": [
+      "GraphQuery"
+    ],
+    "2022-10-01": [
       "GraphQuery"
     ]
   },
@@ -22383,6 +22442,13 @@
       "StorageMover"
     ],
     "2023-10-01": [
+      "Agent",
+      "Endpoint",
+      "JobDefinition",
+      "Project",
+      "StorageMover"
+    ],
+    "2024-07-01": [
       "Agent",
       "Endpoint",
       "JobDefinition",

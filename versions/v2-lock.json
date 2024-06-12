@@ -1781,6 +1781,7 @@
     "Volume": "2022-11-01",
     "VolumeGroup": "2022-11-01",
     "VolumeQuotaRule": "2022-11-01",
+    "getAccountChangeKeyVaultInformation": "2023-11-01-preview",
     "getSubvolumeMetadata": "2022-11-01",
     "getVolumeGroupIdForLdapUser": "2022-11-01",
     "listVolumeReplications": "2022-11-01"

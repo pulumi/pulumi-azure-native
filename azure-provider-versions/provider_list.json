@@ -1372,6 +1372,12 @@
         ]
       },
       {
+        "resourceType": "locations/operationsStatuses",
+        "apiVersions": [
+          "2023-09-01-preview"
+        ]
+      },
+      {
         "resourceType": "operations",
         "apiVersions": [
           "2023-09-01-preview",
@@ -4518,6 +4524,7 @@
       {
         "resourceType": "SqlServerInstances",
         "apiVersions": [
+          "2024-05-01-preview",
           "2024-04-01-preview",
           "2024-03-01-preview",
           "2024-02-01-preview",
@@ -4537,6 +4544,7 @@
       {
         "resourceType": "SqlServerInstances/AvailabilityGroups",
         "apiVersions": [
+          "2024-05-01-preview",
           "2024-04-01-preview",
           "2024-03-01-preview",
           "2024-02-01-preview",
@@ -4550,6 +4558,7 @@
       {
         "resourceType": "SqlServerInstances/Databases",
         "apiVersions": [
+          "2024-05-01-preview",
           "2024-04-01-preview",
           "2024-03-01-preview",
           "2024-02-01-preview",
@@ -4565,6 +4574,7 @@
       {
         "resourceType": "SqlServerLicenses",
         "apiVersions": [
+          "2024-05-01-preview",
           "2024-04-01-preview",
           "2024-03-01-preview"
         ]
@@ -18821,6 +18831,7 @@
       {
         "resourceType": "appattachpackages",
         "apiVersions": [
+          "2024-03-06-preview",
           "2024-01-16-preview",
           "2023-12-25-privatepreview",
           "2023-11-29-privatepreview",
@@ -18840,6 +18851,7 @@
       {
         "resourceType": "applicationgroups",
         "apiVersions": [
+          "2024-03-06-preview",
           "2024-01-16-preview",
           "2023-12-25-privatepreview",
           "2023-11-29-privatepreview",
@@ -18877,6 +18889,7 @@
       {
         "resourceType": "applicationgroups/applications",
         "apiVersions": [
+          "2024-03-06-preview",
           "2024-01-16-preview",
           "2023-12-25-privatepreview",
           "2023-11-29-privatepreview",
@@ -18914,6 +18927,7 @@
       {
         "resourceType": "applicationgroups/desktops",
         "apiVersions": [
+          "2024-03-06-preview",
           "2024-01-16-preview",
           "2023-12-25-privatepreview",
           "2023-11-29-privatepreview",
@@ -18951,6 +18965,7 @@
       {
         "resourceType": "applicationgroups/startmenuitems",
         "apiVersions": [
+          "2024-03-06-preview",
           "2024-01-16-preview",
           "2023-12-25-privatepreview",
           "2023-11-29-privatepreview",
@@ -18994,6 +19009,7 @@
       {
         "resourceType": "hostpools",
         "apiVersions": [
+          "2024-03-06-preview",
           "2024-01-16-preview",
           "2023-12-25-privatepreview",
           "2023-11-29-privatepreview",
@@ -19031,6 +19047,7 @@
       {
         "resourceType": "hostpools/msixpackages",
         "apiVersions": [
+          "2024-03-06-preview",
           "2024-01-16-preview",
           "2023-12-25-privatepreview",
           "2023-11-29-privatepreview",
@@ -19068,6 +19085,7 @@
       {
         "resourceType": "hostpools/sessionhosts",
         "apiVersions": [
+          "2024-03-06-preview",
           "2024-01-16-preview",
           "2023-12-25-privatepreview",
           "2023-11-29-privatepreview",
@@ -19105,6 +19123,7 @@
       {
         "resourceType": "hostpools/sessionhosts/usersessions",
         "apiVersions": [
+          "2024-03-06-preview",
           "2024-01-16-preview",
           "2023-12-25-privatepreview",
           "2023-11-29-privatepreview",
@@ -19142,6 +19161,7 @@
       {
         "resourceType": "hostpools/usersessions",
         "apiVersions": [
+          "2024-03-06-preview",
           "2024-01-16-preview",
           "2023-12-25-privatepreview",
           "2023-11-29-privatepreview",
@@ -19229,6 +19249,7 @@
       {
         "resourceType": "scalingplans",
         "apiVersions": [
+          "2024-03-06-preview",
           "2024-01-16-preview",
           "2023-12-25-privatepreview",
           "2023-11-29-privatepreview",
@@ -19266,6 +19287,7 @@
       {
         "resourceType": "workspaces",
         "apiVersions": [
+          "2024-03-06-preview",
           "2024-01-16-preview",
           "2023-12-25-privatepreview",
           "2023-11-29-privatepreview",
@@ -28252,6 +28274,13 @@
         ]
       },
       {
+        "resourceType": "IpPrefixes",
+        "apiVersions": [
+          "2024-02-15-preview",
+          "2023-06-15"
+        ]
+      },
+      {
         "resourceType": "L2IsolationDomains",
         "apiVersions": [
           "2024-02-15-preview",
@@ -28362,13 +28391,6 @@
       },
       {
         "resourceType": "internetgatewayrules",
-        "apiVersions": [
-          "2024-02-15-preview",
-          "2023-06-15"
-        ]
-      },
-      {
-        "resourceType": "ipprefixes",
         "apiVersions": [
           "2024-02-15-preview",
           "2023-06-15"
@@ -51852,7 +51874,7 @@
     ]
   },
   {
-    "namespace": "Microsoft.VMware",
+    "namespace": "Microsoft.VMWare",
     "resourceTypes": [
       {
         "resourceType": "Locations",
@@ -51920,6 +51942,17 @@
         "apiVersions": [
           "2020-10-01-preview",
           "2019-12-20-privatepreview"
+        ]
+      }
+    ]
+  },
+  {
+    "namespace": "Microsoft.VerifiedId",
+    "resourceTypes": [
+      {
+        "resourceType": "Authorities",
+        "apiVersions": [
+          "2024-01-26-preview"
         ]
       }
     ]

@@ -626,6 +626,9 @@
       "2023-05-01-preview",
       "2023-09-01-preview"
     ],
+    "locations/operationsstatuses": [
+      "2023-09-01-preview"
+    ],
     "operations": [
       "2014-02-14",
       "2015-09-15",
@@ -3339,7 +3342,8 @@
       "2024-01-01",
       "2024-02-01-preview",
       "2024-03-01-preview",
-      "2024-04-01-preview"
+      "2024-04-01-preview",
+      "2024-05-01-preview"
     ],
     "sqlserverinstances/availabilitygroups": [
       "2023-05-16-preview",
@@ -3349,7 +3353,8 @@
       "2024-01-01",
       "2024-02-01-preview",
       "2024-03-01-preview",
-      "2024-04-01-preview"
+      "2024-04-01-preview",
+      "2024-05-01-preview"
     ],
     "sqlserverinstances/databases": [
       "2022-06-15-preview",
@@ -3361,11 +3366,13 @@
       "2024-01-01",
       "2024-02-01-preview",
       "2024-03-01-preview",
-      "2024-04-01-preview"
+      "2024-04-01-preview",
+      "2024-05-01-preview"
     ],
     "sqlserverlicenses": [
       "2024-03-01-preview",
-      "2024-04-01-preview"
+      "2024-04-01-preview",
+      "2024-05-01-preview"
     ]
   },
   "azuredatatransfer": {
@@ -15058,7 +15065,8 @@
       "2023-11-01-preview",
       "2023-11-29-privatepreview",
       "2023-12-25-privatepreview",
-      "2024-01-16-preview"
+      "2024-01-16-preview",
+      "2024-03-06-preview"
     ],
     "applicationgroups": [
       "2019-01-23-preview",
@@ -15092,7 +15100,8 @@
       "2023-11-01-preview",
       "2023-11-29-privatepreview",
       "2023-12-25-privatepreview",
-      "2024-01-16-preview"
+      "2024-01-16-preview",
+      "2024-03-06-preview"
     ],
     "applicationgroups/applications": [
       "2019-01-23-preview",
@@ -15126,7 +15135,8 @@
       "2023-11-01-preview",
       "2023-11-29-privatepreview",
       "2023-12-25-privatepreview",
-      "2024-01-16-preview"
+      "2024-01-16-preview",
+      "2024-03-06-preview"
     ],
     "applicationgroups/desktops": [
       "2019-01-23-preview",
@@ -15160,7 +15170,8 @@
       "2023-11-01-preview",
       "2023-11-29-privatepreview",
       "2023-12-25-privatepreview",
-      "2024-01-16-preview"
+      "2024-01-16-preview",
+      "2024-03-06-preview"
     ],
     "applicationgroups/startmenuitems": [
       "2019-01-23-preview",
@@ -15194,7 +15205,8 @@
       "2023-11-01-preview",
       "2023-11-29-privatepreview",
       "2023-12-25-privatepreview",
-      "2024-01-16-preview"
+      "2024-01-16-preview",
+      "2024-03-06-preview"
     ],
     "connectionpolicies": [
       "2023-10-09-privatepreview"
@@ -15231,7 +15243,8 @@
       "2023-11-01-preview",
       "2023-11-29-privatepreview",
       "2023-12-25-privatepreview",
-      "2024-01-16-preview"
+      "2024-01-16-preview",
+      "2024-03-06-preview"
     ],
     "hostpools/msixpackages": [
       "2019-01-23-preview",
@@ -15265,7 +15278,8 @@
       "2023-11-01-preview",
       "2023-11-29-privatepreview",
       "2023-12-25-privatepreview",
-      "2024-01-16-preview"
+      "2024-01-16-preview",
+      "2024-03-06-preview"
     ],
     "hostpools/sessionhosts": [
       "2019-01-23-preview",
@@ -15299,7 +15313,8 @@
       "2023-11-01-preview",
       "2023-11-29-privatepreview",
       "2023-12-25-privatepreview",
-      "2024-01-16-preview"
+      "2024-01-16-preview",
+      "2024-03-06-preview"
     ],
     "hostpools/sessionhosts/usersessions": [
       "2019-01-23-preview",
@@ -15333,7 +15348,8 @@
       "2023-11-01-preview",
       "2023-11-29-privatepreview",
       "2023-12-25-privatepreview",
-      "2024-01-16-preview"
+      "2024-01-16-preview",
+      "2024-03-06-preview"
     ],
     "hostpools/usersessions": [
       "2019-01-23-preview",
@@ -15367,7 +15383,8 @@
       "2023-11-01-preview",
       "2023-11-29-privatepreview",
       "2023-12-25-privatepreview",
-      "2024-01-16-preview"
+      "2024-01-16-preview",
+      "2024-03-06-preview"
     ],
     "operations": [
       "2019-01-23-preview",
@@ -15448,7 +15465,8 @@
       "2023-11-01-preview",
       "2023-11-29-privatepreview",
       "2023-12-25-privatepreview",
-      "2024-01-16-preview"
+      "2024-01-16-preview",
+      "2024-03-06-preview"
     ],
     "workspaces": [
       "2019-01-23-preview",
@@ -15482,7 +15500,8 @@
       "2023-11-01-preview",
       "2023-11-29-privatepreview",
       "2023-12-25-privatepreview",
-      "2024-01-16-preview"
+      "2024-01-16-preview",
+      "2024-03-06-preview"
     ]
   },
   "devai": {
@@ -43557,6 +43576,14 @@
       "2023-09-01-preview",
       "2023-12-01-preview",
       "2024-01-01-preview"
+    ]
+  },
+  "verifiedid": {
+    "": [
+      "2024-01-26-preview"
+    ],
+    "authorities": [
+      "2024-01-26-preview"
     ]
   },
   "videoindexer": {
