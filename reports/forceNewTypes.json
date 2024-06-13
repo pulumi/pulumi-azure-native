@@ -1484,6 +1484,13 @@
     "Property": "location"
   },
   {
+    "Module": "azuredatatransfer/v20240507",
+    "Provider": "AzureDataTransfer",
+    "ResourceName": "Flow",
+    "ReferenceName": "selectedResource",
+    "Property": "location"
+  },
+  {
     "Module": "azuresphere",
     "Provider": "AzureSphere",
     "ResourceName": "Deployment",
@@ -45395,6 +45402,69 @@
     "Property": "zones"
   },
   {
+    "Module": "netapp/v20231101preview",
+    "Provider": "NetApp",
+    "ResourceName": "Volume",
+    "ReferenceName": "remotePath",
+    "Property": "remotePath"
+  },
+  {
+    "Module": "netapp/v20231101preview",
+    "Provider": "NetApp",
+    "ResourceName": "Volume",
+    "ReferenceName": "replicationObject",
+    "Property": "remoteVolumeResourceId"
+  },
+  {
+    "Module": "netapp/v20231101preview",
+    "Provider": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "volumeProperties",
+    "Property": "acceptGrowCapacityPoolForShortTermCloneSplit"
+  },
+  {
+    "Module": "netapp/v20231101preview",
+    "Provider": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "volumeProperties",
+    "Property": "backupId"
+  },
+  {
+    "Module": "netapp/v20231101preview",
+    "Provider": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "remotePath",
+    "Property": "remotePath"
+  },
+  {
+    "Module": "netapp/v20231101preview",
+    "Provider": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "replicationObject",
+    "Property": "remoteVolumeResourceId"
+  },
+  {
+    "Module": "netapp/v20231101preview",
+    "Provider": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "volumeProperties",
+    "Property": "kerberosEnabled"
+  },
+  {
+    "Module": "netapp/v20231101preview",
+    "Provider": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "volumeProperties",
+    "Property": "snapshotId"
+  },
+  {
+    "Module": "netapp/v20231101preview",
+    "Provider": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "volumeGroupVolumeProperties",
+    "Property": "zones"
+  },
+  {
     "Module": "network",
     "Provider": "Network",
     "ResourceName": "InboundEndpoint",
@@ -48980,6 +49050,104 @@
   },
   {
     "Module": "storagemover/v20231001",
+    "Provider": "StorageMover",
+    "ResourceName": "Endpoint",
+    "ReferenceName": "EndpointType",
+    "Property": "endpointType"
+  },
+  {
+    "Module": "storagemover/v20240701",
+    "Provider": "StorageMover",
+    "ResourceName": "Endpoint",
+    "ReferenceName": "AzureStorageBlobContainerEndpointProperties",
+    "Property": "blobContainerName"
+  },
+  {
+    "Module": "storagemover/v20240701",
+    "Provider": "StorageMover",
+    "ResourceName": "Endpoint",
+    "ReferenceName": "AzureStorageBlobContainerEndpointProperties",
+    "Property": "storageAccountResourceId"
+  },
+  {
+    "Module": "storagemover/v20240701",
+    "Provider": "StorageMover",
+    "ResourceName": "Endpoint",
+    "ReferenceName": "EndpointType",
+    "Property": "endpointType"
+  },
+  {
+    "Module": "storagemover/v20240701",
+    "Provider": "StorageMover",
+    "ResourceName": "Endpoint",
+    "ReferenceName": "AzureStorageSmbFileShareEndpointProperties",
+    "Property": "fileShareName"
+  },
+  {
+    "Module": "storagemover/v20240701",
+    "Provider": "StorageMover",
+    "ResourceName": "Endpoint",
+    "ReferenceName": "AzureStorageSmbFileShareEndpointProperties",
+    "Property": "storageAccountResourceId"
+  },
+  {
+    "Module": "storagemover/v20240701",
+    "Provider": "StorageMover",
+    "ResourceName": "Endpoint",
+    "ReferenceName": "EndpointType",
+    "Property": "endpointType"
+  },
+  {
+    "Module": "storagemover/v20240701",
+    "Provider": "StorageMover",
+    "ResourceName": "Endpoint",
+    "ReferenceName": "NfsMountEndpointProperties",
+    "Property": "export"
+  },
+  {
+    "Module": "storagemover/v20240701",
+    "Provider": "StorageMover",
+    "ResourceName": "Endpoint",
+    "ReferenceName": "NfsMountEndpointProperties",
+    "Property": "host"
+  },
+  {
+    "Module": "storagemover/v20240701",
+    "Provider": "StorageMover",
+    "ResourceName": "Endpoint",
+    "ReferenceName": "NfsMountEndpointProperties",
+    "Property": "nfsVersion"
+  },
+  {
+    "Module": "storagemover/v20240701",
+    "Provider": "StorageMover",
+    "ResourceName": "Endpoint",
+    "ReferenceName": "EndpointType",
+    "Property": "endpointType"
+  },
+  {
+    "Module": "storagemover/v20240701",
+    "Provider": "StorageMover",
+    "ResourceName": "Endpoint",
+    "ReferenceName": "CredentialType",
+    "Property": "type"
+  },
+  {
+    "Module": "storagemover/v20240701",
+    "Provider": "StorageMover",
+    "ResourceName": "Endpoint",
+    "ReferenceName": "SmbMountEndpointProperties",
+    "Property": "host"
+  },
+  {
+    "Module": "storagemover/v20240701",
+    "Provider": "StorageMover",
+    "ResourceName": "Endpoint",
+    "ReferenceName": "SmbMountEndpointProperties",
+    "Property": "shareName"
+  },
+  {
+    "Module": "storagemover/v20240701",
     "Provider": "StorageMover",
     "ResourceName": "Endpoint",
     "ReferenceName": "EndpointType",

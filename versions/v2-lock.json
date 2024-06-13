@@ -1781,6 +1781,7 @@
     "Volume": "2022-11-01",
     "VolumeGroup": "2022-11-01",
     "VolumeQuotaRule": "2022-11-01",
+    "getAccountChangeKeyVaultInformation": "2023-11-01-preview",
     "getSubvolumeMetadata": "2022-11-01",
     "getVolumeGroupIdForLdapUser": "2022-11-01",
     "listVolumeReplications": "2022-11-01"
@@ -2285,10 +2286,6 @@
     "privateLinkServicesForO365ManagementActivityAPI": "2021-03-08",
     "privateLinkServicesForSCCPowershell": "2021-03-08"
   },
-  "SecurityDevOps": {
-    "AzureDevOpsConnector": "2022-09-01-preview",
-    "GitHubConnector": "2022-09-01-preview"
-  },
   "SecurityInsights": {
     "Action": "2023-02-01",
     "AlertRule": "2023-02-01",
@@ -2644,7 +2641,8 @@
     "listVideoContentToken": "2021-11-01-preview"
   },
   "VideoIndexer": {
-    "Account": "2022-08-01"
+    "Account": "2022-08-01",
+    "PrivateEndpointConnection": "2024-06-01-preview"
   },
   "VirtualMachineImages": {
     "Trigger": "2022-07-01",
