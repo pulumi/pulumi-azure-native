@@ -123,11 +123,12 @@ func (k *azureNativeProvider) getAuthConfig() (*authConfig, error) {
 
 	needCli := needAzCli(builder)
 	if needCli {
+		requireCliHint := "MSI, OIDC, client secret and client certificate authentication are not configured so we require the AZ CLI for authentication"
 		// Check that we have a good version of the cli (#1565). The check needs to happen before
 		// builder.Build(), or we return the less fitting error message from go-azure-helpers.
 		v, err := getAzVersion()
 		if err != nil {
-			return nil, err
+			return nil, fmt.Errorf("checking az cli version: %w: %s", err, requireCliHint)
 		}
 		if err = assertAzVersion(v); err != nil {
 			return nil, err
