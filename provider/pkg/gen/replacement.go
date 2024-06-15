@@ -51,6 +51,6 @@ var forceNewMap = map[string]map[string]codegen.StringSet{
 	},
 	"Web": {
 		"AppServicePlan": codegen.NewStringSet(), // covered by x-ms-mutability
-		"WebApp":         codegen.NewStringSet("location"),
+		"WebApp":         codegen.NewStringSet("location", "kind"),
 	},
 }
