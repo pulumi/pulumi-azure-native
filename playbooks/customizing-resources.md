@@ -67,3 +67,6 @@ Override: add the default state to openapi/defaults/defaultResourcesState.go so 
 Some resources are inherently global and if the provider would apply the standard setting of the location property, the request would be invalid.
 
 Override: resources/resources.go `AutoLocationDisabled`.
+
+### Changing a property should cause a resource replacement but doesn't
+Override: add the property in `pkg/gen/replacements.go`.
