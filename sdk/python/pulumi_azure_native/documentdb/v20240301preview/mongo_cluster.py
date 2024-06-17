@@ -394,7 +394,7 @@ class MongoCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateEndpointConnections")
-    def private_endpoint_connections(self) -> pulumi.Output[Sequence['outputs.AzureResourceManagerPrivateEndpointConnectionResponse']]:
+    def private_endpoint_connections(self) -> pulumi.Output[Sequence['outputs.PrivateEndpointConnectionResponse']]:
         """
         List of private endpoint connections.
         """

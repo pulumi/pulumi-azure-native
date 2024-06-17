@@ -126,6 +126,7 @@ __all__ = [
     'EncryptionKeyVaultPropertiesResponse',
     'EncryptionPropertyResponse',
     'EndpointDeploymentModelResponse',
+    'EndpointDeploymentResourcePropertiesResponse',
     'EndpointResponse',
     'EndpointScheduleActionResponse',
     'EnvironmentContainerResponse',
@@ -11560,6 +11561,80 @@ class EndpointDeploymentModelResponse(dict):
         Model version.
         """
         return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class EndpointDeploymentResourcePropertiesResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "raiPolicyName":
+            suggest = "rai_policy_name"
+        elif key == "versionUpgradeOption":
+            suggest = "version_upgrade_option"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointDeploymentResourcePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointDeploymentResourcePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointDeploymentResourcePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 model: 'outputs.EndpointDeploymentModelResponse',
+                 provisioning_state: str,
+                 rai_policy_name: Optional[str] = None,
+                 version_upgrade_option: Optional[str] = None):
+        """
+        :param 'EndpointDeploymentModelResponse' model: Model used for the endpoint deployment.
+        :param str provisioning_state: Read-only provision state status property.
+        :param str rai_policy_name: The name of RAI policy.
+        :param str version_upgrade_option: Deployment model version upgrade option.
+        """
+        pulumi.set(__self__, "model", model)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if rai_policy_name is not None:
+            pulumi.set(__self__, "rai_policy_name", rai_policy_name)
+        if version_upgrade_option is not None:
+            pulumi.set(__self__, "version_upgrade_option", version_upgrade_option)
+
+    @property
+    @pulumi.getter
+    def model(self) -> 'outputs.EndpointDeploymentModelResponse':
+        """
+        Model used for the endpoint deployment.
+        """
+        return pulumi.get(self, "model")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Read-only provision state status property.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="raiPolicyName")
+    def rai_policy_name(self) -> Optional[str]:
+        """
+        The name of RAI policy.
+        """
+        return pulumi.get(self, "rai_policy_name")
+
+    @property
+    @pulumi.getter(name="versionUpgradeOption")
+    def version_upgrade_option(self) -> Optional[str]:
+        """
+        Deployment model version upgrade option.
+        """
+        return pulumi.get(self, "version_upgrade_option")
 
 
 @pulumi.output_type

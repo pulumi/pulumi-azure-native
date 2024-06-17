@@ -161,6 +161,8 @@ def get_load_balancer(load_balancer_name: Optional[str] = None,
     The configurations regarding multiple standard load balancers. If not supplied, single load balancer mode will be used. Multiple standard load balancers mode will be used if at lease one configuration is supplied. There has to be a configuration named `kubernetes`.
     Azure REST API version: 2024-03-02-preview.
 
+    Other available API versions: 2024-04-02-preview.
+
 
     :param str load_balancer_name: The name of the load balancer.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -194,6 +196,8 @@ def get_load_balancer_output(load_balancer_name: Optional[pulumi.Input[str]] = N
     """
     The configurations regarding multiple standard load balancers. If not supplied, single load balancer mode will be used. Multiple standard load balancers mode will be used if at lease one configuration is supplied. There has to be a configuration named `kubernetes`.
     Azure REST API version: 2024-03-02-preview.
+
+    Other available API versions: 2024-04-02-preview.
 
 
     :param str load_balancer_name: The name of the load balancer.

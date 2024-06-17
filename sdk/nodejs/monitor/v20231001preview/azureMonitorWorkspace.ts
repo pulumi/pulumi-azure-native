@@ -60,7 +60,7 @@ export class AzureMonitorWorkspace extends pulumi.CustomResource {
     /**
      * List of private endpoint connections.
      */
-    public /*out*/ readonly privateEndpointConnections!: pulumi.Output<outputs.monitor.v20231001preview.AzureResourceManagerPrivateEndpointConnectionResponse[]>;
+    public /*out*/ readonly privateEndpointConnections!: pulumi.Output<outputs.monitor.v20231001preview.PrivateEndpointConnectionResponse[]>;
     /**
      * The provisioning state of the Azure Monitor workspace. Set to Succeeded if everything is healthy.
      */

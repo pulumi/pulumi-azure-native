@@ -6,6 +6,7 @@ from enum import Enum
 
 __all__ = [
     'ManagedServiceIdentityType',
+    'PrivateEndpointServiceConnectionStatus',
 ]
 
 
@@ -17,3 +18,12 @@ class ManagedServiceIdentityType(str, Enum):
     SYSTEM_ASSIGNED = "SystemAssigned"
     USER_ASSIGNED = "UserAssigned"
     SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
+
+
+class PrivateEndpointServiceConnectionStatus(str, Enum):
+    """
+    Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+    """
+    PENDING = "Pending"
+    APPROVED = "Approved"
+    REJECTED = "Rejected"

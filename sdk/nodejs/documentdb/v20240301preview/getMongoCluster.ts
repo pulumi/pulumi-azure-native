@@ -69,7 +69,7 @@ export interface GetMongoClusterResult {
     /**
      * List of private endpoint connections.
      */
-    readonly privateEndpointConnections: outputs.documentdb.v20240301preview.AzureResourceManagerPrivateEndpointConnectionResponse[];
+    readonly privateEndpointConnections: outputs.documentdb.v20240301preview.PrivateEndpointConnectionResponse[];
     /**
      * The provisioning state of the mongo cluster.
      */

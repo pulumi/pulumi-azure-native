@@ -43,7 +43,7 @@ export interface GetAzureMonitorWorkspaceResult {
      */
     readonly defaultIngestionSettings: outputs.monitor.v20231001preview.IngestionSettingsResponse;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
@@ -61,7 +61,7 @@ export interface GetAzureMonitorWorkspaceResult {
     /**
      * List of private endpoint connections.
      */
-    readonly privateEndpointConnections: outputs.monitor.v20231001preview.AzureResourceManagerPrivateEndpointConnectionResponse[];
+    readonly privateEndpointConnections: outputs.monitor.v20231001preview.PrivateEndpointConnectionResponse[];
     /**
      * The provisioning state of the Azure Monitor workspace. Set to Succeeded if everything is healthy.
      */

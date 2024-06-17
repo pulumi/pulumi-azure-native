@@ -95,6 +95,7 @@ namespace Pulumi.AzureNative.ContainerService.V20240302Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:containerservice:LoadBalancer" },
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20240402preview:LoadBalancer" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

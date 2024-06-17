@@ -91,6 +91,8 @@ def get_replication_protection_cluster(fabric_name: Optional[str] = None,
     Gets the details of an ASR replication protection cluster.
     Azure REST API version: 2024-02-01.
 
+    Other available API versions: 2024-04-01.
+
 
     :param str fabric_name: Fabric name.
     :param str protection_container_name: Protection container name.
@@ -124,6 +126,8 @@ def get_replication_protection_cluster_output(fabric_name: Optional[pulumi.Input
     """
     Gets the details of an ASR replication protection cluster.
     Azure REST API version: 2024-02-01.
+
+    Other available API versions: 2024-04-01.
 
 
     :param str fabric_name: Fabric name.

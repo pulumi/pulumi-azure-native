@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * The configuration of the event streaming service resource attached to the Purview account for kafka notifications.
  * Azure REST API version: 2021-12-01.
  *
- * Other available API versions: 2023-05-01-preview.
+ * Other available API versions: 2023-05-01-preview, 2024-04-01-preview.
  */
 export class KafkaConfiguration extends pulumi.CustomResource {
     /**
@@ -121,7 +121,7 @@ export class KafkaConfiguration extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:purview/v20211201:KafkaConfiguration" }, { type: "azure-native:purview/v20230501preview:KafkaConfiguration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:purview/v20211201:KafkaConfiguration" }, { type: "azure-native:purview/v20230501preview:KafkaConfiguration" }, { type: "azure-native:purview/v20240401preview:KafkaConfiguration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(KafkaConfiguration.__pulumiType, name, resourceInputs, opts);
     }

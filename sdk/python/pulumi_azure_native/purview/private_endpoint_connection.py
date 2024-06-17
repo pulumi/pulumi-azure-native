@@ -115,7 +115,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         A private endpoint connection class.
         Azure REST API version: 2021-12-01. Prior API version in Azure Native 1.x: 2020-12-01-preview.
 
-        Other available API versions: 2021-07-01, 2023-05-01-preview.
+        Other available API versions: 2021-07-01, 2023-05-01-preview, 2024-04-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -135,7 +135,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         A private endpoint connection class.
         Azure REST API version: 2021-12-01. Prior API version in Azure Native 1.x: 2020-12-01-preview.
 
-        Other available API versions: 2021-07-01, 2023-05-01-preview.
+        Other available API versions: 2021-07-01, 2023-05-01-preview, 2024-04-01-preview.
 
         :param str resource_name: The name of the resource.
         :param PrivateEndpointConnectionArgs args: The arguments to use to populate this resource's properties.
@@ -179,7 +179,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:purview/v20201201preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:purview/v20210701:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:purview/v20211201:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:purview/v20230501preview:PrivateEndpointConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:purview/v20201201preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:purview/v20210701:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:purview/v20211201:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:purview/v20230501preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:purview/v20240401preview:PrivateEndpointConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateEndpointConnection, __self__).__init__(
             'azure-native:purview:PrivateEndpointConnection',

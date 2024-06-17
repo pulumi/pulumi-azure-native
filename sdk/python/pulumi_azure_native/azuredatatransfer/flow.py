@@ -166,7 +166,7 @@ class Flow(pulumi.CustomResource):
         The flow resource definition.
         Azure REST API version: 2023-10-11-preview.
 
-        Other available API versions: 2024-01-25.
+        Other available API versions: 2024-01-25, 2024-05-07.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -189,7 +189,7 @@ class Flow(pulumi.CustomResource):
         The flow resource definition.
         Azure REST API version: 2023-10-11-preview.
 
-        Other available API versions: 2024-01-25.
+        Other available API versions: 2024-01-25, 2024-05-07.
 
         :param str resource_name: The name of the resource.
         :param FlowArgs args: The arguments to use to populate this resource's properties.
@@ -238,7 +238,7 @@ class Flow(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azuredatatransfer/v20231011preview:Flow"), pulumi.Alias(type_="azure-native:azuredatatransfer/v20240125:Flow")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azuredatatransfer/v20231011preview:Flow"), pulumi.Alias(type_="azure-native:azuredatatransfer/v20240125:Flow"), pulumi.Alias(type_="azure-native:azuredatatransfer/v20240507:Flow")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Flow, __self__).__init__(
             'azure-native:azuredatatransfer:Flow',

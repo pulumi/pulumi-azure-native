@@ -121,7 +121,7 @@ export class LoadBalancer extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:containerservice:LoadBalancer" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:containerservice:LoadBalancer" }, { type: "azure-native:containerservice/v20240402preview:LoadBalancer" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(LoadBalancer.__pulumiType, name, resourceInputs, opts);
     }

@@ -230,7 +230,7 @@ def get_agent(agent_name: Optional[str] = None,
     Gets an Agent resource.
     Azure REST API version: 2023-03-01.
 
-    Other available API versions: 2023-07-01-preview, 2023-10-01.
+    Other available API versions: 2023-07-01-preview, 2023-10-01, 2024-07-01.
 
 
     :param str agent_name: The name of the Agent resource.
@@ -272,7 +272,7 @@ def get_agent_output(agent_name: Optional[pulumi.Input[str]] = None,
     Gets an Agent resource.
     Azure REST API version: 2023-03-01.
 
-    Other available API versions: 2023-07-01-preview, 2023-10-01.
+    Other available API versions: 2023-07-01-preview, 2023-10-01, 2024-07-01.
 
 
     :param str agent_name: The name of the Agent resource.

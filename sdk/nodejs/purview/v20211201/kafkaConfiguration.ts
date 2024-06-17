@@ -118,7 +118,7 @@ export class KafkaConfiguration extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:purview:KafkaConfiguration" }, { type: "azure-native:purview/v20230501preview:KafkaConfiguration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:purview:KafkaConfiguration" }, { type: "azure-native:purview/v20230501preview:KafkaConfiguration" }, { type: "azure-native:purview/v20240401preview:KafkaConfiguration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(KafkaConfiguration.__pulumiType, name, resourceInputs, opts);
     }

@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * The Storage Mover resource, which is a container for a group of Agents, Projects, and Endpoints.
  * Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2022-07-01-preview.
  *
- * Other available API versions: 2023-07-01-preview, 2023-10-01.
+ * Other available API versions: 2023-07-01-preview, 2023-10-01, 2024-07-01.
  */
 export class StorageMover extends pulumi.CustomResource {
     /**
@@ -102,7 +102,7 @@ export class StorageMover extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:storagemover/v20220701preview:StorageMover" }, { type: "azure-native:storagemover/v20230301:StorageMover" }, { type: "azure-native:storagemover/v20230701preview:StorageMover" }, { type: "azure-native:storagemover/v20231001:StorageMover" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:storagemover/v20220701preview:StorageMover" }, { type: "azure-native:storagemover/v20230301:StorageMover" }, { type: "azure-native:storagemover/v20230701preview:StorageMover" }, { type: "azure-native:storagemover/v20231001:StorageMover" }, { type: "azure-native:storagemover/v20240701:StorageMover" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(StorageMover.__pulumiType, name, resourceInputs, opts);
     }

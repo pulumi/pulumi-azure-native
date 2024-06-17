@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Get the NetApp account
  * Azure REST API version: 2022-11-01.
  *
- * Other available API versions: 2019-07-01, 2022-05-01, 2022-11-01-preview, 2023-05-01, 2023-05-01-preview, 2023-07-01, 2023-07-01-preview, 2023-11-01.
+ * Other available API versions: 2019-07-01, 2022-05-01, 2022-11-01-preview, 2023-05-01, 2023-05-01-preview, 2023-07-01, 2023-07-01-preview, 2023-11-01, 2023-11-01-preview.
  */
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
 
@@ -90,7 +90,7 @@ export interface GetAccountResult {
  * Get the NetApp account
  * Azure REST API version: 2022-11-01.
  *
- * Other available API versions: 2019-07-01, 2022-05-01, 2022-11-01-preview, 2023-05-01, 2023-05-01-preview, 2023-07-01, 2023-07-01-preview, 2023-11-01.
+ * Other available API versions: 2019-07-01, 2022-05-01, 2022-11-01-preview, 2023-05-01, 2023-05-01-preview, 2023-07-01, 2023-07-01-preview, 2023-11-01, 2023-11-01-preview.
  */
 export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountResult> {
     return pulumi.output(args).apply((a: any) => getAccount(a, opts))

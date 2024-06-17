@@ -78,7 +78,7 @@ namespace Pulumi.AzureNative.Monitor.V20231001Preview
         /// </summary>
         public readonly Outputs.IngestionSettingsResponse DefaultIngestionSettings;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -96,7 +96,7 @@ namespace Pulumi.AzureNative.Monitor.V20231001Preview
         /// <summary>
         /// List of private endpoint connections.
         /// </summary>
-        public readonly ImmutableArray<Outputs.AzureResourceManagerPrivateEndpointConnectionResponse> PrivateEndpointConnections;
+        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
         /// <summary>
         /// The provisioning state of the Azure Monitor workspace. Set to Succeeded if everything is healthy.
         /// </summary>
@@ -132,7 +132,7 @@ namespace Pulumi.AzureNative.Monitor.V20231001Preview
 
             string name,
 
-            ImmutableArray<Outputs.AzureResourceManagerPrivateEndpointConnectionResponse> privateEndpointConnections,
+            ImmutableArray<Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
 
             string provisioningState,
 

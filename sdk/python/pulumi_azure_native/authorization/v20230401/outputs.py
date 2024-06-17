@@ -544,6 +544,8 @@ class PolicyDefinitionReferenceResponse(dict):
         suggest = None
         if key == "policyDefinitionId":
             suggest = "policy_definition_id"
+        elif key == "definitionVersion":
+            suggest = "definition_version"
         elif key == "groupNames":
             suggest = "group_names"
         elif key == "policyDefinitionReferenceId":
@@ -562,17 +564,21 @@ class PolicyDefinitionReferenceResponse(dict):
 
     def __init__(__self__, *,
                  policy_definition_id: str,
+                 definition_version: Optional[str] = None,
                  group_names: Optional[Sequence[str]] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterValuesValueResponse']] = None,
                  policy_definition_reference_id: Optional[str] = None):
         """
         The policy definition reference.
         :param str policy_definition_id: The ID of the policy definition or policy set definition.
+        :param str definition_version: The version of the policy definition to use.
         :param Sequence[str] group_names: The name of the groups that this policy definition reference belongs to.
         :param Mapping[str, 'ParameterValuesValueResponse'] parameters: The parameter values for the referenced policy rule. The keys are the parameter names.
         :param str policy_definition_reference_id: A unique id (within the policy set definition) for this policy definition reference.
         """
         pulumi.set(__self__, "policy_definition_id", policy_definition_id)
+        if definition_version is not None:
+            pulumi.set(__self__, "definition_version", definition_version)
         if group_names is not None:
             pulumi.set(__self__, "group_names", group_names)
         if parameters is not None:
@@ -587,6 +593,14 @@ class PolicyDefinitionReferenceResponse(dict):
         The ID of the policy definition or policy set definition.
         """
         return pulumi.get(self, "policy_definition_id")
+
+    @property
+    @pulumi.getter(name="definitionVersion")
+    def definition_version(self) -> Optional[str]:
+        """
+        The version of the policy definition to use.
+        """
+        return pulumi.get(self, "definition_version")
 
     @property
     @pulumi.getter(name="groupNames")

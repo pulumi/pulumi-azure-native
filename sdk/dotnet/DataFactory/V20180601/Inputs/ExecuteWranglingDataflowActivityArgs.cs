@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public Input<Inputs.ExecuteDataFlowActivityTypePropertiesComputeArgs>? Compute { get; set; }
 
         /// <summary>
+        /// Continuation settings for execute data flow activity.
+        /// </summary>
+        [Input("continuationSettings")]
+        public Input<Inputs.ContinuationSettingsReferenceArgs>? ContinuationSettings { get; set; }
+
+        /// <summary>
         /// Continue on error setting used for data flow execution. Enables processing to continue if a sink fails. Type: boolean (or Expression with resultType boolean)
         /// </summary>
         [Input("continueOnError")]

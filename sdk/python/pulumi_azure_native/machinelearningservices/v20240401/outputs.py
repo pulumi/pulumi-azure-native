@@ -311,6 +311,7 @@ __all__ = [
     'VolumeDefinitionResponse',
     'VolumeOptionsResponse',
     'WorkspaceConnectionAccessKeyResponse',
+    'WorkspaceConnectionAccountKeyResponse',
     'WorkspaceConnectionApiKeyResponse',
     'WorkspaceConnectionManagedIdentityResponse',
     'WorkspaceConnectionOAuth2Response',
@@ -987,7 +988,7 @@ class AccountKeyAuthTypeWorkspaceConnectionPropertiesResponse(dict):
                  created_by_workspace_arm_id: str,
                  group: str,
                  category: Optional[str] = None,
-                 credentials: Optional['outputs.WorkspaceConnectionSharedAccessSignatureResponse'] = None,
+                 credentials: Optional['outputs.WorkspaceConnectionAccountKeyResponse'] = None,
                  expiry_time: Optional[str] = None,
                  is_shared_to_all: Optional[bool] = None,
                  metadata: Optional[Mapping[str, str]] = None,
@@ -1059,7 +1060,7 @@ class AccountKeyAuthTypeWorkspaceConnectionPropertiesResponse(dict):
 
     @property
     @pulumi.getter
-    def credentials(self) -> Optional['outputs.WorkspaceConnectionSharedAccessSignatureResponse']:
+    def credentials(self) -> Optional['outputs.WorkspaceConnectionAccountKeyResponse']:
         return pulumi.get(self, "credentials")
 
     @property
@@ -29771,6 +29772,19 @@ class WorkspaceConnectionAccessKeyResponse(dict):
     @pulumi.getter(name="secretAccessKey")
     def secret_access_key(self) -> Optional[str]:
         return pulumi.get(self, "secret_access_key")
+
+
+@pulumi.output_type
+class WorkspaceConnectionAccountKeyResponse(dict):
+    def __init__(__self__, *,
+                 key: Optional[str] = None):
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
 
 
 @pulumi.output_type

@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Gets pipeline resource.
  * Azure REST API version: 2023-10-11-preview.
  *
- * Other available API versions: 2024-01-25.
+ * Other available API versions: 2024-01-25, 2024-05-07.
  */
 export function getPipeline(args: GetPipelineArgs, opts?: pulumi.InvokeOptions): Promise<GetPipelineResult> {
 
@@ -70,7 +70,7 @@ export interface GetPipelineResult {
  * Gets pipeline resource.
  * Azure REST API version: 2023-10-11-preview.
  *
- * Other available API versions: 2024-01-25.
+ * Other available API versions: 2024-01-25, 2024-05-07.
  */
 export function getPipelineOutput(args: GetPipelineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPipelineResult> {
     return pulumi.output(args).apply((a: any) => getPipeline(a, opts))

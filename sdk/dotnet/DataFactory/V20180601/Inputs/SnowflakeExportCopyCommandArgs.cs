@@ -40,6 +40,12 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         }
 
         /// <summary>
+        /// The name of the snowflake storage integration to use for the copy operation. Type: string (or Expression with resultType string).
+        /// </summary>
+        [Input("storageIntegration")]
+        public Input<object>? StorageIntegration { get; set; }
+
+        /// <summary>
         /// The export setting type.
         /// Expected value is 'SnowflakeExportCopyCommand'.
         /// </summary>

@@ -87,7 +87,7 @@ export class ReplicationProtectionCluster extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:recoveryservices:ReplicationProtectionCluster" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:recoveryservices:ReplicationProtectionCluster" }, { type: "azure-native:recoveryservices/v20240401:ReplicationProtectionCluster" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ReplicationProtectionCluster.__pulumiType, name, resourceInputs, opts);
     }

@@ -449,6 +449,37 @@ namespace Pulumi.AzureNative.DocumentDB.V20240515
     }
 
     /// <summary>
+    /// DedicatedGatewayType for the service.
+    /// </summary>
+    [EnumType]
+    public readonly struct DedicatedGatewayType : IEquatable<DedicatedGatewayType>
+    {
+        private readonly string _value;
+
+        private DedicatedGatewayType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DedicatedGatewayType IntegratedCache { get; } = new DedicatedGatewayType("IntegratedCache");
+        public static DedicatedGatewayType DistributedQuery { get; } = new DedicatedGatewayType("DistributedQuery");
+
+        public static bool operator ==(DedicatedGatewayType left, DedicatedGatewayType right) => left.Equals(right);
+        public static bool operator !=(DedicatedGatewayType left, DedicatedGatewayType right) => !left.Equals(right);
+
+        public static explicit operator string(DedicatedGatewayType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DedicatedGatewayType other && Equals(other);
+        public bool Equals(DedicatedGatewayType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The default consistency level and configuration settings of the Cosmos DB account.
     /// </summary>
     [EnumType]

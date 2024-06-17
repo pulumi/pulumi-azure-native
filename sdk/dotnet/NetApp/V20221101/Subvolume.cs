@@ -88,6 +88,7 @@ namespace Pulumi.AzureNative.NetApp.V20221101
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20230701:Subvolume" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20230701preview:Subvolume" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20231101:Subvolume" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20231101preview:Subvolume" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

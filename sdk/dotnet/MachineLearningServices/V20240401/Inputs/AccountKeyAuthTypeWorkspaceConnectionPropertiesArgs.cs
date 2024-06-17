@@ -29,7 +29,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20240401.Inputs
         public InputUnion<string, Pulumi.AzureNative.MachineLearningServices.V20240401.ConnectionCategory>? Category { get; set; }
 
         [Input("credentials")]
-        public Input<Inputs.WorkspaceConnectionSharedAccessSignatureArgs>? Credentials { get; set; }
+        public Input<Inputs.WorkspaceConnectionAccountKeyArgs>? Credentials { get; set; }
 
         [Input("expiryTime")]
         public Input<string>? ExpiryTime { get; set; }

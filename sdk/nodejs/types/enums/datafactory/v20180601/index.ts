@@ -821,6 +821,7 @@ export type SqlAlwaysEncryptedAkvAuthType = (typeof SqlAlwaysEncryptedAkvAuthTyp
 export const SqlServerAuthenticationType = {
     SQL: "SQL",
     Windows: "Windows",
+    UserAssignedManagedIdentity: "UserAssignedManagedIdentity",
 } as const;
 
 /**

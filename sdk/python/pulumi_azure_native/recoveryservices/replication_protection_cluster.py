@@ -130,6 +130,8 @@ class ReplicationProtectionCluster(pulumi.CustomResource):
         Replication protection Cluster.
         Azure REST API version: 2024-02-01.
 
+        Other available API versions: 2024-04-01.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] fabric_name: Fabric name.
@@ -148,6 +150,8 @@ class ReplicationProtectionCluster(pulumi.CustomResource):
         """
         Replication protection Cluster.
         Azure REST API version: 2024-02-01.
+
+        Other available API versions: 2024-04-01.
 
         :param str resource_name: The name of the resource.
         :param ReplicationProtectionClusterArgs args: The arguments to use to populate this resource's properties.
@@ -195,7 +199,7 @@ class ReplicationProtectionCluster(pulumi.CustomResource):
             __props__.__dict__["resource_name"] = resource_name_
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:recoveryservices/v20240201:ReplicationProtectionCluster")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:recoveryservices/v20240201:ReplicationProtectionCluster"), pulumi.Alias(type_="azure-native:recoveryservices/v20240401:ReplicationProtectionCluster")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ReplicationProtectionCluster, __self__).__init__(
             'azure-native:recoveryservices:ReplicationProtectionCluster',

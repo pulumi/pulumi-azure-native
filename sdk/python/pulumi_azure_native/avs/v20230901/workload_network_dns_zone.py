@@ -19,7 +19,7 @@ class WorkloadNetworkDnsZoneArgs:
                  resource_group_name: pulumi.Input[str],
                  display_name: Optional[pulumi.Input[str]] = None,
                  dns_server_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 dns_services: Optional[pulumi.Input[int]] = None,
+                 dns_services: Optional[pulumi.Input[float]] = None,
                  dns_zone_id: Optional[pulumi.Input[str]] = None,
                  domain: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  revision: Optional[pulumi.Input[float]] = None,
@@ -30,7 +30,7 @@ class WorkloadNetworkDnsZoneArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] display_name: Display name of the DNS Zone.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_server_ips: DNS Server IP array of the DNS Zone.
-        :param pulumi.Input[int] dns_services: Number of DNS Services using the DNS zone.
+        :param pulumi.Input[float] dns_services: Number of DNS Services using the DNS zone.
         :param pulumi.Input[str] dns_zone_id: ID of the DNS zone.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] domain: Domain names of the DNS Zone.
         :param pulumi.Input[float] revision: NSX revision number.
@@ -103,14 +103,14 @@ class WorkloadNetworkDnsZoneArgs:
 
     @property
     @pulumi.getter(name="dnsServices")
-    def dns_services(self) -> Optional[pulumi.Input[int]]:
+    def dns_services(self) -> Optional[pulumi.Input[float]]:
         """
         Number of DNS Services using the DNS zone.
         """
         return pulumi.get(self, "dns_services")
 
     @dns_services.setter
-    def dns_services(self, value: Optional[pulumi.Input[int]]):
+    def dns_services(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "dns_services", value)
 
     @property
@@ -169,7 +169,7 @@ class WorkloadNetworkDnsZone(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  dns_server_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 dns_services: Optional[pulumi.Input[int]] = None,
+                 dns_services: Optional[pulumi.Input[float]] = None,
                  dns_zone_id: Optional[pulumi.Input[str]] = None,
                  domain: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  private_cloud_name: Optional[pulumi.Input[str]] = None,
@@ -184,7 +184,7 @@ class WorkloadNetworkDnsZone(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] display_name: Display name of the DNS Zone.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_server_ips: DNS Server IP array of the DNS Zone.
-        :param pulumi.Input[int] dns_services: Number of DNS Services using the DNS zone.
+        :param pulumi.Input[float] dns_services: Number of DNS Services using the DNS zone.
         :param pulumi.Input[str] dns_zone_id: ID of the DNS zone.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] domain: Domain names of the DNS Zone.
         :param pulumi.Input[str] private_cloud_name: Name of the private cloud
@@ -218,7 +218,7 @@ class WorkloadNetworkDnsZone(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  dns_server_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 dns_services: Optional[pulumi.Input[int]] = None,
+                 dns_services: Optional[pulumi.Input[float]] = None,
                  dns_zone_id: Optional[pulumi.Input[str]] = None,
                  domain: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  private_cloud_name: Optional[pulumi.Input[str]] = None,
@@ -305,7 +305,7 @@ class WorkloadNetworkDnsZone(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dnsServices")
-    def dns_services(self) -> pulumi.Output[Optional[int]]:
+    def dns_services(self) -> pulumi.Output[Optional[float]]:
         """
         Number of DNS Services using the DNS zone.
         """

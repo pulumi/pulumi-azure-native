@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
  * Gets details from a list of feature names.
  * Azure REST API version: 2021-12-01.
  *
- * Other available API versions: 2023-05-01-preview.
+ * Other available API versions: 2023-05-01-preview, 2024-04-01-preview.
  */
 export function listFeatureAccount(args: ListFeatureAccountArgs, opts?: pulumi.InvokeOptions): Promise<ListFeatureAccountResult> {
 
@@ -48,7 +48,7 @@ export interface ListFeatureAccountResult {
  * Gets details from a list of feature names.
  * Azure REST API version: 2021-12-01.
  *
- * Other available API versions: 2023-05-01-preview.
+ * Other available API versions: 2023-05-01-preview, 2024-04-01-preview.
  */
 export function listFeatureAccountOutput(args: ListFeatureAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListFeatureAccountResult> {
     return pulumi.output(args).apply((a: any) => listFeatureAccount(a, opts))

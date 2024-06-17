@@ -38,7 +38,8 @@ export class EndpointDeployment extends pulumi.CustomResource {
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
-    public readonly properties!: pulumi.Output<outputs.machinelearningservices.v20240401preview.ContentSafetyEndpointDeploymentResourcePropertiesResponse | outputs.machinelearningservices.v20240401preview.ManagedOnlineEndpointDeploymentResourcePropertiesResponse | outputs.machinelearningservices.v20240401preview.OpenAIEndpointDeploymentResourcePropertiesResponse | outputs.machinelearningservices.v20240401preview.SpeechEndpointDeploymentResourcePropertiesResponse>;
+    public readonly properties!: pulumi.Output<outputs.machinelearningservices.v20240401preview.EndpointDeploymentResourcePropertiesResponse>;
+    public readonly sku!: pulumi.Output<outputs.machinelearningservices.v20240401preview.CognitiveServicesSkuResponse | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -75,6 +76,7 @@ export class EndpointDeployment extends pulumi.CustomResource {
             resourceInputs["endpointName"] = args ? args.endpointName : undefined;
             resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
@@ -82,6 +84,7 @@ export class EndpointDeployment extends pulumi.CustomResource {
         } else {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["sku"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
@@ -104,11 +107,12 @@ export interface EndpointDeploymentArgs {
      * Name of the endpoint resource.
      */
     endpointName: pulumi.Input<string>;
-    properties: pulumi.Input<inputs.machinelearningservices.v20240401preview.ContentSafetyEndpointDeploymentResourcePropertiesArgs | inputs.machinelearningservices.v20240401preview.ManagedOnlineEndpointDeploymentResourcePropertiesArgs | inputs.machinelearningservices.v20240401preview.OpenAIEndpointDeploymentResourcePropertiesArgs | inputs.machinelearningservices.v20240401preview.SpeechEndpointDeploymentResourcePropertiesArgs>;
+    properties: pulumi.Input<inputs.machinelearningservices.v20240401preview.EndpointDeploymentResourcePropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
+    sku?: pulumi.Input<inputs.machinelearningservices.v20240401preview.CognitiveServicesSkuArgs>;
     /**
      * Azure Machine Learning Workspace Name
      */

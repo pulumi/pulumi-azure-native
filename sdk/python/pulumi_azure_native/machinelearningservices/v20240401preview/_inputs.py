@@ -85,7 +85,6 @@ __all__ = [
     'ComputeStartStopScheduleArgs',
     'ContainerResourceRequirementsArgs',
     'ContainerResourceSettingsArgs',
-    'ContentSafetyEndpointDeploymentResourcePropertiesArgs',
     'CosmosDbSettingsArgs',
     'CreateMonitorActionArgs',
     'CronTriggerArgs',
@@ -121,6 +120,7 @@ __all__ = [
     'EncryptionPropertyArgs',
     'EndpointAuthKeysArgs',
     'EndpointDeploymentModelArgs',
+    'EndpointDeploymentResourcePropertiesArgs',
     'EndpointScheduleActionArgs',
     'EndpointArgs',
     'EnvironmentContainerArgs',
@@ -208,7 +208,6 @@ __all__ = [
     'ManagedNetworkProvisionStatusArgs',
     'ManagedNetworkSettingsArgs',
     'ManagedOnlineDeploymentArgs',
-    'ManagedOnlineEndpointDeploymentResourcePropertiesArgs',
     'ManagedResourceGroupAssignedIdentitiesArgs',
     'ManagedResourceGroupSettingsArgs',
     'ManagedServiceIdentityArgs',
@@ -245,7 +244,6 @@ __all__ = [
     'OneLakeDatastoreArgs',
     'OnlineEndpointArgs',
     'OnlineRequestSettingsArgs',
-    'OpenAIEndpointDeploymentResourcePropertiesArgs',
     'OutputPathAssetReferenceArgs',
     'PATAuthTypeWorkspaceConnectionPropertiesArgs',
     'PersonalComputeInstanceSettingsArgs',
@@ -309,7 +307,6 @@ __all__ = [
     'SparkJobScalaEntryArgs',
     'SparkJobArgs',
     'SparkResourceConfigurationArgs',
-    'SpeechEndpointDeploymentResourcePropertiesArgs',
     'SslConfigurationArgs',
     'StackEnsembleSettingsArgs',
     'StaticInputDataArgs',
@@ -354,6 +351,7 @@ __all__ = [
     'VolumeDefinitionArgs',
     'VolumeOptionsArgs',
     'WorkspaceConnectionAccessKeyArgs',
+    'WorkspaceConnectionAccountKeyArgs',
     'WorkspaceConnectionApiKeyArgs',
     'WorkspaceConnectionManagedIdentityArgs',
     'WorkspaceConnectionOAuth2Args',
@@ -835,7 +833,7 @@ class AccountKeyAuthTypeWorkspaceConnectionPropertiesArgs:
     def __init__(__self__, *,
                  auth_type: pulumi.Input[str],
                  category: Optional[pulumi.Input[Union[str, 'ConnectionCategory']]] = None,
-                 credentials: Optional[pulumi.Input['WorkspaceConnectionSharedAccessSignatureArgs']] = None,
+                 credentials: Optional[pulumi.Input['WorkspaceConnectionAccountKeyArgs']] = None,
                  expiry_time: Optional[pulumi.Input[str]] = None,
                  is_shared_to_all: Optional[pulumi.Input[bool]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -891,11 +889,11 @@ class AccountKeyAuthTypeWorkspaceConnectionPropertiesArgs:
 
     @property
     @pulumi.getter
-    def credentials(self) -> Optional[pulumi.Input['WorkspaceConnectionSharedAccessSignatureArgs']]:
+    def credentials(self) -> Optional[pulumi.Input['WorkspaceConnectionAccountKeyArgs']]:
         return pulumi.get(self, "credentials")
 
     @credentials.setter
-    def credentials(self, value: Optional[pulumi.Input['WorkspaceConnectionSharedAccessSignatureArgs']]):
+    def credentials(self, value: Optional[pulumi.Input['WorkspaceConnectionAccountKeyArgs']]):
         pulumi.set(self, "credentials", value)
 
     @property
@@ -6899,105 +6897,6 @@ class ContainerResourceSettingsArgs:
 
 
 @pulumi.input_type
-class ContentSafetyEndpointDeploymentResourcePropertiesArgs:
-    def __init__(__self__, *,
-                 model: pulumi.Input['EndpointDeploymentModelArgs'],
-                 type: pulumi.Input[str],
-                 failure_reason: Optional[pulumi.Input[str]] = None,
-                 rai_policy_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input['CognitiveServicesSkuArgs']] = None,
-                 version_upgrade_option: Optional[pulumi.Input[Union[str, 'DeploymentModelVersionUpgradeOption']]] = None):
-        """
-        :param pulumi.Input['EndpointDeploymentModelArgs'] model: Model used for the endpoint deployment.
-        :param pulumi.Input[str] type: Kind of the deployment.
-               Expected value is 'Azure.ContentSafety'.
-        :param pulumi.Input[str] failure_reason: The failure reason if the creation failed.
-        :param pulumi.Input[str] rai_policy_name: The name of RAI policy.
-        :param pulumi.Input[Union[str, 'DeploymentModelVersionUpgradeOption']] version_upgrade_option: Deployment model version upgrade option.
-        """
-        pulumi.set(__self__, "model", model)
-        pulumi.set(__self__, "type", 'Azure.ContentSafety')
-        if failure_reason is not None:
-            pulumi.set(__self__, "failure_reason", failure_reason)
-        if rai_policy_name is not None:
-            pulumi.set(__self__, "rai_policy_name", rai_policy_name)
-        if sku is not None:
-            pulumi.set(__self__, "sku", sku)
-        if version_upgrade_option is not None:
-            pulumi.set(__self__, "version_upgrade_option", version_upgrade_option)
-
-    @property
-    @pulumi.getter
-    def model(self) -> pulumi.Input['EndpointDeploymentModelArgs']:
-        """
-        Model used for the endpoint deployment.
-        """
-        return pulumi.get(self, "model")
-
-    @model.setter
-    def model(self, value: pulumi.Input['EndpointDeploymentModelArgs']):
-        pulumi.set(self, "model", value)
-
-    @property
-    @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
-        """
-        Kind of the deployment.
-        Expected value is 'Azure.ContentSafety'.
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "type", value)
-
-    @property
-    @pulumi.getter(name="failureReason")
-    def failure_reason(self) -> Optional[pulumi.Input[str]]:
-        """
-        The failure reason if the creation failed.
-        """
-        return pulumi.get(self, "failure_reason")
-
-    @failure_reason.setter
-    def failure_reason(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "failure_reason", value)
-
-    @property
-    @pulumi.getter(name="raiPolicyName")
-    def rai_policy_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of RAI policy.
-        """
-        return pulumi.get(self, "rai_policy_name")
-
-    @rai_policy_name.setter
-    def rai_policy_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "rai_policy_name", value)
-
-    @property
-    @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input['CognitiveServicesSkuArgs']]:
-        return pulumi.get(self, "sku")
-
-    @sku.setter
-    def sku(self, value: Optional[pulumi.Input['CognitiveServicesSkuArgs']]):
-        pulumi.set(self, "sku", value)
-
-    @property
-    @pulumi.getter(name="versionUpgradeOption")
-    def version_upgrade_option(self) -> Optional[pulumi.Input[Union[str, 'DeploymentModelVersionUpgradeOption']]]:
-        """
-        Deployment model version upgrade option.
-        """
-        return pulumi.get(self, "version_upgrade_option")
-
-    @version_upgrade_option.setter
-    def version_upgrade_option(self, value: Optional[pulumi.Input[Union[str, 'DeploymentModelVersionUpgradeOption']]]):
-        pulumi.set(self, "version_upgrade_option", value)
-
-
-@pulumi.input_type
 class CosmosDbSettingsArgs:
     def __init__(__self__, *,
                  collections_throughput: Optional[pulumi.Input[int]] = None):
@@ -9717,6 +9616,60 @@ class EndpointDeploymentModelArgs:
     @version.setter
     def version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "version", value)
+
+
+@pulumi.input_type
+class EndpointDeploymentResourcePropertiesArgs:
+    def __init__(__self__, *,
+                 model: pulumi.Input['EndpointDeploymentModelArgs'],
+                 rai_policy_name: Optional[pulumi.Input[str]] = None,
+                 version_upgrade_option: Optional[pulumi.Input[Union[str, 'DeploymentModelVersionUpgradeOption']]] = None):
+        """
+        :param pulumi.Input['EndpointDeploymentModelArgs'] model: Model used for the endpoint deployment.
+        :param pulumi.Input[str] rai_policy_name: The name of RAI policy.
+        :param pulumi.Input[Union[str, 'DeploymentModelVersionUpgradeOption']] version_upgrade_option: Deployment model version upgrade option.
+        """
+        pulumi.set(__self__, "model", model)
+        if rai_policy_name is not None:
+            pulumi.set(__self__, "rai_policy_name", rai_policy_name)
+        if version_upgrade_option is not None:
+            pulumi.set(__self__, "version_upgrade_option", version_upgrade_option)
+
+    @property
+    @pulumi.getter
+    def model(self) -> pulumi.Input['EndpointDeploymentModelArgs']:
+        """
+        Model used for the endpoint deployment.
+        """
+        return pulumi.get(self, "model")
+
+    @model.setter
+    def model(self, value: pulumi.Input['EndpointDeploymentModelArgs']):
+        pulumi.set(self, "model", value)
+
+    @property
+    @pulumi.getter(name="raiPolicyName")
+    def rai_policy_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of RAI policy.
+        """
+        return pulumi.get(self, "rai_policy_name")
+
+    @rai_policy_name.setter
+    def rai_policy_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "rai_policy_name", value)
+
+    @property
+    @pulumi.getter(name="versionUpgradeOption")
+    def version_upgrade_option(self) -> Optional[pulumi.Input[Union[str, 'DeploymentModelVersionUpgradeOption']]]:
+        """
+        Deployment model version upgrade option.
+        """
+        return pulumi.get(self, "version_upgrade_option")
+
+    @version_upgrade_option.setter
+    def version_upgrade_option(self, value: Optional[pulumi.Input[Union[str, 'DeploymentModelVersionUpgradeOption']]]):
+        pulumi.set(self, "version_upgrade_option", value)
 
 
 @pulumi.input_type
@@ -20253,46 +20206,6 @@ class ManagedOnlineDeploymentArgs:
 
 
 @pulumi.input_type
-class ManagedOnlineEndpointDeploymentResourcePropertiesArgs:
-    def __init__(__self__, *,
-                 type: pulumi.Input[str],
-                 failure_reason: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] type: Kind of the deployment.
-               Expected value is 'managedOnlineEndpoint'.
-        :param pulumi.Input[str] failure_reason: The failure reason if the creation failed.
-        """
-        pulumi.set(__self__, "type", 'managedOnlineEndpoint')
-        if failure_reason is not None:
-            pulumi.set(__self__, "failure_reason", failure_reason)
-
-    @property
-    @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
-        """
-        Kind of the deployment.
-        Expected value is 'managedOnlineEndpoint'.
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "type", value)
-
-    @property
-    @pulumi.getter(name="failureReason")
-    def failure_reason(self) -> Optional[pulumi.Input[str]]:
-        """
-        The failure reason if the creation failed.
-        """
-        return pulumi.get(self, "failure_reason")
-
-    @failure_reason.setter
-    def failure_reason(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "failure_reason", value)
-
-
-@pulumi.input_type
 class ManagedResourceGroupAssignedIdentitiesArgs:
     def __init__(__self__, *,
                  principal_id: Optional[pulumi.Input[str]] = None):
@@ -22726,105 +22639,6 @@ class OnlineRequestSettingsArgs:
     @request_timeout.setter
     def request_timeout(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "request_timeout", value)
-
-
-@pulumi.input_type
-class OpenAIEndpointDeploymentResourcePropertiesArgs:
-    def __init__(__self__, *,
-                 model: pulumi.Input['EndpointDeploymentModelArgs'],
-                 type: pulumi.Input[str],
-                 failure_reason: Optional[pulumi.Input[str]] = None,
-                 rai_policy_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input['CognitiveServicesSkuArgs']] = None,
-                 version_upgrade_option: Optional[pulumi.Input[Union[str, 'DeploymentModelVersionUpgradeOption']]] = None):
-        """
-        :param pulumi.Input['EndpointDeploymentModelArgs'] model: Model used for the endpoint deployment.
-        :param pulumi.Input[str] type: Kind of the deployment.
-               Expected value is 'Azure.OpenAI'.
-        :param pulumi.Input[str] failure_reason: The failure reason if the creation failed.
-        :param pulumi.Input[str] rai_policy_name: The name of RAI policy.
-        :param pulumi.Input[Union[str, 'DeploymentModelVersionUpgradeOption']] version_upgrade_option: Deployment model version upgrade option.
-        """
-        pulumi.set(__self__, "model", model)
-        pulumi.set(__self__, "type", 'Azure.OpenAI')
-        if failure_reason is not None:
-            pulumi.set(__self__, "failure_reason", failure_reason)
-        if rai_policy_name is not None:
-            pulumi.set(__self__, "rai_policy_name", rai_policy_name)
-        if sku is not None:
-            pulumi.set(__self__, "sku", sku)
-        if version_upgrade_option is not None:
-            pulumi.set(__self__, "version_upgrade_option", version_upgrade_option)
-
-    @property
-    @pulumi.getter
-    def model(self) -> pulumi.Input['EndpointDeploymentModelArgs']:
-        """
-        Model used for the endpoint deployment.
-        """
-        return pulumi.get(self, "model")
-
-    @model.setter
-    def model(self, value: pulumi.Input['EndpointDeploymentModelArgs']):
-        pulumi.set(self, "model", value)
-
-    @property
-    @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
-        """
-        Kind of the deployment.
-        Expected value is 'Azure.OpenAI'.
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "type", value)
-
-    @property
-    @pulumi.getter(name="failureReason")
-    def failure_reason(self) -> Optional[pulumi.Input[str]]:
-        """
-        The failure reason if the creation failed.
-        """
-        return pulumi.get(self, "failure_reason")
-
-    @failure_reason.setter
-    def failure_reason(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "failure_reason", value)
-
-    @property
-    @pulumi.getter(name="raiPolicyName")
-    def rai_policy_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of RAI policy.
-        """
-        return pulumi.get(self, "rai_policy_name")
-
-    @rai_policy_name.setter
-    def rai_policy_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "rai_policy_name", value)
-
-    @property
-    @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input['CognitiveServicesSkuArgs']]:
-        return pulumi.get(self, "sku")
-
-    @sku.setter
-    def sku(self, value: Optional[pulumi.Input['CognitiveServicesSkuArgs']]):
-        pulumi.set(self, "sku", value)
-
-    @property
-    @pulumi.getter(name="versionUpgradeOption")
-    def version_upgrade_option(self) -> Optional[pulumi.Input[Union[str, 'DeploymentModelVersionUpgradeOption']]]:
-        """
-        Deployment model version upgrade option.
-        """
-        return pulumi.get(self, "version_upgrade_option")
-
-    @version_upgrade_option.setter
-    def version_upgrade_option(self, value: Optional[pulumi.Input[Union[str, 'DeploymentModelVersionUpgradeOption']]]):
-        pulumi.set(self, "version_upgrade_option", value)
 
 
 @pulumi.input_type
@@ -27889,105 +27703,6 @@ class SparkResourceConfigurationArgs:
 
 
 @pulumi.input_type
-class SpeechEndpointDeploymentResourcePropertiesArgs:
-    def __init__(__self__, *,
-                 model: pulumi.Input['EndpointDeploymentModelArgs'],
-                 type: pulumi.Input[str],
-                 failure_reason: Optional[pulumi.Input[str]] = None,
-                 rai_policy_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input['CognitiveServicesSkuArgs']] = None,
-                 version_upgrade_option: Optional[pulumi.Input[Union[str, 'DeploymentModelVersionUpgradeOption']]] = None):
-        """
-        :param pulumi.Input['EndpointDeploymentModelArgs'] model: Model used for the endpoint deployment.
-        :param pulumi.Input[str] type: Kind of the deployment.
-               Expected value is 'Azure.Speech'.
-        :param pulumi.Input[str] failure_reason: The failure reason if the creation failed.
-        :param pulumi.Input[str] rai_policy_name: The name of RAI policy.
-        :param pulumi.Input[Union[str, 'DeploymentModelVersionUpgradeOption']] version_upgrade_option: Deployment model version upgrade option.
-        """
-        pulumi.set(__self__, "model", model)
-        pulumi.set(__self__, "type", 'Azure.Speech')
-        if failure_reason is not None:
-            pulumi.set(__self__, "failure_reason", failure_reason)
-        if rai_policy_name is not None:
-            pulumi.set(__self__, "rai_policy_name", rai_policy_name)
-        if sku is not None:
-            pulumi.set(__self__, "sku", sku)
-        if version_upgrade_option is not None:
-            pulumi.set(__self__, "version_upgrade_option", version_upgrade_option)
-
-    @property
-    @pulumi.getter
-    def model(self) -> pulumi.Input['EndpointDeploymentModelArgs']:
-        """
-        Model used for the endpoint deployment.
-        """
-        return pulumi.get(self, "model")
-
-    @model.setter
-    def model(self, value: pulumi.Input['EndpointDeploymentModelArgs']):
-        pulumi.set(self, "model", value)
-
-    @property
-    @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
-        """
-        Kind of the deployment.
-        Expected value is 'Azure.Speech'.
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "type", value)
-
-    @property
-    @pulumi.getter(name="failureReason")
-    def failure_reason(self) -> Optional[pulumi.Input[str]]:
-        """
-        The failure reason if the creation failed.
-        """
-        return pulumi.get(self, "failure_reason")
-
-    @failure_reason.setter
-    def failure_reason(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "failure_reason", value)
-
-    @property
-    @pulumi.getter(name="raiPolicyName")
-    def rai_policy_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of RAI policy.
-        """
-        return pulumi.get(self, "rai_policy_name")
-
-    @rai_policy_name.setter
-    def rai_policy_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "rai_policy_name", value)
-
-    @property
-    @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input['CognitiveServicesSkuArgs']]:
-        return pulumi.get(self, "sku")
-
-    @sku.setter
-    def sku(self, value: Optional[pulumi.Input['CognitiveServicesSkuArgs']]):
-        pulumi.set(self, "sku", value)
-
-    @property
-    @pulumi.getter(name="versionUpgradeOption")
-    def version_upgrade_option(self) -> Optional[pulumi.Input[Union[str, 'DeploymentModelVersionUpgradeOption']]]:
-        """
-        Deployment model version upgrade option.
-        """
-        return pulumi.get(self, "version_upgrade_option")
-
-    @version_upgrade_option.setter
-    def version_upgrade_option(self, value: Optional[pulumi.Input[Union[str, 'DeploymentModelVersionUpgradeOption']]]):
-        pulumi.set(self, "version_upgrade_option", value)
-
-
-@pulumi.input_type
 class SslConfigurationArgs:
     def __init__(__self__, *,
                  cert: Optional[pulumi.Input[str]] = None,
@@ -32923,6 +32638,23 @@ class WorkspaceConnectionAccessKeyArgs:
     @secret_access_key.setter
     def secret_access_key(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "secret_access_key", value)
+
+
+@pulumi.input_type
+class WorkspaceConnectionAccountKeyArgs:
+    def __init__(__self__, *,
+                 key: Optional[pulumi.Input[str]] = None):
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
 
 
 @pulumi.input_type

@@ -104,7 +104,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20240301Preview
         /// <summary>
         /// List of private endpoint connections.
         /// </summary>
-        public readonly ImmutableArray<Outputs.AzureResourceManagerPrivateEndpointConnectionResponse> PrivateEndpointConnections;
+        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
         /// <summary>
         /// The provisioning state of the mongo cluster.
         /// </summary>
@@ -148,7 +148,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20240301Preview
 
             ImmutableArray<Outputs.NodeGroupSpecResponse> nodeGroupSpecs,
 
-            ImmutableArray<Outputs.AzureResourceManagerPrivateEndpointConnectionResponse> privateEndpointConnections,
+            ImmutableArray<Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
 
             string provisioningState,
 

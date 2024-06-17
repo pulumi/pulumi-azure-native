@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Subvolume Information properties
  * Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2021-10-01.
  *
- * Other available API versions: 2022-11-01-preview, 2023-05-01, 2023-05-01-preview, 2023-07-01, 2023-07-01-preview, 2023-11-01.
+ * Other available API versions: 2022-11-01-preview, 2023-05-01, 2023-05-01-preview, 2023-07-01, 2023-07-01-preview, 2023-11-01, 2023-11-01-preview.
  */
 export class Subvolume extends pulumi.CustomResource {
     /**
@@ -109,7 +109,7 @@ export class Subvolume extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:netapp/v20211001:Subvolume" }, { type: "azure-native:netapp/v20220101:Subvolume" }, { type: "azure-native:netapp/v20220301:Subvolume" }, { type: "azure-native:netapp/v20220501:Subvolume" }, { type: "azure-native:netapp/v20220901:Subvolume" }, { type: "azure-native:netapp/v20221101:Subvolume" }, { type: "azure-native:netapp/v20221101preview:Subvolume" }, { type: "azure-native:netapp/v20230501:Subvolume" }, { type: "azure-native:netapp/v20230501preview:Subvolume" }, { type: "azure-native:netapp/v20230701:Subvolume" }, { type: "azure-native:netapp/v20230701preview:Subvolume" }, { type: "azure-native:netapp/v20231101:Subvolume" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:netapp/v20211001:Subvolume" }, { type: "azure-native:netapp/v20220101:Subvolume" }, { type: "azure-native:netapp/v20220301:Subvolume" }, { type: "azure-native:netapp/v20220501:Subvolume" }, { type: "azure-native:netapp/v20220901:Subvolume" }, { type: "azure-native:netapp/v20221101:Subvolume" }, { type: "azure-native:netapp/v20221101preview:Subvolume" }, { type: "azure-native:netapp/v20230501:Subvolume" }, { type: "azure-native:netapp/v20230501preview:Subvolume" }, { type: "azure-native:netapp/v20230701:Subvolume" }, { type: "azure-native:netapp/v20230701preview:Subvolume" }, { type: "azure-native:netapp/v20231101:Subvolume" }, { type: "azure-native:netapp/v20231101preview:Subvolume" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Subvolume.__pulumiType, name, resourceInputs, opts);
     }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StorageMover
     /// The Agent resource.
     /// Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2022-07-01-preview.
     /// 
-    /// Other available API versions: 2023-07-01-preview, 2023-10-01.
+    /// Other available API versions: 2023-07-01-preview, 2023-10-01, 2024-07-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:storagemover:Agent")]
     public partial class Agent : global::Pulumi.CustomResource
@@ -134,6 +134,7 @@ namespace Pulumi.AzureNative.StorageMover
                     new global::Pulumi.Alias { Type = "azure-native:storagemover/v20230301:Agent" },
                     new global::Pulumi.Alias { Type = "azure-native:storagemover/v20230701preview:Agent" },
                     new global::Pulumi.Alias { Type = "azure-native:storagemover/v20231001:Agent" },
+                    new global::Pulumi.Alias { Type = "azure-native:storagemover/v20240701:Agent" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -433,17 +433,21 @@ class PolicyDefinitionGroupArgs:
 class PolicyDefinitionReferenceArgs:
     def __init__(__self__, *,
                  policy_definition_id: pulumi.Input[str],
+                 definition_version: Optional[pulumi.Input[str]] = None,
                  group_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterValuesValueArgs']]]] = None,
                  policy_definition_reference_id: Optional[pulumi.Input[str]] = None):
         """
         The policy definition reference.
         :param pulumi.Input[str] policy_definition_id: The ID of the policy definition or policy set definition.
+        :param pulumi.Input[str] definition_version: The version of the policy definition to use.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] group_names: The name of the groups that this policy definition reference belongs to.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterValuesValueArgs']]] parameters: The parameter values for the referenced policy rule. The keys are the parameter names.
         :param pulumi.Input[str] policy_definition_reference_id: A unique id (within the policy set definition) for this policy definition reference.
         """
         pulumi.set(__self__, "policy_definition_id", policy_definition_id)
+        if definition_version is not None:
+            pulumi.set(__self__, "definition_version", definition_version)
         if group_names is not None:
             pulumi.set(__self__, "group_names", group_names)
         if parameters is not None:
@@ -462,6 +466,18 @@ class PolicyDefinitionReferenceArgs:
     @policy_definition_id.setter
     def policy_definition_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "policy_definition_id", value)
+
+    @property
+    @pulumi.getter(name="definitionVersion")
+    def definition_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of the policy definition to use.
+        """
+        return pulumi.get(self, "definition_version")
+
+    @definition_version.setter
+    def definition_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "definition_version", value)
 
     @property
     @pulumi.getter(name="groupNames")

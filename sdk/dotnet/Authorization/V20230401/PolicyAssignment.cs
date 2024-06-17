@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.Authorization.V20230401
     public partial class PolicyAssignment : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The version of the policy definition to use.
+        /// </summary>
+        [Output("definitionVersion")]
+        public Output<string?> DefinitionVersion { get; private set; } = null!;
+
+        /// <summary>
         /// This message will be part of response in case of policy violation.
         /// </summary>
         [Output("description")]
@@ -174,6 +180,12 @@ namespace Pulumi.AzureNative.Authorization.V20230401
 
     public sealed class PolicyAssignmentArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The version of the policy definition to use.
+        /// </summary>
+        [Input("definitionVersion")]
+        public Input<string>? DefinitionVersion { get; set; }
+
         /// <summary>
         /// This message will be part of response in case of policy violation.
         /// </summary>

@@ -163,6 +163,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20230707Preview
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20240116preview:Workspace" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20240306preview:Workspace" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20240403:Workspace" },
+                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20240408preview:Workspace" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

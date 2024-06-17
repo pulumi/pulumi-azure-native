@@ -19,6 +19,7 @@ __all__ = [
     'DataType',
     'DatabaseAccountKind',
     'DatabaseAccountOfferType',
+    'DedicatedGatewayType',
     'DefaultConsistencyLevel',
     'IndexKind',
     'IndexingMode',
@@ -158,6 +159,14 @@ class DatabaseAccountOfferType(str, Enum):
     The offer type for the database
     """
     STANDARD = "Standard"
+
+
+class DedicatedGatewayType(str, Enum):
+    """
+    DedicatedGatewayType for the service.
+    """
+    INTEGRATED_CACHE = "IntegratedCache"
+    DISTRIBUTED_QUERY = "DistributedQuery"
 
 
 class DefaultConsistencyLevel(str, Enum):

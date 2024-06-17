@@ -91,6 +91,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20230801
                     new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20230601:ReplicationStorageClassificationMapping" },
                     new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20240101:ReplicationStorageClassificationMapping" },
                     new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20240201:ReplicationStorageClassificationMapping" },
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20240401:ReplicationStorageClassificationMapping" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

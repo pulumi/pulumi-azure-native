@@ -92,7 +92,7 @@ namespace Pulumi.AzureNative.AVS.V20230901
         /// <summary>
         /// Number of DNS Services using the DNS zone.
         /// </summary>
-        public readonly int? DnsServices;
+        public readonly double? DnsServices;
         /// <summary>
         /// Domain names of the DNS Zone.
         /// </summary>
@@ -132,7 +132,7 @@ namespace Pulumi.AzureNative.AVS.V20230901
 
             ImmutableArray<string> dnsServerIps,
 
-            int? dnsServices,
+            double? dnsServices,
 
             ImmutableArray<string> domain,
 

@@ -199,7 +199,6 @@ import * as scvmm from "./scvmm";
 import * as search from "./search";
 import * as security from "./security";
 import * as securityandcompliance from "./securityandcompliance";
-import * as securitydevops from "./securitydevops";
 import * as securityinsights from "./securityinsights";
 import * as serialconsole from "./serialconsole";
 import * as servicebus from "./servicebus";
@@ -428,7 +427,6 @@ export {
     search,
     security,
     securityandcompliance,
-    securitydevops,
     securityinsights,
     serialconsole,
     servicebus,

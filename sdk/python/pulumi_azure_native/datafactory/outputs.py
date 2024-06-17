@@ -145,6 +145,7 @@ __all__ = [
     'ConcurObjectDatasetResponse',
     'ConcurSourceResponse',
     'ConnectionStatePropertiesResponse',
+    'ContinuationSettingsReferenceResponse',
     'ControlActivityResponse',
     'CopyActivityLogSettingsResponse',
     'CopyActivityResponse',
@@ -21165,6 +21166,74 @@ class ConnectionStatePropertiesResponse(dict):
 
 
 @pulumi.output_type
+class ContinuationSettingsReferenceResponse(dict):
+    """
+    Continuation settings for execute data flow activity.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "continuationTtlInMinutes":
+            suggest = "continuation_ttl_in_minutes"
+        elif key == "customizedCheckpointKey":
+            suggest = "customized_checkpoint_key"
+        elif key == "idleCondition":
+            suggest = "idle_condition"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContinuationSettingsReferenceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContinuationSettingsReferenceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContinuationSettingsReferenceResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 continuation_ttl_in_minutes: Optional[Any] = None,
+                 customized_checkpoint_key: Optional[Any] = None,
+                 idle_condition: Optional[Any] = None):
+        """
+        Continuation settings for execute data flow activity.
+        :param Any continuation_ttl_in_minutes: Continuation TTL in minutes.
+        :param Any customized_checkpoint_key: Customized checkpoint key.
+        :param Any idle_condition: Idle condition.
+        """
+        if continuation_ttl_in_minutes is not None:
+            pulumi.set(__self__, "continuation_ttl_in_minutes", continuation_ttl_in_minutes)
+        if customized_checkpoint_key is not None:
+            pulumi.set(__self__, "customized_checkpoint_key", customized_checkpoint_key)
+        if idle_condition is not None:
+            pulumi.set(__self__, "idle_condition", idle_condition)
+
+    @property
+    @pulumi.getter(name="continuationTtlInMinutes")
+    def continuation_ttl_in_minutes(self) -> Optional[Any]:
+        """
+        Continuation TTL in minutes.
+        """
+        return pulumi.get(self, "continuation_ttl_in_minutes")
+
+    @property
+    @pulumi.getter(name="customizedCheckpointKey")
+    def customized_checkpoint_key(self) -> Optional[Any]:
+        """
+        Customized checkpoint key.
+        """
+        return pulumi.get(self, "customized_checkpoint_key")
+
+    @property
+    @pulumi.getter(name="idleCondition")
+    def idle_condition(self) -> Optional[Any]:
+        """
+        Idle condition.
+        """
+        return pulumi.get(self, "idle_condition")
+
+
+@pulumi.output_type
 class ControlActivityResponse(dict):
     """
     Base class for all control activities like IfCondition, ForEach , Until.
@@ -30830,6 +30899,8 @@ class ExecuteDataFlowActivityResponse(dict):
         suggest = None
         if key == "dataFlow":
             suggest = "data_flow"
+        elif key == "continuationSettings":
+            suggest = "continuation_settings"
         elif key == "continueOnError":
             suggest = "continue_on_error"
         elif key == "dependsOn":
@@ -30865,6 +30936,7 @@ class ExecuteDataFlowActivityResponse(dict):
                  name: str,
                  type: str,
                  compute: Optional['outputs.ExecuteDataFlowActivityTypePropertiesResponseCompute'] = None,
+                 continuation_settings: Optional['outputs.ContinuationSettingsReferenceResponse'] = None,
                  continue_on_error: Optional[Any] = None,
                  depends_on: Optional[Sequence['outputs.ActivityDependencyResponse']] = None,
                  description: Optional[str] = None,
@@ -30885,6 +30957,7 @@ class ExecuteDataFlowActivityResponse(dict):
         :param str type: Type of activity.
                Expected value is 'ExecuteDataFlow'.
         :param 'ExecuteDataFlowActivityTypePropertiesResponseCompute' compute: Compute properties for data flow activity.
+        :param 'ContinuationSettingsReferenceResponse' continuation_settings: Continuation settings for execute data flow activity.
         :param Any continue_on_error: Continue on error setting used for data flow execution. Enables processing to continue if a sink fails. Type: boolean (or Expression with resultType boolean)
         :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
@@ -30904,6 +30977,8 @@ class ExecuteDataFlowActivityResponse(dict):
         pulumi.set(__self__, "type", 'ExecuteDataFlow')
         if compute is not None:
             pulumi.set(__self__, "compute", compute)
+        if continuation_settings is not None:
+            pulumi.set(__self__, "continuation_settings", continuation_settings)
         if continue_on_error is not None:
             pulumi.set(__self__, "continue_on_error", continue_on_error)
         if depends_on is not None:
@@ -30963,6 +31038,14 @@ class ExecuteDataFlowActivityResponse(dict):
         Compute properties for data flow activity.
         """
         return pulumi.get(self, "compute")
+
+    @property
+    @pulumi.getter(name="continuationSettings")
+    def continuation_settings(self) -> Optional['outputs.ContinuationSettingsReferenceResponse']:
+        """
+        Continuation settings for execute data flow activity.
+        """
+        return pulumi.get(self, "continuation_settings")
 
     @property
     @pulumi.getter(name="continueOnError")
@@ -31644,6 +31727,8 @@ class ExecuteWranglingDataflowActivityResponse(dict):
         suggest = None
         if key == "dataFlow":
             suggest = "data_flow"
+        elif key == "continuationSettings":
+            suggest = "continuation_settings"
         elif key == "continueOnError":
             suggest = "continue_on_error"
         elif key == "dependsOn":
@@ -31677,6 +31762,7 @@ class ExecuteWranglingDataflowActivityResponse(dict):
                  name: str,
                  type: str,
                  compute: Optional['outputs.ExecuteDataFlowActivityTypePropertiesResponseCompute'] = None,
+                 continuation_settings: Optional['outputs.ContinuationSettingsReferenceResponse'] = None,
                  continue_on_error: Optional[Any] = None,
                  depends_on: Optional[Sequence['outputs.ActivityDependencyResponse']] = None,
                  description: Optional[str] = None,
@@ -31698,6 +31784,7 @@ class ExecuteWranglingDataflowActivityResponse(dict):
         :param str type: Type of activity.
                Expected value is 'ExecuteWranglingDataflow'.
         :param 'ExecuteDataFlowActivityTypePropertiesResponseCompute' compute: Compute properties for data flow activity.
+        :param 'ContinuationSettingsReferenceResponse' continuation_settings: Continuation settings for execute data flow activity.
         :param Any continue_on_error: Continue on error setting used for data flow execution. Enables processing to continue if a sink fails. Type: boolean (or Expression with resultType boolean)
         :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
@@ -31718,6 +31805,8 @@ class ExecuteWranglingDataflowActivityResponse(dict):
         pulumi.set(__self__, "type", 'ExecuteWranglingDataflow')
         if compute is not None:
             pulumi.set(__self__, "compute", compute)
+        if continuation_settings is not None:
+            pulumi.set(__self__, "continuation_settings", continuation_settings)
         if continue_on_error is not None:
             pulumi.set(__self__, "continue_on_error", continue_on_error)
         if depends_on is not None:
@@ -31779,6 +31868,14 @@ class ExecuteWranglingDataflowActivityResponse(dict):
         Compute properties for data flow activity.
         """
         return pulumi.get(self, "compute")
+
+    @property
+    @pulumi.getter(name="continuationSettings")
+    def continuation_settings(self) -> Optional['outputs.ContinuationSettingsReferenceResponse']:
+        """
+        Continuation settings for execute data flow activity.
+        """
+        return pulumi.get(self, "continuation_settings")
 
     @property
     @pulumi.getter(name="continueOnError")
@@ -75400,6 +75497,8 @@ class SnowflakeExportCopyCommandResponse(dict):
             suggest = "additional_copy_options"
         elif key == "additionalFormatOptions":
             suggest = "additional_format_options"
+        elif key == "storageIntegration":
+            suggest = "storage_integration"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in SnowflakeExportCopyCommandResponse. Access the value via the '{suggest}' property getter instead.")
@@ -75415,19 +75514,23 @@ class SnowflakeExportCopyCommandResponse(dict):
     def __init__(__self__, *,
                  type: str,
                  additional_copy_options: Optional[Mapping[str, Any]] = None,
-                 additional_format_options: Optional[Mapping[str, Any]] = None):
+                 additional_format_options: Optional[Mapping[str, Any]] = None,
+                 storage_integration: Optional[Any] = None):
         """
         Snowflake export command settings.
         :param str type: The export setting type.
                Expected value is 'SnowflakeExportCopyCommand'.
         :param Mapping[str, Any] additional_copy_options: Additional copy options directly passed to snowflake Copy Command. Type: key value pairs (value should be string type) (or Expression with resultType object). Example: "additionalCopyOptions": { "DATE_FORMAT": "MM/DD/YYYY", "TIME_FORMAT": "'HH24:MI:SS.FF'" }
         :param Mapping[str, Any] additional_format_options: Additional format options directly passed to snowflake Copy Command. Type: key value pairs (value should be string type) (or Expression with resultType object). Example: "additionalFormatOptions": { "OVERWRITE": "TRUE", "MAX_FILE_SIZE": "'FALSE'" }
+        :param Any storage_integration: The name of the snowflake storage integration to use for the copy operation. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "type", 'SnowflakeExportCopyCommand')
         if additional_copy_options is not None:
             pulumi.set(__self__, "additional_copy_options", additional_copy_options)
         if additional_format_options is not None:
             pulumi.set(__self__, "additional_format_options", additional_format_options)
+        if storage_integration is not None:
+            pulumi.set(__self__, "storage_integration", storage_integration)
 
     @property
     @pulumi.getter
@@ -75454,6 +75557,14 @@ class SnowflakeExportCopyCommandResponse(dict):
         """
         return pulumi.get(self, "additional_format_options")
 
+    @property
+    @pulumi.getter(name="storageIntegration")
+    def storage_integration(self) -> Optional[Any]:
+        """
+        The name of the snowflake storage integration to use for the copy operation. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "storage_integration")
+
 
 @pulumi.output_type
 class SnowflakeImportCopyCommandResponse(dict):
@@ -75467,6 +75578,8 @@ class SnowflakeImportCopyCommandResponse(dict):
             suggest = "additional_copy_options"
         elif key == "additionalFormatOptions":
             suggest = "additional_format_options"
+        elif key == "storageIntegration":
+            suggest = "storage_integration"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in SnowflakeImportCopyCommandResponse. Access the value via the '{suggest}' property getter instead.")
@@ -75482,19 +75595,23 @@ class SnowflakeImportCopyCommandResponse(dict):
     def __init__(__self__, *,
                  type: str,
                  additional_copy_options: Optional[Mapping[str, Any]] = None,
-                 additional_format_options: Optional[Mapping[str, Any]] = None):
+                 additional_format_options: Optional[Mapping[str, Any]] = None,
+                 storage_integration: Optional[Any] = None):
         """
         Snowflake import command settings.
         :param str type: The import setting type.
                Expected value is 'SnowflakeImportCopyCommand'.
         :param Mapping[str, Any] additional_copy_options: Additional copy options directly passed to snowflake Copy Command. Type: key value pairs (value should be string type) (or Expression with resultType object). Example: "additionalCopyOptions": { "DATE_FORMAT": "MM/DD/YYYY", "TIME_FORMAT": "'HH24:MI:SS.FF'" }
         :param Mapping[str, Any] additional_format_options: Additional format options directly passed to snowflake Copy Command. Type: key value pairs (value should be string type) (or Expression with resultType object). Example: "additionalFormatOptions": { "FORCE": "TRUE", "LOAD_UNCERTAIN_FILES": "'FALSE'" }
+        :param Any storage_integration: The name of the snowflake storage integration to use for the copy operation. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "type", 'SnowflakeImportCopyCommand')
         if additional_copy_options is not None:
             pulumi.set(__self__, "additional_copy_options", additional_copy_options)
         if additional_format_options is not None:
             pulumi.set(__self__, "additional_format_options", additional_format_options)
+        if storage_integration is not None:
+            pulumi.set(__self__, "storage_integration", storage_integration)
 
     @property
     @pulumi.getter
@@ -75520,6 +75637,14 @@ class SnowflakeImportCopyCommandResponse(dict):
         Additional format options directly passed to snowflake Copy Command. Type: key value pairs (value should be string type) (or Expression with resultType object). Example: "additionalFormatOptions": { "FORCE": "TRUE", "LOAD_UNCERTAIN_FILES": "'FALSE'" }
         """
         return pulumi.get(self, "additional_format_options")
+
+    @property
+    @pulumi.getter(name="storageIntegration")
+    def storage_integration(self) -> Optional[Any]:
+        """
+        The name of the snowflake storage integration to use for the copy operation. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "storage_integration")
 
 
 @pulumi.output_type
@@ -78396,6 +78521,7 @@ class SqlServerLinkedServiceResponse(dict):
                  connect_timeout: Optional[Any] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  connection_string: Optional[Any] = None,
+                 credential: Optional['outputs.CredentialReferenceResponse'] = None,
                  database: Optional[Any] = None,
                  description: Optional[str] = None,
                  encrypt: Optional[Any] = None,
@@ -78429,6 +78555,7 @@ class SqlServerLinkedServiceResponse(dict):
         :param Any connect_timeout: The length of time (in seconds) to wait for a connection to the server before terminating the attempt and generating an error, used by recommended version. Type: integer (or Expression with resultType integer).
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param Any connection_string: The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
+        :param 'CredentialReferenceResponse' credential: The credential reference containing authentication information.
         :param Any database: The name of the database, used by recommended version. Type: string (or Expression with resultType string).
         :param str description: Linked service description.
         :param Any encrypt: Indicate whether TLS encryption is required for all data sent between the client and server, used by recommended version. Possible values are true/yes/mandatory, false/no/optional and strict. Type: string (or Expression with resultType string).
@@ -78470,6 +78597,8 @@ class SqlServerLinkedServiceResponse(dict):
             pulumi.set(__self__, "connect_via", connect_via)
         if connection_string is not None:
             pulumi.set(__self__, "connection_string", connection_string)
+        if credential is not None:
+            pulumi.set(__self__, "credential", credential)
         if database is not None:
             pulumi.set(__self__, "database", database)
         if description is not None:
@@ -78597,6 +78726,14 @@ class SqlServerLinkedServiceResponse(dict):
         The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         """
         return pulumi.get(self, "connection_string")
+
+    @property
+    @pulumi.getter
+    def credential(self) -> Optional['outputs.CredentialReferenceResponse']:
+        """
+        The credential reference containing authentication information.
+        """
+        return pulumi.get(self, "credential")
 
     @property
     @pulumi.getter

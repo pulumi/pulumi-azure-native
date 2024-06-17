@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.Authorization.V20230401.Outputs
     public sealed class PolicyDefinitionReferenceResponse
     {
         /// <summary>
+        /// The version of the policy definition to use.
+        /// </summary>
+        public readonly string? DefinitionVersion;
+        /// <summary>
         /// The name of the groups that this policy definition reference belongs to.
         /// </summary>
         public readonly ImmutableArray<string> GroupNames;
@@ -35,6 +39,8 @@ namespace Pulumi.AzureNative.Authorization.V20230401.Outputs
 
         [OutputConstructor]
         private PolicyDefinitionReferenceResponse(
+            string? definitionVersion,
+
             ImmutableArray<string> groupNames,
 
             ImmutableDictionary<string, Outputs.ParameterValuesValueResponse>? parameters,
@@ -43,6 +49,7 @@ namespace Pulumi.AzureNative.Authorization.V20230401.Outputs
 
             string? policyDefinitionReferenceId)
         {
+            DefinitionVersion = definitionVersion;
             GroupNames = groupNames;
             Parameters = parameters;
             PolicyDefinitionId = policyDefinitionId;

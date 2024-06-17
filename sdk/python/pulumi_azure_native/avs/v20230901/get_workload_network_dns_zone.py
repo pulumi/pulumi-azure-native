@@ -29,8 +29,8 @@ class GetWorkloadNetworkDnsZoneResult:
         if dns_server_ips and not isinstance(dns_server_ips, list):
             raise TypeError("Expected argument 'dns_server_ips' to be a list")
         pulumi.set(__self__, "dns_server_ips", dns_server_ips)
-        if dns_services and not isinstance(dns_services, int):
-            raise TypeError("Expected argument 'dns_services' to be a int")
+        if dns_services and not isinstance(dns_services, float):
+            raise TypeError("Expected argument 'dns_services' to be a float")
         pulumi.set(__self__, "dns_services", dns_services)
         if domain and not isinstance(domain, list):
             raise TypeError("Expected argument 'domain' to be a list")
@@ -75,7 +75,7 @@ class GetWorkloadNetworkDnsZoneResult:
 
     @property
     @pulumi.getter(name="dnsServices")
-    def dns_services(self) -> Optional[int]:
+    def dns_services(self) -> Optional[float]:
         """
         Number of DNS Services using the DNS zone.
         """

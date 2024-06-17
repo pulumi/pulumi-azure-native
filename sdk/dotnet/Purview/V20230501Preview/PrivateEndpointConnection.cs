@@ -80,6 +80,7 @@ namespace Pulumi.AzureNative.Purview.V20230501Preview
                     new global::Pulumi.Alias { Type = "azure-native:purview/v20201201preview:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:purview/v20210701:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:purview/v20211201:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:purview/v20240401preview:PrivateEndpointConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

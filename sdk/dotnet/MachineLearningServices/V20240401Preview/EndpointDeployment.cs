@@ -19,7 +19,10 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20240401Preview
         public Output<string> Name { get; private set; } = null!;
 
         [Output("properties")]
-        public Output<object> Properties { get; private set; } = null!;
+        public Output<Outputs.EndpointDeploymentResourcePropertiesResponse> Properties { get; private set; } = null!;
+
+        [Output("sku")]
+        public Output<Outputs.CognitiveServicesSkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -96,13 +99,16 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20240401Preview
         public Input<string> EndpointName { get; set; } = null!;
 
         [Input("properties", required: true)]
-        public object Properties { get; set; } = null!;
+        public Input<Inputs.EndpointDeploymentResourcePropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        [Input("sku")]
+        public Input<Inputs.CognitiveServicesSkuArgs>? Sku { get; set; }
 
         /// <summary>
         /// Azure Machine Learning Workspace Name

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Authorization.V20240401
         public Output<string?> AssignmentType { get; private set; } = null!;
 
         /// <summary>
+        /// The version of the policy definition to use.
+        /// </summary>
+        [Output("definitionVersion")]
+        public Output<string?> DefinitionVersion { get; private set; } = null!;
+
+        /// <summary>
         /// This message will be part of response in case of policy violation.
         /// </summary>
         [Output("description")]
@@ -185,6 +191,12 @@ namespace Pulumi.AzureNative.Authorization.V20240401
         /// </summary>
         [Input("assignmentType")]
         public InputUnion<string, Pulumi.AzureNative.Authorization.V20240401.AssignmentType>? AssignmentType { get; set; }
+
+        /// <summary>
+        /// The version of the policy definition to use.
+        /// </summary>
+        [Input("definitionVersion")]
+        public Input<string>? DefinitionVersion { get; set; }
 
         /// <summary>
         /// This message will be part of response in case of policy violation.

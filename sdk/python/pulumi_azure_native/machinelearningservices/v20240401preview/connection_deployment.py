@@ -18,10 +18,11 @@ __all__ = ['ConnectionDeploymentArgs', 'ConnectionDeployment']
 class ConnectionDeploymentArgs:
     def __init__(__self__, *,
                  connection_name: pulumi.Input[str],
-                 properties: pulumi.Input[Union['ContentSafetyEndpointDeploymentResourcePropertiesArgs', 'ManagedOnlineEndpointDeploymentResourcePropertiesArgs', 'OpenAIEndpointDeploymentResourcePropertiesArgs', 'SpeechEndpointDeploymentResourcePropertiesArgs']],
+                 properties: pulumi.Input['EndpointDeploymentResourcePropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
                  workspace_name: pulumi.Input[str],
-                 deployment_name: Optional[pulumi.Input[str]] = None):
+                 deployment_name: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input['CognitiveServicesSkuArgs']] = None):
         """
         The set of arguments for constructing a ConnectionDeployment resource.
         :param pulumi.Input[str] connection_name: Friendly name of the workspace connection
@@ -35,6 +36,8 @@ class ConnectionDeploymentArgs:
         pulumi.set(__self__, "workspace_name", workspace_name)
         if deployment_name is not None:
             pulumi.set(__self__, "deployment_name", deployment_name)
+        if sku is not None:
+            pulumi.set(__self__, "sku", sku)
 
     @property
     @pulumi.getter(name="connectionName")
@@ -50,11 +53,11 @@ class ConnectionDeploymentArgs:
 
     @property
     @pulumi.getter
-    def properties(self) -> pulumi.Input[Union['ContentSafetyEndpointDeploymentResourcePropertiesArgs', 'ManagedOnlineEndpointDeploymentResourcePropertiesArgs', 'OpenAIEndpointDeploymentResourcePropertiesArgs', 'SpeechEndpointDeploymentResourcePropertiesArgs']]:
+    def properties(self) -> pulumi.Input['EndpointDeploymentResourcePropertiesArgs']:
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: pulumi.Input[Union['ContentSafetyEndpointDeploymentResourcePropertiesArgs', 'ManagedOnlineEndpointDeploymentResourcePropertiesArgs', 'OpenAIEndpointDeploymentResourcePropertiesArgs', 'SpeechEndpointDeploymentResourcePropertiesArgs']]):
+    def properties(self, value: pulumi.Input['EndpointDeploymentResourcePropertiesArgs']):
         pulumi.set(self, "properties", value)
 
     @property
@@ -93,6 +96,15 @@ class ConnectionDeploymentArgs:
     def deployment_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "deployment_name", value)
 
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional[pulumi.Input['CognitiveServicesSkuArgs']]:
+        return pulumi.get(self, "sku")
+
+    @sku.setter
+    def sku(self, value: Optional[pulumi.Input['CognitiveServicesSkuArgs']]):
+        pulumi.set(self, "sku", value)
+
 
 class ConnectionDeployment(pulumi.CustomResource):
     @overload
@@ -101,8 +113,9 @@ class ConnectionDeployment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  connection_name: Optional[pulumi.Input[str]] = None,
                  deployment_name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[Union[pulumi.InputType['ContentSafetyEndpointDeploymentResourcePropertiesArgs'], pulumi.InputType['ManagedOnlineEndpointDeploymentResourcePropertiesArgs'], pulumi.InputType['OpenAIEndpointDeploymentResourcePropertiesArgs'], pulumi.InputType['SpeechEndpointDeploymentResourcePropertiesArgs']]]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['EndpointDeploymentResourcePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['CognitiveServicesSkuArgs']]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -139,8 +152,9 @@ class ConnectionDeployment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  connection_name: Optional[pulumi.Input[str]] = None,
                  deployment_name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[Union[pulumi.InputType['ContentSafetyEndpointDeploymentResourcePropertiesArgs'], pulumi.InputType['ManagedOnlineEndpointDeploymentResourcePropertiesArgs'], pulumi.InputType['OpenAIEndpointDeploymentResourcePropertiesArgs'], pulumi.InputType['SpeechEndpointDeploymentResourcePropertiesArgs']]]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['EndpointDeploymentResourcePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['CognitiveServicesSkuArgs']]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -161,6 +175,7 @@ class ConnectionDeployment(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["sku"] = sku
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__.__dict__["workspace_name"] = workspace_name
@@ -193,6 +208,7 @@ class ConnectionDeployment(pulumi.CustomResource):
 
         __props__.__dict__["name"] = None
         __props__.__dict__["properties"] = None
+        __props__.__dict__["sku"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return ConnectionDeployment(resource_name, opts=opts, __props__=__props__)
@@ -207,8 +223,13 @@ class ConnectionDeployment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def properties(self) -> pulumi.Output[Any]:
+    def properties(self) -> pulumi.Output['outputs.EndpointDeploymentResourcePropertiesResponse']:
         return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> pulumi.Output[Optional['outputs.CognitiveServicesSkuResponse']]:
+        return pulumi.get(self, "sku")
 
     @property
     @pulumi.getter(name="systemData")

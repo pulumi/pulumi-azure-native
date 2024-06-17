@@ -42,6 +42,10 @@ export class PolicyAssignment extends pulumi.CustomResource {
      */
     public readonly assignmentType!: pulumi.Output<string | undefined>;
     /**
+     * The version of the policy definition to use.
+     */
+    public readonly definitionVersion!: pulumi.Output<string | undefined>;
+    /**
      * This message will be part of response in case of policy violation.
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -121,6 +125,7 @@ export class PolicyAssignment extends pulumi.CustomResource {
                 throw new Error("Missing required property 'scope'");
             }
             resourceInputs["assignmentType"] = args ? args.assignmentType : undefined;
+            resourceInputs["definitionVersion"] = args ? args.definitionVersion : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["displayName"] = args ? args.displayName : undefined;
             resourceInputs["enforcementMode"] = (args ? args.enforcementMode : undefined) ?? "Default";
@@ -140,6 +145,7 @@ export class PolicyAssignment extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["assignmentType"] = undefined /*out*/;
+            resourceInputs["definitionVersion"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["displayName"] = undefined /*out*/;
             resourceInputs["enforcementMode"] = undefined /*out*/;
@@ -172,6 +178,10 @@ export interface PolicyAssignmentArgs {
      * The type of policy assignment. Possible values are NotSpecified, System, SystemHidden, and Custom. Immutable.
      */
     assignmentType?: pulumi.Input<string | enums.authorization.v20240401.AssignmentType>;
+    /**
+     * The version of the policy definition to use.
+     */
+    definitionVersion?: pulumi.Input<string>;
     /**
      * This message will be part of response in case of policy violation.
      */

@@ -1209,6 +1209,7 @@ NetApp:
     tracking: "2022-11-01"
     additions:
         BackupVault: 2022-11-01-preview
+        getAccountChangeKeyVaultInformation: 2023-11-01-preview
 Network:
     additions:
         AdminRule: "2023-02-01"
@@ -1597,8 +1598,6 @@ Security:
         listGitLabSubgroup: 2023-09-01-preview
 SecurityAndCompliance:
     tracking: "2021-03-08"
-SecurityDevOps:
-    tracking: 2022-09-01-preview
 SecurityInsights:
     tracking: "2023-02-01"
     additions:
@@ -1728,6 +1727,8 @@ VideoAnalyzer:
     tracking: 2021-11-01-preview
 VideoIndexer:
     tracking: "2022-08-01"
+    additions:
+        PrivateEndpointConnection: 2024-06-01-preview
 VirtualMachineImages:
     tracking: "2022-07-01"
 VisualStudio:

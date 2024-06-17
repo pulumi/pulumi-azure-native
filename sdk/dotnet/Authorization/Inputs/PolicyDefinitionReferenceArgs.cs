@@ -15,6 +15,12 @@ namespace Pulumi.AzureNative.Authorization.Inputs
     /// </summary>
     public sealed class PolicyDefinitionReferenceArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The version of the policy definition to use.
+        /// </summary>
+        [Input("definitionVersion")]
+        public Input<string>? DefinitionVersion { get; set; }
+
         [Input("groupNames")]
         private InputList<string>? _groupNames;
 

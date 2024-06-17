@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20240401.Outputs
         /// </summary>
         public readonly string? Category;
         public readonly string CreatedByWorkspaceArmId;
-        public readonly Outputs.WorkspaceConnectionSharedAccessSignatureResponse? Credentials;
+        public readonly Outputs.WorkspaceConnectionAccountKeyResponse? Credentials;
         public readonly string? ExpiryTime;
         /// <summary>
         /// Group based on connection category
@@ -56,7 +56,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20240401.Outputs
 
             string createdByWorkspaceArmId,
 
-            Outputs.WorkspaceConnectionSharedAccessSignatureResponse? credentials,
+            Outputs.WorkspaceConnectionAccountKeyResponse? credentials,
 
             string? expiryTime,
 

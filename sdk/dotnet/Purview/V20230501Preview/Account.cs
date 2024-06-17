@@ -176,6 +176,7 @@ namespace Pulumi.AzureNative.Purview.V20230501Preview
                     new global::Pulumi.Alias { Type = "azure-native:purview/v20201201preview:Account" },
                     new global::Pulumi.Alias { Type = "azure-native:purview/v20210701:Account" },
                     new global::Pulumi.Alias { Type = "azure-native:purview/v20211201:Account" },
+                    new global::Pulumi.Alias { Type = "azure-native:purview/v20240401preview:Account" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

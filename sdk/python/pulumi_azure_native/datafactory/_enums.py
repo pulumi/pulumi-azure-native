@@ -770,6 +770,7 @@ class SqlServerAuthenticationType(str, Enum):
     """
     SQL = "SQL"
     WINDOWS = "Windows"
+    USER_ASSIGNED_MANAGED_IDENTITY = "UserAssignedManagedIdentity"
 
 
 class SsisLogLocationType(str, Enum):

@@ -181,6 +181,8 @@ class LoadBalancer(pulumi.CustomResource):
         The configurations regarding multiple standard load balancers. If not supplied, single load balancer mode will be used. Multiple standard load balancers mode will be used if at lease one configuration is supplied. There has to be a configuration named `kubernetes`.
         Azure REST API version: 2024-03-02-preview.
 
+        Other available API versions: 2024-04-02-preview.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_service_placement: Whether to automatically place services on the load balancer. If not supplied, the default value is true. If set to false manually, both of the external and the internal load balancer will not be selected for services unless they explicitly target it.
@@ -202,6 +204,8 @@ class LoadBalancer(pulumi.CustomResource):
         """
         The configurations regarding multiple standard load balancers. If not supplied, single load balancer mode will be used. Multiple standard load balancers mode will be used if at lease one configuration is supplied. There has to be a configuration named `kubernetes`.
         Azure REST API version: 2024-03-02-preview.
+
+        Other available API versions: 2024-04-02-preview.
 
         :param str resource_name: The name of the resource.
         :param LoadBalancerArgs args: The arguments to use to populate this resource's properties.
@@ -256,7 +260,7 @@ class LoadBalancer(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:containerservice/v20240302preview:LoadBalancer")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:containerservice/v20240302preview:LoadBalancer"), pulumi.Alias(type_="azure-native:containerservice/v20240402preview:LoadBalancer")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(LoadBalancer, __self__).__init__(
             'azure-native:containerservice:LoadBalancer',

@@ -61,7 +61,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20240301Preview
         /// List of private endpoint connections.
         /// </summary>
         [Output("privateEndpointConnections")]
-        public Output<ImmutableArray<Outputs.AzureResourceManagerPrivateEndpointConnectionResponse>> PrivateEndpointConnections { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.PrivateEndpointConnectionResponse>> PrivateEndpointConnections { get; private set; } = null!;
 
         /// <summary>
         /// The provisioning state of the mongo cluster.

@@ -8,6 +8,8 @@ import typing
 from ._enums import *
 from .account import *
 from .get_account import *
+from .get_private_endpoint_connection import *
+from .private_endpoint_connection import *
 from ._inputs import *
 from . import outputs
 
@@ -19,8 +21,11 @@ if typing.TYPE_CHECKING:
     v20240101 = __v20240101
     import pulumi_azure_native.videoindexer.v20240401preview as __v20240401preview
     v20240401preview = __v20240401preview
+    import pulumi_azure_native.videoindexer.v20240601preview as __v20240601preview
+    v20240601preview = __v20240601preview
 else:
     v20220801 = _utilities.lazy_import('pulumi_azure_native.videoindexer.v20220801')
     v20240101 = _utilities.lazy_import('pulumi_azure_native.videoindexer.v20240101')
     v20240401preview = _utilities.lazy_import('pulumi_azure_native.videoindexer.v20240401preview')
+    v20240601preview = _utilities.lazy_import('pulumi_azure_native.videoindexer.v20240601preview')
 

@@ -52,7 +52,7 @@ def list_feature_account(account_name: Optional[str] = None,
     Gets details from a list of feature names.
     Azure REST API version: 2021-12-01.
 
-    Other available API versions: 2023-05-01-preview.
+    Other available API versions: 2023-05-01-preview, 2024-04-01-preview.
 
 
     :param str account_name: The name of the account.
@@ -79,7 +79,7 @@ def list_feature_account_output(account_name: Optional[pulumi.Input[str]] = None
     Gets details from a list of feature names.
     Azure REST API version: 2021-12-01.
 
-    Other available API versions: 2023-05-01-preview.
+    Other available API versions: 2023-05-01-preview, 2024-04-01-preview.
 
 
     :param str account_name: The name of the account.

@@ -49,7 +49,8 @@ export interface GetConnectionDeploymentResult {
      * The name of the resource
      */
     readonly name: string;
-    readonly properties: outputs.machinelearningservices.ContentSafetyEndpointDeploymentResourcePropertiesResponse | outputs.machinelearningservices.ManagedOnlineEndpointDeploymentResourcePropertiesResponse | outputs.machinelearningservices.OpenAIEndpointDeploymentResourcePropertiesResponse | outputs.machinelearningservices.SpeechEndpointDeploymentResourcePropertiesResponse;
+    readonly properties: outputs.machinelearningservices.EndpointDeploymentResourcePropertiesResponse;
+    readonly sku?: outputs.machinelearningservices.CognitiveServicesSkuResponse;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */

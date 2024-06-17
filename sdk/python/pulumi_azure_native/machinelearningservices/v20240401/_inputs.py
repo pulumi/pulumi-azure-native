@@ -288,6 +288,7 @@ __all__ = [
     'VolumeDefinitionArgs',
     'VolumeOptionsArgs',
     'WorkspaceConnectionAccessKeyArgs',
+    'WorkspaceConnectionAccountKeyArgs',
     'WorkspaceConnectionApiKeyArgs',
     'WorkspaceConnectionManagedIdentityArgs',
     'WorkspaceConnectionOAuth2Args',
@@ -833,7 +834,7 @@ class AccountKeyAuthTypeWorkspaceConnectionPropertiesArgs:
     def __init__(__self__, *,
                  auth_type: pulumi.Input[str],
                  category: Optional[pulumi.Input[Union[str, 'ConnectionCategory']]] = None,
-                 credentials: Optional[pulumi.Input['WorkspaceConnectionSharedAccessSignatureArgs']] = None,
+                 credentials: Optional[pulumi.Input['WorkspaceConnectionAccountKeyArgs']] = None,
                  expiry_time: Optional[pulumi.Input[str]] = None,
                  is_shared_to_all: Optional[pulumi.Input[bool]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -897,11 +898,11 @@ class AccountKeyAuthTypeWorkspaceConnectionPropertiesArgs:
 
     @property
     @pulumi.getter
-    def credentials(self) -> Optional[pulumi.Input['WorkspaceConnectionSharedAccessSignatureArgs']]:
+    def credentials(self) -> Optional[pulumi.Input['WorkspaceConnectionAccountKeyArgs']]:
         return pulumi.get(self, "credentials")
 
     @credentials.setter
-    def credentials(self, value: Optional[pulumi.Input['WorkspaceConnectionSharedAccessSignatureArgs']]):
+    def credentials(self, value: Optional[pulumi.Input['WorkspaceConnectionAccountKeyArgs']]):
         pulumi.set(self, "credentials", value)
 
     @property
@@ -26094,6 +26095,23 @@ class WorkspaceConnectionAccessKeyArgs:
     @secret_access_key.setter
     def secret_access_key(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "secret_access_key", value)
+
+
+@pulumi.input_type
+class WorkspaceConnectionAccountKeyArgs:
+    def __init__(__self__, *,
+                 key: Optional[pulumi.Input[str]] = None):
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
 
 
 @pulumi.input_type

@@ -103,7 +103,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// The name of the resource
         /// </summary>
         public readonly string Name;
-        public readonly object Properties;
+        public readonly Outputs.EndpointDeploymentResourcePropertiesResponse Properties;
+        public readonly Outputs.CognitiveServicesSkuResponse? Sku;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
@@ -119,7 +120,9 @@ namespace Pulumi.AzureNative.MachineLearningServices
 
             string name,
 
-            object properties,
+            Outputs.EndpointDeploymentResourcePropertiesResponse properties,
+
+            Outputs.CognitiveServicesSkuResponse? sku,
 
             Outputs.SystemDataResponse systemData,
 
@@ -128,6 +131,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
             Id = id;
             Name = name;
             Properties = properties;
+            Sku = sku;
             SystemData = systemData;
             Type = type;
         }

@@ -35,6 +35,10 @@ export interface GetPolicyAssignmentArgs {
  */
 export interface GetPolicyAssignmentResult {
     /**
+     * The version of the policy definition to use.
+     */
+    readonly definitionVersion?: string;
+    /**
      * This message will be part of response in case of policy violation.
      */
     readonly description?: string;

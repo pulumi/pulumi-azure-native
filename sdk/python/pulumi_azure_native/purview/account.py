@@ -190,7 +190,7 @@ class Account(pulumi.CustomResource):
         Account resource
         Azure REST API version: 2021-12-01. Prior API version in Azure Native 1.x: 2020-12-01-preview.
 
-        Other available API versions: 2020-12-01-preview, 2021-07-01, 2023-05-01-preview.
+        Other available API versions: 2020-12-01-preview, 2021-07-01, 2023-05-01-preview, 2024-04-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -214,7 +214,7 @@ class Account(pulumi.CustomResource):
         Account resource
         Azure REST API version: 2021-12-01. Prior API version in Azure Native 1.x: 2020-12-01-preview.
 
-        Other available API versions: 2020-12-01-preview, 2021-07-01, 2023-05-01-preview.
+        Other available API versions: 2020-12-01-preview, 2021-07-01, 2023-05-01-preview, 2024-04-01-preview.
 
         :param str resource_name: The name of the resource.
         :param AccountArgs args: The arguments to use to populate this resource's properties.
@@ -280,7 +280,7 @@ class Account(pulumi.CustomResource):
             __props__.__dict__["sku"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:purview/v20201201preview:Account"), pulumi.Alias(type_="azure-native:purview/v20210701:Account"), pulumi.Alias(type_="azure-native:purview/v20211201:Account"), pulumi.Alias(type_="azure-native:purview/v20230501preview:Account")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:purview/v20201201preview:Account"), pulumi.Alias(type_="azure-native:purview/v20210701:Account"), pulumi.Alias(type_="azure-native:purview/v20211201:Account"), pulumi.Alias(type_="azure-native:purview/v20230501preview:Account"), pulumi.Alias(type_="azure-native:purview/v20240401preview:Account")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Account, __self__).__init__(
             'azure-native:purview:Account',

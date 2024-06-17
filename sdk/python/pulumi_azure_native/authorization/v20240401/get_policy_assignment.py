@@ -22,10 +22,13 @@ class GetPolicyAssignmentResult:
     """
     The policy assignment.
     """
-    def __init__(__self__, assignment_type=None, description=None, display_name=None, enforcement_mode=None, id=None, identity=None, location=None, metadata=None, name=None, non_compliance_messages=None, not_scopes=None, overrides=None, parameters=None, policy_definition_id=None, resource_selectors=None, scope=None, system_data=None, type=None):
+    def __init__(__self__, assignment_type=None, definition_version=None, description=None, display_name=None, enforcement_mode=None, id=None, identity=None, location=None, metadata=None, name=None, non_compliance_messages=None, not_scopes=None, overrides=None, parameters=None, policy_definition_id=None, resource_selectors=None, scope=None, system_data=None, type=None):
         if assignment_type and not isinstance(assignment_type, str):
             raise TypeError("Expected argument 'assignment_type' to be a str")
         pulumi.set(__self__, "assignment_type", assignment_type)
+        if definition_version and not isinstance(definition_version, str):
+            raise TypeError("Expected argument 'definition_version' to be a str")
+        pulumi.set(__self__, "definition_version", definition_version)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -85,6 +88,14 @@ class GetPolicyAssignmentResult:
         The type of policy assignment. Possible values are NotSpecified, System, SystemHidden, and Custom. Immutable.
         """
         return pulumi.get(self, "assignment_type")
+
+    @property
+    @pulumi.getter(name="definitionVersion")
+    def definition_version(self) -> Optional[str]:
+        """
+        The version of the policy definition to use.
+        """
+        return pulumi.get(self, "definition_version")
 
     @property
     @pulumi.getter
@@ -230,6 +241,7 @@ class AwaitableGetPolicyAssignmentResult(GetPolicyAssignmentResult):
             yield self
         return GetPolicyAssignmentResult(
             assignment_type=self.assignment_type,
+            definition_version=self.definition_version,
             description=self.description,
             display_name=self.display_name,
             enforcement_mode=self.enforcement_mode,
@@ -267,6 +279,7 @@ def get_policy_assignment(policy_assignment_name: Optional[str] = None,
 
     return AwaitableGetPolicyAssignmentResult(
         assignment_type=pulumi.get(__ret__, 'assignment_type'),
+        definition_version=pulumi.get(__ret__, 'definition_version'),
         description=pulumi.get(__ret__, 'description'),
         display_name=pulumi.get(__ret__, 'display_name'),
         enforcement_mode=pulumi.get(__ret__, 'enforcement_mode'),

@@ -531,7 +531,7 @@ class ScalingPlanPersonalSchedule(pulumi.CustomResource):
         Represents a ScalingPlanPersonalSchedule definition.
         Azure REST API version: 2023-07-07-preview.
 
-        Other available API versions: 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-03.
+        Other available API versions: 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-03, 2024-04-08-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -575,7 +575,7 @@ class ScalingPlanPersonalSchedule(pulumi.CustomResource):
         Represents a ScalingPlanPersonalSchedule definition.
         Azure REST API version: 2023-07-07-preview.
 
-        Other available API versions: 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-03.
+        Other available API versions: 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-03, 2024-04-08-preview.
 
         :param str resource_name: The name of the resource.
         :param ScalingPlanPersonalScheduleArgs args: The arguments to use to populate this resource's properties.
@@ -674,7 +674,7 @@ class ScalingPlanPersonalSchedule(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:desktopvirtualization/v20230707preview:ScalingPlanPersonalSchedule"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20230905:ScalingPlanPersonalSchedule"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20231004preview:ScalingPlanPersonalSchedule"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20231101preview:ScalingPlanPersonalSchedule"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240116preview:ScalingPlanPersonalSchedule"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240306preview:ScalingPlanPersonalSchedule"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240403:ScalingPlanPersonalSchedule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:desktopvirtualization/v20230707preview:ScalingPlanPersonalSchedule"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20230905:ScalingPlanPersonalSchedule"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20231004preview:ScalingPlanPersonalSchedule"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20231101preview:ScalingPlanPersonalSchedule"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240116preview:ScalingPlanPersonalSchedule"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240306preview:ScalingPlanPersonalSchedule"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240403:ScalingPlanPersonalSchedule"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240408preview:ScalingPlanPersonalSchedule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ScalingPlanPersonalSchedule, __self__).__init__(
             'azure-native:desktopvirtualization:ScalingPlanPersonalSchedule',

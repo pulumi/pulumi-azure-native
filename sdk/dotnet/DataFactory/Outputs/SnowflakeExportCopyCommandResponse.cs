@@ -25,6 +25,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, object>? AdditionalFormatOptions;
         /// <summary>
+        /// The name of the snowflake storage integration to use for the copy operation. Type: string (or Expression with resultType string).
+        /// </summary>
+        public readonly object? StorageIntegration;
+        /// <summary>
         /// The export setting type.
         /// Expected value is 'SnowflakeExportCopyCommand'.
         /// </summary>
@@ -36,10 +40,13 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             ImmutableDictionary<string, object>? additionalFormatOptions,
 
+            object? storageIntegration,
+
             string type)
         {
             AdditionalCopyOptions = additionalCopyOptions;
             AdditionalFormatOptions = additionalFormatOptions;
+            StorageIntegration = storageIntegration;
             Type = type;
         }
     }

@@ -2392,6 +2392,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
 
         public static SqlServerAuthenticationType SQL { get; } = new SqlServerAuthenticationType("SQL");
         public static SqlServerAuthenticationType Windows { get; } = new SqlServerAuthenticationType("Windows");
+        public static SqlServerAuthenticationType UserAssignedManagedIdentity { get; } = new SqlServerAuthenticationType("UserAssignedManagedIdentity");
 
         public static bool operator ==(SqlServerAuthenticationType left, SqlServerAuthenticationType right) => left.Equals(right);
         public static bool operator !=(SqlServerAuthenticationType left, SqlServerAuthenticationType right) => !left.Equals(right);

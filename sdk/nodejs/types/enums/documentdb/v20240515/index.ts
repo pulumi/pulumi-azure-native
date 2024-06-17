@@ -149,6 +149,16 @@ export const DatabaseAccountOfferType = {
  */
 export type DatabaseAccountOfferType = (typeof DatabaseAccountOfferType)[keyof typeof DatabaseAccountOfferType];
 
+export const DedicatedGatewayType = {
+    IntegratedCache: "IntegratedCache",
+    DistributedQuery: "DistributedQuery",
+} as const;
+
+/**
+ * DedicatedGatewayType for the service.
+ */
+export type DedicatedGatewayType = (typeof DedicatedGatewayType)[keyof typeof DedicatedGatewayType];
+
 export const DefaultConsistencyLevel = {
     Eventual: "Eventual",
     Session: "Session",

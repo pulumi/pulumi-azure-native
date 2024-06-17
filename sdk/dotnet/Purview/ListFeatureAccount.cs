@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Purview
         /// Gets details from a list of feature names.
         /// Azure REST API version: 2021-12-01.
         /// 
-        /// Other available API versions: 2023-05-01-preview.
+        /// Other available API versions: 2023-05-01-preview, 2024-04-01-preview.
         /// </summary>
         public static Task<ListFeatureAccountResult> InvokeAsync(ListFeatureAccountArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListFeatureAccountResult>("azure-native:purview:listFeatureAccount", args ?? new ListFeatureAccountArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Purview
         /// Gets details from a list of feature names.
         /// Azure REST API version: 2021-12-01.
         /// 
-        /// Other available API versions: 2023-05-01-preview.
+        /// Other available API versions: 2023-05-01-preview, 2024-04-01-preview.
         /// </summary>
         public static Output<ListFeatureAccountResult> Invoke(ListFeatureAccountInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListFeatureAccountResult>("azure-native:purview:listFeatureAccount", args ?? new ListFeatureAccountInvokeArgs(), options.WithDefaults());

@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * The Project resource.
  * Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2022-07-01-preview.
  *
- * Other available API versions: 2023-07-01-preview, 2023-10-01.
+ * Other available API versions: 2023-07-01-preview, 2023-10-01, 2024-07-01.
  */
 export class Project extends pulumi.CustomResource {
     /**
@@ -94,7 +94,7 @@ export class Project extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:storagemover/v20220701preview:Project" }, { type: "azure-native:storagemover/v20230301:Project" }, { type: "azure-native:storagemover/v20230701preview:Project" }, { type: "azure-native:storagemover/v20231001:Project" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:storagemover/v20220701preview:Project" }, { type: "azure-native:storagemover/v20230301:Project" }, { type: "azure-native:storagemover/v20230701preview:Project" }, { type: "azure-native:storagemover/v20231001:Project" }, { type: "azure-native:storagemover/v20240701:Project" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Project.__pulumiType, name, resourceInputs, opts);
     }

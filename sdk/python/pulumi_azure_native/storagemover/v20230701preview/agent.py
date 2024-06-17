@@ -201,7 +201,7 @@ class Agent(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["uptime_in_seconds"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:storagemover:Agent"), pulumi.Alias(type_="azure-native:storagemover/v20220701preview:Agent"), pulumi.Alias(type_="azure-native:storagemover/v20230301:Agent"), pulumi.Alias(type_="azure-native:storagemover/v20231001:Agent")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:storagemover:Agent"), pulumi.Alias(type_="azure-native:storagemover/v20220701preview:Agent"), pulumi.Alias(type_="azure-native:storagemover/v20230301:Agent"), pulumi.Alias(type_="azure-native:storagemover/v20231001:Agent"), pulumi.Alias(type_="azure-native:storagemover/v20240701:Agent")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Agent, __self__).__init__(
             'azure-native:storagemover/v20230701preview:Agent',

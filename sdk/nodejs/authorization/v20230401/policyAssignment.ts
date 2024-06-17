@@ -38,6 +38,10 @@ export class PolicyAssignment extends pulumi.CustomResource {
     }
 
     /**
+     * The version of the policy definition to use.
+     */
+    public readonly definitionVersion!: pulumi.Output<string | undefined>;
+    /**
      * This message will be part of response in case of policy violation.
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -116,6 +120,7 @@ export class PolicyAssignment extends pulumi.CustomResource {
             if ((!args || args.scope === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
+            resourceInputs["definitionVersion"] = args ? args.definitionVersion : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["displayName"] = args ? args.displayName : undefined;
             resourceInputs["enforcementMode"] = (args ? args.enforcementMode : undefined) ?? "Default";
@@ -134,6 +139,7 @@ export class PolicyAssignment extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["definitionVersion"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["displayName"] = undefined /*out*/;
             resourceInputs["enforcementMode"] = undefined /*out*/;
@@ -162,6 +168,10 @@ export class PolicyAssignment extends pulumi.CustomResource {
  * The set of arguments for constructing a PolicyAssignment resource.
  */
 export interface PolicyAssignmentArgs {
+    /**
+     * The version of the policy definition to use.
+     */
+    definitionVersion?: pulumi.Input<string>;
     /**
      * This message will be part of response in case of policy violation.
      */

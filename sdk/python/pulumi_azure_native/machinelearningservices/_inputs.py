@@ -101,6 +101,7 @@ __all__ = [
     'EncryptionPropertyArgs',
     'EndpointAuthKeysArgs',
     'EndpointDeploymentModelArgs',
+    'EndpointDeploymentResourcePropertiesArgs',
     'EndpointScheduleActionArgs',
     'EndpointArgs',
     'EnvironmentContainerArgs',
@@ -7081,6 +7082,60 @@ class EndpointDeploymentModelArgs:
     @version.setter
     def version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "version", value)
+
+
+@pulumi.input_type
+class EndpointDeploymentResourcePropertiesArgs:
+    def __init__(__self__, *,
+                 model: pulumi.Input['EndpointDeploymentModelArgs'],
+                 rai_policy_name: Optional[pulumi.Input[str]] = None,
+                 version_upgrade_option: Optional[pulumi.Input[Union[str, 'DeploymentModelVersionUpgradeOption']]] = None):
+        """
+        :param pulumi.Input['EndpointDeploymentModelArgs'] model: Model used for the endpoint deployment.
+        :param pulumi.Input[str] rai_policy_name: The name of RAI policy.
+        :param pulumi.Input[Union[str, 'DeploymentModelVersionUpgradeOption']] version_upgrade_option: Deployment model version upgrade option.
+        """
+        pulumi.set(__self__, "model", model)
+        if rai_policy_name is not None:
+            pulumi.set(__self__, "rai_policy_name", rai_policy_name)
+        if version_upgrade_option is not None:
+            pulumi.set(__self__, "version_upgrade_option", version_upgrade_option)
+
+    @property
+    @pulumi.getter
+    def model(self) -> pulumi.Input['EndpointDeploymentModelArgs']:
+        """
+        Model used for the endpoint deployment.
+        """
+        return pulumi.get(self, "model")
+
+    @model.setter
+    def model(self, value: pulumi.Input['EndpointDeploymentModelArgs']):
+        pulumi.set(self, "model", value)
+
+    @property
+    @pulumi.getter(name="raiPolicyName")
+    def rai_policy_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of RAI policy.
+        """
+        return pulumi.get(self, "rai_policy_name")
+
+    @rai_policy_name.setter
+    def rai_policy_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "rai_policy_name", value)
+
+    @property
+    @pulumi.getter(name="versionUpgradeOption")
+    def version_upgrade_option(self) -> Optional[pulumi.Input[Union[str, 'DeploymentModelVersionUpgradeOption']]]:
+        """
+        Deployment model version upgrade option.
+        """
+        return pulumi.get(self, "version_upgrade_option")
+
+    @version_upgrade_option.setter
+    def version_upgrade_option(self, value: Optional[pulumi.Input[Union[str, 'DeploymentModelVersionUpgradeOption']]]):
+        pulumi.set(self, "version_upgrade_option", value)
 
 
 @pulumi.input_type

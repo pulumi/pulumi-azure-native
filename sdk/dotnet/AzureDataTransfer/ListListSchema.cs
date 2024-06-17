@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.AzureDataTransfer
         /// Lists the schemas for the specified connection in a pipeline.
         /// Azure REST API version: 2023-10-11-preview.
         /// 
-        /// Other available API versions: 2024-01-25.
+        /// Other available API versions: 2024-01-25, 2024-05-07.
         /// </summary>
         public static Task<ListListSchemaResult> InvokeAsync(ListListSchemaArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListListSchemaResult>("azure-native:azuredatatransfer:listListSchema", args ?? new ListListSchemaArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.AzureDataTransfer
         /// Lists the schemas for the specified connection in a pipeline.
         /// Azure REST API version: 2023-10-11-preview.
         /// 
-        /// Other available API versions: 2024-01-25.
+        /// Other available API versions: 2024-01-25, 2024-05-07.
         /// </summary>
         public static Output<ListListSchemaResult> Invoke(ListListSchemaInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListListSchemaResult>("azure-native:azuredatatransfer:listListSchema", args ?? new ListListSchemaInvokeArgs(), options.WithDefaults());

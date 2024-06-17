@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Gets flow resource.
  * Azure REST API version: 2023-10-11-preview.
  *
- * Other available API versions: 2024-01-25.
+ * Other available API versions: 2024-01-25, 2024-05-07.
  */
 export function getFlow(args: GetFlowArgs, opts?: pulumi.InvokeOptions): Promise<GetFlowResult> {
 
@@ -83,7 +83,7 @@ export interface GetFlowResult {
  * Gets flow resource.
  * Azure REST API version: 2023-10-11-preview.
  *
- * Other available API versions: 2024-01-25.
+ * Other available API versions: 2024-01-25, 2024-05-07.
  */
 export function getFlowOutput(args: GetFlowOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFlowResult> {
     return pulumi.output(args).apply((a: any) => getFlow(a, opts))

@@ -21,6 +21,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly Outputs.ExecuteDataFlowActivityTypePropertiesResponseCompute? Compute;
         /// <summary>
+        /// Continuation settings for execute data flow activity.
+        /// </summary>
+        public readonly Outputs.ContinuationSettingsReferenceResponse? ContinuationSettings;
+        /// <summary>
         /// Continue on error setting used for data flow execution. Enables processing to continue if a sink fails. Type: boolean (or Expression with resultType boolean)
         /// </summary>
         public readonly object? ContinueOnError;
@@ -94,6 +98,8 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         private ExecuteWranglingDataflowActivityResponse(
             Outputs.ExecuteDataFlowActivityTypePropertiesResponseCompute? compute,
 
+            Outputs.ContinuationSettingsReferenceResponse? continuationSettings,
+
             object? continueOnError,
 
             Outputs.DataFlowReferenceResponse dataFlow,
@@ -129,6 +135,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             ImmutableArray<Outputs.UserPropertyResponse> userProperties)
         {
             Compute = compute;
+            ContinuationSettings = continuationSettings;
             ContinueOnError = continueOnError;
             DataFlow = dataFlow;
             DependsOn = dependsOn;

@@ -74,6 +74,10 @@ namespace Pulumi.AzureNative.Authorization.V20240401
         /// </summary>
         public readonly string? AssignmentType;
         /// <summary>
+        /// The version of the policy definition to use.
+        /// </summary>
+        public readonly string? DefinitionVersion;
+        /// <summary>
         /// This message will be part of response in case of policy violation.
         /// </summary>
         public readonly string? Description;
@@ -146,6 +150,8 @@ namespace Pulumi.AzureNative.Authorization.V20240401
         private GetPolicyAssignmentResult(
             string? assignmentType,
 
+            string? definitionVersion,
+
             string? description,
 
             string? displayName,
@@ -181,6 +187,7 @@ namespace Pulumi.AzureNative.Authorization.V20240401
             string type)
         {
             AssignmentType = assignmentType;
+            DefinitionVersion = definitionVersion;
             Description = description;
             DisplayName = displayName;
             EnforcementMode = enforcementMode;

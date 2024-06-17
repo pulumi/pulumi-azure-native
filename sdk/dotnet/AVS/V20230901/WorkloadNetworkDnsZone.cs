@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.AVS.V20230901
         /// Number of DNS Services using the DNS zone.
         /// </summary>
         [Output("dnsServices")]
-        public Output<int?> DnsServices { get; private set; } = null!;
+        public Output<double?> DnsServices { get; private set; } = null!;
 
         /// <summary>
         /// Domain names of the DNS Zone.
@@ -152,7 +152,7 @@ namespace Pulumi.AzureNative.AVS.V20230901
         /// Number of DNS Services using the DNS zone.
         /// </summary>
         [Input("dnsServices")]
-        public Input<int>? DnsServices { get; set; }
+        public Input<double>? DnsServices { get; set; }
 
         /// <summary>
         /// ID of the DNS zone.

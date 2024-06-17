@@ -68,7 +68,7 @@ export class MongoCluster extends pulumi.CustomResource {
     /**
      * List of private endpoint connections.
      */
-    public /*out*/ readonly privateEndpointConnections!: pulumi.Output<outputs.documentdb.v20240301preview.AzureResourceManagerPrivateEndpointConnectionResponse[]>;
+    public /*out*/ readonly privateEndpointConnections!: pulumi.Output<outputs.documentdb.v20240301preview.PrivateEndpointConnectionResponse[]>;
     /**
      * The provisioning state of the mongo cluster.
      */
