@@ -2956,6 +2956,15 @@
       "listListPendingConnection",
       "listListPendingFlow",
       "listListSchema"
+    ],
+    "2024-05-07": [
+      "Connection",
+      "Flow",
+      "Pipeline",
+      "listAzureDataTransferApprovedSchemas",
+      "listListPendingConnection",
+      "listListPendingFlow",
+      "listListSchema"
     ]
   },
   "AzureFleet": {
@@ -6347,6 +6356,19 @@
       "FleetUpdateStrategy",
       "UpdateRun",
       "listFleetCredentials"
+    ],
+    "2024-04-02-preview": [
+      "AgentPool",
+      "LoadBalancer",
+      "MaintenanceConfiguration",
+      "ManagedCluster",
+      "ManagedClusterSnapshot",
+      "PrivateEndpointConnection",
+      "Snapshot",
+      "TrustedAccessRoleBinding",
+      "listManagedClusterAdminCredentials",
+      "listManagedClusterMonitoringUserCredentials",
+      "listManagedClusterUserCredentials"
     ]
   },
   "ContainerStorage": {
@@ -7933,6 +7955,20 @@
       "getHostPoolRegistrationToken"
     ],
     "2024-04-03": [
+      "AppAttachPackage",
+      "Application",
+      "ApplicationGroup",
+      "HostPool",
+      "MSIXPackage",
+      "PrivateEndpointConnectionByHostPool",
+      "PrivateEndpointConnectionByWorkspace",
+      "ScalingPlan",
+      "ScalingPlanPersonalSchedule",
+      "ScalingPlanPooledSchedule",
+      "Workspace",
+      "getHostPoolRegistrationToken"
+    ],
+    "2024-04-08-preview": [
       "AppAttachPackage",
       "Application",
       "ApplicationGroup",
@@ -14039,6 +14075,23 @@
       "getSubvolumeMetadata",
       "getVolumeGroupIdForLdapUser",
       "listVolumeReplications"
+    ],
+    "2023-11-01-preview": [
+      "Account",
+      "Backup",
+      "BackupPolicy",
+      "BackupVault",
+      "Pool",
+      "Snapshot",
+      "SnapshotPolicy",
+      "Subvolume",
+      "Volume",
+      "VolumeGroup",
+      "VolumeQuotaRule",
+      "getAccountChangeKeyVaultInformation",
+      "getSubvolumeMetadata",
+      "getVolumeGroupIdForLdapUser",
+      "listVolumeReplications"
     ]
   },
   "Network": {
@@ -18176,6 +18229,14 @@
       "listAccountKeys",
       "listFeatureAccount",
       "listFeatureSubscription"
+    ],
+    "2024-04-01-preview": [
+      "Account",
+      "KafkaConfiguration",
+      "PrivateEndpointConnection",
+      "listAccountKeys",
+      "listFeatureAccount",
+      "listFeatureSubscription"
     ]
   },
   "Quantum": {
@@ -18774,6 +18835,17 @@
       "ProtectionContainer",
       "ProtectionIntent",
       "ProtectionPolicy",
+      "ReplicationFabric",
+      "ReplicationMigrationItem",
+      "ReplicationNetworkMapping",
+      "ReplicationPolicy",
+      "ReplicationProtectedItem",
+      "ReplicationProtectionCluster",
+      "ReplicationProtectionContainerMapping",
+      "ReplicationRecoveryPlan",
+      "ReplicationRecoveryServicesProvider",
+      "ReplicationStorageClassificationMapping",
+      "ReplicationvCenter",
       "ResourceGuardProxy",
       "Vault"
     ],
@@ -18909,7 +18981,16 @@
     "2018-09-01-preview": [
       "GraphQuery"
     ],
+    "2019-04-01": [
+      "GraphQuery"
+    ],
     "2020-04-01-preview": [
+      "GraphQuery"
+    ],
+    "2021-03-01": [
+      "GraphQuery"
+    ],
+    "2022-10-01": [
       "GraphQuery"
     ]
   },
@@ -19433,12 +19514,6 @@
       "privateLinkServicesForMIPPolicySync",
       "privateLinkServicesForO365ManagementActivityAPI",
       "privateLinkServicesForSCCPowershell"
-    ]
-  },
-  "SecurityDevOps": {
-    "2022-09-01-preview": [
-      "AzureDevOpsConnector",
-      "GitHubConnector"
     ]
   },
   "SecurityInsights": {
@@ -22388,6 +22463,13 @@
       "JobDefinition",
       "Project",
       "StorageMover"
+    ],
+    "2024-07-01": [
+      "Agent",
+      "Endpoint",
+      "JobDefinition",
+      "Project",
+      "StorageMover"
     ]
   },
   "StoragePool": {
@@ -22869,6 +22951,10 @@
     ],
     "2024-04-01-preview": [
       "Account"
+    ],
+    "2024-06-01-preview": [
+      "Account",
+      "PrivateEndpointConnection"
     ]
   },
   "VirtualMachineImages": {

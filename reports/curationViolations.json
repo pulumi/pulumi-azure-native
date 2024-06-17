@@ -352,6 +352,10 @@
     "Detail": "expected tracking stable but found preview"
   },
   {
+    "Provider": "VideoIndexer",
+    "Detail": "expected no additions but found some"
+  },
+  {
     "Provider": "Workloads",
     "Detail": "expected no additions but found some"
   }
