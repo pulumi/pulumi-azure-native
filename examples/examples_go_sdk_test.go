@@ -84,6 +84,7 @@ func TestServicebusRecreateSdk(t *testing.T) {
 					Additive: true,
 				},
 			},
+			ExpectRefreshChanges: true,
 		})
 
 	integration.ProgramTest(t, &test)

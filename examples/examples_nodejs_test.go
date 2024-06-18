@@ -91,7 +91,8 @@ func TestMessagingTs(t *testing.T) {
 	skipIfShort(t)
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir: filepath.Join(getCwd(t), "messaging"),
+			Dir:                  filepath.Join(getCwd(t), "messaging"),
+			ExpectRefreshChanges: true,
 		})
 
 	integration.ProgramTest(t, &test)
