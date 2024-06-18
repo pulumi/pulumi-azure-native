@@ -84,6 +84,7 @@ func TestServicebusRecreateSdk(t *testing.T) {
 					Additive: true,
 				},
 			},
+			ExpectRefreshChanges: true, // TODO: disable once #3361 is fixed
 		})
 
 	integration.ProgramTest(t, &test)
