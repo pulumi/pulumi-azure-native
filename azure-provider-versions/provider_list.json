@@ -11354,6 +11354,7 @@
       {
         "resourceType": "locations/diagnosticOperations",
         "apiVersions": [
+          "2024-06-01-preview",
           "2024-03-01-preview",
           "2021-06-01-preview"
         ]
@@ -11361,6 +11362,7 @@
       {
         "resourceType": "locations/diagnostics",
         "apiVersions": [
+          "2024-06-01-preview",
           "2024-03-01-preview",
           "2021-06-01-preview"
         ]
@@ -11519,6 +11521,22 @@
           "2016-03-30",
           "2015-06-15",
           "2015-05-01-preview"
+        ]
+      },
+      {
+        "resourceType": "locations/placementRecommendations",
+        "apiVersions": [
+          "2024-06-01-preview",
+          "2024-03-01-preview",
+          "2021-06-01-preview"
+        ]
+      },
+      {
+        "resourceType": "locations/placementScores",
+        "apiVersions": [
+          "2024-06-01-preview",
+          "2024-03-01-preview",
+          "2021-06-01-preview"
         ]
       },
       {

@@ -90,15 +90,19 @@ App:
         AppResiliency: 2023-08-01-preview
         Build: 2023-08-01-preview
         Builder: 2023-08-01-preview
+        ContainerAppsSessionPool: 2024-02-02-preview
         DaprComponentResiliencyPolicy: 2023-08-01-preview
         DaprSubscription: 2023-08-01-preview
         DotNetComponent: 2023-11-02-preview
         JavaComponent: 2023-11-02-preview
         Job: 2023-04-01-preview
+        LogicApp: 2024-02-02-preview
         ManagedCertificate: 2023-04-01-preview
+        ManagedEnvironmentPrivateEndpointConnection: 2024-02-02-preview
         getCustomDomainVerificationId: 2023-05-02-preview
         listBuildAuthToken: 2023-08-01-preview
         listJobSecrets: 2023-04-01-preview
+        listLogicAppWorkflowsConnections: 2024-02-02-preview
 AppComplianceAutomation:
     tracking: 2022-11-16-preview
     additions:

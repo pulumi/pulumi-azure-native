@@ -49,6 +49,7 @@
     "2023-05-02-preview",
     "2023-08-01-preview",
     "2023-11-02-preview",
+    "2024-02-02-preview",
     "2024-03-01"
   ],
   "AppComplianceAutomation": [
@@ -175,7 +176,8 @@
   "Capacity": [],
   "Cdn": [
     "2023-07-01-preview",
-    "2024-02-01"
+    "2024-02-01",
+    "2024-05-01-preview"
   ],
   "CertificateRegistration": [
     "2023-01-01",
@@ -663,7 +665,8 @@
     "2022-10-01-preview",
     "2023-11-01-preview",
     "2024-01-01",
-    "2024-02-01-preview"
+    "2024-02-01-preview",
+    "2024-06-01-preview"
   ],
   "KubernetesConfiguration": [
     "2022-07-01",
