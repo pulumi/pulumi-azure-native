@@ -92,7 +92,7 @@ func TestMessagingTs(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir:                  filepath.Join(getCwd(t), "messaging"),
-			ExpectRefreshChanges: true,
+			ExpectRefreshChanges: true, // TODO: disable once #3361 is fixed
 		})
 
 	integration.ProgramTest(t, &test)
