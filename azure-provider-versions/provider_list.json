@@ -25224,59 +25224,6 @@
     ]
   },
   {
-    "namespace": "Microsoft.IoTOperations",
-    "resourceTypes": [
-      {
-        "resourceType": "instances",
-        "apiVersions": [
-          "2024-06-01-preview"
-        ]
-      },
-      {
-        "resourceType": "instances/brokers",
-        "apiVersions": [
-          "2024-06-01-preview"
-        ]
-      },
-      {
-        "resourceType": "instances/brokers/authentications",
-        "apiVersions": [
-          "2024-06-01-preview"
-        ]
-      },
-      {
-        "resourceType": "instances/brokers/authorizations",
-        "apiVersions": [
-          "2024-06-01-preview"
-        ]
-      },
-      {
-        "resourceType": "instances/brokers/listeners",
-        "apiVersions": [
-          "2024-06-01-preview"
-        ]
-      },
-      {
-        "resourceType": "locations",
-        "apiVersions": [
-          "2024-06-01-preview"
-        ]
-      },
-      {
-        "resourceType": "locations/operationStatuses",
-        "apiVersions": [
-          "2024-06-01-preview"
-        ]
-      },
-      {
-        "resourceType": "operations",
-        "apiVersions": [
-          "2024-06-01-preview"
-        ]
-      }
-    ]
-  },
-  {
     "namespace": "Microsoft.IoTOperationsDataProcessor",
     "resourceTypes": [
       {

@@ -20917,35 +20917,6 @@
       "2024-01-10"
     ]
   },
-  "iotoperations": {
-    "": [
-      "2024-06-01-preview"
-    ],
-    "instances": [
-      "2024-06-01-preview"
-    ],
-    "instances/brokers": [
-      "2024-06-01-preview"
-    ],
-    "instances/brokers/authentications": [
-      "2024-06-01-preview"
-    ],
-    "instances/brokers/authorizations": [
-      "2024-06-01-preview"
-    ],
-    "instances/brokers/listeners": [
-      "2024-06-01-preview"
-    ],
-    "locations": [
-      "2024-06-01-preview"
-    ],
-    "locations/operationstatuses": [
-      "2024-06-01-preview"
-    ],
-    "operations": [
-      "2024-06-01-preview"
-    ]
-  },
   "iotoperationsdataprocessor": {
     "": [
       "2023-10-04-preview",
