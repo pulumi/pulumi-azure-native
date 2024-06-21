@@ -84,8 +84,9 @@ func TestServicebusRecreateSdk(t *testing.T) {
 					Additive: true,
 				},
 			},
-			ExpectRefreshChanges: true, // TODO: disable once #3361 is fixed
 		})
+	// TODO: disable once #3361 is fixed
+	test.RequireEmptyPreviewAfterRefresh = false
 
 	integration.ProgramTest(t, &test)
 }

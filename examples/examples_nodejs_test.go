@@ -91,9 +91,10 @@ func TestMessagingTs(t *testing.T) {
 	skipIfShort(t)
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir:                  filepath.Join(getCwd(t), "messaging"),
-			ExpectRefreshChanges: true, // TODO: disable once #3361 is fixed
+			Dir: filepath.Join(getCwd(t), "messaging"),
 		})
+	// TODO: disable once #3361 is fixed
+	test.RequireEmptyPreviewAfterRefresh = false
 
 	integration.ProgramTest(t, &test)
 }
