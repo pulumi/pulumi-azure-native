@@ -14,10 +14,15 @@ import (
 func ParseResourceID(id, path string) (map[string]string, error) {
 	pathParts := strings.Split(path, "/")
 	regexParts := make([]string, len(pathParts))
+	// Track the names of the regex matches so we can map them back to the original names.
+	regexNames := make(map[string]string, len(pathParts))
+	regexMatchGroupNameReplacer := regexp.MustCompile(`[^a-zA-Z0-9]`)
 	for i, s := range pathParts {
 		if strings.HasPrefix(s, "{") && strings.HasSuffix(s, "}") {
 			name := s[1 : len(s)-1]
-			regexParts[i] = fmt.Sprintf("(?P<%s>.*?)", name)
+			regexName := regexMatchGroupNameReplacer.ReplaceAllString(name, "")
+			regexNames[regexName] = name
+			regexParts[i] = fmt.Sprintf("(?P<%s>.*?)", regexName)
 		} else {
 			regexParts[i] = pathParts[i]
 		}
@@ -35,9 +40,10 @@ func ParseResourceID(id, path string) (map[string]string, error) {
 	}
 
 	result := map[string]string{}
-	for i, name := range pattern.SubexpNames() {
-		if i > 0 && name != "" {
-			result[name] = match[i]
+	for i, regexpGroupName := range pattern.SubexpNames() {
+		if i > 0 && regexpGroupName != "" {
+			originalName := regexNames[regexpGroupName]
+			result[originalName] = match[i]
 		}
 	}
 	return result, nil
