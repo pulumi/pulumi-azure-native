@@ -192,6 +192,7 @@
     "ConnectedEnvironmentsStorage": "2022-10-01",
     "ContainerApp": "2022-10-01",
     "ContainerAppsAuthConfig": "2022-10-01",
+    "ContainerAppsSessionPool": "2024-02-02-preview",
     "ContainerAppsSourceControl": "2022-10-01",
     "DaprComponent": "2022-10-01",
     "DaprComponentResiliencyPolicy": "2023-08-01-preview",
@@ -199,8 +200,10 @@
     "DotNetComponent": "2023-11-02-preview",
     "JavaComponent": "2023-11-02-preview",
     "Job": "2023-04-01-preview",
+    "LogicApp": "2024-02-02-preview",
     "ManagedCertificate": "2023-04-01-preview",
     "ManagedEnvironment": "2022-10-01",
+    "ManagedEnvironmentPrivateEndpointConnection": "2024-02-02-preview",
     "ManagedEnvironmentsStorage": "2022-10-01",
     "getContainerAppAuthToken": "2022-10-01",
     "getCustomDomainVerificationId": "2023-05-02-preview",
@@ -210,7 +213,8 @@
     "listContainerAppCustomHostNameAnalysis": "2022-10-01",
     "listContainerAppSecrets": "2022-10-01",
     "listDaprComponentSecrets": "2022-10-01",
-    "listJobSecrets": "2023-04-01-preview"
+    "listJobSecrets": "2023-04-01-preview",
+    "listLogicAppWorkflowsConnections": "2024-02-02-preview"
   },
   "AppComplianceAutomation": {
     "Evidence": "2024-06-27",
@@ -947,7 +951,8 @@
     "getEnvironmentDefinitionErrorDetails": "2023-08-01-preview",
     "getProjectCatalogEnvironmentDefinitionErrorDetails": "2024-02-01",
     "getProjectCatalogSyncErrorDetails": "2024-02-01",
-    "getProjectInheritedSettings": "2024-05-01-preview"
+    "getProjectInheritedSettings": "2024-05-01-preview",
+    "listSkusByProject": "2024-06-01-preview"
   },
   "DevHub": {
     "IacProfile": "2024-05-01-preview",

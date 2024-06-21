@@ -7560,6 +7560,8 @@
       {
         "resourceType": "Redis",
         "apiVersions": [
+          "2024-04-01-preview",
+          "2024-03-01",
           "2023-08-01",
           "2023-05-01-preview",
           "2023-04-01",
@@ -7582,6 +7584,8 @@
       {
         "resourceType": "Redis/EventGridFilters",
         "apiVersions": [
+          "2024-04-01-preview",
+          "2024-03-01",
           "2023-08-01",
           "2023-05-01-preview",
           "2023-04-01",
@@ -7604,6 +7608,8 @@
       {
         "resourceType": "Redis/privateEndpointConnectionProxies",
         "apiVersions": [
+          "2024-04-01-preview",
+          "2024-03-01",
           "2023-08-01",
           "2023-05-01-preview",
           "2023-04-01",
@@ -7618,6 +7624,8 @@
       {
         "resourceType": "Redis/privateEndpointConnectionProxies/validate",
         "apiVersions": [
+          "2024-04-01-preview",
+          "2024-03-01",
           "2023-08-01",
           "2023-05-01-preview",
           "2023-04-01",
@@ -7632,6 +7640,8 @@
       {
         "resourceType": "Redis/privateEndpointConnections",
         "apiVersions": [
+          "2024-04-01-preview",
+          "2024-03-01",
           "2023-08-01",
           "2023-05-01-preview",
           "2023-04-01",
@@ -7646,6 +7656,8 @@
       {
         "resourceType": "Redis/privateLinkResources",
         "apiVersions": [
+          "2024-04-01-preview",
+          "2024-03-01",
           "2023-08-01",
           "2023-05-01-preview",
           "2023-04-01",
@@ -7768,6 +7780,8 @@
       {
         "resourceType": "checkNameAvailability",
         "apiVersions": [
+          "2024-04-01-preview",
+          "2024-03-01",
           "2023-08-01",
           "2023-05-01-preview",
           "2023-04-01",
@@ -7791,10 +7805,13 @@
       {
         "resourceType": "locations",
         "apiVersions": [
+          "2024-04-01-preview",
           "2024-03-01-preview",
+          "2024-03-01",
           "2024-02-01",
           "2023-11-01",
           "2023-10-01-preview",
+          "2023-08-01",
           "2023-07-01",
           "2023-05-01-preview",
           "2023-04-01",
@@ -7824,6 +7841,8 @@
       {
         "resourceType": "locations/asyncOperations",
         "apiVersions": [
+          "2024-04-01-preview",
+          "2024-03-01",
           "2023-08-01",
           "2023-05-01-preview",
           "2023-04-01",
@@ -7856,6 +7875,8 @@
       {
         "resourceType": "locations/operationResults",
         "apiVersions": [
+          "2024-04-01-preview",
+          "2024-03-01",
           "2023-08-01",
           "2023-05-01-preview",
           "2023-04-01",
@@ -7896,9 +7917,12 @@
       {
         "resourceType": "operations",
         "apiVersions": [
+          "2024-04-01-preview",
+          "2024-03-01",
           "2024-02-01",
           "2023-11-01",
           "2023-10-01-preview",
+          "2023-08-01",
           "2023-07-01",
           "2023-05-01-preview",
           "2023-04-01",
@@ -11354,6 +11378,7 @@
       {
         "resourceType": "locations/diagnosticOperations",
         "apiVersions": [
+          "2024-06-01-preview",
           "2024-03-01-preview",
           "2021-06-01-preview"
         ]
@@ -11361,6 +11386,7 @@
       {
         "resourceType": "locations/diagnostics",
         "apiVersions": [
+          "2024-06-01-preview",
           "2024-03-01-preview",
           "2021-06-01-preview"
         ]
@@ -11519,6 +11545,22 @@
           "2016-03-30",
           "2015-06-15",
           "2015-05-01-preview"
+        ]
+      },
+      {
+        "resourceType": "locations/placementRecommendations",
+        "apiVersions": [
+          "2024-06-01-preview",
+          "2024-03-01-preview",
+          "2021-06-01-preview"
+        ]
+      },
+      {
+        "resourceType": "locations/placementScores",
+        "apiVersions": [
+          "2024-06-01-preview",
+          "2024-03-01-preview",
+          "2021-06-01-preview"
         ]
       },
       {
@@ -19337,60 +19379,6 @@
           "2019-12-10-preview",
           "2019-09-24-preview",
           "2019-01-23-preview"
-        ]
-      }
-    ]
-  },
-  {
-    "namespace": "Microsoft.DevAI",
-    "resourceTypes": [
-      {
-        "resourceType": "Locations",
-        "apiVersions": [
-          "2019-01-01"
-        ]
-      },
-      {
-        "resourceType": "Locations/operationstatuses",
-        "apiVersions": [
-          "2019-10-01"
-        ]
-      },
-      {
-        "resourceType": "Operations",
-        "apiVersions": [
-          "2022-02-17-preview",
-          "2021-02-04-preview"
-        ]
-      },
-      {
-        "resourceType": "instances",
-        "apiVersions": [
-          "2022-02-17-preview"
-        ]
-      },
-      {
-        "resourceType": "instances/experiments",
-        "apiVersions": [
-          "2022-02-17-preview"
-        ]
-      },
-      {
-        "resourceType": "instances/sandboxes",
-        "apiVersions": [
-          "2022-02-17-preview"
-        ]
-      },
-      {
-        "resourceType": "instances/sandboxes/experiments",
-        "apiVersions": [
-          "2022-02-17-preview"
-        ]
-      },
-      {
-        "resourceType": "registeredSubscriptions",
-        "apiVersions": [
-          "2019-01-01"
         ]
       }
     ]
