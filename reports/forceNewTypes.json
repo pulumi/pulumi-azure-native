@@ -609,6 +609,83 @@
     "Property": "platformReservedDnsIP"
   },
   {
+    "Module": "app/v20240202preview",
+    "Provider": "App",
+    "ResourceName": "Certificate",
+    "ReferenceName": "Certificate",
+    "Property": "password"
+  },
+  {
+    "Module": "app/v20240202preview",
+    "Provider": "App",
+    "ResourceName": "Certificate",
+    "ReferenceName": "Certificate",
+    "Property": "value"
+  },
+  {
+    "Module": "app/v20240202preview",
+    "Provider": "App",
+    "ResourceName": "ConnectedEnvironment",
+    "ReferenceName": "CustomDomainConfiguration",
+    "Property": "dnsSuffix"
+  },
+  {
+    "Module": "app/v20240202preview",
+    "Provider": "App",
+    "ResourceName": "ConnectedEnvironmentsCertificate",
+    "ReferenceName": "Certificate",
+    "Property": "password"
+  },
+  {
+    "Module": "app/v20240202preview",
+    "Provider": "App",
+    "ResourceName": "ConnectedEnvironmentsCertificate",
+    "ReferenceName": "Certificate",
+    "Property": "value"
+  },
+  {
+    "Module": "app/v20240202preview",
+    "Provider": "App",
+    "ResourceName": "ManagedEnvironment",
+    "ReferenceName": "CustomDomainConfiguration",
+    "Property": "dnsSuffix"
+  },
+  {
+    "Module": "app/v20240202preview",
+    "Provider": "App",
+    "ResourceName": "ManagedEnvironment",
+    "ReferenceName": "VnetConfiguration",
+    "Property": "dockerBridgeCidr"
+  },
+  {
+    "Module": "app/v20240202preview",
+    "Provider": "App",
+    "ResourceName": "ManagedEnvironment",
+    "ReferenceName": "VnetConfiguration",
+    "Property": "infrastructureSubnetId"
+  },
+  {
+    "Module": "app/v20240202preview",
+    "Provider": "App",
+    "ResourceName": "ManagedEnvironment",
+    "ReferenceName": "VnetConfiguration",
+    "Property": "internal"
+  },
+  {
+    "Module": "app/v20240202preview",
+    "Provider": "App",
+    "ResourceName": "ManagedEnvironment",
+    "ReferenceName": "VnetConfiguration",
+    "Property": "platformReservedCidr"
+  },
+  {
+    "Module": "app/v20240202preview",
+    "Provider": "App",
+    "ResourceName": "ManagedEnvironment",
+    "ReferenceName": "VnetConfiguration",
+    "Property": "platformReservedDnsIP"
+  },
+  {
     "Module": "app/v20240301",
     "Provider": "App",
     "ResourceName": "Certificate",
@@ -4410,6 +4487,13 @@
     "Property": "userInfo"
   },
   {
+    "Module": "elastic/v20240615preview",
+    "Provider": "Elastic",
+    "ResourceName": "Monitor",
+    "ReferenceName": "UserInfo",
+    "Property": "userInfo"
+  },
+  {
     "Module": "graphservices",
     "Provider": "GraphServices",
     "ResourceName": "Account",
@@ -4634,14 +4718,14 @@
     "Property": "enablePrivateApiServer"
   },
   {
-    "Module": "hdinsight/v20240501",
+    "Module": "hdinsight/v20240501preview",
     "Provider": "HDInsight",
     "ResourceName": "Cluster",
     "ReferenceName": "ClusterAccessProfile",
     "Property": "enableInternalIngress"
   },
   {
-    "Module": "hdinsight/v20240501",
+    "Module": "hdinsight/v20240501preview",
     "Provider": "HDInsight",
     "ResourceName": "ClusterPool",
     "ReferenceName": "ClusterPoolNetworkProfile",
