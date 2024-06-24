@@ -102,6 +102,32 @@ func TestOidcConfigWithTokenFromConfig(t *testing.T) {
 	assert.Equal(t, "t3", conf.oidcToken)
 }
 
+func TestOidcWithTokenFileFromEnv(t *testing.T) {
+	assertConf := func(t *testing.T, p azureNativeProvider) {
+		conf, err := p.determineOidcConfig()
+		assert.Nil(t, err)
+		assert.Empty(t, conf.oidcRequestToken)
+		assert.Empty(t, conf.oidcRequestUrl)
+		assert.Empty(t, conf.oidcToken)
+		assert.Equal(t, "file1", conf.oidcTokenFilePath)
+	}
+
+	t.Run("FromEnv", func(t *testing.T) {
+		p := azureNativeProvider{}
+		t.Setenv("ARM_OIDC_TOKEN_FILE_PATH", "file1")
+		assertConf(t, p)
+	})
+
+	t.Run("FromConf", func(t *testing.T) {
+		p := azureNativeProvider{
+			config: map[string]string{
+				"oidcTokenFilePath": "file1",
+			},
+		}
+		assertConf(t, p)
+	})
+}
+
 func TestOidcEmptyConfig(t *testing.T) {
 	p := azureNativeProvider{}
 
@@ -157,6 +183,16 @@ func TestAuthConfigs(t *testing.T) {
 				},
 			}
 		},
+		"oidcTokenFile": func() azureNativeProvider {
+			return azureNativeProvider{
+				config: map[string]string{
+					"useOidc":           "true",
+					"oidcTokenFilePath": "file",
+					"tenantId":          "123",
+					"clientId":          "123",
+				},
+			}
+		},
 		"clientSecret": func() azureNativeProvider {
 			return azureNativeProvider{
 				config: map[string]string{
@@ -187,21 +223,13 @@ func TestAuthConfigs(t *testing.T) {
 	for authMethod, f := range authMethods {
 		t.Run(authMethod+" is valid", func(t *testing.T) {
 			p := f()
+
 			conf, err := p.getAuthConfig()
 			require.NoError(t, err)
 			require.NotNil(t, conf)
-		})
 
-		t.Run(authMethod+" uses CLI", func(t *testing.T) {
-			p := f()
-			conf, _ := p.getAuthConfig()
-			require.NotNil(t, conf)
 			assert.Equal(t, authMethod == "cli", conf.useCli)
-		})
 
-		t.Run(authMethod+" default env", func(t *testing.T) {
-			p := f()
-			conf, _ := p.getAuthConfig()
 			assert.Equal(t, "public", conf.Environment)
 		})
 
@@ -209,7 +237,8 @@ func TestAuthConfigs(t *testing.T) {
 			p := f()
 			p.config["environment"] = "public"
 
-			conf, _ := p.getAuthConfig()
+			conf, err := p.getAuthConfig()
+			require.NoError(t, err)
 			assert.Equal(t, "public", conf.Environment)
 		})
 
