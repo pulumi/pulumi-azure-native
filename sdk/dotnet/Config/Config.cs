@@ -134,7 +134,7 @@ namespace Pulumi.AzureNative
 
         private static readonly __Value<string?> _oidcRequestToken = new __Value<string?>(() => __config.Get("oidcRequestToken"));
         /// <summary>
-        /// Your cloud service or provider’s bearer token to exchange for an OIDC ID token.
+        /// Your cloud service or provider's bearer token to exchange for an OIDC ID token.
         /// </summary>
         public static string? OidcRequestToken
         {
@@ -160,6 +160,16 @@ namespace Pulumi.AzureNative
         {
             get => _oidcToken.Get();
             set => _oidcToken.Set(value);
+        }
+
+        private static readonly __Value<string?> _oidcTokenFilePath = new __Value<string?>(() => __config.Get("oidcTokenFilePath"));
+        /// <summary>
+        /// The path to a file containing an OIDC token to exchange for an Azure token.
+        /// </summary>
+        public static string? OidcTokenFilePath
+        {
+            get => _oidcTokenFilePath.Get();
+            set => _oidcTokenFilePath.Set(value);
         }
 
         private static readonly __Value<string?> _partnerId = new __Value<string?>(() => __config.Get("partnerId"));

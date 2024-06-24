@@ -118,7 +118,7 @@ Object.defineProperty(exports, "msiEndpoint", {
 });
 
 /**
- * Your cloud service or provider’s bearer token to exchange for an OIDC ID token.
+ * Your cloud service or provider's bearer token to exchange for an OIDC ID token.
  */
 export declare const oidcRequestToken: string | undefined;
 Object.defineProperty(exports, "oidcRequestToken", {
@@ -146,6 +146,17 @@ export declare const oidcToken: string | undefined;
 Object.defineProperty(exports, "oidcToken", {
     get() {
         return __config.get("oidcToken");
+    },
+    enumerable: true,
+});
+
+/**
+ * The path to a file containing an OIDC token to exchange for an Azure token.
+ */
+export declare const oidcTokenFilePath: string | undefined;
+Object.defineProperty(exports, "oidcTokenFilePath", {
+    get() {
+        return __config.get("oidcTokenFilePath");
     },
     enumerable: true,
 });

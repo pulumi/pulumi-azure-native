@@ -61,7 +61,7 @@ The path to a custom endpoint for Managed Service Identity - in most circumstanc
 
 oidcRequestToken: Optional[str]
 """
-Your cloud service or provider’s bearer token to exchange for an OIDC ID token.
+Your cloud service or provider's bearer token to exchange for an OIDC ID token.
 """
 
 oidcRequestUrl: Optional[str]
@@ -72,6 +72,11 @@ The URL to initiate the OIDC token exchange.
 oidcToken: Optional[str]
 """
 The OIDC token to exchange for an Azure token.
+"""
+
+oidcTokenFilePath: Optional[str]
+"""
+The path to a file containing an OIDC token to exchange for an Azure token.
 """
 
 partnerId: Optional[str]
