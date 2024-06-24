@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Represents a devcenter plan resource.
  * Azure REST API version: 2024-05-01-preview.
+ *
+ * Other available API versions: 2024-06-01-preview.
  */
 export class Plan extends pulumi.CustomResource {
     /**
@@ -100,7 +102,7 @@ export class Plan extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:devcenter/v20240501preview:Plan" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:devcenter/v20240501preview:Plan" }, { type: "azure-native:devcenter/v20240601preview:Plan" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Plan.__pulumiType, name, resourceInputs, opts);
     }

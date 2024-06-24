@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.KeyVault
     /// Resource information with extended details.
     /// Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2019-09-01.
     /// 
-    /// Other available API versions: 2018-02-14-preview, 2023-07-01.
+    /// Other available API versions: 2018-02-14-preview, 2023-07-01, 2024-04-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:keyvault:Vault")]
     public partial class Vault : global::Pulumi.CustomResource
@@ -94,6 +94,7 @@ namespace Pulumi.AzureNative.KeyVault
                     new global::Pulumi.Alias { Type = "azure-native:keyvault/v20221101:Vault" },
                     new global::Pulumi.Alias { Type = "azure-native:keyvault/v20230201:Vault" },
                     new global::Pulumi.Alias { Type = "azure-native:keyvault/v20230701:Vault" },
+                    new global::Pulumi.Alias { Type = "azure-native:keyvault/v20240401preview:Vault" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

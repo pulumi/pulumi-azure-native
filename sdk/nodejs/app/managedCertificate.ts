@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Managed certificates used for Custom Domain bindings of Container Apps in a Managed Environment
  * Azure REST API version: 2023-04-01-preview.
  *
- * Other available API versions: 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-03-01.
+ * Other available API versions: 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01.
  */
 export class ManagedCertificate extends pulumi.CustomResource {
     /**
@@ -100,7 +100,7 @@ export class ManagedCertificate extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:app/v20221101preview:ManagedCertificate" }, { type: "azure-native:app/v20230401preview:ManagedCertificate" }, { type: "azure-native:app/v20230501:ManagedCertificate" }, { type: "azure-native:app/v20230502preview:ManagedCertificate" }, { type: "azure-native:app/v20230801preview:ManagedCertificate" }, { type: "azure-native:app/v20231102preview:ManagedCertificate" }, { type: "azure-native:app/v20240301:ManagedCertificate" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:app/v20221101preview:ManagedCertificate" }, { type: "azure-native:app/v20230401preview:ManagedCertificate" }, { type: "azure-native:app/v20230501:ManagedCertificate" }, { type: "azure-native:app/v20230502preview:ManagedCertificate" }, { type: "azure-native:app/v20230801preview:ManagedCertificate" }, { type: "azure-native:app/v20231102preview:ManagedCertificate" }, { type: "azure-native:app/v20240202preview:ManagedCertificate" }, { type: "azure-native:app/v20240301:ManagedCertificate" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ManagedCertificate.__pulumiType, name, resourceInputs, opts);
     }

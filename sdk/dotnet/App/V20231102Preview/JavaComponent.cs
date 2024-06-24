@@ -83,6 +83,7 @@ namespace Pulumi.AzureNative.App.V20231102Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:app:JavaComponent" },
+                    new global::Pulumi.Alias { Type = "azure-native:app/v20240202preview:JavaComponent" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

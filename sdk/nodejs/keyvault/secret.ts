@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Resource information with extended details.
  * Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2019-09-01.
  *
- * Other available API versions: 2023-07-01.
+ * Other available API versions: 2023-07-01, 2024-04-01-preview.
  */
 export class Secret extends pulumi.CustomResource {
     /**
@@ -97,7 +97,7 @@ export class Secret extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:keyvault/v20161001:Secret" }, { type: "azure-native:keyvault/v20180214:Secret" }, { type: "azure-native:keyvault/v20180214preview:Secret" }, { type: "azure-native:keyvault/v20190901:Secret" }, { type: "azure-native:keyvault/v20200401preview:Secret" }, { type: "azure-native:keyvault/v20210401preview:Secret" }, { type: "azure-native:keyvault/v20210601preview:Secret" }, { type: "azure-native:keyvault/v20211001:Secret" }, { type: "azure-native:keyvault/v20211101preview:Secret" }, { type: "azure-native:keyvault/v20220201preview:Secret" }, { type: "azure-native:keyvault/v20220701:Secret" }, { type: "azure-native:keyvault/v20221101:Secret" }, { type: "azure-native:keyvault/v20230201:Secret" }, { type: "azure-native:keyvault/v20230701:Secret" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:keyvault/v20161001:Secret" }, { type: "azure-native:keyvault/v20180214:Secret" }, { type: "azure-native:keyvault/v20180214preview:Secret" }, { type: "azure-native:keyvault/v20190901:Secret" }, { type: "azure-native:keyvault/v20200401preview:Secret" }, { type: "azure-native:keyvault/v20210401preview:Secret" }, { type: "azure-native:keyvault/v20210601preview:Secret" }, { type: "azure-native:keyvault/v20211001:Secret" }, { type: "azure-native:keyvault/v20211101preview:Secret" }, { type: "azure-native:keyvault/v20220201preview:Secret" }, { type: "azure-native:keyvault/v20220701:Secret" }, { type: "azure-native:keyvault/v20221101:Secret" }, { type: "azure-native:keyvault/v20230201:Secret" }, { type: "azure-native:keyvault/v20230701:Secret" }, { type: "azure-native:keyvault/v20240401preview:Secret" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Secret.__pulumiType, name, resourceInputs, opts);
     }

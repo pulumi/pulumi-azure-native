@@ -89,6 +89,8 @@ def get_monitored_subscription(configuration_name: Optional[str] = None,
     The request to update subscriptions needed to be monitored by the Elastic monitor resource.
     Azure REST API version: 2024-05-01-preview.
 
+    Other available API versions: 2024-06-15-preview.
+
 
     :param str configuration_name: The configuration name. Only 'default' value is supported.
     :param str monitor_name: Monitor resource name
@@ -116,6 +118,8 @@ def get_monitored_subscription_output(configuration_name: Optional[pulumi.Input[
     """
     The request to update subscriptions needed to be monitored by the Elastic monitor resource.
     Azure REST API version: 2024-05-01-preview.
+
+    Other available API versions: 2024-06-15-preview.
 
 
     :param str configuration_name: The configuration name. Only 'default' value is supported.

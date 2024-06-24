@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.App
         /// <summary>
         /// .NET Component.
         /// Azure REST API version: 2023-11-02-preview.
+        /// 
+        /// Other available API versions: 2024-02-02-preview.
         /// </summary>
         public static Task<GetDotNetComponentResult> InvokeAsync(GetDotNetComponentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDotNetComponentResult>("azure-native:app:getDotNetComponent", args ?? new GetDotNetComponentArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.App
         /// <summary>
         /// .NET Component.
         /// Azure REST API version: 2023-11-02-preview.
+        /// 
+        /// Other available API versions: 2024-02-02-preview.
         /// </summary>
         public static Output<GetDotNetComponentResult> Invoke(GetDotNetComponentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDotNetComponentResult>("azure-native:app:getDotNetComponent", args ?? new GetDotNetComponentInvokeArgs(), options.WithDefaults());

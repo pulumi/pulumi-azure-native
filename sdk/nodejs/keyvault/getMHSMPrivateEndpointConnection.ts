@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Gets the specified private endpoint connection associated with the managed HSM Pool.
  * Azure REST API version: 2023-02-01.
  *
- * Other available API versions: 2023-07-01.
+ * Other available API versions: 2023-07-01, 2024-04-01-preview.
  */
 export function getMHSMPrivateEndpointConnection(args: GetMHSMPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetMHSMPrivateEndpointConnectionResult> {
 
@@ -91,7 +91,7 @@ export interface GetMHSMPrivateEndpointConnectionResult {
  * Gets the specified private endpoint connection associated with the managed HSM Pool.
  * Azure REST API version: 2023-02-01.
  *
- * Other available API versions: 2023-07-01.
+ * Other available API versions: 2023-07-01, 2024-04-01-preview.
  */
 export function getMHSMPrivateEndpointConnectionOutput(args: GetMHSMPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMHSMPrivateEndpointConnectionResult> {
     return pulumi.output(args).apply((a: any) => getMHSMPrivateEndpointConnection(a, opts))

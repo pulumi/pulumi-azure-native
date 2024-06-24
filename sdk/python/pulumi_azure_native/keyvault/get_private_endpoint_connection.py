@@ -149,7 +149,7 @@ def get_private_endpoint_connection(private_endpoint_connection_name: Optional[s
     Gets the specified private endpoint connection associated with the key vault.
     Azure REST API version: 2023-02-01.
 
-    Other available API versions: 2023-07-01.
+    Other available API versions: 2023-07-01, 2024-04-01-preview.
 
 
     :param str private_endpoint_connection_name: Name of the private endpoint connection associated with the key vault.
@@ -184,7 +184,7 @@ def get_private_endpoint_connection_output(private_endpoint_connection_name: Opt
     Gets the specified private endpoint connection associated with the key vault.
     Azure REST API version: 2023-02-01.
 
-    Other available API versions: 2023-07-01.
+    Other available API versions: 2023-07-01, 2024-04-01-preview.
 
 
     :param str private_endpoint_connection_name: Name of the private endpoint connection associated with the key vault.

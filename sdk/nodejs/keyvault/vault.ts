@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Resource information with extended details.
  * Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2019-09-01.
  *
- * Other available API versions: 2018-02-14-preview, 2023-07-01.
+ * Other available API versions: 2018-02-14-preview, 2023-07-01, 2024-04-01-preview.
  */
 export class Vault extends pulumi.CustomResource {
     /**
@@ -99,7 +99,7 @@ export class Vault extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:keyvault/v20150601:Vault" }, { type: "azure-native:keyvault/v20161001:Vault" }, { type: "azure-native:keyvault/v20180214:Vault" }, { type: "azure-native:keyvault/v20180214preview:Vault" }, { type: "azure-native:keyvault/v20190901:Vault" }, { type: "azure-native:keyvault/v20200401preview:Vault" }, { type: "azure-native:keyvault/v20210401preview:Vault" }, { type: "azure-native:keyvault/v20210601preview:Vault" }, { type: "azure-native:keyvault/v20211001:Vault" }, { type: "azure-native:keyvault/v20211101preview:Vault" }, { type: "azure-native:keyvault/v20220201preview:Vault" }, { type: "azure-native:keyvault/v20220701:Vault" }, { type: "azure-native:keyvault/v20221101:Vault" }, { type: "azure-native:keyvault/v20230201:Vault" }, { type: "azure-native:keyvault/v20230701:Vault" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:keyvault/v20150601:Vault" }, { type: "azure-native:keyvault/v20161001:Vault" }, { type: "azure-native:keyvault/v20180214:Vault" }, { type: "azure-native:keyvault/v20180214preview:Vault" }, { type: "azure-native:keyvault/v20190901:Vault" }, { type: "azure-native:keyvault/v20200401preview:Vault" }, { type: "azure-native:keyvault/v20210401preview:Vault" }, { type: "azure-native:keyvault/v20210601preview:Vault" }, { type: "azure-native:keyvault/v20211001:Vault" }, { type: "azure-native:keyvault/v20211101preview:Vault" }, { type: "azure-native:keyvault/v20220201preview:Vault" }, { type: "azure-native:keyvault/v20220701:Vault" }, { type: "azure-native:keyvault/v20221101:Vault" }, { type: "azure-native:keyvault/v20230201:Vault" }, { type: "azure-native:keyvault/v20230701:Vault" }, { type: "azure-native:keyvault/v20240401preview:Vault" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Vault.__pulumiType, name, resourceInputs, opts);
     }

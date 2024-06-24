@@ -90,15 +90,19 @@ App:
         AppResiliency: 2023-08-01-preview
         Build: 2023-08-01-preview
         Builder: 2023-08-01-preview
+        ContainerAppsSessionPool: 2024-02-02-preview
         DaprComponentResiliencyPolicy: 2023-08-01-preview
         DaprSubscription: 2023-08-01-preview
         DotNetComponent: 2023-11-02-preview
         JavaComponent: 2023-11-02-preview
         Job: 2023-04-01-preview
+        LogicApp: 2024-02-02-preview
         ManagedCertificate: 2023-04-01-preview
+        ManagedEnvironmentPrivateEndpointConnection: 2024-02-02-preview
         getCustomDomainVerificationId: 2023-05-02-preview
         listBuildAuthToken: 2023-08-01-preview
         listJobSecrets: 2023-04-01-preview
+        listLogicAppWorkflowsConnections: 2024-02-02-preview
 AppComplianceAutomation:
     tracking: 2022-11-16-preview
     additions:
@@ -745,6 +749,7 @@ DevCenter:
         getProjectCatalogEnvironmentDefinitionErrorDetails: "2024-02-01"
         getProjectCatalogSyncErrorDetails: "2024-02-01"
         getProjectInheritedSettings: 2024-05-01-preview
+        listSkusByProject: 2024-06-01-preview
 DevHub:
     tracking: 2022-10-11-preview
     additions:
@@ -1387,6 +1392,9 @@ Network:
         - provider: Network
           resourcename: ManagementGroupNetworkManagerConnection
           detail: version 2023-11-01 is greater than 2022-09-01
+        - provider: Network
+          resourcename: ManagementGroupNetworkManagerConnection
+          detail: version 2024-01-01 is greater than 2022-09-01
 NetworkAnalytics:
     tracking: "2023-11-15"
 NetworkCloud:

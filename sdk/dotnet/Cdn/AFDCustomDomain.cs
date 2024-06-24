@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn
     /// Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
     /// Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2020-09-01.
     /// 
-    /// Other available API versions: 2023-07-01-preview, 2024-02-01.
+    /// Other available API versions: 2023-07-01-preview, 2024-02-01, 2024-05-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:cdn:AFDCustomDomain")]
     public partial class AFDCustomDomain : global::Pulumi.CustomResource
@@ -125,6 +125,7 @@ namespace Pulumi.AzureNative.Cdn
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20230501:AFDCustomDomain" },
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20230701preview:AFDCustomDomain" },
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20240201:AFDCustomDomain" },
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20240501preview:AFDCustomDomain" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

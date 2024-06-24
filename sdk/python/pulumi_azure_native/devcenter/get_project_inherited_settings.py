@@ -64,6 +64,8 @@ def get_project_inherited_settings(project_name: Optional[str] = None,
     Gets applicable inherited settings for this project.
     Azure REST API version: 2024-05-01-preview.
 
+    Other available API versions: 2024-06-01-preview.
+
 
     :param str project_name: The name of the project.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -86,6 +88,8 @@ def get_project_inherited_settings_output(project_name: Optional[pulumi.Input[st
     """
     Gets applicable inherited settings for this project.
     Azure REST API version: 2024-05-01-preview.
+
+    Other available API versions: 2024-06-01-preview.
 
 
     :param str project_name: The name of the project.

@@ -183,7 +183,7 @@ class VirtualHubIpConfiguration(pulumi.CustomResource):
         IpConfigurations.
         Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01.
 
-        Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01.
+        Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -207,7 +207,7 @@ class VirtualHubIpConfiguration(pulumi.CustomResource):
         IpConfigurations.
         Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01.
 
-        Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01.
+        Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01.
 
         :param str resource_name: The name of the resource.
         :param VirtualHubIpConfigurationArgs args: The arguments to use to populate this resource's properties.
@@ -258,7 +258,7 @@ class VirtualHubIpConfiguration(pulumi.CustomResource):
             __props__.__dict__["etag"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20200501:VirtualHubIpConfiguration"), pulumi.Alias(type_="azure-native:network/v20200601:VirtualHubIpConfiguration"), pulumi.Alias(type_="azure-native:network/v20200701:VirtualHubIpConfiguration"), pulumi.Alias(type_="azure-native:network/v20200801:VirtualHubIpConfiguration"), pulumi.Alias(type_="azure-native:network/v20201101:VirtualHubIpConfiguration"), pulumi.Alias(type_="azure-native:network/v20210201:VirtualHubIpConfiguration"), pulumi.Alias(type_="azure-native:network/v20210301:VirtualHubIpConfiguration"), pulumi.Alias(type_="azure-native:network/v20210501:VirtualHubIpConfiguration"), pulumi.Alias(type_="azure-native:network/v20210801:VirtualHubIpConfiguration"), pulumi.Alias(type_="azure-native:network/v20220101:VirtualHubIpConfiguration"), pulumi.Alias(type_="azure-native:network/v20220501:VirtualHubIpConfiguration"), pulumi.Alias(type_="azure-native:network/v20220701:VirtualHubIpConfiguration"), pulumi.Alias(type_="azure-native:network/v20220901:VirtualHubIpConfiguration"), pulumi.Alias(type_="azure-native:network/v20221101:VirtualHubIpConfiguration"), pulumi.Alias(type_="azure-native:network/v20230201:VirtualHubIpConfiguration"), pulumi.Alias(type_="azure-native:network/v20230401:VirtualHubIpConfiguration"), pulumi.Alias(type_="azure-native:network/v20230501:VirtualHubIpConfiguration"), pulumi.Alias(type_="azure-native:network/v20230601:VirtualHubIpConfiguration"), pulumi.Alias(type_="azure-native:network/v20230901:VirtualHubIpConfiguration"), pulumi.Alias(type_="azure-native:network/v20231101:VirtualHubIpConfiguration")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20200501:VirtualHubIpConfiguration"), pulumi.Alias(type_="azure-native:network/v20200601:VirtualHubIpConfiguration"), pulumi.Alias(type_="azure-native:network/v20200701:VirtualHubIpConfiguration"), pulumi.Alias(type_="azure-native:network/v20200801:VirtualHubIpConfiguration"), pulumi.Alias(type_="azure-native:network/v20201101:VirtualHubIpConfiguration"), pulumi.Alias(type_="azure-native:network/v20210201:VirtualHubIpConfiguration"), pulumi.Alias(type_="azure-native:network/v20210301:VirtualHubIpConfiguration"), pulumi.Alias(type_="azure-native:network/v20210501:VirtualHubIpConfiguration"), pulumi.Alias(type_="azure-native:network/v20210801:VirtualHubIpConfiguration"), pulumi.Alias(type_="azure-native:network/v20220101:VirtualHubIpConfiguration"), pulumi.Alias(type_="azure-native:network/v20220501:VirtualHubIpConfiguration"), pulumi.Alias(type_="azure-native:network/v20220701:VirtualHubIpConfiguration"), pulumi.Alias(type_="azure-native:network/v20220901:VirtualHubIpConfiguration"), pulumi.Alias(type_="azure-native:network/v20221101:VirtualHubIpConfiguration"), pulumi.Alias(type_="azure-native:network/v20230201:VirtualHubIpConfiguration"), pulumi.Alias(type_="azure-native:network/v20230401:VirtualHubIpConfiguration"), pulumi.Alias(type_="azure-native:network/v20230501:VirtualHubIpConfiguration"), pulumi.Alias(type_="azure-native:network/v20230601:VirtualHubIpConfiguration"), pulumi.Alias(type_="azure-native:network/v20230901:VirtualHubIpConfiguration"), pulumi.Alias(type_="azure-native:network/v20231101:VirtualHubIpConfiguration"), pulumi.Alias(type_="azure-native:network/v20240101:VirtualHubIpConfiguration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualHubIpConfiguration, __self__).__init__(
             'azure-native:network:VirtualHubIpConfiguration',

@@ -568,7 +568,7 @@ def get_application_gateway(application_gateway_name: Optional[str] = None,
     Gets the specified application gateway.
     Azure REST API version: 2023-02-01.
 
-    Other available API versions: 2015-05-01-preview, 2019-06-01, 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01.
+    Other available API versions: 2015-05-01-preview, 2019-06-01, 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01.
 
 
     :param str application_gateway_name: The name of the application gateway.
@@ -635,7 +635,7 @@ def get_application_gateway_output(application_gateway_name: Optional[pulumi.Inp
     Gets the specified application gateway.
     Azure REST API version: 2023-02-01.
 
-    Other available API versions: 2015-05-01-preview, 2019-06-01, 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01.
+    Other available API versions: 2015-05-01-preview, 2019-06-01, 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01.
 
 
     :param str application_gateway_name: The name of the application gateway.

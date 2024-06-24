@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * SecurityPolicy association for AzureFrontDoor profile
  * Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2020-09-01.
  *
- * Other available API versions: 2023-07-01-preview, 2024-02-01.
+ * Other available API versions: 2023-07-01-preview, 2024-02-01, 2024-05-01-preview.
  */
 export class SecurityPolicy extends pulumi.CustomResource {
     /**
@@ -102,7 +102,7 @@ export class SecurityPolicy extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:cdn/v20200901:SecurityPolicy" }, { type: "azure-native:cdn/v20210601:SecurityPolicy" }, { type: "azure-native:cdn/v20220501preview:SecurityPolicy" }, { type: "azure-native:cdn/v20221101preview:SecurityPolicy" }, { type: "azure-native:cdn/v20230501:SecurityPolicy" }, { type: "azure-native:cdn/v20230701preview:SecurityPolicy" }, { type: "azure-native:cdn/v20240201:SecurityPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cdn/v20200901:SecurityPolicy" }, { type: "azure-native:cdn/v20210601:SecurityPolicy" }, { type: "azure-native:cdn/v20220501preview:SecurityPolicy" }, { type: "azure-native:cdn/v20221101preview:SecurityPolicy" }, { type: "azure-native:cdn/v20230501:SecurityPolicy" }, { type: "azure-native:cdn/v20230701preview:SecurityPolicy" }, { type: "azure-native:cdn/v20240201:SecurityPolicy" }, { type: "azure-native:cdn/v20240501preview:SecurityPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SecurityPolicy.__pulumiType, name, resourceInputs, opts);
     }

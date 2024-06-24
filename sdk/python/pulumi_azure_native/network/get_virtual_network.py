@@ -293,7 +293,7 @@ def get_virtual_network(expand: Optional[str] = None,
     Gets the specified virtual network by resource group.
     Azure REST API version: 2023-02-01.
 
-    Other available API versions: 2015-05-01-preview, 2019-06-01, 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01.
+    Other available API versions: 2015-05-01-preview, 2019-06-01, 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01.
 
 
     :param str expand: Expands referenced resources.
@@ -340,7 +340,7 @@ def get_virtual_network_output(expand: Optional[pulumi.Input[Optional[str]]] = N
     Gets the specified virtual network by resource group.
     Azure REST API version: 2023-02-01.
 
-    Other available API versions: 2015-05-01-preview, 2019-06-01, 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01.
+    Other available API versions: 2015-05-01-preview, 2019-06-01, 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01.
 
 
     :param str expand: Expands referenced resources.

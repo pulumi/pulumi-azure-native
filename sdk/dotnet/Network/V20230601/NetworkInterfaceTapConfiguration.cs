@@ -104,6 +104,7 @@ namespace Pulumi.AzureNative.Network.V20230601
                     new global::Pulumi.Alias { Type = "azure-native:network/v20230501:NetworkInterfaceTapConfiguration" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20230901:NetworkInterfaceTapConfiguration" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20231101:NetworkInterfaceTapConfiguration" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20240101:NetworkInterfaceTapConfiguration" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

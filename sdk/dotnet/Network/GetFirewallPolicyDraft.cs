@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Get a draft Firewall Policy.
         /// Azure REST API version: 2023-11-01.
+        /// 
+        /// Other available API versions: 2024-01-01.
         /// </summary>
         public static Task<GetFirewallPolicyDraftResult> InvokeAsync(GetFirewallPolicyDraftArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFirewallPolicyDraftResult>("azure-native:network:getFirewallPolicyDraft", args ?? new GetFirewallPolicyDraftArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Get a draft Firewall Policy.
         /// Azure REST API version: 2023-11-01.
+        /// 
+        /// Other available API versions: 2024-01-01.
         /// </summary>
         public static Output<GetFirewallPolicyDraftResult> Invoke(GetFirewallPolicyDraftInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFirewallPolicyDraftResult>("azure-native:network:getFirewallPolicyDraft", args ?? new GetFirewallPolicyDraftInvokeArgs(), options.WithDefaults());

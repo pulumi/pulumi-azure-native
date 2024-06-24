@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Contains a list of references of UrlSigningKey type secret objects.
  * Azure REST API version: 2023-07-01-preview.
+ *
+ * Other available API versions: 2024-05-01-preview.
  */
 export class KeyGroup extends pulumi.CustomResource {
     /**
@@ -95,7 +97,7 @@ export class KeyGroup extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:cdn/v20230701preview:KeyGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cdn/v20230701preview:KeyGroup" }, { type: "azure-native:cdn/v20240501preview:KeyGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(KeyGroup.__pulumiType, name, resourceInputs, opts);
     }

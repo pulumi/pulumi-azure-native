@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.DevCenter
         /// <summary>
         /// Gets a devcenter encryption set.
         /// Azure REST API version: 2024-05-01-preview.
+        /// 
+        /// Other available API versions: 2024-06-01-preview.
         /// </summary>
         public static Task<GetEncryptionSetResult> InvokeAsync(GetEncryptionSetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEncryptionSetResult>("azure-native:devcenter:getEncryptionSet", args ?? new GetEncryptionSetArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.DevCenter
         /// <summary>
         /// Gets a devcenter encryption set.
         /// Azure REST API version: 2024-05-01-preview.
+        /// 
+        /// Other available API versions: 2024-06-01-preview.
         /// </summary>
         public static Output<GetEncryptionSetResult> Invoke(GetEncryptionSetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEncryptionSetResult>("azure-native:devcenter:getEncryptionSet", args ?? new GetEncryptionSetInvokeArgs(), options.WithDefaults());

@@ -12,10 +12,12 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'CapabilityResponse',
     'CatalogConflictErrorResponse',
     'CatalogErrorDetailsResponse',
     'CatalogSyncErrorResponse',
     'DevCenterProjectCatalogSettingsResponse',
+    'DevCenterSkuResponse',
     'EnvironmentRoleResponse',
     'GitCatalogResponse',
     'HealthStatusDetailResponse',
@@ -31,6 +33,39 @@ __all__ = [
     'UserAssignedIdentityResponse',
     'UserRoleAssignmentResponse',
 ]
+
+@pulumi.output_type
+class CapabilityResponse(dict):
+    """
+    A name/value pair to describe a capability.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 value: str):
+        """
+        A name/value pair to describe a capability.
+        :param str name: Name of the capability.
+        :param str value: Value of the capability.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the capability.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        Value of the capability.
+        """
+        return pulumi.get(self, "value")
+
 
 @pulumi.output_type
 class CatalogConflictErrorResponse(dict):
@@ -154,6 +189,109 @@ class DevCenterProjectCatalogSettingsResponse(dict):
         Whether project catalogs associated with projects in this dev center can be configured to sync catalog items.
         """
         return pulumi.get(self, "catalog_item_sync_enable_status")
+
+
+@pulumi.output_type
+class DevCenterSkuResponse(dict):
+    """
+    The resource model definition representing SKU for DevCenter resources
+    """
+    def __init__(__self__, *,
+                 capabilities: Sequence['outputs.CapabilityResponse'],
+                 locations: Sequence[str],
+                 name: str,
+                 resource_type: str,
+                 capacity: Optional[int] = None,
+                 family: Optional[str] = None,
+                 size: Optional[str] = None,
+                 tier: Optional[str] = None):
+        """
+        The resource model definition representing SKU for DevCenter resources
+        :param Sequence['CapabilityResponse'] capabilities: Collection of name/value pairs to describe the SKU capabilities.
+        :param Sequence[str] locations: SKU supported locations.
+        :param str name: The name of the SKU. E.g. P3. It is typically a letter+number code
+        :param str resource_type: The name of the resource type
+        :param int capacity: If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
+        :param str family: If the service has different generations of hardware, for the same SKU, then that can be captured here.
+        :param str size: The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+        :param str tier: This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+        """
+        pulumi.set(__self__, "capabilities", capabilities)
+        pulumi.set(__self__, "locations", locations)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "resource_type", resource_type)
+        if capacity is not None:
+            pulumi.set(__self__, "capacity", capacity)
+        if family is not None:
+            pulumi.set(__self__, "family", family)
+        if size is not None:
+            pulumi.set(__self__, "size", size)
+        if tier is not None:
+            pulumi.set(__self__, "tier", tier)
+
+    @property
+    @pulumi.getter
+    def capabilities(self) -> Sequence['outputs.CapabilityResponse']:
+        """
+        Collection of name/value pairs to describe the SKU capabilities.
+        """
+        return pulumi.get(self, "capabilities")
+
+    @property
+    @pulumi.getter
+    def locations(self) -> Sequence[str]:
+        """
+        SKU supported locations.
+        """
+        return pulumi.get(self, "locations")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the SKU. E.g. P3. It is typically a letter+number code
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> str:
+        """
+        The name of the resource type
+        """
+        return pulumi.get(self, "resource_type")
+
+    @property
+    @pulumi.getter
+    def capacity(self) -> Optional[int]:
+        """
+        If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
+        """
+        return pulumi.get(self, "capacity")
+
+    @property
+    @pulumi.getter
+    def family(self) -> Optional[str]:
+        """
+        If the service has different generations of hardware, for the same SKU, then that can be captured here.
+        """
+        return pulumi.get(self, "family")
+
+    @property
+    @pulumi.getter
+    def size(self) -> Optional[str]:
+        """
+        The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+        """
+        return pulumi.get(self, "size")
+
+    @property
+    @pulumi.getter
+    def tier(self) -> Optional[str]:
+        """
+        This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+        """
+        return pulumi.get(self, "tier")
 
 
 @pulumi.output_type

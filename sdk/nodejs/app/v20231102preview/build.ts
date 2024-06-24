@@ -121,7 +121,7 @@ export class Build extends pulumi.CustomResource {
             resourceInputs["uploadEndpoint"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:app:Build" }, { type: "azure-native:app/v20230801preview:Build" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:app:Build" }, { type: "azure-native:app/v20230801preview:Build" }, { type: "azure-native:app/v20240202preview:Build" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Build.__pulumiType, name, resourceInputs, opts);
     }

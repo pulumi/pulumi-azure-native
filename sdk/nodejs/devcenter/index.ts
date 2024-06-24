@@ -150,6 +150,11 @@ export const getSchedule: typeof import("./getSchedule").getSchedule = null as a
 export const getScheduleOutput: typeof import("./getSchedule").getScheduleOutput = null as any;
 utilities.lazyLoad(exports, ["getSchedule","getScheduleOutput"], () => require("./getSchedule"));
 
+export { ListSkusByProjectArgs, ListSkusByProjectResult, ListSkusByProjectOutputArgs } from "./listSkusByProject";
+export const listSkusByProject: typeof import("./listSkusByProject").listSkusByProject = null as any;
+export const listSkusByProjectOutput: typeof import("./listSkusByProject").listSkusByProjectOutput = null as any;
+utilities.lazyLoad(exports, ["listSkusByProject","listSkusByProjectOutput"], () => require("./listSkusByProject"));
+
 export { NetworkConnectionArgs } from "./networkConnection";
 export type NetworkConnection = import("./networkConnection").NetworkConnection;
 export const NetworkConnection: typeof import("./networkConnection").NetworkConnection = null as any;
@@ -201,6 +206,7 @@ import * as v20230801preview from "./v20230801preview";
 import * as v20231001preview from "./v20231001preview";
 import * as v20240201 from "./v20240201";
 import * as v20240501preview from "./v20240501preview";
+import * as v20240601preview from "./v20240601preview";
 
 export {
     v20221111preview,
@@ -209,6 +215,7 @@ export {
     v20231001preview,
     v20240201,
     v20240501preview,
+    v20240601preview,
 };
 
 const _module = {

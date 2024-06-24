@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.KeyVault
     /// Resource information with extended details.
     /// Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-06-01-preview.
     /// 
-    /// Other available API versions: 2023-07-01.
+    /// Other available API versions: 2023-07-01, 2024-04-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:keyvault:ManagedHsm")]
     public partial class ManagedHsm : global::Pulumi.CustomResource
@@ -95,6 +95,7 @@ namespace Pulumi.AzureNative.KeyVault
                     new global::Pulumi.Alias { Type = "azure-native:keyvault/v20221101:ManagedHsm" },
                     new global::Pulumi.Alias { Type = "azure-native:keyvault/v20230201:ManagedHsm" },
                     new global::Pulumi.Alias { Type = "azure-native:keyvault/v20230701:ManagedHsm" },
+                    new global::Pulumi.Alias { Type = "azure-native:keyvault/v20240401preview:ManagedHsm" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

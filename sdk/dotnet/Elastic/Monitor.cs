@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Elastic
     /// Monitor resource.
     /// Azure REST API version: 2023-06-01. Prior API version in Azure Native 1.x: 2020-07-01.
     /// 
-    /// Other available API versions: 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview, 2023-11-01-preview, 2024-01-01-preview, 2024-03-01, 2024-05-01-preview.
+    /// Other available API versions: 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview, 2023-11-01-preview, 2024-01-01-preview, 2024-03-01, 2024-05-01-preview, 2024-06-15-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:elastic:Monitor")]
     public partial class Monitor : global::Pulumi.CustomResource
@@ -108,6 +108,7 @@ namespace Pulumi.AzureNative.Elastic
                     new global::Pulumi.Alias { Type = "azure-native:elastic/v20240101preview:Monitor" },
                     new global::Pulumi.Alias { Type = "azure-native:elastic/v20240301:Monitor" },
                     new global::Pulumi.Alias { Type = "azure-native:elastic/v20240501preview:Monitor" },
+                    new global::Pulumi.Alias { Type = "azure-native:elastic/v20240615preview:Monitor" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

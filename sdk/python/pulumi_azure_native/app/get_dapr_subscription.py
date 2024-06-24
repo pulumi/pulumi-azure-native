@@ -173,7 +173,7 @@ def get_dapr_subscription(environment_name: Optional[str] = None,
     Dapr PubSub Event Subscription.
     Azure REST API version: 2023-08-01-preview.
 
-    Other available API versions: 2023-11-02-preview.
+    Other available API versions: 2023-11-02-preview, 2024-02-02-preview.
 
 
     :param str environment_name: Name of the Managed Environment.
@@ -210,7 +210,7 @@ def get_dapr_subscription_output(environment_name: Optional[pulumi.Input[str]] =
     Dapr PubSub Event Subscription.
     Azure REST API version: 2023-08-01-preview.
 
-    Other available API versions: 2023-11-02-preview.
+    Other available API versions: 2023-11-02-preview, 2024-02-02-preview.
 
 
     :param str environment_name: Name of the Managed Environment.

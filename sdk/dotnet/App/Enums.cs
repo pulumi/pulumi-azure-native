@@ -194,6 +194,37 @@ namespace Pulumi.AzureNative.App
     }
 
     /// <summary>
+    /// The container type of the sessions.
+    /// </summary>
+    [EnumType]
+    public readonly struct ContainerType : IEquatable<ContainerType>
+    {
+        private readonly string _value;
+
+        private ContainerType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ContainerType CustomContainer { get; } = new ContainerType("CustomContainer");
+        public static ContainerType PythonLTS { get; } = new ContainerType("PythonLTS");
+
+        public static bool operator ==(ContainerType left, ContainerType right) => left.Equals(right);
+        public static bool operator !=(ContainerType left, ContainerType right) => !left.Equals(right);
+
+        public static explicit operator string(ContainerType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ContainerType other && Equals(other);
+        public bool Equals(ContainerType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The convention used when determining the session cookie's expiration.
     /// </summary>
     [EnumType]
@@ -248,6 +279,36 @@ namespace Pulumi.AzureNative.App
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DotNetComponentType other && Equals(other);
         public bool Equals(DotNetComponentType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The execution type of the session pool.
+    /// </summary>
+    [EnumType]
+    public readonly struct ExecutionType : IEquatable<ExecutionType>
+    {
+        private readonly string _value;
+
+        private ExecutionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ExecutionType Timed { get; } = new ExecutionType("Timed");
+
+        public static bool operator ==(ExecutionType left, ExecutionType right) => left.Equals(right);
+        public static bool operator !=(ExecutionType left, ExecutionType right) => !left.Equals(right);
+
+        public static explicit operator string(ExecutionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ExecutionType other && Equals(other);
+        public bool Equals(ExecutionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -544,6 +605,70 @@ namespace Pulumi.AzureNative.App
     }
 
     /// <summary>
+    /// The pool management type of the session pool.
+    /// </summary>
+    [EnumType]
+    public readonly struct PoolManagementType : IEquatable<PoolManagementType>
+    {
+        private readonly string _value;
+
+        private PoolManagementType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PoolManagementType Manual { get; } = new PoolManagementType("Manual");
+        public static PoolManagementType Dynamic { get; } = new PoolManagementType("Dynamic");
+
+        public static bool operator ==(PoolManagementType left, PoolManagementType right) => left.Equals(right);
+        public static bool operator !=(PoolManagementType left, PoolManagementType right) => !left.Equals(right);
+
+        public static explicit operator string(PoolManagementType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PoolManagementType other && Equals(other);
+        public bool Equals(PoolManagementType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+    /// </summary>
+    [EnumType]
+    public readonly struct PrivateEndpointServiceConnectionStatus : IEquatable<PrivateEndpointServiceConnectionStatus>
+    {
+        private readonly string _value;
+
+        private PrivateEndpointServiceConnectionStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PrivateEndpointServiceConnectionStatus Pending { get; } = new PrivateEndpointServiceConnectionStatus("Pending");
+        public static PrivateEndpointServiceConnectionStatus Approved { get; } = new PrivateEndpointServiceConnectionStatus("Approved");
+        public static PrivateEndpointServiceConnectionStatus Rejected { get; } = new PrivateEndpointServiceConnectionStatus("Rejected");
+        public static PrivateEndpointServiceConnectionStatus Disconnected { get; } = new PrivateEndpointServiceConnectionStatus("Disconnected");
+
+        public static bool operator ==(PrivateEndpointServiceConnectionStatus left, PrivateEndpointServiceConnectionStatus right) => left.Equals(right);
+        public static bool operator !=(PrivateEndpointServiceConnectionStatus left, PrivateEndpointServiceConnectionStatus right) => !left.Equals(right);
+
+        public static explicit operator string(PrivateEndpointServiceConnectionStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PrivateEndpointServiceConnectionStatus other && Equals(other);
+        public bool Equals(PrivateEndpointServiceConnectionStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Scheme to use for connecting to the host. Defaults to HTTP.
     /// </summary>
     [EnumType]
@@ -567,6 +692,37 @@ namespace Pulumi.AzureNative.App
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is Scheme other && Equals(other);
         public bool Equals(Scheme other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Network status for the sessions.
+    /// </summary>
+    [EnumType]
+    public readonly struct SessionNetworkStatus : IEquatable<SessionNetworkStatus>
+    {
+        private readonly string _value;
+
+        private SessionNetworkStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SessionNetworkStatus EgressEnabled { get; } = new SessionNetworkStatus("EgressEnabled");
+        public static SessionNetworkStatus EgressDisabled { get; } = new SessionNetworkStatus("EgressDisabled");
+
+        public static bool operator ==(SessionNetworkStatus left, SessionNetworkStatus right) => left.Equals(right);
+        public static bool operator !=(SessionNetworkStatus left, SessionNetworkStatus right) => !left.Equals(right);
+
+        public static explicit operator string(SessionNetworkStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SessionNetworkStatus other && Equals(other);
+        public bool Equals(SessionNetworkStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

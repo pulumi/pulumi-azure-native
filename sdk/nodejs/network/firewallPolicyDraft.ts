@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * FirewallPolicy Resource.
  * Azure REST API version: 2023-11-01.
+ *
+ * Other available API versions: 2024-01-01.
  */
 export class FirewallPolicyDraft extends pulumi.CustomResource {
     /**
@@ -140,7 +142,7 @@ export class FirewallPolicyDraft extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20231101:FirewallPolicyDraft" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20231101:FirewallPolicyDraft" }, { type: "azure-native:network/v20240101:FirewallPolicyDraft" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(FirewallPolicyDraft.__pulumiType, name, resourceInputs, opts);
     }

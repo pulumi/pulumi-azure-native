@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.App
     /// Dapr Component Resiliency Policy.
     /// Azure REST API version: 2023-08-01-preview.
     /// 
-    /// Other available API versions: 2023-11-02-preview.
+    /// Other available API versions: 2023-11-02-preview, 2024-02-02-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:app:DaprComponentResiliencyPolicy")]
     public partial class DaprComponentResiliencyPolicy : global::Pulumi.CustomResource
@@ -75,6 +75,7 @@ namespace Pulumi.AzureNative.App
                 {
                     new global::Pulumi.Alias { Type = "azure-native:app/v20230801preview:DaprComponentResiliencyPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:app/v20231102preview:DaprComponentResiliencyPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native:app/v20240202preview:DaprComponentResiliencyPolicy" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

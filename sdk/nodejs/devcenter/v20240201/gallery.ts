@@ -94,7 +94,7 @@ export class Gallery extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:devcenter:Gallery" }, { type: "azure-native:devcenter/v20220801preview:Gallery" }, { type: "azure-native:devcenter/v20220901preview:Gallery" }, { type: "azure-native:devcenter/v20221012preview:Gallery" }, { type: "azure-native:devcenter/v20221111preview:Gallery" }, { type: "azure-native:devcenter/v20230101preview:Gallery" }, { type: "azure-native:devcenter/v20230401:Gallery" }, { type: "azure-native:devcenter/v20230801preview:Gallery" }, { type: "azure-native:devcenter/v20231001preview:Gallery" }, { type: "azure-native:devcenter/v20240501preview:Gallery" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:devcenter:Gallery" }, { type: "azure-native:devcenter/v20220801preview:Gallery" }, { type: "azure-native:devcenter/v20220901preview:Gallery" }, { type: "azure-native:devcenter/v20221012preview:Gallery" }, { type: "azure-native:devcenter/v20221111preview:Gallery" }, { type: "azure-native:devcenter/v20230101preview:Gallery" }, { type: "azure-native:devcenter/v20230401:Gallery" }, { type: "azure-native:devcenter/v20230801preview:Gallery" }, { type: "azure-native:devcenter/v20231001preview:Gallery" }, { type: "azure-native:devcenter/v20240501preview:Gallery" }, { type: "azure-native:devcenter/v20240601preview:Gallery" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Gallery.__pulumiType, name, resourceInputs, opts);
     }

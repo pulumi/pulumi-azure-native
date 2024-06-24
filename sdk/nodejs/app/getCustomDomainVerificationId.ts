@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
  * Get the verification id of a subscription used for verifying custom domains
  * Azure REST API version: 2023-05-02-preview.
  *
- * Other available API versions: 2023-08-01-preview, 2023-11-02-preview, 2024-03-01.
+ * Other available API versions: 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01.
  */
 export function getCustomDomainVerificationId(args?: GetCustomDomainVerificationIdArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomDomainVerificationIdResult> {
     args = args || {};
@@ -31,7 +31,7 @@ export interface GetCustomDomainVerificationIdResult {
  * Get the verification id of a subscription used for verifying custom domains
  * Azure REST API version: 2023-05-02-preview.
  *
- * Other available API versions: 2023-08-01-preview, 2023-11-02-preview, 2024-03-01.
+ * Other available API versions: 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01.
  */
 export function getCustomDomainVerificationIdOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomDomainVerificationIdResult> {
     return pulumi.output(getCustomDomainVerificationId(opts))

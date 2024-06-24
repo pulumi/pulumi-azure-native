@@ -113,7 +113,7 @@ class Secret(pulumi.CustomResource):
         Resource information with extended details.
         Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2019-09-01.
 
-        Other available API versions: 2023-07-01.
+        Other available API versions: 2023-07-01, 2024-04-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -133,7 +133,7 @@ class Secret(pulumi.CustomResource):
         Resource information with extended details.
         Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2019-09-01.
 
-        Other available API versions: 2023-07-01.
+        Other available API versions: 2023-07-01, 2024-04-01-preview.
 
         :param str resource_name: The name of the resource.
         :param SecretArgs args: The arguments to use to populate this resource's properties.
@@ -178,7 +178,7 @@ class Secret(pulumi.CustomResource):
             __props__.__dict__["location"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:keyvault/v20161001:Secret"), pulumi.Alias(type_="azure-native:keyvault/v20180214:Secret"), pulumi.Alias(type_="azure-native:keyvault/v20180214preview:Secret"), pulumi.Alias(type_="azure-native:keyvault/v20190901:Secret"), pulumi.Alias(type_="azure-native:keyvault/v20200401preview:Secret"), pulumi.Alias(type_="azure-native:keyvault/v20210401preview:Secret"), pulumi.Alias(type_="azure-native:keyvault/v20210601preview:Secret"), pulumi.Alias(type_="azure-native:keyvault/v20211001:Secret"), pulumi.Alias(type_="azure-native:keyvault/v20211101preview:Secret"), pulumi.Alias(type_="azure-native:keyvault/v20220201preview:Secret"), pulumi.Alias(type_="azure-native:keyvault/v20220701:Secret"), pulumi.Alias(type_="azure-native:keyvault/v20221101:Secret"), pulumi.Alias(type_="azure-native:keyvault/v20230201:Secret"), pulumi.Alias(type_="azure-native:keyvault/v20230701:Secret")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:keyvault/v20161001:Secret"), pulumi.Alias(type_="azure-native:keyvault/v20180214:Secret"), pulumi.Alias(type_="azure-native:keyvault/v20180214preview:Secret"), pulumi.Alias(type_="azure-native:keyvault/v20190901:Secret"), pulumi.Alias(type_="azure-native:keyvault/v20200401preview:Secret"), pulumi.Alias(type_="azure-native:keyvault/v20210401preview:Secret"), pulumi.Alias(type_="azure-native:keyvault/v20210601preview:Secret"), pulumi.Alias(type_="azure-native:keyvault/v20211001:Secret"), pulumi.Alias(type_="azure-native:keyvault/v20211101preview:Secret"), pulumi.Alias(type_="azure-native:keyvault/v20220201preview:Secret"), pulumi.Alias(type_="azure-native:keyvault/v20220701:Secret"), pulumi.Alias(type_="azure-native:keyvault/v20221101:Secret"), pulumi.Alias(type_="azure-native:keyvault/v20230201:Secret"), pulumi.Alias(type_="azure-native:keyvault/v20230701:Secret"), pulumi.Alias(type_="azure-native:keyvault/v20240401preview:Secret")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Secret, __self__).__init__(
             'azure-native:keyvault:Secret',

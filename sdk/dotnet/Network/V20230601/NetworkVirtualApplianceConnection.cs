@@ -84,6 +84,7 @@ namespace Pulumi.AzureNative.Network.V20230601
                 {
                     new global::Pulumi.Alias { Type = "azure-native:network/v20230901:NetworkVirtualApplianceConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20231101:NetworkVirtualApplianceConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20240101:NetworkVirtualApplianceConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

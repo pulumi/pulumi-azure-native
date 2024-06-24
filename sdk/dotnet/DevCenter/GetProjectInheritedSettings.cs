@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.DevCenter
         /// <summary>
         /// Gets applicable inherited settings for this project.
         /// Azure REST API version: 2024-05-01-preview.
+        /// 
+        /// Other available API versions: 2024-06-01-preview.
         /// </summary>
         public static Task<GetProjectInheritedSettingsResult> InvokeAsync(GetProjectInheritedSettingsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetProjectInheritedSettingsResult>("azure-native:devcenter:getProjectInheritedSettings", args ?? new GetProjectInheritedSettingsArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.DevCenter
         /// <summary>
         /// Gets applicable inherited settings for this project.
         /// Azure REST API version: 2024-05-01-preview.
+        /// 
+        /// Other available API versions: 2024-06-01-preview.
         /// </summary>
         public static Output<GetProjectInheritedSettingsResult> Invoke(GetProjectInheritedSettingsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProjectInheritedSettingsResult>("azure-native:devcenter:getProjectInheritedSettings", args ?? new GetProjectInheritedSettingsInvokeArgs(), options.WithDefaults());

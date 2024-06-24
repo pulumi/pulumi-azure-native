@@ -138,6 +138,7 @@ namespace Pulumi.AzureNative.Cdn.V20230501
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20221101preview:Policy" },
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20230701preview:Policy" },
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20240201:Policy" },
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20240501preview:Policy" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

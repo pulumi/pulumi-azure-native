@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Gets a cluster pool.
  * Azure REST API version: 2023-06-01-preview.
  *
- * Other available API versions: 2023-11-01-preview, 2024-05-01.
+ * Other available API versions: 2023-11-01-preview, 2024-05-01-preview.
  */
 export function getClusterPool(args: GetClusterPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterPoolResult> {
 
@@ -106,7 +106,7 @@ export interface GetClusterPoolResult {
  * Gets a cluster pool.
  * Azure REST API version: 2023-06-01-preview.
  *
- * Other available API versions: 2023-11-01-preview, 2024-05-01.
+ * Other available API versions: 2023-11-01-preview, 2024-05-01-preview.
  */
 export function getClusterPoolOutput(args: GetClusterPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterPoolResult> {
     return pulumi.output(args).apply((a: any) => getClusterPool(a, opts))

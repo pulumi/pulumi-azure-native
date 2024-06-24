@@ -44,6 +44,7 @@ __all__ = [
     'ContainerResponse',
     'CookieExpirationResponse',
     'CorsPolicyResponse',
+    'CustomContainerTemplateResponse',
     'CustomDomainConfigurationResponse',
     'CustomDomainResponse',
     'CustomHostnameAnalysisResultResponseCustomDomainVerificationFailureInfo',
@@ -63,9 +64,11 @@ __all__ = [
     'DefaultAuthorizationPolicyResponse',
     'DotNetComponentConfigurationPropertyResponse',
     'DotNetComponentServiceBindResponse',
+    'DynamicPoolConfigurationResponse',
     'EnvironmentSkuPropertiesResponse',
     'EnvironmentVarResponse',
     'EnvironmentVariableResponse',
+    'ErrorEntityResponse',
     'ExtendedLocationResponse',
     'FacebookResponse',
     'ForwardProxyResponse',
@@ -108,14 +111,23 @@ __all__ = [
     'OpenIdConnectLoginResponse',
     'OpenIdConnectRegistrationResponse',
     'PreBuildStepResponse',
+    'PrivateEndpointResponse',
+    'PrivateLinkServiceConnectionStateResponse',
     'QueueScaleRuleResponse',
     'RegistryCredentialsResponse',
     'RegistryInfoResponse',
+    'ScaleConfigurationResponse',
     'ScaleResponse',
     'ScaleRuleAuthResponse',
     'ScaleRuleResponse',
     'SecretResponse',
     'SecretVolumeItemResponse',
+    'SessionContainerResourcesResponse',
+    'SessionContainerResponse',
+    'SessionIngressResponse',
+    'SessionNetworkConfigurationResponse',
+    'SessionPoolSecretResponse',
+    'SessionRegistryCredentialsResponse',
     'SystemDataResponse',
     'TcpConnectionPoolResponse',
     'TcpRetryPolicyResponse',
@@ -129,6 +141,8 @@ __all__ = [
     'VnetConfigurationResponse',
     'VolumeMountResponse',
     'VolumeResponse',
+    'WorkflowEnvelopeResponseProperties',
+    'WorkflowHealthResponse',
     'WorkloadProfileResponse',
 ]
 
@@ -2280,6 +2294,70 @@ class CorsPolicyResponse(dict):
 
 
 @pulumi.output_type
+class CustomContainerTemplateResponse(dict):
+    """
+    Custom container configuration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "registryCredentials":
+            suggest = "registry_credentials"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CustomContainerTemplateResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CustomContainerTemplateResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CustomContainerTemplateResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 containers: Optional[Sequence['outputs.SessionContainerResponse']] = None,
+                 ingress: Optional['outputs.SessionIngressResponse'] = None,
+                 registry_credentials: Optional['outputs.SessionRegistryCredentialsResponse'] = None):
+        """
+        Custom container configuration.
+        :param Sequence['SessionContainerResponse'] containers: List of container definitions for the sessions of the session pool.
+        :param 'SessionIngressResponse' ingress: Session pool ingress configuration.
+        :param 'SessionRegistryCredentialsResponse' registry_credentials: Private container registry credentials for containers used by the sessions of the session pool.
+        """
+        if containers is not None:
+            pulumi.set(__self__, "containers", containers)
+        if ingress is not None:
+            pulumi.set(__self__, "ingress", ingress)
+        if registry_credentials is not None:
+            pulumi.set(__self__, "registry_credentials", registry_credentials)
+
+    @property
+    @pulumi.getter
+    def containers(self) -> Optional[Sequence['outputs.SessionContainerResponse']]:
+        """
+        List of container definitions for the sessions of the session pool.
+        """
+        return pulumi.get(self, "containers")
+
+    @property
+    @pulumi.getter
+    def ingress(self) -> Optional['outputs.SessionIngressResponse']:
+        """
+        Session pool ingress configuration.
+        """
+        return pulumi.get(self, "ingress")
+
+    @property
+    @pulumi.getter(name="registryCredentials")
+    def registry_credentials(self) -> Optional['outputs.SessionRegistryCredentialsResponse']:
+        """
+        Private container registry credentials for containers used by the sessions of the session pool.
+        """
+        return pulumi.get(self, "registry_credentials")
+
+
+@pulumi.output_type
 class CustomDomainConfigurationResponse(dict):
     """
     Configuration properties for apps environment custom domain
@@ -3394,6 +3472,60 @@ class DotNetComponentServiceBindResponse(dict):
 
 
 @pulumi.output_type
+class DynamicPoolConfigurationResponse(dict):
+    """
+    Dynamic pool configuration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cooldownPeriodInSeconds":
+            suggest = "cooldown_period_in_seconds"
+        elif key == "executionType":
+            suggest = "execution_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DynamicPoolConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DynamicPoolConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DynamicPoolConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cooldown_period_in_seconds: Optional[int] = None,
+                 execution_type: Optional[str] = None):
+        """
+        Dynamic pool configuration.
+        :param int cooldown_period_in_seconds: The cooldown period of a session in seconds.
+        :param str execution_type: The execution type of the session pool.
+        """
+        if cooldown_period_in_seconds is not None:
+            pulumi.set(__self__, "cooldown_period_in_seconds", cooldown_period_in_seconds)
+        if execution_type is not None:
+            pulumi.set(__self__, "execution_type", execution_type)
+
+    @property
+    @pulumi.getter(name="cooldownPeriodInSeconds")
+    def cooldown_period_in_seconds(self) -> Optional[int]:
+        """
+        The cooldown period of a session in seconds.
+        """
+        return pulumi.get(self, "cooldown_period_in_seconds")
+
+    @property
+    @pulumi.getter(name="executionType")
+    def execution_type(self) -> Optional[str]:
+        """
+        The execution type of the session pool.
+        """
+        return pulumi.get(self, "execution_type")
+
+
+@pulumi.output_type
 class EnvironmentSkuPropertiesResponse(dict):
     """
     Managed Environment resource SKU properties.
@@ -3510,6 +3642,113 @@ class EnvironmentVariableResponse(dict):
         Environment variable value.
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ErrorEntityResponse(dict):
+    """
+    Body of the error response returned from the API.
+    """
+    def __init__(__self__, *,
+                 code: Optional[str] = None,
+                 details: Optional[Sequence['outputs.ErrorEntityResponse']] = None,
+                 extended_code: Optional[str] = None,
+                 inner_errors: Optional[Sequence['outputs.ErrorEntityResponse']] = None,
+                 message: Optional[str] = None,
+                 message_template: Optional[str] = None,
+                 parameters: Optional[Sequence[str]] = None,
+                 target: Optional[str] = None):
+        """
+        Body of the error response returned from the API.
+        :param str code: Basic error code.
+        :param Sequence['ErrorEntityResponse'] details: Error Details.
+        :param str extended_code: Type of error.
+        :param Sequence['ErrorEntityResponse'] inner_errors: Inner errors.
+        :param str message: Any details of the error.
+        :param str message_template: Message template.
+        :param Sequence[str] parameters: Parameters for the template.
+        :param str target: The error target.
+        """
+        if code is not None:
+            pulumi.set(__self__, "code", code)
+        if details is not None:
+            pulumi.set(__self__, "details", details)
+        if extended_code is not None:
+            pulumi.set(__self__, "extended_code", extended_code)
+        if inner_errors is not None:
+            pulumi.set(__self__, "inner_errors", inner_errors)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
+        if message_template is not None:
+            pulumi.set(__self__, "message_template", message_template)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if target is not None:
+            pulumi.set(__self__, "target", target)
+
+    @property
+    @pulumi.getter
+    def code(self) -> Optional[str]:
+        """
+        Basic error code.
+        """
+        return pulumi.get(self, "code")
+
+    @property
+    @pulumi.getter
+    def details(self) -> Optional[Sequence['outputs.ErrorEntityResponse']]:
+        """
+        Error Details.
+        """
+        return pulumi.get(self, "details")
+
+    @property
+    @pulumi.getter(name="extendedCode")
+    def extended_code(self) -> Optional[str]:
+        """
+        Type of error.
+        """
+        return pulumi.get(self, "extended_code")
+
+    @property
+    @pulumi.getter(name="innerErrors")
+    def inner_errors(self) -> Optional[Sequence['outputs.ErrorEntityResponse']]:
+        """
+        Inner errors.
+        """
+        return pulumi.get(self, "inner_errors")
+
+    @property
+    @pulumi.getter
+    def message(self) -> Optional[str]:
+        """
+        Any details of the error.
+        """
+        return pulumi.get(self, "message")
+
+    @property
+    @pulumi.getter(name="messageTemplate")
+    def message_template(self) -> Optional[str]:
+        """
+        Message template.
+        """
+        return pulumi.get(self, "message_template")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Sequence[str]]:
+        """
+        Parameters for the template.
+        """
+        return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter
+    def target(self) -> Optional[str]:
+        """
+        The error target.
+        """
+        return pulumi.get(self, "target")
 
 
 @pulumi.output_type
@@ -6481,6 +6720,92 @@ class PreBuildStepResponse(dict):
 
 
 @pulumi.output_type
+class PrivateEndpointResponse(dict):
+    """
+    The Private Endpoint resource.
+    """
+    def __init__(__self__, *,
+                 id: str):
+        """
+        The Private Endpoint resource.
+        :param str id: The ARM identifier for Private Endpoint
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ARM identifier for Private Endpoint
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class PrivateLinkServiceConnectionStateResponse(dict):
+    """
+    A collection of information about the state of the connection between service consumer and provider.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "actionsRequired":
+            suggest = "actions_required"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateLinkServiceConnectionStateResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateLinkServiceConnectionStateResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateLinkServiceConnectionStateResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 actions_required: Optional[str] = None,
+                 description: Optional[str] = None,
+                 status: Optional[str] = None):
+        """
+        A collection of information about the state of the connection between service consumer and provider.
+        :param str actions_required: A message indicating if changes on the service provider require any updates on the consumer.
+        :param str description: The reason for approval/rejection of the connection.
+        :param str status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+        """
+        if actions_required is not None:
+            pulumi.set(__self__, "actions_required", actions_required)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="actionsRequired")
+    def actions_required(self) -> Optional[str]:
+        """
+        A message indicating if changes on the service provider require any updates on the consumer.
+        """
+        return pulumi.get(self, "actions_required")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The reason for approval/rejection of the connection.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+        """
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
 class QueueScaleRuleResponse(dict):
     """
     Container App container Azure Queue based scaling rule.
@@ -6674,6 +6999,60 @@ class RegistryInfoResponse(dict):
         registry username.
         """
         return pulumi.get(self, "registry_user_name")
+
+
+@pulumi.output_type
+class ScaleConfigurationResponse(dict):
+    """
+    Scale configuration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxConcurrentSessions":
+            suggest = "max_concurrent_sessions"
+        elif key == "readySessionInstances":
+            suggest = "ready_session_instances"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScaleConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScaleConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScaleConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_concurrent_sessions: Optional[int] = None,
+                 ready_session_instances: Optional[int] = None):
+        """
+        Scale configuration.
+        :param int max_concurrent_sessions: The maximum count of sessions at the same time.
+        :param int ready_session_instances: The minimum count of ready session instances.
+        """
+        if max_concurrent_sessions is not None:
+            pulumi.set(__self__, "max_concurrent_sessions", max_concurrent_sessions)
+        if ready_session_instances is not None:
+            pulumi.set(__self__, "ready_session_instances", ready_session_instances)
+
+    @property
+    @pulumi.getter(name="maxConcurrentSessions")
+    def max_concurrent_sessions(self) -> Optional[int]:
+        """
+        The maximum count of sessions at the same time.
+        """
+        return pulumi.get(self, "max_concurrent_sessions")
+
+    @property
+    @pulumi.getter(name="readySessionInstances")
+    def ready_session_instances(self) -> Optional[int]:
+        """
+        The minimum count of ready session instances.
+        """
+        return pulumi.get(self, "ready_session_instances")
 
 
 @pulumi.output_type
@@ -7000,6 +7379,276 @@ class SecretVolumeItemResponse(dict):
         Name of the Container App secret from which to pull the secret value.
         """
         return pulumi.get(self, "secret_ref")
+
+
+@pulumi.output_type
+class SessionContainerResourcesResponse(dict):
+    """
+    Container resource requirements for sessions of the session pool.
+    """
+    def __init__(__self__, *,
+                 cpu: Optional[float] = None,
+                 memory: Optional[str] = None):
+        """
+        Container resource requirements for sessions of the session pool.
+        :param float cpu: Required CPU in cores, e.g. 0.5
+        :param str memory: Required memory, e.g. "250Mb"
+        """
+        if cpu is not None:
+            pulumi.set(__self__, "cpu", cpu)
+        if memory is not None:
+            pulumi.set(__self__, "memory", memory)
+
+    @property
+    @pulumi.getter
+    def cpu(self) -> Optional[float]:
+        """
+        Required CPU in cores, e.g. 0.5
+        """
+        return pulumi.get(self, "cpu")
+
+    @property
+    @pulumi.getter
+    def memory(self) -> Optional[str]:
+        """
+        Required memory, e.g. "250Mb"
+        """
+        return pulumi.get(self, "memory")
+
+
+@pulumi.output_type
+class SessionContainerResponse(dict):
+    """
+    Container definitions for the sessions of the session pool.
+    """
+    def __init__(__self__, *,
+                 args: Optional[Sequence[str]] = None,
+                 command: Optional[Sequence[str]] = None,
+                 env: Optional[Sequence['outputs.EnvironmentVarResponse']] = None,
+                 image: Optional[str] = None,
+                 name: Optional[str] = None,
+                 resources: Optional['outputs.SessionContainerResourcesResponse'] = None):
+        """
+        Container definitions for the sessions of the session pool.
+        :param Sequence[str] args: Container start command arguments.
+        :param Sequence[str] command: Container start command.
+        :param Sequence['EnvironmentVarResponse'] env: Container environment variables.
+        :param str image: Container image tag.
+        :param str name: Custom container name.
+        :param 'SessionContainerResourcesResponse' resources: Container resource requirements.
+        """
+        if args is not None:
+            pulumi.set(__self__, "args", args)
+        if command is not None:
+            pulumi.set(__self__, "command", command)
+        if env is not None:
+            pulumi.set(__self__, "env", env)
+        if image is not None:
+            pulumi.set(__self__, "image", image)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if resources is not None:
+            pulumi.set(__self__, "resources", resources)
+
+    @property
+    @pulumi.getter
+    def args(self) -> Optional[Sequence[str]]:
+        """
+        Container start command arguments.
+        """
+        return pulumi.get(self, "args")
+
+    @property
+    @pulumi.getter
+    def command(self) -> Optional[Sequence[str]]:
+        """
+        Container start command.
+        """
+        return pulumi.get(self, "command")
+
+    @property
+    @pulumi.getter
+    def env(self) -> Optional[Sequence['outputs.EnvironmentVarResponse']]:
+        """
+        Container environment variables.
+        """
+        return pulumi.get(self, "env")
+
+    @property
+    @pulumi.getter
+    def image(self) -> Optional[str]:
+        """
+        Container image tag.
+        """
+        return pulumi.get(self, "image")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Custom container name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def resources(self) -> Optional['outputs.SessionContainerResourcesResponse']:
+        """
+        Container resource requirements.
+        """
+        return pulumi.get(self, "resources")
+
+
+@pulumi.output_type
+class SessionIngressResponse(dict):
+    """
+    Session pool ingress configuration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "targetPort":
+            suggest = "target_port"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SessionIngressResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SessionIngressResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SessionIngressResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 target_port: Optional[int] = None):
+        """
+        Session pool ingress configuration.
+        :param int target_port: Target port in containers for traffic from ingress
+        """
+        if target_port is not None:
+            pulumi.set(__self__, "target_port", target_port)
+
+    @property
+    @pulumi.getter(name="targetPort")
+    def target_port(self) -> Optional[int]:
+        """
+        Target port in containers for traffic from ingress
+        """
+        return pulumi.get(self, "target_port")
+
+
+@pulumi.output_type
+class SessionNetworkConfigurationResponse(dict):
+    """
+    Session network configuration.
+    """
+    def __init__(__self__, *,
+                 status: Optional[str] = None):
+        """
+        Session network configuration.
+        :param str status: Network status for the sessions.
+        """
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        Network status for the sessions.
+        """
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class SessionPoolSecretResponse(dict):
+    """
+    Secret definition.
+    """
+    def __init__(__self__, *,
+                 name: Optional[str] = None):
+        """
+        Secret definition.
+        :param str name: Secret Name.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Secret Name.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class SessionRegistryCredentialsResponse(dict):
+    """
+    Session pool private registry credentials.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "passwordSecretRef":
+            suggest = "password_secret_ref"
+        elif key == "registryServer":
+            suggest = "registry_server"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SessionRegistryCredentialsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SessionRegistryCredentialsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SessionRegistryCredentialsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 password_secret_ref: Optional[str] = None,
+                 registry_server: Optional[str] = None,
+                 username: Optional[str] = None):
+        """
+        Session pool private registry credentials.
+        :param str password_secret_ref: The name of the secret that contains the registry login password
+        :param str registry_server: Container registry server.
+        :param str username: Container registry username.
+        """
+        if password_secret_ref is not None:
+            pulumi.set(__self__, "password_secret_ref", password_secret_ref)
+        if registry_server is not None:
+            pulumi.set(__self__, "registry_server", registry_server)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter(name="passwordSecretRef")
+    def password_secret_ref(self) -> Optional[str]:
+        """
+        The name of the secret that contains the registry login password
+        """
+        return pulumi.get(self, "password_secret_ref")
+
+    @property
+    @pulumi.getter(name="registryServer")
+    def registry_server(self) -> Optional[str]:
+        """
+        Container registry server.
+        """
+        return pulumi.get(self, "registry_server")
+
+    @property
+    @pulumi.getter
+    def username(self) -> Optional[str]:
+        """
+        Container registry username.
+        """
+        return pulumi.get(self, "username")
 
 
 @pulumi.output_type
@@ -7882,6 +8531,87 @@ class VolumeResponse(dict):
         Storage type for the volume. If not provided, use EmptyDir.
         """
         return pulumi.get(self, "storage_type")
+
+
+@pulumi.output_type
+class WorkflowEnvelopeResponseProperties(dict):
+    """
+    Additional workflow properties.
+    """
+    def __init__(__self__, *,
+                 files: Optional[Any] = None,
+                 flow_state: Optional[str] = None,
+                 health: Optional['outputs.WorkflowHealthResponse'] = None):
+        """
+        Additional workflow properties.
+        :param Any files: Gets or sets the files.
+        :param str flow_state: Gets or sets the state of the workflow.
+        :param 'WorkflowHealthResponse' health: Gets or sets workflow health.
+        """
+        if files is not None:
+            pulumi.set(__self__, "files", files)
+        if flow_state is not None:
+            pulumi.set(__self__, "flow_state", flow_state)
+        if health is not None:
+            pulumi.set(__self__, "health", health)
+
+    @property
+    @pulumi.getter
+    def files(self) -> Optional[Any]:
+        """
+        Gets or sets the files.
+        """
+        return pulumi.get(self, "files")
+
+    @property
+    @pulumi.getter(name="flowState")
+    def flow_state(self) -> Optional[str]:
+        """
+        Gets or sets the state of the workflow.
+        """
+        return pulumi.get(self, "flow_state")
+
+    @property
+    @pulumi.getter
+    def health(self) -> Optional['outputs.WorkflowHealthResponse']:
+        """
+        Gets or sets workflow health.
+        """
+        return pulumi.get(self, "health")
+
+
+@pulumi.output_type
+class WorkflowHealthResponse(dict):
+    """
+    Represents the workflow health.
+    """
+    def __init__(__self__, *,
+                 state: str,
+                 error: Optional['outputs.ErrorEntityResponse'] = None):
+        """
+        Represents the workflow health.
+        :param str state: Gets or sets the workflow health state.
+        :param 'ErrorEntityResponse' error: Gets or sets the workflow error.
+        """
+        pulumi.set(__self__, "state", state)
+        if error is not None:
+            pulumi.set(__self__, "error", error)
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
+        """
+        Gets or sets the workflow health state.
+        """
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter
+    def error(self) -> Optional['outputs.ErrorEntityResponse']:
+        """
+        Gets or sets the workflow error.
+        """
+        return pulumi.get(self, "error")
 
 
 @pulumi.output_type
