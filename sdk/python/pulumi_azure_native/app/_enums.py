@@ -11,8 +11,10 @@ __all__ = [
     'AppProtocol',
     'BindingType',
     'ClientCredentialMethod',
+    'ContainerType',
     'CookieExpirationConvention',
     'DotNetComponentType',
+    'ExecutionType',
     'ExtendedLocationTypes',
     'ForwardProxyConvention',
     'IngressClientCertificateMode',
@@ -22,7 +24,10 @@ __all__ = [
     'ManagedCertificateDomainControlValidation',
     'ManagedEnvironmentOutBoundType',
     'ManagedServiceIdentityType',
+    'PoolManagementType',
+    'PrivateEndpointServiceConnectionStatus',
     'Scheme',
+    'SessionNetworkStatus',
     'SkuName',
     'StorageType',
     'TriggerType',
@@ -79,6 +84,14 @@ class ClientCredentialMethod(str, Enum):
     CLIENT_SECRET_POST = "ClientSecretPost"
 
 
+class ContainerType(str, Enum):
+    """
+    The container type of the sessions.
+    """
+    CUSTOM_CONTAINER = "CustomContainer"
+    PYTHON_LTS = "PythonLTS"
+
+
 class CookieExpirationConvention(str, Enum):
     """
     The convention used when determining the session cookie's expiration.
@@ -93,6 +106,13 @@ class DotNetComponentType(str, Enum):
     """
     ASPIRE_DASHBOARD = "AspireDashboard"
     ASPIRE_RESOURCE_SERVER_API = "AspireResourceServerApi"
+
+
+class ExecutionType(str, Enum):
+    """
+    The execution type of the session pool.
+    """
+    TIMED = "Timed"
 
 
 class ExtendedLocationTypes(str, Enum):
@@ -176,12 +196,38 @@ class ManagedServiceIdentityType(str, Enum):
     SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
 
 
+class PoolManagementType(str, Enum):
+    """
+    The pool management type of the session pool.
+    """
+    MANUAL = "Manual"
+    DYNAMIC = "Dynamic"
+
+
+class PrivateEndpointServiceConnectionStatus(str, Enum):
+    """
+    Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+    """
+    PENDING = "Pending"
+    APPROVED = "Approved"
+    REJECTED = "Rejected"
+    DISCONNECTED = "Disconnected"
+
+
 class Scheme(str, Enum):
     """
     Scheme to use for connecting to the host. Defaults to HTTP.
     """
     HTTP = "HTTP"
     HTTPS = "HTTPS"
+
+
+class SessionNetworkStatus(str, Enum):
+    """
+    Network status for the sessions.
+    """
+    EGRESS_ENABLED = "EgressEnabled"
+    EGRESS_DISABLED = "EgressDisabled"
 
 
 class SkuName(str, Enum):

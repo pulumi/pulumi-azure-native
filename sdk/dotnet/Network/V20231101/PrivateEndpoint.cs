@@ -164,6 +164,7 @@ namespace Pulumi.AzureNative.Network.V20231101
                     new global::Pulumi.Alias { Type = "azure-native:network/v20230501:PrivateEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20230601:PrivateEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20230901:PrivateEndpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20240101:PrivateEndpoint" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

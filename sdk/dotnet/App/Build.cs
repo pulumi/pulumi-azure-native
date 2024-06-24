@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.App
     /// Information pertaining to an individual build.
     /// Azure REST API version: 2023-08-01-preview.
     /// 
-    /// Other available API versions: 2023-11-02-preview.
+    /// Other available API versions: 2023-11-02-preview, 2024-02-02-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:app:Build")]
     public partial class Build : global::Pulumi.CustomResource
@@ -105,6 +105,7 @@ namespace Pulumi.AzureNative.App
                 {
                     new global::Pulumi.Alias { Type = "azure-native:app/v20230801preview:Build" },
                     new global::Pulumi.Alias { Type = "azure-native:app/v20231102preview:Build" },
+                    new global::Pulumi.Alias { Type = "azure-native:app/v20240202preview:Build" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

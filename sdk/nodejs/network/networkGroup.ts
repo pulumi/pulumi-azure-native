@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * The network group resource
  * Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-02-01-preview.
  *
- * Other available API versions: 2021-02-01-preview, 2021-05-01-preview, 2022-04-01-preview, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01.
+ * Other available API versions: 2021-02-01-preview, 2021-05-01-preview, 2022-04-01-preview, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01.
  */
 export class NetworkGroup extends pulumi.CustomResource {
     /**
@@ -106,7 +106,7 @@ export class NetworkGroup extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20210201preview:NetworkGroup" }, { type: "azure-native:network/v20210501preview:NetworkGroup" }, { type: "azure-native:network/v20220101:NetworkGroup" }, { type: "azure-native:network/v20220201preview:NetworkGroup" }, { type: "azure-native:network/v20220401preview:NetworkGroup" }, { type: "azure-native:network/v20220501:NetworkGroup" }, { type: "azure-native:network/v20220701:NetworkGroup" }, { type: "azure-native:network/v20220901:NetworkGroup" }, { type: "azure-native:network/v20221101:NetworkGroup" }, { type: "azure-native:network/v20230201:NetworkGroup" }, { type: "azure-native:network/v20230401:NetworkGroup" }, { type: "azure-native:network/v20230501:NetworkGroup" }, { type: "azure-native:network/v20230601:NetworkGroup" }, { type: "azure-native:network/v20230901:NetworkGroup" }, { type: "azure-native:network/v20231101:NetworkGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20210201preview:NetworkGroup" }, { type: "azure-native:network/v20210501preview:NetworkGroup" }, { type: "azure-native:network/v20220101:NetworkGroup" }, { type: "azure-native:network/v20220201preview:NetworkGroup" }, { type: "azure-native:network/v20220401preview:NetworkGroup" }, { type: "azure-native:network/v20220501:NetworkGroup" }, { type: "azure-native:network/v20220701:NetworkGroup" }, { type: "azure-native:network/v20220901:NetworkGroup" }, { type: "azure-native:network/v20221101:NetworkGroup" }, { type: "azure-native:network/v20230201:NetworkGroup" }, { type: "azure-native:network/v20230401:NetworkGroup" }, { type: "azure-native:network/v20230501:NetworkGroup" }, { type: "azure-native:network/v20230601:NetworkGroup" }, { type: "azure-native:network/v20230901:NetworkGroup" }, { type: "azure-native:network/v20231101:NetworkGroup" }, { type: "azure-native:network/v20240101:NetworkGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NetworkGroup.__pulumiType, name, resourceInputs, opts);
     }

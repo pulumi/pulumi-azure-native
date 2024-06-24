@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.Cdn
         /// <summary>
         /// Gets an existing KeyGroup within a profile.
         /// Azure REST API version: 2023-07-01-preview.
+        /// 
+        /// Other available API versions: 2024-05-01-preview.
         /// </summary>
         public static Task<GetKeyGroupResult> InvokeAsync(GetKeyGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetKeyGroupResult>("azure-native:cdn:getKeyGroup", args ?? new GetKeyGroupArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.Cdn
         /// <summary>
         /// Gets an existing KeyGroup within a profile.
         /// Azure REST API version: 2023-07-01-preview.
+        /// 
+        /// Other available API versions: 2024-05-01-preview.
         /// </summary>
         public static Output<GetKeyGroupResult> Invoke(GetKeyGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetKeyGroupResult>("azure-native:cdn:getKeyGroup", args ?? new GetKeyGroupInvokeArgs(), options.WithDefaults());

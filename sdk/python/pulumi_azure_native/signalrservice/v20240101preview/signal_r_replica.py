@@ -250,7 +250,7 @@ class SignalRReplica(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:signalrservice:SignalRReplica"), pulumi.Alias(type_="azure-native:signalrservice/v20230301preview:SignalRReplica"), pulumi.Alias(type_="azure-native:signalrservice/v20230601preview:SignalRReplica"), pulumi.Alias(type_="azure-native:signalrservice/v20230801preview:SignalRReplica"), pulumi.Alias(type_="azure-native:signalrservice/v20240301:SignalRReplica")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:signalrservice:SignalRReplica"), pulumi.Alias(type_="azure-native:signalrservice/v20230301preview:SignalRReplica"), pulumi.Alias(type_="azure-native:signalrservice/v20230601preview:SignalRReplica"), pulumi.Alias(type_="azure-native:signalrservice/v20230801preview:SignalRReplica"), pulumi.Alias(type_="azure-native:signalrservice/v20240301:SignalRReplica"), pulumi.Alias(type_="azure-native:signalrservice/v20240401preview:SignalRReplica")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SignalRReplica, __self__).__init__(
             'azure-native:signalrservice/v20240101preview:SignalRReplica',

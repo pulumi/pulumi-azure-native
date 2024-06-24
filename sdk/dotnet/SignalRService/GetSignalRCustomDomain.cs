@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.SignalRService
         /// Get a custom domain.
         /// Azure REST API version: 2023-02-01.
         /// 
-        /// Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01.
+        /// Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview.
         /// </summary>
         public static Task<GetSignalRCustomDomainResult> InvokeAsync(GetSignalRCustomDomainArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSignalRCustomDomainResult>("azure-native:signalrservice:getSignalRCustomDomain", args ?? new GetSignalRCustomDomainArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.SignalRService
         /// Get a custom domain.
         /// Azure REST API version: 2023-02-01.
         /// 
-        /// Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01.
+        /// Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview.
         /// </summary>
         public static Output<GetSignalRCustomDomainResult> Invoke(GetSignalRCustomDomainInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSignalRCustomDomainResult>("azure-native:signalrservice:getSignalRCustomDomain", args ?? new GetSignalRCustomDomainInvokeArgs(), options.WithDefaults());

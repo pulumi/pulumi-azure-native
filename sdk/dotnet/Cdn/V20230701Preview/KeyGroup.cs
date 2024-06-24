@@ -74,6 +74,7 @@ namespace Pulumi.AzureNative.Cdn.V20230701Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:cdn:KeyGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20240501preview:KeyGroup" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -133,7 +133,7 @@ class ManagedHsm(pulumi.CustomResource):
         Resource information with extended details.
         Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-06-01-preview.
 
-        Other available API versions: 2023-07-01.
+        Other available API versions: 2023-07-01, 2024-04-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -154,7 +154,7 @@ class ManagedHsm(pulumi.CustomResource):
         Resource information with extended details.
         Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-06-01-preview.
 
-        Other available API versions: 2023-07-01.
+        Other available API versions: 2023-07-01, 2024-04-01-preview.
 
         :param str resource_name: The name of the resource.
         :param ManagedHsmArgs args: The arguments to use to populate this resource's properties.
@@ -196,7 +196,7 @@ class ManagedHsm(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:keyvault/v20200401preview:ManagedHsm"), pulumi.Alias(type_="azure-native:keyvault/v20210401preview:ManagedHsm"), pulumi.Alias(type_="azure-native:keyvault/v20210601preview:ManagedHsm"), pulumi.Alias(type_="azure-native:keyvault/v20211001:ManagedHsm"), pulumi.Alias(type_="azure-native:keyvault/v20211101preview:ManagedHsm"), pulumi.Alias(type_="azure-native:keyvault/v20220201preview:ManagedHsm"), pulumi.Alias(type_="azure-native:keyvault/v20220701:ManagedHsm"), pulumi.Alias(type_="azure-native:keyvault/v20221101:ManagedHsm"), pulumi.Alias(type_="azure-native:keyvault/v20230201:ManagedHsm"), pulumi.Alias(type_="azure-native:keyvault/v20230701:ManagedHsm")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:keyvault/v20200401preview:ManagedHsm"), pulumi.Alias(type_="azure-native:keyvault/v20210401preview:ManagedHsm"), pulumi.Alias(type_="azure-native:keyvault/v20210601preview:ManagedHsm"), pulumi.Alias(type_="azure-native:keyvault/v20211001:ManagedHsm"), pulumi.Alias(type_="azure-native:keyvault/v20211101preview:ManagedHsm"), pulumi.Alias(type_="azure-native:keyvault/v20220201preview:ManagedHsm"), pulumi.Alias(type_="azure-native:keyvault/v20220701:ManagedHsm"), pulumi.Alias(type_="azure-native:keyvault/v20221101:ManagedHsm"), pulumi.Alias(type_="azure-native:keyvault/v20230201:ManagedHsm"), pulumi.Alias(type_="azure-native:keyvault/v20230701:ManagedHsm"), pulumi.Alias(type_="azure-native:keyvault/v20240401preview:ManagedHsm")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ManagedHsm, __self__).__init__(
             'azure-native:keyvault:ManagedHsm',

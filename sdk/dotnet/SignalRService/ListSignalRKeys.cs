@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.SignalRService
         /// Get the access keys of the resource.
         /// Azure REST API version: 2023-02-01.
         /// 
-        /// Other available API versions: 2018-10-01, 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01.
+        /// Other available API versions: 2018-10-01, 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview.
         /// </summary>
         public static Task<ListSignalRKeysResult> InvokeAsync(ListSignalRKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListSignalRKeysResult>("azure-native:signalrservice:listSignalRKeys", args ?? new ListSignalRKeysArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.SignalRService
         /// Get the access keys of the resource.
         /// Azure REST API version: 2023-02-01.
         /// 
-        /// Other available API versions: 2018-10-01, 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01.
+        /// Other available API versions: 2018-10-01, 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview.
         /// </summary>
         public static Output<ListSignalRKeysResult> Invoke(ListSignalRKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListSignalRKeysResult>("azure-native:signalrservice:listSignalRKeys", args ?? new ListSignalRKeysInvokeArgs(), options.WithDefaults());

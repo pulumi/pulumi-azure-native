@@ -63,7 +63,7 @@ def list_upgradable_version_details(monitor_name: Optional[str] = None,
     Stack Versions that this version can upgrade to
     Azure REST API version: 2023-06-01.
 
-    Other available API versions: 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview, 2023-11-01-preview, 2024-01-01-preview, 2024-03-01, 2024-05-01-preview.
+    Other available API versions: 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview, 2023-11-01-preview, 2024-01-01-preview, 2024-03-01, 2024-05-01-preview, 2024-06-15-preview.
 
 
     :param str monitor_name: Monitor resource name
@@ -88,7 +88,7 @@ def list_upgradable_version_details_output(monitor_name: Optional[pulumi.Input[s
     Stack Versions that this version can upgrade to
     Azure REST API version: 2023-06-01.
 
-    Other available API versions: 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview, 2023-11-01-preview, 2024-01-01-preview, 2024-03-01, 2024-05-01-preview.
+    Other available API versions: 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview, 2023-11-01-preview, 2024-01-01-preview, 2024-03-01, 2024-05-01-preview, 2024-06-15-preview.
 
 
     :param str monitor_name: Monitor resource name

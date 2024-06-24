@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * The Scope Connections resource
  * Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2022-02-01-preview.
  *
- * Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01.
+ * Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01.
  */
 export class ScopeConnection extends pulumi.CustomResource {
     /**
@@ -106,7 +106,7 @@ export class ScopeConnection extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20210501preview:ScopeConnection" }, { type: "azure-native:network/v20220101:ScopeConnection" }, { type: "azure-native:network/v20220201preview:ScopeConnection" }, { type: "azure-native:network/v20220401preview:ScopeConnection" }, { type: "azure-native:network/v20220501:ScopeConnection" }, { type: "azure-native:network/v20220701:ScopeConnection" }, { type: "azure-native:network/v20220901:ScopeConnection" }, { type: "azure-native:network/v20221101:ScopeConnection" }, { type: "azure-native:network/v20230201:ScopeConnection" }, { type: "azure-native:network/v20230401:ScopeConnection" }, { type: "azure-native:network/v20230501:ScopeConnection" }, { type: "azure-native:network/v20230601:ScopeConnection" }, { type: "azure-native:network/v20230901:ScopeConnection" }, { type: "azure-native:network/v20231101:ScopeConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20210501preview:ScopeConnection" }, { type: "azure-native:network/v20220101:ScopeConnection" }, { type: "azure-native:network/v20220201preview:ScopeConnection" }, { type: "azure-native:network/v20220401preview:ScopeConnection" }, { type: "azure-native:network/v20220501:ScopeConnection" }, { type: "azure-native:network/v20220701:ScopeConnection" }, { type: "azure-native:network/v20220901:ScopeConnection" }, { type: "azure-native:network/v20221101:ScopeConnection" }, { type: "azure-native:network/v20230201:ScopeConnection" }, { type: "azure-native:network/v20230401:ScopeConnection" }, { type: "azure-native:network/v20230501:ScopeConnection" }, { type: "azure-native:network/v20230601:ScopeConnection" }, { type: "azure-native:network/v20230901:ScopeConnection" }, { type: "azure-native:network/v20231101:ScopeConnection" }, { type: "azure-native:network/v20240101:ScopeConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ScopeConnection.__pulumiType, name, resourceInputs, opts);
     }

@@ -12,6 +12,8 @@ namespace Pulumi.AzureNative.Cdn
     /// <summary>
     /// Contains a list of references of UrlSigningKey type secret objects.
     /// Azure REST API version: 2023-07-01-preview.
+    /// 
+    /// Other available API versions: 2024-05-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:cdn:KeyGroup")]
     public partial class KeyGroup : global::Pulumi.CustomResource
@@ -75,6 +77,7 @@ namespace Pulumi.AzureNative.Cdn
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20230701preview:KeyGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20240501preview:KeyGroup" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

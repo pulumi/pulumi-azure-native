@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Describes a Shared Private Link Resource
  * Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-04-01-preview.
  *
- * Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01.
+ * Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview.
  */
 export class WebPubSubSharedPrivateLinkResource extends pulumi.CustomResource {
     /**
@@ -118,7 +118,7 @@ export class WebPubSubSharedPrivateLinkResource extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:webpubsub/v20210401preview:WebPubSubSharedPrivateLinkResource" }, { type: "azure-native:webpubsub/v20210601preview:WebPubSubSharedPrivateLinkResource" }, { type: "azure-native:webpubsub/v20210901preview:WebPubSubSharedPrivateLinkResource" }, { type: "azure-native:webpubsub/v20211001:WebPubSubSharedPrivateLinkResource" }, { type: "azure-native:webpubsub/v20220801preview:WebPubSubSharedPrivateLinkResource" }, { type: "azure-native:webpubsub/v20230201:WebPubSubSharedPrivateLinkResource" }, { type: "azure-native:webpubsub/v20230301preview:WebPubSubSharedPrivateLinkResource" }, { type: "azure-native:webpubsub/v20230601preview:WebPubSubSharedPrivateLinkResource" }, { type: "azure-native:webpubsub/v20230801preview:WebPubSubSharedPrivateLinkResource" }, { type: "azure-native:webpubsub/v20240101preview:WebPubSubSharedPrivateLinkResource" }, { type: "azure-native:webpubsub/v20240301:WebPubSubSharedPrivateLinkResource" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:webpubsub/v20210401preview:WebPubSubSharedPrivateLinkResource" }, { type: "azure-native:webpubsub/v20210601preview:WebPubSubSharedPrivateLinkResource" }, { type: "azure-native:webpubsub/v20210901preview:WebPubSubSharedPrivateLinkResource" }, { type: "azure-native:webpubsub/v20211001:WebPubSubSharedPrivateLinkResource" }, { type: "azure-native:webpubsub/v20220801preview:WebPubSubSharedPrivateLinkResource" }, { type: "azure-native:webpubsub/v20230201:WebPubSubSharedPrivateLinkResource" }, { type: "azure-native:webpubsub/v20230301preview:WebPubSubSharedPrivateLinkResource" }, { type: "azure-native:webpubsub/v20230601preview:WebPubSubSharedPrivateLinkResource" }, { type: "azure-native:webpubsub/v20230801preview:WebPubSubSharedPrivateLinkResource" }, { type: "azure-native:webpubsub/v20240101preview:WebPubSubSharedPrivateLinkResource" }, { type: "azure-native:webpubsub/v20240301:WebPubSubSharedPrivateLinkResource" }, { type: "azure-native:webpubsub/v20240401preview:WebPubSubSharedPrivateLinkResource" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WebPubSubSharedPrivateLinkResource.__pulumiType, name, resourceInputs, opts);
     }

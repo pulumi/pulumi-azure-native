@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Gets an existing AzureFrontDoor endpoint with the specified endpoint name under the specified subscription, resource group and profile.
  * Azure REST API version: 2023-05-01.
  *
- * Other available API versions: 2020-09-01, 2023-07-01-preview, 2024-02-01.
+ * Other available API versions: 2020-09-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview.
  */
 export function getAFDEndpoint(args: GetAFDEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetAFDEndpointResult> {
 
@@ -92,7 +92,7 @@ export interface GetAFDEndpointResult {
  * Gets an existing AzureFrontDoor endpoint with the specified endpoint name under the specified subscription, resource group and profile.
  * Azure REST API version: 2023-05-01.
  *
- * Other available API versions: 2020-09-01, 2023-07-01-preview, 2024-02-01.
+ * Other available API versions: 2020-09-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview.
  */
 export function getAFDEndpointOutput(args: GetAFDEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAFDEndpointResult> {
     return pulumi.output(args).apply((a: any) => getAFDEndpoint(a, opts))

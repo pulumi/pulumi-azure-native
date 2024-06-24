@@ -53,7 +53,7 @@ def get_open_ai_status(integration_name: Optional[str] = None,
     Status of the OpenAI Integration
     Azure REST API version: 2024-03-01.
 
-    Other available API versions: 2024-01-01-preview, 2024-05-01-preview.
+    Other available API versions: 2024-01-01-preview, 2024-05-01-preview, 2024-06-15-preview.
 
 
     :param str integration_name: OpenAI Integration name
@@ -80,7 +80,7 @@ def get_open_ai_status_output(integration_name: Optional[pulumi.Input[str]] = No
     Status of the OpenAI Integration
     Azure REST API version: 2024-03-01.
 
-    Other available API versions: 2024-01-01-preview, 2024-05-01-preview.
+    Other available API versions: 2024-01-01-preview, 2024-05-01-preview, 2024-06-15-preview.
 
 
     :param str integration_name: OpenAI Integration name

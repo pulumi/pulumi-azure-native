@@ -42,6 +42,7 @@ __all__ = [
     'ContainerArgs',
     'CookieExpirationArgs',
     'CorsPolicyArgs',
+    'CustomContainerTemplateArgs',
     'CustomDomainConfigurationArgs',
     'CustomDomainArgs',
     'CustomOpenIdConnectProviderArgs',
@@ -58,6 +59,7 @@ __all__ = [
     'DefaultAuthorizationPolicyArgs',
     'DotNetComponentConfigurationPropertyArgs',
     'DotNetComponentServiceBindArgs',
+    'DynamicPoolConfigurationArgs',
     'EnvironmentSkuPropertiesArgs',
     'EnvironmentVariableArgs',
     'EnvironmentVarArgs',
@@ -103,14 +105,22 @@ __all__ = [
     'OpenIdConnectLoginArgs',
     'OpenIdConnectRegistrationArgs',
     'PreBuildStepArgs',
+    'PrivateLinkServiceConnectionStateArgs',
     'QueueScaleRuleArgs',
     'RegistryCredentialsArgs',
     'RegistryInfoArgs',
+    'ScaleConfigurationArgs',
     'ScaleRuleAuthArgs',
     'ScaleRuleArgs',
     'ScaleArgs',
     'SecretVolumeItemArgs',
     'SecretArgs',
+    'SessionContainerResourcesArgs',
+    'SessionContainerArgs',
+    'SessionIngressArgs',
+    'SessionNetworkConfigurationArgs',
+    'SessionPoolSecretArgs',
+    'SessionRegistryCredentialsArgs',
     'TcpConnectionPoolArgs',
     'TcpRetryPolicyArgs',
     'TcpScaleRuleArgs',
@@ -1996,6 +2006,62 @@ class CorsPolicyArgs:
 
 
 @pulumi.input_type
+class CustomContainerTemplateArgs:
+    def __init__(__self__, *,
+                 containers: Optional[pulumi.Input[Sequence[pulumi.Input['SessionContainerArgs']]]] = None,
+                 ingress: Optional[pulumi.Input['SessionIngressArgs']] = None,
+                 registry_credentials: Optional[pulumi.Input['SessionRegistryCredentialsArgs']] = None):
+        """
+        Custom container configuration.
+        :param pulumi.Input[Sequence[pulumi.Input['SessionContainerArgs']]] containers: List of container definitions for the sessions of the session pool.
+        :param pulumi.Input['SessionIngressArgs'] ingress: Session pool ingress configuration.
+        :param pulumi.Input['SessionRegistryCredentialsArgs'] registry_credentials: Private container registry credentials for containers used by the sessions of the session pool.
+        """
+        if containers is not None:
+            pulumi.set(__self__, "containers", containers)
+        if ingress is not None:
+            pulumi.set(__self__, "ingress", ingress)
+        if registry_credentials is not None:
+            pulumi.set(__self__, "registry_credentials", registry_credentials)
+
+    @property
+    @pulumi.getter
+    def containers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SessionContainerArgs']]]]:
+        """
+        List of container definitions for the sessions of the session pool.
+        """
+        return pulumi.get(self, "containers")
+
+    @containers.setter
+    def containers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SessionContainerArgs']]]]):
+        pulumi.set(self, "containers", value)
+
+    @property
+    @pulumi.getter
+    def ingress(self) -> Optional[pulumi.Input['SessionIngressArgs']]:
+        """
+        Session pool ingress configuration.
+        """
+        return pulumi.get(self, "ingress")
+
+    @ingress.setter
+    def ingress(self, value: Optional[pulumi.Input['SessionIngressArgs']]):
+        pulumi.set(self, "ingress", value)
+
+    @property
+    @pulumi.getter(name="registryCredentials")
+    def registry_credentials(self) -> Optional[pulumi.Input['SessionRegistryCredentialsArgs']]:
+        """
+        Private container registry credentials for containers used by the sessions of the session pool.
+        """
+        return pulumi.get(self, "registry_credentials")
+
+    @registry_credentials.setter
+    def registry_credentials(self, value: Optional[pulumi.Input['SessionRegistryCredentialsArgs']]):
+        pulumi.set(self, "registry_credentials", value)
+
+
+@pulumi.input_type
 class CustomDomainConfigurationArgs:
     def __init__(__self__, *,
                  certificate_password: Optional[pulumi.Input[str]] = None,
@@ -2816,6 +2882,46 @@ class DotNetComponentServiceBindArgs:
     @service_id.setter
     def service_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "service_id", value)
+
+
+@pulumi.input_type
+class DynamicPoolConfigurationArgs:
+    def __init__(__self__, *,
+                 cooldown_period_in_seconds: Optional[pulumi.Input[int]] = None,
+                 execution_type: Optional[pulumi.Input[Union[str, 'ExecutionType']]] = None):
+        """
+        Dynamic pool configuration.
+        :param pulumi.Input[int] cooldown_period_in_seconds: The cooldown period of a session in seconds.
+        :param pulumi.Input[Union[str, 'ExecutionType']] execution_type: The execution type of the session pool.
+        """
+        if cooldown_period_in_seconds is not None:
+            pulumi.set(__self__, "cooldown_period_in_seconds", cooldown_period_in_seconds)
+        if execution_type is not None:
+            pulumi.set(__self__, "execution_type", execution_type)
+
+    @property
+    @pulumi.getter(name="cooldownPeriodInSeconds")
+    def cooldown_period_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        The cooldown period of a session in seconds.
+        """
+        return pulumi.get(self, "cooldown_period_in_seconds")
+
+    @cooldown_period_in_seconds.setter
+    def cooldown_period_in_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "cooldown_period_in_seconds", value)
+
+    @property
+    @pulumi.getter(name="executionType")
+    def execution_type(self) -> Optional[pulumi.Input[Union[str, 'ExecutionType']]]:
+        """
+        The execution type of the session pool.
+        """
+        return pulumi.get(self, "execution_type")
+
+    @execution_type.setter
+    def execution_type(self, value: Optional[pulumi.Input[Union[str, 'ExecutionType']]]):
+        pulumi.set(self, "execution_type", value)
 
 
 @pulumi.input_type
@@ -5592,6 +5698,62 @@ class PreBuildStepArgs:
 
 
 @pulumi.input_type
+class PrivateLinkServiceConnectionStateArgs:
+    def __init__(__self__, *,
+                 actions_required: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]] = None):
+        """
+        A collection of information about the state of the connection between service consumer and provider.
+        :param pulumi.Input[str] actions_required: A message indicating if changes on the service provider require any updates on the consumer.
+        :param pulumi.Input[str] description: The reason for approval/rejection of the connection.
+        :param pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']] status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+        """
+        if actions_required is not None:
+            pulumi.set(__self__, "actions_required", actions_required)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="actionsRequired")
+    def actions_required(self) -> Optional[pulumi.Input[str]]:
+        """
+        A message indicating if changes on the service provider require any updates on the consumer.
+        """
+        return pulumi.get(self, "actions_required")
+
+    @actions_required.setter
+    def actions_required(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "actions_required", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The reason for approval/rejection of the connection.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]]:
+        """
+        Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]]):
+        pulumi.set(self, "status", value)
+
+
+@pulumi.input_type
 class QueueScaleRuleArgs:
     def __init__(__self__, *,
                  auth: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleRuleAuthArgs']]]] = None,
@@ -5773,6 +5935,46 @@ class RegistryInfoArgs:
     @registry_user_name.setter
     def registry_user_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "registry_user_name", value)
+
+
+@pulumi.input_type
+class ScaleConfigurationArgs:
+    def __init__(__self__, *,
+                 max_concurrent_sessions: Optional[pulumi.Input[int]] = None,
+                 ready_session_instances: Optional[pulumi.Input[int]] = None):
+        """
+        Scale configuration.
+        :param pulumi.Input[int] max_concurrent_sessions: The maximum count of sessions at the same time.
+        :param pulumi.Input[int] ready_session_instances: The minimum count of ready session instances.
+        """
+        if max_concurrent_sessions is not None:
+            pulumi.set(__self__, "max_concurrent_sessions", max_concurrent_sessions)
+        if ready_session_instances is not None:
+            pulumi.set(__self__, "ready_session_instances", ready_session_instances)
+
+    @property
+    @pulumi.getter(name="maxConcurrentSessions")
+    def max_concurrent_sessions(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum count of sessions at the same time.
+        """
+        return pulumi.get(self, "max_concurrent_sessions")
+
+    @max_concurrent_sessions.setter
+    def max_concurrent_sessions(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_concurrent_sessions", value)
+
+    @property
+    @pulumi.getter(name="readySessionInstances")
+    def ready_session_instances(self) -> Optional[pulumi.Input[int]]:
+        """
+        The minimum count of ready session instances.
+        """
+        return pulumi.get(self, "ready_session_instances")
+
+    @ready_session_instances.setter
+    def ready_session_instances(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "ready_session_instances", value)
 
 
 @pulumi.input_type
@@ -6071,6 +6273,294 @@ class SecretArgs:
     @value.setter
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class SessionContainerResourcesArgs:
+    def __init__(__self__, *,
+                 cpu: Optional[pulumi.Input[float]] = None,
+                 memory: Optional[pulumi.Input[str]] = None):
+        """
+        Container resource requirements for sessions of the session pool.
+        :param pulumi.Input[float] cpu: Required CPU in cores, e.g. 0.5
+        :param pulumi.Input[str] memory: Required memory, e.g. "250Mb"
+        """
+        if cpu is not None:
+            pulumi.set(__self__, "cpu", cpu)
+        if memory is not None:
+            pulumi.set(__self__, "memory", memory)
+
+    @property
+    @pulumi.getter
+    def cpu(self) -> Optional[pulumi.Input[float]]:
+        """
+        Required CPU in cores, e.g. 0.5
+        """
+        return pulumi.get(self, "cpu")
+
+    @cpu.setter
+    def cpu(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "cpu", value)
+
+    @property
+    @pulumi.getter
+    def memory(self) -> Optional[pulumi.Input[str]]:
+        """
+        Required memory, e.g. "250Mb"
+        """
+        return pulumi.get(self, "memory")
+
+    @memory.setter
+    def memory(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "memory", value)
+
+
+@pulumi.input_type
+class SessionContainerArgs:
+    def __init__(__self__, *,
+                 args: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 command: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 env: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentVarArgs']]]] = None,
+                 image: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resources: Optional[pulumi.Input['SessionContainerResourcesArgs']] = None):
+        """
+        Container definitions for the sessions of the session pool.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] args: Container start command arguments.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] command: Container start command.
+        :param pulumi.Input[Sequence[pulumi.Input['EnvironmentVarArgs']]] env: Container environment variables.
+        :param pulumi.Input[str] image: Container image tag.
+        :param pulumi.Input[str] name: Custom container name.
+        :param pulumi.Input['SessionContainerResourcesArgs'] resources: Container resource requirements.
+        """
+        if args is not None:
+            pulumi.set(__self__, "args", args)
+        if command is not None:
+            pulumi.set(__self__, "command", command)
+        if env is not None:
+            pulumi.set(__self__, "env", env)
+        if image is not None:
+            pulumi.set(__self__, "image", image)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if resources is not None:
+            pulumi.set(__self__, "resources", resources)
+
+    @property
+    @pulumi.getter
+    def args(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Container start command arguments.
+        """
+        return pulumi.get(self, "args")
+
+    @args.setter
+    def args(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "args", value)
+
+    @property
+    @pulumi.getter
+    def command(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Container start command.
+        """
+        return pulumi.get(self, "command")
+
+    @command.setter
+    def command(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "command", value)
+
+    @property
+    @pulumi.getter
+    def env(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentVarArgs']]]]:
+        """
+        Container environment variables.
+        """
+        return pulumi.get(self, "env")
+
+    @env.setter
+    def env(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentVarArgs']]]]):
+        pulumi.set(self, "env", value)
+
+    @property
+    @pulumi.getter
+    def image(self) -> Optional[pulumi.Input[str]]:
+        """
+        Container image tag.
+        """
+        return pulumi.get(self, "image")
+
+    @image.setter
+    def image(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "image", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Custom container name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def resources(self) -> Optional[pulumi.Input['SessionContainerResourcesArgs']]:
+        """
+        Container resource requirements.
+        """
+        return pulumi.get(self, "resources")
+
+    @resources.setter
+    def resources(self, value: Optional[pulumi.Input['SessionContainerResourcesArgs']]):
+        pulumi.set(self, "resources", value)
+
+
+@pulumi.input_type
+class SessionIngressArgs:
+    def __init__(__self__, *,
+                 target_port: Optional[pulumi.Input[int]] = None):
+        """
+        Session pool ingress configuration.
+        :param pulumi.Input[int] target_port: Target port in containers for traffic from ingress
+        """
+        if target_port is not None:
+            pulumi.set(__self__, "target_port", target_port)
+
+    @property
+    @pulumi.getter(name="targetPort")
+    def target_port(self) -> Optional[pulumi.Input[int]]:
+        """
+        Target port in containers for traffic from ingress
+        """
+        return pulumi.get(self, "target_port")
+
+    @target_port.setter
+    def target_port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "target_port", value)
+
+
+@pulumi.input_type
+class SessionNetworkConfigurationArgs:
+    def __init__(__self__, *,
+                 status: Optional[pulumi.Input[Union[str, 'SessionNetworkStatus']]] = None):
+        """
+        Session network configuration.
+        :param pulumi.Input[Union[str, 'SessionNetworkStatus']] status: Network status for the sessions.
+        """
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[Union[str, 'SessionNetworkStatus']]]:
+        """
+        Network status for the sessions.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[Union[str, 'SessionNetworkStatus']]]):
+        pulumi.set(self, "status", value)
+
+
+@pulumi.input_type
+class SessionPoolSecretArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        """
+        Secret definition.
+        :param pulumi.Input[str] name: Secret Name.
+        :param pulumi.Input[str] value: Secret Value.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Secret Name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Secret Value.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class SessionRegistryCredentialsArgs:
+    def __init__(__self__, *,
+                 password_secret_ref: Optional[pulumi.Input[str]] = None,
+                 registry_server: Optional[pulumi.Input[str]] = None,
+                 username: Optional[pulumi.Input[str]] = None):
+        """
+        Session pool private registry credentials.
+        :param pulumi.Input[str] password_secret_ref: The name of the secret that contains the registry login password
+        :param pulumi.Input[str] registry_server: Container registry server.
+        :param pulumi.Input[str] username: Container registry username.
+        """
+        if password_secret_ref is not None:
+            pulumi.set(__self__, "password_secret_ref", password_secret_ref)
+        if registry_server is not None:
+            pulumi.set(__self__, "registry_server", registry_server)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter(name="passwordSecretRef")
+    def password_secret_ref(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the secret that contains the registry login password
+        """
+        return pulumi.get(self, "password_secret_ref")
+
+    @password_secret_ref.setter
+    def password_secret_ref(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "password_secret_ref", value)
+
+    @property
+    @pulumi.getter(name="registryServer")
+    def registry_server(self) -> Optional[pulumi.Input[str]]:
+        """
+        Container registry server.
+        """
+        return pulumi.get(self, "registry_server")
+
+    @registry_server.setter
+    def registry_server(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "registry_server", value)
+
+    @property
+    @pulumi.getter
+    def username(self) -> Optional[pulumi.Input[str]]:
+        """
+        Container registry username.
+        """
+        return pulumi.get(self, "username")
+
+    @username.setter
+    def username(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "username", value)
 
 
 @pulumi.input_type

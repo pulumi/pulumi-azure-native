@@ -208,6 +208,8 @@ def get_firewall_policy_draft(firewall_policy_name: Optional[str] = None,
     Get a draft Firewall Policy.
     Azure REST API version: 2023-11-01.
 
+    Other available API versions: 2024-01-01.
+
 
     :param str firewall_policy_name: The name of the Firewall Policy.
     :param str resource_group_name: The name of the resource group.
@@ -242,6 +244,8 @@ def get_firewall_policy_draft_output(firewall_policy_name: Optional[pulumi.Input
     """
     Get a draft Firewall Policy.
     Azure REST API version: 2023-11-01.
+
+    Other available API versions: 2024-01-01.
 
 
     :param str firewall_policy_name: The name of the Firewall Policy.

@@ -149,7 +149,7 @@ class Profile(pulumi.CustomResource):
         A profile is a logical grouping of endpoints that share the same settings.
         Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2020-09-01.
 
-        Other available API versions: 2016-04-02, 2020-09-01, 2023-07-01-preview, 2024-02-01.
+        Other available API versions: 2016-04-02, 2020-09-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -171,7 +171,7 @@ class Profile(pulumi.CustomResource):
         A profile is a logical grouping of endpoints that share the same settings.
         Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2020-09-01.
 
-        Other available API versions: 2016-04-02, 2020-09-01, 2023-07-01-preview, 2024-02-01.
+        Other available API versions: 2016-04-02, 2020-09-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview.
 
         :param str resource_name: The name of the resource.
         :param ProfileArgs args: The arguments to use to populate this resource's properties.
@@ -223,7 +223,7 @@ class Profile(pulumi.CustomResource):
             __props__.__dict__["resource_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cdn/v20150601:Profile"), pulumi.Alias(type_="azure-native:cdn/v20160402:Profile"), pulumi.Alias(type_="azure-native:cdn/v20161002:Profile"), pulumi.Alias(type_="azure-native:cdn/v20170402:Profile"), pulumi.Alias(type_="azure-native:cdn/v20171012:Profile"), pulumi.Alias(type_="azure-native:cdn/v20190415:Profile"), pulumi.Alias(type_="azure-native:cdn/v20190615:Profile"), pulumi.Alias(type_="azure-native:cdn/v20190615preview:Profile"), pulumi.Alias(type_="azure-native:cdn/v20191231:Profile"), pulumi.Alias(type_="azure-native:cdn/v20200331:Profile"), pulumi.Alias(type_="azure-native:cdn/v20200415:Profile"), pulumi.Alias(type_="azure-native:cdn/v20200901:Profile"), pulumi.Alias(type_="azure-native:cdn/v20210601:Profile"), pulumi.Alias(type_="azure-native:cdn/v20220501preview:Profile"), pulumi.Alias(type_="azure-native:cdn/v20221101preview:Profile"), pulumi.Alias(type_="azure-native:cdn/v20230501:Profile"), pulumi.Alias(type_="azure-native:cdn/v20230701preview:Profile"), pulumi.Alias(type_="azure-native:cdn/v20240201:Profile")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cdn/v20150601:Profile"), pulumi.Alias(type_="azure-native:cdn/v20160402:Profile"), pulumi.Alias(type_="azure-native:cdn/v20161002:Profile"), pulumi.Alias(type_="azure-native:cdn/v20170402:Profile"), pulumi.Alias(type_="azure-native:cdn/v20171012:Profile"), pulumi.Alias(type_="azure-native:cdn/v20190415:Profile"), pulumi.Alias(type_="azure-native:cdn/v20190615:Profile"), pulumi.Alias(type_="azure-native:cdn/v20190615preview:Profile"), pulumi.Alias(type_="azure-native:cdn/v20191231:Profile"), pulumi.Alias(type_="azure-native:cdn/v20200331:Profile"), pulumi.Alias(type_="azure-native:cdn/v20200415:Profile"), pulumi.Alias(type_="azure-native:cdn/v20200901:Profile"), pulumi.Alias(type_="azure-native:cdn/v20210601:Profile"), pulumi.Alias(type_="azure-native:cdn/v20220501preview:Profile"), pulumi.Alias(type_="azure-native:cdn/v20221101preview:Profile"), pulumi.Alias(type_="azure-native:cdn/v20230501:Profile"), pulumi.Alias(type_="azure-native:cdn/v20230701preview:Profile"), pulumi.Alias(type_="azure-native:cdn/v20240201:Profile"), pulumi.Alias(type_="azure-native:cdn/v20240501preview:Profile")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Profile, __self__).__init__(
             'azure-native:cdn:Profile',

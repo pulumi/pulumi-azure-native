@@ -12,6 +12,8 @@ namespace Pulumi.AzureNative.DevCenter
     /// <summary>
     /// Represents a devcenter plan resource.
     /// Azure REST API version: 2024-05-01-preview.
+    /// 
+    /// Other available API versions: 2024-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:devcenter:Plan")]
     public partial class Plan : global::Pulumi.CustomResource
@@ -84,6 +86,7 @@ namespace Pulumi.AzureNative.DevCenter
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20240501preview:Plan" },
+                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20240601preview:Plan" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

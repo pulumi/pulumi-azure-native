@@ -137,6 +137,8 @@ def get_java_component(environment_name: Optional[str] = None,
     Java Component.
     Azure REST API version: 2023-11-02-preview.
 
+    Other available API versions: 2024-02-02-preview.
+
 
     :param str environment_name: Name of the Managed Environment.
     :param str name: Name of the Java Component.
@@ -168,6 +170,8 @@ def get_java_component_output(environment_name: Optional[pulumi.Input[str]] = No
     """
     Java Component.
     Azure REST API version: 2023-11-02-preview.
+
+    Other available API versions: 2024-02-02-preview.
 
 
     :param str environment_name: Name of the Managed Environment.

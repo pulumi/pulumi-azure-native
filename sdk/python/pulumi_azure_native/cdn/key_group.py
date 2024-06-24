@@ -97,6 +97,8 @@ class KeyGroup(pulumi.CustomResource):
         Contains a list of references of UrlSigningKey type secret objects.
         Azure REST API version: 2023-07-01-preview.
 
+        Other available API versions: 2024-05-01-preview.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] key_group_name: Name of the KeyGroup under the profile.
@@ -113,6 +115,8 @@ class KeyGroup(pulumi.CustomResource):
         """
         Contains a list of references of UrlSigningKey type secret objects.
         Azure REST API version: 2023-07-01-preview.
+
+        Other available API versions: 2024-05-01-preview.
 
         :param str resource_name: The name of the resource.
         :param KeyGroupArgs args: The arguments to use to populate this resource's properties.
@@ -155,7 +159,7 @@ class KeyGroup(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cdn/v20230701preview:KeyGroup")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cdn/v20230701preview:KeyGroup"), pulumi.Alias(type_="azure-native:cdn/v20240501preview:KeyGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(KeyGroup, __self__).__init__(
             'azure-native:cdn:KeyGroup',

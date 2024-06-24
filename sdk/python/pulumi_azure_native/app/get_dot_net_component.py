@@ -137,6 +137,8 @@ def get_dot_net_component(environment_name: Optional[str] = None,
     .NET Component.
     Azure REST API version: 2023-11-02-preview.
 
+    Other available API versions: 2024-02-02-preview.
+
 
     :param str environment_name: Name of the Managed Environment.
     :param str name: Name of the .NET Component.
@@ -168,6 +170,8 @@ def get_dot_net_component_output(environment_name: Optional[pulumi.Input[str]] =
     """
     .NET Component.
     Azure REST API version: 2023-11-02-preview.
+
+    Other available API versions: 2024-02-02-preview.
 
 
     :param str environment_name: Name of the Managed Environment.

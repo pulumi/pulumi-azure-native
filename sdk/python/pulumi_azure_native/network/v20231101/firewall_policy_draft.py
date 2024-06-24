@@ -351,7 +351,7 @@ class FirewallPolicyDraft(pulumi.CustomResource):
             __props__.__dict__["threat_intel_whitelist"] = threat_intel_whitelist
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network:FirewallPolicyDraft")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network:FirewallPolicyDraft"), pulumi.Alias(type_="azure-native:network/v20240101:FirewallPolicyDraft")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(FirewallPolicyDraft, __self__).__init__(
             'azure-native:network/v20231101:FirewallPolicyDraft',

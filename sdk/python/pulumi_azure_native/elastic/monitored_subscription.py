@@ -98,6 +98,8 @@ class MonitoredSubscription(pulumi.CustomResource):
         The request to update subscriptions needed to be monitored by the Elastic monitor resource.
         Azure REST API version: 2024-05-01-preview.
 
+        Other available API versions: 2024-06-15-preview.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] configuration_name: The configuration name. Only 'default' value is supported.
@@ -114,6 +116,8 @@ class MonitoredSubscription(pulumi.CustomResource):
         """
         The request to update subscriptions needed to be monitored by the Elastic monitor resource.
         Azure REST API version: 2024-05-01-preview.
+
+        Other available API versions: 2024-06-15-preview.
 
         :param str resource_name: The name of the resource.
         :param MonitoredSubscriptionInitArgs args: The arguments to use to populate this resource's properties.
@@ -153,7 +157,7 @@ class MonitoredSubscription(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:elastic/v20240501preview:MonitoredSubscription")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:elastic/v20240501preview:MonitoredSubscription"), pulumi.Alias(type_="azure-native:elastic/v20240615preview:MonitoredSubscription")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(MonitoredSubscription, __self__).__init__(
             'azure-native:elastic:MonitoredSubscription',

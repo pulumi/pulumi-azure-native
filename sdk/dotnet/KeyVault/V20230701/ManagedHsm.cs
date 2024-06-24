@@ -98,6 +98,7 @@ namespace Pulumi.AzureNative.KeyVault.V20230701
                     new global::Pulumi.Alias { Type = "azure-native:keyvault/v20220701:ManagedHsm" },
                     new global::Pulumi.Alias { Type = "azure-native:keyvault/v20221101:ManagedHsm" },
                     new global::Pulumi.Alias { Type = "azure-native:keyvault/v20230201:ManagedHsm" },
+                    new global::Pulumi.Alias { Type = "azure-native:keyvault/v20240401preview:ManagedHsm" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
