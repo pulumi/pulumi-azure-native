@@ -136,9 +136,13 @@ func PulumiSchema(rootDir string, providerMap openapi.AzureProviders, versioning
 					TypeSpec:    pschema.TypeSpec{Type: "string"},
 					Description: "The OIDC token to exchange for an Azure token.",
 				},
+				"oidcTokenFilePath": {
+					TypeSpec:    pschema.TypeSpec{Type: "string"},
+					Description: "The path to a file containing an OIDC token to exchange for an Azure token.",
+				},
 				"oidcRequestToken": {
 					TypeSpec:    pschema.TypeSpec{Type: "string"},
-					Description: "Your cloud service or provider’s bearer token to exchange for an OIDC ID token.",
+					Description: "Your cloud service or provider's bearer token to exchange for an OIDC ID token.",
 				},
 				"oidcRequestUrl": {
 					TypeSpec:    pschema.TypeSpec{Type: "string"},

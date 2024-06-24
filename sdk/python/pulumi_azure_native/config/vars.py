@@ -88,7 +88,7 @@ class _ExportableConfig(types.ModuleType):
     @property
     def oidc_request_token(self) -> Optional[str]:
         """
-        Your cloud service or provider’s bearer token to exchange for an OIDC ID token.
+        Your cloud service or provider's bearer token to exchange for an OIDC ID token.
         """
         return __config__.get('oidcRequestToken')
 
@@ -105,6 +105,13 @@ class _ExportableConfig(types.ModuleType):
         The OIDC token to exchange for an Azure token.
         """
         return __config__.get('oidcToken')
+
+    @property
+    def oidc_token_file_path(self) -> Optional[str]:
+        """
+        The path to a file containing an OIDC token to exchange for an Azure token.
+        """
+        return __config__.get('oidcTokenFilePath')
 
     @property
     def partner_id(self) -> Optional[str]:

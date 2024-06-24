@@ -30,9 +30,10 @@ type authConfig struct {
 }
 
 type oidcConfig struct {
-	oidcToken        string
-	oidcRequestToken string
-	oidcRequestUrl   string
+	oidcToken         string
+	oidcTokenFilePath string
+	oidcRequestToken  string
+	oidcRequestUrl    string
 }
 
 // Assumes that OIDC authentication is requested. Accordingly, returns an error if OIDC is not
@@ -45,6 +46,13 @@ func (k *azureNativeProvider) determineOidcConfig() (oidcConfig, error) {
 		}, nil
 	}
 
+	oidcTokenFilePath := k.getConfig("oidcTokenFilePath", "ARM_OIDC_TOKEN_FILE_PATH")
+	if oidcTokenFilePath != "" {
+		return oidcConfig{
+			oidcTokenFilePath: oidcTokenFilePath,
+		}, nil
+	}
+
 	oidcRequestToken := k.getConfig("oidcRequestToken", "ARM_OIDC_REQUEST_TOKEN")
 	oidcRequestUrl := k.getConfig("oidcRequestUrl", "ARM_OIDC_REQUEST_URL")
 	if oidcRequestToken != "" && oidcRequestUrl != "" {
@@ -54,6 +62,7 @@ func (k *azureNativeProvider) determineOidcConfig() (oidcConfig, error) {
 		}, nil
 	}
 
+	// GitHub Actions pre-set env
 	oidcRequestToken = k.getConfig("oidcRequestToken", "ACTIONS_ID_TOKEN_REQUEST_TOKEN")
 	oidcRequestUrl = k.getConfig("oidcRequestUrl", "ACTIONS_ID_TOKEN_REQUEST_URL")
 	if oidcRequestToken != "" && oidcRequestUrl != "" {
@@ -63,8 +72,8 @@ func (k *azureNativeProvider) determineOidcConfig() (oidcConfig, error) {
 		}, nil
 	}
 
-	return oidcConfig{}, fmt.Errorf(`OIDC authentication was requested via useOidc/ARM_USE_OIDC but no token and/or request URL were configured. See
-https://www.pulumi.com/registry/packages/azure-native/installation-configuration/#credentials for more information.`)
+	return oidcConfig{}, fmt.Errorf(`OIDC authentication was requested via useOidc/ARM_USE_OIDC but no token or request URL were 
+configured. See https://www.pulumi.com/registry/packages/azure-native/installation-configuration/#credentials for more information.`)
 }
 
 func (k *azureNativeProvider) getAuthConfig() (*authConfig, error) {
@@ -109,7 +118,7 @@ func (k *azureNativeProvider) getAuthConfig() (*authConfig, error) {
 		IDTokenRequestToken: oidcConf.oidcRequestToken,
 		IDTokenRequestURL:   oidcConf.oidcRequestUrl,
 		IDToken:             oidcConf.oidcToken,
-		IDTokenFilePath:     k.getConfig("oidcTokenFilePath", "ARM_OIDC_TOKEN_FILE_PATH"),
+		IDTokenFilePath:     oidcConf.oidcTokenFilePath,
 
 		// Feature Toggles
 		SupportsClientCertAuth:         true,
