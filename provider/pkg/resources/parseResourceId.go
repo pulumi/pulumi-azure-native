@@ -21,6 +21,9 @@ func ParseResourceID(id, path string) (map[string]string, error) {
 		if strings.HasPrefix(s, "{") && strings.HasSuffix(s, "}") {
 			name := s[1 : len(s)-1]
 			regexName := regexMatchGroupNameReplacer.ReplaceAllString(name, "")
+			if clashingPathName, ok := regexNames[regexName]; ok {
+				return nil, errors.Errorf("clashing path names: '%s' and '%s' while parsing resource ID for path '%s", clashingPathName, name, path)
+			}
 			regexNames[regexName] = name
 			regexParts[i] = fmt.Sprintf("(?P<%s>.*?)", regexName)
 		} else {
