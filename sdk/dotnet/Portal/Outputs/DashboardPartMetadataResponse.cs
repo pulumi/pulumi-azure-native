@@ -11,30 +11,29 @@ namespace Pulumi.AzureNative.Portal.Outputs
 {
 
     /// <summary>
-    /// Markdown part metadata.
+    /// A dashboard part metadata.
     /// </summary>
     [OutputType]
-    public sealed class MarkdownPartMetadataResponse
+    public sealed class DashboardPartMetadataResponse
     {
         /// <summary>
-        /// Input to dashboard part.
+        /// Inputs to dashboard part.
         /// </summary>
         public readonly ImmutableArray<object> Inputs;
         /// <summary>
-        /// Markdown part settings.
+        /// Settings of dashboard part.
         /// </summary>
-        public readonly Outputs.MarkdownPartMetadataResponseSettings? Settings;
+        public readonly ImmutableDictionary<string, object>? Settings;
         /// <summary>
         /// The type of dashboard part.
-        /// Expected value is 'Extension/HubsExtension/PartType/MarkdownPart'.
         /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
-        private MarkdownPartMetadataResponse(
+        private DashboardPartMetadataResponse(
             ImmutableArray<object> inputs,
 
-            Outputs.MarkdownPartMetadataResponseSettings? settings,
+            ImmutableDictionary<string, object>? settings,
 
             string type)
         {

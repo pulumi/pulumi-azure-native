@@ -11,15 +11,15 @@ namespace Pulumi.AzureNative.Portal.Inputs
 {
 
     /// <summary>
-    /// Markdown part metadata.
+    /// A dashboard part metadata.
     /// </summary>
-    public sealed class MarkdownPartMetadataArgs : global::Pulumi.ResourceArgs
+    public sealed class DashboardPartMetadataArgs : global::Pulumi.ResourceArgs
     {
         [Input("inputs")]
         private InputList<object>? _inputs;
 
         /// <summary>
-        /// Input to dashboard part.
+        /// Inputs to dashboard part.
         /// </summary>
         public InputList<object> Inputs
         {
@@ -27,22 +27,27 @@ namespace Pulumi.AzureNative.Portal.Inputs
             set => _inputs = value;
         }
 
-        /// <summary>
-        /// Markdown part settings.
-        /// </summary>
         [Input("settings")]
-        public Input<Inputs.MarkdownPartMetadataSettingsArgs>? Settings { get; set; }
+        private InputMap<object>? _settings;
+
+        /// <summary>
+        /// Settings of dashboard part.
+        /// </summary>
+        public InputMap<object> Settings
+        {
+            get => _settings ?? (_settings = new InputMap<object>());
+            set => _settings = value;
+        }
 
         /// <summary>
         /// The type of dashboard part.
-        /// Expected value is 'Extension/HubsExtension/PartType/MarkdownPart'.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
-        public MarkdownPartMetadataArgs()
+        public DashboardPartMetadataArgs()
         {
         }
-        public static new MarkdownPartMetadataArgs Empty => new MarkdownPartMetadataArgs();
+        public static new DashboardPartMetadataArgs Empty => new DashboardPartMetadataArgs();
     }
 }
