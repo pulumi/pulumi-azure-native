@@ -3459,6 +3459,15 @@
     ],
     "2020-05-01": [
       "listBillingAccountInvoiceSectionsByCreateSubscriptionPermission"
+    ],
+    "2024-04-01": [
+      "AssociatedTenant",
+      "BillingProfile",
+      "BillingRoleAssignmentByBillingAccount",
+      "BillingRoleAssignmentByDepartment",
+      "BillingRoleAssignmentByEnrollmentAccount",
+      "InvoiceSection",
+      "listBillingAccountInvoiceSectionsByCreateSubscriptionPermission"
     ]
   },
   "BillingBenefits": {
@@ -5362,6 +5371,9 @@
     ],
     "2023-05-01": [
       "ContainerGroup"
+    ],
+    "2024-05-01-preview": [
+      "ContainerGroup"
     ]
   },
   "ContainerRegistry": {
@@ -6747,6 +6759,10 @@
       "getGetPrivateDnsZoneSuffixExecute"
     ],
     "2023-12-30": [
+      "AzureADAdministrator",
+      "Configuration",
+      "Database",
+      "FirewallRule",
       "Server",
       "getGetPrivateDnsZoneSuffixExecute"
     ],
@@ -8211,6 +8227,31 @@
       "getCustomizationTaskErrorDetails",
       "getEnvironmentDefinitionErrorDetails",
       "getProjectCatalogEnvironmentDefinitionErrorDetails",
+      "getProjectCatalogSyncErrorDetails",
+      "getProjectInheritedSettings",
+      "listSkusByProject"
+    ],
+    "2024-07-01-preview": [
+      "AttachedNetworkByDevCenter",
+      "Catalog",
+      "DevBoxDefinition",
+      "DevCenter",
+      "EncryptionSet",
+      "EnvironmentType",
+      "Gallery",
+      "NetworkConnection",
+      "Plan",
+      "PlanMember",
+      "Pool",
+      "Project",
+      "ProjectCatalog",
+      "ProjectEnvironmentType",
+      "Schedule",
+      "getCatalogSyncErrorDetails",
+      "getCustomizationTaskErrorDetails",
+      "getEnvironmentDefinitionErrorDetails",
+      "getProjectCatalogEnvironmentDefinitionErrorDetails",
+      "getProjectCatalogImageDefinitionBuildDetails",
       "getProjectCatalogSyncErrorDetails",
       "getProjectInheritedSettings",
       "listSkusByProject"
@@ -10609,6 +10650,11 @@
       "ResourceSyncRule"
     ]
   },
+  "Fabric": {
+    "2023-11-01": [
+      "FabricCapacity"
+    ]
+  },
   "Features": {
     "": [],
     "2021-07-01": [
@@ -11651,6 +11697,10 @@
     "2024-06-01-preview": [
       "ConnectedCluster",
       "listConnectedClusterUserCredential"
+    ],
+    "2024-07-01-preview": [
+      "ConnectedCluster",
+      "listConnectedClusterUserCredential"
     ]
   },
   "KubernetesConfiguration": {
@@ -11966,6 +12016,11 @@
     ],
     "2022-12-01": [
       "LoadTest"
+    ],
+    "2023-12-01-preview": [
+      "LoadTest",
+      "LoadTestMapping",
+      "LoadTestProfileMapping"
     ]
   },
   "Logic": {
