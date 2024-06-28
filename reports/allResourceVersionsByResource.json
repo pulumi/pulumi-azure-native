@@ -3753,18 +3753,31 @@
     ]
   },
   "Billing": {
+    "AssociatedTenant": [
+      "2024-04-01"
+    ],
+    "BillingProfile": [
+      "2024-04-01"
+    ],
     "BillingRoleAssignmentByBillingAccount": [
-      "2019-10-01-preview"
+      "2019-10-01-preview",
+      "2024-04-01"
     ],
     "BillingRoleAssignmentByDepartment": [
-      "2019-10-01-preview"
+      "2019-10-01-preview",
+      "2024-04-01"
     ],
     "BillingRoleAssignmentByEnrollmentAccount": [
-      "2019-10-01-preview"
+      "2019-10-01-preview",
+      "2024-04-01"
+    ],
+    "InvoiceSection": [
+      "2024-04-01"
     ],
     "listBillingAccountInvoiceSectionsByCreateSubscriptionPermission": [
       "2019-10-01-preview",
-      "2020-05-01"
+      "2020-05-01",
+      "2024-04-01"
     ]
   },
   "BillingBenefits": {},
@@ -5574,7 +5587,8 @@
       "2022-09-01",
       "2022-10-01-preview",
       "2023-02-01-preview",
-      "2023-05-01"
+      "2023-05-01",
+      "2024-05-01-preview"
     ]
   },
   "ContainerRegistry": {
@@ -6751,7 +6765,8 @@
       "2021-12-01-preview",
       "2022-01-01",
       "2023-06-01-preview",
-      "2023-06-30"
+      "2023-06-30",
+      "2023-12-30"
     ],
     "Configuration": [
       "2017-12-01",
@@ -6764,7 +6779,8 @@
       "2021-12-01-preview",
       "2022-01-01",
       "2023-06-01-preview",
-      "2023-06-30"
+      "2023-06-30",
+      "2023-12-30"
     ],
     "Database": [
       "2017-12-01",
@@ -6777,7 +6793,8 @@
       "2021-12-01-preview",
       "2022-01-01",
       "2023-06-01-preview",
-      "2023-06-30"
+      "2023-06-30",
+      "2023-12-30"
     ],
     "FirewallRule": [
       "2017-12-01",
@@ -6790,7 +6807,8 @@
       "2021-12-01-preview",
       "2022-01-01",
       "2023-06-01-preview",
-      "2023-06-30"
+      "2023-06-30",
+      "2023-12-30"
     ],
     "PrivateEndpointConnection": [
       "2018-06-01",
@@ -8102,7 +8120,8 @@
       "2023-10-01-preview",
       "2024-02-01",
       "2024-05-01-preview",
-      "2024-06-01-preview"
+      "2024-06-01-preview",
+      "2024-07-01-preview"
     ],
     "Catalog": [
       "2022-08-01-preview",
@@ -8115,7 +8134,8 @@
       "2023-10-01-preview",
       "2024-02-01",
       "2024-05-01-preview",
-      "2024-06-01-preview"
+      "2024-06-01-preview",
+      "2024-07-01-preview"
     ],
     "DevBoxDefinition": [
       "2022-08-01-preview",
@@ -8128,7 +8148,8 @@
       "2023-10-01-preview",
       "2024-02-01",
       "2024-05-01-preview",
-      "2024-06-01-preview"
+      "2024-06-01-preview",
+      "2024-07-01-preview"
     ],
     "DevCenter": [
       "2022-08-01-preview",
@@ -8141,11 +8162,13 @@
       "2023-10-01-preview",
       "2024-02-01",
       "2024-05-01-preview",
-      "2024-06-01-preview"
+      "2024-06-01-preview",
+      "2024-07-01-preview"
     ],
     "EncryptionSet": [
       "2024-05-01-preview",
-      "2024-06-01-preview"
+      "2024-06-01-preview",
+      "2024-07-01-preview"
     ],
     "EnvironmentType": [
       "2022-08-01-preview",
@@ -8158,7 +8181,8 @@
       "2023-10-01-preview",
       "2024-02-01",
       "2024-05-01-preview",
-      "2024-06-01-preview"
+      "2024-06-01-preview",
+      "2024-07-01-preview"
     ],
     "Gallery": [
       "2022-08-01-preview",
@@ -8171,7 +8195,8 @@
       "2023-10-01-preview",
       "2024-02-01",
       "2024-05-01-preview",
-      "2024-06-01-preview"
+      "2024-06-01-preview",
+      "2024-07-01-preview"
     ],
     "NetworkConnection": [
       "2022-08-01-preview",
@@ -8184,15 +8209,18 @@
       "2023-10-01-preview",
       "2024-02-01",
       "2024-05-01-preview",
-      "2024-06-01-preview"
+      "2024-06-01-preview",
+      "2024-07-01-preview"
     ],
     "Plan": [
       "2024-05-01-preview",
-      "2024-06-01-preview"
+      "2024-06-01-preview",
+      "2024-07-01-preview"
     ],
     "PlanMember": [
       "2024-05-01-preview",
-      "2024-06-01-preview"
+      "2024-06-01-preview",
+      "2024-07-01-preview"
     ],
     "Pool": [
       "2022-08-01-preview",
@@ -8205,7 +8233,8 @@
       "2023-10-01-preview",
       "2024-02-01",
       "2024-05-01-preview",
-      "2024-06-01-preview"
+      "2024-06-01-preview",
+      "2024-07-01-preview"
     ],
     "Project": [
       "2022-08-01-preview",
@@ -8218,12 +8247,14 @@
       "2023-10-01-preview",
       "2024-02-01",
       "2024-05-01-preview",
-      "2024-06-01-preview"
+      "2024-06-01-preview",
+      "2024-07-01-preview"
     ],
     "ProjectCatalog": [
       "2024-02-01",
       "2024-05-01-preview",
-      "2024-06-01-preview"
+      "2024-06-01-preview",
+      "2024-07-01-preview"
     ],
     "ProjectEnvironmentType": [
       "2022-08-01-preview",
@@ -8236,7 +8267,8 @@
       "2023-10-01-preview",
       "2024-02-01",
       "2024-05-01-preview",
-      "2024-06-01-preview"
+      "2024-06-01-preview",
+      "2024-07-01-preview"
     ],
     "Schedule": [
       "2022-08-01-preview",
@@ -8249,7 +8281,8 @@
       "2023-10-01-preview",
       "2024-02-01",
       "2024-05-01-preview",
-      "2024-06-01-preview"
+      "2024-06-01-preview",
+      "2024-07-01-preview"
     ],
     "getCatalogDevBoxDefinitionErrorDetails": [
       "2023-08-01-preview",
@@ -8260,37 +8293,47 @@
       "2023-10-01-preview",
       "2024-02-01",
       "2024-05-01-preview",
-      "2024-06-01-preview"
+      "2024-06-01-preview",
+      "2024-07-01-preview"
     ],
     "getCustomizationTaskErrorDetails": [
       "2023-08-01-preview",
       "2023-10-01-preview",
       "2024-05-01-preview",
-      "2024-06-01-preview"
+      "2024-06-01-preview",
+      "2024-07-01-preview"
     ],
     "getEnvironmentDefinitionErrorDetails": [
       "2023-08-01-preview",
       "2023-10-01-preview",
       "2024-02-01",
       "2024-05-01-preview",
-      "2024-06-01-preview"
+      "2024-06-01-preview",
+      "2024-07-01-preview"
     ],
     "getProjectCatalogEnvironmentDefinitionErrorDetails": [
       "2024-02-01",
       "2024-05-01-preview",
-      "2024-06-01-preview"
+      "2024-06-01-preview",
+      "2024-07-01-preview"
+    ],
+    "getProjectCatalogImageDefinitionBuildDetails": [
+      "2024-07-01-preview"
     ],
     "getProjectCatalogSyncErrorDetails": [
       "2024-02-01",
       "2024-05-01-preview",
-      "2024-06-01-preview"
+      "2024-06-01-preview",
+      "2024-07-01-preview"
     ],
     "getProjectInheritedSettings": [
       "2024-05-01-preview",
-      "2024-06-01-preview"
+      "2024-06-01-preview",
+      "2024-07-01-preview"
     ],
     "listSkusByProject": [
-      "2024-06-01-preview"
+      "2024-06-01-preview",
+      "2024-07-01-preview"
     ]
   },
   "DevHub": {
@@ -10720,6 +10763,11 @@
       "2021-08-31-preview"
     ]
   },
+  "Fabric": {
+    "FabricCapacity": [
+      "2023-11-01"
+    ]
+  },
   "Features": {
     "SubscriptionFeatureRegistration": [
       "2021-07-01"
@@ -11689,7 +11737,8 @@
       "2023-11-01-preview",
       "2024-01-01",
       "2024-02-01-preview",
-      "2024-06-01-preview"
+      "2024-06-01-preview",
+      "2024-07-01-preview"
     ],
     "listConnectedClusterUserCredential": [
       "2021-10-01",
@@ -11698,7 +11747,8 @@
       "2023-11-01-preview",
       "2024-01-01",
       "2024-02-01-preview",
-      "2024-06-01-preview"
+      "2024-06-01-preview",
+      "2024-07-01-preview"
     ],
     "listConnectedClusterUserCredentials": [
       "2020-01-01-preview",
@@ -12012,7 +12062,14 @@
     "LoadTest": [
       "2021-12-01-preview",
       "2022-04-15-preview",
-      "2022-12-01"
+      "2022-12-01",
+      "2023-12-01-preview"
+    ],
+    "LoadTestMapping": [
+      "2023-12-01-preview"
+    ],
+    "LoadTestProfileMapping": [
+      "2023-12-01-preview"
     ]
   },
   "Logic": {
