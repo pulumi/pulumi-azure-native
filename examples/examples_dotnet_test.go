@@ -40,6 +40,15 @@ func TestAccSql(t *testing.T) {
 	integration.ProgramTest(t, &test)
 }
 
+func TestPortalDashboardDotnet(t *testing.T) {
+	test := getCsharpBaseOptions(t).
+		With(integration.ProgramTestOptions{
+			Dir: filepath.Join(getCwd(t), "cs-dashboard"),
+		})
+
+	integration.ProgramTest(t, &test)
+}
+
 func TestPulumiExamples(t *testing.T) {
 	for _, example := range pexamples.GetTestsByTags(pexamples.AzureNativeProvider, pexamples.CS) {
 		t.Run(example.Dir, func(t *testing.T) {

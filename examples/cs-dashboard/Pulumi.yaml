@@ -1,0 +1,3 @@
+name: cs-dashboard
+runtime: dotnet
+description: A Portal Dashboard.

@@ -550,11 +550,23 @@ func genMixins(pkg *pschema.PackageSpec, metadata *resources.AzureAPIMetadata) e
 		}
 		pkg.Types[tok] = t
 	}
+	for tok, t := range customresources.SchemaTypeOverrides() {
+		pkg.Types[tok] = t
+	}
 	for tok, r := range customresources.MetaMixins() {
 		if _, has := metadata.Resources[tok]; has {
 			return errors.Errorf("Metadata %q is already defined", tok)
 		}
 		metadata.Resources[tok] = r
+	}
+	for tok, r := range customresources.MetaTypeMixins() {
+		if _, has := metadata.Types[tok]; has {
+			return errors.Errorf("Metadata type %q is already defined", tok)
+		}
+		metadata.Types[tok] = r
+	}
+	for tok, r := range customresources.MetaTypeOverrides() {
+		metadata.Types[tok] = r
 	}
 
 	// Add a note regarding WorkspaceSqlAadAdmin creation.
@@ -562,7 +574,32 @@ func genMixins(pkg *pschema.PackageSpec, metadata *resources.AzureAPIMetadata) e
 	workspaceSqlAadAdmin.Description += "\n\nNote: SQL AAD Admin is configured automatically during workspace creation and assigned to the current user. One can't add more admins with this resource unless you manually delete the current SQL AAD Admin."
 	pkg.Resources["azure-native:synapse:WorkspaceSqlAadAdmin"] = workspaceSqlAadAdmin
 
+	// Remove unused types.
+	normalizePackage(pkg, metadata)
+
 	return nil
+}
+
+func normalizePackage(pkg *pschema.PackageSpec, metadata *resources.AzureAPIMetadata) {
+	// Record all type tokens referenced from resources and functions.
+	usedTypes := map[string]bool{}
+	visitor := func(t string, _ pschema.ComplexTypeSpec) {
+		usedTypes[t] = true
+	}
+	VisitPackageSpecTypes(pkg, visitor)
+
+	// Elide unused types.
+	allTypeNames := codegen.SortedKeys(pkg.Types)
+	for _, typeName := range allTypeNames {
+		if !usedTypes[typeName] {
+			t := pkg.Types[typeName]
+			if len(t.Enum) > 0 {
+				continue
+			}
+			delete(pkg.Types, typeName)
+			delete(metadata.Types, typeName)
+		}
+	}
 }
 
 // Microsoft-specific API extension constants.
