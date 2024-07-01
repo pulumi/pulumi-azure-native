@@ -240,6 +240,10 @@
     "Detail": "expected no additions but found some"
   },
   {
+    "Provider": "LoadTestService",
+    "Detail": "expected no additions but found some"
+  },
+  {
     "Provider": "MachineLearningServices",
     "Detail": "expected no additions but found some"
   },
