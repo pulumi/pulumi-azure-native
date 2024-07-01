@@ -197,13 +197,13 @@ jobs:
           OIDC_ARM_CLIENT_ID: ${{ inputs.oidc_arm_client_id }}
         run: |
           set -euo pipefail
-          cd examples && go test -v -json -cover -timeout 2h -tags=${{ matrix.language }} -skip TestPulumiExamples -parallel 16 . 2>&1 | tee /tmp/gotest.log | gotestfmt
+          cd examples && go test -v -json -cover -timeout 2h -tags=${{ matrix.language }} -skip TestPulumiExamples -parallel 16 . 2>&1 | tee /tmp/gotest.log | tparse -all
 
       - name: Run short tests
         if: inputs.short_test
         run: |
           set -euo pipefail
-          cd examples && go test -v -json -cover -timeout 15m -short -tags=${{ matrix.language }} -skip TestPulumiExamples -parallel 16 . 2>&1 | tee /tmp/gotest.log | gotestfmt
+          cd examples && go test -v -json -cover -timeout 15m -short -tags=${{ matrix.language }} -skip TestPulumiExamples -parallel 16 . 2>&1 | tee /tmp/gotest.log | tparse -all
 
   test_examples:
     needs: build_sdks
@@ -255,7 +255,7 @@ jobs:
           cd examples && \
             go mod edit -replace github.com/pulumi/examples/misc/test=../p-examples/misc/test/ && \
             go mod tidy && \
-            go test -v -json -cover -timeout 2h -tags=${{ matrix.language }} -run TestPulumiExamples -parallel 16 . 2>&1 | tee /tmp/gotest.log | gotestfmt
+            go test -v -json -cover -timeout 2h -tags=${{ matrix.language }} -run TestPulumiExamples -parallel 16 . 2>&1 | tee /tmp/gotest.log | tparse -all
 
   test_provider:
     runs-on: ubuntu-latest
@@ -279,6 +279,12 @@ jobs:
           tag: v2.5.0
           repo: GoTestTools/gotestfmt
 
+      - name: Install tparse
+        uses: jaxxstorm/action-install-gh-release@v1.11.0
+        with:
+          tag: v0.14.0
+          repo: mfridman/tparse
+
       - run: make ensure
 
       - name: Prerequisites artifact restore
@@ -294,7 +300,7 @@ jobs:
       - name: Test Provider Library
         run: |
           set -euo pipefail
-          cd provider && go test -v -json -coverprofile="coverage.txt" -coverpkg=./... -timeout 1h -parallel 16 ./... 2>&1 | tee /tmp/gotest.log | gotestfmt
+          cd provider && go test -v -json -coverprofile="coverage.txt" -coverpkg=./... -timeout 1h -parallel 16 ./... 2>&1 | tee /tmp/gotest.log | tparse -all
 
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v4
