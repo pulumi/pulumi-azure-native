@@ -282,8 +282,10 @@ jobs:
       - name: Install tparse
         uses: jaxxstorm/action-install-gh-release@v1.11.0
         with:
-          tag: v0.14.0
           repo: mfridman/tparse
+          extension-matching: disable
+          rename-to: tparse
+          chmod: 0755
 
       - run: make ensure
 
