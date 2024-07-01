@@ -4,26 +4,61 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'AppServicePlanConfigurationArgs',
+    'AppServicePlanConfigurationArgsDict',
     'Db2ProviderInstancePropertiesArgs',
+    'Db2ProviderInstancePropertiesArgsDict',
     'HanaDbProviderInstancePropertiesArgs',
+    'HanaDbProviderInstancePropertiesArgsDict',
     'ManagedResourceGroupConfigurationArgs',
+    'ManagedResourceGroupConfigurationArgsDict',
     'ManagedServiceIdentityArgs',
+    'ManagedServiceIdentityArgsDict',
     'MsSqlServerProviderInstancePropertiesArgs',
+    'MsSqlServerProviderInstancePropertiesArgsDict',
     'PrometheusHaClusterProviderInstancePropertiesArgs',
+    'PrometheusHaClusterProviderInstancePropertiesArgsDict',
     'PrometheusOsProviderInstancePropertiesArgs',
+    'PrometheusOsProviderInstancePropertiesArgsDict',
     'SapLandscapeMonitorMetricThresholdsArgs',
+    'SapLandscapeMonitorMetricThresholdsArgsDict',
     'SapLandscapeMonitorPropertiesGroupingArgs',
+    'SapLandscapeMonitorPropertiesGroupingArgsDict',
     'SapLandscapeMonitorSidMappingArgs',
+    'SapLandscapeMonitorSidMappingArgsDict',
     'SapNetWeaverProviderInstancePropertiesArgs',
+    'SapNetWeaverProviderInstancePropertiesArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AppServicePlanConfigurationArgsDict(TypedDict):
+        """
+        Configuration details of app service plan
+        """
+        capacity: NotRequired[pulumi.Input[int]]
+        """
+        The number of workers in app service plan. If this is not set or set to 0, auto scale will be configured for the app service plan, otherwise, instance count is set to this number.
+        """
+        tier: NotRequired[pulumi.Input[Union[str, 'AppServicePlanTier']]]
+        """
+        The App Service plan tier.
+        """
+elif False:
+    AppServicePlanConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AppServicePlanConfigurationArgs:
@@ -64,6 +99,55 @@ class AppServicePlanConfigurationArgs:
     def tier(self, value: Optional[pulumi.Input[Union[str, 'AppServicePlanTier']]]):
         pulumi.set(self, "tier", value)
 
+
+if not MYPY:
+    class Db2ProviderInstancePropertiesArgsDict(TypedDict):
+        """
+        Gets or sets the DB2 provider properties.
+        """
+        provider_type: pulumi.Input[str]
+        """
+        The provider type. For example, the value can be SapHana.
+        Expected value is 'Db2'.
+        """
+        db_name: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the db2 database name.
+        """
+        db_password: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the db2 database password.
+        """
+        db_password_uri: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the key vault URI to secret with the database password.
+        """
+        db_port: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the db2 database sql port.
+        """
+        db_username: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the db2 database user name.
+        """
+        hostname: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the target virtual machine name.
+        """
+        sap_sid: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the SAP System Identifier
+        """
+        ssl_certificate_uri: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the blob URI to SSL certificate for the DB2 Database.
+        """
+        ssl_preference: NotRequired[pulumi.Input[Union[str, 'SslPreference']]]
+        """
+        Gets or sets certificate preference if secure communication is enabled.
+        """
+elif False:
+    Db2ProviderInstancePropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class Db2ProviderInstancePropertiesArgs:
@@ -233,6 +317,63 @@ class Db2ProviderInstancePropertiesArgs:
     def ssl_preference(self, value: Optional[pulumi.Input[Union[str, 'SslPreference']]]):
         pulumi.set(self, "ssl_preference", value)
 
+
+if not MYPY:
+    class HanaDbProviderInstancePropertiesArgsDict(TypedDict):
+        """
+        Gets or sets the provider properties.
+        """
+        provider_type: pulumi.Input[str]
+        """
+        The provider type. For example, the value can be SapHana.
+        Expected value is 'SapHana'.
+        """
+        db_name: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the hana database name.
+        """
+        db_password: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the database password.
+        """
+        db_password_uri: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the key vault URI to secret with the database password.
+        """
+        db_username: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the database user name.
+        """
+        hostname: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the target virtual machine size.
+        """
+        instance_number: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the database instance number.
+        """
+        sap_sid: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the SAP System Identifier.
+        """
+        sql_port: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the database sql port.
+        """
+        ssl_certificate_uri: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the blob URI to SSL certificate for the DB.
+        """
+        ssl_host_name_in_certificate: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the hostname(s) in the SSL certificate.
+        """
+        ssl_preference: NotRequired[pulumi.Input[Union[str, 'SslPreference']]]
+        """
+        Gets or sets certificate preference if secure communication is enabled.
+        """
+elif False:
+    HanaDbProviderInstancePropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class HanaDbProviderInstancePropertiesArgs:
@@ -435,6 +576,18 @@ class HanaDbProviderInstancePropertiesArgs:
         pulumi.set(self, "ssl_preference", value)
 
 
+if not MYPY:
+    class ManagedResourceGroupConfigurationArgsDict(TypedDict):
+        """
+        Managed resource group configuration
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Managed resource group name
+        """
+elif False:
+    ManagedResourceGroupConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ManagedResourceGroupConfigurationArgs:
     def __init__(__self__, *,
@@ -458,6 +611,22 @@ class ManagedResourceGroupConfigurationArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class ManagedServiceIdentityArgsDict(TypedDict):
+        """
+        Managed service identity (system assigned and/or user assigned identities)
+        """
+        type: pulumi.Input[Union[str, 'ManagedServiceIdentityType']]
+        """
+        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        """
+        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        """
+elif False:
+    ManagedServiceIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ManagedServiceIdentityArgs:
@@ -497,6 +666,51 @@ class ManagedServiceIdentityArgs:
     def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
+
+if not MYPY:
+    class MsSqlServerProviderInstancePropertiesArgsDict(TypedDict):
+        """
+        Gets or sets the SQL server provider properties.
+        """
+        provider_type: pulumi.Input[str]
+        """
+        The provider type. For example, the value can be SapHana.
+        Expected value is 'MsSqlServer'.
+        """
+        db_password: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the database password.
+        """
+        db_password_uri: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the key vault URI to secret with the database password.
+        """
+        db_port: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the database sql port.
+        """
+        db_username: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the database user name.
+        """
+        hostname: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the SQL server host name.
+        """
+        sap_sid: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the SAP System Identifier
+        """
+        ssl_certificate_uri: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the blob URI to SSL certificate for the SQL Database.
+        """
+        ssl_preference: NotRequired[pulumi.Input[Union[str, 'SslPreference']]]
+        """
+        Gets or sets certificate preference if secure communication is enabled.
+        """
+elif False:
+    MsSqlServerProviderInstancePropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MsSqlServerProviderInstancePropertiesArgs:
@@ -651,6 +865,43 @@ class MsSqlServerProviderInstancePropertiesArgs:
         pulumi.set(self, "ssl_preference", value)
 
 
+if not MYPY:
+    class PrometheusHaClusterProviderInstancePropertiesArgsDict(TypedDict):
+        """
+        Gets or sets the PrometheusHaCluster provider properties.
+        """
+        provider_type: pulumi.Input[str]
+        """
+        The provider type. For example, the value can be SapHana.
+        Expected value is 'PrometheusHaCluster'.
+        """
+        cluster_name: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the clusterName.
+        """
+        hostname: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the target machine name.
+        """
+        prometheus_url: NotRequired[pulumi.Input[str]]
+        """
+        URL of the Node Exporter endpoint.
+        """
+        sid: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the cluster sid.
+        """
+        ssl_certificate_uri: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the blob URI to SSL certificate for the HA cluster exporter.
+        """
+        ssl_preference: NotRequired[pulumi.Input[Union[str, 'SslPreference']]]
+        """
+        Gets or sets certificate preference if secure communication is enabled.
+        """
+elif False:
+    PrometheusHaClusterProviderInstancePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PrometheusHaClusterProviderInstancePropertiesArgs:
     def __init__(__self__, *,
@@ -772,6 +1023,35 @@ class PrometheusHaClusterProviderInstancePropertiesArgs:
         pulumi.set(self, "ssl_preference", value)
 
 
+if not MYPY:
+    class PrometheusOsProviderInstancePropertiesArgsDict(TypedDict):
+        """
+        Gets or sets the PrometheusOS provider properties.
+        """
+        provider_type: pulumi.Input[str]
+        """
+        The provider type. For example, the value can be SapHana.
+        Expected value is 'PrometheusOS'.
+        """
+        prometheus_url: NotRequired[pulumi.Input[str]]
+        """
+        URL of the Node Exporter endpoint
+        """
+        sap_sid: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the SAP System Identifier
+        """
+        ssl_certificate_uri: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the blob URI to SSL certificate for the prometheus node exporter.
+        """
+        ssl_preference: NotRequired[pulumi.Input[Union[str, 'SslPreference']]]
+        """
+        Gets or sets certificate preference if secure communication is enabled.
+        """
+elif False:
+    PrometheusOsProviderInstancePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PrometheusOsProviderInstancePropertiesArgs:
     def __init__(__self__, *,
@@ -861,6 +1141,30 @@ class PrometheusOsProviderInstancePropertiesArgs:
         pulumi.set(self, "ssl_preference", value)
 
 
+if not MYPY:
+    class SapLandscapeMonitorMetricThresholdsArgsDict(TypedDict):
+        """
+        Gets or sets the Threshold Values for Top Metrics Health.
+        """
+        green: NotRequired[pulumi.Input[float]]
+        """
+        Gets or sets the threshold value for Green.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the name of the threshold.
+        """
+        red: NotRequired[pulumi.Input[float]]
+        """
+        Gets or sets the threshold value for Red.
+        """
+        yellow: NotRequired[pulumi.Input[float]]
+        """
+        Gets or sets the threshold value for Yellow.
+        """
+elif False:
+    SapLandscapeMonitorMetricThresholdsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SapLandscapeMonitorMetricThresholdsArgs:
     def __init__(__self__, *,
@@ -933,6 +1237,22 @@ class SapLandscapeMonitorMetricThresholdsArgs:
         pulumi.set(self, "yellow", value)
 
 
+if not MYPY:
+    class SapLandscapeMonitorPropertiesGroupingArgsDict(TypedDict):
+        """
+        Gets or sets the SID groupings by landscape and Environment.
+        """
+        landscape: NotRequired[pulumi.Input[Sequence[pulumi.Input['SapLandscapeMonitorSidMappingArgsDict']]]]
+        """
+        Gets or sets the list of landscape to SID mappings.
+        """
+        sap_application: NotRequired[pulumi.Input[Sequence[pulumi.Input['SapLandscapeMonitorSidMappingArgsDict']]]]
+        """
+        Gets or sets the list of Sap Applications to SID mappings.
+        """
+elif False:
+    SapLandscapeMonitorPropertiesGroupingArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SapLandscapeMonitorPropertiesGroupingArgs:
     def __init__(__self__, *,
@@ -973,6 +1293,22 @@ class SapLandscapeMonitorPropertiesGroupingArgs:
         pulumi.set(self, "sap_application", value)
 
 
+if not MYPY:
+    class SapLandscapeMonitorSidMappingArgsDict(TypedDict):
+        """
+        Gets or sets the mapping for SID to Environment/Applications.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the name of the grouping.
+        """
+        top_sid: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Gets or sets the list of SID's.
+        """
+elif False:
+    SapLandscapeMonitorSidMappingArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SapLandscapeMonitorSidMappingArgs:
     def __init__(__self__, *,
@@ -1012,6 +1348,63 @@ class SapLandscapeMonitorSidMappingArgs:
     def top_sid(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "top_sid", value)
 
+
+if not MYPY:
+    class SapNetWeaverProviderInstancePropertiesArgsDict(TypedDict):
+        """
+        Gets or sets the provider properties.
+        """
+        provider_type: pulumi.Input[str]
+        """
+        The provider type. For example, the value can be SapHana.
+        Expected value is 'SapNetWeaver'.
+        """
+        sap_client_id: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the SAP Client ID.
+        """
+        sap_host_file_entries: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Gets or sets the list of HostFile Entries
+        """
+        sap_hostname: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the target virtual machine IP Address/FQDN.
+        """
+        sap_instance_nr: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the instance number of SAP NetWeaver.
+        """
+        sap_password: NotRequired[pulumi.Input[str]]
+        """
+        Sets the SAP password.
+        """
+        sap_password_uri: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the key vault URI to secret with the SAP password.
+        """
+        sap_port_number: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the SAP HTTP port number.
+        """
+        sap_sid: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the SAP System Identifier
+        """
+        sap_username: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the SAP user name.
+        """
+        ssl_certificate_uri: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the blob URI to SSL certificate for the SAP system.
+        """
+        ssl_preference: NotRequired[pulumi.Input[Union[str, 'SslPreference']]]
+        """
+        Gets or sets certificate preference if secure communication is enabled.
+        """
+elif False:
+    SapNetWeaverProviderInstancePropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SapNetWeaverProviderInstancePropertiesArgs:

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -233,11 +238,11 @@ class WorkspaceApiOperation(pulumi.CustomResource):
                  method: Optional[pulumi.Input[str]] = None,
                  operation_id: Optional[pulumi.Input[str]] = None,
                  policies: Optional[pulumi.Input[str]] = None,
-                 request: Optional[pulumi.Input[pulumi.InputType['RequestContractArgs']]] = None,
+                 request: Optional[pulumi.Input[Union['RequestContractArgs', 'RequestContractArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 responses: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResponseContractArgs']]]]] = None,
+                 responses: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResponseContractArgs', 'ResponseContractArgsDict']]]]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
-                 template_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ParameterContractArgs']]]]] = None,
+                 template_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ParameterContractArgs', 'ParameterContractArgsDict']]]]] = None,
                  url_template: Optional[pulumi.Input[str]] = None,
                  workspace_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -255,11 +260,11 @@ class WorkspaceApiOperation(pulumi.CustomResource):
         :param pulumi.Input[str] method: A Valid HTTP Operation Method. Typical Http Methods like GET, PUT, POST but not limited by only them.
         :param pulumi.Input[str] operation_id: Operation identifier within an API. Must be unique in the current API Management service instance.
         :param pulumi.Input[str] policies: Operation Policies
-        :param pulumi.Input[pulumi.InputType['RequestContractArgs']] request: An entity containing request details.
+        :param pulumi.Input[Union['RequestContractArgs', 'RequestContractArgsDict']] request: An entity containing request details.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResponseContractArgs']]]] responses: Array of Operation responses.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ResponseContractArgs', 'ResponseContractArgsDict']]]] responses: Array of Operation responses.
         :param pulumi.Input[str] service_name: The name of the API Management service.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ParameterContractArgs']]]] template_parameters: Collection of URL template parameters.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ParameterContractArgs', 'ParameterContractArgsDict']]]] template_parameters: Collection of URL template parameters.
         :param pulumi.Input[str] url_template: Relative URL template identifying the target resource for this operation. May include parameters. Example: /customers/{cid}/orders/{oid}/?date={date}
         :param pulumi.Input[str] workspace_id: Workspace identifier. Must be unique in the current API Management service instance.
         """
@@ -296,11 +301,11 @@ class WorkspaceApiOperation(pulumi.CustomResource):
                  method: Optional[pulumi.Input[str]] = None,
                  operation_id: Optional[pulumi.Input[str]] = None,
                  policies: Optional[pulumi.Input[str]] = None,
-                 request: Optional[pulumi.Input[pulumi.InputType['RequestContractArgs']]] = None,
+                 request: Optional[pulumi.Input[Union['RequestContractArgs', 'RequestContractArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 responses: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResponseContractArgs']]]]] = None,
+                 responses: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResponseContractArgs', 'ResponseContractArgsDict']]]]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
-                 template_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ParameterContractArgs']]]]] = None,
+                 template_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ParameterContractArgs', 'ParameterContractArgsDict']]]]] = None,
                  url_template: Optional[pulumi.Input[str]] = None,
                  workspace_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):

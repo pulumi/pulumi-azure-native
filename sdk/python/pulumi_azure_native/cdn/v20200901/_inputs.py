@@ -4,21 +4,51 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'CompressionSettingsArgs',
+    'CompressionSettingsArgsDict',
     'HealthProbeParametersArgs',
+    'HealthProbeParametersArgsDict',
     'HttpErrorRangeParametersArgs',
+    'HttpErrorRangeParametersArgsDict',
     'LoadBalancingSettingsParametersArgs',
+    'LoadBalancingSettingsParametersArgsDict',
     'ResourceReferenceArgs',
+    'ResourceReferenceArgsDict',
     'ResponseBasedOriginErrorDetectionParametersArgs',
+    'ResponseBasedOriginErrorDetectionParametersArgsDict',
     'SkuArgs',
+    'SkuArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class CompressionSettingsArgsDict(TypedDict):
+        """
+        settings for compression.
+        """
+        content_types_to_compress: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of content types on which compression applies. The value should be a valid MIME type.
+        """
+        is_compression_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether content compression is enabled on AzureFrontDoor. Default value is false. If compression is enabled, content will be served as compressed if user requests for a compressed version. Content won't be compressed on AzureFrontDoor when requested content is smaller than 1 byte or larger than 1 MB.
+        """
+elif False:
+    CompressionSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CompressionSettingsArgs:
@@ -59,6 +89,30 @@ class CompressionSettingsArgs:
     def is_compression_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "is_compression_enabled", value)
 
+
+if not MYPY:
+    class HealthProbeParametersArgsDict(TypedDict):
+        """
+        The JSON object that contains the properties to send health probes to origin.
+        """
+        probe_interval_in_seconds: NotRequired[pulumi.Input[int]]
+        """
+        The number of seconds between health probes.Default is 240sec.
+        """
+        probe_path: NotRequired[pulumi.Input[str]]
+        """
+        The path relative to the origin that is used to determine the health of the origin.
+        """
+        probe_protocol: NotRequired[pulumi.Input['ProbeProtocol']]
+        """
+        Protocol to use for health probe.
+        """
+        probe_request_type: NotRequired[pulumi.Input['HealthProbeRequestType']]
+        """
+        The type of health probe request that is made.
+        """
+elif False:
+    HealthProbeParametersArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class HealthProbeParametersArgs:
@@ -132,6 +186,22 @@ class HealthProbeParametersArgs:
         pulumi.set(self, "probe_request_type", value)
 
 
+if not MYPY:
+    class HttpErrorRangeParametersArgsDict(TypedDict):
+        """
+        The JSON object that represents the range for http status codes
+        """
+        begin: NotRequired[pulumi.Input[int]]
+        """
+        The inclusive start of the http status code range.
+        """
+        end: NotRequired[pulumi.Input[int]]
+        """
+        The inclusive end of the http status code range.
+        """
+elif False:
+    HttpErrorRangeParametersArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class HttpErrorRangeParametersArgs:
     def __init__(__self__, *,
@@ -171,6 +241,26 @@ class HttpErrorRangeParametersArgs:
     def end(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "end", value)
 
+
+if not MYPY:
+    class LoadBalancingSettingsParametersArgsDict(TypedDict):
+        """
+        Round-Robin load balancing settings for a backend pool
+        """
+        additional_latency_in_milliseconds: NotRequired[pulumi.Input[int]]
+        """
+        The additional latency in milliseconds for probes to fall into the lowest latency bucket
+        """
+        sample_size: NotRequired[pulumi.Input[int]]
+        """
+        The number of samples to consider for load balancing decisions
+        """
+        successful_samples_required: NotRequired[pulumi.Input[int]]
+        """
+        The number of samples within the sample period that must succeed
+        """
+elif False:
+    LoadBalancingSettingsParametersArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LoadBalancingSettingsParametersArgs:
@@ -228,6 +318,18 @@ class LoadBalancingSettingsParametersArgs:
         pulumi.set(self, "successful_samples_required", value)
 
 
+if not MYPY:
+    class ResourceReferenceArgsDict(TypedDict):
+        """
+        Reference to another resource.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+elif False:
+    ResourceReferenceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ResourceReferenceArgs:
     def __init__(__self__, *,
@@ -251,6 +353,26 @@ class ResourceReferenceArgs:
     def id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class ResponseBasedOriginErrorDetectionParametersArgsDict(TypedDict):
+        """
+        The JSON object that contains the properties to determine origin health using real requests/responses.
+        """
+        http_error_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input['HttpErrorRangeParametersArgsDict']]]]
+        """
+        The list of Http status code ranges that are considered as server errors for origin and it is marked as unhealthy.
+        """
+        response_based_detected_error_types: NotRequired[pulumi.Input['ResponseBasedDetectedErrorTypes']]
+        """
+        Type of response errors for real user requests for which origin will be deemed unhealthy
+        """
+        response_based_failover_threshold_percentage: NotRequired[pulumi.Input[int]]
+        """
+        The percentage of failed requests in the sample where failover should trigger.
+        """
+elif False:
+    ResponseBasedOriginErrorDetectionParametersArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ResponseBasedOriginErrorDetectionParametersArgs:
@@ -307,6 +429,18 @@ class ResponseBasedOriginErrorDetectionParametersArgs:
     def response_based_failover_threshold_percentage(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "response_based_failover_threshold_percentage", value)
 
+
+if not MYPY:
+    class SkuArgsDict(TypedDict):
+        """
+        The pricing tier (defines a CDN provider, feature list and rate) of the CDN profile.
+        """
+        name: NotRequired[pulumi.Input[Union[str, 'SkuName']]]
+        """
+        Name of the pricing tier.
+        """
+elif False:
+    SkuArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SkuArgs:

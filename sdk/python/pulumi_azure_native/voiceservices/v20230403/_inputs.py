@@ -4,17 +4,43 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'ManagedServiceIdentityArgs',
+    'ManagedServiceIdentityArgsDict',
     'PrimaryRegionPropertiesArgs',
+    'PrimaryRegionPropertiesArgsDict',
     'ServiceRegionPropertiesArgs',
+    'ServiceRegionPropertiesArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ManagedServiceIdentityArgsDict(TypedDict):
+        """
+        Managed service identity (system assigned and/or user assigned identities)
+        """
+        type: pulumi.Input[Union[str, 'ManagedServiceIdentityType']]
+        """
+        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        """
+        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        """
+elif False:
+    ManagedServiceIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ManagedServiceIdentityArgs:
@@ -54,6 +80,30 @@ class ManagedServiceIdentityArgs:
     def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
+
+if not MYPY:
+    class PrimaryRegionPropertiesArgsDict(TypedDict):
+        """
+        The configuration used in this region as primary, and other regions as backup.
+        """
+        operator_addresses: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        IP address to use to contact the operator network from this region
+        """
+        allowed_media_source_address_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The allowed source IP address or CIDR ranges for media
+        """
+        allowed_signaling_source_address_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The allowed source IP address or CIDR ranges for signaling
+        """
+        esrp_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        IP address to use to contact the ESRP from this region
+        """
+elif False:
+    PrimaryRegionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PrimaryRegionPropertiesArgs:
@@ -125,6 +175,22 @@ class PrimaryRegionPropertiesArgs:
     def esrp_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "esrp_addresses", value)
 
+
+if not MYPY:
+    class ServiceRegionPropertiesArgsDict(TypedDict):
+        """
+        The service region configuration needed for Teams Callings.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the region in which the resources needed for Teams Calling will be deployed.
+        """
+        primary_region_properties: pulumi.Input['PrimaryRegionPropertiesArgsDict']
+        """
+        The configuration used in this region as primary, and other regions as backup.
+        """
+elif False:
+    ServiceRegionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ServiceRegionPropertiesArgs:

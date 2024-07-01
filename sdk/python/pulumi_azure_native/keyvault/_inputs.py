@@ -4,39 +4,95 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'AccessPolicyEntryArgs',
+    'AccessPolicyEntryArgsDict',
     'ActionArgs',
+    'ActionArgsDict',
     'IPRuleArgs',
+    'IPRuleArgsDict',
     'KeyAttributesArgs',
+    'KeyAttributesArgsDict',
     'KeyPropertiesArgs',
+    'KeyPropertiesArgsDict',
     'KeyReleasePolicyArgs',
+    'KeyReleasePolicyArgsDict',
     'KeyRotationPolicyAttributesArgs',
+    'KeyRotationPolicyAttributesArgsDict',
     'LifetimeActionArgs',
+    'LifetimeActionArgsDict',
     'MHSMGeoReplicatedRegionArgs',
+    'MHSMGeoReplicatedRegionArgsDict',
     'MHSMIPRuleArgs',
+    'MHSMIPRuleArgsDict',
     'MHSMNetworkRuleSetArgs',
+    'MHSMNetworkRuleSetArgsDict',
     'MHSMPrivateLinkServiceConnectionStateArgs',
+    'MHSMPrivateLinkServiceConnectionStateArgsDict',
     'MHSMVirtualNetworkRuleArgs',
+    'MHSMVirtualNetworkRuleArgsDict',
     'ManagedHsmPropertiesArgs',
+    'ManagedHsmPropertiesArgsDict',
     'ManagedHsmSkuArgs',
+    'ManagedHsmSkuArgsDict',
     'NetworkRuleSetArgs',
+    'NetworkRuleSetArgsDict',
     'PermissionsArgs',
+    'PermissionsArgsDict',
     'PrivateLinkServiceConnectionStateArgs',
+    'PrivateLinkServiceConnectionStateArgsDict',
     'RotationPolicyArgs',
+    'RotationPolicyArgsDict',
     'SecretAttributesArgs',
+    'SecretAttributesArgsDict',
     'SecretPropertiesArgs',
+    'SecretPropertiesArgsDict',
     'SkuArgs',
+    'SkuArgsDict',
     'TriggerArgs',
+    'TriggerArgsDict',
     'VaultPropertiesArgs',
+    'VaultPropertiesArgsDict',
     'VirtualNetworkRuleArgs',
+    'VirtualNetworkRuleArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AccessPolicyEntryArgsDict(TypedDict):
+        """
+        An identity that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID.
+        """
+        object_id: pulumi.Input[str]
+        """
+        The object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID must be unique for the list of access policies.
+        """
+        permissions: pulumi.Input['PermissionsArgsDict']
+        """
+        Permissions the identity has for keys, secrets and certificates.
+        """
+        tenant_id: pulumi.Input[str]
+        """
+        The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
+        """
+        application_id: NotRequired[pulumi.Input[str]]
+        """
+         Application ID of the client making request on behalf of a principal
+        """
+elif False:
+    AccessPolicyEntryArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AccessPolicyEntryArgs:
@@ -107,6 +163,15 @@ class AccessPolicyEntryArgs:
         pulumi.set(self, "application_id", value)
 
 
+if not MYPY:
+    class ActionArgsDict(TypedDict):
+        type: NotRequired[pulumi.Input['KeyRotationPolicyActionType']]
+        """
+        The type of the action. The value should be compared case-insensitively.
+        """
+elif False:
+    ActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ActionArgs:
     def __init__(__self__, *,
@@ -130,6 +195,18 @@ class ActionArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class IPRuleArgsDict(TypedDict):
+        """
+        A rule governing the accessibility of a vault from a specific ip address or ip range.
+        """
+        value: pulumi.Input[str]
+        """
+        An IPv4 address range in CIDR notation, such as '124.56.78.91' (simple IP address) or '124.56.78.0/24' (all addresses that start with 124.56.78).
+        """
+elif False:
+    IPRuleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IPRuleArgs:
     def __init__(__self__, *,
@@ -152,6 +229,30 @@ class IPRuleArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class KeyAttributesArgsDict(TypedDict):
+        """
+        The object attributes managed by the Azure Key Vault service.
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Determines whether or not the object is enabled.
+        """
+        expires: NotRequired[pulumi.Input[float]]
+        """
+        Expiry date in seconds since 1970-01-01T00:00:00Z.
+        """
+        exportable: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates if the private key can be exported.
+        """
+        not_before: NotRequired[pulumi.Input[float]]
+        """
+        Not before date in seconds since 1970-01-01T00:00:00Z.
+        """
+elif False:
+    KeyAttributesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class KeyAttributesArgs:
@@ -226,6 +327,39 @@ class KeyAttributesArgs:
     def not_before(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "not_before", value)
 
+
+if not MYPY:
+    class KeyPropertiesArgsDict(TypedDict):
+        """
+        The properties of the key.
+        """
+        attributes: NotRequired[pulumi.Input['KeyAttributesArgsDict']]
+        """
+        The attributes of the key.
+        """
+        curve_name: NotRequired[pulumi.Input[Union[str, 'JsonWebKeyCurveName']]]
+        """
+        The elliptic curve name. For valid values, see JsonWebKeyCurveName.
+        """
+        key_ops: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'JsonWebKeyOperation']]]]]
+        key_size: NotRequired[pulumi.Input[int]]
+        """
+        The key size in bits. For example: 2048, 3072, or 4096 for RSA.
+        """
+        kty: NotRequired[pulumi.Input[Union[str, 'JsonWebKeyType']]]
+        """
+        The type of the key. For valid values, see JsonWebKeyType.
+        """
+        release_policy: NotRequired[pulumi.Input['KeyReleasePolicyArgsDict']]
+        """
+        Key release policy in response. It will be used for both output and input. Omitted if empty
+        """
+        rotation_policy: NotRequired[pulumi.Input['RotationPolicyArgsDict']]
+        """
+        Key rotation policy in response. It will be used for both output and input. Omitted if empty
+        """
+elif False:
+    KeyPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class KeyPropertiesArgs:
@@ -343,6 +477,19 @@ class KeyPropertiesArgs:
         pulumi.set(self, "rotation_policy", value)
 
 
+if not MYPY:
+    class KeyReleasePolicyArgsDict(TypedDict):
+        content_type: NotRequired[pulumi.Input[str]]
+        """
+        Content type and version of key release policy
+        """
+        data: NotRequired[pulumi.Input[str]]
+        """
+        Blob encoding the policy rules under which the key can be released.
+        """
+elif False:
+    KeyReleasePolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class KeyReleasePolicyArgs:
     def __init__(__self__, *,
@@ -384,6 +531,15 @@ class KeyReleasePolicyArgs:
         pulumi.set(self, "data", value)
 
 
+if not MYPY:
+    class KeyRotationPolicyAttributesArgsDict(TypedDict):
+        expiry_time: NotRequired[pulumi.Input[str]]
+        """
+        The expiration time for the new key version. It should be in ISO8601 format. Eg: 'P90D', 'P1Y'.
+        """
+elif False:
+    KeyRotationPolicyAttributesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class KeyRotationPolicyAttributesArgs:
     def __init__(__self__, *,
@@ -406,6 +562,19 @@ class KeyRotationPolicyAttributesArgs:
     def expiry_time(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "expiry_time", value)
 
+
+if not MYPY:
+    class LifetimeActionArgsDict(TypedDict):
+        action: NotRequired[pulumi.Input['ActionArgsDict']]
+        """
+        The action of key rotation policy lifetimeAction.
+        """
+        trigger: NotRequired[pulumi.Input['TriggerArgsDict']]
+        """
+        The trigger of key rotation policy lifetimeAction.
+        """
+elif False:
+    LifetimeActionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LifetimeActionArgs:
@@ -445,6 +614,22 @@ class LifetimeActionArgs:
     def trigger(self, value: Optional[pulumi.Input['TriggerArgs']]):
         pulumi.set(self, "trigger", value)
 
+
+if not MYPY:
+    class MHSMGeoReplicatedRegionArgsDict(TypedDict):
+        """
+        A region that this managed HSM Pool has been extended to.
+        """
+        is_primary: NotRequired[pulumi.Input[bool]]
+        """
+        A boolean value that indicates whether the region is the primary region or a secondary region.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the geo replicated region.
+        """
+elif False:
+    MHSMGeoReplicatedRegionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MHSMGeoReplicatedRegionArgs:
@@ -486,6 +671,18 @@ class MHSMGeoReplicatedRegionArgs:
         pulumi.set(self, "name", value)
 
 
+if not MYPY:
+    class MHSMIPRuleArgsDict(TypedDict):
+        """
+        A rule governing the accessibility of a managed HSM pool from a specific IP address or IP range.
+        """
+        value: pulumi.Input[str]
+        """
+        An IPv4 address range in CIDR notation, such as '124.56.78.91' (simple IP address) or '124.56.78.0/24' (all addresses that start with 124.56.78).
+        """
+elif False:
+    MHSMIPRuleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MHSMIPRuleArgs:
     def __init__(__self__, *,
@@ -508,6 +705,30 @@ class MHSMIPRuleArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class MHSMNetworkRuleSetArgsDict(TypedDict):
+        """
+        A set of rules governing the network accessibility of a managed hsm pool.
+        """
+        bypass: NotRequired[pulumi.Input[Union[str, 'NetworkRuleBypassOptions']]]
+        """
+        Tells what traffic can bypass network rules. This can be 'AzureServices' or 'None'.  If not specified the default is 'AzureServices'.
+        """
+        default_action: NotRequired[pulumi.Input[Union[str, 'NetworkRuleAction']]]
+        """
+        The default action when no rule from ipRules and from virtualNetworkRules match. This is only used after the bypass property has been evaluated.
+        """
+        ip_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['MHSMIPRuleArgsDict']]]]
+        """
+        The list of IP address rules.
+        """
+        virtual_network_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['MHSMVirtualNetworkRuleArgsDict']]]]
+        """
+        The list of virtual network rules.
+        """
+elif False:
+    MHSMNetworkRuleSetArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MHSMNetworkRuleSetArgs:
@@ -581,6 +802,26 @@ class MHSMNetworkRuleSetArgs:
         pulumi.set(self, "virtual_network_rules", value)
 
 
+if not MYPY:
+    class MHSMPrivateLinkServiceConnectionStateArgsDict(TypedDict):
+        """
+        An object that represents the approval state of the private link connection.
+        """
+        actions_required: NotRequired[pulumi.Input[Union[str, 'ActionsRequired']]]
+        """
+        A message indicating if changes on the service provider require any updates on the consumer.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The reason for approval or rejection.
+        """
+        status: NotRequired[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]]
+        """
+        Indicates whether the connection has been approved, rejected or removed by the key vault owner.
+        """
+elif False:
+    MHSMPrivateLinkServiceConnectionStateArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MHSMPrivateLinkServiceConnectionStateArgs:
     def __init__(__self__, *,
@@ -637,6 +878,18 @@ class MHSMPrivateLinkServiceConnectionStateArgs:
         pulumi.set(self, "status", value)
 
 
+if not MYPY:
+    class MHSMVirtualNetworkRuleArgsDict(TypedDict):
+        """
+        A rule governing the accessibility of a managed hsm pool from a specific virtual network.
+        """
+        id: pulumi.Input[str]
+        """
+        Full resource id of a vnet subnet, such as '/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1'.
+        """
+elif False:
+    MHSMVirtualNetworkRuleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MHSMVirtualNetworkRuleArgs:
     def __init__(__self__, *,
@@ -659,6 +912,50 @@ class MHSMVirtualNetworkRuleArgs:
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class ManagedHsmPropertiesArgsDict(TypedDict):
+        """
+        Properties of the managed HSM Pool
+        """
+        create_mode: NotRequired[pulumi.Input['CreateMode']]
+        """
+        The create mode to indicate whether the resource is being created or is being recovered from a deleted resource.
+        """
+        enable_purge_protection: NotRequired[pulumi.Input[bool]]
+        """
+        Property specifying whether protection against purge is enabled for this managed HSM pool. Setting this property to true activates protection against purge for this managed HSM pool and its content - only the Managed HSM service may initiate a hard, irrecoverable deletion. Enabling this functionality is irreversible.
+        """
+        enable_soft_delete: NotRequired[pulumi.Input[bool]]
+        """
+        Property to specify whether the 'soft delete' functionality is enabled for this managed HSM pool. Soft delete is enabled by default for all managed HSMs and is immutable.
+        """
+        initial_admin_object_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Array of initial administrators object ids for this managed hsm pool.
+        """
+        network_acls: NotRequired[pulumi.Input['MHSMNetworkRuleSetArgsDict']]
+        """
+        Rules governing the accessibility of the key vault from specific network locations.
+        """
+        public_network_access: NotRequired[pulumi.Input[Union[str, 'PublicNetworkAccess']]]
+        """
+        Control permission to the managed HSM from public networks.
+        """
+        regions: NotRequired[pulumi.Input[Sequence[pulumi.Input['MHSMGeoReplicatedRegionArgsDict']]]]
+        """
+        List of all regions associated with the managed hsm pool.
+        """
+        soft_delete_retention_in_days: NotRequired[pulumi.Input[int]]
+        """
+        Soft deleted data retention days. When you delete an HSM or a key, it will remain recoverable for the configured retention period or for a default period of 90 days. It accepts values between 7 and 90.
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        The Azure Active Directory tenant ID that should be used for authenticating requests to the managed HSM pool.
+        """
+elif False:
+    ManagedHsmPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ManagedHsmPropertiesArgs:
@@ -820,6 +1117,22 @@ class ManagedHsmPropertiesArgs:
         pulumi.set(self, "tenant_id", value)
 
 
+if not MYPY:
+    class ManagedHsmSkuArgsDict(TypedDict):
+        """
+        SKU details
+        """
+        family: pulumi.Input[Union[str, 'ManagedHsmSkuFamily']]
+        """
+        SKU Family of the managed HSM Pool
+        """
+        name: pulumi.Input['ManagedHsmSkuName']
+        """
+        SKU of the managed HSM Pool
+        """
+elif False:
+    ManagedHsmSkuArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ManagedHsmSkuArgs:
     def __init__(__self__, *,
@@ -857,6 +1170,30 @@ class ManagedHsmSkuArgs:
     def name(self, value: pulumi.Input['ManagedHsmSkuName']):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class NetworkRuleSetArgsDict(TypedDict):
+        """
+        A set of rules governing the network accessibility of a vault.
+        """
+        bypass: NotRequired[pulumi.Input[Union[str, 'NetworkRuleBypassOptions']]]
+        """
+        Tells what traffic can bypass network rules. This can be 'AzureServices' or 'None'.  If not specified the default is 'AzureServices'.
+        """
+        default_action: NotRequired[pulumi.Input[Union[str, 'NetworkRuleAction']]]
+        """
+        The default action when no rule from ipRules and from virtualNetworkRules match. This is only used after the bypass property has been evaluated.
+        """
+        ip_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['IPRuleArgsDict']]]]
+        """
+        The list of IP address rules.
+        """
+        virtual_network_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgsDict']]]]
+        """
+        The list of virtual network rules.
+        """
+elif False:
+    NetworkRuleSetArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NetworkRuleSetArgs:
@@ -930,6 +1267,30 @@ class NetworkRuleSetArgs:
         pulumi.set(self, "virtual_network_rules", value)
 
 
+if not MYPY:
+    class PermissionsArgsDict(TypedDict):
+        """
+        Permissions the identity has for keys, secrets, certificates and storage.
+        """
+        certificates: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'CertificatePermissions']]]]]
+        """
+        Permissions to certificates
+        """
+        keys: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'KeyPermissions']]]]]
+        """
+        Permissions to keys
+        """
+        secrets: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'SecretPermissions']]]]]
+        """
+        Permissions to secrets
+        """
+        storage: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'StoragePermissions']]]]]
+        """
+        Permissions to storage accounts
+        """
+elif False:
+    PermissionsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PermissionsArgs:
     def __init__(__self__, *,
@@ -1002,6 +1363,26 @@ class PermissionsArgs:
         pulumi.set(self, "storage", value)
 
 
+if not MYPY:
+    class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
+        """
+        An object that represents the approval state of the private link connection.
+        """
+        actions_required: NotRequired[pulumi.Input[Union[str, 'ActionsRequired']]]
+        """
+        A message indicating if changes on the service provider require any updates on the consumer.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The reason for approval or rejection.
+        """
+        status: NotRequired[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]]
+        """
+        Indicates whether the connection has been approved, rejected or removed by the key vault owner.
+        """
+elif False:
+    PrivateLinkServiceConnectionStateArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:
     def __init__(__self__, *,
@@ -1058,6 +1439,19 @@ class PrivateLinkServiceConnectionStateArgs:
         pulumi.set(self, "status", value)
 
 
+if not MYPY:
+    class RotationPolicyArgsDict(TypedDict):
+        attributes: NotRequired[pulumi.Input['KeyRotationPolicyAttributesArgsDict']]
+        """
+        The attributes of key rotation policy.
+        """
+        lifetime_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['LifetimeActionArgsDict']]]]
+        """
+        The lifetimeActions for key rotation action.
+        """
+elif False:
+    RotationPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RotationPolicyArgs:
     def __init__(__self__, *,
@@ -1096,6 +1490,26 @@ class RotationPolicyArgs:
     def lifetime_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LifetimeActionArgs']]]]):
         pulumi.set(self, "lifetime_actions", value)
 
+
+if not MYPY:
+    class SecretAttributesArgsDict(TypedDict):
+        """
+        The secret management attributes.
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Determines whether the object is enabled.
+        """
+        expires: NotRequired[pulumi.Input[int]]
+        """
+        Expiry date in seconds since 1970-01-01T00:00:00Z.
+        """
+        not_before: NotRequired[pulumi.Input[int]]
+        """
+        Not before date in seconds since 1970-01-01T00:00:00Z.
+        """
+elif False:
+    SecretAttributesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SecretAttributesArgs:
@@ -1153,6 +1567,26 @@ class SecretAttributesArgs:
         pulumi.set(self, "not_before", value)
 
 
+if not MYPY:
+    class SecretPropertiesArgsDict(TypedDict):
+        """
+        Properties of the secret
+        """
+        attributes: NotRequired[pulumi.Input['SecretAttributesArgsDict']]
+        """
+        The attributes of the secret.
+        """
+        content_type: NotRequired[pulumi.Input[str]]
+        """
+        The content type of the secret.
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        The value of the secret. NOTE: 'value' will never be returned from the service, as APIs using this model are is intended for internal use in ARM deployments. Users should use the data-plane REST service for interaction with vault secrets.
+        """
+elif False:
+    SecretPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SecretPropertiesArgs:
     def __init__(__self__, *,
@@ -1209,6 +1643,22 @@ class SecretPropertiesArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class SkuArgsDict(TypedDict):
+        """
+        SKU details
+        """
+        family: pulumi.Input[Union[str, 'SkuFamily']]
+        """
+        SKU family name
+        """
+        name: pulumi.Input['SkuName']
+        """
+        SKU name to specify whether the key vault is a standard vault or a premium vault.
+        """
+elif False:
+    SkuArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SkuArgs:
     def __init__(__self__, *,
@@ -1246,6 +1696,19 @@ class SkuArgs:
     def name(self, value: pulumi.Input['SkuName']):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class TriggerArgsDict(TypedDict):
+        time_after_create: NotRequired[pulumi.Input[str]]
+        """
+        The time duration after key creation to rotate the key. It only applies to rotate. It will be in ISO 8601 duration format. Eg: 'P90D', 'P1Y'.
+        """
+        time_before_expiry: NotRequired[pulumi.Input[str]]
+        """
+        The time duration before key expiring to rotate or notify. It will be in ISO 8601 duration format. Eg: 'P90D', 'P1Y'.
+        """
+elif False:
+    TriggerArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TriggerArgs:
@@ -1285,6 +1748,75 @@ class TriggerArgs:
     def time_before_expiry(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "time_before_expiry", value)
 
+
+if not MYPY:
+    class VaultPropertiesArgsDict(TypedDict):
+        """
+        Properties of the vault
+        """
+        sku: pulumi.Input['SkuArgsDict']
+        """
+        SKU details
+        """
+        tenant_id: pulumi.Input[str]
+        """
+        The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
+        """
+        access_policies: NotRequired[pulumi.Input[Sequence[pulumi.Input['AccessPolicyEntryArgsDict']]]]
+        """
+        An array of 0 to 1024 identities that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID. When `createMode` is set to `recover`, access policies are not required. Otherwise, access policies are required.
+        These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
+        """
+        create_mode: NotRequired[pulumi.Input['CreateMode']]
+        """
+        The vault's create mode to indicate whether the vault need to be recovered or not.
+        """
+        enable_purge_protection: NotRequired[pulumi.Input[bool]]
+        """
+        Property specifying whether protection against purge is enabled for this vault. Setting this property to true activates protection against purge for this vault and its content - only the Key Vault service may initiate a hard, irrecoverable deletion. The setting is effective only if soft delete is also enabled. Enabling this functionality is irreversible - that is, the property does not accept false as its value.
+        """
+        enable_rbac_authorization: NotRequired[pulumi.Input[bool]]
+        """
+        Property that controls how data actions are authorized. When true, the key vault will use Role Based Access Control (RBAC) for authorization of data actions, and the access policies specified in vault properties will be  ignored. When false, the key vault will use the access policies specified in vault properties, and any policy stored on Azure Resource Manager will be ignored. If null or not specified, the vault is created with the default value of false. Note that management actions are always authorized with RBAC.
+        """
+        enable_soft_delete: NotRequired[pulumi.Input[bool]]
+        """
+        Property to specify whether the 'soft delete' functionality is enabled for this key vault. If it's not set to any value(true or false) when creating new key vault, it will be set to true by default. Once set to true, it cannot be reverted to false.
+        """
+        enabled_for_deployment: NotRequired[pulumi.Input[bool]]
+        """
+        Property to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault.
+        """
+        enabled_for_disk_encryption: NotRequired[pulumi.Input[bool]]
+        """
+        Property to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys.
+        """
+        enabled_for_template_deployment: NotRequired[pulumi.Input[bool]]
+        """
+        Property to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault.
+        """
+        network_acls: NotRequired[pulumi.Input['NetworkRuleSetArgsDict']]
+        """
+        Rules governing the accessibility of the key vault from specific network locations.
+        """
+        provisioning_state: NotRequired[pulumi.Input[Union[str, 'VaultProvisioningState']]]
+        """
+        Provisioning state of the vault.
+        """
+        public_network_access: NotRequired[pulumi.Input[str]]
+        """
+        Property to specify whether the vault will accept traffic from public internet. If set to 'disabled' all traffic except private endpoint traffic and that that originates from trusted services will be blocked. This will override the set firewall rules, meaning that even if the firewall rules are present we will not honor the rules.
+        """
+        soft_delete_retention_in_days: NotRequired[pulumi.Input[int]]
+        """
+        softDelete data retention days. It accepts >=7 and <=90.
+        """
+        vault_uri: NotRequired[pulumi.Input[str]]
+        """
+        The URI of the vault for performing operations on keys and secrets.
+        """
+elif False:
+    VaultPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VaultPropertiesArgs:
@@ -1541,6 +2073,22 @@ class VaultPropertiesArgs:
     def vault_uri(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "vault_uri", value)
 
+
+if not MYPY:
+    class VirtualNetworkRuleArgsDict(TypedDict):
+        """
+        A rule governing the accessibility of a vault from a specific virtual network.
+        """
+        id: pulumi.Input[str]
+        """
+        Full resource id of a vnet subnet, such as '/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1'.
+        """
+        ignore_missing_vnet_service_endpoint: NotRequired[pulumi.Input[bool]]
+        """
+        Property to specify whether NRP will ignore the check if parent subnet has serviceEndpoints configured.
+        """
+elif False:
+    VirtualNetworkRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VirtualNetworkRuleArgs:

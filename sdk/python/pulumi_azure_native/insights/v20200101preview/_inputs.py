@@ -4,14 +4,38 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 
 __all__ = [
     'ManagementGroupLogSettingsArgs',
+    'ManagementGroupLogSettingsArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ManagementGroupLogSettingsArgsDict(TypedDict):
+        """
+        Part of Management Group diagnostic setting. Specifies the settings for a particular log.
+        """
+        category: pulumi.Input[str]
+        """
+        Name of a Management Group Diagnostic Log category for a resource type this setting is applied to.
+        """
+        enabled: pulumi.Input[bool]
+        """
+        a value indicating whether this log is enabled.
+        """
+elif False:
+    ManagementGroupLogSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ManagementGroupLogSettingsArgs:

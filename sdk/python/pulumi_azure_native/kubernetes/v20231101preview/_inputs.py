@@ -4,17 +4,47 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'AadProfileArgs',
+    'AadProfileArgsDict',
     'ArcAgentProfileArgs',
+    'ArcAgentProfileArgsDict',
     'ConnectedClusterIdentityArgs',
+    'ConnectedClusterIdentityArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AadProfileArgsDict(TypedDict):
+        """
+        AAD Profile specifies attributes for Azure Active Directory integration.
+        """
+        admin_group_object_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of AAD group object IDs that will have admin role of the cluster.
+        """
+        enable_azure_rbac: NotRequired[pulumi.Input[bool]]
+        """
+        Whether to enable Azure RBAC for Kubernetes authorization.
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        The AAD tenant ID to use for authentication. If not specified, will use the tenant of the deployment subscription.
+        """
+elif False:
+    AadProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AadProfileArgs:
@@ -72,6 +102,22 @@ class AadProfileArgs:
         pulumi.set(self, "tenant_id", value)
 
 
+if not MYPY:
+    class ArcAgentProfileArgsDict(TypedDict):
+        """
+        Defines the Arc Agent properties for the clusters.
+        """
+        agent_auto_upgrade: NotRequired[pulumi.Input[Union[str, 'AutoUpgradeOptions']]]
+        """
+        Indicates whether the Arc agents on the be upgraded automatically to the latest version. Defaults to Enabled.
+        """
+        desired_agent_version: NotRequired[pulumi.Input[str]]
+        """
+        Version of the Arc agents to be installed on the cluster resource
+        """
+elif False:
+    ArcAgentProfileArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ArcAgentProfileArgs:
     def __init__(__self__, *,
@@ -113,6 +159,18 @@ class ArcAgentProfileArgs:
     def desired_agent_version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "desired_agent_version", value)
 
+
+if not MYPY:
+    class ConnectedClusterIdentityArgsDict(TypedDict):
+        """
+        Identity for the connected cluster.
+        """
+        type: pulumi.Input['ResourceIdentityType']
+        """
+        The type of identity used for the connected cluster. The type 'SystemAssigned, includes a system created identity. The type 'None' means no identity is assigned to the connected cluster.
+        """
+elif False:
+    ConnectedClusterIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ConnectedClusterIdentityArgs:

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -253,8 +258,8 @@ class AwaitableListWebAppBackupStatusSecretsResult(ListWebAppBackupStatusSecrets
 
 def list_web_app_backup_status_secrets(backup_id: Optional[str] = None,
                                        backup_name: Optional[str] = None,
-                                       backup_schedule: Optional[pulumi.InputType['BackupSchedule']] = None,
-                                       databases: Optional[Sequence[pulumi.InputType['DatabaseBackupSetting']]] = None,
+                                       backup_schedule: Optional[Union['BackupSchedule', 'BackupScheduleDict']] = None,
+                                       databases: Optional[Sequence[Union['DatabaseBackupSetting', 'DatabaseBackupSettingDict']]] = None,
                                        enabled: Optional[bool] = None,
                                        kind: Optional[str] = None,
                                        name: Optional[str] = None,
@@ -267,8 +272,8 @@ def list_web_app_backup_status_secrets(backup_id: Optional[str] = None,
 
     :param str backup_id: ID of backup.
     :param str backup_name: Name of the backup.
-    :param pulumi.InputType['BackupSchedule'] backup_schedule: Schedule for the backup if it is executed periodically.
-    :param Sequence[pulumi.InputType['DatabaseBackupSetting']] databases: Databases included in the backup.
+    :param Union['BackupSchedule', 'BackupScheduleDict'] backup_schedule: Schedule for the backup if it is executed periodically.
+    :param Sequence[Union['DatabaseBackupSetting', 'DatabaseBackupSettingDict']] databases: Databases included in the backup.
     :param bool enabled: True if the backup schedule is enabled (must be included in that case), false if the backup schedule should be disabled.
     :param str kind: Kind of resource.
     :param str name: Name of web app.
@@ -312,8 +317,8 @@ def list_web_app_backup_status_secrets(backup_id: Optional[str] = None,
 @_utilities.lift_output_func(list_web_app_backup_status_secrets)
 def list_web_app_backup_status_secrets_output(backup_id: Optional[pulumi.Input[str]] = None,
                                               backup_name: Optional[pulumi.Input[Optional[str]]] = None,
-                                              backup_schedule: Optional[pulumi.Input[Optional[pulumi.InputType['BackupSchedule']]]] = None,
-                                              databases: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['DatabaseBackupSetting']]]]] = None,
+                                              backup_schedule: Optional[pulumi.Input[Optional[Union['BackupSchedule', 'BackupScheduleDict']]]] = None,
+                                              databases: Optional[pulumi.Input[Optional[Sequence[Union['DatabaseBackupSetting', 'DatabaseBackupSettingDict']]]]] = None,
                                               enabled: Optional[pulumi.Input[Optional[bool]]] = None,
                                               kind: Optional[pulumi.Input[Optional[str]]] = None,
                                               name: Optional[pulumi.Input[str]] = None,
@@ -326,8 +331,8 @@ def list_web_app_backup_status_secrets_output(backup_id: Optional[pulumi.Input[s
 
     :param str backup_id: ID of backup.
     :param str backup_name: Name of the backup.
-    :param pulumi.InputType['BackupSchedule'] backup_schedule: Schedule for the backup if it is executed periodically.
-    :param Sequence[pulumi.InputType['DatabaseBackupSetting']] databases: Databases included in the backup.
+    :param Union['BackupSchedule', 'BackupScheduleDict'] backup_schedule: Schedule for the backup if it is executed periodically.
+    :param Sequence[Union['DatabaseBackupSetting', 'DatabaseBackupSettingDict']] databases: Databases included in the backup.
     :param bool enabled: True if the backup schedule is enabled (must be included in that case), false if the backup schedule should be disabled.
     :param str kind: Kind of resource.
     :param str name: Name of web app.

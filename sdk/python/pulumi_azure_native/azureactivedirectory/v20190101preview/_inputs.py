@@ -4,16 +4,41 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'B2CResourceSKUArgs',
+    'B2CResourceSKUArgsDict',
     'CreateTenantRequestBodyPropertiesArgs',
+    'CreateTenantRequestBodyPropertiesArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class B2CResourceSKUArgsDict(TypedDict):
+        """
+        SKU properties of the Azure AD B2C tenant. Learn more about Azure AD B2C billing at [aka.ms/b2cBilling](https://aka.ms/b2cBilling).
+        """
+        name: NotRequired[pulumi.Input['B2CResourceSKUName']]
+        """
+        The name of the SKU for the tenant.
+        """
+        tier: NotRequired[pulumi.Input['B2CResourceSKUTier']]
+        """
+        The tier of the tenant.
+        """
+elif False:
+    B2CResourceSKUArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class B2CResourceSKUArgs:
@@ -54,6 +79,19 @@ class B2CResourceSKUArgs:
     def tier(self, value: Optional[pulumi.Input['B2CResourceSKUTier']]):
         pulumi.set(self, "tier", value)
 
+
+if not MYPY:
+    class CreateTenantRequestBodyPropertiesArgsDict(TypedDict):
+        country_code: NotRequired[pulumi.Input[str]]
+        """
+        Country code of Azure tenant (e.g. 'US'). Refer to [aka.ms/B2CDataResidency](https://aka.ms/B2CDataResidency) to see valid country codes and corresponding data residency locations. If you do not see a country code in an valid data residency location, choose one from the list.
+        """
+        display_name: NotRequired[pulumi.Input[str]]
+        """
+        The display name of the B2C tenant.
+        """
+elif False:
+    CreateTenantRequestBodyPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CreateTenantRequestBodyPropertiesArgs:

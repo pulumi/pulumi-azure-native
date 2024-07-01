@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -140,7 +145,7 @@ class AssociationsInterface(pulumi.CustomResource):
                  association_type: Optional[pulumi.Input[Union[str, 'AssociationType']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 subnet: Optional[pulumi.Input[pulumi.InputType['AssociationSubnetArgs']]] = None,
+                 subnet: Optional[pulumi.Input[Union['AssociationSubnetArgs', 'AssociationSubnetArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  traffic_controller_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -153,7 +158,7 @@ class AssociationsInterface(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'AssociationType']] association_type: Association Type
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[pulumi.InputType['AssociationSubnetArgs']] subnet: Association Subnet
+        :param pulumi.Input[Union['AssociationSubnetArgs', 'AssociationSubnetArgsDict']] subnet: Association Subnet
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] traffic_controller_name: traffic controller name for path
         """
@@ -185,7 +190,7 @@ class AssociationsInterface(pulumi.CustomResource):
                  association_type: Optional[pulumi.Input[Union[str, 'AssociationType']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 subnet: Optional[pulumi.Input[pulumi.InputType['AssociationSubnetArgs']]] = None,
+                 subnet: Optional[pulumi.Input[Union['AssociationSubnetArgs', 'AssociationSubnetArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  traffic_controller_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):

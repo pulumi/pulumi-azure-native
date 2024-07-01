@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -184,13 +189,13 @@ class PipelineTopology(pulumi.CustomResource):
                  account_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[Union[str, 'Kind']]] = None,
-                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ParameterDeclarationArgs']]]]] = None,
+                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ParameterDeclarationArgs', 'ParameterDeclarationArgsDict']]]]] = None,
                  pipeline_topology_name: Optional[pulumi.Input[str]] = None,
-                 processors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EncoderProcessorArgs']]]]] = None,
+                 processors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EncoderProcessorArgs', 'EncoderProcessorArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sinks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VideoSinkArgs']]]]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
-                 sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union[pulumi.InputType['RtspSourceArgs'], pulumi.InputType['VideoSourceArgs']]]]]] = None,
+                 sinks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VideoSinkArgs', 'VideoSinkArgsDict']]]]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
+                 sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union[Union['RtspSourceArgs', 'RtspSourceArgsDict'], Union['VideoSourceArgs', 'VideoSourceArgsDict']]]]]] = None,
                  __props__=None):
         """
         Pipeline topology describes the processing steps to be applied when processing content for a particular outcome. The topology should be defined according to the scenario to be achieved and can be reused across many pipeline instances which share the same processing characteristics. For instance, a pipeline topology which captures content from a RTSP camera and archives the content can be reused across many different cameras, as long as the same processing is to be applied across all the cameras. Individual instance properties can be defined through the use of user-defined parameters, which allow for a topology to be parameterized. This allows  individual pipelines refer to different values, such as individual cameras' RTSP endpoints and credentials. Overall a topology is composed of the following:
@@ -206,13 +211,13 @@ class PipelineTopology(pulumi.CustomResource):
         :param pulumi.Input[str] account_name: The Azure Video Analyzer account name.
         :param pulumi.Input[str] description: An optional description of the pipeline topology. It is recommended that the expected use of the topology to be described here.
         :param pulumi.Input[Union[str, 'Kind']] kind: Topology kind.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ParameterDeclarationArgs']]]] parameters: List of the topology parameter declarations. Parameters declared here can be referenced throughout the topology nodes through the use of "${PARAMETER_NAME}" string pattern. Parameters can have optional default values and can later be defined in individual instances of the pipeline.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ParameterDeclarationArgs', 'ParameterDeclarationArgsDict']]]] parameters: List of the topology parameter declarations. Parameters declared here can be referenced throughout the topology nodes through the use of "${PARAMETER_NAME}" string pattern. Parameters can have optional default values and can later be defined in individual instances of the pipeline.
         :param pulumi.Input[str] pipeline_topology_name: Pipeline topology unique identifier.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EncoderProcessorArgs']]]] processors: List of the topology processor nodes. Processor nodes enable pipeline data to be analyzed, processed or transformed.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EncoderProcessorArgs', 'EncoderProcessorArgsDict']]]] processors: List of the topology processor nodes. Processor nodes enable pipeline data to be analyzed, processed or transformed.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VideoSinkArgs']]]] sinks: List of the topology sink nodes. Sink nodes allow pipeline data to be stored or exported.
-        :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: Describes the properties of a SKU.
-        :param pulumi.Input[Sequence[pulumi.Input[Union[pulumi.InputType['RtspSourceArgs'], pulumi.InputType['VideoSourceArgs']]]]] sources: List of the topology source nodes. Source nodes enable external data to be ingested by the pipeline.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['VideoSinkArgs', 'VideoSinkArgsDict']]]] sinks: List of the topology sink nodes. Sink nodes allow pipeline data to be stored or exported.
+        :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: Describes the properties of a SKU.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[Union['RtspSourceArgs', 'RtspSourceArgsDict'], Union['VideoSourceArgs', 'VideoSourceArgsDict']]]]] sources: List of the topology source nodes. Source nodes enable external data to be ingested by the pipeline.
         """
         ...
     @overload
@@ -247,13 +252,13 @@ class PipelineTopology(pulumi.CustomResource):
                  account_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[Union[str, 'Kind']]] = None,
-                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ParameterDeclarationArgs']]]]] = None,
+                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ParameterDeclarationArgs', 'ParameterDeclarationArgsDict']]]]] = None,
                  pipeline_topology_name: Optional[pulumi.Input[str]] = None,
-                 processors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EncoderProcessorArgs']]]]] = None,
+                 processors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EncoderProcessorArgs', 'EncoderProcessorArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sinks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VideoSinkArgs']]]]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
-                 sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union[pulumi.InputType['RtspSourceArgs'], pulumi.InputType['VideoSourceArgs']]]]]] = None,
+                 sinks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VideoSinkArgs', 'VideoSinkArgsDict']]]]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
+                 sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union[Union['RtspSourceArgs', 'RtspSourceArgsDict'], Union['VideoSourceArgs', 'VideoSourceArgsDict']]]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

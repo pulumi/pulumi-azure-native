@@ -4,21 +4,63 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'ConfigurationAssignmentFilterPropertiesArgs',
+    'ConfigurationAssignmentFilterPropertiesArgsDict',
     'InputLinuxParametersArgs',
+    'InputLinuxParametersArgsDict',
     'InputPatchConfigurationArgs',
+    'InputPatchConfigurationArgsDict',
     'InputWindowsParametersArgs',
+    'InputWindowsParametersArgsDict',
     'MaintenanceOverridePropertiesArgs',
+    'MaintenanceOverridePropertiesArgsDict',
     'TagSettingsPropertiesArgs',
+    'TagSettingsPropertiesArgsDict',
     'TaskPropertiesArgs',
+    'TaskPropertiesArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ConfigurationAssignmentFilterPropertiesArgsDict(TypedDict):
+        """
+        Azure query for the update configuration.
+        """
+        locations: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of locations to scope the query to.
+        """
+        os_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of allowed operating systems.
+        """
+        resource_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of allowed resource groups.
+        """
+        resource_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of allowed resources.
+        """
+        tag_settings: NotRequired[pulumi.Input['TagSettingsPropertiesArgsDict']]
+        """
+        Tag settings for the VM.
+        """
+elif False:
+    ConfigurationAssignmentFilterPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ConfigurationAssignmentFilterPropertiesArgs:
@@ -108,6 +150,26 @@ class ConfigurationAssignmentFilterPropertiesArgs:
         pulumi.set(self, "tag_settings", value)
 
 
+if not MYPY:
+    class InputLinuxParametersArgsDict(TypedDict):
+        """
+        Input properties for patching a Linux machine.
+        """
+        classifications_to_include: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Classification category of patches to be patched
+        """
+        package_name_masks_to_exclude: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Package names to be excluded for patching.
+        """
+        package_name_masks_to_include: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Package names to be included for patching.
+        """
+elif False:
+    InputLinuxParametersArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InputLinuxParametersArgs:
     def __init__(__self__, *,
@@ -163,6 +225,34 @@ class InputLinuxParametersArgs:
     def package_name_masks_to_include(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "package_name_masks_to_include", value)
 
+
+if not MYPY:
+    class InputPatchConfigurationArgsDict(TypedDict):
+        """
+        Input configuration for a patch run
+        """
+        linux_parameters: NotRequired[pulumi.Input['InputLinuxParametersArgsDict']]
+        """
+        Input parameters specific to patching Linux machine. For Windows machines, do not pass this property.
+        """
+        post_tasks: NotRequired[pulumi.Input[Sequence[pulumi.Input['TaskPropertiesArgsDict']]]]
+        """
+        List of post tasks. e.g. [{'source' :'runbook', 'taskScope': 'Resource', 'parameters': { 'arg1': 'value1'}}]
+        """
+        pre_tasks: NotRequired[pulumi.Input[Sequence[pulumi.Input['TaskPropertiesArgsDict']]]]
+        """
+        List of pre tasks. e.g. [{'source' :'runbook', 'taskScope': 'Global', 'parameters': { 'arg1': 'value1'}}]
+        """
+        reboot_setting: NotRequired[pulumi.Input[Union[str, 'RebootOptions']]]
+        """
+        Possible reboot preference as defined by the user based on which it would be decided to reboot the machine or not after the patch operation is completed.
+        """
+        windows_parameters: NotRequired[pulumi.Input['InputWindowsParametersArgsDict']]
+        """
+        Input parameters specific to patching a Windows machine. For Linux machines, do not pass this property.
+        """
+elif False:
+    InputPatchConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InputPatchConfigurationArgs:
@@ -254,6 +344,30 @@ class InputPatchConfigurationArgs:
         pulumi.set(self, "windows_parameters", value)
 
 
+if not MYPY:
+    class InputWindowsParametersArgsDict(TypedDict):
+        """
+        Input properties for patching a Windows machine.
+        """
+        classifications_to_include: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Classification category of patches to be patched
+        """
+        exclude_kbs_requiring_reboot: NotRequired[pulumi.Input[bool]]
+        """
+        Exclude patches which need reboot
+        """
+        kb_numbers_to_exclude: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Windows KBID to be excluded for patching.
+        """
+        kb_numbers_to_include: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Windows KBID to be included for patching.
+        """
+elif False:
+    InputWindowsParametersArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InputWindowsParametersArgs:
     def __init__(__self__, *,
@@ -325,6 +439,30 @@ class InputWindowsParametersArgs:
     def kb_numbers_to_include(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "kb_numbers_to_include", value)
 
+
+if not MYPY:
+    class MaintenanceOverridePropertiesArgsDict(TypedDict):
+        """
+        Definition of a MaintenanceOverrideProperties
+        """
+        end_date_time: NotRequired[pulumi.Input[str]]
+        """
+        Effective end date of the maintenance override window in YYYY-MM-DD hh:mm format. The window will be created in the time zone provided and adjusted to daylight savings according to that time zone. Expiration date must be set to a future date. If not provided, it will be set to the maximum datetime 9999-12-31 23:59:59.
+        """
+        override_properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Gets or sets overrideProperties of the maintenanceConfiguration
+        """
+        start_date_time: NotRequired[pulumi.Input[str]]
+        """
+        Effective start date of the maintenance override window in YYYY-MM-DD hh:mm format. The start date can be set to either the current date or future date. The window will be created in the time zone provided and adjusted to daylight savings according to that time zone.
+        """
+        time_zone: NotRequired[pulumi.Input[str]]
+        """
+        Name of the timezone. List of timezones can be obtained by executing [System.TimeZoneInfo]::GetSystemTimeZones() in PowerShell. Example: Pacific Standard Time, UTC, W. Europe Standard Time, Korea Standard Time, Cen. Australia Standard Time.
+        """
+elif False:
+    MaintenanceOverridePropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MaintenanceOverridePropertiesArgs:
@@ -398,6 +536,22 @@ class MaintenanceOverridePropertiesArgs:
         pulumi.set(self, "time_zone", value)
 
 
+if not MYPY:
+    class TagSettingsPropertiesArgsDict(TypedDict):
+        """
+        Tag filter information for the VM.
+        """
+        filter_operator: NotRequired[pulumi.Input['TagOperators']]
+        """
+        Filter VMs by Any or All specified tags.
+        """
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[str]]]]]]
+        """
+        Dictionary of tags with its list of values.
+        """
+elif False:
+    TagSettingsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TagSettingsPropertiesArgs:
     def __init__(__self__, *,
@@ -437,6 +591,26 @@ class TagSettingsPropertiesArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[str]]]]]]):
         pulumi.set(self, "tags", value)
 
+
+if not MYPY:
+    class TaskPropertiesArgsDict(TypedDict):
+        """
+        Task properties of the software update configuration.
+        """
+        parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Gets or sets the parameters of the task.
+        """
+        source: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the name of the runbook.
+        """
+        task_scope: NotRequired[pulumi.Input[Union[str, 'TaskScope']]]
+        """
+        Global Task execute once when schedule trigger. Resource task execute for each VM.
+        """
+elif False:
+    TaskPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TaskPropertiesArgs:

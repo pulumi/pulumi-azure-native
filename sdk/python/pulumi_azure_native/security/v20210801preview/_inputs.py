@@ -4,18 +4,41 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'AssignedComponentItemArgs',
+    'AssignedComponentItemArgsDict',
     'AssignedStandardItemArgs',
+    'AssignedStandardItemArgsDict',
     'AssignmentPropertiesAdditionalDataArgs',
+    'AssignmentPropertiesAdditionalDataArgsDict',
     'StandardComponentPropertiesArgs',
+    'StandardComponentPropertiesArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AssignedComponentItemArgsDict(TypedDict):
+        """
+        describe the properties of a security assessment object reference (by key)
+        """
+        key: NotRequired[pulumi.Input[str]]
+        """
+        unique key to a security assessment object
+        """
+elif False:
+    AssignedComponentItemArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AssignedComponentItemArgs:
@@ -41,6 +64,18 @@ class AssignedComponentItemArgs:
         pulumi.set(self, "key", value)
 
 
+if not MYPY:
+    class AssignedStandardItemArgsDict(TypedDict):
+        """
+        describe the properties of a of a security standard object reference
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        full resourceId of the Microsoft.Security/standard object
+        """
+elif False:
+    AssignedStandardItemArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AssignedStandardItemArgs:
     def __init__(__self__, *,
@@ -65,6 +100,18 @@ class AssignedStandardItemArgs:
         pulumi.set(self, "id", value)
 
 
+if not MYPY:
+    class AssignmentPropertiesAdditionalDataArgsDict(TypedDict):
+        """
+        Additional data about the assignment
+        """
+        exemption_category: NotRequired[pulumi.Input[str]]
+        """
+        Exemption category of this assignment
+        """
+elif False:
+    AssignmentPropertiesAdditionalDataArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AssignmentPropertiesAdditionalDataArgs:
     def __init__(__self__, *,
@@ -88,6 +135,18 @@ class AssignmentPropertiesAdditionalDataArgs:
     def exemption_category(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "exemption_category", value)
 
+
+if not MYPY:
+    class StandardComponentPropertiesArgsDict(TypedDict):
+        """
+        Describes properties of an component as related to the standard
+        """
+        key: NotRequired[pulumi.Input[str]]
+        """
+        Component Key matching componentMetadata
+        """
+elif False:
+    StandardComponentPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class StandardComponentPropertiesArgs:

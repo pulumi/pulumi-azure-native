@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -140,10 +145,10 @@ class AzureBareMetalStorageInstance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  azure_bare_metal_storage_instance_name: Optional[pulumi.Input[str]] = None,
                  azure_bare_metal_storage_instance_unique_identifier: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['AzureBareMetalStorageInstanceIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['AzureBareMetalStorageInstanceIdentityArgs', 'AzureBareMetalStorageInstanceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 storage_properties: Optional[pulumi.Input[pulumi.InputType['StoragePropertiesArgs']]] = None,
+                 storage_properties: Optional[pulumi.Input[Union['StoragePropertiesArgs', 'StoragePropertiesArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -153,10 +158,10 @@ class AzureBareMetalStorageInstance(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] azure_bare_metal_storage_instance_name: Name of the Azure Bare Metal Storage Instance, also known as the ResourceName.
         :param pulumi.Input[str] azure_bare_metal_storage_instance_unique_identifier: Specifies the AzureBareMetaStorageInstance unique ID.
-        :param pulumi.Input[pulumi.InputType['AzureBareMetalStorageInstanceIdentityArgs']] identity: The identity of Azure Bare Metal Storage Instance, if configured.
+        :param pulumi.Input[Union['AzureBareMetalStorageInstanceIdentityArgs', 'AzureBareMetalStorageInstanceIdentityArgsDict']] identity: The identity of Azure Bare Metal Storage Instance, if configured.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[pulumi.InputType['StoragePropertiesArgs']] storage_properties: Specifies the storage properties for the AzureBareMetalStorage instance.
+        :param pulumi.Input[Union['StoragePropertiesArgs', 'StoragePropertiesArgsDict']] storage_properties: Specifies the storage properties for the AzureBareMetalStorage instance.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         ...
@@ -185,10 +190,10 @@ class AzureBareMetalStorageInstance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  azure_bare_metal_storage_instance_name: Optional[pulumi.Input[str]] = None,
                  azure_bare_metal_storage_instance_unique_identifier: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['AzureBareMetalStorageInstanceIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['AzureBareMetalStorageInstanceIdentityArgs', 'AzureBareMetalStorageInstanceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 storage_properties: Optional[pulumi.Input[pulumi.InputType['StoragePropertiesArgs']]] = None,
+                 storage_properties: Optional[pulumi.Input[Union['StoragePropertiesArgs', 'StoragePropertiesArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

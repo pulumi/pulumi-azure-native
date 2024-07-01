@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -269,11 +274,11 @@ class MaintenanceConfiguration(pulumi.CustomResource):
                  duration: Optional[pulumi.Input[str]] = None,
                  expiration_date_time: Optional[pulumi.Input[str]] = None,
                  extension_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 install_patches: Optional[pulumi.Input[pulumi.InputType['InputPatchConfigurationArgs']]] = None,
+                 install_patches: Optional[pulumi.Input[Union['InputPatchConfigurationArgs', 'InputPatchConfigurationArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  maintenance_scope: Optional[pulumi.Input[Union[str, 'MaintenanceScope']]] = None,
                  namespace: Optional[pulumi.Input[str]] = None,
-                 overrides: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MaintenanceOverridePropertiesArgs']]]]] = None,
+                 overrides: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MaintenanceOverridePropertiesArgs', 'MaintenanceOverridePropertiesArgsDict']]]]] = None,
                  recur_every: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
@@ -290,11 +295,11 @@ class MaintenanceConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] duration: Duration of the maintenance window in HH:mm format. If not provided, default value will be used based on maintenance scope provided. Example: 05:00.
         :param pulumi.Input[str] expiration_date_time: Effective expiration date of the maintenance window in YYYY-MM-DD hh:mm format. The window will be created in the time zone provided and adjusted to daylight savings according to that time zone. Expiration date must be set to a future date. If not provided, it will be set to the maximum datetime 9999-12-31 23:59:59.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] extension_properties: Gets or sets extensionProperties of the maintenanceConfiguration
-        :param pulumi.Input[pulumi.InputType['InputPatchConfigurationArgs']] install_patches: The input parameters to be passed to the patch run operation.
+        :param pulumi.Input[Union['InputPatchConfigurationArgs', 'InputPatchConfigurationArgsDict']] install_patches: The input parameters to be passed to the patch run operation.
         :param pulumi.Input[str] location: Gets or sets location of the resource
         :param pulumi.Input[Union[str, 'MaintenanceScope']] maintenance_scope: Gets or sets maintenanceScope of the configuration
         :param pulumi.Input[str] namespace: Gets or sets namespace of the resource
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MaintenanceOverridePropertiesArgs']]]] overrides: Override Properties for the maintenance Configuration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MaintenanceOverridePropertiesArgs', 'MaintenanceOverridePropertiesArgsDict']]]] overrides: Override Properties for the maintenance Configuration.
         :param pulumi.Input[str] recur_every: Rate at which a Maintenance window is expected to recur. The rate can be expressed as daily, weekly, or monthly schedules. Daily schedule are formatted as recurEvery: [Frequency as integer]['Day(s)']. If no frequency is provided, the default frequency is 1. Daily schedule examples are recurEvery: Day, recurEvery: 3Days.  Weekly schedule are formatted as recurEvery: [Frequency as integer]['Week(s)'] [Optional comma separated list of weekdays Monday-Sunday]. Weekly schedule examples are recurEvery: 3Weeks, recurEvery: Week Saturday,Sunday. Monthly schedules are formatted as [Frequency as integer]['Month(s)'] [Comma separated list of month days] or [Frequency as integer]['Month(s)'] [Week of Month (First, Second, Third, Fourth, Last)] [Weekday Monday-Sunday] [Optional Offset(No. of days)]. Offset value must be between -6 to 6 inclusive. Monthly schedule examples are recurEvery: Month, recurEvery: 2Months, recurEvery: Month day23,day24, recurEvery: Month Last Sunday, recurEvery: Month Fourth Monday, recurEvery: Month Last Sunday Offset-3, recurEvery: Month Third Sunday Offset6.
         :param pulumi.Input[str] resource_group_name: Resource Group Name
         :param pulumi.Input[str] resource_name_: Maintenance Configuration Name
@@ -330,11 +335,11 @@ class MaintenanceConfiguration(pulumi.CustomResource):
                  duration: Optional[pulumi.Input[str]] = None,
                  expiration_date_time: Optional[pulumi.Input[str]] = None,
                  extension_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 install_patches: Optional[pulumi.Input[pulumi.InputType['InputPatchConfigurationArgs']]] = None,
+                 install_patches: Optional[pulumi.Input[Union['InputPatchConfigurationArgs', 'InputPatchConfigurationArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  maintenance_scope: Optional[pulumi.Input[Union[str, 'MaintenanceScope']]] = None,
                  namespace: Optional[pulumi.Input[str]] = None,
-                 overrides: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MaintenanceOverridePropertiesArgs']]]]] = None,
+                 overrides: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MaintenanceOverridePropertiesArgs', 'MaintenanceOverridePropertiesArgsDict']]]]] = None,
                  recur_every: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,

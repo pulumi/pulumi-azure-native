@@ -4,16 +4,41 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'Sku',
+    'SkuDict',
     'Storage',
+    'StorageDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class SkuDict(TypedDict):
+        """
+        Sku information related properties of a server.
+        """
+        name: str
+        """
+        The name of the sku, typically, tier + family + cores, e.g. Standard_D4s_v3.
+        """
+        tier: Union[str, 'SkuTier']
+        """
+        The tier of the particular SKU, e.g. Burstable.
+        """
+elif False:
+    SkuDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class Sku:
@@ -52,6 +77,18 @@ class Sku:
     def tier(self, value: Union[str, 'SkuTier']):
         pulumi.set(self, "tier", value)
 
+
+if not MYPY:
+    class StorageDict(TypedDict):
+        """
+        Storage properties of a server
+        """
+        storage_size_gb: NotRequired[int]
+        """
+        Max storage allowed for a server.
+        """
+elif False:
+    StorageDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class Storage:

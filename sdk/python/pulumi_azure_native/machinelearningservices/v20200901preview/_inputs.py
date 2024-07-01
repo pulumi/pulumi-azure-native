@@ -4,28 +4,65 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'ComputeBindingArgs',
+    'ComputeBindingArgsDict',
     'EncryptionPropertyArgs',
+    'EncryptionPropertyArgsDict',
     'IdentityArgs',
+    'IdentityArgsDict',
     'KeyVaultPropertiesArgs',
+    'KeyVaultPropertiesArgsDict',
     'LabelCategoryArgs',
+    'LabelCategoryArgsDict',
     'LabelClassArgs',
+    'LabelClassArgsDict',
     'LabelingDatasetConfigurationArgs',
+    'LabelingDatasetConfigurationArgsDict',
     'LabelingJobImagePropertiesArgs',
+    'LabelingJobImagePropertiesArgsDict',
     'LabelingJobInstructionsArgs',
+    'LabelingJobInstructionsArgsDict',
     'LabelingJobPropertiesArgs',
+    'LabelingJobPropertiesArgsDict',
     'LinkedServicePropsArgs',
+    'LinkedServicePropsArgsDict',
     'MLAssistConfigurationArgs',
+    'MLAssistConfigurationArgsDict',
     'SharedPrivateLinkResourceArgs',
+    'SharedPrivateLinkResourceArgsDict',
     'SkuArgs',
+    'SkuArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ComputeBindingArgsDict(TypedDict):
+        """
+        Compute binding definition.
+        """
+        compute_id: NotRequired[pulumi.Input[str]]
+        """
+        ID of the compute resource.
+        """
+        node_count: NotRequired[pulumi.Input[int]]
+        """
+        Number of nodes.
+        """
+elif False:
+    ComputeBindingArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ComputeBindingArgs:
@@ -67,6 +104,19 @@ class ComputeBindingArgs:
         pulumi.set(self, "node_count", value)
 
 
+if not MYPY:
+    class EncryptionPropertyArgsDict(TypedDict):
+        key_vault_properties: pulumi.Input['KeyVaultPropertiesArgsDict']
+        """
+        Customer Key vault properties.
+        """
+        status: pulumi.Input[Union[str, 'EncryptionStatus']]
+        """
+        Indicates whether or not the encryption is enabled for the workspace.
+        """
+elif False:
+    EncryptionPropertyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EncryptionPropertyArgs:
     def __init__(__self__, *,
@@ -103,6 +153,22 @@ class EncryptionPropertyArgs:
     def status(self, value: pulumi.Input[Union[str, 'EncryptionStatus']]):
         pulumi.set(self, "status", value)
 
+
+if not MYPY:
+    class IdentityArgsDict(TypedDict):
+        """
+        Identity for the resource.
+        """
+        type: NotRequired[pulumi.Input['ResourceIdentityType']]
+        """
+        The identity type.
+        """
+        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The user assigned identities associated with the resource.
+        """
+elif False:
+    IdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IdentityArgs:
@@ -143,6 +209,23 @@ class IdentityArgs:
     def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
+
+if not MYPY:
+    class KeyVaultPropertiesArgsDict(TypedDict):
+        key_identifier: pulumi.Input[str]
+        """
+        Key vault uri to access the encryption key.
+        """
+        key_vault_arm_id: pulumi.Input[str]
+        """
+        The ArmId of the keyVault where the customer owned encryption key is present.
+        """
+        identity_client_id: NotRequired[pulumi.Input[str]]
+        """
+        For future use - The client id of the identity which will be used to access key vault.
+        """
+elif False:
+    KeyVaultPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class KeyVaultPropertiesArgs:
@@ -196,6 +279,26 @@ class KeyVaultPropertiesArgs:
     def identity_client_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "identity_client_id", value)
 
+
+if not MYPY:
+    class LabelCategoryArgsDict(TypedDict):
+        """
+        Represents a category of labels in a labeling job.
+        """
+        classes: pulumi.Input[Mapping[str, pulumi.Input['LabelClassArgsDict']]]
+        """
+        Dictionary of label classes in this category.
+        """
+        allow_multi_select: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether it is allowed to select multiple classes in this category.
+        """
+        display_name: NotRequired[pulumi.Input[str]]
+        """
+        Display name of the label category.
+        """
+elif False:
+    LabelCategoryArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LabelCategoryArgs:
@@ -252,6 +355,22 @@ class LabelCategoryArgs:
         pulumi.set(self, "display_name", value)
 
 
+if not MYPY:
+    class LabelClassArgsDict(TypedDict):
+        """
+        Represents a label or a category of labels in a labeling job.
+        """
+        display_name: NotRequired[pulumi.Input[str]]
+        """
+        Display name of the label class.
+        """
+        subclasses: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['LabelClassArgsDict']]]]
+        """
+        Dictionary of subclasses of the label class.
+        """
+elif False:
+    LabelClassArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LabelClassArgs:
     def __init__(__self__, *,
@@ -291,6 +410,26 @@ class LabelClassArgs:
     def subclasses(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['LabelClassArgs']]]]):
         pulumi.set(self, "subclasses", value)
 
+
+if not MYPY:
+    class LabelingDatasetConfigurationArgsDict(TypedDict):
+        """
+        Represents configuration of dataset used in a labeling job.
+        """
+        asset_name: pulumi.Input[str]
+        """
+        Name of the data asset to perform labeling.
+        """
+        dataset_version: pulumi.Input[str]
+        """
+        AML dataset version.
+        """
+        enable_incremental_dataset_refresh: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether to enable incremental dataset refresh.
+        """
+elif False:
+    LabelingDatasetConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LabelingDatasetConfigurationArgs:
@@ -346,6 +485,19 @@ class LabelingDatasetConfigurationArgs:
         pulumi.set(self, "enable_incremental_dataset_refresh", value)
 
 
+if not MYPY:
+    class LabelingJobImagePropertiesArgsDict(TypedDict):
+        media_type: pulumi.Input[Union[str, 'MediaType']]
+        """
+        Media type of data asset.
+        """
+        annotation_type: NotRequired[pulumi.Input[Union[str, 'ImageAnnotationType']]]
+        """
+        Annotation type of image labeling tasks.
+        """
+elif False:
+    LabelingJobImagePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LabelingJobImagePropertiesArgs:
     def __init__(__self__, *,
@@ -384,6 +536,18 @@ class LabelingJobImagePropertiesArgs:
         pulumi.set(self, "annotation_type", value)
 
 
+if not MYPY:
+    class LabelingJobInstructionsArgsDict(TypedDict):
+        """
+        Instructions for a labeling job.
+        """
+        uri: NotRequired[pulumi.Input[str]]
+        """
+        The link to a page with detailed labeling instructions for labelers.
+        """
+elif False:
+    LabelingJobInstructionsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LabelingJobInstructionsArgs:
     def __init__(__self__, *,
@@ -407,6 +571,42 @@ class LabelingJobInstructionsArgs:
     def uri(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "uri", value)
 
+
+if not MYPY:
+    class LabelingJobPropertiesArgsDict(TypedDict):
+        """
+        Definition of a labeling job.
+        """
+        dataset_configuration: pulumi.Input['LabelingDatasetConfigurationArgsDict']
+        """
+        Dataset configuration for the job.
+        """
+        job_instructions: pulumi.Input['LabelingJobInstructionsArgsDict']
+        """
+        Instructions for the job.
+        """
+        label_categories: pulumi.Input[Mapping[str, pulumi.Input['LabelCategoryArgsDict']]]
+        """
+        Label categories of the job.
+        """
+        labeling_job_media_properties: pulumi.Input['LabelingJobImagePropertiesArgsDict']
+        """
+        Media specific properties in a labeling job.
+        """
+        ml_assist_configuration: NotRequired[pulumi.Input['MLAssistConfigurationArgsDict']]
+        """
+        Machine learning assisted configuration for the job.
+        """
+        properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        The job property dictionary. Properties can be added, but not removed or altered.
+        """
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        The job tag dictionary. Tags can be added, removed, and updated.
+        """
+elif False:
+    LabelingJobPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LabelingJobPropertiesArgs:
@@ -524,6 +724,30 @@ class LabelingJobPropertiesArgs:
         pulumi.set(self, "tags", value)
 
 
+if not MYPY:
+    class LinkedServicePropsArgsDict(TypedDict):
+        """
+        LinkedService specific properties.
+        """
+        linked_service_resource_id: pulumi.Input[str]
+        """
+        ResourceId of the link target of the linked service.
+        """
+        created_time: NotRequired[pulumi.Input[str]]
+        """
+        The creation time of the linked service.
+        """
+        link_type: NotRequired[pulumi.Input['LinkedServiceLinkType']]
+        """
+        Type of the link target.
+        """
+        modified_time: NotRequired[pulumi.Input[str]]
+        """
+        The last modified time of the linked service.
+        """
+elif False:
+    LinkedServicePropsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinkedServicePropsArgs:
     def __init__(__self__, *,
@@ -594,6 +818,34 @@ class LinkedServicePropsArgs:
     def modified_time(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "modified_time", value)
 
+
+if not MYPY:
+    class MLAssistConfigurationArgsDict(TypedDict):
+        """
+        Represents configuration for machine learning assisted features in a labeling job.
+        """
+        inferencing_compute_binding: pulumi.Input['ComputeBindingArgsDict']
+        """
+        The compute designated for inferencing.
+        """
+        model_name_prefix: pulumi.Input[str]
+        """
+        Name prefix to use for machine learning model. For each iteration modelName will be appended with iteration e.g.{modelName}_{i}.
+        """
+        training_compute_binding: pulumi.Input['ComputeBindingArgsDict']
+        """
+        The compute designated for training.
+        """
+        ml_assist_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether MLAssist feature is enabled.
+        """
+        prelabel_accuracy_threshold: NotRequired[pulumi.Input[float]]
+        """
+        Prelabel accuracy threshold used in MLAssist feature.
+        """
+elif False:
+    MLAssistConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MLAssistConfigurationArgs:
@@ -679,6 +931,31 @@ class MLAssistConfigurationArgs:
     def prelabel_accuracy_threshold(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "prelabel_accuracy_threshold", value)
 
+
+if not MYPY:
+    class SharedPrivateLinkResourceArgsDict(TypedDict):
+        group_id: NotRequired[pulumi.Input[str]]
+        """
+        The private link resource group id.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Unique name of the private link.
+        """
+        private_link_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        The resource id that private link links to.
+        """
+        request_message: NotRequired[pulumi.Input[str]]
+        """
+        Request message.
+        """
+        status: NotRequired[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]]
+        """
+        Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+        """
+elif False:
+    SharedPrivateLinkResourceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SharedPrivateLinkResourceArgs:
@@ -766,6 +1043,22 @@ class SharedPrivateLinkResourceArgs:
     def status(self, value: Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]]):
         pulumi.set(self, "status", value)
 
+
+if not MYPY:
+    class SkuArgsDict(TypedDict):
+        """
+        Sku of the resource
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the sku
+        """
+        tier: NotRequired[pulumi.Input[str]]
+        """
+        Tier of the sku like Basic or Enterprise
+        """
+elif False:
+    SkuArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SkuArgs:

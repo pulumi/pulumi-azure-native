@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -74,7 +79,7 @@ class HybridUseBenefit(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  plan_id: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  __props__=None):
         """
         Response on GET of a hybrid use benefit
@@ -84,7 +89,7 @@ class HybridUseBenefit(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] plan_id: This is a unique identifier for a plan. Should be a guid.
         :param pulumi.Input[str] scope: The scope at which the operation is performed. This is limited to Microsoft.Compute/virtualMachines and Microsoft.Compute/hostGroups/hosts for now
-        :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: Hybrid use benefit SKU
+        :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: Hybrid use benefit SKU
         """
         ...
     @overload
@@ -113,7 +118,7 @@ class HybridUseBenefit(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  plan_id: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

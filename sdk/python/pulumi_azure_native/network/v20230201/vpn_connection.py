@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -353,18 +358,18 @@ class VpnConnection(pulumi.CustomResource):
                  enable_rate_limiting: Optional[pulumi.Input[bool]] = None,
                  gateway_name: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
-                 ipsec_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpsecPolicyArgs']]]]] = None,
+                 ipsec_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IpsecPolicyArgs', 'IpsecPolicyArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 remote_vpn_site: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
+                 remote_vpn_site: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 routing_configuration: Optional[pulumi.Input[pulumi.InputType['RoutingConfigurationArgs']]] = None,
+                 routing_configuration: Optional[pulumi.Input[Union['RoutingConfigurationArgs', 'RoutingConfigurationArgsDict']]] = None,
                  routing_weight: Optional[pulumi.Input[int]] = None,
                  shared_key: Optional[pulumi.Input[str]] = None,
-                 traffic_selector_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TrafficSelectorPolicyArgs']]]]] = None,
+                 traffic_selector_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TrafficSelectorPolicyArgs', 'TrafficSelectorPolicyArgsDict']]]]] = None,
                  use_local_azure_ip_address: Optional[pulumi.Input[bool]] = None,
                  use_policy_based_traffic_selectors: Optional[pulumi.Input[bool]] = None,
                  vpn_connection_protocol_type: Optional[pulumi.Input[Union[str, 'VirtualNetworkGatewayConnectionProtocol']]] = None,
-                 vpn_link_connections: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnSiteLinkConnectionArgs']]]]] = None,
+                 vpn_link_connections: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VpnSiteLinkConnectionArgs', 'VpnSiteLinkConnectionArgsDict']]]]] = None,
                  __props__=None):
         """
         VpnConnection Resource.
@@ -379,18 +384,18 @@ class VpnConnection(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_rate_limiting: EnableBgp flag.
         :param pulumi.Input[str] gateway_name: The name of the gateway.
         :param pulumi.Input[str] id: Resource ID.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpsecPolicyArgs']]]] ipsec_policies: The IPSec Policies to be considered by this connection.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IpsecPolicyArgs', 'IpsecPolicyArgsDict']]]] ipsec_policies: The IPSec Policies to be considered by this connection.
         :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
-        :param pulumi.Input[pulumi.InputType['SubResourceArgs']] remote_vpn_site: Id of the connected vpn site.
+        :param pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']] remote_vpn_site: Id of the connected vpn site.
         :param pulumi.Input[str] resource_group_name: The resource group name of the VpnGateway.
-        :param pulumi.Input[pulumi.InputType['RoutingConfigurationArgs']] routing_configuration: The Routing Configuration indicating the associated and propagated route tables on this connection.
+        :param pulumi.Input[Union['RoutingConfigurationArgs', 'RoutingConfigurationArgsDict']] routing_configuration: The Routing Configuration indicating the associated and propagated route tables on this connection.
         :param pulumi.Input[int] routing_weight: Routing weight for vpn connection.
         :param pulumi.Input[str] shared_key: SharedKey for the vpn connection.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TrafficSelectorPolicyArgs']]]] traffic_selector_policies: The Traffic Selector Policies to be considered by this connection.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TrafficSelectorPolicyArgs', 'TrafficSelectorPolicyArgsDict']]]] traffic_selector_policies: The Traffic Selector Policies to be considered by this connection.
         :param pulumi.Input[bool] use_local_azure_ip_address: Use local azure ip to initiate connection.
         :param pulumi.Input[bool] use_policy_based_traffic_selectors: Enable policy-based traffic selectors.
         :param pulumi.Input[Union[str, 'VirtualNetworkGatewayConnectionProtocol']] vpn_connection_protocol_type: Connection protocol used for this connection.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnSiteLinkConnectionArgs']]]] vpn_link_connections: List of all vpn site link connections to the gateway.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['VpnSiteLinkConnectionArgs', 'VpnSiteLinkConnectionArgsDict']]]] vpn_link_connections: List of all vpn site link connections to the gateway.
         """
         ...
     @overload
@@ -424,18 +429,18 @@ class VpnConnection(pulumi.CustomResource):
                  enable_rate_limiting: Optional[pulumi.Input[bool]] = None,
                  gateway_name: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
-                 ipsec_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpsecPolicyArgs']]]]] = None,
+                 ipsec_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IpsecPolicyArgs', 'IpsecPolicyArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 remote_vpn_site: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
+                 remote_vpn_site: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 routing_configuration: Optional[pulumi.Input[pulumi.InputType['RoutingConfigurationArgs']]] = None,
+                 routing_configuration: Optional[pulumi.Input[Union['RoutingConfigurationArgs', 'RoutingConfigurationArgsDict']]] = None,
                  routing_weight: Optional[pulumi.Input[int]] = None,
                  shared_key: Optional[pulumi.Input[str]] = None,
-                 traffic_selector_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TrafficSelectorPolicyArgs']]]]] = None,
+                 traffic_selector_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TrafficSelectorPolicyArgs', 'TrafficSelectorPolicyArgsDict']]]]] = None,
                  use_local_azure_ip_address: Optional[pulumi.Input[bool]] = None,
                  use_policy_based_traffic_selectors: Optional[pulumi.Input[bool]] = None,
                  vpn_connection_protocol_type: Optional[pulumi.Input[Union[str, 'VirtualNetworkGatewayConnectionProtocol']]] = None,
-                 vpn_link_connections: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnSiteLinkConnectionArgs']]]]] = None,
+                 vpn_link_connections: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VpnSiteLinkConnectionArgs', 'VpnSiteLinkConnectionArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

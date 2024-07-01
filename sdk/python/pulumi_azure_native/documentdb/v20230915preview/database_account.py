@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -685,20 +690,20 @@ class DatabaseAccount(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
-                 analytical_storage_configuration: Optional[pulumi.Input[pulumi.InputType['AnalyticalStorageConfigurationArgs']]] = None,
-                 api_properties: Optional[pulumi.Input[pulumi.InputType['ApiPropertiesArgs']]] = None,
-                 backup_policy: Optional[pulumi.Input[Union[pulumi.InputType['ContinuousModeBackupPolicyArgs'], pulumi.InputType['PeriodicModeBackupPolicyArgs']]]] = None,
-                 capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CapabilityArgs']]]]] = None,
-                 capacity: Optional[pulumi.Input[pulumi.InputType['CapacityArgs']]] = None,
+                 analytical_storage_configuration: Optional[pulumi.Input[Union['AnalyticalStorageConfigurationArgs', 'AnalyticalStorageConfigurationArgsDict']]] = None,
+                 api_properties: Optional[pulumi.Input[Union['ApiPropertiesArgs', 'ApiPropertiesArgsDict']]] = None,
+                 backup_policy: Optional[pulumi.Input[Union[Union['ContinuousModeBackupPolicyArgs', 'ContinuousModeBackupPolicyArgsDict'], Union['PeriodicModeBackupPolicyArgs', 'PeriodicModeBackupPolicyArgsDict']]]] = None,
+                 capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CapabilityArgs', 'CapabilityArgsDict']]]]] = None,
+                 capacity: Optional[pulumi.Input[Union['CapacityArgs', 'CapacityArgsDict']]] = None,
                  connector_offer: Optional[pulumi.Input[Union[str, 'ConnectorOffer']]] = None,
-                 consistency_policy: Optional[pulumi.Input[pulumi.InputType['ConsistencyPolicyArgs']]] = None,
-                 cors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CorsPolicyArgs']]]]] = None,
+                 consistency_policy: Optional[pulumi.Input[Union['ConsistencyPolicyArgs', 'ConsistencyPolicyArgsDict']]] = None,
+                 cors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CorsPolicyArgs', 'CorsPolicyArgsDict']]]]] = None,
                  create_mode: Optional[pulumi.Input[Union[str, 'CreateMode']]] = None,
                  customer_managed_key_status: Optional[pulumi.Input[Union[str, 'CustomerManagedKeyStatus']]] = None,
                  database_account_offer_type: Optional[pulumi.Input['DatabaseAccountOfferType']] = None,
                  default_identity: Optional[pulumi.Input[str]] = None,
                  default_priority_level: Optional[pulumi.Input[Union[str, 'DefaultPriorityLevel']]] = None,
-                 diagnostic_log_settings: Optional[pulumi.Input[pulumi.InputType['DiagnosticLogSettingsArgs']]] = None,
+                 diagnostic_log_settings: Optional[pulumi.Input[Union['DiagnosticLogSettingsArgs', 'DiagnosticLogSettingsArgsDict']]] = None,
                  disable_key_based_metadata_write_access: Optional[pulumi.Input[bool]] = None,
                  disable_local_auth: Optional[pulumi.Input[bool]] = None,
                  enable_analytical_storage: Optional[pulumi.Input[bool]] = None,
@@ -710,21 +715,21 @@ class DatabaseAccount(pulumi.CustomResource):
                  enable_multiple_write_locations: Optional[pulumi.Input[bool]] = None,
                  enable_partition_merge: Optional[pulumi.Input[bool]] = None,
                  enable_priority_based_execution: Optional[pulumi.Input[bool]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
-                 ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpAddressOrRangeArgs']]]]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IpAddressOrRangeArgs', 'IpAddressOrRangeArgsDict']]]]] = None,
                  is_virtual_network_filter_enabled: Optional[pulumi.Input[bool]] = None,
                  key_vault_key_uri: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[Union[str, 'DatabaseAccountKind']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 locations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationArgs']]]]] = None,
+                 locations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LocationArgs', 'LocationArgsDict']]]]] = None,
                  minimal_tls_version: Optional[pulumi.Input[Union[str, 'MinimalTlsVersion']]] = None,
                  network_acl_bypass: Optional[pulumi.Input['NetworkAclBypass']] = None,
                  network_acl_bypass_resource_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 restore_parameters: Optional[pulumi.Input[pulumi.InputType['RestoreParametersArgs']]] = None,
+                 restore_parameters: Optional[pulumi.Input[Union['RestoreParametersArgs', 'RestoreParametersArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 virtual_network_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualNetworkRuleArgs']]]]] = None,
+                 virtual_network_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VirtualNetworkRuleArgs', 'VirtualNetworkRuleArgsDict']]]]] = None,
                  __props__=None):
         """
         An Azure Cosmos DB database account.
@@ -732,20 +737,20 @@ class DatabaseAccount(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: Cosmos DB database account name.
-        :param pulumi.Input[pulumi.InputType['AnalyticalStorageConfigurationArgs']] analytical_storage_configuration: Analytical storage specific properties.
-        :param pulumi.Input[pulumi.InputType['ApiPropertiesArgs']] api_properties: API specific properties. Currently, supported only for MongoDB API.
-        :param pulumi.Input[Union[pulumi.InputType['ContinuousModeBackupPolicyArgs'], pulumi.InputType['PeriodicModeBackupPolicyArgs']]] backup_policy: The object representing the policy for taking backups on an account.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CapabilityArgs']]]] capabilities: List of Cosmos DB capabilities for the account
-        :param pulumi.Input[pulumi.InputType['CapacityArgs']] capacity: The object that represents all properties related to capacity enforcement on an account.
+        :param pulumi.Input[Union['AnalyticalStorageConfigurationArgs', 'AnalyticalStorageConfigurationArgsDict']] analytical_storage_configuration: Analytical storage specific properties.
+        :param pulumi.Input[Union['ApiPropertiesArgs', 'ApiPropertiesArgsDict']] api_properties: API specific properties. Currently, supported only for MongoDB API.
+        :param pulumi.Input[Union[Union['ContinuousModeBackupPolicyArgs', 'ContinuousModeBackupPolicyArgsDict'], Union['PeriodicModeBackupPolicyArgs', 'PeriodicModeBackupPolicyArgsDict']]] backup_policy: The object representing the policy for taking backups on an account.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CapabilityArgs', 'CapabilityArgsDict']]]] capabilities: List of Cosmos DB capabilities for the account
+        :param pulumi.Input[Union['CapacityArgs', 'CapacityArgsDict']] capacity: The object that represents all properties related to capacity enforcement on an account.
         :param pulumi.Input[Union[str, 'ConnectorOffer']] connector_offer: The cassandra connector offer type for the Cosmos DB database C* account.
-        :param pulumi.Input[pulumi.InputType['ConsistencyPolicyArgs']] consistency_policy: The consistency policy for the Cosmos DB account.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CorsPolicyArgs']]]] cors: The CORS policy for the Cosmos DB database account.
+        :param pulumi.Input[Union['ConsistencyPolicyArgs', 'ConsistencyPolicyArgsDict']] consistency_policy: The consistency policy for the Cosmos DB account.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CorsPolicyArgs', 'CorsPolicyArgsDict']]]] cors: The CORS policy for the Cosmos DB database account.
         :param pulumi.Input[Union[str, 'CreateMode']] create_mode: Enum to indicate the mode of account creation.
         :param pulumi.Input[Union[str, 'CustomerManagedKeyStatus']] customer_managed_key_status: Indicates the status of the Customer Managed Key feature on the account. In case there are errors, the property provides troubleshooting guidance.
         :param pulumi.Input['DatabaseAccountOfferType'] database_account_offer_type: The offer type for the database
         :param pulumi.Input[str] default_identity: The default identity for accessing key vault used in features like customer managed keys. The default identity needs to be explicitly set by the users. It can be "FirstPartyIdentity", "SystemAssignedIdentity" and more.
         :param pulumi.Input[Union[str, 'DefaultPriorityLevel']] default_priority_level: Enum to indicate default Priority Level of request for Priority Based Execution.
-        :param pulumi.Input[pulumi.InputType['DiagnosticLogSettingsArgs']] diagnostic_log_settings: The Object representing the different Diagnostic log settings for the Cosmos DB Account.
+        :param pulumi.Input[Union['DiagnosticLogSettingsArgs', 'DiagnosticLogSettingsArgsDict']] diagnostic_log_settings: The Object representing the different Diagnostic log settings for the Cosmos DB Account.
         :param pulumi.Input[bool] disable_key_based_metadata_write_access: Disable write operations on metadata resources (databases, containers, throughput) via account keys
         :param pulumi.Input[bool] disable_local_auth: Opt-out of local authentication and ensure only MSI and AAD can be used exclusively for authentication.
         :param pulumi.Input[bool] enable_analytical_storage: Flag to indicate whether to enable storage analytics.
@@ -757,21 +762,21 @@ class DatabaseAccount(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_multiple_write_locations: Enables the account to write in multiple locations
         :param pulumi.Input[bool] enable_partition_merge: Flag to indicate enabling/disabling of Partition Merge feature on the account
         :param pulumi.Input[bool] enable_priority_based_execution: Flag to indicate enabling/disabling of Priority Based Execution Preview feature on the account
-        :param pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']] identity: Identity for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpAddressOrRangeArgs']]]] ip_rules: List of IpRules.
+        :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: Identity for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IpAddressOrRangeArgs', 'IpAddressOrRangeArgsDict']]]] ip_rules: List of IpRules.
         :param pulumi.Input[bool] is_virtual_network_filter_enabled: Flag to indicate whether to enable/disable Virtual Network ACL rules.
         :param pulumi.Input[str] key_vault_key_uri: The URI of the key vault
         :param pulumi.Input[Union[str, 'DatabaseAccountKind']] kind: Indicates the type of database account. This can only be set at database account creation.
         :param pulumi.Input[str] location: The location of the resource group to which the resource belongs.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationArgs']]]] locations: An array that contains the georeplication locations enabled for the Cosmos DB account.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LocationArgs', 'LocationArgsDict']]]] locations: An array that contains the georeplication locations enabled for the Cosmos DB account.
         :param pulumi.Input[Union[str, 'MinimalTlsVersion']] minimal_tls_version: Indicates the minimum allowed Tls version. The default is Tls 1.0, except for Cassandra and Mongo API's, which only work with Tls 1.2.
         :param pulumi.Input['NetworkAclBypass'] network_acl_bypass: Indicates what services are allowed to bypass firewall checks.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_acl_bypass_resource_ids: An array that contains the Resource Ids for Network Acl Bypass for the Cosmos DB account.
         :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: Whether requests from Public Network are allowed
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[pulumi.InputType['RestoreParametersArgs']] restore_parameters: Parameters to indicate the information about the restore.
+        :param pulumi.Input[Union['RestoreParametersArgs', 'RestoreParametersArgsDict']] restore_parameters: Parameters to indicate the information about the restore.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualNetworkRuleArgs']]]] virtual_network_rules: List of Virtual Network ACL rules configured for the Cosmos DB account.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['VirtualNetworkRuleArgs', 'VirtualNetworkRuleArgsDict']]]] virtual_network_rules: List of Virtual Network ACL rules configured for the Cosmos DB account.
         """
         ...
     @overload
@@ -798,20 +803,20 @@ class DatabaseAccount(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
-                 analytical_storage_configuration: Optional[pulumi.Input[pulumi.InputType['AnalyticalStorageConfigurationArgs']]] = None,
-                 api_properties: Optional[pulumi.Input[pulumi.InputType['ApiPropertiesArgs']]] = None,
-                 backup_policy: Optional[pulumi.Input[Union[pulumi.InputType['ContinuousModeBackupPolicyArgs'], pulumi.InputType['PeriodicModeBackupPolicyArgs']]]] = None,
-                 capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CapabilityArgs']]]]] = None,
-                 capacity: Optional[pulumi.Input[pulumi.InputType['CapacityArgs']]] = None,
+                 analytical_storage_configuration: Optional[pulumi.Input[Union['AnalyticalStorageConfigurationArgs', 'AnalyticalStorageConfigurationArgsDict']]] = None,
+                 api_properties: Optional[pulumi.Input[Union['ApiPropertiesArgs', 'ApiPropertiesArgsDict']]] = None,
+                 backup_policy: Optional[pulumi.Input[Union[Union['ContinuousModeBackupPolicyArgs', 'ContinuousModeBackupPolicyArgsDict'], Union['PeriodicModeBackupPolicyArgs', 'PeriodicModeBackupPolicyArgsDict']]]] = None,
+                 capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CapabilityArgs', 'CapabilityArgsDict']]]]] = None,
+                 capacity: Optional[pulumi.Input[Union['CapacityArgs', 'CapacityArgsDict']]] = None,
                  connector_offer: Optional[pulumi.Input[Union[str, 'ConnectorOffer']]] = None,
-                 consistency_policy: Optional[pulumi.Input[pulumi.InputType['ConsistencyPolicyArgs']]] = None,
-                 cors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CorsPolicyArgs']]]]] = None,
+                 consistency_policy: Optional[pulumi.Input[Union['ConsistencyPolicyArgs', 'ConsistencyPolicyArgsDict']]] = None,
+                 cors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CorsPolicyArgs', 'CorsPolicyArgsDict']]]]] = None,
                  create_mode: Optional[pulumi.Input[Union[str, 'CreateMode']]] = None,
                  customer_managed_key_status: Optional[pulumi.Input[Union[str, 'CustomerManagedKeyStatus']]] = None,
                  database_account_offer_type: Optional[pulumi.Input['DatabaseAccountOfferType']] = None,
                  default_identity: Optional[pulumi.Input[str]] = None,
                  default_priority_level: Optional[pulumi.Input[Union[str, 'DefaultPriorityLevel']]] = None,
-                 diagnostic_log_settings: Optional[pulumi.Input[pulumi.InputType['DiagnosticLogSettingsArgs']]] = None,
+                 diagnostic_log_settings: Optional[pulumi.Input[Union['DiagnosticLogSettingsArgs', 'DiagnosticLogSettingsArgsDict']]] = None,
                  disable_key_based_metadata_write_access: Optional[pulumi.Input[bool]] = None,
                  disable_local_auth: Optional[pulumi.Input[bool]] = None,
                  enable_analytical_storage: Optional[pulumi.Input[bool]] = None,
@@ -823,21 +828,21 @@ class DatabaseAccount(pulumi.CustomResource):
                  enable_multiple_write_locations: Optional[pulumi.Input[bool]] = None,
                  enable_partition_merge: Optional[pulumi.Input[bool]] = None,
                  enable_priority_based_execution: Optional[pulumi.Input[bool]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
-                 ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpAddressOrRangeArgs']]]]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IpAddressOrRangeArgs', 'IpAddressOrRangeArgsDict']]]]] = None,
                  is_virtual_network_filter_enabled: Optional[pulumi.Input[bool]] = None,
                  key_vault_key_uri: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[Union[str, 'DatabaseAccountKind']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 locations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationArgs']]]]] = None,
+                 locations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LocationArgs', 'LocationArgsDict']]]]] = None,
                  minimal_tls_version: Optional[pulumi.Input[Union[str, 'MinimalTlsVersion']]] = None,
                  network_acl_bypass: Optional[pulumi.Input['NetworkAclBypass']] = None,
                  network_acl_bypass_resource_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 restore_parameters: Optional[pulumi.Input[pulumi.InputType['RestoreParametersArgs']]] = None,
+                 restore_parameters: Optional[pulumi.Input[Union['RestoreParametersArgs', 'RestoreParametersArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 virtual_network_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualNetworkRuleArgs']]]]] = None,
+                 virtual_network_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VirtualNetworkRuleArgs', 'VirtualNetworkRuleArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

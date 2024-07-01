@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -203,7 +208,7 @@ class User(pulumi.CustomResource):
                  confirmation: Optional[pulumi.Input[Union[str, 'Confirmation']]] = None,
                  email: Optional[pulumi.Input[str]] = None,
                  first_name: Optional[pulumi.Input[str]] = None,
-                 identities: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserIdentityContractArgs']]]]] = None,
+                 identities: Optional[pulumi.Input[Sequence[pulumi.Input[Union['UserIdentityContractArgs', 'UserIdentityContractArgsDict']]]]] = None,
                  last_name: Optional[pulumi.Input[str]] = None,
                  note: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
@@ -220,7 +225,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'Confirmation']] confirmation: Determines the type of confirmation e-mail that will be sent to the newly created user.
         :param pulumi.Input[str] email: Email address. Must not be empty and must be unique within the service instance.
         :param pulumi.Input[str] first_name: First name.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserIdentityContractArgs']]]] identities: Collection of user identities.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['UserIdentityContractArgs', 'UserIdentityContractArgsDict']]]] identities: Collection of user identities.
         :param pulumi.Input[str] last_name: Last name.
         :param pulumi.Input[str] note: Optional note about a user set by the administrator.
         :param pulumi.Input[str] password: User Password. If no value is provided, a default password is generated.
@@ -256,7 +261,7 @@ class User(pulumi.CustomResource):
                  confirmation: Optional[pulumi.Input[Union[str, 'Confirmation']]] = None,
                  email: Optional[pulumi.Input[str]] = None,
                  first_name: Optional[pulumi.Input[str]] = None,
-                 identities: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserIdentityContractArgs']]]]] = None,
+                 identities: Optional[pulumi.Input[Sequence[pulumi.Input[Union['UserIdentityContractArgs', 'UserIdentityContractArgsDict']]]]] = None,
                  last_name: Optional[pulumi.Input[str]] = None,
                  note: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,

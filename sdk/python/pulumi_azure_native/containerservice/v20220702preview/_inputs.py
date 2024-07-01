@@ -4,14 +4,34 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 
 __all__ = [
     'FleetHubProfileArgs',
+    'FleetHubProfileArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class FleetHubProfileArgsDict(TypedDict):
+        """
+        The FleetHubProfile configures the fleet hub.
+        """
+        dns_prefix: NotRequired[pulumi.Input[str]]
+        """
+        DNS prefix used to create the FQDN for the Fleet hub.
+        """
+elif False:
+    FleetHubProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FleetHubProfileArgs:

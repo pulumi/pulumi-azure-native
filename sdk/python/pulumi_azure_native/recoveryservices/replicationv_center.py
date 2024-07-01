@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -104,7 +109,7 @@ class ReplicationvCenter(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  fabric_name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['AddVCenterRequestPropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['AddVCenterRequestPropertiesArgs', 'AddVCenterRequestPropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
                  vcenter_name: Optional[pulumi.Input[str]] = None,
@@ -118,7 +123,7 @@ class ReplicationvCenter(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] fabric_name: Fabric name.
-        :param pulumi.Input[pulumi.InputType['AddVCenterRequestPropertiesArgs']] properties: The properties of an add vCenter request.
+        :param pulumi.Input[Union['AddVCenterRequestPropertiesArgs', 'AddVCenterRequestPropertiesArgsDict']] properties: The properties of an add vCenter request.
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the recovery services vault is present.
         :param pulumi.Input[str] resource_name_: The name of the recovery services vault.
         :param pulumi.Input[str] vcenter_name: vcenter name.
@@ -151,7 +156,7 @@ class ReplicationvCenter(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  fabric_name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['AddVCenterRequestPropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['AddVCenterRequestPropertiesArgs', 'AddVCenterRequestPropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
                  vcenter_name: Optional[pulumi.Input[str]] = None,

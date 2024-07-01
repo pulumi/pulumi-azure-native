@@ -4,91 +4,191 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'AbsoluteMonthlyScheduleArgs',
+    'AbsoluteMonthlyScheduleArgsDict',
     'AgentPoolNetworkProfileArgs',
+    'AgentPoolNetworkProfileArgsDict',
     'AgentPoolUpgradeSettingsArgs',
+    'AgentPoolUpgradeSettingsArgsDict',
     'AzureKeyVaultKmsArgs',
+    'AzureKeyVaultKmsArgsDict',
     'ClusterUpgradeSettingsArgs',
+    'ClusterUpgradeSettingsArgsDict',
     'ContainerServiceLinuxProfileArgs',
+    'ContainerServiceLinuxProfileArgsDict',
     'ContainerServiceNetworkProfileArgs',
+    'ContainerServiceNetworkProfileArgsDict',
     'ContainerServiceSshConfigurationArgs',
+    'ContainerServiceSshConfigurationArgsDict',
     'ContainerServiceSshPublicKeyArgs',
+    'ContainerServiceSshPublicKeyArgsDict',
     'CreationDataArgs',
+    'CreationDataArgsDict',
     'DailyScheduleArgs',
+    'DailyScheduleArgsDict',
     'DateSpanArgs',
+    'DateSpanArgsDict',
     'DelegatedResourceArgs',
+    'DelegatedResourceArgsDict',
     'ExtendedLocationArgs',
+    'ExtendedLocationArgsDict',
     'IPTagArgs',
+    'IPTagArgsDict',
     'IstioCertificateAuthorityArgs',
+    'IstioCertificateAuthorityArgsDict',
     'IstioComponentsArgs',
+    'IstioComponentsArgsDict',
     'IstioEgressGatewayArgs',
+    'IstioEgressGatewayArgsDict',
     'IstioIngressGatewayArgs',
+    'IstioIngressGatewayArgsDict',
     'IstioPluginCertificateAuthorityArgs',
+    'IstioPluginCertificateAuthorityArgsDict',
     'IstioServiceMeshArgs',
+    'IstioServiceMeshArgsDict',
     'KubeletConfigArgs',
+    'KubeletConfigArgsDict',
     'LinuxOSConfigArgs',
+    'LinuxOSConfigArgsDict',
     'MaintenanceWindowArgs',
+    'MaintenanceWindowArgsDict',
     'ManagedClusterAADProfileArgs',
+    'ManagedClusterAADProfileArgsDict',
     'ManagedClusterAPIServerAccessProfileArgs',
+    'ManagedClusterAPIServerAccessProfileArgsDict',
     'ManagedClusterAddonProfileArgs',
+    'ManagedClusterAddonProfileArgsDict',
     'ManagedClusterAgentPoolProfileArgs',
+    'ManagedClusterAgentPoolProfileArgsDict',
     'ManagedClusterAutoUpgradeProfileArgs',
+    'ManagedClusterAutoUpgradeProfileArgsDict',
     'ManagedClusterAzureMonitorProfileKubeStateMetricsArgs',
+    'ManagedClusterAzureMonitorProfileKubeStateMetricsArgsDict',
     'ManagedClusterAzureMonitorProfileMetricsArgs',
+    'ManagedClusterAzureMonitorProfileMetricsArgsDict',
     'ManagedClusterAzureMonitorProfileArgs',
+    'ManagedClusterAzureMonitorProfileArgsDict',
     'ManagedClusterHTTPProxyConfigArgs',
+    'ManagedClusterHTTPProxyConfigArgsDict',
     'ManagedClusterIdentityArgs',
+    'ManagedClusterIdentityArgsDict',
     'ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs',
+    'ManagedClusterLoadBalancerProfileManagedOutboundIPsArgsDict',
     'ManagedClusterLoadBalancerProfileOutboundIPPrefixesArgs',
+    'ManagedClusterLoadBalancerProfileOutboundIPPrefixesArgsDict',
     'ManagedClusterLoadBalancerProfileOutboundIPsArgs',
+    'ManagedClusterLoadBalancerProfileOutboundIPsArgsDict',
     'ManagedClusterLoadBalancerProfileArgs',
+    'ManagedClusterLoadBalancerProfileArgsDict',
     'ManagedClusterManagedOutboundIPProfileArgs',
+    'ManagedClusterManagedOutboundIPProfileArgsDict',
     'ManagedClusterNATGatewayProfileArgs',
+    'ManagedClusterNATGatewayProfileArgsDict',
     'ManagedClusterOIDCIssuerProfileArgs',
+    'ManagedClusterOIDCIssuerProfileArgsDict',
     'ManagedClusterPodIdentityExceptionArgs',
+    'ManagedClusterPodIdentityExceptionArgsDict',
     'ManagedClusterPodIdentityProfileArgs',
+    'ManagedClusterPodIdentityProfileArgsDict',
     'ManagedClusterPodIdentityArgs',
+    'ManagedClusterPodIdentityArgsDict',
     'ManagedClusterPropertiesAutoScalerProfileArgs',
+    'ManagedClusterPropertiesAutoScalerProfileArgsDict',
     'ManagedClusterSKUArgs',
+    'ManagedClusterSKUArgsDict',
     'ManagedClusterSecurityProfileDefenderSecurityMonitoringArgs',
+    'ManagedClusterSecurityProfileDefenderSecurityMonitoringArgsDict',
     'ManagedClusterSecurityProfileDefenderArgs',
+    'ManagedClusterSecurityProfileDefenderArgsDict',
     'ManagedClusterSecurityProfileImageCleanerArgs',
+    'ManagedClusterSecurityProfileImageCleanerArgsDict',
     'ManagedClusterSecurityProfileWorkloadIdentityArgs',
+    'ManagedClusterSecurityProfileWorkloadIdentityArgsDict',
     'ManagedClusterSecurityProfileArgs',
+    'ManagedClusterSecurityProfileArgsDict',
     'ManagedClusterServicePrincipalProfileArgs',
+    'ManagedClusterServicePrincipalProfileArgsDict',
     'ManagedClusterStorageProfileBlobCSIDriverArgs',
+    'ManagedClusterStorageProfileBlobCSIDriverArgsDict',
     'ManagedClusterStorageProfileDiskCSIDriverArgs',
+    'ManagedClusterStorageProfileDiskCSIDriverArgsDict',
     'ManagedClusterStorageProfileFileCSIDriverArgs',
+    'ManagedClusterStorageProfileFileCSIDriverArgsDict',
     'ManagedClusterStorageProfileSnapshotControllerArgs',
+    'ManagedClusterStorageProfileSnapshotControllerArgsDict',
     'ManagedClusterStorageProfileArgs',
+    'ManagedClusterStorageProfileArgsDict',
     'ManagedClusterWindowsProfileArgs',
+    'ManagedClusterWindowsProfileArgsDict',
     'ManagedClusterWorkloadAutoScalerProfileKedaArgs',
+    'ManagedClusterWorkloadAutoScalerProfileKedaArgsDict',
     'ManagedClusterWorkloadAutoScalerProfileVerticalPodAutoscalerArgs',
+    'ManagedClusterWorkloadAutoScalerProfileVerticalPodAutoscalerArgsDict',
     'ManagedClusterWorkloadAutoScalerProfileArgs',
+    'ManagedClusterWorkloadAutoScalerProfileArgsDict',
     'PortRangeArgs',
+    'PortRangeArgsDict',
     'PowerStateArgs',
+    'PowerStateArgsDict',
     'PrivateEndpointArgs',
+    'PrivateEndpointArgsDict',
     'PrivateLinkResourceArgs',
+    'PrivateLinkResourceArgsDict',
     'PrivateLinkServiceConnectionStateArgs',
+    'PrivateLinkServiceConnectionStateArgsDict',
     'RelativeMonthlyScheduleArgs',
+    'RelativeMonthlyScheduleArgsDict',
     'ResourceReferenceArgs',
+    'ResourceReferenceArgsDict',
     'ScheduleArgs',
+    'ScheduleArgsDict',
     'ServiceMeshProfileArgs',
+    'ServiceMeshProfileArgsDict',
     'SysctlConfigArgs',
+    'SysctlConfigArgsDict',
     'TimeInWeekArgs',
+    'TimeInWeekArgsDict',
     'TimeSpanArgs',
+    'TimeSpanArgsDict',
     'UpgradeOverrideSettingsArgs',
+    'UpgradeOverrideSettingsArgsDict',
     'UserAssignedIdentityArgs',
+    'UserAssignedIdentityArgsDict',
     'WeeklyScheduleArgs',
+    'WeeklyScheduleArgsDict',
     'WindowsGmsaProfileArgs',
+    'WindowsGmsaProfileArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AbsoluteMonthlyScheduleArgsDict(TypedDict):
+        """
+        For schedules like: 'recur every month on the 15th' or 'recur every 3 months on the 20th'.
+        """
+        day_of_month: pulumi.Input[int]
+        """
+        The date of the month.
+        """
+        interval_months: pulumi.Input[int]
+        """
+        Specifies the number of months between each set of occurrences.
+        """
+elif False:
+    AbsoluteMonthlyScheduleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AbsoluteMonthlyScheduleArgs:
@@ -127,6 +227,26 @@ class AbsoluteMonthlyScheduleArgs:
     def interval_months(self, value: pulumi.Input[int]):
         pulumi.set(self, "interval_months", value)
 
+
+if not MYPY:
+    class AgentPoolNetworkProfileArgsDict(TypedDict):
+        """
+        Network settings of an agent pool.
+        """
+        allowed_host_ports: NotRequired[pulumi.Input[Sequence[pulumi.Input['PortRangeArgsDict']]]]
+        """
+        The port ranges that are allowed to access. The specified ranges are allowed to overlap.
+        """
+        application_security_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The IDs of the application security groups which agent pool will associate when created.
+        """
+        node_public_ip_tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['IPTagArgsDict']]]]
+        """
+        IPTags of instance-level public IPs.
+        """
+elif False:
+    AgentPoolNetworkProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AgentPoolNetworkProfileArgs:
@@ -184,6 +304,26 @@ class AgentPoolNetworkProfileArgs:
         pulumi.set(self, "node_public_ip_tags", value)
 
 
+if not MYPY:
+    class AgentPoolUpgradeSettingsArgsDict(TypedDict):
+        """
+        Settings for upgrading an agentpool
+        """
+        drain_timeout_in_minutes: NotRequired[pulumi.Input[int]]
+        """
+        The amount of time (in minutes) to wait on eviction of pods and graceful termination per node. This eviction wait time honors waiting on pod disruption budgets. If this time is exceeded, the upgrade fails. If not specified, the default is 30 minutes.
+        """
+        max_surge: NotRequired[pulumi.Input[str]]
+        """
+        This can either be set to an integer (e.g. '5') or a percentage (e.g. '50%'). If a percentage is specified, it is the percentage of the total agent pool size at the time of the upgrade. For percentages, fractional nodes are rounded up. If not specified, the default is 1. For more information, including best practices, see: https://docs.microsoft.com/azure/aks/upgrade-cluster#customize-node-surge-upgrade
+        """
+        node_soak_duration_in_minutes: NotRequired[pulumi.Input[int]]
+        """
+        The amount of time (in minutes) to wait after draining a node and before reimaging it and moving on to next node. If not specified, the default is 0 minutes.
+        """
+elif False:
+    AgentPoolUpgradeSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AgentPoolUpgradeSettingsArgs:
     def __init__(__self__, *,
@@ -239,6 +379,30 @@ class AgentPoolUpgradeSettingsArgs:
     def node_soak_duration_in_minutes(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "node_soak_duration_in_minutes", value)
 
+
+if not MYPY:
+    class AzureKeyVaultKmsArgsDict(TypedDict):
+        """
+        Azure Key Vault key management service settings for the security profile.
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Whether to enable Azure Key Vault key management service. The default is false.
+        """
+        key_id: NotRequired[pulumi.Input[str]]
+        """
+        Identifier of Azure Key Vault key. See [key identifier format](https://docs.microsoft.com/en-us/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details. When Azure Key Vault key management service is enabled, this field is required and must be a valid key identifier. When Azure Key Vault key management service is disabled, leave the field empty.
+        """
+        key_vault_network_access: NotRequired[pulumi.Input[Union[str, 'KeyVaultNetworkAccessTypes']]]
+        """
+        Network access of key vault. The possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link. The default value is `Public`.
+        """
+        key_vault_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID of key vault. When keyVaultNetworkAccess is `Private`, this field is required and must be a valid resource ID. When keyVaultNetworkAccess is `Public`, leave the field empty.
+        """
+elif False:
+    AzureKeyVaultKmsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AzureKeyVaultKmsArgs:
@@ -314,6 +478,18 @@ class AzureKeyVaultKmsArgs:
         pulumi.set(self, "key_vault_resource_id", value)
 
 
+if not MYPY:
+    class ClusterUpgradeSettingsArgsDict(TypedDict):
+        """
+        Settings for upgrading a cluster.
+        """
+        override_settings: NotRequired[pulumi.Input['UpgradeOverrideSettingsArgsDict']]
+        """
+        Settings for overrides.
+        """
+elif False:
+    ClusterUpgradeSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ClusterUpgradeSettingsArgs:
     def __init__(__self__, *,
@@ -337,6 +513,22 @@ class ClusterUpgradeSettingsArgs:
     def override_settings(self, value: Optional[pulumi.Input['UpgradeOverrideSettingsArgs']]):
         pulumi.set(self, "override_settings", value)
 
+
+if not MYPY:
+    class ContainerServiceLinuxProfileArgsDict(TypedDict):
+        """
+        Profile for Linux VMs in the container service cluster.
+        """
+        admin_username: pulumi.Input[str]
+        """
+        The administrator username to use for Linux VMs.
+        """
+        ssh: pulumi.Input['ContainerServiceSshConfigurationArgsDict']
+        """
+        The SSH configuration for Linux-based VMs running on Azure.
+        """
+elif False:
+    ContainerServiceLinuxProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ContainerServiceLinuxProfileArgs:
@@ -375,6 +567,74 @@ class ContainerServiceLinuxProfileArgs:
     def ssh(self, value: pulumi.Input['ContainerServiceSshConfigurationArgs']):
         pulumi.set(self, "ssh", value)
 
+
+if not MYPY:
+    class ContainerServiceNetworkProfileArgsDict(TypedDict):
+        """
+        Profile of network configuration.
+        """
+        dns_service_ip: NotRequired[pulumi.Input[str]]
+        """
+        An IP address assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range specified in serviceCidr.
+        """
+        ip_families: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'IpFamily']]]]]
+        """
+        IP families are used to determine single-stack or dual-stack clusters. For single-stack, the expected value is IPv4. For dual-stack, the expected values are IPv4 and IPv6.
+        """
+        load_balancer_profile: NotRequired[pulumi.Input['ManagedClusterLoadBalancerProfileArgsDict']]
+        """
+        Profile of the cluster load balancer.
+        """
+        load_balancer_sku: NotRequired[pulumi.Input[Union[str, 'LoadBalancerSku']]]
+        """
+        The default is 'standard'. See [Azure Load Balancer SKUs](https://docs.microsoft.com/azure/load-balancer/skus) for more information about the differences between load balancer SKUs.
+        """
+        nat_gateway_profile: NotRequired[pulumi.Input['ManagedClusterNATGatewayProfileArgsDict']]
+        """
+        Profile of the cluster NAT gateway.
+        """
+        network_dataplane: NotRequired[pulumi.Input[Union[str, 'NetworkDataplane']]]
+        """
+        Network dataplane used in the Kubernetes cluster.
+        """
+        network_mode: NotRequired[pulumi.Input[Union[str, 'NetworkMode']]]
+        """
+        This cannot be specified if networkPlugin is anything other than 'azure'.
+        """
+        network_plugin: NotRequired[pulumi.Input[Union[str, 'NetworkPlugin']]]
+        """
+        Network plugin used for building the Kubernetes network.
+        """
+        network_plugin_mode: NotRequired[pulumi.Input[Union[str, 'NetworkPluginMode']]]
+        """
+        The mode the network plugin should use.
+        """
+        network_policy: NotRequired[pulumi.Input[Union[str, 'NetworkPolicy']]]
+        """
+        Network policy used for building the Kubernetes network.
+        """
+        outbound_type: NotRequired[pulumi.Input[Union[str, 'OutboundType']]]
+        """
+        This can only be set at cluster creation time and cannot be changed later. For more information see [egress outbound type](https://docs.microsoft.com/azure/aks/egress-outboundtype).
+        """
+        pod_cidr: NotRequired[pulumi.Input[str]]
+        """
+        A CIDR notation IP range from which to assign pod IPs when kubenet is used.
+        """
+        pod_cidrs: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        One IPv4 CIDR is expected for single-stack networking. Two CIDRs, one for each IP family (IPv4/IPv6), is expected for dual-stack networking.
+        """
+        service_cidr: NotRequired[pulumi.Input[str]]
+        """
+        A CIDR notation IP range from which to assign service cluster IPs. It must not overlap with any Subnet IP ranges.
+        """
+        service_cidrs: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        One IPv4 CIDR is expected for single-stack networking. Two CIDRs, one for each IP family (IPv4/IPv6), is expected for dual-stack networking. They must not overlap with any Subnet IP ranges.
+        """
+elif False:
+    ContainerServiceNetworkProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ContainerServiceNetworkProfileArgs:
@@ -634,6 +894,18 @@ class ContainerServiceNetworkProfileArgs:
         pulumi.set(self, "service_cidrs", value)
 
 
+if not MYPY:
+    class ContainerServiceSshConfigurationArgsDict(TypedDict):
+        """
+        SSH configuration for Linux-based VMs running on Azure.
+        """
+        public_keys: pulumi.Input[Sequence[pulumi.Input['ContainerServiceSshPublicKeyArgsDict']]]
+        """
+        The list of SSH public keys used to authenticate with Linux-based VMs. A maximum of 1 key may be specified.
+        """
+elif False:
+    ContainerServiceSshConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ContainerServiceSshConfigurationArgs:
     def __init__(__self__, *,
@@ -657,6 +929,18 @@ class ContainerServiceSshConfigurationArgs:
         pulumi.set(self, "public_keys", value)
 
 
+if not MYPY:
+    class ContainerServiceSshPublicKeyArgsDict(TypedDict):
+        """
+        Contains information about SSH certificate public key data.
+        """
+        key_data: pulumi.Input[str]
+        """
+        Certificate public key used to authenticate with VMs through SSH. The certificate must be in PEM format with or without headers.
+        """
+elif False:
+    ContainerServiceSshPublicKeyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ContainerServiceSshPublicKeyArgs:
     def __init__(__self__, *,
@@ -679,6 +963,18 @@ class ContainerServiceSshPublicKeyArgs:
     def key_data(self, value: pulumi.Input[str]):
         pulumi.set(self, "key_data", value)
 
+
+if not MYPY:
+    class CreationDataArgsDict(TypedDict):
+        """
+        Data used when creating a target resource from a source resource.
+        """
+        source_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        This is the ARM ID of the source object to be used to create the target object.
+        """
+elif False:
+    CreationDataArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CreationDataArgs:
@@ -704,6 +1000,18 @@ class CreationDataArgs:
         pulumi.set(self, "source_resource_id", value)
 
 
+if not MYPY:
+    class DailyScheduleArgsDict(TypedDict):
+        """
+        For schedules like: 'recur every day' or 'recur every 3 days'.
+        """
+        interval_days: pulumi.Input[int]
+        """
+        Specifies the number of days between each set of occurrences.
+        """
+elif False:
+    DailyScheduleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DailyScheduleArgs:
     def __init__(__self__, *,
@@ -726,6 +1034,22 @@ class DailyScheduleArgs:
     def interval_days(self, value: pulumi.Input[int]):
         pulumi.set(self, "interval_days", value)
 
+
+if not MYPY:
+    class DateSpanArgsDict(TypedDict):
+        """
+        For example, between '2022-12-23' and '2023-01-05'.
+        """
+        end: pulumi.Input[str]
+        """
+        The end date of the date span.
+        """
+        start: pulumi.Input[str]
+        """
+        The start date of the date span.
+        """
+elif False:
+    DateSpanArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DateSpanArgs:
@@ -764,6 +1088,30 @@ class DateSpanArgs:
     def start(self, value: pulumi.Input[str]):
         pulumi.set(self, "start", value)
 
+
+if not MYPY:
+    class DelegatedResourceArgsDict(TypedDict):
+        """
+        Delegated resource properties - internal use only.
+        """
+        location: NotRequired[pulumi.Input[str]]
+        """
+        The source resource location - internal use only.
+        """
+        referral_resource: NotRequired[pulumi.Input[str]]
+        """
+        The delegation id of the referral delegation (optional) - internal use only.
+        """
+        resource_id: NotRequired[pulumi.Input[str]]
+        """
+        The ARM resource id of the delegated resource - internal use only.
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        The tenant id of the delegated resource - internal use only.
+        """
+elif False:
+    DelegatedResourceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DelegatedResourceArgs:
@@ -837,6 +1185,22 @@ class DelegatedResourceArgs:
         pulumi.set(self, "tenant_id", value)
 
 
+if not MYPY:
+    class ExtendedLocationArgsDict(TypedDict):
+        """
+        The complex type of the extended location.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the extended location.
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'ExtendedLocationTypes']]]
+        """
+        The type of the extended location.
+        """
+elif False:
+    ExtendedLocationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ExtendedLocationArgs:
     def __init__(__self__, *,
@@ -876,6 +1240,22 @@ class ExtendedLocationArgs:
     def type(self, value: Optional[pulumi.Input[Union[str, 'ExtendedLocationTypes']]]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class IPTagArgsDict(TypedDict):
+        """
+        Contains the IPTag associated with the object.
+        """
+        ip_tag_type: NotRequired[pulumi.Input[str]]
+        """
+        The IP tag type. Example: RoutingPreference.
+        """
+        tag: NotRequired[pulumi.Input[str]]
+        """
+        The value of the IP tag associated with the public IP. Example: Internet.
+        """
+elif False:
+    IPTagArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IPTagArgs:
@@ -917,6 +1297,18 @@ class IPTagArgs:
         pulumi.set(self, "tag", value)
 
 
+if not MYPY:
+    class IstioCertificateAuthorityArgsDict(TypedDict):
+        """
+        Istio Service Mesh Certificate Authority (CA) configuration. For now, we only support plugin certificates as described here https://aka.ms/asm-plugin-ca
+        """
+        plugin: NotRequired[pulumi.Input['IstioPluginCertificateAuthorityArgsDict']]
+        """
+        Plugin certificates information for Service Mesh.
+        """
+elif False:
+    IstioCertificateAuthorityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IstioCertificateAuthorityArgs:
     def __init__(__self__, *,
@@ -940,6 +1332,22 @@ class IstioCertificateAuthorityArgs:
     def plugin(self, value: Optional[pulumi.Input['IstioPluginCertificateAuthorityArgs']]):
         pulumi.set(self, "plugin", value)
 
+
+if not MYPY:
+    class IstioComponentsArgsDict(TypedDict):
+        """
+        Istio components configuration.
+        """
+        egress_gateways: NotRequired[pulumi.Input[Sequence[pulumi.Input['IstioEgressGatewayArgsDict']]]]
+        """
+        Istio egress gateways.
+        """
+        ingress_gateways: NotRequired[pulumi.Input[Sequence[pulumi.Input['IstioIngressGatewayArgsDict']]]]
+        """
+        Istio ingress gateways.
+        """
+elif False:
+    IstioComponentsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IstioComponentsArgs:
@@ -981,6 +1389,22 @@ class IstioComponentsArgs:
         pulumi.set(self, "ingress_gateways", value)
 
 
+if not MYPY:
+    class IstioEgressGatewayArgsDict(TypedDict):
+        """
+        Istio egress gateway configuration.
+        """
+        enabled: pulumi.Input[bool]
+        """
+        Whether to enable the egress gateway.
+        """
+        node_selector: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        NodeSelector for scheduling the egress gateway.
+        """
+elif False:
+    IstioEgressGatewayArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IstioEgressGatewayArgs:
     def __init__(__self__, *,
@@ -1020,6 +1444,22 @@ class IstioEgressGatewayArgs:
         pulumi.set(self, "node_selector", value)
 
 
+if not MYPY:
+    class IstioIngressGatewayArgsDict(TypedDict):
+        """
+        Istio ingress gateway configuration. For now, we support up to one external ingress gateway named `aks-istio-ingressgateway-external` and one internal ingress gateway named `aks-istio-ingressgateway-internal`.
+        """
+        enabled: pulumi.Input[bool]
+        """
+        Whether to enable the ingress gateway.
+        """
+        mode: pulumi.Input[Union[str, 'IstioIngressGatewayMode']]
+        """
+        Mode of an ingress gateway.
+        """
+elif False:
+    IstioIngressGatewayArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IstioIngressGatewayArgs:
     def __init__(__self__, *,
@@ -1057,6 +1497,34 @@ class IstioIngressGatewayArgs:
     def mode(self, value: pulumi.Input[Union[str, 'IstioIngressGatewayMode']]):
         pulumi.set(self, "mode", value)
 
+
+if not MYPY:
+    class IstioPluginCertificateAuthorityArgsDict(TypedDict):
+        """
+        Plugin certificates information for Service Mesh.
+        """
+        cert_chain_object_name: NotRequired[pulumi.Input[str]]
+        """
+        Certificate chain object name in Azure Key Vault.
+        """
+        cert_object_name: NotRequired[pulumi.Input[str]]
+        """
+        Intermediate certificate object name in Azure Key Vault.
+        """
+        key_object_name: NotRequired[pulumi.Input[str]]
+        """
+        Intermediate certificate private key object name in Azure Key Vault.
+        """
+        key_vault_id: NotRequired[pulumi.Input[str]]
+        """
+        The resource ID of the Key Vault.
+        """
+        root_cert_object_name: NotRequired[pulumi.Input[str]]
+        """
+        Root certificate object name in Azure Key Vault.
+        """
+elif False:
+    IstioPluginCertificateAuthorityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IstioPluginCertificateAuthorityArgs:
@@ -1146,6 +1614,26 @@ class IstioPluginCertificateAuthorityArgs:
         pulumi.set(self, "root_cert_object_name", value)
 
 
+if not MYPY:
+    class IstioServiceMeshArgsDict(TypedDict):
+        """
+        Istio service mesh configuration.
+        """
+        certificate_authority: NotRequired[pulumi.Input['IstioCertificateAuthorityArgsDict']]
+        """
+        Istio Service Mesh Certificate Authority (CA) configuration. For now, we only support plugin certificates as described here https://aka.ms/asm-plugin-ca
+        """
+        components: NotRequired[pulumi.Input['IstioComponentsArgsDict']]
+        """
+        Istio components configuration.
+        """
+        revisions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of revisions of the Istio control plane. When an upgrade is not in progress, this holds one value. When canary upgrade is in progress, this can only hold two consecutive values. For more information, see: https://learn.microsoft.com/en-us/azure/aks/istio-upgrade
+        """
+elif False:
+    IstioServiceMeshArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IstioServiceMeshArgs:
     def __init__(__self__, *,
@@ -1201,6 +1689,58 @@ class IstioServiceMeshArgs:
     def revisions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "revisions", value)
 
+
+if not MYPY:
+    class KubeletConfigArgsDict(TypedDict):
+        """
+        See [AKS custom node configuration](https://docs.microsoft.com/azure/aks/custom-node-configuration) for more details.
+        """
+        allowed_unsafe_sysctls: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Allowed list of unsafe sysctls or unsafe sysctl patterns (ending in `*`).
+        """
+        container_log_max_files: NotRequired[pulumi.Input[int]]
+        """
+        The maximum number of container log files that can be present for a container. The number must be ≥ 2.
+        """
+        container_log_max_size_mb: NotRequired[pulumi.Input[int]]
+        """
+        The maximum size (e.g. 10Mi) of container log file before it is rotated.
+        """
+        cpu_cfs_quota: NotRequired[pulumi.Input[bool]]
+        """
+        The default is true.
+        """
+        cpu_cfs_quota_period: NotRequired[pulumi.Input[str]]
+        """
+        The default is '100ms.' Valid values are a sequence of decimal numbers with an optional fraction and a unit suffix. For example: '300ms', '2h45m'. Supported units are 'ns', 'us', 'ms', 's', 'm', and 'h'.
+        """
+        cpu_manager_policy: NotRequired[pulumi.Input[str]]
+        """
+        The default is 'none'. See [Kubernetes CPU management policies](https://kubernetes.io/docs/tasks/administer-cluster/cpu-management-policies/#cpu-management-policies) for more information. Allowed values are 'none' and 'static'.
+        """
+        fail_swap_on: NotRequired[pulumi.Input[bool]]
+        """
+        If set to true it will make the Kubelet fail to start if swap is enabled on the node.
+        """
+        image_gc_high_threshold: NotRequired[pulumi.Input[int]]
+        """
+        To disable image garbage collection, set to 100. The default is 85%
+        """
+        image_gc_low_threshold: NotRequired[pulumi.Input[int]]
+        """
+        This cannot be set higher than imageGcHighThreshold. The default is 80%
+        """
+        pod_max_pids: NotRequired[pulumi.Input[int]]
+        """
+        The maximum number of processes per pod.
+        """
+        topology_manager_policy: NotRequired[pulumi.Input[str]]
+        """
+        For more information see [Kubernetes Topology Manager](https://kubernetes.io/docs/tasks/administer-cluster/topology-manager). The default is 'none'. Allowed values are 'none', 'best-effort', 'restricted', and 'single-numa-node'.
+        """
+elif False:
+    KubeletConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class KubeletConfigArgs:
@@ -1386,6 +1926,30 @@ class KubeletConfigArgs:
         pulumi.set(self, "topology_manager_policy", value)
 
 
+if not MYPY:
+    class LinuxOSConfigArgsDict(TypedDict):
+        """
+        See [AKS custom node configuration](https://docs.microsoft.com/azure/aks/custom-node-configuration) for more details.
+        """
+        swap_file_size_mb: NotRequired[pulumi.Input[int]]
+        """
+        The size in MB of a swap file that will be created on each node.
+        """
+        sysctls: NotRequired[pulumi.Input['SysctlConfigArgsDict']]
+        """
+        Sysctl settings for Linux agent nodes.
+        """
+        transparent_huge_page_defrag: NotRequired[pulumi.Input[str]]
+        """
+        Valid values are 'always', 'defer', 'defer+madvise', 'madvise' and 'never'. The default is 'madvise'. For more information see [Transparent Hugepages](https://www.kernel.org/doc/html/latest/admin-guide/mm/transhuge.html#admin-guide-transhuge).
+        """
+        transparent_huge_page_enabled: NotRequired[pulumi.Input[str]]
+        """
+        Valid values are 'always', 'madvise', and 'never'. The default is 'always'. For more information see [Transparent Hugepages](https://www.kernel.org/doc/html/latest/admin-guide/mm/transhuge.html#admin-guide-transhuge).
+        """
+elif False:
+    LinuxOSConfigArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinuxOSConfigArgs:
     def __init__(__self__, *,
@@ -1457,6 +2021,38 @@ class LinuxOSConfigArgs:
     def transparent_huge_page_enabled(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "transparent_huge_page_enabled", value)
 
+
+if not MYPY:
+    class MaintenanceWindowArgsDict(TypedDict):
+        """
+        Maintenance window used to configure scheduled auto-upgrade for a Managed Cluster.
+        """
+        duration_hours: pulumi.Input[int]
+        """
+        Length of maintenance window range from 4 to 24 hours.
+        """
+        schedule: pulumi.Input['ScheduleArgsDict']
+        """
+        Recurrence schedule for the maintenance window.
+        """
+        start_time: pulumi.Input[str]
+        """
+        The start time of the maintenance window. Accepted values are from '00:00' to '23:59'. 'utcOffset' applies to this field. For example: '02:00' with 'utcOffset: +02:00' means UTC time '00:00'.
+        """
+        not_allowed_dates: NotRequired[pulumi.Input[Sequence[pulumi.Input['DateSpanArgsDict']]]]
+        """
+        Date ranges on which upgrade is not allowed. 'utcOffset' applies to this field. For example, with 'utcOffset: +02:00' and 'dateSpan' being '2022-12-23' to '2023-01-03', maintenance will be blocked from '2022-12-22 22:00' to '2023-01-03 22:00' in UTC time.
+        """
+        start_date: NotRequired[pulumi.Input[str]]
+        """
+        The date the maintenance window activates. If the current date is before this date, the maintenance window is inactive and will not be used for upgrades. If not specified, the maintenance window will be active right away.
+        """
+        utc_offset: NotRequired[pulumi.Input[str]]
+        """
+        The UTC offset in format +/-HH:mm. For example, '+05:30' for IST and '-07:00' for PST. If not specified, the default is '+00:00'.
+        """
+elif False:
+    MaintenanceWindowArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MaintenanceWindowArgs:
@@ -1560,6 +2156,42 @@ class MaintenanceWindowArgs:
     def utc_offset(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "utc_offset", value)
 
+
+if not MYPY:
+    class ManagedClusterAADProfileArgsDict(TypedDict):
+        """
+        For more details see [managed AAD on AKS](https://docs.microsoft.com/azure/aks/managed-aad).
+        """
+        admin_group_object_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of AAD group object IDs that will have admin role of the cluster.
+        """
+        client_app_id: NotRequired[pulumi.Input[str]]
+        """
+        (DEPRECATED) The client AAD application ID. Learn more at https://aka.ms/aks/aad-legacy.
+        """
+        enable_azure_rbac: NotRequired[pulumi.Input[bool]]
+        """
+        Whether to enable Azure RBAC for Kubernetes authorization.
+        """
+        managed: NotRequired[pulumi.Input[bool]]
+        """
+        Whether to enable managed AAD.
+        """
+        server_app_id: NotRequired[pulumi.Input[str]]
+        """
+        (DEPRECATED) The server AAD application ID. Learn more at https://aka.ms/aks/aad-legacy.
+        """
+        server_app_secret: NotRequired[pulumi.Input[str]]
+        """
+        (DEPRECATED) The server AAD application secret. Learn more at https://aka.ms/aks/aad-legacy.
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        The AAD tenant ID to use for authentication. If not specified, will use the tenant of the deployment subscription.
+        """
+elif False:
+    ManagedClusterAADProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ManagedClusterAADProfileArgs:
@@ -1681,6 +2313,34 @@ class ManagedClusterAADProfileArgs:
         pulumi.set(self, "tenant_id", value)
 
 
+if not MYPY:
+    class ManagedClusterAPIServerAccessProfileArgsDict(TypedDict):
+        """
+        Access profile for managed cluster API server.
+        """
+        authorized_ip_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        IP ranges are specified in CIDR format, e.g. 137.117.106.88/29. This feature is not compatible with clusters that use Public IP Per Node, or clusters that are using a Basic Load Balancer. For more information see [API server authorized IP ranges](https://docs.microsoft.com/azure/aks/api-server-authorized-ip-ranges).
+        """
+        disable_run_command: NotRequired[pulumi.Input[bool]]
+        """
+        Whether to disable run command for the cluster or not.
+        """
+        enable_private_cluster: NotRequired[pulumi.Input[bool]]
+        """
+        For more details, see [Creating a private AKS cluster](https://docs.microsoft.com/azure/aks/private-clusters).
+        """
+        enable_private_cluster_public_fqdn: NotRequired[pulumi.Input[bool]]
+        """
+        Whether to create additional public FQDN for private cluster or not.
+        """
+        private_dns_zone: NotRequired[pulumi.Input[str]]
+        """
+        The default is System. For more details see [configure private DNS zone](https://docs.microsoft.com/azure/aks/private-clusters#configure-private-dns-zone). Allowed values are 'system' and 'none'.
+        """
+elif False:
+    ManagedClusterAPIServerAccessProfileArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ManagedClusterAPIServerAccessProfileArgs:
     def __init__(__self__, *,
@@ -1769,6 +2429,22 @@ class ManagedClusterAPIServerAccessProfileArgs:
         pulumi.set(self, "private_dns_zone", value)
 
 
+if not MYPY:
+    class ManagedClusterAddonProfileArgsDict(TypedDict):
+        """
+        A Kubernetes add-on profile for a managed cluster.
+        """
+        enabled: pulumi.Input[bool]
+        """
+        Whether the add-on is enabled or not.
+        """
+        config: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Key-value pairs for configuring an add-on.
+        """
+elif False:
+    ManagedClusterAddonProfileArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ManagedClusterAddonProfileArgs:
     def __init__(__self__, *,
@@ -1807,6 +2483,178 @@ class ManagedClusterAddonProfileArgs:
     def config(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "config", value)
 
+
+if not MYPY:
+    class ManagedClusterAgentPoolProfileArgsDict(TypedDict):
+        """
+        Profile for the container service agent pool.
+        """
+        name: pulumi.Input[str]
+        """
+        Windows agent pool names must be 6 characters or less.
+        """
+        availability_zones: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of Availability zones to use for nodes. This can only be specified if the AgentPoolType property is 'VirtualMachineScaleSets'.
+        """
+        capacity_reservation_group_id: NotRequired[pulumi.Input[str]]
+        """
+        AKS will associate the specified agent pool with the Capacity Reservation Group.
+        """
+        count: NotRequired[pulumi.Input[int]]
+        """
+        Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 1000 (inclusive) for user pools and in the range of 1 to 1000 (inclusive) for system pools. The default value is 1.
+        """
+        creation_data: NotRequired[pulumi.Input['CreationDataArgsDict']]
+        """
+        CreationData to be used to specify the source Snapshot ID if the node pool will be created/upgraded using a snapshot.
+        """
+        enable_auto_scaling: NotRequired[pulumi.Input[bool]]
+        """
+        Whether to enable auto-scaler
+        """
+        enable_encryption_at_host: NotRequired[pulumi.Input[bool]]
+        """
+        This is only supported on certain VM sizes and in certain Azure regions. For more information, see: https://docs.microsoft.com/azure/aks/enable-host-encryption
+        """
+        enable_fips: NotRequired[pulumi.Input[bool]]
+        """
+        See [Add a FIPS-enabled node pool](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#add-a-fips-enabled-node-pool-preview) for more details.
+        """
+        enable_node_public_ip: NotRequired[pulumi.Input[bool]]
+        """
+        Some scenarios may require nodes in a node pool to receive their own dedicated public IP addresses. A common scenario is for gaming workloads, where a console needs to make a direct connection to a cloud virtual machine to minimize hops. For more information see [assigning a public IP per node](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#assign-a-public-ip-per-node-for-your-node-pools). The default is false.
+        """
+        enable_ultra_ssd: NotRequired[pulumi.Input[bool]]
+        """
+        Whether to enable UltraSSD
+        """
+        gpu_instance_profile: NotRequired[pulumi.Input[Union[str, 'GPUInstanceProfile']]]
+        """
+        GPUInstanceProfile to be used to specify GPU MIG instance profile for supported GPU VM SKU.
+        """
+        host_group_id: NotRequired[pulumi.Input[str]]
+        """
+        This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/hostGroups/{hostGroupName}. For more information see [Azure dedicated hosts](https://docs.microsoft.com/azure/virtual-machines/dedicated-hosts).
+        """
+        kubelet_config: NotRequired[pulumi.Input['KubeletConfigArgsDict']]
+        """
+        The Kubelet configuration on the agent pool nodes.
+        """
+        kubelet_disk_type: NotRequired[pulumi.Input[Union[str, 'KubeletDiskType']]]
+        """
+        Determines the placement of emptyDir volumes, container runtime data root, and Kubelet ephemeral storage.
+        """
+        linux_os_config: NotRequired[pulumi.Input['LinuxOSConfigArgsDict']]
+        """
+        The OS configuration of Linux agent nodes.
+        """
+        max_count: NotRequired[pulumi.Input[int]]
+        """
+        The maximum number of nodes for auto-scaling
+        """
+        max_pods: NotRequired[pulumi.Input[int]]
+        """
+        The maximum number of pods that can run on a node.
+        """
+        min_count: NotRequired[pulumi.Input[int]]
+        """
+        The minimum number of nodes for auto-scaling
+        """
+        mode: NotRequired[pulumi.Input[Union[str, 'AgentPoolMode']]]
+        """
+        A cluster must have at least one 'System' Agent Pool at all times. For additional information on agent pool restrictions and best practices, see: https://docs.microsoft.com/azure/aks/use-system-pools
+        """
+        network_profile: NotRequired[pulumi.Input['AgentPoolNetworkProfileArgsDict']]
+        """
+        Network-related settings of an agent pool.
+        """
+        node_labels: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        The node labels to be persisted across all nodes in agent pool.
+        """
+        node_public_ip_prefix_id: NotRequired[pulumi.Input[str]]
+        """
+        This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/publicIPPrefixes/{publicIPPrefixName}
+        """
+        node_taints: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
+        """
+        orchestrator_version: NotRequired[pulumi.Input[str]]
+        """
+        Both patch version <major.minor.patch> (e.g. 1.20.13) and <major.minor> (e.g. 1.20) are supported. When <major.minor> is specified, the latest supported GA patch version is chosen automatically. Updating the cluster with the same <major.minor> once it has been created (e.g. 1.14.x -> 1.14) will not trigger an upgrade, even if a newer patch version is available. As a best practice, you should upgrade all node pools in an AKS cluster to the same Kubernetes version. The node pool version must have the same major version as the control plane. The node pool minor version must be within two minor versions of the control plane version. The node pool version cannot be greater than the control plane version. For more information see [upgrading a node pool](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#upgrade-a-node-pool).
+        """
+        os_disk_size_gb: NotRequired[pulumi.Input[int]]
+        """
+        OS Disk Size in GB to be used to specify the disk size for every machine in the master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
+        """
+        os_disk_type: NotRequired[pulumi.Input[Union[str, 'OSDiskType']]]
+        """
+        The default is 'Ephemeral' if the VM supports it and has a cache disk larger than the requested OSDiskSizeGB. Otherwise, defaults to 'Managed'. May not be changed after creation. For more information see [Ephemeral OS](https://docs.microsoft.com/azure/aks/cluster-configuration#ephemeral-os).
+        """
+        os_sku: NotRequired[pulumi.Input[Union[str, 'OSSKU']]]
+        """
+        Specifies the OS SKU used by the agent pool. The default is Ubuntu if OSType is Linux. The default is Windows2019 when Kubernetes <= 1.24 or Windows2022 when Kubernetes >= 1.25 if OSType is Windows.
+        """
+        os_type: NotRequired[pulumi.Input[Union[str, 'OSType']]]
+        """
+        The operating system type. The default is Linux.
+        """
+        pod_subnet_id: NotRequired[pulumi.Input[str]]
+        """
+        If omitted, pod IPs are statically assigned on the node subnet (see vnetSubnetID for more details). This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}
+        """
+        power_state: NotRequired[pulumi.Input['PowerStateArgsDict']]
+        """
+        When an Agent Pool is first created it is initially Running. The Agent Pool can be stopped by setting this field to Stopped. A stopped Agent Pool stops all of its VMs and does not accrue billing charges. An Agent Pool can only be stopped if it is Running and provisioning state is Succeeded
+        """
+        proximity_placement_group_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID for Proximity Placement Group.
+        """
+        scale_down_mode: NotRequired[pulumi.Input[Union[str, 'ScaleDownMode']]]
+        """
+        This also effects the cluster autoscaler behavior. If not specified, it defaults to Delete.
+        """
+        scale_set_eviction_policy: NotRequired[pulumi.Input[Union[str, 'ScaleSetEvictionPolicy']]]
+        """
+        This cannot be specified unless the scaleSetPriority is 'Spot'. If not specified, the default is 'Delete'.
+        """
+        scale_set_priority: NotRequired[pulumi.Input[Union[str, 'ScaleSetPriority']]]
+        """
+        The Virtual Machine Scale Set priority. If not specified, the default is 'Regular'.
+        """
+        spot_max_price: NotRequired[pulumi.Input[float]]
+        """
+        Possible values are any decimal value greater than zero or -1 which indicates the willingness to pay any on-demand price. For more details on spot pricing, see [spot VMs pricing](https://docs.microsoft.com/azure/virtual-machines/spot-vms#pricing)
+        """
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        The tags to be persisted on the agent pool virtual machine scale set.
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'AgentPoolType']]]
+        """
+        The type of Agent Pool.
+        """
+        upgrade_settings: NotRequired[pulumi.Input['AgentPoolUpgradeSettingsArgsDict']]
+        """
+        Settings for upgrading the agentpool
+        """
+        vm_size: NotRequired[pulumi.Input[str]]
+        """
+        VM size availability varies by region. If a node contains insufficient compute resources (memory, cpu, etc) pods might fail to run correctly. For more details on restricted VM sizes, see: https://docs.microsoft.com/azure/aks/quotas-skus-regions
+        """
+        vnet_subnet_id: NotRequired[pulumi.Input[str]]
+        """
+        If this is not specified, a VNET and subnet will be generated and used. If no podSubnetID is specified, this applies to nodes and pods, otherwise it applies to just nodes. This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}
+        """
+        workload_runtime: NotRequired[pulumi.Input[Union[str, 'WorkloadRuntime']]]
+        """
+        Determines the type of workload a node can run.
+        """
+elif False:
+    ManagedClusterAgentPoolProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ManagedClusterAgentPoolProfileArgs:
@@ -2471,6 +3319,22 @@ class ManagedClusterAgentPoolProfileArgs:
         pulumi.set(self, "workload_runtime", value)
 
 
+if not MYPY:
+    class ManagedClusterAutoUpgradeProfileArgsDict(TypedDict):
+        """
+        Auto upgrade profile for a managed cluster.
+        """
+        node_os_upgrade_channel: NotRequired[pulumi.Input[Union[str, 'NodeOSUpgradeChannel']]]
+        """
+        Manner in which the OS on your nodes is updated. The default is NodeImage.
+        """
+        upgrade_channel: NotRequired[pulumi.Input[Union[str, 'UpgradeChannel']]]
+        """
+        For more information see [setting the AKS cluster auto-upgrade channel](https://docs.microsoft.com/azure/aks/upgrade-cluster#set-auto-upgrade-channel).
+        """
+elif False:
+    ManagedClusterAutoUpgradeProfileArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ManagedClusterAutoUpgradeProfileArgs:
     def __init__(__self__, *,
@@ -2510,6 +3374,22 @@ class ManagedClusterAutoUpgradeProfileArgs:
     def upgrade_channel(self, value: Optional[pulumi.Input[Union[str, 'UpgradeChannel']]]):
         pulumi.set(self, "upgrade_channel", value)
 
+
+if not MYPY:
+    class ManagedClusterAzureMonitorProfileKubeStateMetricsArgsDict(TypedDict):
+        """
+        Kube State Metrics profile for the Azure Managed Prometheus addon. These optional settings are for the kube-state-metrics pod that is deployed with the addon. See aka.ms/AzureManagedPrometheus-optional-parameters for details.
+        """
+        metric_annotations_allow_list: NotRequired[pulumi.Input[str]]
+        """
+        Comma-separated list of Kubernetes annotation keys that will be used in the resource's labels metric (Example: 'namespaces=[kubernetes.io/team,...],pods=[kubernetes.io/team],...'). By default the metric contains only resource name and namespace labels.
+        """
+        metric_labels_allowlist: NotRequired[pulumi.Input[str]]
+        """
+        Comma-separated list of additional Kubernetes label keys that will be used in the resource's labels metric (Example: 'namespaces=[k8s-label-1,k8s-label-n,...],pods=[app],...'). By default the metric contains only resource name and namespace labels.
+        """
+elif False:
+    ManagedClusterAzureMonitorProfileKubeStateMetricsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ManagedClusterAzureMonitorProfileKubeStateMetricsArgs:
@@ -2551,6 +3431,22 @@ class ManagedClusterAzureMonitorProfileKubeStateMetricsArgs:
         pulumi.set(self, "metric_labels_allowlist", value)
 
 
+if not MYPY:
+    class ManagedClusterAzureMonitorProfileMetricsArgsDict(TypedDict):
+        """
+        Metrics profile for the Azure Monitor managed service for Prometheus addon. Collect out-of-the-box Kubernetes infrastructure metrics to send to an Azure Monitor Workspace and configure additional scraping for custom targets. See aka.ms/AzureManagedPrometheus for an overview.
+        """
+        enabled: pulumi.Input[bool]
+        """
+        Whether to enable or disable the Azure Managed Prometheus addon for Prometheus monitoring. See aka.ms/AzureManagedPrometheus-aks-enable for details on enabling and disabling.
+        """
+        kube_state_metrics: NotRequired[pulumi.Input['ManagedClusterAzureMonitorProfileKubeStateMetricsArgsDict']]
+        """
+        Kube State Metrics profile for the Azure Managed Prometheus addon. These optional settings are for the kube-state-metrics pod that is deployed with the addon. See aka.ms/AzureManagedPrometheus-optional-parameters for details.
+        """
+elif False:
+    ManagedClusterAzureMonitorProfileMetricsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ManagedClusterAzureMonitorProfileMetricsArgs:
     def __init__(__self__, *,
@@ -2590,6 +3486,18 @@ class ManagedClusterAzureMonitorProfileMetricsArgs:
         pulumi.set(self, "kube_state_metrics", value)
 
 
+if not MYPY:
+    class ManagedClusterAzureMonitorProfileArgsDict(TypedDict):
+        """
+        Azure Monitor addon profiles for monitoring the managed cluster.
+        """
+        metrics: NotRequired[pulumi.Input['ManagedClusterAzureMonitorProfileMetricsArgsDict']]
+        """
+        Metrics profile for the Azure Monitor managed service for Prometheus addon. Collect out-of-the-box Kubernetes infrastructure metrics to send to an Azure Monitor Workspace and configure additional scraping for custom targets. See aka.ms/AzureManagedPrometheus for an overview.
+        """
+elif False:
+    ManagedClusterAzureMonitorProfileArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ManagedClusterAzureMonitorProfileArgs:
     def __init__(__self__, *,
@@ -2613,6 +3521,30 @@ class ManagedClusterAzureMonitorProfileArgs:
     def metrics(self, value: Optional[pulumi.Input['ManagedClusterAzureMonitorProfileMetricsArgs']]):
         pulumi.set(self, "metrics", value)
 
+
+if not MYPY:
+    class ManagedClusterHTTPProxyConfigArgsDict(TypedDict):
+        """
+        Cluster HTTP proxy configuration.
+        """
+        http_proxy: NotRequired[pulumi.Input[str]]
+        """
+        The HTTP proxy server endpoint to use.
+        """
+        https_proxy: NotRequired[pulumi.Input[str]]
+        """
+        The HTTPS proxy server endpoint to use.
+        """
+        no_proxy: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The endpoints that should not go through proxy.
+        """
+        trusted_ca: NotRequired[pulumi.Input[str]]
+        """
+        Alternative CA cert to use for connecting to proxy servers.
+        """
+elif False:
+    ManagedClusterHTTPProxyConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ManagedClusterHTTPProxyConfigArgs:
@@ -2686,6 +3618,26 @@ class ManagedClusterHTTPProxyConfigArgs:
         pulumi.set(self, "trusted_ca", value)
 
 
+if not MYPY:
+    class ManagedClusterIdentityArgsDict(TypedDict):
+        """
+        Identity for the managed cluster.
+        """
+        delegated_resources: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['DelegatedResourceArgsDict']]]]
+        """
+        The delegated identity resources assigned to this managed cluster. This can only be set by another Azure Resource Provider, and managed cluster only accept one delegated identity resource. Internal use only.
+        """
+        type: NotRequired[pulumi.Input['ResourceIdentityType']]
+        """
+        For more information see [use managed identities in AKS](https://docs.microsoft.com/azure/aks/use-managed-identity).
+        """
+        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The keys must be ARM resource IDs in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+elif False:
+    ManagedClusterIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ManagedClusterIdentityArgs:
     def __init__(__self__, *,
@@ -2742,6 +3694,22 @@ class ManagedClusterIdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
+if not MYPY:
+    class ManagedClusterLoadBalancerProfileManagedOutboundIPsArgsDict(TypedDict):
+        """
+        Desired managed outbound IPs for the cluster load balancer.
+        """
+        count: NotRequired[pulumi.Input[int]]
+        """
+        The desired number of IPv4 outbound IPs created/managed by Azure for the cluster load balancer. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1. 
+        """
+        count_i_pv6: NotRequired[pulumi.Input[int]]
+        """
+        The desired number of IPv6 outbound IPs created/managed by Azure for the cluster load balancer. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 0 for single-stack and 1 for dual-stack. 
+        """
+elif False:
+    ManagedClusterLoadBalancerProfileManagedOutboundIPsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs:
     def __init__(__self__, *,
@@ -2786,6 +3754,18 @@ class ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs:
         pulumi.set(self, "count_i_pv6", value)
 
 
+if not MYPY:
+    class ManagedClusterLoadBalancerProfileOutboundIPPrefixesArgsDict(TypedDict):
+        """
+        Desired outbound IP Prefix resources for the cluster load balancer.
+        """
+        public_ip_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgsDict']]]]
+        """
+        A list of public IP prefix resources.
+        """
+elif False:
+    ManagedClusterLoadBalancerProfileOutboundIPPrefixesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ManagedClusterLoadBalancerProfileOutboundIPPrefixesArgs:
     def __init__(__self__, *,
@@ -2810,6 +3790,18 @@ class ManagedClusterLoadBalancerProfileOutboundIPPrefixesArgs:
         pulumi.set(self, "public_ip_prefixes", value)
 
 
+if not MYPY:
+    class ManagedClusterLoadBalancerProfileOutboundIPsArgsDict(TypedDict):
+        """
+        Desired outbound IP resources for the cluster load balancer.
+        """
+        public_ips: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgsDict']]]]
+        """
+        A list of public IP resources.
+        """
+elif False:
+    ManagedClusterLoadBalancerProfileOutboundIPsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ManagedClusterLoadBalancerProfileOutboundIPsArgs:
     def __init__(__self__, *,
@@ -2833,6 +3825,46 @@ class ManagedClusterLoadBalancerProfileOutboundIPsArgs:
     def public_ips(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]]]):
         pulumi.set(self, "public_ips", value)
 
+
+if not MYPY:
+    class ManagedClusterLoadBalancerProfileArgsDict(TypedDict):
+        """
+        Profile of the managed cluster load balancer.
+        """
+        allocated_outbound_ports: NotRequired[pulumi.Input[int]]
+        """
+        The desired number of allocated SNAT ports per VM. Allowed values are in the range of 0 to 64000 (inclusive). The default value is 0 which results in Azure dynamically allocating ports.
+        """
+        backend_pool_type: NotRequired[pulumi.Input[Union[str, 'BackendPoolType']]]
+        """
+        The type of the managed inbound Load Balancer BackendPool.
+        """
+        effective_outbound_ips: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgsDict']]]]
+        """
+        The effective outbound IP resources of the cluster load balancer.
+        """
+        enable_multiple_standard_load_balancers: NotRequired[pulumi.Input[bool]]
+        """
+        Enable multiple standard load balancers per AKS cluster or not.
+        """
+        idle_timeout_in_minutes: NotRequired[pulumi.Input[int]]
+        """
+        Desired outbound flow idle timeout in minutes. Allowed values are in the range of 4 to 120 (inclusive). The default value is 30 minutes.
+        """
+        managed_outbound_ips: NotRequired[pulumi.Input['ManagedClusterLoadBalancerProfileManagedOutboundIPsArgsDict']]
+        """
+        Desired managed outbound IPs for the cluster load balancer.
+        """
+        outbound_ip_prefixes: NotRequired[pulumi.Input['ManagedClusterLoadBalancerProfileOutboundIPPrefixesArgsDict']]
+        """
+        Desired outbound IP Prefix resources for the cluster load balancer.
+        """
+        outbound_ips: NotRequired[pulumi.Input['ManagedClusterLoadBalancerProfileOutboundIPsArgsDict']]
+        """
+        Desired outbound IP resources for the cluster load balancer.
+        """
+elif False:
+    ManagedClusterLoadBalancerProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ManagedClusterLoadBalancerProfileArgs:
@@ -2976,6 +4008,18 @@ class ManagedClusterLoadBalancerProfileArgs:
         pulumi.set(self, "outbound_ips", value)
 
 
+if not MYPY:
+    class ManagedClusterManagedOutboundIPProfileArgsDict(TypedDict):
+        """
+        Profile of the managed outbound IP resources of the managed cluster.
+        """
+        count: NotRequired[pulumi.Input[int]]
+        """
+        The desired number of outbound IPs created/managed by Azure. Allowed values must be in the range of 1 to 16 (inclusive). The default value is 1. 
+        """
+elif False:
+    ManagedClusterManagedOutboundIPProfileArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ManagedClusterManagedOutboundIPProfileArgs:
     def __init__(__self__, *,
@@ -3001,6 +4045,26 @@ class ManagedClusterManagedOutboundIPProfileArgs:
     def count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "count", value)
 
+
+if not MYPY:
+    class ManagedClusterNATGatewayProfileArgsDict(TypedDict):
+        """
+        Profile of the managed cluster NAT gateway.
+        """
+        effective_outbound_ips: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgsDict']]]]
+        """
+        The effective outbound IP resources of the cluster NAT gateway.
+        """
+        idle_timeout_in_minutes: NotRequired[pulumi.Input[int]]
+        """
+        Desired outbound flow idle timeout in minutes. Allowed values are in the range of 4 to 120 (inclusive). The default value is 4 minutes.
+        """
+        managed_outbound_ip_profile: NotRequired[pulumi.Input['ManagedClusterManagedOutboundIPProfileArgsDict']]
+        """
+        Profile of the managed outbound IP resources of the cluster NAT gateway.
+        """
+elif False:
+    ManagedClusterNATGatewayProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ManagedClusterNATGatewayProfileArgs:
@@ -3060,6 +4124,18 @@ class ManagedClusterNATGatewayProfileArgs:
         pulumi.set(self, "managed_outbound_ip_profile", value)
 
 
+if not MYPY:
+    class ManagedClusterOIDCIssuerProfileArgsDict(TypedDict):
+        """
+        The OIDC issuer profile of the Managed Cluster.
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Whether the OIDC issuer is enabled.
+        """
+elif False:
+    ManagedClusterOIDCIssuerProfileArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ManagedClusterOIDCIssuerProfileArgs:
     def __init__(__self__, *,
@@ -3083,6 +4159,26 @@ class ManagedClusterOIDCIssuerProfileArgs:
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
 
+
+if not MYPY:
+    class ManagedClusterPodIdentityExceptionArgsDict(TypedDict):
+        """
+        See [disable AAD Pod Identity for a specific Pod/Application](https://azure.github.io/aad-pod-identity/docs/configure/application_exception/) for more details.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the pod identity exception.
+        """
+        namespace: pulumi.Input[str]
+        """
+        The namespace of the pod identity exception.
+        """
+        pod_labels: pulumi.Input[Mapping[str, pulumi.Input[str]]]
+        """
+        The pod labels to match.
+        """
+elif False:
+    ManagedClusterPodIdentityExceptionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ManagedClusterPodIdentityExceptionArgs:
@@ -3136,6 +4232,30 @@ class ManagedClusterPodIdentityExceptionArgs:
     def pod_labels(self, value: pulumi.Input[Mapping[str, pulumi.Input[str]]]):
         pulumi.set(self, "pod_labels", value)
 
+
+if not MYPY:
+    class ManagedClusterPodIdentityProfileArgsDict(TypedDict):
+        """
+        See [use AAD pod identity](https://docs.microsoft.com/azure/aks/use-azure-ad-pod-identity) for more details on pod identity integration.
+        """
+        allow_network_plugin_kubenet: NotRequired[pulumi.Input[bool]]
+        """
+        Running in Kubenet is disabled by default due to the security related nature of AAD Pod Identity and the risks of IP spoofing. See [using Kubenet network plugin with AAD Pod Identity](https://docs.microsoft.com/azure/aks/use-azure-ad-pod-identity#using-kubenet-network-plugin-with-azure-active-directory-pod-managed-identities) for more information.
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Whether the pod identity addon is enabled.
+        """
+        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input['ManagedClusterPodIdentityArgsDict']]]]
+        """
+        The pod identities to use in the cluster.
+        """
+        user_assigned_identity_exceptions: NotRequired[pulumi.Input[Sequence[pulumi.Input['ManagedClusterPodIdentityExceptionArgsDict']]]]
+        """
+        The pod identity exceptions to allow.
+        """
+elif False:
+    ManagedClusterPodIdentityProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ManagedClusterPodIdentityProfileArgs:
@@ -3209,6 +4329,30 @@ class ManagedClusterPodIdentityProfileArgs:
         pulumi.set(self, "user_assigned_identity_exceptions", value)
 
 
+if not MYPY:
+    class ManagedClusterPodIdentityArgsDict(TypedDict):
+        """
+        Details about the pod identity assigned to the Managed Cluster.
+        """
+        identity: pulumi.Input['UserAssignedIdentityArgsDict']
+        """
+        The user assigned identity details.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the pod identity.
+        """
+        namespace: pulumi.Input[str]
+        """
+        The namespace of the pod identity.
+        """
+        binding_selector: NotRequired[pulumi.Input[str]]
+        """
+        The binding selector to use for the AzureIdentityBinding resource.
+        """
+elif False:
+    ManagedClusterPodIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ManagedClusterPodIdentityArgs:
     def __init__(__self__, *,
@@ -3277,6 +4421,82 @@ class ManagedClusterPodIdentityArgs:
     def binding_selector(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "binding_selector", value)
 
+
+if not MYPY:
+    class ManagedClusterPropertiesAutoScalerProfileArgsDict(TypedDict):
+        """
+        Parameters to be applied to the cluster-autoscaler when enabled
+        """
+        balance_similar_node_groups: NotRequired[pulumi.Input[str]]
+        """
+        Valid values are 'true' and 'false'
+        """
+        expander: NotRequired[pulumi.Input[Union[str, 'Expander']]]
+        """
+        If not specified, the default is 'random'. See [expanders](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#what-are-expanders) for more information.
+        """
+        max_empty_bulk_delete: NotRequired[pulumi.Input[str]]
+        """
+        The default is 10.
+        """
+        max_graceful_termination_sec: NotRequired[pulumi.Input[str]]
+        """
+        The default is 600.
+        """
+        max_node_provision_time: NotRequired[pulumi.Input[str]]
+        """
+        The default is '15m'. Values must be an integer followed by an 'm'. No unit of time other than minutes (m) is supported.
+        """
+        max_total_unready_percentage: NotRequired[pulumi.Input[str]]
+        """
+        The default is 45. The maximum is 100 and the minimum is 0.
+        """
+        new_pod_scale_up_delay: NotRequired[pulumi.Input[str]]
+        """
+        For scenarios like burst/batch scale where you don't want CA to act before the kubernetes scheduler could schedule all the pods, you can tell CA to ignore unscheduled pods before they're a certain age. The default is '0s'. Values must be an integer followed by a unit ('s' for seconds, 'm' for minutes, 'h' for hours, etc).
+        """
+        ok_total_unready_count: NotRequired[pulumi.Input[str]]
+        """
+        This must be an integer. The default is 3.
+        """
+        scale_down_delay_after_add: NotRequired[pulumi.Input[str]]
+        """
+        The default is '10m'. Values must be an integer followed by an 'm'. No unit of time other than minutes (m) is supported.
+        """
+        scale_down_delay_after_delete: NotRequired[pulumi.Input[str]]
+        """
+        The default is the scan-interval. Values must be an integer followed by an 'm'. No unit of time other than minutes (m) is supported.
+        """
+        scale_down_delay_after_failure: NotRequired[pulumi.Input[str]]
+        """
+        The default is '3m'. Values must be an integer followed by an 'm'. No unit of time other than minutes (m) is supported.
+        """
+        scale_down_unneeded_time: NotRequired[pulumi.Input[str]]
+        """
+        The default is '10m'. Values must be an integer followed by an 'm'. No unit of time other than minutes (m) is supported.
+        """
+        scale_down_unready_time: NotRequired[pulumi.Input[str]]
+        """
+        The default is '20m'. Values must be an integer followed by an 'm'. No unit of time other than minutes (m) is supported.
+        """
+        scale_down_utilization_threshold: NotRequired[pulumi.Input[str]]
+        """
+        The default is '0.5'.
+        """
+        scan_interval: NotRequired[pulumi.Input[str]]
+        """
+        The default is '10'. Values must be an integer number of seconds.
+        """
+        skip_nodes_with_local_storage: NotRequired[pulumi.Input[str]]
+        """
+        The default is true.
+        """
+        skip_nodes_with_system_pods: NotRequired[pulumi.Input[str]]
+        """
+        The default is true.
+        """
+elif False:
+    ManagedClusterPropertiesAutoScalerProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ManagedClusterPropertiesAutoScalerProfileArgs:
@@ -3558,6 +4778,22 @@ class ManagedClusterPropertiesAutoScalerProfileArgs:
         pulumi.set(self, "skip_nodes_with_system_pods", value)
 
 
+if not MYPY:
+    class ManagedClusterSKUArgsDict(TypedDict):
+        """
+        The SKU of a Managed Cluster.
+        """
+        name: NotRequired[pulumi.Input[Union[str, 'ManagedClusterSKUName']]]
+        """
+        The name of a managed cluster SKU.
+        """
+        tier: NotRequired[pulumi.Input[Union[str, 'ManagedClusterSKUTier']]]
+        """
+        If not specified, the default is 'Free'. See [AKS Pricing Tier](https://learn.microsoft.com/azure/aks/free-standard-pricing-tiers) for more details.
+        """
+elif False:
+    ManagedClusterSKUArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ManagedClusterSKUArgs:
     def __init__(__self__, *,
@@ -3598,6 +4834,18 @@ class ManagedClusterSKUArgs:
         pulumi.set(self, "tier", value)
 
 
+if not MYPY:
+    class ManagedClusterSecurityProfileDefenderSecurityMonitoringArgsDict(TypedDict):
+        """
+        Microsoft Defender settings for the security profile threat detection.
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Whether to enable Defender threat detection
+        """
+elif False:
+    ManagedClusterSecurityProfileDefenderSecurityMonitoringArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ManagedClusterSecurityProfileDefenderSecurityMonitoringArgs:
     def __init__(__self__, *,
@@ -3621,6 +4869,22 @@ class ManagedClusterSecurityProfileDefenderSecurityMonitoringArgs:
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
 
+
+if not MYPY:
+    class ManagedClusterSecurityProfileDefenderArgsDict(TypedDict):
+        """
+        Microsoft Defender settings for the security profile.
+        """
+        log_analytics_workspace_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID of the Log Analytics workspace to be associated with Microsoft Defender. When Microsoft Defender is enabled, this field is required and must be a valid workspace resource ID. When Microsoft Defender is disabled, leave the field empty.
+        """
+        security_monitoring: NotRequired[pulumi.Input['ManagedClusterSecurityProfileDefenderSecurityMonitoringArgsDict']]
+        """
+        Microsoft Defender threat detection for Cloud settings for the security profile.
+        """
+elif False:
+    ManagedClusterSecurityProfileDefenderArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ManagedClusterSecurityProfileDefenderArgs:
@@ -3662,6 +4926,22 @@ class ManagedClusterSecurityProfileDefenderArgs:
         pulumi.set(self, "security_monitoring", value)
 
 
+if not MYPY:
+    class ManagedClusterSecurityProfileImageCleanerArgsDict(TypedDict):
+        """
+        Image Cleaner removes unused images from nodes, freeing up disk space and helping to reduce attack surface area. Here are settings for the security profile.
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Whether to enable Image Cleaner on AKS cluster.
+        """
+        interval_hours: NotRequired[pulumi.Input[int]]
+        """
+        Image Cleaner scanning interval in hours.
+        """
+elif False:
+    ManagedClusterSecurityProfileImageCleanerArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ManagedClusterSecurityProfileImageCleanerArgs:
     def __init__(__self__, *,
@@ -3702,6 +4982,18 @@ class ManagedClusterSecurityProfileImageCleanerArgs:
         pulumi.set(self, "interval_hours", value)
 
 
+if not MYPY:
+    class ManagedClusterSecurityProfileWorkloadIdentityArgsDict(TypedDict):
+        """
+        Workload identity settings for the security profile.
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Whether to enable workload identity.
+        """
+elif False:
+    ManagedClusterSecurityProfileWorkloadIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ManagedClusterSecurityProfileWorkloadIdentityArgs:
     def __init__(__self__, *,
@@ -3725,6 +5017,30 @@ class ManagedClusterSecurityProfileWorkloadIdentityArgs:
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
 
+
+if not MYPY:
+    class ManagedClusterSecurityProfileArgsDict(TypedDict):
+        """
+        Security profile for the container service cluster.
+        """
+        azure_key_vault_kms: NotRequired[pulumi.Input['AzureKeyVaultKmsArgsDict']]
+        """
+        Azure Key Vault [key management service](https://kubernetes.io/docs/tasks/administer-cluster/kms-provider/) settings for the security profile.
+        """
+        defender: NotRequired[pulumi.Input['ManagedClusterSecurityProfileDefenderArgsDict']]
+        """
+        Microsoft Defender settings for the security profile.
+        """
+        image_cleaner: NotRequired[pulumi.Input['ManagedClusterSecurityProfileImageCleanerArgsDict']]
+        """
+        Image Cleaner settings for the security profile.
+        """
+        workload_identity: NotRequired[pulumi.Input['ManagedClusterSecurityProfileWorkloadIdentityArgsDict']]
+        """
+        Workload identity settings for the security profile. Workload identity enables Kubernetes applications to access Azure cloud resources securely with Azure AD. See https://aka.ms/aks/wi for more details.
+        """
+elif False:
+    ManagedClusterSecurityProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ManagedClusterSecurityProfileArgs:
@@ -3798,6 +5114,22 @@ class ManagedClusterSecurityProfileArgs:
         pulumi.set(self, "workload_identity", value)
 
 
+if not MYPY:
+    class ManagedClusterServicePrincipalProfileArgsDict(TypedDict):
+        """
+        Information about a service principal identity for the cluster to use for manipulating Azure APIs.
+        """
+        client_id: pulumi.Input[str]
+        """
+        The ID for the service principal.
+        """
+        secret: NotRequired[pulumi.Input[str]]
+        """
+        The secret password associated with the service principal in plain text.
+        """
+elif False:
+    ManagedClusterServicePrincipalProfileArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ManagedClusterServicePrincipalProfileArgs:
     def __init__(__self__, *,
@@ -3837,6 +5169,18 @@ class ManagedClusterServicePrincipalProfileArgs:
         pulumi.set(self, "secret", value)
 
 
+if not MYPY:
+    class ManagedClusterStorageProfileBlobCSIDriverArgsDict(TypedDict):
+        """
+        AzureBlob CSI Driver settings for the storage profile.
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Whether to enable AzureBlob CSI Driver. The default value is false.
+        """
+elif False:
+    ManagedClusterStorageProfileBlobCSIDriverArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ManagedClusterStorageProfileBlobCSIDriverArgs:
     def __init__(__self__, *,
@@ -3860,6 +5204,18 @@ class ManagedClusterStorageProfileBlobCSIDriverArgs:
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
 
+
+if not MYPY:
+    class ManagedClusterStorageProfileDiskCSIDriverArgsDict(TypedDict):
+        """
+        AzureDisk CSI Driver settings for the storage profile.
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Whether to enable AzureDisk CSI Driver. The default value is true.
+        """
+elif False:
+    ManagedClusterStorageProfileDiskCSIDriverArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ManagedClusterStorageProfileDiskCSIDriverArgs:
@@ -3885,6 +5241,18 @@ class ManagedClusterStorageProfileDiskCSIDriverArgs:
         pulumi.set(self, "enabled", value)
 
 
+if not MYPY:
+    class ManagedClusterStorageProfileFileCSIDriverArgsDict(TypedDict):
+        """
+        AzureFile CSI Driver settings for the storage profile.
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Whether to enable AzureFile CSI Driver. The default value is true.
+        """
+elif False:
+    ManagedClusterStorageProfileFileCSIDriverArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ManagedClusterStorageProfileFileCSIDriverArgs:
     def __init__(__self__, *,
@@ -3909,6 +5277,18 @@ class ManagedClusterStorageProfileFileCSIDriverArgs:
         pulumi.set(self, "enabled", value)
 
 
+if not MYPY:
+    class ManagedClusterStorageProfileSnapshotControllerArgsDict(TypedDict):
+        """
+        Snapshot Controller settings for the storage profile.
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Whether to enable Snapshot Controller. The default value is true.
+        """
+elif False:
+    ManagedClusterStorageProfileSnapshotControllerArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ManagedClusterStorageProfileSnapshotControllerArgs:
     def __init__(__self__, *,
@@ -3932,6 +5312,30 @@ class ManagedClusterStorageProfileSnapshotControllerArgs:
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
 
+
+if not MYPY:
+    class ManagedClusterStorageProfileArgsDict(TypedDict):
+        """
+        Storage profile for the container service cluster.
+        """
+        blob_csi_driver: NotRequired[pulumi.Input['ManagedClusterStorageProfileBlobCSIDriverArgsDict']]
+        """
+        AzureBlob CSI Driver settings for the storage profile.
+        """
+        disk_csi_driver: NotRequired[pulumi.Input['ManagedClusterStorageProfileDiskCSIDriverArgsDict']]
+        """
+        AzureDisk CSI Driver settings for the storage profile.
+        """
+        file_csi_driver: NotRequired[pulumi.Input['ManagedClusterStorageProfileFileCSIDriverArgsDict']]
+        """
+        AzureFile CSI Driver settings for the storage profile.
+        """
+        snapshot_controller: NotRequired[pulumi.Input['ManagedClusterStorageProfileSnapshotControllerArgsDict']]
+        """
+        Snapshot Controller settings for the storage profile.
+        """
+elif False:
+    ManagedClusterStorageProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ManagedClusterStorageProfileArgs:
@@ -4004,6 +5408,34 @@ class ManagedClusterStorageProfileArgs:
     def snapshot_controller(self, value: Optional[pulumi.Input['ManagedClusterStorageProfileSnapshotControllerArgs']]):
         pulumi.set(self, "snapshot_controller", value)
 
+
+if not MYPY:
+    class ManagedClusterWindowsProfileArgsDict(TypedDict):
+        """
+        Profile for Windows VMs in the managed cluster.
+        """
+        admin_username: pulumi.Input[str]
+        """
+        Specifies the name of the administrator account. <br><br> **Restriction:** Cannot end in "." <br><br> **Disallowed values:** "administrator", "admin", "user", "user1", "test", "user2", "test1", "user3", "admin1", "1", "123", "a", "actuser", "adm", "admin2", "aspnet", "backup", "console", "david", "guest", "john", "owner", "root", "server", "sql", "support", "support_388945a0", "sys", "test2", "test3", "user4", "user5". <br><br> **Minimum-length:** 1 character <br><br> **Max-length:** 20 characters
+        """
+        admin_password: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the password of the administrator account. <br><br> **Minimum-length:** 8 characters <br><br> **Max-length:** 123 characters <br><br> **Complexity requirements:** 3 out of 4 conditions below need to be fulfilled <br> Has lower characters <br>Has upper characters <br> Has a digit <br> Has a special character (Regex match [\\W_]) <br><br> **Disallowed values:** "abc@123", "P@$$w0rd", "P@ssw0rd", "P@ssword123", "Pa$$word", "pass@word1", "Password!", "Password1", "Password22", "iloveyou!"
+        """
+        enable_csi_proxy: NotRequired[pulumi.Input[bool]]
+        """
+        For more details on CSI proxy, see the [CSI proxy GitHub repo](https://github.com/kubernetes-csi/csi-proxy).
+        """
+        gmsa_profile: NotRequired[pulumi.Input['WindowsGmsaProfileArgsDict']]
+        """
+        The Windows gMSA Profile in the Managed Cluster.
+        """
+        license_type: NotRequired[pulumi.Input[Union[str, 'LicenseType']]]
+        """
+        The license type to use for Windows VMs. See [Azure Hybrid User Benefits](https://azure.microsoft.com/pricing/hybrid-benefit/faq/) for more details.
+        """
+elif False:
+    ManagedClusterWindowsProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ManagedClusterWindowsProfileArgs:
@@ -4092,6 +5524,18 @@ class ManagedClusterWindowsProfileArgs:
         pulumi.set(self, "license_type", value)
 
 
+if not MYPY:
+    class ManagedClusterWorkloadAutoScalerProfileKedaArgsDict(TypedDict):
+        """
+        KEDA (Kubernetes Event-driven Autoscaling) settings for the workload auto-scaler profile.
+        """
+        enabled: pulumi.Input[bool]
+        """
+        Whether to enable KEDA.
+        """
+elif False:
+    ManagedClusterWorkloadAutoScalerProfileKedaArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ManagedClusterWorkloadAutoScalerProfileKedaArgs:
     def __init__(__self__, *,
@@ -4114,6 +5558,18 @@ class ManagedClusterWorkloadAutoScalerProfileKedaArgs:
     def enabled(self, value: pulumi.Input[bool]):
         pulumi.set(self, "enabled", value)
 
+
+if not MYPY:
+    class ManagedClusterWorkloadAutoScalerProfileVerticalPodAutoscalerArgsDict(TypedDict):
+        """
+        VPA (Vertical Pod Autoscaler) settings for the workload auto-scaler profile.
+        """
+        enabled: pulumi.Input[bool]
+        """
+        Whether to enable VPA. Default value is false.
+        """
+elif False:
+    ManagedClusterWorkloadAutoScalerProfileVerticalPodAutoscalerArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ManagedClusterWorkloadAutoScalerProfileVerticalPodAutoscalerArgs:
@@ -4139,6 +5595,22 @@ class ManagedClusterWorkloadAutoScalerProfileVerticalPodAutoscalerArgs:
     def enabled(self, value: pulumi.Input[bool]):
         pulumi.set(self, "enabled", value)
 
+
+if not MYPY:
+    class ManagedClusterWorkloadAutoScalerProfileArgsDict(TypedDict):
+        """
+        Workload Auto-scaler profile for the managed cluster.
+        """
+        keda: NotRequired[pulumi.Input['ManagedClusterWorkloadAutoScalerProfileKedaArgsDict']]
+        """
+        KEDA (Kubernetes Event-driven Autoscaling) settings for the workload auto-scaler profile.
+        """
+        vertical_pod_autoscaler: NotRequired[pulumi.Input['ManagedClusterWorkloadAutoScalerProfileVerticalPodAutoscalerArgsDict']]
+        """
+        VPA (Vertical Pod Autoscaler) settings for the workload auto-scaler profile.
+        """
+elif False:
+    ManagedClusterWorkloadAutoScalerProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ManagedClusterWorkloadAutoScalerProfileArgs:
@@ -4179,6 +5651,26 @@ class ManagedClusterWorkloadAutoScalerProfileArgs:
     def vertical_pod_autoscaler(self, value: Optional[pulumi.Input['ManagedClusterWorkloadAutoScalerProfileVerticalPodAutoscalerArgs']]):
         pulumi.set(self, "vertical_pod_autoscaler", value)
 
+
+if not MYPY:
+    class PortRangeArgsDict(TypedDict):
+        """
+        The port range.
+        """
+        port_end: NotRequired[pulumi.Input[int]]
+        """
+        The maximum port that is included in the range. It should be ranged from 1 to 65535, and be greater than or equal to portStart.
+        """
+        port_start: NotRequired[pulumi.Input[int]]
+        """
+        The minimum port that is included in the range. It should be ranged from 1 to 65535, and be less than or equal to portEnd.
+        """
+        protocol: NotRequired[pulumi.Input[Union[str, 'Protocol']]]
+        """
+        The network protocol of the port.
+        """
+elif False:
+    PortRangeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PortRangeArgs:
@@ -4236,6 +5728,18 @@ class PortRangeArgs:
         pulumi.set(self, "protocol", value)
 
 
+if not MYPY:
+    class PowerStateArgsDict(TypedDict):
+        """
+        Describes the Power State of the cluster
+        """
+        code: NotRequired[pulumi.Input[Union[str, 'Code']]]
+        """
+        Tells whether the cluster is Running or Stopped
+        """
+elif False:
+    PowerStateArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PowerStateArgs:
     def __init__(__self__, *,
@@ -4260,6 +5764,18 @@ class PowerStateArgs:
         pulumi.set(self, "code", value)
 
 
+if not MYPY:
+    class PrivateEndpointArgsDict(TypedDict):
+        """
+        Private endpoint which a connection belongs to.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The resource ID of the private endpoint
+        """
+elif False:
+    PrivateEndpointArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PrivateEndpointArgs:
     def __init__(__self__, *,
@@ -4283,6 +5799,34 @@ class PrivateEndpointArgs:
     def id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class PrivateLinkResourceArgsDict(TypedDict):
+        """
+        A private link resource
+        """
+        group_id: NotRequired[pulumi.Input[str]]
+        """
+        The group ID of the resource.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the private link resource.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the private link resource.
+        """
+        required_members: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The RequiredMembers of the resource
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        The resource type.
+        """
+elif False:
+    PrivateLinkResourceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PrivateLinkResourceArgs:
@@ -4372,6 +5916,22 @@ class PrivateLinkResourceArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
+        """
+        The state of a private link service connection.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The private link service connection description.
+        """
+        status: NotRequired[pulumi.Input[Union[str, 'ConnectionStatus']]]
+        """
+        The private link service connection status.
+        """
+elif False:
+    PrivateLinkServiceConnectionStateArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:
     def __init__(__self__, *,
@@ -4411,6 +5971,26 @@ class PrivateLinkServiceConnectionStateArgs:
     def status(self, value: Optional[pulumi.Input[Union[str, 'ConnectionStatus']]]):
         pulumi.set(self, "status", value)
 
+
+if not MYPY:
+    class RelativeMonthlyScheduleArgsDict(TypedDict):
+        """
+        For schedules like: 'recur every month on the first Monday' or 'recur every 3 months on last Friday'.
+        """
+        day_of_week: pulumi.Input[Union[str, 'WeekDay']]
+        """
+        Specifies on which day of the week the maintenance occurs.
+        """
+        interval_months: pulumi.Input[int]
+        """
+        Specifies the number of months between each set of occurrences.
+        """
+        week_index: pulumi.Input[Union[str, 'Type']]
+        """
+        Specifies on which week of the month the dayOfWeek applies.
+        """
+elif False:
+    RelativeMonthlyScheduleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RelativeMonthlyScheduleArgs:
@@ -4465,6 +6045,18 @@ class RelativeMonthlyScheduleArgs:
         pulumi.set(self, "week_index", value)
 
 
+if not MYPY:
+    class ResourceReferenceArgsDict(TypedDict):
+        """
+        A reference to an Azure resource.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The fully qualified Azure resource id.
+        """
+elif False:
+    ResourceReferenceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ResourceReferenceArgs:
     def __init__(__self__, *,
@@ -4488,6 +6080,30 @@ class ResourceReferenceArgs:
     def id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class ScheduleArgsDict(TypedDict):
+        """
+        One and only one of the schedule types should be specified. Choose either 'daily', 'weekly', 'absoluteMonthly' or 'relativeMonthly' for your maintenance schedule.
+        """
+        absolute_monthly: NotRequired[pulumi.Input['AbsoluteMonthlyScheduleArgsDict']]
+        """
+        For schedules like: 'recur every month on the 15th' or 'recur every 3 months on the 20th'.
+        """
+        daily: NotRequired[pulumi.Input['DailyScheduleArgsDict']]
+        """
+        For schedules like: 'recur every day' or 'recur every 3 days'.
+        """
+        relative_monthly: NotRequired[pulumi.Input['RelativeMonthlyScheduleArgsDict']]
+        """
+        For schedules like: 'recur every month on the first Monday' or 'recur every 3 months on last Friday'.
+        """
+        weekly: NotRequired[pulumi.Input['WeeklyScheduleArgsDict']]
+        """
+        For schedules like: 'recur every Monday' or 'recur every 3 weeks on Wednesday'.
+        """
+elif False:
+    ScheduleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ScheduleArgs:
@@ -4561,6 +6177,22 @@ class ScheduleArgs:
         pulumi.set(self, "weekly", value)
 
 
+if not MYPY:
+    class ServiceMeshProfileArgsDict(TypedDict):
+        """
+        Service mesh profile for a managed cluster.
+        """
+        mode: pulumi.Input[Union[str, 'ServiceMeshMode']]
+        """
+        Mode of the service mesh.
+        """
+        istio: NotRequired[pulumi.Input['IstioServiceMeshArgsDict']]
+        """
+        Istio service mesh configuration.
+        """
+elif False:
+    ServiceMeshProfileArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ServiceMeshProfileArgs:
     def __init__(__self__, *,
@@ -4599,6 +6231,126 @@ class ServiceMeshProfileArgs:
     def istio(self, value: Optional[pulumi.Input['IstioServiceMeshArgs']]):
         pulumi.set(self, "istio", value)
 
+
+if not MYPY:
+    class SysctlConfigArgsDict(TypedDict):
+        """
+        Sysctl settings for Linux agent nodes.
+        """
+        fs_aio_max_nr: NotRequired[pulumi.Input[int]]
+        """
+        Sysctl setting fs.aio-max-nr.
+        """
+        fs_file_max: NotRequired[pulumi.Input[int]]
+        """
+        Sysctl setting fs.file-max.
+        """
+        fs_inotify_max_user_watches: NotRequired[pulumi.Input[int]]
+        """
+        Sysctl setting fs.inotify.max_user_watches.
+        """
+        fs_nr_open: NotRequired[pulumi.Input[int]]
+        """
+        Sysctl setting fs.nr_open.
+        """
+        kernel_threads_max: NotRequired[pulumi.Input[int]]
+        """
+        Sysctl setting kernel.threads-max.
+        """
+        net_core_netdev_max_backlog: NotRequired[pulumi.Input[int]]
+        """
+        Sysctl setting net.core.netdev_max_backlog.
+        """
+        net_core_optmem_max: NotRequired[pulumi.Input[int]]
+        """
+        Sysctl setting net.core.optmem_max.
+        """
+        net_core_rmem_default: NotRequired[pulumi.Input[int]]
+        """
+        Sysctl setting net.core.rmem_default.
+        """
+        net_core_rmem_max: NotRequired[pulumi.Input[int]]
+        """
+        Sysctl setting net.core.rmem_max.
+        """
+        net_core_somaxconn: NotRequired[pulumi.Input[int]]
+        """
+        Sysctl setting net.core.somaxconn.
+        """
+        net_core_wmem_default: NotRequired[pulumi.Input[int]]
+        """
+        Sysctl setting net.core.wmem_default.
+        """
+        net_core_wmem_max: NotRequired[pulumi.Input[int]]
+        """
+        Sysctl setting net.core.wmem_max.
+        """
+        net_ipv4_ip_local_port_range: NotRequired[pulumi.Input[str]]
+        """
+        Sysctl setting net.ipv4.ip_local_port_range.
+        """
+        net_ipv4_neigh_default_gc_thresh1: NotRequired[pulumi.Input[int]]
+        """
+        Sysctl setting net.ipv4.neigh.default.gc_thresh1.
+        """
+        net_ipv4_neigh_default_gc_thresh2: NotRequired[pulumi.Input[int]]
+        """
+        Sysctl setting net.ipv4.neigh.default.gc_thresh2.
+        """
+        net_ipv4_neigh_default_gc_thresh3: NotRequired[pulumi.Input[int]]
+        """
+        Sysctl setting net.ipv4.neigh.default.gc_thresh3.
+        """
+        net_ipv4_tcp_fin_timeout: NotRequired[pulumi.Input[int]]
+        """
+        Sysctl setting net.ipv4.tcp_fin_timeout.
+        """
+        net_ipv4_tcp_keepalive_probes: NotRequired[pulumi.Input[int]]
+        """
+        Sysctl setting net.ipv4.tcp_keepalive_probes.
+        """
+        net_ipv4_tcp_keepalive_time: NotRequired[pulumi.Input[int]]
+        """
+        Sysctl setting net.ipv4.tcp_keepalive_time.
+        """
+        net_ipv4_tcp_max_syn_backlog: NotRequired[pulumi.Input[int]]
+        """
+        Sysctl setting net.ipv4.tcp_max_syn_backlog.
+        """
+        net_ipv4_tcp_max_tw_buckets: NotRequired[pulumi.Input[int]]
+        """
+        Sysctl setting net.ipv4.tcp_max_tw_buckets.
+        """
+        net_ipv4_tcp_tw_reuse: NotRequired[pulumi.Input[bool]]
+        """
+        Sysctl setting net.ipv4.tcp_tw_reuse.
+        """
+        net_ipv4_tcpkeepalive_intvl: NotRequired[pulumi.Input[int]]
+        """
+        Sysctl setting net.ipv4.tcp_keepalive_intvl.
+        """
+        net_netfilter_nf_conntrack_buckets: NotRequired[pulumi.Input[int]]
+        """
+        Sysctl setting net.netfilter.nf_conntrack_buckets.
+        """
+        net_netfilter_nf_conntrack_max: NotRequired[pulumi.Input[int]]
+        """
+        Sysctl setting net.netfilter.nf_conntrack_max.
+        """
+        vm_max_map_count: NotRequired[pulumi.Input[int]]
+        """
+        Sysctl setting vm.max_map_count.
+        """
+        vm_swappiness: NotRequired[pulumi.Input[int]]
+        """
+        Sysctl setting vm.swappiness.
+        """
+        vm_vfs_cache_pressure: NotRequired[pulumi.Input[int]]
+        """
+        Sysctl setting vm.vfs_cache_pressure.
+        """
+elif False:
+    SysctlConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SysctlConfigArgs:
@@ -5056,6 +6808,22 @@ class SysctlConfigArgs:
         pulumi.set(self, "vm_vfs_cache_pressure", value)
 
 
+if not MYPY:
+    class TimeInWeekArgsDict(TypedDict):
+        """
+        Time in a week.
+        """
+        day: NotRequired[pulumi.Input[Union[str, 'WeekDay']]]
+        """
+        The day of the week.
+        """
+        hour_slots: NotRequired[pulumi.Input[Sequence[pulumi.Input[int]]]]
+        """
+        Each integer hour represents a time range beginning at 0m after the hour ending at the next hour (non-inclusive). 0 corresponds to 00:00 UTC, 23 corresponds to 23:00 UTC. Specifying [0, 1] means the 00:00 - 02:00 UTC time range.
+        """
+elif False:
+    TimeInWeekArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TimeInWeekArgs:
     def __init__(__self__, *,
@@ -5095,6 +6863,22 @@ class TimeInWeekArgs:
     def hour_slots(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
         pulumi.set(self, "hour_slots", value)
 
+
+if not MYPY:
+    class TimeSpanArgsDict(TypedDict):
+        """
+        For example, between 2021-05-25T13:00:00Z and 2021-05-25T14:00:00Z.
+        """
+        end: NotRequired[pulumi.Input[str]]
+        """
+        The end of a time span
+        """
+        start: NotRequired[pulumi.Input[str]]
+        """
+        The start of a time span
+        """
+elif False:
+    TimeSpanArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TimeSpanArgs:
@@ -5136,6 +6920,22 @@ class TimeSpanArgs:
         pulumi.set(self, "start", value)
 
 
+if not MYPY:
+    class UpgradeOverrideSettingsArgsDict(TypedDict):
+        """
+        Settings for overrides when upgrading a cluster.
+        """
+        force_upgrade: NotRequired[pulumi.Input[bool]]
+        """
+        Whether to force upgrade the cluster. Note that this option instructs upgrade operation to bypass upgrade protections such as checking for deprecated API usage. Enable this option only with caution.
+        """
+        until: NotRequired[pulumi.Input[str]]
+        """
+        Until when the overrides are effective. Note that this only matches the start time of an upgrade, and the effectiveness won't change once an upgrade starts even if the `until` expires as upgrade proceeds. This field is not set by default. It must be set for the overrides to take effect.
+        """
+elif False:
+    UpgradeOverrideSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class UpgradeOverrideSettingsArgs:
     def __init__(__self__, *,
@@ -5175,6 +6975,26 @@ class UpgradeOverrideSettingsArgs:
     def until(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "until", value)
 
+
+if not MYPY:
+    class UserAssignedIdentityArgsDict(TypedDict):
+        """
+        Details about a user assigned identity.
+        """
+        client_id: NotRequired[pulumi.Input[str]]
+        """
+        The client ID of the user assigned identity.
+        """
+        object_id: NotRequired[pulumi.Input[str]]
+        """
+        The object ID of the user assigned identity.
+        """
+        resource_id: NotRequired[pulumi.Input[str]]
+        """
+        The resource ID of the user assigned identity.
+        """
+elif False:
+    UserAssignedIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserAssignedIdentityArgs:
@@ -5232,6 +7052,22 @@ class UserAssignedIdentityArgs:
         pulumi.set(self, "resource_id", value)
 
 
+if not MYPY:
+    class WeeklyScheduleArgsDict(TypedDict):
+        """
+        For schedules like: 'recur every Monday' or 'recur every 3 weeks on Wednesday'.
+        """
+        day_of_week: pulumi.Input[Union[str, 'WeekDay']]
+        """
+        Specifies on which day of the week the maintenance occurs.
+        """
+        interval_weeks: pulumi.Input[int]
+        """
+        Specifies the number of weeks between each set of occurrences.
+        """
+elif False:
+    WeeklyScheduleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WeeklyScheduleArgs:
     def __init__(__self__, *,
@@ -5269,6 +7105,26 @@ class WeeklyScheduleArgs:
     def interval_weeks(self, value: pulumi.Input[int]):
         pulumi.set(self, "interval_weeks", value)
 
+
+if not MYPY:
+    class WindowsGmsaProfileArgsDict(TypedDict):
+        """
+        Windows gMSA Profile in the managed cluster.
+        """
+        dns_server: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the DNS server for Windows gMSA. <br><br> Set it to empty if you have configured the DNS server in the vnet which is used to create the managed cluster.
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies whether to enable Windows gMSA in the managed cluster.
+        """
+        root_domain_name: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the root domain name for Windows gMSA. <br><br> Set it to empty if you have configured the DNS server in the vnet which is used to create the managed cluster.
+        """
+elif False:
+    WindowsGmsaProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WindowsGmsaProfileArgs:

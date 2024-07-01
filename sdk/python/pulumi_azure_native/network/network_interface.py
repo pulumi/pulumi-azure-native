@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -317,18 +322,18 @@ class NetworkInterface(pulumi.CustomResource):
                  auxiliary_mode: Optional[pulumi.Input[Union[str, 'NetworkInterfaceAuxiliaryMode']]] = None,
                  auxiliary_sku: Optional[pulumi.Input[Union[str, 'NetworkInterfaceAuxiliarySku']]] = None,
                  disable_tcp_state_tracking: Optional[pulumi.Input[bool]] = None,
-                 dns_settings: Optional[pulumi.Input[pulumi.InputType['NetworkInterfaceDnsSettingsArgs']]] = None,
+                 dns_settings: Optional[pulumi.Input[Union['NetworkInterfaceDnsSettingsArgs', 'NetworkInterfaceDnsSettingsArgsDict']]] = None,
                  enable_accelerated_networking: Optional[pulumi.Input[bool]] = None,
                  enable_ip_forwarding: Optional[pulumi.Input[bool]] = None,
-                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
                  id: Optional[pulumi.Input[str]] = None,
-                 ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkInterfaceIPConfigurationArgs']]]]] = None,
+                 ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkInterfaceIPConfigurationArgs', 'NetworkInterfaceIPConfigurationArgsDict']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  migration_phase: Optional[pulumi.Input[Union[str, 'NetworkInterfaceMigrationPhase']]] = None,
                  network_interface_name: Optional[pulumi.Input[str]] = None,
-                 network_security_group: Optional[pulumi.Input[pulumi.InputType['NetworkSecurityGroupArgs']]] = None,
+                 network_security_group: Optional[pulumi.Input[Union['NetworkSecurityGroupArgs', 'NetworkSecurityGroupArgsDict']]] = None,
                  nic_type: Optional[pulumi.Input[Union[str, 'NetworkInterfaceNicType']]] = None,
-                 private_link_service: Optional[pulumi.Input[pulumi.InputType['PrivateLinkServiceArgs']]] = None,
+                 private_link_service: Optional[pulumi.Input[Union['PrivateLinkServiceArgs', 'PrivateLinkServiceArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  workload_type: Optional[pulumi.Input[str]] = None,
@@ -344,18 +349,18 @@ class NetworkInterface(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'NetworkInterfaceAuxiliaryMode']] auxiliary_mode: Auxiliary mode of Network Interface resource.
         :param pulumi.Input[Union[str, 'NetworkInterfaceAuxiliarySku']] auxiliary_sku: Auxiliary sku of Network Interface resource.
         :param pulumi.Input[bool] disable_tcp_state_tracking: Indicates whether to disable tcp state tracking.
-        :param pulumi.Input[pulumi.InputType['NetworkInterfaceDnsSettingsArgs']] dns_settings: The DNS settings in network interface.
+        :param pulumi.Input[Union['NetworkInterfaceDnsSettingsArgs', 'NetworkInterfaceDnsSettingsArgsDict']] dns_settings: The DNS settings in network interface.
         :param pulumi.Input[bool] enable_accelerated_networking: If the network interface is configured for accelerated networking. Not applicable to VM sizes which require accelerated networking.
         :param pulumi.Input[bool] enable_ip_forwarding: Indicates whether IP forwarding is enabled on this network interface.
-        :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: The extended location of the network interface.
+        :param pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']] extended_location: The extended location of the network interface.
         :param pulumi.Input[str] id: Resource ID.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkInterfaceIPConfigurationArgs']]]] ip_configurations: A list of IPConfigurations of the network interface.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkInterfaceIPConfigurationArgs', 'NetworkInterfaceIPConfigurationArgsDict']]]] ip_configurations: A list of IPConfigurations of the network interface.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[Union[str, 'NetworkInterfaceMigrationPhase']] migration_phase: Migration phase of Network Interface resource.
         :param pulumi.Input[str] network_interface_name: The name of the network interface.
-        :param pulumi.Input[pulumi.InputType['NetworkSecurityGroupArgs']] network_security_group: The reference to the NetworkSecurityGroup resource.
+        :param pulumi.Input[Union['NetworkSecurityGroupArgs', 'NetworkSecurityGroupArgsDict']] network_security_group: The reference to the NetworkSecurityGroup resource.
         :param pulumi.Input[Union[str, 'NetworkInterfaceNicType']] nic_type: Type of Network Interface resource.
-        :param pulumi.Input[pulumi.InputType['PrivateLinkServiceArgs']] private_link_service: Privatelinkservice of the network interface resource.
+        :param pulumi.Input[Union['PrivateLinkServiceArgs', 'PrivateLinkServiceArgsDict']] private_link_service: Privatelinkservice of the network interface resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] workload_type: WorkloadType of the NetworkInterface for BareMetal resources
@@ -390,18 +395,18 @@ class NetworkInterface(pulumi.CustomResource):
                  auxiliary_mode: Optional[pulumi.Input[Union[str, 'NetworkInterfaceAuxiliaryMode']]] = None,
                  auxiliary_sku: Optional[pulumi.Input[Union[str, 'NetworkInterfaceAuxiliarySku']]] = None,
                  disable_tcp_state_tracking: Optional[pulumi.Input[bool]] = None,
-                 dns_settings: Optional[pulumi.Input[pulumi.InputType['NetworkInterfaceDnsSettingsArgs']]] = None,
+                 dns_settings: Optional[pulumi.Input[Union['NetworkInterfaceDnsSettingsArgs', 'NetworkInterfaceDnsSettingsArgsDict']]] = None,
                  enable_accelerated_networking: Optional[pulumi.Input[bool]] = None,
                  enable_ip_forwarding: Optional[pulumi.Input[bool]] = None,
-                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
                  id: Optional[pulumi.Input[str]] = None,
-                 ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkInterfaceIPConfigurationArgs']]]]] = None,
+                 ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkInterfaceIPConfigurationArgs', 'NetworkInterfaceIPConfigurationArgsDict']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  migration_phase: Optional[pulumi.Input[Union[str, 'NetworkInterfaceMigrationPhase']]] = None,
                  network_interface_name: Optional[pulumi.Input[str]] = None,
-                 network_security_group: Optional[pulumi.Input[pulumi.InputType['NetworkSecurityGroupArgs']]] = None,
+                 network_security_group: Optional[pulumi.Input[Union['NetworkSecurityGroupArgs', 'NetworkSecurityGroupArgsDict']]] = None,
                  nic_type: Optional[pulumi.Input[Union[str, 'NetworkInterfaceNicType']]] = None,
-                 private_link_service: Optional[pulumi.Input[pulumi.InputType['PrivateLinkServiceArgs']]] = None,
+                 private_link_service: Optional[pulumi.Input[Union['PrivateLinkServiceArgs', 'PrivateLinkServiceArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  workload_type: Optional[pulumi.Input[str]] = None,

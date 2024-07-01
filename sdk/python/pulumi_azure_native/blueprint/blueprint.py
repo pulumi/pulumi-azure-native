@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -156,8 +161,8 @@ class Blueprint(pulumi.CustomResource):
                  blueprint_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ParameterDefinitionArgs']]]]] = None,
-                 resource_groups: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ResourceGroupDefinitionArgs']]]]] = None,
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['ParameterDefinitionArgs', 'ParameterDefinitionArgsDict']]]]] = None,
+                 resource_groups: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['ResourceGroupDefinitionArgs', 'ResourceGroupDefinitionArgsDict']]]]] = None,
                  resource_scope: Optional[pulumi.Input[str]] = None,
                  target_scope: Optional[pulumi.Input[Union[str, 'BlueprintTargetScope']]] = None,
                  versions: Optional[Any] = None,
@@ -173,8 +178,8 @@ class Blueprint(pulumi.CustomResource):
         :param pulumi.Input[str] blueprint_name: Name of the blueprint definition.
         :param pulumi.Input[str] description: Multi-line explain this resource.
         :param pulumi.Input[str] display_name: One-liner string explain this resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ParameterDefinitionArgs']]]] parameters: Parameters required by this blueprint definition.
-        :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ResourceGroupDefinitionArgs']]]] resource_groups: Resource group placeholders defined by this blueprint definition.
+        :param pulumi.Input[Mapping[str, pulumi.Input[Union['ParameterDefinitionArgs', 'ParameterDefinitionArgsDict']]]] parameters: Parameters required by this blueprint definition.
+        :param pulumi.Input[Mapping[str, pulumi.Input[Union['ResourceGroupDefinitionArgs', 'ResourceGroupDefinitionArgsDict']]]] resource_groups: Resource group placeholders defined by this blueprint definition.
         :param pulumi.Input[str] resource_scope: The scope of the resource. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}').
         :param pulumi.Input[Union[str, 'BlueprintTargetScope']] target_scope: The scope where this blueprint definition can be assigned.
         :param Any versions: Published versions of this blueprint definition.
@@ -209,8 +214,8 @@ class Blueprint(pulumi.CustomResource):
                  blueprint_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ParameterDefinitionArgs']]]]] = None,
-                 resource_groups: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ResourceGroupDefinitionArgs']]]]] = None,
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['ParameterDefinitionArgs', 'ParameterDefinitionArgsDict']]]]] = None,
+                 resource_groups: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['ResourceGroupDefinitionArgs', 'ResourceGroupDefinitionArgsDict']]]]] = None,
                  resource_scope: Optional[pulumi.Input[str]] = None,
                  target_scope: Optional[pulumi.Input[Union[str, 'BlueprintTargetScope']]] = None,
                  versions: Optional[Any] = None,

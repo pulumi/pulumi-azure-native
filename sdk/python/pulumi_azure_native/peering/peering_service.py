@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -176,7 +181,7 @@ class PeeringService(pulumi.CustomResource):
                  provider_backup_peering_location: Optional[pulumi.Input[str]] = None,
                  provider_primary_peering_location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['PeeringServiceSkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['PeeringServiceSkuArgs', 'PeeringServiceSkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -192,7 +197,7 @@ class PeeringService(pulumi.CustomResource):
         :param pulumi.Input[str] provider_backup_peering_location: The backup peering (Microsoft/service provider) location to be used for customer traffic.
         :param pulumi.Input[str] provider_primary_peering_location: The primary peering (Microsoft/service provider) location to be used for customer traffic.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[pulumi.InputType['PeeringServiceSkuArgs']] sku: The SKU that defines the type of the peering service.
+        :param pulumi.Input[Union['PeeringServiceSkuArgs', 'PeeringServiceSkuArgsDict']] sku: The SKU that defines the type of the peering service.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
         """
         ...
@@ -227,7 +232,7 @@ class PeeringService(pulumi.CustomResource):
                  provider_backup_peering_location: Optional[pulumi.Input[str]] = None,
                  provider_primary_peering_location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['PeeringServiceSkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['PeeringServiceSkuArgs', 'PeeringServiceSkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

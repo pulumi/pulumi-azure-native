@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -76,7 +81,7 @@ class PrivateLinkAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  group_id: Optional[pulumi.Input[str]] = None,
                  pla_id: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['PrivateLinkAssociationPropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['PrivateLinkAssociationPropertiesArgs', 'PrivateLinkAssociationPropertiesArgsDict']]] = None,
                  __props__=None):
         """
         Create a PrivateLinkAssociation resource with the given unique name, props, and options.
@@ -84,7 +89,7 @@ class PrivateLinkAssociation(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] group_id: The management group ID.
         :param pulumi.Input[str] pla_id: The ID of the PLA
-        :param pulumi.Input[pulumi.InputType['PrivateLinkAssociationPropertiesArgs']] properties: The properties of the PrivateLinkAssociation.
+        :param pulumi.Input[Union['PrivateLinkAssociationPropertiesArgs', 'PrivateLinkAssociationPropertiesArgsDict']] properties: The properties of the PrivateLinkAssociation.
         """
         ...
     @overload
@@ -111,7 +116,7 @@ class PrivateLinkAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  group_id: Optional[pulumi.Input[str]] = None,
                  pla_id: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['PrivateLinkAssociationPropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['PrivateLinkAssociationPropertiesArgs', 'PrivateLinkAssociationPropertiesArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

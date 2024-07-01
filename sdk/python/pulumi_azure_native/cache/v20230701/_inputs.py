@@ -4,20 +4,49 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'DatabasePropertiesGeoReplicationArgs',
+    'DatabasePropertiesGeoReplicationArgsDict',
     'EnterpriseSkuArgs',
+    'EnterpriseSkuArgsDict',
     'LinkedDatabaseArgs',
+    'LinkedDatabaseArgsDict',
     'ModuleArgs',
+    'ModuleArgsDict',
     'PersistenceArgs',
+    'PersistenceArgsDict',
     'PrivateLinkServiceConnectionStateArgs',
+    'PrivateLinkServiceConnectionStateArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class DatabasePropertiesGeoReplicationArgsDict(TypedDict):
+        """
+        Optional set of properties to configure geo replication for this database.
+        """
+        group_nickname: NotRequired[pulumi.Input[str]]
+        """
+        Name for the group of linked database resources
+        """
+        linked_databases: NotRequired[pulumi.Input[Sequence[pulumi.Input['LinkedDatabaseArgsDict']]]]
+        """
+        List of database resources to link with this database
+        """
+elif False:
+    DatabasePropertiesGeoReplicationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DatabasePropertiesGeoReplicationArgs:
@@ -59,6 +88,22 @@ class DatabasePropertiesGeoReplicationArgs:
         pulumi.set(self, "linked_databases", value)
 
 
+if not MYPY:
+    class EnterpriseSkuArgsDict(TypedDict):
+        """
+        SKU parameters supplied to the create RedisEnterprise operation.
+        """
+        name: pulumi.Input[Union[str, 'SkuName']]
+        """
+        The type of RedisEnterprise cluster to deploy. Possible values: (Enterprise_E10, EnterpriseFlash_F300 etc.)
+        """
+        capacity: NotRequired[pulumi.Input[int]]
+        """
+        The size of the RedisEnterprise cluster. Defaults to 2 or 3 depending on SKU. Valid values are (2, 4, 6, ...) for Enterprise SKUs and (3, 9, 15, ...) for Flash SKUs.
+        """
+elif False:
+    EnterpriseSkuArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EnterpriseSkuArgs:
     def __init__(__self__, *,
@@ -98,6 +143,18 @@ class EnterpriseSkuArgs:
         pulumi.set(self, "capacity", value)
 
 
+if not MYPY:
+    class LinkedDatabaseArgsDict(TypedDict):
+        """
+        Specifies details of a linked database resource.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID of a database resource to link with this database.
+        """
+elif False:
+    LinkedDatabaseArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinkedDatabaseArgs:
     def __init__(__self__, *,
@@ -121,6 +178,22 @@ class LinkedDatabaseArgs:
     def id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class ModuleArgsDict(TypedDict):
+        """
+        Specifies configuration of a redis module
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the module, e.g. 'RedisBloom', 'RediSearch', 'RedisTimeSeries'
+        """
+        args: NotRequired[pulumi.Input[str]]
+        """
+        Configuration options for the module, e.g. 'ERROR_RATE 0.01 INITIAL_SIZE 400'.
+        """
+elif False:
+    ModuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ModuleArgs:
@@ -160,6 +233,30 @@ class ModuleArgs:
     def args(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "args", value)
 
+
+if not MYPY:
+    class PersistenceArgsDict(TypedDict):
+        """
+        Persistence-related configuration for the RedisEnterprise database
+        """
+        aof_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Sets whether AOF is enabled.
+        """
+        aof_frequency: NotRequired[pulumi.Input[Union[str, 'AofFrequency']]]
+        """
+        Sets the frequency at which data is written to disk.
+        """
+        rdb_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Sets whether RDB is enabled.
+        """
+        rdb_frequency: NotRequired[pulumi.Input[Union[str, 'RdbFrequency']]]
+        """
+        Sets the frequency at which a snapshot of the database is created.
+        """
+elif False:
+    PersistenceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PersistenceArgs:
@@ -232,6 +329,26 @@ class PersistenceArgs:
     def rdb_frequency(self, value: Optional[pulumi.Input[Union[str, 'RdbFrequency']]]):
         pulumi.set(self, "rdb_frequency", value)
 
+
+if not MYPY:
+    class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
+        """
+        A collection of information about the state of the connection between service consumer and provider.
+        """
+        actions_required: NotRequired[pulumi.Input[str]]
+        """
+        A message indicating if changes on the service provider require any updates on the consumer.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The reason for approval/rejection of the connection.
+        """
+        status: NotRequired[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]]
+        """
+        Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+        """
+elif False:
+    PrivateLinkServiceConnectionStateArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:

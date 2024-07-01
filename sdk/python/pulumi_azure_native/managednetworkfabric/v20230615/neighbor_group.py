@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -121,7 +126,7 @@ class NeighborGroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  annotation: Optional[pulumi.Input[str]] = None,
-                 destination: Optional[pulumi.Input[pulumi.InputType['NeighborGroupDestinationArgs']]] = None,
+                 destination: Optional[pulumi.Input[Union['NeighborGroupDestinationArgs', 'NeighborGroupDestinationArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  neighbor_group_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -133,7 +138,7 @@ class NeighborGroup(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] annotation: Switch configuration description.
-        :param pulumi.Input[pulumi.InputType['NeighborGroupDestinationArgs']] destination: An array of destination IPv4 Addresses or IPv6 Addresses.
+        :param pulumi.Input[Union['NeighborGroupDestinationArgs', 'NeighborGroupDestinationArgsDict']] destination: An array of destination IPv4 Addresses or IPv6 Addresses.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] neighbor_group_name: Name of the Neighbor Group.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -164,7 +169,7 @@ class NeighborGroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  annotation: Optional[pulumi.Input[str]] = None,
-                 destination: Optional[pulumi.Input[pulumi.InputType['NeighborGroupDestinationArgs']]] = None,
+                 destination: Optional[pulumi.Input[Union['NeighborGroupDestinationArgs', 'NeighborGroupDestinationArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  neighbor_group_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,

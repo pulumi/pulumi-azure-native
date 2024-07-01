@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -443,25 +448,25 @@ class HostPool(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 agent_update: Optional[pulumi.Input[pulumi.InputType['AgentUpdatePropertiesArgs']]] = None,
+                 agent_update: Optional[pulumi.Input[Union['AgentUpdatePropertiesArgs', 'AgentUpdatePropertiesArgsDict']]] = None,
                  custom_rdp_property: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  friendly_name: Optional[pulumi.Input[str]] = None,
                  host_pool_name: Optional[pulumi.Input[str]] = None,
                  host_pool_type: Optional[pulumi.Input[Union[str, 'HostPoolType']]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ResourceModelWithAllowedPropertySetIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['ResourceModelWithAllowedPropertySetIdentityArgs', 'ResourceModelWithAllowedPropertySetIdentityArgsDict']]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  load_balancer_type: Optional[pulumi.Input[Union[str, 'LoadBalancerType']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  managed_by: Optional[pulumi.Input[str]] = None,
                  max_session_limit: Optional[pulumi.Input[int]] = None,
                  personal_desktop_assignment_type: Optional[pulumi.Input[Union[str, 'PersonalDesktopAssignmentType']]] = None,
-                 plan: Optional[pulumi.Input[pulumi.InputType['ResourceModelWithAllowedPropertySetPlanArgs']]] = None,
+                 plan: Optional[pulumi.Input[Union['ResourceModelWithAllowedPropertySetPlanArgs', 'ResourceModelWithAllowedPropertySetPlanArgsDict']]] = None,
                  preferred_app_group_type: Optional[pulumi.Input[Union[str, 'PreferredAppGroupType']]] = None,
-                 registration_info: Optional[pulumi.Input[pulumi.InputType['RegistrationInfoArgs']]] = None,
+                 registration_info: Optional[pulumi.Input[Union['RegistrationInfoArgs', 'RegistrationInfoArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  ring: Optional[pulumi.Input[int]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['ResourceModelWithAllowedPropertySetSkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['ResourceModelWithAllowedPropertySetSkuArgs', 'ResourceModelWithAllowedPropertySetSkuArgsDict']]] = None,
                  sso_client_id: Optional[pulumi.Input[str]] = None,
                  sso_client_secret_key_vault_path: Optional[pulumi.Input[str]] = None,
                  sso_secret_type: Optional[pulumi.Input[Union[str, 'SSOSecretType']]] = None,
@@ -479,7 +484,7 @@ class HostPool(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['AgentUpdatePropertiesArgs']] agent_update: The session host configuration for updating agent, monitoring agent, and stack component.
+        :param pulumi.Input[Union['AgentUpdatePropertiesArgs', 'AgentUpdatePropertiesArgsDict']] agent_update: The session host configuration for updating agent, monitoring agent, and stack component.
         :param pulumi.Input[str] custom_rdp_property: Custom rdp property of HostPool.
         :param pulumi.Input[str] description: Description of HostPool.
         :param pulumi.Input[str] friendly_name: Friendly name of HostPool.
@@ -492,7 +497,7 @@ class HostPool(pulumi.CustomResource):
         :param pulumi.Input[int] max_session_limit: The max session limit of HostPool.
         :param pulumi.Input[Union[str, 'PersonalDesktopAssignmentType']] personal_desktop_assignment_type: PersonalDesktopAssignment type for HostPool.
         :param pulumi.Input[Union[str, 'PreferredAppGroupType']] preferred_app_group_type: The type of preferred application group type, default to Desktop Application Group
-        :param pulumi.Input[pulumi.InputType['RegistrationInfoArgs']] registration_info: The registration info of HostPool.
+        :param pulumi.Input[Union['RegistrationInfoArgs', 'RegistrationInfoArgsDict']] registration_info: The registration info of HostPool.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[int] ring: The ring number of HostPool.
         :param pulumi.Input[str] sso_client_id: ClientId for the registered Relying Party used to issue WVD SSO certificates.
@@ -531,25 +536,25 @@ class HostPool(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 agent_update: Optional[pulumi.Input[pulumi.InputType['AgentUpdatePropertiesArgs']]] = None,
+                 agent_update: Optional[pulumi.Input[Union['AgentUpdatePropertiesArgs', 'AgentUpdatePropertiesArgsDict']]] = None,
                  custom_rdp_property: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  friendly_name: Optional[pulumi.Input[str]] = None,
                  host_pool_name: Optional[pulumi.Input[str]] = None,
                  host_pool_type: Optional[pulumi.Input[Union[str, 'HostPoolType']]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ResourceModelWithAllowedPropertySetIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['ResourceModelWithAllowedPropertySetIdentityArgs', 'ResourceModelWithAllowedPropertySetIdentityArgsDict']]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  load_balancer_type: Optional[pulumi.Input[Union[str, 'LoadBalancerType']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  managed_by: Optional[pulumi.Input[str]] = None,
                  max_session_limit: Optional[pulumi.Input[int]] = None,
                  personal_desktop_assignment_type: Optional[pulumi.Input[Union[str, 'PersonalDesktopAssignmentType']]] = None,
-                 plan: Optional[pulumi.Input[pulumi.InputType['ResourceModelWithAllowedPropertySetPlanArgs']]] = None,
+                 plan: Optional[pulumi.Input[Union['ResourceModelWithAllowedPropertySetPlanArgs', 'ResourceModelWithAllowedPropertySetPlanArgsDict']]] = None,
                  preferred_app_group_type: Optional[pulumi.Input[Union[str, 'PreferredAppGroupType']]] = None,
-                 registration_info: Optional[pulumi.Input[pulumi.InputType['RegistrationInfoArgs']]] = None,
+                 registration_info: Optional[pulumi.Input[Union['RegistrationInfoArgs', 'RegistrationInfoArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  ring: Optional[pulumi.Input[int]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['ResourceModelWithAllowedPropertySetSkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['ResourceModelWithAllowedPropertySetSkuArgs', 'ResourceModelWithAllowedPropertySetSkuArgsDict']]] = None,
                  sso_client_id: Optional[pulumi.Input[str]] = None,
                  sso_client_secret_key_vault_path: Optional[pulumi.Input[str]] = None,
                  sso_secret_type: Optional[pulumi.Input[Union[str, 'SSOSecretType']]] = None,

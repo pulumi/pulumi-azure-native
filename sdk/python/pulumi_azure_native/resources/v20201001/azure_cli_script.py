@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -320,10 +325,10 @@ class AzureCliScript(pulumi.CustomResource):
                  arguments: Optional[pulumi.Input[str]] = None,
                  az_cli_version: Optional[pulumi.Input[str]] = None,
                  cleanup_preference: Optional[pulumi.Input[Union[str, 'CleanupOptions']]] = None,
-                 container_settings: Optional[pulumi.Input[pulumi.InputType['ContainerConfigurationArgs']]] = None,
-                 environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentVariableArgs']]]]] = None,
+                 container_settings: Optional[pulumi.Input[Union['ContainerConfigurationArgs', 'ContainerConfigurationArgsDict']]] = None,
+                 environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentVariableArgs', 'EnvironmentVariableArgsDict']]]]] = None,
                  force_update_tag: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  primary_script_uri: Optional[pulumi.Input[str]] = None,
@@ -331,7 +336,7 @@ class AzureCliScript(pulumi.CustomResource):
                  retention_interval: Optional[pulumi.Input[str]] = None,
                  script_content: Optional[pulumi.Input[str]] = None,
                  script_name: Optional[pulumi.Input[str]] = None,
-                 storage_account_settings: Optional[pulumi.Input[pulumi.InputType['StorageAccountConfigurationArgs']]] = None,
+                 storage_account_settings: Optional[pulumi.Input[Union['StorageAccountConfigurationArgs', 'StorageAccountConfigurationArgsDict']]] = None,
                  supporting_script_uris: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timeout: Optional[pulumi.Input[str]] = None,
@@ -344,10 +349,10 @@ class AzureCliScript(pulumi.CustomResource):
         :param pulumi.Input[str] arguments: Command line arguments to pass to the script. Arguments are separated by spaces. ex: -Name blue* -Location 'West US 2' 
         :param pulumi.Input[str] az_cli_version: Azure CLI module version to be used.
         :param pulumi.Input[Union[str, 'CleanupOptions']] cleanup_preference: The clean up preference when the script execution gets in a terminal state. Default setting is 'Always'.
-        :param pulumi.Input[pulumi.InputType['ContainerConfigurationArgs']] container_settings: Container settings.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentVariableArgs']]]] environment_variables: The environment variables to pass over to the script.
+        :param pulumi.Input[Union['ContainerConfigurationArgs', 'ContainerConfigurationArgsDict']] container_settings: Container settings.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentVariableArgs', 'EnvironmentVariableArgsDict']]]] environment_variables: The environment variables to pass over to the script.
         :param pulumi.Input[str] force_update_tag: Gets or sets how the deployment script should be forced to execute even if the script resource has not changed. Can be current time stamp or a GUID.
-        :param pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']] identity: Optional property. Managed identity to be used for this deployment script. Currently, only user-assigned MSI is supported.
+        :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: Optional property. Managed identity to be used for this deployment script. Currently, only user-assigned MSI is supported.
         :param pulumi.Input[str] kind: Type of the script.
                Expected value is 'AzureCLI'.
         :param pulumi.Input[str] location: The location of the ACI and the storage account for the deployment script.
@@ -356,7 +361,7 @@ class AzureCliScript(pulumi.CustomResource):
         :param pulumi.Input[str] retention_interval: Interval for which the service retains the script resource after it reaches a terminal state. Resource will be deleted when this duration expires. Duration is based on ISO 8601 pattern (for example P1D means one day).
         :param pulumi.Input[str] script_content: Script body.
         :param pulumi.Input[str] script_name: Name of the deployment script.
-        :param pulumi.Input[pulumi.InputType['StorageAccountConfigurationArgs']] storage_account_settings: Storage Account settings.
+        :param pulumi.Input[Union['StorageAccountConfigurationArgs', 'StorageAccountConfigurationArgsDict']] storage_account_settings: Storage Account settings.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] supporting_script_uris: Supporting files for the external script.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] timeout: Maximum allowed script execution time specified in ISO 8601 format. Default value is P1D
@@ -388,10 +393,10 @@ class AzureCliScript(pulumi.CustomResource):
                  arguments: Optional[pulumi.Input[str]] = None,
                  az_cli_version: Optional[pulumi.Input[str]] = None,
                  cleanup_preference: Optional[pulumi.Input[Union[str, 'CleanupOptions']]] = None,
-                 container_settings: Optional[pulumi.Input[pulumi.InputType['ContainerConfigurationArgs']]] = None,
-                 environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentVariableArgs']]]]] = None,
+                 container_settings: Optional[pulumi.Input[Union['ContainerConfigurationArgs', 'ContainerConfigurationArgsDict']]] = None,
+                 environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentVariableArgs', 'EnvironmentVariableArgsDict']]]]] = None,
                  force_update_tag: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  primary_script_uri: Optional[pulumi.Input[str]] = None,
@@ -399,7 +404,7 @@ class AzureCliScript(pulumi.CustomResource):
                  retention_interval: Optional[pulumi.Input[str]] = None,
                  script_content: Optional[pulumi.Input[str]] = None,
                  script_name: Optional[pulumi.Input[str]] = None,
-                 storage_account_settings: Optional[pulumi.Input[pulumi.InputType['StorageAccountConfigurationArgs']]] = None,
+                 storage_account_settings: Optional[pulumi.Input[Union['StorageAccountConfigurationArgs', 'StorageAccountConfigurationArgsDict']]] = None,
                  supporting_script_uris: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timeout: Optional[pulumi.Input[str]] = None,

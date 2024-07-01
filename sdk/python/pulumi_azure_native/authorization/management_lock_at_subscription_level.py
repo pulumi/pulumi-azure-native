@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -93,7 +98,7 @@ class ManagementLockAtSubscriptionLevel(pulumi.CustomResource):
                  level: Optional[pulumi.Input[Union[str, 'LockLevel']]] = None,
                  lock_name: Optional[pulumi.Input[str]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
-                 owners: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ManagementLockOwnerArgs']]]]] = None,
+                 owners: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ManagementLockOwnerArgs', 'ManagementLockOwnerArgsDict']]]]] = None,
                  __props__=None):
         """
         The lock information.
@@ -104,7 +109,7 @@ class ManagementLockAtSubscriptionLevel(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'LockLevel']] level: The level of the lock. Possible values are: NotSpecified, CanNotDelete, ReadOnly. CanNotDelete means authorized users are able to read and modify the resources, but not delete. ReadOnly means authorized users can only read from a resource, but they can't modify or delete it.
         :param pulumi.Input[str] lock_name: The name of lock. The lock name can be a maximum of 260 characters. It cannot contain <, > %, &, :, \\, ?, /, or any control characters.
         :param pulumi.Input[str] notes: Notes about the lock. Maximum of 512 characters.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ManagementLockOwnerArgs']]]] owners: The owners of the lock.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ManagementLockOwnerArgs', 'ManagementLockOwnerArgsDict']]]] owners: The owners of the lock.
         """
         ...
     @overload
@@ -134,7 +139,7 @@ class ManagementLockAtSubscriptionLevel(pulumi.CustomResource):
                  level: Optional[pulumi.Input[Union[str, 'LockLevel']]] = None,
                  lock_name: Optional[pulumi.Input[str]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
-                 owners: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ManagementLockOwnerArgs']]]]] = None,
+                 owners: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ManagementLockOwnerArgs', 'ManagementLockOwnerArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

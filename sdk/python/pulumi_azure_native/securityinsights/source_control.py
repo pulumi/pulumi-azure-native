@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -217,10 +222,10 @@ class SourceControl(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
-                 last_deployment_info: Optional[pulumi.Input[pulumi.InputType['DeploymentInfoArgs']]] = None,
+                 last_deployment_info: Optional[pulumi.Input[Union['DeploymentInfoArgs', 'DeploymentInfoArgsDict']]] = None,
                  repo_type: Optional[pulumi.Input[Union[str, 'RepoType']]] = None,
-                 repository: Optional[pulumi.Input[pulumi.InputType['RepositoryArgs']]] = None,
-                 repository_resource_info: Optional[pulumi.Input[pulumi.InputType['RepositoryResourceInfoArgs']]] = None,
+                 repository: Optional[pulumi.Input[Union['RepositoryArgs', 'RepositoryArgsDict']]] = None,
+                 repository_resource_info: Optional[pulumi.Input[Union['RepositoryResourceInfoArgs', 'RepositoryResourceInfoArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  source_control_id: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[Union[str, 'Version']]] = None,
@@ -238,10 +243,10 @@ class SourceControl(pulumi.CustomResource):
         :param pulumi.Input[str] description: A description of the source control
         :param pulumi.Input[str] display_name: The display name of the source control
         :param pulumi.Input[str] id: The id (a Guid) of the source control
-        :param pulumi.Input[pulumi.InputType['DeploymentInfoArgs']] last_deployment_info: Information regarding the latest deployment for the source control.
+        :param pulumi.Input[Union['DeploymentInfoArgs', 'DeploymentInfoArgsDict']] last_deployment_info: Information regarding the latest deployment for the source control.
         :param pulumi.Input[Union[str, 'RepoType']] repo_type: The repository type of the source control
-        :param pulumi.Input[pulumi.InputType['RepositoryArgs']] repository: Repository metadata.
-        :param pulumi.Input[pulumi.InputType['RepositoryResourceInfoArgs']] repository_resource_info: Information regarding the resources created in user's repository.
+        :param pulumi.Input[Union['RepositoryArgs', 'RepositoryArgsDict']] repository: Repository metadata.
+        :param pulumi.Input[Union['RepositoryResourceInfoArgs', 'RepositoryResourceInfoArgsDict']] repository_resource_info: Information regarding the resources created in user's repository.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] source_control_id: Source control Id
         :param pulumi.Input[Union[str, 'Version']] version: The version number associated with the source control
@@ -278,10 +283,10 @@ class SourceControl(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
-                 last_deployment_info: Optional[pulumi.Input[pulumi.InputType['DeploymentInfoArgs']]] = None,
+                 last_deployment_info: Optional[pulumi.Input[Union['DeploymentInfoArgs', 'DeploymentInfoArgsDict']]] = None,
                  repo_type: Optional[pulumi.Input[Union[str, 'RepoType']]] = None,
-                 repository: Optional[pulumi.Input[pulumi.InputType['RepositoryArgs']]] = None,
-                 repository_resource_info: Optional[pulumi.Input[pulumi.InputType['RepositoryResourceInfoArgs']]] = None,
+                 repository: Optional[pulumi.Input[Union['RepositoryArgs', 'RepositoryArgsDict']]] = None,
+                 repository_resource_info: Optional[pulumi.Input[Union['RepositoryResourceInfoArgs', 'RepositoryResourceInfoArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  source_control_id: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[Union[str, 'Version']]] = None,

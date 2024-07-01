@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -87,7 +92,7 @@ class ReplicationExtension(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['ReplicationExtensionModelPropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['ReplicationExtensionModelPropertiesArgs', 'ReplicationExtensionModelPropertiesArgsDict']]] = None,
                  replication_extension_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  vault_name: Optional[pulumi.Input[str]] = None,
@@ -97,7 +102,7 @@ class ReplicationExtension(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ReplicationExtensionModelPropertiesArgs']] properties: Replication extension model properties.
+        :param pulumi.Input[Union['ReplicationExtensionModelPropertiesArgs', 'ReplicationExtensionModelPropertiesArgsDict']] properties: Replication extension model properties.
         :param pulumi.Input[str] replication_extension_name: The replication extension name.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] vault_name: The vault name.
@@ -126,7 +131,7 @@ class ReplicationExtension(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['ReplicationExtensionModelPropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['ReplicationExtensionModelPropertiesArgs', 'ReplicationExtensionModelPropertiesArgsDict']]] = None,
                  replication_extension_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  vault_name: Optional[pulumi.Input[str]] = None,

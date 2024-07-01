@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -235,14 +240,14 @@ class Workflow(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  definition: Optional[Any] = None,
-                 definition_link: Optional[pulumi.Input[pulumi.InputType['ContentLinkArgs']]] = None,
+                 definition_link: Optional[pulumi.Input[Union['ContentLinkArgs', 'ContentLinkArgsDict']]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['WorkflowParameterArgs']]]]] = None,
-                 parameters_link: Optional[pulumi.Input[pulumi.InputType['ContentLinkArgs']]] = None,
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['WorkflowParameterArgs', 'WorkflowParameterArgsDict']]]]] = None,
+                 parameters_link: Optional[pulumi.Input[Union['ContentLinkArgs', 'ContentLinkArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  state: Optional[pulumi.Input['WorkflowState']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
@@ -253,14 +258,14 @@ class Workflow(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param Any definition: Gets or sets the definition.
-        :param pulumi.Input[pulumi.InputType['ContentLinkArgs']] definition_link: Gets or sets the link to definition.
+        :param pulumi.Input[Union['ContentLinkArgs', 'ContentLinkArgsDict']] definition_link: Gets or sets the link to definition.
         :param pulumi.Input[str] id: Gets or sets the resource id.
         :param pulumi.Input[str] location: Gets or sets the resource location.
         :param pulumi.Input[str] name: Gets the resource name.
-        :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['WorkflowParameterArgs']]]] parameters: Gets or sets the parameters.
-        :param pulumi.Input[pulumi.InputType['ContentLinkArgs']] parameters_link: Gets or sets the link to parameters.
+        :param pulumi.Input[Mapping[str, pulumi.Input[Union['WorkflowParameterArgs', 'WorkflowParameterArgsDict']]]] parameters: Gets or sets the parameters.
+        :param pulumi.Input[Union['ContentLinkArgs', 'ContentLinkArgsDict']] parameters_link: Gets or sets the link to parameters.
         :param pulumi.Input[str] resource_group_name: The resource group name.
-        :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: Gets or sets the sku.
+        :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: Gets or sets the sku.
         :param pulumi.Input['WorkflowState'] state: Gets or sets the state.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Gets or sets the resource tags.
         :param pulumi.Input[str] type: Gets the resource type.
@@ -290,14 +295,14 @@ class Workflow(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  definition: Optional[Any] = None,
-                 definition_link: Optional[pulumi.Input[pulumi.InputType['ContentLinkArgs']]] = None,
+                 definition_link: Optional[pulumi.Input[Union['ContentLinkArgs', 'ContentLinkArgsDict']]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['WorkflowParameterArgs']]]]] = None,
-                 parameters_link: Optional[pulumi.Input[pulumi.InputType['ContentLinkArgs']]] = None,
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['WorkflowParameterArgs', 'WorkflowParameterArgsDict']]]]] = None,
+                 parameters_link: Optional[pulumi.Input[Union['ContentLinkArgs', 'ContentLinkArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  state: Optional[pulumi.Input['WorkflowState']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,

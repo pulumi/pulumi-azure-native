@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -88,10 +93,10 @@ class SapLandscapeMonitor(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 grouping: Optional[pulumi.Input[pulumi.InputType['SapLandscapeMonitorPropertiesGroupingArgs']]] = None,
+                 grouping: Optional[pulumi.Input[Union['SapLandscapeMonitorPropertiesGroupingArgs', 'SapLandscapeMonitorPropertiesGroupingArgsDict']]] = None,
                  monitor_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 top_metrics_thresholds: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SapLandscapeMonitorMetricThresholdsArgs']]]]] = None,
+                 top_metrics_thresholds: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SapLandscapeMonitorMetricThresholdsArgs', 'SapLandscapeMonitorMetricThresholdsArgsDict']]]]] = None,
                  __props__=None):
         """
         configuration associated with SAP Landscape Monitor Dashboard.
@@ -101,10 +106,10 @@ class SapLandscapeMonitor(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['SapLandscapeMonitorPropertiesGroupingArgs']] grouping: Gets or sets the SID groupings by landscape and Environment.
+        :param pulumi.Input[Union['SapLandscapeMonitorPropertiesGroupingArgs', 'SapLandscapeMonitorPropertiesGroupingArgsDict']] grouping: Gets or sets the SID groupings by landscape and Environment.
         :param pulumi.Input[str] monitor_name: Name of the SAP monitor resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SapLandscapeMonitorMetricThresholdsArgs']]]] top_metrics_thresholds: Gets or sets the list Top Metric Thresholds for SAP Landscape Monitor Dashboard
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SapLandscapeMonitorMetricThresholdsArgs', 'SapLandscapeMonitorMetricThresholdsArgsDict']]]] top_metrics_thresholds: Gets or sets the list Top Metric Thresholds for SAP Landscape Monitor Dashboard
         """
         ...
     @overload
@@ -133,10 +138,10 @@ class SapLandscapeMonitor(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 grouping: Optional[pulumi.Input[pulumi.InputType['SapLandscapeMonitorPropertiesGroupingArgs']]] = None,
+                 grouping: Optional[pulumi.Input[Union['SapLandscapeMonitorPropertiesGroupingArgs', 'SapLandscapeMonitorPropertiesGroupingArgsDict']]] = None,
                  monitor_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 top_metrics_thresholds: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SapLandscapeMonitorMetricThresholdsArgs']]]]] = None,
+                 top_metrics_thresholds: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SapLandscapeMonitorMetricThresholdsArgs', 'SapLandscapeMonitorMetricThresholdsArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

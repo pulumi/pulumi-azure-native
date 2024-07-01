@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -133,24 +138,24 @@ class AutomationRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union[pulumi.InputType['AutomationRuleModifyPropertiesActionArgs'], pulumi.InputType['AutomationRuleRunPlaybookActionArgs']]]]]] = None,
+                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union[Union['AutomationRuleModifyPropertiesActionArgs', 'AutomationRuleModifyPropertiesActionArgsDict'], Union['AutomationRuleRunPlaybookActionArgs', 'AutomationRuleRunPlaybookActionArgsDict']]]]]] = None,
                  automation_rule_id: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  order: Optional[pulumi.Input[int]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 triggering_logic: Optional[pulumi.Input[pulumi.InputType['AutomationRuleTriggeringLogicArgs']]] = None,
+                 triggering_logic: Optional[pulumi.Input[Union['AutomationRuleTriggeringLogicArgs', 'AutomationRuleTriggeringLogicArgsDict']]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Create a AutomationRule resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union[pulumi.InputType['AutomationRuleModifyPropertiesActionArgs'], pulumi.InputType['AutomationRuleRunPlaybookActionArgs']]]]] actions: The actions to execute when the automation rule is triggered.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[Union['AutomationRuleModifyPropertiesActionArgs', 'AutomationRuleModifyPropertiesActionArgsDict'], Union['AutomationRuleRunPlaybookActionArgs', 'AutomationRuleRunPlaybookActionArgsDict']]]]] actions: The actions to execute when the automation rule is triggered.
         :param pulumi.Input[str] automation_rule_id: Automation rule ID
         :param pulumi.Input[str] display_name: The display name of the automation rule.
         :param pulumi.Input[int] order: The order of execution of the automation rule.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[pulumi.InputType['AutomationRuleTriggeringLogicArgs']] triggering_logic: Describes automation rule triggering logic.
+        :param pulumi.Input[Union['AutomationRuleTriggeringLogicArgs', 'AutomationRuleTriggeringLogicArgsDict']] triggering_logic: Describes automation rule triggering logic.
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         """
         ...
@@ -176,12 +181,12 @@ class AutomationRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union[pulumi.InputType['AutomationRuleModifyPropertiesActionArgs'], pulumi.InputType['AutomationRuleRunPlaybookActionArgs']]]]]] = None,
+                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union[Union['AutomationRuleModifyPropertiesActionArgs', 'AutomationRuleModifyPropertiesActionArgsDict'], Union['AutomationRuleRunPlaybookActionArgs', 'AutomationRuleRunPlaybookActionArgsDict']]]]]] = None,
                  automation_rule_id: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  order: Optional[pulumi.Input[int]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 triggering_logic: Optional[pulumi.Input[pulumi.InputType['AutomationRuleTriggeringLogicArgs']]] = None,
+                 triggering_logic: Optional[pulumi.Input[Union['AutomationRuleTriggeringLogicArgs', 'AutomationRuleTriggeringLogicArgsDict']]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

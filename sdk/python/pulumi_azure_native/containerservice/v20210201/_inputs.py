@@ -4,18 +4,41 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'AgentPoolUpgradeSettingsArgs',
+    'AgentPoolUpgradeSettingsArgsDict',
     'KubeletConfigArgs',
+    'KubeletConfigArgsDict',
     'LinuxOSConfigArgs',
+    'LinuxOSConfigArgsDict',
     'SysctlConfigArgs',
+    'SysctlConfigArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AgentPoolUpgradeSettingsArgsDict(TypedDict):
+        """
+        Settings for upgrading an agentpool
+        """
+        max_surge: NotRequired[pulumi.Input[str]]
+        """
+        Count or percentage of additional nodes to be added during upgrade. If empty uses AKS default
+        """
+elif False:
+    AgentPoolUpgradeSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AgentPoolUpgradeSettingsArgs:
@@ -40,6 +63,58 @@ class AgentPoolUpgradeSettingsArgs:
     def max_surge(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "max_surge", value)
 
+
+if not MYPY:
+    class KubeletConfigArgsDict(TypedDict):
+        """
+        Kubelet configurations of agent nodes.
+        """
+        allowed_unsafe_sysctls: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Allowlist of unsafe sysctls or unsafe sysctl patterns (ending in `*`).
+        """
+        container_log_max_files: NotRequired[pulumi.Input[int]]
+        """
+        The maximum number of container log files that can be present for a container. The number must be ≥ 2.
+        """
+        container_log_max_size_mb: NotRequired[pulumi.Input[int]]
+        """
+        The maximum size (e.g. 10Mi) of container log file before it is rotated.
+        """
+        cpu_cfs_quota: NotRequired[pulumi.Input[bool]]
+        """
+        Enable CPU CFS quota enforcement for containers that specify CPU limits.
+        """
+        cpu_cfs_quota_period: NotRequired[pulumi.Input[str]]
+        """
+        Sets CPU CFS quota period value.
+        """
+        cpu_manager_policy: NotRequired[pulumi.Input[str]]
+        """
+        CPU Manager policy to use.
+        """
+        fail_swap_on: NotRequired[pulumi.Input[bool]]
+        """
+        If set to true it will make the Kubelet fail to start if swap is enabled on the node.
+        """
+        image_gc_high_threshold: NotRequired[pulumi.Input[int]]
+        """
+        The percent of disk usage after which image garbage collection is always run.
+        """
+        image_gc_low_threshold: NotRequired[pulumi.Input[int]]
+        """
+        The percent of disk usage before which image garbage collection is never run.
+        """
+        pod_max_pids: NotRequired[pulumi.Input[int]]
+        """
+        The maximum number of processes per pod.
+        """
+        topology_manager_policy: NotRequired[pulumi.Input[str]]
+        """
+        Topology Manager policy to use.
+        """
+elif False:
+    KubeletConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class KubeletConfigArgs:
@@ -225,6 +300,30 @@ class KubeletConfigArgs:
         pulumi.set(self, "topology_manager_policy", value)
 
 
+if not MYPY:
+    class LinuxOSConfigArgsDict(TypedDict):
+        """
+        OS configurations of Linux agent nodes.
+        """
+        swap_file_size_mb: NotRequired[pulumi.Input[int]]
+        """
+        SwapFileSizeMB specifies size in MB of a swap file will be created on each node.
+        """
+        sysctls: NotRequired[pulumi.Input['SysctlConfigArgsDict']]
+        """
+        Sysctl settings for Linux agent nodes.
+        """
+        transparent_huge_page_defrag: NotRequired[pulumi.Input[str]]
+        """
+        Transparent Huge Page defrag configuration.
+        """
+        transparent_huge_page_enabled: NotRequired[pulumi.Input[str]]
+        """
+        Transparent Huge Page enabled configuration.
+        """
+elif False:
+    LinuxOSConfigArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinuxOSConfigArgs:
     def __init__(__self__, *,
@@ -296,6 +395,126 @@ class LinuxOSConfigArgs:
     def transparent_huge_page_enabled(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "transparent_huge_page_enabled", value)
 
+
+if not MYPY:
+    class SysctlConfigArgsDict(TypedDict):
+        """
+        Sysctl settings for Linux agent nodes.
+        """
+        fs_aio_max_nr: NotRequired[pulumi.Input[int]]
+        """
+        Sysctl setting fs.aio-max-nr.
+        """
+        fs_file_max: NotRequired[pulumi.Input[int]]
+        """
+        Sysctl setting fs.file-max.
+        """
+        fs_inotify_max_user_watches: NotRequired[pulumi.Input[int]]
+        """
+        Sysctl setting fs.inotify.max_user_watches.
+        """
+        fs_nr_open: NotRequired[pulumi.Input[int]]
+        """
+        Sysctl setting fs.nr_open.
+        """
+        kernel_threads_max: NotRequired[pulumi.Input[int]]
+        """
+        Sysctl setting kernel.threads-max.
+        """
+        net_core_netdev_max_backlog: NotRequired[pulumi.Input[int]]
+        """
+        Sysctl setting net.core.netdev_max_backlog.
+        """
+        net_core_optmem_max: NotRequired[pulumi.Input[int]]
+        """
+        Sysctl setting net.core.optmem_max.
+        """
+        net_core_rmem_default: NotRequired[pulumi.Input[int]]
+        """
+        Sysctl setting net.core.rmem_default.
+        """
+        net_core_rmem_max: NotRequired[pulumi.Input[int]]
+        """
+        Sysctl setting net.core.rmem_max.
+        """
+        net_core_somaxconn: NotRequired[pulumi.Input[int]]
+        """
+        Sysctl setting net.core.somaxconn.
+        """
+        net_core_wmem_default: NotRequired[pulumi.Input[int]]
+        """
+        Sysctl setting net.core.wmem_default.
+        """
+        net_core_wmem_max: NotRequired[pulumi.Input[int]]
+        """
+        Sysctl setting net.core.wmem_max.
+        """
+        net_ipv4_ip_local_port_range: NotRequired[pulumi.Input[str]]
+        """
+        Sysctl setting net.ipv4.ip_local_port_range.
+        """
+        net_ipv4_neigh_default_gc_thresh1: NotRequired[pulumi.Input[int]]
+        """
+        Sysctl setting net.ipv4.neigh.default.gc_thresh1.
+        """
+        net_ipv4_neigh_default_gc_thresh2: NotRequired[pulumi.Input[int]]
+        """
+        Sysctl setting net.ipv4.neigh.default.gc_thresh2.
+        """
+        net_ipv4_neigh_default_gc_thresh3: NotRequired[pulumi.Input[int]]
+        """
+        Sysctl setting net.ipv4.neigh.default.gc_thresh3.
+        """
+        net_ipv4_tcp_fin_timeout: NotRequired[pulumi.Input[int]]
+        """
+        Sysctl setting net.ipv4.tcp_fin_timeout.
+        """
+        net_ipv4_tcp_keepalive_probes: NotRequired[pulumi.Input[int]]
+        """
+        Sysctl setting net.ipv4.tcp_keepalive_probes.
+        """
+        net_ipv4_tcp_keepalive_time: NotRequired[pulumi.Input[int]]
+        """
+        Sysctl setting net.ipv4.tcp_keepalive_time.
+        """
+        net_ipv4_tcp_max_syn_backlog: NotRequired[pulumi.Input[int]]
+        """
+        Sysctl setting net.ipv4.tcp_max_syn_backlog.
+        """
+        net_ipv4_tcp_max_tw_buckets: NotRequired[pulumi.Input[int]]
+        """
+        Sysctl setting net.ipv4.tcp_max_tw_buckets.
+        """
+        net_ipv4_tcp_tw_reuse: NotRequired[pulumi.Input[bool]]
+        """
+        Sysctl setting net.ipv4.tcp_tw_reuse.
+        """
+        net_ipv4_tcpkeepalive_intvl: NotRequired[pulumi.Input[int]]
+        """
+        Sysctl setting net.ipv4.tcp_keepalive_intvl.
+        """
+        net_netfilter_nf_conntrack_buckets: NotRequired[pulumi.Input[int]]
+        """
+        Sysctl setting net.netfilter.nf_conntrack_buckets.
+        """
+        net_netfilter_nf_conntrack_max: NotRequired[pulumi.Input[int]]
+        """
+        Sysctl setting net.netfilter.nf_conntrack_max.
+        """
+        vm_max_map_count: NotRequired[pulumi.Input[int]]
+        """
+        Sysctl setting vm.max_map_count.
+        """
+        vm_swappiness: NotRequired[pulumi.Input[int]]
+        """
+        Sysctl setting vm.swappiness.
+        """
+        vm_vfs_cache_pressure: NotRequired[pulumi.Input[int]]
+        """
+        Sysctl setting vm.vfs_cache_pressure.
+        """
+elif False:
+    SysctlConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SysctlConfigArgs:

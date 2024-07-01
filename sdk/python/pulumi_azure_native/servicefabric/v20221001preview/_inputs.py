@@ -4,25 +4,55 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'ApplicationTypeVersionsCleanupPolicyArgs',
+    'ApplicationTypeVersionsCleanupPolicyArgsDict',
     'AzureActiveDirectoryArgs',
+    'AzureActiveDirectoryArgsDict',
     'ClientCertificateArgs',
+    'ClientCertificateArgsDict',
     'IPTagArgs',
+    'IPTagArgsDict',
     'LoadBalancingRuleArgs',
+    'LoadBalancingRuleArgsDict',
     'NetworkSecurityRuleArgs',
+    'NetworkSecurityRuleArgsDict',
     'ServiceEndpointArgs',
+    'ServiceEndpointArgsDict',
     'SettingsParameterDescriptionArgs',
+    'SettingsParameterDescriptionArgsDict',
     'SettingsSectionDescriptionArgs',
+    'SettingsSectionDescriptionArgsDict',
     'SkuArgs',
+    'SkuArgsDict',
     'SubnetArgs',
+    'SubnetArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ApplicationTypeVersionsCleanupPolicyArgsDict(TypedDict):
+        """
+        The policy used to clean up unused versions. When the policy is not specified explicitly, the default unused application versions to keep will be 3.
+        """
+        max_unused_versions_to_keep: pulumi.Input[int]
+        """
+        Number of unused versions per application type to keep.
+        """
+elif False:
+    ApplicationTypeVersionsCleanupPolicyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApplicationTypeVersionsCleanupPolicyArgs:
@@ -46,6 +76,26 @@ class ApplicationTypeVersionsCleanupPolicyArgs:
     def max_unused_versions_to_keep(self, value: pulumi.Input[int]):
         pulumi.set(self, "max_unused_versions_to_keep", value)
 
+
+if not MYPY:
+    class AzureActiveDirectoryArgsDict(TypedDict):
+        """
+        The settings to enable AAD authentication on the cluster.
+        """
+        client_application: NotRequired[pulumi.Input[str]]
+        """
+        Azure active directory client application id.
+        """
+        cluster_application: NotRequired[pulumi.Input[str]]
+        """
+        Azure active directory cluster application id.
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        Azure active directory tenant id.
+        """
+elif False:
+    AzureActiveDirectoryArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AzureActiveDirectoryArgs:
@@ -102,6 +152,30 @@ class AzureActiveDirectoryArgs:
     def tenant_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tenant_id", value)
 
+
+if not MYPY:
+    class ClientCertificateArgsDict(TypedDict):
+        """
+        Client certificate definition.
+        """
+        is_admin: pulumi.Input[bool]
+        """
+        Indicates if the client certificate has admin access to the cluster. Non admin clients can perform only read only operations on the cluster.
+        """
+        common_name: NotRequired[pulumi.Input[str]]
+        """
+        Certificate common name.
+        """
+        issuer_thumbprint: NotRequired[pulumi.Input[str]]
+        """
+        Issuer thumbprint for the certificate. Only used together with CommonName.
+        """
+        thumbprint: NotRequired[pulumi.Input[str]]
+        """
+        Certificate thumbprint.
+        """
+elif False:
+    ClientCertificateArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ClientCertificateArgs:
@@ -174,6 +248,22 @@ class ClientCertificateArgs:
         pulumi.set(self, "thumbprint", value)
 
 
+if not MYPY:
+    class IPTagArgsDict(TypedDict):
+        """
+        IPTag associated with the object.
+        """
+        ip_tag_type: pulumi.Input[str]
+        """
+        The IP tag type.
+        """
+        tag: pulumi.Input[str]
+        """
+        The value of the IP tag.
+        """
+elif False:
+    IPTagArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IPTagArgs:
     def __init__(__self__, *,
@@ -211,6 +301,42 @@ class IPTagArgs:
     def tag(self, value: pulumi.Input[str]):
         pulumi.set(self, "tag", value)
 
+
+if not MYPY:
+    class LoadBalancingRuleArgsDict(TypedDict):
+        """
+        Describes a load balancing rule.
+        """
+        backend_port: pulumi.Input[int]
+        """
+        The port used for internal connections on the endpoint. Acceptable values are between 1 and 65535.
+        """
+        frontend_port: pulumi.Input[int]
+        """
+        The port for the external endpoint. Port numbers for each rule must be unique within the Load Balancer. Acceptable values are between 1 and 65534.
+        """
+        probe_protocol: pulumi.Input[Union[str, 'ProbeProtocol']]
+        """
+        the reference to the load balancer probe used by the load balancing rule.
+        """
+        protocol: pulumi.Input[Union[str, 'Protocol']]
+        """
+        The reference to the transport protocol used by the load balancing rule.
+        """
+        load_distribution: NotRequired[pulumi.Input[str]]
+        """
+        The load distribution policy for this rule.
+        """
+        probe_port: NotRequired[pulumi.Input[int]]
+        """
+        The prob port used by the load balancing rule. Acceptable values are between 1 and 65535.
+        """
+        probe_request_path: NotRequired[pulumi.Input[str]]
+        """
+        The probe request path. Only supported for HTTP/HTTPS probes.
+        """
+elif False:
+    LoadBalancingRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LoadBalancingRuleArgs:
@@ -327,6 +453,70 @@ class LoadBalancingRuleArgs:
     def probe_request_path(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "probe_request_path", value)
 
+
+if not MYPY:
+    class NetworkSecurityRuleArgsDict(TypedDict):
+        """
+        Describes a network security rule.
+        """
+        access: pulumi.Input[Union[str, 'Access']]
+        """
+        The network traffic is allowed or denied.
+        """
+        direction: pulumi.Input[Union[str, 'Direction']]
+        """
+        Network security rule direction.
+        """
+        name: pulumi.Input[str]
+        """
+        Network security rule name.
+        """
+        priority: pulumi.Input[int]
+        """
+        The priority of the rule. The value can be in the range 1000 to 3000. Values outside this range are reserved for Service Fabric ManagerCluster Resource Provider. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
+        """
+        protocol: pulumi.Input[Union[str, 'NsgProtocol']]
+        """
+        Network protocol this rule applies to.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Network security rule description.
+        """
+        destination_address_prefix: NotRequired[pulumi.Input[str]]
+        """
+        The destination address prefix. CIDR or destination IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used.
+        """
+        destination_address_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The destination address prefixes. CIDR or destination IP ranges.
+        """
+        destination_port_range: NotRequired[pulumi.Input[str]]
+        """
+        he destination port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
+        """
+        destination_port_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The destination port ranges.
+        """
+        source_address_prefix: NotRequired[pulumi.Input[str]]
+        """
+        The CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. If this is an ingress rule, specifies where network traffic originates from.
+        """
+        source_address_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The CIDR or source IP ranges.
+        """
+        source_port_range: NotRequired[pulumi.Input[str]]
+        """
+        The source port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
+        """
+        source_port_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The source port ranges.
+        """
+elif False:
+    NetworkSecurityRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NetworkSecurityRuleArgs:
@@ -555,6 +745,22 @@ class NetworkSecurityRuleArgs:
         pulumi.set(self, "source_port_ranges", value)
 
 
+if not MYPY:
+    class ServiceEndpointArgsDict(TypedDict):
+        """
+        The service endpoint properties.
+        """
+        service: pulumi.Input[str]
+        """
+        The type of the endpoint service.
+        """
+        locations: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of locations.
+        """
+elif False:
+    ServiceEndpointArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ServiceEndpointArgs:
     def __init__(__self__, *,
@@ -594,6 +800,22 @@ class ServiceEndpointArgs:
         pulumi.set(self, "locations", value)
 
 
+if not MYPY:
+    class SettingsParameterDescriptionArgsDict(TypedDict):
+        """
+        Describes a parameter in fabric settings of the cluster.
+        """
+        name: pulumi.Input[str]
+        """
+        The parameter name of fabric setting.
+        """
+        value: pulumi.Input[str]
+        """
+        The parameter value of fabric setting.
+        """
+elif False:
+    SettingsParameterDescriptionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SettingsParameterDescriptionArgs:
     def __init__(__self__, *,
@@ -631,6 +853,22 @@ class SettingsParameterDescriptionArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class SettingsSectionDescriptionArgsDict(TypedDict):
+        """
+        Describes a section in the fabric settings of the cluster.
+        """
+        name: pulumi.Input[str]
+        """
+        The section name of the fabric settings.
+        """
+        parameters: pulumi.Input[Sequence[pulumi.Input['SettingsParameterDescriptionArgsDict']]]
+        """
+        The collection of parameters in the section.
+        """
+elif False:
+    SettingsSectionDescriptionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SettingsSectionDescriptionArgs:
@@ -670,6 +908,18 @@ class SettingsSectionDescriptionArgs:
         pulumi.set(self, "parameters", value)
 
 
+if not MYPY:
+    class SkuArgsDict(TypedDict):
+        """
+        Service Fabric managed cluster Sku definition
+        """
+        name: pulumi.Input[Union[str, 'SkuName']]
+        """
+        Sku Name.
+        """
+elif False:
+    SkuArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SkuArgs:
     def __init__(__self__, *,
@@ -692,6 +942,34 @@ class SkuArgs:
     def name(self, value: pulumi.Input[Union[str, 'SkuName']]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class SubnetArgsDict(TypedDict):
+        """
+        Describes a Subnet.
+        """
+        name: pulumi.Input[str]
+        """
+        Subnet name.
+        """
+        enable_ipv6: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates wether to enable Ipv6 or not. If not provided, it will take the same configuration as the cluster.
+        """
+        network_security_group_id: NotRequired[pulumi.Input[str]]
+        """
+        Full resource id for the network security group.
+        """
+        private_endpoint_network_policies: NotRequired[pulumi.Input[Union[str, 'PrivateEndpointNetworkPolicies']]]
+        """
+        Enable or Disable apply network policies on private end point in the subnet.
+        """
+        private_link_service_network_policies: NotRequired[pulumi.Input[Union[str, 'PrivateLinkServiceNetworkPolicies']]]
+        """
+        Enable or Disable apply network policies on private link service in the subnet.
+        """
+elif False:
+    SubnetArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SubnetArgs:

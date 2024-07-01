@@ -4,30 +4,65 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'BackupProfileArgs',
+    'BackupProfileArgsDict',
     'CacheProfileArgs',
+    'CacheProfileArgsDict',
     'DatabaseProfileArgs',
+    'DatabaseProfileArgsDict',
     'DiskInfoArgs',
+    'DiskInfoArgsDict',
     'FileshareProfileArgs',
+    'FileshareProfileArgsDict',
     'ManagedRGConfigurationArgs',
+    'ManagedRGConfigurationArgsDict',
     'NetworkProfileArgs',
+    'NetworkProfileArgsDict',
     'NodeProfileArgs',
+    'NodeProfileArgsDict',
     'OsImageProfileArgs',
+    'OsImageProfileArgsDict',
     'PhpProfileArgs',
+    'PhpProfileArgsDict',
     'PhpWorkloadResourceIdentityArgs',
+    'PhpWorkloadResourceIdentityArgsDict',
     'SearchProfileArgs',
+    'SearchProfileArgsDict',
     'SiteProfileArgs',
+    'SiteProfileArgsDict',
     'SkuArgs',
+    'SkuArgsDict',
     'UserProfileArgs',
+    'UserProfileArgsDict',
     'VmssNodesProfileArgs',
+    'VmssNodesProfileArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class BackupProfileArgsDict(TypedDict):
+        """
+        Backup profile
+        """
+        backup_enabled: pulumi.Input[Union[str, 'EnableBackup']]
+        """
+        Whether to enable Azure backup for the workload
+        """
+elif False:
+    BackupProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class BackupProfileArgs:
@@ -51,6 +86,30 @@ class BackupProfileArgs:
     def backup_enabled(self, value: pulumi.Input[Union[str, 'EnableBackup']]):
         pulumi.set(self, "backup_enabled", value)
 
+
+if not MYPY:
+    class CacheProfileArgsDict(TypedDict):
+        """
+        Cache profile
+        """
+        capacity: pulumi.Input[float]
+        """
+        Cache capacity
+        """
+        family: pulumi.Input[Union[str, 'RedisCacheFamily']]
+        """
+        Cache family
+        """
+        sku_name: pulumi.Input[str]
+        """
+        Cache SKU name
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Cache name
+        """
+elif False:
+    CacheProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CacheProfileArgs:
@@ -120,6 +179,58 @@ class CacheProfileArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class DatabaseProfileArgsDict(TypedDict):
+        """
+        Workload database profile
+        """
+        sku: pulumi.Input[str]
+        """
+        The name of the server SKU, e.g. Standard_D32s_v4
+        """
+        tier: pulumi.Input['DatabaseTier']
+        """
+        Tier of the server SKU
+        """
+        type: pulumi.Input[Union[str, 'DatabaseType']]
+        """
+        Database type
+        """
+        backup_retention_days: NotRequired[pulumi.Input[int]]
+        """
+        Backup retention days for the server
+        """
+        ha_enabled: NotRequired[pulumi.Input[Union[str, 'HAEnabled']]]
+        """
+        Whether to enable HA for the server
+        """
+        server_name: NotRequired[pulumi.Input[str]]
+        """
+        Database server name
+        """
+        ssl_enforcement_enabled: NotRequired[pulumi.Input[Union[str, 'EnableSslEnforcement']]]
+        """
+        Whether to enable SSL enforcement on the database
+        """
+        storage_in_gb: NotRequired[pulumi.Input[float]]
+        """
+        Database storage size in GB
+        """
+        storage_iops: NotRequired[pulumi.Input[float]]
+        """
+        Storage IOPS for the server
+        """
+        storage_sku: NotRequired[pulumi.Input[str]]
+        """
+        SKU name for database storage
+        """
+        version: NotRequired[pulumi.Input[str]]
+        """
+        Database version
+        """
+elif False:
+    DatabaseProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DatabaseProfileArgs:
@@ -302,6 +413,22 @@ class DatabaseProfileArgs:
         pulumi.set(self, "version", value)
 
 
+if not MYPY:
+    class DiskInfoArgsDict(TypedDict):
+        """
+        Disk resource creation details
+        """
+        storage_type: pulumi.Input['DiskStorageType']
+        """
+        Storage type
+        """
+        size_in_gb: NotRequired[pulumi.Input[float]]
+        """
+        Disk size in GB
+        """
+elif False:
+    DiskInfoArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DiskInfoArgs:
     def __init__(__self__, *,
@@ -340,6 +467,26 @@ class DiskInfoArgs:
     def size_in_gb(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "size_in_gb", value)
 
+
+if not MYPY:
+    class FileshareProfileArgsDict(TypedDict):
+        """
+        File share profile
+        """
+        share_type: pulumi.Input[Union[str, 'FileShareType']]
+        """
+        Share type
+        """
+        storage_type: pulumi.Input[Union[str, 'FileShareStorageType']]
+        """
+        File share backing storage type
+        """
+        share_size_in_gb: NotRequired[pulumi.Input[float]]
+        """
+        File share size in GB
+        """
+elif False:
+    FileshareProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FileshareProfileArgs:
@@ -395,6 +542,18 @@ class FileshareProfileArgs:
         pulumi.set(self, "share_size_in_gb", value)
 
 
+if not MYPY:
+    class ManagedRGConfigurationArgsDict(TypedDict):
+        """
+        Managed resource group configuration
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Managed resource group name
+        """
+elif False:
+    ManagedRGConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ManagedRGConfigurationArgs:
     def __init__(__self__, *,
@@ -418,6 +577,34 @@ class ManagedRGConfigurationArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class NetworkProfileArgsDict(TypedDict):
+        """
+        Network profile
+        """
+        load_balancer_type: pulumi.Input[Union[str, 'LoadBalancerType']]
+        """
+        Load balancer type
+        """
+        azure_front_door_enabled: NotRequired[pulumi.Input[Union[str, 'AzureFrontDoorEnabled']]]
+        """
+        Whether to enable Azure front door
+        """
+        capacity: NotRequired[pulumi.Input[int]]
+        """
+        Capacity, applicable only for Application Gateway
+        """
+        load_balancer_sku: NotRequired[pulumi.Input[str]]
+        """
+        Load balancer SKU
+        """
+        load_balancer_tier: NotRequired[pulumi.Input[str]]
+        """
+        Load balancer tier
+        """
+elif False:
+    NetworkProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NetworkProfileArgs:
@@ -506,6 +693,34 @@ class NetworkProfileArgs:
         pulumi.set(self, "load_balancer_tier", value)
 
 
+if not MYPY:
+    class NodeProfileArgsDict(TypedDict):
+        """
+        VM or VMSS node profile
+        """
+        node_sku: pulumi.Input[str]
+        """
+        VM SKU for node(s)
+        """
+        os_disk: pulumi.Input['DiskInfoArgsDict']
+        """
+        OS disk details
+        """
+        os_image: pulumi.Input['OsImageProfileArgsDict']
+        """
+        OS image used for creating the nodes
+        """
+        data_disks: NotRequired[pulumi.Input[Sequence[pulumi.Input['DiskInfoArgsDict']]]]
+        """
+        Data disks details. This property is not in use right now
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        VM or VMSS name
+        """
+elif False:
+    NodeProfileArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NodeProfileArgs:
     def __init__(__self__, *,
@@ -591,6 +806,30 @@ class NodeProfileArgs:
         pulumi.set(self, "name", value)
 
 
+if not MYPY:
+    class OsImageProfileArgsDict(TypedDict):
+        """
+        OS image profile
+        """
+        offer: NotRequired[pulumi.Input[Union[str, 'OSImageOffer']]]
+        """
+        OS image offer
+        """
+        publisher: NotRequired[pulumi.Input[Union[str, 'OSImagePublisher']]]
+        """
+        OS image publisher
+        """
+        sku: NotRequired[pulumi.Input[Union[str, 'OSImageSku']]]
+        """
+        OS image sku
+        """
+        version: NotRequired[pulumi.Input[Union[str, 'OSImageVersion']]]
+        """
+        OS image version
+        """
+elif False:
+    OsImageProfileArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OsImageProfileArgs:
     def __init__(__self__, *,
@@ -663,6 +902,18 @@ class OsImageProfileArgs:
         pulumi.set(self, "version", value)
 
 
+if not MYPY:
+    class PhpProfileArgsDict(TypedDict):
+        """
+        PHP profile
+        """
+        version: pulumi.Input[Union[str, 'PHPVersion']]
+        """
+        PHP version
+        """
+elif False:
+    PhpProfileArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PhpProfileArgs:
     def __init__(__self__, *,
@@ -685,6 +936,22 @@ class PhpProfileArgs:
     def version(self, value: pulumi.Input[Union[str, 'PHPVersion']]):
         pulumi.set(self, "version", value)
 
+
+if not MYPY:
+    class PhpWorkloadResourceIdentityArgsDict(TypedDict):
+        """
+        Identity for the resource. Currently not supported
+        """
+        type: pulumi.Input[Union[str, 'ManagedServiceIdentityType']]
+        """
+        Type of manage identity
+        """
+        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        User assigned identities dictionary
+        """
+elif False:
+    PhpWorkloadResourceIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PhpWorkloadResourceIdentityArgs:
@@ -724,6 +991,38 @@ class PhpWorkloadResourceIdentityArgs:
     def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
+
+if not MYPY:
+    class SearchProfileArgsDict(TypedDict):
+        """
+        Search profile
+        """
+        node_sku: pulumi.Input[str]
+        """
+        VM SKU for node(s)
+        """
+        os_disk: pulumi.Input['DiskInfoArgsDict']
+        """
+        OS disk details
+        """
+        os_image: pulumi.Input['OsImageProfileArgsDict']
+        """
+        OS image used for creating the nodes
+        """
+        search_type: pulumi.Input[Union[str, 'SearchType']]
+        """
+        Search type
+        """
+        data_disks: NotRequired[pulumi.Input[Sequence[pulumi.Input['DiskInfoArgsDict']]]]
+        """
+        Data disks details. This property is not in use right now
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        VM or VMSS name
+        """
+elif False:
+    SearchProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SearchProfileArgs:
@@ -825,6 +1124,18 @@ class SearchProfileArgs:
         pulumi.set(self, "name", value)
 
 
+if not MYPY:
+    class SiteProfileArgsDict(TypedDict):
+        """
+        Workload website profile
+        """
+        domain_name: NotRequired[pulumi.Input[str]]
+        """
+        Domain name for the application site URL
+        """
+elif False:
+    SiteProfileArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SiteProfileArgs:
     def __init__(__self__, *,
@@ -848,6 +1159,34 @@ class SiteProfileArgs:
     def domain_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "domain_name", value)
 
+
+if not MYPY:
+    class SkuArgsDict(TypedDict):
+        """
+        The resource model definition representing SKU
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the SKU. Ex - P3. It is typically a letter+number code
+        """
+        capacity: NotRequired[pulumi.Input[int]]
+        """
+        If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
+        """
+        family: NotRequired[pulumi.Input[str]]
+        """
+        If the service has different generations of hardware, for the same SKU, then that can be captured here.
+        """
+        size: NotRequired[pulumi.Input[str]]
+        """
+        The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+        """
+        tier: NotRequired[pulumi.Input['SkuTier']]
+        """
+        This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+        """
+elif False:
+    SkuArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SkuArgs:
@@ -936,6 +1275,22 @@ class SkuArgs:
         pulumi.set(self, "tier", value)
 
 
+if not MYPY:
+    class UserProfileArgsDict(TypedDict):
+        """
+        User profile to configure on a compute resources such as VM, VMSS
+        """
+        ssh_public_key: pulumi.Input[str]
+        """
+        SSH public key data
+        """
+        user_name: pulumi.Input[str]
+        """
+        User name
+        """
+elif False:
+    UserProfileArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class UserProfileArgs:
     def __init__(__self__, *,
@@ -973,6 +1328,42 @@ class UserProfileArgs:
     def user_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "user_name", value)
 
+
+if not MYPY:
+    class VmssNodesProfileArgsDict(TypedDict):
+        """
+        VMSS profile
+        """
+        node_sku: pulumi.Input[str]
+        """
+        VM SKU for node(s)
+        """
+        os_disk: pulumi.Input['DiskInfoArgsDict']
+        """
+        OS disk details
+        """
+        os_image: pulumi.Input['OsImageProfileArgsDict']
+        """
+        OS image used for creating the nodes
+        """
+        auto_scale_max_count: NotRequired[pulumi.Input[int]]
+        """
+        Maximum number of nodes for autoscale
+        """
+        auto_scale_min_count: NotRequired[pulumi.Input[int]]
+        """
+        Minimum number of nodes for autoscale
+        """
+        data_disks: NotRequired[pulumi.Input[Sequence[pulumi.Input['DiskInfoArgsDict']]]]
+        """
+        Data disks details. This property is not in use right now
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        VM or VMSS name
+        """
+elif False:
+    VmssNodesProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VmssNodesProfileArgs:

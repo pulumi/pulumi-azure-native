@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -265,7 +270,7 @@ class NetworkFabric(pulumi.CustomResource):
                  ipv4_prefix: Optional[pulumi.Input[str]] = None,
                  ipv6_prefix: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 management_network_configuration: Optional[pulumi.Input[pulumi.InputType['ManagementNetworkConfigurationPropertiesArgs']]] = None,
+                 management_network_configuration: Optional[pulumi.Input[Union['ManagementNetworkConfigurationPropertiesArgs', 'ManagementNetworkConfigurationPropertiesArgsDict']]] = None,
                  network_fabric_controller_id: Optional[pulumi.Input[str]] = None,
                  network_fabric_name: Optional[pulumi.Input[str]] = None,
                  network_fabric_sku: Optional[pulumi.Input[str]] = None,
@@ -273,7 +278,7 @@ class NetworkFabric(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  server_count_per_rack: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 terminal_server_configuration: Optional[pulumi.Input[pulumi.InputType['TerminalServerConfigurationArgs']]] = None,
+                 terminal_server_configuration: Optional[pulumi.Input[Union['TerminalServerConfigurationArgs', 'TerminalServerConfigurationArgsDict']]] = None,
                  __props__=None):
         """
         The Network Fabric resource definition.
@@ -286,7 +291,7 @@ class NetworkFabric(pulumi.CustomResource):
         :param pulumi.Input[str] ipv4_prefix: IPv4Prefix for Management Network. Example: 10.1.0.0/19.
         :param pulumi.Input[str] ipv6_prefix: IPv6Prefix for Management Network. Example: 3FFE:FFFF:0:CD40::/59
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[pulumi.InputType['ManagementNetworkConfigurationPropertiesArgs']] management_network_configuration: Configuration to be used to setup the management network.
+        :param pulumi.Input[Union['ManagementNetworkConfigurationPropertiesArgs', 'ManagementNetworkConfigurationPropertiesArgsDict']] management_network_configuration: Configuration to be used to setup the management network.
         :param pulumi.Input[str] network_fabric_controller_id: Azure resource ID for the NetworkFabricController the NetworkFabric belongs.
         :param pulumi.Input[str] network_fabric_name: Name of the Network Fabric.
         :param pulumi.Input[str] network_fabric_sku: Supported Network Fabric SKU.Example: Compute / Aggregate racks. Once the user chooses a particular SKU, only supported racks can be added to the Network Fabric. The SKU determines whether it is a single / multi rack Network Fabric.
@@ -294,7 +299,7 @@ class NetworkFabric(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[int] server_count_per_rack: Number of servers.Possible values are from 1-16.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[pulumi.InputType['TerminalServerConfigurationArgs']] terminal_server_configuration: Network and credentials configuration currently applied to terminal server.
+        :param pulumi.Input[Union['TerminalServerConfigurationArgs', 'TerminalServerConfigurationArgsDict']] terminal_server_configuration: Network and credentials configuration currently applied to terminal server.
         """
         ...
     @overload
@@ -326,7 +331,7 @@ class NetworkFabric(pulumi.CustomResource):
                  ipv4_prefix: Optional[pulumi.Input[str]] = None,
                  ipv6_prefix: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 management_network_configuration: Optional[pulumi.Input[pulumi.InputType['ManagementNetworkConfigurationPropertiesArgs']]] = None,
+                 management_network_configuration: Optional[pulumi.Input[Union['ManagementNetworkConfigurationPropertiesArgs', 'ManagementNetworkConfigurationPropertiesArgsDict']]] = None,
                  network_fabric_controller_id: Optional[pulumi.Input[str]] = None,
                  network_fabric_name: Optional[pulumi.Input[str]] = None,
                  network_fabric_sku: Optional[pulumi.Input[str]] = None,
@@ -334,7 +339,7 @@ class NetworkFabric(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  server_count_per_rack: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 terminal_server_configuration: Optional[pulumi.Input[pulumi.InputType['TerminalServerConfigurationArgs']]] = None,
+                 terminal_server_configuration: Optional[pulumi.Input[Union['TerminalServerConfigurationArgs', 'TerminalServerConfigurationArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

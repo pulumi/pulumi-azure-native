@@ -4,19 +4,47 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'ActionArgs',
+    'ActionArgsDict',
     'ConditionFailingPeriodsArgs',
+    'ConditionFailingPeriodsArgsDict',
     'ConditionArgs',
+    'ConditionArgsDict',
     'DimensionArgs',
+    'DimensionArgsDict',
     'ScheduledQueryRuleCriteriaArgs',
+    'ScheduledQueryRuleCriteriaArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ActionArgsDict(TypedDict):
+        """
+        Actions to invoke when the alert fires.
+        """
+        action_group_id: NotRequired[pulumi.Input[str]]
+        """
+        Action Group resource Id to invoke when the alert fires.
+        """
+        web_hook_properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        The properties of a webhook object.
+        """
+elif False:
+    ActionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ActionArgs:
@@ -57,6 +85,22 @@ class ActionArgs:
     def web_hook_properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "web_hook_properties", value)
 
+
+if not MYPY:
+    class ConditionFailingPeriodsArgsDict(TypedDict):
+        """
+        The minimum number of violations required within the selected lookback time window required to raise an alert.
+        """
+        min_failing_periods_to_alert: NotRequired[pulumi.Input[float]]
+        """
+        The number of violations to trigger an alert. Should be smaller or equal to numberOfEvaluationPeriods. Default value is 1
+        """
+        number_of_evaluation_periods: NotRequired[pulumi.Input[float]]
+        """
+        The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (windowSize) and the selected number of aggregated points. Default value is 1
+        """
+elif False:
+    ConditionFailingPeriodsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ConditionFailingPeriodsArgs:
@@ -101,6 +145,46 @@ class ConditionFailingPeriodsArgs:
     def number_of_evaluation_periods(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "number_of_evaluation_periods", value)
 
+
+if not MYPY:
+    class ConditionArgsDict(TypedDict):
+        """
+        A condition of the scheduled query rule.
+        """
+        operator: pulumi.Input[Union[str, 'ConditionOperator']]
+        """
+        The criteria operator.
+        """
+        threshold: pulumi.Input[float]
+        """
+        the criteria threshold value that activates the alert.
+        """
+        time_aggregation: pulumi.Input[Union[str, 'TimeAggregation']]
+        """
+        Aggregation type
+        """
+        dimensions: NotRequired[pulumi.Input[Sequence[pulumi.Input['DimensionArgsDict']]]]
+        """
+        List of Dimensions conditions
+        """
+        failing_periods: NotRequired[pulumi.Input['ConditionFailingPeriodsArgsDict']]
+        """
+        The minimum number of violations required within the selected lookback time window required to raise an alert.
+        """
+        metric_measure_column: NotRequired[pulumi.Input[str]]
+        """
+        The column containing the metric measure number.
+        """
+        query: NotRequired[pulumi.Input[str]]
+        """
+        Log query alert
+        """
+        resource_id_column: NotRequired[pulumi.Input[str]]
+        """
+        The column containing the resource id. The content of the column must be a uri formatted as resource id
+        """
+elif False:
+    ConditionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ConditionArgs:
@@ -235,6 +319,26 @@ class ConditionArgs:
         pulumi.set(self, "resource_id_column", value)
 
 
+if not MYPY:
+    class DimensionArgsDict(TypedDict):
+        """
+        Dimension splitting and filtering definition
+        """
+        name: pulumi.Input[str]
+        """
+        Name of the dimension
+        """
+        operator: pulumi.Input[Union[str, 'DimensionOperator']]
+        """
+        Operator for dimension values
+        """
+        values: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        List of dimension values
+        """
+elif False:
+    DimensionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DimensionArgs:
     def __init__(__self__, *,
@@ -287,6 +391,18 @@ class DimensionArgs:
     def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "values", value)
 
+
+if not MYPY:
+    class ScheduledQueryRuleCriteriaArgsDict(TypedDict):
+        """
+        The rule criteria that defines the conditions of the scheduled query rule.
+        """
+        all_of: NotRequired[pulumi.Input[Sequence[pulumi.Input['ConditionArgsDict']]]]
+        """
+        A list of conditions to evaluate against the specified scopes
+        """
+elif False:
+    ScheduledQueryRuleCriteriaArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ScheduledQueryRuleCriteriaArgs:

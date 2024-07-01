@@ -4,115 +4,239 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'AdditionalCapabilitiesArgs',
+    'AdditionalCapabilitiesArgsDict',
     'AdditionalUnattendContentArgs',
+    'AdditionalUnattendContentArgsDict',
     'ApiEntityReferenceArgs',
+    'ApiEntityReferenceArgsDict',
     'ApplicationProfileArgs',
+    'ApplicationProfileArgsDict',
     'AutomaticOSUpgradePolicyArgs',
+    'AutomaticOSUpgradePolicyArgsDict',
     'AutomaticRepairsPolicyArgs',
+    'AutomaticRepairsPolicyArgsDict',
     'BillingProfileArgs',
+    'BillingProfileArgsDict',
     'BootDiagnosticsArgs',
+    'BootDiagnosticsArgsDict',
     'CapacityReservationProfileArgs',
+    'CapacityReservationProfileArgsDict',
     'DataDiskArgs',
+    'DataDiskArgsDict',
     'DedicatedHostGroupPropertiesAdditionalCapabilitiesArgs',
+    'DedicatedHostGroupPropertiesAdditionalCapabilitiesArgsDict',
     'DiagnosticsProfileArgs',
+    'DiagnosticsProfileArgsDict',
     'DiffDiskSettingsArgs',
+    'DiffDiskSettingsArgsDict',
     'DiskEncryptionSetParametersArgs',
+    'DiskEncryptionSetParametersArgsDict',
     'DiskEncryptionSettingsArgs',
+    'DiskEncryptionSettingsArgsDict',
     'DiskRestorePointAttributesArgs',
+    'DiskRestorePointAttributesArgsDict',
     'ExtendedLocationArgs',
+    'ExtendedLocationArgsDict',
     'HardwareProfileArgs',
+    'HardwareProfileArgsDict',
     'ImageDataDiskArgs',
+    'ImageDataDiskArgsDict',
     'ImageOSDiskArgs',
+    'ImageOSDiskArgsDict',
     'ImageReferenceArgs',
+    'ImageReferenceArgsDict',
     'ImageStorageProfileArgs',
+    'ImageStorageProfileArgsDict',
     'InstanceViewStatusArgs',
+    'InstanceViewStatusArgsDict',
     'KeyVaultKeyReferenceArgs',
+    'KeyVaultKeyReferenceArgsDict',
     'KeyVaultSecretReferenceArgs',
+    'KeyVaultSecretReferenceArgsDict',
     'LinuxConfigurationArgs',
+    'LinuxConfigurationArgsDict',
     'LinuxPatchSettingsArgs',
+    'LinuxPatchSettingsArgsDict',
     'LinuxVMGuestPatchAutomaticByPlatformSettingsArgs',
+    'LinuxVMGuestPatchAutomaticByPlatformSettingsArgsDict',
     'ManagedDiskParametersArgs',
+    'ManagedDiskParametersArgsDict',
     'NetworkInterfaceReferenceArgs',
+    'NetworkInterfaceReferenceArgsDict',
     'NetworkProfileArgs',
+    'NetworkProfileArgsDict',
     'OSDiskArgs',
+    'OSDiskArgsDict',
     'OSImageNotificationProfileArgs',
+    'OSImageNotificationProfileArgsDict',
     'OSProfileArgs',
+    'OSProfileArgsDict',
     'PatchSettingsArgs',
+    'PatchSettingsArgsDict',
     'PlanArgs',
+    'PlanArgsDict',
     'PriorityMixPolicyArgs',
+    'PriorityMixPolicyArgsDict',
     'ProximityPlacementGroupPropertiesIntentArgs',
+    'ProximityPlacementGroupPropertiesIntentArgsDict',
     'PublicIPAddressSkuArgs',
+    'PublicIPAddressSkuArgsDict',
     'RestorePointCollectionSourcePropertiesArgs',
+    'RestorePointCollectionSourcePropertiesArgsDict',
     'RestorePointEncryptionArgs',
+    'RestorePointEncryptionArgsDict',
     'RestorePointSourceMetadataArgs',
+    'RestorePointSourceMetadataArgsDict',
     'RestorePointSourceVMDataDiskArgs',
+    'RestorePointSourceVMDataDiskArgsDict',
     'RestorePointSourceVMOSDiskArgs',
+    'RestorePointSourceVMOSDiskArgsDict',
     'RestorePointSourceVMStorageProfileArgs',
+    'RestorePointSourceVMStorageProfileArgsDict',
     'RollingUpgradePolicyArgs',
+    'RollingUpgradePolicyArgsDict',
     'RunCommandInputParameterArgs',
+    'RunCommandInputParameterArgsDict',
     'RunCommandManagedIdentityArgs',
+    'RunCommandManagedIdentityArgsDict',
     'ScaleInPolicyArgs',
+    'ScaleInPolicyArgsDict',
     'ScheduledEventsProfileArgs',
+    'ScheduledEventsProfileArgsDict',
     'SecurityPostureReferenceArgs',
+    'SecurityPostureReferenceArgsDict',
     'SecurityProfileArgs',
+    'SecurityProfileArgsDict',
     'ServiceArtifactReferenceArgs',
+    'ServiceArtifactReferenceArgsDict',
     'SkuArgs',
+    'SkuArgsDict',
     'SpotRestorePolicyArgs',
+    'SpotRestorePolicyArgsDict',
     'SshConfigurationArgs',
+    'SshConfigurationArgsDict',
     'SshPublicKeyArgs',
+    'SshPublicKeyArgsDict',
     'StorageProfileArgs',
+    'StorageProfileArgsDict',
     'SubResourceArgs',
+    'SubResourceArgsDict',
     'TerminateNotificationProfileArgs',
+    'TerminateNotificationProfileArgsDict',
     'UefiSettingsArgs',
+    'UefiSettingsArgsDict',
     'UpgradePolicyArgs',
+    'UpgradePolicyArgsDict',
     'VMDiskSecurityProfileArgs',
+    'VMDiskSecurityProfileArgsDict',
     'VMGalleryApplicationArgs',
+    'VMGalleryApplicationArgsDict',
     'VMSizePropertiesArgs',
+    'VMSizePropertiesArgsDict',
     'VaultCertificateArgs',
+    'VaultCertificateArgsDict',
     'VaultSecretGroupArgs',
+    'VaultSecretGroupArgsDict',
     'VirtualHardDiskArgs',
+    'VirtualHardDiskArgsDict',
     'VirtualMachineExtensionInstanceViewArgs',
+    'VirtualMachineExtensionInstanceViewArgsDict',
     'VirtualMachineExtensionArgs',
+    'VirtualMachineExtensionArgsDict',
     'VirtualMachineIdentityArgs',
+    'VirtualMachineIdentityArgsDict',
     'VirtualMachineIpTagArgs',
+    'VirtualMachineIpTagArgsDict',
     'VirtualMachineNetworkInterfaceConfigurationArgs',
+    'VirtualMachineNetworkInterfaceConfigurationArgsDict',
     'VirtualMachineNetworkInterfaceDnsSettingsConfigurationArgs',
+    'VirtualMachineNetworkInterfaceDnsSettingsConfigurationArgsDict',
     'VirtualMachineNetworkInterfaceIPConfigurationArgs',
+    'VirtualMachineNetworkInterfaceIPConfigurationArgsDict',
     'VirtualMachinePublicIPAddressConfigurationArgs',
+    'VirtualMachinePublicIPAddressConfigurationArgsDict',
     'VirtualMachinePublicIPAddressDnsSettingsConfigurationArgs',
+    'VirtualMachinePublicIPAddressDnsSettingsConfigurationArgsDict',
     'VirtualMachineRunCommandScriptSourceArgs',
+    'VirtualMachineRunCommandScriptSourceArgsDict',
     'VirtualMachineScaleSetDataDiskArgs',
+    'VirtualMachineScaleSetDataDiskArgsDict',
     'VirtualMachineScaleSetExtensionProfileArgs',
+    'VirtualMachineScaleSetExtensionProfileArgsDict',
     'VirtualMachineScaleSetExtensionArgs',
+    'VirtualMachineScaleSetExtensionArgsDict',
     'VirtualMachineScaleSetHardwareProfileArgs',
+    'VirtualMachineScaleSetHardwareProfileArgsDict',
     'VirtualMachineScaleSetIPConfigurationArgs',
+    'VirtualMachineScaleSetIPConfigurationArgsDict',
     'VirtualMachineScaleSetIdentityArgs',
+    'VirtualMachineScaleSetIdentityArgsDict',
     'VirtualMachineScaleSetIpTagArgs',
+    'VirtualMachineScaleSetIpTagArgsDict',
     'VirtualMachineScaleSetManagedDiskParametersArgs',
+    'VirtualMachineScaleSetManagedDiskParametersArgsDict',
     'VirtualMachineScaleSetNetworkConfigurationDnsSettingsArgs',
+    'VirtualMachineScaleSetNetworkConfigurationDnsSettingsArgsDict',
     'VirtualMachineScaleSetNetworkConfigurationArgs',
+    'VirtualMachineScaleSetNetworkConfigurationArgsDict',
     'VirtualMachineScaleSetNetworkProfileArgs',
+    'VirtualMachineScaleSetNetworkProfileArgsDict',
     'VirtualMachineScaleSetOSDiskArgs',
+    'VirtualMachineScaleSetOSDiskArgsDict',
     'VirtualMachineScaleSetOSProfileArgs',
+    'VirtualMachineScaleSetOSProfileArgsDict',
     'VirtualMachineScaleSetPublicIPAddressConfigurationDnsSettingsArgs',
+    'VirtualMachineScaleSetPublicIPAddressConfigurationDnsSettingsArgsDict',
     'VirtualMachineScaleSetPublicIPAddressConfigurationArgs',
+    'VirtualMachineScaleSetPublicIPAddressConfigurationArgsDict',
     'VirtualMachineScaleSetStorageProfileArgs',
+    'VirtualMachineScaleSetStorageProfileArgsDict',
     'VirtualMachineScaleSetVMNetworkProfileConfigurationArgs',
+    'VirtualMachineScaleSetVMNetworkProfileConfigurationArgsDict',
     'VirtualMachineScaleSetVMProfileArgs',
+    'VirtualMachineScaleSetVMProfileArgsDict',
     'VirtualMachineScaleSetVMProtectionPolicyArgs',
+    'VirtualMachineScaleSetVMProtectionPolicyArgsDict',
     'WinRMConfigurationArgs',
+    'WinRMConfigurationArgsDict',
     'WinRMListenerArgs',
+    'WinRMListenerArgsDict',
     'WindowsConfigurationArgs',
+    'WindowsConfigurationArgsDict',
     'WindowsVMGuestPatchAutomaticByPlatformSettingsArgs',
+    'WindowsVMGuestPatchAutomaticByPlatformSettingsArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AdditionalCapabilitiesArgsDict(TypedDict):
+        """
+        Enables or disables a capability on the virtual machine or virtual machine scale set.
+        """
+        hibernation_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        The flag that enables or disables hibernation capability on the VM.
+        """
+        ultra_ssd_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        The flag that enables or disables a capability to have one or more managed data disks with UltraSSD_LRS storage account type on the VM or VMSS. Managed disks with storage account type UltraSSD_LRS can be added to a virtual machine or virtual machine scale set only if this property is enabled.
+        """
+elif False:
+    AdditionalCapabilitiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AdditionalCapabilitiesArgs:
@@ -153,6 +277,30 @@ class AdditionalCapabilitiesArgs:
     def ultra_ssd_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "ultra_ssd_enabled", value)
 
+
+if not MYPY:
+    class AdditionalUnattendContentArgsDict(TypedDict):
+        """
+        Specifies additional XML formatted information that can be included in the Unattend.xml file, which is used by Windows Setup. Contents are defined by setting name, component name, and the pass in which the content is applied.
+        """
+        component_name: NotRequired[pulumi.Input['ComponentNames']]
+        """
+        The component name. Currently, the only allowable value is Microsoft-Windows-Shell-Setup.
+        """
+        content: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the XML formatted content that is added to the unattend.xml file for the specified path and component. The XML must be less than 4KB and must include the root element for the setting or feature that is being inserted.
+        """
+        pass_name: NotRequired[pulumi.Input['PassNames']]
+        """
+        The pass name. Currently, the only allowable value is OobeSystem.
+        """
+        setting_name: NotRequired[pulumi.Input['SettingNames']]
+        """
+        Specifies the name of the setting to which the content applies. Possible values are: FirstLogonCommands and AutoLogon.
+        """
+elif False:
+    AdditionalUnattendContentArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AdditionalUnattendContentArgs:
@@ -226,6 +374,18 @@ class AdditionalUnattendContentArgs:
         pulumi.set(self, "setting_name", value)
 
 
+if not MYPY:
+    class ApiEntityReferenceArgsDict(TypedDict):
+        """
+        The API entity reference.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The ARM resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
+        """
+elif False:
+    ApiEntityReferenceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ApiEntityReferenceArgs:
     def __init__(__self__, *,
@@ -250,6 +410,18 @@ class ApiEntityReferenceArgs:
         pulumi.set(self, "id", value)
 
 
+if not MYPY:
+    class ApplicationProfileArgsDict(TypedDict):
+        """
+        Contains the list of gallery applications that should be made available to the VM/VMSS
+        """
+        gallery_applications: NotRequired[pulumi.Input[Sequence[pulumi.Input['VMGalleryApplicationArgsDict']]]]
+        """
+        Specifies the gallery applications that should be made available to the VM/VMSS
+        """
+elif False:
+    ApplicationProfileArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ApplicationProfileArgs:
     def __init__(__self__, *,
@@ -273,6 +445,26 @@ class ApplicationProfileArgs:
     def gallery_applications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VMGalleryApplicationArgs']]]]):
         pulumi.set(self, "gallery_applications", value)
 
+
+if not MYPY:
+    class AutomaticOSUpgradePolicyArgsDict(TypedDict):
+        """
+        The configuration parameters used for performing automatic OS upgrade.
+        """
+        disable_automatic_rollback: NotRequired[pulumi.Input[bool]]
+        """
+        Whether OS image rollback feature should be disabled. Default value is false.
+        """
+        enable_automatic_os_upgrade: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether OS upgrades should automatically be applied to scale set instances in a rolling fashion when a newer version of the OS image becomes available. Default value is false. If this is set to true for Windows based scale sets, [enableAutomaticUpdates](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.compute.models.windowsconfiguration.enableautomaticupdates?view=azure-dotnet) is automatically set to false and cannot be set to true.
+        """
+        use_rolling_upgrade_policy: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether rolling upgrade policy should be used during Auto OS Upgrade. Default value is false. Auto OS Upgrade will fallback to the default policy if no policy is defined on the VMSS.
+        """
+elif False:
+    AutomaticOSUpgradePolicyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AutomaticOSUpgradePolicyArgs:
@@ -330,6 +522,26 @@ class AutomaticOSUpgradePolicyArgs:
         pulumi.set(self, "use_rolling_upgrade_policy", value)
 
 
+if not MYPY:
+    class AutomaticRepairsPolicyArgsDict(TypedDict):
+        """
+        Specifies the configuration parameters for automatic repairs on the virtual machine scale set.
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies whether automatic repairs should be enabled on the virtual machine scale set. The default value is false.
+        """
+        grace_period: NotRequired[pulumi.Input[str]]
+        """
+        The amount of time for which automatic repairs are suspended due to a state change on VM. The grace time starts after the state change has completed. This helps avoid premature or accidental repairs. The time duration should be specified in ISO 8601 format. The minimum allowed grace period is 10 minutes (PT10M), which is also the default value. The maximum allowed grace period is 90 minutes (PT90M).
+        """
+        repair_action: NotRequired[pulumi.Input[Union[str, 'RepairAction']]]
+        """
+        Type of repair action (replace, restart, reimage) that will be used for repairing unhealthy virtual machines in the scale set. Default value is replace.
+        """
+elif False:
+    AutomaticRepairsPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AutomaticRepairsPolicyArgs:
     def __init__(__self__, *,
@@ -386,6 +598,18 @@ class AutomaticRepairsPolicyArgs:
         pulumi.set(self, "repair_action", value)
 
 
+if not MYPY:
+    class BillingProfileArgsDict(TypedDict):
+        """
+        Specifies the billing related details of a Azure Spot VM or VMSS. Minimum api-version: 2019-03-01.
+        """
+        max_price: NotRequired[pulumi.Input[float]]
+        """
+        Specifies the maximum price you are willing to pay for a Azure Spot VM/VMSS. This price is in US Dollars. <br><br> This price will be compared with the current Azure Spot price for the VM size. Also, the prices are compared at the time of create/update of Azure Spot VM/VMSS and the operation will only succeed if  the maxPrice is greater than the current Azure Spot price. <br><br> The maxPrice will also be used for evicting a Azure Spot VM/VMSS if the current Azure Spot price goes beyond the maxPrice after creation of VM/VMSS. <br><br> Possible values are: <br><br> - Any decimal value greater than zero. Example: 0.01538 <br><br> -1 – indicates default price to be up-to on-demand. <br><br> You can set the maxPrice to -1 to indicate that the Azure Spot VM/VMSS should not be evicted for price reasons. Also, the default max price is -1 if it is not provided by you. <br><br>Minimum api-version: 2019-03-01.
+        """
+elif False:
+    BillingProfileArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class BillingProfileArgs:
     def __init__(__self__, *,
@@ -409,6 +633,22 @@ class BillingProfileArgs:
     def max_price(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "max_price", value)
 
+
+if not MYPY:
+    class BootDiagnosticsArgsDict(TypedDict):
+        """
+        Boot Diagnostics is a debugging feature which allows you to view Console Output and Screenshot to diagnose VM status. You can easily view the output of your console log. Azure also enables you to see a screenshot of the VM from the hypervisor.
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Whether boot diagnostics should be enabled on the Virtual Machine.
+        """
+        storage_uri: NotRequired[pulumi.Input[str]]
+        """
+        Uri of the storage account to use for placing the console output and screenshot. If storageUri is not specified while enabling boot diagnostics, managed storage will be used.
+        """
+elif False:
+    BootDiagnosticsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class BootDiagnosticsArgs:
@@ -450,6 +690,18 @@ class BootDiagnosticsArgs:
         pulumi.set(self, "storage_uri", value)
 
 
+if not MYPY:
+    class CapacityReservationProfileArgsDict(TypedDict):
+        """
+        The parameters of a capacity reservation Profile.
+        """
+        capacity_reservation_group: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        """
+        Specifies the capacity reservation group resource id that should be used for allocating the virtual machine or scaleset vm instances provided enough capacity has been reserved. Please refer to https://aka.ms/CapacityReservation for more details.
+        """
+elif False:
+    CapacityReservationProfileArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CapacityReservationProfileArgs:
     def __init__(__self__, *,
@@ -473,6 +725,62 @@ class CapacityReservationProfileArgs:
     def capacity_reservation_group(self, value: Optional[pulumi.Input['SubResourceArgs']]):
         pulumi.set(self, "capacity_reservation_group", value)
 
+
+if not MYPY:
+    class DataDiskArgsDict(TypedDict):
+        """
+        Describes a data disk.
+        """
+        create_option: pulumi.Input[Union[str, 'DiskCreateOptionTypes']]
+        """
+        Specifies how the virtual machine should be created. Possible values are: **Attach.** This value is used when you are using a specialized disk to create the virtual machine. **FromImage.** This value is used when you are using an image to create the virtual machine. If you are using a platform image, you should also use the imageReference element described above. If you are using a marketplace image, you should also use the plan element previously described.
+        """
+        lun: pulumi.Input[int]
+        """
+        Specifies the logical unit number of the data disk. This value is used to identify data disks within the VM and therefore must be unique for each data disk attached to a VM.
+        """
+        caching: NotRequired[pulumi.Input['CachingTypes']]
+        """
+        Specifies the caching requirements. Possible values are: **None,** **ReadOnly,** **ReadWrite.** The defaulting behavior is: **None for Standard storage. ReadOnly for Premium storage.**
+        """
+        delete_option: NotRequired[pulumi.Input[Union[str, 'DiskDeleteOptionTypes']]]
+        """
+        Specifies whether data disk should be deleted or detached upon VM deletion. Possible values are: **Delete.** If this value is used, the data disk is deleted when VM is deleted. **Detach.** If this value is used, the data disk is retained after VM is deleted. The default value is set to **Detach**.
+        """
+        detach_option: NotRequired[pulumi.Input[Union[str, 'DiskDetachOptionTypes']]]
+        """
+        Specifies the detach behavior to be used while detaching a disk or which is already in the process of detachment from the virtual machine. Supported values: **ForceDetach.** detachOption: **ForceDetach** is applicable only for managed data disks. If a previous detachment attempt of the data disk did not complete due to an unexpected failure from the virtual machine and the disk is still not released then use force-detach as a last resort option to detach the disk forcibly from the VM. All writes might not have been flushed when using this detach behavior. **This feature is still in preview** mode and is not supported for VirtualMachineScaleSet. To force-detach a data disk update toBeDetached to 'true' along with setting detachOption: 'ForceDetach'.
+        """
+        disk_size_gb: NotRequired[pulumi.Input[int]]
+        """
+        Specifies the size of an empty data disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. The property 'diskSizeGB' is the number of bytes x 1024^3 for the disk and the value cannot be larger than 1023.
+        """
+        image: NotRequired[pulumi.Input['VirtualHardDiskArgsDict']]
+        """
+        The source user image virtual hard disk. The virtual hard disk will be copied before being attached to the virtual machine. If SourceImage is provided, the destination virtual hard drive must not exist.
+        """
+        managed_disk: NotRequired[pulumi.Input['ManagedDiskParametersArgsDict']]
+        """
+        The managed disk parameters.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The disk name.
+        """
+        to_be_detached: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies whether the data disk is in process of detachment from the VirtualMachine/VirtualMachineScaleset
+        """
+        vhd: NotRequired[pulumi.Input['VirtualHardDiskArgsDict']]
+        """
+        The virtual hard disk.
+        """
+        write_accelerator_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies whether writeAccelerator should be enabled or disabled on the disk.
+        """
+elif False:
+    DataDiskArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataDiskArgs:
@@ -672,6 +980,18 @@ class DataDiskArgs:
         pulumi.set(self, "write_accelerator_enabled", value)
 
 
+if not MYPY:
+    class DedicatedHostGroupPropertiesAdditionalCapabilitiesArgsDict(TypedDict):
+        """
+        Enables or disables a capability on the dedicated host group. Minimum api-version: 2022-03-01.
+        """
+        ultra_ssd_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        The flag that enables or disables a capability to have UltraSSD Enabled Virtual Machines on Dedicated Hosts of the Dedicated Host Group. For the Virtual Machines to be UltraSSD Enabled, UltraSSDEnabled flag for the resource needs to be set true as well. The value is defaulted to 'false' when not provided. Please refer to https://docs.microsoft.com/en-us/azure/virtual-machines/disks-enable-ultra-ssd for more details on Ultra SSD feature. **Note:** The ultraSSDEnabled setting can only be enabled for Host Groups that are created as zonal. Minimum api-version: 2022-03-01.
+        """
+elif False:
+    DedicatedHostGroupPropertiesAdditionalCapabilitiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DedicatedHostGroupPropertiesAdditionalCapabilitiesArgs:
     def __init__(__self__, *,
@@ -696,6 +1016,18 @@ class DedicatedHostGroupPropertiesAdditionalCapabilitiesArgs:
         pulumi.set(self, "ultra_ssd_enabled", value)
 
 
+if not MYPY:
+    class DiagnosticsProfileArgsDict(TypedDict):
+        """
+        Specifies the boot diagnostic settings state. Minimum api-version: 2015-06-15.
+        """
+        boot_diagnostics: NotRequired[pulumi.Input['BootDiagnosticsArgsDict']]
+        """
+        Boot Diagnostics is a debugging feature which allows you to view Console Output and Screenshot to diagnose VM status. **NOTE**: If storageUri is being specified then ensure that the storage account is in the same region and subscription as the VM. You can easily view the output of your console log. Azure also enables you to see a screenshot of the VM from the hypervisor.
+        """
+elif False:
+    DiagnosticsProfileArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DiagnosticsProfileArgs:
     def __init__(__self__, *,
@@ -719,6 +1051,22 @@ class DiagnosticsProfileArgs:
     def boot_diagnostics(self, value: Optional[pulumi.Input['BootDiagnosticsArgs']]):
         pulumi.set(self, "boot_diagnostics", value)
 
+
+if not MYPY:
+    class DiffDiskSettingsArgsDict(TypedDict):
+        """
+        Describes the parameters of ephemeral disk settings that can be specified for operating system disk. **Note:** The ephemeral disk settings can only be specified for managed disk.
+        """
+        option: NotRequired[pulumi.Input[Union[str, 'DiffDiskOptions']]]
+        """
+        Specifies the ephemeral disk settings for operating system disk.
+        """
+        placement: NotRequired[pulumi.Input[Union[str, 'DiffDiskPlacement']]]
+        """
+        Specifies the ephemeral disk placement for operating system disk. Possible values are: **CacheDisk,** **ResourceDisk.** The defaulting behavior is: **CacheDisk** if one is configured for the VM size otherwise **ResourceDisk** is used. Refer to the VM size documentation for Windows VM at https://docs.microsoft.com/azure/virtual-machines/windows/sizes and Linux VM at https://docs.microsoft.com/azure/virtual-machines/linux/sizes to check which VM sizes exposes a cache disk.
+        """
+elif False:
+    DiffDiskSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DiffDiskSettingsArgs:
@@ -760,6 +1108,18 @@ class DiffDiskSettingsArgs:
         pulumi.set(self, "placement", value)
 
 
+if not MYPY:
+    class DiskEncryptionSetParametersArgsDict(TypedDict):
+        """
+        Describes the parameter of customer managed disk encryption set resource id that can be specified for disk. **Note:** The disk encryption set resource id can only be specified for managed disk. Please refer https://aka.ms/mdssewithcmkoverview for more details.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource Id
+        """
+elif False:
+    DiskEncryptionSetParametersArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DiskEncryptionSetParametersArgs:
     def __init__(__self__, *,
@@ -783,6 +1143,26 @@ class DiskEncryptionSetParametersArgs:
     def id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class DiskEncryptionSettingsArgsDict(TypedDict):
+        """
+        Describes a Encryption Settings for a Disk
+        """
+        disk_encryption_key: NotRequired[pulumi.Input['KeyVaultSecretReferenceArgsDict']]
+        """
+        Specifies the location of the disk encryption key, which is a Key Vault Secret.
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies whether disk encryption should be enabled on the virtual machine.
+        """
+        key_encryption_key: NotRequired[pulumi.Input['KeyVaultKeyReferenceArgsDict']]
+        """
+        Specifies the location of the key encryption key in Key Vault.
+        """
+elif False:
+    DiskEncryptionSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DiskEncryptionSettingsArgs:
@@ -840,6 +1220,22 @@ class DiskEncryptionSettingsArgs:
         pulumi.set(self, "key_encryption_key", value)
 
 
+if not MYPY:
+    class DiskRestorePointAttributesArgsDict(TypedDict):
+        """
+        Disk Restore Point details.
+        """
+        encryption: NotRequired[pulumi.Input['RestorePointEncryptionArgsDict']]
+        """
+        Encryption at rest settings for disk restore point. It is an optional property that can be specified in the input while creating a restore point.
+        """
+        source_disk_restore_point: NotRequired[pulumi.Input['ApiEntityReferenceArgsDict']]
+        """
+        Resource Id of the source disk restore point.
+        """
+elif False:
+    DiskRestorePointAttributesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DiskRestorePointAttributesArgs:
     def __init__(__self__, *,
@@ -879,6 +1275,22 @@ class DiskRestorePointAttributesArgs:
     def source_disk_restore_point(self, value: Optional[pulumi.Input['ApiEntityReferenceArgs']]):
         pulumi.set(self, "source_disk_restore_point", value)
 
+
+if not MYPY:
+    class ExtendedLocationArgsDict(TypedDict):
+        """
+        The complex type of the extended location.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the extended location.
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'ExtendedLocationTypes']]]
+        """
+        The type of the extended location.
+        """
+elif False:
+    ExtendedLocationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ExtendedLocationArgs:
@@ -920,6 +1332,22 @@ class ExtendedLocationArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class HardwareProfileArgsDict(TypedDict):
+        """
+        Specifies the hardware settings for the virtual machine.
+        """
+        vm_size: NotRequired[pulumi.Input[Union[str, 'VirtualMachineSizeTypes']]]
+        """
+        Specifies the size of the virtual machine. The enum data type is currently deprecated and will be removed by December 23rd 2023. The recommended way to get the list of available sizes is using these APIs: [List all available virtual machine sizes in an availability set](https://docs.microsoft.com/rest/api/compute/availabilitysets/listavailablesizes), [List all available virtual machine sizes in a region]( https://docs.microsoft.com/rest/api/compute/resourceskus/list), [List all available virtual machine sizes for resizing](https://docs.microsoft.com/rest/api/compute/virtualmachines/listavailablesizes). For more information about virtual machine sizes, see [Sizes for virtual machines](https://docs.microsoft.com/azure/virtual-machines/sizes). The available VM sizes depend on region and availability set.
+        """
+        vm_size_properties: NotRequired[pulumi.Input['VMSizePropertiesArgsDict']]
+        """
+        Specifies the properties for customizing the size of the virtual machine. Minimum api-version: 2021-07-01. This feature is still in preview mode and is not supported for VirtualMachineScaleSet. Please follow the instructions in [VM Customization](https://aka.ms/vmcustomization) for more details.
+        """
+elif False:
+    HardwareProfileArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class HardwareProfileArgs:
     def __init__(__self__, *,
@@ -959,6 +1387,46 @@ class HardwareProfileArgs:
     def vm_size_properties(self, value: Optional[pulumi.Input['VMSizePropertiesArgs']]):
         pulumi.set(self, "vm_size_properties", value)
 
+
+if not MYPY:
+    class ImageDataDiskArgsDict(TypedDict):
+        """
+        Describes a data disk.
+        """
+        lun: pulumi.Input[int]
+        """
+        Specifies the logical unit number of the data disk. This value is used to identify data disks within the VM and therefore must be unique for each data disk attached to a VM.
+        """
+        blob_uri: NotRequired[pulumi.Input[str]]
+        """
+        The Virtual Hard Disk.
+        """
+        caching: NotRequired[pulumi.Input['CachingTypes']]
+        """
+        Specifies the caching requirements. Possible values are: **None,** **ReadOnly,** **ReadWrite.** The default values are: **None for Standard storage. ReadOnly for Premium storage.**
+        """
+        disk_encryption_set: NotRequired[pulumi.Input['DiskEncryptionSetParametersArgsDict']]
+        """
+        Specifies the customer managed disk encryption set resource id for the managed image disk.
+        """
+        disk_size_gb: NotRequired[pulumi.Input[int]]
+        """
+        Specifies the size of empty data disks in gigabytes. This element can be used to overwrite the name of the disk in a virtual machine image. This value cannot be larger than 1023 GB.
+        """
+        managed_disk: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        """
+        The managedDisk.
+        """
+        snapshot: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        """
+        The snapshot.
+        """
+        storage_account_type: NotRequired[pulumi.Input[Union[str, 'StorageAccountTypes']]]
+        """
+        Specifies the storage account type for the managed disk. NOTE: UltraSSD_LRS can only be used with data disks, it cannot be used with OS Disk.
+        """
+elif False:
+    ImageDataDiskArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ImageDataDiskArgs:
@@ -1094,6 +1562,50 @@ class ImageDataDiskArgs:
     def storage_account_type(self, value: Optional[pulumi.Input[Union[str, 'StorageAccountTypes']]]):
         pulumi.set(self, "storage_account_type", value)
 
+
+if not MYPY:
+    class ImageOSDiskArgsDict(TypedDict):
+        """
+        Describes an Operating System disk.
+        """
+        os_state: pulumi.Input['OperatingSystemStateTypes']
+        """
+        The OS State. For managed images, use Generalized.
+        """
+        os_type: pulumi.Input['OperatingSystemTypes']
+        """
+        This property allows you to specify the type of the OS that is included in the disk if creating a VM from a custom image. Possible values are: **Windows,** **Linux.**
+        """
+        blob_uri: NotRequired[pulumi.Input[str]]
+        """
+        The Virtual Hard Disk.
+        """
+        caching: NotRequired[pulumi.Input['CachingTypes']]
+        """
+        Specifies the caching requirements. Possible values are: **None,** **ReadOnly,** **ReadWrite.** The default values are: **None for Standard storage. ReadOnly for Premium storage.**
+        """
+        disk_encryption_set: NotRequired[pulumi.Input['DiskEncryptionSetParametersArgsDict']]
+        """
+        Specifies the customer managed disk encryption set resource id for the managed image disk.
+        """
+        disk_size_gb: NotRequired[pulumi.Input[int]]
+        """
+        Specifies the size of empty data disks in gigabytes. This element can be used to overwrite the name of the disk in a virtual machine image. This value cannot be larger than 1023 GB.
+        """
+        managed_disk: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        """
+        The managedDisk.
+        """
+        snapshot: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        """
+        The snapshot.
+        """
+        storage_account_type: NotRequired[pulumi.Input[Union[str, 'StorageAccountTypes']]]
+        """
+        Specifies the storage account type for the managed disk. NOTE: UltraSSD_LRS can only be used with data disks, it cannot be used with OS Disk.
+        """
+elif False:
+    ImageOSDiskArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ImageOSDiskArgs:
@@ -1245,6 +1757,42 @@ class ImageOSDiskArgs:
         pulumi.set(self, "storage_account_type", value)
 
 
+if not MYPY:
+    class ImageReferenceArgsDict(TypedDict):
+        """
+        Specifies information about the image to use. You can specify information about platform images, marketplace images, or virtual machine images. This element is required when you want to use a platform image, marketplace image, or virtual machine image, but is not used in other creation operations. NOTE: Image reference publisher and offer can only be set when you create the scale set.
+        """
+        community_gallery_image_id: NotRequired[pulumi.Input[str]]
+        """
+        Specified the community gallery image unique id for vm deployment. This can be fetched from community gallery image GET call.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource Id
+        """
+        offer: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the offer of the platform image or marketplace image used to create the virtual machine.
+        """
+        publisher: NotRequired[pulumi.Input[str]]
+        """
+        The image publisher.
+        """
+        shared_gallery_image_id: NotRequired[pulumi.Input[str]]
+        """
+        Specified the shared gallery image unique id for vm deployment. This can be fetched from shared gallery image GET call.
+        """
+        sku: NotRequired[pulumi.Input[str]]
+        """
+        The image SKU.
+        """
+        version: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the version of the platform image or marketplace image used to create the virtual machine. The allowed formats are Major.Minor.Build or 'latest'. Major, Minor, and Build are decimal numbers. Specify 'latest' to use the latest version of an image available at deploy time. Even if you use 'latest', the VM image will not automatically update after deploy time even if a new version becomes available. Please do not use field 'version' for gallery image deployment, gallery image should always use 'id' field for deployment, to use 'latest' version of gallery image, just set '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/galleries/{galleryName}/images/{imageName}' in the 'id' field without version input.
+        """
+elif False:
+    ImageReferenceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ImageReferenceArgs:
     def __init__(__self__, *,
@@ -1365,6 +1913,26 @@ class ImageReferenceArgs:
         pulumi.set(self, "version", value)
 
 
+if not MYPY:
+    class ImageStorageProfileArgsDict(TypedDict):
+        """
+        Describes a storage profile.
+        """
+        data_disks: NotRequired[pulumi.Input[Sequence[pulumi.Input['ImageDataDiskArgsDict']]]]
+        """
+        Specifies the parameters that are used to add a data disk to a virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview).
+        """
+        os_disk: NotRequired[pulumi.Input['ImageOSDiskArgsDict']]
+        """
+        Specifies information about the operating system disk used by the virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview).
+        """
+        zone_resilient: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies whether an image is zone resilient or not. Default is false. Zone resilient images can be created only in regions that provide Zone Redundant Storage (ZRS).
+        """
+elif False:
+    ImageStorageProfileArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ImageStorageProfileArgs:
     def __init__(__self__, *,
@@ -1420,6 +1988,34 @@ class ImageStorageProfileArgs:
     def zone_resilient(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "zone_resilient", value)
 
+
+if not MYPY:
+    class InstanceViewStatusArgsDict(TypedDict):
+        """
+        Instance view status.
+        """
+        code: NotRequired[pulumi.Input[str]]
+        """
+        The status code.
+        """
+        display_status: NotRequired[pulumi.Input[str]]
+        """
+        The short localizable label for the status.
+        """
+        level: NotRequired[pulumi.Input['StatusLevelTypes']]
+        """
+        The level code.
+        """
+        message: NotRequired[pulumi.Input[str]]
+        """
+        The detailed status message, including for alerts and error messages.
+        """
+        time: NotRequired[pulumi.Input[str]]
+        """
+        The time of the status.
+        """
+elif False:
+    InstanceViewStatusArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InstanceViewStatusArgs:
@@ -1509,6 +2105,22 @@ class InstanceViewStatusArgs:
         pulumi.set(self, "time", value)
 
 
+if not MYPY:
+    class KeyVaultKeyReferenceArgsDict(TypedDict):
+        """
+        Describes a reference to Key Vault Key
+        """
+        key_url: pulumi.Input[str]
+        """
+        The URL referencing a key encryption key in Key Vault.
+        """
+        source_vault: pulumi.Input['SubResourceArgsDict']
+        """
+        The relative URL of the Key Vault containing the key.
+        """
+elif False:
+    KeyVaultKeyReferenceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class KeyVaultKeyReferenceArgs:
     def __init__(__self__, *,
@@ -1547,6 +2159,22 @@ class KeyVaultKeyReferenceArgs:
         pulumi.set(self, "source_vault", value)
 
 
+if not MYPY:
+    class KeyVaultSecretReferenceArgsDict(TypedDict):
+        """
+        Describes a reference to Key Vault Secret
+        """
+        secret_url: pulumi.Input[str]
+        """
+        The URL referencing a secret in a Key Vault.
+        """
+        source_vault: pulumi.Input['SubResourceArgsDict']
+        """
+        The relative URL of the Key Vault containing the secret.
+        """
+elif False:
+    KeyVaultSecretReferenceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class KeyVaultSecretReferenceArgs:
     def __init__(__self__, *,
@@ -1584,6 +2212,34 @@ class KeyVaultSecretReferenceArgs:
     def source_vault(self, value: pulumi.Input['SubResourceArgs']):
         pulumi.set(self, "source_vault", value)
 
+
+if not MYPY:
+    class LinuxConfigurationArgsDict(TypedDict):
+        """
+        Specifies the Linux operating system settings on the virtual machine. For a list of supported Linux distributions, see [Linux on Azure-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
+        """
+        disable_password_authentication: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies whether password authentication should be disabled.
+        """
+        enable_vm_agent_platform_updates: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether VMAgent Platform Updates is enabled for the Linux virtual machine. Default value is false.
+        """
+        patch_settings: NotRequired[pulumi.Input['LinuxPatchSettingsArgsDict']]
+        """
+        [Preview Feature] Specifies settings related to VM Guest Patching on Linux.
+        """
+        provision_vm_agent: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether virtual machine agent should be provisioned on the virtual machine. When this property is not specified in the request body, default behavior is to set it to true. This will ensure that VM Agent is installed on the VM so that extensions can be added to the VM later.
+        """
+        ssh: NotRequired[pulumi.Input['SshConfigurationArgsDict']]
+        """
+        Specifies the ssh key configuration for a Linux OS.
+        """
+elif False:
+    LinuxConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LinuxConfigurationArgs:
@@ -1673,6 +2329,26 @@ class LinuxConfigurationArgs:
         pulumi.set(self, "ssh", value)
 
 
+if not MYPY:
+    class LinuxPatchSettingsArgsDict(TypedDict):
+        """
+        Specifies settings related to VM Guest Patching on Linux.
+        """
+        assessment_mode: NotRequired[pulumi.Input[Union[str, 'LinuxPatchAssessmentMode']]]
+        """
+        Specifies the mode of VM Guest Patch Assessment for the IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **ImageDefault** - You control the timing of patch assessments on a virtual machine. <br /><br /> **AutomaticByPlatform** - The platform will trigger periodic patch assessments. The property provisionVMAgent must be true.
+        """
+        automatic_by_platform_settings: NotRequired[pulumi.Input['LinuxVMGuestPatchAutomaticByPlatformSettingsArgsDict']]
+        """
+        Specifies additional settings for patch mode AutomaticByPlatform in VM Guest Patching on Linux.
+        """
+        patch_mode: NotRequired[pulumi.Input[Union[str, 'LinuxVMGuestPatchMode']]]
+        """
+        Specifies the mode of VM Guest Patching to IaaS virtual machine or virtual machines associated to virtual machine scale set with OrchestrationMode as Flexible.<br /><br /> Possible values are:<br /><br /> **ImageDefault** - The virtual machine's default patching configuration is used. <br /><br /> **AutomaticByPlatform** - The virtual machine will be automatically updated by the platform. The property provisionVMAgent must be true
+        """
+elif False:
+    LinuxPatchSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinuxPatchSettingsArgs:
     def __init__(__self__, *,
@@ -1729,6 +2405,22 @@ class LinuxPatchSettingsArgs:
         pulumi.set(self, "patch_mode", value)
 
 
+if not MYPY:
+    class LinuxVMGuestPatchAutomaticByPlatformSettingsArgsDict(TypedDict):
+        """
+        Specifies additional settings to be applied when patch mode AutomaticByPlatform is selected in Linux patch settings.
+        """
+        bypass_platform_safety_checks_on_user_schedule: NotRequired[pulumi.Input[bool]]
+        """
+        Enables customer to schedule patching without accidental upgrades
+        """
+        reboot_setting: NotRequired[pulumi.Input[Union[str, 'LinuxVMGuestPatchAutomaticByPlatformRebootSetting']]]
+        """
+        Specifies the reboot setting for all AutomaticByPlatform patch installation operations.
+        """
+elif False:
+    LinuxVMGuestPatchAutomaticByPlatformSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinuxVMGuestPatchAutomaticByPlatformSettingsArgs:
     def __init__(__self__, *,
@@ -1768,6 +2460,30 @@ class LinuxVMGuestPatchAutomaticByPlatformSettingsArgs:
     def reboot_setting(self, value: Optional[pulumi.Input[Union[str, 'LinuxVMGuestPatchAutomaticByPlatformRebootSetting']]]):
         pulumi.set(self, "reboot_setting", value)
 
+
+if not MYPY:
+    class ManagedDiskParametersArgsDict(TypedDict):
+        """
+        The parameters of a managed disk.
+        """
+        disk_encryption_set: NotRequired[pulumi.Input['DiskEncryptionSetParametersArgsDict']]
+        """
+        Specifies the customer managed disk encryption set resource id for the managed disk.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource Id
+        """
+        security_profile: NotRequired[pulumi.Input['VMDiskSecurityProfileArgsDict']]
+        """
+        Specifies the security profile for the managed disk.
+        """
+        storage_account_type: NotRequired[pulumi.Input[Union[str, 'StorageAccountTypes']]]
+        """
+        Specifies the storage account type for the managed disk. NOTE: UltraSSD_LRS can only be used with data disks, it cannot be used with OS Disk.
+        """
+elif False:
+    ManagedDiskParametersArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ManagedDiskParametersArgs:
@@ -1841,6 +2557,26 @@ class ManagedDiskParametersArgs:
         pulumi.set(self, "storage_account_type", value)
 
 
+if not MYPY:
+    class NetworkInterfaceReferenceArgsDict(TypedDict):
+        """
+        Describes a network interface reference.
+        """
+        delete_option: NotRequired[pulumi.Input[Union[str, 'DeleteOptions']]]
+        """
+        Specify what happens to the network interface when the VM is deleted
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource Id
+        """
+        primary: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies the primary network interface in case the virtual machine has more than 1 network interface.
+        """
+elif False:
+    NetworkInterfaceReferenceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NetworkInterfaceReferenceArgs:
     def __init__(__self__, *,
@@ -1897,6 +2633,26 @@ class NetworkInterfaceReferenceArgs:
         pulumi.set(self, "primary", value)
 
 
+if not MYPY:
+    class NetworkProfileArgsDict(TypedDict):
+        """
+        Specifies the network interfaces or the networking configuration of the virtual machine.
+        """
+        network_api_version: NotRequired[pulumi.Input[Union[str, 'NetworkApiVersion']]]
+        """
+        specifies the Microsoft.Network API version used when creating networking resources in the Network Interface Configurations
+        """
+        network_interface_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualMachineNetworkInterfaceConfigurationArgsDict']]]]
+        """
+        Specifies the networking configurations that will be used to create the virtual machine networking resources.
+        """
+        network_interfaces: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceReferenceArgsDict']]]]
+        """
+        Specifies the list of resource Ids for the network interfaces associated with the virtual machine.
+        """
+elif False:
+    NetworkProfileArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NetworkProfileArgs:
     def __init__(__self__, *,
@@ -1952,6 +2708,62 @@ class NetworkProfileArgs:
     def network_interfaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceReferenceArgs']]]]):
         pulumi.set(self, "network_interfaces", value)
 
+
+if not MYPY:
+    class OSDiskArgsDict(TypedDict):
+        """
+        Specifies information about the operating system disk used by the virtual machine. For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview).
+        """
+        create_option: pulumi.Input[Union[str, 'DiskCreateOptionTypes']]
+        """
+        Specifies how the virtual machine should be created. Possible values are: **Attach.** This value is used when you are using a specialized disk to create the virtual machine. **FromImage.** This value is used when you are using an image to create the virtual machine. If you are using a platform image, you should also use the imageReference element described above. If you are using a marketplace image, you should also use the plan element previously described.
+        """
+        caching: NotRequired[pulumi.Input['CachingTypes']]
+        """
+        Specifies the caching requirements. Possible values are: **None,** **ReadOnly,** **ReadWrite.** The defaulting behavior is: **None for Standard storage. ReadOnly for Premium storage.**
+        """
+        delete_option: NotRequired[pulumi.Input[Union[str, 'DiskDeleteOptionTypes']]]
+        """
+        Specifies whether OS Disk should be deleted or detached upon VM deletion. Possible values are: **Delete.** If this value is used, the OS disk is deleted when VM is deleted. **Detach.** If this value is used, the os disk is retained after VM is deleted. The default value is set to **Detach**. For an ephemeral OS Disk, the default value is set to **Delete**. The user cannot change the delete option for an ephemeral OS Disk.
+        """
+        diff_disk_settings: NotRequired[pulumi.Input['DiffDiskSettingsArgsDict']]
+        """
+        Specifies the ephemeral Disk Settings for the operating system disk used by the virtual machine.
+        """
+        disk_size_gb: NotRequired[pulumi.Input[int]]
+        """
+        Specifies the size of an empty data disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. The property 'diskSizeGB' is the number of bytes x 1024^3 for the disk and the value cannot be larger than 1023.
+        """
+        encryption_settings: NotRequired[pulumi.Input['DiskEncryptionSettingsArgsDict']]
+        """
+        Specifies the encryption settings for the OS Disk. Minimum api-version: 2015-06-15.
+        """
+        image: NotRequired[pulumi.Input['VirtualHardDiskArgsDict']]
+        """
+        The source user image virtual hard disk. The virtual hard disk will be copied before being attached to the virtual machine. If SourceImage is provided, the destination virtual hard drive must not exist.
+        """
+        managed_disk: NotRequired[pulumi.Input['ManagedDiskParametersArgsDict']]
+        """
+        The managed disk parameters.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The disk name.
+        """
+        os_type: NotRequired[pulumi.Input['OperatingSystemTypes']]
+        """
+        This property allows you to specify the type of the OS that is included in the disk if creating a VM from user-image or a specialized VHD. Possible values are: **Windows,** **Linux.**
+        """
+        vhd: NotRequired[pulumi.Input['VirtualHardDiskArgsDict']]
+        """
+        The virtual hard disk.
+        """
+        write_accelerator_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies whether writeAccelerator should be enabled or disabled on the disk.
+        """
+elif False:
+    OSDiskArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OSDiskArgs:
@@ -2152,6 +2964,19 @@ class OSDiskArgs:
         pulumi.set(self, "write_accelerator_enabled", value)
 
 
+if not MYPY:
+    class OSImageNotificationProfileArgsDict(TypedDict):
+        enable: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies whether the OS Image Scheduled event is enabled or disabled.
+        """
+        not_before_timeout: NotRequired[pulumi.Input[str]]
+        """
+        Length of time a Virtual Machine being reimaged or having its OS upgraded will have to potentially approve the OS Image Scheduled Event before the event is auto approved (timed out). The configuration is specified in ISO 8601 format, and the value must be 15 minutes (PT15M)
+        """
+elif False:
+    OSImageNotificationProfileArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OSImageNotificationProfileArgs:
     def __init__(__self__, *,
@@ -2190,6 +3015,50 @@ class OSImageNotificationProfileArgs:
     def not_before_timeout(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "not_before_timeout", value)
 
+
+if not MYPY:
+    class OSProfileArgsDict(TypedDict):
+        """
+        Specifies the operating system settings for the virtual machine. Some of the settings cannot be changed once VM is provisioned.
+        """
+        admin_password: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the password of the administrator account. <br><br> **Minimum-length (Windows):** 8 characters <br><br> **Minimum-length (Linux):** 6 characters <br><br> **Max-length (Windows):** 123 characters <br><br> **Max-length (Linux):** 72 characters <br><br> **Complexity requirements:** 3 out of 4 conditions below need to be fulfilled <br> Has lower characters <br>Has upper characters <br> Has a digit <br> Has a special character (Regex match [\\W_]) <br><br> **Disallowed values:** "abc@123", "P@$$w0rd", "P@ssw0rd", "P@ssword123", "Pa$$word", "pass@word1", "Password!", "Password1", "Password22", "iloveyou!" <br><br> For resetting the password, see [How to reset the Remote Desktop service or its login password in a Windows VM](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/reset-rdp) <br><br> For resetting root password, see [Manage users, SSH, and check or repair disks on Azure Linux VMs using the VMAccess Extension](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection)
+        """
+        admin_username: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the name of the administrator account. <br><br> This property cannot be updated after the VM is created. <br><br> **Windows-only restriction:** Cannot end in "." <br><br> **Disallowed values:** "administrator", "admin", "user", "user1", "test", "user2", "test1", "user3", "admin1", "1", "123", "a", "actuser", "adm", "admin2", "aspnet", "backup", "console", "david", "guest", "john", "owner", "root", "server", "sql", "support", "support_388945a0", "sys", "test2", "test3", "user4", "user5". <br><br> **Minimum-length (Linux):** 1  character <br><br> **Max-length (Linux):** 64 characters <br><br> **Max-length (Windows):** 20 characters.
+        """
+        allow_extension_operations: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies whether extension operations should be allowed on the virtual machine. This may only be set to False when no extensions are present on the virtual machine.
+        """
+        computer_name: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the host OS name of the virtual machine. This name cannot be updated after the VM is created. **Max-length (Windows):** 15 characters. **Max-length (Linux):** 64 characters. For naming conventions and restrictions see [Azure infrastructure services implementation guidelines](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules).
+        """
+        custom_data: NotRequired[pulumi.Input[str]]
+        """
+        Specifies a base-64 encoded string of custom data. The base-64 encoded string is decoded to a binary array that is saved as a file on the Virtual Machine. The maximum length of the binary array is 65535 bytes. **Note: Do not pass any secrets or passwords in customData property.** This property cannot be updated after the VM is created. The property 'customData' is passed to the VM to be saved as a file, for more information see [Custom Data on Azure VMs](https://azure.microsoft.com/blog/custom-data-and-cloud-init-on-windows-azure/). For using cloud-init for your Linux VM, see [Using cloud-init to customize a Linux VM during creation](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init).
+        """
+        linux_configuration: NotRequired[pulumi.Input['LinuxConfigurationArgsDict']]
+        """
+        Specifies the Linux operating system settings on the virtual machine. For a list of supported Linux distributions, see [Linux on Azure-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
+        """
+        require_guest_provision_signal: NotRequired[pulumi.Input[bool]]
+        """
+        Optional property which must either be set to True or omitted.
+        """
+        secrets: NotRequired[pulumi.Input[Sequence[pulumi.Input['VaultSecretGroupArgsDict']]]]
+        """
+        Specifies set of certificates that should be installed onto the virtual machine. To install certificates on a virtual machine it is recommended to use the [Azure Key Vault virtual machine extension for Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/key-vault-linux) or the [Azure Key Vault virtual machine extension for Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/key-vault-windows).
+        """
+        windows_configuration: NotRequired[pulumi.Input['WindowsConfigurationArgsDict']]
+        """
+        Specifies Windows operating system settings on the virtual machine.
+        """
+elif False:
+    OSProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OSProfileArgs:
@@ -2343,6 +3212,30 @@ class OSProfileArgs:
         pulumi.set(self, "windows_configuration", value)
 
 
+if not MYPY:
+    class PatchSettingsArgsDict(TypedDict):
+        """
+        Specifies settings related to VM Guest Patching on Windows.
+        """
+        assessment_mode: NotRequired[pulumi.Input[Union[str, 'WindowsPatchAssessmentMode']]]
+        """
+        Specifies the mode of VM Guest patch assessment for the IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **ImageDefault** - You control the timing of patch assessments on a virtual machine.<br /><br /> **AutomaticByPlatform** - The platform will trigger periodic patch assessments. The property provisionVMAgent must be true. 
+        """
+        automatic_by_platform_settings: NotRequired[pulumi.Input['WindowsVMGuestPatchAutomaticByPlatformSettingsArgsDict']]
+        """
+        Specifies additional settings for patch mode AutomaticByPlatform in VM Guest Patching on Windows.
+        """
+        enable_hotpatching: NotRequired[pulumi.Input[bool]]
+        """
+        Enables customers to patch their Azure VMs without requiring a reboot. For enableHotpatching, the 'provisionVMAgent' must be set to true and 'patchMode' must be set to 'AutomaticByPlatform'.
+        """
+        patch_mode: NotRequired[pulumi.Input[Union[str, 'WindowsVMGuestPatchMode']]]
+        """
+        Specifies the mode of VM Guest Patching to IaaS virtual machine or virtual machines associated to virtual machine scale set with OrchestrationMode as Flexible.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of patches to a virtual machine. You do this by applying patches manually inside the VM. In this mode, automatic updates are disabled; the property WindowsConfiguration.enableAutomaticUpdates must be false<br /><br /> **AutomaticByOS** - The virtual machine will automatically be updated by the OS. The property WindowsConfiguration.enableAutomaticUpdates must be true. <br /><br /> **AutomaticByPlatform** - the virtual machine will automatically updated by the platform. The properties provisionVMAgent and WindowsConfiguration.enableAutomaticUpdates must be true 
+        """
+elif False:
+    PatchSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PatchSettingsArgs:
     def __init__(__self__, *,
@@ -2414,6 +3307,30 @@ class PatchSettingsArgs:
     def patch_mode(self, value: Optional[pulumi.Input[Union[str, 'WindowsVMGuestPatchMode']]]):
         pulumi.set(self, "patch_mode", value)
 
+
+if not MYPY:
+    class PlanArgsDict(TypedDict):
+        """
+        Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The plan ID.
+        """
+        product: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the product of the image from the marketplace. This is the same value as Offer under the imageReference element.
+        """
+        promotion_code: NotRequired[pulumi.Input[str]]
+        """
+        The promotion code.
+        """
+        publisher: NotRequired[pulumi.Input[str]]
+        """
+        The publisher ID.
+        """
+elif False:
+    PlanArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PlanArgs:
@@ -2487,6 +3404,22 @@ class PlanArgs:
         pulumi.set(self, "publisher", value)
 
 
+if not MYPY:
+    class PriorityMixPolicyArgsDict(TypedDict):
+        """
+        Specifies the target splits for Spot and Regular priority VMs within a scale set with flexible orchestration mode. With this property the customer is able to specify the base number of regular priority VMs created as the VMSS flex instance scales out and the split between Spot and Regular priority VMs after this base target has been reached.
+        """
+        base_regular_priority_count: NotRequired[pulumi.Input[int]]
+        """
+        The base number of regular priority VMs that will be created in this scale set as it scales out.
+        """
+        regular_priority_percentage_above_base: NotRequired[pulumi.Input[int]]
+        """
+        The percentage of VM instances, after the base regular priority count has been reached, that are expected to use regular priority.
+        """
+elif False:
+    PriorityMixPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PriorityMixPolicyArgs:
     def __init__(__self__, *,
@@ -2527,6 +3460,18 @@ class PriorityMixPolicyArgs:
         pulumi.set(self, "regular_priority_percentage_above_base", value)
 
 
+if not MYPY:
+    class ProximityPlacementGroupPropertiesIntentArgsDict(TypedDict):
+        """
+        Specifies the user intent of the proximity placement group.
+        """
+        vm_sizes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies possible sizes of virtual machines that can be created in the proximity placement group.
+        """
+elif False:
+    ProximityPlacementGroupPropertiesIntentArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ProximityPlacementGroupPropertiesIntentArgs:
     def __init__(__self__, *,
@@ -2550,6 +3495,22 @@ class ProximityPlacementGroupPropertiesIntentArgs:
     def vm_sizes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "vm_sizes", value)
 
+
+if not MYPY:
+    class PublicIPAddressSkuArgsDict(TypedDict):
+        """
+        Describes the public IP Sku. It can only be set with OrchestrationMode as Flexible.
+        """
+        name: NotRequired[pulumi.Input[Union[str, 'PublicIPAddressSkuName']]]
+        """
+        Specify public IP sku name
+        """
+        tier: NotRequired[pulumi.Input[Union[str, 'PublicIPAddressSkuTier']]]
+        """
+        Specify public IP sku tier
+        """
+elif False:
+    PublicIPAddressSkuArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PublicIPAddressSkuArgs:
@@ -2591,6 +3552,18 @@ class PublicIPAddressSkuArgs:
         pulumi.set(self, "tier", value)
 
 
+if not MYPY:
+    class RestorePointCollectionSourcePropertiesArgsDict(TypedDict):
+        """
+        The properties of the source resource that this restore point collection is created from.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource Id of the source resource used to create this restore point collection
+        """
+elif False:
+    RestorePointCollectionSourcePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RestorePointCollectionSourcePropertiesArgs:
     def __init__(__self__, *,
@@ -2614,6 +3587,22 @@ class RestorePointCollectionSourcePropertiesArgs:
     def id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class RestorePointEncryptionArgsDict(TypedDict):
+        """
+        Encryption at rest settings for disk restore point. It is an optional property that can be specified in the input while creating a restore point.
+        """
+        disk_encryption_set: NotRequired[pulumi.Input['DiskEncryptionSetParametersArgsDict']]
+        """
+        Describes the parameter of customer managed disk encryption set resource id that can be specified for disk. **Note:** The disk encryption set resource id can only be specified for managed disk. Please refer https://aka.ms/mdssewithcmkoverview for more details.
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'RestorePointEncryptionType']]]
+        """
+        The type of key used to encrypt the data of the disk restore point.
+        """
+elif False:
+    RestorePointEncryptionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RestorePointEncryptionArgs:
@@ -2655,6 +3644,18 @@ class RestorePointEncryptionArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class RestorePointSourceMetadataArgsDict(TypedDict):
+        """
+        Describes the properties of the Virtual Machine for which the restore point was created. The properties provided are a subset and the snapshot of the overall Virtual Machine properties captured at the time of the restore point creation.
+        """
+        storage_profile: NotRequired[pulumi.Input['RestorePointSourceVMStorageProfileArgsDict']]
+        """
+        Gets the storage profile.
+        """
+elif False:
+    RestorePointSourceMetadataArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RestorePointSourceMetadataArgs:
     def __init__(__self__, *,
@@ -2678,6 +3679,22 @@ class RestorePointSourceMetadataArgs:
     def storage_profile(self, value: Optional[pulumi.Input['RestorePointSourceVMStorageProfileArgs']]):
         pulumi.set(self, "storage_profile", value)
 
+
+if not MYPY:
+    class RestorePointSourceVMDataDiskArgsDict(TypedDict):
+        """
+        Describes a data disk.
+        """
+        disk_restore_point: NotRequired[pulumi.Input['DiskRestorePointAttributesArgsDict']]
+        """
+        Contains Disk Restore Point properties.
+        """
+        managed_disk: NotRequired[pulumi.Input['ManagedDiskParametersArgsDict']]
+        """
+        Contains the managed disk details.
+        """
+elif False:
+    RestorePointSourceVMDataDiskArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RestorePointSourceVMDataDiskArgs:
@@ -2719,6 +3736,22 @@ class RestorePointSourceVMDataDiskArgs:
         pulumi.set(self, "managed_disk", value)
 
 
+if not MYPY:
+    class RestorePointSourceVMOSDiskArgsDict(TypedDict):
+        """
+        Describes an Operating System disk.
+        """
+        disk_restore_point: NotRequired[pulumi.Input['DiskRestorePointAttributesArgsDict']]
+        """
+        Contains Disk Restore Point properties.
+        """
+        managed_disk: NotRequired[pulumi.Input['ManagedDiskParametersArgsDict']]
+        """
+        Gets the managed disk details
+        """
+elif False:
+    RestorePointSourceVMOSDiskArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RestorePointSourceVMOSDiskArgs:
     def __init__(__self__, *,
@@ -2759,6 +3792,22 @@ class RestorePointSourceVMOSDiskArgs:
         pulumi.set(self, "managed_disk", value)
 
 
+if not MYPY:
+    class RestorePointSourceVMStorageProfileArgsDict(TypedDict):
+        """
+        Describes the storage profile.
+        """
+        data_disks: NotRequired[pulumi.Input[Sequence[pulumi.Input['RestorePointSourceVMDataDiskArgsDict']]]]
+        """
+        Gets the data disks of the VM captured at the time of the restore point creation.
+        """
+        os_disk: NotRequired[pulumi.Input['RestorePointSourceVMOSDiskArgsDict']]
+        """
+        Gets the OS disk of the VM captured at the time of the restore point creation.
+        """
+elif False:
+    RestorePointSourceVMStorageProfileArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RestorePointSourceVMStorageProfileArgs:
     def __init__(__self__, *,
@@ -2798,6 +3847,46 @@ class RestorePointSourceVMStorageProfileArgs:
     def os_disk(self, value: Optional[pulumi.Input['RestorePointSourceVMOSDiskArgs']]):
         pulumi.set(self, "os_disk", value)
 
+
+if not MYPY:
+    class RollingUpgradePolicyArgsDict(TypedDict):
+        """
+        The configuration parameters used while performing a rolling upgrade.
+        """
+        enable_cross_zone_upgrade: NotRequired[pulumi.Input[bool]]
+        """
+        Allow VMSS to ignore AZ boundaries when constructing upgrade batches. Take into consideration the Update Domain and maxBatchInstancePercent to determine the batch size.
+        """
+        max_batch_instance_percent: NotRequired[pulumi.Input[int]]
+        """
+        The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability. The default value for this parameter is 20%.
+        """
+        max_surge: NotRequired[pulumi.Input[bool]]
+        """
+        Create new virtual machines to upgrade the scale set, rather than updating the existing virtual machines. Existing virtual machines will be deleted once the new virtual machines are created for each batch.
+        """
+        max_unhealthy_instance_percent: NotRequired[pulumi.Input[int]]
+        """
+        The maximum percentage of the total virtual machine instances in the scale set that can be simultaneously unhealthy, either as a result of being upgraded, or by being found in an unhealthy state by the virtual machine health checks before the rolling upgrade aborts. This constraint will be checked prior to starting any batch. The default value for this parameter is 20%.
+        """
+        max_unhealthy_upgraded_instance_percent: NotRequired[pulumi.Input[int]]
+        """
+        The maximum percentage of upgraded virtual machine instances that can be found to be in an unhealthy state. This check will happen after each batch is upgraded. If this percentage is ever exceeded, the rolling update aborts. The default value for this parameter is 20%.
+        """
+        pause_time_between_batches: NotRequired[pulumi.Input[str]]
+        """
+        The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format. The default value is 0 seconds (PT0S).
+        """
+        prioritize_unhealthy_instances: NotRequired[pulumi.Input[bool]]
+        """
+        Upgrade all unhealthy instances in a scale set before any healthy instances.
+        """
+        rollback_failed_instances_on_policy_breach: NotRequired[pulumi.Input[bool]]
+        """
+        Rollback failed instances to previous model if the Rolling Upgrade policy is violated.
+        """
+elif False:
+    RollingUpgradePolicyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RollingUpgradePolicyArgs:
@@ -2935,6 +4024,22 @@ class RollingUpgradePolicyArgs:
         pulumi.set(self, "rollback_failed_instances_on_policy_breach", value)
 
 
+if not MYPY:
+    class RunCommandInputParameterArgsDict(TypedDict):
+        """
+        Describes the properties of a run command parameter.
+        """
+        name: pulumi.Input[str]
+        """
+        The run command parameter name.
+        """
+        value: pulumi.Input[str]
+        """
+        The run command parameter value.
+        """
+elif False:
+    RunCommandInputParameterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RunCommandInputParameterArgs:
     def __init__(__self__, *,
@@ -2972,6 +4077,22 @@ class RunCommandInputParameterArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class RunCommandManagedIdentityArgsDict(TypedDict):
+        """
+         Contains clientId or objectId (use only one, not both) of a user-assigned managed identity that has access to storage blob used in Run Command. Use an empty RunCommandManagedIdentity object in case of system-assigned identity. Make sure the Azure storage blob exists in case of scriptUri, and managed identity has been given access to blob's container with 'Storage Blob Data Reader' role assignment with scriptUri blob and 'Storage Blob Data Contributor' for Append blobs(outputBlobUri, errorBlobUri). In case of user assigned identity, make sure you add it under VM's identity. For more info on managed identity and Run Command, refer https://aka.ms/ManagedIdentity and https://aka.ms/RunCommandManaged.
+        """
+        client_id: NotRequired[pulumi.Input[str]]
+        """
+        Client Id (GUID value) of the user-assigned managed identity. ObjectId should not be used if this is provided.
+        """
+        object_id: NotRequired[pulumi.Input[str]]
+        """
+        Object Id (GUID value) of the user-assigned managed identity. ClientId should not be used if this is provided.
+        """
+elif False:
+    RunCommandManagedIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RunCommandManagedIdentityArgs:
@@ -3013,6 +4134,22 @@ class RunCommandManagedIdentityArgs:
         pulumi.set(self, "object_id", value)
 
 
+if not MYPY:
+    class ScaleInPolicyArgsDict(TypedDict):
+        """
+        Describes a scale-in policy for a virtual machine scale set.
+        """
+        force_deletion: NotRequired[pulumi.Input[bool]]
+        """
+        This property allows you to specify if virtual machines chosen for removal have to be force deleted when a virtual machine scale set is being scaled-in.(Feature in Preview)
+        """
+        rules: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'VirtualMachineScaleSetScaleInRules']]]]]
+        """
+        The rules to be followed when scaling-in a virtual machine scale set. <br><br> Possible values are: <br><br> **Default** When a virtual machine scale set is scaled in, the scale set will first be balanced across zones if it is a zonal scale set. Then, it will be balanced across Fault Domains as far as possible. Within each Fault Domain, the virtual machines chosen for removal will be the newest ones that are not protected from scale-in. <br><br> **OldestVM** When a virtual machine scale set is being scaled-in, the oldest virtual machines that are not protected from scale-in will be chosen for removal. For zonal virtual machine scale sets, the scale set will first be balanced across zones. Within each zone, the oldest virtual machines that are not protected will be chosen for removal. <br><br> **NewestVM** When a virtual machine scale set is being scaled-in, the newest virtual machines that are not protected from scale-in will be chosen for removal. For zonal virtual machine scale sets, the scale set will first be balanced across zones. Within each zone, the newest virtual machines that are not protected will be chosen for removal. <br><br>
+        """
+elif False:
+    ScaleInPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ScaleInPolicyArgs:
     def __init__(__self__, *,
@@ -3053,6 +4190,19 @@ class ScaleInPolicyArgs:
         pulumi.set(self, "rules", value)
 
 
+if not MYPY:
+    class ScheduledEventsProfileArgsDict(TypedDict):
+        os_image_notification_profile: NotRequired[pulumi.Input['OSImageNotificationProfileArgsDict']]
+        """
+        Specifies OS Image Scheduled Event related configurations.
+        """
+        terminate_notification_profile: NotRequired[pulumi.Input['TerminateNotificationProfileArgsDict']]
+        """
+        Specifies Terminate Scheduled Event related configurations.
+        """
+elif False:
+    ScheduledEventsProfileArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ScheduledEventsProfileArgs:
     def __init__(__self__, *,
@@ -3091,6 +4241,22 @@ class ScheduledEventsProfileArgs:
     def terminate_notification_profile(self, value: Optional[pulumi.Input['TerminateNotificationProfileArgs']]):
         pulumi.set(self, "terminate_notification_profile", value)
 
+
+if not MYPY:
+    class SecurityPostureReferenceArgsDict(TypedDict):
+        """
+        Specifies the security posture to be used for all virtual machines in the scale set. Minimum api-version: 2023-03-01
+        """
+        exclude_extensions: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualMachineExtensionArgsDict']]]]
+        """
+        List of virtual machine extensions to exclude when applying the Security Posture.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The security posture reference id in the form of /CommunityGalleries/{communityGalleryName}/securityPostures/{securityPostureName}/versions/{major.minor.patch}|{major.*}|latest
+        """
+elif False:
+    SecurityPostureReferenceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SecurityPostureReferenceArgs:
@@ -3131,6 +4297,26 @@ class SecurityPostureReferenceArgs:
     def id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class SecurityProfileArgsDict(TypedDict):
+        """
+        Specifies the Security profile settings for the virtual machine or virtual machine scale set.
+        """
+        encryption_at_host: NotRequired[pulumi.Input[bool]]
+        """
+        This property can be used by user in the request to enable or disable the Host Encryption for the virtual machine or virtual machine scale set. This will enable the encryption for all the disks including Resource/Temp disk at host itself. The default behavior is: The Encryption at host will be disabled unless this property is set to true for the resource.
+        """
+        security_type: NotRequired[pulumi.Input[Union[str, 'SecurityTypes']]]
+        """
+        Specifies the SecurityType of the virtual machine. It has to be set to any specified value to enable UefiSettings. The default behavior is: UefiSettings will not be enabled unless this property is set.
+        """
+        uefi_settings: NotRequired[pulumi.Input['UefiSettingsArgsDict']]
+        """
+        Specifies the security settings like secure boot and vTPM used while creating the virtual machine. Minimum api-version: 2020-12-01.
+        """
+elif False:
+    SecurityProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SecurityProfileArgs:
@@ -3188,6 +4374,18 @@ class SecurityProfileArgs:
         pulumi.set(self, "uefi_settings", value)
 
 
+if not MYPY:
+    class ServiceArtifactReferenceArgsDict(TypedDict):
+        """
+        Specifies the service artifact reference id used to set same image version for all virtual machines in the scale set when using 'latest' image version. Minimum api-version: 2022-11-01
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The service artifact reference id in the form of /subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Compute/galleries/{galleryName}/serviceArtifacts/{serviceArtifactName}/vmArtifactsProfiles/{vmArtifactsProfilesName}
+        """
+elif False:
+    ServiceArtifactReferenceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ServiceArtifactReferenceArgs:
     def __init__(__self__, *,
@@ -3211,6 +4409,26 @@ class ServiceArtifactReferenceArgs:
     def id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class SkuArgsDict(TypedDict):
+        """
+        Describes a virtual machine scale set sku. NOTE: If the new VM SKU is not supported on the hardware the scale set is currently on, you need to deallocate the VMs in the scale set before you modify the SKU name.
+        """
+        capacity: NotRequired[pulumi.Input[float]]
+        """
+        Specifies the number of virtual machines in the scale set.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The sku name.
+        """
+        tier: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the tier of virtual machines in a scale set.<br /><br /> Possible Values:<br /><br /> **Standard**<br /><br /> **Basic**
+        """
+elif False:
+    SkuArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SkuArgs:
@@ -3268,6 +4486,22 @@ class SkuArgs:
         pulumi.set(self, "tier", value)
 
 
+if not MYPY:
+    class SpotRestorePolicyArgsDict(TypedDict):
+        """
+        Specifies the Spot-Try-Restore properties for the virtual machine scale set. With this property customer can enable or disable automatic restore of the evicted Spot VMSS VM instances opportunistically based on capacity availability and pricing constraint.
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Enables the Spot-Try-Restore feature where evicted VMSS SPOT instances will be tried to be restored opportunistically based on capacity availability and pricing constraints
+        """
+        restore_timeout: NotRequired[pulumi.Input[str]]
+        """
+        Timeout value expressed as an ISO 8601 time duration after which the platform will not try to restore the VMSS SPOT instances
+        """
+elif False:
+    SpotRestorePolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SpotRestorePolicyArgs:
     def __init__(__self__, *,
@@ -3308,6 +4542,18 @@ class SpotRestorePolicyArgs:
         pulumi.set(self, "restore_timeout", value)
 
 
+if not MYPY:
+    class SshConfigurationArgsDict(TypedDict):
+        """
+        SSH configuration for Linux based VMs running on Azure
+        """
+        public_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input['SshPublicKeyArgsDict']]]]
+        """
+        The list of SSH public keys used to authenticate with linux based VMs.
+        """
+elif False:
+    SshConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SshConfigurationArgs:
     def __init__(__self__, *,
@@ -3331,6 +4577,22 @@ class SshConfigurationArgs:
     def public_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SshPublicKeyArgs']]]]):
         pulumi.set(self, "public_keys", value)
 
+
+if not MYPY:
+    class SshPublicKeyArgsDict(TypedDict):
+        """
+        Contains information about SSH certificate public key and the path on the Linux VM where the public key is placed.
+        """
+        key_data: NotRequired[pulumi.Input[str]]
+        """
+        SSH public key certificate used to authenticate with the VM through ssh. The key needs to be at least 2048-bit and in ssh-rsa format. For creating ssh keys, see [Create SSH keys on Linux and Mac for Linux VMs in Azure]https://docs.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed).
+        """
+        path: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the full path on the created VM where ssh public key is stored. If the file already exists, the specified key is appended to the file. Example: /home/user/.ssh/authorized_keys
+        """
+elif False:
+    SshPublicKeyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SshPublicKeyArgs:
@@ -3371,6 +4633,30 @@ class SshPublicKeyArgs:
     def path(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "path", value)
 
+
+if not MYPY:
+    class StorageProfileArgsDict(TypedDict):
+        """
+        Specifies the storage settings for the virtual machine disks.
+        """
+        data_disks: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataDiskArgsDict']]]]
+        """
+        Specifies the parameters that are used to add a data disk to a virtual machine. For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview).
+        """
+        disk_controller_type: NotRequired[pulumi.Input[Union[str, 'DiskControllerTypes']]]
+        """
+        Specifies the disk controller type configured for the VM. **Note:** This property will be set to the default disk controller type if not specified provided virtual machine is being created with 'hyperVGeneration' set to V2 based on the capabilities of the operating system disk and VM size from the the specified minimum api version. You need to deallocate the VM before updating its disk controller type unless you are updating the VM size in the VM configuration which implicitly deallocates and reallocates the VM. Minimum api-version: 2022-08-01.
+        """
+        image_reference: NotRequired[pulumi.Input['ImageReferenceArgsDict']]
+        """
+        Specifies information about the image to use. You can specify information about platform images, marketplace images, or virtual machine images. This element is required when you want to use a platform image, marketplace image, or virtual machine image, but is not used in other creation operations.
+        """
+        os_disk: NotRequired[pulumi.Input['OSDiskArgsDict']]
+        """
+        Specifies information about the operating system disk used by the virtual machine. For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview).
+        """
+elif False:
+    StorageProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class StorageProfileArgs:
@@ -3444,6 +4730,18 @@ class StorageProfileArgs:
         pulumi.set(self, "os_disk", value)
 
 
+if not MYPY:
+    class SubResourceArgsDict(TypedDict):
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Sub-resource ID. Both absolute resource ID and a relative resource ID are accepted.
+        An absolute ID starts with /subscriptions/ and contains the entire ID of the parent resource and the ID of the sub-resource in the end.
+        A relative ID replaces the ID of the parent resource with a token '$self', followed by the sub-resource ID itself.
+        Example of a relative ID: $self/frontEndConfigurations/my-frontend.
+        """
+elif False:
+    SubResourceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SubResourceArgs:
     def __init__(__self__, *,
@@ -3472,6 +4770,19 @@ class SubResourceArgs:
     def id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class TerminateNotificationProfileArgsDict(TypedDict):
+        enable: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies whether the Terminate Scheduled event is enabled or disabled.
+        """
+        not_before_timeout: NotRequired[pulumi.Input[str]]
+        """
+        Configurable length of time a Virtual Machine being deleted will have to potentially approve the Terminate Scheduled Event before the event is auto approved (timed out). The configuration must be specified in ISO 8601 format, the default value is 5 minutes (PT5M)
+        """
+elif False:
+    TerminateNotificationProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TerminateNotificationProfileArgs:
@@ -3512,6 +4823,22 @@ class TerminateNotificationProfileArgs:
         pulumi.set(self, "not_before_timeout", value)
 
 
+if not MYPY:
+    class UefiSettingsArgsDict(TypedDict):
+        """
+        Specifies the security settings like secure boot and vTPM used while creating the virtual machine. Minimum api-version: 2020-12-01.
+        """
+        secure_boot_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies whether secure boot should be enabled on the virtual machine. Minimum api-version: 2020-12-01.
+        """
+        v_tpm_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies whether vTPM should be enabled on the virtual machine. Minimum api-version: 2020-12-01.
+        """
+elif False:
+    UefiSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class UefiSettingsArgs:
     def __init__(__self__, *,
@@ -3551,6 +4878,26 @@ class UefiSettingsArgs:
     def v_tpm_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "v_tpm_enabled", value)
 
+
+if not MYPY:
+    class UpgradePolicyArgsDict(TypedDict):
+        """
+        Describes an upgrade policy - automatic, manual, or rolling.
+        """
+        automatic_os_upgrade_policy: NotRequired[pulumi.Input['AutomaticOSUpgradePolicyArgsDict']]
+        """
+        Configuration parameters used for performing automatic OS Upgrade.
+        """
+        mode: NotRequired[pulumi.Input['UpgradeMode']]
+        """
+        Specifies the mode of an upgrade to virtual machines in the scale set.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of updates to virtual machines in the scale set. You do this by using the manualUpgrade action.<br /><br /> **Automatic** - All virtual machines in the scale set are  automatically updated at the same time.
+        """
+        rolling_upgrade_policy: NotRequired[pulumi.Input['RollingUpgradePolicyArgsDict']]
+        """
+        The configuration parameters used while performing a rolling upgrade.
+        """
+elif False:
+    UpgradePolicyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UpgradePolicyArgs:
@@ -3608,6 +4955,22 @@ class UpgradePolicyArgs:
         pulumi.set(self, "rolling_upgrade_policy", value)
 
 
+if not MYPY:
+    class VMDiskSecurityProfileArgsDict(TypedDict):
+        """
+        Specifies the security profile settings for the managed disk. **Note:** It can only be set for Confidential VMs.
+        """
+        disk_encryption_set: NotRequired[pulumi.Input['DiskEncryptionSetParametersArgsDict']]
+        """
+        Specifies the customer managed disk encryption set resource id for the managed disk that is used for Customer Managed Key encrypted ConfidentialVM OS Disk and VMGuest blob.
+        """
+        security_encryption_type: NotRequired[pulumi.Input[Union[str, 'SecurityEncryptionTypes']]]
+        """
+        Specifies the EncryptionType of the managed disk. It is set to DiskWithVMGuestState for encryption of the managed disk along with VMGuestState blob, and VMGuestStateOnly for encryption of just the VMGuestState blob. **Note:** It can be set for only Confidential VMs.
+        """
+elif False:
+    VMDiskSecurityProfileArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class VMDiskSecurityProfileArgs:
     def __init__(__self__, *,
@@ -3647,6 +5010,38 @@ class VMDiskSecurityProfileArgs:
     def security_encryption_type(self, value: Optional[pulumi.Input[Union[str, 'SecurityEncryptionTypes']]]):
         pulumi.set(self, "security_encryption_type", value)
 
+
+if not MYPY:
+    class VMGalleryApplicationArgsDict(TypedDict):
+        """
+        Specifies the required information to reference a compute gallery application version
+        """
+        package_reference_id: pulumi.Input[str]
+        """
+        Specifies the GalleryApplicationVersion resource id on the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/providers/Microsoft.Compute/galleries/{galleryName}/applications/{application}/versions/{version}
+        """
+        configuration_reference: NotRequired[pulumi.Input[str]]
+        """
+        Optional, Specifies the uri to an azure blob that will replace the default configuration for the package if provided
+        """
+        enable_automatic_upgrade: NotRequired[pulumi.Input[bool]]
+        """
+        If set to true, when a new Gallery Application version is available in PIR/SIG, it will be automatically updated for the VM/VMSS
+        """
+        order: NotRequired[pulumi.Input[int]]
+        """
+        Optional, Specifies the order in which the packages have to be installed
+        """
+        tags: NotRequired[pulumi.Input[str]]
+        """
+        Optional, Specifies a passthrough value for more generic context.
+        """
+        treat_failure_as_deployment_failure: NotRequired[pulumi.Input[bool]]
+        """
+        Optional, If true, any failure for any operation in the VmApplication will fail the deployment
+        """
+elif False:
+    VMGalleryApplicationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VMGalleryApplicationArgs:
@@ -3751,6 +5146,22 @@ class VMGalleryApplicationArgs:
         pulumi.set(self, "treat_failure_as_deployment_failure", value)
 
 
+if not MYPY:
+    class VMSizePropertiesArgsDict(TypedDict):
+        """
+        Specifies VM Size Property settings on the virtual machine.
+        """
+        v_cpus_available: NotRequired[pulumi.Input[int]]
+        """
+        Specifies the number of vCPUs available for the VM. When this property is not specified in the request body the default behavior is to set it to the value of vCPUs available for that VM size exposed in api response of [List all available virtual machine sizes in a region](https://docs.microsoft.com/en-us/rest/api/compute/resource-skus/list).
+        """
+        v_cpus_per_core: NotRequired[pulumi.Input[int]]
+        """
+        Specifies the vCPU to physical core ratio. When this property is not specified in the request body the default behavior is set to the value of vCPUsPerCore for the VM Size exposed in api response of [List all available virtual machine sizes in a region](https://docs.microsoft.com/en-us/rest/api/compute/resource-skus/list). **Setting this property to 1 also means that hyper-threading is disabled.**
+        """
+elif False:
+    VMSizePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class VMSizePropertiesArgs:
     def __init__(__self__, *,
@@ -3790,6 +5201,22 @@ class VMSizePropertiesArgs:
     def v_cpus_per_core(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "v_cpus_per_core", value)
 
+
+if not MYPY:
+    class VaultCertificateArgsDict(TypedDict):
+        """
+        Describes a single certificate reference in a Key Vault, and where the certificate should reside on the VM.
+        """
+        certificate_store: NotRequired[pulumi.Input[str]]
+        """
+        For Windows VMs, specifies the certificate store on the Virtual Machine to which the certificate should be added. The specified certificate store is implicitly in the LocalMachine account. For Linux VMs, the certificate file is placed under the /var/lib/waagent directory, with the file name &lt;UppercaseThumbprint&gt;.crt for the X509 certificate file and &lt;UppercaseThumbprint&gt;.prv for private key. Both of these files are .pem formatted.
+        """
+        certificate_url: NotRequired[pulumi.Input[str]]
+        """
+        This is the URL of a certificate that has been uploaded to Key Vault as a secret. For adding a secret to the Key Vault, see [Add a key or secret to the key vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started/#add). In this case, your certificate needs to be It is the Base64 encoding of the following JSON Object which is encoded in UTF-8: <br><br> {<br>  "data":"<Base64-encoded-certificate>",<br>  "dataType":"pfx",<br>  "password":"<pfx-file-password>"<br>} <br> To install certificates on a virtual machine it is recommended to use the [Azure Key Vault virtual machine extension for Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/key-vault-linux) or the [Azure Key Vault virtual machine extension for Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/key-vault-windows).
+        """
+elif False:
+    VaultCertificateArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VaultCertificateArgs:
@@ -3831,6 +5258,22 @@ class VaultCertificateArgs:
         pulumi.set(self, "certificate_url", value)
 
 
+if not MYPY:
+    class VaultSecretGroupArgsDict(TypedDict):
+        """
+        Describes a set of certificates which are all in the same Key Vault.
+        """
+        source_vault: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        """
+        The relative URL of the Key Vault containing all of the certificates in VaultCertificates.
+        """
+        vault_certificates: NotRequired[pulumi.Input[Sequence[pulumi.Input['VaultCertificateArgsDict']]]]
+        """
+        The list of key vault references in SourceVault which contain certificates.
+        """
+elif False:
+    VaultSecretGroupArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class VaultSecretGroupArgs:
     def __init__(__self__, *,
@@ -3871,6 +5314,18 @@ class VaultSecretGroupArgs:
         pulumi.set(self, "vault_certificates", value)
 
 
+if not MYPY:
+    class VirtualHardDiskArgsDict(TypedDict):
+        """
+        Describes the uri of a disk.
+        """
+        uri: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the virtual hard disk's uri.
+        """
+elif False:
+    VirtualHardDiskArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class VirtualHardDiskArgs:
     def __init__(__self__, *,
@@ -3894,6 +5349,34 @@ class VirtualHardDiskArgs:
     def uri(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "uri", value)
 
+
+if not MYPY:
+    class VirtualMachineExtensionInstanceViewArgsDict(TypedDict):
+        """
+        The instance view of a virtual machine extension.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The virtual machine extension name.
+        """
+        statuses: NotRequired[pulumi.Input[Sequence[pulumi.Input['InstanceViewStatusArgsDict']]]]
+        """
+        The resource status information.
+        """
+        substatuses: NotRequired[pulumi.Input[Sequence[pulumi.Input['InstanceViewStatusArgsDict']]]]
+        """
+        The resource status information.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the type of the extension; an example is "CustomScriptExtension".
+        """
+        type_handler_version: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the version of the script handler.
+        """
+elif False:
+    VirtualMachineExtensionInstanceViewArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VirtualMachineExtensionInstanceViewArgs:
@@ -3982,6 +5465,70 @@ class VirtualMachineExtensionInstanceViewArgs:
     def type_handler_version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type_handler_version", value)
 
+
+if not MYPY:
+    class VirtualMachineExtensionArgsDict(TypedDict):
+        """
+        Describes a Virtual Machine Extension.
+        """
+        auto_upgrade_minor_version: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
+        """
+        enable_automatic_upgrade: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether the extension should be automatically upgraded by the platform if there is a newer version of the extension available.
+        """
+        force_update_tag: NotRequired[pulumi.Input[str]]
+        """
+        How the extension handler should be forced to update even if the extension configuration has not changed.
+        """
+        instance_view: NotRequired[pulumi.Input['VirtualMachineExtensionInstanceViewArgsDict']]
+        """
+        The virtual machine extension instance view.
+        """
+        location: NotRequired[pulumi.Input[str]]
+        """
+        Resource location
+        """
+        protected_settings: NotRequired[Any]
+        """
+        The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
+        """
+        protected_settings_from_key_vault: NotRequired[pulumi.Input['KeyVaultSecretReferenceArgsDict']]
+        """
+        The extensions protected settings that are passed by reference, and consumed from key vault
+        """
+        provision_after_extensions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Collection of extension names after which this extension needs to be provisioned.
+        """
+        publisher: NotRequired[pulumi.Input[str]]
+        """
+        The name of the extension handler publisher.
+        """
+        settings: NotRequired[Any]
+        """
+        Json formatted public settings for the extension.
+        """
+        suppress_failures: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether failures stemming from the extension will be suppressed (Operational failures such as not connecting to the VM will not be suppressed regardless of this value). The default is false.
+        """
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Resource tags
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the type of the extension; an example is "CustomScriptExtension".
+        """
+        type_handler_version: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the version of the script handler.
+        """
+elif False:
+    VirtualMachineExtensionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VirtualMachineExtensionArgs:
@@ -4215,6 +5762,22 @@ class VirtualMachineExtensionArgs:
         pulumi.set(self, "type_handler_version", value)
 
 
+if not MYPY:
+    class VirtualMachineIdentityArgsDict(TypedDict):
+        """
+        Identity for the virtual machine.
+        """
+        type: NotRequired[pulumi.Input['ResourceIdentityType']]
+        """
+        The type of identity used for the virtual machine. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the virtual machine.
+        """
+        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of user identities associated with the Virtual Machine. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+elif False:
+    VirtualMachineIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class VirtualMachineIdentityArgs:
     def __init__(__self__, *,
@@ -4255,6 +5818,22 @@ class VirtualMachineIdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
+if not MYPY:
+    class VirtualMachineIpTagArgsDict(TypedDict):
+        """
+        Contains the IP tag associated with the public IP address.
+        """
+        ip_tag_type: NotRequired[pulumi.Input[str]]
+        """
+        IP tag type. Example: FirstPartyUsage.
+        """
+        tag: NotRequired[pulumi.Input[str]]
+        """
+        IP tag associated with the public IP. Example: SQL, Storage etc.
+        """
+elif False:
+    VirtualMachineIpTagArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class VirtualMachineIpTagArgs:
     def __init__(__self__, *,
@@ -4294,6 +5873,55 @@ class VirtualMachineIpTagArgs:
     def tag(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tag", value)
 
+
+if not MYPY:
+    class VirtualMachineNetworkInterfaceConfigurationArgsDict(TypedDict):
+        """
+        Describes a virtual machine network interface configurations.
+        """
+        ip_configurations: pulumi.Input[Sequence[pulumi.Input['VirtualMachineNetworkInterfaceIPConfigurationArgsDict']]]
+        """
+        Specifies the IP configurations of the network interface.
+        """
+        name: pulumi.Input[str]
+        """
+        The network interface configuration name.
+        """
+        delete_option: NotRequired[pulumi.Input[Union[str, 'DeleteOptions']]]
+        """
+        Specify what happens to the network interface when the VM is deleted
+        """
+        disable_tcp_state_tracking: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies whether the network interface is disabled for tcp state tracking.
+        """
+        dns_settings: NotRequired[pulumi.Input['VirtualMachineNetworkInterfaceDnsSettingsConfigurationArgsDict']]
+        """
+        The dns settings to be applied on the network interfaces.
+        """
+        dscp_configuration: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        enable_accelerated_networking: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies whether the network interface is accelerated networking-enabled.
+        """
+        enable_fpga: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies whether the network interface is FPGA networking-enabled.
+        """
+        enable_ip_forwarding: NotRequired[pulumi.Input[bool]]
+        """
+        Whether IP forwarding enabled on this NIC.
+        """
+        network_security_group: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        """
+        The network security group.
+        """
+        primary: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies the primary network interface in case the virtual machine has more than 1 network interface.
+        """
+elif False:
+    VirtualMachineNetworkInterfaceConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VirtualMachineNetworkInterfaceConfigurationArgs:
@@ -4473,6 +6101,18 @@ class VirtualMachineNetworkInterfaceConfigurationArgs:
         pulumi.set(self, "primary", value)
 
 
+if not MYPY:
+    class VirtualMachineNetworkInterfaceDnsSettingsConfigurationArgsDict(TypedDict):
+        """
+        Describes a virtual machines network configuration's DNS settings.
+        """
+        dns_servers: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of DNS servers IP addresses
+        """
+elif False:
+    VirtualMachineNetworkInterfaceDnsSettingsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class VirtualMachineNetworkInterfaceDnsSettingsConfigurationArgs:
     def __init__(__self__, *,
@@ -4496,6 +6136,46 @@ class VirtualMachineNetworkInterfaceDnsSettingsConfigurationArgs:
     def dns_servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "dns_servers", value)
 
+
+if not MYPY:
+    class VirtualMachineNetworkInterfaceIPConfigurationArgsDict(TypedDict):
+        """
+        Describes a virtual machine network profile's IP configuration.
+        """
+        name: pulumi.Input[str]
+        """
+        The IP configuration name.
+        """
+        application_gateway_backend_address_pools: NotRequired[pulumi.Input[Sequence[pulumi.Input['SubResourceArgsDict']]]]
+        """
+        Specifies an array of references to backend address pools of application gateways. A virtual machine can reference backend address pools of multiple application gateways. Multiple virtual machines cannot use the same application gateway.
+        """
+        application_security_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input['SubResourceArgsDict']]]]
+        """
+        Specifies an array of references to application security group.
+        """
+        load_balancer_backend_address_pools: NotRequired[pulumi.Input[Sequence[pulumi.Input['SubResourceArgsDict']]]]
+        """
+        Specifies an array of references to backend address pools of load balancers. A virtual machine can reference backend address pools of one public and one internal load balancer. [Multiple virtual machines cannot use the same basic sku load balancer].
+        """
+        primary: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies the primary network interface in case the virtual machine has more than 1 network interface.
+        """
+        private_ip_address_version: NotRequired[pulumi.Input[Union[str, 'IPVersions']]]
+        """
+        Available from Api-Version 2017-03-30 onwards, it represents whether the specific ipconfiguration is IPv4 or IPv6. Default is taken as IPv4.  Possible values are: 'IPv4' and 'IPv6'.
+        """
+        public_ip_address_configuration: NotRequired[pulumi.Input['VirtualMachinePublicIPAddressConfigurationArgsDict']]
+        """
+        The publicIPAddressConfiguration.
+        """
+        subnet: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        """
+        Specifies the identifier of the subnet.
+        """
+elif False:
+    VirtualMachineNetworkInterfaceIPConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VirtualMachineNetworkInterfaceIPConfigurationArgs:
@@ -4631,6 +6311,50 @@ class VirtualMachineNetworkInterfaceIPConfigurationArgs:
     def subnet(self, value: Optional[pulumi.Input['SubResourceArgs']]):
         pulumi.set(self, "subnet", value)
 
+
+if not MYPY:
+    class VirtualMachinePublicIPAddressConfigurationArgsDict(TypedDict):
+        """
+        Describes a virtual machines IP Configuration's PublicIPAddress configuration
+        """
+        name: pulumi.Input[str]
+        """
+        The publicIP address configuration name.
+        """
+        delete_option: NotRequired[pulumi.Input[Union[str, 'DeleteOptions']]]
+        """
+        Specify what happens to the public IP address when the VM is deleted
+        """
+        dns_settings: NotRequired[pulumi.Input['VirtualMachinePublicIPAddressDnsSettingsConfigurationArgsDict']]
+        """
+        The dns settings to be applied on the publicIP addresses .
+        """
+        idle_timeout_in_minutes: NotRequired[pulumi.Input[int]]
+        """
+        The idle timeout of the public IP address.
+        """
+        ip_tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualMachineIpTagArgsDict']]]]
+        """
+        The list of IP tags associated with the public IP address.
+        """
+        public_ip_address_version: NotRequired[pulumi.Input[Union[str, 'IPVersions']]]
+        """
+        Available from Api-Version 2019-07-01 onwards, it represents whether the specific ipconfiguration is IPv4 or IPv6. Default is taken as IPv4. Possible values are: 'IPv4' and 'IPv6'.
+        """
+        public_ip_allocation_method: NotRequired[pulumi.Input[Union[str, 'PublicIPAllocationMethod']]]
+        """
+        Specify the public IP allocation type
+        """
+        public_ip_prefix: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        """
+        The PublicIPPrefix from which to allocate publicIP addresses.
+        """
+        sku: NotRequired[pulumi.Input['PublicIPAddressSkuArgsDict']]
+        """
+        Describes the public IP Sku. It can only be set with OrchestrationMode as Flexible.
+        """
+elif False:
+    VirtualMachinePublicIPAddressConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VirtualMachinePublicIPAddressConfigurationArgs:
@@ -4783,6 +6507,18 @@ class VirtualMachinePublicIPAddressConfigurationArgs:
         pulumi.set(self, "sku", value)
 
 
+if not MYPY:
+    class VirtualMachinePublicIPAddressDnsSettingsConfigurationArgsDict(TypedDict):
+        """
+        Describes a virtual machines network configuration's DNS settings.
+        """
+        domain_name_label: pulumi.Input[str]
+        """
+        The Domain name label prefix of the PublicIPAddress resources that will be created. The generated name label is the concatenation of the domain name label and vm network profile unique ID.
+        """
+elif False:
+    VirtualMachinePublicIPAddressDnsSettingsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class VirtualMachinePublicIPAddressDnsSettingsConfigurationArgs:
     def __init__(__self__, *,
@@ -4805,6 +6541,30 @@ class VirtualMachinePublicIPAddressDnsSettingsConfigurationArgs:
     def domain_name_label(self, value: pulumi.Input[str]):
         pulumi.set(self, "domain_name_label", value)
 
+
+if not MYPY:
+    class VirtualMachineRunCommandScriptSourceArgsDict(TypedDict):
+        """
+        Describes the script sources for run command. Use only one of script, scriptUri, commandId.
+        """
+        command_id: NotRequired[pulumi.Input[str]]
+        """
+        Specifies a commandId of predefined built-in script.
+        """
+        script: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the script content to be executed on the VM.
+        """
+        script_uri: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the script download location. It can be either SAS URI of an Azure storage blob with read access or public URI.
+        """
+        script_uri_managed_identity: NotRequired[pulumi.Input['RunCommandManagedIdentityArgsDict']]
+        """
+        User-assigned managed identity that has access to scriptUri in case of Azure storage blob. Use an empty object in case of system-assigned identity. Make sure the Azure storage blob exists, and managed identity has been given access to blob's container with 'Storage Blob Data Reader' role assignment. In case of user-assigned identity, make sure you add it under VM's identity. For more info on managed identity and Run Command, refer https://aka.ms/ManagedIdentity and https://aka.ms/RunCommandManaged.
+        """
+elif False:
+    VirtualMachineRunCommandScriptSourceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VirtualMachineRunCommandScriptSourceArgs:
@@ -4877,6 +6637,54 @@ class VirtualMachineRunCommandScriptSourceArgs:
     def script_uri_managed_identity(self, value: Optional[pulumi.Input['RunCommandManagedIdentityArgs']]):
         pulumi.set(self, "script_uri_managed_identity", value)
 
+
+if not MYPY:
+    class VirtualMachineScaleSetDataDiskArgsDict(TypedDict):
+        """
+        Describes a virtual machine scale set data disk.
+        """
+        create_option: pulumi.Input[Union[str, 'DiskCreateOptionTypes']]
+        """
+        The create option.
+        """
+        lun: pulumi.Input[int]
+        """
+        Specifies the logical unit number of the data disk. This value is used to identify data disks within the VM and therefore must be unique for each data disk attached to a VM.
+        """
+        caching: NotRequired[pulumi.Input['CachingTypes']]
+        """
+        Specifies the caching requirements. Possible values are: **None,** **ReadOnly,** **ReadWrite.** The default values are: **None for Standard storage. ReadOnly for Premium storage.**
+        """
+        delete_option: NotRequired[pulumi.Input[Union[str, 'DiskDeleteOptionTypes']]]
+        """
+        Specifies whether data disk should be deleted or detached upon VMSS Flex deletion (This feature is available for VMSS with Flexible OrchestrationMode only).<br><br> Possible values: <br><br> **Delete** If this value is used, the data disk is deleted when the VMSS Flex VM is deleted.<br><br> **Detach** If this value is used, the data disk is retained after VMSS Flex VM is deleted.<br><br> The default value is set to **Delete**.
+        """
+        disk_iops_read_write: NotRequired[pulumi.Input[float]]
+        """
+        Specifies the Read-Write IOPS for the managed disk. Should be used only when StorageAccountType is UltraSSD_LRS. If not specified, a default value would be assigned based on diskSizeGB.
+        """
+        disk_m_bps_read_write: NotRequired[pulumi.Input[float]]
+        """
+        Specifies the bandwidth in MB per second for the managed disk. Should be used only when StorageAccountType is UltraSSD_LRS. If not specified, a default value would be assigned based on diskSizeGB.
+        """
+        disk_size_gb: NotRequired[pulumi.Input[int]]
+        """
+        Specifies the size of an empty data disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. The property diskSizeGB is the number of bytes x 1024^3 for the disk and the value cannot be larger than 1023.
+        """
+        managed_disk: NotRequired[pulumi.Input['VirtualMachineScaleSetManagedDiskParametersArgsDict']]
+        """
+        The managed disk parameters.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The disk name.
+        """
+        write_accelerator_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies whether writeAccelerator should be enabled or disabled on the disk.
+        """
+elif False:
+    VirtualMachineScaleSetDataDiskArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VirtualMachineScaleSetDataDiskArgs:
@@ -5044,6 +6852,22 @@ class VirtualMachineScaleSetDataDiskArgs:
         pulumi.set(self, "write_accelerator_enabled", value)
 
 
+if not MYPY:
+    class VirtualMachineScaleSetExtensionProfileArgsDict(TypedDict):
+        """
+        Describes a virtual machine scale set extension profile.
+        """
+        extensions: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualMachineScaleSetExtensionArgsDict']]]]
+        """
+        The virtual machine scale set child extension resources.
+        """
+        extensions_time_budget: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. The default value is 90 minutes (PT1H30M). Minimum api-version: 2020-06-01.
+        """
+elif False:
+    VirtualMachineScaleSetExtensionProfileArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class VirtualMachineScaleSetExtensionProfileArgs:
     def __init__(__self__, *,
@@ -5083,6 +6907,62 @@ class VirtualMachineScaleSetExtensionProfileArgs:
     def extensions_time_budget(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "extensions_time_budget", value)
 
+
+if not MYPY:
+    class VirtualMachineScaleSetExtensionArgsDict(TypedDict):
+        """
+        Describes a Virtual Machine Scale Set Extension.
+        """
+        auto_upgrade_minor_version: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
+        """
+        enable_automatic_upgrade: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether the extension should be automatically upgraded by the platform if there is a newer version of the extension available.
+        """
+        force_update_tag: NotRequired[pulumi.Input[str]]
+        """
+        If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the extension.
+        """
+        protected_settings: NotRequired[Any]
+        """
+        The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
+        """
+        protected_settings_from_key_vault: NotRequired[pulumi.Input['KeyVaultSecretReferenceArgsDict']]
+        """
+        The extensions protected settings that are passed by reference, and consumed from key vault
+        """
+        provision_after_extensions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Collection of extension names after which this extension needs to be provisioned.
+        """
+        publisher: NotRequired[pulumi.Input[str]]
+        """
+        The name of the extension handler publisher.
+        """
+        settings: NotRequired[Any]
+        """
+        Json formatted public settings for the extension.
+        """
+        suppress_failures: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether failures stemming from the extension will be suppressed (Operational failures such as not connecting to the VM will not be suppressed regardless of this value). The default is false.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the type of the extension; an example is "CustomScriptExtension".
+        """
+        type_handler_version: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the version of the script handler.
+        """
+elif False:
+    VirtualMachineScaleSetExtensionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VirtualMachineScaleSetExtensionArgs:
@@ -5284,6 +7164,18 @@ class VirtualMachineScaleSetExtensionArgs:
         pulumi.set(self, "type_handler_version", value)
 
 
+if not MYPY:
+    class VirtualMachineScaleSetHardwareProfileArgsDict(TypedDict):
+        """
+        Specifies the hardware settings for the virtual machine scale set.
+        """
+        vm_size_properties: NotRequired[pulumi.Input['VMSizePropertiesArgsDict']]
+        """
+        Specifies the properties for customizing the size of the virtual machine. Minimum api-version: 2021-11-01. Please follow the instructions in [VM Customization](https://aka.ms/vmcustomization) for more details.
+        """
+elif False:
+    VirtualMachineScaleSetHardwareProfileArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class VirtualMachineScaleSetHardwareProfileArgs:
     def __init__(__self__, *,
@@ -5307,6 +7199,50 @@ class VirtualMachineScaleSetHardwareProfileArgs:
     def vm_size_properties(self, value: Optional[pulumi.Input['VMSizePropertiesArgs']]):
         pulumi.set(self, "vm_size_properties", value)
 
+
+if not MYPY:
+    class VirtualMachineScaleSetIPConfigurationArgsDict(TypedDict):
+        """
+        Describes a virtual machine scale set network profile's IP configuration.
+        """
+        name: pulumi.Input[str]
+        """
+        The IP configuration name.
+        """
+        application_gateway_backend_address_pools: NotRequired[pulumi.Input[Sequence[pulumi.Input['SubResourceArgsDict']]]]
+        """
+        Specifies an array of references to backend address pools of application gateways. A scale set can reference backend address pools of multiple application gateways. Multiple scale sets cannot use the same application gateway.
+        """
+        application_security_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input['SubResourceArgsDict']]]]
+        """
+        Specifies an array of references to application security group.
+        """
+        load_balancer_backend_address_pools: NotRequired[pulumi.Input[Sequence[pulumi.Input['SubResourceArgsDict']]]]
+        """
+        Specifies an array of references to backend address pools of load balancers. A scale set can reference backend address pools of one public and one internal load balancer. Multiple scale sets cannot use the same basic sku load balancer.
+        """
+        load_balancer_inbound_nat_pools: NotRequired[pulumi.Input[Sequence[pulumi.Input['SubResourceArgsDict']]]]
+        """
+        Specifies an array of references to inbound Nat pools of the load balancers. A scale set can reference inbound nat pools of one public and one internal load balancer. Multiple scale sets cannot use the same basic sku load balancer.
+        """
+        primary: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies the primary network interface in case the virtual machine has more than 1 network interface.
+        """
+        private_ip_address_version: NotRequired[pulumi.Input[Union[str, 'IPVersion']]]
+        """
+        Available from Api-Version 2017-03-30 onwards, it represents whether the specific ipconfiguration is IPv4 or IPv6. Default is taken as IPv4.  Possible values are: 'IPv4' and 'IPv6'.
+        """
+        public_ip_address_configuration: NotRequired[pulumi.Input['VirtualMachineScaleSetPublicIPAddressConfigurationArgsDict']]
+        """
+        The publicIPAddressConfiguration.
+        """
+        subnet: NotRequired[pulumi.Input['ApiEntityReferenceArgsDict']]
+        """
+        Specifies the identifier of the subnet.
+        """
+elif False:
+    VirtualMachineScaleSetIPConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VirtualMachineScaleSetIPConfigurationArgs:
@@ -5459,6 +7395,22 @@ class VirtualMachineScaleSetIPConfigurationArgs:
         pulumi.set(self, "subnet", value)
 
 
+if not MYPY:
+    class VirtualMachineScaleSetIdentityArgsDict(TypedDict):
+        """
+        Identity for the virtual machine scale set.
+        """
+        type: NotRequired[pulumi.Input['ResourceIdentityType']]
+        """
+        The type of identity used for the virtual machine scale set. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the virtual machine scale set.
+        """
+        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of user identities associated with the virtual machine scale set. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+elif False:
+    VirtualMachineScaleSetIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class VirtualMachineScaleSetIdentityArgs:
     def __init__(__self__, *,
@@ -5499,6 +7451,22 @@ class VirtualMachineScaleSetIdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
+if not MYPY:
+    class VirtualMachineScaleSetIpTagArgsDict(TypedDict):
+        """
+        Contains the IP tag associated with the public IP address.
+        """
+        ip_tag_type: NotRequired[pulumi.Input[str]]
+        """
+        IP tag type. Example: FirstPartyUsage.
+        """
+        tag: NotRequired[pulumi.Input[str]]
+        """
+        IP tag associated with the public IP. Example: SQL, Storage etc.
+        """
+elif False:
+    VirtualMachineScaleSetIpTagArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class VirtualMachineScaleSetIpTagArgs:
     def __init__(__self__, *,
@@ -5538,6 +7506,26 @@ class VirtualMachineScaleSetIpTagArgs:
     def tag(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tag", value)
 
+
+if not MYPY:
+    class VirtualMachineScaleSetManagedDiskParametersArgsDict(TypedDict):
+        """
+        Describes the parameters of a ScaleSet managed disk.
+        """
+        disk_encryption_set: NotRequired[pulumi.Input['DiskEncryptionSetParametersArgsDict']]
+        """
+        Specifies the customer managed disk encryption set resource id for the managed disk.
+        """
+        security_profile: NotRequired[pulumi.Input['VMDiskSecurityProfileArgsDict']]
+        """
+        Specifies the security profile for the managed disk.
+        """
+        storage_account_type: NotRequired[pulumi.Input[Union[str, 'StorageAccountTypes']]]
+        """
+        Specifies the storage account type for the managed disk. NOTE: UltraSSD_LRS can only be used with data disks, it cannot be used with OS Disk.
+        """
+elif False:
+    VirtualMachineScaleSetManagedDiskParametersArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VirtualMachineScaleSetManagedDiskParametersArgs:
@@ -5595,6 +7583,18 @@ class VirtualMachineScaleSetManagedDiskParametersArgs:
         pulumi.set(self, "storage_account_type", value)
 
 
+if not MYPY:
+    class VirtualMachineScaleSetNetworkConfigurationDnsSettingsArgsDict(TypedDict):
+        """
+        Describes a virtual machines scale sets network configuration's DNS settings.
+        """
+        dns_servers: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of DNS servers IP addresses
+        """
+elif False:
+    VirtualMachineScaleSetNetworkConfigurationDnsSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class VirtualMachineScaleSetNetworkConfigurationDnsSettingsArgs:
     def __init__(__self__, *,
@@ -5618,6 +7618,54 @@ class VirtualMachineScaleSetNetworkConfigurationDnsSettingsArgs:
     def dns_servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "dns_servers", value)
 
+
+if not MYPY:
+    class VirtualMachineScaleSetNetworkConfigurationArgsDict(TypedDict):
+        """
+        Describes a virtual machine scale set network profile's network configurations.
+        """
+        ip_configurations: pulumi.Input[Sequence[pulumi.Input['VirtualMachineScaleSetIPConfigurationArgsDict']]]
+        """
+        Specifies the IP configurations of the network interface.
+        """
+        name: pulumi.Input[str]
+        """
+        The network configuration name.
+        """
+        delete_option: NotRequired[pulumi.Input[Union[str, 'DeleteOptions']]]
+        """
+        Specify what happens to the network interface when the VM is deleted
+        """
+        disable_tcp_state_tracking: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies whether the network interface is disabled for tcp state tracking.
+        """
+        dns_settings: NotRequired[pulumi.Input['VirtualMachineScaleSetNetworkConfigurationDnsSettingsArgsDict']]
+        """
+        The dns settings to be applied on the network interfaces.
+        """
+        enable_accelerated_networking: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies whether the network interface is accelerated networking-enabled.
+        """
+        enable_fpga: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies whether the network interface is FPGA networking-enabled.
+        """
+        enable_ip_forwarding: NotRequired[pulumi.Input[bool]]
+        """
+        Whether IP forwarding enabled on this NIC.
+        """
+        network_security_group: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        """
+        The network security group.
+        """
+        primary: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies the primary network interface in case the virtual machine has more than 1 network interface.
+        """
+elif False:
+    VirtualMachineScaleSetNetworkConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VirtualMachineScaleSetNetworkConfigurationArgs:
@@ -5785,6 +7833,26 @@ class VirtualMachineScaleSetNetworkConfigurationArgs:
         pulumi.set(self, "primary", value)
 
 
+if not MYPY:
+    class VirtualMachineScaleSetNetworkProfileArgsDict(TypedDict):
+        """
+        Describes a virtual machine scale set network profile.
+        """
+        health_probe: NotRequired[pulumi.Input['ApiEntityReferenceArgsDict']]
+        """
+        A reference to a load balancer probe used to determine the health of an instance in the virtual machine scale set. The reference will be in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/loadBalancers/{loadBalancerName}/probes/{probeName}'.
+        """
+        network_api_version: NotRequired[pulumi.Input[Union[str, 'NetworkApiVersion']]]
+        """
+        specifies the Microsoft.Network API version used when creating networking resources in the Network Interface Configurations for Virtual Machine Scale Set with orchestration mode 'Flexible'
+        """
+        network_interface_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualMachineScaleSetNetworkConfigurationArgsDict']]]]
+        """
+        The list of network configurations.
+        """
+elif False:
+    VirtualMachineScaleSetNetworkProfileArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class VirtualMachineScaleSetNetworkProfileArgs:
     def __init__(__self__, *,
@@ -5840,6 +7908,58 @@ class VirtualMachineScaleSetNetworkProfileArgs:
     def network_interface_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineScaleSetNetworkConfigurationArgs']]]]):
         pulumi.set(self, "network_interface_configurations", value)
 
+
+if not MYPY:
+    class VirtualMachineScaleSetOSDiskArgsDict(TypedDict):
+        """
+        Describes a virtual machine scale set operating system disk.
+        """
+        create_option: pulumi.Input[Union[str, 'DiskCreateOptionTypes']]
+        """
+        Specifies how the virtual machines in the scale set should be created. The only allowed value is: **FromImage.** This value is used when you are using an image to create the virtual machine. If you are using a platform image, you also use the imageReference element described above. If you are using a marketplace image, you  also use the plan element previously described.
+        """
+        caching: NotRequired[pulumi.Input['CachingTypes']]
+        """
+        Specifies the caching requirements. Possible values are: **None,** **ReadOnly,** **ReadWrite.** The default values are: **None for Standard storage. ReadOnly for Premium storage.**
+        """
+        delete_option: NotRequired[pulumi.Input[Union[str, 'DiskDeleteOptionTypes']]]
+        """
+        Specifies whether OS Disk should be deleted or detached upon VMSS Flex deletion (This feature is available for VMSS with Flexible OrchestrationMode only). <br><br> Possible values: <br><br> **Delete** If this value is used, the OS disk is deleted when VMSS Flex VM is deleted.<br><br> **Detach** If this value is used, the OS disk is retained after VMSS Flex VM is deleted. <br><br> The default value is set to **Delete**. For an Ephemeral OS Disk, the default value is set to **Delete**. User cannot change the delete option for Ephemeral OS Disk.
+        """
+        diff_disk_settings: NotRequired[pulumi.Input['DiffDiskSettingsArgsDict']]
+        """
+        Specifies the ephemeral disk Settings for the operating system disk used by the virtual machine scale set.
+        """
+        disk_size_gb: NotRequired[pulumi.Input[int]]
+        """
+        Specifies the size of an empty data disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. The property 'diskSizeGB' is the number of bytes x 1024^3 for the disk and the value cannot be larger than 1023.
+        """
+        image: NotRequired[pulumi.Input['VirtualHardDiskArgsDict']]
+        """
+        Specifies information about the unmanaged user image to base the scale set on.
+        """
+        managed_disk: NotRequired[pulumi.Input['VirtualMachineScaleSetManagedDiskParametersArgsDict']]
+        """
+        The managed disk parameters.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The disk name.
+        """
+        os_type: NotRequired[pulumi.Input['OperatingSystemTypes']]
+        """
+        This property allows you to specify the type of the OS that is included in the disk if creating a VM from user-image or a specialized VHD. Possible values are: **Windows,** **Linux.**
+        """
+        vhd_containers: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies the container urls that are used to store operating system disks for the scale set.
+        """
+        write_accelerator_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies whether writeAccelerator should be enabled or disabled on the disk.
+        """
+elif False:
+    VirtualMachineScaleSetOSDiskArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VirtualMachineScaleSetOSDiskArgs:
@@ -6024,6 +8144,50 @@ class VirtualMachineScaleSetOSDiskArgs:
         pulumi.set(self, "write_accelerator_enabled", value)
 
 
+if not MYPY:
+    class VirtualMachineScaleSetOSProfileArgsDict(TypedDict):
+        """
+        Describes a virtual machine scale set OS profile.
+        """
+        admin_password: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the password of the administrator account. <br><br> **Minimum-length (Windows):** 8 characters <br><br> **Minimum-length (Linux):** 6 characters <br><br> **Max-length (Windows):** 123 characters <br><br> **Max-length (Linux):** 72 characters <br><br> **Complexity requirements:** 3 out of 4 conditions below need to be fulfilled <br> Has lower characters <br>Has upper characters <br> Has a digit <br> Has a special character (Regex match [\\W_]) <br><br> **Disallowed values:** "abc@123", "P@$$w0rd", "P@ssw0rd", "P@ssword123", "Pa$$word", "pass@word1", "Password!", "Password1", "Password22", "iloveyou!" <br><br> For resetting the password, see [How to reset the Remote Desktop service or its login password in a Windows VM](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/reset-rdp) <br><br> For resetting root password, see [Manage users, SSH, and check or repair disks on Azure Linux VMs using the VMAccess Extension](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection)
+        """
+        admin_username: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the name of the administrator account. <br><br> **Windows-only restriction:** Cannot end in "." <br><br> **Disallowed values:** "administrator", "admin", "user", "user1", "test", "user2", "test1", "user3", "admin1", "1", "123", "a", "actuser", "adm", "admin2", "aspnet", "backup", "console", "david", "guest", "john", "owner", "root", "server", "sql", "support", "support_388945a0", "sys", "test2", "test3", "user4", "user5". <br><br> **Minimum-length (Linux):** 1  character <br><br> **Max-length (Linux):** 64 characters <br><br> **Max-length (Windows):** 20 characters
+        """
+        allow_extension_operations: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies whether extension operations should be allowed on the virtual machine scale set. This may only be set to False when no extensions are present on the virtual machine scale set.
+        """
+        computer_name_prefix: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the computer name prefix for all of the virtual machines in the scale set. Computer name prefixes must be 1 to 15 characters long.
+        """
+        custom_data: NotRequired[pulumi.Input[str]]
+        """
+        Specifies a base-64 encoded string of custom data. The base-64 encoded string is decoded to a binary array that is saved as a file on the Virtual Machine. The maximum length of the binary array is 65535 bytes. For using cloud-init for your VM, see [Using cloud-init to customize a Linux VM during creation](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init)
+        """
+        linux_configuration: NotRequired[pulumi.Input['LinuxConfigurationArgsDict']]
+        """
+        Specifies the Linux operating system settings on the virtual machine. For a list of supported Linux distributions, see [Linux on Azure-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
+        """
+        require_guest_provision_signal: NotRequired[pulumi.Input[bool]]
+        """
+        Optional property which must either be set to True or omitted.
+        """
+        secrets: NotRequired[pulumi.Input[Sequence[pulumi.Input['VaultSecretGroupArgsDict']]]]
+        """
+        Specifies set of certificates that should be installed onto the virtual machines in the scale set. To install certificates on a virtual machine it is recommended to use the [Azure Key Vault virtual machine extension for Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/key-vault-linux) or the [Azure Key Vault virtual machine extension for Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/key-vault-windows).
+        """
+        windows_configuration: NotRequired[pulumi.Input['WindowsConfigurationArgsDict']]
+        """
+        Specifies Windows operating system settings on the virtual machine.
+        """
+elif False:
+    VirtualMachineScaleSetOSProfileArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class VirtualMachineScaleSetOSProfileArgs:
     def __init__(__self__, *,
@@ -6176,6 +8340,18 @@ class VirtualMachineScaleSetOSProfileArgs:
         pulumi.set(self, "windows_configuration", value)
 
 
+if not MYPY:
+    class VirtualMachineScaleSetPublicIPAddressConfigurationDnsSettingsArgsDict(TypedDict):
+        """
+        Describes a virtual machines scale sets network configuration's DNS settings.
+        """
+        domain_name_label: pulumi.Input[str]
+        """
+        The Domain name label.The concatenation of the domain name label and vm index will be the domain name labels of the PublicIPAddress resources that will be created
+        """
+elif False:
+    VirtualMachineScaleSetPublicIPAddressConfigurationDnsSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class VirtualMachineScaleSetPublicIPAddressConfigurationDnsSettingsArgs:
     def __init__(__self__, *,
@@ -6198,6 +8374,46 @@ class VirtualMachineScaleSetPublicIPAddressConfigurationDnsSettingsArgs:
     def domain_name_label(self, value: pulumi.Input[str]):
         pulumi.set(self, "domain_name_label", value)
 
+
+if not MYPY:
+    class VirtualMachineScaleSetPublicIPAddressConfigurationArgsDict(TypedDict):
+        """
+        Describes a virtual machines scale set IP Configuration's PublicIPAddress configuration
+        """
+        name: pulumi.Input[str]
+        """
+        The publicIP address configuration name.
+        """
+        delete_option: NotRequired[pulumi.Input[Union[str, 'DeleteOptions']]]
+        """
+        Specify what happens to the public IP when the VM is deleted
+        """
+        dns_settings: NotRequired[pulumi.Input['VirtualMachineScaleSetPublicIPAddressConfigurationDnsSettingsArgsDict']]
+        """
+        The dns settings to be applied on the publicIP addresses .
+        """
+        idle_timeout_in_minutes: NotRequired[pulumi.Input[int]]
+        """
+        The idle timeout of the public IP address.
+        """
+        ip_tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualMachineScaleSetIpTagArgsDict']]]]
+        """
+        The list of IP tags associated with the public IP address.
+        """
+        public_ip_address_version: NotRequired[pulumi.Input[Union[str, 'IPVersion']]]
+        """
+        Available from Api-Version 2019-07-01 onwards, it represents whether the specific ipconfiguration is IPv4 or IPv6. Default is taken as IPv4. Possible values are: 'IPv4' and 'IPv6'.
+        """
+        public_ip_prefix: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        """
+        The PublicIPPrefix from which to allocate publicIP addresses.
+        """
+        sku: NotRequired[pulumi.Input['PublicIPAddressSkuArgsDict']]
+        """
+        Describes the public IP Sku. It can only be set with OrchestrationMode as Flexible.
+        """
+elif False:
+    VirtualMachineScaleSetPublicIPAddressConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VirtualMachineScaleSetPublicIPAddressConfigurationArgs:
@@ -6334,6 +8550,27 @@ class VirtualMachineScaleSetPublicIPAddressConfigurationArgs:
         pulumi.set(self, "sku", value)
 
 
+if not MYPY:
+    class VirtualMachineScaleSetStorageProfileArgsDict(TypedDict):
+        """
+        Describes a virtual machine scale set storage profile.
+        """
+        data_disks: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualMachineScaleSetDataDiskArgsDict']]]]
+        """
+        Specifies the parameters that are used to add data disks to the virtual machines in the scale set. For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview).
+        """
+        disk_controller_type: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'DiskControllerTypes']]]]]
+        image_reference: NotRequired[pulumi.Input['ImageReferenceArgsDict']]
+        """
+        Specifies information about the image to use. You can specify information about platform images, marketplace images, or virtual machine images. This element is required when you want to use a platform image, marketplace image, or virtual machine image, but is not used in other creation operations.
+        """
+        os_disk: NotRequired[pulumi.Input['VirtualMachineScaleSetOSDiskArgsDict']]
+        """
+        Specifies information about the operating system disk used by the virtual machines in the scale set. For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview).
+        """
+elif False:
+    VirtualMachineScaleSetStorageProfileArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class VirtualMachineScaleSetStorageProfileArgs:
     def __init__(__self__, *,
@@ -6402,6 +8639,18 @@ class VirtualMachineScaleSetStorageProfileArgs:
         pulumi.set(self, "os_disk", value)
 
 
+if not MYPY:
+    class VirtualMachineScaleSetVMNetworkProfileConfigurationArgsDict(TypedDict):
+        """
+        Describes a virtual machine scale set VM network profile.
+        """
+        network_interface_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualMachineScaleSetNetworkConfigurationArgsDict']]]]
+        """
+        The list of network configurations.
+        """
+elif False:
+    VirtualMachineScaleSetVMNetworkProfileConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class VirtualMachineScaleSetVMNetworkProfileConfigurationArgs:
     def __init__(__self__, *,
@@ -6425,6 +8674,82 @@ class VirtualMachineScaleSetVMNetworkProfileConfigurationArgs:
     def network_interface_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineScaleSetNetworkConfigurationArgs']]]]):
         pulumi.set(self, "network_interface_configurations", value)
 
+
+if not MYPY:
+    class VirtualMachineScaleSetVMProfileArgsDict(TypedDict):
+        """
+        Describes a virtual machine scale set virtual machine profile.
+        """
+        application_profile: NotRequired[pulumi.Input['ApplicationProfileArgsDict']]
+        """
+        Specifies the gallery applications that should be made available to the VM/VMSS
+        """
+        billing_profile: NotRequired[pulumi.Input['BillingProfileArgsDict']]
+        """
+        Specifies the billing related details of a Azure Spot VMSS. Minimum api-version: 2019-03-01.
+        """
+        capacity_reservation: NotRequired[pulumi.Input['CapacityReservationProfileArgsDict']]
+        """
+        Specifies the capacity reservation related details of a scale set. Minimum api-version: 2021-04-01.
+        """
+        diagnostics_profile: NotRequired[pulumi.Input['DiagnosticsProfileArgsDict']]
+        """
+        Specifies the boot diagnostic settings state. Minimum api-version: 2015-06-15.
+        """
+        eviction_policy: NotRequired[pulumi.Input[Union[str, 'VirtualMachineEvictionPolicyTypes']]]
+        """
+        Specifies the eviction policy for the Azure Spot virtual machine and Azure Spot scale set. For Azure Spot virtual machines, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2019-03-01. For Azure Spot scale sets, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2017-10-30-preview.
+        """
+        extension_profile: NotRequired[pulumi.Input['VirtualMachineScaleSetExtensionProfileArgsDict']]
+        """
+        Specifies a collection of settings for extensions installed on virtual machines in the scale set.
+        """
+        hardware_profile: NotRequired[pulumi.Input['VirtualMachineScaleSetHardwareProfileArgsDict']]
+        """
+        Specifies the hardware profile related details of a scale set. Minimum api-version: 2021-11-01.
+        """
+        license_type: NotRequired[pulumi.Input[str]]
+        """
+        Specifies that the image or disk that is being used was licensed on-premises. <br><br> Possible values for Windows Server operating system are: <br><br> Windows_Client <br><br> Windows_Server <br><br> Possible values for Linux Server operating system are: <br><br> RHEL_BYOS (for RHEL) <br><br> SLES_BYOS (for SUSE) <br><br> For more information, see [Azure Hybrid Use Benefit for Windows Server](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) <br><br> [Azure Hybrid Use Benefit for Linux Server](https://docs.microsoft.com/azure/virtual-machines/linux/azure-hybrid-benefit-linux) <br><br> Minimum api-version: 2015-06-15
+        """
+        network_profile: NotRequired[pulumi.Input['VirtualMachineScaleSetNetworkProfileArgsDict']]
+        """
+        Specifies properties of the network interfaces of the virtual machines in the scale set.
+        """
+        os_profile: NotRequired[pulumi.Input['VirtualMachineScaleSetOSProfileArgsDict']]
+        """
+        Specifies the operating system settings for the virtual machines in the scale set.
+        """
+        priority: NotRequired[pulumi.Input[Union[str, 'VirtualMachinePriorityTypes']]]
+        """
+        Specifies the priority for the virtual machines in the scale set. Minimum api-version: 2017-10-30-preview.
+        """
+        scheduled_events_profile: NotRequired[pulumi.Input['ScheduledEventsProfileArgsDict']]
+        """
+        Specifies Scheduled Event related configurations.
+        """
+        security_posture_reference: NotRequired[pulumi.Input['SecurityPostureReferenceArgsDict']]
+        """
+        Specifies the security posture to be used for all virtual machines in the scale set. Minimum api-version: 2023-03-01
+        """
+        security_profile: NotRequired[pulumi.Input['SecurityProfileArgsDict']]
+        """
+        Specifies the Security related profile settings for the virtual machines in the scale set.
+        """
+        service_artifact_reference: NotRequired[pulumi.Input['ServiceArtifactReferenceArgsDict']]
+        """
+        Specifies the service artifact reference id used to set same image version for all virtual machines in the scale set when using 'latest' image version. Minimum api-version: 2022-11-01
+        """
+        storage_profile: NotRequired[pulumi.Input['VirtualMachineScaleSetStorageProfileArgsDict']]
+        """
+        Specifies the storage settings for the virtual machine disks.
+        """
+        user_data: NotRequired[pulumi.Input[str]]
+        """
+        UserData for the virtual machines in the scale set, which must be base-64 encoded. Customer should not pass any secrets in here. Minimum api-version: 2021-03-01.
+        """
+elif False:
+    VirtualMachineScaleSetVMProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VirtualMachineScaleSetVMProfileArgs:
@@ -6706,6 +9031,22 @@ class VirtualMachineScaleSetVMProfileArgs:
         pulumi.set(self, "user_data", value)
 
 
+if not MYPY:
+    class VirtualMachineScaleSetVMProtectionPolicyArgsDict(TypedDict):
+        """
+        The protection policy of a virtual machine scale set VM.
+        """
+        protect_from_scale_in: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates that the virtual machine scale set VM shouldn't be considered for deletion during a scale-in operation.
+        """
+        protect_from_scale_set_actions: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates that model updates or actions (including scale-in) initiated on the virtual machine scale set should not be applied to the virtual machine scale set VM.
+        """
+elif False:
+    VirtualMachineScaleSetVMProtectionPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class VirtualMachineScaleSetVMProtectionPolicyArgs:
     def __init__(__self__, *,
@@ -6746,6 +9087,18 @@ class VirtualMachineScaleSetVMProtectionPolicyArgs:
         pulumi.set(self, "protect_from_scale_set_actions", value)
 
 
+if not MYPY:
+    class WinRMConfigurationArgsDict(TypedDict):
+        """
+        Describes Windows Remote Management configuration of the VM
+        """
+        listeners: NotRequired[pulumi.Input[Sequence[pulumi.Input['WinRMListenerArgsDict']]]]
+        """
+        The list of Windows Remote Management listeners
+        """
+elif False:
+    WinRMConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WinRMConfigurationArgs:
     def __init__(__self__, *,
@@ -6769,6 +9122,22 @@ class WinRMConfigurationArgs:
     def listeners(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WinRMListenerArgs']]]]):
         pulumi.set(self, "listeners", value)
 
+
+if not MYPY:
+    class WinRMListenerArgsDict(TypedDict):
+        """
+        Describes Protocol and thumbprint of Windows Remote Management listener
+        """
+        certificate_url: NotRequired[pulumi.Input[str]]
+        """
+        This is the URL of a certificate that has been uploaded to Key Vault as a secret. For adding a secret to the Key Vault, see [Add a key or secret to the key vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started/#add). In this case, your certificate needs to be the Base64 encoding of the following JSON Object which is encoded in UTF-8: <br><br> {<br>  "data":"<Base64-encoded-certificate>",<br>  "dataType":"pfx",<br>  "password":"<pfx-file-password>"<br>} <br> To install certificates on a virtual machine it is recommended to use the [Azure Key Vault virtual machine extension for Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/key-vault-linux) or the [Azure Key Vault virtual machine extension for Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/key-vault-windows).
+        """
+        protocol: NotRequired[pulumi.Input['ProtocolTypes']]
+        """
+        Specifies the protocol of WinRM listener. Possible values are: **http,** **https.**
+        """
+elif False:
+    WinRMListenerArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WinRMListenerArgs:
@@ -6809,6 +9178,42 @@ class WinRMListenerArgs:
     def protocol(self, value: Optional[pulumi.Input['ProtocolTypes']]):
         pulumi.set(self, "protocol", value)
 
+
+if not MYPY:
+    class WindowsConfigurationArgsDict(TypedDict):
+        """
+        Specifies Windows operating system settings on the virtual machine.
+        """
+        additional_unattend_content: NotRequired[pulumi.Input[Sequence[pulumi.Input['AdditionalUnattendContentArgsDict']]]]
+        """
+        Specifies additional base-64 encoded XML formatted information that can be included in the Unattend.xml file, which is used by Windows Setup.
+        """
+        enable_automatic_updates: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether Automatic Updates is enabled for the Windows virtual machine. Default value is true. For virtual machine scale sets, this property can be updated and updates will take effect on OS reprovisioning.
+        """
+        enable_vm_agent_platform_updates: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether VMAgent Platform Updates is enabled for the Windows virtual machine. Default value is false.
+        """
+        patch_settings: NotRequired[pulumi.Input['PatchSettingsArgsDict']]
+        """
+        [Preview Feature] Specifies settings related to VM Guest Patching on Windows.
+        """
+        provision_vm_agent: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether virtual machine agent should be provisioned on the virtual machine. When this property is not specified in the request body, it is set to true by default. This will ensure that VM Agent is installed on the VM so that extensions can be added to the VM later.
+        """
+        time_zone: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the time zone of the virtual machine. e.g. "Pacific Standard Time". Possible values can be [TimeZoneInfo.Id](https://docs.microsoft.com/dotnet/api/system.timezoneinfo.id?#System_TimeZoneInfo_Id) value from time zones returned by [TimeZoneInfo.GetSystemTimeZones](https://docs.microsoft.com/dotnet/api/system.timezoneinfo.getsystemtimezones).
+        """
+        win_rm: NotRequired[pulumi.Input['WinRMConfigurationArgsDict']]
+        """
+        Specifies the Windows Remote Management listeners. This enables remote Windows PowerShell.
+        """
+elif False:
+    WindowsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WindowsConfigurationArgs:
@@ -6929,6 +9334,22 @@ class WindowsConfigurationArgs:
     def win_rm(self, value: Optional[pulumi.Input['WinRMConfigurationArgs']]):
         pulumi.set(self, "win_rm", value)
 
+
+if not MYPY:
+    class WindowsVMGuestPatchAutomaticByPlatformSettingsArgsDict(TypedDict):
+        """
+        Specifies additional settings to be applied when patch mode AutomaticByPlatform is selected in Windows patch settings.
+        """
+        bypass_platform_safety_checks_on_user_schedule: NotRequired[pulumi.Input[bool]]
+        """
+        Enables customer to schedule patching without accidental upgrades
+        """
+        reboot_setting: NotRequired[pulumi.Input[Union[str, 'WindowsVMGuestPatchAutomaticByPlatformRebootSetting']]]
+        """
+        Specifies the reboot setting for all AutomaticByPlatform patch installation operations.
+        """
+elif False:
+    WindowsVMGuestPatchAutomaticByPlatformSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WindowsVMGuestPatchAutomaticByPlatformSettingsArgs:

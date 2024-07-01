@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -154,13 +159,13 @@ class Policy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 custom_rules: Optional[pulumi.Input[pulumi.InputType['CustomRuleListArgs']]] = None,
+                 custom_rules: Optional[pulumi.Input[Union['CustomRuleListArgs', 'CustomRuleListArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 managed_rules: Optional[pulumi.Input[pulumi.InputType['ManagedRuleSetListArgs']]] = None,
+                 managed_rules: Optional[pulumi.Input[Union['ManagedRuleSetListArgs', 'ManagedRuleSetListArgsDict']]] = None,
                  policy_name: Optional[pulumi.Input[str]] = None,
-                 policy_settings: Optional[pulumi.Input[pulumi.InputType['FrontDoorPolicySettingsArgs']]] = None,
+                 policy_settings: Optional[pulumi.Input[Union['FrontDoorPolicySettingsArgs', 'FrontDoorPolicySettingsArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -171,13 +176,13 @@ class Policy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['CustomRuleListArgs']] custom_rules: Describes custom rules inside the policy.
+        :param pulumi.Input[Union['CustomRuleListArgs', 'CustomRuleListArgsDict']] custom_rules: Describes custom rules inside the policy.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[pulumi.InputType['ManagedRuleSetListArgs']] managed_rules: Describes managed rules inside the policy.
+        :param pulumi.Input[Union['ManagedRuleSetListArgs', 'ManagedRuleSetListArgsDict']] managed_rules: Describes managed rules inside the policy.
         :param pulumi.Input[str] policy_name: The name of the Web Application Firewall Policy.
-        :param pulumi.Input[pulumi.InputType['FrontDoorPolicySettingsArgs']] policy_settings: Describes settings for the policy.
+        :param pulumi.Input[Union['FrontDoorPolicySettingsArgs', 'FrontDoorPolicySettingsArgsDict']] policy_settings: Describes settings for the policy.
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
-        :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The pricing tier of web application firewall policy. Defaults to Classic_AzureFrontDoor if not specified.
+        :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: The pricing tier of web application firewall policy. Defaults to Classic_AzureFrontDoor if not specified.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         ...
@@ -207,13 +212,13 @@ class Policy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 custom_rules: Optional[pulumi.Input[pulumi.InputType['CustomRuleListArgs']]] = None,
+                 custom_rules: Optional[pulumi.Input[Union['CustomRuleListArgs', 'CustomRuleListArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 managed_rules: Optional[pulumi.Input[pulumi.InputType['ManagedRuleSetListArgs']]] = None,
+                 managed_rules: Optional[pulumi.Input[Union['ManagedRuleSetListArgs', 'ManagedRuleSetListArgsDict']]] = None,
                  policy_name: Optional[pulumi.Input[str]] = None,
-                 policy_settings: Optional[pulumi.Input[pulumi.InputType['FrontDoorPolicySettingsArgs']]] = None,
+                 policy_settings: Optional[pulumi.Input[Union['FrontDoorPolicySettingsArgs', 'FrontDoorPolicySettingsArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

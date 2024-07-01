@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -106,7 +111,7 @@ class File(pulumi.CustomResource):
                  file_name: Optional[pulumi.Input[str]] = None,
                  group_name: Optional[pulumi.Input[str]] = None,
                  project_name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['ProjectFilePropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['ProjectFilePropertiesArgs', 'ProjectFilePropertiesArgsDict']]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -120,7 +125,7 @@ class File(pulumi.CustomResource):
         :param pulumi.Input[str] file_name: Name of the File
         :param pulumi.Input[str] group_name: Name of the resource group
         :param pulumi.Input[str] project_name: Name of the project
-        :param pulumi.Input[pulumi.InputType['ProjectFilePropertiesArgs']] properties: Custom file properties
+        :param pulumi.Input[Union['ProjectFilePropertiesArgs', 'ProjectFilePropertiesArgsDict']] properties: Custom file properties
         :param pulumi.Input[str] service_name: Name of the service
         """
         ...
@@ -153,7 +158,7 @@ class File(pulumi.CustomResource):
                  file_name: Optional[pulumi.Input[str]] = None,
                  group_name: Optional[pulumi.Input[str]] = None,
                  project_name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['ProjectFilePropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['ProjectFilePropertiesArgs', 'ProjectFilePropertiesArgsDict']]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

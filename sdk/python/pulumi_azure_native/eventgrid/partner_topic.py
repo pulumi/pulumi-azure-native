@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -223,9 +228,9 @@ class PartnerTopic(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  activation_state: Optional[pulumi.Input[Union[str, 'PartnerTopicActivationState']]] = None,
-                 event_type_info: Optional[pulumi.Input[pulumi.InputType['EventTypeInfoArgs']]] = None,
+                 event_type_info: Optional[pulumi.Input[Union['EventTypeInfoArgs', 'EventTypeInfoArgsDict']]] = None,
                  expiration_time_if_not_activated_utc: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['IdentityInfoArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['IdentityInfoArgs', 'IdentityInfoArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  message_for_activation: Optional[pulumi.Input[str]] = None,
                  partner_registration_immutable_id: Optional[pulumi.Input[str]] = None,
@@ -244,10 +249,10 @@ class PartnerTopic(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[str, 'PartnerTopicActivationState']] activation_state: Activation state of the partner topic.
-        :param pulumi.Input[pulumi.InputType['EventTypeInfoArgs']] event_type_info: Event Type information from the corresponding event channel.
+        :param pulumi.Input[Union['EventTypeInfoArgs', 'EventTypeInfoArgsDict']] event_type_info: Event Type information from the corresponding event channel.
         :param pulumi.Input[str] expiration_time_if_not_activated_utc: Expiration time of the partner topic. If this timer expires while the partner topic is still never activated,
                the partner topic and corresponding event channel are deleted.
-        :param pulumi.Input[pulumi.InputType['IdentityInfoArgs']] identity: Identity information for the Partner Topic resource.
+        :param pulumi.Input[Union['IdentityInfoArgs', 'IdentityInfoArgsDict']] identity: Identity information for the Partner Topic resource.
         :param pulumi.Input[str] location: Location of the resource.
         :param pulumi.Input[str] message_for_activation: Context or helpful message that can be used during the approval process by the subscriber.
         :param pulumi.Input[str] partner_registration_immutable_id: The immutableId of the corresponding partner registration.
@@ -286,9 +291,9 @@ class PartnerTopic(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  activation_state: Optional[pulumi.Input[Union[str, 'PartnerTopicActivationState']]] = None,
-                 event_type_info: Optional[pulumi.Input[pulumi.InputType['EventTypeInfoArgs']]] = None,
+                 event_type_info: Optional[pulumi.Input[Union['EventTypeInfoArgs', 'EventTypeInfoArgsDict']]] = None,
                  expiration_time_if_not_activated_utc: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['IdentityInfoArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['IdentityInfoArgs', 'IdentityInfoArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  message_for_activation: Optional[pulumi.Input[str]] = None,
                  partner_registration_immutable_id: Optional[pulumi.Input[str]] = None,

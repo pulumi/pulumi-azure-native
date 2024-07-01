@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -174,11 +179,11 @@ class PacketCapture(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bytes_to_capture_per_packet: Optional[pulumi.Input[int]] = None,
-                 filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PacketCaptureFilterArgs']]]]] = None,
+                 filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PacketCaptureFilterArgs', 'PacketCaptureFilterArgsDict']]]]] = None,
                  network_watcher_name: Optional[pulumi.Input[str]] = None,
                  packet_capture_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 storage_location: Optional[pulumi.Input[pulumi.InputType['PacketCaptureStorageLocationArgs']]] = None,
+                 storage_location: Optional[pulumi.Input[Union['PacketCaptureStorageLocationArgs', 'PacketCaptureStorageLocationArgsDict']]] = None,
                  target: Optional[pulumi.Input[str]] = None,
                  time_limit_in_seconds: Optional[pulumi.Input[int]] = None,
                  total_bytes_per_session: Optional[pulumi.Input[int]] = None,
@@ -189,11 +194,11 @@ class PacketCapture(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] bytes_to_capture_per_packet: Number of bytes captured per packet, the remaining bytes are truncated.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PacketCaptureFilterArgs']]]] filters: A list of packet capture filters.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PacketCaptureFilterArgs', 'PacketCaptureFilterArgsDict']]]] filters: A list of packet capture filters.
         :param pulumi.Input[str] network_watcher_name: The name of the network watcher.
         :param pulumi.Input[str] packet_capture_name: The name of the packet capture session.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[pulumi.InputType['PacketCaptureStorageLocationArgs']] storage_location: The storage location for a packet capture session.
+        :param pulumi.Input[Union['PacketCaptureStorageLocationArgs', 'PacketCaptureStorageLocationArgsDict']] storage_location: The storage location for a packet capture session.
         :param pulumi.Input[str] target: The ID of the targeted resource, only VM is currently supported.
         :param pulumi.Input[int] time_limit_in_seconds: Maximum duration of the capture session in seconds.
         :param pulumi.Input[int] total_bytes_per_session: Maximum size of the capture output.
@@ -223,11 +228,11 @@ class PacketCapture(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bytes_to_capture_per_packet: Optional[pulumi.Input[int]] = None,
-                 filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PacketCaptureFilterArgs']]]]] = None,
+                 filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PacketCaptureFilterArgs', 'PacketCaptureFilterArgsDict']]]]] = None,
                  network_watcher_name: Optional[pulumi.Input[str]] = None,
                  packet_capture_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 storage_location: Optional[pulumi.Input[pulumi.InputType['PacketCaptureStorageLocationArgs']]] = None,
+                 storage_location: Optional[pulumi.Input[Union['PacketCaptureStorageLocationArgs', 'PacketCaptureStorageLocationArgsDict']]] = None,
                  target: Optional[pulumi.Input[str]] = None,
                  time_limit_in_seconds: Optional[pulumi.Input[int]] = None,
                  total_bytes_per_session: Optional[pulumi.Input[int]] = None,

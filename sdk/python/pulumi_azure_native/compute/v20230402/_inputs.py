@@ -4,32 +4,73 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'CopyCompletionErrorArgs',
+    'CopyCompletionErrorArgsDict',
     'CreationDataArgs',
+    'CreationDataArgsDict',
     'DiskSecurityProfileArgs',
+    'DiskSecurityProfileArgsDict',
     'DiskSkuArgs',
+    'DiskSkuArgsDict',
     'EncryptionSetIdentityArgs',
+    'EncryptionSetIdentityArgsDict',
     'EncryptionSettingsCollectionArgs',
+    'EncryptionSettingsCollectionArgsDict',
     'EncryptionSettingsElementArgs',
+    'EncryptionSettingsElementArgsDict',
     'EncryptionArgs',
+    'EncryptionArgsDict',
     'ExtendedLocationArgs',
+    'ExtendedLocationArgsDict',
     'ImageDiskReferenceArgs',
+    'ImageDiskReferenceArgsDict',
     'KeyForDiskEncryptionSetArgs',
+    'KeyForDiskEncryptionSetArgsDict',
     'KeyVaultAndKeyReferenceArgs',
+    'KeyVaultAndKeyReferenceArgsDict',
     'KeyVaultAndSecretReferenceArgs',
+    'KeyVaultAndSecretReferenceArgsDict',
     'PrivateLinkServiceConnectionStateArgs',
+    'PrivateLinkServiceConnectionStateArgsDict',
     'PurchasePlanArgs',
+    'PurchasePlanArgsDict',
     'SnapshotSkuArgs',
+    'SnapshotSkuArgsDict',
     'SourceVaultArgs',
+    'SourceVaultArgsDict',
     'SupportedCapabilitiesArgs',
+    'SupportedCapabilitiesArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class CopyCompletionErrorArgsDict(TypedDict):
+        """
+        Indicates the error details if the background copy of a resource created via the CopyStart operation fails.
+        """
+        error_code: pulumi.Input[Union[str, 'CopyCompletionErrorReason']]
+        """
+        Indicates the error code if the background copy of a resource created via the CopyStart operation fails.
+        """
+        error_message: pulumi.Input[str]
+        """
+        Indicates the error message if the background copy of a resource created via the CopyStart operation fails.
+        """
+elif False:
+    CopyCompletionErrorArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CopyCompletionErrorArgs:
@@ -68,6 +109,58 @@ class CopyCompletionErrorArgs:
     def error_message(self, value: pulumi.Input[str]):
         pulumi.set(self, "error_message", value)
 
+
+if not MYPY:
+    class CreationDataArgsDict(TypedDict):
+        """
+        Data used when creating a disk.
+        """
+        create_option: pulumi.Input[Union[str, 'DiskCreateOption']]
+        """
+        This enumerates the possible sources of a disk's creation.
+        """
+        elastic_san_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        Required if createOption is CopyFromSanSnapshot. This is the ARM id of the source elastic san volume snapshot.
+        """
+        gallery_image_reference: NotRequired[pulumi.Input['ImageDiskReferenceArgsDict']]
+        """
+        Required if creating from a Gallery Image. The id/sharedGalleryImageId/communityGalleryImageId of the ImageDiskReference will be the ARM id of the shared galley image version from which to create a disk.
+        """
+        image_reference: NotRequired[pulumi.Input['ImageDiskReferenceArgsDict']]
+        """
+        Disk source information for PIR or user images.
+        """
+        logical_sector_size: NotRequired[pulumi.Input[int]]
+        """
+        Logical sector size in bytes for Ultra disks. Supported values are 512 ad 4096. 4096 is the default.
+        """
+        performance_plus: NotRequired[pulumi.Input[bool]]
+        """
+        Set this flag to true to get a boost on the performance target of the disk deployed, see here on the respective performance target. This flag can only be set on disk creation time and cannot be disabled after enabled.
+        """
+        security_data_uri: NotRequired[pulumi.Input[str]]
+        """
+        If createOption is ImportSecure, this is the URI of a blob to be imported into VM guest state.
+        """
+        source_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        If createOption is Copy, this is the ARM id of the source snapshot or disk.
+        """
+        source_uri: NotRequired[pulumi.Input[str]]
+        """
+        If createOption is Import, this is the URI of a blob to be imported into a managed disk.
+        """
+        storage_account_id: NotRequired[pulumi.Input[str]]
+        """
+        Required if createOption is Import. The Azure Resource Manager identifier of the storage account containing the blob to import as a disk.
+        """
+        upload_size_bytes: NotRequired[pulumi.Input[float]]
+        """
+        If createOption is Upload, this is the size of the contents of the upload including the VHD footer. This value should be between 20972032 (20 MiB + 512 bytes for the VHD footer) and 35183298347520 bytes (32 TiB + 512 bytes for the VHD footer).
+        """
+elif False:
+    CreationDataArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CreationDataArgs:
@@ -252,6 +345,22 @@ class CreationDataArgs:
         pulumi.set(self, "upload_size_bytes", value)
 
 
+if not MYPY:
+    class DiskSecurityProfileArgsDict(TypedDict):
+        """
+        Contains the security related information for the resource.
+        """
+        secure_vm_disk_encryption_set_id: NotRequired[pulumi.Input[str]]
+        """
+        ResourceId of the disk encryption set associated to Confidential VM supported disk encrypted with customer managed key
+        """
+        security_type: NotRequired[pulumi.Input[Union[str, 'DiskSecurityTypes']]]
+        """
+        Specifies the SecurityType of the VM. Applicable for OS disks only.
+        """
+elif False:
+    DiskSecurityProfileArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DiskSecurityProfileArgs:
     def __init__(__self__, *,
@@ -292,6 +401,18 @@ class DiskSecurityProfileArgs:
         pulumi.set(self, "security_type", value)
 
 
+if not MYPY:
+    class DiskSkuArgsDict(TypedDict):
+        """
+        The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, UltraSSD_LRS, Premium_ZRS, StandardSSD_ZRS, or PremiumV2_LRS.
+        """
+        name: NotRequired[pulumi.Input[Union[str, 'DiskStorageAccountTypes']]]
+        """
+        The sku name.
+        """
+elif False:
+    DiskSkuArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DiskSkuArgs:
     def __init__(__self__, *,
@@ -315,6 +436,22 @@ class DiskSkuArgs:
     def name(self, value: Optional[pulumi.Input[Union[str, 'DiskStorageAccountTypes']]]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class EncryptionSetIdentityArgsDict(TypedDict):
+        """
+        The managed identity for the disk encryption set. It should be given permission on the key vault before it can be used to encrypt disks.
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'DiskEncryptionSetIdentityType']]]
+        """
+        The type of Managed Identity used by the DiskEncryptionSet. Only SystemAssigned is supported for new creations. Disk Encryption Sets can be updated with Identity type None during migration of subscription to a new Azure Active Directory tenant; it will cause the encrypted resources to lose access to the keys.
+        """
+        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of user identities associated with the disk encryption set. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+elif False:
+    EncryptionSetIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EncryptionSetIdentityArgs:
@@ -355,6 +492,26 @@ class EncryptionSetIdentityArgs:
     def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
+
+if not MYPY:
+    class EncryptionSettingsCollectionArgsDict(TypedDict):
+        """
+        Encryption settings for disk or snapshot
+        """
+        enabled: pulumi.Input[bool]
+        """
+        Set this flag to true and provide DiskEncryptionKey and optional KeyEncryptionKey to enable encryption. Set this flag to false and remove DiskEncryptionKey and KeyEncryptionKey to disable encryption. If EncryptionSettings is null in the request object, the existing settings remain unchanged.
+        """
+        encryption_settings: NotRequired[pulumi.Input[Sequence[pulumi.Input['EncryptionSettingsElementArgsDict']]]]
+        """
+        A collection of encryption settings, one for each disk volume.
+        """
+        encryption_settings_version: NotRequired[pulumi.Input[str]]
+        """
+        Describes what type of encryption is used for the disks. Once this field is set, it cannot be overwritten. '1.0' corresponds to Azure Disk Encryption with AAD app.'1.1' corresponds to Azure Disk Encryption.
+        """
+elif False:
+    EncryptionSettingsCollectionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EncryptionSettingsCollectionArgs:
@@ -411,6 +568,22 @@ class EncryptionSettingsCollectionArgs:
         pulumi.set(self, "encryption_settings_version", value)
 
 
+if not MYPY:
+    class EncryptionSettingsElementArgsDict(TypedDict):
+        """
+        Encryption settings for one disk volume.
+        """
+        disk_encryption_key: NotRequired[pulumi.Input['KeyVaultAndSecretReferenceArgsDict']]
+        """
+        Key Vault Secret Url and vault id of the disk encryption key
+        """
+        key_encryption_key: NotRequired[pulumi.Input['KeyVaultAndKeyReferenceArgsDict']]
+        """
+        Key Vault Key Url and vault id of the key encryption key. KeyEncryptionKey is optional and when provided is used to unwrap the disk encryption key.
+        """
+elif False:
+    EncryptionSettingsElementArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EncryptionSettingsElementArgs:
     def __init__(__self__, *,
@@ -450,6 +623,22 @@ class EncryptionSettingsElementArgs:
     def key_encryption_key(self, value: Optional[pulumi.Input['KeyVaultAndKeyReferenceArgs']]):
         pulumi.set(self, "key_encryption_key", value)
 
+
+if not MYPY:
+    class EncryptionArgsDict(TypedDict):
+        """
+        Encryption at rest settings for disk or snapshot
+        """
+        disk_encryption_set_id: NotRequired[pulumi.Input[str]]
+        """
+        ResourceId of the disk encryption set to use for enabling encryption at rest.
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'EncryptionType']]]
+        """
+        The type of key used to encrypt the data of the disk.
+        """
+elif False:
+    EncryptionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EncryptionArgs:
@@ -491,6 +680,22 @@ class EncryptionArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class ExtendedLocationArgsDict(TypedDict):
+        """
+        The complex type of the extended location.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the extended location.
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'ExtendedLocationTypes']]]
+        """
+        The type of the extended location.
+        """
+elif False:
+    ExtendedLocationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ExtendedLocationArgs:
     def __init__(__self__, *,
@@ -530,6 +735,30 @@ class ExtendedLocationArgs:
     def type(self, value: Optional[pulumi.Input[Union[str, 'ExtendedLocationTypes']]]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class ImageDiskReferenceArgsDict(TypedDict):
+        """
+        The source image used for creating the disk.
+        """
+        community_gallery_image_id: NotRequired[pulumi.Input[str]]
+        """
+        A relative uri containing a community Azure Compute Gallery image reference.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        A relative uri containing either a Platform Image Repository, user image, or Azure Compute Gallery image reference.
+        """
+        lun: NotRequired[pulumi.Input[int]]
+        """
+        If the disk is created from an image's data disk, this is an index that indicates which of the data disks in the image to use. For OS disks, this field is null.
+        """
+        shared_gallery_image_id: NotRequired[pulumi.Input[str]]
+        """
+        A relative uri containing a direct shared Azure Compute Gallery image reference.
+        """
+elif False:
+    ImageDiskReferenceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ImageDiskReferenceArgs:
@@ -603,6 +832,22 @@ class ImageDiskReferenceArgs:
         pulumi.set(self, "shared_gallery_image_id", value)
 
 
+if not MYPY:
+    class KeyForDiskEncryptionSetArgsDict(TypedDict):
+        """
+        Key Vault Key Url to be used for server side encryption of Managed Disks and Snapshots
+        """
+        key_url: pulumi.Input[str]
+        """
+        Fully versioned Key Url pointing to a key in KeyVault. Version segment of the Url is required regardless of rotationToLatestKeyVersionEnabled value.
+        """
+        source_vault: NotRequired[pulumi.Input['SourceVaultArgsDict']]
+        """
+        Resource id of the KeyVault containing the key or secret. This property is optional and cannot be used if the KeyVault subscription is not the same as the Disk Encryption Set subscription.
+        """
+elif False:
+    KeyForDiskEncryptionSetArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class KeyForDiskEncryptionSetArgs:
     def __init__(__self__, *,
@@ -642,6 +887,22 @@ class KeyForDiskEncryptionSetArgs:
         pulumi.set(self, "source_vault", value)
 
 
+if not MYPY:
+    class KeyVaultAndKeyReferenceArgsDict(TypedDict):
+        """
+        Key Vault Key Url and vault id of KeK, KeK is optional and when provided is used to unwrap the encryptionKey
+        """
+        key_url: pulumi.Input[str]
+        """
+        Url pointing to a key or secret in KeyVault
+        """
+        source_vault: pulumi.Input['SourceVaultArgsDict']
+        """
+        Resource id of the KeyVault containing the key or secret
+        """
+elif False:
+    KeyVaultAndKeyReferenceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class KeyVaultAndKeyReferenceArgs:
     def __init__(__self__, *,
@@ -680,6 +941,22 @@ class KeyVaultAndKeyReferenceArgs:
         pulumi.set(self, "source_vault", value)
 
 
+if not MYPY:
+    class KeyVaultAndSecretReferenceArgsDict(TypedDict):
+        """
+        Key Vault Secret Url and vault id of the encryption key 
+        """
+        secret_url: pulumi.Input[str]
+        """
+        Url pointing to a key or secret in KeyVault
+        """
+        source_vault: pulumi.Input['SourceVaultArgsDict']
+        """
+        Resource id of the KeyVault containing the key or secret
+        """
+elif False:
+    KeyVaultAndSecretReferenceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class KeyVaultAndSecretReferenceArgs:
     def __init__(__self__, *,
@@ -717,6 +994,26 @@ class KeyVaultAndSecretReferenceArgs:
     def source_vault(self, value: pulumi.Input['SourceVaultArgs']):
         pulumi.set(self, "source_vault", value)
 
+
+if not MYPY:
+    class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
+        """
+        A collection of information about the state of the connection between service consumer and provider.
+        """
+        actions_required: NotRequired[pulumi.Input[str]]
+        """
+        A message indicating if changes on the service provider require any updates on the consumer.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The reason for approval/rejection of the connection.
+        """
+        status: NotRequired[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]]
+        """
+        Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+        """
+elif False:
+    PrivateLinkServiceConnectionStateArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:
@@ -773,6 +1070,30 @@ class PrivateLinkServiceConnectionStateArgs:
     def status(self, value: Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]]):
         pulumi.set(self, "status", value)
 
+
+if not MYPY:
+    class PurchasePlanArgsDict(TypedDict):
+        """
+        Used for establishing the purchase context of any 3rd Party artifact through MarketPlace.
+        """
+        name: pulumi.Input[str]
+        """
+        The plan ID.
+        """
+        product: pulumi.Input[str]
+        """
+        Specifies the product of the image from the marketplace. This is the same value as Offer under the imageReference element.
+        """
+        publisher: pulumi.Input[str]
+        """
+        The publisher ID.
+        """
+        promotion_code: NotRequired[pulumi.Input[str]]
+        """
+        The Offer Promotion Code.
+        """
+elif False:
+    PurchasePlanArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PurchasePlanArgs:
@@ -843,6 +1164,18 @@ class PurchasePlanArgs:
         pulumi.set(self, "promotion_code", value)
 
 
+if not MYPY:
+    class SnapshotSkuArgsDict(TypedDict):
+        """
+        The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS. This is an optional parameter for incremental snapshot and the default behavior is the SKU will be set to the same sku as the previous snapshot
+        """
+        name: NotRequired[pulumi.Input[Union[str, 'SnapshotStorageAccountTypes']]]
+        """
+        The sku name.
+        """
+elif False:
+    SnapshotSkuArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SnapshotSkuArgs:
     def __init__(__self__, *,
@@ -867,6 +1200,18 @@ class SnapshotSkuArgs:
         pulumi.set(self, "name", value)
 
 
+if not MYPY:
+    class SourceVaultArgsDict(TypedDict):
+        """
+        The vault id is an Azure Resource Manager Resource id in the form /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{vaultName}
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource Id
+        """
+elif False:
+    SourceVaultArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SourceVaultArgs:
     def __init__(__self__, *,
@@ -890,6 +1235,26 @@ class SourceVaultArgs:
     def id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class SupportedCapabilitiesArgsDict(TypedDict):
+        """
+        List of supported capabilities persisted on the disk resource for VM use.
+        """
+        accelerated_network: NotRequired[pulumi.Input[bool]]
+        """
+        True if the image from which the OS disk is created supports accelerated networking.
+        """
+        architecture: NotRequired[pulumi.Input[Union[str, 'Architecture']]]
+        """
+        CPU architecture supported by an OS disk.
+        """
+        disk_controller_types: NotRequired[pulumi.Input[str]]
+        """
+        The disk controllers that an OS disk supports. If set it can be SCSI or SCSI, NVME or NVME, SCSI.
+        """
+elif False:
+    SupportedCapabilitiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SupportedCapabilitiesArgs:

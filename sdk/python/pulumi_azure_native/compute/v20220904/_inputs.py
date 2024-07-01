@@ -4,31 +4,67 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'CloudServiceExtensionProfileArgs',
+    'CloudServiceExtensionProfileArgsDict',
     'CloudServiceExtensionPropertiesArgs',
+    'CloudServiceExtensionPropertiesArgsDict',
     'CloudServiceNetworkProfileArgs',
+    'CloudServiceNetworkProfileArgsDict',
     'CloudServiceOsProfileArgs',
+    'CloudServiceOsProfileArgsDict',
     'CloudServicePropertiesArgs',
+    'CloudServicePropertiesArgsDict',
     'CloudServiceRoleProfilePropertiesArgs',
+    'CloudServiceRoleProfilePropertiesArgsDict',
     'CloudServiceRoleProfileArgs',
+    'CloudServiceRoleProfileArgsDict',
     'CloudServiceRoleSkuArgs',
+    'CloudServiceRoleSkuArgsDict',
     'CloudServiceVaultAndSecretReferenceArgs',
+    'CloudServiceVaultAndSecretReferenceArgsDict',
     'CloudServiceVaultCertificateArgs',
+    'CloudServiceVaultCertificateArgsDict',
     'CloudServiceVaultSecretGroupArgs',
+    'CloudServiceVaultSecretGroupArgsDict',
     'ExtensionArgs',
+    'ExtensionArgsDict',
     'LoadBalancerConfigurationPropertiesArgs',
+    'LoadBalancerConfigurationPropertiesArgsDict',
     'LoadBalancerConfigurationArgs',
+    'LoadBalancerConfigurationArgsDict',
     'LoadBalancerFrontendIpConfigurationPropertiesArgs',
+    'LoadBalancerFrontendIpConfigurationPropertiesArgsDict',
     'LoadBalancerFrontendIpConfigurationArgs',
+    'LoadBalancerFrontendIpConfigurationArgsDict',
     'SubResourceArgs',
+    'SubResourceArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class CloudServiceExtensionProfileArgsDict(TypedDict):
+        """
+        Describes a cloud service extension profile.
+        """
+        extensions: NotRequired[pulumi.Input[Sequence[pulumi.Input['ExtensionArgsDict']]]]
+        """
+        List of extensions for the cloud service.
+        """
+elif False:
+    CloudServiceExtensionProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CloudServiceExtensionProfileArgs:
@@ -53,6 +89,54 @@ class CloudServiceExtensionProfileArgs:
     def extensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ExtensionArgs']]]]):
         pulumi.set(self, "extensions", value)
 
+
+if not MYPY:
+    class CloudServiceExtensionPropertiesArgsDict(TypedDict):
+        """
+        Extension Properties.
+        """
+        auto_upgrade_minor_version: NotRequired[pulumi.Input[bool]]
+        """
+        Explicitly specify whether platform can automatically upgrade typeHandlerVersion to higher minor versions when they become available.
+        """
+        force_update_tag: NotRequired[pulumi.Input[str]]
+        """
+        Tag to force apply the provided public and protected settings.
+        Changing the tag value allows for re-running the extension without changing any of the public or protected settings.
+        If forceUpdateTag is not changed, updates to public or protected settings would still be applied by the handler.
+        If neither forceUpdateTag nor any of public or protected settings change, extension would flow to the role instance with the same sequence-number, and
+        it is up to handler implementation whether to re-run it or not
+        """
+        protected_settings: NotRequired[Any]
+        """
+        Protected settings for the extension which are encrypted before sent to the role instance.
+        """
+        protected_settings_from_key_vault: NotRequired[pulumi.Input['CloudServiceVaultAndSecretReferenceArgsDict']]
+        """
+        Protected settings for the extension, referenced using KeyVault which are encrypted before sent to the role instance.
+        """
+        publisher: NotRequired[pulumi.Input[str]]
+        """
+        The name of the extension handler publisher.
+        """
+        roles_applied_to: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Optional list of roles to apply this extension. If property is not specified or '*' is specified, extension is applied to all roles in the cloud service.
+        """
+        settings: NotRequired[Any]
+        """
+        Public settings for the extension. For JSON extensions, this is the JSON settings for the extension. For XML Extension (like RDP), this is the XML setting for the extension.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the type of the extension.
+        """
+        type_handler_version: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the version of the extension. Specifies the version of the extension. If this element is not specified or an asterisk (*) is used as the value, the latest version of the extension is used. If the value is specified with a major version number and an asterisk as the minor version number (X.), the latest minor version of the specified major version is selected. If a major version number and a minor version number are specified (X.Y), the specific extension version is selected. If a version is specified, an auto-upgrade is performed on the role instance.
+        """
+elif False:
+    CloudServiceExtensionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CloudServiceExtensionPropertiesArgs:
@@ -214,6 +298,28 @@ class CloudServiceExtensionPropertiesArgs:
         pulumi.set(self, "type_handler_version", value)
 
 
+if not MYPY:
+    class CloudServiceNetworkProfileArgsDict(TypedDict):
+        """
+        Network Profile for the cloud service.
+        """
+        load_balancer_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['LoadBalancerConfigurationArgsDict']]]]
+        """
+        List of Load balancer configurations. Cloud service can have up to two load balancer configurations, corresponding to a Public Load Balancer and an Internal Load Balancer.
+        """
+        slot_type: NotRequired[pulumi.Input[Union[str, 'CloudServiceSlotType']]]
+        """
+        Slot type for the cloud service.
+        Possible values are <br /><br />**Production**<br /><br />**Staging**<br /><br />
+        If not specified, the default value is Production.
+        """
+        swappable_cloud_service: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        """
+        The id reference of the cloud service containing the target IP with which the subject cloud service can perform a swap. This property cannot be updated once it is set. The swappable cloud service referred by this id must be present otherwise an error will be thrown.
+        """
+elif False:
+    CloudServiceNetworkProfileArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CloudServiceNetworkProfileArgs:
     def __init__(__self__, *,
@@ -274,6 +380,18 @@ class CloudServiceNetworkProfileArgs:
         pulumi.set(self, "swappable_cloud_service", value)
 
 
+if not MYPY:
+    class CloudServiceOsProfileArgsDict(TypedDict):
+        """
+        Describes the OS profile for the cloud service.
+        """
+        secrets: NotRequired[pulumi.Input[Sequence[pulumi.Input['CloudServiceVaultSecretGroupArgsDict']]]]
+        """
+        Specifies set of certificates that should be installed onto the role instances.
+        """
+elif False:
+    CloudServiceOsProfileArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CloudServiceOsProfileArgs:
     def __init__(__self__, *,
@@ -297,6 +415,60 @@ class CloudServiceOsProfileArgs:
     def secrets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CloudServiceVaultSecretGroupArgs']]]]):
         pulumi.set(self, "secrets", value)
 
+
+if not MYPY:
+    class CloudServicePropertiesArgsDict(TypedDict):
+        """
+        Cloud service properties
+        """
+        allow_model_override: NotRequired[pulumi.Input[bool]]
+        """
+        (Optional) Indicates whether the role sku properties (roleProfile.roles.sku) specified in the model/template should override the role instance count and vm size specified in the .cscfg and .csdef respectively.
+        The default value is `false`.
+        """
+        configuration: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the XML service configuration (.cscfg) for the cloud service.
+        """
+        configuration_url: NotRequired[pulumi.Input[str]]
+        """
+        Specifies a URL that refers to the location of the service configuration in the Blob service. The service package URL  can be Shared Access Signature (SAS) URI from any storage account.
+        This is a write-only property and is not returned in GET calls.
+        """
+        extension_profile: NotRequired[pulumi.Input['CloudServiceExtensionProfileArgsDict']]
+        """
+        Describes a cloud service extension profile.
+        """
+        network_profile: NotRequired[pulumi.Input['CloudServiceNetworkProfileArgsDict']]
+        """
+        Network Profile for the cloud service.
+        """
+        os_profile: NotRequired[pulumi.Input['CloudServiceOsProfileArgsDict']]
+        """
+        Describes the OS profile for the cloud service.
+        """
+        package_url: NotRequired[pulumi.Input[str]]
+        """
+        Specifies a URL that refers to the location of the service package in the Blob service. The service package URL can be Shared Access Signature (SAS) URI from any storage account.
+        This is a write-only property and is not returned in GET calls.
+        """
+        role_profile: NotRequired[pulumi.Input['CloudServiceRoleProfileArgsDict']]
+        """
+        Describes the role profile for the cloud service.
+        """
+        start_cloud_service: NotRequired[pulumi.Input[bool]]
+        """
+        (Optional) Indicates whether to start the cloud service immediately after it is created. The default value is `true`.
+        If false, the service model is still deployed, but the code is not run immediately. Instead, the service is PoweredOff until you call Start, at which time the service will be started. A deployed service still incurs charges, even if it is poweredoff.
+        """
+        upgrade_mode: NotRequired[pulumi.Input[Union[str, 'CloudServiceUpgradeMode']]]
+        """
+        Update mode for the cloud service. Role instances are allocated to update domains when the service is deployed. Updates can be initiated manually in each update domain or initiated automatically in all update domains.
+        Possible Values are <br /><br />**Auto**<br /><br />**Manual** <br /><br />**Simultaneous**<br /><br />
+        If not specified, the default value is Auto. If set to Manual, PUT UpdateDomain must be called to apply the update. If set to Auto, the update is automatically applied to each update domain in sequence.
+        """
+elif False:
+    CloudServicePropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CloudServicePropertiesArgs:
@@ -478,6 +650,22 @@ class CloudServicePropertiesArgs:
         pulumi.set(self, "upgrade_mode", value)
 
 
+if not MYPY:
+    class CloudServiceRoleProfilePropertiesArgsDict(TypedDict):
+        """
+        Describes the role properties.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Resource name.
+        """
+        sku: NotRequired[pulumi.Input['CloudServiceRoleSkuArgsDict']]
+        """
+        Describes the cloud service role sku.
+        """
+elif False:
+    CloudServiceRoleProfilePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CloudServiceRoleProfilePropertiesArgs:
     def __init__(__self__, *,
@@ -518,6 +706,18 @@ class CloudServiceRoleProfilePropertiesArgs:
         pulumi.set(self, "sku", value)
 
 
+if not MYPY:
+    class CloudServiceRoleProfileArgsDict(TypedDict):
+        """
+        Describes the role profile for the cloud service.
+        """
+        roles: NotRequired[pulumi.Input[Sequence[pulumi.Input['CloudServiceRoleProfilePropertiesArgsDict']]]]
+        """
+        List of roles for the cloud service.
+        """
+elif False:
+    CloudServiceRoleProfileArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CloudServiceRoleProfileArgs:
     def __init__(__self__, *,
@@ -541,6 +741,26 @@ class CloudServiceRoleProfileArgs:
     def roles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CloudServiceRoleProfilePropertiesArgs']]]]):
         pulumi.set(self, "roles", value)
 
+
+if not MYPY:
+    class CloudServiceRoleSkuArgsDict(TypedDict):
+        """
+        Describes the cloud service role sku.
+        """
+        capacity: NotRequired[pulumi.Input[float]]
+        """
+        Specifies the number of role instances in the cloud service.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The sku name. NOTE: If the new SKU is not supported on the hardware the cloud service is currently on, you need to delete and recreate the cloud service or move back to the old sku.
+        """
+        tier: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the tier of the cloud service. Possible Values are <br /><br /> **Standard** <br /><br /> **Basic**
+        """
+elif False:
+    CloudServiceRoleSkuArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CloudServiceRoleSkuArgs:
@@ -598,6 +818,22 @@ class CloudServiceRoleSkuArgs:
         pulumi.set(self, "tier", value)
 
 
+if not MYPY:
+    class CloudServiceVaultAndSecretReferenceArgsDict(TypedDict):
+        """
+        Protected settings for the extension, referenced using KeyVault which are encrypted before sent to the role instance.
+        """
+        secret_url: NotRequired[pulumi.Input[str]]
+        """
+        Secret URL which contains the protected settings of the extension
+        """
+        source_vault: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        """
+        The ARM Resource ID of the Key Vault
+        """
+elif False:
+    CloudServiceVaultAndSecretReferenceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CloudServiceVaultAndSecretReferenceArgs:
     def __init__(__self__, *,
@@ -638,6 +874,18 @@ class CloudServiceVaultAndSecretReferenceArgs:
         pulumi.set(self, "source_vault", value)
 
 
+if not MYPY:
+    class CloudServiceVaultCertificateArgsDict(TypedDict):
+        """
+        Describes a single certificate reference in a Key Vault, and where the certificate should reside on the role instance.
+        """
+        certificate_url: NotRequired[pulumi.Input[str]]
+        """
+        This is the URL of a certificate that has been uploaded to Key Vault as a secret.
+        """
+elif False:
+    CloudServiceVaultCertificateArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CloudServiceVaultCertificateArgs:
     def __init__(__self__, *,
@@ -661,6 +909,22 @@ class CloudServiceVaultCertificateArgs:
     def certificate_url(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "certificate_url", value)
 
+
+if not MYPY:
+    class CloudServiceVaultSecretGroupArgsDict(TypedDict):
+        """
+        Describes a set of certificates which are all in the same Key Vault.
+        """
+        source_vault: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        """
+        The relative URL of the Key Vault containing all of the certificates in VaultCertificates.
+        """
+        vault_certificates: NotRequired[pulumi.Input[Sequence[pulumi.Input['CloudServiceVaultCertificateArgsDict']]]]
+        """
+        The list of key vault references in SourceVault which contain certificates.
+        """
+elif False:
+    CloudServiceVaultSecretGroupArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CloudServiceVaultSecretGroupArgs:
@@ -702,6 +966,22 @@ class CloudServiceVaultSecretGroupArgs:
         pulumi.set(self, "vault_certificates", value)
 
 
+if not MYPY:
+    class ExtensionArgsDict(TypedDict):
+        """
+        Describes a cloud service Extension.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the extension.
+        """
+        properties: NotRequired[pulumi.Input['CloudServiceExtensionPropertiesArgsDict']]
+        """
+        Extension Properties.
+        """
+elif False:
+    ExtensionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ExtensionArgs:
     def __init__(__self__, *,
@@ -742,6 +1022,18 @@ class ExtensionArgs:
         pulumi.set(self, "properties", value)
 
 
+if not MYPY:
+    class LoadBalancerConfigurationPropertiesArgsDict(TypedDict):
+        """
+        Describes the properties of the load balancer configuration.
+        """
+        frontend_ip_configurations: pulumi.Input[Sequence[pulumi.Input['LoadBalancerFrontendIpConfigurationArgsDict']]]
+        """
+        Specifies the frontend IP to be used for the load balancer. Only IPv4 frontend IP address is supported. Each load balancer configuration must have exactly one frontend IP configuration.
+        """
+elif False:
+    LoadBalancerConfigurationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LoadBalancerConfigurationPropertiesArgs:
     def __init__(__self__, *,
@@ -764,6 +1056,26 @@ class LoadBalancerConfigurationPropertiesArgs:
     def frontend_ip_configurations(self, value: pulumi.Input[Sequence[pulumi.Input['LoadBalancerFrontendIpConfigurationArgs']]]):
         pulumi.set(self, "frontend_ip_configurations", value)
 
+
+if not MYPY:
+    class LoadBalancerConfigurationArgsDict(TypedDict):
+        """
+        Describes the load balancer configuration.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the Load balancer
+        """
+        properties: pulumi.Input['LoadBalancerConfigurationPropertiesArgsDict']
+        """
+        Properties of the load balancer configuration.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource Id
+        """
+elif False:
+    LoadBalancerConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LoadBalancerConfigurationArgs:
@@ -818,6 +1130,26 @@ class LoadBalancerConfigurationArgs:
     def id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class LoadBalancerFrontendIpConfigurationPropertiesArgsDict(TypedDict):
+        """
+        Describes a cloud service IP Configuration
+        """
+        private_ip_address: NotRequired[pulumi.Input[str]]
+        """
+        The virtual network private IP address of the IP configuration.
+        """
+        public_ip_address: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        """
+        The reference to the public ip address resource.
+        """
+        subnet: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        """
+        The reference to the virtual network subnet resource.
+        """
+elif False:
+    LoadBalancerFrontendIpConfigurationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LoadBalancerFrontendIpConfigurationPropertiesArgs:
@@ -875,6 +1207,22 @@ class LoadBalancerFrontendIpConfigurationPropertiesArgs:
         pulumi.set(self, "subnet", value)
 
 
+if not MYPY:
+    class LoadBalancerFrontendIpConfigurationArgsDict(TypedDict):
+        """
+        Specifies the frontend IP to be used for the load balancer. Only IPv4 frontend IP address is supported. Each load balancer configuration must have exactly one frontend IP configuration.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the resource that is unique within the set of frontend IP configurations used by the load balancer. This name can be used to access the resource.
+        """
+        properties: pulumi.Input['LoadBalancerFrontendIpConfigurationPropertiesArgsDict']
+        """
+        Properties of load balancer frontend ip configuration.
+        """
+elif False:
+    LoadBalancerFrontendIpConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LoadBalancerFrontendIpConfigurationArgs:
     def __init__(__self__, *,
@@ -912,6 +1260,18 @@ class LoadBalancerFrontendIpConfigurationArgs:
     def properties(self, value: pulumi.Input['LoadBalancerFrontendIpConfigurationPropertiesArgs']):
         pulumi.set(self, "properties", value)
 
+
+if not MYPY:
+    class SubResourceArgsDict(TypedDict):
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Sub-resource ID. Both absolute resource ID and a relative resource ID are accepted.
+        An absolute ID starts with /subscriptions/ and contains the entire ID of the parent resource and the ID of the sub-resource in the end.
+        A relative ID replaces the ID of the parent resource with a token '$self', followed by the sub-resource ID itself.
+        Example of a relative ID: $self/frontEndConfigurations/my-frontend.
+        """
+elif False:
+    SubResourceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SubResourceArgs:

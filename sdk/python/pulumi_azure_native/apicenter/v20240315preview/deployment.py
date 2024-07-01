@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -222,7 +227,7 @@ class Deployment(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  environment_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 server: Optional[pulumi.Input[pulumi.InputType['DeploymentServerArgs']]] = None,
+                 server: Optional[pulumi.Input[Union['DeploymentServerArgs', 'DeploymentServerArgsDict']]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input[Union[str, 'DeploymentState']]] = None,
                  title: Optional[pulumi.Input[str]] = None,
@@ -240,7 +245,7 @@ class Deployment(pulumi.CustomResource):
         :param pulumi.Input[str] description: Description of the deployment.
         :param pulumi.Input[str] environment_id: API center-scoped environment resource ID.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[pulumi.InputType['DeploymentServerArgs']] server: The deployment server
+        :param pulumi.Input[Union['DeploymentServerArgs', 'DeploymentServerArgsDict']] server: The deployment server
         :param pulumi.Input[str] service_name: The name of Azure API Center service.
         :param pulumi.Input[Union[str, 'DeploymentState']] state: State of API deployment.
         :param pulumi.Input[str] title: API deployment title
@@ -277,7 +282,7 @@ class Deployment(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  environment_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 server: Optional[pulumi.Input[pulumi.InputType['DeploymentServerArgs']]] = None,
+                 server: Optional[pulumi.Input[Union['DeploymentServerArgs', 'DeploymentServerArgsDict']]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input[Union[str, 'DeploymentState']]] = None,
                  title: Optional[pulumi.Input[str]] = None,

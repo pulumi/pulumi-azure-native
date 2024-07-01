@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -156,7 +161,7 @@ class KustoPool(pulumi.CustomResource):
                  kusto_pool_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['AzureSkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['AzureSkuArgs', 'AzureSkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  workspace_uid: Optional[pulumi.Input[str]] = None,
@@ -170,7 +175,7 @@ class KustoPool(pulumi.CustomResource):
         :param pulumi.Input[str] kusto_pool_name: The name of the Kusto pool.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[pulumi.InputType['AzureSkuArgs']] sku: The SKU of the kusto pool.
+        :param pulumi.Input[Union['AzureSkuArgs', 'AzureSkuArgsDict']] sku: The SKU of the kusto pool.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] workspace_name: The name of the workspace
         :param pulumi.Input[str] workspace_uid: The workspace unique identifier.
@@ -203,7 +208,7 @@ class KustoPool(pulumi.CustomResource):
                  kusto_pool_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['AzureSkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['AzureSkuArgs', 'AzureSkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  workspace_uid: Optional[pulumi.Input[str]] = None,

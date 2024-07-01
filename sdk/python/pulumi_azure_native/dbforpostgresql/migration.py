@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -372,7 +377,7 @@ class Migration(pulumi.CustomResource):
                  migration_window_start_time_in_utc: Optional[pulumi.Input[str]] = None,
                  overwrite_dbs_in_target: Optional[pulumi.Input[Union[str, 'OverwriteDbsInTargetEnum']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 secret_parameters: Optional[pulumi.Input[pulumi.InputType['MigrationSecretParametersArgs']]] = None,
+                 secret_parameters: Optional[pulumi.Input[Union['MigrationSecretParametersArgs', 'MigrationSecretParametersArgsDict']]] = None,
                  setup_logical_replication_on_source_db_if_needed: Optional[pulumi.Input[Union[str, 'LogicalReplicationOnSourceDbEnum']]] = None,
                  source_db_server_fully_qualified_domain_name: Optional[pulumi.Input[str]] = None,
                  source_db_server_resource_id: Optional[pulumi.Input[str]] = None,
@@ -402,7 +407,7 @@ class Migration(pulumi.CustomResource):
         :param pulumi.Input[str] migration_window_start_time_in_utc: Start time in UTC for migration window
         :param pulumi.Input[Union[str, 'OverwriteDbsInTargetEnum']] overwrite_dbs_in_target: Indicates whether the databases on the target server can be overwritten, if already present. If set to False, the migration workflow will wait for a confirmation, if it detects that the database already exists.
         :param pulumi.Input[str] resource_group_name: The resource group name of the target database server.
-        :param pulumi.Input[pulumi.InputType['MigrationSecretParametersArgs']] secret_parameters: Migration secret parameters
+        :param pulumi.Input[Union['MigrationSecretParametersArgs', 'MigrationSecretParametersArgsDict']] secret_parameters: Migration secret parameters
         :param pulumi.Input[Union[str, 'LogicalReplicationOnSourceDbEnum']] setup_logical_replication_on_source_db_if_needed: Indicates whether to setup LogicalReplicationOnSourceDb, if needed
         :param pulumi.Input[str] source_db_server_fully_qualified_domain_name: Source server fully qualified domain name or ip. It is a optional value, if customer provide it, dms will always use it for connection
         :param pulumi.Input[str] source_db_server_resource_id: ResourceId of the source database server
@@ -451,7 +456,7 @@ class Migration(pulumi.CustomResource):
                  migration_window_start_time_in_utc: Optional[pulumi.Input[str]] = None,
                  overwrite_dbs_in_target: Optional[pulumi.Input[Union[str, 'OverwriteDbsInTargetEnum']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 secret_parameters: Optional[pulumi.Input[pulumi.InputType['MigrationSecretParametersArgs']]] = None,
+                 secret_parameters: Optional[pulumi.Input[Union['MigrationSecretParametersArgs', 'MigrationSecretParametersArgsDict']]] = None,
                  setup_logical_replication_on_source_db_if_needed: Optional[pulumi.Input[Union[str, 'LogicalReplicationOnSourceDbEnum']]] = None,
                  source_db_server_fully_qualified_domain_name: Optional[pulumi.Input[str]] = None,
                  source_db_server_resource_id: Optional[pulumi.Input[str]] = None,

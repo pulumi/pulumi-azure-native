@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -365,25 +370,25 @@ class VirtualMachine(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  admin_username: Optional[pulumi.Input[str]] = None,
                  boot_method: Optional[pulumi.Input[Union[str, 'VirtualMachineBootMethod']]] = None,
-                 cloud_services_network_attachment: Optional[pulumi.Input[pulumi.InputType['NetworkAttachmentArgs']]] = None,
+                 cloud_services_network_attachment: Optional[pulumi.Input[Union['NetworkAttachmentArgs', 'NetworkAttachmentArgsDict']]] = None,
                  cpu_cores: Optional[pulumi.Input[float]] = None,
-                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
                  isolate_emulator_thread: Optional[pulumi.Input[Union[str, 'VirtualMachineIsolateEmulatorThread']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  memory_size_gb: Optional[pulumi.Input[float]] = None,
-                 network_attachments: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkAttachmentArgs']]]]] = None,
+                 network_attachments: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkAttachmentArgs', 'NetworkAttachmentArgsDict']]]]] = None,
                  network_data: Optional[pulumi.Input[str]] = None,
-                 placement_hints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualMachinePlacementHintArgs']]]]] = None,
+                 placement_hints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VirtualMachinePlacementHintArgs', 'VirtualMachinePlacementHintArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 ssh_public_keys: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SshPublicKeyArgs']]]]] = None,
-                 storage_profile: Optional[pulumi.Input[pulumi.InputType['StorageProfileArgs']]] = None,
+                 ssh_public_keys: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SshPublicKeyArgs', 'SshPublicKeyArgsDict']]]]] = None,
+                 storage_profile: Optional[pulumi.Input[Union['StorageProfileArgs', 'StorageProfileArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  user_data: Optional[pulumi.Input[str]] = None,
                  virtio_interface: Optional[pulumi.Input[Union[str, 'VirtualMachineVirtioInterfaceType']]] = None,
                  virtual_machine_name: Optional[pulumi.Input[str]] = None,
                  vm_device_model: Optional[pulumi.Input[Union[str, 'VirtualMachineDeviceModelType']]] = None,
                  vm_image: Optional[pulumi.Input[str]] = None,
-                 vm_image_repository_credentials: Optional[pulumi.Input[pulumi.InputType['ImageRepositoryCredentialsArgs']]] = None,
+                 vm_image_repository_credentials: Optional[pulumi.Input[Union['ImageRepositoryCredentialsArgs', 'ImageRepositoryCredentialsArgsDict']]] = None,
                  __props__=None):
         """
         Azure REST API version: 2023-10-01-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview.
@@ -394,25 +399,25 @@ class VirtualMachine(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] admin_username: The name of the administrator to which the ssh public keys will be added into the authorized keys.
         :param pulumi.Input[Union[str, 'VirtualMachineBootMethod']] boot_method: Selects the boot method for the virtual machine.
-        :param pulumi.Input[pulumi.InputType['NetworkAttachmentArgs']] cloud_services_network_attachment: The cloud service network that provides platform-level services for the virtual machine.
+        :param pulumi.Input[Union['NetworkAttachmentArgs', 'NetworkAttachmentArgsDict']] cloud_services_network_attachment: The cloud service network that provides platform-level services for the virtual machine.
         :param pulumi.Input[float] cpu_cores: The number of CPU cores in the virtual machine.
-        :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: The extended location of the cluster associated with the resource.
+        :param pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']] extended_location: The extended location of the cluster associated with the resource.
         :param pulumi.Input[Union[str, 'VirtualMachineIsolateEmulatorThread']] isolate_emulator_thread: Field Deprecated, the value will be ignored if provided. The indicator of whether one of the specified CPU cores is isolated to run the emulator thread for this virtual machine.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[float] memory_size_gb: The memory size of the virtual machine in GB.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkAttachmentArgs']]]] network_attachments: The list of network attachments to the virtual machine.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkAttachmentArgs', 'NetworkAttachmentArgsDict']]]] network_attachments: The list of network attachments to the virtual machine.
         :param pulumi.Input[str] network_data: The Base64 encoded cloud-init network data.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualMachinePlacementHintArgs']]]] placement_hints: The scheduling hints for the virtual machine.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['VirtualMachinePlacementHintArgs', 'VirtualMachinePlacementHintArgsDict']]]] placement_hints: The scheduling hints for the virtual machine.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SshPublicKeyArgs']]]] ssh_public_keys: The list of ssh public keys. Each key will be added to the virtual machine using the cloud-init ssh_authorized_keys mechanism for the adminUsername.
-        :param pulumi.Input[pulumi.InputType['StorageProfileArgs']] storage_profile: The storage profile that specifies size and other parameters about the disks related to the virtual machine.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SshPublicKeyArgs', 'SshPublicKeyArgsDict']]]] ssh_public_keys: The list of ssh public keys. Each key will be added to the virtual machine using the cloud-init ssh_authorized_keys mechanism for the adminUsername.
+        :param pulumi.Input[Union['StorageProfileArgs', 'StorageProfileArgsDict']] storage_profile: The storage profile that specifies size and other parameters about the disks related to the virtual machine.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] user_data: The Base64 encoded cloud-init user data.
         :param pulumi.Input[Union[str, 'VirtualMachineVirtioInterfaceType']] virtio_interface: Field Deprecated, use virtualizationModel instead. The type of the virtio interface.
         :param pulumi.Input[str] virtual_machine_name: The name of the virtual machine.
         :param pulumi.Input[Union[str, 'VirtualMachineDeviceModelType']] vm_device_model: The type of the device model to use.
         :param pulumi.Input[str] vm_image: The virtual machine image that is currently provisioned to the OS disk, using the full url and tag notation used to pull the image.
-        :param pulumi.Input[pulumi.InputType['ImageRepositoryCredentialsArgs']] vm_image_repository_credentials: The credentials used to login to the image repository that has access to the specified image.
+        :param pulumi.Input[Union['ImageRepositoryCredentialsArgs', 'ImageRepositoryCredentialsArgsDict']] vm_image_repository_credentials: The credentials used to login to the image repository that has access to the specified image.
         """
         ...
     @overload
@@ -442,25 +447,25 @@ class VirtualMachine(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  admin_username: Optional[pulumi.Input[str]] = None,
                  boot_method: Optional[pulumi.Input[Union[str, 'VirtualMachineBootMethod']]] = None,
-                 cloud_services_network_attachment: Optional[pulumi.Input[pulumi.InputType['NetworkAttachmentArgs']]] = None,
+                 cloud_services_network_attachment: Optional[pulumi.Input[Union['NetworkAttachmentArgs', 'NetworkAttachmentArgsDict']]] = None,
                  cpu_cores: Optional[pulumi.Input[float]] = None,
-                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
                  isolate_emulator_thread: Optional[pulumi.Input[Union[str, 'VirtualMachineIsolateEmulatorThread']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  memory_size_gb: Optional[pulumi.Input[float]] = None,
-                 network_attachments: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkAttachmentArgs']]]]] = None,
+                 network_attachments: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkAttachmentArgs', 'NetworkAttachmentArgsDict']]]]] = None,
                  network_data: Optional[pulumi.Input[str]] = None,
-                 placement_hints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualMachinePlacementHintArgs']]]]] = None,
+                 placement_hints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VirtualMachinePlacementHintArgs', 'VirtualMachinePlacementHintArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 ssh_public_keys: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SshPublicKeyArgs']]]]] = None,
-                 storage_profile: Optional[pulumi.Input[pulumi.InputType['StorageProfileArgs']]] = None,
+                 ssh_public_keys: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SshPublicKeyArgs', 'SshPublicKeyArgsDict']]]]] = None,
+                 storage_profile: Optional[pulumi.Input[Union['StorageProfileArgs', 'StorageProfileArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  user_data: Optional[pulumi.Input[str]] = None,
                  virtio_interface: Optional[pulumi.Input[Union[str, 'VirtualMachineVirtioInterfaceType']]] = None,
                  virtual_machine_name: Optional[pulumi.Input[str]] = None,
                  vm_device_model: Optional[pulumi.Input[Union[str, 'VirtualMachineDeviceModelType']]] = None,
                  vm_image: Optional[pulumi.Input[str]] = None,
-                 vm_image_repository_credentials: Optional[pulumi.Input[pulumi.InputType['ImageRepositoryCredentialsArgs']]] = None,
+                 vm_image_repository_credentials: Optional[pulumi.Input[Union['ImageRepositoryCredentialsArgs', 'ImageRepositoryCredentialsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

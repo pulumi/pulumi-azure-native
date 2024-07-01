@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -224,8 +229,8 @@ class FluxConfiguration(pulumi.CustomResource):
                  cluster_rp: Optional[pulumi.Input[str]] = None,
                  configuration_protected_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  flux_configuration_name: Optional[pulumi.Input[str]] = None,
-                 git_repository: Optional[pulumi.Input[pulumi.InputType['GitRepositoryDefinitionArgs']]] = None,
-                 kustomizations: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['KustomizationDefinitionArgs']]]]] = None,
+                 git_repository: Optional[pulumi.Input[Union['GitRepositoryDefinitionArgs', 'GitRepositoryDefinitionArgsDict']]] = None,
+                 kustomizations: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['KustomizationDefinitionArgs', 'KustomizationDefinitionArgsDict']]]]] = None,
                  namespace: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[Union[str, 'ScopeType']]] = None,
@@ -242,8 +247,8 @@ class FluxConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] cluster_rp: The Kubernetes cluster RP - either Microsoft.ContainerService (for AKS clusters) or Microsoft.Kubernetes (for OnPrem K8S clusters).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] configuration_protected_settings: Key-value pairs of protected configuration settings for the configuration
         :param pulumi.Input[str] flux_configuration_name: Name of the Flux Configuration.
-        :param pulumi.Input[pulumi.InputType['GitRepositoryDefinitionArgs']] git_repository: Parameters to reconcile to the GitRepository source kind type.
-        :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['KustomizationDefinitionArgs']]]] kustomizations: Array of kustomizations used to reconcile the artifact pulled by the source type on the cluster.
+        :param pulumi.Input[Union['GitRepositoryDefinitionArgs', 'GitRepositoryDefinitionArgsDict']] git_repository: Parameters to reconcile to the GitRepository source kind type.
+        :param pulumi.Input[Mapping[str, pulumi.Input[Union['KustomizationDefinitionArgs', 'KustomizationDefinitionArgsDict']]]] kustomizations: Array of kustomizations used to reconcile the artifact pulled by the source type on the cluster.
         :param pulumi.Input[str] namespace: The namespace to which this configuration is installed to. Maximum of 253 lower case alphanumeric characters, hyphen and period only.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union[str, 'ScopeType']] scope: Scope at which the operator will be installed.
@@ -279,8 +284,8 @@ class FluxConfiguration(pulumi.CustomResource):
                  cluster_rp: Optional[pulumi.Input[str]] = None,
                  configuration_protected_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  flux_configuration_name: Optional[pulumi.Input[str]] = None,
-                 git_repository: Optional[pulumi.Input[pulumi.InputType['GitRepositoryDefinitionArgs']]] = None,
-                 kustomizations: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['KustomizationDefinitionArgs']]]]] = None,
+                 git_repository: Optional[pulumi.Input[Union['GitRepositoryDefinitionArgs', 'GitRepositoryDefinitionArgsDict']]] = None,
+                 kustomizations: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['KustomizationDefinitionArgs', 'KustomizationDefinitionArgsDict']]]]] = None,
                  namespace: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[Union[str, 'ScopeType']]] = None,

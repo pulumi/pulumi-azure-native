@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -169,10 +174,10 @@ class Console(pulumi.CustomResource):
                  console_name: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[Union[str, 'ConsoleEnabled']]] = None,
                  expiration: Optional[pulumi.Input[str]] = None,
-                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 ssh_public_key: Optional[pulumi.Input[pulumi.InputType['SshPublicKeyArgs']]] = None,
+                 ssh_public_key: Optional[pulumi.Input[Union['SshPublicKeyArgs', 'SshPublicKeyArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_machine_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -186,10 +191,10 @@ class Console(pulumi.CustomResource):
         :param pulumi.Input[str] console_name: The name of the virtual machine console.
         :param pulumi.Input[Union[str, 'ConsoleEnabled']] enabled: The indicator of whether the console access is enabled.
         :param pulumi.Input[str] expiration: The date and time after which the key will be disallowed access.
-        :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: The extended location of the cluster manager associated with the cluster this virtual machine is created on.
+        :param pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']] extended_location: The extended location of the cluster manager associated with the cluster this virtual machine is created on.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[pulumi.InputType['SshPublicKeyArgs']] ssh_public_key: The SSH public key that will be provisioned for user access. The user is expected to have the corresponding SSH private key for logging in.
+        :param pulumi.Input[Union['SshPublicKeyArgs', 'SshPublicKeyArgsDict']] ssh_public_key: The SSH public key that will be provisioned for user access. The user is expected to have the corresponding SSH private key for logging in.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] virtual_machine_name: The name of the virtual machine.
         """
@@ -222,10 +227,10 @@ class Console(pulumi.CustomResource):
                  console_name: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[Union[str, 'ConsoleEnabled']]] = None,
                  expiration: Optional[pulumi.Input[str]] = None,
-                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 ssh_public_key: Optional[pulumi.Input[pulumi.InputType['SshPublicKeyArgs']]] = None,
+                 ssh_public_key: Optional[pulumi.Input[Union['SshPublicKeyArgs', 'SshPublicKeyArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_machine_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):

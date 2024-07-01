@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -126,7 +131,7 @@ class ContainerAppsSourceControl(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  branch: Optional[pulumi.Input[str]] = None,
                  container_app_name: Optional[pulumi.Input[str]] = None,
-                 github_action_configuration: Optional[pulumi.Input[pulumi.InputType['GithubActionConfigurationArgs']]] = None,
+                 github_action_configuration: Optional[pulumi.Input[Union['GithubActionConfigurationArgs', 'GithubActionConfigurationArgsDict']]] = None,
                  repo_url: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  source_control_name: Optional[pulumi.Input[str]] = None,
@@ -141,7 +146,7 @@ class ContainerAppsSourceControl(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] branch: The branch which will trigger the auto deployment
         :param pulumi.Input[str] container_app_name: Name of the Container App.
-        :param pulumi.Input[pulumi.InputType['GithubActionConfigurationArgs']] github_action_configuration: Container App Revision Template with all possible settings and the
+        :param pulumi.Input[Union['GithubActionConfigurationArgs', 'GithubActionConfigurationArgsDict']] github_action_configuration: Container App Revision Template with all possible settings and the
                defaults if user did not provide them. The defaults are populated
                as they were at the creation time
         :param pulumi.Input[str] repo_url: The repo url which will be integrated to ContainerApp.
@@ -177,7 +182,7 @@ class ContainerAppsSourceControl(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  branch: Optional[pulumi.Input[str]] = None,
                  container_app_name: Optional[pulumi.Input[str]] = None,
-                 github_action_configuration: Optional[pulumi.Input[pulumi.InputType['GithubActionConfigurationArgs']]] = None,
+                 github_action_configuration: Optional[pulumi.Input[Union['GithubActionConfigurationArgs', 'GithubActionConfigurationArgsDict']]] = None,
                  repo_url: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  source_control_name: Optional[pulumi.Input[str]] = None,

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -313,7 +318,7 @@ class Subscription(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_delete_on_idle: Optional[pulumi.Input[str]] = None,
-                 client_affine_properties: Optional[pulumi.Input[pulumi.InputType['SBClientAffinePropertiesArgs']]] = None,
+                 client_affine_properties: Optional[pulumi.Input[Union['SBClientAffinePropertiesArgs', 'SBClientAffinePropertiesArgsDict']]] = None,
                  dead_lettering_on_filter_evaluation_exceptions: Optional[pulumi.Input[bool]] = None,
                  dead_lettering_on_message_expiration: Optional[pulumi.Input[bool]] = None,
                  default_message_time_to_live: Optional[pulumi.Input[str]] = None,
@@ -340,7 +345,7 @@ class Subscription(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] auto_delete_on_idle: ISO 8061 timeSpan idle interval after which the topic is automatically deleted. The minimum duration is 5 minutes.
-        :param pulumi.Input[pulumi.InputType['SBClientAffinePropertiesArgs']] client_affine_properties: Properties specific to client affine subscriptions.
+        :param pulumi.Input[Union['SBClientAffinePropertiesArgs', 'SBClientAffinePropertiesArgsDict']] client_affine_properties: Properties specific to client affine subscriptions.
         :param pulumi.Input[bool] dead_lettering_on_filter_evaluation_exceptions: Value that indicates whether a subscription has dead letter support on filter evaluation exceptions.
         :param pulumi.Input[bool] dead_lettering_on_message_expiration: Value that indicates whether a subscription has dead letter support when a message expires.
         :param pulumi.Input[str] default_message_time_to_live: ISO 8061 Default message timespan to live value. This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
@@ -386,7 +391,7 @@ class Subscription(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_delete_on_idle: Optional[pulumi.Input[str]] = None,
-                 client_affine_properties: Optional[pulumi.Input[pulumi.InputType['SBClientAffinePropertiesArgs']]] = None,
+                 client_affine_properties: Optional[pulumi.Input[Union['SBClientAffinePropertiesArgs', 'SBClientAffinePropertiesArgsDict']]] = None,
                  dead_lettering_on_filter_evaluation_exceptions: Optional[pulumi.Input[bool]] = None,
                  dead_lettering_on_message_expiration: Optional[pulumi.Input[bool]] = None,
                  default_message_time_to_live: Optional[pulumi.Input[str]] = None,

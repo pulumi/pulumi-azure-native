@@ -4,28 +4,97 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'CognitiveServicesAccountApiPropertiesArgs',
+    'CognitiveServicesAccountApiPropertiesArgsDict',
     'CognitiveServicesAccountPropertiesArgs',
+    'CognitiveServicesAccountPropertiesArgsDict',
     'EncryptionArgs',
+    'EncryptionArgsDict',
     'IdentityArgs',
+    'IdentityArgsDict',
     'IpRuleArgs',
+    'IpRuleArgsDict',
     'KeyVaultPropertiesArgs',
+    'KeyVaultPropertiesArgsDict',
     'NetworkRuleSetArgs',
+    'NetworkRuleSetArgsDict',
     'PrivateEndpointConnectionPropertiesArgs',
+    'PrivateEndpointConnectionPropertiesArgsDict',
     'PrivateEndpointConnectionArgs',
+    'PrivateEndpointConnectionArgsDict',
     'PrivateLinkServiceConnectionStateArgs',
+    'PrivateLinkServiceConnectionStateArgsDict',
     'SkuArgs',
+    'SkuArgsDict',
     'UserAssignedIdentityArgs',
+    'UserAssignedIdentityArgsDict',
     'UserOwnedStorageArgs',
+    'UserOwnedStorageArgsDict',
     'VirtualNetworkRuleArgs',
+    'VirtualNetworkRuleArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class CognitiveServicesAccountApiPropertiesArgsDict(TypedDict):
+        """
+        The api properties for special APIs.
+        """
+        aad_client_id: NotRequired[pulumi.Input[str]]
+        """
+        (Metrics Advisor Only) The Azure AD Client Id (Application Id).
+        """
+        aad_tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        (Metrics Advisor Only) The Azure AD Tenant Id.
+        """
+        event_hub_connection_string: NotRequired[pulumi.Input[str]]
+        """
+        (Personalization Only) The flag to enable statistics of Bing Search.
+        """
+        qna_azure_search_endpoint_id: NotRequired[pulumi.Input[str]]
+        """
+        (QnAMaker Only) The Azure Search endpoint id of QnAMaker.
+        """
+        qna_azure_search_endpoint_key: NotRequired[pulumi.Input[str]]
+        """
+        (QnAMaker Only) The Azure Search endpoint key of QnAMaker.
+        """
+        qna_runtime_endpoint: NotRequired[pulumi.Input[str]]
+        """
+        (QnAMaker Only) The runtime endpoint of QnAMaker.
+        """
+        statistics_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        (Bing Search Only) The flag to enable statistics of Bing Search.
+        """
+        storage_account_connection_string: NotRequired[pulumi.Input[str]]
+        """
+        (Personalization Only) The storage account connection string.
+        """
+        super_user: NotRequired[pulumi.Input[str]]
+        """
+        (Metrics Advisor Only) The super user of Metrics Advisor.
+        """
+        website_name: NotRequired[pulumi.Input[str]]
+        """
+        (Metrics Advisor Only) The website name of Metrics Advisor.
+        """
+elif False:
+    CognitiveServicesAccountApiPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CognitiveServicesAccountApiPropertiesArgs:
@@ -195,6 +264,42 @@ class CognitiveServicesAccountApiPropertiesArgs:
         pulumi.set(self, "website_name", value)
 
 
+if not MYPY:
+    class CognitiveServicesAccountPropertiesArgsDict(TypedDict):
+        """
+        Properties of Cognitive Services account.
+        """
+        api_properties: NotRequired[pulumi.Input['CognitiveServicesAccountApiPropertiesArgsDict']]
+        """
+        The api properties for special APIs.
+        """
+        custom_sub_domain_name: NotRequired[pulumi.Input[str]]
+        """
+        Optional subdomain name used for token-based authentication.
+        """
+        encryption: NotRequired[pulumi.Input['EncryptionArgsDict']]
+        """
+        The encryption properties for this resource.
+        """
+        network_acls: NotRequired[pulumi.Input['NetworkRuleSetArgsDict']]
+        """
+        A collection of rules governing the accessibility from specific network locations.
+        """
+        private_endpoint_connections: NotRequired[pulumi.Input[Sequence[pulumi.Input['PrivateEndpointConnectionArgsDict']]]]
+        """
+        The private endpoint connection associated with the Cognitive Services account.
+        """
+        public_network_access: NotRequired[pulumi.Input[Union[str, 'PublicNetworkAccess']]]
+        """
+        Whether or not public endpoint access is allowed for this account. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+        """
+        user_owned_storage: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserOwnedStorageArgsDict']]]]
+        """
+        The storage accounts for this resource.
+        """
+elif False:
+    CognitiveServicesAccountPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CognitiveServicesAccountPropertiesArgs:
     def __init__(__self__, *,
@@ -315,6 +420,22 @@ class CognitiveServicesAccountPropertiesArgs:
         pulumi.set(self, "user_owned_storage", value)
 
 
+if not MYPY:
+    class EncryptionArgsDict(TypedDict):
+        """
+        Properties to configure Encryption
+        """
+        key_source: NotRequired[pulumi.Input[Union[str, 'KeySource']]]
+        """
+        Enumerates the possible value of keySource for Encryption
+        """
+        key_vault_properties: NotRequired[pulumi.Input['KeyVaultPropertiesArgsDict']]
+        """
+        Properties of KeyVault
+        """
+elif False:
+    EncryptionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EncryptionArgs:
     def __init__(__self__, *,
@@ -357,6 +478,22 @@ class EncryptionArgs:
         pulumi.set(self, "key_vault_properties", value)
 
 
+if not MYPY:
+    class IdentityArgsDict(TypedDict):
+        """
+        Managed service identity.
+        """
+        type: NotRequired[pulumi.Input['IdentityType']]
+        """
+        Type of managed service identity.
+        """
+        user_assigned_identities: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentityArgsDict']]]]
+        """
+        The list of user assigned identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}
+        """
+elif False:
+    IdentityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IdentityArgs:
     def __init__(__self__, *,
@@ -397,6 +534,18 @@ class IdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
+if not MYPY:
+    class IpRuleArgsDict(TypedDict):
+        """
+        A rule governing the accessibility from a specific ip address or ip range.
+        """
+        value: pulumi.Input[str]
+        """
+        An IPv4 address range in CIDR notation, such as '124.56.78.91' (simple IP address) or '124.56.78.0/24' (all addresses that start with 124.56.78).
+        """
+elif False:
+    IpRuleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IpRuleArgs:
     def __init__(__self__, *,
@@ -419,6 +568,26 @@ class IpRuleArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class KeyVaultPropertiesArgsDict(TypedDict):
+        """
+        Properties to configure keyVault Properties
+        """
+        key_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the Key from KeyVault
+        """
+        key_vault_uri: NotRequired[pulumi.Input[str]]
+        """
+        Uri of KeyVault
+        """
+        key_version: NotRequired[pulumi.Input[str]]
+        """
+        Version of the Key from KeyVault
+        """
+elif False:
+    KeyVaultPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class KeyVaultPropertiesArgs:
@@ -476,6 +645,26 @@ class KeyVaultPropertiesArgs:
         pulumi.set(self, "key_version", value)
 
 
+if not MYPY:
+    class NetworkRuleSetArgsDict(TypedDict):
+        """
+        A set of rules governing the network accessibility.
+        """
+        default_action: NotRequired[pulumi.Input[Union[str, 'NetworkRuleAction']]]
+        """
+        The default action when no rule from ipRules and from virtualNetworkRules match. This is only used after the bypass property has been evaluated.
+        """
+        ip_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['IpRuleArgsDict']]]]
+        """
+        The list of IP address rules.
+        """
+        virtual_network_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgsDict']]]]
+        """
+        The list of virtual network rules.
+        """
+elif False:
+    NetworkRuleSetArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NetworkRuleSetArgs:
     def __init__(__self__, *,
@@ -532,6 +721,22 @@ class NetworkRuleSetArgs:
         pulumi.set(self, "virtual_network_rules", value)
 
 
+if not MYPY:
+    class PrivateEndpointConnectionPropertiesArgsDict(TypedDict):
+        """
+        Properties of the PrivateEndpointConnectProperties.
+        """
+        private_link_service_connection_state: pulumi.Input['PrivateLinkServiceConnectionStateArgsDict']
+        """
+        A collection of information about the state of the connection between service consumer and provider.
+        """
+        group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The private link resource group ids.
+        """
+elif False:
+    PrivateEndpointConnectionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PrivateEndpointConnectionPropertiesArgs:
     def __init__(__self__, *,
@@ -570,6 +775,22 @@ class PrivateEndpointConnectionPropertiesArgs:
     def group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "group_ids", value)
 
+
+if not MYPY:
+    class PrivateEndpointConnectionArgsDict(TypedDict):
+        """
+        The Private Endpoint Connection resource.
+        """
+        location: NotRequired[pulumi.Input[str]]
+        """
+        The location of the private endpoint connection
+        """
+        properties: NotRequired[pulumi.Input['PrivateEndpointConnectionPropertiesArgsDict']]
+        """
+        Resource properties.
+        """
+elif False:
+    PrivateEndpointConnectionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PrivateEndpointConnectionArgs:
@@ -610,6 +831,26 @@ class PrivateEndpointConnectionArgs:
     def properties(self, value: Optional[pulumi.Input['PrivateEndpointConnectionPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
+
+if not MYPY:
+    class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
+        """
+        A collection of information about the state of the connection between service consumer and provider.
+        """
+        actions_required: NotRequired[pulumi.Input[str]]
+        """
+        A message indicating if changes on the service provider require any updates on the consumer.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The reason for approval/rejection of the connection.
+        """
+        status: NotRequired[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]]
+        """
+        Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+        """
+elif False:
+    PrivateLinkServiceConnectionStateArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:
@@ -667,6 +908,18 @@ class PrivateLinkServiceConnectionStateArgs:
         pulumi.set(self, "status", value)
 
 
+if not MYPY:
+    class SkuArgsDict(TypedDict):
+        """
+        The SKU of the cognitive services account.
+        """
+        name: pulumi.Input[str]
+        """
+        Gets or sets the sku name. Required for account creation, optional for update.
+        """
+elif False:
+    SkuArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SkuArgs:
     def __init__(__self__, *,
@@ -689,6 +942,22 @@ class SkuArgs:
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class UserAssignedIdentityArgsDict(TypedDict):
+        """
+        User-assigned managed identity.
+        """
+        client_id: NotRequired[pulumi.Input[str]]
+        """
+        Client App Id associated with this identity.
+        """
+        principal_id: NotRequired[pulumi.Input[str]]
+        """
+        Azure Active Directory principal ID associated with this Identity.
+        """
+elif False:
+    UserAssignedIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserAssignedIdentityArgs:
@@ -730,6 +999,18 @@ class UserAssignedIdentityArgs:
         pulumi.set(self, "principal_id", value)
 
 
+if not MYPY:
+    class UserOwnedStorageArgsDict(TypedDict):
+        """
+        The user owned storage for Cognitive Services account.
+        """
+        resource_id: NotRequired[pulumi.Input[str]]
+        """
+        Full resource id of a Microsoft.Storage resource.
+        """
+elif False:
+    UserOwnedStorageArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class UserOwnedStorageArgs:
     def __init__(__self__, *,
@@ -753,6 +1034,26 @@ class UserOwnedStorageArgs:
     def resource_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "resource_id", value)
 
+
+if not MYPY:
+    class VirtualNetworkRuleArgsDict(TypedDict):
+        """
+        A rule governing the accessibility from a specific virtual network.
+        """
+        id: pulumi.Input[str]
+        """
+        Full resource id of a vnet subnet, such as '/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1'.
+        """
+        ignore_missing_vnet_service_endpoint: NotRequired[pulumi.Input[bool]]
+        """
+        Ignore missing vnet service endpoint or not.
+        """
+        state: NotRequired[pulumi.Input[str]]
+        """
+        Gets the state of virtual network rule.
+        """
+elif False:
+    VirtualNetworkRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VirtualNetworkRuleArgs:

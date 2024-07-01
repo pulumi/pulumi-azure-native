@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -191,7 +196,7 @@ class IntegrationAccountMap(pulumi.CustomResource):
                  map_name: Optional[pulumi.Input[str]] = None,
                  map_type: Optional[pulumi.Input[Union[str, 'MapType']]] = None,
                  metadata: Optional[Any] = None,
-                 parameters_schema: Optional[pulumi.Input[pulumi.InputType['IntegrationAccountMapPropertiesParametersSchemaArgs']]] = None,
+                 parameters_schema: Optional[pulumi.Input[Union['IntegrationAccountMapPropertiesParametersSchemaArgs', 'IntegrationAccountMapPropertiesParametersSchemaArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -210,7 +215,7 @@ class IntegrationAccountMap(pulumi.CustomResource):
         :param pulumi.Input[str] map_name: The integration account map name.
         :param pulumi.Input[Union[str, 'MapType']] map_type: The map type.
         :param Any metadata: The metadata.
-        :param pulumi.Input[pulumi.InputType['IntegrationAccountMapPropertiesParametersSchemaArgs']] parameters_schema: The parameters schema of integration account map.
+        :param pulumi.Input[Union['IntegrationAccountMapPropertiesParametersSchemaArgs', 'IntegrationAccountMapPropertiesParametersSchemaArgsDict']] parameters_schema: The parameters schema of integration account map.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
         """
@@ -248,7 +253,7 @@ class IntegrationAccountMap(pulumi.CustomResource):
                  map_name: Optional[pulumi.Input[str]] = None,
                  map_type: Optional[pulumi.Input[Union[str, 'MapType']]] = None,
                  metadata: Optional[Any] = None,
-                 parameters_schema: Optional[pulumi.Input[pulumi.InputType['IntegrationAccountMapPropertiesParametersSchemaArgs']]] = None,
+                 parameters_schema: Optional[pulumi.Input[Union['IntegrationAccountMapPropertiesParametersSchemaArgs', 'IntegrationAccountMapPropertiesParametersSchemaArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):

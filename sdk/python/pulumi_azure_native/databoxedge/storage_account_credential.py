@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -198,7 +203,7 @@ class StorageAccountCredential(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_key: Optional[pulumi.Input[pulumi.InputType['AsymmetricEncryptedSecretArgs']]] = None,
+                 account_key: Optional[pulumi.Input[Union['AsymmetricEncryptedSecretArgs', 'AsymmetricEncryptedSecretArgsDict']]] = None,
                  account_type: Optional[pulumi.Input[Union[str, 'AccountType']]] = None,
                  alias: Optional[pulumi.Input[str]] = None,
                  blob_domain_name: Optional[pulumi.Input[str]] = None,
@@ -218,7 +223,7 @@ class StorageAccountCredential(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['AsymmetricEncryptedSecretArgs']] account_key: Encrypted storage key.
+        :param pulumi.Input[Union['AsymmetricEncryptedSecretArgs', 'AsymmetricEncryptedSecretArgsDict']] account_key: Encrypted storage key.
         :param pulumi.Input[Union[str, 'AccountType']] account_type: Type of storage accessed on the storage account.
         :param pulumi.Input[str] alias: Alias for the storage account.
         :param pulumi.Input[str] blob_domain_name: Blob end point for private clouds.
@@ -257,7 +262,7 @@ class StorageAccountCredential(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_key: Optional[pulumi.Input[pulumi.InputType['AsymmetricEncryptedSecretArgs']]] = None,
+                 account_key: Optional[pulumi.Input[Union['AsymmetricEncryptedSecretArgs', 'AsymmetricEncryptedSecretArgsDict']]] = None,
                  account_type: Optional[pulumi.Input[Union[str, 'AccountType']]] = None,
                  alias: Optional[pulumi.Input[str]] = None,
                  blob_domain_name: Optional[pulumi.Input[str]] = None,

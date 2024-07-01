@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -169,12 +174,12 @@ class ClusterPool(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_pool_name: Optional[pulumi.Input[str]] = None,
-                 cluster_pool_profile: Optional[pulumi.Input[pulumi.InputType['ClusterPoolResourcePropertiesClusterPoolProfileArgs']]] = None,
-                 compute_profile: Optional[pulumi.Input[pulumi.InputType['ClusterPoolResourcePropertiesComputeProfileArgs']]] = None,
+                 cluster_pool_profile: Optional[pulumi.Input[Union['ClusterPoolResourcePropertiesClusterPoolProfileArgs', 'ClusterPoolResourcePropertiesClusterPoolProfileArgsDict']]] = None,
+                 compute_profile: Optional[pulumi.Input[Union['ClusterPoolResourcePropertiesComputeProfileArgs', 'ClusterPoolResourcePropertiesComputeProfileArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 log_analytics_profile: Optional[pulumi.Input[pulumi.InputType['ClusterPoolResourcePropertiesLogAnalyticsProfileArgs']]] = None,
+                 log_analytics_profile: Optional[pulumi.Input[Union['ClusterPoolResourcePropertiesLogAnalyticsProfileArgs', 'ClusterPoolResourcePropertiesLogAnalyticsProfileArgsDict']]] = None,
                  managed_resource_group_name: Optional[pulumi.Input[str]] = None,
-                 network_profile: Optional[pulumi.Input[pulumi.InputType['ClusterPoolResourcePropertiesNetworkProfileArgs']]] = None,
+                 network_profile: Optional[pulumi.Input[Union['ClusterPoolResourcePropertiesNetworkProfileArgs', 'ClusterPoolResourcePropertiesNetworkProfileArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -187,12 +192,12 @@ class ClusterPool(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_pool_name: The name of the cluster pool.
-        :param pulumi.Input[pulumi.InputType['ClusterPoolResourcePropertiesClusterPoolProfileArgs']] cluster_pool_profile: CLuster pool profile.
-        :param pulumi.Input[pulumi.InputType['ClusterPoolResourcePropertiesComputeProfileArgs']] compute_profile: CLuster pool compute profile.
+        :param pulumi.Input[Union['ClusterPoolResourcePropertiesClusterPoolProfileArgs', 'ClusterPoolResourcePropertiesClusterPoolProfileArgsDict']] cluster_pool_profile: CLuster pool profile.
+        :param pulumi.Input[Union['ClusterPoolResourcePropertiesComputeProfileArgs', 'ClusterPoolResourcePropertiesComputeProfileArgsDict']] compute_profile: CLuster pool compute profile.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[pulumi.InputType['ClusterPoolResourcePropertiesLogAnalyticsProfileArgs']] log_analytics_profile: Cluster pool log analytics profile to enable OMS agent for AKS cluster.
+        :param pulumi.Input[Union['ClusterPoolResourcePropertiesLogAnalyticsProfileArgs', 'ClusterPoolResourcePropertiesLogAnalyticsProfileArgsDict']] log_analytics_profile: Cluster pool log analytics profile to enable OMS agent for AKS cluster.
         :param pulumi.Input[str] managed_resource_group_name: A resource group created by RP, to hold the resources created by RP on-behalf of customers. It will also be used to generate aksManagedResourceGroupName by pattern: MC_{managedResourceGroupName}_{clusterPoolName}_{region}. Please make sure it meets resource group name restriction.
-        :param pulumi.Input[pulumi.InputType['ClusterPoolResourcePropertiesNetworkProfileArgs']] network_profile: Cluster pool network profile.
+        :param pulumi.Input[Union['ClusterPoolResourcePropertiesNetworkProfileArgs', 'ClusterPoolResourcePropertiesNetworkProfileArgsDict']] network_profile: Cluster pool network profile.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -224,12 +229,12 @@ class ClusterPool(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_pool_name: Optional[pulumi.Input[str]] = None,
-                 cluster_pool_profile: Optional[pulumi.Input[pulumi.InputType['ClusterPoolResourcePropertiesClusterPoolProfileArgs']]] = None,
-                 compute_profile: Optional[pulumi.Input[pulumi.InputType['ClusterPoolResourcePropertiesComputeProfileArgs']]] = None,
+                 cluster_pool_profile: Optional[pulumi.Input[Union['ClusterPoolResourcePropertiesClusterPoolProfileArgs', 'ClusterPoolResourcePropertiesClusterPoolProfileArgsDict']]] = None,
+                 compute_profile: Optional[pulumi.Input[Union['ClusterPoolResourcePropertiesComputeProfileArgs', 'ClusterPoolResourcePropertiesComputeProfileArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 log_analytics_profile: Optional[pulumi.Input[pulumi.InputType['ClusterPoolResourcePropertiesLogAnalyticsProfileArgs']]] = None,
+                 log_analytics_profile: Optional[pulumi.Input[Union['ClusterPoolResourcePropertiesLogAnalyticsProfileArgs', 'ClusterPoolResourcePropertiesLogAnalyticsProfileArgsDict']]] = None,
                  managed_resource_group_name: Optional[pulumi.Input[str]] = None,
-                 network_profile: Optional[pulumi.Input[pulumi.InputType['ClusterPoolResourcePropertiesNetworkProfileArgs']]] = None,
+                 network_profile: Optional[pulumi.Input[Union['ClusterPoolResourcePropertiesNetworkProfileArgs', 'ClusterPoolResourcePropertiesNetworkProfileArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):

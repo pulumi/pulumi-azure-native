@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -453,16 +458,16 @@ class WebAppSlot(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  client_affinity_enabled: Optional[pulumi.Input[bool]] = None,
                  client_cert_enabled: Optional[pulumi.Input[bool]] = None,
-                 cloning_info: Optional[pulumi.Input[pulumi.InputType['CloningInfoArgs']]] = None,
+                 cloning_info: Optional[pulumi.Input[Union['CloningInfoArgs', 'CloningInfoArgsDict']]] = None,
                  container_size: Optional[pulumi.Input[int]] = None,
                  daily_memory_time_quota: Optional[pulumi.Input[int]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  force_dns_registration: Optional[pulumi.Input[bool]] = None,
-                 host_name_ssl_states: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HostNameSslStateArgs']]]]] = None,
+                 host_name_ssl_states: Optional[pulumi.Input[Sequence[pulumi.Input[Union['HostNameSslStateArgs', 'HostNameSslStateArgsDict']]]]] = None,
                  host_names_disabled: Optional[pulumi.Input[bool]] = None,
-                 hosting_environment_profile: Optional[pulumi.Input[pulumi.InputType['HostingEnvironmentProfileArgs']]] = None,
+                 hosting_environment_profile: Optional[pulumi.Input[Union['HostingEnvironmentProfileArgs', 'HostingEnvironmentProfileArgsDict']]] = None,
                  https_only: Optional[pulumi.Input[bool]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -470,11 +475,11 @@ class WebAppSlot(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  scm_site_also_stopped: Optional[pulumi.Input[bool]] = None,
                  server_farm_id: Optional[pulumi.Input[str]] = None,
-                 site_config: Optional[pulumi.Input[pulumi.InputType['SiteConfigArgs']]] = None,
+                 site_config: Optional[pulumi.Input[Union['SiteConfigArgs', 'SiteConfigArgsDict']]] = None,
                  skip_custom_domain_verification: Optional[pulumi.Input[bool]] = None,
                  skip_dns_registration: Optional[pulumi.Input[bool]] = None,
                  slot: Optional[pulumi.Input[str]] = None,
-                 snapshot_info: Optional[pulumi.Input[pulumi.InputType['SnapshotRecoveryRequestArgs']]] = None,
+                 snapshot_info: Optional[pulumi.Input[Union['SnapshotRecoveryRequestArgs', 'SnapshotRecoveryRequestArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  ttl_in_seconds: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -485,18 +490,18 @@ class WebAppSlot(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] client_affinity_enabled: <code>true</code> to enable client affinity; <code>false</code> to stop sending session affinity cookies, which route client requests in the same session to the same instance. Default is <code>true</code>.
         :param pulumi.Input[bool] client_cert_enabled: <code>true</code> to enable client certificate authentication (TLS mutual authentication); otherwise, <code>false</code>. Default is <code>false</code>.
-        :param pulumi.Input[pulumi.InputType['CloningInfoArgs']] cloning_info: If specified during app creation, the app is cloned from a source app.
+        :param pulumi.Input[Union['CloningInfoArgs', 'CloningInfoArgsDict']] cloning_info: If specified during app creation, the app is cloned from a source app.
         :param pulumi.Input[int] container_size: Size of the function container.
         :param pulumi.Input[int] daily_memory_time_quota: Maximum allowed daily memory-time quota (applicable on dynamic apps only).
         :param pulumi.Input[bool] enabled: <code>true</code> if the app is enabled; otherwise, <code>false</code>. Setting this value to false disables the app (takes the app offline).
         :param pulumi.Input[bool] force_dns_registration: If true, web app hostname is force registered with DNS.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HostNameSslStateArgs']]]] host_name_ssl_states: Hostname SSL states are used to manage the SSL bindings for app's hostnames.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['HostNameSslStateArgs', 'HostNameSslStateArgsDict']]]] host_name_ssl_states: Hostname SSL states are used to manage the SSL bindings for app's hostnames.
         :param pulumi.Input[bool] host_names_disabled: <code>true</code> to disable the public hostnames of the app; otherwise, <code>false</code>.
                 If <code>true</code>, the app is only accessible via API management process.
-        :param pulumi.Input[pulumi.InputType['HostingEnvironmentProfileArgs']] hosting_environment_profile: App Service Environment to use for the app.
+        :param pulumi.Input[Union['HostingEnvironmentProfileArgs', 'HostingEnvironmentProfileArgsDict']] hosting_environment_profile: App Service Environment to use for the app.
         :param pulumi.Input[bool] https_only: HttpsOnly: configures a web site to accept only https requests. Issues redirect for
                http requests
-        :param pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']] identity: Managed service identity.
+        :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: Managed service identity.
         :param pulumi.Input[str] kind: Kind of resource.
         :param pulumi.Input[str] location: Resource Location.
         :param pulumi.Input[str] name: Unique name of the app to create or update. To create or update a deployment slot, use the {slot} parameter.
@@ -504,12 +509,12 @@ class WebAppSlot(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
         :param pulumi.Input[bool] scm_site_also_stopped: <code>true</code> to stop SCM (KUDU) site when the app is stopped; otherwise, <code>false</code>. The default is <code>false</code>.
         :param pulumi.Input[str] server_farm_id: Resource ID of the associated App Service plan, formatted as: "/subscriptions/{subscriptionID}/resourceGroups/{groupName}/providers/Microsoft.Web/serverfarms/{appServicePlanName}".
-        :param pulumi.Input[pulumi.InputType['SiteConfigArgs']] site_config: Configuration of the app.
+        :param pulumi.Input[Union['SiteConfigArgs', 'SiteConfigArgsDict']] site_config: Configuration of the app.
         :param pulumi.Input[bool] skip_custom_domain_verification: If true, custom (non *.azurewebsites.net) domains associated with web app are not verified.
         :param pulumi.Input[bool] skip_dns_registration: If true web app hostname is not registered with DNS on creation. This parameter is
                 only used for app creation.
         :param pulumi.Input[str] slot: Name of the deployment slot to create or update. The name 'production' is reserved.
-        :param pulumi.Input[pulumi.InputType['SnapshotRecoveryRequestArgs']] snapshot_info: If specified during app creation, the app is created from a previous snapshot.
+        :param pulumi.Input[Union['SnapshotRecoveryRequestArgs', 'SnapshotRecoveryRequestArgsDict']] snapshot_info: If specified during app creation, the app is created from a previous snapshot.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] ttl_in_seconds: Time to live in seconds for web app's default domain name.
         """
@@ -539,16 +544,16 @@ class WebAppSlot(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  client_affinity_enabled: Optional[pulumi.Input[bool]] = None,
                  client_cert_enabled: Optional[pulumi.Input[bool]] = None,
-                 cloning_info: Optional[pulumi.Input[pulumi.InputType['CloningInfoArgs']]] = None,
+                 cloning_info: Optional[pulumi.Input[Union['CloningInfoArgs', 'CloningInfoArgsDict']]] = None,
                  container_size: Optional[pulumi.Input[int]] = None,
                  daily_memory_time_quota: Optional[pulumi.Input[int]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  force_dns_registration: Optional[pulumi.Input[bool]] = None,
-                 host_name_ssl_states: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HostNameSslStateArgs']]]]] = None,
+                 host_name_ssl_states: Optional[pulumi.Input[Sequence[pulumi.Input[Union['HostNameSslStateArgs', 'HostNameSslStateArgsDict']]]]] = None,
                  host_names_disabled: Optional[pulumi.Input[bool]] = None,
-                 hosting_environment_profile: Optional[pulumi.Input[pulumi.InputType['HostingEnvironmentProfileArgs']]] = None,
+                 hosting_environment_profile: Optional[pulumi.Input[Union['HostingEnvironmentProfileArgs', 'HostingEnvironmentProfileArgsDict']]] = None,
                  https_only: Optional[pulumi.Input[bool]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -556,11 +561,11 @@ class WebAppSlot(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  scm_site_also_stopped: Optional[pulumi.Input[bool]] = None,
                  server_farm_id: Optional[pulumi.Input[str]] = None,
-                 site_config: Optional[pulumi.Input[pulumi.InputType['SiteConfigArgs']]] = None,
+                 site_config: Optional[pulumi.Input[Union['SiteConfigArgs', 'SiteConfigArgsDict']]] = None,
                  skip_custom_domain_verification: Optional[pulumi.Input[bool]] = None,
                  skip_dns_registration: Optional[pulumi.Input[bool]] = None,
                  slot: Optional[pulumi.Input[str]] = None,
-                 snapshot_info: Optional[pulumi.Input[pulumi.InputType['SnapshotRecoveryRequestArgs']]] = None,
+                 snapshot_info: Optional[pulumi.Input[Union['SnapshotRecoveryRequestArgs', 'SnapshotRecoveryRequestArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  ttl_in_seconds: Optional[pulumi.Input[str]] = None,
                  __props__=None):

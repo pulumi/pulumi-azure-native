@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -50,7 +55,7 @@ class AwaitableListCustomApiWsdlInterfacesResult(ListCustomApiWsdlInterfacesResu
 def list_custom_api_wsdl_interfaces(content: Optional[str] = None,
                                     import_method: Optional[Union[str, 'WsdlImportMethod']] = None,
                                     location: Optional[str] = None,
-                                    service: Optional[pulumi.InputType['WsdlService']] = None,
+                                    service: Optional[Union['WsdlService', 'WsdlServiceDict']] = None,
                                     subscription_id: Optional[str] = None,
                                     url: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListCustomApiWsdlInterfacesResult:
@@ -61,7 +66,7 @@ def list_custom_api_wsdl_interfaces(content: Optional[str] = None,
     :param str content: The WSDL content
     :param Union[str, 'WsdlImportMethod'] import_method: The WSDL import method
     :param str location: The location
-    :param pulumi.InputType['WsdlService'] service: The service with name and endpoint names
+    :param Union['WsdlService', 'WsdlServiceDict'] service: The service with name and endpoint names
     :param str subscription_id: Subscription Id
     :param str url: The WSDL URL
     """
@@ -83,7 +88,7 @@ def list_custom_api_wsdl_interfaces(content: Optional[str] = None,
 def list_custom_api_wsdl_interfaces_output(content: Optional[pulumi.Input[Optional[str]]] = None,
                                            import_method: Optional[pulumi.Input[Optional[Union[str, 'WsdlImportMethod']]]] = None,
                                            location: Optional[pulumi.Input[str]] = None,
-                                           service: Optional[pulumi.Input[Optional[pulumi.InputType['WsdlService']]]] = None,
+                                           service: Optional[pulumi.Input[Optional[Union['WsdlService', 'WsdlServiceDict']]]] = None,
                                            subscription_id: Optional[pulumi.Input[Optional[str]]] = None,
                                            url: Optional[pulumi.Input[Optional[str]]] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListCustomApiWsdlInterfacesResult]:
@@ -94,7 +99,7 @@ def list_custom_api_wsdl_interfaces_output(content: Optional[pulumi.Input[Option
     :param str content: The WSDL content
     :param Union[str, 'WsdlImportMethod'] import_method: The WSDL import method
     :param str location: The location
-    :param pulumi.InputType['WsdlService'] service: The service with name and endpoint names
+    :param Union['WsdlService', 'WsdlServiceDict'] service: The service with name and endpoint names
     :param str subscription_id: Subscription Id
     :param str url: The WSDL URL
     """

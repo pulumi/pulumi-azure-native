@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -170,9 +175,9 @@ class ActivityLogAlert(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[pulumi.InputType['ActionListArgs']]] = None,
+                 actions: Optional[pulumi.Input[Union['ActionListArgs', 'ActionListArgsDict']]] = None,
                  activity_log_alert_name: Optional[pulumi.Input[str]] = None,
-                 condition: Optional[pulumi.Input[pulumi.InputType['AlertRuleAllOfConditionArgs']]] = None,
+                 condition: Optional[pulumi.Input[Union['AlertRuleAllOfConditionArgs', 'AlertRuleAllOfConditionArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -185,9 +190,9 @@ class ActivityLogAlert(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ActionListArgs']] actions: The actions that will activate when the condition is met.
+        :param pulumi.Input[Union['ActionListArgs', 'ActionListArgsDict']] actions: The actions that will activate when the condition is met.
         :param pulumi.Input[str] activity_log_alert_name: The name of the Activity Log Alert rule.
-        :param pulumi.Input[pulumi.InputType['AlertRuleAllOfConditionArgs']] condition: The condition that will cause this alert to activate.
+        :param pulumi.Input[Union['AlertRuleAllOfConditionArgs', 'AlertRuleAllOfConditionArgsDict']] condition: The condition that will cause this alert to activate.
         :param pulumi.Input[str] description: A description of this Activity Log Alert rule.
         :param pulumi.Input[bool] enabled: Indicates whether this Activity Log Alert rule is enabled. If an Activity Log Alert rule is not enabled, then none of its actions will be activated.
         :param pulumi.Input[str] location: The location of the resource. Azure Activity Log Alert rules are supported on Global, West Europe and North Europe regions.
@@ -219,9 +224,9 @@ class ActivityLogAlert(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[pulumi.InputType['ActionListArgs']]] = None,
+                 actions: Optional[pulumi.Input[Union['ActionListArgs', 'ActionListArgsDict']]] = None,
                  activity_log_alert_name: Optional[pulumi.Input[str]] = None,
-                 condition: Optional[pulumi.Input[pulumi.InputType['AlertRuleAllOfConditionArgs']]] = None,
+                 condition: Optional[pulumi.Input[Union['AlertRuleAllOfConditionArgs', 'AlertRuleAllOfConditionArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,

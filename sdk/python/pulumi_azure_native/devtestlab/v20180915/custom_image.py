@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -250,8 +255,8 @@ class CustomImage(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  author: Optional[pulumi.Input[str]] = None,
-                 custom_image_plan: Optional[pulumi.Input[pulumi.InputType['CustomImagePropertiesFromPlanArgs']]] = None,
-                 data_disk_storage_info: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataDiskStorageTypeInfoArgs']]]]] = None,
+                 custom_image_plan: Optional[pulumi.Input[Union['CustomImagePropertiesFromPlanArgs', 'CustomImagePropertiesFromPlanArgsDict']]] = None,
+                 data_disk_storage_info: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DataDiskStorageTypeInfoArgs', 'DataDiskStorageTypeInfoArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  is_plan_authorized: Optional[pulumi.Input[bool]] = None,
                  lab_name: Optional[pulumi.Input[str]] = None,
@@ -261,8 +266,8 @@ class CustomImage(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 vhd: Optional[pulumi.Input[pulumi.InputType['CustomImagePropertiesCustomArgs']]] = None,
-                 vm: Optional[pulumi.Input[pulumi.InputType['CustomImagePropertiesFromVmArgs']]] = None,
+                 vhd: Optional[pulumi.Input[Union['CustomImagePropertiesCustomArgs', 'CustomImagePropertiesCustomArgsDict']]] = None,
+                 vm: Optional[pulumi.Input[Union['CustomImagePropertiesFromVmArgs', 'CustomImagePropertiesFromVmArgsDict']]] = None,
                  __props__=None):
         """
         A custom image.
@@ -270,8 +275,8 @@ class CustomImage(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] author: The author of the custom image.
-        :param pulumi.Input[pulumi.InputType['CustomImagePropertiesFromPlanArgs']] custom_image_plan: Storage information about the plan related to this custom image
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataDiskStorageTypeInfoArgs']]]] data_disk_storage_info: Storage information about the data disks present in the custom image
+        :param pulumi.Input[Union['CustomImagePropertiesFromPlanArgs', 'CustomImagePropertiesFromPlanArgsDict']] custom_image_plan: Storage information about the plan related to this custom image
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DataDiskStorageTypeInfoArgs', 'DataDiskStorageTypeInfoArgsDict']]]] data_disk_storage_info: Storage information about the data disks present in the custom image
         :param pulumi.Input[str] description: The description of the custom image.
         :param pulumi.Input[bool] is_plan_authorized: Whether or not the custom images underlying offer/plan has been enabled for programmatic deployment
         :param pulumi.Input[str] lab_name: The name of the lab.
@@ -281,8 +286,8 @@ class CustomImage(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the custom image.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
-        :param pulumi.Input[pulumi.InputType['CustomImagePropertiesCustomArgs']] vhd: The VHD from which the image is to be created.
-        :param pulumi.Input[pulumi.InputType['CustomImagePropertiesFromVmArgs']] vm: The virtual machine from which the image is to be created.
+        :param pulumi.Input[Union['CustomImagePropertiesCustomArgs', 'CustomImagePropertiesCustomArgsDict']] vhd: The VHD from which the image is to be created.
+        :param pulumi.Input[Union['CustomImagePropertiesFromVmArgs', 'CustomImagePropertiesFromVmArgsDict']] vm: The virtual machine from which the image is to be created.
         """
         ...
     @overload
@@ -309,8 +314,8 @@ class CustomImage(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  author: Optional[pulumi.Input[str]] = None,
-                 custom_image_plan: Optional[pulumi.Input[pulumi.InputType['CustomImagePropertiesFromPlanArgs']]] = None,
-                 data_disk_storage_info: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataDiskStorageTypeInfoArgs']]]]] = None,
+                 custom_image_plan: Optional[pulumi.Input[Union['CustomImagePropertiesFromPlanArgs', 'CustomImagePropertiesFromPlanArgsDict']]] = None,
+                 data_disk_storage_info: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DataDiskStorageTypeInfoArgs', 'DataDiskStorageTypeInfoArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  is_plan_authorized: Optional[pulumi.Input[bool]] = None,
                  lab_name: Optional[pulumi.Input[str]] = None,
@@ -320,8 +325,8 @@ class CustomImage(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 vhd: Optional[pulumi.Input[pulumi.InputType['CustomImagePropertiesCustomArgs']]] = None,
-                 vm: Optional[pulumi.Input[pulumi.InputType['CustomImagePropertiesFromVmArgs']]] = None,
+                 vhd: Optional[pulumi.Input[Union['CustomImagePropertiesCustomArgs', 'CustomImagePropertiesCustomArgsDict']]] = None,
+                 vm: Optional[pulumi.Input[Union['CustomImagePropertiesFromVmArgs', 'CustomImagePropertiesFromVmArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

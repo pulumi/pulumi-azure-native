@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -301,18 +306,18 @@ class VirtualMachineRunCommandByVirtualMachine(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  async_execution: Optional[pulumi.Input[bool]] = None,
-                 error_blob_managed_identity: Optional[pulumi.Input[pulumi.InputType['RunCommandManagedIdentityArgs']]] = None,
+                 error_blob_managed_identity: Optional[pulumi.Input[Union['RunCommandManagedIdentityArgs', 'RunCommandManagedIdentityArgsDict']]] = None,
                  error_blob_uri: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 output_blob_managed_identity: Optional[pulumi.Input[pulumi.InputType['RunCommandManagedIdentityArgs']]] = None,
+                 output_blob_managed_identity: Optional[pulumi.Input[Union['RunCommandManagedIdentityArgs', 'RunCommandManagedIdentityArgsDict']]] = None,
                  output_blob_uri: Optional[pulumi.Input[str]] = None,
-                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RunCommandInputParameterArgs']]]]] = None,
-                 protected_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RunCommandInputParameterArgs']]]]] = None,
+                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RunCommandInputParameterArgs', 'RunCommandInputParameterArgsDict']]]]] = None,
+                 protected_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RunCommandInputParameterArgs', 'RunCommandInputParameterArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  run_as_password: Optional[pulumi.Input[str]] = None,
                  run_as_user: Optional[pulumi.Input[str]] = None,
                  run_command_name: Optional[pulumi.Input[str]] = None,
-                 source: Optional[pulumi.Input[pulumi.InputType['VirtualMachineRunCommandScriptSourceArgs']]] = None,
+                 source: Optional[pulumi.Input[Union['VirtualMachineRunCommandScriptSourceArgs', 'VirtualMachineRunCommandScriptSourceArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timeout_in_seconds: Optional[pulumi.Input[int]] = None,
                  treat_failure_as_deployment_failure: Optional[pulumi.Input[bool]] = None,
@@ -327,18 +332,18 @@ class VirtualMachineRunCommandByVirtualMachine(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] async_execution: Optional. If set to true, provisioning will complete as soon as the script starts and will not wait for script to complete.
-        :param pulumi.Input[pulumi.InputType['RunCommandManagedIdentityArgs']] error_blob_managed_identity: User-assigned managed identity that has access to errorBlobUri storage blob. Use an empty object in case of system-assigned identity. Make sure managed identity has been given access to blob's container with 'Storage Blob Data Contributor' role assignment. In case of user-assigned identity, make sure you add it under VM's identity. For more info on managed identity and Run Command, refer https://aka.ms/ManagedIdentity and https://aka.ms/RunCommandManaged 
+        :param pulumi.Input[Union['RunCommandManagedIdentityArgs', 'RunCommandManagedIdentityArgsDict']] error_blob_managed_identity: User-assigned managed identity that has access to errorBlobUri storage blob. Use an empty object in case of system-assigned identity. Make sure managed identity has been given access to blob's container with 'Storage Blob Data Contributor' role assignment. In case of user-assigned identity, make sure you add it under VM's identity. For more info on managed identity and Run Command, refer https://aka.ms/ManagedIdentity and https://aka.ms/RunCommandManaged 
         :param pulumi.Input[str] error_blob_uri: Specifies the Azure storage blob where script error stream will be uploaded. Use a SAS URI with read, append, create, write access OR use managed identity to provide the VM access to the blob. Refer errorBlobManagedIdentity parameter.
         :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[pulumi.InputType['RunCommandManagedIdentityArgs']] output_blob_managed_identity: User-assigned managed identity that has access to outputBlobUri storage blob. Use an empty object in case of system-assigned identity. Make sure managed identity has been given access to blob's container with 'Storage Blob Data Contributor' role assignment. In case of user-assigned identity, make sure you add it under VM's identity. For more info on managed identity and Run Command, refer https://aka.ms/ManagedIdentity and https://aka.ms/RunCommandManaged 
+        :param pulumi.Input[Union['RunCommandManagedIdentityArgs', 'RunCommandManagedIdentityArgsDict']] output_blob_managed_identity: User-assigned managed identity that has access to outputBlobUri storage blob. Use an empty object in case of system-assigned identity. Make sure managed identity has been given access to blob's container with 'Storage Blob Data Contributor' role assignment. In case of user-assigned identity, make sure you add it under VM's identity. For more info on managed identity and Run Command, refer https://aka.ms/ManagedIdentity and https://aka.ms/RunCommandManaged 
         :param pulumi.Input[str] output_blob_uri: Specifies the Azure storage blob where script output stream will be uploaded. Use a SAS URI with read, append, create, write access OR use managed identity to provide the VM access to the blob. Refer outputBlobManagedIdentity parameter. 
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RunCommandInputParameterArgs']]]] parameters: The parameters used by the script.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RunCommandInputParameterArgs']]]] protected_parameters: The parameters used by the script.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RunCommandInputParameterArgs', 'RunCommandInputParameterArgsDict']]]] parameters: The parameters used by the script.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RunCommandInputParameterArgs', 'RunCommandInputParameterArgsDict']]]] protected_parameters: The parameters used by the script.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] run_as_password: Specifies the user account password on the VM when executing the run command.
         :param pulumi.Input[str] run_as_user: Specifies the user account on the VM when executing the run command.
         :param pulumi.Input[str] run_command_name: The name of the virtual machine run command.
-        :param pulumi.Input[pulumi.InputType['VirtualMachineRunCommandScriptSourceArgs']] source: The source of the run command script.
+        :param pulumi.Input[Union['VirtualMachineRunCommandScriptSourceArgs', 'VirtualMachineRunCommandScriptSourceArgsDict']] source: The source of the run command script.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[int] timeout_in_seconds: The timeout in seconds to execute the run command.
         :param pulumi.Input[bool] treat_failure_as_deployment_failure: Optional. If set to true, any failure in the script will fail the deployment and ProvisioningState will be marked as Failed. If set to false, ProvisioningState would only reflect whether the run command was run or not by the extensions platform, it would not indicate whether script failed in case of script failures. See instance view of run command in case of script failures to see executionMessage, output, error: https://aka.ms/runcommandmanaged#get-execution-status-and-results 
@@ -372,18 +377,18 @@ class VirtualMachineRunCommandByVirtualMachine(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  async_execution: Optional[pulumi.Input[bool]] = None,
-                 error_blob_managed_identity: Optional[pulumi.Input[pulumi.InputType['RunCommandManagedIdentityArgs']]] = None,
+                 error_blob_managed_identity: Optional[pulumi.Input[Union['RunCommandManagedIdentityArgs', 'RunCommandManagedIdentityArgsDict']]] = None,
                  error_blob_uri: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 output_blob_managed_identity: Optional[pulumi.Input[pulumi.InputType['RunCommandManagedIdentityArgs']]] = None,
+                 output_blob_managed_identity: Optional[pulumi.Input[Union['RunCommandManagedIdentityArgs', 'RunCommandManagedIdentityArgsDict']]] = None,
                  output_blob_uri: Optional[pulumi.Input[str]] = None,
-                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RunCommandInputParameterArgs']]]]] = None,
-                 protected_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RunCommandInputParameterArgs']]]]] = None,
+                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RunCommandInputParameterArgs', 'RunCommandInputParameterArgsDict']]]]] = None,
+                 protected_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RunCommandInputParameterArgs', 'RunCommandInputParameterArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  run_as_password: Optional[pulumi.Input[str]] = None,
                  run_as_user: Optional[pulumi.Input[str]] = None,
                  run_command_name: Optional[pulumi.Input[str]] = None,
-                 source: Optional[pulumi.Input[pulumi.InputType['VirtualMachineRunCommandScriptSourceArgs']]] = None,
+                 source: Optional[pulumi.Input[Union['VirtualMachineRunCommandScriptSourceArgs', 'VirtualMachineRunCommandScriptSourceArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timeout_in_seconds: Optional[pulumi.Input[int]] = None,
                  treat_failure_as_deployment_failure: Optional[pulumi.Input[bool]] = None,

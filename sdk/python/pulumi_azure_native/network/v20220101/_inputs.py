@@ -4,15 +4,47 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'ProtocolCustomSettingsFormatArgs',
+    'ProtocolCustomSettingsFormatArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ProtocolCustomSettingsFormatArgsDict(TypedDict):
+        """
+        DDoS custom policy properties.
+        """
+        protocol: NotRequired[pulumi.Input[Union[str, 'DdosCustomPolicyProtocol']]]
+        """
+        The protocol for which the DDoS protection policy is being customized.
+        """
+        source_rate_override: NotRequired[pulumi.Input[str]]
+        """
+        The customized DDoS protection source rate.
+        """
+        trigger_rate_override: NotRequired[pulumi.Input[str]]
+        """
+        The customized DDoS protection trigger rate.
+        """
+        trigger_sensitivity_override: NotRequired[pulumi.Input[Union[str, 'DdosCustomPolicyTriggerSensitivityOverride']]]
+        """
+        The customized DDoS protection trigger rate sensitivity degrees. High: Trigger rate set with most sensitivity w.r.t. normal traffic. Default: Trigger rate set with moderate sensitivity w.r.t. normal traffic. Low: Trigger rate set with less sensitivity w.r.t. normal traffic. Relaxed: Trigger rate set with least sensitivity w.r.t. normal traffic.
+        """
+elif False:
+    ProtocolCustomSettingsFormatArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ProtocolCustomSettingsFormatArgs:

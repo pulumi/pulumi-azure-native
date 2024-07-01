@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -154,8 +159,8 @@ class VirtualNetworkTap(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 destination_load_balancer_front_end_ip_configuration: Optional[pulumi.Input[pulumi.InputType['FrontendIPConfigurationArgs']]] = None,
-                 destination_network_interface_ip_configuration: Optional[pulumi.Input[pulumi.InputType['NetworkInterfaceIPConfigurationArgs']]] = None,
+                 destination_load_balancer_front_end_ip_configuration: Optional[pulumi.Input[Union['FrontendIPConfigurationArgs', 'FrontendIPConfigurationArgsDict']]] = None,
+                 destination_network_interface_ip_configuration: Optional[pulumi.Input[Union['NetworkInterfaceIPConfigurationArgs', 'NetworkInterfaceIPConfigurationArgsDict']]] = None,
                  destination_port: Optional[pulumi.Input[int]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -171,8 +176,8 @@ class VirtualNetworkTap(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['FrontendIPConfigurationArgs']] destination_load_balancer_front_end_ip_configuration: The reference to the private IP address on the internal Load Balancer that will receive the tap.
-        :param pulumi.Input[pulumi.InputType['NetworkInterfaceIPConfigurationArgs']] destination_network_interface_ip_configuration: The reference to the private IP Address of the collector nic that will receive the tap.
+        :param pulumi.Input[Union['FrontendIPConfigurationArgs', 'FrontendIPConfigurationArgsDict']] destination_load_balancer_front_end_ip_configuration: The reference to the private IP address on the internal Load Balancer that will receive the tap.
+        :param pulumi.Input[Union['NetworkInterfaceIPConfigurationArgs', 'NetworkInterfaceIPConfigurationArgsDict']] destination_network_interface_ip_configuration: The reference to the private IP Address of the collector nic that will receive the tap.
         :param pulumi.Input[int] destination_port: The VXLAN destination port that will receive the tapped traffic.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
@@ -207,8 +212,8 @@ class VirtualNetworkTap(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 destination_load_balancer_front_end_ip_configuration: Optional[pulumi.Input[pulumi.InputType['FrontendIPConfigurationArgs']]] = None,
-                 destination_network_interface_ip_configuration: Optional[pulumi.Input[pulumi.InputType['NetworkInterfaceIPConfigurationArgs']]] = None,
+                 destination_load_balancer_front_end_ip_configuration: Optional[pulumi.Input[Union['FrontendIPConfigurationArgs', 'FrontendIPConfigurationArgsDict']]] = None,
+                 destination_network_interface_ip_configuration: Optional[pulumi.Input[Union['NetworkInterfaceIPConfigurationArgs', 'NetworkInterfaceIPConfigurationArgsDict']]] = None,
                  destination_port: Optional[pulumi.Input[int]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,

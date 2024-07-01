@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -290,13 +295,13 @@ class CommunicationsGateway(pulumi.CustomResource):
                  connectivity: Optional[pulumi.Input[Union[str, 'Connectivity']]] = None,
                  e911_type: Optional[pulumi.Input[Union[str, 'E911Type']]] = None,
                  emergency_dial_strings: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  integrated_mcp_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  on_prem_mcp_enabled: Optional[pulumi.Input[bool]] = None,
                  platforms: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'CommunicationsPlatform']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 service_locations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceRegionPropertiesArgs']]]]] = None,
+                 service_locations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceRegionPropertiesArgs', 'ServiceRegionPropertiesArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  teams_voicemail_pilot_number: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -315,13 +320,13 @@ class CommunicationsGateway(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'Connectivity']] connectivity: How to connect back to the operator network, e.g. MAPS
         :param pulumi.Input[Union[str, 'E911Type']] e911_type: How to handle 911 calls
         :param pulumi.Input[Sequence[pulumi.Input[str]]] emergency_dial_strings: A list of dial strings used for emergency calling.
-        :param pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']] identity: The managed service identities assigned to this resource.
+        :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: The managed service identities assigned to this resource.
         :param pulumi.Input[bool] integrated_mcp_enabled: Whether an integrated Mobile Control Point is in use.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[bool] on_prem_mcp_enabled: Whether an on-premises Mobile Control Point is in use.
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'CommunicationsPlatform']]]] platforms: What platforms to support
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceRegionPropertiesArgs']]]] service_locations: The regions in which to deploy the resources needed for Teams Calling
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceRegionPropertiesArgs', 'ServiceRegionPropertiesArgsDict']]]] service_locations: The regions in which to deploy the resources needed for Teams Calling
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] teams_voicemail_pilot_number: This number is used in Teams Phone Mobile scenarios for access to the voicemail IVR from the native dialer.
         """
@@ -359,13 +364,13 @@ class CommunicationsGateway(pulumi.CustomResource):
                  connectivity: Optional[pulumi.Input[Union[str, 'Connectivity']]] = None,
                  e911_type: Optional[pulumi.Input[Union[str, 'E911Type']]] = None,
                  emergency_dial_strings: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  integrated_mcp_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  on_prem_mcp_enabled: Optional[pulumi.Input[bool]] = None,
                  platforms: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'CommunicationsPlatform']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 service_locations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceRegionPropertiesArgs']]]]] = None,
+                 service_locations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceRegionPropertiesArgs', 'ServiceRegionPropertiesArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  teams_voicemail_pilot_number: Optional[pulumi.Input[str]] = None,
                  __props__=None):

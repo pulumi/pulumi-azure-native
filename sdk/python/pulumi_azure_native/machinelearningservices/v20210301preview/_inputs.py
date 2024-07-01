@@ -4,91 +4,192 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'AccountKeyDatastoreCredentialsArgs',
+    'AccountKeyDatastoreCredentialsArgsDict',
     'AccountKeyDatastoreSecretsArgs',
+    'AccountKeyDatastoreSecretsArgsDict',
     'AmlTokenArgs',
+    'AmlTokenArgsDict',
     'AutoScaleSettingsArgs',
+    'AutoScaleSettingsArgsDict',
     'AzureBlobContentsArgs',
+    'AzureBlobContentsArgsDict',
     'AzureDataLakeGen1ContentsArgs',
+    'AzureDataLakeGen1ContentsArgsDict',
     'AzureDataLakeGen2ContentsArgs',
+    'AzureDataLakeGen2ContentsArgsDict',
     'AzureFileContentsArgs',
+    'AzureFileContentsArgsDict',
     'AzurePostgreSqlContentsArgs',
+    'AzurePostgreSqlContentsArgsDict',
     'AzureSqlDatabaseContentsArgs',
+    'AzureSqlDatabaseContentsArgsDict',
     'BanditPolicyArgs',
+    'BanditPolicyArgsDict',
     'BatchDeploymentArgs',
+    'BatchDeploymentArgsDict',
     'BatchEndpointArgs',
+    'BatchEndpointArgsDict',
     'BatchOutputConfigurationArgs',
+    'BatchOutputConfigurationArgsDict',
     'BatchRetrySettingsArgs',
+    'BatchRetrySettingsArgsDict',
     'CertificateDatastoreCredentialsArgs',
+    'CertificateDatastoreCredentialsArgsDict',
     'CertificateDatastoreSecretsArgs',
+    'CertificateDatastoreSecretsArgsDict',
     'CodeConfigurationArgs',
+    'CodeConfigurationArgsDict',
     'CodeContainerArgs',
+    'CodeContainerArgsDict',
     'CodeVersionArgs',
+    'CodeVersionArgsDict',
     'CommandJobArgs',
+    'CommandJobArgsDict',
     'ComputeConfigurationArgs',
+    'ComputeConfigurationArgsDict',
     'ContainerResourceRequirementsArgs',
+    'ContainerResourceRequirementsArgsDict',
     'DataContainerArgs',
+    'DataContainerArgsDict',
     'DataPathAssetReferenceArgs',
+    'DataPathAssetReferenceArgsDict',
     'DataVersionArgs',
+    'DataVersionArgsDict',
     'DatastorePropertiesArgs',
+    'DatastorePropertiesArgsDict',
     'DockerBuildArgs',
+    'DockerBuildArgsDict',
     'DockerImagePlatformArgs',
+    'DockerImagePlatformArgsDict',
     'DockerImageArgs',
+    'DockerImageArgsDict',
     'EndpointAuthKeysArgs',
+    'EndpointAuthKeysArgsDict',
     'EnvironmentContainerArgs',
+    'EnvironmentContainerArgsDict',
     'EnvironmentSpecificationVersionArgs',
+    'EnvironmentSpecificationVersionArgsDict',
     'FlavorDataArgs',
+    'FlavorDataArgsDict',
     'GlusterFsContentsArgs',
+    'GlusterFsContentsArgsDict',
     'IdAssetReferenceArgs',
+    'IdAssetReferenceArgsDict',
     'InferenceContainerPropertiesArgs',
+    'InferenceContainerPropertiesArgsDict',
     'InputDataBindingArgs',
+    'InputDataBindingArgsDict',
     'K8sOnlineDeploymentArgs',
+    'K8sOnlineDeploymentArgsDict',
     'LabelCategoryArgs',
+    'LabelCategoryArgsDict',
     'LabelClassArgs',
+    'LabelClassArgsDict',
     'LabelingDatasetConfigurationArgs',
+    'LabelingDatasetConfigurationArgsDict',
     'LabelingJobImagePropertiesArgs',
+    'LabelingJobImagePropertiesArgsDict',
     'LabelingJobInstructionsArgs',
+    'LabelingJobInstructionsArgsDict',
     'LabelingJobTextPropertiesArgs',
+    'LabelingJobTextPropertiesArgsDict',
     'LabelingJobArgs',
+    'LabelingJobArgsDict',
     'LinkedInfoArgs',
+    'LinkedInfoArgsDict',
     'MLAssistConfigurationArgs',
+    'MLAssistConfigurationArgsDict',
     'ManagedIdentityArgs',
+    'ManagedIdentityArgsDict',
     'ManagedOnlineDeploymentArgs',
+    'ManagedOnlineDeploymentArgsDict',
     'ManualScaleSettingsArgs',
+    'ManualScaleSettingsArgsDict',
     'MedianStoppingPolicyArgs',
+    'MedianStoppingPolicyArgsDict',
     'ModelContainerArgs',
+    'ModelContainerArgsDict',
     'ModelVersionArgs',
+    'ModelVersionArgsDict',
     'MpiArgs',
+    'MpiArgsDict',
     'NoneDatastoreCredentialsArgs',
+    'NoneDatastoreCredentialsArgsDict',
     'NoneDatastoreSecretsArgs',
+    'NoneDatastoreSecretsArgsDict',
     'ObjectiveArgs',
+    'ObjectiveArgsDict',
     'OnlineEndpointArgs',
+    'OnlineEndpointArgsDict',
     'OnlineRequestSettingsArgs',
+    'OnlineRequestSettingsArgsDict',
     'OutputDataBindingArgs',
+    'OutputDataBindingArgsDict',
     'OutputPathAssetReferenceArgs',
+    'OutputPathAssetReferenceArgsDict',
     'ProbeSettingsArgs',
+    'ProbeSettingsArgsDict',
     'PyTorchArgs',
+    'PyTorchArgsDict',
     'ResourceIdentityArgs',
+    'ResourceIdentityArgsDict',
     'RouteArgs',
+    'RouteArgsDict',
     'SasDatastoreCredentialsArgs',
+    'SasDatastoreCredentialsArgsDict',
     'SasDatastoreSecretsArgs',
+    'SasDatastoreSecretsArgsDict',
     'ServicePrincipalDatastoreCredentialsArgs',
+    'ServicePrincipalDatastoreCredentialsArgsDict',
     'ServicePrincipalDatastoreSecretsArgs',
+    'ServicePrincipalDatastoreSecretsArgsDict',
     'SqlAdminDatastoreCredentialsArgs',
+    'SqlAdminDatastoreCredentialsArgsDict',
     'SqlAdminDatastoreSecretsArgs',
+    'SqlAdminDatastoreSecretsArgsDict',
     'SweepJobArgs',
+    'SweepJobArgsDict',
     'TensorFlowArgs',
+    'TensorFlowArgsDict',
     'TrialComponentArgs',
+    'TrialComponentArgsDict',
     'TruncationSelectionPolicyArgs',
+    'TruncationSelectionPolicyArgsDict',
     'UserAssignedIdentityMetaArgs',
+    'UserAssignedIdentityMetaArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AccountKeyDatastoreCredentialsArgsDict(TypedDict):
+        """
+        Account key datastore credentials configuration.
+        """
+        credentials_type: pulumi.Input[str]
+        """
+        Enum to determine the datastore credentials type.
+        Expected value is 'AccountKey'.
+        """
+        secrets: NotRequired[pulumi.Input['AccountKeyDatastoreSecretsArgsDict']]
+        """
+        Storage account secrets.
+        """
+elif False:
+    AccountKeyDatastoreCredentialsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AccountKeyDatastoreCredentialsArgs:
@@ -131,6 +232,23 @@ class AccountKeyDatastoreCredentialsArgs:
         pulumi.set(self, "secrets", value)
 
 
+if not MYPY:
+    class AccountKeyDatastoreSecretsArgsDict(TypedDict):
+        """
+        Datastore account key secrets.
+        """
+        secrets_type: pulumi.Input[str]
+        """
+        Enum to determine the datastore secrets type.
+        Expected value is 'AccountKey'.
+        """
+        key: NotRequired[pulumi.Input[str]]
+        """
+        Storage account key.
+        """
+elif False:
+    AccountKeyDatastoreSecretsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AccountKeyDatastoreSecretsArgs:
     def __init__(__self__, *,
@@ -172,6 +290,19 @@ class AccountKeyDatastoreSecretsArgs:
         pulumi.set(self, "key", value)
 
 
+if not MYPY:
+    class AmlTokenArgsDict(TypedDict):
+        """
+        AML Token identity configuration.
+        """
+        identity_type: pulumi.Input[str]
+        """
+        Enum to determine identity framework.
+        Expected value is 'AMLToken'.
+        """
+elif False:
+    AmlTokenArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AmlTokenArgs:
     def __init__(__self__, *,
@@ -196,6 +327,32 @@ class AmlTokenArgs:
     def identity_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "identity_type", value)
 
+
+if not MYPY:
+    class AutoScaleSettingsArgsDict(TypedDict):
+        scale_type: pulumi.Input[str]
+        """
+
+        Expected value is 'Auto'.
+        """
+        max_instances: NotRequired[pulumi.Input[int]]
+        """
+        Maximum number of instances for this deployment.
+        """
+        min_instances: NotRequired[pulumi.Input[int]]
+        """
+        Minimum number of instances for this deployment.
+        """
+        polling_interval: NotRequired[pulumi.Input[str]]
+        """
+        The polling interval in ISO 8691 format. Only supports duration with precision as low as Seconds.
+        """
+        target_utilization_percentage: NotRequired[pulumi.Input[int]]
+        """
+        Target CPU usage for the autoscaler.
+        """
+elif False:
+    AutoScaleSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AutoScaleSettingsArgs:
@@ -284,6 +441,39 @@ class AutoScaleSettingsArgs:
     def target_utilization_percentage(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "target_utilization_percentage", value)
 
+
+if not MYPY:
+    class AzureBlobContentsArgsDict(TypedDict):
+        """
+        Azure Blob datastore configuration.
+        """
+        account_name: pulumi.Input[str]
+        """
+        [Required] Storage account name.
+        """
+        container_name: pulumi.Input[str]
+        """
+        [Required] Storage account container name.
+        """
+        contents_type: pulumi.Input[str]
+        """
+        Enum to determine the datastore contents type.
+        Expected value is 'AzureBlob'.
+        """
+        credentials: pulumi.Input[Union['AccountKeyDatastoreCredentialsArgsDict', 'CertificateDatastoreCredentialsArgsDict', 'NoneDatastoreCredentialsArgsDict', 'SasDatastoreCredentialsArgsDict', 'ServicePrincipalDatastoreCredentialsArgsDict', 'SqlAdminDatastoreCredentialsArgsDict']]
+        """
+        [Required] Account credentials.
+        """
+        endpoint: pulumi.Input[str]
+        """
+        [Required] Azure cloud endpoint for the storage account.
+        """
+        protocol: pulumi.Input[str]
+        """
+        [Required] Protocol used to communicate with the storage account.
+        """
+elif False:
+    AzureBlobContentsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AzureBlobContentsArgs:
@@ -385,6 +575,27 @@ class AzureBlobContentsArgs:
         pulumi.set(self, "protocol", value)
 
 
+if not MYPY:
+    class AzureDataLakeGen1ContentsArgsDict(TypedDict):
+        """
+        Azure Data Lake Gen1 datastore configuration.
+        """
+        contents_type: pulumi.Input[str]
+        """
+        Enum to determine the datastore contents type.
+        Expected value is 'AzureDataLakeGen1'.
+        """
+        credentials: pulumi.Input[Union['AccountKeyDatastoreCredentialsArgsDict', 'CertificateDatastoreCredentialsArgsDict', 'NoneDatastoreCredentialsArgsDict', 'SasDatastoreCredentialsArgsDict', 'ServicePrincipalDatastoreCredentialsArgsDict', 'SqlAdminDatastoreCredentialsArgsDict']]
+        """
+        [Required] Account credentials.
+        """
+        store_name: pulumi.Input[str]
+        """
+        [Required] Azure Data Lake store name.
+        """
+elif False:
+    AzureDataLakeGen1ContentsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AzureDataLakeGen1ContentsArgs:
     def __init__(__self__, *,
@@ -439,6 +650,39 @@ class AzureDataLakeGen1ContentsArgs:
     def store_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "store_name", value)
 
+
+if not MYPY:
+    class AzureDataLakeGen2ContentsArgsDict(TypedDict):
+        """
+        Azure Data Lake Gen2 datastore configuration.
+        """
+        account_name: pulumi.Input[str]
+        """
+        [Required] Storage account name.
+        """
+        container_name: pulumi.Input[str]
+        """
+        [Required] Storage account container name.
+        """
+        contents_type: pulumi.Input[str]
+        """
+        Enum to determine the datastore contents type.
+        Expected value is 'AzureDataLakeGen2'.
+        """
+        credentials: pulumi.Input[Union['AccountKeyDatastoreCredentialsArgsDict', 'CertificateDatastoreCredentialsArgsDict', 'NoneDatastoreCredentialsArgsDict', 'SasDatastoreCredentialsArgsDict', 'ServicePrincipalDatastoreCredentialsArgsDict', 'SqlAdminDatastoreCredentialsArgsDict']]
+        """
+        [Required] Account credentials.
+        """
+        endpoint: pulumi.Input[str]
+        """
+        [Required] Azure cloud endpoint for the storage account.
+        """
+        protocol: pulumi.Input[str]
+        """
+        [Required] Protocol used to communicate with the storage account.
+        """
+elif False:
+    AzureDataLakeGen2ContentsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AzureDataLakeGen2ContentsArgs:
@@ -540,6 +784,39 @@ class AzureDataLakeGen2ContentsArgs:
         pulumi.set(self, "protocol", value)
 
 
+if not MYPY:
+    class AzureFileContentsArgsDict(TypedDict):
+        """
+        Azure File datastore configuration.
+        """
+        account_name: pulumi.Input[str]
+        """
+        [Required] Storage account name.
+        """
+        container_name: pulumi.Input[str]
+        """
+        [Required] Storage account container name.
+        """
+        contents_type: pulumi.Input[str]
+        """
+        Enum to determine the datastore contents type.
+        Expected value is 'AzureFile'.
+        """
+        credentials: pulumi.Input[Union['AccountKeyDatastoreCredentialsArgsDict', 'CertificateDatastoreCredentialsArgsDict', 'NoneDatastoreCredentialsArgsDict', 'SasDatastoreCredentialsArgsDict', 'ServicePrincipalDatastoreCredentialsArgsDict', 'SqlAdminDatastoreCredentialsArgsDict']]
+        """
+        [Required] Account credentials.
+        """
+        endpoint: pulumi.Input[str]
+        """
+        [Required] Azure cloud endpoint for the storage account.
+        """
+        protocol: pulumi.Input[str]
+        """
+        [Required] Protocol used to communicate with the storage account.
+        """
+elif False:
+    AzureFileContentsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AzureFileContentsArgs:
     def __init__(__self__, *,
@@ -639,6 +916,43 @@ class AzureFileContentsArgs:
     def protocol(self, value: pulumi.Input[str]):
         pulumi.set(self, "protocol", value)
 
+
+if not MYPY:
+    class AzurePostgreSqlContentsArgsDict(TypedDict):
+        """
+        Azure Postgre SQL datastore configuration.
+        """
+        contents_type: pulumi.Input[str]
+        """
+        Enum to determine the datastore contents type.
+        Expected value is 'AzurePostgreSql'.
+        """
+        credentials: pulumi.Input[Union['AccountKeyDatastoreCredentialsArgsDict', 'CertificateDatastoreCredentialsArgsDict', 'NoneDatastoreCredentialsArgsDict', 'SasDatastoreCredentialsArgsDict', 'ServicePrincipalDatastoreCredentialsArgsDict', 'SqlAdminDatastoreCredentialsArgsDict']]
+        """
+        [Required] Account credentials.
+        """
+        database_name: pulumi.Input[str]
+        """
+        [Required] Azure SQL database name.
+        """
+        endpoint: pulumi.Input[str]
+        """
+        [Required] Azure cloud endpoint for the database.
+        """
+        port_number: pulumi.Input[int]
+        """
+        [Required] Azure SQL server port.
+        """
+        server_name: pulumi.Input[str]
+        """
+        [Required] Azure SQL server name.
+        """
+        enable_ssl: NotRequired[pulumi.Input[bool]]
+        """
+        Whether the Azure PostgreSQL server requires SSL.
+        """
+elif False:
+    AzurePostgreSqlContentsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AzurePostgreSqlContentsArgs:
@@ -756,6 +1070,39 @@ class AzurePostgreSqlContentsArgs:
         pulumi.set(self, "enable_ssl", value)
 
 
+if not MYPY:
+    class AzureSqlDatabaseContentsArgsDict(TypedDict):
+        """
+        Azure SQL Database datastore configuration.
+        """
+        contents_type: pulumi.Input[str]
+        """
+        Enum to determine the datastore contents type.
+        Expected value is 'AzureSqlDatabase'.
+        """
+        credentials: pulumi.Input[Union['AccountKeyDatastoreCredentialsArgsDict', 'CertificateDatastoreCredentialsArgsDict', 'NoneDatastoreCredentialsArgsDict', 'SasDatastoreCredentialsArgsDict', 'ServicePrincipalDatastoreCredentialsArgsDict', 'SqlAdminDatastoreCredentialsArgsDict']]
+        """
+        [Required] Account credentials.
+        """
+        database_name: pulumi.Input[str]
+        """
+        [Required] Azure SQL database name.
+        """
+        endpoint: pulumi.Input[str]
+        """
+        [Required] Azure cloud endpoint for the database.
+        """
+        port_number: pulumi.Input[int]
+        """
+        [Required] Azure SQL server port.
+        """
+        server_name: pulumi.Input[str]
+        """
+        [Required] Azure SQL server name.
+        """
+elif False:
+    AzureSqlDatabaseContentsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AzureSqlDatabaseContentsArgs:
     def __init__(__self__, *,
@@ -856,6 +1203,35 @@ class AzureSqlDatabaseContentsArgs:
         pulumi.set(self, "server_name", value)
 
 
+if not MYPY:
+    class BanditPolicyArgsDict(TypedDict):
+        """
+        Defines an early termination policy based on slack criteria, and a frequency and delay interval for evaluation.
+        """
+        policy_type: pulumi.Input[str]
+        """
+
+        Expected value is 'Bandit'.
+        """
+        delay_evaluation: NotRequired[pulumi.Input[int]]
+        """
+        Number of intervals by which to delay the first evaluation.
+        """
+        evaluation_interval: NotRequired[pulumi.Input[int]]
+        """
+        Interval (number of runs) between policy evaluations.
+        """
+        slack_amount: NotRequired[pulumi.Input[float]]
+        """
+        Absolute distance allowed from the best performing run.
+        """
+        slack_factor: NotRequired[pulumi.Input[float]]
+        """
+        Ratio of the allowed distance from the best performing run.
+        """
+elif False:
+    BanditPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class BanditPolicyArgs:
     def __init__(__self__, *,
@@ -944,6 +1320,72 @@ class BanditPolicyArgs:
     def slack_factor(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "slack_factor", value)
 
+
+if not MYPY:
+    class BatchDeploymentArgsDict(TypedDict):
+        """
+        Batch inference settings per deployment.
+        """
+        code_configuration: NotRequired[pulumi.Input['CodeConfigurationArgsDict']]
+        """
+        Code configuration for the endpoint deployment.
+        """
+        compute: NotRequired[pulumi.Input['ComputeConfigurationArgsDict']]
+        """
+        Configuration for compute binding.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Description of the endpoint deployment.
+        """
+        environment_id: NotRequired[pulumi.Input[str]]
+        """
+        ARM resource ID of the environment specification for the endpoint deployment.
+        """
+        environment_variables: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Environment variables configuration for the deployment.
+        """
+        error_threshold: NotRequired[pulumi.Input[int]]
+        """
+        Error threshold, if the error count for the entire input goes above this value,
+        the batch inference will be aborted. Range is [-1, int.MaxValue].
+        For FileDataset, this value is the count of file failures.
+        For TabularDataset, this value is the count of record failures.
+        If set to -1 (the lower bound), all failures during batch inference will be ignored.
+        """
+        logging_level: NotRequired[pulumi.Input[Union[str, 'BatchLoggingLevel']]]
+        """
+        Logging level for batch inference operation.
+        """
+        mini_batch_size: NotRequired[pulumi.Input[float]]
+        """
+        Size of the mini-batch passed to each batch invocation.
+        For FileDataset, this is the number of files per mini-batch.
+        For TabularDataset, this is the size of the records in bytes, per mini-batch.
+        """
+        model: NotRequired[pulumi.Input[Union['DataPathAssetReferenceArgsDict', 'IdAssetReferenceArgsDict', 'OutputPathAssetReferenceArgsDict']]]
+        """
+        Reference to the model asset for the endpoint deployment.
+        """
+        output_configuration: NotRequired[pulumi.Input['BatchOutputConfigurationArgsDict']]
+        """
+        Output configuration for the batch inference operation.
+        """
+        partition_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Partition keys list used for Named partitioning.
+        """
+        properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Property dictionary. Properties can be added, but not removed or altered.
+        """
+        retry_settings: NotRequired[pulumi.Input['BatchRetrySettingsArgsDict']]
+        """
+        Retry Settings for the batch inference operation.
+        """
+elif False:
+    BatchDeploymentArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class BatchDeploymentArgs:
@@ -1173,6 +1615,35 @@ class BatchDeploymentArgs:
         pulumi.set(self, "retry_settings", value)
 
 
+if not MYPY:
+    class BatchEndpointArgsDict(TypedDict):
+        """
+        Batch endpoint configuration.
+        """
+        auth_mode: NotRequired[pulumi.Input[Union[str, 'EndpointAuthMode']]]
+        """
+        [Required] Inference endpoint authentication mode type
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Description of the inference endpoint.
+        """
+        keys: NotRequired[pulumi.Input['EndpointAuthKeysArgsDict']]
+        """
+        EndpointAuthKeys to set initially on an Endpoint.
+        This property will always be returned as null. AuthKey values must be retrieved using the ListKeys API.
+        """
+        properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Property dictionary. Properties can be added, but not removed or altered.
+        """
+        traffic: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[int]]]]
+        """
+        Traffic rules on how the traffic will be routed across deployments.
+        """
+elif False:
+    BatchEndpointArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class BatchEndpointArgs:
     def __init__(__self__, *,
@@ -1263,6 +1734,22 @@ class BatchEndpointArgs:
         pulumi.set(self, "traffic", value)
 
 
+if not MYPY:
+    class BatchOutputConfigurationArgsDict(TypedDict):
+        """
+        Batch inference output configuration.
+        """
+        append_row_file_name: NotRequired[pulumi.Input[str]]
+        """
+        Customized output file name for append_row output action.
+        """
+        output_action: NotRequired[pulumi.Input[Union[str, 'BatchOutputAction']]]
+        """
+        Indicates how the output will be organized.
+        """
+elif False:
+    BatchOutputConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class BatchOutputConfigurationArgs:
     def __init__(__self__, *,
@@ -1303,6 +1790,22 @@ class BatchOutputConfigurationArgs:
         pulumi.set(self, "output_action", value)
 
 
+if not MYPY:
+    class BatchRetrySettingsArgsDict(TypedDict):
+        """
+        Retry settings for a batch inference operation.
+        """
+        max_retries: NotRequired[pulumi.Input[int]]
+        """
+        Maximum retry count for a mini-batch
+        """
+        timeout: NotRequired[pulumi.Input[str]]
+        """
+        Invocation timeout for a mini-batch, in ISO 8601 format.
+        """
+elif False:
+    BatchRetrySettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class BatchRetrySettingsArgs:
     def __init__(__self__, *,
@@ -1342,6 +1845,43 @@ class BatchRetrySettingsArgs:
     def timeout(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "timeout", value)
 
+
+if not MYPY:
+    class CertificateDatastoreCredentialsArgsDict(TypedDict):
+        """
+        Certificate datastore credentials configuration.
+        """
+        client_id: pulumi.Input[str]
+        """
+        [Required] Service principal client ID.
+        """
+        credentials_type: pulumi.Input[str]
+        """
+        Enum to determine the datastore credentials type.
+        Expected value is 'Certificate'.
+        """
+        tenant_id: pulumi.Input[str]
+        """
+        [Required] ID of the tenant to which the service principal belongs.
+        """
+        thumbprint: pulumi.Input[str]
+        """
+        [Required] Thumbprint of the certificate used for authentication.
+        """
+        authority_url: NotRequired[pulumi.Input[str]]
+        """
+        Authority URL used for authentication.
+        """
+        resource_uri: NotRequired[pulumi.Input[str]]
+        """
+        Resource the service principal has access to.
+        """
+        secrets: NotRequired[pulumi.Input['CertificateDatastoreSecretsArgsDict']]
+        """
+        Service principal secrets.
+        """
+elif False:
+    CertificateDatastoreCredentialsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CertificateDatastoreCredentialsArgs:
@@ -1461,6 +2001,23 @@ class CertificateDatastoreCredentialsArgs:
         pulumi.set(self, "secrets", value)
 
 
+if not MYPY:
+    class CertificateDatastoreSecretsArgsDict(TypedDict):
+        """
+        Datastore certificate secrets.
+        """
+        secrets_type: pulumi.Input[str]
+        """
+        Enum to determine the datastore secrets type.
+        Expected value is 'Certificate'.
+        """
+        certificate: NotRequired[pulumi.Input[str]]
+        """
+        Service principal certificate.
+        """
+elif False:
+    CertificateDatastoreSecretsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CertificateDatastoreSecretsArgs:
     def __init__(__self__, *,
@@ -1502,6 +2059,22 @@ class CertificateDatastoreSecretsArgs:
         pulumi.set(self, "certificate", value)
 
 
+if not MYPY:
+    class CodeConfigurationArgsDict(TypedDict):
+        """
+        Configuration for a scoring code asset.
+        """
+        scoring_script: pulumi.Input[str]
+        """
+        [Required] The script to execute on startup. eg. "score.py"
+        """
+        code_id: NotRequired[pulumi.Input[str]]
+        """
+        ARM resource ID of the code asset.
+        """
+elif False:
+    CodeConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CodeConfigurationArgs:
     def __init__(__self__, *,
@@ -1540,6 +2113,26 @@ class CodeConfigurationArgs:
     def code_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "code_id", value)
 
+
+if not MYPY:
+    class CodeContainerArgsDict(TypedDict):
+        """
+        Container for code asset versions.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The asset description text.
+        """
+        properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        The asset property dictionary.
+        """
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Tag dictionary. Tags can be added, removed, and updated.
+        """
+elif False:
+    CodeContainerArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CodeContainerArgs:
@@ -1596,6 +2189,38 @@ class CodeContainerArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+
+if not MYPY:
+    class CodeVersionArgsDict(TypedDict):
+        """
+        Code asset version details.
+        """
+        path: pulumi.Input[str]
+        """
+        [Required] The path of the file/directory in the datastore.
+        """
+        datastore_id: NotRequired[pulumi.Input[str]]
+        """
+        ARM resource ID of the datastore where the asset is located.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The asset description text.
+        """
+        is_anonymous: NotRequired[pulumi.Input[bool]]
+        """
+        If the name version are system generated (anonymous registration).
+        """
+        properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        The asset property dictionary.
+        """
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Tag dictionary. Tags can be added, removed, and updated.
+        """
+elif False:
+    CodeVersionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CodeVersionArgs:
@@ -1699,6 +2324,81 @@ class CodeVersionArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+
+if not MYPY:
+    class CommandJobArgsDict(TypedDict):
+        """
+        Command job definition.
+        """
+        command: pulumi.Input[str]
+        """
+        [Required] The command to execute on startup of the job. eg. "python train.py"
+        """
+        compute: pulumi.Input['ComputeConfigurationArgsDict']
+        """
+        [Required] Compute binding for the job.
+        """
+        job_type: pulumi.Input[str]
+        """
+        Enum to determine the type of job.
+        Expected value is 'Command'.
+        """
+        code_id: NotRequired[pulumi.Input[str]]
+        """
+        ARM resource ID of the code asset.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The asset description text.
+        """
+        distribution: NotRequired[pulumi.Input[Union['MpiArgsDict', 'PyTorchArgsDict', 'TensorFlowArgsDict']]]
+        """
+        Distribution configuration of the job. If set, this should be one of Mpi, Tensorflow, PyTorch, or null.
+        """
+        environment_id: NotRequired[pulumi.Input[str]]
+        """
+        The ARM resource ID of the Environment specification for the job.
+        """
+        environment_variables: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Environment variables included in the job.
+        """
+        experiment_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the experiment the job belongs to. If not set, the job is placed in the "Default" experiment.
+        """
+        identity: NotRequired[pulumi.Input[Union['AmlTokenArgsDict', 'ManagedIdentityArgsDict']]]
+        """
+        Identity configuration. If set, this should be one of AmlToken, ManagedIdentity, or null.
+        Defaults to AmlToken if null.
+        """
+        input_data_bindings: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['InputDataBindingArgsDict']]]]
+        """
+        Mapping of input data bindings used in the job.
+        """
+        output_data_bindings: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['OutputDataBindingArgsDict']]]]
+        """
+        Mapping of output data bindings used in the job.
+        """
+        priority: NotRequired[pulumi.Input[int]]
+        """
+        Job priority for scheduling policy. Only applies to AMLCompute.
+        Private preview feature and only available to users on the allow list.
+        """
+        properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        The asset property dictionary.
+        """
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Tag dictionary. Tags can be added, removed, and updated.
+        """
+        timeout: NotRequired[pulumi.Input[str]]
+        """
+        The max run duration in ISO 8601 format, after which the job will be cancelled. Only supports duration with precision as low as Seconds.
+        """
+elif False:
+    CommandJobArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CommandJobArgs:
@@ -1967,6 +2667,38 @@ class CommandJobArgs:
         pulumi.set(self, "timeout", value)
 
 
+if not MYPY:
+    class ComputeConfigurationArgsDict(TypedDict):
+        """
+        Configuration for compute binding.
+        """
+        instance_count: NotRequired[pulumi.Input[int]]
+        """
+        Number of instances or nodes.
+        """
+        instance_type: NotRequired[pulumi.Input[str]]
+        """
+        SKU type to run on.
+        """
+        is_local: NotRequired[pulumi.Input[bool]]
+        """
+        Set to true for jobs running on local compute.
+        """
+        location: NotRequired[pulumi.Input[str]]
+        """
+        Location for virtual cluster run.
+        """
+        properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Additional properties.
+        """
+        target: NotRequired[pulumi.Input[str]]
+        """
+        ARM resource ID of the Compute you are targeting. If not provided the resource will be deployed as Managed.
+        """
+elif False:
+    ComputeConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ComputeConfigurationArgs:
     def __init__(__self__, *,
@@ -2070,6 +2802,42 @@ class ComputeConfigurationArgs:
     def target(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "target", value)
 
+
+if not MYPY:
+    class ContainerResourceRequirementsArgsDict(TypedDict):
+        """
+        The resource requirements for the container (cpu and memory).
+        """
+        cpu: NotRequired[pulumi.Input[float]]
+        """
+        The minimum amount of CPU cores to be used by the container. More info:
+        https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
+        """
+        cpu_limit: NotRequired[pulumi.Input[float]]
+        """
+        The maximum amount of CPU cores allowed to be used by the container. More info:
+        https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
+        """
+        fpga: NotRequired[pulumi.Input[int]]
+        """
+        The number of FPGA PCIE devices exposed to the container. Must be multiple of 2.
+        """
+        gpu: NotRequired[pulumi.Input[int]]
+        """
+        The number of GPU cores in the container.
+        """
+        memory_in_gb: NotRequired[pulumi.Input[float]]
+        """
+        The minimum amount of memory (in GB) to be used by the container. More info:
+        https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
+        """
+        memory_in_gb_limit: NotRequired[pulumi.Input[float]]
+        """
+        The maximum amount of memory (in GB) allowed to be used by the container. More info:
+        https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
+        """
+elif False:
+    ContainerResourceRequirementsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ContainerResourceRequirementsArgs:
@@ -2183,6 +2951,26 @@ class ContainerResourceRequirementsArgs:
         pulumi.set(self, "memory_in_gb_limit", value)
 
 
+if not MYPY:
+    class DataContainerArgsDict(TypedDict):
+        """
+        Container for data asset versions.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The asset description text.
+        """
+        properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        The asset property dictionary.
+        """
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Tag dictionary. Tags can be added, removed, and updated.
+        """
+elif False:
+    DataContainerArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DataContainerArgs:
     def __init__(__self__, *,
@@ -2238,6 +3026,27 @@ class DataContainerArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+
+if not MYPY:
+    class DataPathAssetReferenceArgsDict(TypedDict):
+        """
+        Reference to an asset via its path in a datastore.
+        """
+        reference_type: pulumi.Input[str]
+        """
+        Enum to determine which reference method to use for an asset.
+        Expected value is 'DataPath'.
+        """
+        datastore_id: NotRequired[pulumi.Input[str]]
+        """
+        ARM resource ID of the datastore where the asset is located.
+        """
+        path: NotRequired[pulumi.Input[str]]
+        """
+        The path of the file/directory in the datastore.
+        """
+elif False:
+    DataPathAssetReferenceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataPathAssetReferenceArgs:
@@ -2295,6 +3104,42 @@ class DataPathAssetReferenceArgs:
     def path(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "path", value)
 
+
+if not MYPY:
+    class DataVersionArgsDict(TypedDict):
+        """
+        Data asset version details.
+        """
+        path: pulumi.Input[str]
+        """
+        [Required] The path of the file/directory in the datastore.
+        """
+        dataset_type: NotRequired[pulumi.Input[Union[str, 'DatasetType']]]
+        """
+        The Format of dataset.
+        """
+        datastore_id: NotRequired[pulumi.Input[str]]
+        """
+        ARM resource ID of the datastore where the asset is located.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The asset description text.
+        """
+        is_anonymous: NotRequired[pulumi.Input[bool]]
+        """
+        If the name version are system generated (anonymous registration).
+        """
+        properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        The asset property dictionary.
+        """
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Tag dictionary. Tags can be added, removed, and updated.
+        """
+elif False:
+    DataVersionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataVersionArgs:
@@ -2415,6 +3260,38 @@ class DataVersionArgs:
         pulumi.set(self, "tags", value)
 
 
+if not MYPY:
+    class DatastorePropertiesArgsDict(TypedDict):
+        """
+        Datastore definition.
+        """
+        contents: pulumi.Input[Union['AzureBlobContentsArgsDict', 'AzureDataLakeGen1ContentsArgsDict', 'AzureDataLakeGen2ContentsArgsDict', 'AzureFileContentsArgsDict', 'AzurePostgreSqlContentsArgsDict', 'AzureSqlDatabaseContentsArgsDict', 'GlusterFsContentsArgsDict']]
+        """
+        [Required] Reference to the datastore storage contents.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The asset description text.
+        """
+        is_default: NotRequired[pulumi.Input[bool]]
+        """
+        Whether this datastore is the default for the workspace.
+        """
+        linked_info: NotRequired[pulumi.Input['LinkedInfoArgsDict']]
+        """
+        Information about the datastore origin, if linked.
+        """
+        properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        The asset property dictionary.
+        """
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Tag dictionary. Tags can be added, removed, and updated.
+        """
+elif False:
+    DatastorePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DatastorePropertiesArgs:
     def __init__(__self__, *,
@@ -2518,6 +3395,34 @@ class DatastorePropertiesArgs:
         pulumi.set(self, "tags", value)
 
 
+if not MYPY:
+    class DockerBuildArgsDict(TypedDict):
+        """
+        Class to represent configuration settings for Docker Build
+        """
+        docker_specification_type: pulumi.Input[str]
+        """
+        Enum to determine docker specification type. Must be either Build or Image.
+        Expected value is 'Build'.
+        """
+        dockerfile: pulumi.Input[str]
+        """
+        [Required] Docker command line instructions to assemble an image.
+        <seealso href="https://repo2docker.readthedocs.io/en/latest/config_files.html#dockerfile-advanced-environments" />
+        """
+        context: NotRequired[pulumi.Input[str]]
+        """
+        Path to a snapshot of the Docker Context. This property is only valid if Dockerfile is specified.
+        The path is relative to the asset path which must contain a single Blob URI value.
+        <seealso href="https://docs.docker.com/engine/context/working-with-contexts/" />
+        """
+        platform: NotRequired[pulumi.Input['DockerImagePlatformArgsDict']]
+        """
+        The platform information of the docker image.
+        """
+elif False:
+    DockerBuildArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DockerBuildArgs:
     def __init__(__self__, *,
@@ -2596,6 +3501,15 @@ class DockerBuildArgs:
         pulumi.set(self, "platform", value)
 
 
+if not MYPY:
+    class DockerImagePlatformArgsDict(TypedDict):
+        operating_system_type: NotRequired[pulumi.Input[Union[str, 'OperatingSystemType']]]
+        """
+        The OS type the Environment.
+        """
+elif False:
+    DockerImagePlatformArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DockerImagePlatformArgs:
     def __init__(__self__, *,
@@ -2618,6 +3532,28 @@ class DockerImagePlatformArgs:
     def operating_system_type(self, value: Optional[pulumi.Input[Union[str, 'OperatingSystemType']]]):
         pulumi.set(self, "operating_system_type", value)
 
+
+if not MYPY:
+    class DockerImageArgsDict(TypedDict):
+        """
+        Class to represent configuration settings for Docker Build
+        """
+        docker_image_uri: pulumi.Input[str]
+        """
+        [Required] Image name of a custom base image.
+        <seealso href="https://docs.microsoft.com/en-us/azure/machine-learning/how-to-deploy-custom-docker-image#use-a-custom-base-image" />
+        """
+        docker_specification_type: pulumi.Input[str]
+        """
+        Enum to determine docker specification type. Must be either Build or Image.
+        Expected value is 'Image'.
+        """
+        platform: NotRequired[pulumi.Input['DockerImagePlatformArgsDict']]
+        """
+        The platform information of the docker image.
+        """
+elif False:
+    DockerImageArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DockerImageArgs:
@@ -2677,6 +3613,22 @@ class DockerImageArgs:
         pulumi.set(self, "platform", value)
 
 
+if not MYPY:
+    class EndpointAuthKeysArgsDict(TypedDict):
+        """
+        Keys for endpoint authentication.
+        """
+        primary_key: NotRequired[pulumi.Input[str]]
+        """
+        The primary key.
+        """
+        secondary_key: NotRequired[pulumi.Input[str]]
+        """
+        The secondary key.
+        """
+elif False:
+    EndpointAuthKeysArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EndpointAuthKeysArgs:
     def __init__(__self__, *,
@@ -2716,6 +3668,26 @@ class EndpointAuthKeysArgs:
     def secondary_key(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "secondary_key", value)
 
+
+if not MYPY:
+    class EnvironmentContainerArgsDict(TypedDict):
+        """
+        Container for environment specification versions.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The asset description text.
+        """
+        properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        The asset property dictionary.
+        """
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Tag dictionary. Tags can be added, removed, and updated.
+        """
+elif False:
+    EnvironmentContainerArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EnvironmentContainerArgs:
@@ -2772,6 +3744,44 @@ class EnvironmentContainerArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+
+if not MYPY:
+    class EnvironmentSpecificationVersionArgsDict(TypedDict):
+        """
+        Environment specification version details.
+        <see href="https://repo2docker.readthedocs.io/en/latest/specification.html" />
+        """
+        conda_file: NotRequired[pulumi.Input[str]]
+        """
+        Standard configuration file used by Conda that lets you install any kind of package, including Python, R, and C/C++ packages.
+        <see href="https://repo2docker.readthedocs.io/en/latest/config_files.html#environment-yml-install-a-conda-environment" />
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The asset description text.
+        """
+        docker: NotRequired[pulumi.Input[Union['DockerBuildArgsDict', 'DockerImageArgsDict']]]
+        """
+        Configuration settings for Docker.
+        """
+        inference_container_properties: NotRequired[pulumi.Input['InferenceContainerPropertiesArgsDict']]
+        """
+        Defines configuration specific to inference.
+        """
+        is_anonymous: NotRequired[pulumi.Input[bool]]
+        """
+        If the name version are system generated (anonymous registration).
+        """
+        properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        The asset property dictionary.
+        """
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Tag dictionary. Tags can be added, removed, and updated.
+        """
+elif False:
+    EnvironmentSpecificationVersionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EnvironmentSpecificationVersionArgs:
@@ -2896,6 +3906,15 @@ class EnvironmentSpecificationVersionArgs:
         pulumi.set(self, "tags", value)
 
 
+if not MYPY:
+    class FlavorDataArgsDict(TypedDict):
+        data: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Model flavor-specific data.
+        """
+elif False:
+    FlavorDataArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FlavorDataArgs:
     def __init__(__self__, *,
@@ -2918,6 +3937,27 @@ class FlavorDataArgs:
     def data(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "data", value)
 
+
+if not MYPY:
+    class GlusterFsContentsArgsDict(TypedDict):
+        """
+        GlusterFs datastore configuration.
+        """
+        contents_type: pulumi.Input[str]
+        """
+        Enum to determine the datastore contents type.
+        Expected value is 'GlusterFs'.
+        """
+        server_address: pulumi.Input[str]
+        """
+        [Required] GlusterFS server address (can be the IP address or server name).
+        """
+        volume_name: pulumi.Input[str]
+        """
+        [Required] GlusterFS volume name.
+        """
+elif False:
+    GlusterFsContentsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GlusterFsContentsArgs:
@@ -2974,6 +4014,23 @@ class GlusterFsContentsArgs:
         pulumi.set(self, "volume_name", value)
 
 
+if not MYPY:
+    class IdAssetReferenceArgsDict(TypedDict):
+        """
+        Reference to an asset via its ARM resource ID.
+        """
+        asset_id: pulumi.Input[str]
+        """
+        [Required] ARM resource ID of the asset.
+        """
+        reference_type: pulumi.Input[str]
+        """
+        Enum to determine which reference method to use for an asset.
+        Expected value is 'Id'.
+        """
+elif False:
+    IdAssetReferenceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IdAssetReferenceArgs:
     def __init__(__self__, *,
@@ -3013,6 +4070,23 @@ class IdAssetReferenceArgs:
     def reference_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "reference_type", value)
 
+
+if not MYPY:
+    class InferenceContainerPropertiesArgsDict(TypedDict):
+        liveness_route: NotRequired[pulumi.Input['RouteArgsDict']]
+        """
+        The route to check the liveness of the inference server container.
+        """
+        readiness_route: NotRequired[pulumi.Input['RouteArgsDict']]
+        """
+        The route to check the readiness of the inference server container.
+        """
+        scoring_route: NotRequired[pulumi.Input['RouteArgsDict']]
+        """
+        The port to send the scoring requests to, within the inference server container.
+        """
+elif False:
+    InferenceContainerPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InferenceContainerPropertiesArgs:
@@ -3069,6 +4143,23 @@ class InferenceContainerPropertiesArgs:
         pulumi.set(self, "scoring_route", value)
 
 
+if not MYPY:
+    class InputDataBindingArgsDict(TypedDict):
+        data_id: NotRequired[pulumi.Input[str]]
+        """
+        ARM resource ID of the registered dataVersion.
+        """
+        mode: NotRequired[pulumi.Input[Union[str, 'DataBindingMode']]]
+        """
+        Mechanism for accessing the data artifact.
+        """
+        path_on_compute: NotRequired[pulumi.Input[str]]
+        """
+        Location of data inside the container process.
+        """
+elif False:
+    InputDataBindingArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InputDataBindingArgs:
     def __init__(__self__, *,
@@ -3123,6 +4214,60 @@ class InputDataBindingArgs:
     def path_on_compute(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "path_on_compute", value)
 
+
+if not MYPY:
+    class K8sOnlineDeploymentArgsDict(TypedDict):
+        endpoint_compute_type: pulumi.Input[str]
+        """
+        Enum to determine endpoint compute type.
+        Expected value is 'K8S'.
+        """
+        app_insights_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If true, enables Application Insights logging.
+        """
+        code_configuration: NotRequired[pulumi.Input['CodeConfigurationArgsDict']]
+        """
+        Code configuration for the endpoint deployment.
+        """
+        container_resource_requirements: NotRequired[pulumi.Input['ContainerResourceRequirementsArgsDict']]
+        """
+        Resource requirements for each container instance within an online deployment.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Description of the endpoint deployment.
+        """
+        environment_id: NotRequired[pulumi.Input[str]]
+        """
+        ARM resource ID of the environment specification for the endpoint deployment.
+        """
+        environment_variables: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Environment variables configuration for the deployment.
+        """
+        liveness_probe: NotRequired[pulumi.Input['ProbeSettingsArgsDict']]
+        """
+        Deployment container liveness/readiness probe configuration.
+        """
+        model: NotRequired[pulumi.Input[Union['DataPathAssetReferenceArgsDict', 'IdAssetReferenceArgsDict', 'OutputPathAssetReferenceArgsDict']]]
+        """
+        Reference to the model asset for the endpoint deployment.
+        """
+        properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Property dictionary. Properties can be added, but not removed or altered.
+        """
+        request_settings: NotRequired[pulumi.Input['OnlineRequestSettingsArgsDict']]
+        """
+        Online deployment scoring requests configuration.
+        """
+        scale_settings: NotRequired[pulumi.Input[Union['AutoScaleSettingsArgsDict', 'ManualScaleSettingsArgsDict']]]
+        """
+        Online deployment scaling configuration.
+        """
+elif False:
+    K8sOnlineDeploymentArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class K8sOnlineDeploymentArgs:
@@ -3324,6 +4469,26 @@ class K8sOnlineDeploymentArgs:
         pulumi.set(self, "scale_settings", value)
 
 
+if not MYPY:
+    class LabelCategoryArgsDict(TypedDict):
+        """
+        Label category definition
+        """
+        allow_multi_select: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether it is allowed to select multiple classes in this category.
+        """
+        classes: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['LabelClassArgsDict']]]]
+        """
+        Dictionary of label classes in this category.
+        """
+        display_name: NotRequired[pulumi.Input[str]]
+        """
+        Display name of the label category.
+        """
+elif False:
+    LabelCategoryArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LabelCategoryArgs:
     def __init__(__self__, *,
@@ -3380,6 +4545,22 @@ class LabelCategoryArgs:
         pulumi.set(self, "display_name", value)
 
 
+if not MYPY:
+    class LabelClassArgsDict(TypedDict):
+        """
+        Label class definition
+        """
+        display_name: NotRequired[pulumi.Input[str]]
+        """
+        Display name of the label class.
+        """
+        subclasses: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['LabelClassArgsDict']]]]
+        """
+        Dictionary of subclasses of the label class.
+        """
+elif False:
+    LabelClassArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LabelClassArgs:
     def __init__(__self__, *,
@@ -3419,6 +4600,26 @@ class LabelClassArgs:
     def subclasses(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['LabelClassArgs']]]]):
         pulumi.set(self, "subclasses", value)
 
+
+if not MYPY:
+    class LabelingDatasetConfigurationArgsDict(TypedDict):
+        """
+        Labeling dataset configuration definition
+        """
+        asset_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the data asset to perform labeling.
+        """
+        dataset_version: NotRequired[pulumi.Input[str]]
+        """
+        AML dataset version.
+        """
+        incremental_dataset_refresh_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether to enable incremental dataset refresh.
+        """
+elif False:
+    LabelingDatasetConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LabelingDatasetConfigurationArgs:
@@ -3476,6 +4677,23 @@ class LabelingDatasetConfigurationArgs:
         pulumi.set(self, "incremental_dataset_refresh_enabled", value)
 
 
+if not MYPY:
+    class LabelingJobImagePropertiesArgsDict(TypedDict):
+        """
+        Properties of a labeling job for image data
+        """
+        media_type: pulumi.Input[str]
+        """
+        Media type of data asset.
+        Expected value is 'Image'.
+        """
+        annotation_type: NotRequired[pulumi.Input[Union[str, 'ImageAnnotationType']]]
+        """
+        Annotation type of image labeling job.
+        """
+elif False:
+    LabelingJobImagePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LabelingJobImagePropertiesArgs:
     def __init__(__self__, *,
@@ -3517,6 +4735,18 @@ class LabelingJobImagePropertiesArgs:
         pulumi.set(self, "annotation_type", value)
 
 
+if not MYPY:
+    class LabelingJobInstructionsArgsDict(TypedDict):
+        """
+        Instructions for labeling job
+        """
+        uri: NotRequired[pulumi.Input[str]]
+        """
+        The link to a page with detailed labeling instructions for labelers.
+        """
+elif False:
+    LabelingJobInstructionsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LabelingJobInstructionsArgs:
     def __init__(__self__, *,
@@ -3540,6 +4770,23 @@ class LabelingJobInstructionsArgs:
     def uri(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "uri", value)
 
+
+if not MYPY:
+    class LabelingJobTextPropertiesArgsDict(TypedDict):
+        """
+        Properties of a labeling job for text data
+        """
+        media_type: pulumi.Input[str]
+        """
+        Media type of data asset.
+        Expected value is 'Text'.
+        """
+        annotation_type: NotRequired[pulumi.Input[Union[str, 'TextAnnotationType']]]
+        """
+        Annotation type of text labeling job.
+        """
+elif False:
+    LabelingJobTextPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LabelingJobTextPropertiesArgs:
@@ -3581,6 +4828,50 @@ class LabelingJobTextPropertiesArgs:
     def annotation_type(self, value: Optional[pulumi.Input[Union[str, 'TextAnnotationType']]]):
         pulumi.set(self, "annotation_type", value)
 
+
+if not MYPY:
+    class LabelingJobArgsDict(TypedDict):
+        """
+        Labeling job definition
+        """
+        job_type: pulumi.Input[Union[str, 'JobType']]
+        """
+        [Required] Specifies the type of job. This field should always be set to "Labeling".
+        """
+        dataset_configuration: NotRequired[pulumi.Input['LabelingDatasetConfigurationArgsDict']]
+        """
+        Configuration of dataset used in the job.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The asset description text.
+        """
+        job_instructions: NotRequired[pulumi.Input['LabelingJobInstructionsArgsDict']]
+        """
+        Labeling instructions of the job.
+        """
+        label_categories: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['LabelCategoryArgsDict']]]]
+        """
+        Label categories of the job.
+        """
+        labeling_job_media_properties: NotRequired[pulumi.Input[Union['LabelingJobImagePropertiesArgsDict', 'LabelingJobTextPropertiesArgsDict']]]
+        """
+        Media type specific properties in the job.
+        """
+        ml_assist_configuration: NotRequired[pulumi.Input['MLAssistConfigurationArgsDict']]
+        """
+        Configuration of MLAssist feature in the job.
+        """
+        properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        The asset property dictionary.
+        """
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Tag dictionary. Tags can be added, removed, and updated.
+        """
+elif False:
+    LabelingJobArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LabelingJobArgs:
@@ -3733,6 +5024,26 @@ class LabelingJobArgs:
         pulumi.set(self, "tags", value)
 
 
+if not MYPY:
+    class LinkedInfoArgsDict(TypedDict):
+        """
+        Information about a datastore origin, if linked.
+        """
+        linked_id: NotRequired[pulumi.Input[str]]
+        """
+        Linked service ID.
+        """
+        linked_resource_name: NotRequired[pulumi.Input[str]]
+        """
+        Linked service resource name.
+        """
+        origin: NotRequired[pulumi.Input[Union[str, 'OriginType']]]
+        """
+        Type of the linked service.
+        """
+elif False:
+    LinkedInfoArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinkedInfoArgs:
     def __init__(__self__, *,
@@ -3789,6 +5100,26 @@ class LinkedInfoArgs:
         pulumi.set(self, "origin", value)
 
 
+if not MYPY:
+    class MLAssistConfigurationArgsDict(TypedDict):
+        """
+        Labeling MLAssist configuration definition
+        """
+        inferencing_compute_binding: NotRequired[pulumi.Input['ComputeConfigurationArgsDict']]
+        """
+        AML compute binding used in inferencing.
+        """
+        ml_assist_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether MLAssist feature is enabled.
+        """
+        training_compute_binding: NotRequired[pulumi.Input['ComputeConfigurationArgsDict']]
+        """
+        AML compute binding used in training.
+        """
+elif False:
+    MLAssistConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MLAssistConfigurationArgs:
     def __init__(__self__, *,
@@ -3844,6 +5175,31 @@ class MLAssistConfigurationArgs:
     def training_compute_binding(self, value: Optional[pulumi.Input['ComputeConfigurationArgs']]):
         pulumi.set(self, "training_compute_binding", value)
 
+
+if not MYPY:
+    class ManagedIdentityArgsDict(TypedDict):
+        """
+        Managed identity configuration.
+        """
+        identity_type: pulumi.Input[str]
+        """
+        Enum to determine identity framework.
+        Expected value is 'Managed'.
+        """
+        client_id: NotRequired[pulumi.Input[str]]
+        """
+        Specifies a user-assigned identity by client ID. For system-assigned, do not set this field.
+        """
+        object_id: NotRequired[pulumi.Input[str]]
+        """
+        Specifies a user-assigned identity by object ID. For system-assigned, do not set this field.
+        """
+        resource_id: NotRequired[pulumi.Input[str]]
+        """
+        Specifies a user-assigned identity by ARM resource ID. For system-assigned, do not set this field.
+        """
+elif False:
+    ManagedIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ManagedIdentityArgs:
@@ -3917,6 +5273,64 @@ class ManagedIdentityArgs:
     def resource_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "resource_id", value)
 
+
+if not MYPY:
+    class ManagedOnlineDeploymentArgsDict(TypedDict):
+        endpoint_compute_type: pulumi.Input[str]
+        """
+        Enum to determine endpoint compute type.
+        Expected value is 'Managed'.
+        """
+        app_insights_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If true, enables Application Insights logging.
+        """
+        code_configuration: NotRequired[pulumi.Input['CodeConfigurationArgsDict']]
+        """
+        Code configuration for the endpoint deployment.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Description of the endpoint deployment.
+        """
+        environment_id: NotRequired[pulumi.Input[str]]
+        """
+        ARM resource ID of the environment specification for the endpoint deployment.
+        """
+        environment_variables: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Environment variables configuration for the deployment.
+        """
+        instance_type: NotRequired[pulumi.Input[str]]
+        """
+        Compute instance type.
+        """
+        liveness_probe: NotRequired[pulumi.Input['ProbeSettingsArgsDict']]
+        """
+        Deployment container liveness/readiness probe configuration.
+        """
+        model: NotRequired[pulumi.Input[Union['DataPathAssetReferenceArgsDict', 'IdAssetReferenceArgsDict', 'OutputPathAssetReferenceArgsDict']]]
+        """
+        Reference to the model asset for the endpoint deployment.
+        """
+        properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Property dictionary. Properties can be added, but not removed or altered.
+        """
+        readiness_probe: NotRequired[pulumi.Input['ProbeSettingsArgsDict']]
+        """
+        Deployment container liveness/readiness probe configuration.
+        """
+        request_settings: NotRequired[pulumi.Input['OnlineRequestSettingsArgsDict']]
+        """
+        Online deployment scoring requests configuration.
+        """
+        scale_settings: NotRequired[pulumi.Input[Union['AutoScaleSettingsArgsDict', 'ManualScaleSettingsArgsDict']]]
+        """
+        Online deployment scaling configuration.
+        """
+elif False:
+    ManagedOnlineDeploymentArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ManagedOnlineDeploymentArgs:
@@ -4134,6 +5548,28 @@ class ManagedOnlineDeploymentArgs:
         pulumi.set(self, "scale_settings", value)
 
 
+if not MYPY:
+    class ManualScaleSettingsArgsDict(TypedDict):
+        scale_type: pulumi.Input[str]
+        """
+
+        Expected value is 'Manual'.
+        """
+        instance_count: NotRequired[pulumi.Input[int]]
+        """
+        Fixed number of instances for this deployment.
+        """
+        max_instances: NotRequired[pulumi.Input[int]]
+        """
+        Maximum number of instances for this deployment.
+        """
+        min_instances: NotRequired[pulumi.Input[int]]
+        """
+        Minimum number of instances for this deployment.
+        """
+elif False:
+    ManualScaleSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ManualScaleSettingsArgs:
     def __init__(__self__, *,
@@ -4206,6 +5642,27 @@ class ManualScaleSettingsArgs:
         pulumi.set(self, "min_instances", value)
 
 
+if not MYPY:
+    class MedianStoppingPolicyArgsDict(TypedDict):
+        """
+        Defines an early termination policy based on running averages of the primary metric of all runs.
+        """
+        policy_type: pulumi.Input[str]
+        """
+
+        Expected value is 'MedianStopping'.
+        """
+        delay_evaluation: NotRequired[pulumi.Input[int]]
+        """
+        Number of intervals by which to delay the first evaluation.
+        """
+        evaluation_interval: NotRequired[pulumi.Input[int]]
+        """
+        Interval (number of runs) between policy evaluations.
+        """
+elif False:
+    MedianStoppingPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MedianStoppingPolicyArgs:
     def __init__(__self__, *,
@@ -4263,6 +5720,23 @@ class MedianStoppingPolicyArgs:
         pulumi.set(self, "evaluation_interval", value)
 
 
+if not MYPY:
+    class ModelContainerArgsDict(TypedDict):
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The asset description text.
+        """
+        properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        The asset property dictionary.
+        """
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Tag dictionary. Tags can be added, removed, and updated.
+        """
+elif False:
+    ModelContainerArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ModelContainerArgs:
     def __init__(__self__, *,
@@ -4317,6 +5791,42 @@ class ModelContainerArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+
+if not MYPY:
+    class ModelVersionArgsDict(TypedDict):
+        """
+        Model asset version details.
+        """
+        path: pulumi.Input[str]
+        """
+        [Required] The path of the file/directory in the datastore.
+        """
+        datastore_id: NotRequired[pulumi.Input[str]]
+        """
+        ARM resource ID of the datastore where the asset is located.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The asset description text.
+        """
+        flavors: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['FlavorDataArgsDict']]]]
+        """
+        Mapping of model flavors to their properties.
+        """
+        is_anonymous: NotRequired[pulumi.Input[bool]]
+        """
+        If the name version are system generated (anonymous registration).
+        """
+        properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        The asset property dictionary.
+        """
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Tag dictionary. Tags can be added, removed, and updated.
+        """
+elif False:
+    ModelVersionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ModelVersionArgs:
@@ -4437,6 +5947,23 @@ class ModelVersionArgs:
         pulumi.set(self, "tags", value)
 
 
+if not MYPY:
+    class MpiArgsDict(TypedDict):
+        """
+        MPI distribution configuration.
+        """
+        distribution_type: pulumi.Input[str]
+        """
+        Enum to determine the job distribution type.
+        Expected value is 'Mpi'.
+        """
+        process_count_per_instance: NotRequired[pulumi.Input[int]]
+        """
+        Number of processes per MPI node.
+        """
+elif False:
+    MpiArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MpiArgs:
     def __init__(__self__, *,
@@ -4477,6 +6004,23 @@ class MpiArgs:
     def process_count_per_instance(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "process_count_per_instance", value)
 
+
+if not MYPY:
+    class NoneDatastoreCredentialsArgsDict(TypedDict):
+        """
+        Empty/none datastore credentials.
+        """
+        credentials_type: pulumi.Input[str]
+        """
+        Enum to determine the datastore credentials type.
+        Expected value is 'None'.
+        """
+        secrets: NotRequired[pulumi.Input['NoneDatastoreSecretsArgsDict']]
+        """
+        Empty/none datastore secret.
+        """
+elif False:
+    NoneDatastoreCredentialsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NoneDatastoreCredentialsArgs:
@@ -4519,6 +6063,19 @@ class NoneDatastoreCredentialsArgs:
         pulumi.set(self, "secrets", value)
 
 
+if not MYPY:
+    class NoneDatastoreSecretsArgsDict(TypedDict):
+        """
+        Empty/none datastore secret.
+        """
+        secrets_type: pulumi.Input[str]
+        """
+        Enum to determine the datastore secrets type.
+        Expected value is 'None'.
+        """
+elif False:
+    NoneDatastoreSecretsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NoneDatastoreSecretsArgs:
     def __init__(__self__, *,
@@ -4543,6 +6100,22 @@ class NoneDatastoreSecretsArgs:
     def secrets_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "secrets_type", value)
 
+
+if not MYPY:
+    class ObjectiveArgsDict(TypedDict):
+        """
+        Optimization objective.
+        """
+        goal: pulumi.Input[Union[str, 'Goal']]
+        """
+        [Required] Defines supported metric goals for hyperparameter tuning
+        """
+        primary_metric: pulumi.Input[str]
+        """
+        [Required] Name of the metric to optimize.
+        """
+elif False:
+    ObjectiveArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ObjectiveArgs:
@@ -4581,6 +6154,40 @@ class ObjectiveArgs:
     def primary_metric(self, value: pulumi.Input[str]):
         pulumi.set(self, "primary_metric", value)
 
+
+if not MYPY:
+    class OnlineEndpointArgsDict(TypedDict):
+        """
+        Online endpoint configuration
+        """
+        auth_mode: pulumi.Input[Union[str, 'EndpointAuthMode']]
+        """
+        [Required] Inference endpoint authentication mode type
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Description of the inference endpoint.
+        """
+        keys: NotRequired[pulumi.Input['EndpointAuthKeysArgsDict']]
+        """
+        EndpointAuthKeys to set initially on an Endpoint.
+        This property will always be returned as null. AuthKey values must be retrieved using the ListKeys API.
+        """
+        properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Property dictionary. Properties can be added, but not removed or altered.
+        """
+        target: NotRequired[pulumi.Input[str]]
+        """
+        ARM resource ID of the compute if it exists.
+        optional
+        """
+        traffic: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[int]]]]
+        """
+        Traffic rules on how the traffic will be routed across deployments.
+        """
+elif False:
+    OnlineEndpointArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OnlineEndpointArgs:
@@ -4689,6 +6296,26 @@ class OnlineEndpointArgs:
         pulumi.set(self, "traffic", value)
 
 
+if not MYPY:
+    class OnlineRequestSettingsArgsDict(TypedDict):
+        """
+        Online deployment scoring requests configuration.
+        """
+        max_concurrent_requests_per_instance: NotRequired[pulumi.Input[int]]
+        """
+        The number of requests allowed to queue at once for this deployment.
+        """
+        max_queue_wait: NotRequired[pulumi.Input[str]]
+        """
+        The maximum queue wait time in ISO 8601 format. Supports millisecond precision.
+        """
+        request_timeout: NotRequired[pulumi.Input[str]]
+        """
+        The request timeout in ISO 8601 format. Supports millisecond precision.
+        """
+elif False:
+    OnlineRequestSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OnlineRequestSettingsArgs:
     def __init__(__self__, *,
@@ -4744,6 +6371,27 @@ class OnlineRequestSettingsArgs:
     def request_timeout(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "request_timeout", value)
 
+
+if not MYPY:
+    class OutputDataBindingArgsDict(TypedDict):
+        datastore_id: NotRequired[pulumi.Input[str]]
+        """
+        ARM resource ID of the datastore where the data output will be stored.
+        """
+        mode: NotRequired[pulumi.Input[Union[str, 'DataBindingMode']]]
+        """
+        Mechanism for data movement to datastore.
+        """
+        path_on_compute: NotRequired[pulumi.Input[str]]
+        """
+        Location of data inside the container process.
+        """
+        path_on_datastore: NotRequired[pulumi.Input[str]]
+        """
+        Path within the datastore to the data.
+        """
+elif False:
+    OutputDataBindingArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OutputDataBindingArgs:
@@ -4816,6 +6464,27 @@ class OutputDataBindingArgs:
         pulumi.set(self, "path_on_datastore", value)
 
 
+if not MYPY:
+    class OutputPathAssetReferenceArgsDict(TypedDict):
+        """
+        Reference to an asset via its path in a job output.
+        """
+        reference_type: pulumi.Input[str]
+        """
+        Enum to determine which reference method to use for an asset.
+        Expected value is 'OutputPath'.
+        """
+        job_id: NotRequired[pulumi.Input[str]]
+        """
+        ARM resource ID of the job.
+        """
+        path: NotRequired[pulumi.Input[str]]
+        """
+        The path of the file/directory in the job output.
+        """
+elif False:
+    OutputPathAssetReferenceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OutputPathAssetReferenceArgs:
     def __init__(__self__, *,
@@ -4872,6 +6541,34 @@ class OutputPathAssetReferenceArgs:
     def path(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "path", value)
 
+
+if not MYPY:
+    class ProbeSettingsArgsDict(TypedDict):
+        """
+        Deployment container liveness/readiness probe configuration.
+        """
+        failure_threshold: NotRequired[pulumi.Input[int]]
+        """
+        The number of failures to allow before returning an unhealthy status.
+        """
+        initial_delay: NotRequired[pulumi.Input[str]]
+        """
+        The delay before the first probe in ISO 8601 format.
+        """
+        period: NotRequired[pulumi.Input[str]]
+        """
+        The length of time between probes in ISO 8601 format.
+        """
+        success_threshold: NotRequired[pulumi.Input[int]]
+        """
+        The number of successful probes before returning a healthy status.
+        """
+        timeout: NotRequired[pulumi.Input[str]]
+        """
+        The probe timeout in ISO 8601 format.
+        """
+elif False:
+    ProbeSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ProbeSettingsArgs:
@@ -4961,6 +6658,23 @@ class ProbeSettingsArgs:
         pulumi.set(self, "timeout", value)
 
 
+if not MYPY:
+    class PyTorchArgsDict(TypedDict):
+        """
+        PyTorch distribution configuration.
+        """
+        distribution_type: pulumi.Input[str]
+        """
+        Enum to determine the job distribution type.
+        Expected value is 'PyTorch'.
+        """
+        process_count: NotRequired[pulumi.Input[int]]
+        """
+        Total process count for the distributed job.
+        """
+elif False:
+    PyTorchArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PyTorchArgs:
     def __init__(__self__, *,
@@ -5002,6 +6716,22 @@ class PyTorchArgs:
         pulumi.set(self, "process_count", value)
 
 
+if not MYPY:
+    class ResourceIdentityArgsDict(TypedDict):
+        """
+        Service identity associated with a resource.
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'ResourceIdentityAssignment']]]
+        """
+        Defines values for a ResourceIdentity's type.
+        """
+        user_assigned_identities: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentityMetaArgsDict']]]]
+        """
+        Dictionary of the user assigned identities, key is ARM resource ID of the UAI.
+        """
+elif False:
+    ResourceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ResourceIdentityArgs:
     def __init__(__self__, *,
@@ -5042,6 +6772,19 @@ class ResourceIdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
+if not MYPY:
+    class RouteArgsDict(TypedDict):
+        path: pulumi.Input[str]
+        """
+        [Required] The path for the route.
+        """
+        port: pulumi.Input[int]
+        """
+        [Required] The port for the route.
+        """
+elif False:
+    RouteArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RouteArgs:
     def __init__(__self__, *,
@@ -5078,6 +6821,23 @@ class RouteArgs:
     def port(self, value: pulumi.Input[int]):
         pulumi.set(self, "port", value)
 
+
+if not MYPY:
+    class SasDatastoreCredentialsArgsDict(TypedDict):
+        """
+        SAS datastore credentials configuration.
+        """
+        credentials_type: pulumi.Input[str]
+        """
+        Enum to determine the datastore credentials type.
+        Expected value is 'Sas'.
+        """
+        secrets: NotRequired[pulumi.Input['SasDatastoreSecretsArgsDict']]
+        """
+        Storage container secrets.
+        """
+elif False:
+    SasDatastoreCredentialsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SasDatastoreCredentialsArgs:
@@ -5120,6 +6880,23 @@ class SasDatastoreCredentialsArgs:
         pulumi.set(self, "secrets", value)
 
 
+if not MYPY:
+    class SasDatastoreSecretsArgsDict(TypedDict):
+        """
+        Datastore SAS secrets.
+        """
+        secrets_type: pulumi.Input[str]
+        """
+        Enum to determine the datastore secrets type.
+        Expected value is 'Sas'.
+        """
+        sas_token: NotRequired[pulumi.Input[str]]
+        """
+        Storage container SAS token.
+        """
+elif False:
+    SasDatastoreSecretsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SasDatastoreSecretsArgs:
     def __init__(__self__, *,
@@ -5160,6 +6937,39 @@ class SasDatastoreSecretsArgs:
     def sas_token(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "sas_token", value)
 
+
+if not MYPY:
+    class ServicePrincipalDatastoreCredentialsArgsDict(TypedDict):
+        """
+        Service Principal datastore credentials configuration.
+        """
+        client_id: pulumi.Input[str]
+        """
+        [Required] Service principal client ID.
+        """
+        credentials_type: pulumi.Input[str]
+        """
+        Enum to determine the datastore credentials type.
+        Expected value is 'ServicePrincipal'.
+        """
+        tenant_id: pulumi.Input[str]
+        """
+        [Required] ID of the tenant to which the service principal belongs.
+        """
+        authority_url: NotRequired[pulumi.Input[str]]
+        """
+        Authority URL used for authentication.
+        """
+        resource_uri: NotRequired[pulumi.Input[str]]
+        """
+        Resource the service principal has access to.
+        """
+        secrets: NotRequired[pulumi.Input['ServicePrincipalDatastoreSecretsArgsDict']]
+        """
+        Service principal secrets.
+        """
+elif False:
+    ServicePrincipalDatastoreCredentialsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ServicePrincipalDatastoreCredentialsArgs:
@@ -5264,6 +7074,23 @@ class ServicePrincipalDatastoreCredentialsArgs:
         pulumi.set(self, "secrets", value)
 
 
+if not MYPY:
+    class ServicePrincipalDatastoreSecretsArgsDict(TypedDict):
+        """
+        Datastore Service Principal secrets.
+        """
+        secrets_type: pulumi.Input[str]
+        """
+        Enum to determine the datastore secrets type.
+        Expected value is 'ServicePrincipal'.
+        """
+        client_secret: NotRequired[pulumi.Input[str]]
+        """
+        Service principal secret.
+        """
+elif False:
+    ServicePrincipalDatastoreSecretsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ServicePrincipalDatastoreSecretsArgs:
     def __init__(__self__, *,
@@ -5304,6 +7131,27 @@ class ServicePrincipalDatastoreSecretsArgs:
     def client_secret(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "client_secret", value)
 
+
+if not MYPY:
+    class SqlAdminDatastoreCredentialsArgsDict(TypedDict):
+        """
+        SQL Admin datastore credentials configuration.
+        """
+        credentials_type: pulumi.Input[str]
+        """
+        Enum to determine the datastore credentials type.
+        Expected value is 'SqlAdmin'.
+        """
+        user_id: pulumi.Input[str]
+        """
+        [Required] SQL database user name.
+        """
+        secrets: NotRequired[pulumi.Input['SqlAdminDatastoreSecretsArgsDict']]
+        """
+        SQL database secrets.
+        """
+elif False:
+    SqlAdminDatastoreCredentialsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SqlAdminDatastoreCredentialsArgs:
@@ -5361,6 +7209,23 @@ class SqlAdminDatastoreCredentialsArgs:
         pulumi.set(self, "secrets", value)
 
 
+if not MYPY:
+    class SqlAdminDatastoreSecretsArgsDict(TypedDict):
+        """
+        Datastore SQL Admin secrets.
+        """
+        secrets_type: pulumi.Input[str]
+        """
+        Enum to determine the datastore secrets type.
+        Expected value is 'SqlAdmin'.
+        """
+        password: NotRequired[pulumi.Input[str]]
+        """
+        SQL database password.
+        """
+elif False:
+    SqlAdminDatastoreSecretsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SqlAdminDatastoreSecretsArgs:
     def __init__(__self__, *,
@@ -5401,6 +7266,81 @@ class SqlAdminDatastoreSecretsArgs:
     def password(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "password", value)
 
+
+if not MYPY:
+    class SweepJobArgsDict(TypedDict):
+        """
+        Sweep job definition.
+        """
+        algorithm: pulumi.Input[Union[str, 'SamplingAlgorithm']]
+        """
+        [Required] Type of the hyperparameter sampling algorithms
+        """
+        compute: pulumi.Input['ComputeConfigurationArgsDict']
+        """
+        [Required] Compute binding for the job.
+        """
+        job_type: pulumi.Input[str]
+        """
+        Enum to determine the type of job.
+        Expected value is 'Sweep'.
+        """
+        objective: pulumi.Input['ObjectiveArgsDict']
+        """
+        [Required] Optimization objective.
+        """
+        search_space: pulumi.Input[Mapping[str, Any]]
+        """
+        [Required] A dictionary containing each parameter and its distribution. The dictionary key is the name of the parameter
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The asset description text.
+        """
+        early_termination: NotRequired[pulumi.Input[Union['BanditPolicyArgsDict', 'MedianStoppingPolicyArgsDict', 'TruncationSelectionPolicyArgsDict']]]
+        """
+        Early termination policies enable canceling poor-performing runs before they complete.
+        """
+        experiment_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the experiment the job belongs to. If not set, the job is placed in the "Default" experiment.
+        """
+        identity: NotRequired[pulumi.Input[Union['AmlTokenArgsDict', 'ManagedIdentityArgsDict']]]
+        """
+        Identity configuration. If set, this should be one of AmlToken, ManagedIdentity or null.
+        Defaults to AmlToken if null.
+        """
+        max_concurrent_trials: NotRequired[pulumi.Input[int]]
+        """
+        An upper bound on the number of trials performed in parallel.
+        """
+        max_total_trials: NotRequired[pulumi.Input[int]]
+        """
+        An upper bound on the number of trials to perform.
+        """
+        priority: NotRequired[pulumi.Input[int]]
+        """
+        Job priority for scheduling policy. Only applies to AMLCompute.
+        Private preview feature and only available to users on the allow list.
+        """
+        properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        The asset property dictionary.
+        """
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Tag dictionary. Tags can be added, removed, and updated.
+        """
+        timeout: NotRequired[pulumi.Input[str]]
+        """
+        The total timeout in ISO 8601 format. Only supports duration with precision as low as Minutes.
+        """
+        trial: NotRequired[pulumi.Input['TrialComponentArgsDict']]
+        """
+        Trial component definition.
+        """
+elif False:
+    SweepJobArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SweepJobArgs:
@@ -5667,6 +7607,27 @@ class SweepJobArgs:
         pulumi.set(self, "trial", value)
 
 
+if not MYPY:
+    class TensorFlowArgsDict(TypedDict):
+        """
+        TensorFlow distribution configuration.
+        """
+        distribution_type: pulumi.Input[str]
+        """
+        Enum to determine the job distribution type.
+        Expected value is 'TensorFlow'.
+        """
+        parameter_server_count: NotRequired[pulumi.Input[int]]
+        """
+        Number of parameter server tasks.
+        """
+        worker_count: NotRequired[pulumi.Input[int]]
+        """
+        Number of workers. Overwrites the node count in compute binding.
+        """
+elif False:
+    TensorFlowArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TensorFlowArgs:
     def __init__(__self__, *,
@@ -5723,6 +7684,47 @@ class TensorFlowArgs:
     def worker_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "worker_count", value)
 
+
+if not MYPY:
+    class TrialComponentArgsDict(TypedDict):
+        """
+        Trial component definition.
+        """
+        command: pulumi.Input[str]
+        """
+        [Required] The command to execute on startup of the job. eg. "python train.py"
+        """
+        code_id: NotRequired[pulumi.Input[str]]
+        """
+        ARM resource ID of the code asset.
+        """
+        distribution: NotRequired[pulumi.Input[Union['MpiArgsDict', 'PyTorchArgsDict', 'TensorFlowArgsDict']]]
+        """
+        Distribution configuration of the job. If set, this should be one of Mpi, Tensorflow, PyTorch, or null.
+        """
+        environment_id: NotRequired[pulumi.Input[str]]
+        """
+        The ARM resource ID of the Environment specification for the job.
+        """
+        environment_variables: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Environment variables included in the job.
+        """
+        input_data_bindings: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['InputDataBindingArgsDict']]]]
+        """
+        Mapping of input data bindings used in the job.
+        """
+        output_data_bindings: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['OutputDataBindingArgsDict']]]]
+        """
+        Mapping of output data bindings used in the job.
+        """
+        timeout: NotRequired[pulumi.Input[str]]
+        """
+        The max run duration in ISO 8601 format, after which the trial component will be cancelled.
+        Only supports duration with precision as low as Seconds.
+        """
+elif False:
+    TrialComponentArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TrialComponentArgs:
@@ -5861,6 +7863,31 @@ class TrialComponentArgs:
         pulumi.set(self, "timeout", value)
 
 
+if not MYPY:
+    class TruncationSelectionPolicyArgsDict(TypedDict):
+        """
+        Defines an early termination policy that cancels a given percentage of runs at each evaluation interval.
+        """
+        policy_type: pulumi.Input[str]
+        """
+
+        Expected value is 'TruncationSelection'.
+        """
+        delay_evaluation: NotRequired[pulumi.Input[int]]
+        """
+        Number of intervals by which to delay the first evaluation.
+        """
+        evaluation_interval: NotRequired[pulumi.Input[int]]
+        """
+        Interval (number of runs) between policy evaluations.
+        """
+        truncation_percentage: NotRequired[pulumi.Input[int]]
+        """
+        The percentage of runs to cancel at each evaluation interval.
+        """
+elif False:
+    TruncationSelectionPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TruncationSelectionPolicyArgs:
     def __init__(__self__, *,
@@ -5933,6 +7960,22 @@ class TruncationSelectionPolicyArgs:
     def truncation_percentage(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "truncation_percentage", value)
 
+
+if not MYPY:
+    class UserAssignedIdentityMetaArgsDict(TypedDict):
+        """
+        User assigned identities associated with a resource.
+        """
+        client_id: NotRequired[pulumi.Input[str]]
+        """
+        Aka application ID, a unique identifier generated by Azure AD that is tied to an application and service principal during its initial provisioning.
+        """
+        principal_id: NotRequired[pulumi.Input[str]]
+        """
+        The object ID of the service principal object for your managed identity that is used to grant role-based access to an Azure resource.
+        """
+elif False:
+    UserAssignedIdentityMetaArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserAssignedIdentityMetaArgs:

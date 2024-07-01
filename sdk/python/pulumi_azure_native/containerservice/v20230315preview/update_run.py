@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -109,9 +114,9 @@ class UpdateRun(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  fleet_name: Optional[pulumi.Input[str]] = None,
-                 managed_cluster_update: Optional[pulumi.Input[pulumi.InputType['ManagedClusterUpdateArgs']]] = None,
+                 managed_cluster_update: Optional[pulumi.Input[Union['ManagedClusterUpdateArgs', 'ManagedClusterUpdateArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 strategy: Optional[pulumi.Input[pulumi.InputType['UpdateRunStrategyArgs']]] = None,
+                 strategy: Optional[pulumi.Input[Union['UpdateRunStrategyArgs', 'UpdateRunStrategyArgsDict']]] = None,
                  update_run_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -120,9 +125,9 @@ class UpdateRun(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] fleet_name: The name of the Fleet resource.
-        :param pulumi.Input[pulumi.InputType['ManagedClusterUpdateArgs']] managed_cluster_update: The update to be applied to all clusters in the UpdateRun. The managedClusterUpdate can be modified until the run is started.
+        :param pulumi.Input[Union['ManagedClusterUpdateArgs', 'ManagedClusterUpdateArgsDict']] managed_cluster_update: The update to be applied to all clusters in the UpdateRun. The managedClusterUpdate can be modified until the run is started.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[pulumi.InputType['UpdateRunStrategyArgs']] strategy: The strategy defines the order in which the clusters will be updated.
+        :param pulumi.Input[Union['UpdateRunStrategyArgs', 'UpdateRunStrategyArgsDict']] strategy: The strategy defines the order in which the clusters will be updated.
                If not set, all members will be updated sequentially. The UpdateRun status will show a single UpdateStage and a single UpdateGroup targeting all members.
                The strategy of the UpdateRun can be modified until the run is started.
         :param pulumi.Input[str] update_run_name: The name of the UpdateRun resource.
@@ -152,9 +157,9 @@ class UpdateRun(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  fleet_name: Optional[pulumi.Input[str]] = None,
-                 managed_cluster_update: Optional[pulumi.Input[pulumi.InputType['ManagedClusterUpdateArgs']]] = None,
+                 managed_cluster_update: Optional[pulumi.Input[Union['ManagedClusterUpdateArgs', 'ManagedClusterUpdateArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 strategy: Optional[pulumi.Input[pulumi.InputType['UpdateRunStrategyArgs']]] = None,
+                 strategy: Optional[pulumi.Input[Union['UpdateRunStrategyArgs', 'UpdateRunStrategyArgsDict']]] = None,
                  update_run_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

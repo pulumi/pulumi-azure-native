@@ -4,33 +4,75 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'AzureResourceManagerManagedIdentityPropertiesArgs',
+    'AzureResourceManagerManagedIdentityPropertiesArgsDict',
     'AzureResourceManagerUserAssignedIdentityArgs',
+    'AzureResourceManagerUserAssignedIdentityArgsDict',
     'CategoryArgs',
+    'CategoryArgsDict',
     'DNSSettingsArgs',
+    'DNSSettingsArgsDict',
     'DestinationAddrArgs',
+    'DestinationAddrArgsDict',
     'EndpointConfigurationArgs',
+    'EndpointConfigurationArgsDict',
     'FrontendSettingArgs',
+    'FrontendSettingArgsDict',
     'IPAddressSpaceArgs',
+    'IPAddressSpaceArgsDict',
     'IPAddressArgs',
+    'IPAddressArgsDict',
     'MarketplaceDetailsArgs',
+    'MarketplaceDetailsArgsDict',
     'NetworkProfileArgs',
+    'NetworkProfileArgsDict',
     'PanoramaConfigArgs',
+    'PanoramaConfigArgsDict',
     'PlanDataArgs',
+    'PlanDataArgsDict',
     'RulestackDetailsArgs',
+    'RulestackDetailsArgsDict',
     'SecurityServicesArgs',
+    'SecurityServicesArgsDict',
     'SourceAddrArgs',
+    'SourceAddrArgsDict',
     'TagInfoArgs',
+    'TagInfoArgsDict',
     'VnetConfigurationArgs',
+    'VnetConfigurationArgsDict',
     'VwanConfigurationArgs',
+    'VwanConfigurationArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AzureResourceManagerManagedIdentityPropertiesArgsDict(TypedDict):
+        """
+        The properties of the managed service identities assigned to this resource.
+        """
+        type: pulumi.Input[Union[str, 'ManagedIdentityType']]
+        """
+        The type of managed identity assigned to this resource.
+        """
+        user_assigned_identities: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['AzureResourceManagerUserAssignedIdentityArgsDict']]]]
+        """
+        The identities assigned to this resource by the user.
+        """
+elif False:
+    AzureResourceManagerManagedIdentityPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AzureResourceManagerManagedIdentityPropertiesArgs:
@@ -70,6 +112,22 @@ class AzureResourceManagerManagedIdentityPropertiesArgs:
     def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['AzureResourceManagerUserAssignedIdentityArgs']]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
+
+if not MYPY:
+    class AzureResourceManagerUserAssignedIdentityArgsDict(TypedDict):
+        """
+        A managed identity assigned by the user.
+        """
+        client_id: NotRequired[pulumi.Input[str]]
+        """
+        The active directory client identifier for this principal.
+        """
+        principal_id: NotRequired[pulumi.Input[str]]
+        """
+        The active directory identifier for this principal.
+        """
+elif False:
+    AzureResourceManagerUserAssignedIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AzureResourceManagerUserAssignedIdentityArgs:
@@ -111,6 +169,22 @@ class AzureResourceManagerUserAssignedIdentityArgs:
         pulumi.set(self, "principal_id", value)
 
 
+if not MYPY:
+    class CategoryArgsDict(TypedDict):
+        """
+        URL/EDL to match
+        """
+        feeds: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        feed list
+        """
+        url_custom: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        custom URL
+        """
+elif False:
+    CategoryArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CategoryArgs:
     def __init__(__self__, *,
@@ -148,6 +222,26 @@ class CategoryArgs:
     def url_custom(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "url_custom", value)
 
+
+if not MYPY:
+    class DNSSettingsArgsDict(TypedDict):
+        """
+        DNS Proxy settings for Firewall
+        """
+        dns_servers: NotRequired[pulumi.Input[Sequence[pulumi.Input['IPAddressArgsDict']]]]
+        """
+        List of IPs associated with the Firewall
+        """
+        enable_dns_proxy: NotRequired[pulumi.Input[Union[str, 'DNSProxy']]]
+        """
+        Enable DNS proxy, disabled by default
+        """
+        enabled_dns_type: NotRequired[pulumi.Input[Union[str, 'EnabledDNSType']]]
+        """
+        Enabled DNS proxy type, disabled by default
+        """
+elif False:
+    DNSSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DNSSettingsArgs:
@@ -204,6 +298,34 @@ class DNSSettingsArgs:
     def enabled_dns_type(self, value: Optional[pulumi.Input[Union[str, 'EnabledDNSType']]]):
         pulumi.set(self, "enabled_dns_type", value)
 
+
+if not MYPY:
+    class DestinationAddrArgsDict(TypedDict):
+        """
+        destination address
+        """
+        cidrs: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        special value 'any'
+        """
+        countries: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        list of countries
+        """
+        feeds: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        list of feeds
+        """
+        fqdn_lists: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        fqdn list
+        """
+        prefix_lists: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        prefix list
+        """
+elif False:
+    DestinationAddrArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DestinationAddrArgs:
@@ -293,6 +415,22 @@ class DestinationAddrArgs:
         pulumi.set(self, "prefix_lists", value)
 
 
+if not MYPY:
+    class EndpointConfigurationArgsDict(TypedDict):
+        """
+        Endpoint Configuration for frontend and backend
+        """
+        address: pulumi.Input['IPAddressArgsDict']
+        """
+        Address Space
+        """
+        port: pulumi.Input[str]
+        """
+        port ID
+        """
+elif False:
+    EndpointConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EndpointConfigurationArgs:
     def __init__(__self__, *,
@@ -330,6 +468,30 @@ class EndpointConfigurationArgs:
     def port(self, value: pulumi.Input[str]):
         pulumi.set(self, "port", value)
 
+
+if not MYPY:
+    class FrontendSettingArgsDict(TypedDict):
+        """
+        Frontend setting for Firewall
+        """
+        backend_configuration: pulumi.Input['EndpointConfigurationArgsDict']
+        """
+        Backend configurations
+        """
+        frontend_configuration: pulumi.Input['EndpointConfigurationArgsDict']
+        """
+        Frontend configurations
+        """
+        name: pulumi.Input[str]
+        """
+        Settings name
+        """
+        protocol: pulumi.Input[Union[str, 'ProtocolType']]
+        """
+        Protocol Type
+        """
+elif False:
+    FrontendSettingArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FrontendSettingArgs:
@@ -399,6 +561,22 @@ class FrontendSettingArgs:
         pulumi.set(self, "protocol", value)
 
 
+if not MYPY:
+    class IPAddressSpaceArgsDict(TypedDict):
+        """
+        IP Address Space
+        """
+        address_space: NotRequired[pulumi.Input[str]]
+        """
+        Address Space
+        """
+        resource_id: NotRequired[pulumi.Input[str]]
+        """
+        Resource Id
+        """
+elif False:
+    IPAddressSpaceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IPAddressSpaceArgs:
     def __init__(__self__, *,
@@ -439,6 +617,22 @@ class IPAddressSpaceArgs:
         pulumi.set(self, "resource_id", value)
 
 
+if not MYPY:
+    class IPAddressArgsDict(TypedDict):
+        """
+        IP Address
+        """
+        address: NotRequired[pulumi.Input[str]]
+        """
+        Address value
+        """
+        resource_id: NotRequired[pulumi.Input[str]]
+        """
+        Resource Id
+        """
+elif False:
+    IPAddressArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IPAddressArgs:
     def __init__(__self__, *,
@@ -478,6 +672,26 @@ class IPAddressArgs:
     def resource_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "resource_id", value)
 
+
+if not MYPY:
+    class MarketplaceDetailsArgsDict(TypedDict):
+        """
+        MarketplaceDetails of PAN Firewall resource
+        """
+        offer_id: pulumi.Input[str]
+        """
+        Offer Id
+        """
+        publisher_id: pulumi.Input[str]
+        """
+        Publisher Id
+        """
+        marketplace_subscription_status: NotRequired[pulumi.Input[Union[str, 'MarketplaceSubscriptionStatus']]]
+        """
+        Marketplace Subscription Status
+        """
+elif False:
+    MarketplaceDetailsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MarketplaceDetailsArgs:
@@ -532,6 +746,42 @@ class MarketplaceDetailsArgs:
     def marketplace_subscription_status(self, value: Optional[pulumi.Input[Union[str, 'MarketplaceSubscriptionStatus']]]):
         pulumi.set(self, "marketplace_subscription_status", value)
 
+
+if not MYPY:
+    class NetworkProfileArgsDict(TypedDict):
+        """
+        Network settings for Firewall
+        """
+        enable_egress_nat: pulumi.Input[Union[str, 'EgressNat']]
+        """
+        Enable egress NAT, enabled by default
+        """
+        network_type: pulumi.Input[Union[str, 'NetworkType']]
+        """
+        vnet or vwan, cannot be updated
+        """
+        public_ips: pulumi.Input[Sequence[pulumi.Input['IPAddressArgsDict']]]
+        """
+        List of IPs associated with the Firewall
+        """
+        egress_nat_ip: NotRequired[pulumi.Input[Sequence[pulumi.Input['IPAddressArgsDict']]]]
+        """
+        Egress nat IP to use
+        """
+        trusted_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Non-RFC 1918 address
+        """
+        vnet_configuration: NotRequired[pulumi.Input['VnetConfigurationArgsDict']]
+        """
+        Vnet configurations
+        """
+        vwan_configuration: NotRequired[pulumi.Input['VwanConfigurationArgsDict']]
+        """
+        Vwan configurations
+        """
+elif False:
+    NetworkProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NetworkProfileArgs:
@@ -650,6 +900,18 @@ class NetworkProfileArgs:
         pulumi.set(self, "vwan_configuration", value)
 
 
+if not MYPY:
+    class PanoramaConfigArgsDict(TypedDict):
+        """
+        Panorama Config
+        """
+        config_string: pulumi.Input[str]
+        """
+        Base64 encoded string representing Panorama parameters to be used by Firewall to connect to Panorama. This string is generated via azure plugin in Panorama
+        """
+elif False:
+    PanoramaConfigArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PanoramaConfigArgs:
     def __init__(__self__, *,
@@ -672,6 +934,26 @@ class PanoramaConfigArgs:
     def config_string(self, value: pulumi.Input[str]):
         pulumi.set(self, "config_string", value)
 
+
+if not MYPY:
+    class PlanDataArgsDict(TypedDict):
+        """
+        Billing plan information.
+        """
+        billing_cycle: pulumi.Input[Union[str, 'BillingCycle']]
+        """
+        different billing cycles like MONTHLY/WEEKLY
+        """
+        plan_id: pulumi.Input[str]
+        """
+        plan id as published by Liftr.PAN
+        """
+        usage_type: NotRequired[pulumi.Input[Union[str, 'UsageType']]]
+        """
+        different usage type like PAYG/COMMITTED
+        """
+elif False:
+    PlanDataArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PlanDataArgs:
@@ -726,6 +1008,26 @@ class PlanDataArgs:
     def usage_type(self, value: Optional[pulumi.Input[Union[str, 'UsageType']]]):
         pulumi.set(self, "usage_type", value)
 
+
+if not MYPY:
+    class RulestackDetailsArgsDict(TypedDict):
+        """
+        Associated rulestack details
+        """
+        location: NotRequired[pulumi.Input[str]]
+        """
+        Rulestack location
+        """
+        resource_id: NotRequired[pulumi.Input[str]]
+        """
+        Resource Id
+        """
+        rulestack_id: NotRequired[pulumi.Input[str]]
+        """
+        Associated rulestack Id
+        """
+elif False:
+    RulestackDetailsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RulestackDetailsArgs:
@@ -782,6 +1084,46 @@ class RulestackDetailsArgs:
     def rulestack_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "rulestack_id", value)
 
+
+if not MYPY:
+    class SecurityServicesArgsDict(TypedDict):
+        """
+        security services
+        """
+        anti_spyware_profile: NotRequired[pulumi.Input[str]]
+        """
+        Anti spyware Profile data
+        """
+        anti_virus_profile: NotRequired[pulumi.Input[str]]
+        """
+        anti virus profile data
+        """
+        dns_subscription: NotRequired[pulumi.Input[str]]
+        """
+        DNS Subscription profile data
+        """
+        file_blocking_profile: NotRequired[pulumi.Input[str]]
+        """
+        File blocking profile data
+        """
+        outbound_trust_certificate: NotRequired[pulumi.Input[str]]
+        """
+        Trusted Egress Decryption profile data
+        """
+        outbound_un_trust_certificate: NotRequired[pulumi.Input[str]]
+        """
+        Untrusted Egress Decryption profile data
+        """
+        url_filtering_profile: NotRequired[pulumi.Input[str]]
+        """
+        URL filtering profile data
+        """
+        vulnerability_profile: NotRequired[pulumi.Input[str]]
+        """
+        IPs Vulnerability Profile Data
+        """
+elif False:
+    SecurityServicesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SecurityServicesArgs:
@@ -919,6 +1261,30 @@ class SecurityServicesArgs:
         pulumi.set(self, "vulnerability_profile", value)
 
 
+if not MYPY:
+    class SourceAddrArgsDict(TypedDict):
+        """
+        Address properties
+        """
+        cidrs: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        special value 'any'
+        """
+        countries: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        list of countries
+        """
+        feeds: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        list of feeds
+        """
+        prefix_lists: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        prefix list
+        """
+elif False:
+    SourceAddrArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SourceAddrArgs:
     def __init__(__self__, *,
@@ -991,6 +1357,22 @@ class SourceAddrArgs:
         pulumi.set(self, "prefix_lists", value)
 
 
+if not MYPY:
+    class TagInfoArgsDict(TypedDict):
+        """
+        Tag
+        """
+        key: pulumi.Input[str]
+        """
+        tag name
+        """
+        value: pulumi.Input[str]
+        """
+        tag value
+        """
+elif False:
+    TagInfoArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TagInfoArgs:
     def __init__(__self__, *,
@@ -1028,6 +1410,30 @@ class TagInfoArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class VnetConfigurationArgsDict(TypedDict):
+        """
+        VnetInfo for Firewall Networking
+        """
+        trust_subnet: pulumi.Input['IPAddressSpaceArgsDict']
+        """
+        Trust Subnet
+        """
+        un_trust_subnet: pulumi.Input['IPAddressSpaceArgsDict']
+        """
+        Untrust Subnet
+        """
+        vnet: pulumi.Input['IPAddressSpaceArgsDict']
+        """
+        Azure Virtual Network
+        """
+        ip_of_trust_subnet_for_udr: NotRequired[pulumi.Input['IPAddressArgsDict']]
+        """
+        IP of trust subnet for UDR
+        """
+elif False:
+    VnetConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VnetConfigurationArgs:
@@ -1097,6 +1503,34 @@ class VnetConfigurationArgs:
     def ip_of_trust_subnet_for_udr(self, value: Optional[pulumi.Input['IPAddressArgs']]):
         pulumi.set(self, "ip_of_trust_subnet_for_udr", value)
 
+
+if not MYPY:
+    class VwanConfigurationArgsDict(TypedDict):
+        """
+        VwanInfo for Firewall Networking
+        """
+        v_hub: pulumi.Input['IPAddressSpaceArgsDict']
+        """
+        vHub Address
+        """
+        ip_of_trust_subnet_for_udr: NotRequired[pulumi.Input['IPAddressArgsDict']]
+        """
+        IP of trust subnet for UDR
+        """
+        network_virtual_appliance_id: NotRequired[pulumi.Input[str]]
+        """
+        Network Virtual Appliance resource ID 
+        """
+        trust_subnet: NotRequired[pulumi.Input['IPAddressSpaceArgsDict']]
+        """
+        Trust Subnet
+        """
+        un_trust_subnet: NotRequired[pulumi.Input['IPAddressSpaceArgsDict']]
+        """
+        Untrust Subnet
+        """
+elif False:
+    VwanConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VwanConfigurationArgs:

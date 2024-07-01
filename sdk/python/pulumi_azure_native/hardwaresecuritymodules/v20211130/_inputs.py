@@ -4,18 +4,41 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'ApiEntityReferenceArgs',
+    'ApiEntityReferenceArgsDict',
     'NetworkInterfaceArgs',
+    'NetworkInterfaceArgsDict',
     'NetworkProfileArgs',
+    'NetworkProfileArgsDict',
     'SkuArgs',
+    'SkuArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ApiEntityReferenceArgsDict(TypedDict):
+        """
+        The API entity reference.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The ARM resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
+        """
+elif False:
+    ApiEntityReferenceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApiEntityReferenceArgs:
@@ -41,6 +64,18 @@ class ApiEntityReferenceArgs:
         pulumi.set(self, "id", value)
 
 
+if not MYPY:
+    class NetworkInterfaceArgsDict(TypedDict):
+        """
+        The network interface definition.
+        """
+        private_ip_address: NotRequired[pulumi.Input[str]]
+        """
+        Private Ip address of the interface
+        """
+elif False:
+    NetworkInterfaceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NetworkInterfaceArgs:
     def __init__(__self__, *,
@@ -64,6 +99,22 @@ class NetworkInterfaceArgs:
     def private_ip_address(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "private_ip_address", value)
 
+
+if not MYPY:
+    class NetworkProfileArgsDict(TypedDict):
+        """
+        The network profile definition.
+        """
+        network_interfaces: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceArgsDict']]]]
+        """
+        Specifies the list of resource Ids for the network interfaces associated with the dedicated HSM.
+        """
+        subnet: NotRequired[pulumi.Input['ApiEntityReferenceArgsDict']]
+        """
+        Specifies the identifier of the subnet.
+        """
+elif False:
+    NetworkProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NetworkProfileArgs:
@@ -104,6 +155,18 @@ class NetworkProfileArgs:
     def subnet(self, value: Optional[pulumi.Input['ApiEntityReferenceArgs']]):
         pulumi.set(self, "subnet", value)
 
+
+if not MYPY:
+    class SkuArgsDict(TypedDict):
+        """
+        SKU of the dedicated HSM
+        """
+        name: NotRequired[pulumi.Input[Union[str, 'SkuName']]]
+        """
+        SKU of the dedicated HSM
+        """
+elif False:
+    SkuArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SkuArgs:

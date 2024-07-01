@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -154,13 +159,13 @@ class CloudConnection(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cloud_connection_name: Optional[pulumi.Input[str]] = None,
-                 cloud_connector: Optional[pulumi.Input[pulumi.InputType['ResourceReferenceArgs']]] = None,
+                 cloud_connector: Optional[pulumi.Input[Union['ResourceReferenceArgs', 'ResourceReferenceArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  remote_resource_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  shared_key: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 virtual_hub: Optional[pulumi.Input[pulumi.InputType['ResourceReferenceArgs']]] = None,
+                 virtual_hub: Optional[pulumi.Input[Union['ResourceReferenceArgs', 'ResourceReferenceArgsDict']]] = None,
                  __props__=None):
         """
         Resource which represents the managed network connection between Azure Gateways and remote cloud gateways.
@@ -168,13 +173,13 @@ class CloudConnection(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cloud_connection_name: The name of the cloud connection resource
-        :param pulumi.Input[pulumi.InputType['ResourceReferenceArgs']] cloud_connector: The cloud connector which discovered the remote resource.
+        :param pulumi.Input[Union['ResourceReferenceArgs', 'ResourceReferenceArgsDict']] cloud_connector: The cloud connector which discovered the remote resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] remote_resource_id: Identifier for the remote cloud resource
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] shared_key: Shared key of the cloud connection.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[pulumi.InputType['ResourceReferenceArgs']] virtual_hub: The virtualHub to which the cloud connection belongs.
+        :param pulumi.Input[Union['ResourceReferenceArgs', 'ResourceReferenceArgsDict']] virtual_hub: The virtualHub to which the cloud connection belongs.
         """
         ...
     @overload
@@ -201,13 +206,13 @@ class CloudConnection(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cloud_connection_name: Optional[pulumi.Input[str]] = None,
-                 cloud_connector: Optional[pulumi.Input[pulumi.InputType['ResourceReferenceArgs']]] = None,
+                 cloud_connector: Optional[pulumi.Input[Union['ResourceReferenceArgs', 'ResourceReferenceArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  remote_resource_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  shared_key: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 virtual_hub: Optional[pulumi.Input[pulumi.InputType['ResourceReferenceArgs']]] = None,
+                 virtual_hub: Optional[pulumi.Input[Union['ResourceReferenceArgs', 'ResourceReferenceArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

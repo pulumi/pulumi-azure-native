@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -90,7 +95,7 @@ class JavaComponent(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  environment_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[Union[pulumi.InputType['NacosComponentArgs'], pulumi.InputType['SpringBootAdminComponentArgs'], pulumi.InputType['SpringCloudConfigComponentArgs'], pulumi.InputType['SpringCloudEurekaComponentArgs']]]] = None,
+                 properties: Optional[pulumi.Input[Union[Union['NacosComponentArgs', 'NacosComponentArgsDict'], Union['SpringBootAdminComponentArgs', 'SpringBootAdminComponentArgsDict'], Union['SpringCloudConfigComponentArgs', 'SpringCloudConfigComponentArgsDict'], Union['SpringCloudEurekaComponentArgs', 'SpringCloudEurekaComponentArgsDict']]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -100,7 +105,7 @@ class JavaComponent(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] environment_name: Name of the Managed Environment.
         :param pulumi.Input[str] name: Name of the Java Component.
-        :param pulumi.Input[Union[pulumi.InputType['NacosComponentArgs'], pulumi.InputType['SpringBootAdminComponentArgs'], pulumi.InputType['SpringCloudConfigComponentArgs'], pulumi.InputType['SpringCloudEurekaComponentArgs']]] properties: Java Component resource specific properties
+        :param pulumi.Input[Union[Union['NacosComponentArgs', 'NacosComponentArgsDict'], Union['SpringBootAdminComponentArgs', 'SpringBootAdminComponentArgsDict'], Union['SpringCloudConfigComponentArgs', 'SpringCloudConfigComponentArgsDict'], Union['SpringCloudEurekaComponentArgs', 'SpringCloudEurekaComponentArgsDict']]] properties: Java Component resource specific properties
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         """
         ...
@@ -129,7 +134,7 @@ class JavaComponent(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  environment_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[Union[pulumi.InputType['NacosComponentArgs'], pulumi.InputType['SpringBootAdminComponentArgs'], pulumi.InputType['SpringCloudConfigComponentArgs'], pulumi.InputType['SpringCloudEurekaComponentArgs']]]] = None,
+                 properties: Optional[pulumi.Input[Union[Union['NacosComponentArgs', 'NacosComponentArgsDict'], Union['SpringBootAdminComponentArgs', 'SpringBootAdminComponentArgsDict'], Union['SpringCloudConfigComponentArgs', 'SpringCloudConfigComponentArgsDict'], Union['SpringCloudEurekaComponentArgs', 'SpringCloudEurekaComponentArgsDict']]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

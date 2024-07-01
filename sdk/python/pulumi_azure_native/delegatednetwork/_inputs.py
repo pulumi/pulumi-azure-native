@@ -4,17 +4,39 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'ControllerDetailsArgs',
+    'ControllerDetailsArgsDict',
     'OrchestratorIdentityArgs',
+    'OrchestratorIdentityArgsDict',
     'SubnetDetailsArgs',
+    'SubnetDetailsArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ControllerDetailsArgsDict(TypedDict):
+        """
+        controller details
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        controller arm resource id
+        """
+elif False:
+    ControllerDetailsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ControllerDetailsArgs:
@@ -40,6 +62,15 @@ class ControllerDetailsArgs:
         pulumi.set(self, "id", value)
 
 
+if not MYPY:
+    class OrchestratorIdentityArgsDict(TypedDict):
+        type: NotRequired[pulumi.Input['ResourceIdentityType']]
+        """
+        The type of identity used for orchestrator cluster. Type 'SystemAssigned' will use an implicitly created identity orchestrator clusters
+        """
+elif False:
+    OrchestratorIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OrchestratorIdentityArgs:
     def __init__(__self__, *,
@@ -62,6 +93,18 @@ class OrchestratorIdentityArgs:
     def type(self, value: Optional[pulumi.Input['ResourceIdentityType']]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class SubnetDetailsArgsDict(TypedDict):
+        """
+        Properties of orchestrator
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        subnet arm resource id
+        """
+elif False:
+    SubnetDetailsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SubnetDetailsArgs:

@@ -4,19 +4,47 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'ContainerGroupProfileArgs',
+    'ContainerGroupProfileArgsDict',
     'ContainerGroupPropertiesArgs',
+    'ContainerGroupPropertiesArgsDict',
     'StandbyContainerGroupPoolElasticityProfileArgs',
+    'StandbyContainerGroupPoolElasticityProfileArgsDict',
     'StandbyVirtualMachinePoolElasticityProfileArgs',
+    'StandbyVirtualMachinePoolElasticityProfileArgsDict',
     'SubnetArgs',
+    'SubnetArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ContainerGroupProfileArgsDict(TypedDict):
+        """
+        Details of the ContainerGroupProfile.
+        """
+        id: pulumi.Input[str]
+        """
+        Specifies container group profile id of standby container groups.
+        """
+        revision: NotRequired[pulumi.Input[float]]
+        """
+        Specifies revision of container group profile.
+        """
+elif False:
+    ContainerGroupProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ContainerGroupProfileArgs:
@@ -57,6 +85,22 @@ class ContainerGroupProfileArgs:
         pulumi.set(self, "revision", value)
 
 
+if not MYPY:
+    class ContainerGroupPropertiesArgsDict(TypedDict):
+        """
+        Details of the ContainerGroupProperties.
+        """
+        container_group_profile: pulumi.Input['ContainerGroupProfileArgsDict']
+        """
+        Specifies container group profile of standby container groups.
+        """
+        subnet_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input['SubnetArgsDict']]]]
+        """
+        Specifies subnet Ids for container group.
+        """
+elif False:
+    ContainerGroupPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ContainerGroupPropertiesArgs:
     def __init__(__self__, *,
@@ -95,6 +139,22 @@ class ContainerGroupPropertiesArgs:
     def subnet_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SubnetArgs']]]]):
         pulumi.set(self, "subnet_ids", value)
 
+
+if not MYPY:
+    class StandbyContainerGroupPoolElasticityProfileArgsDict(TypedDict):
+        """
+        Specifies the elasticity profile of the standby container group pools.
+        """
+        max_ready_capacity: pulumi.Input[float]
+        """
+        Specifies maximum number of standby container groups in the standby pool.
+        """
+        refill_policy: NotRequired[pulumi.Input[Union[str, 'RefillPolicy']]]
+        """
+        Specifies refill policy of the pool.
+        """
+elif False:
+    StandbyContainerGroupPoolElasticityProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class StandbyContainerGroupPoolElasticityProfileArgs:
@@ -135,6 +195,18 @@ class StandbyContainerGroupPoolElasticityProfileArgs:
         pulumi.set(self, "refill_policy", value)
 
 
+if not MYPY:
+    class StandbyVirtualMachinePoolElasticityProfileArgsDict(TypedDict):
+        """
+        Details of the elasticity profile.
+        """
+        max_ready_capacity: pulumi.Input[float]
+        """
+        Specifies the maximum number of virtual machines in the standby virtual machine pool.
+        """
+elif False:
+    StandbyVirtualMachinePoolElasticityProfileArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class StandbyVirtualMachinePoolElasticityProfileArgs:
     def __init__(__self__, *,
@@ -157,6 +229,18 @@ class StandbyVirtualMachinePoolElasticityProfileArgs:
     def max_ready_capacity(self, value: pulumi.Input[float]):
         pulumi.set(self, "max_ready_capacity", value)
 
+
+if not MYPY:
+    class SubnetArgsDict(TypedDict):
+        """
+        Subnet of container group
+        """
+        id: pulumi.Input[str]
+        """
+        Specifies ARM resource id of the subnet.
+        """
+elif False:
+    SubnetArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SubnetArgs:

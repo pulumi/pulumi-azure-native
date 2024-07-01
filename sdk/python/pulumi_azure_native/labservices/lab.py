@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -230,19 +235,19 @@ class Lab(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_shutdown_profile: Optional[pulumi.Input[pulumi.InputType['AutoShutdownProfileArgs']]] = None,
-                 connection_profile: Optional[pulumi.Input[pulumi.InputType['ConnectionProfileArgs']]] = None,
+                 auto_shutdown_profile: Optional[pulumi.Input[Union['AutoShutdownProfileArgs', 'AutoShutdownProfileArgsDict']]] = None,
+                 connection_profile: Optional[pulumi.Input[Union['ConnectionProfileArgs', 'ConnectionProfileArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  lab_name: Optional[pulumi.Input[str]] = None,
                  lab_plan_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 network_profile: Optional[pulumi.Input[pulumi.InputType['LabNetworkProfileArgs']]] = None,
+                 network_profile: Optional[pulumi.Input[Union['LabNetworkProfileArgs', 'LabNetworkProfileArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 roster_profile: Optional[pulumi.Input[pulumi.InputType['RosterProfileArgs']]] = None,
-                 security_profile: Optional[pulumi.Input[pulumi.InputType['SecurityProfileArgs']]] = None,
+                 roster_profile: Optional[pulumi.Input[Union['RosterProfileArgs', 'RosterProfileArgsDict']]] = None,
+                 security_profile: Optional[pulumi.Input[Union['SecurityProfileArgs', 'SecurityProfileArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  title: Optional[pulumi.Input[str]] = None,
-                 virtual_machine_profile: Optional[pulumi.Input[pulumi.InputType['VirtualMachineProfileArgs']]] = None,
+                 virtual_machine_profile: Optional[pulumi.Input[Union['VirtualMachineProfileArgs', 'VirtualMachineProfileArgsDict']]] = None,
                  __props__=None):
         """
         The lab resource.
@@ -252,19 +257,19 @@ class Lab(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['AutoShutdownProfileArgs']] auto_shutdown_profile: The resource auto shutdown configuration for the lab. This controls whether actions are taken on resources that are sitting idle.
-        :param pulumi.Input[pulumi.InputType['ConnectionProfileArgs']] connection_profile: The connection profile for the lab. This controls settings such as web access to lab resources or whether RDP or SSH ports are open.
+        :param pulumi.Input[Union['AutoShutdownProfileArgs', 'AutoShutdownProfileArgsDict']] auto_shutdown_profile: The resource auto shutdown configuration for the lab. This controls whether actions are taken on resources that are sitting idle.
+        :param pulumi.Input[Union['ConnectionProfileArgs', 'ConnectionProfileArgsDict']] connection_profile: The connection profile for the lab. This controls settings such as web access to lab resources or whether RDP or SSH ports are open.
         :param pulumi.Input[str] description: The description of the lab.
         :param pulumi.Input[str] lab_name: The name of the lab that uniquely identifies it within containing lab plan. Used in resource URIs.
         :param pulumi.Input[str] lab_plan_id: The ID of the lab plan. Used during resource creation to provide defaults and acts as a permission container when creating a lab via labs.azure.com. Setting a labPlanId on an existing lab provides organization..
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[pulumi.InputType['LabNetworkProfileArgs']] network_profile: The network profile for the lab, typically applied via a lab plan. This profile cannot be modified once a lab has been created.
+        :param pulumi.Input[Union['LabNetworkProfileArgs', 'LabNetworkProfileArgsDict']] network_profile: The network profile for the lab, typically applied via a lab plan. This profile cannot be modified once a lab has been created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[pulumi.InputType['RosterProfileArgs']] roster_profile: The lab user list management profile.
-        :param pulumi.Input[pulumi.InputType['SecurityProfileArgs']] security_profile: The lab security profile.
+        :param pulumi.Input[Union['RosterProfileArgs', 'RosterProfileArgsDict']] roster_profile: The lab user list management profile.
+        :param pulumi.Input[Union['SecurityProfileArgs', 'SecurityProfileArgsDict']] security_profile: The lab security profile.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] title: The title of the lab.
-        :param pulumi.Input[pulumi.InputType['VirtualMachineProfileArgs']] virtual_machine_profile: The profile used for creating lab virtual machines.
+        :param pulumi.Input[Union['VirtualMachineProfileArgs', 'VirtualMachineProfileArgsDict']] virtual_machine_profile: The profile used for creating lab virtual machines.
         """
         ...
     @overload
@@ -293,19 +298,19 @@ class Lab(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_shutdown_profile: Optional[pulumi.Input[pulumi.InputType['AutoShutdownProfileArgs']]] = None,
-                 connection_profile: Optional[pulumi.Input[pulumi.InputType['ConnectionProfileArgs']]] = None,
+                 auto_shutdown_profile: Optional[pulumi.Input[Union['AutoShutdownProfileArgs', 'AutoShutdownProfileArgsDict']]] = None,
+                 connection_profile: Optional[pulumi.Input[Union['ConnectionProfileArgs', 'ConnectionProfileArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  lab_name: Optional[pulumi.Input[str]] = None,
                  lab_plan_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 network_profile: Optional[pulumi.Input[pulumi.InputType['LabNetworkProfileArgs']]] = None,
+                 network_profile: Optional[pulumi.Input[Union['LabNetworkProfileArgs', 'LabNetworkProfileArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 roster_profile: Optional[pulumi.Input[pulumi.InputType['RosterProfileArgs']]] = None,
-                 security_profile: Optional[pulumi.Input[pulumi.InputType['SecurityProfileArgs']]] = None,
+                 roster_profile: Optional[pulumi.Input[Union['RosterProfileArgs', 'RosterProfileArgsDict']]] = None,
+                 security_profile: Optional[pulumi.Input[Union['SecurityProfileArgs', 'SecurityProfileArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  title: Optional[pulumi.Input[str]] = None,
-                 virtual_machine_profile: Optional[pulumi.Input[pulumi.InputType['VirtualMachineProfileArgs']]] = None,
+                 virtual_machine_profile: Optional[pulumi.Input[Union['VirtualMachineProfileArgs', 'VirtualMachineProfileArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

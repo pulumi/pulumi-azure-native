@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -272,8 +277,8 @@ class ScheduledQueryRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ActionArgs']]]]] = None,
-                 criteria: Optional[pulumi.Input[pulumi.InputType['ScheduledQueryRuleCriteriaArgs']]] = None,
+                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ActionArgs', 'ActionArgsDict']]]]] = None,
+                 criteria: Optional[pulumi.Input[Union['ScheduledQueryRuleCriteriaArgs', 'ScheduledQueryRuleCriteriaArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
@@ -294,7 +299,7 @@ class ScheduledQueryRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ScheduledQueryRuleCriteriaArgs']] criteria: The rule criteria that defines the conditions of the scheduled query rule.
+        :param pulumi.Input[Union['ScheduledQueryRuleCriteriaArgs', 'ScheduledQueryRuleCriteriaArgsDict']] criteria: The rule criteria that defines the conditions of the scheduled query rule.
         :param pulumi.Input[str] description: The description of the scheduled query rule.
         :param pulumi.Input[str] display_name: The display name of the alert rule
         :param pulumi.Input[bool] enabled: The flag which indicates whether this scheduled query rule is enabled. Value should be true or false
@@ -334,8 +339,8 @@ class ScheduledQueryRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ActionArgs']]]]] = None,
-                 criteria: Optional[pulumi.Input[pulumi.InputType['ScheduledQueryRuleCriteriaArgs']]] = None,
+                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ActionArgs', 'ActionArgsDict']]]]] = None,
+                 criteria: Optional[pulumi.Input[Union['ScheduledQueryRuleCriteriaArgs', 'ScheduledQueryRuleCriteriaArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,

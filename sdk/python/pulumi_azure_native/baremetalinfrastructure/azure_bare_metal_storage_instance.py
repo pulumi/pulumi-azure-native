@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -126,7 +131,7 @@ class AzureBareMetalStorageInstance(pulumi.CustomResource):
                  azure_bare_metal_storage_instance_unique_identifier: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 storage_properties: Optional[pulumi.Input[pulumi.InputType['StoragePropertiesArgs']]] = None,
+                 storage_properties: Optional[pulumi.Input[Union['StoragePropertiesArgs', 'StoragePropertiesArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -141,7 +146,7 @@ class AzureBareMetalStorageInstance(pulumi.CustomResource):
         :param pulumi.Input[str] azure_bare_metal_storage_instance_unique_identifier: Specifies the AzureBareMetaStorageInstance unique ID.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[pulumi.InputType['StoragePropertiesArgs']] storage_properties: Specifies the storage properties for the AzureBareMetalStorage instance.
+        :param pulumi.Input[Union['StoragePropertiesArgs', 'StoragePropertiesArgsDict']] storage_properties: Specifies the storage properties for the AzureBareMetalStorage instance.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         ...
@@ -175,7 +180,7 @@ class AzureBareMetalStorageInstance(pulumi.CustomResource):
                  azure_bare_metal_storage_instance_unique_identifier: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 storage_properties: Optional[pulumi.Input[pulumi.InputType['StoragePropertiesArgs']]] = None,
+                 storage_properties: Optional[pulumi.Input[Union['StoragePropertiesArgs', 'StoragePropertiesArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

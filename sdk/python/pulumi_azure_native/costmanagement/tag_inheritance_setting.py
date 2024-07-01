@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -108,7 +113,7 @@ class TagInheritanceSetting(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  e_tag: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['TagInheritancePropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['TagInheritancePropertiesArgs', 'TagInheritancePropertiesArgsDict']]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -121,7 +126,7 @@ class TagInheritanceSetting(pulumi.CustomResource):
         :param pulumi.Input[str] e_tag: eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
         :param pulumi.Input[str] kind: Specifies the kind of settings.
                Expected value is 'taginheritance'.
-        :param pulumi.Input[pulumi.InputType['TagInheritancePropertiesArgs']] properties: The properties of the tag inheritance setting.
+        :param pulumi.Input[Union['TagInheritancePropertiesArgs', 'TagInheritancePropertiesArgsDict']] properties: The properties of the tag inheritance setting.
         :param pulumi.Input[str] scope: The scope associated with this setting. This includes 'subscriptions/{subscriptionId}' for subscription scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for billing profile scope.
         :param pulumi.Input[str] type: Setting type.
         """
@@ -152,7 +157,7 @@ class TagInheritanceSetting(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  e_tag: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['TagInheritancePropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['TagInheritancePropertiesArgs', 'TagInheritancePropertiesArgsDict']]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):

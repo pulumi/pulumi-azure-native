@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._inputs import *
 
@@ -45,14 +50,14 @@ class AwaitableGetRequiredAmlFSSubnetsSizeResult(GetRequiredAmlFSSubnetsSizeResu
             filesystem_subnet_size=self.filesystem_subnet_size)
 
 
-def get_required_aml_fs_subnets_size(sku: Optional[pulumi.InputType['SkuName']] = None,
+def get_required_aml_fs_subnets_size(sku: Optional[Union['SkuName', 'SkuNameDict']] = None,
                                      storage_capacity_ti_b: Optional[float] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRequiredAmlFSSubnetsSizeResult:
     """
     Get the number of available IP addresses needed for the AML file system information provided.
 
 
-    :param pulumi.InputType['SkuName'] sku: SKU for the resource.
+    :param Union['SkuName', 'SkuNameDict'] sku: SKU for the resource.
     :param float storage_capacity_ti_b: The size of the AML file system, in TiB.
     """
     __args__ = dict()
@@ -66,14 +71,14 @@ def get_required_aml_fs_subnets_size(sku: Optional[pulumi.InputType['SkuName']] 
 
 
 @_utilities.lift_output_func(get_required_aml_fs_subnets_size)
-def get_required_aml_fs_subnets_size_output(sku: Optional[pulumi.Input[Optional[pulumi.InputType['SkuName']]]] = None,
+def get_required_aml_fs_subnets_size_output(sku: Optional[pulumi.Input[Optional[Union['SkuName', 'SkuNameDict']]]] = None,
                                             storage_capacity_ti_b: Optional[pulumi.Input[Optional[float]]] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRequiredAmlFSSubnetsSizeResult]:
     """
     Get the number of available IP addresses needed for the AML file system information provided.
 
 
-    :param pulumi.InputType['SkuName'] sku: SKU for the resource.
+    :param Union['SkuName', 'SkuNameDict'] sku: SKU for the resource.
     :param float storage_capacity_ti_b: The size of the AML file system, in TiB.
     """
     ...

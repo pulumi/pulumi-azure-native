@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -283,20 +288,20 @@ class AzureFirewall(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 application_rule_collections: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AzureFirewallApplicationRuleCollectionArgs']]]]] = None,
+                 application_rule_collections: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AzureFirewallApplicationRuleCollectionArgs', 'AzureFirewallApplicationRuleCollectionArgsDict']]]]] = None,
                  azure_firewall_name: Optional[pulumi.Input[str]] = None,
-                 firewall_policy: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
+                 firewall_policy: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
                  id: Optional[pulumi.Input[str]] = None,
-                 ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AzureFirewallIPConfigurationArgs']]]]] = None,
+                 ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AzureFirewallIPConfigurationArgs', 'AzureFirewallIPConfigurationArgsDict']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 management_ip_configuration: Optional[pulumi.Input[pulumi.InputType['AzureFirewallIPConfigurationArgs']]] = None,
-                 nat_rule_collections: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AzureFirewallNatRuleCollectionArgs']]]]] = None,
-                 network_rule_collections: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AzureFirewallNetworkRuleCollectionArgs']]]]] = None,
+                 management_ip_configuration: Optional[pulumi.Input[Union['AzureFirewallIPConfigurationArgs', 'AzureFirewallIPConfigurationArgsDict']]] = None,
+                 nat_rule_collections: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AzureFirewallNatRuleCollectionArgs', 'AzureFirewallNatRuleCollectionArgsDict']]]]] = None,
+                 network_rule_collections: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AzureFirewallNetworkRuleCollectionArgs', 'AzureFirewallNetworkRuleCollectionArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['AzureFirewallSkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['AzureFirewallSkuArgs', 'AzureFirewallSkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  threat_intel_mode: Optional[pulumi.Input[Union[str, 'AzureFirewallThreatIntelMode']]] = None,
-                 virtual_hub: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
+                 virtual_hub: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -305,20 +310,20 @@ class AzureFirewall(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: The additional properties used to further config this azure firewall.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AzureFirewallApplicationRuleCollectionArgs']]]] application_rule_collections: Collection of application rule collections used by Azure Firewall.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AzureFirewallApplicationRuleCollectionArgs', 'AzureFirewallApplicationRuleCollectionArgsDict']]]] application_rule_collections: Collection of application rule collections used by Azure Firewall.
         :param pulumi.Input[str] azure_firewall_name: The name of the Azure Firewall.
-        :param pulumi.Input[pulumi.InputType['SubResourceArgs']] firewall_policy: The firewallPolicy associated with this azure firewall.
+        :param pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']] firewall_policy: The firewallPolicy associated with this azure firewall.
         :param pulumi.Input[str] id: Resource ID.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AzureFirewallIPConfigurationArgs']]]] ip_configurations: IP configuration of the Azure Firewall resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AzureFirewallIPConfigurationArgs', 'AzureFirewallIPConfigurationArgsDict']]]] ip_configurations: IP configuration of the Azure Firewall resource.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[pulumi.InputType['AzureFirewallIPConfigurationArgs']] management_ip_configuration: IP configuration of the Azure Firewall used for management traffic.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AzureFirewallNatRuleCollectionArgs']]]] nat_rule_collections: Collection of NAT rule collections used by Azure Firewall.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AzureFirewallNetworkRuleCollectionArgs']]]] network_rule_collections: Collection of network rule collections used by Azure Firewall.
+        :param pulumi.Input[Union['AzureFirewallIPConfigurationArgs', 'AzureFirewallIPConfigurationArgsDict']] management_ip_configuration: IP configuration of the Azure Firewall used for management traffic.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AzureFirewallNatRuleCollectionArgs', 'AzureFirewallNatRuleCollectionArgsDict']]]] nat_rule_collections: Collection of NAT rule collections used by Azure Firewall.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AzureFirewallNetworkRuleCollectionArgs', 'AzureFirewallNetworkRuleCollectionArgsDict']]]] network_rule_collections: Collection of network rule collections used by Azure Firewall.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[pulumi.InputType['AzureFirewallSkuArgs']] sku: The Azure Firewall Resource SKU.
+        :param pulumi.Input[Union['AzureFirewallSkuArgs', 'AzureFirewallSkuArgsDict']] sku: The Azure Firewall Resource SKU.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[Union[str, 'AzureFirewallThreatIntelMode']] threat_intel_mode: The operation mode for Threat Intelligence.
-        :param pulumi.Input[pulumi.InputType['SubResourceArgs']] virtual_hub: The virtualHub to which the firewall belongs.
+        :param pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']] virtual_hub: The virtualHub to which the firewall belongs.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of availability zones denoting where the resource needs to come from.
         """
         ...
@@ -346,20 +351,20 @@ class AzureFirewall(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 application_rule_collections: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AzureFirewallApplicationRuleCollectionArgs']]]]] = None,
+                 application_rule_collections: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AzureFirewallApplicationRuleCollectionArgs', 'AzureFirewallApplicationRuleCollectionArgsDict']]]]] = None,
                  azure_firewall_name: Optional[pulumi.Input[str]] = None,
-                 firewall_policy: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
+                 firewall_policy: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
                  id: Optional[pulumi.Input[str]] = None,
-                 ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AzureFirewallIPConfigurationArgs']]]]] = None,
+                 ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AzureFirewallIPConfigurationArgs', 'AzureFirewallIPConfigurationArgsDict']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 management_ip_configuration: Optional[pulumi.Input[pulumi.InputType['AzureFirewallIPConfigurationArgs']]] = None,
-                 nat_rule_collections: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AzureFirewallNatRuleCollectionArgs']]]]] = None,
-                 network_rule_collections: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AzureFirewallNetworkRuleCollectionArgs']]]]] = None,
+                 management_ip_configuration: Optional[pulumi.Input[Union['AzureFirewallIPConfigurationArgs', 'AzureFirewallIPConfigurationArgsDict']]] = None,
+                 nat_rule_collections: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AzureFirewallNatRuleCollectionArgs', 'AzureFirewallNatRuleCollectionArgsDict']]]]] = None,
+                 network_rule_collections: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AzureFirewallNetworkRuleCollectionArgs', 'AzureFirewallNetworkRuleCollectionArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['AzureFirewallSkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['AzureFirewallSkuArgs', 'AzureFirewallSkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  threat_intel_mode: Optional[pulumi.Input[Union[str, 'AzureFirewallThreatIntelMode']]] = None,
-                 virtual_hub: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
+                 virtual_hub: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

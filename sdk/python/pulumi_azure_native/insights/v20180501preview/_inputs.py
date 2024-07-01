@@ -4,14 +4,62 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 
 __all__ = [
     'ApplicationInsightsComponentProactiveDetectionConfigurationPropertiesRuleDefinitionsArgs',
+    'ApplicationInsightsComponentProactiveDetectionConfigurationPropertiesRuleDefinitionsArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ApplicationInsightsComponentProactiveDetectionConfigurationPropertiesRuleDefinitionsArgsDict(TypedDict):
+        """
+        Static definitions of the ProactiveDetection configuration rule (same values for all components).
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The rule description
+        """
+        display_name: NotRequired[pulumi.Input[str]]
+        """
+        The rule name as it is displayed in UI
+        """
+        help_url: NotRequired[pulumi.Input[str]]
+        """
+        URL which displays additional info about the proactive detection rule
+        """
+        is_enabled_by_default: NotRequired[pulumi.Input[bool]]
+        """
+        A flag indicating whether the rule is enabled by default
+        """
+        is_hidden: NotRequired[pulumi.Input[bool]]
+        """
+        A flag indicating whether the rule is hidden (from the UI)
+        """
+        is_in_preview: NotRequired[pulumi.Input[bool]]
+        """
+        A flag indicating whether the rule is in preview
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The rule name
+        """
+        supports_email_notifications: NotRequired[pulumi.Input[bool]]
+        """
+        A flag indicating whether email notifications are supported for detections for this rule
+        """
+elif False:
+    ApplicationInsightsComponentProactiveDetectionConfigurationPropertiesRuleDefinitionsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApplicationInsightsComponentProactiveDetectionConfigurationPropertiesRuleDefinitionsArgs:

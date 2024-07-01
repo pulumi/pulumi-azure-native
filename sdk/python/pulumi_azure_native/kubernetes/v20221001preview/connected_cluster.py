@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -241,7 +246,7 @@ class ConnectedCluster(pulumi.CustomResource):
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  distribution: Optional[pulumi.Input[str]] = None,
                  distribution_version: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ConnectedClusterIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['ConnectedClusterIdentityArgs', 'ConnectedClusterIdentityArgsDict']]] = None,
                  infrastructure: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  private_link_scope_resource_id: Optional[pulumi.Input[str]] = None,
@@ -260,7 +265,7 @@ class ConnectedCluster(pulumi.CustomResource):
         :param pulumi.Input[str] cluster_name: The name of the Kubernetes cluster on which get is called.
         :param pulumi.Input[str] distribution: The Kubernetes distribution running on this connected cluster.
         :param pulumi.Input[str] distribution_version: The Kubernetes distribution version on this connected cluster.
-        :param pulumi.Input[pulumi.InputType['ConnectedClusterIdentityArgs']] identity: The identity of the connected cluster.
+        :param pulumi.Input[Union['ConnectedClusterIdentityArgs', 'ConnectedClusterIdentityArgsDict']] identity: The identity of the connected cluster.
         :param pulumi.Input[str] infrastructure: The infrastructure on which the Kubernetes cluster represented by this connected cluster is running on.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] private_link_scope_resource_id: The resource id of the private link scope this connected cluster is assigned to, if any.
@@ -298,7 +303,7 @@ class ConnectedCluster(pulumi.CustomResource):
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  distribution: Optional[pulumi.Input[str]] = None,
                  distribution_version: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ConnectedClusterIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['ConnectedClusterIdentityArgs', 'ConnectedClusterIdentityArgsDict']]] = None,
                  infrastructure: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  private_link_scope_resource_id: Optional[pulumi.Input[str]] = None,

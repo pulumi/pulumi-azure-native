@@ -4,15 +4,35 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'ConnectedClusterIdentityArgs',
+    'ConnectedClusterIdentityArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ConnectedClusterIdentityArgsDict(TypedDict):
+        """
+        Identity for the connected cluster.
+        """
+        type: pulumi.Input['ResourceIdentityType']
+        """
+        The type of identity used for the connected cluster. The type 'SystemAssigned, includes a system created identity. The type 'None' means no identity is assigned to the connected cluster.
+        """
+elif False:
+    ConnectedClusterIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ConnectedClusterIdentityArgs:

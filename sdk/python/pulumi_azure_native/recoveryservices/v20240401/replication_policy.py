@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -90,7 +95,7 @@ class ReplicationPolicy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  policy_name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['CreatePolicyInputPropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['CreatePolicyInputPropertiesArgs', 'CreatePolicyInputPropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -100,7 +105,7 @@ class ReplicationPolicy(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] policy_name: Replication policy name.
-        :param pulumi.Input[pulumi.InputType['CreatePolicyInputPropertiesArgs']] properties: Policy creation properties.
+        :param pulumi.Input[Union['CreatePolicyInputPropertiesArgs', 'CreatePolicyInputPropertiesArgsDict']] properties: Policy creation properties.
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the recovery services vault is present.
         :param pulumi.Input[str] resource_name_: The name of the recovery services vault.
         """
@@ -129,7 +134,7 @@ class ReplicationPolicy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  policy_name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['CreatePolicyInputPropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['CreatePolicyInputPropertiesArgs', 'CreatePolicyInputPropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
                  __props__=None):

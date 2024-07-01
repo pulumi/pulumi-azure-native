@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -225,7 +230,7 @@ class AppServiceCertificateOrder(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_renew: Optional[pulumi.Input[bool]] = None,
                  certificate_order_name: Optional[pulumi.Input[str]] = None,
-                 certificates: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['AppServiceCertificateArgs']]]]] = None,
+                 certificates: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['AppServiceCertificateArgs', 'AppServiceCertificateArgsDict']]]]] = None,
                  csr: Optional[pulumi.Input[str]] = None,
                  distinguished_name: Optional[pulumi.Input[str]] = None,
                  key_size: Optional[pulumi.Input[int]] = None,
@@ -243,7 +248,7 @@ class AppServiceCertificateOrder(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_renew: <code>true</code> if the certificate should be automatically renewed when it expires; otherwise, <code>false</code>.
         :param pulumi.Input[str] certificate_order_name: Name of the certificate order.
-        :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['AppServiceCertificateArgs']]]] certificates: State of the Key Vault secret.
+        :param pulumi.Input[Mapping[str, pulumi.Input[Union['AppServiceCertificateArgs', 'AppServiceCertificateArgsDict']]]] certificates: State of the Key Vault secret.
         :param pulumi.Input[str] csr: Last CSR that was created for this order.
         :param pulumi.Input[str] distinguished_name: Certificate distinguished name.
         :param pulumi.Input[int] key_size: Certificate key size.
@@ -280,7 +285,7 @@ class AppServiceCertificateOrder(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_renew: Optional[pulumi.Input[bool]] = None,
                  certificate_order_name: Optional[pulumi.Input[str]] = None,
-                 certificates: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['AppServiceCertificateArgs']]]]] = None,
+                 certificates: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['AppServiceCertificateArgs', 'AppServiceCertificateArgsDict']]]]] = None,
                  csr: Optional[pulumi.Input[str]] = None,
                  distinguished_name: Optional[pulumi.Input[str]] = None,
                  key_size: Optional[pulumi.Input[int]] = None,

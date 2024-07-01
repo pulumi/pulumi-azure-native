@@ -4,19 +4,43 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'AppSkuInfoArgs',
+    'AppSkuInfoArgsDict',
     'NetworkRuleSetIpRuleArgs',
+    'NetworkRuleSetIpRuleArgsDict',
     'NetworkRuleSetsArgs',
+    'NetworkRuleSetsArgsDict',
     'PrivateLinkServiceConnectionStateArgs',
+    'PrivateLinkServiceConnectionStateArgsDict',
     'SystemAssignedServiceIdentityArgs',
+    'SystemAssignedServiceIdentityArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AppSkuInfoArgsDict(TypedDict):
+        """
+        Information about the SKU of the IoT Central application.
+        """
+        name: pulumi.Input[Union[str, 'AppSku']]
+        """
+        The name of the SKU.
+        """
+elif False:
+    AppSkuInfoArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AppSkuInfoArgs:
@@ -40,6 +64,22 @@ class AppSkuInfoArgs:
     def name(self, value: pulumi.Input[Union[str, 'AppSku']]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class NetworkRuleSetIpRuleArgsDict(TypedDict):
+        """
+        An object for an IP range that will be allowed access.
+        """
+        filter_name: NotRequired[pulumi.Input[str]]
+        """
+        The readable name of the IP rule.
+        """
+        ip_mask: NotRequired[pulumi.Input[str]]
+        """
+        The CIDR block defining the IP range.
+        """
+elif False:
+    NetworkRuleSetIpRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NetworkRuleSetIpRuleArgs:
@@ -80,6 +120,30 @@ class NetworkRuleSetIpRuleArgs:
     def ip_mask(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "ip_mask", value)
 
+
+if not MYPY:
+    class NetworkRuleSetsArgsDict(TypedDict):
+        """
+        Network Rule Set Properties of this IoT Central application.
+        """
+        apply_to_devices: NotRequired[pulumi.Input[bool]]
+        """
+        Whether these rules apply for device connectivity to IoT Hub and Device Provisioning service associated with this application.
+        """
+        apply_to_io_t_central: NotRequired[pulumi.Input[bool]]
+        """
+        Whether these rules apply for connectivity via IoT Central web portal and APIs.
+        """
+        default_action: NotRequired[pulumi.Input[Union[str, 'NetworkAction']]]
+        """
+        The default network action to apply.
+        """
+        ip_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkRuleSetIpRuleArgsDict']]]]
+        """
+        List of IP rules.
+        """
+elif False:
+    NetworkRuleSetsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NetworkRuleSetsArgs:
@@ -157,6 +221,26 @@ class NetworkRuleSetsArgs:
         pulumi.set(self, "ip_rules", value)
 
 
+if not MYPY:
+    class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
+        """
+        A collection of information about the state of the connection between service consumer and provider.
+        """
+        actions_required: NotRequired[pulumi.Input[str]]
+        """
+        A message indicating if changes on the service provider require any updates on the consumer.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The reason for approval/rejection of the connection.
+        """
+        status: NotRequired[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]]
+        """
+        Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+        """
+elif False:
+    PrivateLinkServiceConnectionStateArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:
     def __init__(__self__, *,
@@ -212,6 +296,18 @@ class PrivateLinkServiceConnectionStateArgs:
     def status(self, value: Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]]):
         pulumi.set(self, "status", value)
 
+
+if not MYPY:
+    class SystemAssignedServiceIdentityArgsDict(TypedDict):
+        """
+        Managed service identity (either system assigned, or none)
+        """
+        type: pulumi.Input[Union[str, 'SystemAssignedServiceIdentityType']]
+        """
+        Type of managed service identity (either system assigned, or none).
+        """
+elif False:
+    SystemAssignedServiceIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SystemAssignedServiceIdentityArgs:

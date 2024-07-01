@@ -4,19 +4,40 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'ResourceModelWithAllowedPropertySetIdentityArgs',
+    'ResourceModelWithAllowedPropertySetIdentityArgsDict',
     'ResourceModelWithAllowedPropertySetPlanArgs',
+    'ResourceModelWithAllowedPropertySetPlanArgsDict',
     'ResourceModelWithAllowedPropertySetSkuArgs',
+    'ResourceModelWithAllowedPropertySetSkuArgsDict',
     'ScalingHostPoolReferenceArgs',
+    'ScalingHostPoolReferenceArgsDict',
     'ScalingScheduleArgs',
+    'ScalingScheduleArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ResourceModelWithAllowedPropertySetIdentityArgsDict(TypedDict):
+        type: NotRequired[pulumi.Input['ResourceIdentityType']]
+        """
+        The identity type.
+        """
+elif False:
+    ResourceModelWithAllowedPropertySetIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ResourceModelWithAllowedPropertySetIdentityArgs:
@@ -40,6 +61,31 @@ class ResourceModelWithAllowedPropertySetIdentityArgs:
     def type(self, value: Optional[pulumi.Input['ResourceIdentityType']]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class ResourceModelWithAllowedPropertySetPlanArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        A user defined name of the 3rd Party Artifact that is being procured.
+        """
+        product: pulumi.Input[str]
+        """
+        The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. 
+        """
+        publisher: pulumi.Input[str]
+        """
+        The publisher of the 3rd Party Artifact that is being bought. E.g. NewRelic
+        """
+        promotion_code: NotRequired[pulumi.Input[str]]
+        """
+        A publisher provided promotion code as provisioned in Data Market for the said product/artifact.
+        """
+        version: NotRequired[pulumi.Input[str]]
+        """
+        The version of the desired product/artifact.
+        """
+elif False:
+    ResourceModelWithAllowedPropertySetPlanArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ResourceModelWithAllowedPropertySetPlanArgs:
@@ -124,6 +170,31 @@ class ResourceModelWithAllowedPropertySetPlanArgs:
     def version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "version", value)
 
+
+if not MYPY:
+    class ResourceModelWithAllowedPropertySetSkuArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the SKU. Ex - P3. It is typically a letter+number code
+        """
+        capacity: NotRequired[pulumi.Input[int]]
+        """
+        If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
+        """
+        family: NotRequired[pulumi.Input[str]]
+        """
+        If the service has different generations of hardware, for the same SKU, then that can be captured here.
+        """
+        size: NotRequired[pulumi.Input[str]]
+        """
+        The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+        """
+        tier: NotRequired[pulumi.Input['SkuTier']]
+        """
+        This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+        """
+elif False:
+    ResourceModelWithAllowedPropertySetSkuArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ResourceModelWithAllowedPropertySetSkuArgs:
@@ -211,6 +282,22 @@ class ResourceModelWithAllowedPropertySetSkuArgs:
         pulumi.set(self, "tier", value)
 
 
+if not MYPY:
+    class ScalingHostPoolReferenceArgsDict(TypedDict):
+        """
+        Scaling plan reference to hostpool.
+        """
+        host_pool_arm_path: NotRequired[pulumi.Input[str]]
+        """
+        Arm path of referenced hostpool.
+        """
+        scaling_plan_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is the scaling plan enabled for this hostpool.
+        """
+elif False:
+    ScalingHostPoolReferenceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ScalingHostPoolReferenceArgs:
     def __init__(__self__, *,
@@ -250,6 +337,86 @@ class ScalingHostPoolReferenceArgs:
     def scaling_plan_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "scaling_plan_enabled", value)
 
+
+if not MYPY:
+    class ScalingScheduleArgsDict(TypedDict):
+        """
+        Scaling plan schedule.
+        """
+        days_of_week: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Set of days of the week on which this schedule is active.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the scaling schedule.
+        """
+        off_peak_load_balancing_algorithm: NotRequired[pulumi.Input[Union[str, 'SessionHostLoadBalancingAlgorithm']]]
+        """
+        Load balancing algorithm for off-peak period.
+        """
+        off_peak_start_time: NotRequired[pulumi.Input[str]]
+        """
+        Starting time for off-peak period.
+        """
+        peak_load_balancing_algorithm: NotRequired[pulumi.Input[Union[str, 'SessionHostLoadBalancingAlgorithm']]]
+        """
+        Load balancing algorithm for peak period.
+        """
+        peak_start_time: NotRequired[pulumi.Input[str]]
+        """
+        Starting time for peak period.
+        """
+        ramp_down_capacity_threshold_pct: NotRequired[pulumi.Input[int]]
+        """
+        Capacity threshold for ramp down period.
+        """
+        ramp_down_force_logoff_users: NotRequired[pulumi.Input[bool]]
+        """
+        Should users be logged off forcefully from hosts.
+        """
+        ramp_down_load_balancing_algorithm: NotRequired[pulumi.Input[Union[str, 'SessionHostLoadBalancingAlgorithm']]]
+        """
+        Load balancing algorithm for ramp down period.
+        """
+        ramp_down_minimum_hosts_pct: NotRequired[pulumi.Input[int]]
+        """
+        Minimum host percentage for ramp down period.
+        """
+        ramp_down_notification_message: NotRequired[pulumi.Input[str]]
+        """
+        Notification message for users during ramp down period.
+        """
+        ramp_down_start_time: NotRequired[pulumi.Input[str]]
+        """
+        Starting time for ramp down period.
+        """
+        ramp_down_stop_hosts_when: NotRequired[pulumi.Input[Union[str, 'StopHostsWhen']]]
+        """
+        Specifies when to stop hosts during ramp down period.
+        """
+        ramp_down_wait_time_minutes: NotRequired[pulumi.Input[int]]
+        """
+        Number of minutes to wait to stop hosts during ramp down period.
+        """
+        ramp_up_capacity_threshold_pct: NotRequired[pulumi.Input[int]]
+        """
+        Capacity threshold for ramp up period.
+        """
+        ramp_up_load_balancing_algorithm: NotRequired[pulumi.Input[Union[str, 'SessionHostLoadBalancingAlgorithm']]]
+        """
+        Load balancing algorithm for ramp up period.
+        """
+        ramp_up_minimum_hosts_pct: NotRequired[pulumi.Input[int]]
+        """
+        Minimum host percentage for ramp up period.
+        """
+        ramp_up_start_time: NotRequired[pulumi.Input[str]]
+        """
+        Starting time for ramp up period.
+        """
+elif False:
+    ScalingScheduleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ScalingScheduleArgs:

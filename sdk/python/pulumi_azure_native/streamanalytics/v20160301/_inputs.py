@@ -4,21 +4,69 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 
 __all__ = [
     'AzureMachineLearningWebServiceFunctionBindingArgs',
+    'AzureMachineLearningWebServiceFunctionBindingArgsDict',
     'AzureMachineLearningWebServiceInputColumnArgs',
+    'AzureMachineLearningWebServiceInputColumnArgsDict',
     'AzureMachineLearningWebServiceInputsArgs',
+    'AzureMachineLearningWebServiceInputsArgsDict',
     'AzureMachineLearningWebServiceOutputColumnArgs',
+    'AzureMachineLearningWebServiceOutputColumnArgsDict',
     'FunctionInputArgs',
+    'FunctionInputArgsDict',
     'FunctionOutputArgs',
+    'FunctionOutputArgsDict',
     'JavaScriptFunctionBindingArgs',
+    'JavaScriptFunctionBindingArgsDict',
     'ScalarFunctionPropertiesArgs',
+    'ScalarFunctionPropertiesArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AzureMachineLearningWebServiceFunctionBindingArgsDict(TypedDict):
+        """
+        The binding to an Azure Machine Learning web service.
+        """
+        type: pulumi.Input[str]
+        """
+        Indicates the function binding type.
+        Expected value is 'Microsoft.MachineLearning/WebService'.
+        """
+        api_key: NotRequired[pulumi.Input[str]]
+        """
+        The API key used to authenticate with Request-Response endpoint.
+        """
+        batch_size: NotRequired[pulumi.Input[int]]
+        """
+        Number between 1 and 10000 describing maximum number of rows for every Azure ML RRS execute request. Default is 1000.
+        """
+        endpoint: NotRequired[pulumi.Input[str]]
+        """
+        The Request-Response execute endpoint of the Azure Machine Learning web service. Find out more here: https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-consume-web-services#request-response-service-rrs
+        """
+        inputs: NotRequired[pulumi.Input['AzureMachineLearningWebServiceInputsArgsDict']]
+        """
+        The inputs for the Azure Machine Learning web service endpoint.
+        """
+        outputs: NotRequired[pulumi.Input[Sequence[pulumi.Input['AzureMachineLearningWebServiceOutputColumnArgsDict']]]]
+        """
+        A list of outputs from the Azure Machine Learning web service endpoint execution.
+        """
+elif False:
+    AzureMachineLearningWebServiceFunctionBindingArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AzureMachineLearningWebServiceFunctionBindingArgs:
@@ -125,6 +173,26 @@ class AzureMachineLearningWebServiceFunctionBindingArgs:
         pulumi.set(self, "outputs", value)
 
 
+if not MYPY:
+    class AzureMachineLearningWebServiceInputColumnArgsDict(TypedDict):
+        """
+        Describes an input column for the Azure Machine Learning web service endpoint.
+        """
+        data_type: NotRequired[pulumi.Input[str]]
+        """
+        The (Azure Machine Learning supported) data type of the input column. A list of valid  Azure Machine Learning data types are described at https://msdn.microsoft.com/en-us/library/azure/dn905923.aspx .
+        """
+        map_to: NotRequired[pulumi.Input[int]]
+        """
+        The zero based index of the function parameter this input maps to.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the input column.
+        """
+elif False:
+    AzureMachineLearningWebServiceInputColumnArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AzureMachineLearningWebServiceInputColumnArgs:
     def __init__(__self__, *,
@@ -181,6 +249,22 @@ class AzureMachineLearningWebServiceInputColumnArgs:
         pulumi.set(self, "name", value)
 
 
+if not MYPY:
+    class AzureMachineLearningWebServiceInputsArgsDict(TypedDict):
+        """
+        The inputs for the Azure Machine Learning web service endpoint.
+        """
+        column_names: NotRequired[pulumi.Input[Sequence[pulumi.Input['AzureMachineLearningWebServiceInputColumnArgsDict']]]]
+        """
+        A list of input columns for the Azure Machine Learning web service endpoint.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the input. This is the name provided while authoring the endpoint.
+        """
+elif False:
+    AzureMachineLearningWebServiceInputsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AzureMachineLearningWebServiceInputsArgs:
     def __init__(__self__, *,
@@ -220,6 +304,22 @@ class AzureMachineLearningWebServiceInputsArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class AzureMachineLearningWebServiceOutputColumnArgsDict(TypedDict):
+        """
+        Describes an output column for the Azure Machine Learning web service endpoint.
+        """
+        data_type: NotRequired[pulumi.Input[str]]
+        """
+        The (Azure Machine Learning supported) data type of the output column. A list of valid  Azure Machine Learning data types are described at https://msdn.microsoft.com/en-us/library/azure/dn905923.aspx .
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the output column.
+        """
+elif False:
+    AzureMachineLearningWebServiceOutputColumnArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AzureMachineLearningWebServiceOutputColumnArgs:
@@ -261,6 +361,22 @@ class AzureMachineLearningWebServiceOutputColumnArgs:
         pulumi.set(self, "name", value)
 
 
+if not MYPY:
+    class FunctionInputArgsDict(TypedDict):
+        """
+        Describes one input parameter of a function.
+        """
+        data_type: NotRequired[pulumi.Input[str]]
+        """
+        The (Azure Stream Analytics supported) data type of the function input parameter. A list of valid Azure Stream Analytics data types are described at https://msdn.microsoft.com/en-us/library/azure/dn835065.aspx
+        """
+        is_configuration_parameter: NotRequired[pulumi.Input[bool]]
+        """
+        A flag indicating if the parameter is a configuration parameter. True if this input parameter is expected to be a constant. Default is false.
+        """
+elif False:
+    FunctionInputArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FunctionInputArgs:
     def __init__(__self__, *,
@@ -301,6 +417,18 @@ class FunctionInputArgs:
         pulumi.set(self, "is_configuration_parameter", value)
 
 
+if not MYPY:
+    class FunctionOutputArgsDict(TypedDict):
+        """
+        Describes the output of a function.
+        """
+        data_type: NotRequired[pulumi.Input[str]]
+        """
+        The (Azure Stream Analytics supported) data type of the function output. A list of valid Azure Stream Analytics data types are described at https://msdn.microsoft.com/en-us/library/azure/dn835065.aspx
+        """
+elif False:
+    FunctionOutputArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FunctionOutputArgs:
     def __init__(__self__, *,
@@ -324,6 +452,23 @@ class FunctionOutputArgs:
     def data_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "data_type", value)
 
+
+if not MYPY:
+    class JavaScriptFunctionBindingArgsDict(TypedDict):
+        """
+        The binding to a JavaScript function.
+        """
+        type: pulumi.Input[str]
+        """
+        Indicates the function binding type.
+        Expected value is 'Microsoft.StreamAnalytics/JavascriptUdf'.
+        """
+        script: NotRequired[pulumi.Input[str]]
+        """
+        The JavaScript code containing a single function definition. For example: 'function (x, y) { return x + y; }'
+        """
+elif False:
+    JavaScriptFunctionBindingArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class JavaScriptFunctionBindingArgs:
@@ -365,6 +510,31 @@ class JavaScriptFunctionBindingArgs:
     def script(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "script", value)
 
+
+if not MYPY:
+    class ScalarFunctionPropertiesArgsDict(TypedDict):
+        """
+        The properties that are associated with a scalar function.
+        """
+        type: pulumi.Input[str]
+        """
+        Indicates the type of function.
+        Expected value is 'Scalar'.
+        """
+        binding: NotRequired[pulumi.Input[Union['AzureMachineLearningWebServiceFunctionBindingArgsDict', 'JavaScriptFunctionBindingArgsDict']]]
+        """
+        The physical binding of the function. For example, in the Azure Machine Learning web service’s case, this describes the endpoint.
+        """
+        inputs: NotRequired[pulumi.Input[Sequence[pulumi.Input['FunctionInputArgsDict']]]]
+        """
+        A list of inputs describing the parameters of the function.
+        """
+        output: NotRequired[pulumi.Input['FunctionOutputArgsDict']]
+        """
+        The output of the function.
+        """
+elif False:
+    ScalarFunctionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ScalarFunctionPropertiesArgs:

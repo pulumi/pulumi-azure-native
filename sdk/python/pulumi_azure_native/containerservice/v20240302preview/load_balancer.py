@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -170,12 +175,12 @@ class LoadBalancer(pulumi.CustomResource):
                  allow_service_placement: Optional[pulumi.Input[bool]] = None,
                  load_balancer_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 node_selector: Optional[pulumi.Input[pulumi.InputType['LabelSelectorArgs']]] = None,
+                 node_selector: Optional[pulumi.Input[Union['LabelSelectorArgs', 'LabelSelectorArgsDict']]] = None,
                  primary_agent_pool_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
-                 service_label_selector: Optional[pulumi.Input[pulumi.InputType['LabelSelectorArgs']]] = None,
-                 service_namespace_selector: Optional[pulumi.Input[pulumi.InputType['LabelSelectorArgs']]] = None,
+                 service_label_selector: Optional[pulumi.Input[Union['LabelSelectorArgs', 'LabelSelectorArgsDict']]] = None,
+                 service_namespace_selector: Optional[pulumi.Input[Union['LabelSelectorArgs', 'LabelSelectorArgsDict']]] = None,
                  __props__=None):
         """
         The configurations regarding multiple standard load balancers. If not supplied, single load balancer mode will be used. Multiple standard load balancers mode will be used if at lease one configuration is supplied. There has to be a configuration named `kubernetes`.
@@ -185,12 +190,12 @@ class LoadBalancer(pulumi.CustomResource):
         :param pulumi.Input[bool] allow_service_placement: Whether to automatically place services on the load balancer. If not supplied, the default value is true. If set to false manually, both of the external and the internal load balancer will not be selected for services unless they explicitly target it.
         :param pulumi.Input[str] load_balancer_name: The name of the load balancer.
         :param pulumi.Input[str] name: Name of the public load balancer. There will be an internal load balancer created if needed, and the name will be `<name>-internal`. The internal lb shares the same configurations as the external one. The internal lbs are not needed to be included in LoadBalancer list. There must be a name of kubernetes in the list.
-        :param pulumi.Input[pulumi.InputType['LabelSelectorArgs']] node_selector: Nodes that match this selector will be possible members of this load balancer.
+        :param pulumi.Input[Union['LabelSelectorArgs', 'LabelSelectorArgsDict']] node_selector: Nodes that match this selector will be possible members of this load balancer.
         :param pulumi.Input[str] primary_agent_pool_name: Required field. A string value that must specify the ID of an existing agent pool. All nodes in the given pool will always be added to this load balancer. This agent pool must have at least one node and minCount>=1 for autoscaling operations. An agent pool can only be the primary pool for a single load balancer.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] resource_name_: The name of the managed cluster resource.
-        :param pulumi.Input[pulumi.InputType['LabelSelectorArgs']] service_label_selector: Only services that must match this selector can be placed on this load balancer.
-        :param pulumi.Input[pulumi.InputType['LabelSelectorArgs']] service_namespace_selector: Services created in namespaces that match the selector can be placed on this load balancer.
+        :param pulumi.Input[Union['LabelSelectorArgs', 'LabelSelectorArgsDict']] service_label_selector: Only services that must match this selector can be placed on this load balancer.
+        :param pulumi.Input[Union['LabelSelectorArgs', 'LabelSelectorArgsDict']] service_namespace_selector: Services created in namespaces that match the selector can be placed on this load balancer.
         """
         ...
     @overload
@@ -219,12 +224,12 @@ class LoadBalancer(pulumi.CustomResource):
                  allow_service_placement: Optional[pulumi.Input[bool]] = None,
                  load_balancer_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 node_selector: Optional[pulumi.Input[pulumi.InputType['LabelSelectorArgs']]] = None,
+                 node_selector: Optional[pulumi.Input[Union['LabelSelectorArgs', 'LabelSelectorArgsDict']]] = None,
                  primary_agent_pool_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
-                 service_label_selector: Optional[pulumi.Input[pulumi.InputType['LabelSelectorArgs']]] = None,
-                 service_namespace_selector: Optional[pulumi.Input[pulumi.InputType['LabelSelectorArgs']]] = None,
+                 service_label_selector: Optional[pulumi.Input[Union['LabelSelectorArgs', 'LabelSelectorArgsDict']]] = None,
+                 service_namespace_selector: Optional[pulumi.Input[Union['LabelSelectorArgs', 'LabelSelectorArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

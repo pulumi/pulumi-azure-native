@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -184,11 +189,11 @@ class BusinessProcess(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_name: Optional[pulumi.Input[str]] = None,
-                 business_process_mapping: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['BusinessProcessMappingItemArgs']]]]] = None,
+                 business_process_mapping: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['BusinessProcessMappingItemArgs', 'BusinessProcessMappingItemArgsDict']]]]] = None,
                  business_process_name: Optional[pulumi.Input[str]] = None,
-                 business_process_stages: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['BusinessProcessStageArgs']]]]] = None,
+                 business_process_stages: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['BusinessProcessStageArgs', 'BusinessProcessStageArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 identifier: Optional[pulumi.Input[pulumi.InputType['BusinessProcessIdentifierArgs']]] = None,
+                 identifier: Optional[pulumi.Input[Union['BusinessProcessIdentifierArgs', 'BusinessProcessIdentifierArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  space_name: Optional[pulumi.Input[str]] = None,
                  table_name: Optional[pulumi.Input[str]] = None,
@@ -201,11 +206,11 @@ class BusinessProcess(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_name: The name of the Application
-        :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['BusinessProcessMappingItemArgs']]]] business_process_mapping: The business process mapping.
+        :param pulumi.Input[Mapping[str, pulumi.Input[Union['BusinessProcessMappingItemArgs', 'BusinessProcessMappingItemArgsDict']]]] business_process_mapping: The business process mapping.
         :param pulumi.Input[str] business_process_name: The name of the business process
-        :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['BusinessProcessStageArgs']]]] business_process_stages: The business process stages.
+        :param pulumi.Input[Mapping[str, pulumi.Input[Union['BusinessProcessStageArgs', 'BusinessProcessStageArgsDict']]]] business_process_stages: The business process stages.
         :param pulumi.Input[str] description: The description of the business process.
-        :param pulumi.Input[pulumi.InputType['BusinessProcessIdentifierArgs']] identifier: The business process identifier.
+        :param pulumi.Input[Union['BusinessProcessIdentifierArgs', 'BusinessProcessIdentifierArgsDict']] identifier: The business process identifier.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] space_name: The name of the space
         :param pulumi.Input[str] table_name: The table name of the business process.
@@ -237,11 +242,11 @@ class BusinessProcess(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_name: Optional[pulumi.Input[str]] = None,
-                 business_process_mapping: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['BusinessProcessMappingItemArgs']]]]] = None,
+                 business_process_mapping: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['BusinessProcessMappingItemArgs', 'BusinessProcessMappingItemArgsDict']]]]] = None,
                  business_process_name: Optional[pulumi.Input[str]] = None,
-                 business_process_stages: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['BusinessProcessStageArgs']]]]] = None,
+                 business_process_stages: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['BusinessProcessStageArgs', 'BusinessProcessStageArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 identifier: Optional[pulumi.Input[pulumi.InputType['BusinessProcessIdentifierArgs']]] = None,
+                 identifier: Optional[pulumi.Input[Union['BusinessProcessIdentifierArgs', 'BusinessProcessIdentifierArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  space_name: Optional[pulumi.Input[str]] = None,
                  table_name: Optional[pulumi.Input[str]] = None,

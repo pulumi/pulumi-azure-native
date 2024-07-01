@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -565,25 +570,25 @@ class Workspace(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  discovery_url: Optional[pulumi.Input[str]] = None,
                  enable_data_isolation: Optional[pulumi.Input[bool]] = None,
-                 encryption: Optional[pulumi.Input[pulumi.InputType['EncryptionPropertyArgs']]] = None,
+                 encryption: Optional[pulumi.Input[Union['EncryptionPropertyArgs', 'EncryptionPropertyArgsDict']]] = None,
                  existing_workspaces: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 feature_store_settings: Optional[pulumi.Input[pulumi.InputType['FeatureStoreSettingsArgs']]] = None,
+                 feature_store_settings: Optional[pulumi.Input[Union['FeatureStoreSettingsArgs', 'FeatureStoreSettingsArgsDict']]] = None,
                  friendly_name: Optional[pulumi.Input[str]] = None,
                  hbi_workspace: Optional[pulumi.Input[bool]] = None,
                  hub_resource_id: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  image_build_compute: Optional[pulumi.Input[str]] = None,
                  key_vault: Optional[pulumi.Input[str]] = None,
                  key_vaults: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 managed_network: Optional[pulumi.Input[pulumi.InputType['ManagedNetworkSettingsArgs']]] = None,
+                 managed_network: Optional[pulumi.Input[Union['ManagedNetworkSettingsArgs', 'ManagedNetworkSettingsArgsDict']]] = None,
                  primary_user_assigned_identity: Optional[pulumi.Input[str]] = None,
                  public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 service_managed_resources_settings: Optional[pulumi.Input[pulumi.InputType['ServiceManagedResourcesSettingsArgs']]] = None,
-                 shared_private_link_resources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SharedPrivateLinkResourceArgs']]]]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 service_managed_resources_settings: Optional[pulumi.Input[Union['ServiceManagedResourcesSettingsArgs', 'ServiceManagedResourcesSettingsArgsDict']]] = None,
+                 shared_private_link_resources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SharedPrivateLinkResourceArgs', 'SharedPrivateLinkResourceArgsDict']]]]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  soft_delete_retention_in_days: Optional[pulumi.Input[int]] = None,
                  storage_account: Optional[pulumi.Input[str]] = None,
                  storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -604,24 +609,24 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description of this workspace.
         :param pulumi.Input[str] discovery_url: Url for the discovery service to identify regional endpoints for machine learning experimentation services
         :param pulumi.Input[bool] enable_data_isolation: A flag to determine if workspace has data isolation enabled. The flag can only be set at the creation phase, it can't be updated.
-        :param pulumi.Input[pulumi.InputType['EncryptionPropertyArgs']] encryption: The encryption settings of Azure ML workspace.
+        :param pulumi.Input[Union['EncryptionPropertyArgs', 'EncryptionPropertyArgsDict']] encryption: The encryption settings of Azure ML workspace.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] existing_workspaces: A list of existing workspaces used by Hub to perform convert.
-        :param pulumi.Input[pulumi.InputType['FeatureStoreSettingsArgs']] feature_store_settings: Settings for feature store type workspace.
+        :param pulumi.Input[Union['FeatureStoreSettingsArgs', 'FeatureStoreSettingsArgsDict']] feature_store_settings: Settings for feature store type workspace.
         :param pulumi.Input[str] friendly_name: The friendly name for this workspace. This name in mutable
         :param pulumi.Input[bool] hbi_workspace: The flag to signal HBI data in the workspace and reduce diagnostic data collected by the service
         :param pulumi.Input[str] hub_resource_id: Resource Id of Hub used for lean workspace.
-        :param pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']] identity: The identity of the resource.
+        :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: The identity of the resource.
         :param pulumi.Input[str] image_build_compute: The compute name for image build
         :param pulumi.Input[str] key_vault: ARM id of the key vault associated with this workspace. This cannot be changed once the workspace has been created
         :param pulumi.Input[Sequence[pulumi.Input[str]]] key_vaults: A list of key vaults used by Hub.
         :param pulumi.Input[str] location: Specifies the location of the resource.
-        :param pulumi.Input[pulumi.InputType['ManagedNetworkSettingsArgs']] managed_network: Managed Network settings for a machine learning workspace.
+        :param pulumi.Input[Union['ManagedNetworkSettingsArgs', 'ManagedNetworkSettingsArgsDict']] managed_network: Managed Network settings for a machine learning workspace.
         :param pulumi.Input[str] primary_user_assigned_identity: The user assigned identity resource id that represents the workspace identity.
         :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: Whether requests from Public Network are allowed.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[pulumi.InputType['ServiceManagedResourcesSettingsArgs']] service_managed_resources_settings: The service managed resource settings.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SharedPrivateLinkResourceArgs']]]] shared_private_link_resources: The list of shared private link resources in this workspace.
-        :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The sku of the workspace.
+        :param pulumi.Input[Union['ServiceManagedResourcesSettingsArgs', 'ServiceManagedResourcesSettingsArgsDict']] service_managed_resources_settings: The service managed resource settings.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SharedPrivateLinkResourceArgs', 'SharedPrivateLinkResourceArgsDict']]]] shared_private_link_resources: The list of shared private link resources in this workspace.
+        :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: The sku of the workspace.
         :param pulumi.Input[int] soft_delete_retention_in_days: Retention time in days after workspace get soft deleted.
         :param pulumi.Input[str] storage_account: ARM id of the storage account associated with this workspace. This cannot be changed once the workspace has been created
         :param pulumi.Input[Sequence[pulumi.Input[str]]] storage_accounts: : A list of storage accounts used by Hub.
@@ -661,25 +666,25 @@ class Workspace(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  discovery_url: Optional[pulumi.Input[str]] = None,
                  enable_data_isolation: Optional[pulumi.Input[bool]] = None,
-                 encryption: Optional[pulumi.Input[pulumi.InputType['EncryptionPropertyArgs']]] = None,
+                 encryption: Optional[pulumi.Input[Union['EncryptionPropertyArgs', 'EncryptionPropertyArgsDict']]] = None,
                  existing_workspaces: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 feature_store_settings: Optional[pulumi.Input[pulumi.InputType['FeatureStoreSettingsArgs']]] = None,
+                 feature_store_settings: Optional[pulumi.Input[Union['FeatureStoreSettingsArgs', 'FeatureStoreSettingsArgsDict']]] = None,
                  friendly_name: Optional[pulumi.Input[str]] = None,
                  hbi_workspace: Optional[pulumi.Input[bool]] = None,
                  hub_resource_id: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  image_build_compute: Optional[pulumi.Input[str]] = None,
                  key_vault: Optional[pulumi.Input[str]] = None,
                  key_vaults: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 managed_network: Optional[pulumi.Input[pulumi.InputType['ManagedNetworkSettingsArgs']]] = None,
+                 managed_network: Optional[pulumi.Input[Union['ManagedNetworkSettingsArgs', 'ManagedNetworkSettingsArgsDict']]] = None,
                  primary_user_assigned_identity: Optional[pulumi.Input[str]] = None,
                  public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 service_managed_resources_settings: Optional[pulumi.Input[pulumi.InputType['ServiceManagedResourcesSettingsArgs']]] = None,
-                 shared_private_link_resources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SharedPrivateLinkResourceArgs']]]]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 service_managed_resources_settings: Optional[pulumi.Input[Union['ServiceManagedResourcesSettingsArgs', 'ServiceManagedResourcesSettingsArgsDict']]] = None,
+                 shared_private_link_resources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SharedPrivateLinkResourceArgs', 'SharedPrivateLinkResourceArgsDict']]]]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  soft_delete_retention_in_days: Optional[pulumi.Input[int]] = None,
                  storage_account: Optional[pulumi.Input[str]] = None,
                  storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,

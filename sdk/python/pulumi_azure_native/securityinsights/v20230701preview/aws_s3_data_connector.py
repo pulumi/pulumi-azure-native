@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -151,7 +156,7 @@ class AwsS3DataConnector(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_connector_id: Optional[pulumi.Input[str]] = None,
-                 data_types: Optional[pulumi.Input[pulumi.InputType['AwsS3DataConnectorDataTypesArgs']]] = None,
+                 data_types: Optional[pulumi.Input[Union['AwsS3DataConnectorDataTypesArgs', 'AwsS3DataConnectorDataTypesArgsDict']]] = None,
                  destination_table: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -165,7 +170,7 @@ class AwsS3DataConnector(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] data_connector_id: Connector ID
-        :param pulumi.Input[pulumi.InputType['AwsS3DataConnectorDataTypesArgs']] data_types: The available data types for the connector.
+        :param pulumi.Input[Union['AwsS3DataConnectorDataTypesArgs', 'AwsS3DataConnectorDataTypesArgsDict']] data_types: The available data types for the connector.
         :param pulumi.Input[str] destination_table: The logs destination table name in LogAnalytics.
         :param pulumi.Input[str] kind: The kind of the data connector
                Expected value is 'AmazonWebServicesS3'.
@@ -199,7 +204,7 @@ class AwsS3DataConnector(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_connector_id: Optional[pulumi.Input[str]] = None,
-                 data_types: Optional[pulumi.Input[pulumi.InputType['AwsS3DataConnectorDataTypesArgs']]] = None,
+                 data_types: Optional[pulumi.Input[Union['AwsS3DataConnectorDataTypesArgs', 'AwsS3DataConnectorDataTypesArgsDict']]] = None,
                  destination_table: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,

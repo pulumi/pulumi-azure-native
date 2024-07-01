@@ -4,43 +4,103 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'AzureFileVolumeArgs',
+    'AzureFileVolumeArgsDict',
     'ConfidentialComputePropertiesArgs',
+    'ConfidentialComputePropertiesArgsDict',
     'ContainerExecArgs',
+    'ContainerExecArgsDict',
     'ContainerGroupDiagnosticsArgs',
+    'ContainerGroupDiagnosticsArgsDict',
     'ContainerGroupIdentityArgs',
+    'ContainerGroupIdentityArgsDict',
     'ContainerGroupSubnetIdArgs',
+    'ContainerGroupSubnetIdArgsDict',
     'ContainerHttpGetArgs',
+    'ContainerHttpGetArgsDict',
     'ContainerPortArgs',
+    'ContainerPortArgsDict',
     'ContainerProbeArgs',
+    'ContainerProbeArgsDict',
     'ContainerArgs',
+    'ContainerArgsDict',
     'DeploymentExtensionSpecArgs',
+    'DeploymentExtensionSpecArgsDict',
     'DnsConfigurationArgs',
+    'DnsConfigurationArgsDict',
     'EncryptionPropertiesArgs',
+    'EncryptionPropertiesArgsDict',
     'EnvironmentVariableArgs',
+    'EnvironmentVariableArgsDict',
     'GitRepoVolumeArgs',
+    'GitRepoVolumeArgsDict',
     'GpuResourceArgs',
+    'GpuResourceArgsDict',
     'HttpHeaderArgs',
+    'HttpHeaderArgsDict',
     'ImageRegistryCredentialArgs',
+    'ImageRegistryCredentialArgsDict',
     'InitContainerDefinitionArgs',
+    'InitContainerDefinitionArgsDict',
     'IpAddressArgs',
+    'IpAddressArgsDict',
     'LogAnalyticsArgs',
+    'LogAnalyticsArgsDict',
     'PortArgs',
+    'PortArgsDict',
     'ResourceLimitsArgs',
+    'ResourceLimitsArgsDict',
     'ResourceRequestsArgs',
+    'ResourceRequestsArgsDict',
     'ResourceRequirementsArgs',
+    'ResourceRequirementsArgsDict',
     'SecurityContextCapabilitiesDefinitionArgs',
+    'SecurityContextCapabilitiesDefinitionArgsDict',
     'SecurityContextDefinitionArgs',
+    'SecurityContextDefinitionArgsDict',
     'VolumeMountArgs',
+    'VolumeMountArgsDict',
     'VolumeArgs',
+    'VolumeArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AzureFileVolumeArgsDict(TypedDict):
+        """
+        The properties of the Azure File volume. Azure File shares are mounted as volumes.
+        """
+        share_name: pulumi.Input[str]
+        """
+        The name of the Azure File share to be mounted as a volume.
+        """
+        storage_account_name: pulumi.Input[str]
+        """
+        The name of the storage account that contains the Azure File share.
+        """
+        read_only: NotRequired[pulumi.Input[bool]]
+        """
+        The flag indicating whether the Azure File shared mounted as a volume is read-only.
+        """
+        storage_account_key: NotRequired[pulumi.Input[str]]
+        """
+        The storage account access key used to access the Azure File share.
+        """
+elif False:
+    AzureFileVolumeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AzureFileVolumeArgs:
@@ -112,6 +172,18 @@ class AzureFileVolumeArgs:
         pulumi.set(self, "storage_account_key", value)
 
 
+if not MYPY:
+    class ConfidentialComputePropertiesArgsDict(TypedDict):
+        """
+        The properties for confidential container group
+        """
+        cce_policy: NotRequired[pulumi.Input[str]]
+        """
+        The base64 encoded confidential compute enforcement policy
+        """
+elif False:
+    ConfidentialComputePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ConfidentialComputePropertiesArgs:
     def __init__(__self__, *,
@@ -135,6 +207,18 @@ class ConfidentialComputePropertiesArgs:
     def cce_policy(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "cce_policy", value)
 
+
+if not MYPY:
+    class ContainerExecArgsDict(TypedDict):
+        """
+        The container execution command, for liveness or readiness probe
+        """
+        command: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The commands to execute within the container.
+        """
+elif False:
+    ContainerExecArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ContainerExecArgs:
@@ -160,6 +244,18 @@ class ContainerExecArgs:
         pulumi.set(self, "command", value)
 
 
+if not MYPY:
+    class ContainerGroupDiagnosticsArgsDict(TypedDict):
+        """
+        Container group diagnostic information.
+        """
+        log_analytics: NotRequired[pulumi.Input['LogAnalyticsArgsDict']]
+        """
+        Container group log analytics information.
+        """
+elif False:
+    ContainerGroupDiagnosticsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ContainerGroupDiagnosticsArgs:
     def __init__(__self__, *,
@@ -183,6 +279,22 @@ class ContainerGroupDiagnosticsArgs:
     def log_analytics(self, value: Optional[pulumi.Input['LogAnalyticsArgs']]):
         pulumi.set(self, "log_analytics", value)
 
+
+if not MYPY:
+    class ContainerGroupIdentityArgsDict(TypedDict):
+        """
+        Identity for the container group.
+        """
+        type: NotRequired[pulumi.Input['ResourceIdentityType']]
+        """
+        The type of identity used for the container group. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the container group.
+        """
+        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of user identities associated with the container group.
+        """
+elif False:
+    ContainerGroupIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ContainerGroupIdentityArgs:
@@ -224,6 +336,22 @@ class ContainerGroupIdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
+if not MYPY:
+    class ContainerGroupSubnetIdArgsDict(TypedDict):
+        """
+        Container group subnet information.
+        """
+        id: pulumi.Input[str]
+        """
+        Resource ID of virtual network and subnet.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Friendly name for the subnet.
+        """
+elif False:
+    ContainerGroupSubnetIdArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ContainerGroupSubnetIdArgs:
     def __init__(__self__, *,
@@ -262,6 +390,30 @@ class ContainerGroupSubnetIdArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class ContainerHttpGetArgsDict(TypedDict):
+        """
+        The container Http Get settings, for liveness or readiness probe
+        """
+        port: pulumi.Input[int]
+        """
+        The port number to probe.
+        """
+        http_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['HttpHeaderArgsDict']]]]
+        """
+        The HTTP headers.
+        """
+        path: NotRequired[pulumi.Input[str]]
+        """
+        The path to probe.
+        """
+        scheme: NotRequired[pulumi.Input[Union[str, 'Scheme']]]
+        """
+        The scheme.
+        """
+elif False:
+    ContainerHttpGetArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ContainerHttpGetArgs:
@@ -334,6 +486,22 @@ class ContainerHttpGetArgs:
         pulumi.set(self, "scheme", value)
 
 
+if not MYPY:
+    class ContainerPortArgsDict(TypedDict):
+        """
+        The port exposed on the container instance.
+        """
+        port: pulumi.Input[int]
+        """
+        The port number exposed within the container group.
+        """
+        protocol: NotRequired[pulumi.Input[Union[str, 'ContainerNetworkProtocol']]]
+        """
+        The protocol associated with the port.
+        """
+elif False:
+    ContainerPortArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ContainerPortArgs:
     def __init__(__self__, *,
@@ -372,6 +540,42 @@ class ContainerPortArgs:
     def protocol(self, value: Optional[pulumi.Input[Union[str, 'ContainerNetworkProtocol']]]):
         pulumi.set(self, "protocol", value)
 
+
+if not MYPY:
+    class ContainerProbeArgsDict(TypedDict):
+        """
+        The container probe, for liveness or readiness
+        """
+        exec_: NotRequired[pulumi.Input['ContainerExecArgsDict']]
+        """
+        The execution command to probe
+        """
+        failure_threshold: NotRequired[pulumi.Input[int]]
+        """
+        The failure threshold.
+        """
+        http_get: NotRequired[pulumi.Input['ContainerHttpGetArgsDict']]
+        """
+        The Http Get settings to probe
+        """
+        initial_delay_seconds: NotRequired[pulumi.Input[int]]
+        """
+        The initial delay seconds.
+        """
+        period_seconds: NotRequired[pulumi.Input[int]]
+        """
+        The period seconds.
+        """
+        success_threshold: NotRequired[pulumi.Input[int]]
+        """
+        The success threshold.
+        """
+        timeout_seconds: NotRequired[pulumi.Input[int]]
+        """
+        The timeout seconds.
+        """
+elif False:
+    ContainerProbeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ContainerProbeArgs:
@@ -492,6 +696,54 @@ class ContainerProbeArgs:
     def timeout_seconds(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "timeout_seconds", value)
 
+
+if not MYPY:
+    class ContainerArgsDict(TypedDict):
+        """
+        A container instance.
+        """
+        image: pulumi.Input[str]
+        """
+        The name of the image used to create the container instance.
+        """
+        name: pulumi.Input[str]
+        """
+        The user-provided name of the container instance.
+        """
+        resources: pulumi.Input['ResourceRequirementsArgsDict']
+        """
+        The resource requirements of the container instance.
+        """
+        command: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The commands to execute within the container instance in exec form.
+        """
+        environment_variables: NotRequired[pulumi.Input[Sequence[pulumi.Input['EnvironmentVariableArgsDict']]]]
+        """
+        The environment variables to set in the container instance.
+        """
+        liveness_probe: NotRequired[pulumi.Input['ContainerProbeArgsDict']]
+        """
+        The liveness probe.
+        """
+        ports: NotRequired[pulumi.Input[Sequence[pulumi.Input['ContainerPortArgsDict']]]]
+        """
+        The exposed ports on the container instance.
+        """
+        readiness_probe: NotRequired[pulumi.Input['ContainerProbeArgsDict']]
+        """
+        The readiness probe.
+        """
+        security_context: NotRequired[pulumi.Input['SecurityContextDefinitionArgsDict']]
+        """
+        The container security properties.
+        """
+        volume_mounts: NotRequired[pulumi.Input[Sequence[pulumi.Input['VolumeMountArgsDict']]]]
+        """
+        The volume mounts available to the container instance.
+        """
+elif False:
+    ContainerArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ContainerArgs:
@@ -658,6 +910,34 @@ class ContainerArgs:
         pulumi.set(self, "volume_mounts", value)
 
 
+if not MYPY:
+    class DeploymentExtensionSpecArgsDict(TypedDict):
+        """
+        Extension sidecars to be added to the deployment.
+        """
+        extension_type: pulumi.Input[str]
+        """
+        Type of extension to be added.
+        """
+        name: pulumi.Input[str]
+        """
+        Name of the extension.
+        """
+        version: pulumi.Input[str]
+        """
+        Version of the extension being used.
+        """
+        protected_settings: NotRequired[Any]
+        """
+        Protected settings for the extension.
+        """
+        settings: NotRequired[Any]
+        """
+        Settings for the extension.
+        """
+elif False:
+    DeploymentExtensionSpecArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DeploymentExtensionSpecArgs:
     def __init__(__self__, *,
@@ -743,6 +1023,26 @@ class DeploymentExtensionSpecArgs:
         pulumi.set(self, "settings", value)
 
 
+if not MYPY:
+    class DnsConfigurationArgsDict(TypedDict):
+        """
+        DNS configuration for the container group.
+        """
+        name_servers: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        The DNS servers for the container group.
+        """
+        options: NotRequired[pulumi.Input[str]]
+        """
+        The DNS options for the container group.
+        """
+        search_domains: NotRequired[pulumi.Input[str]]
+        """
+        The DNS search domains for hostname lookup in the container group.
+        """
+elif False:
+    DnsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DnsConfigurationArgs:
     def __init__(__self__, *,
@@ -797,6 +1097,30 @@ class DnsConfigurationArgs:
     def search_domains(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "search_domains", value)
 
+
+if not MYPY:
+    class EncryptionPropertiesArgsDict(TypedDict):
+        """
+        The container group encryption properties.
+        """
+        key_name: pulumi.Input[str]
+        """
+        The encryption key name.
+        """
+        key_version: pulumi.Input[str]
+        """
+        The encryption key version.
+        """
+        vault_base_url: pulumi.Input[str]
+        """
+        The keyvault base url.
+        """
+        identity: NotRequired[pulumi.Input[str]]
+        """
+        The keyvault managed identity.
+        """
+elif False:
+    EncryptionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EncryptionPropertiesArgs:
@@ -867,6 +1191,26 @@ class EncryptionPropertiesArgs:
         pulumi.set(self, "identity", value)
 
 
+if not MYPY:
+    class EnvironmentVariableArgsDict(TypedDict):
+        """
+        The environment variable to set within the container instance.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the environment variable.
+        """
+        secure_value: NotRequired[pulumi.Input[str]]
+        """
+        The value of the secure environment variable.
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        The value of the environment variable.
+        """
+elif False:
+    EnvironmentVariableArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EnvironmentVariableArgs:
     def __init__(__self__, *,
@@ -921,6 +1265,26 @@ class EnvironmentVariableArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class GitRepoVolumeArgsDict(TypedDict):
+        """
+        Represents a volume that is populated with the contents of a git repository
+        """
+        repository: pulumi.Input[str]
+        """
+        Repository URL
+        """
+        directory: NotRequired[pulumi.Input[str]]
+        """
+        Target directory name. Must not contain or start with '..'.  If '.' is supplied, the volume directory will be the git repository.  Otherwise, if specified, the volume will contain the git repository in the subdirectory with the given name.
+        """
+        revision: NotRequired[pulumi.Input[str]]
+        """
+        Commit hash for the specified revision.
+        """
+elif False:
+    GitRepoVolumeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GitRepoVolumeArgs:
@@ -977,6 +1341,22 @@ class GitRepoVolumeArgs:
         pulumi.set(self, "revision", value)
 
 
+if not MYPY:
+    class GpuResourceArgsDict(TypedDict):
+        """
+        The GPU resource.
+        """
+        count: pulumi.Input[int]
+        """
+        The count of the GPU resource.
+        """
+        sku: pulumi.Input[Union[str, 'GpuSku']]
+        """
+        The SKU of the GPU resource.
+        """
+elif False:
+    GpuResourceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GpuResourceArgs:
     def __init__(__self__, *,
@@ -1014,6 +1394,22 @@ class GpuResourceArgs:
     def sku(self, value: pulumi.Input[Union[str, 'GpuSku']]):
         pulumi.set(self, "sku", value)
 
+
+if not MYPY:
+    class HttpHeaderArgsDict(TypedDict):
+        """
+        The HTTP header.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The header name.
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        The header value.
+        """
+elif False:
+    HttpHeaderArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class HttpHeaderArgs:
@@ -1054,6 +1450,34 @@ class HttpHeaderArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class ImageRegistryCredentialArgsDict(TypedDict):
+        """
+        Image registry credential.
+        """
+        server: pulumi.Input[str]
+        """
+        The Docker image registry server without a protocol such as "http" and "https".
+        """
+        identity: NotRequired[pulumi.Input[str]]
+        """
+        The identity for the private registry.
+        """
+        identity_url: NotRequired[pulumi.Input[str]]
+        """
+        The identity URL for the private registry.
+        """
+        password: NotRequired[pulumi.Input[str]]
+        """
+        The password for the private registry.
+        """
+        username: NotRequired[pulumi.Input[str]]
+        """
+        The username for the private registry.
+        """
+elif False:
+    ImageRegistryCredentialArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ImageRegistryCredentialArgs:
@@ -1141,6 +1565,38 @@ class ImageRegistryCredentialArgs:
     def username(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "username", value)
 
+
+if not MYPY:
+    class InitContainerDefinitionArgsDict(TypedDict):
+        """
+        The init container definition.
+        """
+        name: pulumi.Input[str]
+        """
+        The name for the init container.
+        """
+        command: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The command to execute within the init container in exec form.
+        """
+        environment_variables: NotRequired[pulumi.Input[Sequence[pulumi.Input['EnvironmentVariableArgsDict']]]]
+        """
+        The environment variables to set in the init container.
+        """
+        image: NotRequired[pulumi.Input[str]]
+        """
+        The image of the init container.
+        """
+        security_context: NotRequired[pulumi.Input['SecurityContextDefinitionArgsDict']]
+        """
+        The container security properties.
+        """
+        volume_mounts: NotRequired[pulumi.Input[Sequence[pulumi.Input['VolumeMountArgsDict']]]]
+        """
+        The volume mounts available to the init container.
+        """
+elif False:
+    InitContainerDefinitionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InitContainerDefinitionArgs:
@@ -1245,6 +1701,34 @@ class InitContainerDefinitionArgs:
         pulumi.set(self, "volume_mounts", value)
 
 
+if not MYPY:
+    class IpAddressArgsDict(TypedDict):
+        """
+        IP address for the container group.
+        """
+        ports: pulumi.Input[Sequence[pulumi.Input['PortArgsDict']]]
+        """
+        The list of ports exposed on the container group.
+        """
+        type: pulumi.Input[Union[str, 'ContainerGroupIpAddressType']]
+        """
+        Specifies if the IP is exposed to the public internet or private VNET.
+        """
+        auto_generated_domain_name_label_scope: NotRequired[pulumi.Input[Union[str, 'DnsNameLabelReusePolicy']]]
+        """
+        The value representing the security enum. The 'Unsecure' value is the default value if not selected and means the object's domain name label is not secured against subdomain takeover. The 'TenantReuse' value is the default value if selected and means the object's domain name label can be reused within the same tenant. The 'SubscriptionReuse' value means the object's domain name label can be reused within the same subscription. The 'ResourceGroupReuse' value means the object's domain name label can be reused within the same resource group. The 'NoReuse' value means the object's domain name label cannot be reused within the same resource group, subscription, or tenant.
+        """
+        dns_name_label: NotRequired[pulumi.Input[str]]
+        """
+        The Dns name label for the IP.
+        """
+        ip: NotRequired[pulumi.Input[str]]
+        """
+        The IP exposed to the public internet.
+        """
+elif False:
+    IpAddressArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IpAddressArgs:
     def __init__(__self__, *,
@@ -1333,6 +1817,34 @@ class IpAddressArgs:
         pulumi.set(self, "ip", value)
 
 
+if not MYPY:
+    class LogAnalyticsArgsDict(TypedDict):
+        """
+        Container group log analytics information.
+        """
+        workspace_id: pulumi.Input[str]
+        """
+        The workspace id for log analytics
+        """
+        workspace_key: pulumi.Input[str]
+        """
+        The workspace key for log analytics
+        """
+        log_type: NotRequired[pulumi.Input[Union[str, 'LogAnalyticsLogType']]]
+        """
+        The log type to be used.
+        """
+        metadata: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Metadata for log analytics.
+        """
+        workspace_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        The workspace resource id for log analytics
+        """
+elif False:
+    LogAnalyticsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LogAnalyticsArgs:
     def __init__(__self__, *,
@@ -1419,6 +1931,22 @@ class LogAnalyticsArgs:
         pulumi.set(self, "workspace_resource_id", value)
 
 
+if not MYPY:
+    class PortArgsDict(TypedDict):
+        """
+        The port exposed on the container group.
+        """
+        port: pulumi.Input[int]
+        """
+        The port number.
+        """
+        protocol: NotRequired[pulumi.Input[Union[str, 'ContainerGroupNetworkProtocol']]]
+        """
+        The protocol associated with the port.
+        """
+elif False:
+    PortArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PortArgs:
     def __init__(__self__, *,
@@ -1457,6 +1985,26 @@ class PortArgs:
     def protocol(self, value: Optional[pulumi.Input[Union[str, 'ContainerGroupNetworkProtocol']]]):
         pulumi.set(self, "protocol", value)
 
+
+if not MYPY:
+    class ResourceLimitsArgsDict(TypedDict):
+        """
+        The resource limits.
+        """
+        cpu: NotRequired[pulumi.Input[float]]
+        """
+        The CPU limit of this container instance.
+        """
+        gpu: NotRequired[pulumi.Input['GpuResourceArgsDict']]
+        """
+        The GPU limit of this container instance.
+        """
+        memory_in_gb: NotRequired[pulumi.Input[float]]
+        """
+        The memory limit in GB of this container instance.
+        """
+elif False:
+    ResourceLimitsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ResourceLimitsArgs:
@@ -1514,6 +2062,26 @@ class ResourceLimitsArgs:
         pulumi.set(self, "memory_in_gb", value)
 
 
+if not MYPY:
+    class ResourceRequestsArgsDict(TypedDict):
+        """
+        The resource requests.
+        """
+        cpu: pulumi.Input[float]
+        """
+        The CPU request of this container instance.
+        """
+        memory_in_gb: pulumi.Input[float]
+        """
+        The memory request in GB of this container instance.
+        """
+        gpu: NotRequired[pulumi.Input['GpuResourceArgsDict']]
+        """
+        The GPU request of this container instance.
+        """
+elif False:
+    ResourceRequestsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ResourceRequestsArgs:
     def __init__(__self__, *,
@@ -1568,6 +2136,22 @@ class ResourceRequestsArgs:
         pulumi.set(self, "gpu", value)
 
 
+if not MYPY:
+    class ResourceRequirementsArgsDict(TypedDict):
+        """
+        The resource requirements.
+        """
+        requests: pulumi.Input['ResourceRequestsArgsDict']
+        """
+        The resource requests of this container instance.
+        """
+        limits: NotRequired[pulumi.Input['ResourceLimitsArgsDict']]
+        """
+        The resource limits of this container instance.
+        """
+elif False:
+    ResourceRequirementsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ResourceRequirementsArgs:
     def __init__(__self__, *,
@@ -1606,6 +2190,22 @@ class ResourceRequirementsArgs:
     def limits(self, value: Optional[pulumi.Input['ResourceLimitsArgs']]):
         pulumi.set(self, "limits", value)
 
+
+if not MYPY:
+    class SecurityContextCapabilitiesDefinitionArgsDict(TypedDict):
+        """
+        The capabilities to add or drop from a container.
+        """
+        add: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The capabilities to add to the container.
+        """
+        drop: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The capabilities to drop from the container.
+        """
+elif False:
+    SecurityContextCapabilitiesDefinitionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SecurityContextCapabilitiesDefinitionArgs:
@@ -1646,6 +2246,38 @@ class SecurityContextCapabilitiesDefinitionArgs:
     def drop(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "drop", value)
 
+
+if not MYPY:
+    class SecurityContextDefinitionArgsDict(TypedDict):
+        """
+        The security context for the container.
+        """
+        allow_privilege_escalation: NotRequired[pulumi.Input[bool]]
+        """
+        A boolean value indicating whether the init process can elevate its privileges
+        """
+        capabilities: NotRequired[pulumi.Input['SecurityContextCapabilitiesDefinitionArgsDict']]
+        """
+        The capabilities to add or drop from a container.
+        """
+        privileged: NotRequired[pulumi.Input[bool]]
+        """
+        The flag to determine if the container permissions is elevated to Privileged.
+        """
+        run_as_group: NotRequired[pulumi.Input[int]]
+        """
+        Sets the User GID for the container.
+        """
+        run_as_user: NotRequired[pulumi.Input[int]]
+        """
+        Sets the User UID for the container.
+        """
+        seccomp_profile: NotRequired[pulumi.Input[str]]
+        """
+        a base64 encoded string containing the contents of the JSON in the seccomp profile
+        """
+elif False:
+    SecurityContextDefinitionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SecurityContextDefinitionArgs:
@@ -1751,6 +2383,26 @@ class SecurityContextDefinitionArgs:
         pulumi.set(self, "seccomp_profile", value)
 
 
+if not MYPY:
+    class VolumeMountArgsDict(TypedDict):
+        """
+        The properties of the volume mount.
+        """
+        mount_path: pulumi.Input[str]
+        """
+        The path within the container where the volume should be mounted. Must not contain colon (:).
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the volume mount.
+        """
+        read_only: NotRequired[pulumi.Input[bool]]
+        """
+        The flag indicating whether the volume mount is read-only.
+        """
+elif False:
+    VolumeMountArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class VolumeMountArgs:
     def __init__(__self__, *,
@@ -1804,6 +2456,34 @@ class VolumeMountArgs:
     def read_only(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "read_only", value)
 
+
+if not MYPY:
+    class VolumeArgsDict(TypedDict):
+        """
+        The properties of the volume.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the volume.
+        """
+        azure_file: NotRequired[pulumi.Input['AzureFileVolumeArgsDict']]
+        """
+        The Azure File volume.
+        """
+        empty_dir: NotRequired[Any]
+        """
+        The empty directory volume.
+        """
+        git_repo: NotRequired[pulumi.Input['GitRepoVolumeArgsDict']]
+        """
+        The git repo volume.
+        """
+        secret: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        The secret volume.
+        """
+elif False:
+    VolumeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VolumeArgs:

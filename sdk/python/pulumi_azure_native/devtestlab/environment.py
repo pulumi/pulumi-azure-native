@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -152,7 +157,7 @@ class Environment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  arm_template_display_name: Optional[pulumi.Input[str]] = None,
-                 deployment_properties: Optional[pulumi.Input[pulumi.InputType['EnvironmentDeploymentPropertiesArgs']]] = None,
+                 deployment_properties: Optional[pulumi.Input[Union['EnvironmentDeploymentPropertiesArgs', 'EnvironmentDeploymentPropertiesArgsDict']]] = None,
                  lab_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -169,7 +174,7 @@ class Environment(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arm_template_display_name: The display name of the Azure Resource Manager template that produced the environment.
-        :param pulumi.Input[pulumi.InputType['EnvironmentDeploymentPropertiesArgs']] deployment_properties: The deployment properties of the environment.
+        :param pulumi.Input[Union['EnvironmentDeploymentPropertiesArgs', 'EnvironmentDeploymentPropertiesArgsDict']] deployment_properties: The deployment properties of the environment.
         :param pulumi.Input[str] lab_name: The name of the lab.
         :param pulumi.Input[str] location: The location of the resource.
         :param pulumi.Input[str] name: The name of the environment.
@@ -205,7 +210,7 @@ class Environment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  arm_template_display_name: Optional[pulumi.Input[str]] = None,
-                 deployment_properties: Optional[pulumi.Input[pulumi.InputType['EnvironmentDeploymentPropertiesArgs']]] = None,
+                 deployment_properties: Optional[pulumi.Input[Union['EnvironmentDeploymentPropertiesArgs', 'EnvironmentDeploymentPropertiesArgsDict']]] = None,
                  lab_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,

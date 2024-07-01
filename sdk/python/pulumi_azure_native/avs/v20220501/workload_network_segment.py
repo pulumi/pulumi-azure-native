@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -142,7 +147,7 @@ class WorkloadNetworkSegment(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  revision: Optional[pulumi.Input[float]] = None,
                  segment_id: Optional[pulumi.Input[str]] = None,
-                 subnet: Optional[pulumi.Input[pulumi.InputType['WorkloadNetworkSegmentSubnetArgs']]] = None,
+                 subnet: Optional[pulumi.Input[Union['WorkloadNetworkSegmentSubnetArgs', 'WorkloadNetworkSegmentSubnetArgsDict']]] = None,
                  __props__=None):
         """
         NSX Segment
@@ -155,7 +160,7 @@ class WorkloadNetworkSegment(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[float] revision: NSX revision number.
         :param pulumi.Input[str] segment_id: NSX Segment identifier. Generally the same as the Segment's display name
-        :param pulumi.Input[pulumi.InputType['WorkloadNetworkSegmentSubnetArgs']] subnet: Subnet which to connect segment to.
+        :param pulumi.Input[Union['WorkloadNetworkSegmentSubnetArgs', 'WorkloadNetworkSegmentSubnetArgsDict']] subnet: Subnet which to connect segment to.
         """
         ...
     @overload
@@ -187,7 +192,7 @@ class WorkloadNetworkSegment(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  revision: Optional[pulumi.Input[float]] = None,
                  segment_id: Optional[pulumi.Input[str]] = None,
-                 subnet: Optional[pulumi.Input[pulumi.InputType['WorkloadNetworkSegmentSubnetArgs']]] = None,
+                 subnet: Optional[pulumi.Input[Union['WorkloadNetworkSegmentSubnetArgs', 'WorkloadNetworkSegmentSubnetArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

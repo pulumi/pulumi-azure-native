@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -174,8 +179,8 @@ class SecurityConnector(pulumi.CustomResource):
                  hierarchy_identifier: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 offerings: Optional[pulumi.Input[Sequence[pulumi.Input[Union[pulumi.InputType['CspmMonitorAwsOfferingArgs'], pulumi.InputType['DefenderForContainersAwsOfferingArgs'], pulumi.InputType['DefenderForServersAwsOfferingArgs'], pulumi.InputType['InformationProtectionAwsOfferingArgs']]]]]] = None,
-                 organizational_data: Optional[pulumi.Input[pulumi.InputType['SecurityConnectorPropertiesOrganizationalDataArgs']]] = None,
+                 offerings: Optional[pulumi.Input[Sequence[pulumi.Input[Union[Union['CspmMonitorAwsOfferingArgs', 'CspmMonitorAwsOfferingArgsDict'], Union['DefenderForContainersAwsOfferingArgs', 'DefenderForContainersAwsOfferingArgsDict'], Union['DefenderForServersAwsOfferingArgs', 'DefenderForServersAwsOfferingArgsDict'], Union['InformationProtectionAwsOfferingArgs', 'InformationProtectionAwsOfferingArgsDict']]]]]] = None,
+                 organizational_data: Optional[pulumi.Input[Union['SecurityConnectorPropertiesOrganizationalDataArgs', 'SecurityConnectorPropertiesOrganizationalDataArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  security_connector_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -189,8 +194,8 @@ class SecurityConnector(pulumi.CustomResource):
         :param pulumi.Input[str] hierarchy_identifier: The multi cloud resource identifier (account id in case of AWS connector).
         :param pulumi.Input[str] kind: Kind of the resource
         :param pulumi.Input[str] location: Location where the resource is stored
-        :param pulumi.Input[Sequence[pulumi.Input[Union[pulumi.InputType['CspmMonitorAwsOfferingArgs'], pulumi.InputType['DefenderForContainersAwsOfferingArgs'], pulumi.InputType['DefenderForServersAwsOfferingArgs'], pulumi.InputType['InformationProtectionAwsOfferingArgs']]]]] offerings: A collection of offerings for the security connector.
-        :param pulumi.Input[pulumi.InputType['SecurityConnectorPropertiesOrganizationalDataArgs']] organizational_data: The multi cloud account's organizational data
+        :param pulumi.Input[Sequence[pulumi.Input[Union[Union['CspmMonitorAwsOfferingArgs', 'CspmMonitorAwsOfferingArgsDict'], Union['DefenderForContainersAwsOfferingArgs', 'DefenderForContainersAwsOfferingArgsDict'], Union['DefenderForServersAwsOfferingArgs', 'DefenderForServersAwsOfferingArgsDict'], Union['InformationProtectionAwsOfferingArgs', 'InformationProtectionAwsOfferingArgsDict']]]]] offerings: A collection of offerings for the security connector.
+        :param pulumi.Input[Union['SecurityConnectorPropertiesOrganizationalDataArgs', 'SecurityConnectorPropertiesOrganizationalDataArgsDict']] organizational_data: The multi cloud account's organizational data
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         :param pulumi.Input[str] security_connector_name: The security connector name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A list of key value pairs that describe the resource.
@@ -223,8 +228,8 @@ class SecurityConnector(pulumi.CustomResource):
                  hierarchy_identifier: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 offerings: Optional[pulumi.Input[Sequence[pulumi.Input[Union[pulumi.InputType['CspmMonitorAwsOfferingArgs'], pulumi.InputType['DefenderForContainersAwsOfferingArgs'], pulumi.InputType['DefenderForServersAwsOfferingArgs'], pulumi.InputType['InformationProtectionAwsOfferingArgs']]]]]] = None,
-                 organizational_data: Optional[pulumi.Input[pulumi.InputType['SecurityConnectorPropertiesOrganizationalDataArgs']]] = None,
+                 offerings: Optional[pulumi.Input[Sequence[pulumi.Input[Union[Union['CspmMonitorAwsOfferingArgs', 'CspmMonitorAwsOfferingArgsDict'], Union['DefenderForContainersAwsOfferingArgs', 'DefenderForContainersAwsOfferingArgsDict'], Union['DefenderForServersAwsOfferingArgs', 'DefenderForServersAwsOfferingArgsDict'], Union['InformationProtectionAwsOfferingArgs', 'InformationProtectionAwsOfferingArgsDict']]]]]] = None,
+                 organizational_data: Optional[pulumi.Input[Union['SecurityConnectorPropertiesOrganizationalDataArgs', 'SecurityConnectorPropertiesOrganizationalDataArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  security_connector_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,

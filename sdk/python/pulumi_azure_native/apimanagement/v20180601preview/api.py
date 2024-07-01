@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -386,9 +391,9 @@ class Api(pulumi.CustomResource):
                  api_type: Optional[pulumi.Input[Union[str, 'ApiType']]] = None,
                  api_version: Optional[pulumi.Input[str]] = None,
                  api_version_description: Optional[pulumi.Input[str]] = None,
-                 api_version_set: Optional[pulumi.Input[pulumi.InputType['ApiVersionSetContractDetailsArgs']]] = None,
+                 api_version_set: Optional[pulumi.Input[Union['ApiVersionSetContractDetailsArgs', 'ApiVersionSetContractDetailsArgsDict']]] = None,
                  api_version_set_id: Optional[pulumi.Input[str]] = None,
-                 authentication_settings: Optional[pulumi.Input[pulumi.InputType['AuthenticationSettingsContractArgs']]] = None,
+                 authentication_settings: Optional[pulumi.Input[Union['AuthenticationSettingsContractArgs', 'AuthenticationSettingsContractArgsDict']]] = None,
                  content_format: Optional[pulumi.Input[Union[str, 'ContentFormat']]] = None,
                  content_value: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -399,9 +404,9 @@ class Api(pulumi.CustomResource):
                  service_name: Optional[pulumi.Input[str]] = None,
                  service_url: Optional[pulumi.Input[str]] = None,
                  soap_api_type: Optional[pulumi.Input[Union[str, 'SoapApiType']]] = None,
-                 subscription_key_parameter_names: Optional[pulumi.Input[pulumi.InputType['SubscriptionKeyParameterNamesContractArgs']]] = None,
+                 subscription_key_parameter_names: Optional[pulumi.Input[Union['SubscriptionKeyParameterNamesContractArgs', 'SubscriptionKeyParameterNamesContractArgsDict']]] = None,
                  subscription_required: Optional[pulumi.Input[bool]] = None,
-                 wsdl_selector: Optional[pulumi.Input[pulumi.InputType['ApiCreateOrUpdatePropertiesWsdlSelectorArgs']]] = None,
+                 wsdl_selector: Optional[pulumi.Input[Union['ApiCreateOrUpdatePropertiesWsdlSelectorArgs', 'ApiCreateOrUpdatePropertiesWsdlSelectorArgsDict']]] = None,
                  __props__=None):
         """
         API details.
@@ -414,9 +419,9 @@ class Api(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'ApiType']] api_type: Type of API.
         :param pulumi.Input[str] api_version: Indicates the Version identifier of the API if the API is versioned
         :param pulumi.Input[str] api_version_description: Description of the Api Version.
-        :param pulumi.Input[pulumi.InputType['ApiVersionSetContractDetailsArgs']] api_version_set: An API Version Set contains the common configuration for a set of API Versions relating 
+        :param pulumi.Input[Union['ApiVersionSetContractDetailsArgs', 'ApiVersionSetContractDetailsArgsDict']] api_version_set: An API Version Set contains the common configuration for a set of API Versions relating 
         :param pulumi.Input[str] api_version_set_id: A resource identifier for the related ApiVersionSet.
-        :param pulumi.Input[pulumi.InputType['AuthenticationSettingsContractArgs']] authentication_settings: Collection of authentication settings included into this API.
+        :param pulumi.Input[Union['AuthenticationSettingsContractArgs', 'AuthenticationSettingsContractArgsDict']] authentication_settings: Collection of authentication settings included into this API.
         :param pulumi.Input[Union[str, 'ContentFormat']] content_format: Format of the Content in which the API is getting imported.
         :param pulumi.Input[str] content_value: Content value when Importing an API.
         :param pulumi.Input[str] description: Description of the API. May include HTML formatting tags.
@@ -429,9 +434,9 @@ class Api(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'SoapApiType']] soap_api_type: Type of Api to create. 
                 * `http` creates a SOAP to REST API 
                 * `soap` creates a SOAP pass-through API .
-        :param pulumi.Input[pulumi.InputType['SubscriptionKeyParameterNamesContractArgs']] subscription_key_parameter_names: Protocols over which API is made available.
+        :param pulumi.Input[Union['SubscriptionKeyParameterNamesContractArgs', 'SubscriptionKeyParameterNamesContractArgsDict']] subscription_key_parameter_names: Protocols over which API is made available.
         :param pulumi.Input[bool] subscription_required: Specifies whether an API or Product subscription is required for accessing the API.
-        :param pulumi.Input[pulumi.InputType['ApiCreateOrUpdatePropertiesWsdlSelectorArgs']] wsdl_selector: Criteria to limit import of WSDL to a subset of the document.
+        :param pulumi.Input[Union['ApiCreateOrUpdatePropertiesWsdlSelectorArgs', 'ApiCreateOrUpdatePropertiesWsdlSelectorArgsDict']] wsdl_selector: Criteria to limit import of WSDL to a subset of the document.
         """
         ...
     @overload
@@ -463,9 +468,9 @@ class Api(pulumi.CustomResource):
                  api_type: Optional[pulumi.Input[Union[str, 'ApiType']]] = None,
                  api_version: Optional[pulumi.Input[str]] = None,
                  api_version_description: Optional[pulumi.Input[str]] = None,
-                 api_version_set: Optional[pulumi.Input[pulumi.InputType['ApiVersionSetContractDetailsArgs']]] = None,
+                 api_version_set: Optional[pulumi.Input[Union['ApiVersionSetContractDetailsArgs', 'ApiVersionSetContractDetailsArgsDict']]] = None,
                  api_version_set_id: Optional[pulumi.Input[str]] = None,
-                 authentication_settings: Optional[pulumi.Input[pulumi.InputType['AuthenticationSettingsContractArgs']]] = None,
+                 authentication_settings: Optional[pulumi.Input[Union['AuthenticationSettingsContractArgs', 'AuthenticationSettingsContractArgsDict']]] = None,
                  content_format: Optional[pulumi.Input[Union[str, 'ContentFormat']]] = None,
                  content_value: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -476,9 +481,9 @@ class Api(pulumi.CustomResource):
                  service_name: Optional[pulumi.Input[str]] = None,
                  service_url: Optional[pulumi.Input[str]] = None,
                  soap_api_type: Optional[pulumi.Input[Union[str, 'SoapApiType']]] = None,
-                 subscription_key_parameter_names: Optional[pulumi.Input[pulumi.InputType['SubscriptionKeyParameterNamesContractArgs']]] = None,
+                 subscription_key_parameter_names: Optional[pulumi.Input[Union['SubscriptionKeyParameterNamesContractArgs', 'SubscriptionKeyParameterNamesContractArgsDict']]] = None,
                  subscription_required: Optional[pulumi.Input[bool]] = None,
-                 wsdl_selector: Optional[pulumi.Input[pulumi.InputType['ApiCreateOrUpdatePropertiesWsdlSelectorArgs']]] = None,
+                 wsdl_selector: Optional[pulumi.Input[Union['ApiCreateOrUpdatePropertiesWsdlSelectorArgs', 'ApiCreateOrUpdatePropertiesWsdlSelectorArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

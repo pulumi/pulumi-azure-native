@@ -4,33 +4,75 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'AutoPausePropertiesArgs',
+    'AutoPausePropertiesArgsDict',
     'AutoScalePropertiesArgs',
+    'AutoScalePropertiesArgsDict',
     'CspWorkspaceAdminPropertiesArgs',
+    'CspWorkspaceAdminPropertiesArgsDict',
     'CustomerManagedKeyDetailsArgs',
+    'CustomerManagedKeyDetailsArgsDict',
     'DataLakeStorageAccountDetailsArgs',
+    'DataLakeStorageAccountDetailsArgsDict',
     'DynamicExecutorAllocationArgs',
+    'DynamicExecutorAllocationArgsDict',
     'EncryptionDetailsArgs',
+    'EncryptionDetailsArgsDict',
     'KekIdentityPropertiesArgs',
+    'KekIdentityPropertiesArgsDict',
     'LibraryInfoArgs',
+    'LibraryInfoArgsDict',
     'LibraryRequirementsArgs',
+    'LibraryRequirementsArgsDict',
     'ManagedIdentityArgs',
+    'ManagedIdentityArgsDict',
     'ManagedVirtualNetworkSettingsArgs',
+    'ManagedVirtualNetworkSettingsArgsDict',
     'PrivateEndpointConnectionArgs',
+    'PrivateEndpointConnectionArgsDict',
     'PrivateLinkServiceConnectionStateArgs',
+    'PrivateLinkServiceConnectionStateArgsDict',
     'PurviewConfigurationArgs',
+    'PurviewConfigurationArgsDict',
     'SkuArgs',
+    'SkuArgsDict',
     'VirtualNetworkProfileArgs',
+    'VirtualNetworkProfileArgsDict',
     'WorkspaceKeyDetailsArgs',
+    'WorkspaceKeyDetailsArgsDict',
     'WorkspaceRepositoryConfigurationArgs',
+    'WorkspaceRepositoryConfigurationArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AutoPausePropertiesArgsDict(TypedDict):
+        """
+        Auto-pausing properties of a Big Data pool powered by Apache Spark
+        """
+        delay_in_minutes: NotRequired[pulumi.Input[int]]
+        """
+        Number of minutes of idle time before the Big Data pool is automatically paused.
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Whether auto-pausing is enabled for the Big Data pool.
+        """
+elif False:
+    AutoPausePropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AutoPausePropertiesArgs:
@@ -71,6 +113,26 @@ class AutoPausePropertiesArgs:
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
 
+
+if not MYPY:
+    class AutoScalePropertiesArgsDict(TypedDict):
+        """
+        Auto-scaling properties of a Big Data pool powered by Apache Spark
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Whether automatic scaling is enabled for the Big Data pool.
+        """
+        max_node_count: NotRequired[pulumi.Input[int]]
+        """
+        The maximum number of nodes the Big Data pool can support.
+        """
+        min_node_count: NotRequired[pulumi.Input[int]]
+        """
+        The minimum number of nodes the Big Data pool can support.
+        """
+elif False:
+    AutoScalePropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AutoScalePropertiesArgs:
@@ -128,6 +190,18 @@ class AutoScalePropertiesArgs:
         pulumi.set(self, "min_node_count", value)
 
 
+if not MYPY:
+    class CspWorkspaceAdminPropertiesArgsDict(TypedDict):
+        """
+        Initial workspace AAD admin properties for a CSP subscription
+        """
+        initial_workspace_admin_object_id: NotRequired[pulumi.Input[str]]
+        """
+        AAD object ID of initial workspace admin
+        """
+elif False:
+    CspWorkspaceAdminPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CspWorkspaceAdminPropertiesArgs:
     def __init__(__self__, *,
@@ -151,6 +225,22 @@ class CspWorkspaceAdminPropertiesArgs:
     def initial_workspace_admin_object_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "initial_workspace_admin_object_id", value)
 
+
+if not MYPY:
+    class CustomerManagedKeyDetailsArgsDict(TypedDict):
+        """
+        Details of the customer managed key associated with the workspace
+        """
+        kek_identity: NotRequired[pulumi.Input['KekIdentityPropertiesArgsDict']]
+        """
+        Key encryption key
+        """
+        key: NotRequired[pulumi.Input['WorkspaceKeyDetailsArgsDict']]
+        """
+        The key object of the workspace
+        """
+elif False:
+    CustomerManagedKeyDetailsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CustomerManagedKeyDetailsArgs:
@@ -192,6 +282,22 @@ class CustomerManagedKeyDetailsArgs:
         pulumi.set(self, "key", value)
 
 
+if not MYPY:
+    class DataLakeStorageAccountDetailsArgsDict(TypedDict):
+        """
+        Details of the data lake storage account associated with the workspace
+        """
+        account_url: NotRequired[pulumi.Input[str]]
+        """
+        Account URL
+        """
+        filesystem: NotRequired[pulumi.Input[str]]
+        """
+        Filesystem name
+        """
+elif False:
+    DataLakeStorageAccountDetailsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DataLakeStorageAccountDetailsArgs:
     def __init__(__self__, *,
@@ -232,6 +338,18 @@ class DataLakeStorageAccountDetailsArgs:
         pulumi.set(self, "filesystem", value)
 
 
+if not MYPY:
+    class DynamicExecutorAllocationArgsDict(TypedDict):
+        """
+        Dynamic Executor Allocation Properties
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether Dynamic Executor Allocation is enabled or not.
+        """
+elif False:
+    DynamicExecutorAllocationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DynamicExecutorAllocationArgs:
     def __init__(__self__, *,
@@ -256,6 +374,18 @@ class DynamicExecutorAllocationArgs:
         pulumi.set(self, "enabled", value)
 
 
+if not MYPY:
+    class EncryptionDetailsArgsDict(TypedDict):
+        """
+        Details of the encryption associated with the workspace
+        """
+        cmk: NotRequired[pulumi.Input['CustomerManagedKeyDetailsArgsDict']]
+        """
+        Customer Managed Key Details
+        """
+elif False:
+    EncryptionDetailsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EncryptionDetailsArgs:
     def __init__(__self__, *,
@@ -279,6 +409,22 @@ class EncryptionDetailsArgs:
     def cmk(self, value: Optional[pulumi.Input['CustomerManagedKeyDetailsArgs']]):
         pulumi.set(self, "cmk", value)
 
+
+if not MYPY:
+    class KekIdentityPropertiesArgsDict(TypedDict):
+        """
+        Key encryption key properties
+        """
+        use_system_assigned_identity: NotRequired[Any]
+        """
+        Boolean specifying whether to use system assigned identity or not
+        """
+        user_assigned_identity: NotRequired[pulumi.Input[str]]
+        """
+        User assigned identity resource Id
+        """
+elif False:
+    KekIdentityPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class KekIdentityPropertiesArgs:
@@ -319,6 +465,30 @@ class KekIdentityPropertiesArgs:
     def user_assigned_identity(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "user_assigned_identity", value)
 
+
+if not MYPY:
+    class LibraryInfoArgsDict(TypedDict):
+        """
+        Library/package information of a Big Data pool powered by Apache Spark
+        """
+        container_name: NotRequired[pulumi.Input[str]]
+        """
+        Storage blob container name.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the library.
+        """
+        path: NotRequired[pulumi.Input[str]]
+        """
+        Storage blob path of library.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        Type of the library.
+        """
+elif False:
+    LibraryInfoArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LibraryInfoArgs:
@@ -392,6 +562,22 @@ class LibraryInfoArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class LibraryRequirementsArgsDict(TypedDict):
+        """
+        Library requirements for a Big Data pool powered by Apache Spark
+        """
+        content: NotRequired[pulumi.Input[str]]
+        """
+        The library requirements.
+        """
+        filename: NotRequired[pulumi.Input[str]]
+        """
+        The filename of the library requirements file.
+        """
+elif False:
+    LibraryRequirementsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LibraryRequirementsArgs:
     def __init__(__self__, *,
@@ -432,6 +618,22 @@ class LibraryRequirementsArgs:
         pulumi.set(self, "filename", value)
 
 
+if not MYPY:
+    class ManagedIdentityArgsDict(TypedDict):
+        """
+        The workspace managed identity
+        """
+        type: NotRequired[pulumi.Input['ResourceIdentityType']]
+        """
+        The type of managed identity for the workspace
+        """
+        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The user assigned managed identities.
+        """
+elif False:
+    ManagedIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ManagedIdentityArgs:
     def __init__(__self__, *,
@@ -471,6 +673,26 @@ class ManagedIdentityArgs:
     def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
+
+if not MYPY:
+    class ManagedVirtualNetworkSettingsArgsDict(TypedDict):
+        """
+        Managed Virtual Network Settings
+        """
+        allowed_aad_tenant_ids_for_linking: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Allowed Aad Tenant Ids For Linking
+        """
+        linked_access_check_on_target_resource: NotRequired[pulumi.Input[bool]]
+        """
+        Linked Access Check On Target Resource
+        """
+        prevent_data_exfiltration: NotRequired[pulumi.Input[bool]]
+        """
+        Prevent Data Exfiltration
+        """
+elif False:
+    ManagedVirtualNetworkSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ManagedVirtualNetworkSettingsArgs:
@@ -528,6 +750,18 @@ class ManagedVirtualNetworkSettingsArgs:
         pulumi.set(self, "prevent_data_exfiltration", value)
 
 
+if not MYPY:
+    class PrivateEndpointConnectionArgsDict(TypedDict):
+        """
+        A private endpoint connection
+        """
+        private_link_service_connection_state: NotRequired[pulumi.Input['PrivateLinkServiceConnectionStateArgsDict']]
+        """
+        Connection state of the private endpoint connection.
+        """
+elif False:
+    PrivateEndpointConnectionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PrivateEndpointConnectionArgs:
     def __init__(__self__, *,
@@ -551,6 +785,22 @@ class PrivateEndpointConnectionArgs:
     def private_link_service_connection_state(self, value: Optional[pulumi.Input['PrivateLinkServiceConnectionStateArgs']]):
         pulumi.set(self, "private_link_service_connection_state", value)
 
+
+if not MYPY:
+    class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
+        """
+        Connection state details of the private endpoint
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The private link service connection description.
+        """
+        status: NotRequired[pulumi.Input[str]]
+        """
+        The private link service connection status.
+        """
+elif False:
+    PrivateLinkServiceConnectionStateArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:
@@ -592,6 +842,18 @@ class PrivateLinkServiceConnectionStateArgs:
         pulumi.set(self, "status", value)
 
 
+if not MYPY:
+    class PurviewConfigurationArgsDict(TypedDict):
+        """
+        Purview Configuration
+        """
+        purview_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        Purview Resource ID
+        """
+elif False:
+    PurviewConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PurviewConfigurationArgs:
     def __init__(__self__, *,
@@ -615,6 +877,26 @@ class PurviewConfigurationArgs:
     def purview_resource_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "purview_resource_id", value)
 
+
+if not MYPY:
+    class SkuArgsDict(TypedDict):
+        """
+        SQL pool SKU
+        """
+        capacity: NotRequired[pulumi.Input[int]]
+        """
+        If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The SKU name
+        """
+        tier: NotRequired[pulumi.Input[str]]
+        """
+        The service tier
+        """
+elif False:
+    SkuArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SkuArgs:
@@ -672,6 +954,18 @@ class SkuArgs:
         pulumi.set(self, "tier", value)
 
 
+if not MYPY:
+    class VirtualNetworkProfileArgsDict(TypedDict):
+        """
+        Virtual Network Profile
+        """
+        compute_subnet_id: NotRequired[pulumi.Input[str]]
+        """
+        Subnet ID used for computes in workspace
+        """
+elif False:
+    VirtualNetworkProfileArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class VirtualNetworkProfileArgs:
     def __init__(__self__, *,
@@ -695,6 +989,22 @@ class VirtualNetworkProfileArgs:
     def compute_subnet_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "compute_subnet_id", value)
 
+
+if not MYPY:
+    class WorkspaceKeyDetailsArgsDict(TypedDict):
+        """
+        Details of the customer managed key associated with the workspace
+        """
+        key_vault_url: NotRequired[pulumi.Input[str]]
+        """
+        Workspace Key sub-resource key vault url
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Workspace Key sub-resource name
+        """
+elif False:
+    WorkspaceKeyDetailsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WorkspaceKeyDetailsArgs:
@@ -735,6 +1045,50 @@ class WorkspaceKeyDetailsArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class WorkspaceRepositoryConfigurationArgsDict(TypedDict):
+        """
+        Git integration settings
+        """
+        account_name: NotRequired[pulumi.Input[str]]
+        """
+        Account name
+        """
+        collaboration_branch: NotRequired[pulumi.Input[str]]
+        """
+        Collaboration branch
+        """
+        host_name: NotRequired[pulumi.Input[str]]
+        """
+        GitHub Enterprise host name. For example: `https://github.mydomain.com`
+        """
+        last_commit_id: NotRequired[pulumi.Input[str]]
+        """
+        The last commit ID
+        """
+        project_name: NotRequired[pulumi.Input[str]]
+        """
+        VSTS project name
+        """
+        repository_name: NotRequired[pulumi.Input[str]]
+        """
+        Repository name
+        """
+        root_folder: NotRequired[pulumi.Input[str]]
+        """
+        Root folder to use in the repository
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        The VSTS tenant ID
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        Type of workspace repositoryID configuration. Example WorkspaceVSTSConfiguration, WorkspaceGitHubConfiguration
+        """
+elif False:
+    WorkspaceRepositoryConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WorkspaceRepositoryConfigurationArgs:

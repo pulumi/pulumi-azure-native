@@ -4,51 +4,119 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'ApplicationGetEndpointArgs',
+    'ApplicationGetEndpointArgsDict',
     'ApplicationGetHttpsEndpointArgs',
+    'ApplicationGetHttpsEndpointArgsDict',
     'ApplicationPropertiesArgs',
+    'ApplicationPropertiesArgsDict',
     'AutoscaleCapacityArgs',
+    'AutoscaleCapacityArgsDict',
     'AutoscaleRecurrenceArgs',
+    'AutoscaleRecurrenceArgsDict',
     'AutoscaleScheduleArgs',
+    'AutoscaleScheduleArgsDict',
     'AutoscaleTimeAndCapacityArgs',
+    'AutoscaleTimeAndCapacityArgsDict',
     'AutoscaleArgs',
+    'AutoscaleArgsDict',
     'ClientGroupInfoArgs',
+    'ClientGroupInfoArgsDict',
     'ClusterCreatePropertiesArgs',
+    'ClusterCreatePropertiesArgsDict',
     'ClusterDefinitionArgs',
+    'ClusterDefinitionArgsDict',
     'ClusterIdentityArgs',
+    'ClusterIdentityArgsDict',
     'ComputeIsolationPropertiesArgs',
+    'ComputeIsolationPropertiesArgsDict',
     'ComputeProfileArgs',
+    'ComputeProfileArgsDict',
     'DataDisksGroupsArgs',
+    'DataDisksGroupsArgsDict',
     'DiskEncryptionPropertiesArgs',
+    'DiskEncryptionPropertiesArgsDict',
     'EncryptionInTransitPropertiesArgs',
+    'EncryptionInTransitPropertiesArgsDict',
     'ErrorsArgs',
+    'ErrorsArgsDict',
     'HardwareProfileArgs',
+    'HardwareProfileArgsDict',
     'IPConfigurationArgs',
+    'IPConfigurationArgsDict',
     'KafkaRestPropertiesArgs',
+    'KafkaRestPropertiesArgsDict',
     'LinuxOperatingSystemProfileArgs',
+    'LinuxOperatingSystemProfileArgsDict',
     'NetworkPropertiesArgs',
+    'NetworkPropertiesArgsDict',
     'OsProfileArgs',
+    'OsProfileArgsDict',
     'PrivateLinkConfigurationArgs',
+    'PrivateLinkConfigurationArgsDict',
     'PrivateLinkServiceConnectionStateArgs',
+    'PrivateLinkServiceConnectionStateArgsDict',
     'ResourceIdArgs',
+    'ResourceIdArgsDict',
     'RoleArgs',
+    'RoleArgsDict',
     'RuntimeScriptActionArgs',
+    'RuntimeScriptActionArgsDict',
     'ScriptActionArgs',
+    'ScriptActionArgsDict',
     'SecurityProfileArgs',
+    'SecurityProfileArgsDict',
     'SshProfileArgs',
+    'SshProfileArgsDict',
     'SshPublicKeyArgs',
+    'SshPublicKeyArgsDict',
     'StorageAccountArgs',
+    'StorageAccountArgsDict',
     'StorageProfileArgs',
+    'StorageProfileArgsDict',
     'UserAssignedIdentityArgs',
+    'UserAssignedIdentityArgsDict',
     'VirtualNetworkProfileArgs',
+    'VirtualNetworkProfileArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ApplicationGetEndpointArgsDict(TypedDict):
+        """
+        Gets the application SSH endpoint
+        """
+        destination_port: NotRequired[pulumi.Input[int]]
+        """
+        The destination port to connect to.
+        """
+        location: NotRequired[pulumi.Input[str]]
+        """
+        The location of the endpoint.
+        """
+        private_ip_address: NotRequired[pulumi.Input[str]]
+        """
+        The private ip address of the endpoint.
+        """
+        public_port: NotRequired[pulumi.Input[int]]
+        """
+        The public port to connect to.
+        """
+elif False:
+    ApplicationGetEndpointArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApplicationGetEndpointArgs:
@@ -121,6 +189,34 @@ class ApplicationGetEndpointArgs:
     def public_port(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "public_port", value)
 
+
+if not MYPY:
+    class ApplicationGetHttpsEndpointArgsDict(TypedDict):
+        """
+        Gets the application HTTP endpoints.
+        """
+        access_modes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of access modes for the application.
+        """
+        destination_port: NotRequired[pulumi.Input[int]]
+        """
+        The destination port to connect to.
+        """
+        disable_gateway_auth: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicates whether to disable GatewayAuth.
+        """
+        private_ip_address: NotRequired[pulumi.Input[str]]
+        """
+        The private ip address of the endpoint.
+        """
+        sub_domain_suffix: NotRequired[pulumi.Input[str]]
+        """
+        The subdomain suffix of the application.
+        """
+elif False:
+    ApplicationGetHttpsEndpointArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApplicationGetHttpsEndpointArgs:
@@ -209,6 +305,46 @@ class ApplicationGetHttpsEndpointArgs:
     def sub_domain_suffix(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "sub_domain_suffix", value)
 
+
+if not MYPY:
+    class ApplicationPropertiesArgsDict(TypedDict):
+        """
+        The HDInsight cluster application GET response.
+        """
+        application_type: NotRequired[pulumi.Input[str]]
+        """
+        The application type.
+        """
+        compute_profile: NotRequired[pulumi.Input['ComputeProfileArgsDict']]
+        """
+        The list of roles in the cluster.
+        """
+        errors: NotRequired[pulumi.Input[Sequence[pulumi.Input['ErrorsArgsDict']]]]
+        """
+        The list of errors.
+        """
+        https_endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationGetHttpsEndpointArgsDict']]]]
+        """
+        The list of application HTTPS endpoints.
+        """
+        install_script_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['RuntimeScriptActionArgsDict']]]]
+        """
+        The list of install script actions.
+        """
+        private_link_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['PrivateLinkConfigurationArgsDict']]]]
+        """
+        The private link configurations.
+        """
+        ssh_endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationGetEndpointArgsDict']]]]
+        """
+        The list of application SSH endpoints.
+        """
+        uninstall_script_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['RuntimeScriptActionArgsDict']]]]
+        """
+        The list of uninstall script actions.
+        """
+elif False:
+    ApplicationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApplicationPropertiesArgs:
@@ -346,6 +482,22 @@ class ApplicationPropertiesArgs:
         pulumi.set(self, "uninstall_script_actions", value)
 
 
+if not MYPY:
+    class AutoscaleCapacityArgsDict(TypedDict):
+        """
+        The load-based autoscale request parameters
+        """
+        max_instance_count: NotRequired[pulumi.Input[int]]
+        """
+        The maximum instance count of the cluster
+        """
+        min_instance_count: NotRequired[pulumi.Input[int]]
+        """
+        The minimum instance count of the cluster
+        """
+elif False:
+    AutoscaleCapacityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AutoscaleCapacityArgs:
     def __init__(__self__, *,
@@ -385,6 +537,22 @@ class AutoscaleCapacityArgs:
     def min_instance_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "min_instance_count", value)
 
+
+if not MYPY:
+    class AutoscaleRecurrenceArgsDict(TypedDict):
+        """
+        Schedule-based autoscale request parameters
+        """
+        schedule: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutoscaleScheduleArgsDict']]]]
+        """
+        Array of schedule-based autoscale rules
+        """
+        time_zone: NotRequired[pulumi.Input[str]]
+        """
+        The time zone for the autoscale schedule times
+        """
+elif False:
+    AutoscaleRecurrenceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AutoscaleRecurrenceArgs:
@@ -426,6 +594,22 @@ class AutoscaleRecurrenceArgs:
         pulumi.set(self, "time_zone", value)
 
 
+if not MYPY:
+    class AutoscaleScheduleArgsDict(TypedDict):
+        """
+        Parameters for a schedule-based autoscale rule, consisting of an array of days + a time and capacity
+        """
+        days: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'DaysOfWeek']]]]]
+        """
+        Days of the week for a schedule-based autoscale rule
+        """
+        time_and_capacity: NotRequired[pulumi.Input['AutoscaleTimeAndCapacityArgsDict']]
+        """
+        Time and capacity for a schedule-based autoscale rule
+        """
+elif False:
+    AutoscaleScheduleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AutoscaleScheduleArgs:
     def __init__(__self__, *,
@@ -465,6 +649,26 @@ class AutoscaleScheduleArgs:
     def time_and_capacity(self, value: Optional[pulumi.Input['AutoscaleTimeAndCapacityArgs']]):
         pulumi.set(self, "time_and_capacity", value)
 
+
+if not MYPY:
+    class AutoscaleTimeAndCapacityArgsDict(TypedDict):
+        """
+        Time and capacity request parameters
+        """
+        max_instance_count: NotRequired[pulumi.Input[int]]
+        """
+        The maximum instance count of the cluster
+        """
+        min_instance_count: NotRequired[pulumi.Input[int]]
+        """
+        The minimum instance count of the cluster
+        """
+        time: NotRequired[pulumi.Input[str]]
+        """
+        24-hour time in the form xx:xx
+        """
+elif False:
+    AutoscaleTimeAndCapacityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AutoscaleTimeAndCapacityArgs:
@@ -522,6 +726,22 @@ class AutoscaleTimeAndCapacityArgs:
         pulumi.set(self, "time", value)
 
 
+if not MYPY:
+    class AutoscaleArgsDict(TypedDict):
+        """
+        The autoscale request parameters
+        """
+        capacity: NotRequired[pulumi.Input['AutoscaleCapacityArgsDict']]
+        """
+        Parameters for load-based autoscale
+        """
+        recurrence: NotRequired[pulumi.Input['AutoscaleRecurrenceArgsDict']]
+        """
+        Parameters for schedule-based autoscale
+        """
+elif False:
+    AutoscaleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AutoscaleArgs:
     def __init__(__self__, *,
@@ -562,6 +782,22 @@ class AutoscaleArgs:
         pulumi.set(self, "recurrence", value)
 
 
+if not MYPY:
+    class ClientGroupInfoArgsDict(TypedDict):
+        """
+        The information of AAD security group.
+        """
+        group_id: NotRequired[pulumi.Input[str]]
+        """
+        The AAD security group id.
+        """
+        group_name: NotRequired[pulumi.Input[str]]
+        """
+        The AAD security group name.
+        """
+elif False:
+    ClientGroupInfoArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ClientGroupInfoArgs:
     def __init__(__self__, *,
@@ -601,6 +837,70 @@ class ClientGroupInfoArgs:
     def group_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "group_name", value)
 
+
+if not MYPY:
+    class ClusterCreatePropertiesArgsDict(TypedDict):
+        """
+        The cluster create parameters.
+        """
+        cluster_definition: NotRequired[pulumi.Input['ClusterDefinitionArgsDict']]
+        """
+        The cluster definition.
+        """
+        cluster_version: NotRequired[pulumi.Input[str]]
+        """
+        The version of the cluster.
+        """
+        compute_isolation_properties: NotRequired[pulumi.Input['ComputeIsolationPropertiesArgsDict']]
+        """
+        The compute isolation properties.
+        """
+        compute_profile: NotRequired[pulumi.Input['ComputeProfileArgsDict']]
+        """
+        The compute profile.
+        """
+        disk_encryption_properties: NotRequired[pulumi.Input['DiskEncryptionPropertiesArgsDict']]
+        """
+        The disk encryption properties.
+        """
+        encryption_in_transit_properties: NotRequired[pulumi.Input['EncryptionInTransitPropertiesArgsDict']]
+        """
+        The encryption-in-transit properties.
+        """
+        kafka_rest_properties: NotRequired[pulumi.Input['KafkaRestPropertiesArgsDict']]
+        """
+        The cluster kafka rest proxy configuration.
+        """
+        min_supported_tls_version: NotRequired[pulumi.Input[str]]
+        """
+        The minimal supported tls version.
+        """
+        network_properties: NotRequired[pulumi.Input['NetworkPropertiesArgsDict']]
+        """
+        The network properties.
+        """
+        os_type: NotRequired[pulumi.Input[Union[str, 'OSType']]]
+        """
+        The type of operating system.
+        """
+        private_link_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['PrivateLinkConfigurationArgsDict']]]]
+        """
+        The private link configurations.
+        """
+        security_profile: NotRequired[pulumi.Input['SecurityProfileArgsDict']]
+        """
+        The security profile.
+        """
+        storage_profile: NotRequired[pulumi.Input['StorageProfileArgsDict']]
+        """
+        The storage profile.
+        """
+        tier: NotRequired[pulumi.Input[Union[str, 'Tier']]]
+        """
+        The cluster tier.
+        """
+elif False:
+    ClusterCreatePropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ClusterCreatePropertiesArgs:
@@ -836,6 +1136,30 @@ class ClusterCreatePropertiesArgs:
         pulumi.set(self, "tier", value)
 
 
+if not MYPY:
+    class ClusterDefinitionArgsDict(TypedDict):
+        """
+        The cluster definition.
+        """
+        blueprint: NotRequired[pulumi.Input[str]]
+        """
+        The link to the blueprint.
+        """
+        component_version: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        The versions of different services in the cluster.
+        """
+        configurations: NotRequired[Any]
+        """
+        The cluster configurations.
+        """
+        kind: NotRequired[pulumi.Input[str]]
+        """
+        The type of cluster.
+        """
+elif False:
+    ClusterDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ClusterDefinitionArgs:
     def __init__(__self__, *,
@@ -908,6 +1232,22 @@ class ClusterDefinitionArgs:
         pulumi.set(self, "kind", value)
 
 
+if not MYPY:
+    class ClusterIdentityArgsDict(TypedDict):
+        """
+        Identity for the cluster.
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'ResourceIdentityType']]]
+        """
+        The type of identity used for the cluster. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities.
+        """
+        user_assigned_identities: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentityArgsDict']]]]
+        """
+        The list of user identities associated with the cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+elif False:
+    ClusterIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ClusterIdentityArgs:
     def __init__(__self__, *,
@@ -947,6 +1287,22 @@ class ClusterIdentityArgs:
     def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentityArgs']]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
+
+if not MYPY:
+    class ComputeIsolationPropertiesArgsDict(TypedDict):
+        """
+        The compute isolation properties.
+        """
+        enable_compute_isolation: NotRequired[pulumi.Input[bool]]
+        """
+        The flag indicates whether enable compute isolation or not.
+        """
+        host_sku: NotRequired[pulumi.Input[str]]
+        """
+        The host sku.
+        """
+elif False:
+    ComputeIsolationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ComputeIsolationPropertiesArgs:
@@ -990,6 +1346,18 @@ class ComputeIsolationPropertiesArgs:
         pulumi.set(self, "host_sku", value)
 
 
+if not MYPY:
+    class ComputeProfileArgsDict(TypedDict):
+        """
+        Describes the compute profile.
+        """
+        roles: NotRequired[pulumi.Input[Sequence[pulumi.Input['RoleArgsDict']]]]
+        """
+        The list of roles in the cluster.
+        """
+elif False:
+    ComputeProfileArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ComputeProfileArgs:
     def __init__(__self__, *,
@@ -1014,6 +1382,18 @@ class ComputeProfileArgs:
         pulumi.set(self, "roles", value)
 
 
+if not MYPY:
+    class DataDisksGroupsArgsDict(TypedDict):
+        """
+        The data disks groups for the role.
+        """
+        disks_per_node: NotRequired[pulumi.Input[int]]
+        """
+        The number of disks per node.
+        """
+elif False:
+    DataDisksGroupsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DataDisksGroupsArgs:
     def __init__(__self__, *,
@@ -1037,6 +1417,38 @@ class DataDisksGroupsArgs:
     def disks_per_node(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "disks_per_node", value)
 
+
+if not MYPY:
+    class DiskEncryptionPropertiesArgsDict(TypedDict):
+        """
+        The disk encryption properties
+        """
+        encryption_algorithm: NotRequired[pulumi.Input[Union[str, 'JsonWebKeyEncryptionAlgorithm']]]
+        """
+        Algorithm identifier for encryption, default RSA-OAEP.
+        """
+        encryption_at_host: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether or not resource disk encryption is enabled.
+        """
+        key_name: NotRequired[pulumi.Input[str]]
+        """
+        Key name that is used for enabling disk encryption.
+        """
+        key_version: NotRequired[pulumi.Input[str]]
+        """
+        Specific key version that is used for enabling disk encryption.
+        """
+        msi_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID of Managed Identity that is used to access the key vault.
+        """
+        vault_uri: NotRequired[pulumi.Input[str]]
+        """
+        Base key vault URI where the customers key is located eg. https://myvault.vault.azure.net
+        """
+elif False:
+    DiskEncryptionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DiskEncryptionPropertiesArgs:
@@ -1144,6 +1556,18 @@ class DiskEncryptionPropertiesArgs:
         pulumi.set(self, "vault_uri", value)
 
 
+if not MYPY:
+    class EncryptionInTransitPropertiesArgsDict(TypedDict):
+        """
+        The encryption-in-transit properties.
+        """
+        is_encryption_in_transit_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether or not inter cluster node communication is encrypted in transit.
+        """
+elif False:
+    EncryptionInTransitPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EncryptionInTransitPropertiesArgs:
     def __init__(__self__, *,
@@ -1169,6 +1593,22 @@ class EncryptionInTransitPropertiesArgs:
     def is_encryption_in_transit_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "is_encryption_in_transit_enabled", value)
 
+
+if not MYPY:
+    class ErrorsArgsDict(TypedDict):
+        """
+        The error message associated with the cluster creation.
+        """
+        code: NotRequired[pulumi.Input[str]]
+        """
+        The error code.
+        """
+        message: NotRequired[pulumi.Input[str]]
+        """
+        The error message.
+        """
+elif False:
+    ErrorsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ErrorsArgs:
@@ -1210,6 +1650,18 @@ class ErrorsArgs:
         pulumi.set(self, "message", value)
 
 
+if not MYPY:
+    class HardwareProfileArgsDict(TypedDict):
+        """
+        The hardware profile.
+        """
+        vm_size: NotRequired[pulumi.Input[str]]
+        """
+        The size of the VM
+        """
+elif False:
+    HardwareProfileArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class HardwareProfileArgs:
     def __init__(__self__, *,
@@ -1233,6 +1685,34 @@ class HardwareProfileArgs:
     def vm_size(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "vm_size", value)
 
+
+if not MYPY:
+    class IPConfigurationArgsDict(TypedDict):
+        """
+        The ip configurations for the private link service.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of private link IP configuration.
+        """
+        primary: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether this IP configuration is primary for the corresponding NIC.
+        """
+        private_ip_address: NotRequired[pulumi.Input[str]]
+        """
+        The IP address.
+        """
+        private_ip_allocation_method: NotRequired[pulumi.Input[Union[str, 'PrivateIPAllocationMethod']]]
+        """
+        The method that private IP address is allocated.
+        """
+        subnet: NotRequired[pulumi.Input['ResourceIdArgsDict']]
+        """
+        The subnet resource id.
+        """
+elif False:
+    IPConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IPConfigurationArgs:
@@ -1321,6 +1801,22 @@ class IPConfigurationArgs:
         pulumi.set(self, "subnet", value)
 
 
+if not MYPY:
+    class KafkaRestPropertiesArgsDict(TypedDict):
+        """
+        The kafka rest proxy configuration which contains AAD security group information.
+        """
+        client_group_info: NotRequired[pulumi.Input['ClientGroupInfoArgsDict']]
+        """
+        The information of AAD security group.
+        """
+        configuration_override: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        The configurations that need to be overriden.
+        """
+elif False:
+    KafkaRestPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class KafkaRestPropertiesArgs:
     def __init__(__self__, *,
@@ -1360,6 +1856,26 @@ class KafkaRestPropertiesArgs:
     def configuration_override(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "configuration_override", value)
 
+
+if not MYPY:
+    class LinuxOperatingSystemProfileArgsDict(TypedDict):
+        """
+        The ssh username, password, and ssh public key.
+        """
+        password: NotRequired[pulumi.Input[str]]
+        """
+        The password.
+        """
+        ssh_profile: NotRequired[pulumi.Input['SshProfileArgsDict']]
+        """
+        The SSH profile.
+        """
+        username: NotRequired[pulumi.Input[str]]
+        """
+        The username.
+        """
+elif False:
+    LinuxOperatingSystemProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LinuxOperatingSystemProfileArgs:
@@ -1417,6 +1933,26 @@ class LinuxOperatingSystemProfileArgs:
         pulumi.set(self, "username", value)
 
 
+if not MYPY:
+    class NetworkPropertiesArgsDict(TypedDict):
+        """
+        The network properties.
+        """
+        outbound_dependencies_managed_type: NotRequired[pulumi.Input[Union[str, 'OutboundDependenciesManagedType']]]
+        """
+        A value to describe how the outbound dependencies of a HDInsight cluster are managed. 'Managed' means that the outbound dependencies are managed by the HDInsight service. 'External' means that the outbound dependencies are managed by a customer specific solution.
+        """
+        private_link: NotRequired[pulumi.Input[Union[str, 'PrivateLink']]]
+        """
+        Indicates whether or not private link is enabled.
+        """
+        resource_provider_connection: NotRequired[pulumi.Input[Union[str, 'ResourceProviderConnection']]]
+        """
+        The direction for the resource provider connection.
+        """
+elif False:
+    NetworkPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NetworkPropertiesArgs:
     def __init__(__self__, *,
@@ -1473,6 +2009,18 @@ class NetworkPropertiesArgs:
         pulumi.set(self, "resource_provider_connection", value)
 
 
+if not MYPY:
+    class OsProfileArgsDict(TypedDict):
+        """
+        The Linux operation systems profile.
+        """
+        linux_operating_system_profile: NotRequired[pulumi.Input['LinuxOperatingSystemProfileArgsDict']]
+        """
+        The Linux OS profile.
+        """
+elif False:
+    OsProfileArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OsProfileArgs:
     def __init__(__self__, *,
@@ -1496,6 +2044,26 @@ class OsProfileArgs:
     def linux_operating_system_profile(self, value: Optional[pulumi.Input['LinuxOperatingSystemProfileArgs']]):
         pulumi.set(self, "linux_operating_system_profile", value)
 
+
+if not MYPY:
+    class PrivateLinkConfigurationArgsDict(TypedDict):
+        """
+        The private link configuration.
+        """
+        group_id: pulumi.Input[str]
+        """
+        The HDInsight private linkable sub-resource name to apply the private link configuration to. For example, 'headnode', 'gateway', 'edgenode'.
+        """
+        ip_configurations: pulumi.Input[Sequence[pulumi.Input['IPConfigurationArgsDict']]]
+        """
+        The IP configurations for the private link service.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of private link configuration.
+        """
+elif False:
+    PrivateLinkConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PrivateLinkConfigurationArgs:
@@ -1549,6 +2117,26 @@ class PrivateLinkConfigurationArgs:
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
+        """
+        The private link service connection state.
+        """
+        status: pulumi.Input[Union[str, 'PrivateLinkServiceConnectionStatus']]
+        """
+        The concrete private link service connection.
+        """
+        actions_required: NotRequired[pulumi.Input[str]]
+        """
+        Whether there is further actions.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The optional description of the status.
+        """
+elif False:
+    PrivateLinkServiceConnectionStateArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:
@@ -1605,6 +2193,18 @@ class PrivateLinkServiceConnectionStateArgs:
         pulumi.set(self, "description", value)
 
 
+if not MYPY:
+    class ResourceIdArgsDict(TypedDict):
+        """
+        The azure resource id.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The azure resource id.
+        """
+elif False:
+    ResourceIdArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ResourceIdArgs:
     def __init__(__self__, *,
@@ -1628,6 +2228,58 @@ class ResourceIdArgs:
     def id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class RoleArgsDict(TypedDict):
+        """
+        Describes a role on the cluster.
+        """
+        autoscale_configuration: NotRequired[pulumi.Input['AutoscaleArgsDict']]
+        """
+        The autoscale configurations.
+        """
+        data_disks_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataDisksGroupsArgsDict']]]]
+        """
+        The data disks groups for the role.
+        """
+        encrypt_data_disks: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether encrypt the data disks.
+        """
+        hardware_profile: NotRequired[pulumi.Input['HardwareProfileArgsDict']]
+        """
+        The hardware profile.
+        """
+        min_instance_count: NotRequired[pulumi.Input[int]]
+        """
+        The minimum instance count of the cluster.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the role.
+        """
+        os_profile: NotRequired[pulumi.Input['OsProfileArgsDict']]
+        """
+        The operating system profile.
+        """
+        script_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['ScriptActionArgsDict']]]]
+        """
+        The list of script actions on the role.
+        """
+        target_instance_count: NotRequired[pulumi.Input[int]]
+        """
+        The instance count of the cluster.
+        """
+        v_m_group_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the virtual machine group.
+        """
+        virtual_network_profile: NotRequired[pulumi.Input['VirtualNetworkProfileArgsDict']]
+        """
+        The virtual network profile.
+        """
+elif False:
+    RoleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RoleArgs:
@@ -1815,6 +2467,30 @@ class RoleArgs:
         pulumi.set(self, "virtual_network_profile", value)
 
 
+if not MYPY:
+    class RuntimeScriptActionArgsDict(TypedDict):
+        """
+        Describes a script action on a running cluster.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the script action.
+        """
+        roles: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        The list of roles where script will be executed.
+        """
+        uri: pulumi.Input[str]
+        """
+        The URI to the script.
+        """
+        parameters: NotRequired[pulumi.Input[str]]
+        """
+        The parameters for the script
+        """
+elif False:
+    RuntimeScriptActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RuntimeScriptActionArgs:
     def __init__(__self__, *,
@@ -1884,6 +2560,26 @@ class RuntimeScriptActionArgs:
         pulumi.set(self, "parameters", value)
 
 
+if not MYPY:
+    class ScriptActionArgsDict(TypedDict):
+        """
+        Describes a script action on role on the cluster.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the script action.
+        """
+        parameters: pulumi.Input[str]
+        """
+        The parameters for the script provided.
+        """
+        uri: pulumi.Input[str]
+        """
+        The URI to the script.
+        """
+elif False:
+    ScriptActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ScriptActionArgs:
     def __init__(__self__, *,
@@ -1936,6 +2632,50 @@ class ScriptActionArgs:
     def uri(self, value: pulumi.Input[str]):
         pulumi.set(self, "uri", value)
 
+
+if not MYPY:
+    class SecurityProfileArgsDict(TypedDict):
+        """
+        The security profile which contains Ssh public key for the HDInsight cluster.
+        """
+        aadds_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        The resource ID of the user's Azure Active Directory Domain Service.
+        """
+        cluster_users_group_dns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Optional. The Distinguished Names for cluster user groups
+        """
+        directory_type: NotRequired[pulumi.Input[Union[str, 'DirectoryType']]]
+        """
+        The directory type.
+        """
+        domain: NotRequired[pulumi.Input[str]]
+        """
+        The organization's active directory domain.
+        """
+        domain_user_password: NotRequired[pulumi.Input[str]]
+        """
+        The domain admin password.
+        """
+        domain_username: NotRequired[pulumi.Input[str]]
+        """
+        The domain user account that will have admin privileges on the cluster.
+        """
+        ldaps_urls: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The LDAPS protocol URLs to communicate with the Active Directory.
+        """
+        msi_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        User assigned identity that has permissions to read and create cluster-related artifacts in the user's AADDS.
+        """
+        organizational_unit_dn: NotRequired[pulumi.Input[str]]
+        """
+        The organizational unit within the Active Directory to place the cluster and service accounts.
+        """
+elif False:
+    SecurityProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SecurityProfileArgs:
@@ -2089,6 +2829,18 @@ class SecurityProfileArgs:
         pulumi.set(self, "organizational_unit_dn", value)
 
 
+if not MYPY:
+    class SshProfileArgsDict(TypedDict):
+        """
+        The list of SSH public keys.
+        """
+        public_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input['SshPublicKeyArgsDict']]]]
+        """
+        The list of SSH public keys.
+        """
+elif False:
+    SshProfileArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SshProfileArgs:
     def __init__(__self__, *,
@@ -2113,6 +2865,18 @@ class SshProfileArgs:
         pulumi.set(self, "public_keys", value)
 
 
+if not MYPY:
+    class SshPublicKeyArgsDict(TypedDict):
+        """
+        The SSH public key for the cluster nodes.
+        """
+        certificate_data: NotRequired[pulumi.Input[str]]
+        """
+        The certificate for SSH.
+        """
+elif False:
+    SshPublicKeyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SshPublicKeyArgs:
     def __init__(__self__, *,
@@ -2136,6 +2900,54 @@ class SshPublicKeyArgs:
     def certificate_data(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "certificate_data", value)
 
+
+if not MYPY:
+    class StorageAccountArgsDict(TypedDict):
+        """
+        The storage Account.
+        """
+        container: NotRequired[pulumi.Input[str]]
+        """
+        The container in the storage account, only to be specified for WASB storage accounts.
+        """
+        enable_secure_channel: NotRequired[pulumi.Input[bool]]
+        """
+        Enable secure channel or not, it's an optional field. Default value is false when cluster version < 5.1 and true when cluster version >= 5.1 , 
+        """
+        file_system: NotRequired[pulumi.Input[str]]
+        """
+        The filesystem, only to be specified for Azure Data Lake Storage Gen 2.
+        """
+        fileshare: NotRequired[pulumi.Input[str]]
+        """
+        The file share name.
+        """
+        is_default: NotRequired[pulumi.Input[bool]]
+        """
+        Whether or not the storage account is the default storage account.
+        """
+        key: NotRequired[pulumi.Input[str]]
+        """
+        The storage account access key.
+        """
+        msi_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        The managed identity (MSI) that is allowed to access the storage account, only to be specified for Azure Data Lake Storage Gen 2.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the storage account.
+        """
+        resource_id: NotRequired[pulumi.Input[str]]
+        """
+        The resource ID of storage account, only to be specified for Azure Data Lake Storage Gen 2.
+        """
+        saskey: NotRequired[pulumi.Input[str]]
+        """
+        The shared access signature key.
+        """
+elif False:
+    StorageAccountArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class StorageAccountArgs:
@@ -2305,6 +3117,18 @@ class StorageAccountArgs:
         pulumi.set(self, "saskey", value)
 
 
+if not MYPY:
+    class StorageProfileArgsDict(TypedDict):
+        """
+        The storage profile.
+        """
+        storageaccounts: NotRequired[pulumi.Input[Sequence[pulumi.Input['StorageAccountArgsDict']]]]
+        """
+        The list of storage accounts in the cluster.
+        """
+elif False:
+    StorageProfileArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class StorageProfileArgs:
     def __init__(__self__, *,
@@ -2329,6 +3153,18 @@ class StorageProfileArgs:
         pulumi.set(self, "storageaccounts", value)
 
 
+if not MYPY:
+    class UserAssignedIdentityArgsDict(TypedDict):
+        """
+        The User Assigned Identity
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        The tenant id of user assigned identity.
+        """
+elif False:
+    UserAssignedIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class UserAssignedIdentityArgs:
     def __init__(__self__, *,
@@ -2352,6 +3188,22 @@ class UserAssignedIdentityArgs:
     def tenant_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tenant_id", value)
 
+
+if not MYPY:
+    class VirtualNetworkProfileArgsDict(TypedDict):
+        """
+        The virtual network properties.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the virtual network.
+        """
+        subnet: NotRequired[pulumi.Input[str]]
+        """
+        The name of the subnet.
+        """
+elif False:
+    VirtualNetworkProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VirtualNetworkProfileArgs:

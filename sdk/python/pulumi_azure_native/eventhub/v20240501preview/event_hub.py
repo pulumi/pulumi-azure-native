@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -185,14 +190,14 @@ class EventHub(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 capture_description: Optional[pulumi.Input[pulumi.InputType['CaptureDescriptionArgs']]] = None,
+                 capture_description: Optional[pulumi.Input[Union['CaptureDescriptionArgs', 'CaptureDescriptionArgsDict']]] = None,
                  event_hub_name: Optional[pulumi.Input[str]] = None,
                  message_retention_in_days: Optional[pulumi.Input[float]] = None,
-                 message_timestamp_description: Optional[pulumi.Input[pulumi.InputType['MessageTimestampDescriptionArgs']]] = None,
+                 message_timestamp_description: Optional[pulumi.Input[Union['MessageTimestampDescriptionArgs', 'MessageTimestampDescriptionArgsDict']]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
                  partition_count: Optional[pulumi.Input[float]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 retention_description: Optional[pulumi.Input[pulumi.InputType['RetentionDescriptionArgs']]] = None,
+                 retention_description: Optional[pulumi.Input[Union['RetentionDescriptionArgs', 'RetentionDescriptionArgsDict']]] = None,
                  status: Optional[pulumi.Input['EntityStatus']] = None,
                  user_metadata: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -201,14 +206,14 @@ class EventHub(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['CaptureDescriptionArgs']] capture_description: Properties of capture description
+        :param pulumi.Input[Union['CaptureDescriptionArgs', 'CaptureDescriptionArgsDict']] capture_description: Properties of capture description
         :param pulumi.Input[str] event_hub_name: The Event Hub name
         :param pulumi.Input[float] message_retention_in_days: Number of days to retain the events for this Event Hub, value should be 1 to 7 days
-        :param pulumi.Input[pulumi.InputType['MessageTimestampDescriptionArgs']] message_timestamp_description: Properties of MessageTimestamp Description
+        :param pulumi.Input[Union['MessageTimestampDescriptionArgs', 'MessageTimestampDescriptionArgsDict']] message_timestamp_description: Properties of MessageTimestamp Description
         :param pulumi.Input[str] namespace_name: The Namespace name
         :param pulumi.Input[float] partition_count: Number of partitions created for the Event Hub, allowed values are from 1 to 32 partitions.
         :param pulumi.Input[str] resource_group_name: Name of the resource group within the azure subscription.
-        :param pulumi.Input[pulumi.InputType['RetentionDescriptionArgs']] retention_description: Event Hub retention settings
+        :param pulumi.Input[Union['RetentionDescriptionArgs', 'RetentionDescriptionArgsDict']] retention_description: Event Hub retention settings
         :param pulumi.Input['EntityStatus'] status: Enumerates the possible values for the status of the Event Hub.
         :param pulumi.Input[str] user_metadata: Gets and Sets Metadata of User.
         """
@@ -236,14 +241,14 @@ class EventHub(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 capture_description: Optional[pulumi.Input[pulumi.InputType['CaptureDescriptionArgs']]] = None,
+                 capture_description: Optional[pulumi.Input[Union['CaptureDescriptionArgs', 'CaptureDescriptionArgsDict']]] = None,
                  event_hub_name: Optional[pulumi.Input[str]] = None,
                  message_retention_in_days: Optional[pulumi.Input[float]] = None,
-                 message_timestamp_description: Optional[pulumi.Input[pulumi.InputType['MessageTimestampDescriptionArgs']]] = None,
+                 message_timestamp_description: Optional[pulumi.Input[Union['MessageTimestampDescriptionArgs', 'MessageTimestampDescriptionArgsDict']]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
                  partition_count: Optional[pulumi.Input[float]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 retention_description: Optional[pulumi.Input[pulumi.InputType['RetentionDescriptionArgs']]] = None,
+                 retention_description: Optional[pulumi.Input[Union['RetentionDescriptionArgs', 'RetentionDescriptionArgsDict']]] = None,
                  status: Optional[pulumi.Input['EntityStatus']] = None,
                  user_metadata: Optional[pulumi.Input[str]] = None,
                  __props__=None):

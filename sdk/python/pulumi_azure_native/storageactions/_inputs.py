@@ -4,19 +4,43 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'ElseConditionArgs',
+    'ElseConditionArgsDict',
     'IfConditionArgs',
+    'IfConditionArgsDict',
     'ManagedServiceIdentityArgs',
+    'ManagedServiceIdentityArgsDict',
     'StorageTaskActionArgs',
+    'StorageTaskActionArgsDict',
     'StorageTaskOperationArgs',
+    'StorageTaskOperationArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ElseConditionArgsDict(TypedDict):
+        """
+        The else block of storage task operation
+        """
+        operations: pulumi.Input[Sequence[pulumi.Input['StorageTaskOperationArgsDict']]]
+        """
+        List of operations to execute in the else block
+        """
+elif False:
+    ElseConditionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ElseConditionArgs:
@@ -40,6 +64,22 @@ class ElseConditionArgs:
     def operations(self, value: pulumi.Input[Sequence[pulumi.Input['StorageTaskOperationArgs']]]):
         pulumi.set(self, "operations", value)
 
+
+if not MYPY:
+    class IfConditionArgsDict(TypedDict):
+        """
+        The if block of storage task operation
+        """
+        condition: pulumi.Input[str]
+        """
+        Condition predicate to evaluate each object. See https://aka.ms/storagetaskconditions for valid properties and operators.
+        """
+        operations: pulumi.Input[Sequence[pulumi.Input['StorageTaskOperationArgsDict']]]
+        """
+        List of operations to execute when the condition predicate satisfies.
+        """
+elif False:
+    IfConditionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IfConditionArgs:
@@ -78,6 +118,22 @@ class IfConditionArgs:
     def operations(self, value: pulumi.Input[Sequence[pulumi.Input['StorageTaskOperationArgs']]]):
         pulumi.set(self, "operations", value)
 
+
+if not MYPY:
+    class ManagedServiceIdentityArgsDict(TypedDict):
+        """
+        Managed service identity (system assigned and/or user assigned identities)
+        """
+        type: pulumi.Input[Union[str, 'ManagedServiceIdentityType']]
+        """
+        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        """
+        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        """
+elif False:
+    ManagedServiceIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ManagedServiceIdentityArgs:
@@ -118,6 +174,22 @@ class ManagedServiceIdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
+if not MYPY:
+    class StorageTaskActionArgsDict(TypedDict):
+        """
+        The storage task action represents conditional statements and operations to be performed on target objects.
+        """
+        if_: pulumi.Input['IfConditionArgsDict']
+        """
+        The if block of storage task operation
+        """
+        else_: NotRequired[pulumi.Input['ElseConditionArgsDict']]
+        """
+        The else block of storage task operation
+        """
+elif False:
+    StorageTaskActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class StorageTaskActionArgs:
     def __init__(__self__, *,
@@ -156,6 +228,30 @@ class StorageTaskActionArgs:
     def else_(self, value: Optional[pulumi.Input['ElseConditionArgs']]):
         pulumi.set(self, "else_", value)
 
+
+if not MYPY:
+    class StorageTaskOperationArgsDict(TypedDict):
+        """
+        Represents an operation to be performed on the object
+        """
+        name: pulumi.Input[Union[str, 'StorageTaskOperationName']]
+        """
+        The operation to be performed on the object.
+        """
+        on_failure: NotRequired[pulumi.Input['OnFailure']]
+        """
+        Action to be taken when the operation fails for a object.
+        """
+        on_success: NotRequired[pulumi.Input['OnSuccess']]
+        """
+        Action to be taken when the operation is successful for a object.
+        """
+        parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Key-value parameters for the operation.
+        """
+elif False:
+    StorageTaskOperationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class StorageTaskOperationArgs:

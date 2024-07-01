@@ -4,22 +4,57 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'AdmCredentialArgs',
+    'AdmCredentialArgsDict',
     'ApnsCredentialArgs',
+    'ApnsCredentialArgsDict',
     'BaiduCredentialArgs',
+    'BaiduCredentialArgsDict',
     'GcmCredentialArgs',
+    'GcmCredentialArgsDict',
     'MpnsCredentialArgs',
+    'MpnsCredentialArgsDict',
     'SharedAccessAuthorizationRulePropertiesArgs',
+    'SharedAccessAuthorizationRulePropertiesArgsDict',
     'SkuArgs',
+    'SkuArgsDict',
     'WnsCredentialArgs',
+    'WnsCredentialArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AdmCredentialArgsDict(TypedDict):
+        """
+        Description of a NotificationHub AdmCredential.
+        """
+        auth_token_url: NotRequired[pulumi.Input[str]]
+        """
+        The URL of the authorization token.
+        """
+        client_id: NotRequired[pulumi.Input[str]]
+        """
+        The client identifier.
+        """
+        client_secret: NotRequired[pulumi.Input[str]]
+        """
+        The credential secret access key.
+        """
+elif False:
+    AdmCredentialArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AdmCredentialArgs:
@@ -76,6 +111,46 @@ class AdmCredentialArgs:
     def client_secret(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "client_secret", value)
 
+
+if not MYPY:
+    class ApnsCredentialArgsDict(TypedDict):
+        """
+        Description of a NotificationHub ApnsCredential.
+        """
+        apns_certificate: NotRequired[pulumi.Input[str]]
+        """
+        The APNS certificate. Specify if using Certificate Authentication Mode.
+        """
+        app_id: NotRequired[pulumi.Input[str]]
+        """
+        The issuer (iss) registered claim key. The value is a 10-character TeamId, obtained from your developer account. Specify if using Token Authentication Mode.
+        """
+        app_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the application or BundleId. Specify if using Token Authentication Mode.
+        """
+        certificate_key: NotRequired[pulumi.Input[str]]
+        """
+        The APNS certificate password if it exists.
+        """
+        endpoint: NotRequired[pulumi.Input[str]]
+        """
+        The APNS endpoint of this credential. If using Certificate Authentication Mode and Sandbox specify 'gateway.sandbox.push.apple.com'. If using Certificate Authentication Mode and Production specify 'gateway.push.apple.com'. If using Token Authentication Mode and Sandbox specify 'https://api.development.push.apple.com:443/3/device'. If using Token Authentication Mode and Production specify 'https://api.push.apple.com:443/3/device'.
+        """
+        key_id: NotRequired[pulumi.Input[str]]
+        """
+        A 10-character key identifier (kid) key, obtained from your developer account. Specify if using Token Authentication Mode.
+        """
+        thumbprint: NotRequired[pulumi.Input[str]]
+        """
+        The APNS certificate thumbprint. Specify if using Certificate Authentication Mode.
+        """
+        token: NotRequired[pulumi.Input[str]]
+        """
+        Provider Authentication Token, obtained through your developer account. Specify if using Token Authentication Mode.
+        """
+elif False:
+    ApnsCredentialArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApnsCredentialArgs:
@@ -213,6 +288,26 @@ class ApnsCredentialArgs:
         pulumi.set(self, "token", value)
 
 
+if not MYPY:
+    class BaiduCredentialArgsDict(TypedDict):
+        """
+        Description of a NotificationHub BaiduCredential.
+        """
+        baidu_api_key: NotRequired[pulumi.Input[str]]
+        """
+        Baidu Api Key.
+        """
+        baidu_end_point: NotRequired[pulumi.Input[str]]
+        """
+        Baidu Endpoint.
+        """
+        baidu_secret_key: NotRequired[pulumi.Input[str]]
+        """
+        Baidu Secret Key
+        """
+elif False:
+    BaiduCredentialArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class BaiduCredentialArgs:
     def __init__(__self__, *,
@@ -269,6 +364,22 @@ class BaiduCredentialArgs:
         pulumi.set(self, "baidu_secret_key", value)
 
 
+if not MYPY:
+    class GcmCredentialArgsDict(TypedDict):
+        """
+        Description of a NotificationHub GcmCredential.
+        """
+        gcm_endpoint: NotRequired[pulumi.Input[str]]
+        """
+        The FCM legacy endpoint. Default value is 'https://fcm.googleapis.com/fcm/send'
+        """
+        google_api_key: NotRequired[pulumi.Input[str]]
+        """
+        The Google API key.
+        """
+elif False:
+    GcmCredentialArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GcmCredentialArgs:
     def __init__(__self__, *,
@@ -308,6 +419,26 @@ class GcmCredentialArgs:
     def google_api_key(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "google_api_key", value)
 
+
+if not MYPY:
+    class MpnsCredentialArgsDict(TypedDict):
+        """
+        Description of a NotificationHub MpnsCredential.
+        """
+        certificate_key: NotRequired[pulumi.Input[str]]
+        """
+        The certificate key for this credential.
+        """
+        mpns_certificate: NotRequired[pulumi.Input[str]]
+        """
+        The MPNS certificate.
+        """
+        thumbprint: NotRequired[pulumi.Input[str]]
+        """
+        The MPNS certificate Thumbprint
+        """
+elif False:
+    MpnsCredentialArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MpnsCredentialArgs:
@@ -365,6 +496,18 @@ class MpnsCredentialArgs:
         pulumi.set(self, "thumbprint", value)
 
 
+if not MYPY:
+    class SharedAccessAuthorizationRulePropertiesArgsDict(TypedDict):
+        """
+        SharedAccessAuthorizationRule properties.
+        """
+        rights: NotRequired[pulumi.Input[Sequence[pulumi.Input['AccessRights']]]]
+        """
+        The rights associated with the rule.
+        """
+elif False:
+    SharedAccessAuthorizationRulePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SharedAccessAuthorizationRulePropertiesArgs:
     def __init__(__self__, *,
@@ -388,6 +531,34 @@ class SharedAccessAuthorizationRulePropertiesArgs:
     def rights(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AccessRights']]]]):
         pulumi.set(self, "rights", value)
 
+
+if not MYPY:
+    class SkuArgsDict(TypedDict):
+        """
+        The Sku description for a namespace
+        """
+        name: pulumi.Input[Union[str, 'SkuName']]
+        """
+        Name of the notification hub sku
+        """
+        capacity: NotRequired[pulumi.Input[int]]
+        """
+        The capacity of the resource
+        """
+        family: NotRequired[pulumi.Input[str]]
+        """
+        The Sku Family
+        """
+        size: NotRequired[pulumi.Input[str]]
+        """
+        The Sku size
+        """
+        tier: NotRequired[pulumi.Input[str]]
+        """
+        The tier of particular sku
+        """
+elif False:
+    SkuArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SkuArgs:
@@ -475,6 +646,26 @@ class SkuArgs:
     def tier(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tier", value)
 
+
+if not MYPY:
+    class WnsCredentialArgsDict(TypedDict):
+        """
+        Description of a NotificationHub WnsCredential.
+        """
+        package_sid: NotRequired[pulumi.Input[str]]
+        """
+        The package ID for this credential.
+        """
+        secret_key: NotRequired[pulumi.Input[str]]
+        """
+        The secret key.
+        """
+        windows_live_endpoint: NotRequired[pulumi.Input[str]]
+        """
+        The Windows Live endpoint.
+        """
+elif False:
+    WnsCredentialArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WnsCredentialArgs:

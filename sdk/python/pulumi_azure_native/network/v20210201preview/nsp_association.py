@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -191,8 +196,8 @@ class NspAssociation(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_security_perimeter_name: Optional[pulumi.Input[str]] = None,
-                 private_link_resource: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
-                 profile: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
+                 private_link_resource: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
+                 profile: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -207,8 +212,8 @@ class NspAssociation(pulumi.CustomResource):
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param pulumi.Input[str] network_security_perimeter_name: The name of the network security perimeter.
-        :param pulumi.Input[pulumi.InputType['SubResourceArgs']] private_link_resource: The PaaS resource to be associated.
-        :param pulumi.Input[pulumi.InputType['SubResourceArgs']] profile: Profile id to which the PaaS resource is associated.
+        :param pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']] private_link_resource: The PaaS resource to be associated.
+        :param pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']] profile: Profile id to which the PaaS resource is associated.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -242,8 +247,8 @@ class NspAssociation(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_security_perimeter_name: Optional[pulumi.Input[str]] = None,
-                 private_link_resource: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
-                 profile: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
+                 private_link_resource: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
+                 profile: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):

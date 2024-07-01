@@ -4,18 +4,45 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'AddDataLakeStoreWithAccountParametersArgs',
+    'AddDataLakeStoreWithAccountParametersArgsDict',
     'AddStorageAccountWithAccountParametersArgs',
+    'AddStorageAccountWithAccountParametersArgsDict',
     'CreateComputePolicyWithAccountParametersArgs',
+    'CreateComputePolicyWithAccountParametersArgsDict',
     'CreateFirewallRuleWithAccountParametersArgs',
+    'CreateFirewallRuleWithAccountParametersArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AddDataLakeStoreWithAccountParametersArgsDict(TypedDict):
+        """
+        The parameters used to add a new Data Lake Store account while creating a new Data Lake Analytics account.
+        """
+        name: pulumi.Input[str]
+        """
+        The unique name of the Data Lake Store account to add.
+        """
+        suffix: NotRequired[pulumi.Input[str]]
+        """
+        The optional suffix for the Data Lake Store account.
+        """
+elif False:
+    AddDataLakeStoreWithAccountParametersArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AddDataLakeStoreWithAccountParametersArgs:
@@ -55,6 +82,26 @@ class AddDataLakeStoreWithAccountParametersArgs:
     def suffix(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "suffix", value)
 
+
+if not MYPY:
+    class AddStorageAccountWithAccountParametersArgsDict(TypedDict):
+        """
+        The parameters used to add a new Azure Storage account while creating a new Data Lake Analytics account.
+        """
+        access_key: pulumi.Input[str]
+        """
+        The access key associated with this Azure Storage account that will be used to connect to it.
+        """
+        name: pulumi.Input[str]
+        """
+        The unique name of the Azure Storage account to add.
+        """
+        suffix: NotRequired[pulumi.Input[str]]
+        """
+        The optional suffix for the storage account.
+        """
+elif False:
+    AddStorageAccountWithAccountParametersArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AddStorageAccountWithAccountParametersArgs:
@@ -111,6 +158,34 @@ class AddStorageAccountWithAccountParametersArgs:
     def suffix(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "suffix", value)
 
+
+if not MYPY:
+    class CreateComputePolicyWithAccountParametersArgsDict(TypedDict):
+        """
+        The parameters used to create a new compute policy while creating a new Data Lake Analytics account.
+        """
+        name: pulumi.Input[str]
+        """
+        The unique name of the compute policy to create.
+        """
+        object_id: pulumi.Input[str]
+        """
+        The AAD object identifier for the entity to create a policy for.
+        """
+        object_type: pulumi.Input[Union[str, 'AADObjectType']]
+        """
+        The type of AAD object the object identifier refers to.
+        """
+        max_degree_of_parallelism_per_job: NotRequired[pulumi.Input[int]]
+        """
+        The maximum degree of parallelism per job this user can use to submit jobs. This property, the min priority per job property, or both must be passed.
+        """
+        min_priority_per_job: NotRequired[pulumi.Input[int]]
+        """
+        The minimum priority per job this user can use to submit jobs. This property, the max degree of parallelism per job property, or both must be passed.
+        """
+elif False:
+    CreateComputePolicyWithAccountParametersArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CreateComputePolicyWithAccountParametersArgs:
@@ -196,6 +271,26 @@ class CreateComputePolicyWithAccountParametersArgs:
     def min_priority_per_job(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "min_priority_per_job", value)
 
+
+if not MYPY:
+    class CreateFirewallRuleWithAccountParametersArgsDict(TypedDict):
+        """
+        The parameters used to create a new firewall rule while creating a new Data Lake Analytics account.
+        """
+        end_ip_address: pulumi.Input[str]
+        """
+        The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
+        """
+        name: pulumi.Input[str]
+        """
+        The unique name of the firewall rule to create.
+        """
+        start_ip_address: pulumi.Input[str]
+        """
+        The start IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
+        """
+elif False:
+    CreateFirewallRuleWithAccountParametersArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CreateFirewallRuleWithAccountParametersArgs:

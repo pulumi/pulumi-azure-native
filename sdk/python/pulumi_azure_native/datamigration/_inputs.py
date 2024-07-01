@@ -4,110 +4,233 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'AzureActiveDirectoryAppArgs',
+    'AzureActiveDirectoryAppArgsDict',
     'BlobShareArgs',
+    'BlobShareArgsDict',
     'ConnectToMongoDbTaskPropertiesArgs',
+    'ConnectToMongoDbTaskPropertiesArgsDict',
     'ConnectToSourceMySqlTaskInputArgs',
+    'ConnectToSourceMySqlTaskInputArgsDict',
     'ConnectToSourceMySqlTaskPropertiesArgs',
+    'ConnectToSourceMySqlTaskPropertiesArgsDict',
     'ConnectToSourceOracleSyncTaskInputArgs',
+    'ConnectToSourceOracleSyncTaskInputArgsDict',
     'ConnectToSourceOracleSyncTaskPropertiesArgs',
+    'ConnectToSourceOracleSyncTaskPropertiesArgsDict',
     'ConnectToSourcePostgreSqlSyncTaskInputArgs',
+    'ConnectToSourcePostgreSqlSyncTaskInputArgsDict',
     'ConnectToSourcePostgreSqlSyncTaskPropertiesArgs',
+    'ConnectToSourcePostgreSqlSyncTaskPropertiesArgsDict',
     'ConnectToSourceSqlServerSyncTaskPropertiesArgs',
+    'ConnectToSourceSqlServerSyncTaskPropertiesArgsDict',
     'ConnectToSourceSqlServerTaskInputArgs',
+    'ConnectToSourceSqlServerTaskInputArgsDict',
     'ConnectToSourceSqlServerTaskPropertiesArgs',
+    'ConnectToSourceSqlServerTaskPropertiesArgsDict',
     'ConnectToTargetAzureDbForMySqlTaskInputArgs',
+    'ConnectToTargetAzureDbForMySqlTaskInputArgsDict',
     'ConnectToTargetAzureDbForMySqlTaskPropertiesArgs',
+    'ConnectToTargetAzureDbForMySqlTaskPropertiesArgsDict',
     'ConnectToTargetAzureDbForPostgreSqlSyncTaskInputArgs',
+    'ConnectToTargetAzureDbForPostgreSqlSyncTaskInputArgsDict',
     'ConnectToTargetAzureDbForPostgreSqlSyncTaskPropertiesArgs',
+    'ConnectToTargetAzureDbForPostgreSqlSyncTaskPropertiesArgsDict',
     'ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskInputArgs',
+    'ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskInputArgsDict',
     'ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskPropertiesArgs',
+    'ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskPropertiesArgsDict',
     'ConnectToTargetSqlDbTaskInputArgs',
+    'ConnectToTargetSqlDbTaskInputArgsDict',
     'ConnectToTargetSqlDbTaskPropertiesArgs',
+    'ConnectToTargetSqlDbTaskPropertiesArgsDict',
     'ConnectToTargetSqlMISyncTaskInputArgs',
+    'ConnectToTargetSqlMISyncTaskInputArgsDict',
     'ConnectToTargetSqlMISyncTaskPropertiesArgs',
+    'ConnectToTargetSqlMISyncTaskPropertiesArgsDict',
     'ConnectToTargetSqlMITaskInputArgs',
+    'ConnectToTargetSqlMITaskInputArgsDict',
     'ConnectToTargetSqlMITaskPropertiesArgs',
+    'ConnectToTargetSqlMITaskPropertiesArgsDict',
     'ConnectToTargetSqlSqlDbSyncTaskInputArgs',
+    'ConnectToTargetSqlSqlDbSyncTaskInputArgsDict',
     'ConnectToTargetSqlSqlDbSyncTaskPropertiesArgs',
+    'ConnectToTargetSqlSqlDbSyncTaskPropertiesArgsDict',
     'DatabaseInfoArgs',
+    'DatabaseInfoArgsDict',
     'DatabaseMigrationPropertiesSqlDbArgs',
+    'DatabaseMigrationPropertiesSqlDbArgsDict',
     'FileShareArgs',
+    'FileShareArgsDict',
     'GetTdeCertificatesSqlTaskInputArgs',
+    'GetTdeCertificatesSqlTaskInputArgsDict',
     'GetTdeCertificatesSqlTaskPropertiesArgs',
+    'GetTdeCertificatesSqlTaskPropertiesArgsDict',
     'GetUserTablesMySqlTaskInputArgs',
+    'GetUserTablesMySqlTaskInputArgsDict',
     'GetUserTablesMySqlTaskPropertiesArgs',
+    'GetUserTablesMySqlTaskPropertiesArgsDict',
     'GetUserTablesOracleTaskInputArgs',
+    'GetUserTablesOracleTaskInputArgsDict',
     'GetUserTablesOracleTaskPropertiesArgs',
+    'GetUserTablesOracleTaskPropertiesArgsDict',
     'GetUserTablesPostgreSqlTaskInputArgs',
+    'GetUserTablesPostgreSqlTaskInputArgsDict',
     'GetUserTablesPostgreSqlTaskPropertiesArgs',
+    'GetUserTablesPostgreSqlTaskPropertiesArgsDict',
     'GetUserTablesSqlSyncTaskInputArgs',
+    'GetUserTablesSqlSyncTaskInputArgsDict',
     'GetUserTablesSqlSyncTaskPropertiesArgs',
+    'GetUserTablesSqlSyncTaskPropertiesArgsDict',
     'GetUserTablesSqlTaskInputArgs',
+    'GetUserTablesSqlTaskInputArgsDict',
     'GetUserTablesSqlTaskPropertiesArgs',
+    'GetUserTablesSqlTaskPropertiesArgsDict',
     'MiSqlConnectionInfoArgs',
+    'MiSqlConnectionInfoArgsDict',
     'MigrateMongoDbTaskPropertiesArgs',
+    'MigrateMongoDbTaskPropertiesArgsDict',
     'MigrateMySqlAzureDbForMySqlOfflineDatabaseInputArgs',
+    'MigrateMySqlAzureDbForMySqlOfflineDatabaseInputArgsDict',
     'MigrateMySqlAzureDbForMySqlOfflineTaskInputArgs',
+    'MigrateMySqlAzureDbForMySqlOfflineTaskInputArgsDict',
     'MigrateMySqlAzureDbForMySqlOfflineTaskPropertiesArgs',
+    'MigrateMySqlAzureDbForMySqlOfflineTaskPropertiesArgsDict',
     'MigrateMySqlAzureDbForMySqlSyncDatabaseInputArgs',
+    'MigrateMySqlAzureDbForMySqlSyncDatabaseInputArgsDict',
     'MigrateMySqlAzureDbForMySqlSyncTaskInputArgs',
+    'MigrateMySqlAzureDbForMySqlSyncTaskInputArgsDict',
     'MigrateMySqlAzureDbForMySqlSyncTaskPropertiesArgs',
+    'MigrateMySqlAzureDbForMySqlSyncTaskPropertiesArgsDict',
     'MigrateOracleAzureDbForPostgreSqlSyncTaskPropertiesArgs',
+    'MigrateOracleAzureDbForPostgreSqlSyncTaskPropertiesArgsDict',
     'MigrateOracleAzureDbPostgreSqlSyncDatabaseInputArgs',
+    'MigrateOracleAzureDbPostgreSqlSyncDatabaseInputArgsDict',
     'MigrateOracleAzureDbPostgreSqlSyncTaskInputArgs',
+    'MigrateOracleAzureDbPostgreSqlSyncTaskInputArgsDict',
     'MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputArgs',
+    'MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputArgsDict',
     'MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputArgs',
+    'MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputArgsDict',
     'MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputArgs',
+    'MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputArgsDict',
     'MigratePostgreSqlAzureDbForPostgreSqlSyncTaskPropertiesArgs',
+    'MigratePostgreSqlAzureDbForPostgreSqlSyncTaskPropertiesArgsDict',
     'MigrateSqlServerSqlDbDatabaseInputArgs',
+    'MigrateSqlServerSqlDbDatabaseInputArgsDict',
     'MigrateSqlServerSqlDbSyncDatabaseInputArgs',
+    'MigrateSqlServerSqlDbSyncDatabaseInputArgsDict',
     'MigrateSqlServerSqlDbSyncTaskInputArgs',
+    'MigrateSqlServerSqlDbSyncTaskInputArgsDict',
     'MigrateSqlServerSqlDbSyncTaskPropertiesArgs',
+    'MigrateSqlServerSqlDbSyncTaskPropertiesArgsDict',
     'MigrateSqlServerSqlDbTaskInputArgs',
+    'MigrateSqlServerSqlDbTaskInputArgsDict',
     'MigrateSqlServerSqlDbTaskPropertiesArgs',
+    'MigrateSqlServerSqlDbTaskPropertiesArgsDict',
     'MigrateSqlServerSqlMIDatabaseInputArgs',
+    'MigrateSqlServerSqlMIDatabaseInputArgsDict',
     'MigrateSqlServerSqlMISyncTaskInputArgs',
+    'MigrateSqlServerSqlMISyncTaskInputArgsDict',
     'MigrateSqlServerSqlMISyncTaskPropertiesArgs',
+    'MigrateSqlServerSqlMISyncTaskPropertiesArgsDict',
     'MigrateSqlServerSqlMITaskInputArgs',
+    'MigrateSqlServerSqlMITaskInputArgsDict',
     'MigrateSqlServerSqlMITaskPropertiesArgs',
+    'MigrateSqlServerSqlMITaskPropertiesArgsDict',
     'MigrateSsisTaskInputArgs',
+    'MigrateSsisTaskInputArgsDict',
     'MigrateSsisTaskPropertiesArgs',
+    'MigrateSsisTaskPropertiesArgsDict',
     'MigrationValidationOptionsArgs',
+    'MigrationValidationOptionsArgsDict',
     'MongoConnectionInformationArgs',
+    'MongoConnectionInformationArgsDict',
     'MongoDbCollectionSettingsArgs',
+    'MongoDbCollectionSettingsArgsDict',
     'MongoDbConnectionInfoArgs',
+    'MongoDbConnectionInfoArgsDict',
     'MongoDbDatabaseSettingsArgs',
+    'MongoDbDatabaseSettingsArgsDict',
     'MongoDbMigrationSettingsArgs',
+    'MongoDbMigrationSettingsArgsDict',
     'MongoDbShardKeyFieldArgs',
+    'MongoDbShardKeyFieldArgsDict',
     'MongoDbShardKeySettingArgs',
+    'MongoDbShardKeySettingArgsDict',
     'MongoDbThrottlingSettingsArgs',
+    'MongoDbThrottlingSettingsArgsDict',
     'MongoMigrationCollectionArgs',
+    'MongoMigrationCollectionArgsDict',
     'MySqlConnectionInfoArgs',
+    'MySqlConnectionInfoArgsDict',
     'OracleConnectionInfoArgs',
+    'OracleConnectionInfoArgsDict',
     'PostgreSqlConnectionInfoArgs',
+    'PostgreSqlConnectionInfoArgsDict',
     'ProjectFilePropertiesArgs',
+    'ProjectFilePropertiesArgsDict',
     'SelectedCertificateInputArgs',
+    'SelectedCertificateInputArgsDict',
     'ServiceSkuArgs',
+    'ServiceSkuArgsDict',
     'SqlConnectionInformationArgs',
+    'SqlConnectionInformationArgsDict',
     'SqlConnectionInfoArgs',
+    'SqlConnectionInfoArgsDict',
     'SsisMigrationInfoArgs',
+    'SsisMigrationInfoArgsDict',
     'ValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesArgs',
+    'ValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesArgsDict',
     'ValidateMigrationInputSqlServerSqlMISyncTaskInputArgs',
+    'ValidateMigrationInputSqlServerSqlMISyncTaskInputArgsDict',
     'ValidateMigrationInputSqlServerSqlMISyncTaskPropertiesArgs',
+    'ValidateMigrationInputSqlServerSqlMISyncTaskPropertiesArgsDict',
     'ValidateMigrationInputSqlServerSqlMITaskInputArgs',
+    'ValidateMigrationInputSqlServerSqlMITaskInputArgsDict',
     'ValidateMigrationInputSqlServerSqlMITaskPropertiesArgs',
+    'ValidateMigrationInputSqlServerSqlMITaskPropertiesArgsDict',
     'ValidateMongoDbTaskPropertiesArgs',
+    'ValidateMongoDbTaskPropertiesArgsDict',
     'ValidateOracleAzureDbForPostgreSqlSyncTaskPropertiesArgs',
+    'ValidateOracleAzureDbForPostgreSqlSyncTaskPropertiesArgsDict',
     'ValidateSyncMigrationInputSqlServerTaskInputArgs',
+    'ValidateSyncMigrationInputSqlServerTaskInputArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AzureActiveDirectoryAppArgsDict(TypedDict):
+        """
+        Azure Active Directory Application
+        """
+        app_key: pulumi.Input[str]
+        """
+        Key used to authenticate to the Azure Active Directory Application
+        """
+        application_id: pulumi.Input[str]
+        """
+        Application ID of the Azure Active Directory Application
+        """
+        tenant_id: pulumi.Input[str]
+        """
+        Tenant id of the customer
+        """
+elif False:
+    AzureActiveDirectoryAppArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AzureActiveDirectoryAppArgs:
@@ -162,6 +285,18 @@ class AzureActiveDirectoryAppArgs:
         pulumi.set(self, "tenant_id", value)
 
 
+if not MYPY:
+    class BlobShareArgsDict(TypedDict):
+        """
+        Blob container storage information.
+        """
+        sas_uri: pulumi.Input[str]
+        """
+        SAS URI of Azure Storage Account Container.
+        """
+elif False:
+    BlobShareArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class BlobShareArgs:
     def __init__(__self__, *,
@@ -184,6 +319,27 @@ class BlobShareArgs:
     def sas_uri(self, value: pulumi.Input[str]):
         pulumi.set(self, "sas_uri", value)
 
+
+if not MYPY:
+    class ConnectToMongoDbTaskPropertiesArgsDict(TypedDict):
+        """
+        Properties for the task that validates the connection to and provides information about a MongoDB server
+        """
+        task_type: pulumi.Input[str]
+        """
+        Task type.
+        Expected value is 'Connect.MongoDb'.
+        """
+        client_data: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Key value pairs of client data to attach meta data information to task
+        """
+        input: NotRequired[pulumi.Input['MongoDbConnectionInfoArgsDict']]
+        """
+        Describes a connection to a MongoDB data source
+        """
+elif False:
+    ConnectToMongoDbTaskPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ConnectToMongoDbTaskPropertiesArgs:
@@ -241,6 +397,30 @@ class ConnectToMongoDbTaskPropertiesArgs:
     def input(self, value: Optional[pulumi.Input['MongoDbConnectionInfoArgs']]):
         pulumi.set(self, "input", value)
 
+
+if not MYPY:
+    class ConnectToSourceMySqlTaskInputArgsDict(TypedDict):
+        """
+        Input for the task that validates MySQL database connection
+        """
+        source_connection_info: pulumi.Input['MySqlConnectionInfoArgsDict']
+        """
+        Information for connecting to MySQL source
+        """
+        check_permissions_group: NotRequired[pulumi.Input[Union[str, 'ServerLevelPermissionsGroup']]]
+        """
+        Permission group for validations
+        """
+        is_offline_migration: NotRequired[pulumi.Input[bool]]
+        """
+        Flag for whether or not the migration is offline
+        """
+        target_platform: NotRequired[pulumi.Input[Union[str, 'MySqlTargetPlatformType']]]
+        """
+        Target Platform for the migration
+        """
+elif False:
+    ConnectToSourceMySqlTaskInputArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ConnectToSourceMySqlTaskInputArgs:
@@ -315,6 +495,27 @@ class ConnectToSourceMySqlTaskInputArgs:
         pulumi.set(self, "target_platform", value)
 
 
+if not MYPY:
+    class ConnectToSourceMySqlTaskPropertiesArgsDict(TypedDict):
+        """
+        Properties for the task that validates MySQL database connection
+        """
+        task_type: pulumi.Input[str]
+        """
+        Task type.
+        Expected value is 'ConnectToSource.MySql'.
+        """
+        client_data: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Key value pairs of client data to attach meta data information to task
+        """
+        input: NotRequired[pulumi.Input['ConnectToSourceMySqlTaskInputArgsDict']]
+        """
+        Task input
+        """
+elif False:
+    ConnectToSourceMySqlTaskPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ConnectToSourceMySqlTaskPropertiesArgs:
     def __init__(__self__, *,
@@ -372,6 +573,18 @@ class ConnectToSourceMySqlTaskPropertiesArgs:
         pulumi.set(self, "input", value)
 
 
+if not MYPY:
+    class ConnectToSourceOracleSyncTaskInputArgsDict(TypedDict):
+        """
+        Input for the task that validates Oracle database connection
+        """
+        source_connection_info: pulumi.Input['OracleConnectionInfoArgsDict']
+        """
+        Information for connecting to Oracle source
+        """
+elif False:
+    ConnectToSourceOracleSyncTaskInputArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ConnectToSourceOracleSyncTaskInputArgs:
     def __init__(__self__, *,
@@ -394,6 +607,27 @@ class ConnectToSourceOracleSyncTaskInputArgs:
     def source_connection_info(self, value: pulumi.Input['OracleConnectionInfoArgs']):
         pulumi.set(self, "source_connection_info", value)
 
+
+if not MYPY:
+    class ConnectToSourceOracleSyncTaskPropertiesArgsDict(TypedDict):
+        """
+        Properties for the task that validates Oracle database connection
+        """
+        task_type: pulumi.Input[str]
+        """
+        Task type.
+        Expected value is 'ConnectToSource.Oracle.Sync'.
+        """
+        client_data: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Key value pairs of client data to attach meta data information to task
+        """
+        input: NotRequired[pulumi.Input['ConnectToSourceOracleSyncTaskInputArgsDict']]
+        """
+        Task input
+        """
+elif False:
+    ConnectToSourceOracleSyncTaskPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ConnectToSourceOracleSyncTaskPropertiesArgs:
@@ -452,6 +686,18 @@ class ConnectToSourceOracleSyncTaskPropertiesArgs:
         pulumi.set(self, "input", value)
 
 
+if not MYPY:
+    class ConnectToSourcePostgreSqlSyncTaskInputArgsDict(TypedDict):
+        """
+        Input for the task that validates connection to PostgreSQL and source server requirements
+        """
+        source_connection_info: pulumi.Input['PostgreSqlConnectionInfoArgsDict']
+        """
+        Connection information for source PostgreSQL server
+        """
+elif False:
+    ConnectToSourcePostgreSqlSyncTaskInputArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ConnectToSourcePostgreSqlSyncTaskInputArgs:
     def __init__(__self__, *,
@@ -474,6 +720,27 @@ class ConnectToSourcePostgreSqlSyncTaskInputArgs:
     def source_connection_info(self, value: pulumi.Input['PostgreSqlConnectionInfoArgs']):
         pulumi.set(self, "source_connection_info", value)
 
+
+if not MYPY:
+    class ConnectToSourcePostgreSqlSyncTaskPropertiesArgsDict(TypedDict):
+        """
+        Properties for the task that validates connection to PostgreSQL server and source server requirements for online migration
+        """
+        task_type: pulumi.Input[str]
+        """
+        Task type.
+        Expected value is 'ConnectToSource.PostgreSql.Sync'.
+        """
+        client_data: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Key value pairs of client data to attach meta data information to task
+        """
+        input: NotRequired[pulumi.Input['ConnectToSourcePostgreSqlSyncTaskInputArgsDict']]
+        """
+        Task input
+        """
+elif False:
+    ConnectToSourcePostgreSqlSyncTaskPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ConnectToSourcePostgreSqlSyncTaskPropertiesArgs:
@@ -532,6 +799,27 @@ class ConnectToSourcePostgreSqlSyncTaskPropertiesArgs:
         pulumi.set(self, "input", value)
 
 
+if not MYPY:
+    class ConnectToSourceSqlServerSyncTaskPropertiesArgsDict(TypedDict):
+        """
+        Properties for the task that validates connection to SQL Server and source server requirements for online migration
+        """
+        task_type: pulumi.Input[str]
+        """
+        Task type.
+        Expected value is 'ConnectToSource.SqlServer.Sync'.
+        """
+        client_data: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Key value pairs of client data to attach meta data information to task
+        """
+        input: NotRequired[pulumi.Input['ConnectToSourceSqlServerTaskInputArgsDict']]
+        """
+        Task input
+        """
+elif False:
+    ConnectToSourceSqlServerSyncTaskPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ConnectToSourceSqlServerSyncTaskPropertiesArgs:
     def __init__(__self__, *,
@@ -588,6 +876,42 @@ class ConnectToSourceSqlServerSyncTaskPropertiesArgs:
     def input(self, value: Optional[pulumi.Input['ConnectToSourceSqlServerTaskInputArgs']]):
         pulumi.set(self, "input", value)
 
+
+if not MYPY:
+    class ConnectToSourceSqlServerTaskInputArgsDict(TypedDict):
+        """
+        Input for the task that validates connection to SQL Server and also validates source server requirements
+        """
+        source_connection_info: pulumi.Input['SqlConnectionInfoArgsDict']
+        """
+        Connection information for Source SQL Server
+        """
+        check_permissions_group: NotRequired[pulumi.Input[Union[str, 'ServerLevelPermissionsGroup']]]
+        """
+        Permission group for validations
+        """
+        collect_agent_jobs: NotRequired[pulumi.Input[bool]]
+        """
+        Flag for whether to collect agent jobs from source server.
+        """
+        collect_databases: NotRequired[pulumi.Input[bool]]
+        """
+        Flag for whether to collect databases from source server.
+        """
+        collect_logins: NotRequired[pulumi.Input[bool]]
+        """
+        Flag for whether to collect logins from source server.
+        """
+        collect_tde_certificate_info: NotRequired[pulumi.Input[bool]]
+        """
+        Flag for whether to collect TDE Certificate names from source server.
+        """
+        validate_ssis_catalog_only: NotRequired[pulumi.Input[bool]]
+        """
+        Flag for whether to validate SSIS catalog is reachable on the source server.
+        """
+elif False:
+    ConnectToSourceSqlServerTaskInputArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ConnectToSourceSqlServerTaskInputArgs:
@@ -718,6 +1042,27 @@ class ConnectToSourceSqlServerTaskInputArgs:
         pulumi.set(self, "validate_ssis_catalog_only", value)
 
 
+if not MYPY:
+    class ConnectToSourceSqlServerTaskPropertiesArgsDict(TypedDict):
+        """
+        Properties for the task that validates connection to SQL Server and also validates source server requirements
+        """
+        task_type: pulumi.Input[str]
+        """
+        Task type.
+        Expected value is 'ConnectToSource.SqlServer'.
+        """
+        client_data: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Key value pairs of client data to attach meta data information to task
+        """
+        input: NotRequired[pulumi.Input['ConnectToSourceSqlServerTaskInputArgsDict']]
+        """
+        Task input
+        """
+elif False:
+    ConnectToSourceSqlServerTaskPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ConnectToSourceSqlServerTaskPropertiesArgs:
     def __init__(__self__, *,
@@ -775,6 +1120,26 @@ class ConnectToSourceSqlServerTaskPropertiesArgs:
         pulumi.set(self, "input", value)
 
 
+if not MYPY:
+    class ConnectToTargetAzureDbForMySqlTaskInputArgsDict(TypedDict):
+        """
+        Input for the task that validates connection to Azure Database for MySQL and target server requirements
+        """
+        source_connection_info: pulumi.Input['MySqlConnectionInfoArgsDict']
+        """
+        Connection information for source MySQL server
+        """
+        target_connection_info: pulumi.Input['MySqlConnectionInfoArgsDict']
+        """
+        Connection information for target Azure Database for MySQL server
+        """
+        is_offline_migration: NotRequired[pulumi.Input[bool]]
+        """
+        Flag for whether or not the migration is offline
+        """
+elif False:
+    ConnectToTargetAzureDbForMySqlTaskInputArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ConnectToTargetAzureDbForMySqlTaskInputArgs:
     def __init__(__self__, *,
@@ -830,6 +1195,27 @@ class ConnectToTargetAzureDbForMySqlTaskInputArgs:
     def is_offline_migration(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "is_offline_migration", value)
 
+
+if not MYPY:
+    class ConnectToTargetAzureDbForMySqlTaskPropertiesArgsDict(TypedDict):
+        """
+        Properties for the task that validates connection to Azure Database for MySQL and target server requirements
+        """
+        task_type: pulumi.Input[str]
+        """
+        Task type.
+        Expected value is 'ConnectToTarget.AzureDbForMySql'.
+        """
+        client_data: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Key value pairs of client data to attach meta data information to task
+        """
+        input: NotRequired[pulumi.Input['ConnectToTargetAzureDbForMySqlTaskInputArgsDict']]
+        """
+        Task input
+        """
+elif False:
+    ConnectToTargetAzureDbForMySqlTaskPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ConnectToTargetAzureDbForMySqlTaskPropertiesArgs:
@@ -888,6 +1274,22 @@ class ConnectToTargetAzureDbForMySqlTaskPropertiesArgs:
         pulumi.set(self, "input", value)
 
 
+if not MYPY:
+    class ConnectToTargetAzureDbForPostgreSqlSyncTaskInputArgsDict(TypedDict):
+        """
+        Input for the task that validates connection to Azure Database for PostgreSQL and target server requirements
+        """
+        source_connection_info: pulumi.Input['PostgreSqlConnectionInfoArgsDict']
+        """
+        Connection information for source PostgreSQL server
+        """
+        target_connection_info: pulumi.Input['PostgreSqlConnectionInfoArgsDict']
+        """
+        Connection information for target Azure Database for PostgreSQL server
+        """
+elif False:
+    ConnectToTargetAzureDbForPostgreSqlSyncTaskInputArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ConnectToTargetAzureDbForPostgreSqlSyncTaskInputArgs:
     def __init__(__self__, *,
@@ -925,6 +1327,27 @@ class ConnectToTargetAzureDbForPostgreSqlSyncTaskInputArgs:
     def target_connection_info(self, value: pulumi.Input['PostgreSqlConnectionInfoArgs']):
         pulumi.set(self, "target_connection_info", value)
 
+
+if not MYPY:
+    class ConnectToTargetAzureDbForPostgreSqlSyncTaskPropertiesArgsDict(TypedDict):
+        """
+        Properties for the task that validates connection to Azure Database For PostgreSQL server and target server requirements for online migration
+        """
+        task_type: pulumi.Input[str]
+        """
+        Task type.
+        Expected value is 'ConnectToTarget.AzureDbForPostgreSql.Sync'.
+        """
+        client_data: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Key value pairs of client data to attach meta data information to task
+        """
+        input: NotRequired[pulumi.Input['ConnectToTargetAzureDbForPostgreSqlSyncTaskInputArgsDict']]
+        """
+        Task input
+        """
+elif False:
+    ConnectToTargetAzureDbForPostgreSqlSyncTaskPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ConnectToTargetAzureDbForPostgreSqlSyncTaskPropertiesArgs:
@@ -983,6 +1406,18 @@ class ConnectToTargetAzureDbForPostgreSqlSyncTaskPropertiesArgs:
         pulumi.set(self, "input", value)
 
 
+if not MYPY:
+    class ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskInputArgsDict(TypedDict):
+        """
+        Input for the task that validates connection to Azure Database for PostgreSQL and target server requirements for Oracle source.
+        """
+        target_connection_info: pulumi.Input['PostgreSqlConnectionInfoArgsDict']
+        """
+        Connection information for target Azure Database for PostgreSQL server
+        """
+elif False:
+    ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskInputArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskInputArgs:
     def __init__(__self__, *,
@@ -1005,6 +1440,27 @@ class ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskInputArgs:
     def target_connection_info(self, value: pulumi.Input['PostgreSqlConnectionInfoArgs']):
         pulumi.set(self, "target_connection_info", value)
 
+
+if not MYPY:
+    class ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskPropertiesArgsDict(TypedDict):
+        """
+        Properties for the task that validates connection to Azure Database For PostgreSQL server and target server requirements for online migration for Oracle source.
+        """
+        task_type: pulumi.Input[str]
+        """
+        Task type.
+        Expected value is 'ConnectToTarget.Oracle.AzureDbForPostgreSql.Sync'.
+        """
+        client_data: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Key value pairs of client data to attach meta data information to task
+        """
+        input: NotRequired[pulumi.Input['ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskInputArgsDict']]
+        """
+        Task input
+        """
+elif False:
+    ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskPropertiesArgs:
@@ -1063,6 +1519,18 @@ class ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskPropertiesArgs:
         pulumi.set(self, "input", value)
 
 
+if not MYPY:
+    class ConnectToTargetSqlDbTaskInputArgsDict(TypedDict):
+        """
+        Input for the task that validates connection to SQL DB and target server requirements
+        """
+        target_connection_info: pulumi.Input['SqlConnectionInfoArgsDict']
+        """
+        Connection information for target SQL DB
+        """
+elif False:
+    ConnectToTargetSqlDbTaskInputArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ConnectToTargetSqlDbTaskInputArgs:
     def __init__(__self__, *,
@@ -1085,6 +1553,27 @@ class ConnectToTargetSqlDbTaskInputArgs:
     def target_connection_info(self, value: pulumi.Input['SqlConnectionInfoArgs']):
         pulumi.set(self, "target_connection_info", value)
 
+
+if not MYPY:
+    class ConnectToTargetSqlDbTaskPropertiesArgsDict(TypedDict):
+        """
+        Properties for the task that validates connection to SQL DB and target server requirements
+        """
+        task_type: pulumi.Input[str]
+        """
+        Task type.
+        Expected value is 'ConnectToTarget.SqlDb'.
+        """
+        client_data: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Key value pairs of client data to attach meta data information to task
+        """
+        input: NotRequired[pulumi.Input['ConnectToTargetSqlDbTaskInputArgsDict']]
+        """
+        Task input
+        """
+elif False:
+    ConnectToTargetSqlDbTaskPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ConnectToTargetSqlDbTaskPropertiesArgs:
@@ -1143,6 +1632,22 @@ class ConnectToTargetSqlDbTaskPropertiesArgs:
         pulumi.set(self, "input", value)
 
 
+if not MYPY:
+    class ConnectToTargetSqlMISyncTaskInputArgsDict(TypedDict):
+        """
+        Input for the task that validates connection to Azure SQL Database Managed Instance online scenario.
+        """
+        azure_app: pulumi.Input['AzureActiveDirectoryAppArgsDict']
+        """
+        Azure Active Directory Application the DMS instance will use to connect to the target instance of Azure SQL Database Managed Instance and the Azure Storage Account
+        """
+        target_connection_info: pulumi.Input['MiSqlConnectionInfoArgsDict']
+        """
+        Connection information for Azure SQL Database Managed Instance
+        """
+elif False:
+    ConnectToTargetSqlMISyncTaskInputArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ConnectToTargetSqlMISyncTaskInputArgs:
     def __init__(__self__, *,
@@ -1180,6 +1685,27 @@ class ConnectToTargetSqlMISyncTaskInputArgs:
     def target_connection_info(self, value: pulumi.Input['MiSqlConnectionInfoArgs']):
         pulumi.set(self, "target_connection_info", value)
 
+
+if not MYPY:
+    class ConnectToTargetSqlMISyncTaskPropertiesArgsDict(TypedDict):
+        """
+        Properties for the task that validates connection to Azure SQL Database Managed Instance
+        """
+        task_type: pulumi.Input[str]
+        """
+        Task type.
+        Expected value is 'ConnectToTarget.AzureSqlDbMI.Sync.LRS'.
+        """
+        client_data: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Key value pairs of client data to attach meta data information to task
+        """
+        input: NotRequired[pulumi.Input['ConnectToTargetSqlMISyncTaskInputArgsDict']]
+        """
+        Task input
+        """
+elif False:
+    ConnectToTargetSqlMISyncTaskPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ConnectToTargetSqlMISyncTaskPropertiesArgs:
@@ -1237,6 +1763,30 @@ class ConnectToTargetSqlMISyncTaskPropertiesArgs:
     def input(self, value: Optional[pulumi.Input['ConnectToTargetSqlMISyncTaskInputArgs']]):
         pulumi.set(self, "input", value)
 
+
+if not MYPY:
+    class ConnectToTargetSqlMITaskInputArgsDict(TypedDict):
+        """
+        Input for the task that validates connection to Azure SQL Database Managed Instance.
+        """
+        target_connection_info: pulumi.Input['SqlConnectionInfoArgsDict']
+        """
+        Connection information for target SQL Server
+        """
+        collect_agent_jobs: NotRequired[pulumi.Input[bool]]
+        """
+        Flag for whether to collect agent jobs from target SQL MI server.
+        """
+        collect_logins: NotRequired[pulumi.Input[bool]]
+        """
+        Flag for whether to collect logins from target SQL MI server.
+        """
+        validate_ssis_catalog_only: NotRequired[pulumi.Input[bool]]
+        """
+        Flag for whether to validate SSIS catalog is reachable on the target SQL MI server.
+        """
+elif False:
+    ConnectToTargetSqlMITaskInputArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ConnectToTargetSqlMITaskInputArgs:
@@ -1315,6 +1865,27 @@ class ConnectToTargetSqlMITaskInputArgs:
         pulumi.set(self, "validate_ssis_catalog_only", value)
 
 
+if not MYPY:
+    class ConnectToTargetSqlMITaskPropertiesArgsDict(TypedDict):
+        """
+        Properties for the task that validates connection to Azure SQL Database Managed Instance
+        """
+        task_type: pulumi.Input[str]
+        """
+        Task type.
+        Expected value is 'ConnectToTarget.AzureSqlDbMI'.
+        """
+        client_data: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Key value pairs of client data to attach meta data information to task
+        """
+        input: NotRequired[pulumi.Input['ConnectToTargetSqlMITaskInputArgsDict']]
+        """
+        Task input
+        """
+elif False:
+    ConnectToTargetSqlMITaskPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ConnectToTargetSqlMITaskPropertiesArgs:
     def __init__(__self__, *,
@@ -1372,6 +1943,22 @@ class ConnectToTargetSqlMITaskPropertiesArgs:
         pulumi.set(self, "input", value)
 
 
+if not MYPY:
+    class ConnectToTargetSqlSqlDbSyncTaskInputArgsDict(TypedDict):
+        """
+        Input for the task that validates connection to Azure SQL DB and target server requirements
+        """
+        source_connection_info: pulumi.Input['SqlConnectionInfoArgsDict']
+        """
+        Connection information for source SQL Server
+        """
+        target_connection_info: pulumi.Input['SqlConnectionInfoArgsDict']
+        """
+        Connection information for target SQL DB
+        """
+elif False:
+    ConnectToTargetSqlSqlDbSyncTaskInputArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ConnectToTargetSqlSqlDbSyncTaskInputArgs:
     def __init__(__self__, *,
@@ -1409,6 +1996,27 @@ class ConnectToTargetSqlSqlDbSyncTaskInputArgs:
     def target_connection_info(self, value: pulumi.Input['SqlConnectionInfoArgs']):
         pulumi.set(self, "target_connection_info", value)
 
+
+if not MYPY:
+    class ConnectToTargetSqlSqlDbSyncTaskPropertiesArgsDict(TypedDict):
+        """
+        Properties for the task that validates connection to SQL DB and target server requirements for online migration
+        """
+        task_type: pulumi.Input[str]
+        """
+        Task type.
+        Expected value is 'ConnectToTarget.SqlDb.Sync'.
+        """
+        client_data: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Key value pairs of client data to attach meta data information to task
+        """
+        input: NotRequired[pulumi.Input['ConnectToTargetSqlSqlDbSyncTaskInputArgsDict']]
+        """
+        Task input
+        """
+elif False:
+    ConnectToTargetSqlSqlDbSyncTaskPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ConnectToTargetSqlSqlDbSyncTaskPropertiesArgs:
@@ -1467,6 +2075,18 @@ class ConnectToTargetSqlSqlDbSyncTaskPropertiesArgs:
         pulumi.set(self, "input", value)
 
 
+if not MYPY:
+    class DatabaseInfoArgsDict(TypedDict):
+        """
+        Project Database Details
+        """
+        source_database_name: pulumi.Input[str]
+        """
+        Name of the database
+        """
+elif False:
+    DatabaseInfoArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DatabaseInfoArgs:
     def __init__(__self__, *,
@@ -1489,6 +2109,55 @@ class DatabaseInfoArgs:
     def source_database_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "source_database_name", value)
 
+
+if not MYPY:
+    class DatabaseMigrationPropertiesSqlDbArgsDict(TypedDict):
+        """
+        Database Migration Resource properties for SQL database.
+        """
+        kind: pulumi.Input[str]
+        """
+
+        Expected value is 'SqlDb'.
+        """
+        migration_operation_id: NotRequired[pulumi.Input[str]]
+        """
+        ID tracking current migration operation.
+        """
+        migration_service: NotRequired[pulumi.Input[str]]
+        """
+        Resource Id of the Migration Service.
+        """
+        provisioning_error: NotRequired[pulumi.Input[str]]
+        """
+        Error message for migration provisioning failure, if any.
+        """
+        scope: NotRequired[pulumi.Input[str]]
+        """
+        Resource Id of the target resource (SQL VM or SQL Managed Instance).
+        """
+        source_database_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the source database.
+        """
+        source_sql_connection: NotRequired[pulumi.Input['SqlConnectionInformationArgsDict']]
+        """
+        Source SQL Server connection details.
+        """
+        table_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of tables to copy.
+        """
+        target_database_collation: NotRequired[pulumi.Input[str]]
+        """
+        Database collation to be used for the target database.
+        """
+        target_sql_connection: NotRequired[pulumi.Input['SqlConnectionInformationArgsDict']]
+        """
+        Target SQL DB connection details.
+        """
+elif False:
+    DatabaseMigrationPropertiesSqlDbArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DatabaseMigrationPropertiesSqlDbArgs:
@@ -1659,6 +2328,26 @@ class DatabaseMigrationPropertiesSqlDbArgs:
         pulumi.set(self, "target_sql_connection", value)
 
 
+if not MYPY:
+    class FileShareArgsDict(TypedDict):
+        """
+        File share information with Path, Username, and Password.
+        """
+        path: pulumi.Input[str]
+        """
+        The folder path for this share.
+        """
+        password: NotRequired[pulumi.Input[str]]
+        """
+        Password credential used to connect to the share location.
+        """
+        user_name: NotRequired[pulumi.Input[str]]
+        """
+        User name credential to connect to the share location
+        """
+elif False:
+    FileShareArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FileShareArgs:
     def __init__(__self__, *,
@@ -1714,6 +2403,26 @@ class FileShareArgs:
         pulumi.set(self, "user_name", value)
 
 
+if not MYPY:
+    class GetTdeCertificatesSqlTaskInputArgsDict(TypedDict):
+        """
+        Input for the task that gets TDE certificates in Base64 encoded format.
+        """
+        backup_file_share: pulumi.Input['FileShareArgsDict']
+        """
+        Backup file share information for file share to be used for temporarily storing files.
+        """
+        connection_info: pulumi.Input['SqlConnectionInfoArgsDict']
+        """
+        Connection information for SQL Server
+        """
+        selected_certificates: pulumi.Input[Sequence[pulumi.Input['SelectedCertificateInputArgsDict']]]
+        """
+        List containing certificate names and corresponding password to use for encrypting the exported certificate.
+        """
+elif False:
+    GetTdeCertificatesSqlTaskInputArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetTdeCertificatesSqlTaskInputArgs:
     def __init__(__self__, *,
@@ -1766,6 +2475,27 @@ class GetTdeCertificatesSqlTaskInputArgs:
     def selected_certificates(self, value: pulumi.Input[Sequence[pulumi.Input['SelectedCertificateInputArgs']]]):
         pulumi.set(self, "selected_certificates", value)
 
+
+if not MYPY:
+    class GetTdeCertificatesSqlTaskPropertiesArgsDict(TypedDict):
+        """
+        Properties for the task that gets TDE certificates in Base64 encoded format.
+        """
+        task_type: pulumi.Input[str]
+        """
+        Task type.
+        Expected value is 'GetTDECertificates.Sql'.
+        """
+        client_data: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Key value pairs of client data to attach meta data information to task
+        """
+        input: NotRequired[pulumi.Input['GetTdeCertificatesSqlTaskInputArgsDict']]
+        """
+        Task input
+        """
+elif False:
+    GetTdeCertificatesSqlTaskPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetTdeCertificatesSqlTaskPropertiesArgs:
@@ -1824,6 +2554,22 @@ class GetTdeCertificatesSqlTaskPropertiesArgs:
         pulumi.set(self, "input", value)
 
 
+if not MYPY:
+    class GetUserTablesMySqlTaskInputArgsDict(TypedDict):
+        """
+        Input for the task that collects user tables for the given list of databases
+        """
+        connection_info: pulumi.Input['MySqlConnectionInfoArgsDict']
+        """
+        Connection information for SQL Server
+        """
+        selected_databases: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        List of database names to collect tables for
+        """
+elif False:
+    GetUserTablesMySqlTaskInputArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetUserTablesMySqlTaskInputArgs:
     def __init__(__self__, *,
@@ -1861,6 +2607,27 @@ class GetUserTablesMySqlTaskInputArgs:
     def selected_databases(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "selected_databases", value)
 
+
+if not MYPY:
+    class GetUserTablesMySqlTaskPropertiesArgsDict(TypedDict):
+        """
+        Properties for the task that collects user tables for the given list of databases
+        """
+        task_type: pulumi.Input[str]
+        """
+        Task type.
+        Expected value is 'GetUserTablesMySql'.
+        """
+        client_data: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Key value pairs of client data to attach meta data information to task
+        """
+        input: NotRequired[pulumi.Input['GetUserTablesMySqlTaskInputArgsDict']]
+        """
+        Task input
+        """
+elif False:
+    GetUserTablesMySqlTaskPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetUserTablesMySqlTaskPropertiesArgs:
@@ -1919,6 +2686,22 @@ class GetUserTablesMySqlTaskPropertiesArgs:
         pulumi.set(self, "input", value)
 
 
+if not MYPY:
+    class GetUserTablesOracleTaskInputArgsDict(TypedDict):
+        """
+        Input for the task that gets the list of tables contained within a provided list of Oracle schemas.
+        """
+        connection_info: pulumi.Input['OracleConnectionInfoArgsDict']
+        """
+        Information for connecting to Oracle source
+        """
+        selected_schemas: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        List of Oracle schemas for which to collect tables
+        """
+elif False:
+    GetUserTablesOracleTaskInputArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetUserTablesOracleTaskInputArgs:
     def __init__(__self__, *,
@@ -1956,6 +2739,27 @@ class GetUserTablesOracleTaskInputArgs:
     def selected_schemas(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "selected_schemas", value)
 
+
+if not MYPY:
+    class GetUserTablesOracleTaskPropertiesArgsDict(TypedDict):
+        """
+        Properties for the task that collects user tables for the given list of Oracle schemas
+        """
+        task_type: pulumi.Input[str]
+        """
+        Task type.
+        Expected value is 'GetUserTablesOracle'.
+        """
+        client_data: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Key value pairs of client data to attach meta data information to task
+        """
+        input: NotRequired[pulumi.Input['GetUserTablesOracleTaskInputArgsDict']]
+        """
+        Task input
+        """
+elif False:
+    GetUserTablesOracleTaskPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetUserTablesOracleTaskPropertiesArgs:
@@ -2014,6 +2818,22 @@ class GetUserTablesOracleTaskPropertiesArgs:
         pulumi.set(self, "input", value)
 
 
+if not MYPY:
+    class GetUserTablesPostgreSqlTaskInputArgsDict(TypedDict):
+        """
+        Input for the task that gets the list of tables for a provided list of PostgreSQL databases.
+        """
+        connection_info: pulumi.Input['PostgreSqlConnectionInfoArgsDict']
+        """
+        Information for connecting to PostgreSQL source
+        """
+        selected_databases: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        List of PostgreSQL databases for which to collect tables
+        """
+elif False:
+    GetUserTablesPostgreSqlTaskInputArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetUserTablesPostgreSqlTaskInputArgs:
     def __init__(__self__, *,
@@ -2051,6 +2871,27 @@ class GetUserTablesPostgreSqlTaskInputArgs:
     def selected_databases(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "selected_databases", value)
 
+
+if not MYPY:
+    class GetUserTablesPostgreSqlTaskPropertiesArgsDict(TypedDict):
+        """
+        Properties for the task that collects user tables for the given list of databases
+        """
+        task_type: pulumi.Input[str]
+        """
+        Task type.
+        Expected value is 'GetUserTablesPostgreSql'.
+        """
+        client_data: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Key value pairs of client data to attach meta data information to task
+        """
+        input: NotRequired[pulumi.Input['GetUserTablesPostgreSqlTaskInputArgsDict']]
+        """
+        Task input
+        """
+elif False:
+    GetUserTablesPostgreSqlTaskPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetUserTablesPostgreSqlTaskPropertiesArgs:
@@ -2108,6 +2949,30 @@ class GetUserTablesPostgreSqlTaskPropertiesArgs:
     def input(self, value: Optional[pulumi.Input['GetUserTablesPostgreSqlTaskInputArgs']]):
         pulumi.set(self, "input", value)
 
+
+if not MYPY:
+    class GetUserTablesSqlSyncTaskInputArgsDict(TypedDict):
+        """
+        Input for the task that collects user tables for the given list of databases
+        """
+        selected_source_databases: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        List of source database names to collect tables for
+        """
+        selected_target_databases: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        List of target database names to collect tables for
+        """
+        source_connection_info: pulumi.Input['SqlConnectionInfoArgsDict']
+        """
+        Connection information for SQL Server
+        """
+        target_connection_info: pulumi.Input['SqlConnectionInfoArgsDict']
+        """
+        Connection information for SQL DB
+        """
+elif False:
+    GetUserTablesSqlSyncTaskInputArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetUserTablesSqlSyncTaskInputArgs:
@@ -2177,6 +3042,27 @@ class GetUserTablesSqlSyncTaskInputArgs:
         pulumi.set(self, "target_connection_info", value)
 
 
+if not MYPY:
+    class GetUserTablesSqlSyncTaskPropertiesArgsDict(TypedDict):
+        """
+        Properties for the task that collects user tables for the given list of databases
+        """
+        task_type: pulumi.Input[str]
+        """
+        Task type.
+        Expected value is 'GetUserTables.AzureSqlDb.Sync'.
+        """
+        client_data: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Key value pairs of client data to attach meta data information to task
+        """
+        input: NotRequired[pulumi.Input['GetUserTablesSqlSyncTaskInputArgsDict']]
+        """
+        Task input
+        """
+elif False:
+    GetUserTablesSqlSyncTaskPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetUserTablesSqlSyncTaskPropertiesArgs:
     def __init__(__self__, *,
@@ -2234,6 +3120,22 @@ class GetUserTablesSqlSyncTaskPropertiesArgs:
         pulumi.set(self, "input", value)
 
 
+if not MYPY:
+    class GetUserTablesSqlTaskInputArgsDict(TypedDict):
+        """
+        Input for the task that collects user tables for the given list of databases
+        """
+        connection_info: pulumi.Input['SqlConnectionInfoArgsDict']
+        """
+        Connection information for SQL Server
+        """
+        selected_databases: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        List of database names to collect tables for
+        """
+elif False:
+    GetUserTablesSqlTaskInputArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetUserTablesSqlTaskInputArgs:
     def __init__(__self__, *,
@@ -2271,6 +3173,27 @@ class GetUserTablesSqlTaskInputArgs:
     def selected_databases(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "selected_databases", value)
 
+
+if not MYPY:
+    class GetUserTablesSqlTaskPropertiesArgsDict(TypedDict):
+        """
+        Properties for the task that collects user tables for the given list of databases
+        """
+        task_type: pulumi.Input[str]
+        """
+        Task type.
+        Expected value is 'GetUserTables.Sql'.
+        """
+        client_data: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Key value pairs of client data to attach meta data information to task
+        """
+        input: NotRequired[pulumi.Input['GetUserTablesSqlTaskInputArgsDict']]
+        """
+        Task input
+        """
+elif False:
+    GetUserTablesSqlTaskPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetUserTablesSqlTaskPropertiesArgs:
@@ -2328,6 +3251,31 @@ class GetUserTablesSqlTaskPropertiesArgs:
     def input(self, value: Optional[pulumi.Input['GetUserTablesSqlTaskInputArgs']]):
         pulumi.set(self, "input", value)
 
+
+if not MYPY:
+    class MiSqlConnectionInfoArgsDict(TypedDict):
+        """
+        Properties required to create a connection to Azure SQL database Managed instance
+        """
+        managed_instance_resource_id: pulumi.Input[str]
+        """
+        Resource id for Azure SQL database Managed instance
+        """
+        type: pulumi.Input[str]
+        """
+        Type of connection info
+        Expected value is 'MiSqlConnectionInfo'.
+        """
+        password: NotRequired[pulumi.Input[str]]
+        """
+        Password credential.
+        """
+        user_name: NotRequired[pulumi.Input[str]]
+        """
+        User name
+        """
+elif False:
+    MiSqlConnectionInfoArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MiSqlConnectionInfoArgs:
@@ -2401,6 +3349,27 @@ class MiSqlConnectionInfoArgs:
         pulumi.set(self, "user_name", value)
 
 
+if not MYPY:
+    class MigrateMongoDbTaskPropertiesArgsDict(TypedDict):
+        """
+        Properties for the task that migrates data between MongoDB data sources
+        """
+        task_type: pulumi.Input[str]
+        """
+        Task type.
+        Expected value is 'Migrate.MongoDb'.
+        """
+        client_data: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Key value pairs of client data to attach meta data information to task
+        """
+        input: NotRequired[pulumi.Input['MongoDbMigrationSettingsArgsDict']]
+        """
+        Describes how a MongoDB data migration should be performed
+        """
+elif False:
+    MigrateMongoDbTaskPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MigrateMongoDbTaskPropertiesArgs:
     def __init__(__self__, *,
@@ -2458,6 +3427,26 @@ class MigrateMongoDbTaskPropertiesArgs:
         pulumi.set(self, "input", value)
 
 
+if not MYPY:
+    class MigrateMySqlAzureDbForMySqlOfflineDatabaseInputArgsDict(TypedDict):
+        """
+        Database specific information for offline MySQL to Azure Database for MySQL migration task inputs
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the database
+        """
+        table_map: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Mapping of source to target tables
+        """
+        target_database_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of target database. Note: Target database will be truncated before starting migration.
+        """
+elif False:
+    MigrateMySqlAzureDbForMySqlOfflineDatabaseInputArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MigrateMySqlAzureDbForMySqlOfflineDatabaseInputArgs:
     def __init__(__self__, *,
@@ -2513,6 +3502,38 @@ class MigrateMySqlAzureDbForMySqlOfflineDatabaseInputArgs:
     def target_database_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "target_database_name", value)
 
+
+if not MYPY:
+    class MigrateMySqlAzureDbForMySqlOfflineTaskInputArgsDict(TypedDict):
+        """
+        Input for the task that migrates MySQL databases to Azure Database for MySQL for offline migrations
+        """
+        selected_databases: pulumi.Input[Sequence[pulumi.Input['MigrateMySqlAzureDbForMySqlOfflineDatabaseInputArgsDict']]]
+        """
+        Databases to migrate
+        """
+        source_connection_info: pulumi.Input['MySqlConnectionInfoArgsDict']
+        """
+        Connection information for source MySQL
+        """
+        target_connection_info: pulumi.Input['MySqlConnectionInfoArgsDict']
+        """
+        Connection information for target Azure Database for MySQL
+        """
+        make_source_server_read_only: NotRequired[pulumi.Input[bool]]
+        """
+        Setting to set the source server read only
+        """
+        optional_agent_settings: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Optional parameters for fine tuning the data transfer rate during migration
+        """
+        started_on: NotRequired[pulumi.Input[str]]
+        """
+        Parameter to specify when the migration started
+        """
+elif False:
+    MigrateMySqlAzureDbForMySqlOfflineTaskInputArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MigrateMySqlAzureDbForMySqlOfflineTaskInputArgs:
@@ -2617,6 +3638,27 @@ class MigrateMySqlAzureDbForMySqlOfflineTaskInputArgs:
         pulumi.set(self, "started_on", value)
 
 
+if not MYPY:
+    class MigrateMySqlAzureDbForMySqlOfflineTaskPropertiesArgsDict(TypedDict):
+        """
+        Properties for the task that migrates MySQL databases to Azure Database for MySQL for offline migrations
+        """
+        task_type: pulumi.Input[str]
+        """
+        Task type.
+        Expected value is 'Migrate.MySql.AzureDbForMySql'.
+        """
+        client_data: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Key value pairs of client data to attach meta data information to task
+        """
+        input: NotRequired[pulumi.Input['MigrateMySqlAzureDbForMySqlOfflineTaskInputArgsDict']]
+        """
+        Task input
+        """
+elif False:
+    MigrateMySqlAzureDbForMySqlOfflineTaskPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MigrateMySqlAzureDbForMySqlOfflineTaskPropertiesArgs:
     def __init__(__self__, *,
@@ -2673,6 +3715,38 @@ class MigrateMySqlAzureDbForMySqlOfflineTaskPropertiesArgs:
     def input(self, value: Optional[pulumi.Input['MigrateMySqlAzureDbForMySqlOfflineTaskInputArgs']]):
         pulumi.set(self, "input", value)
 
+
+if not MYPY:
+    class MigrateMySqlAzureDbForMySqlSyncDatabaseInputArgsDict(TypedDict):
+        """
+        Database specific information for MySQL to Azure Database for MySQL migration task inputs
+        """
+        migration_setting: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Migration settings which tune the migration behavior
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the database
+        """
+        source_setting: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Source settings to tune source endpoint migration behavior
+        """
+        table_map: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Mapping of source to target tables
+        """
+        target_database_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of target database. Note: Target database will be truncated before starting migration.
+        """
+        target_setting: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Target settings to tune target endpoint migration behavior
+        """
+elif False:
+    MigrateMySqlAzureDbForMySqlSyncDatabaseInputArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MigrateMySqlAzureDbForMySqlSyncDatabaseInputArgs:
@@ -2778,6 +3852,26 @@ class MigrateMySqlAzureDbForMySqlSyncDatabaseInputArgs:
         pulumi.set(self, "target_setting", value)
 
 
+if not MYPY:
+    class MigrateMySqlAzureDbForMySqlSyncTaskInputArgsDict(TypedDict):
+        """
+        Input for the task that migrates MySQL databases to Azure Database for MySQL for online migrations
+        """
+        selected_databases: pulumi.Input[Sequence[pulumi.Input['MigrateMySqlAzureDbForMySqlSyncDatabaseInputArgsDict']]]
+        """
+        Databases to migrate
+        """
+        source_connection_info: pulumi.Input['MySqlConnectionInfoArgsDict']
+        """
+        Connection information for source MySQL
+        """
+        target_connection_info: pulumi.Input['MySqlConnectionInfoArgsDict']
+        """
+        Connection information for target Azure Database for MySQL
+        """
+elif False:
+    MigrateMySqlAzureDbForMySqlSyncTaskInputArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MigrateMySqlAzureDbForMySqlSyncTaskInputArgs:
     def __init__(__self__, *,
@@ -2830,6 +3924,27 @@ class MigrateMySqlAzureDbForMySqlSyncTaskInputArgs:
     def target_connection_info(self, value: pulumi.Input['MySqlConnectionInfoArgs']):
         pulumi.set(self, "target_connection_info", value)
 
+
+if not MYPY:
+    class MigrateMySqlAzureDbForMySqlSyncTaskPropertiesArgsDict(TypedDict):
+        """
+        Properties for the task that migrates MySQL databases to Azure Database for MySQL for online migrations
+        """
+        task_type: pulumi.Input[str]
+        """
+        Task type.
+        Expected value is 'Migrate.MySql.AzureDbForMySql.Sync'.
+        """
+        client_data: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Key value pairs of client data to attach meta data information to task
+        """
+        input: NotRequired[pulumi.Input['MigrateMySqlAzureDbForMySqlSyncTaskInputArgsDict']]
+        """
+        Task input
+        """
+elif False:
+    MigrateMySqlAzureDbForMySqlSyncTaskPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MigrateMySqlAzureDbForMySqlSyncTaskPropertiesArgs:
@@ -2888,6 +4003,27 @@ class MigrateMySqlAzureDbForMySqlSyncTaskPropertiesArgs:
         pulumi.set(self, "input", value)
 
 
+if not MYPY:
+    class MigrateOracleAzureDbForPostgreSqlSyncTaskPropertiesArgsDict(TypedDict):
+        """
+        Properties for the task that migrates Oracle to Azure Database for PostgreSQL for online migrations
+        """
+        task_type: pulumi.Input[str]
+        """
+        Task type.
+        Expected value is 'Migrate.Oracle.AzureDbForPostgreSql.Sync'.
+        """
+        client_data: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Key value pairs of client data to attach meta data information to task
+        """
+        input: NotRequired[pulumi.Input['MigrateOracleAzureDbPostgreSqlSyncTaskInputArgsDict']]
+        """
+        Task input
+        """
+elif False:
+    MigrateOracleAzureDbForPostgreSqlSyncTaskPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MigrateOracleAzureDbForPostgreSqlSyncTaskPropertiesArgs:
     def __init__(__self__, *,
@@ -2944,6 +4080,46 @@ class MigrateOracleAzureDbForPostgreSqlSyncTaskPropertiesArgs:
     def input(self, value: Optional[pulumi.Input['MigrateOracleAzureDbPostgreSqlSyncTaskInputArgs']]):
         pulumi.set(self, "input", value)
 
+
+if not MYPY:
+    class MigrateOracleAzureDbPostgreSqlSyncDatabaseInputArgsDict(TypedDict):
+        """
+        Database specific information for Oracle to Azure Database for PostgreSQL migration task inputs
+        """
+        case_manipulation: NotRequired[pulumi.Input[str]]
+        """
+        How to handle object name casing: either Preserve or ToLower
+        """
+        migration_setting: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Migration settings which tune the migration behavior
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the migration pipeline
+        """
+        schema_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the source schema
+        """
+        source_setting: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Source settings to tune source endpoint migration behavior
+        """
+        table_map: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Mapping of source to target tables
+        """
+        target_database_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of target database. Note: Target database will be truncated before starting migration.
+        """
+        target_setting: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Target settings to tune target endpoint migration behavior
+        """
+elif False:
+    MigrateOracleAzureDbPostgreSqlSyncDatabaseInputArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MigrateOracleAzureDbPostgreSqlSyncDatabaseInputArgs:
@@ -3081,6 +4257,26 @@ class MigrateOracleAzureDbPostgreSqlSyncDatabaseInputArgs:
         pulumi.set(self, "target_setting", value)
 
 
+if not MYPY:
+    class MigrateOracleAzureDbPostgreSqlSyncTaskInputArgsDict(TypedDict):
+        """
+        Input for the task that migrates Oracle databases to Azure Database for PostgreSQL for online migrations
+        """
+        selected_databases: pulumi.Input[Sequence[pulumi.Input['MigrateOracleAzureDbPostgreSqlSyncDatabaseInputArgsDict']]]
+        """
+        Databases to migrate
+        """
+        source_connection_info: pulumi.Input['OracleConnectionInfoArgsDict']
+        """
+        Connection information for source Oracle
+        """
+        target_connection_info: pulumi.Input['PostgreSqlConnectionInfoArgsDict']
+        """
+        Connection information for target Azure Database for PostgreSQL
+        """
+elif False:
+    MigrateOracleAzureDbPostgreSqlSyncTaskInputArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MigrateOracleAzureDbPostgreSqlSyncTaskInputArgs:
     def __init__(__self__, *,
@@ -3133,6 +4329,38 @@ class MigrateOracleAzureDbPostgreSqlSyncTaskInputArgs:
     def target_connection_info(self, value: pulumi.Input['PostgreSqlConnectionInfoArgs']):
         pulumi.set(self, "target_connection_info", value)
 
+
+if not MYPY:
+    class MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputArgsDict(TypedDict):
+        """
+        Database specific information for PostgreSQL to Azure Database for PostgreSQL migration task inputs
+        """
+        migration_setting: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Migration settings which tune the migration behavior
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the database
+        """
+        selected_tables: NotRequired[pulumi.Input[Sequence[pulumi.Input['MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputArgsDict']]]]
+        """
+        Tables selected for migration
+        """
+        source_setting: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Source settings to tune source endpoint migration behavior
+        """
+        target_database_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of target database. Note: Target database will be truncated before starting migration.
+        """
+        target_setting: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Target settings to tune target endpoint migration behavior
+        """
+elif False:
+    MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputArgs:
@@ -3238,6 +4466,18 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputArgs:
         pulumi.set(self, "target_setting", value)
 
 
+if not MYPY:
+    class MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputArgsDict(TypedDict):
+        """
+        Selected tables for the migration
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the table to migrate
+        """
+elif False:
+    MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputArgs:
     def __init__(__self__, *,
@@ -3261,6 +4501,26 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputArgsDict(TypedDict):
+        """
+        Input for the task that migrates PostgreSQL databases to Azure Database for PostgreSQL for online migrations
+        """
+        selected_databases: pulumi.Input[Sequence[pulumi.Input['MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputArgsDict']]]
+        """
+        Databases to migrate
+        """
+        source_connection_info: pulumi.Input['PostgreSqlConnectionInfoArgsDict']
+        """
+        Connection information for source PostgreSQL
+        """
+        target_connection_info: pulumi.Input['PostgreSqlConnectionInfoArgsDict']
+        """
+        Connection information for target Azure Database for PostgreSQL
+        """
+elif False:
+    MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputArgs:
@@ -3314,6 +4574,27 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputArgs:
     def target_connection_info(self, value: pulumi.Input['PostgreSqlConnectionInfoArgs']):
         pulumi.set(self, "target_connection_info", value)
 
+
+if not MYPY:
+    class MigratePostgreSqlAzureDbForPostgreSqlSyncTaskPropertiesArgsDict(TypedDict):
+        """
+        Properties for the task that migrates PostgreSQL databases to Azure Database for PostgreSQL for online migrations
+        """
+        task_type: pulumi.Input[str]
+        """
+        Task type.
+        Expected value is 'Migrate.PostgreSql.AzureDbForPostgreSql.SyncV2'.
+        """
+        client_data: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Key value pairs of client data to attach meta data information to task
+        """
+        input: NotRequired[pulumi.Input['MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputArgsDict']]
+        """
+        Task input
+        """
+elif False:
+    MigratePostgreSqlAzureDbForPostgreSqlSyncTaskPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MigratePostgreSqlAzureDbForPostgreSqlSyncTaskPropertiesArgs:
@@ -3371,6 +4652,30 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncTaskPropertiesArgs:
     def input(self, value: Optional[pulumi.Input['MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputArgs']]):
         pulumi.set(self, "input", value)
 
+
+if not MYPY:
+    class MigrateSqlServerSqlDbDatabaseInputArgsDict(TypedDict):
+        """
+        Database specific information for SQL to Azure SQL DB migration task inputs
+        """
+        make_source_db_read_only: NotRequired[pulumi.Input[bool]]
+        """
+        Whether to set database read only before migration
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the database
+        """
+        table_map: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Mapping of source to target tables
+        """
+        target_database_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of target database. Note: Target database will be truncated before starting migration.
+        """
+elif False:
+    MigrateSqlServerSqlDbDatabaseInputArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MigrateSqlServerSqlDbDatabaseInputArgs:
@@ -3443,6 +4748,46 @@ class MigrateSqlServerSqlDbDatabaseInputArgs:
     def target_database_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "target_database_name", value)
 
+
+if not MYPY:
+    class MigrateSqlServerSqlDbSyncDatabaseInputArgsDict(TypedDict):
+        """
+        Database specific information for SQL to Azure SQL DB sync migration task inputs
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Unique identifier for database
+        """
+        migration_setting: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Migration settings which tune the migration behavior
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of database
+        """
+        schema_name: NotRequired[pulumi.Input[str]]
+        """
+        Schema name to be migrated
+        """
+        source_setting: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Source settings to tune source endpoint migration behavior
+        """
+        table_map: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Mapping of source to target tables
+        """
+        target_database_name: NotRequired[pulumi.Input[str]]
+        """
+        Target database name
+        """
+        target_setting: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Target settings to tune target endpoint migration behavior
+        """
+elif False:
+    MigrateSqlServerSqlDbSyncDatabaseInputArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MigrateSqlServerSqlDbSyncDatabaseInputArgs:
@@ -3580,6 +4925,30 @@ class MigrateSqlServerSqlDbSyncDatabaseInputArgs:
         pulumi.set(self, "target_setting", value)
 
 
+if not MYPY:
+    class MigrateSqlServerSqlDbSyncTaskInputArgsDict(TypedDict):
+        """
+        Input for the task that migrates on-prem SQL Server databases to Azure SQL Database for online migrations
+        """
+        selected_databases: pulumi.Input[Sequence[pulumi.Input['MigrateSqlServerSqlDbSyncDatabaseInputArgsDict']]]
+        """
+        Databases to migrate
+        """
+        source_connection_info: pulumi.Input['SqlConnectionInfoArgsDict']
+        """
+        Information for connecting to source
+        """
+        target_connection_info: pulumi.Input['SqlConnectionInfoArgsDict']
+        """
+        Information for connecting to target
+        """
+        validation_options: NotRequired[pulumi.Input['MigrationValidationOptionsArgsDict']]
+        """
+        Validation options
+        """
+elif False:
+    MigrateSqlServerSqlDbSyncTaskInputArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MigrateSqlServerSqlDbSyncTaskInputArgs:
     def __init__(__self__, *,
@@ -3649,6 +5018,27 @@ class MigrateSqlServerSqlDbSyncTaskInputArgs:
         pulumi.set(self, "validation_options", value)
 
 
+if not MYPY:
+    class MigrateSqlServerSqlDbSyncTaskPropertiesArgsDict(TypedDict):
+        """
+        Properties for the task that migrates on-prem SQL Server databases to Azure SQL Database for online migrations
+        """
+        task_type: pulumi.Input[str]
+        """
+        Task type.
+        Expected value is 'Migrate.SqlServer.AzureSqlDb.Sync'.
+        """
+        client_data: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Key value pairs of client data to attach meta data information to task
+        """
+        input: NotRequired[pulumi.Input['MigrateSqlServerSqlDbSyncTaskInputArgsDict']]
+        """
+        Task input
+        """
+elif False:
+    MigrateSqlServerSqlDbSyncTaskPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MigrateSqlServerSqlDbSyncTaskPropertiesArgs:
     def __init__(__self__, *,
@@ -3705,6 +5095,32 @@ class MigrateSqlServerSqlDbSyncTaskPropertiesArgs:
     def input(self, value: Optional[pulumi.Input['MigrateSqlServerSqlDbSyncTaskInputArgs']]):
         pulumi.set(self, "input", value)
 
+
+if not MYPY:
+    class MigrateSqlServerSqlDbTaskInputArgsDict(TypedDict):
+        """
+        Input for the task that migrates on-prem SQL Server databases to Azure SQL Database
+        """
+        selected_databases: pulumi.Input[Sequence[pulumi.Input['MigrateSqlServerSqlDbDatabaseInputArgsDict']]]
+        """
+        Databases to migrate
+        """
+        source_connection_info: pulumi.Input['SqlConnectionInfoArgsDict']
+        """
+        Information for connecting to source
+        """
+        target_connection_info: pulumi.Input['SqlConnectionInfoArgsDict']
+        """
+        Information for connecting to target
+        """
+        validation_options: NotRequired[pulumi.Input['MigrationValidationOptionsArgsDict']]
+        """
+        Options for enabling various post migration validations. Available options, 
+         1.) Data Integrity Check: Performs a checksum based comparison on source and target tables after the migration to ensure the correctness of the data. 
+         2.) Schema Validation: Performs a thorough schema comparison between the source and target tables and provides a list of differences between the source and target database, 3.) Query Analysis: Executes a set of queries picked up automatically either from the Query Plan Cache or Query Store and execute them and compares the execution time between the source and target database.
+        """
+elif False:
+    MigrateSqlServerSqlDbTaskInputArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MigrateSqlServerSqlDbTaskInputArgs:
@@ -3779,6 +5195,27 @@ class MigrateSqlServerSqlDbTaskInputArgs:
         pulumi.set(self, "validation_options", value)
 
 
+if not MYPY:
+    class MigrateSqlServerSqlDbTaskPropertiesArgsDict(TypedDict):
+        """
+        Properties for the task that migrates on-prem SQL Server databases to Azure SQL Database
+        """
+        task_type: pulumi.Input[str]
+        """
+        Task type.
+        Expected value is 'Migrate.SqlServer.SqlDb'.
+        """
+        client_data: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Key value pairs of client data to attach meta data information to task
+        """
+        input: NotRequired[pulumi.Input['MigrateSqlServerSqlDbTaskInputArgsDict']]
+        """
+        Task input
+        """
+elif False:
+    MigrateSqlServerSqlDbTaskPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MigrateSqlServerSqlDbTaskPropertiesArgs:
     def __init__(__self__, *,
@@ -3835,6 +5272,30 @@ class MigrateSqlServerSqlDbTaskPropertiesArgs:
     def input(self, value: Optional[pulumi.Input['MigrateSqlServerSqlDbTaskInputArgs']]):
         pulumi.set(self, "input", value)
 
+
+if not MYPY:
+    class MigrateSqlServerSqlMIDatabaseInputArgsDict(TypedDict):
+        """
+        Database specific information for SQL to Azure SQL DB Managed Instance migration task inputs
+        """
+        name: pulumi.Input[str]
+        """
+        Name of the database
+        """
+        restore_database_name: pulumi.Input[str]
+        """
+        Name of the database at destination
+        """
+        backup_file_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of backup files to be used in case of existing backups.
+        """
+        backup_file_share: NotRequired[pulumi.Input['FileShareArgsDict']]
+        """
+        Backup file share information for backing up this database.
+        """
+elif False:
+    MigrateSqlServerSqlMIDatabaseInputArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MigrateSqlServerSqlMIDatabaseInputArgs:
@@ -3905,6 +5366,38 @@ class MigrateSqlServerSqlMIDatabaseInputArgs:
     def backup_file_share(self, value: Optional[pulumi.Input['FileShareArgs']]):
         pulumi.set(self, "backup_file_share", value)
 
+
+if not MYPY:
+    class MigrateSqlServerSqlMISyncTaskInputArgsDict(TypedDict):
+        """
+        Input for task that migrates SQL Server databases to Azure SQL Database Managed Instance online scenario.
+        """
+        azure_app: pulumi.Input['AzureActiveDirectoryAppArgsDict']
+        """
+        Azure Active Directory Application the DMS instance will use to connect to the target instance of Azure SQL Database Managed Instance and the Azure Storage Account
+        """
+        selected_databases: pulumi.Input[Sequence[pulumi.Input['MigrateSqlServerSqlMIDatabaseInputArgsDict']]]
+        """
+        Databases to migrate
+        """
+        source_connection_info: pulumi.Input['SqlConnectionInfoArgsDict']
+        """
+        Connection information for source SQL Server
+        """
+        storage_resource_id: pulumi.Input[str]
+        """
+        Fully qualified resourceId of storage
+        """
+        target_connection_info: pulumi.Input['MiSqlConnectionInfoArgsDict']
+        """
+        Connection information for Azure SQL Database Managed Instance
+        """
+        backup_file_share: NotRequired[pulumi.Input['FileShareArgsDict']]
+        """
+        Backup file share information for all selected databases.
+        """
+elif False:
+    MigrateSqlServerSqlMISyncTaskInputArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MigrateSqlServerSqlMISyncTaskInputArgs:
@@ -4005,6 +5498,27 @@ class MigrateSqlServerSqlMISyncTaskInputArgs:
         pulumi.set(self, "backup_file_share", value)
 
 
+if not MYPY:
+    class MigrateSqlServerSqlMISyncTaskPropertiesArgsDict(TypedDict):
+        """
+        Properties for task that migrates SQL Server databases to Azure SQL Database Managed Instance sync scenario
+        """
+        task_type: pulumi.Input[str]
+        """
+        Task type.
+        Expected value is 'Migrate.SqlServer.AzureSqlDbMI.Sync.LRS'.
+        """
+        client_data: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Key value pairs of client data to attach meta data information to task
+        """
+        input: NotRequired[pulumi.Input['MigrateSqlServerSqlMISyncTaskInputArgsDict']]
+        """
+        Task input
+        """
+elif False:
+    MigrateSqlServerSqlMISyncTaskPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MigrateSqlServerSqlMISyncTaskPropertiesArgs:
     def __init__(__self__, *,
@@ -4061,6 +5575,50 @@ class MigrateSqlServerSqlMISyncTaskPropertiesArgs:
     def input(self, value: Optional[pulumi.Input['MigrateSqlServerSqlMISyncTaskInputArgs']]):
         pulumi.set(self, "input", value)
 
+
+if not MYPY:
+    class MigrateSqlServerSqlMITaskInputArgsDict(TypedDict):
+        """
+        Input for task that migrates SQL Server databases to Azure SQL Database Managed Instance.
+        """
+        backup_blob_share: pulumi.Input['BlobShareArgsDict']
+        """
+        SAS URI of Azure Storage Account Container to be used for storing backup files.
+        """
+        selected_databases: pulumi.Input[Sequence[pulumi.Input['MigrateSqlServerSqlMIDatabaseInputArgsDict']]]
+        """
+        Databases to migrate
+        """
+        source_connection_info: pulumi.Input['SqlConnectionInfoArgsDict']
+        """
+        Information for connecting to source
+        """
+        target_connection_info: pulumi.Input['SqlConnectionInfoArgsDict']
+        """
+        Information for connecting to target
+        """
+        aad_domain_name: NotRequired[pulumi.Input[str]]
+        """
+        Azure Active Directory domain name in the format of 'contoso.com' for federated Azure AD or 'contoso.onmicrosoft.com' for managed domain, required if and only if Windows logins are selected
+        """
+        backup_file_share: NotRequired[pulumi.Input['FileShareArgsDict']]
+        """
+        Backup file share information for all selected databases.
+        """
+        backup_mode: NotRequired[pulumi.Input[Union[str, 'BackupMode']]]
+        """
+        Backup Mode to specify whether to use existing backup or create new backup. If using existing backups, backup file paths are required to be provided in selectedDatabases.
+        """
+        selected_agent_jobs: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Agent Jobs to migrate.
+        """
+        selected_logins: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Logins to migrate.
+        """
+elif False:
+    MigrateSqlServerSqlMITaskInputArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MigrateSqlServerSqlMITaskInputArgs:
@@ -4210,6 +5768,27 @@ class MigrateSqlServerSqlMITaskInputArgs:
         pulumi.set(self, "selected_logins", value)
 
 
+if not MYPY:
+    class MigrateSqlServerSqlMITaskPropertiesArgsDict(TypedDict):
+        """
+        Properties for task that migrates SQL Server databases to Azure SQL Database Managed Instance
+        """
+        task_type: pulumi.Input[str]
+        """
+        Task type.
+        Expected value is 'Migrate.SqlServer.AzureSqlDbMI'.
+        """
+        client_data: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Key value pairs of client data to attach meta data information to task
+        """
+        input: NotRequired[pulumi.Input['MigrateSqlServerSqlMITaskInputArgsDict']]
+        """
+        Task input
+        """
+elif False:
+    MigrateSqlServerSqlMITaskPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MigrateSqlServerSqlMITaskPropertiesArgs:
     def __init__(__self__, *,
@@ -4267,6 +5846,26 @@ class MigrateSqlServerSqlMITaskPropertiesArgs:
         pulumi.set(self, "input", value)
 
 
+if not MYPY:
+    class MigrateSsisTaskInputArgsDict(TypedDict):
+        """
+        Input for task that migrates SSIS packages from SQL Server to Azure SQL Database Managed Instance.
+        """
+        source_connection_info: pulumi.Input['SqlConnectionInfoArgsDict']
+        """
+        Information for connecting to source
+        """
+        ssis_migration_info: pulumi.Input['SsisMigrationInfoArgsDict']
+        """
+        SSIS package migration information.
+        """
+        target_connection_info: pulumi.Input['SqlConnectionInfoArgsDict']
+        """
+        Information for connecting to target
+        """
+elif False:
+    MigrateSsisTaskInputArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MigrateSsisTaskInputArgs:
     def __init__(__self__, *,
@@ -4319,6 +5918,27 @@ class MigrateSsisTaskInputArgs:
     def target_connection_info(self, value: pulumi.Input['SqlConnectionInfoArgs']):
         pulumi.set(self, "target_connection_info", value)
 
+
+if not MYPY:
+    class MigrateSsisTaskPropertiesArgsDict(TypedDict):
+        """
+        Properties for task that migrates SSIS packages from SQL Server databases to Azure SQL Database Managed Instance.
+        """
+        task_type: pulumi.Input[str]
+        """
+        Task type.
+        Expected value is 'Migrate.Ssis'.
+        """
+        client_data: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Key value pairs of client data to attach meta data information to task
+        """
+        input: NotRequired[pulumi.Input['MigrateSsisTaskInputArgsDict']]
+        """
+        Task input
+        """
+elif False:
+    MigrateSsisTaskPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MigrateSsisTaskPropertiesArgs:
@@ -4377,6 +5997,26 @@ class MigrateSsisTaskPropertiesArgs:
         pulumi.set(self, "input", value)
 
 
+if not MYPY:
+    class MigrationValidationOptionsArgsDict(TypedDict):
+        """
+        Types of validations to run after the migration
+        """
+        enable_data_integrity_validation: NotRequired[pulumi.Input[bool]]
+        """
+        Allows to perform a checksum based data integrity validation between source and target for the selected database / tables .
+        """
+        enable_query_analysis_validation: NotRequired[pulumi.Input[bool]]
+        """
+        Allows to perform a quick and intelligent query analysis by retrieving queries from the source database and executes them in the target. The result will have execution statistics for executions in source and target databases for the extracted queries.
+        """
+        enable_schema_validation: NotRequired[pulumi.Input[bool]]
+        """
+        Allows to compare the schema information between source and target.
+        """
+elif False:
+    MigrationValidationOptionsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MigrationValidationOptionsArgs:
     def __init__(__self__, *,
@@ -4432,6 +6072,38 @@ class MigrationValidationOptionsArgs:
     def enable_schema_validation(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enable_schema_validation", value)
 
+
+if not MYPY:
+    class MongoConnectionInformationArgsDict(TypedDict):
+        """
+        Mongo Connection
+        """
+        connection_string: NotRequired[pulumi.Input[str]]
+        """
+        ConnectionString to connect to Mongo.
+        """
+        host: NotRequired[pulumi.Input[str]]
+        """
+        Host of mongo connection.
+        """
+        password: NotRequired[pulumi.Input[str]]
+        """
+        Password to connect to Mongo.
+        """
+        port: NotRequired[pulumi.Input[int]]
+        """
+        Port of mongo connection.
+        """
+        use_ssl: NotRequired[pulumi.Input[bool]]
+        """
+        Whether to UseSsl or UseTls to connect to Mongo. Default is true.
+        """
+        user_name: NotRequired[pulumi.Input[str]]
+        """
+        User name to connect to Mongo.
+        """
+elif False:
+    MongoConnectionInformationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MongoConnectionInformationArgs:
@@ -4537,6 +6209,26 @@ class MongoConnectionInformationArgs:
         pulumi.set(self, "user_name", value)
 
 
+if not MYPY:
+    class MongoDbCollectionSettingsArgsDict(TypedDict):
+        """
+        Describes how an individual MongoDB collection should be migrated
+        """
+        can_delete: NotRequired[pulumi.Input[bool]]
+        """
+        Whether the migrator is allowed to drop the target collection in the course of performing a migration. The default is true.
+        """
+        shard_key: NotRequired[pulumi.Input['MongoDbShardKeySettingArgsDict']]
+        """
+        Describes a MongoDB shard key
+        """
+        target_rus: NotRequired[pulumi.Input[int]]
+        """
+        The RUs that should be configured on a CosmosDB target, or null to use the default. This has no effect on non-CosmosDB targets.
+        """
+elif False:
+    MongoDbCollectionSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MongoDbCollectionSettingsArgs:
     def __init__(__self__, *,
@@ -4592,6 +6284,31 @@ class MongoDbCollectionSettingsArgs:
     def target_rus(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "target_rus", value)
 
+
+if not MYPY:
+    class MongoDbConnectionInfoArgsDict(TypedDict):
+        """
+        Describes a connection to a MongoDB data source
+        """
+        connection_string: pulumi.Input[str]
+        """
+        A MongoDB connection string or blob container URL. The user name and password can be specified here or in the userName and password properties
+        """
+        type: pulumi.Input[str]
+        """
+        Type of connection info
+        Expected value is 'MongoDbConnectionInfo'.
+        """
+        password: NotRequired[pulumi.Input[str]]
+        """
+        Password credential.
+        """
+        user_name: NotRequired[pulumi.Input[str]]
+        """
+        User name
+        """
+elif False:
+    MongoDbConnectionInfoArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MongoDbConnectionInfoArgs:
@@ -4665,6 +6382,22 @@ class MongoDbConnectionInfoArgs:
         pulumi.set(self, "user_name", value)
 
 
+if not MYPY:
+    class MongoDbDatabaseSettingsArgsDict(TypedDict):
+        """
+        Describes how an individual MongoDB database should be migrated
+        """
+        collections: pulumi.Input[Mapping[str, pulumi.Input['MongoDbCollectionSettingsArgsDict']]]
+        """
+        The collections on the source database to migrate to the target. The keys are the unqualified names of the collections.
+        """
+        target_rus: NotRequired[pulumi.Input[int]]
+        """
+        The RUs that should be configured on a CosmosDB target, or null to use the default, or 0 if throughput should not be provisioned for the database. This has no effect on non-CosmosDB targets.
+        """
+elif False:
+    MongoDbDatabaseSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MongoDbDatabaseSettingsArgs:
     def __init__(__self__, *,
@@ -4703,6 +6436,38 @@ class MongoDbDatabaseSettingsArgs:
     def target_rus(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "target_rus", value)
 
+
+if not MYPY:
+    class MongoDbMigrationSettingsArgsDict(TypedDict):
+        """
+        Describes how a MongoDB data migration should be performed
+        """
+        databases: pulumi.Input[Mapping[str, pulumi.Input['MongoDbDatabaseSettingsArgsDict']]]
+        """
+        The databases on the source cluster to migrate to the target. The keys are the names of the databases.
+        """
+        source: pulumi.Input['MongoDbConnectionInfoArgsDict']
+        """
+        Settings used to connect to the source cluster
+        """
+        target: pulumi.Input['MongoDbConnectionInfoArgsDict']
+        """
+        Settings used to connect to the target cluster
+        """
+        boost_rus: NotRequired[pulumi.Input[int]]
+        """
+        The RU limit on a CosmosDB target that collections will be temporarily increased to (if lower) during the initial copy of a migration, from 10,000 to 1,000,000, or 0 to use the default boost (which is generally the maximum), or null to not boost the RUs. This setting has no effect on non-CosmosDB targets.
+        """
+        replication: NotRequired[pulumi.Input[Union[str, 'MongoDbReplication']]]
+        """
+        Describes how changes will be replicated from the source to the target. The default is OneTime.
+        """
+        throttling: NotRequired[pulumi.Input['MongoDbThrottlingSettingsArgsDict']]
+        """
+        Settings used to limit the resource usage of the migration
+        """
+elif False:
+    MongoDbMigrationSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MongoDbMigrationSettingsArgs:
@@ -4805,6 +6570,22 @@ class MongoDbMigrationSettingsArgs:
         pulumi.set(self, "throttling", value)
 
 
+if not MYPY:
+    class MongoDbShardKeyFieldArgsDict(TypedDict):
+        """
+        Describes a field reference within a MongoDB shard key
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the field
+        """
+        order: pulumi.Input[Union[str, 'MongoDbShardKeyOrder']]
+        """
+        The field ordering
+        """
+elif False:
+    MongoDbShardKeyFieldArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MongoDbShardKeyFieldArgs:
     def __init__(__self__, *,
@@ -4843,6 +6624,22 @@ class MongoDbShardKeyFieldArgs:
         pulumi.set(self, "order", value)
 
 
+if not MYPY:
+    class MongoDbShardKeySettingArgsDict(TypedDict):
+        """
+        Describes a MongoDB shard key
+        """
+        fields: pulumi.Input[Sequence[pulumi.Input['MongoDbShardKeyFieldArgsDict']]]
+        """
+        The fields within the shard key
+        """
+        is_unique: pulumi.Input[bool]
+        """
+        Whether the shard key is unique
+        """
+elif False:
+    MongoDbShardKeySettingArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MongoDbShardKeySettingArgs:
     def __init__(__self__, *,
@@ -4880,6 +6677,26 @@ class MongoDbShardKeySettingArgs:
     def is_unique(self, value: pulumi.Input[bool]):
         pulumi.set(self, "is_unique", value)
 
+
+if not MYPY:
+    class MongoDbThrottlingSettingsArgsDict(TypedDict):
+        """
+        Specifies resource limits for the migration
+        """
+        max_parallelism: NotRequired[pulumi.Input[int]]
+        """
+        The maximum number of work items (e.g. collection copies) that will be processed in parallel
+        """
+        min_free_cpu: NotRequired[pulumi.Input[int]]
+        """
+        The percentage of CPU time that the migrator will try to avoid using, from 0 to 100
+        """
+        min_free_memory_mb: NotRequired[pulumi.Input[int]]
+        """
+        The number of megabytes of RAM that the migrator will try to avoid using
+        """
+elif False:
+    MongoDbThrottlingSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MongoDbThrottlingSettingsArgs:
@@ -4936,6 +6753,30 @@ class MongoDbThrottlingSettingsArgs:
     def min_free_memory_mb(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "min_free_memory_mb", value)
 
+
+if not MYPY:
+    class MongoMigrationCollectionArgsDict(TypedDict):
+        """
+        Mongo source and target database and collection details.
+        """
+        source_collection: NotRequired[pulumi.Input[str]]
+        """
+        Source collection name.
+        """
+        source_database: NotRequired[pulumi.Input[str]]
+        """
+        Source database name.
+        """
+        target_collection: NotRequired[pulumi.Input[str]]
+        """
+        Target collection name.
+        """
+        target_database: NotRequired[pulumi.Input[str]]
+        """
+        Target database name.
+        """
+elif False:
+    MongoMigrationCollectionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MongoMigrationCollectionArgs:
@@ -5008,6 +6849,39 @@ class MongoMigrationCollectionArgs:
     def target_database(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "target_database", value)
 
+
+if not MYPY:
+    class MySqlConnectionInfoArgsDict(TypedDict):
+        """
+        Information for connecting to MySQL server
+        """
+        port: pulumi.Input[int]
+        """
+        Port for Server
+        """
+        server_name: pulumi.Input[str]
+        """
+        Name of the server
+        """
+        type: pulumi.Input[str]
+        """
+        Type of connection info
+        Expected value is 'MySqlConnectionInfo'.
+        """
+        encrypt_connection: NotRequired[pulumi.Input[bool]]
+        """
+        Whether to encrypt the connection
+        """
+        password: NotRequired[pulumi.Input[str]]
+        """
+        Password credential.
+        """
+        user_name: NotRequired[pulumi.Input[str]]
+        """
+        User name
+        """
+elif False:
+    MySqlConnectionInfoArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MySqlConnectionInfoArgs:
@@ -5114,6 +6988,31 @@ class MySqlConnectionInfoArgs:
         pulumi.set(self, "user_name", value)
 
 
+if not MYPY:
+    class OracleConnectionInfoArgsDict(TypedDict):
+        """
+        Information for connecting to Oracle server
+        """
+        data_source: pulumi.Input[str]
+        """
+        EZConnect or TNSName connection string.
+        """
+        type: pulumi.Input[str]
+        """
+        Type of connection info
+        Expected value is 'OracleConnectionInfo'.
+        """
+        password: NotRequired[pulumi.Input[str]]
+        """
+        Password credential.
+        """
+        user_name: NotRequired[pulumi.Input[str]]
+        """
+        User name
+        """
+elif False:
+    OracleConnectionInfoArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OracleConnectionInfoArgs:
     def __init__(__self__, *,
@@ -5185,6 +7084,47 @@ class OracleConnectionInfoArgs:
     def user_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "user_name", value)
 
+
+if not MYPY:
+    class PostgreSqlConnectionInfoArgsDict(TypedDict):
+        """
+        Information for connecting to PostgreSQL server
+        """
+        port: pulumi.Input[int]
+        """
+        Port for Server
+        """
+        server_name: pulumi.Input[str]
+        """
+        Name of the server
+        """
+        type: pulumi.Input[str]
+        """
+        Type of connection info
+        Expected value is 'PostgreSqlConnectionInfo'.
+        """
+        database_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the database
+        """
+        encrypt_connection: NotRequired[pulumi.Input[bool]]
+        """
+        Whether to encrypt the connection
+        """
+        password: NotRequired[pulumi.Input[str]]
+        """
+        Password credential.
+        """
+        trust_server_certificate: NotRequired[pulumi.Input[bool]]
+        """
+        Whether to trust the server certificate
+        """
+        user_name: NotRequired[pulumi.Input[str]]
+        """
+        User name
+        """
+elif False:
+    PostgreSqlConnectionInfoArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PostgreSqlConnectionInfoArgs:
@@ -5325,6 +7265,26 @@ class PostgreSqlConnectionInfoArgs:
         pulumi.set(self, "user_name", value)
 
 
+if not MYPY:
+    class ProjectFilePropertiesArgsDict(TypedDict):
+        """
+        Base class for file properties.
+        """
+        extension: NotRequired[pulumi.Input[str]]
+        """
+        Optional File extension. If submitted it should not have a leading period and must match the extension from filePath.
+        """
+        file_path: NotRequired[pulumi.Input[str]]
+        """
+        Relative path of this file resource. This property can be set when creating or updating the file resource.
+        """
+        media_type: NotRequired[pulumi.Input[str]]
+        """
+        File content type. This property can be modified to reflect the file content type.
+        """
+elif False:
+    ProjectFilePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ProjectFilePropertiesArgs:
     def __init__(__self__, *,
@@ -5381,6 +7341,22 @@ class ProjectFilePropertiesArgs:
         pulumi.set(self, "media_type", value)
 
 
+if not MYPY:
+    class SelectedCertificateInputArgsDict(TypedDict):
+        """
+        Info for certificate to be exported for TDE enabled databases.
+        """
+        certificate_name: pulumi.Input[str]
+        """
+        Name of certificate to be exported.
+        """
+        password: pulumi.Input[str]
+        """
+        Password to use for encrypting the exported certificate.
+        """
+elif False:
+    SelectedCertificateInputArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SelectedCertificateInputArgs:
     def __init__(__self__, *,
@@ -5418,6 +7394,34 @@ class SelectedCertificateInputArgs:
     def password(self, value: pulumi.Input[str]):
         pulumi.set(self, "password", value)
 
+
+if not MYPY:
+    class ServiceSkuArgsDict(TypedDict):
+        """
+        An Azure SKU instance
+        """
+        capacity: NotRequired[pulumi.Input[int]]
+        """
+        The capacity of the SKU, if it supports scaling
+        """
+        family: NotRequired[pulumi.Input[str]]
+        """
+        The SKU family, used when the service has multiple performance classes within a tier, such as 'A', 'D', etc. for virtual machines
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The unique name of the SKU, such as 'P3'
+        """
+        size: NotRequired[pulumi.Input[str]]
+        """
+        The size of the SKU, used when the name alone does not denote a service size or when a SKU has multiple performance classes within a family, e.g. 'A1' for virtual machines
+        """
+        tier: NotRequired[pulumi.Input[str]]
+        """
+        The tier of the SKU, such as 'Basic', 'General Purpose', or 'Business Critical'
+        """
+elif False:
+    ServiceSkuArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ServiceSkuArgs:
@@ -5506,6 +7510,38 @@ class ServiceSkuArgs:
     def tier(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tier", value)
 
+
+if not MYPY:
+    class SqlConnectionInformationArgsDict(TypedDict):
+        """
+        Source SQL Connection
+        """
+        authentication: NotRequired[pulumi.Input[str]]
+        """
+        Authentication type.
+        """
+        data_source: NotRequired[pulumi.Input[str]]
+        """
+        Data source.
+        """
+        encrypt_connection: NotRequired[pulumi.Input[bool]]
+        """
+        Whether to encrypt connection or not.
+        """
+        password: NotRequired[pulumi.Input[str]]
+        """
+        Password to connect to source SQL.
+        """
+        trust_server_certificate: NotRequired[pulumi.Input[bool]]
+        """
+        Whether to trust server certificate or not.
+        """
+        user_name: NotRequired[pulumi.Input[str]]
+        """
+        User name to connect to source SQL.
+        """
+elif False:
+    SqlConnectionInformationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SqlConnectionInformationArgs:
@@ -5610,6 +7646,51 @@ class SqlConnectionInformationArgs:
     def user_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "user_name", value)
 
+
+if not MYPY:
+    class SqlConnectionInfoArgsDict(TypedDict):
+        """
+        Information for connecting to SQL database server
+        """
+        data_source: pulumi.Input[str]
+        """
+        Data source in the format Protocol:MachineName\\SQLServerInstanceName,PortNumber
+        """
+        type: pulumi.Input[str]
+        """
+        Type of connection info
+        Expected value is 'SqlConnectionInfo'.
+        """
+        additional_settings: NotRequired[pulumi.Input[str]]
+        """
+        Additional connection settings
+        """
+        authentication: NotRequired[pulumi.Input[Union[str, 'AuthenticationType']]]
+        """
+        Authentication type to use for connection
+        """
+        encrypt_connection: NotRequired[pulumi.Input[bool]]
+        """
+        Whether to encrypt the connection
+        """
+        password: NotRequired[pulumi.Input[str]]
+        """
+        Password credential.
+        """
+        platform: NotRequired[pulumi.Input[Union[str, 'SqlSourcePlatform']]]
+        """
+        Server platform type for connection
+        """
+        trust_server_certificate: NotRequired[pulumi.Input[bool]]
+        """
+        Whether to trust the server certificate
+        """
+        user_name: NotRequired[pulumi.Input[str]]
+        """
+        User name
+        """
+elif False:
+    SqlConnectionInfoArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SqlConnectionInfoArgs:
@@ -5767,6 +7848,26 @@ class SqlConnectionInfoArgs:
         pulumi.set(self, "user_name", value)
 
 
+if not MYPY:
+    class SsisMigrationInfoArgsDict(TypedDict):
+        """
+        SSIS migration info with SSIS store type, overwrite policy.
+        """
+        environment_overwrite_option: NotRequired[pulumi.Input[Union[str, 'SsisMigrationOverwriteOption']]]
+        """
+        The overwrite option for the SSIS environment migration
+        """
+        project_overwrite_option: NotRequired[pulumi.Input[Union[str, 'SsisMigrationOverwriteOption']]]
+        """
+        The overwrite option for the SSIS project migration
+        """
+        ssis_store_type: NotRequired[pulumi.Input[Union[str, 'SsisStoreType']]]
+        """
+        The SSIS store type of source, only SSIS catalog is supported now in DMS
+        """
+elif False:
+    SsisMigrationInfoArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SsisMigrationInfoArgs:
     def __init__(__self__, *,
@@ -5822,6 +7923,27 @@ class SsisMigrationInfoArgs:
     def ssis_store_type(self, value: Optional[pulumi.Input[Union[str, 'SsisStoreType']]]):
         pulumi.set(self, "ssis_store_type", value)
 
+
+if not MYPY:
+    class ValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesArgsDict(TypedDict):
+        """
+        Properties for task that validates migration input for SQL to Azure SQL DB sync migrations
+        """
+        task_type: pulumi.Input[str]
+        """
+        Task type.
+        Expected value is 'ValidateMigrationInput.SqlServer.SqlDb.Sync'.
+        """
+        client_data: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Key value pairs of client data to attach meta data information to task
+        """
+        input: NotRequired[pulumi.Input['ValidateSyncMigrationInputSqlServerTaskInputArgsDict']]
+        """
+        Task input
+        """
+elif False:
+    ValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesArgs:
@@ -5879,6 +8001,38 @@ class ValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesArgs:
     def input(self, value: Optional[pulumi.Input['ValidateSyncMigrationInputSqlServerTaskInputArgs']]):
         pulumi.set(self, "input", value)
 
+
+if not MYPY:
+    class ValidateMigrationInputSqlServerSqlMISyncTaskInputArgsDict(TypedDict):
+        """
+        Input for task that migrates SQL Server databases to Azure SQL Database Managed Instance online scenario.
+        """
+        azure_app: pulumi.Input['AzureActiveDirectoryAppArgsDict']
+        """
+        Azure Active Directory Application the DMS instance will use to connect to the target instance of Azure SQL Database Managed Instance and the Azure Storage Account
+        """
+        selected_databases: pulumi.Input[Sequence[pulumi.Input['MigrateSqlServerSqlMIDatabaseInputArgsDict']]]
+        """
+        Databases to migrate
+        """
+        source_connection_info: pulumi.Input['SqlConnectionInfoArgsDict']
+        """
+        Connection information for source SQL Server
+        """
+        storage_resource_id: pulumi.Input[str]
+        """
+        Fully qualified resourceId of storage
+        """
+        target_connection_info: pulumi.Input['MiSqlConnectionInfoArgsDict']
+        """
+        Connection information for Azure SQL Database Managed Instance
+        """
+        backup_file_share: NotRequired[pulumi.Input['FileShareArgsDict']]
+        """
+        Backup file share information for all selected databases.
+        """
+elif False:
+    ValidateMigrationInputSqlServerSqlMISyncTaskInputArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ValidateMigrationInputSqlServerSqlMISyncTaskInputArgs:
@@ -5979,6 +8133,27 @@ class ValidateMigrationInputSqlServerSqlMISyncTaskInputArgs:
         pulumi.set(self, "backup_file_share", value)
 
 
+if not MYPY:
+    class ValidateMigrationInputSqlServerSqlMISyncTaskPropertiesArgsDict(TypedDict):
+        """
+        Properties for task that validates migration input for SQL to Azure SQL Database Managed Instance sync scenario
+        """
+        task_type: pulumi.Input[str]
+        """
+        Task type.
+        Expected value is 'ValidateMigrationInput.SqlServer.AzureSqlDbMI.Sync.LRS'.
+        """
+        client_data: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Key value pairs of client data to attach meta data information to task
+        """
+        input: NotRequired[pulumi.Input['ValidateMigrationInputSqlServerSqlMISyncTaskInputArgsDict']]
+        """
+        Task input
+        """
+elif False:
+    ValidateMigrationInputSqlServerSqlMISyncTaskPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ValidateMigrationInputSqlServerSqlMISyncTaskPropertiesArgs:
     def __init__(__self__, *,
@@ -6035,6 +8210,42 @@ class ValidateMigrationInputSqlServerSqlMISyncTaskPropertiesArgs:
     def input(self, value: Optional[pulumi.Input['ValidateMigrationInputSqlServerSqlMISyncTaskInputArgs']]):
         pulumi.set(self, "input", value)
 
+
+if not MYPY:
+    class ValidateMigrationInputSqlServerSqlMITaskInputArgsDict(TypedDict):
+        """
+        Input for task that validates migration input for SQL to Azure SQL Managed Instance
+        """
+        backup_blob_share: pulumi.Input['BlobShareArgsDict']
+        """
+        SAS URI of Azure Storage Account Container to be used for storing backup files.
+        """
+        selected_databases: pulumi.Input[Sequence[pulumi.Input['MigrateSqlServerSqlMIDatabaseInputArgsDict']]]
+        """
+        Databases to migrate
+        """
+        source_connection_info: pulumi.Input['SqlConnectionInfoArgsDict']
+        """
+        Information for connecting to source
+        """
+        target_connection_info: pulumi.Input['SqlConnectionInfoArgsDict']
+        """
+        Information for connecting to target
+        """
+        backup_file_share: NotRequired[pulumi.Input['FileShareArgsDict']]
+        """
+        Backup file share information for all selected databases.
+        """
+        backup_mode: NotRequired[pulumi.Input[Union[str, 'BackupMode']]]
+        """
+        Backup Mode to specify whether to use existing backup or create new backup.
+        """
+        selected_logins: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Logins to migrate
+        """
+elif False:
+    ValidateMigrationInputSqlServerSqlMITaskInputArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ValidateMigrationInputSqlServerSqlMITaskInputArgs:
@@ -6152,6 +8363,27 @@ class ValidateMigrationInputSqlServerSqlMITaskInputArgs:
         pulumi.set(self, "selected_logins", value)
 
 
+if not MYPY:
+    class ValidateMigrationInputSqlServerSqlMITaskPropertiesArgsDict(TypedDict):
+        """
+        Properties for task that validates migration input for SQL to Azure SQL Database Managed Instance
+        """
+        task_type: pulumi.Input[str]
+        """
+        Task type.
+        Expected value is 'ValidateMigrationInput.SqlServer.AzureSqlDbMI'.
+        """
+        client_data: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Key value pairs of client data to attach meta data information to task
+        """
+        input: NotRequired[pulumi.Input['ValidateMigrationInputSqlServerSqlMITaskInputArgsDict']]
+        """
+        Task input
+        """
+elif False:
+    ValidateMigrationInputSqlServerSqlMITaskPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ValidateMigrationInputSqlServerSqlMITaskPropertiesArgs:
     def __init__(__self__, *,
@@ -6208,6 +8440,27 @@ class ValidateMigrationInputSqlServerSqlMITaskPropertiesArgs:
     def input(self, value: Optional[pulumi.Input['ValidateMigrationInputSqlServerSqlMITaskInputArgs']]):
         pulumi.set(self, "input", value)
 
+
+if not MYPY:
+    class ValidateMongoDbTaskPropertiesArgsDict(TypedDict):
+        """
+        Properties for the task that validates a migration between MongoDB data sources
+        """
+        task_type: pulumi.Input[str]
+        """
+        Task type.
+        Expected value is 'Validate.MongoDb'.
+        """
+        client_data: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Key value pairs of client data to attach meta data information to task
+        """
+        input: NotRequired[pulumi.Input['MongoDbMigrationSettingsArgsDict']]
+        """
+        Describes how a MongoDB data migration should be performed
+        """
+elif False:
+    ValidateMongoDbTaskPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ValidateMongoDbTaskPropertiesArgs:
@@ -6266,6 +8519,27 @@ class ValidateMongoDbTaskPropertiesArgs:
         pulumi.set(self, "input", value)
 
 
+if not MYPY:
+    class ValidateOracleAzureDbForPostgreSqlSyncTaskPropertiesArgsDict(TypedDict):
+        """
+        Properties for the task that validates a migration for Oracle to Azure Database for PostgreSQL for online migrations
+        """
+        task_type: pulumi.Input[str]
+        """
+        Task type.
+        Expected value is 'Validate.Oracle.AzureDbPostgreSql.Sync'.
+        """
+        client_data: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Key value pairs of client data to attach meta data information to task
+        """
+        input: NotRequired[pulumi.Input['MigrateOracleAzureDbPostgreSqlSyncTaskInputArgsDict']]
+        """
+        Input for the task that migrates Oracle databases to Azure Database for PostgreSQL for online migrations
+        """
+elif False:
+    ValidateOracleAzureDbForPostgreSqlSyncTaskPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ValidateOracleAzureDbForPostgreSqlSyncTaskPropertiesArgs:
     def __init__(__self__, *,
@@ -6322,6 +8596,26 @@ class ValidateOracleAzureDbForPostgreSqlSyncTaskPropertiesArgs:
     def input(self, value: Optional[pulumi.Input['MigrateOracleAzureDbPostgreSqlSyncTaskInputArgs']]):
         pulumi.set(self, "input", value)
 
+
+if not MYPY:
+    class ValidateSyncMigrationInputSqlServerTaskInputArgsDict(TypedDict):
+        """
+        Input for task that validates migration input for SQL sync migrations
+        """
+        selected_databases: pulumi.Input[Sequence[pulumi.Input['MigrateSqlServerSqlDbSyncDatabaseInputArgsDict']]]
+        """
+        Databases to migrate
+        """
+        source_connection_info: pulumi.Input['SqlConnectionInfoArgsDict']
+        """
+        Information for connecting to source SQL server
+        """
+        target_connection_info: pulumi.Input['SqlConnectionInfoArgsDict']
+        """
+        Information for connecting to target
+        """
+elif False:
+    ValidateSyncMigrationInputSqlServerTaskInputArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ValidateSyncMigrationInputSqlServerTaskInputArgs:

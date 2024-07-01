@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -185,11 +190,11 @@ class SAPVirtualInstance(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: Optional[pulumi.Input[Union[pulumi.InputType['DeploymentConfigurationArgs'], pulumi.InputType['DeploymentWithOSConfigurationArgs'], pulumi.InputType['DiscoveryConfigurationArgs']]]] = None,
+                 configuration: Optional[pulumi.Input[Union[Union['DeploymentConfigurationArgs', 'DeploymentConfigurationArgsDict'], Union['DeploymentWithOSConfigurationArgs', 'DeploymentWithOSConfigurationArgsDict'], Union['DiscoveryConfigurationArgs', 'DiscoveryConfigurationArgsDict']]]] = None,
                  environment: Optional[pulumi.Input[Union[str, 'SAPEnvironmentType']]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['UserAssignedServiceIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['UserAssignedServiceIdentityArgs', 'UserAssignedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 managed_resource_group_configuration: Optional[pulumi.Input[pulumi.InputType['ManagedRGConfigurationArgs']]] = None,
+                 managed_resource_group_configuration: Optional[pulumi.Input[Union['ManagedRGConfigurationArgs', 'ManagedRGConfigurationArgsDict']]] = None,
                  managed_resources_network_access_type: Optional[pulumi.Input[Union[str, 'ManagedResourcesNetworkAccessType']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sap_product: Optional[pulumi.Input[Union[str, 'SAPProductType']]] = None,
@@ -201,11 +206,11 @@ class SAPVirtualInstance(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union[pulumi.InputType['DeploymentConfigurationArgs'], pulumi.InputType['DeploymentWithOSConfigurationArgs'], pulumi.InputType['DiscoveryConfigurationArgs']]] configuration: Defines if the SAP system is being created using Azure Center for SAP solutions (ACSS) or if an existing SAP system is being registered with ACSS
+        :param pulumi.Input[Union[Union['DeploymentConfigurationArgs', 'DeploymentConfigurationArgsDict'], Union['DeploymentWithOSConfigurationArgs', 'DeploymentWithOSConfigurationArgsDict'], Union['DiscoveryConfigurationArgs', 'DiscoveryConfigurationArgsDict']]] configuration: Defines if the SAP system is being created using Azure Center for SAP solutions (ACSS) or if an existing SAP system is being registered with ACSS
         :param pulumi.Input[Union[str, 'SAPEnvironmentType']] environment: Defines the environment type - Production/Non Production.
-        :param pulumi.Input[pulumi.InputType['UserAssignedServiceIdentityArgs']] identity: Managed service identity (user assigned identities)
+        :param pulumi.Input[Union['UserAssignedServiceIdentityArgs', 'UserAssignedServiceIdentityArgsDict']] identity: Managed service identity (user assigned identities)
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[pulumi.InputType['ManagedRGConfigurationArgs']] managed_resource_group_configuration: Managed resource group configuration
+        :param pulumi.Input[Union['ManagedRGConfigurationArgs', 'ManagedRGConfigurationArgsDict']] managed_resource_group_configuration: Managed resource group configuration
         :param pulumi.Input[Union[str, 'ManagedResourcesNetworkAccessType']] managed_resources_network_access_type: Specifies the network access configuration for the resources that will be deployed in the Managed Resource Group. The options to choose from are Public and Private. If 'Private' is chosen, the Storage Account service tag should be enabled on the subnets in which the SAP VMs exist. This is required for establishing connectivity between VM extensions and the managed resource group storage account. This setting is currently applicable only to Storage Account. Learn more here https://go.microsoft.com/fwlink/?linkid=2247228
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union[str, 'SAPProductType']] sap_product: Defines the SAP Product type.
@@ -236,11 +241,11 @@ class SAPVirtualInstance(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: Optional[pulumi.Input[Union[pulumi.InputType['DeploymentConfigurationArgs'], pulumi.InputType['DeploymentWithOSConfigurationArgs'], pulumi.InputType['DiscoveryConfigurationArgs']]]] = None,
+                 configuration: Optional[pulumi.Input[Union[Union['DeploymentConfigurationArgs', 'DeploymentConfigurationArgsDict'], Union['DeploymentWithOSConfigurationArgs', 'DeploymentWithOSConfigurationArgsDict'], Union['DiscoveryConfigurationArgs', 'DiscoveryConfigurationArgsDict']]]] = None,
                  environment: Optional[pulumi.Input[Union[str, 'SAPEnvironmentType']]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['UserAssignedServiceIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['UserAssignedServiceIdentityArgs', 'UserAssignedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 managed_resource_group_configuration: Optional[pulumi.Input[pulumi.InputType['ManagedRGConfigurationArgs']]] = None,
+                 managed_resource_group_configuration: Optional[pulumi.Input[Union['ManagedRGConfigurationArgs', 'ManagedRGConfigurationArgsDict']]] = None,
                  managed_resources_network_access_type: Optional[pulumi.Input[Union[str, 'ManagedResourcesNetworkAccessType']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sap_product: Optional[pulumi.Input[Union[str, 'SAPProductType']]] = None,

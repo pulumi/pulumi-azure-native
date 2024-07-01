@@ -4,20 +4,53 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'AsymmetricEncryptedSecretArgs',
+    'AsymmetricEncryptedSecretArgsDict',
     'BandwidthScheduleArgs',
+    'BandwidthScheduleArgsDict',
     'ManagerIntrinsicSettingsArgs',
+    'ManagerIntrinsicSettingsArgsDict',
     'ManagerSkuArgs',
+    'ManagerSkuArgsDict',
     'ScheduleRecurrenceArgs',
+    'ScheduleRecurrenceArgsDict',
     'TimeArgs',
+    'TimeArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AsymmetricEncryptedSecretArgsDict(TypedDict):
+        """
+        Represent the secrets intended for encryption with asymmetric key pair.
+        """
+        encryption_algorithm: pulumi.Input['EncryptionAlgorithm']
+        """
+        The algorithm used to encrypt "Value".
+        """
+        value: pulumi.Input[str]
+        """
+        The value of the secret.
+        """
+        encryption_cert_thumbprint: NotRequired[pulumi.Input[str]]
+        """
+        Thumbprint certificate that was used to encrypt "Value". If the value in unencrypted, it will be null.
+        """
+elif False:
+    AsymmetricEncryptedSecretArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AsymmetricEncryptedSecretArgs:
@@ -72,6 +105,30 @@ class AsymmetricEncryptedSecretArgs:
     def encryption_cert_thumbprint(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "encryption_cert_thumbprint", value)
 
+
+if not MYPY:
+    class BandwidthScheduleArgsDict(TypedDict):
+        """
+        The schedule for bandwidth setting.
+        """
+        days: pulumi.Input[Sequence[pulumi.Input['DayOfWeek']]]
+        """
+        The days of the week when this schedule is applicable.
+        """
+        rate_in_mbps: pulumi.Input[int]
+        """
+        The rate in Mbps.
+        """
+        start: pulumi.Input['TimeArgsDict']
+        """
+        The start time of the schedule.
+        """
+        stop: pulumi.Input['TimeArgsDict']
+        """
+        The stop time of the schedule.
+        """
+elif False:
+    BandwidthScheduleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class BandwidthScheduleArgs:
@@ -141,6 +198,18 @@ class BandwidthScheduleArgs:
         pulumi.set(self, "stop", value)
 
 
+if not MYPY:
+    class ManagerIntrinsicSettingsArgsDict(TypedDict):
+        """
+        Intrinsic settings which refers to the type of the StorSimple Manager.
+        """
+        type: pulumi.Input['ManagerType']
+        """
+        The type of StorSimple Manager.
+        """
+elif False:
+    ManagerIntrinsicSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ManagerIntrinsicSettingsArgs:
     def __init__(__self__, *,
@@ -164,6 +233,18 @@ class ManagerIntrinsicSettingsArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class ManagerSkuArgsDict(TypedDict):
+        """
+        The Sku.
+        """
+        name: pulumi.Input['ManagerSkuType']
+        """
+        Refers to the sku name which should be "Standard"
+        """
+elif False:
+    ManagerSkuArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ManagerSkuArgs:
     def __init__(__self__, *,
@@ -186,6 +267,26 @@ class ManagerSkuArgs:
     def name(self, value: pulumi.Input['ManagerSkuType']):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class ScheduleRecurrenceArgsDict(TypedDict):
+        """
+        The schedule recurrence.
+        """
+        recurrence_type: pulumi.Input['RecurrenceType']
+        """
+        The recurrence type.
+        """
+        recurrence_value: pulumi.Input[int]
+        """
+        The recurrence value.
+        """
+        weekly_days_list: NotRequired[pulumi.Input[Sequence[pulumi.Input['DayOfWeek']]]]
+        """
+        The week days list. Applicable only for schedules of recurrence type 'weekly'.
+        """
+elif False:
+    ScheduleRecurrenceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ScheduleRecurrenceArgs:
@@ -240,6 +341,26 @@ class ScheduleRecurrenceArgs:
     def weekly_days_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DayOfWeek']]]]):
         pulumi.set(self, "weekly_days_list", value)
 
+
+if not MYPY:
+    class TimeArgsDict(TypedDict):
+        """
+        The time.
+        """
+        hours: pulumi.Input[int]
+        """
+        The hour.
+        """
+        minutes: pulumi.Input[int]
+        """
+        The minute.
+        """
+        seconds: pulumi.Input[int]
+        """
+        The second.
+        """
+elif False:
+    TimeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TimeArgs:

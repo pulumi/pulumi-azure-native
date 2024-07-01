@@ -4,19 +4,43 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'GatewayDetailsArgs',
+    'GatewayDetailsArgsDict',
     'IPv4FirewallRuleArgs',
+    'IPv4FirewallRuleArgsDict',
     'IPv4FirewallSettingsArgs',
+    'IPv4FirewallSettingsArgsDict',
     'ResourceSkuArgs',
+    'ResourceSkuArgsDict',
     'ServerAdministratorsArgs',
+    'ServerAdministratorsArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class GatewayDetailsArgsDict(TypedDict):
+        """
+        The gateway details.
+        """
+        gateway_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        Gateway resource to be associated with the server.
+        """
+elif False:
+    GatewayDetailsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GatewayDetailsArgs:
@@ -41,6 +65,26 @@ class GatewayDetailsArgs:
     def gateway_resource_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "gateway_resource_id", value)
 
+
+if not MYPY:
+    class IPv4FirewallRuleArgsDict(TypedDict):
+        """
+        The detail of firewall rule.
+        """
+        firewall_rule_name: NotRequired[pulumi.Input[str]]
+        """
+        The rule name.
+        """
+        range_end: NotRequired[pulumi.Input[str]]
+        """
+        The end range of IPv4.
+        """
+        range_start: NotRequired[pulumi.Input[str]]
+        """
+        The start range of IPv4.
+        """
+elif False:
+    IPv4FirewallRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IPv4FirewallRuleArgs:
@@ -98,6 +142,22 @@ class IPv4FirewallRuleArgs:
         pulumi.set(self, "range_start", value)
 
 
+if not MYPY:
+    class IPv4FirewallSettingsArgsDict(TypedDict):
+        """
+        An array of firewall rules.
+        """
+        enable_power_bi_service: NotRequired[pulumi.Input[bool]]
+        """
+        The indicator of enabling PBI service.
+        """
+        firewall_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['IPv4FirewallRuleArgsDict']]]]
+        """
+        An array of firewall rules.
+        """
+elif False:
+    IPv4FirewallSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IPv4FirewallSettingsArgs:
     def __init__(__self__, *,
@@ -137,6 +197,26 @@ class IPv4FirewallSettingsArgs:
     def firewall_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IPv4FirewallRuleArgs']]]]):
         pulumi.set(self, "firewall_rules", value)
 
+
+if not MYPY:
+    class ResourceSkuArgsDict(TypedDict):
+        """
+        Represents the SKU name and Azure pricing tier for Analysis Services resource.
+        """
+        name: pulumi.Input[str]
+        """
+        Name of the SKU level.
+        """
+        capacity: NotRequired[pulumi.Input[int]]
+        """
+        The number of instances in the read only query pool.
+        """
+        tier: NotRequired[pulumi.Input[Union[str, 'SkuTier']]]
+        """
+        The name of the Azure pricing tier to which the SKU applies.
+        """
+elif False:
+    ResourceSkuArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ResourceSkuArgs:
@@ -194,6 +274,18 @@ class ResourceSkuArgs:
     def tier(self, value: Optional[pulumi.Input[Union[str, 'SkuTier']]]):
         pulumi.set(self, "tier", value)
 
+
+if not MYPY:
+    class ServerAdministratorsArgsDict(TypedDict):
+        """
+        An array of administrator user identities.
+        """
+        members: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        An array of administrator user identities.
+        """
+elif False:
+    ServerAdministratorsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ServerAdministratorsArgs:

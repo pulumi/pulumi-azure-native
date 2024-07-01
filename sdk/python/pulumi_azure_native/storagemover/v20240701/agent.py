@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -141,7 +146,7 @@ class Agent(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  storage_mover_name: Optional[pulumi.Input[str]] = None,
-                 upload_limit_schedule: Optional[pulumi.Input[pulumi.InputType['UploadLimitScheduleArgs']]] = None,
+                 upload_limit_schedule: Optional[pulumi.Input[Union['UploadLimitScheduleArgs', 'UploadLimitScheduleArgsDict']]] = None,
                  __props__=None):
         """
         The Agent resource.
@@ -154,7 +159,7 @@ class Agent(pulumi.CustomResource):
         :param pulumi.Input[str] description: A description for the Agent.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] storage_mover_name: The name of the Storage Mover resource.
-        :param pulumi.Input[pulumi.InputType['UploadLimitScheduleArgs']] upload_limit_schedule: The WAN-link upload limit schedule that applies to any Job Run the agent executes. Data plane operations (migrating files) are affected. Control plane operations ensure seamless migration functionality and are not limited by this schedule. The schedule is interpreted with the agent's local time.
+        :param pulumi.Input[Union['UploadLimitScheduleArgs', 'UploadLimitScheduleArgsDict']] upload_limit_schedule: The WAN-link upload limit schedule that applies to any Job Run the agent executes. Data plane operations (migrating files) are affected. Control plane operations ensure seamless migration functionality and are not limited by this schedule. The schedule is interpreted with the agent's local time.
         """
         ...
     @overload
@@ -186,7 +191,7 @@ class Agent(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  storage_mover_name: Optional[pulumi.Input[str]] = None,
-                 upload_limit_schedule: Optional[pulumi.Input[pulumi.InputType['UploadLimitScheduleArgs']]] = None,
+                 upload_limit_schedule: Optional[pulumi.Input[Union['UploadLimitScheduleArgs', 'UploadLimitScheduleArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

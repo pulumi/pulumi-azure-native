@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -173,8 +178,8 @@ class ExternalNetwork(pulumi.CustomResource):
                  external_network_name: Optional[pulumi.Input[str]] = None,
                  import_route_policy_id: Optional[pulumi.Input[str]] = None,
                  l3_isolation_domain_name: Optional[pulumi.Input[str]] = None,
-                 option_a_properties: Optional[pulumi.Input[pulumi.InputType['ExternalNetworkPropertiesOptionAPropertiesArgs']]] = None,
-                 option_b_properties: Optional[pulumi.Input[pulumi.InputType['OptionBPropertiesArgs']]] = None,
+                 option_a_properties: Optional[pulumi.Input[Union['ExternalNetworkPropertiesOptionAPropertiesArgs', 'ExternalNetworkPropertiesOptionAPropertiesArgsDict']]] = None,
+                 option_b_properties: Optional[pulumi.Input[Union['OptionBPropertiesArgs', 'OptionBPropertiesArgsDict']]] = None,
                  peering_option: Optional[pulumi.Input[Union[str, 'PeeringOption']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -188,8 +193,8 @@ class ExternalNetwork(pulumi.CustomResource):
         :param pulumi.Input[str] external_network_name: Name of the ExternalNetwork
         :param pulumi.Input[str] import_route_policy_id: ARM resource ID of importRoutePolicy.
         :param pulumi.Input[str] l3_isolation_domain_name: Name of the L3IsolationDomain
-        :param pulumi.Input[pulumi.InputType['ExternalNetworkPropertiesOptionAPropertiesArgs']] option_a_properties: option A properties object
-        :param pulumi.Input[pulumi.InputType['OptionBPropertiesArgs']] option_b_properties: option B properties object
+        :param pulumi.Input[Union['ExternalNetworkPropertiesOptionAPropertiesArgs', 'ExternalNetworkPropertiesOptionAPropertiesArgsDict']] option_a_properties: option A properties object
+        :param pulumi.Input[Union['OptionBPropertiesArgs', 'OptionBPropertiesArgsDict']] option_b_properties: option B properties object
         :param pulumi.Input[Union[str, 'PeeringOption']] peering_option: Peering option list.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         """
@@ -222,8 +227,8 @@ class ExternalNetwork(pulumi.CustomResource):
                  external_network_name: Optional[pulumi.Input[str]] = None,
                  import_route_policy_id: Optional[pulumi.Input[str]] = None,
                  l3_isolation_domain_name: Optional[pulumi.Input[str]] = None,
-                 option_a_properties: Optional[pulumi.Input[pulumi.InputType['ExternalNetworkPropertiesOptionAPropertiesArgs']]] = None,
-                 option_b_properties: Optional[pulumi.Input[pulumi.InputType['OptionBPropertiesArgs']]] = None,
+                 option_a_properties: Optional[pulumi.Input[Union['ExternalNetworkPropertiesOptionAPropertiesArgs', 'ExternalNetworkPropertiesOptionAPropertiesArgsDict']]] = None,
+                 option_b_properties: Optional[pulumi.Input[Union['OptionBPropertiesArgs', 'OptionBPropertiesArgsDict']]] = None,
                  peering_option: Optional[pulumi.Input[Union[str, 'PeeringOption']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):

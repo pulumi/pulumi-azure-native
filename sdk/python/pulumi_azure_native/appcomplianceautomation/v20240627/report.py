@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -124,8 +129,8 @@ class Report(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  offer_guid: Optional[pulumi.Input[str]] = None,
                  report_name: Optional[pulumi.Input[str]] = None,
-                 resources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceMetadataArgs']]]]] = None,
-                 storage_info: Optional[pulumi.Input[pulumi.InputType['StorageInfoArgs']]] = None,
+                 resources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResourceMetadataArgs', 'ResourceMetadataArgsDict']]]]] = None,
+                 storage_info: Optional[pulumi.Input[Union['StorageInfoArgs', 'StorageInfoArgsDict']]] = None,
                  time_zone: Optional[pulumi.Input[str]] = None,
                  trigger_time: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -136,8 +141,8 @@ class Report(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] offer_guid: A list of comma-separated offerGuids indicates a series of offerGuids that map to the report. For example, "00000000-0000-0000-0000-000000000001,00000000-0000-0000-0000-000000000002" and "00000000-0000-0000-0000-000000000003".
         :param pulumi.Input[str] report_name: Report Name.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceMetadataArgs']]]] resources: List of resource data.
-        :param pulumi.Input[pulumi.InputType['StorageInfoArgs']] storage_info: The information of 'bring your own storage' binding to the report
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ResourceMetadataArgs', 'ResourceMetadataArgsDict']]]] resources: List of resource data.
+        :param pulumi.Input[Union['StorageInfoArgs', 'StorageInfoArgsDict']] storage_info: The information of 'bring your own storage' binding to the report
         :param pulumi.Input[str] time_zone: Report collection trigger time's time zone, the available list can be obtained by executing "Get-TimeZone -ListAvailable" in PowerShell.
                An example of valid timezone id is "Pacific Standard Time".
         :param pulumi.Input[str] trigger_time: Report collection trigger time.
@@ -168,8 +173,8 @@ class Report(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  offer_guid: Optional[pulumi.Input[str]] = None,
                  report_name: Optional[pulumi.Input[str]] = None,
-                 resources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceMetadataArgs']]]]] = None,
-                 storage_info: Optional[pulumi.Input[pulumi.InputType['StorageInfoArgs']]] = None,
+                 resources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResourceMetadataArgs', 'ResourceMetadataArgsDict']]]]] = None,
+                 storage_info: Optional[pulumi.Input[Union['StorageInfoArgs', 'StorageInfoArgsDict']]] = None,
                  time_zone: Optional[pulumi.Input[str]] = None,
                  trigger_time: Optional[pulumi.Input[str]] = None,
                  __props__=None):

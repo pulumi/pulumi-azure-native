@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -59,8 +64,8 @@ class AwaitableListProductsAndConfigurationsResult(ListProductsAndConfigurations
             value=self.value)
 
 
-def list_products_and_configurations(configuration_filter: Optional[pulumi.InputType['ConfigurationFilter']] = None,
-                                     customer_subscription_details: Optional[pulumi.InputType['CustomerSubscriptionDetails']] = None,
+def list_products_and_configurations(configuration_filter: Optional[Union['ConfigurationFilter', 'ConfigurationFilterDict']] = None,
+                                     customer_subscription_details: Optional[Union['CustomerSubscriptionDetails', 'CustomerSubscriptionDetailsDict']] = None,
                                      skip_token: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListProductsAndConfigurationsResult:
     """
@@ -70,8 +75,8 @@ def list_products_and_configurations(configuration_filter: Optional[pulumi.Input
     Other available API versions: 2024-02-01.
 
 
-    :param pulumi.InputType['ConfigurationFilter'] configuration_filter: Holds details about product hierarchy information and filterable property.
-    :param pulumi.InputType['CustomerSubscriptionDetails'] customer_subscription_details: Customer subscription properties. Clients can display available products to unregistered customers by explicitly passing subscription details.
+    :param Union['ConfigurationFilter', 'ConfigurationFilterDict'] configuration_filter: Holds details about product hierarchy information and filterable property.
+    :param Union['CustomerSubscriptionDetails', 'CustomerSubscriptionDetailsDict'] customer_subscription_details: Customer subscription properties. Clients can display available products to unregistered customers by explicitly passing subscription details.
     :param str skip_token: $skipToken is supported on list of configurations, which provides the next page in the list of configurations.
     """
     __args__ = dict()
@@ -87,8 +92,8 @@ def list_products_and_configurations(configuration_filter: Optional[pulumi.Input
 
 
 @_utilities.lift_output_func(list_products_and_configurations)
-def list_products_and_configurations_output(configuration_filter: Optional[pulumi.Input[Optional[pulumi.InputType['ConfigurationFilter']]]] = None,
-                                            customer_subscription_details: Optional[pulumi.Input[Optional[pulumi.InputType['CustomerSubscriptionDetails']]]] = None,
+def list_products_and_configurations_output(configuration_filter: Optional[pulumi.Input[Optional[Union['ConfigurationFilter', 'ConfigurationFilterDict']]]] = None,
+                                            customer_subscription_details: Optional[pulumi.Input[Optional[Union['CustomerSubscriptionDetails', 'CustomerSubscriptionDetailsDict']]]] = None,
                                             skip_token: Optional[pulumi.Input[Optional[str]]] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListProductsAndConfigurationsResult]:
     """
@@ -98,8 +103,8 @@ def list_products_and_configurations_output(configuration_filter: Optional[pulum
     Other available API versions: 2024-02-01.
 
 
-    :param pulumi.InputType['ConfigurationFilter'] configuration_filter: Holds details about product hierarchy information and filterable property.
-    :param pulumi.InputType['CustomerSubscriptionDetails'] customer_subscription_details: Customer subscription properties. Clients can display available products to unregistered customers by explicitly passing subscription details.
+    :param Union['ConfigurationFilter', 'ConfigurationFilterDict'] configuration_filter: Holds details about product hierarchy information and filterable property.
+    :param Union['CustomerSubscriptionDetails', 'CustomerSubscriptionDetailsDict'] customer_subscription_details: Customer subscription properties. Clients can display available products to unregistered customers by explicitly passing subscription details.
     :param str skip_token: $skipToken is supported on list of configurations, which provides the next page in the list of configurations.
     """
     ...

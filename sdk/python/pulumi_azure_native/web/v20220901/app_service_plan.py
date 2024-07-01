@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -392,21 +397,21 @@ class AppServicePlan(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  elastic_scale_enabled: Optional[pulumi.Input[bool]] = None,
-                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
                  free_offer_expiration_time: Optional[pulumi.Input[str]] = None,
-                 hosting_environment_profile: Optional[pulumi.Input[pulumi.InputType['HostingEnvironmentProfileArgs']]] = None,
+                 hosting_environment_profile: Optional[pulumi.Input[Union['HostingEnvironmentProfileArgs', 'HostingEnvironmentProfileArgsDict']]] = None,
                  hyper_v: Optional[pulumi.Input[bool]] = None,
                  is_spot: Optional[pulumi.Input[bool]] = None,
                  is_xenon: Optional[pulumi.Input[bool]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
-                 kube_environment_profile: Optional[pulumi.Input[pulumi.InputType['KubeEnvironmentProfileArgs']]] = None,
+                 kube_environment_profile: Optional[pulumi.Input[Union['KubeEnvironmentProfileArgs', 'KubeEnvironmentProfileArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  maximum_elastic_worker_count: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  per_site_scaling: Optional[pulumi.Input[bool]] = None,
                  reserved: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SkuDescriptionArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuDescriptionArgs', 'SkuDescriptionArgsDict']]] = None,
                  spot_expiration_time: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_worker_count: Optional[pulumi.Input[int]] = None,
@@ -420,14 +425,14 @@ class AppServicePlan(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] elastic_scale_enabled: ServerFarm supports ElasticScale. Apps in this plan will scale as if the ServerFarm was ElasticPremium sku
-        :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: Extended Location.
+        :param pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']] extended_location: Extended Location.
         :param pulumi.Input[str] free_offer_expiration_time: The time when the server farm free offer expires.
-        :param pulumi.Input[pulumi.InputType['HostingEnvironmentProfileArgs']] hosting_environment_profile: Specification for the App Service Environment to use for the App Service plan.
+        :param pulumi.Input[Union['HostingEnvironmentProfileArgs', 'HostingEnvironmentProfileArgsDict']] hosting_environment_profile: Specification for the App Service Environment to use for the App Service plan.
         :param pulumi.Input[bool] hyper_v: If Hyper-V container app service plan <code>true</code>, <code>false</code> otherwise.
         :param pulumi.Input[bool] is_spot: If <code>true</code>, this App Service Plan owns spot instances.
         :param pulumi.Input[bool] is_xenon: Obsolete: If Hyper-V container app service plan <code>true</code>, <code>false</code> otherwise.
         :param pulumi.Input[str] kind: Kind of resource.
-        :param pulumi.Input[pulumi.InputType['KubeEnvironmentProfileArgs']] kube_environment_profile: Specification for the Kubernetes Environment to use for the App Service plan.
+        :param pulumi.Input[Union['KubeEnvironmentProfileArgs', 'KubeEnvironmentProfileArgsDict']] kube_environment_profile: Specification for the Kubernetes Environment to use for the App Service plan.
         :param pulumi.Input[str] location: Resource Location.
         :param pulumi.Input[int] maximum_elastic_worker_count: Maximum number of total workers allowed for this ElasticScaleEnabled App Service Plan
         :param pulumi.Input[str] name: Name of the App Service plan.
@@ -435,7 +440,7 @@ class AppServicePlan(pulumi.CustomResource):
                If <code>false</code>, apps assigned to this App Service plan will scale to all instances of the plan.
         :param pulumi.Input[bool] reserved: If Linux app service plan <code>true</code>, <code>false</code> otherwise.
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
-        :param pulumi.Input[pulumi.InputType['SkuDescriptionArgs']] sku: Description of a SKU for a scalable resource.
+        :param pulumi.Input[Union['SkuDescriptionArgs', 'SkuDescriptionArgsDict']] sku: Description of a SKU for a scalable resource.
         :param pulumi.Input[str] spot_expiration_time: The time when the server farm expires. Valid only if it is a spot server farm.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[int] target_worker_count: Scaling worker count.
@@ -469,21 +474,21 @@ class AppServicePlan(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  elastic_scale_enabled: Optional[pulumi.Input[bool]] = None,
-                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
                  free_offer_expiration_time: Optional[pulumi.Input[str]] = None,
-                 hosting_environment_profile: Optional[pulumi.Input[pulumi.InputType['HostingEnvironmentProfileArgs']]] = None,
+                 hosting_environment_profile: Optional[pulumi.Input[Union['HostingEnvironmentProfileArgs', 'HostingEnvironmentProfileArgsDict']]] = None,
                  hyper_v: Optional[pulumi.Input[bool]] = None,
                  is_spot: Optional[pulumi.Input[bool]] = None,
                  is_xenon: Optional[pulumi.Input[bool]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
-                 kube_environment_profile: Optional[pulumi.Input[pulumi.InputType['KubeEnvironmentProfileArgs']]] = None,
+                 kube_environment_profile: Optional[pulumi.Input[Union['KubeEnvironmentProfileArgs', 'KubeEnvironmentProfileArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  maximum_elastic_worker_count: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  per_site_scaling: Optional[pulumi.Input[bool]] = None,
                  reserved: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SkuDescriptionArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuDescriptionArgs', 'SkuDescriptionArgsDict']]] = None,
                  spot_expiration_time: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_worker_count: Optional[pulumi.Input[int]] = None,

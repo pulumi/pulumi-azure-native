@@ -4,18 +4,41 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'AccountIdentityArgs',
+    'AccountIdentityArgsDict',
     'ConfigurationProfilePreferenceAntiMalwareArgs',
+    'ConfigurationProfilePreferenceAntiMalwareArgsDict',
     'ConfigurationProfilePreferencePropertiesArgs',
+    'ConfigurationProfilePreferencePropertiesArgsDict',
     'ConfigurationProfilePreferenceVmBackupArgs',
+    'ConfigurationProfilePreferenceVmBackupArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AccountIdentityArgsDict(TypedDict):
+        """
+        Identity for the Automanage account.
+        """
+        type: NotRequired[pulumi.Input['ResourceIdentityType']]
+        """
+        The type of identity used for the Automanage account. Currently, the only supported type is 'SystemAssigned', which implicitly creates an identity.
+        """
+elif False:
+    AccountIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AccountIdentityArgs:
@@ -40,6 +63,38 @@ class AccountIdentityArgs:
     def type(self, value: Optional[pulumi.Input['ResourceIdentityType']]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class ConfigurationProfilePreferenceAntiMalwareArgsDict(TypedDict):
+        """
+        Automanage configuration profile Antimalware preferences.
+        """
+        enable_real_time_protection: NotRequired[pulumi.Input[Union[str, 'EnableRealTimeProtection']]]
+        """
+        Enables or disables Real Time Protection
+        """
+        exclusions: NotRequired[Any]
+        """
+        Extensions, Paths and Processes that must be excluded from scan
+        """
+        run_scheduled_scan: NotRequired[pulumi.Input[Union[str, 'RunScheduledScan']]]
+        """
+        Enables or disables a periodic scan for antimalware
+        """
+        scan_day: NotRequired[pulumi.Input[str]]
+        """
+        Schedule scan settings day
+        """
+        scan_time_in_minutes: NotRequired[pulumi.Input[str]]
+        """
+        Schedule scan settings time
+        """
+        scan_type: NotRequired[pulumi.Input[Union[str, 'ScanType']]]
+        """
+        Type of scheduled scan
+        """
+elif False:
+    ConfigurationProfilePreferenceAntiMalwareArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ConfigurationProfilePreferenceAntiMalwareArgs:
@@ -145,6 +200,22 @@ class ConfigurationProfilePreferenceAntiMalwareArgs:
         pulumi.set(self, "scan_type", value)
 
 
+if not MYPY:
+    class ConfigurationProfilePreferencePropertiesArgsDict(TypedDict):
+        """
+        Automanage configuration profile preference properties.
+        """
+        anti_malware: NotRequired[pulumi.Input['ConfigurationProfilePreferenceAntiMalwareArgsDict']]
+        """
+        The custom preferences for Azure Antimalware.
+        """
+        vm_backup: NotRequired[pulumi.Input['ConfigurationProfilePreferenceVmBackupArgsDict']]
+        """
+        The custom preferences for Azure VM Backup.
+        """
+elif False:
+    ConfigurationProfilePreferencePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ConfigurationProfilePreferencePropertiesArgs:
     def __init__(__self__, *,
@@ -184,6 +255,30 @@ class ConfigurationProfilePreferencePropertiesArgs:
     def vm_backup(self, value: Optional[pulumi.Input['ConfigurationProfilePreferenceVmBackupArgs']]):
         pulumi.set(self, "vm_backup", value)
 
+
+if not MYPY:
+    class ConfigurationProfilePreferenceVmBackupArgsDict(TypedDict):
+        """
+        Automanage configuration profile VM Backup preferences.
+        """
+        instant_rp_retention_range_in_days: NotRequired[pulumi.Input[int]]
+        """
+        Instant RP retention policy range in days
+        """
+        retention_policy: NotRequired[pulumi.Input[str]]
+        """
+        Retention policy with the details on backup copy retention ranges.
+        """
+        schedule_policy: NotRequired[pulumi.Input[str]]
+        """
+        Backup schedule specified as part of backup policy.
+        """
+        time_zone: NotRequired[pulumi.Input[str]]
+        """
+        TimeZone optional input as string. For example: Pacific Standard Time
+        """
+elif False:
+    ConfigurationProfilePreferenceVmBackupArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ConfigurationProfilePreferenceVmBackupArgs:

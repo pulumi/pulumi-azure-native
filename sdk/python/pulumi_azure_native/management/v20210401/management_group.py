@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -90,7 +95,7 @@ class ManagementGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 details: Optional[pulumi.Input[pulumi.InputType['CreateManagementGroupDetailsArgs']]] = None,
+                 details: Optional[pulumi.Input[Union['CreateManagementGroupDetailsArgs', 'CreateManagementGroupDetailsArgsDict']]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  group_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -100,7 +105,7 @@ class ManagementGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['CreateManagementGroupDetailsArgs']] details: The details of a management group used during creation.
+        :param pulumi.Input[Union['CreateManagementGroupDetailsArgs', 'CreateManagementGroupDetailsArgsDict']] details: The details of a management group used during creation.
         :param pulumi.Input[str] display_name: The friendly name of the management group. If no value is passed then this  field will be set to the groupId.
         :param pulumi.Input[str] group_id: Management Group ID.
         :param pulumi.Input[str] name: The name of the management group. For example, 00000000-0000-0000-0000-000000000000
@@ -129,7 +134,7 @@ class ManagementGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 details: Optional[pulumi.Input[pulumi.InputType['CreateManagementGroupDetailsArgs']]] = None,
+                 details: Optional[pulumi.Input[Union['CreateManagementGroupDetailsArgs', 'CreateManagementGroupDetailsArgsDict']]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  group_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,

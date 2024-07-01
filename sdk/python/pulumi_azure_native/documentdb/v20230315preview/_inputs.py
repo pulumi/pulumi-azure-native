@@ -4,72 +4,149 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'AnalyticalStorageConfigurationArgs',
+    'AnalyticalStorageConfigurationArgsDict',
     'ApiPropertiesArgs',
+    'ApiPropertiesArgsDict',
     'AutoscaleSettingsArgs',
+    'AutoscaleSettingsArgsDict',
     'BackupPolicyMigrationStateArgs',
+    'BackupPolicyMigrationStateArgsDict',
     'CapabilityArgs',
+    'CapabilityArgsDict',
     'CapacityArgs',
+    'CapacityArgsDict',
     'CassandraKeyspaceResourceArgs',
+    'CassandraKeyspaceResourceArgsDict',
     'CassandraPartitionKeyArgs',
+    'CassandraPartitionKeyArgsDict',
     'CassandraSchemaArgs',
+    'CassandraSchemaArgsDict',
     'CassandraTableResourceArgs',
+    'CassandraTableResourceArgsDict',
     'CassandraViewResourceArgs',
+    'CassandraViewResourceArgsDict',
     'ClientEncryptionIncludedPathArgs',
+    'ClientEncryptionIncludedPathArgsDict',
     'ClientEncryptionPolicyArgs',
+    'ClientEncryptionPolicyArgsDict',
     'ClusterKeyArgs',
+    'ClusterKeyArgsDict',
     'ColumnArgs',
+    'ColumnArgsDict',
     'CompositePathArgs',
+    'CompositePathArgsDict',
     'ConflictResolutionPolicyArgs',
+    'ConflictResolutionPolicyArgsDict',
     'ConsistencyPolicyArgs',
+    'ConsistencyPolicyArgsDict',
     'ContainerPartitionKeyArgs',
+    'ContainerPartitionKeyArgsDict',
     'ContinuousModeBackupPolicyArgs',
+    'ContinuousModeBackupPolicyArgsDict',
     'ContinuousModePropertiesArgs',
+    'ContinuousModePropertiesArgsDict',
     'CorsPolicyArgs',
+    'CorsPolicyArgsDict',
     'CreateUpdateOptionsArgs',
+    'CreateUpdateOptionsArgsDict',
     'DatabaseRestoreResourceArgs',
+    'DatabaseRestoreResourceArgsDict',
     'DiagnosticLogSettingsArgs',
+    'DiagnosticLogSettingsArgsDict',
     'ExcludedPathArgs',
+    'ExcludedPathArgsDict',
     'GraphResourceArgs',
+    'GraphResourceArgsDict',
     'GremlinDatabaseResourceArgs',
+    'GremlinDatabaseResourceArgsDict',
     'GremlinDatabaseRestoreResourceArgs',
+    'GremlinDatabaseRestoreResourceArgsDict',
     'GremlinGraphResourceArgs',
+    'GremlinGraphResourceArgsDict',
     'IncludedPathArgs',
+    'IncludedPathArgsDict',
     'IndexesArgs',
+    'IndexesArgsDict',
     'IndexingPolicyArgs',
+    'IndexingPolicyArgsDict',
     'IpAddressOrRangeArgs',
+    'IpAddressOrRangeArgsDict',
     'LocationArgs',
+    'LocationArgsDict',
     'ManagedServiceIdentityArgs',
+    'ManagedServiceIdentityArgsDict',
     'MaterializedViewDefinitionArgs',
+    'MaterializedViewDefinitionArgsDict',
     'MongoClusterRestoreParametersArgs',
+    'MongoClusterRestoreParametersArgsDict',
     'MongoDBCollectionResourceArgs',
+    'MongoDBCollectionResourceArgsDict',
     'MongoDBDatabaseResourceArgs',
+    'MongoDBDatabaseResourceArgsDict',
     'MongoIndexKeysArgs',
+    'MongoIndexKeysArgsDict',
     'MongoIndexOptionsArgs',
+    'MongoIndexOptionsArgsDict',
     'MongoIndexArgs',
+    'MongoIndexArgsDict',
     'NodeGroupSpecArgs',
+    'NodeGroupSpecArgsDict',
     'PeriodicModeBackupPolicyArgs',
+    'PeriodicModeBackupPolicyArgsDict',
     'PeriodicModePropertiesArgs',
+    'PeriodicModePropertiesArgsDict',
     'ResourceRestoreParametersArgs',
+    'ResourceRestoreParametersArgsDict',
     'RestoreParametersArgs',
+    'RestoreParametersArgsDict',
     'SpatialSpecArgs',
+    'SpatialSpecArgsDict',
     'SqlContainerResourceArgs',
+    'SqlContainerResourceArgsDict',
     'SqlDatabaseResourceArgs',
+    'SqlDatabaseResourceArgsDict',
     'SqlStoredProcedureResourceArgs',
+    'SqlStoredProcedureResourceArgsDict',
     'SqlTriggerResourceArgs',
+    'SqlTriggerResourceArgsDict',
     'SqlUserDefinedFunctionResourceArgs',
+    'SqlUserDefinedFunctionResourceArgsDict',
     'TableResourceArgs',
+    'TableResourceArgsDict',
     'UniqueKeyPolicyArgs',
+    'UniqueKeyPolicyArgsDict',
     'UniqueKeyArgs',
+    'UniqueKeyArgsDict',
     'VirtualNetworkRuleArgs',
+    'VirtualNetworkRuleArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AnalyticalStorageConfigurationArgsDict(TypedDict):
+        """
+        Analytical storage specific properties.
+        """
+        schema_type: NotRequired[pulumi.Input[Union[str, 'AnalyticalStorageSchemaType']]]
+        """
+        Describes the types of schema for analytical storage.
+        """
+elif False:
+    AnalyticalStorageConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AnalyticalStorageConfigurationArgs:
@@ -95,6 +172,15 @@ class AnalyticalStorageConfigurationArgs:
         pulumi.set(self, "schema_type", value)
 
 
+if not MYPY:
+    class ApiPropertiesArgsDict(TypedDict):
+        server_version: NotRequired[pulumi.Input[Union[str, 'ServerVersion']]]
+        """
+        Describes the ServerVersion of an a MongoDB account.
+        """
+elif False:
+    ApiPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ApiPropertiesArgs:
     def __init__(__self__, *,
@@ -118,6 +204,15 @@ class ApiPropertiesArgs:
         pulumi.set(self, "server_version", value)
 
 
+if not MYPY:
+    class AutoscaleSettingsArgsDict(TypedDict):
+        max_throughput: NotRequired[pulumi.Input[int]]
+        """
+        Represents maximum throughput, the resource can scale up to.
+        """
+elif False:
+    AutoscaleSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AutoscaleSettingsArgs:
     def __init__(__self__, *,
@@ -140,6 +235,26 @@ class AutoscaleSettingsArgs:
     def max_throughput(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max_throughput", value)
 
+
+if not MYPY:
+    class BackupPolicyMigrationStateArgsDict(TypedDict):
+        """
+        The object representing the state of the migration between the backup policies.
+        """
+        start_time: NotRequired[pulumi.Input[str]]
+        """
+        Time at which the backup policy migration started (ISO-8601 format).
+        """
+        status: NotRequired[pulumi.Input[Union[str, 'BackupPolicyMigrationStatus']]]
+        """
+        Describes the status of migration between backup policy types.
+        """
+        target_type: NotRequired[pulumi.Input[Union[str, 'BackupPolicyType']]]
+        """
+        Describes the target backup policy type of the backup policy migration.
+        """
+elif False:
+    BackupPolicyMigrationStateArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class BackupPolicyMigrationStateArgs:
@@ -197,6 +312,18 @@ class BackupPolicyMigrationStateArgs:
         pulumi.set(self, "target_type", value)
 
 
+if not MYPY:
+    class CapabilityArgsDict(TypedDict):
+        """
+        Cosmos DB capability object
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the Cosmos DB capability. For example, "name": "EnableCassandra". Current values also include "EnableTable" and "EnableGremlin".
+        """
+elif False:
+    CapabilityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CapabilityArgs:
     def __init__(__self__, *,
@@ -220,6 +347,18 @@ class CapabilityArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class CapacityArgsDict(TypedDict):
+        """
+        The object that represents all properties related to capacity enforcement on an account.
+        """
+        total_throughput_limit: NotRequired[pulumi.Input[int]]
+        """
+        The total throughput limit imposed on the account. A totalThroughputLimit of 2000 imposes a strict limit of max throughput that can be provisioned on that account to be 2000. A totalThroughputLimit of -1 indicates no limits on provisioning of throughput.
+        """
+elif False:
+    CapacityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CapacityArgs:
@@ -245,6 +384,18 @@ class CapacityArgs:
         pulumi.set(self, "total_throughput_limit", value)
 
 
+if not MYPY:
+    class CassandraKeyspaceResourceArgsDict(TypedDict):
+        """
+        Cosmos DB Cassandra keyspace resource object
+        """
+        id: pulumi.Input[str]
+        """
+        Name of the Cosmos DB Cassandra keyspace
+        """
+elif False:
+    CassandraKeyspaceResourceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CassandraKeyspaceResourceArgs:
     def __init__(__self__, *,
@@ -267,6 +418,18 @@ class CassandraKeyspaceResourceArgs:
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class CassandraPartitionKeyArgsDict(TypedDict):
+        """
+        Cosmos DB Cassandra table partition key
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the Cosmos DB Cassandra table partition key
+        """
+elif False:
+    CassandraPartitionKeyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CassandraPartitionKeyArgs:
@@ -291,6 +454,26 @@ class CassandraPartitionKeyArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class CassandraSchemaArgsDict(TypedDict):
+        """
+        Cosmos DB Cassandra table schema
+        """
+        cluster_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input['ClusterKeyArgsDict']]]]
+        """
+        List of cluster key.
+        """
+        columns: NotRequired[pulumi.Input[Sequence[pulumi.Input['ColumnArgsDict']]]]
+        """
+        List of Cassandra table columns.
+        """
+        partition_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input['CassandraPartitionKeyArgsDict']]]]
+        """
+        List of partition key.
+        """
+elif False:
+    CassandraSchemaArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CassandraSchemaArgs:
@@ -347,6 +530,30 @@ class CassandraSchemaArgs:
     def partition_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CassandraPartitionKeyArgs']]]]):
         pulumi.set(self, "partition_keys", value)
 
+
+if not MYPY:
+    class CassandraTableResourceArgsDict(TypedDict):
+        """
+        Cosmos DB Cassandra table resource object
+        """
+        id: pulumi.Input[str]
+        """
+        Name of the Cosmos DB Cassandra table
+        """
+        analytical_storage_ttl: NotRequired[pulumi.Input[int]]
+        """
+        Analytical TTL.
+        """
+        default_ttl: NotRequired[pulumi.Input[int]]
+        """
+        Time to live of the Cosmos DB Cassandra table
+        """
+        schema: NotRequired[pulumi.Input['CassandraSchemaArgsDict']]
+        """
+        Schema of the Cosmos DB Cassandra table
+        """
+elif False:
+    CassandraTableResourceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CassandraTableResourceArgs:
@@ -419,6 +626,22 @@ class CassandraTableResourceArgs:
         pulumi.set(self, "schema", value)
 
 
+if not MYPY:
+    class CassandraViewResourceArgsDict(TypedDict):
+        """
+        Cosmos DB Cassandra view resource object
+        """
+        id: pulumi.Input[str]
+        """
+        Name of the Cosmos DB Cassandra view
+        """
+        view_definition: pulumi.Input[str]
+        """
+        View Definition of the Cosmos DB Cassandra view
+        """
+elif False:
+    CassandraViewResourceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CassandraViewResourceArgs:
     def __init__(__self__, *,
@@ -456,6 +679,30 @@ class CassandraViewResourceArgs:
     def view_definition(self, value: pulumi.Input[str]):
         pulumi.set(self, "view_definition", value)
 
+
+if not MYPY:
+    class ClientEncryptionIncludedPathArgsDict(TypedDict):
+        """
+        .
+        """
+        client_encryption_key_id: pulumi.Input[str]
+        """
+        The identifier of the Client Encryption Key to be used to encrypt the path.
+        """
+        encryption_algorithm: pulumi.Input[str]
+        """
+        The encryption algorithm which will be used. Eg - AEAD_AES_256_CBC_HMAC_SHA256.
+        """
+        encryption_type: pulumi.Input[str]
+        """
+        The type of encryption to be performed. Eg - Deterministic, Randomized.
+        """
+        path: pulumi.Input[str]
+        """
+        Path that needs to be encrypted.
+        """
+elif False:
+    ClientEncryptionIncludedPathArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ClientEncryptionIncludedPathArgs:
@@ -525,6 +772,22 @@ class ClientEncryptionIncludedPathArgs:
         pulumi.set(self, "path", value)
 
 
+if not MYPY:
+    class ClientEncryptionPolicyArgsDict(TypedDict):
+        """
+        Cosmos DB client encryption policy.
+        """
+        included_paths: pulumi.Input[Sequence[pulumi.Input['ClientEncryptionIncludedPathArgsDict']]]
+        """
+        Paths of the item that need encryption along with path-specific settings.
+        """
+        policy_format_version: pulumi.Input[int]
+        """
+        Version of the client encryption policy definition. Supported versions are 1 and 2. Version 2 supports id and partition key path encryption. 
+        """
+elif False:
+    ClientEncryptionPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ClientEncryptionPolicyArgs:
     def __init__(__self__, *,
@@ -562,6 +825,22 @@ class ClientEncryptionPolicyArgs:
     def policy_format_version(self, value: pulumi.Input[int]):
         pulumi.set(self, "policy_format_version", value)
 
+
+if not MYPY:
+    class ClusterKeyArgsDict(TypedDict):
+        """
+        Cosmos DB Cassandra table cluster key
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the Cosmos DB Cassandra table cluster key
+        """
+        order_by: NotRequired[pulumi.Input[str]]
+        """
+        Order of the Cosmos DB Cassandra table cluster key, only support "Asc" and "Desc"
+        """
+elif False:
+    ClusterKeyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ClusterKeyArgs:
@@ -603,6 +882,22 @@ class ClusterKeyArgs:
         pulumi.set(self, "order_by", value)
 
 
+if not MYPY:
+    class ColumnArgsDict(TypedDict):
+        """
+        Cosmos DB Cassandra table column
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the Cosmos DB Cassandra table column
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        Type of the Cosmos DB Cassandra table column
+        """
+elif False:
+    ColumnArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ColumnArgs:
     def __init__(__self__, *,
@@ -643,6 +938,19 @@ class ColumnArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class CompositePathArgsDict(TypedDict):
+        order: NotRequired[pulumi.Input[Union[str, 'CompositePathSortOrder']]]
+        """
+        Sort order for composite paths.
+        """
+        path: NotRequired[pulumi.Input[str]]
+        """
+        The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
+        """
+elif False:
+    CompositePathArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CompositePathArgs:
     def __init__(__self__, *,
@@ -681,6 +989,26 @@ class CompositePathArgs:
     def path(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "path", value)
 
+
+if not MYPY:
+    class ConflictResolutionPolicyArgsDict(TypedDict):
+        """
+        The conflict resolution policy for the container.
+        """
+        conflict_resolution_path: NotRequired[pulumi.Input[str]]
+        """
+        The conflict resolution path in the case of LastWriterWins mode.
+        """
+        conflict_resolution_procedure: NotRequired[pulumi.Input[str]]
+        """
+        The procedure to resolve conflicts in the case of custom mode.
+        """
+        mode: NotRequired[pulumi.Input[Union[str, 'ConflictResolutionMode']]]
+        """
+        Indicates the conflict resolution mode.
+        """
+elif False:
+    ConflictResolutionPolicyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ConflictResolutionPolicyArgs:
@@ -740,6 +1068,26 @@ class ConflictResolutionPolicyArgs:
         pulumi.set(self, "mode", value)
 
 
+if not MYPY:
+    class ConsistencyPolicyArgsDict(TypedDict):
+        """
+        The consistency policy for the Cosmos DB database account.
+        """
+        default_consistency_level: pulumi.Input['DefaultConsistencyLevel']
+        """
+        The default consistency level and configuration settings of the Cosmos DB account.
+        """
+        max_interval_in_seconds: NotRequired[pulumi.Input[int]]
+        """
+        When used with the Bounded Staleness consistency level, this value represents the time amount of staleness (in seconds) tolerated. Accepted range for this value is 5 - 86400. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
+        """
+        max_staleness_prefix: NotRequired[pulumi.Input[float]]
+        """
+        When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. Accepted range for this value is 1 – 2,147,483,647. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
+        """
+elif False:
+    ConsistencyPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ConsistencyPolicyArgs:
     def __init__(__self__, *,
@@ -794,6 +1142,26 @@ class ConsistencyPolicyArgs:
     def max_staleness_prefix(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "max_staleness_prefix", value)
 
+
+if not MYPY:
+    class ContainerPartitionKeyArgsDict(TypedDict):
+        """
+        The configuration of the partition key to be used for partitioning data into multiple partitions
+        """
+        kind: NotRequired[pulumi.Input[Union[str, 'PartitionKind']]]
+        """
+        Indicates the kind of algorithm used for partitioning. For MultiHash, multiple partition keys (upto three maximum) are supported for container create
+        """
+        paths: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of paths using which data within the container can be partitioned
+        """
+        version: NotRequired[pulumi.Input[int]]
+        """
+        Indicates the version of the partition key definition
+        """
+elif False:
+    ContainerPartitionKeyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ContainerPartitionKeyArgs:
@@ -853,6 +1221,27 @@ class ContainerPartitionKeyArgs:
         pulumi.set(self, "version", value)
 
 
+if not MYPY:
+    class ContinuousModeBackupPolicyArgsDict(TypedDict):
+        """
+        The object representing continuous mode backup policy.
+        """
+        type: pulumi.Input[str]
+        """
+        Describes the mode of backups.
+        Expected value is 'Continuous'.
+        """
+        continuous_mode_properties: NotRequired[pulumi.Input['ContinuousModePropertiesArgsDict']]
+        """
+        Configuration values for continuous mode backup
+        """
+        migration_state: NotRequired[pulumi.Input['BackupPolicyMigrationStateArgsDict']]
+        """
+        The object representing the state of the migration between the backup policies.
+        """
+elif False:
+    ContinuousModeBackupPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ContinuousModeBackupPolicyArgs:
     def __init__(__self__, *,
@@ -910,6 +1299,18 @@ class ContinuousModeBackupPolicyArgs:
         pulumi.set(self, "migration_state", value)
 
 
+if not MYPY:
+    class ContinuousModePropertiesArgsDict(TypedDict):
+        """
+        Configuration values for periodic mode backup
+        """
+        tier: NotRequired[pulumi.Input[Union[str, 'ContinuousTier']]]
+        """
+        Enum to indicate type of Continuos backup mode
+        """
+elif False:
+    ContinuousModePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ContinuousModePropertiesArgs:
     def __init__(__self__, *,
@@ -933,6 +1334,34 @@ class ContinuousModePropertiesArgs:
     def tier(self, value: Optional[pulumi.Input[Union[str, 'ContinuousTier']]]):
         pulumi.set(self, "tier", value)
 
+
+if not MYPY:
+    class CorsPolicyArgsDict(TypedDict):
+        """
+        The CORS policy for the Cosmos DB database account.
+        """
+        allowed_origins: pulumi.Input[str]
+        """
+        The origin domains that are permitted to make a request against the service via CORS.
+        """
+        allowed_headers: NotRequired[pulumi.Input[str]]
+        """
+        The request headers that the origin domain may specify on the CORS request.
+        """
+        allowed_methods: NotRequired[pulumi.Input[str]]
+        """
+        The methods (HTTP request verbs) that the origin domain may use for a CORS request.
+        """
+        exposed_headers: NotRequired[pulumi.Input[str]]
+        """
+        The response headers that may be sent in the response to the CORS request and exposed by the browser to the request issuer.
+        """
+        max_age_in_seconds: NotRequired[pulumi.Input[float]]
+        """
+        The maximum amount time that a browser should cache the preflight OPTIONS request.
+        """
+elif False:
+    CorsPolicyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CorsPolicyArgs:
@@ -1021,6 +1450,22 @@ class CorsPolicyArgs:
         pulumi.set(self, "max_age_in_seconds", value)
 
 
+if not MYPY:
+    class CreateUpdateOptionsArgsDict(TypedDict):
+        """
+        CreateUpdateOptions are a list of key-value pairs that describe the resource. Supported keys are "If-Match", "If-None-Match", "Session-Token" and "Throughput"
+        """
+        autoscale_settings: NotRequired[pulumi.Input['AutoscaleSettingsArgsDict']]
+        """
+        Specifies the Autoscale settings.
+        """
+        throughput: NotRequired[pulumi.Input[int]]
+        """
+        Request Units per second. For example, "throughput": 10000.
+        """
+elif False:
+    CreateUpdateOptionsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CreateUpdateOptionsArgs:
     def __init__(__self__, *,
@@ -1060,6 +1505,22 @@ class CreateUpdateOptionsArgs:
     def throughput(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "throughput", value)
 
+
+if not MYPY:
+    class DatabaseRestoreResourceArgsDict(TypedDict):
+        """
+        Specific Databases to restore.
+        """
+        collection_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The names of the collections available for restore.
+        """
+        database_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the database available for restore.
+        """
+elif False:
+    DatabaseRestoreResourceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DatabaseRestoreResourceArgs:
@@ -1101,6 +1562,18 @@ class DatabaseRestoreResourceArgs:
         pulumi.set(self, "database_name", value)
 
 
+if not MYPY:
+    class DiagnosticLogSettingsArgsDict(TypedDict):
+        """
+        Indicates what diagnostic log settings are to be enabled.
+        """
+        enable_full_text_query: NotRequired[pulumi.Input['EnableFullTextQuery']]
+        """
+        Describe the level of detail with which queries are to be logged.
+        """
+elif False:
+    DiagnosticLogSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DiagnosticLogSettingsArgs:
     def __init__(__self__, *,
@@ -1125,6 +1598,15 @@ class DiagnosticLogSettingsArgs:
         pulumi.set(self, "enable_full_text_query", value)
 
 
+if not MYPY:
+    class ExcludedPathArgsDict(TypedDict):
+        path: NotRequired[pulumi.Input[str]]
+        """
+        The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
+        """
+elif False:
+    ExcludedPathArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ExcludedPathArgs:
     def __init__(__self__, *,
@@ -1148,6 +1630,18 @@ class ExcludedPathArgs:
         pulumi.set(self, "path", value)
 
 
+if not MYPY:
+    class GraphResourceArgsDict(TypedDict):
+        """
+        Cosmos DB Graph resource object
+        """
+        id: pulumi.Input[str]
+        """
+        Name of the Cosmos DB Graph
+        """
+elif False:
+    GraphResourceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GraphResourceArgs:
     def __init__(__self__, *,
@@ -1170,6 +1664,26 @@ class GraphResourceArgs:
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class GremlinDatabaseResourceArgsDict(TypedDict):
+        """
+        Cosmos DB Gremlin database resource object
+        """
+        id: pulumi.Input[str]
+        """
+        Name of the Cosmos DB Gremlin database
+        """
+        create_mode: NotRequired[pulumi.Input[Union[str, 'CreateMode']]]
+        """
+        Enum to indicate the mode of resource creation.
+        """
+        restore_parameters: NotRequired[pulumi.Input['ResourceRestoreParametersArgsDict']]
+        """
+        Parameters to indicate the information about the restore
+        """
+elif False:
+    GremlinDatabaseResourceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GremlinDatabaseResourceArgs:
@@ -1226,6 +1740,22 @@ class GremlinDatabaseResourceArgs:
         pulumi.set(self, "restore_parameters", value)
 
 
+if not MYPY:
+    class GremlinDatabaseRestoreResourceArgsDict(TypedDict):
+        """
+        Specific Gremlin Databases to restore.
+        """
+        database_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the gremlin database available for restore.
+        """
+        graph_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The names of the graphs available for restore.
+        """
+elif False:
+    GremlinDatabaseRestoreResourceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GremlinDatabaseRestoreResourceArgs:
     def __init__(__self__, *,
@@ -1265,6 +1795,50 @@ class GremlinDatabaseRestoreResourceArgs:
     def graph_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "graph_names", value)
 
+
+if not MYPY:
+    class GremlinGraphResourceArgsDict(TypedDict):
+        """
+        Cosmos DB Gremlin graph resource object
+        """
+        id: pulumi.Input[str]
+        """
+        Name of the Cosmos DB Gremlin graph
+        """
+        analytical_storage_ttl: NotRequired[pulumi.Input[float]]
+        """
+        Analytical TTL.
+        """
+        conflict_resolution_policy: NotRequired[pulumi.Input['ConflictResolutionPolicyArgsDict']]
+        """
+        The conflict resolution policy for the graph.
+        """
+        create_mode: NotRequired[pulumi.Input[Union[str, 'CreateMode']]]
+        """
+        Enum to indicate the mode of resource creation.
+        """
+        default_ttl: NotRequired[pulumi.Input[int]]
+        """
+        Default time to live
+        """
+        indexing_policy: NotRequired[pulumi.Input['IndexingPolicyArgsDict']]
+        """
+        The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the graph
+        """
+        partition_key: NotRequired[pulumi.Input['ContainerPartitionKeyArgsDict']]
+        """
+        The configuration of the partition key to be used for partitioning data into multiple partitions
+        """
+        restore_parameters: NotRequired[pulumi.Input['ResourceRestoreParametersArgsDict']]
+        """
+        Parameters to indicate the information about the restore
+        """
+        unique_key_policy: NotRequired[pulumi.Input['UniqueKeyPolicyArgsDict']]
+        """
+        The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
+        """
+elif False:
+    GremlinGraphResourceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GremlinGraphResourceArgs:
@@ -1417,6 +1991,22 @@ class GremlinGraphResourceArgs:
         pulumi.set(self, "unique_key_policy", value)
 
 
+if not MYPY:
+    class IncludedPathArgsDict(TypedDict):
+        """
+        The paths that are included in indexing
+        """
+        indexes: NotRequired[pulumi.Input[Sequence[pulumi.Input['IndexesArgsDict']]]]
+        """
+        List of indexes for this path
+        """
+        path: NotRequired[pulumi.Input[str]]
+        """
+        The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
+        """
+elif False:
+    IncludedPathArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IncludedPathArgs:
     def __init__(__self__, *,
@@ -1456,6 +2046,26 @@ class IncludedPathArgs:
     def path(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "path", value)
 
+
+if not MYPY:
+    class IndexesArgsDict(TypedDict):
+        """
+        The indexes for the path.
+        """
+        data_type: NotRequired[pulumi.Input[Union[str, 'DataType']]]
+        """
+        The datatype for which the indexing behavior is applied to.
+        """
+        kind: NotRequired[pulumi.Input[Union[str, 'IndexKind']]]
+        """
+        Indicates the type of index.
+        """
+        precision: NotRequired[pulumi.Input[int]]
+        """
+        The precision of the index. -1 is maximum precision.
+        """
+elif False:
+    IndexesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IndexesArgs:
@@ -1516,6 +2126,38 @@ class IndexesArgs:
     def precision(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "precision", value)
 
+
+if not MYPY:
+    class IndexingPolicyArgsDict(TypedDict):
+        """
+        Cosmos DB indexing policy
+        """
+        automatic: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates if the indexing policy is automatic
+        """
+        composite_indexes: NotRequired[pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input['CompositePathArgsDict']]]]]]
+        """
+        List of composite path list
+        """
+        excluded_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input['ExcludedPathArgsDict']]]]
+        """
+        List of paths to exclude from indexing
+        """
+        included_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input['IncludedPathArgsDict']]]]
+        """
+        List of paths to include in the indexing
+        """
+        indexing_mode: NotRequired[pulumi.Input[Union[str, 'IndexingMode']]]
+        """
+        Indicates the indexing mode.
+        """
+        spatial_indexes: NotRequired[pulumi.Input[Sequence[pulumi.Input['SpatialSpecArgsDict']]]]
+        """
+        List of spatial specifics
+        """
+elif False:
+    IndexingPolicyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IndexingPolicyArgs:
@@ -1623,6 +2265,18 @@ class IndexingPolicyArgs:
         pulumi.set(self, "spatial_indexes", value)
 
 
+if not MYPY:
+    class IpAddressOrRangeArgsDict(TypedDict):
+        """
+        IpAddressOrRange object
+        """
+        ip_address_or_range: NotRequired[pulumi.Input[str]]
+        """
+        A single IPv4 address or a single IPv4 address range in CIDR format. Provided IPs must be well-formatted and cannot be contained in one of the following ranges: 10.0.0.0/8, 100.64.0.0/10, 172.16.0.0/12, 192.168.0.0/16, since these are not enforceable by the IP address filter. Example of valid inputs: “23.40.210.245” or “23.40.210.0/8”.
+        """
+elif False:
+    IpAddressOrRangeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IpAddressOrRangeArgs:
     def __init__(__self__, *,
@@ -1646,6 +2300,26 @@ class IpAddressOrRangeArgs:
     def ip_address_or_range(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "ip_address_or_range", value)
 
+
+if not MYPY:
+    class LocationArgsDict(TypedDict):
+        """
+        A region in which the Azure Cosmos DB database account is deployed.
+        """
+        failover_priority: NotRequired[pulumi.Input[int]]
+        """
+        The failover priority of the region. A failover priority of 0 indicates a write region. The maximum value for a failover priority = (total number of regions - 1). Failover priority values must be unique for each of the regions in which the database account exists.
+        """
+        is_zone_redundant: NotRequired[pulumi.Input[bool]]
+        """
+        Flag to indicate whether or not this region is an AvailabilityZone region
+        """
+        location_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the region.
+        """
+elif False:
+    LocationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LocationArgs:
@@ -1703,6 +2377,22 @@ class LocationArgs:
         pulumi.set(self, "location_name", value)
 
 
+if not MYPY:
+    class ManagedServiceIdentityArgsDict(TypedDict):
+        """
+        Identity for the resource.
+        """
+        type: NotRequired[pulumi.Input['ResourceIdentityType']]
+        """
+        The type of identity used for the resource. The type 'SystemAssigned,UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
+        """
+        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of user identities associated with resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+elif False:
+    ManagedServiceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ManagedServiceIdentityArgs:
     def __init__(__self__, *,
@@ -1743,6 +2433,22 @@ class ManagedServiceIdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
+if not MYPY:
+    class MaterializedViewDefinitionArgsDict(TypedDict):
+        """
+        Materialized View definition for the container.
+        """
+        definition: pulumi.Input[str]
+        """
+        The definition should be an SQL query which would be used to fetch data from the source container to populate into the Materialized View container.
+        """
+        source_collection_id: pulumi.Input[str]
+        """
+        The name of the source container on which the Materialized View will be created.
+        """
+elif False:
+    MaterializedViewDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MaterializedViewDefinitionArgs:
     def __init__(__self__, *,
@@ -1780,6 +2486,22 @@ class MaterializedViewDefinitionArgs:
     def source_collection_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "source_collection_id", value)
 
+
+if not MYPY:
+    class MongoClusterRestoreParametersArgsDict(TypedDict):
+        """
+        Parameters used for restore operations
+        """
+        point_in_time_utc: NotRequired[pulumi.Input[str]]
+        """
+        UTC point in time to restore a mongo cluster
+        """
+        source_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID to locate the source cluster to restore
+        """
+elif False:
+    MongoClusterRestoreParametersArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MongoClusterRestoreParametersArgs:
@@ -1820,6 +2542,38 @@ class MongoClusterRestoreParametersArgs:
     def source_resource_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "source_resource_id", value)
 
+
+if not MYPY:
+    class MongoDBCollectionResourceArgsDict(TypedDict):
+        """
+        Cosmos DB MongoDB collection resource object
+        """
+        id: pulumi.Input[str]
+        """
+        Name of the Cosmos DB MongoDB collection
+        """
+        analytical_storage_ttl: NotRequired[pulumi.Input[int]]
+        """
+        Analytical TTL.
+        """
+        create_mode: NotRequired[pulumi.Input[Union[str, 'CreateMode']]]
+        """
+        Enum to indicate the mode of resource creation.
+        """
+        indexes: NotRequired[pulumi.Input[Sequence[pulumi.Input['MongoIndexArgsDict']]]]
+        """
+        List of index keys
+        """
+        restore_parameters: NotRequired[pulumi.Input['ResourceRestoreParametersArgsDict']]
+        """
+        Parameters to indicate the information about the restore
+        """
+        shard_key: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        A key-value pair of shard keys to be applied for the request.
+        """
+elif False:
+    MongoDBCollectionResourceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MongoDBCollectionResourceArgs:
@@ -1924,6 +2678,26 @@ class MongoDBCollectionResourceArgs:
         pulumi.set(self, "shard_key", value)
 
 
+if not MYPY:
+    class MongoDBDatabaseResourceArgsDict(TypedDict):
+        """
+        Cosmos DB MongoDB database resource object
+        """
+        id: pulumi.Input[str]
+        """
+        Name of the Cosmos DB MongoDB database
+        """
+        create_mode: NotRequired[pulumi.Input[Union[str, 'CreateMode']]]
+        """
+        Enum to indicate the mode of resource creation.
+        """
+        restore_parameters: NotRequired[pulumi.Input['ResourceRestoreParametersArgsDict']]
+        """
+        Parameters to indicate the information about the restore
+        """
+elif False:
+    MongoDBDatabaseResourceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MongoDBDatabaseResourceArgs:
     def __init__(__self__, *,
@@ -1979,6 +2753,18 @@ class MongoDBDatabaseResourceArgs:
         pulumi.set(self, "restore_parameters", value)
 
 
+if not MYPY:
+    class MongoIndexKeysArgsDict(TypedDict):
+        """
+        Cosmos DB MongoDB collection resource object
+        """
+        keys: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of keys for each MongoDB collection in the Azure Cosmos DB service
+        """
+elif False:
+    MongoIndexKeysArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MongoIndexKeysArgs:
     def __init__(__self__, *,
@@ -2002,6 +2788,22 @@ class MongoIndexKeysArgs:
     def keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "keys", value)
 
+
+if not MYPY:
+    class MongoIndexOptionsArgsDict(TypedDict):
+        """
+        Cosmos DB MongoDB collection index options
+        """
+        expire_after_seconds: NotRequired[pulumi.Input[int]]
+        """
+        Expire after seconds
+        """
+        unique: NotRequired[pulumi.Input[bool]]
+        """
+        Is unique or not
+        """
+elif False:
+    MongoIndexOptionsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MongoIndexOptionsArgs:
@@ -2043,6 +2845,22 @@ class MongoIndexOptionsArgs:
         pulumi.set(self, "unique", value)
 
 
+if not MYPY:
+    class MongoIndexArgsDict(TypedDict):
+        """
+        Cosmos DB MongoDB collection index key
+        """
+        key: NotRequired[pulumi.Input['MongoIndexKeysArgsDict']]
+        """
+        Cosmos DB MongoDB collection index keys
+        """
+        options: NotRequired[pulumi.Input['MongoIndexOptionsArgsDict']]
+        """
+        Cosmos DB MongoDB collection index key options
+        """
+elif False:
+    MongoIndexArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MongoIndexArgs:
     def __init__(__self__, *,
@@ -2082,6 +2900,34 @@ class MongoIndexArgs:
     def options(self, value: Optional[pulumi.Input['MongoIndexOptionsArgs']]):
         pulumi.set(self, "options", value)
 
+
+if not MYPY:
+    class NodeGroupSpecArgsDict(TypedDict):
+        """
+        Specification for a node group.
+        """
+        disk_size_gb: NotRequired[pulumi.Input[float]]
+        """
+        The disk storage size for the node group in GB. Example values: 128, 256, 512, 1024.
+        """
+        enable_ha: NotRequired[pulumi.Input[bool]]
+        """
+        Whether high availability is enabled on the node group.
+        """
+        kind: NotRequired[pulumi.Input[Union[str, 'NodeKind']]]
+        """
+        The node type deployed in the node group.
+        """
+        node_count: NotRequired[pulumi.Input[int]]
+        """
+        The number of nodes in the node group.
+        """
+        sku: NotRequired[pulumi.Input[str]]
+        """
+        The resource sku for the node group. This defines the size of CPU and memory that is provisioned for each node. Example values: 'M30', 'M40'.
+        """
+elif False:
+    NodeGroupSpecArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NodeGroupSpecArgs:
@@ -2171,6 +3017,27 @@ class NodeGroupSpecArgs:
         pulumi.set(self, "sku", value)
 
 
+if not MYPY:
+    class PeriodicModeBackupPolicyArgsDict(TypedDict):
+        """
+        The object representing periodic mode backup policy.
+        """
+        type: pulumi.Input[str]
+        """
+        Describes the mode of backups.
+        Expected value is 'Periodic'.
+        """
+        migration_state: NotRequired[pulumi.Input['BackupPolicyMigrationStateArgsDict']]
+        """
+        The object representing the state of the migration between the backup policies.
+        """
+        periodic_mode_properties: NotRequired[pulumi.Input['PeriodicModePropertiesArgsDict']]
+        """
+        Configuration values for periodic mode backup
+        """
+elif False:
+    PeriodicModeBackupPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PeriodicModeBackupPolicyArgs:
     def __init__(__self__, *,
@@ -2228,6 +3095,26 @@ class PeriodicModeBackupPolicyArgs:
         pulumi.set(self, "periodic_mode_properties", value)
 
 
+if not MYPY:
+    class PeriodicModePropertiesArgsDict(TypedDict):
+        """
+        Configuration values for periodic mode backup
+        """
+        backup_interval_in_minutes: NotRequired[pulumi.Input[int]]
+        """
+        An integer representing the interval in minutes between two backups
+        """
+        backup_retention_interval_in_hours: NotRequired[pulumi.Input[int]]
+        """
+        An integer representing the time (in hours) that each backup is retained
+        """
+        backup_storage_redundancy: NotRequired[pulumi.Input[Union[str, 'BackupStorageRedundancy']]]
+        """
+        Enum to indicate type of backup residency
+        """
+elif False:
+    PeriodicModePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PeriodicModePropertiesArgs:
     def __init__(__self__, *,
@@ -2284,6 +3171,22 @@ class PeriodicModePropertiesArgs:
         pulumi.set(self, "backup_storage_redundancy", value)
 
 
+if not MYPY:
+    class ResourceRestoreParametersArgsDict(TypedDict):
+        """
+        Parameters to indicate the information about the restore.
+        """
+        restore_source: NotRequired[pulumi.Input[str]]
+        """
+        The id of the restorable database account from which the restore has to be initiated. For example: /subscriptions/{subscriptionId}/providers/Microsoft.DocumentDB/locations/{location}/restorableDatabaseAccounts/{restorableDatabaseAccountName}
+        """
+        restore_timestamp_in_utc: NotRequired[pulumi.Input[str]]
+        """
+        Time to which the account has to be restored (ISO-8601 format).
+        """
+elif False:
+    ResourceRestoreParametersArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ResourceRestoreParametersArgs:
     def __init__(__self__, *,
@@ -2323,6 +3226,42 @@ class ResourceRestoreParametersArgs:
     def restore_timestamp_in_utc(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "restore_timestamp_in_utc", value)
 
+
+if not MYPY:
+    class RestoreParametersArgsDict(TypedDict):
+        """
+        Parameters to indicate the information about the restore.
+        """
+        databases_to_restore: NotRequired[pulumi.Input[Sequence[pulumi.Input['DatabaseRestoreResourceArgsDict']]]]
+        """
+        List of specific databases available for restore.
+        """
+        gremlin_databases_to_restore: NotRequired[pulumi.Input[Sequence[pulumi.Input['GremlinDatabaseRestoreResourceArgsDict']]]]
+        """
+        List of specific gremlin databases available for restore.
+        """
+        restore_mode: NotRequired[pulumi.Input[Union[str, 'RestoreMode']]]
+        """
+        Describes the mode of the restore.
+        """
+        restore_source: NotRequired[pulumi.Input[str]]
+        """
+        The id of the restorable database account from which the restore has to be initiated. For example: /subscriptions/{subscriptionId}/providers/Microsoft.DocumentDB/locations/{location}/restorableDatabaseAccounts/{restorableDatabaseAccountName}
+        """
+        restore_timestamp_in_utc: NotRequired[pulumi.Input[str]]
+        """
+        Time to which the account has to be restored (ISO-8601 format).
+        """
+        source_backup_location: NotRequired[pulumi.Input[str]]
+        """
+        The source backup location for restore.
+        """
+        tables_to_restore: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of specific tables available for restore.
+        """
+elif False:
+    RestoreParametersArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RestoreParametersArgs:
@@ -2444,6 +3383,19 @@ class RestoreParametersArgs:
         pulumi.set(self, "tables_to_restore", value)
 
 
+if not MYPY:
+    class SpatialSpecArgsDict(TypedDict):
+        path: NotRequired[pulumi.Input[str]]
+        """
+        The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
+        """
+        types: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'SpatialType']]]]]
+        """
+        List of path's spatial type
+        """
+elif False:
+    SpatialSpecArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SpatialSpecArgs:
     def __init__(__self__, *,
@@ -2482,6 +3434,58 @@ class SpatialSpecArgs:
     def types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'SpatialType']]]]]):
         pulumi.set(self, "types", value)
 
+
+if not MYPY:
+    class SqlContainerResourceArgsDict(TypedDict):
+        """
+        Cosmos DB SQL container resource object
+        """
+        id: pulumi.Input[str]
+        """
+        Name of the Cosmos DB SQL container
+        """
+        analytical_storage_ttl: NotRequired[pulumi.Input[float]]
+        """
+        Analytical TTL.
+        """
+        client_encryption_policy: NotRequired[pulumi.Input['ClientEncryptionPolicyArgsDict']]
+        """
+        The client encryption policy for the container.
+        """
+        conflict_resolution_policy: NotRequired[pulumi.Input['ConflictResolutionPolicyArgsDict']]
+        """
+        The conflict resolution policy for the container.
+        """
+        create_mode: NotRequired[pulumi.Input[Union[str, 'CreateMode']]]
+        """
+        Enum to indicate the mode of resource creation.
+        """
+        default_ttl: NotRequired[pulumi.Input[int]]
+        """
+        Default time to live
+        """
+        indexing_policy: NotRequired[pulumi.Input['IndexingPolicyArgsDict']]
+        """
+        The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the container
+        """
+        materialized_view_definition: NotRequired[pulumi.Input['MaterializedViewDefinitionArgsDict']]
+        """
+        The configuration for defining Materialized Views. This must be specified only for creating a Materialized View container.
+        """
+        partition_key: NotRequired[pulumi.Input['ContainerPartitionKeyArgsDict']]
+        """
+        The configuration of the partition key to be used for partitioning data into multiple partitions
+        """
+        restore_parameters: NotRequired[pulumi.Input['ResourceRestoreParametersArgsDict']]
+        """
+        Parameters to indicate the information about the restore
+        """
+        unique_key_policy: NotRequired[pulumi.Input['UniqueKeyPolicyArgsDict']]
+        """
+        The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
+        """
+elif False:
+    SqlContainerResourceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SqlContainerResourceArgs:
@@ -2666,6 +3670,26 @@ class SqlContainerResourceArgs:
         pulumi.set(self, "unique_key_policy", value)
 
 
+if not MYPY:
+    class SqlDatabaseResourceArgsDict(TypedDict):
+        """
+        Cosmos DB SQL database resource object
+        """
+        id: pulumi.Input[str]
+        """
+        Name of the Cosmos DB SQL database
+        """
+        create_mode: NotRequired[pulumi.Input[Union[str, 'CreateMode']]]
+        """
+        Enum to indicate the mode of resource creation.
+        """
+        restore_parameters: NotRequired[pulumi.Input['ResourceRestoreParametersArgsDict']]
+        """
+        Parameters to indicate the information about the restore
+        """
+elif False:
+    SqlDatabaseResourceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SqlDatabaseResourceArgs:
     def __init__(__self__, *,
@@ -2721,6 +3745,22 @@ class SqlDatabaseResourceArgs:
         pulumi.set(self, "restore_parameters", value)
 
 
+if not MYPY:
+    class SqlStoredProcedureResourceArgsDict(TypedDict):
+        """
+        Cosmos DB SQL storedProcedure resource object
+        """
+        id: pulumi.Input[str]
+        """
+        Name of the Cosmos DB SQL storedProcedure
+        """
+        body: NotRequired[pulumi.Input[str]]
+        """
+        Body of the Stored Procedure
+        """
+elif False:
+    SqlStoredProcedureResourceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SqlStoredProcedureResourceArgs:
     def __init__(__self__, *,
@@ -2759,6 +3799,30 @@ class SqlStoredProcedureResourceArgs:
     def body(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "body", value)
 
+
+if not MYPY:
+    class SqlTriggerResourceArgsDict(TypedDict):
+        """
+        Cosmos DB SQL trigger resource object
+        """
+        id: pulumi.Input[str]
+        """
+        Name of the Cosmos DB SQL trigger
+        """
+        body: NotRequired[pulumi.Input[str]]
+        """
+        Body of the Trigger
+        """
+        trigger_operation: NotRequired[pulumi.Input[Union[str, 'TriggerOperation']]]
+        """
+        The operation the trigger is associated with
+        """
+        trigger_type: NotRequired[pulumi.Input[Union[str, 'TriggerType']]]
+        """
+        Type of the Trigger
+        """
+elif False:
+    SqlTriggerResourceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SqlTriggerResourceArgs:
@@ -2831,6 +3895,22 @@ class SqlTriggerResourceArgs:
         pulumi.set(self, "trigger_type", value)
 
 
+if not MYPY:
+    class SqlUserDefinedFunctionResourceArgsDict(TypedDict):
+        """
+        Cosmos DB SQL userDefinedFunction resource object
+        """
+        id: pulumi.Input[str]
+        """
+        Name of the Cosmos DB SQL userDefinedFunction
+        """
+        body: NotRequired[pulumi.Input[str]]
+        """
+        Body of the User Defined Function
+        """
+elif False:
+    SqlUserDefinedFunctionResourceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SqlUserDefinedFunctionResourceArgs:
     def __init__(__self__, *,
@@ -2869,6 +3949,26 @@ class SqlUserDefinedFunctionResourceArgs:
     def body(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "body", value)
 
+
+if not MYPY:
+    class TableResourceArgsDict(TypedDict):
+        """
+        Cosmos DB table resource object
+        """
+        id: pulumi.Input[str]
+        """
+        Name of the Cosmos DB table
+        """
+        create_mode: NotRequired[pulumi.Input[Union[str, 'CreateMode']]]
+        """
+        Enum to indicate the mode of resource creation.
+        """
+        restore_parameters: NotRequired[pulumi.Input['ResourceRestoreParametersArgsDict']]
+        """
+        Parameters to indicate the information about the restore
+        """
+elif False:
+    TableResourceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TableResourceArgs:
@@ -2925,6 +4025,18 @@ class TableResourceArgs:
         pulumi.set(self, "restore_parameters", value)
 
 
+if not MYPY:
+    class UniqueKeyPolicyArgsDict(TypedDict):
+        """
+        The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
+        """
+        unique_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input['UniqueKeyArgsDict']]]]
+        """
+        List of unique keys on that enforces uniqueness constraint on documents in the collection in the Azure Cosmos DB service.
+        """
+elif False:
+    UniqueKeyPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class UniqueKeyPolicyArgs:
     def __init__(__self__, *,
@@ -2949,6 +4061,18 @@ class UniqueKeyPolicyArgs:
         pulumi.set(self, "unique_keys", value)
 
 
+if not MYPY:
+    class UniqueKeyArgsDict(TypedDict):
+        """
+        The unique key on that enforces uniqueness constraint on documents in the collection in the Azure Cosmos DB service.
+        """
+        paths: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of paths must be unique for each document in the Azure Cosmos DB service
+        """
+elif False:
+    UniqueKeyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class UniqueKeyArgs:
     def __init__(__self__, *,
@@ -2972,6 +4096,22 @@ class UniqueKeyArgs:
     def paths(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "paths", value)
 
+
+if not MYPY:
+    class VirtualNetworkRuleArgsDict(TypedDict):
+        """
+        Virtual Network ACL Rule object
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}.
+        """
+        ignore_missing_v_net_service_endpoint: NotRequired[pulumi.Input[bool]]
+        """
+        Create firewall rule before the virtual network has vnet service endpoint enabled.
+        """
+elif False:
+    VirtualNetworkRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VirtualNetworkRuleArgs:

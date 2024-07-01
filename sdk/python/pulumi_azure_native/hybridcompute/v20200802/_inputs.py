@@ -4,15 +4,48 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 
 __all__ = [
     'LocationDataArgs',
+    'LocationDataArgsDict',
     'MachineIdentityArgs',
+    'MachineIdentityArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class LocationDataArgsDict(TypedDict):
+        """
+        Metadata pertaining to the geographic location of the resource.
+        """
+        name: pulumi.Input[str]
+        """
+        A canonical name for the geographic or physical location.
+        """
+        city: NotRequired[pulumi.Input[str]]
+        """
+        The city or locality where the resource is located.
+        """
+        country_or_region: NotRequired[pulumi.Input[str]]
+        """
+        The country or region where the resource is located
+        """
+        district: NotRequired[pulumi.Input[str]]
+        """
+        The district, state, or province where the resource is located.
+        """
+elif False:
+    LocationDataArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LocationDataArgs:
@@ -84,6 +117,15 @@ class LocationDataArgs:
     def district(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "district", value)
 
+
+if not MYPY:
+    class MachineIdentityArgsDict(TypedDict):
+        type: NotRequired[pulumi.Input[str]]
+        """
+        The identity type.
+        """
+elif False:
+    MachineIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MachineIdentityArgs:

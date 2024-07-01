@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -203,7 +208,7 @@ class GroundStation(pulumi.CustomResource):
                  altitude_meters: Optional[pulumi.Input[float]] = None,
                  capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Capability']]]]] = None,
                  city: Optional[pulumi.Input[str]] = None,
-                 global_communications_site: Optional[pulumi.Input[pulumi.InputType['GroundStationsPropertiesGlobalCommunicationsSiteArgs']]] = None,
+                 global_communications_site: Optional[pulumi.Input[Union['GroundStationsPropertiesGlobalCommunicationsSiteArgs', 'GroundStationsPropertiesGlobalCommunicationsSiteArgsDict']]] = None,
                  ground_station_name: Optional[pulumi.Input[str]] = None,
                  latitude_degrees: Optional[pulumi.Input[float]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -220,7 +225,7 @@ class GroundStation(pulumi.CustomResource):
         :param pulumi.Input[float] altitude_meters: Altitude of the ground station.
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'Capability']]]] capabilities: Ground station capabilities.
         :param pulumi.Input[str] city: City of ground station.
-        :param pulumi.Input[pulumi.InputType['GroundStationsPropertiesGlobalCommunicationsSiteArgs']] global_communications_site: A reference to global communications site.
+        :param pulumi.Input[Union['GroundStationsPropertiesGlobalCommunicationsSiteArgs', 'GroundStationsPropertiesGlobalCommunicationsSiteArgsDict']] global_communications_site: A reference to global communications site.
         :param pulumi.Input[str] ground_station_name: Ground Station name.
         :param pulumi.Input[float] latitude_degrees: Latitude of the ground station in decimal degrees.
         :param pulumi.Input[str] location: The geo-location where the resource lives
@@ -256,7 +261,7 @@ class GroundStation(pulumi.CustomResource):
                  altitude_meters: Optional[pulumi.Input[float]] = None,
                  capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Capability']]]]] = None,
                  city: Optional[pulumi.Input[str]] = None,
-                 global_communications_site: Optional[pulumi.Input[pulumi.InputType['GroundStationsPropertiesGlobalCommunicationsSiteArgs']]] = None,
+                 global_communications_site: Optional[pulumi.Input[Union['GroundStationsPropertiesGlobalCommunicationsSiteArgs', 'GroundStationsPropertiesGlobalCommunicationsSiteArgsDict']]] = None,
                  ground_station_name: Optional[pulumi.Input[str]] = None,
                  latitude_degrees: Optional[pulumi.Input[float]] = None,
                  location: Optional[pulumi.Input[str]] = None,

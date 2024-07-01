@@ -4,27 +4,63 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'ClusterPropertiesCustomerManagedKeyEncryptionArgs',
+    'ClusterPropertiesCustomerManagedKeyEncryptionArgsDict',
     'ClusterPropertiesEncryptionArgs',
+    'ClusterPropertiesEncryptionArgsDict',
     'ClusterPropertiesKeyEncryptionKeyIdentityArgs',
+    'ClusterPropertiesKeyEncryptionKeyIdentityArgsDict',
     'DatabasePropertiesGeoReplicationArgs',
+    'DatabasePropertiesGeoReplicationArgsDict',
     'EnterpriseSkuArgs',
+    'EnterpriseSkuArgsDict',
     'LinkedDatabaseArgs',
+    'LinkedDatabaseArgsDict',
     'ManagedServiceIdentityArgs',
+    'ManagedServiceIdentityArgsDict',
     'ModuleArgs',
+    'ModuleArgsDict',
     'PersistenceArgs',
+    'PersistenceArgsDict',
     'PrivateLinkServiceConnectionStateArgs',
+    'PrivateLinkServiceConnectionStateArgsDict',
     'RedisCommonPropertiesRedisConfigurationArgs',
+    'RedisCommonPropertiesRedisConfigurationArgsDict',
     'ScheduleEntryArgs',
+    'ScheduleEntryArgsDict',
     'SkuArgs',
+    'SkuArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ClusterPropertiesCustomerManagedKeyEncryptionArgsDict(TypedDict):
+        """
+        All Customer-managed key encryption properties for the resource. Set this to an empty object to use Microsoft-managed key encryption.
+        """
+        key_encryption_key_identity: NotRequired[pulumi.Input['ClusterPropertiesKeyEncryptionKeyIdentityArgsDict']]
+        """
+        All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
+        """
+        key_encryption_key_url: NotRequired[pulumi.Input[str]]
+        """
+        Key encryption key Url, versioned only. Ex: https://contosovault.vault.azure.net/keys/contosokek/562a4bb76b524a1493a6afe8e536ee78
+        """
+elif False:
+    ClusterPropertiesCustomerManagedKeyEncryptionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ClusterPropertiesCustomerManagedKeyEncryptionArgs:
@@ -66,6 +102,18 @@ class ClusterPropertiesCustomerManagedKeyEncryptionArgs:
         pulumi.set(self, "key_encryption_key_url", value)
 
 
+if not MYPY:
+    class ClusterPropertiesEncryptionArgsDict(TypedDict):
+        """
+        Encryption-at-rest configuration for the cluster.
+        """
+        customer_managed_key_encryption: NotRequired[pulumi.Input['ClusterPropertiesCustomerManagedKeyEncryptionArgsDict']]
+        """
+        All Customer-managed key encryption properties for the resource. Set this to an empty object to use Microsoft-managed key encryption.
+        """
+elif False:
+    ClusterPropertiesEncryptionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ClusterPropertiesEncryptionArgs:
     def __init__(__self__, *,
@@ -89,6 +137,22 @@ class ClusterPropertiesEncryptionArgs:
     def customer_managed_key_encryption(self, value: Optional[pulumi.Input['ClusterPropertiesCustomerManagedKeyEncryptionArgs']]):
         pulumi.set(self, "customer_managed_key_encryption", value)
 
+
+if not MYPY:
+    class ClusterPropertiesKeyEncryptionKeyIdentityArgsDict(TypedDict):
+        """
+        All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
+        """
+        identity_type: NotRequired[pulumi.Input[Union[str, 'CmkIdentityType']]]
+        """
+        Only userAssignedIdentity is supported in this API version; other types may be supported in the future
+        """
+        user_assigned_identity_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        User assigned identity to use for accessing key encryption key Url. Ex: /subscriptions/<sub uuid>/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId.
+        """
+elif False:
+    ClusterPropertiesKeyEncryptionKeyIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ClusterPropertiesKeyEncryptionKeyIdentityArgs:
@@ -130,6 +194,22 @@ class ClusterPropertiesKeyEncryptionKeyIdentityArgs:
         pulumi.set(self, "user_assigned_identity_resource_id", value)
 
 
+if not MYPY:
+    class DatabasePropertiesGeoReplicationArgsDict(TypedDict):
+        """
+        Optional set of properties to configure geo replication for this database.
+        """
+        group_nickname: NotRequired[pulumi.Input[str]]
+        """
+        Name for the group of linked database resources
+        """
+        linked_databases: NotRequired[pulumi.Input[Sequence[pulumi.Input['LinkedDatabaseArgsDict']]]]
+        """
+        List of database resources to link with this database
+        """
+elif False:
+    DatabasePropertiesGeoReplicationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DatabasePropertiesGeoReplicationArgs:
     def __init__(__self__, *,
@@ -170,6 +250,22 @@ class DatabasePropertiesGeoReplicationArgs:
         pulumi.set(self, "linked_databases", value)
 
 
+if not MYPY:
+    class EnterpriseSkuArgsDict(TypedDict):
+        """
+        SKU parameters supplied to the create RedisEnterprise operation.
+        """
+        name: pulumi.Input[Union[str, 'SkuName']]
+        """
+        The type of RedisEnterprise cluster to deploy. Possible values: (Enterprise_E10, EnterpriseFlash_F300 etc.)
+        """
+        capacity: NotRequired[pulumi.Input[int]]
+        """
+        The size of the RedisEnterprise cluster. Defaults to 2 or 3 depending on SKU. Valid values are (2, 4, 6, ...) for Enterprise SKUs and (3, 9, 15, ...) for Flash SKUs.
+        """
+elif False:
+    EnterpriseSkuArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EnterpriseSkuArgs:
     def __init__(__self__, *,
@@ -209,6 +305,18 @@ class EnterpriseSkuArgs:
         pulumi.set(self, "capacity", value)
 
 
+if not MYPY:
+    class LinkedDatabaseArgsDict(TypedDict):
+        """
+        Specifies details of a linked database resource.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID of a database resource to link with this database.
+        """
+elif False:
+    LinkedDatabaseArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinkedDatabaseArgs:
     def __init__(__self__, *,
@@ -232,6 +340,22 @@ class LinkedDatabaseArgs:
     def id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class ManagedServiceIdentityArgsDict(TypedDict):
+        """
+        Managed service identity (system assigned and/or user assigned identities)
+        """
+        type: pulumi.Input[Union[str, 'ManagedServiceIdentityType']]
+        """
+        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        """
+        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        """
+elif False:
+    ManagedServiceIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ManagedServiceIdentityArgs:
@@ -272,6 +396,22 @@ class ManagedServiceIdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
+if not MYPY:
+    class ModuleArgsDict(TypedDict):
+        """
+        Specifies configuration of a redis module
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the module, e.g. 'RedisBloom', 'RediSearch', 'RedisTimeSeries'
+        """
+        args: NotRequired[pulumi.Input[str]]
+        """
+        Configuration options for the module, e.g. 'ERROR_RATE 0.01 INITIAL_SIZE 400'.
+        """
+elif False:
+    ModuleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ModuleArgs:
     def __init__(__self__, *,
@@ -310,6 +450,30 @@ class ModuleArgs:
     def args(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "args", value)
 
+
+if not MYPY:
+    class PersistenceArgsDict(TypedDict):
+        """
+        Persistence-related configuration for the RedisEnterprise database
+        """
+        aof_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Sets whether AOF is enabled.
+        """
+        aof_frequency: NotRequired[pulumi.Input[Union[str, 'AofFrequency']]]
+        """
+        Sets the frequency at which data is written to disk.
+        """
+        rdb_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Sets whether RDB is enabled.
+        """
+        rdb_frequency: NotRequired[pulumi.Input[Union[str, 'RdbFrequency']]]
+        """
+        Sets the frequency at which a snapshot of the database is created.
+        """
+elif False:
+    PersistenceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PersistenceArgs:
@@ -383,6 +547,26 @@ class PersistenceArgs:
         pulumi.set(self, "rdb_frequency", value)
 
 
+if not MYPY:
+    class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
+        """
+        A collection of information about the state of the connection between service consumer and provider.
+        """
+        actions_required: NotRequired[pulumi.Input[str]]
+        """
+        A message indicating if changes on the service provider require any updates on the consumer.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The reason for approval/rejection of the connection.
+        """
+        status: NotRequired[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]]
+        """
+        Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+        """
+elif False:
+    PrivateLinkServiceConnectionStateArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:
     def __init__(__self__, *,
@@ -438,6 +622,70 @@ class PrivateLinkServiceConnectionStateArgs:
     def status(self, value: Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]]):
         pulumi.set(self, "status", value)
 
+
+if not MYPY:
+    class RedisCommonPropertiesRedisConfigurationArgsDict(TypedDict):
+        """
+        All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
+        """
+        aof_backup_enabled: NotRequired[pulumi.Input[str]]
+        """
+        Specifies whether the aof backup is enabled
+        """
+        aof_storage_connection_string0: NotRequired[pulumi.Input[str]]
+        """
+        First storage account connection string
+        """
+        aof_storage_connection_string1: NotRequired[pulumi.Input[str]]
+        """
+        Second storage account connection string
+        """
+        authnotrequired: NotRequired[pulumi.Input[str]]
+        """
+        Specifies whether the authentication is disabled. Setting this property is highly discouraged from security point of view.
+        """
+        maxfragmentationmemory_reserved: NotRequired[pulumi.Input[str]]
+        """
+        Value in megabytes reserved for fragmentation per shard
+        """
+        maxmemory_delta: NotRequired[pulumi.Input[str]]
+        """
+        Value in megabytes reserved for non-cache usage per shard e.g. failover.
+        """
+        maxmemory_policy: NotRequired[pulumi.Input[str]]
+        """
+        The eviction strategy used when your data won't fit within its memory limit.
+        """
+        maxmemory_reserved: NotRequired[pulumi.Input[str]]
+        """
+        Value in megabytes reserved for non-cache usage per shard e.g. failover.
+        """
+        preferred_data_persistence_auth_method: NotRequired[pulumi.Input[str]]
+        """
+        Preferred auth method to communicate to storage account used for data persistence, specify SAS or ManagedIdentity, default value is SAS
+        """
+        rdb_backup_enabled: NotRequired[pulumi.Input[str]]
+        """
+        Specifies whether the rdb backup is enabled
+        """
+        rdb_backup_frequency: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the frequency for creating rdb backup in minutes. Valid values: (15, 30, 60, 360, 720, 1440)
+        """
+        rdb_backup_max_snapshot_count: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the maximum number of snapshots for rdb backup
+        """
+        rdb_storage_connection_string: NotRequired[pulumi.Input[str]]
+        """
+        The storage account connection string for storing rdb file
+        """
+        storage_subscription_id: NotRequired[pulumi.Input[str]]
+        """
+        SubscriptionId of the storage account for persistence (aof/rdb) using ManagedIdentity.
+        """
+elif False:
+    RedisCommonPropertiesRedisConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RedisCommonPropertiesRedisConfigurationArgs:
@@ -671,6 +919,26 @@ class RedisCommonPropertiesRedisConfigurationArgs:
         pulumi.set(self, "storage_subscription_id", value)
 
 
+if not MYPY:
+    class ScheduleEntryArgsDict(TypedDict):
+        """
+        Patch schedule entry for a Premium Redis Cache.
+        """
+        day_of_week: pulumi.Input['DayOfWeek']
+        """
+        Day of the week when a cache can be patched.
+        """
+        start_hour_utc: pulumi.Input[int]
+        """
+        Start hour after which cache patching can start.
+        """
+        maintenance_window: NotRequired[pulumi.Input[str]]
+        """
+        ISO8601 timespan specifying how much time cache patching can take. 
+        """
+elif False:
+    ScheduleEntryArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ScheduleEntryArgs:
     def __init__(__self__, *,
@@ -724,6 +992,26 @@ class ScheduleEntryArgs:
     def maintenance_window(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "maintenance_window", value)
 
+
+if not MYPY:
+    class SkuArgsDict(TypedDict):
+        """
+        SKU parameters supplied to the create Redis operation.
+        """
+        capacity: pulumi.Input[int]
+        """
+        The size of the Redis cache to deploy. Valid values: for C (Basic/Standard) family (0, 1, 2, 3, 4, 5, 6), for P (Premium) family (1, 2, 3, 4).
+        """
+        family: pulumi.Input[Union[str, 'SkuFamily']]
+        """
+        The SKU family to use. Valid values: (C, P). (C = Basic/Standard, P = Premium).
+        """
+        name: pulumi.Input[Union[str, 'SkuName']]
+        """
+        The type of Redis cache to deploy. Valid values: (Basic, Standard, Premium)
+        """
+elif False:
+    SkuArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SkuArgs:

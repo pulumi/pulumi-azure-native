@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -91,7 +96,7 @@ class ApplicationAccelerator(pulumi.CustomResource):
                  application_accelerator_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  __props__=None):
         """
         Application accelerator resource
@@ -104,7 +109,7 @@ class ApplicationAccelerator(pulumi.CustomResource):
         :param pulumi.Input[str] application_accelerator_name: The name of the application accelerator.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] service_name: The name of the Service resource.
-        :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: Sku of the application accelerator resource
+        :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: Sku of the application accelerator resource
         """
         ...
     @overload
@@ -136,7 +141,7 @@ class ApplicationAccelerator(pulumi.CustomResource):
                  application_accelerator_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

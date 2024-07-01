@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -394,26 +399,26 @@ class Snapshot(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  completion_percent: Optional[pulumi.Input[float]] = None,
-                 copy_completion_error: Optional[pulumi.Input[pulumi.InputType['CopyCompletionErrorArgs']]] = None,
-                 creation_data: Optional[pulumi.Input[pulumi.InputType['CreationDataArgs']]] = None,
+                 copy_completion_error: Optional[pulumi.Input[Union['CopyCompletionErrorArgs', 'CopyCompletionErrorArgsDict']]] = None,
+                 creation_data: Optional[pulumi.Input[Union['CreationDataArgs', 'CreationDataArgsDict']]] = None,
                  data_access_auth_mode: Optional[pulumi.Input[Union[str, 'DataAccessAuthMode']]] = None,
                  disk_access_id: Optional[pulumi.Input[str]] = None,
                  disk_size_gb: Optional[pulumi.Input[int]] = None,
-                 encryption: Optional[pulumi.Input[pulumi.InputType['EncryptionArgs']]] = None,
-                 encryption_settings_collection: Optional[pulumi.Input[pulumi.InputType['EncryptionSettingsCollectionArgs']]] = None,
-                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
+                 encryption: Optional[pulumi.Input[Union['EncryptionArgs', 'EncryptionArgsDict']]] = None,
+                 encryption_settings_collection: Optional[pulumi.Input[Union['EncryptionSettingsCollectionArgs', 'EncryptionSettingsCollectionArgsDict']]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
                  hyper_v_generation: Optional[pulumi.Input[Union[str, 'HyperVGeneration']]] = None,
                  incremental: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  network_access_policy: Optional[pulumi.Input[Union[str, 'NetworkAccessPolicy']]] = None,
                  os_type: Optional[pulumi.Input['OperatingSystemTypes']] = None,
                  public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
-                 purchase_plan: Optional[pulumi.Input[pulumi.InputType['PurchasePlanArgs']]] = None,
+                 purchase_plan: Optional[pulumi.Input[Union['PurchasePlanArgs', 'PurchasePlanArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 security_profile: Optional[pulumi.Input[pulumi.InputType['DiskSecurityProfileArgs']]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SnapshotSkuArgs']]] = None,
+                 security_profile: Optional[pulumi.Input[Union['DiskSecurityProfileArgs', 'DiskSecurityProfileArgsDict']]] = None,
+                 sku: Optional[pulumi.Input[Union['SnapshotSkuArgs', 'SnapshotSkuArgsDict']]] = None,
                  snapshot_name: Optional[pulumi.Input[str]] = None,
-                 supported_capabilities: Optional[pulumi.Input[pulumi.InputType['SupportedCapabilitiesArgs']]] = None,
+                 supported_capabilities: Optional[pulumi.Input[Union['SupportedCapabilitiesArgs', 'SupportedCapabilitiesArgsDict']]] = None,
                  supports_hibernation: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -426,26 +431,26 @@ class Snapshot(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[float] completion_percent: Percentage complete for the background copy when a resource is created via the CopyStart operation.
-        :param pulumi.Input[pulumi.InputType['CopyCompletionErrorArgs']] copy_completion_error: Indicates the error details if the background copy of a resource created via the CopyStart operation fails.
-        :param pulumi.Input[pulumi.InputType['CreationDataArgs']] creation_data: Disk source information. CreationData information cannot be changed after the disk has been created.
+        :param pulumi.Input[Union['CopyCompletionErrorArgs', 'CopyCompletionErrorArgsDict']] copy_completion_error: Indicates the error details if the background copy of a resource created via the CopyStart operation fails.
+        :param pulumi.Input[Union['CreationDataArgs', 'CreationDataArgsDict']] creation_data: Disk source information. CreationData information cannot be changed after the disk has been created.
         :param pulumi.Input[Union[str, 'DataAccessAuthMode']] data_access_auth_mode: Additional authentication requirements when exporting or uploading to a disk or snapshot.
         :param pulumi.Input[str] disk_access_id: ARM id of the DiskAccess resource for using private endpoints on disks.
         :param pulumi.Input[int] disk_size_gb: If creationData.createOption is Empty, this field is mandatory and it indicates the size of the disk to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
-        :param pulumi.Input[pulumi.InputType['EncryptionArgs']] encryption: Encryption property can be used to encrypt data at rest with customer managed keys or platform managed keys.
-        :param pulumi.Input[pulumi.InputType['EncryptionSettingsCollectionArgs']] encryption_settings_collection: Encryption settings collection used be Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
-        :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: The extended location where the snapshot will be created. Extended location cannot be changed.
+        :param pulumi.Input[Union['EncryptionArgs', 'EncryptionArgsDict']] encryption: Encryption property can be used to encrypt data at rest with customer managed keys or platform managed keys.
+        :param pulumi.Input[Union['EncryptionSettingsCollectionArgs', 'EncryptionSettingsCollectionArgsDict']] encryption_settings_collection: Encryption settings collection used be Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
+        :param pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']] extended_location: The extended location where the snapshot will be created. Extended location cannot be changed.
         :param pulumi.Input[Union[str, 'HyperVGeneration']] hyper_v_generation: The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
         :param pulumi.Input[bool] incremental: Whether a snapshot is incremental. Incremental snapshots on the same disk occupy less space than full snapshots and can be diffed.
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[Union[str, 'NetworkAccessPolicy']] network_access_policy: Policy for accessing the disk via network.
         :param pulumi.Input['OperatingSystemTypes'] os_type: The Operating System type.
         :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: Policy for controlling export on the disk.
-        :param pulumi.Input[pulumi.InputType['PurchasePlanArgs']] purchase_plan: Purchase plan information for the image from which the source disk for the snapshot was originally created.
+        :param pulumi.Input[Union['PurchasePlanArgs', 'PurchasePlanArgsDict']] purchase_plan: Purchase plan information for the image from which the source disk for the snapshot was originally created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[pulumi.InputType['DiskSecurityProfileArgs']] security_profile: Contains the security related information for the resource.
-        :param pulumi.Input[pulumi.InputType['SnapshotSkuArgs']] sku: The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS. This is an optional parameter for incremental snapshot and the default behavior is the SKU will be set to the same sku as the previous snapshot
+        :param pulumi.Input[Union['DiskSecurityProfileArgs', 'DiskSecurityProfileArgsDict']] security_profile: Contains the security related information for the resource.
+        :param pulumi.Input[Union['SnapshotSkuArgs', 'SnapshotSkuArgsDict']] sku: The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS. This is an optional parameter for incremental snapshot and the default behavior is the SKU will be set to the same sku as the previous snapshot
         :param pulumi.Input[str] snapshot_name: The name of the snapshot that is being created. The name can't be changed after the snapshot is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The max name length is 80 characters.
-        :param pulumi.Input[pulumi.InputType['SupportedCapabilitiesArgs']] supported_capabilities: List of supported capabilities for the image from which the source disk from the snapshot was originally created.
+        :param pulumi.Input[Union['SupportedCapabilitiesArgs', 'SupportedCapabilitiesArgsDict']] supported_capabilities: List of supported capabilities for the image from which the source disk from the snapshot was originally created.
         :param pulumi.Input[bool] supports_hibernation: Indicates the OS on a snapshot supports hibernation.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
@@ -477,26 +482,26 @@ class Snapshot(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  completion_percent: Optional[pulumi.Input[float]] = None,
-                 copy_completion_error: Optional[pulumi.Input[pulumi.InputType['CopyCompletionErrorArgs']]] = None,
-                 creation_data: Optional[pulumi.Input[pulumi.InputType['CreationDataArgs']]] = None,
+                 copy_completion_error: Optional[pulumi.Input[Union['CopyCompletionErrorArgs', 'CopyCompletionErrorArgsDict']]] = None,
+                 creation_data: Optional[pulumi.Input[Union['CreationDataArgs', 'CreationDataArgsDict']]] = None,
                  data_access_auth_mode: Optional[pulumi.Input[Union[str, 'DataAccessAuthMode']]] = None,
                  disk_access_id: Optional[pulumi.Input[str]] = None,
                  disk_size_gb: Optional[pulumi.Input[int]] = None,
-                 encryption: Optional[pulumi.Input[pulumi.InputType['EncryptionArgs']]] = None,
-                 encryption_settings_collection: Optional[pulumi.Input[pulumi.InputType['EncryptionSettingsCollectionArgs']]] = None,
-                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
+                 encryption: Optional[pulumi.Input[Union['EncryptionArgs', 'EncryptionArgsDict']]] = None,
+                 encryption_settings_collection: Optional[pulumi.Input[Union['EncryptionSettingsCollectionArgs', 'EncryptionSettingsCollectionArgsDict']]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
                  hyper_v_generation: Optional[pulumi.Input[Union[str, 'HyperVGeneration']]] = None,
                  incremental: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  network_access_policy: Optional[pulumi.Input[Union[str, 'NetworkAccessPolicy']]] = None,
                  os_type: Optional[pulumi.Input['OperatingSystemTypes']] = None,
                  public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
-                 purchase_plan: Optional[pulumi.Input[pulumi.InputType['PurchasePlanArgs']]] = None,
+                 purchase_plan: Optional[pulumi.Input[Union['PurchasePlanArgs', 'PurchasePlanArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 security_profile: Optional[pulumi.Input[pulumi.InputType['DiskSecurityProfileArgs']]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SnapshotSkuArgs']]] = None,
+                 security_profile: Optional[pulumi.Input[Union['DiskSecurityProfileArgs', 'DiskSecurityProfileArgsDict']]] = None,
+                 sku: Optional[pulumi.Input[Union['SnapshotSkuArgs', 'SnapshotSkuArgsDict']]] = None,
                  snapshot_name: Optional[pulumi.Input[str]] = None,
-                 supported_capabilities: Optional[pulumi.Input[pulumi.InputType['SupportedCapabilitiesArgs']]] = None,
+                 supported_capabilities: Optional[pulumi.Input[Union['SupportedCapabilitiesArgs', 'SupportedCapabilitiesArgsDict']]] = None,
                  supports_hibernation: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):

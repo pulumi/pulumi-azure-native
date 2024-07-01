@@ -4,15 +4,39 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'PrincipalsArgs',
+    'PrincipalsArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class PrincipalsArgsDict(TypedDict):
+        """
+        User principals.
+        """
+        object_id: NotRequired[pulumi.Input[str]]
+        """
+        Object Id for the user
+        """
+        upn: NotRequired[pulumi.Input[str]]
+        """
+        UPN of the user.
+        """
+elif False:
+    PrincipalsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PrincipalsArgs:

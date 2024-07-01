@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -124,9 +129,9 @@ class ManagedHsm(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['ManagedHsmPropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['ManagedHsmPropertiesArgs', 'ManagedHsmPropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['ManagedHsmSkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['ManagedHsmSkuArgs', 'ManagedHsmSkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -136,9 +141,9 @@ class ManagedHsm(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The supported Azure location where the managed HSM Pool should be created.
         :param pulumi.Input[str] name: Name of the managed HSM Pool
-        :param pulumi.Input[pulumi.InputType['ManagedHsmPropertiesArgs']] properties: Properties of the managed HSM
+        :param pulumi.Input[Union['ManagedHsmPropertiesArgs', 'ManagedHsmPropertiesArgsDict']] properties: Properties of the managed HSM
         :param pulumi.Input[str] resource_group_name: Name of the resource group that contains the managed HSM pool.
-        :param pulumi.Input[pulumi.InputType['ManagedHsmSkuArgs']] sku: SKU details
+        :param pulumi.Input[Union['ManagedHsmSkuArgs', 'ManagedHsmSkuArgsDict']] sku: SKU details
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
         ...
@@ -167,9 +172,9 @@ class ManagedHsm(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['ManagedHsmPropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['ManagedHsmPropertiesArgs', 'ManagedHsmPropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['ManagedHsmSkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['ManagedHsmSkuArgs', 'ManagedHsmSkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

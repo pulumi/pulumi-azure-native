@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -315,14 +320,14 @@ class BastionHost(pulumi.CustomResource):
                  enable_shareable_link: Optional[pulumi.Input[bool]] = None,
                  enable_tunneling: Optional[pulumi.Input[bool]] = None,
                  id: Optional[pulumi.Input[str]] = None,
-                 ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BastionHostIPConfigurationArgs']]]]] = None,
+                 ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BastionHostIPConfigurationArgs', 'BastionHostIPConfigurationArgsDict']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 network_acls: Optional[pulumi.Input[pulumi.InputType['BastionHostPropertiesFormatNetworkAclsArgs']]] = None,
+                 network_acls: Optional[pulumi.Input[Union['BastionHostPropertiesFormatNetworkAclsArgs', 'BastionHostPropertiesFormatNetworkAclsArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  scale_units: Optional[pulumi.Input[int]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 virtual_network: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
+                 virtual_network: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
                  __props__=None):
         """
         Bastion Host resource.
@@ -338,13 +343,13 @@ class BastionHost(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_shareable_link: Enable/Disable Shareable Link of the Bastion Host resource.
         :param pulumi.Input[bool] enable_tunneling: Enable/Disable Tunneling feature of the Bastion Host resource.
         :param pulumi.Input[str] id: Resource ID.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BastionHostIPConfigurationArgs']]]] ip_configurations: IP configuration of the Bastion Host resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BastionHostIPConfigurationArgs', 'BastionHostIPConfigurationArgsDict']]]] ip_configurations: IP configuration of the Bastion Host resource.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[int] scale_units: The scale units for the Bastion Host resource.
-        :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The sku of this Bastion Host.
+        :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: The sku of this Bastion Host.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[pulumi.InputType['SubResourceArgs']] virtual_network: Reference to an existing virtual network required for Developer Bastion Host only.
+        :param pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']] virtual_network: Reference to an existing virtual network required for Developer Bastion Host only.
         """
         ...
     @overload
@@ -379,14 +384,14 @@ class BastionHost(pulumi.CustomResource):
                  enable_shareable_link: Optional[pulumi.Input[bool]] = None,
                  enable_tunneling: Optional[pulumi.Input[bool]] = None,
                  id: Optional[pulumi.Input[str]] = None,
-                 ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BastionHostIPConfigurationArgs']]]]] = None,
+                 ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BastionHostIPConfigurationArgs', 'BastionHostIPConfigurationArgsDict']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 network_acls: Optional[pulumi.Input[pulumi.InputType['BastionHostPropertiesFormatNetworkAclsArgs']]] = None,
+                 network_acls: Optional[pulumi.Input[Union['BastionHostPropertiesFormatNetworkAclsArgs', 'BastionHostPropertiesFormatNetworkAclsArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  scale_units: Optional[pulumi.Input[int]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 virtual_network: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
+                 virtual_network: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

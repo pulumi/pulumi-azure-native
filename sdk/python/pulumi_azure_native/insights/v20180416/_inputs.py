@@ -4,23 +4,68 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'AlertingActionArgs',
+    'AlertingActionArgsDict',
     'AzNsActionGroupArgs',
+    'AzNsActionGroupArgsDict',
     'CriteriaArgs',
+    'CriteriaArgsDict',
     'DimensionArgs',
+    'DimensionArgsDict',
     'LogMetricTriggerArgs',
+    'LogMetricTriggerArgsDict',
     'LogToMetricActionArgs',
+    'LogToMetricActionArgsDict',
     'ScheduleArgs',
+    'ScheduleArgsDict',
     'SourceArgs',
+    'SourceArgsDict',
     'TriggerConditionArgs',
+    'TriggerConditionArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AlertingActionArgsDict(TypedDict):
+        """
+        Specify action need to be taken when rule type is Alert
+        """
+        odata_type: pulumi.Input[str]
+        """
+        Specifies the action. Supported values - AlertingAction, LogToMetricAction
+        Expected value is 'Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction'.
+        """
+        severity: pulumi.Input[Union[str, 'AlertSeverity']]
+        """
+        Severity of the alert
+        """
+        trigger: pulumi.Input['TriggerConditionArgsDict']
+        """
+        The trigger condition that results in the alert rule being.
+        """
+        azns_action: NotRequired[pulumi.Input['AzNsActionGroupArgsDict']]
+        """
+        Azure action group reference.
+        """
+        throttling_in_min: NotRequired[pulumi.Input[int]]
+        """
+        time (in minutes) for which Alerts should be throttled or suppressed.
+        """
+elif False:
+    AlertingActionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AlertingActionArgs:
@@ -109,6 +154,26 @@ class AlertingActionArgs:
         pulumi.set(self, "throttling_in_min", value)
 
 
+if not MYPY:
+    class AzNsActionGroupArgsDict(TypedDict):
+        """
+        Azure action group
+        """
+        action_group: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Azure Action Group reference.
+        """
+        custom_webhook_payload: NotRequired[pulumi.Input[str]]
+        """
+        Custom payload to be sent for all webhook URI in Azure action group
+        """
+        email_subject: NotRequired[pulumi.Input[str]]
+        """
+        Custom subject override for all email ids in Azure action group
+        """
+elif False:
+    AzNsActionGroupArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AzNsActionGroupArgs:
     def __init__(__self__, *,
@@ -165,6 +230,22 @@ class AzNsActionGroupArgs:
         pulumi.set(self, "email_subject", value)
 
 
+if not MYPY:
+    class CriteriaArgsDict(TypedDict):
+        """
+        Specifies the criteria for converting log to metric.
+        """
+        metric_name: pulumi.Input[str]
+        """
+        Name of the metric
+        """
+        dimensions: NotRequired[pulumi.Input[Sequence[pulumi.Input['DimensionArgsDict']]]]
+        """
+        List of Dimensions for creating metric
+        """
+elif False:
+    CriteriaArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CriteriaArgs:
     def __init__(__self__, *,
@@ -203,6 +284,26 @@ class CriteriaArgs:
     def dimensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DimensionArgs']]]]):
         pulumi.set(self, "dimensions", value)
 
+
+if not MYPY:
+    class DimensionArgsDict(TypedDict):
+        """
+        Specifies the criteria for converting log to metric.
+        """
+        name: pulumi.Input[str]
+        """
+        Name of the dimension
+        """
+        operator: pulumi.Input[Union[str, 'Operator']]
+        """
+        Operator for dimension values
+        """
+        values: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        List of dimension values
+        """
+elif False:
+    DimensionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DimensionArgs:
@@ -256,6 +357,30 @@ class DimensionArgs:
     def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "values", value)
 
+
+if not MYPY:
+    class LogMetricTriggerArgsDict(TypedDict):
+        """
+        A log metrics trigger descriptor.
+        """
+        metric_column: NotRequired[pulumi.Input[str]]
+        """
+        Evaluation of metric on a particular column
+        """
+        metric_trigger_type: NotRequired[pulumi.Input[Union[str, 'MetricTriggerType']]]
+        """
+        Metric Trigger Type - 'Consecutive' or 'Total'
+        """
+        threshold: NotRequired[pulumi.Input[float]]
+        """
+        The threshold of the metric trigger.
+        """
+        threshold_operator: NotRequired[pulumi.Input[Union[str, 'ConditionalOperator']]]
+        """
+        Evaluation operation for Metric -'GreaterThan' or 'LessThan' or 'Equal'.
+        """
+elif False:
+    LogMetricTriggerArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LogMetricTriggerArgs:
@@ -329,6 +454,23 @@ class LogMetricTriggerArgs:
         pulumi.set(self, "threshold_operator", value)
 
 
+if not MYPY:
+    class LogToMetricActionArgsDict(TypedDict):
+        """
+        Specify action need to be taken when rule type is converting log to metric
+        """
+        criteria: pulumi.Input[Sequence[pulumi.Input['CriteriaArgsDict']]]
+        """
+        Criteria of Metric
+        """
+        odata_type: pulumi.Input[str]
+        """
+        Specifies the action. Supported values - AlertingAction, LogToMetricAction
+        Expected value is 'Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.LogToMetricAction'.
+        """
+elif False:
+    LogToMetricActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LogToMetricActionArgs:
     def __init__(__self__, *,
@@ -369,6 +511,22 @@ class LogToMetricActionArgs:
         pulumi.set(self, "odata_type", value)
 
 
+if not MYPY:
+    class ScheduleArgsDict(TypedDict):
+        """
+        Defines how often to run the search and the time interval.
+        """
+        frequency_in_minutes: pulumi.Input[int]
+        """
+        frequency (in minutes) at which rule condition should be evaluated.
+        """
+        time_window_in_minutes: pulumi.Input[int]
+        """
+        Time window for which data needs to be fetched for query (should be greater than or equal to frequencyInMinutes).
+        """
+elif False:
+    ScheduleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ScheduleArgs:
     def __init__(__self__, *,
@@ -406,6 +564,30 @@ class ScheduleArgs:
     def time_window_in_minutes(self, value: pulumi.Input[int]):
         pulumi.set(self, "time_window_in_minutes", value)
 
+
+if not MYPY:
+    class SourceArgsDict(TypedDict):
+        """
+        Specifies the log search query.
+        """
+        data_source_id: pulumi.Input[str]
+        """
+        The resource uri over which log search query is to be run.
+        """
+        authorized_resources: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of  Resource referred into query
+        """
+        query: NotRequired[pulumi.Input[str]]
+        """
+        Log search query. Required for action type - AlertingAction
+        """
+        query_type: NotRequired[pulumi.Input[Union[str, 'QueryType']]]
+        """
+        Set value to 'ResultCount' .
+        """
+elif False:
+    SourceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SourceArgs:
@@ -477,6 +659,26 @@ class SourceArgs:
     def query_type(self, value: Optional[pulumi.Input[Union[str, 'QueryType']]]):
         pulumi.set(self, "query_type", value)
 
+
+if not MYPY:
+    class TriggerConditionArgsDict(TypedDict):
+        """
+        The condition that results in the Log Search rule.
+        """
+        threshold: pulumi.Input[float]
+        """
+        Result or count threshold based on which rule should be triggered.
+        """
+        threshold_operator: pulumi.Input[Union[str, 'ConditionalOperator']]
+        """
+        Evaluation operation for rule - 'GreaterThan' or 'LessThan.
+        """
+        metric_trigger: NotRequired[pulumi.Input['LogMetricTriggerArgsDict']]
+        """
+        Trigger condition for metric query rule
+        """
+elif False:
+    TriggerConditionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TriggerConditionArgs:

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -217,15 +222,15 @@ class ExternalNetwork(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  annotation: Optional[pulumi.Input[str]] = None,
-                 export_route_policy: Optional[pulumi.Input[pulumi.InputType['ExportRoutePolicyArgs']]] = None,
+                 export_route_policy: Optional[pulumi.Input[Union['ExportRoutePolicyArgs', 'ExportRoutePolicyArgsDict']]] = None,
                  export_route_policy_id: Optional[pulumi.Input[str]] = None,
                  external_network_name: Optional[pulumi.Input[str]] = None,
-                 import_route_policy: Optional[pulumi.Input[pulumi.InputType['ImportRoutePolicyArgs']]] = None,
+                 import_route_policy: Optional[pulumi.Input[Union['ImportRoutePolicyArgs', 'ImportRoutePolicyArgsDict']]] = None,
                  import_route_policy_id: Optional[pulumi.Input[str]] = None,
                  l3_isolation_domain_name: Optional[pulumi.Input[str]] = None,
                  network_to_network_interconnect_id: Optional[pulumi.Input[str]] = None,
-                 option_a_properties: Optional[pulumi.Input[pulumi.InputType['ExternalNetworkPropertiesOptionAPropertiesArgs']]] = None,
-                 option_b_properties: Optional[pulumi.Input[pulumi.InputType['L3OptionBPropertiesArgs']]] = None,
+                 option_a_properties: Optional[pulumi.Input[Union['ExternalNetworkPropertiesOptionAPropertiesArgs', 'ExternalNetworkPropertiesOptionAPropertiesArgsDict']]] = None,
+                 option_b_properties: Optional[pulumi.Input[Union['L3OptionBPropertiesArgs', 'L3OptionBPropertiesArgsDict']]] = None,
                  peering_option: Optional[pulumi.Input[Union[str, 'PeeringOption']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -235,15 +240,15 @@ class ExternalNetwork(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] annotation: Switch configuration description.
-        :param pulumi.Input[pulumi.InputType['ExportRoutePolicyArgs']] export_route_policy: Export Route Policy either IPv4 or IPv6.
+        :param pulumi.Input[Union['ExportRoutePolicyArgs', 'ExportRoutePolicyArgsDict']] export_route_policy: Export Route Policy either IPv4 or IPv6.
         :param pulumi.Input[str] export_route_policy_id: ARM Resource ID of the RoutePolicy. This is used for the backward compatibility.
         :param pulumi.Input[str] external_network_name: Name of the External Network.
-        :param pulumi.Input[pulumi.InputType['ImportRoutePolicyArgs']] import_route_policy: Import Route Policy either IPv4 or IPv6.
+        :param pulumi.Input[Union['ImportRoutePolicyArgs', 'ImportRoutePolicyArgsDict']] import_route_policy: Import Route Policy either IPv4 or IPv6.
         :param pulumi.Input[str] import_route_policy_id: ARM Resource ID of the RoutePolicy. This is used for the backward compatibility.
         :param pulumi.Input[str] l3_isolation_domain_name: Name of the L3 Isolation Domain.
         :param pulumi.Input[str] network_to_network_interconnect_id: ARM Resource ID of the networkToNetworkInterconnectId of the ExternalNetwork resource.
-        :param pulumi.Input[pulumi.InputType['ExternalNetworkPropertiesOptionAPropertiesArgs']] option_a_properties: option A properties object
-        :param pulumi.Input[pulumi.InputType['L3OptionBPropertiesArgs']] option_b_properties: option B properties object
+        :param pulumi.Input[Union['ExternalNetworkPropertiesOptionAPropertiesArgs', 'ExternalNetworkPropertiesOptionAPropertiesArgsDict']] option_a_properties: option A properties object
+        :param pulumi.Input[Union['L3OptionBPropertiesArgs', 'L3OptionBPropertiesArgsDict']] option_b_properties: option B properties object
         :param pulumi.Input[Union[str, 'PeeringOption']] peering_option: Peering option list.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         """
@@ -272,15 +277,15 @@ class ExternalNetwork(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  annotation: Optional[pulumi.Input[str]] = None,
-                 export_route_policy: Optional[pulumi.Input[pulumi.InputType['ExportRoutePolicyArgs']]] = None,
+                 export_route_policy: Optional[pulumi.Input[Union['ExportRoutePolicyArgs', 'ExportRoutePolicyArgsDict']]] = None,
                  export_route_policy_id: Optional[pulumi.Input[str]] = None,
                  external_network_name: Optional[pulumi.Input[str]] = None,
-                 import_route_policy: Optional[pulumi.Input[pulumi.InputType['ImportRoutePolicyArgs']]] = None,
+                 import_route_policy: Optional[pulumi.Input[Union['ImportRoutePolicyArgs', 'ImportRoutePolicyArgsDict']]] = None,
                  import_route_policy_id: Optional[pulumi.Input[str]] = None,
                  l3_isolation_domain_name: Optional[pulumi.Input[str]] = None,
                  network_to_network_interconnect_id: Optional[pulumi.Input[str]] = None,
-                 option_a_properties: Optional[pulumi.Input[pulumi.InputType['ExternalNetworkPropertiesOptionAPropertiesArgs']]] = None,
-                 option_b_properties: Optional[pulumi.Input[pulumi.InputType['L3OptionBPropertiesArgs']]] = None,
+                 option_a_properties: Optional[pulumi.Input[Union['ExternalNetworkPropertiesOptionAPropertiesArgs', 'ExternalNetworkPropertiesOptionAPropertiesArgsDict']]] = None,
+                 option_b_properties: Optional[pulumi.Input[Union['L3OptionBPropertiesArgs', 'L3OptionBPropertiesArgsDict']]] = None,
                  peering_option: Optional[pulumi.Input[Union[str, 'PeeringOption']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):

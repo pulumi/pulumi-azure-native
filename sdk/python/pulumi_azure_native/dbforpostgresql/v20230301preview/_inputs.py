@@ -4,26 +4,61 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'AdminCredentialsArgs',
+    'AdminCredentialsArgsDict',
     'AuthConfigArgs',
+    'AuthConfigArgsDict',
     'BackupArgs',
+    'BackupArgsDict',
     'DataEncryptionArgs',
+    'DataEncryptionArgsDict',
     'HighAvailabilityArgs',
+    'HighAvailabilityArgsDict',
     'MaintenanceWindowArgs',
+    'MaintenanceWindowArgsDict',
     'MigrationSecretParametersArgs',
+    'MigrationSecretParametersArgsDict',
     'NetworkArgs',
+    'NetworkArgsDict',
     'SkuArgs',
+    'SkuArgsDict',
     'StorageArgs',
+    'StorageArgsDict',
     'UserAssignedIdentityArgs',
+    'UserAssignedIdentityArgsDict',
     'UserIdentityArgs',
+    'UserIdentityArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AdminCredentialsArgsDict(TypedDict):
+        """
+        Server admin credentials.
+        """
+        source_server_password: pulumi.Input[str]
+        """
+        Password for source server.
+        """
+        target_server_password: pulumi.Input[str]
+        """
+        Password for target server.
+        """
+elif False:
+    AdminCredentialsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AdminCredentialsArgs:
@@ -62,6 +97,26 @@ class AdminCredentialsArgs:
     def target_server_password(self, value: pulumi.Input[str]):
         pulumi.set(self, "target_server_password", value)
 
+
+if not MYPY:
+    class AuthConfigArgsDict(TypedDict):
+        """
+        Authentication configuration properties of a server
+        """
+        active_directory_auth: NotRequired[pulumi.Input[Union[str, 'ActiveDirectoryAuthEnum']]]
+        """
+        If Enabled, Azure Active Directory authentication is enabled.
+        """
+        password_auth: NotRequired[pulumi.Input[Union[str, 'PasswordAuthEnum']]]
+        """
+        If Enabled, Password authentication is enabled.
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        Tenant id of the server.
+        """
+elif False:
+    AuthConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AuthConfigArgs:
@@ -123,6 +178,22 @@ class AuthConfigArgs:
         pulumi.set(self, "tenant_id", value)
 
 
+if not MYPY:
+    class BackupArgsDict(TypedDict):
+        """
+        Backup properties of a server
+        """
+        backup_retention_days: NotRequired[pulumi.Input[int]]
+        """
+        Backup retention days for the server.
+        """
+        geo_redundant_backup: NotRequired[pulumi.Input[Union[str, 'GeoRedundantBackupEnum']]]
+        """
+        A value indicating whether Geo-Redundant backup is enabled on the server.
+        """
+elif False:
+    BackupArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class BackupArgs:
     def __init__(__self__, *,
@@ -166,6 +237,42 @@ class BackupArgs:
     def geo_redundant_backup(self, value: Optional[pulumi.Input[Union[str, 'GeoRedundantBackupEnum']]]):
         pulumi.set(self, "geo_redundant_backup", value)
 
+
+if not MYPY:
+    class DataEncryptionArgsDict(TypedDict):
+        """
+        Data encryption properties of a server
+        """
+        geo_backup_encryption_key_status: NotRequired[pulumi.Input[Union[str, 'KeyStatusEnum']]]
+        """
+        Geo-backup encryption key status for Data encryption enabled server.
+        """
+        geo_backup_key_uri: NotRequired[pulumi.Input[str]]
+        """
+        URI for the key in keyvault for data encryption for geo-backup of server.
+        """
+        geo_backup_user_assigned_identity_id: NotRequired[pulumi.Input[str]]
+        """
+        Resource Id for the User assigned identity to be used for data encryption for geo-backup of server.
+        """
+        primary_encryption_key_status: NotRequired[pulumi.Input[Union[str, 'KeyStatusEnum']]]
+        """
+        Primary encryption key status for Data encryption enabled server.
+        """
+        primary_key_uri: NotRequired[pulumi.Input[str]]
+        """
+        URI for the key in keyvault for data encryption of the primary server.
+        """
+        primary_user_assigned_identity_id: NotRequired[pulumi.Input[str]]
+        """
+        Resource Id for the User assigned identity to be used for data encryption of the primary server.
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'ArmServerKeyType']]]
+        """
+        Data encryption type to depict if it is System Managed vs Azure Key vault.
+        """
+elif False:
+    DataEncryptionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataEncryptionArgs:
@@ -287,6 +394,22 @@ class DataEncryptionArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class HighAvailabilityArgsDict(TypedDict):
+        """
+        High availability properties of a server
+        """
+        mode: NotRequired[pulumi.Input[Union[str, 'HighAvailabilityMode']]]
+        """
+        The HA mode for the server.
+        """
+        standby_availability_zone: NotRequired[pulumi.Input[str]]
+        """
+        availability zone information of the standby.
+        """
+elif False:
+    HighAvailabilityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class HighAvailabilityArgs:
     def __init__(__self__, *,
@@ -330,6 +453,30 @@ class HighAvailabilityArgs:
     def standby_availability_zone(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "standby_availability_zone", value)
 
+
+if not MYPY:
+    class MaintenanceWindowArgsDict(TypedDict):
+        """
+        Maintenance window properties of a server.
+        """
+        custom_window: NotRequired[pulumi.Input[str]]
+        """
+        indicates whether custom window is enabled or disabled
+        """
+        day_of_week: NotRequired[pulumi.Input[int]]
+        """
+        day of week for maintenance window
+        """
+        start_hour: NotRequired[pulumi.Input[int]]
+        """
+        start hour for maintenance window
+        """
+        start_minute: NotRequired[pulumi.Input[int]]
+        """
+        start minute for maintenance window
+        """
+elif False:
+    MaintenanceWindowArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MaintenanceWindowArgs:
@@ -411,6 +558,26 @@ class MaintenanceWindowArgs:
         pulumi.set(self, "start_minute", value)
 
 
+if not MYPY:
+    class MigrationSecretParametersArgsDict(TypedDict):
+        """
+        Migration secret parameters.
+        """
+        admin_credentials: pulumi.Input['AdminCredentialsArgsDict']
+        """
+        Admin credentials for source and target servers
+        """
+        source_server_username: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the username for the source server. This user need not be an admin.
+        """
+        target_server_username: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the username for the target server. This user need not be an admin.
+        """
+elif False:
+    MigrationSecretParametersArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MigrationSecretParametersArgs:
     def __init__(__self__, *,
@@ -466,6 +633,22 @@ class MigrationSecretParametersArgs:
         pulumi.set(self, "target_server_username", value)
 
 
+if not MYPY:
+    class NetworkArgsDict(TypedDict):
+        """
+        Network properties of a server.
+        """
+        delegated_subnet_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        Delegated subnet arm resource id. This is required to be passed during create, in case we want the server to be VNET injected, i.e. Private access server. During update, pass this only if we want to update the value for Private DNS zone.
+        """
+        private_dns_zone_arm_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        Private dns zone arm resource id. This is required to be passed during create, in case we want the server to be VNET injected, i.e. Private access server. During update, pass this only if we want to update the value for Private DNS zone.
+        """
+elif False:
+    NetworkArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NetworkArgs:
     def __init__(__self__, *,
@@ -506,6 +689,22 @@ class NetworkArgs:
         pulumi.set(self, "private_dns_zone_arm_resource_id", value)
 
 
+if not MYPY:
+    class SkuArgsDict(TypedDict):
+        """
+        Sku information related properties of a server.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the sku, typically, tier + family + cores, e.g. Standard_D4s_v3.
+        """
+        tier: pulumi.Input[Union[str, 'SkuTier']]
+        """
+        The tier of the particular SKU, e.g. Burstable.
+        """
+elif False:
+    SkuArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SkuArgs:
     def __init__(__self__, *,
@@ -543,6 +742,26 @@ class SkuArgs:
     def tier(self, value: pulumi.Input[Union[str, 'SkuTier']]):
         pulumi.set(self, "tier", value)
 
+
+if not MYPY:
+    class StorageArgsDict(TypedDict):
+        """
+        Storage properties of a server
+        """
+        auto_grow: NotRequired[pulumi.Input[Union[str, 'StorageAutoGrow']]]
+        """
+        Flag to enable / disable Storage Auto grow for flexible server.
+        """
+        storage_size_gb: NotRequired[pulumi.Input[int]]
+        """
+        Max storage allowed for a server.
+        """
+        tier: NotRequired[pulumi.Input[Union[str, 'AzureManagedDiskPerformanceTiers']]]
+        """
+        Name of storage tier for IOPS.
+        """
+elif False:
+    StorageArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class StorageArgs:
@@ -600,6 +819,22 @@ class StorageArgs:
         pulumi.set(self, "tier", value)
 
 
+if not MYPY:
+    class UserAssignedIdentityArgsDict(TypedDict):
+        """
+        Information describing the identities associated with this application.
+        """
+        type: pulumi.Input[Union[str, 'IdentityType']]
+        """
+        the types of identities associated with this resource; currently restricted to 'None and UserAssigned'
+        """
+        user_assigned_identities: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['UserIdentityArgsDict']]]]
+        """
+        represents user assigned identities map.
+        """
+elif False:
+    UserAssignedIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class UserAssignedIdentityArgs:
     def __init__(__self__, *,
@@ -638,6 +873,22 @@ class UserAssignedIdentityArgs:
     def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['UserIdentityArgs']]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
+
+if not MYPY:
+    class UserIdentityArgsDict(TypedDict):
+        """
+        Describes a single user-assigned identity associated with the application.
+        """
+        client_id: NotRequired[pulumi.Input[str]]
+        """
+        the client identifier of the Service Principal which this identity represents.
+        """
+        principal_id: NotRequired[pulumi.Input[str]]
+        """
+        the object identifier of the Service Principal which this identity represents.
+        """
+elif False:
+    UserIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserIdentityArgs:

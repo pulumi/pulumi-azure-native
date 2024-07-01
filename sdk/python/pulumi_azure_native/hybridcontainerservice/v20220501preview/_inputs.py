@@ -4,38 +4,105 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'AADProfileArgs',
+    'AADProfileArgsDict',
     'AddonProfilesArgs',
+    'AddonProfilesArgsDict',
     'AgentPoolExtendedLocationArgs',
+    'AgentPoolExtendedLocationArgsDict',
     'AgentPoolProvisioningStatusErrorArgs',
+    'AgentPoolProvisioningStatusErrorArgsDict',
     'AgentPoolProvisioningStatusProvisioningStatusArgs',
+    'AgentPoolProvisioningStatusProvisioningStatusArgsDict',
     'AgentPoolProvisioningStatusStatusArgs',
+    'AgentPoolProvisioningStatusStatusArgsDict',
     'ArcAgentProfileArgs',
+    'ArcAgentProfileArgsDict',
     'CloudProviderProfileInfraNetworkProfileArgs',
+    'CloudProviderProfileInfraNetworkProfileArgsDict',
     'CloudProviderProfileInfraStorageProfileArgs',
+    'CloudProviderProfileInfraStorageProfileArgsDict',
     'CloudProviderProfileArgs',
+    'CloudProviderProfileArgsDict',
     'ControlPlaneEndpointProfileControlPlaneEndpointArgs',
+    'ControlPlaneEndpointProfileControlPlaneEndpointArgsDict',
     'ControlPlaneProfileArgs',
+    'ControlPlaneProfileArgsDict',
     'HttpProxyConfigArgs',
+    'HttpProxyConfigArgsDict',
     'LinuxProfilePropertiesPublicKeysArgs',
+    'LinuxProfilePropertiesPublicKeysArgsDict',
     'LinuxProfilePropertiesSshArgs',
+    'LinuxProfilePropertiesSshArgsDict',
     'LinuxProfilePropertiesArgs',
+    'LinuxProfilePropertiesArgsDict',
     'LoadBalancerProfileArgs',
+    'LoadBalancerProfileArgsDict',
     'NamedAgentPoolProfileArgs',
+    'NamedAgentPoolProfileArgsDict',
     'NetworkProfileArgs',
+    'NetworkProfileArgsDict',
     'ProvisionedClusterIdentityArgs',
+    'ProvisionedClusterIdentityArgsDict',
     'ProvisionedClustersAllPropertiesArgs',
+    'ProvisionedClustersAllPropertiesArgsDict',
     'ProvisionedClustersCommonPropertiesFeaturesArgs',
+    'ProvisionedClustersCommonPropertiesFeaturesArgsDict',
     'ProvisionedClustersExtendedLocationArgs',
+    'ProvisionedClustersExtendedLocationArgsDict',
     'WindowsProfileArgs',
+    'WindowsProfileArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AADProfileArgsDict(TypedDict):
+        """
+        AAD Profile specifies attributes for Azure Active Directory integration.
+        """
+        admin_group_object_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of AAD group object IDs that will have admin role of the cluster.
+        """
+        client_app_id: NotRequired[pulumi.Input[str]]
+        """
+        The client AAD application ID.
+        """
+        enable_azure_rbac: NotRequired[pulumi.Input[bool]]
+        """
+        Whether to enable Azure RBAC for Kubernetes authorization.
+        """
+        managed: NotRequired[pulumi.Input[bool]]
+        """
+        Whether to enable managed AAD.
+        """
+        server_app_id: NotRequired[pulumi.Input[str]]
+        """
+        The server AAD application ID.
+        """
+        server_app_secret: NotRequired[pulumi.Input[str]]
+        """
+        The server AAD application secret.
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        The AAD tenant ID to use for authentication. If not specified, will use the tenant of the deployment subscription.
+        """
+elif False:
+    AADProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AADProfileArgs:
@@ -157,6 +224,22 @@ class AADProfileArgs:
         pulumi.set(self, "tenant_id", value)
 
 
+if not MYPY:
+    class AddonProfilesArgsDict(TypedDict):
+        """
+        Addon configurations
+        """
+        config: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Config - Key-value pairs for configuring an add-on.
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Enabled - Whether the add-on is enabled or not.
+        """
+elif False:
+    AddonProfilesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AddonProfilesArgs:
     def __init__(__self__, *,
@@ -197,6 +280,19 @@ class AddonProfilesArgs:
         pulumi.set(self, "enabled", value)
 
 
+if not MYPY:
+    class AgentPoolExtendedLocationArgsDict(TypedDict):
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The extended location name.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        The extended location type.
+        """
+elif False:
+    AgentPoolExtendedLocationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AgentPoolExtendedLocationArgs:
     def __init__(__self__, *,
@@ -236,6 +332,13 @@ class AgentPoolExtendedLocationArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class AgentPoolProvisioningStatusErrorArgsDict(TypedDict):
+        code: NotRequired[pulumi.Input[str]]
+        message: NotRequired[pulumi.Input[str]]
+elif False:
+    AgentPoolProvisioningStatusErrorArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AgentPoolProvisioningStatusErrorArgs:
     def __init__(__self__, *,
@@ -264,6 +367,21 @@ class AgentPoolProvisioningStatusErrorArgs:
     def message(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "message", value)
 
+
+if not MYPY:
+    class AgentPoolProvisioningStatusProvisioningStatusArgsDict(TypedDict):
+        """
+        Contains Provisioning errors
+        """
+        error: NotRequired[pulumi.Input['AgentPoolProvisioningStatusErrorArgsDict']]
+        operation_id: NotRequired[pulumi.Input[str]]
+        phase: NotRequired[pulumi.Input[str]]
+        """
+        Phase represents the current phase of cluster actuation. E.g. Pending, Running, Terminating, Failed etc.
+        """
+        status: NotRequired[pulumi.Input[str]]
+elif False:
+    AgentPoolProvisioningStatusProvisioningStatusArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AgentPoolProvisioningStatusProvisioningStatusArgs:
@@ -324,6 +442,30 @@ class AgentPoolProvisioningStatusProvisioningStatusArgs:
     def status(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "status", value)
 
+
+if not MYPY:
+    class AgentPoolProvisioningStatusStatusArgsDict(TypedDict):
+        """
+        HybridAKSNodePoolStatus defines the observed state of HybridAKSNodePool
+        """
+        error_message: NotRequired[pulumi.Input[str]]
+        """
+        ErrorMessage - Error messages during creation of cluster
+        """
+        provisioning_status: NotRequired[pulumi.Input['AgentPoolProvisioningStatusProvisioningStatusArgsDict']]
+        """
+        Contains Provisioning errors
+        """
+        ready_replicas: NotRequired[pulumi.Input[int]]
+        """
+        Total number of ready machines targeted by this deployment.
+        """
+        replicas: NotRequired[pulumi.Input[int]]
+        """
+        Total number of non-terminated machines targeted by this deployment
+        """
+elif False:
+    AgentPoolProvisioningStatusStatusArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AgentPoolProvisioningStatusStatusArgs:
@@ -397,6 +539,22 @@ class AgentPoolProvisioningStatusStatusArgs:
         pulumi.set(self, "replicas", value)
 
 
+if not MYPY:
+    class ArcAgentProfileArgsDict(TypedDict):
+        """
+        Defines the Arc Agent properties for the Provisioned clusters.
+        """
+        agent_auto_upgrade: NotRequired[pulumi.Input[Union[str, 'AutoUpgradeOptions']]]
+        """
+        Indicates whether the Arc agents on the provisioned clusters be upgraded automatically to the latest version. Defaults to Enabled.
+        """
+        agent_version: NotRequired[pulumi.Input[str]]
+        """
+        Version of the Arc agents to be installed on the provisioned Provisioned cluster resource
+        """
+elif False:
+    ArcAgentProfileArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ArcAgentProfileArgs:
     def __init__(__self__, *,
@@ -439,6 +597,18 @@ class ArcAgentProfileArgs:
         pulumi.set(self, "agent_version", value)
 
 
+if not MYPY:
+    class CloudProviderProfileInfraNetworkProfileArgsDict(TypedDict):
+        """
+        InfraNetworkProfile - List of infra network profiles for the provisioned cluster
+        """
+        vnet_subnet_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Array of references to azure resource corresponding to the new HybridAKSNetwork object e.g. /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridContainerService/virtualNetworks/{virtualNetworkName}
+        """
+elif False:
+    CloudProviderProfileInfraNetworkProfileArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CloudProviderProfileInfraNetworkProfileArgs:
     def __init__(__self__, *,
@@ -463,6 +633,18 @@ class CloudProviderProfileInfraNetworkProfileArgs:
         pulumi.set(self, "vnet_subnet_ids", value)
 
 
+if not MYPY:
+    class CloudProviderProfileInfraStorageProfileArgsDict(TypedDict):
+        """
+        InfraStorageProfile - List of infra storage profiles for the provisioned cluster
+        """
+        storage_space_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Reference to azure resource corresponding to the new HybridAKSStorage object e.g. /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridContainerService/storageSpaces/{storageSpaceName}
+        """
+elif False:
+    CloudProviderProfileInfraStorageProfileArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CloudProviderProfileInfraStorageProfileArgs:
     def __init__(__self__, *,
@@ -486,6 +668,22 @@ class CloudProviderProfileInfraStorageProfileArgs:
     def storage_space_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "storage_space_ids", value)
 
+
+if not MYPY:
+    class CloudProviderProfileArgsDict(TypedDict):
+        """
+        CloudProviderProfile - The underlying cloud infra provider properties.
+        """
+        infra_network_profile: NotRequired[pulumi.Input['CloudProviderProfileInfraNetworkProfileArgsDict']]
+        """
+        InfraNetworkProfile - List of infra network profiles for the provisioned cluster
+        """
+        infra_storage_profile: NotRequired[pulumi.Input['CloudProviderProfileInfraStorageProfileArgsDict']]
+        """
+        InfraStorageProfile - List of infra storage profiles for the provisioned cluster
+        """
+elif False:
+    CloudProviderProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CloudProviderProfileArgs:
@@ -527,6 +725,22 @@ class CloudProviderProfileArgs:
         pulumi.set(self, "infra_storage_profile", value)
 
 
+if not MYPY:
+    class ControlPlaneEndpointProfileControlPlaneEndpointArgsDict(TypedDict):
+        """
+        API server endpoint for the control plane
+        """
+        host_ip: NotRequired[pulumi.Input[str]]
+        """
+        Host IP address for API server
+        """
+        port: NotRequired[pulumi.Input[str]]
+        """
+        Port for the API server
+        """
+elif False:
+    ControlPlaneEndpointProfileControlPlaneEndpointArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ControlPlaneEndpointProfileControlPlaneEndpointArgs:
     def __init__(__self__, *,
@@ -566,6 +780,74 @@ class ControlPlaneEndpointProfileControlPlaneEndpointArgs:
     def port(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "port", value)
 
+
+if not MYPY:
+    class ControlPlaneProfileArgsDict(TypedDict):
+        """
+        ControlPlaneProfile - The control plane properties for the provisioned cluster.
+        """
+        availability_zones: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        AvailabilityZones - The list of Availability zones to use for nodes. Datacenter racks modelled as zones
+        """
+        cloud_provider_profile: NotRequired[pulumi.Input['CloudProviderProfileArgsDict']]
+        """
+        The underlying cloud infra provider properties.
+        """
+        control_plane_endpoint: NotRequired[pulumi.Input['ControlPlaneEndpointProfileControlPlaneEndpointArgsDict']]
+        """
+        API server endpoint for the control plane
+        """
+        count: NotRequired[pulumi.Input[int]]
+        """
+        Count - Number of agents to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
+        """
+        linux_profile: NotRequired[pulumi.Input['LinuxProfilePropertiesArgsDict']]
+        """
+        Profile for Linux VMs in the container service cluster.
+        """
+        max_count: NotRequired[pulumi.Input[int]]
+        """
+        The maximum number of nodes for auto-scaling
+        """
+        max_pods: NotRequired[pulumi.Input[int]]
+        """
+        The maximum number of pods that can run on a node.
+        """
+        min_count: NotRequired[pulumi.Input[int]]
+        """
+        The minimum number of nodes for auto-scaling
+        """
+        mode: NotRequired[pulumi.Input[Union[str, 'Mode']]]
+        """
+        Mode - AgentPoolMode represents mode of an agent pool. Possible values include: 'System', 'LB', 'User'. Default is 'User'
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Unique name of the agent pool profile in the context of the subscription and resource group.
+        """
+        node_image_version: NotRequired[pulumi.Input[str]]
+        """
+        The version of node image
+        """
+        node_labels: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        NodeLabels - Agent pool node labels to be persisted across all nodes in agent pool.
+        """
+        node_taints: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        NodeTaints - Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
+        """
+        os_type: NotRequired[pulumi.Input[Union[str, 'OsType']]]
+        """
+        OsType - OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux. Possible values include: 'Linux', 'Windows'
+        """
+        vm_size: NotRequired[pulumi.Input[str]]
+        """
+        VmSize - The size of the agent pool VMs.
+        """
+elif False:
+    ControlPlaneProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ControlPlaneProfileArgs:
@@ -821,6 +1103,38 @@ class ControlPlaneProfileArgs:
         pulumi.set(self, "vm_size", value)
 
 
+if not MYPY:
+    class HttpProxyConfigArgsDict(TypedDict):
+        """
+        Configurations for provisioning the cluster with HTTP proxy servers.
+        """
+        http_proxy: NotRequired[pulumi.Input[str]]
+        """
+        The HTTP proxy server endpoint to use.
+        """
+        https_proxy: NotRequired[pulumi.Input[str]]
+        """
+        The HTTPS proxy server endpoint to use.
+        """
+        no_proxy: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The endpoints that should not go through proxy.
+        """
+        password: NotRequired[pulumi.Input[str]]
+        """
+        Password to use for connecting to proxy server
+        """
+        trusted_ca: NotRequired[pulumi.Input[str]]
+        """
+        Alternative CA cert to use for connecting to proxy servers.
+        """
+        username: NotRequired[pulumi.Input[str]]
+        """
+        Username to use for connecting to proxy server
+        """
+elif False:
+    HttpProxyConfigArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class HttpProxyConfigArgs:
     def __init__(__self__, *,
@@ -925,6 +1239,15 @@ class HttpProxyConfigArgs:
         pulumi.set(self, "username", value)
 
 
+if not MYPY:
+    class LinuxProfilePropertiesPublicKeysArgsDict(TypedDict):
+        key_data: NotRequired[pulumi.Input[str]]
+        """
+        KeyData - Certificate public key used to authenticate with VMs through SSH. The certificate must be in PEM format with or without headers.
+        """
+elif False:
+    LinuxProfilePropertiesPublicKeysArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinuxProfilePropertiesPublicKeysArgs:
     def __init__(__self__, *,
@@ -947,6 +1270,18 @@ class LinuxProfilePropertiesPublicKeysArgs:
     def key_data(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "key_data", value)
 
+
+if not MYPY:
+    class LinuxProfilePropertiesSshArgsDict(TypedDict):
+        """
+        SSH - SSH configuration for Linux-based VMs running on Azure.
+        """
+        public_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input['LinuxProfilePropertiesPublicKeysArgsDict']]]]
+        """
+        PublicKeys - The list of SSH public keys used to authenticate with Linux-based VMs. Only expect one key specified.
+        """
+elif False:
+    LinuxProfilePropertiesSshArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LinuxProfilePropertiesSshArgs:
@@ -971,6 +1306,22 @@ class LinuxProfilePropertiesSshArgs:
     def public_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxProfilePropertiesPublicKeysArgs']]]]):
         pulumi.set(self, "public_keys", value)
 
+
+if not MYPY:
+    class LinuxProfilePropertiesArgsDict(TypedDict):
+        """
+        LinuxProfile - Profile for Linux VMs in the container service cluster.
+        """
+        admin_username: NotRequired[pulumi.Input[str]]
+        """
+        AdminUsername - The administrator username to use for Linux VMs.
+        """
+        ssh: NotRequired[pulumi.Input['LinuxProfilePropertiesSshArgsDict']]
+        """
+        SSH - SSH configuration for Linux-based VMs running on Azure.
+        """
+elif False:
+    LinuxProfilePropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LinuxProfilePropertiesArgs:
@@ -1011,6 +1362,70 @@ class LinuxProfilePropertiesArgs:
     def ssh(self, value: Optional[pulumi.Input['LinuxProfilePropertiesSshArgs']]):
         pulumi.set(self, "ssh", value)
 
+
+if not MYPY:
+    class LoadBalancerProfileArgsDict(TypedDict):
+        """
+        LoadBalancerProfile - Profile of the cluster load balancer.
+        """
+        availability_zones: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        AvailabilityZones - The list of Availability zones to use for nodes. Datacenter racks modelled as zones
+        """
+        cloud_provider_profile: NotRequired[pulumi.Input['CloudProviderProfileArgsDict']]
+        """
+        The underlying cloud infra provider properties.
+        """
+        count: NotRequired[pulumi.Input[int]]
+        """
+        Count - Number of agents to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
+        """
+        linux_profile: NotRequired[pulumi.Input['LinuxProfilePropertiesArgsDict']]
+        """
+        Profile for Linux VMs in the container service cluster.
+        """
+        max_count: NotRequired[pulumi.Input[int]]
+        """
+        The maximum number of nodes for auto-scaling
+        """
+        max_pods: NotRequired[pulumi.Input[int]]
+        """
+        The maximum number of pods that can run on a node.
+        """
+        min_count: NotRequired[pulumi.Input[int]]
+        """
+        The minimum number of nodes for auto-scaling
+        """
+        mode: NotRequired[pulumi.Input[Union[str, 'Mode']]]
+        """
+        Mode - AgentPoolMode represents mode of an agent pool. Possible values include: 'System', 'LB', 'User'. Default is 'User'
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Unique name of the agent pool profile in the context of the subscription and resource group.
+        """
+        node_image_version: NotRequired[pulumi.Input[str]]
+        """
+        The version of node image
+        """
+        node_labels: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        NodeLabels - Agent pool node labels to be persisted across all nodes in agent pool.
+        """
+        node_taints: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        NodeTaints - Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
+        """
+        os_type: NotRequired[pulumi.Input[Union[str, 'OsType']]]
+        """
+        OsType - OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux. Possible values include: 'Linux', 'Windows'
+        """
+        vm_size: NotRequired[pulumi.Input[str]]
+        """
+        VmSize - The size of the agent pool VMs.
+        """
+elif False:
+    LoadBalancerProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LoadBalancerProfileArgs:
@@ -1250,6 +1665,66 @@ class LoadBalancerProfileArgs:
         pulumi.set(self, "vm_size", value)
 
 
+if not MYPY:
+    class NamedAgentPoolProfileArgsDict(TypedDict):
+        """
+        Agent pool profile along with a name parameter
+        """
+        availability_zones: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        AvailabilityZones - The list of Availability zones to use for nodes. Datacenter racks modelled as zones
+        """
+        cloud_provider_profile: NotRequired[pulumi.Input['CloudProviderProfileArgsDict']]
+        """
+        The underlying cloud infra provider properties.
+        """
+        count: NotRequired[pulumi.Input[int]]
+        """
+        Count - Number of agents to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
+        """
+        max_count: NotRequired[pulumi.Input[int]]
+        """
+        The maximum number of nodes for auto-scaling
+        """
+        max_pods: NotRequired[pulumi.Input[int]]
+        """
+        The maximum number of pods that can run on a node.
+        """
+        min_count: NotRequired[pulumi.Input[int]]
+        """
+        The minimum number of nodes for auto-scaling
+        """
+        mode: NotRequired[pulumi.Input[Union[str, 'Mode']]]
+        """
+        Mode - AgentPoolMode represents mode of an agent pool. Possible values include: 'System', 'LB', 'User'. Default is 'User'
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Unique name of the agent pool profile in the context of the subscription and resource group.
+        """
+        node_image_version: NotRequired[pulumi.Input[str]]
+        """
+        The version of node image
+        """
+        node_labels: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        NodeLabels - Agent pool node labels to be persisted across all nodes in agent pool.
+        """
+        node_taints: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        NodeTaints - Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
+        """
+        os_type: NotRequired[pulumi.Input[Union[str, 'OsType']]]
+        """
+        OsType - OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux. Possible values include: 'Linux', 'Windows'
+        """
+        vm_size: NotRequired[pulumi.Input[str]]
+        """
+        VmSize - The size of the agent pool VMs.
+        """
+elif False:
+    NamedAgentPoolProfileArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NamedAgentPoolProfileArgs:
     def __init__(__self__, *,
@@ -1472,6 +1947,46 @@ class NamedAgentPoolProfileArgs:
         pulumi.set(self, "vm_size", value)
 
 
+if not MYPY:
+    class NetworkProfileArgsDict(TypedDict):
+        """
+        NetworkProfile - Profile of network configuration.
+        """
+        dns_service_ip: NotRequired[pulumi.Input[str]]
+        """
+        DNSServiceIP - An IP address assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range specified in serviceCidr.
+        """
+        load_balancer_profile: NotRequired[pulumi.Input['LoadBalancerProfileArgsDict']]
+        """
+        LoadBalancerProfile - Profile of the cluster load balancer.
+        """
+        load_balancer_sku: NotRequired[pulumi.Input[Union[str, 'LoadBalancerSku']]]
+        """
+        LoadBalancerSku - The load balancer sku for the provisioned cluster. Possible values: 'unstacked-haproxy', 'stacked-kube-vip', 'stacked-metallb', 'unmanaged'. The default is 'unmanaged'.
+        """
+        network_policy: NotRequired[pulumi.Input[Union[str, 'NetworkPolicy']]]
+        """
+        NetworkPolicy - Network policy used for building Kubernetes network. Possible values include: 'calico', 'flannel'. Default is 'calico'
+        """
+        pod_cidr: NotRequired[pulumi.Input[str]]
+        """
+        PodCidr - A CIDR notation IP range from which to assign pod IPs when kubenet is used.
+        """
+        pod_cidrs: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The CIDR notation IP ranges from which to assign pod IPs. One IPv4 CIDR is expected for single-stack networking. Two CIDRs, one for each IP family (IPv4/IPv6), is expected for dual-stack networking.
+        """
+        service_cidr: NotRequired[pulumi.Input[str]]
+        """
+        ServiceCidr - A CIDR notation IP range from which to assign service cluster IPs. It must not overlap with any Subnet IP ranges.
+        """
+        service_cidrs: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The CIDR notation IP ranges from which to assign service cluster IPs. One IPv4 CIDR is expected for single-stack networking. Two CIDRs, one for each IP family (IPv4/IPv6), is expected for dual-stack networking. They must not overlap with any Subnet IP ranges.
+        """
+elif False:
+    NetworkProfileArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NetworkProfileArgs:
     def __init__(__self__, *,
@@ -1612,6 +2127,18 @@ class NetworkProfileArgs:
         pulumi.set(self, "service_cidrs", value)
 
 
+if not MYPY:
+    class ProvisionedClusterIdentityArgsDict(TypedDict):
+        """
+        Identity for the Provisioned cluster.
+        """
+        type: pulumi.Input['ResourceIdentityType']
+        """
+        The type of identity used for the provisioned cluster. The type SystemAssigned, includes a system created identity. The type None means no identity is assigned to the provisioned cluster.
+        """
+elif False:
+    ProvisionedClusterIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ProvisionedClusterIdentityArgs:
     def __init__(__self__, *,
@@ -1634,6 +2161,66 @@ class ProvisionedClusterIdentityArgs:
     def type(self, value: pulumi.Input['ResourceIdentityType']):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class ProvisionedClustersAllPropertiesArgsDict(TypedDict):
+        """
+        All properties of the provisioned cluster
+        """
+        aad_profile: NotRequired[pulumi.Input['AADProfileArgsDict']]
+        """
+        AAD profile for the provisioned cluster.
+        """
+        addon_profiles: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['AddonProfilesArgsDict']]]]
+        """
+        AddonProfiles - Profile of managed cluster add-on.
+        """
+        agent_pool_profiles: NotRequired[pulumi.Input[Sequence[pulumi.Input['NamedAgentPoolProfileArgsDict']]]]
+        """
+        The agent pools of the cluster.
+        """
+        cloud_provider_profile: NotRequired[pulumi.Input['CloudProviderProfileArgsDict']]
+        """
+        The underlying cloud infra provider properties.
+        """
+        control_plane: NotRequired[pulumi.Input['ControlPlaneProfileArgsDict']]
+        """
+        ControlPlane - ControlPlane Configuration
+        """
+        enable_rbac: NotRequired[pulumi.Input[bool]]
+        """
+        EnableRBAC - Whether to enable Kubernetes Role-Based Access Control.
+        """
+        features: NotRequired[pulumi.Input['ProvisionedClustersCommonPropertiesFeaturesArgsDict']]
+        """
+        Additional features specs like Arc Agent Onboarding.
+        """
+        http_proxy_config: NotRequired[pulumi.Input['HttpProxyConfigArgsDict']]
+        """
+        HttpProxyConfig - Configurations for provisioning the cluster with HTTP proxy servers.
+        """
+        kubernetes_version: NotRequired[pulumi.Input[str]]
+        """
+        KubernetesVersion - Version of Kubernetes specified when creating the managed cluster.
+        """
+        linux_profile: NotRequired[pulumi.Input['LinuxProfilePropertiesArgsDict']]
+        """
+        LinuxProfile - The profile for Linux VMs in the Provisioned Cluster.
+        """
+        network_profile: NotRequired[pulumi.Input['NetworkProfileArgsDict']]
+        """
+        NetworkProfile - Profile of network configuration.
+        """
+        node_resource_group: NotRequired[pulumi.Input[str]]
+        """
+        NodeResourceGroup - Name of the resource group containing agent pool nodes.
+        """
+        windows_profile: NotRequired[pulumi.Input['WindowsProfileArgsDict']]
+        """
+        WindowsProfile - Profile for Windows VMs in the Provisioned Cluster.
+        """
+elif False:
+    ProvisionedClustersAllPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ProvisionedClustersAllPropertiesArgs:
@@ -1851,6 +2438,18 @@ class ProvisionedClustersAllPropertiesArgs:
         pulumi.set(self, "windows_profile", value)
 
 
+if not MYPY:
+    class ProvisionedClustersCommonPropertiesFeaturesArgsDict(TypedDict):
+        """
+        Additional features specs like Arc Agent Onboarding.
+        """
+        arc_agent_profile: NotRequired[pulumi.Input['ArcAgentProfileArgsDict']]
+        """
+        Arc agentry configuration for the provisioned cluster.
+        """
+elif False:
+    ProvisionedClustersCommonPropertiesFeaturesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ProvisionedClustersCommonPropertiesFeaturesArgs:
     def __init__(__self__, *,
@@ -1874,6 +2473,19 @@ class ProvisionedClustersCommonPropertiesFeaturesArgs:
     def arc_agent_profile(self, value: Optional[pulumi.Input['ArcAgentProfileArgs']]):
         pulumi.set(self, "arc_agent_profile", value)
 
+
+if not MYPY:
+    class ProvisionedClustersExtendedLocationArgsDict(TypedDict):
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The extended location name.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        The extended location type.
+        """
+elif False:
+    ProvisionedClustersExtendedLocationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ProvisionedClustersExtendedLocationArgs:
@@ -1913,6 +2525,30 @@ class ProvisionedClustersExtendedLocationArgs:
     def type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class WindowsProfileArgsDict(TypedDict):
+        """
+        WindowsProfile - Profile for Windows VMs in the container service cluster.
+        """
+        admin_password: NotRequired[pulumi.Input[str]]
+        """
+        AdminPassword - Specifies the password of the administrator account. <br><br> **Minimum-length:** 8 characters <br><br> **Max-length:** 123 characters <br><br> **Complexity requirements:** 3 out of 4 conditions below need to be fulfilled <br> Has lower characters <br>Has upper characters <br> Has a digit <br> Has a special character (Regex match [\\W_]) <br><br> **Disallowed values:** "abc@123", "P@$$w0rd", "P@ssw0rd", "P@ssword123", "Pa$$word", "pass@word1", "Password!", "Password1", "Password22", "iloveyou!"
+        """
+        admin_username: NotRequired[pulumi.Input[str]]
+        """
+        AdminUsername - Specifies the name of the administrator account. <br><br> **restriction:** Cannot end in "." <br><br> **Disallowed values:** "administrator", "admin", "user", "user1", "test", "user2", "test1", "user3", "admin1", "1", "123", "a", "actuser", "adm", "admin2", "aspnet", "backup", "console", "david", "guest", "john", "owner", "root", "server", "sql", "support", "support_388945a0", "sys", "test2", "test3", "user4", "user5". <br><br> **Minimum-length:** 1 character <br><br> **Max-length:** 20 characters
+        """
+        enable_csi_proxy: NotRequired[pulumi.Input[bool]]
+        """
+        EnableCSIProxy - Whether to enable CSI proxy.
+        """
+        license_type: NotRequired[pulumi.Input[Union[str, 'LicenseType']]]
+        """
+        LicenseType - The licenseType to use for Windows VMs. Windows_Server is used to enable Azure Hybrid User Benefits for Windows VMs. Possible values include: 'None', 'Windows_Server'
+        """
+elif False:
+    WindowsProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WindowsProfileArgs:

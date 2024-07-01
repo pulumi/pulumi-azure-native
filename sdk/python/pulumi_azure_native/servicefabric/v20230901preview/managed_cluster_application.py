@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -189,13 +194,13 @@ class ManagedClusterApplication(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_name: Optional[pulumi.Input[str]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedIdentityArgs', 'ManagedIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 managed_identities: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationUserAssignedIdentityArgs']]]]] = None,
+                 managed_identities: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationUserAssignedIdentityArgs', 'ApplicationUserAssignedIdentityArgsDict']]]]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 upgrade_policy: Optional[pulumi.Input[pulumi.InputType['ApplicationUpgradePolicyArgs']]] = None,
+                 upgrade_policy: Optional[pulumi.Input[Union['ApplicationUpgradePolicyArgs', 'ApplicationUpgradePolicyArgsDict']]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -205,13 +210,13 @@ class ManagedClusterApplication(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_name: The name of the application resource.
         :param pulumi.Input[str] cluster_name: The name of the cluster resource.
-        :param pulumi.Input[pulumi.InputType['ManagedIdentityArgs']] identity: Describes the managed identities for an Azure resource.
+        :param pulumi.Input[Union['ManagedIdentityArgs', 'ManagedIdentityArgsDict']] identity: Describes the managed identities for an Azure resource.
         :param pulumi.Input[str] location: Resource location depends on the parent resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationUserAssignedIdentityArgs']]]] managed_identities: List of user assigned identities for the application, each mapped to a friendly name.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationUserAssignedIdentityArgs', 'ApplicationUserAssignedIdentityArgsDict']]]] managed_identities: List of user assigned identities for the application, each mapped to a friendly name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: List of application parameters with overridden values from their default values specified in the application manifest.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Azure resource tags.
-        :param pulumi.Input[pulumi.InputType['ApplicationUpgradePolicyArgs']] upgrade_policy: Describes the policy for a monitored application upgrade.
+        :param pulumi.Input[Union['ApplicationUpgradePolicyArgs', 'ApplicationUpgradePolicyArgsDict']] upgrade_policy: Describes the policy for a monitored application upgrade.
         :param pulumi.Input[str] version: The version of the application type as defined in the application manifest.
                This name must be the full Arm Resource ID for the referenced application type version.
         """
@@ -241,13 +246,13 @@ class ManagedClusterApplication(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_name: Optional[pulumi.Input[str]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedIdentityArgs', 'ManagedIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 managed_identities: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationUserAssignedIdentityArgs']]]]] = None,
+                 managed_identities: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationUserAssignedIdentityArgs', 'ApplicationUserAssignedIdentityArgsDict']]]]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 upgrade_policy: Optional[pulumi.Input[pulumi.InputType['ApplicationUpgradePolicyArgs']]] = None,
+                 upgrade_policy: Optional[pulumi.Input[Union['ApplicationUpgradePolicyArgs', 'ApplicationUpgradePolicyArgsDict']]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

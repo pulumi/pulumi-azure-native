@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -109,7 +114,7 @@ class MigrateProjectsControllerMigrateProject(pulumi.CustomResource):
                  e_tag: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  migrate_project_name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['MigrateProjectPropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['MigrateProjectPropertiesArgs', 'MigrateProjectPropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -123,7 +128,7 @@ class MigrateProjectsControllerMigrateProject(pulumi.CustomResource):
         :param pulumi.Input[str] e_tag: For optimistic concurrency control.
         :param pulumi.Input[str] location: Azure location in which project is created.
         :param pulumi.Input[str] migrate_project_name: Migrate project name.
-        :param pulumi.Input[pulumi.InputType['MigrateProjectPropertiesArgs']] properties: Properties of a migrate project.
+        :param pulumi.Input[Union['MigrateProjectPropertiesArgs', 'MigrateProjectPropertiesArgsDict']] properties: Properties of a migrate project.
         :param pulumi.Input[str] resource_group_name: Name of the Azure Resource Group that project is part of.
         """
         ...
@@ -156,7 +161,7 @@ class MigrateProjectsControllerMigrateProject(pulumi.CustomResource):
                  e_tag: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  migrate_project_name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['MigrateProjectPropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['MigrateProjectPropertiesArgs', 'MigrateProjectPropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

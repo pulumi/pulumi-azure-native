@@ -4,21 +4,63 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'GuestOSCustomizationArgs',
+    'GuestOSCustomizationArgsDict',
     'GuestOSNICCustomizationArgs',
+    'GuestOSNICCustomizationArgsDict',
     'ResourcePoolArgs',
+    'ResourcePoolArgsDict',
     'SkuArgs',
+    'SkuArgsDict',
     'VirtualDiskArgs',
+    'VirtualDiskArgsDict',
     'VirtualNetworkArgs',
+    'VirtualNetworkArgsDict',
     'VirtualNicArgs',
+    'VirtualNicArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class GuestOSCustomizationArgsDict(TypedDict):
+        """
+        Guest OS Customization properties
+        """
+        dns_servers: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of dns servers to use
+        """
+        host_name: NotRequired[pulumi.Input[str]]
+        """
+        Virtual Machine hostname
+        """
+        password: NotRequired[pulumi.Input[str]]
+        """
+        Password for login
+        """
+        policy_id: NotRequired[pulumi.Input[str]]
+        """
+        id of customization policy
+        """
+        username: NotRequired[pulumi.Input[str]]
+        """
+        Username for login
+        """
+elif False:
+    GuestOSCustomizationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GuestOSCustomizationArgs:
@@ -107,6 +149,42 @@ class GuestOSCustomizationArgs:
     def username(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "username", value)
 
+
+if not MYPY:
+    class GuestOSNICCustomizationArgsDict(TypedDict):
+        """
+        Guest OS nic customization
+        """
+        allocation: NotRequired[pulumi.Input[str]]
+        """
+        IP address allocation method
+        """
+        dns_servers: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of dns servers to use
+        """
+        gateway: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Gateway addresses assigned to nic
+        """
+        ip_address: NotRequired[pulumi.Input[str]]
+        """
+        Static ip address for nic
+        """
+        mask: NotRequired[pulumi.Input[str]]
+        """
+        Network mask for nic
+        """
+        primary_wins_server: NotRequired[pulumi.Input[str]]
+        """
+        primary WINS server for Windows
+        """
+        secondary_wins_server: NotRequired[pulumi.Input[str]]
+        """
+        secondary WINS server for Windows
+        """
+elif False:
+    GuestOSNICCustomizationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GuestOSNICCustomizationArgs:
@@ -228,6 +306,18 @@ class GuestOSNICCustomizationArgs:
         pulumi.set(self, "secondary_wins_server", value)
 
 
+if not MYPY:
+    class ResourcePoolArgsDict(TypedDict):
+        """
+        Resource pool model
+        """
+        id: pulumi.Input[str]
+        """
+        resource pool id (privateCloudId:vsphereId)
+        """
+elif False:
+    ResourcePoolArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ResourcePoolArgs:
     def __init__(__self__, *,
@@ -250,6 +340,34 @@ class ResourcePoolArgs:
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class SkuArgsDict(TypedDict):
+        """
+        The purchase SKU for CloudSimple paid resources
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the SKU for VMWare CloudSimple Node
+        """
+        capacity: NotRequired[pulumi.Input[str]]
+        """
+        The capacity of the SKU
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        dedicatedCloudNode example: 8 x Ten-Core Intel® Xeon® Processor E5-2640 v4 2.40GHz 25MB Cache (90W); 12 x 64GB PC4-19200 2400MHz DDR4 ECC Registered DIMM, ...
+        """
+        family: NotRequired[pulumi.Input[str]]
+        """
+        If the service has different generations of hardware, for the same SKU, then that can be captured here
+        """
+        tier: NotRequired[pulumi.Input[str]]
+        """
+        The tier of the SKU
+        """
+elif False:
+    SkuArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SkuArgs:
@@ -338,6 +456,30 @@ class SkuArgs:
         pulumi.set(self, "tier", value)
 
 
+if not MYPY:
+    class VirtualDiskArgsDict(TypedDict):
+        """
+        Virtual disk model
+        """
+        controller_id: pulumi.Input[str]
+        """
+        Disk's Controller id
+        """
+        independence_mode: pulumi.Input['DiskIndependenceMode']
+        """
+        Disk's independence mode type
+        """
+        total_size: pulumi.Input[int]
+        """
+        Disk's total size
+        """
+        virtual_disk_id: NotRequired[pulumi.Input[str]]
+        """
+        Disk's id
+        """
+elif False:
+    VirtualDiskArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class VirtualDiskArgs:
     def __init__(__self__, *,
@@ -407,6 +549,18 @@ class VirtualDiskArgs:
         pulumi.set(self, "virtual_disk_id", value)
 
 
+if not MYPY:
+    class VirtualNetworkArgsDict(TypedDict):
+        """
+        Virtual network model
+        """
+        id: pulumi.Input[str]
+        """
+        virtual network id (privateCloudId:vsphereId)
+        """
+elif False:
+    VirtualNetworkArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class VirtualNetworkArgs:
     def __init__(__self__, *,
@@ -429,6 +583,42 @@ class VirtualNetworkArgs:
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class VirtualNicArgsDict(TypedDict):
+        """
+        Virtual NIC model
+        """
+        network: pulumi.Input['VirtualNetworkArgsDict']
+        """
+        Virtual Network
+        """
+        nic_type: pulumi.Input['NICType']
+        """
+        NIC type
+        """
+        customization: NotRequired[pulumi.Input['GuestOSNICCustomizationArgsDict']]
+        """
+        guest OS customization for nic
+        """
+        ip_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        NIC ip address
+        """
+        mac_address: NotRequired[pulumi.Input[str]]
+        """
+        NIC MAC address
+        """
+        power_on_boot: NotRequired[pulumi.Input[bool]]
+        """
+        Is NIC powered on/off on boot
+        """
+        virtual_nic_id: NotRequired[pulumi.Input[str]]
+        """
+        NIC id
+        """
+elif False:
+    VirtualNicArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VirtualNicArgs:

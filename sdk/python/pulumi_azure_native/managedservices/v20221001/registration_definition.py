@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -90,8 +95,8 @@ class RegistrationDefinition(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 plan: Optional[pulumi.Input[pulumi.InputType['PlanArgs']]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['RegistrationDefinitionPropertiesArgs']]] = None,
+                 plan: Optional[pulumi.Input[Union['PlanArgs', 'PlanArgsDict']]] = None,
+                 properties: Optional[pulumi.Input[Union['RegistrationDefinitionPropertiesArgs', 'RegistrationDefinitionPropertiesArgsDict']]] = None,
                  registration_definition_id: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -100,8 +105,8 @@ class RegistrationDefinition(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['PlanArgs']] plan: The details for the Managed Services offer’s plan in Azure Marketplace.
-        :param pulumi.Input[pulumi.InputType['RegistrationDefinitionPropertiesArgs']] properties: The properties of a registration definition.
+        :param pulumi.Input[Union['PlanArgs', 'PlanArgsDict']] plan: The details for the Managed Services offer’s plan in Azure Marketplace.
+        :param pulumi.Input[Union['RegistrationDefinitionPropertiesArgs', 'RegistrationDefinitionPropertiesArgsDict']] properties: The properties of a registration definition.
         :param pulumi.Input[str] registration_definition_id: The GUID of the registration definition.
         :param pulumi.Input[str] scope: The scope of the resource.
         """
@@ -129,8 +134,8 @@ class RegistrationDefinition(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 plan: Optional[pulumi.Input[pulumi.InputType['PlanArgs']]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['RegistrationDefinitionPropertiesArgs']]] = None,
+                 plan: Optional[pulumi.Input[Union['PlanArgs', 'PlanArgsDict']]] = None,
+                 properties: Optional[pulumi.Input[Union['RegistrationDefinitionPropertiesArgs', 'RegistrationDefinitionPropertiesArgsDict']]] = None,
                  registration_definition_id: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  __props__=None):

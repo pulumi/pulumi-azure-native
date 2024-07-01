@@ -4,31 +4,67 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'CustomProfileArgs',
+    'CustomProfileArgsDict',
     'DataDiskArgs',
+    'DataDiskArgsDict',
     'ImageReferenceArgs',
+    'ImageReferenceArgsDict',
     'LinuxConfigurationArgs',
+    'LinuxConfigurationArgsDict',
     'NetworkFunctionRoleConfigurationArgs',
+    'NetworkFunctionRoleConfigurationArgsDict',
     'NetworkFunctionTemplateArgs',
+    'NetworkFunctionTemplateArgsDict',
     'NetworkFunctionUserConfigurationOsProfileArgs',
+    'NetworkFunctionUserConfigurationOsProfileArgsDict',
     'NetworkFunctionUserConfigurationArgs',
+    'NetworkFunctionUserConfigurationArgsDict',
     'NetworkInterfaceIPConfigurationArgs',
+    'NetworkInterfaceIPConfigurationArgsDict',
     'NetworkInterfaceArgs',
+    'NetworkInterfaceArgsDict',
     'OsDiskArgs',
+    'OsDiskArgsDict',
     'OsProfileArgs',
+    'OsProfileArgsDict',
     'SshConfigurationArgs',
+    'SshConfigurationArgsDict',
     'SshPublicKeyArgs',
+    'SshPublicKeyArgsDict',
     'StorageProfileArgs',
+    'StorageProfileArgsDict',
     'SubResourceArgs',
+    'SubResourceArgsDict',
     'VirtualHardDiskArgs',
+    'VirtualHardDiskArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class CustomProfileArgsDict(TypedDict):
+        """
+        Specifies the custom settings for the virtual machine.
+        """
+        metadata_configuration_path: NotRequired[pulumi.Input[str]]
+        """
+        Path for metadata configuration.
+        """
+elif False:
+    CustomProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CustomProfileArgs:
@@ -53,6 +89,26 @@ class CustomProfileArgs:
     def metadata_configuration_path(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "metadata_configuration_path", value)
 
+
+if not MYPY:
+    class DataDiskArgsDict(TypedDict):
+        """
+        Specifies information about the operating system disk used by the virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+        """
+        create_option: NotRequired[pulumi.Input[Union[str, 'DiskCreateOptionTypes']]]
+        """
+        Specifies how the virtual machine should be created.
+        """
+        disk_size_gb: NotRequired[pulumi.Input[int]]
+        """
+        Specifies the size of an empty disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of data disk.
+        """
+elif False:
+    DataDiskArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataDiskArgs:
@@ -109,6 +165,34 @@ class DataDiskArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class ImageReferenceArgsDict(TypedDict):
+        """
+        The image reference properties.
+        """
+        exact_version: NotRequired[pulumi.Input[str]]
+        """
+        Specifies in decimal numbers, the exact version of image used to create the virtual machine.
+        """
+        offer: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the offer of the image used to create the virtual machine.
+        """
+        publisher: NotRequired[pulumi.Input[str]]
+        """
+        The image publisher.
+        """
+        sku: NotRequired[pulumi.Input[str]]
+        """
+        The image SKU.
+        """
+        version: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the version of the image used to create the virtual machine. The allowed formats are Major.Minor.Build or 'latest'. Major, Minor, and Build are decimal numbers. Specify 'latest' to use the latest version of an image available at deploy time. Even if you use 'latest', the VM image will not automatically update after deploy time even if a new version becomes available.
+        """
+elif False:
+    ImageReferenceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ImageReferenceArgs:
@@ -198,6 +282,18 @@ class ImageReferenceArgs:
         pulumi.set(self, "version", value)
 
 
+if not MYPY:
+    class LinuxConfigurationArgsDict(TypedDict):
+        """
+        Specifies the Linux operating system settings on the virtual machine.
+        """
+        ssh: NotRequired[pulumi.Input['SshConfigurationArgsDict']]
+        """
+        Specifies the ssh key configuration for a Linux OS.
+        """
+elif False:
+    LinuxConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinuxConfigurationArgs:
     def __init__(__self__, *,
@@ -221,6 +317,50 @@ class LinuxConfigurationArgs:
     def ssh(self, value: Optional[pulumi.Input['SshConfigurationArgs']]):
         pulumi.set(self, "ssh", value)
 
+
+if not MYPY:
+    class NetworkFunctionRoleConfigurationArgsDict(TypedDict):
+        """
+        Network function role configuration.
+        """
+        custom_profile: NotRequired[pulumi.Input['CustomProfileArgsDict']]
+        """
+        Specifies the custom settings for the virtual machine.
+        """
+        network_interfaces: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceArgsDict']]]]
+        """
+        The network interface configurations.
+        """
+        os_profile: NotRequired[pulumi.Input['OsProfileArgsDict']]
+        """
+        Specifies the operating system settings for the role instance. This value can be updated during the deployment of network function.
+        """
+        role_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the network function role.
+        """
+        role_type: NotRequired[pulumi.Input[Union[str, 'NetworkFunctionRoleConfigurationType']]]
+        """
+        Role type.
+        """
+        storage_profile: NotRequired[pulumi.Input['StorageProfileArgsDict']]
+        """
+        Specifies the storage settings for the virtual machine disks.
+        """
+        user_data_parameters: NotRequired[Any]
+        """
+        The user parameters for customers. The format of user data parameters has to be matched with the provided user data template.
+        """
+        user_data_template: NotRequired[Any]
+        """
+        The user data template for customers. This is a json schema template describing the format and data type of user data parameters.
+        """
+        virtual_machine_size: NotRequired[pulumi.Input[Union[str, 'VirtualMachineSizeTypes']]]
+        """
+        The size of the virtual machine.
+        """
+elif False:
+    NetworkFunctionRoleConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NetworkFunctionRoleConfigurationArgs:
@@ -374,6 +514,18 @@ class NetworkFunctionRoleConfigurationArgs:
         pulumi.set(self, "virtual_machine_size", value)
 
 
+if not MYPY:
+    class NetworkFunctionTemplateArgsDict(TypedDict):
+        """
+        The network function template.
+        """
+        network_function_role_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkFunctionRoleConfigurationArgsDict']]]]
+        """
+        An array of network function role definitions.
+        """
+elif False:
+    NetworkFunctionTemplateArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NetworkFunctionTemplateArgs:
     def __init__(__self__, *,
@@ -398,6 +550,18 @@ class NetworkFunctionTemplateArgs:
         pulumi.set(self, "network_function_role_configurations", value)
 
 
+if not MYPY:
+    class NetworkFunctionUserConfigurationOsProfileArgsDict(TypedDict):
+        """
+        Specifies the operating system settings for the role instance.
+        """
+        custom_data: NotRequired[pulumi.Input[str]]
+        """
+        Specifies a base-64 encoded string of custom data. The base-64 encoded string is decoded to a binary array that is saved as a file on the virtual machine. The maximum length of the binary array is 65535 bytes. <br><br> **Note: Do not pass any secrets or passwords in customData property** <br><br> This property cannot be updated after the VM is created. <br><br> customData is passed to the VM to be saved as a file. For more information see [Custom Data on Azure VMs](https://azure.microsoft.com/en-us/blog/custom-data-and-cloud-init-on-windows-azure/) <br><br> For using cloud-init for your Linux VM, see [Using cloud-init to customize a Linux VM during creation](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-using-cloud-init?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+        """
+elif False:
+    NetworkFunctionUserConfigurationOsProfileArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NetworkFunctionUserConfigurationOsProfileArgs:
     def __init__(__self__, *,
@@ -421,6 +585,30 @@ class NetworkFunctionUserConfigurationOsProfileArgs:
     def custom_data(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "custom_data", value)
 
+
+if not MYPY:
+    class NetworkFunctionUserConfigurationArgsDict(TypedDict):
+        """
+        The network function user configuration.
+        """
+        network_interfaces: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceArgsDict']]]]
+        """
+        The network interface configuration.
+        """
+        os_profile: NotRequired[pulumi.Input['NetworkFunctionUserConfigurationOsProfileArgsDict']]
+        """
+        Specifies the operating system settings for the role instance.
+        """
+        role_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the network function role.
+        """
+        user_data_parameters: NotRequired[Any]
+        """
+        The user data parameters from the customer.
+        """
+elif False:
+    NetworkFunctionUserConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NetworkFunctionUserConfigurationArgs:
@@ -493,6 +681,38 @@ class NetworkFunctionUserConfigurationArgs:
     def user_data_parameters(self, value: Optional[Any]):
         pulumi.set(self, "user_data_parameters", value)
 
+
+if not MYPY:
+    class NetworkInterfaceIPConfigurationArgsDict(TypedDict):
+        """
+        Network interface IP configuration properties.
+        """
+        dns_servers: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of DNS servers IP addresses.
+        """
+        gateway: NotRequired[pulumi.Input[str]]
+        """
+        The value of the gateway.
+        """
+        ip_address: NotRequired[pulumi.Input[str]]
+        """
+        The value of the IP address.
+        """
+        ip_allocation_method: NotRequired[pulumi.Input[Union[str, 'IPAllocationMethod']]]
+        """
+        IP address allocation method.
+        """
+        ip_version: NotRequired[pulumi.Input[Union[str, 'IPVersion']]]
+        """
+        IP address version.
+        """
+        subnet: NotRequired[pulumi.Input[str]]
+        """
+        The value of the subnet.
+        """
+elif False:
+    NetworkInterfaceIPConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NetworkInterfaceIPConfigurationArgs:
@@ -598,6 +818,30 @@ class NetworkInterfaceIPConfigurationArgs:
         pulumi.set(self, "subnet", value)
 
 
+if not MYPY:
+    class NetworkInterfaceArgsDict(TypedDict):
+        """
+        Network interface properties.
+        """
+        ip_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceIPConfigurationArgsDict']]]]
+        """
+        A list of IP configurations of the network interface.
+        """
+        mac_address: NotRequired[pulumi.Input[str]]
+        """
+        The MAC address of the network interface.
+        """
+        network_interface_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the network interface.
+        """
+        vm_switch_type: NotRequired[pulumi.Input[Union[str, 'VMSwitchType']]]
+        """
+        The type of the VM switch.
+        """
+elif False:
+    NetworkInterfaceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NetworkInterfaceArgs:
     def __init__(__self__, *,
@@ -670,6 +914,30 @@ class NetworkInterfaceArgs:
         pulumi.set(self, "vm_switch_type", value)
 
 
+if not MYPY:
+    class OsDiskArgsDict(TypedDict):
+        """
+        Specifies information about the operating system disk used by the virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+        """
+        disk_size_gb: NotRequired[pulumi.Input[int]]
+        """
+        Specifies the size of os disk in gigabytes. This is the fully expanded disk size needed of the VHD image on the ASE. This disk size should be greater than the size of the VHD provided in vhdUri.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The VHD name.
+        """
+        os_type: NotRequired[pulumi.Input[Union[str, 'OperatingSystemTypes']]]
+        """
+        The OS type.
+        """
+        vhd: NotRequired[pulumi.Input['VirtualHardDiskArgsDict']]
+        """
+        The virtual hard disk.
+        """
+elif False:
+    OsDiskArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OsDiskArgs:
     def __init__(__self__, *,
@@ -741,6 +1009,30 @@ class OsDiskArgs:
     def vhd(self, value: Optional[pulumi.Input['VirtualHardDiskArgs']]):
         pulumi.set(self, "vhd", value)
 
+
+if not MYPY:
+    class OsProfileArgsDict(TypedDict):
+        """
+        Specifies the operating system settings for the role instance.
+        """
+        admin_username: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the name of the administrator account. <br><br> **Windows-only restriction:** Cannot end in "." <br><br> **Disallowed values:** "administrator", "admin", "user", "user1", "test", "user2", "test1", "user3", "admin1", "1", "123", "a", "actuser", "adm", "admin2", "aspnet", "backup", "console", "david", "guest", "john", "owner", "root", "server", "sql", "support", "support_388945a0", "sys", "test2", "test3", "user4", "user5". <br><br> **Minimum-length (Linux):** 1  character <br><br> **Max-length (Linux):** 64 characters <br><br> **Max-length (Windows):** 20 characters  <br><br><li> For root access to the Linux VM, see [Using root privileges on Linux virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-use-root-privileges?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)<br><li> For a list of built-in system users on Linux that should not be used in this field, see [Selecting User Names for Linux on Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-usernames?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+        """
+        custom_data: NotRequired[pulumi.Input[str]]
+        """
+        Specifies a base-64 encoded string of custom data. The base-64 encoded string is decoded to a binary array that is saved as a file on the virtual machine. The maximum length of the binary array is 65535 bytes. <br><br> **Note: Do not pass any secrets or passwords in customData property** <br><br> This property cannot be updated after the VM is created. <br><br> customData is passed to the VM to be saved as a file. For more information see [Custom Data on Azure VMs](https://azure.microsoft.com/en-us/blog/custom-data-and-cloud-init-on-windows-azure/) <br><br> For using cloud-init for your Linux VM, see [Using cloud-init to customize a Linux VM during creation](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-using-cloud-init?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+        """
+        custom_data_required: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates if custom data is required to deploy this role.
+        """
+        linux_configuration: NotRequired[pulumi.Input['LinuxConfigurationArgsDict']]
+        """
+        Specifies the Linux operating system settings on the virtual machine. <br><br>For a list of supported Linux distributions, see [Linux on Azure-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-endorsed-distros?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) <br><br> For running non-endorsed distributions, see [Information for Non-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-create-upload-generic?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+        """
+elif False:
+    OsProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OsProfileArgs:
@@ -816,6 +1108,18 @@ class OsProfileArgs:
         pulumi.set(self, "linux_configuration", value)
 
 
+if not MYPY:
+    class SshConfigurationArgsDict(TypedDict):
+        """
+        SSH configuration for Linux based VMs running on Azure
+        """
+        public_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input['SshPublicKeyArgsDict']]]]
+        """
+        The list of SSH public keys used to authenticate with linux based VMs.
+        """
+elif False:
+    SshConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SshConfigurationArgs:
     def __init__(__self__, *,
@@ -839,6 +1143,22 @@ class SshConfigurationArgs:
     def public_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SshPublicKeyArgs']]]]):
         pulumi.set(self, "public_keys", value)
 
+
+if not MYPY:
+    class SshPublicKeyArgsDict(TypedDict):
+        """
+        Contains information about SSH certificate public key and the path on the Linux VM where the public key is placed.
+        """
+        key_data: NotRequired[pulumi.Input[str]]
+        """
+        SSH public key certificate used to authenticate with the VM through ssh. The key needs to be at least 2048-bit and in ssh-rsa format. <br><br> For creating ssh keys, see [Create SSH keys on Linux and Mac for Linux VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+        """
+        path: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the full path on the created VM where ssh public key is stored. If the file already exists, the specified key is appended to the file. Example: /home/user/.ssh/authorized_keys
+        """
+elif False:
+    SshPublicKeyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SshPublicKeyArgs:
@@ -879,6 +1199,26 @@ class SshPublicKeyArgs:
     def path(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "path", value)
 
+
+if not MYPY:
+    class StorageProfileArgsDict(TypedDict):
+        """
+        Specifies the storage settings for the virtual machine disks.
+        """
+        data_disks: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataDiskArgsDict']]]]
+        """
+        Specifies the parameters that are used to add a data disk to a virtual machine.
+        """
+        image_reference: NotRequired[pulumi.Input['ImageReferenceArgsDict']]
+        """
+        The image reference properties.
+        """
+        os_disk: NotRequired[pulumi.Input['OsDiskArgsDict']]
+        """
+        Specifies information about the operating system disk used by the virtual machine.
+        """
+elif False:
+    StorageProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class StorageProfileArgs:
@@ -936,6 +1276,21 @@ class StorageProfileArgs:
         pulumi.set(self, "os_disk", value)
 
 
+if not MYPY:
+    class SubResourceArgsDict(TypedDict):
+        """
+        Reference to another sub resource.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Sub-resource ID. Both absolute resource ID and a relative resource ID are accepted.
+        An absolute ID starts with /subscriptions/ and contains the entire ID of the parent resource and the ID of the sub-resource in the end.
+        A relative ID replaces the ID of the parent resource with a token '$self', followed by the sub-resource ID itself.
+        Example of a relative ID: $self/frontEndConfigurations/my-frontend.
+        """
+elif False:
+    SubResourceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SubResourceArgs:
     def __init__(__self__, *,
@@ -965,6 +1320,18 @@ class SubResourceArgs:
     def id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class VirtualHardDiskArgsDict(TypedDict):
+        """
+        Describes the uri of a disk.
+        """
+        uri: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the virtual hard disk's uri.
+        """
+elif False:
+    VirtualHardDiskArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VirtualHardDiskArgs:

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -277,7 +282,7 @@ class Pool(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dev_box_definition: Optional[pulumi.Input[pulumi.InputType['PoolDevBoxDefinitionArgs']]] = None,
+                 dev_box_definition: Optional[pulumi.Input[Union['PoolDevBoxDefinitionArgs', 'PoolDevBoxDefinitionArgsDict']]] = None,
                  dev_box_definition_name: Optional[pulumi.Input[str]] = None,
                  dev_box_definition_type: Optional[pulumi.Input[Union[str, 'PoolDevBoxDefinitionType']]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
@@ -290,7 +295,7 @@ class Pool(pulumi.CustomResource):
                  project_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  single_sign_on_status: Optional[pulumi.Input[Union[str, 'SingleSignOnStatus']]] = None,
-                 stop_on_disconnect: Optional[pulumi.Input[pulumi.InputType['StopOnDisconnectConfigurationArgs']]] = None,
+                 stop_on_disconnect: Optional[pulumi.Input[Union['StopOnDisconnectConfigurationArgs', 'StopOnDisconnectConfigurationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_network_type: Optional[pulumi.Input[Union[str, 'VirtualNetworkType']]] = None,
                  __props__=None):
@@ -299,7 +304,7 @@ class Pool(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['PoolDevBoxDefinitionArgs']] dev_box_definition: A definition of the machines that are created from this Pool. Will be ignored if devBoxDefinitionType is Reference or not provided.
+        :param pulumi.Input[Union['PoolDevBoxDefinitionArgs', 'PoolDevBoxDefinitionArgsDict']] dev_box_definition: A definition of the machines that are created from this Pool. Will be ignored if devBoxDefinitionType is Reference or not provided.
         :param pulumi.Input[str] dev_box_definition_name: Name of a Dev Box definition in parent Project of this Pool. Will be ignored if devBoxDefinitionType is Value.
         :param pulumi.Input[Union[str, 'PoolDevBoxDefinitionType']] dev_box_definition_type: Indicates if the pool is created from an existing Dev Box Definition or if one is provided directly.
         :param pulumi.Input[str] display_name: The display name of the pool.
@@ -312,7 +317,7 @@ class Pool(pulumi.CustomResource):
         :param pulumi.Input[str] project_name: The name of the project.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union[str, 'SingleSignOnStatus']] single_sign_on_status: Indicates whether Dev Boxes in this pool are created with single sign on enabled. The also requires that single sign on be enabled on the tenant.
-        :param pulumi.Input[pulumi.InputType['StopOnDisconnectConfigurationArgs']] stop_on_disconnect: Stop on disconnect configuration settings for Dev Boxes created in this pool.
+        :param pulumi.Input[Union['StopOnDisconnectConfigurationArgs', 'StopOnDisconnectConfigurationArgsDict']] stop_on_disconnect: Stop on disconnect configuration settings for Dev Boxes created in this pool.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[Union[str, 'VirtualNetworkType']] virtual_network_type: Indicates whether the pool uses a Virtual Network managed by Microsoft or a customer provided network.
         """
@@ -340,7 +345,7 @@ class Pool(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dev_box_definition: Optional[pulumi.Input[pulumi.InputType['PoolDevBoxDefinitionArgs']]] = None,
+                 dev_box_definition: Optional[pulumi.Input[Union['PoolDevBoxDefinitionArgs', 'PoolDevBoxDefinitionArgsDict']]] = None,
                  dev_box_definition_name: Optional[pulumi.Input[str]] = None,
                  dev_box_definition_type: Optional[pulumi.Input[Union[str, 'PoolDevBoxDefinitionType']]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
@@ -353,7 +358,7 @@ class Pool(pulumi.CustomResource):
                  project_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  single_sign_on_status: Optional[pulumi.Input[Union[str, 'SingleSignOnStatus']]] = None,
-                 stop_on_disconnect: Optional[pulumi.Input[pulumi.InputType['StopOnDisconnectConfigurationArgs']]] = None,
+                 stop_on_disconnect: Optional[pulumi.Input[Union['StopOnDisconnectConfigurationArgs', 'StopOnDisconnectConfigurationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_network_type: Optional[pulumi.Input[Union[str, 'VirtualNetworkType']]] = None,
                  __props__=None):

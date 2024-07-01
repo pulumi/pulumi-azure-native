@@ -4,21 +4,51 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'Gen2StorageConfigurationInputArgs',
+    'Gen2StorageConfigurationInputArgsDict',
     'LocalTimestampTimeZoneOffsetArgs',
+    'LocalTimestampTimeZoneOffsetArgsDict',
     'LocalTimestampArgs',
+    'LocalTimestampArgsDict',
     'ReferenceDataSetKeyPropertyArgs',
+    'ReferenceDataSetKeyPropertyArgsDict',
     'SkuArgs',
+    'SkuArgsDict',
     'TimeSeriesIdPropertyArgs',
+    'TimeSeriesIdPropertyArgsDict',
     'WarmStoreConfigurationPropertiesArgs',
+    'WarmStoreConfigurationPropertiesArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class Gen2StorageConfigurationInputArgsDict(TypedDict):
+        """
+        The storage configuration provides the connection details that allows the Time Series Insights service to connect to the customer storage account that is used to store the environment's data.
+        """
+        account_name: pulumi.Input[str]
+        """
+        The name of the storage account that will hold the environment's Gen2 data.
+        """
+        management_key: pulumi.Input[str]
+        """
+        The value of the management key that grants the Time Series Insights service write access to the storage account. This property is not shown in environment responses.
+        """
+elif False:
+    Gen2StorageConfigurationInputArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class Gen2StorageConfigurationInputArgs:
@@ -58,6 +88,18 @@ class Gen2StorageConfigurationInputArgs:
         pulumi.set(self, "management_key", value)
 
 
+if not MYPY:
+    class LocalTimestampTimeZoneOffsetArgsDict(TypedDict):
+        """
+        An object that represents the offset information for the local timestamp format specified. Should not be specified for LocalTimestampFormat - Embedded.
+        """
+        property_name: NotRequired[pulumi.Input[str]]
+        """
+        The event property that will be contain the offset information to calculate the local timestamp. When the LocalTimestampFormat is Iana, the property name will contain the name of the column which contains IANA Timezone Name (eg: Americas/Los Angeles). When LocalTimestampFormat is Timespan, it contains the name of property which contains values representing the offset (eg: P1D or 1.00:00:00)
+        """
+elif False:
+    LocalTimestampTimeZoneOffsetArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LocalTimestampTimeZoneOffsetArgs:
     def __init__(__self__, *,
@@ -81,6 +123,22 @@ class LocalTimestampTimeZoneOffsetArgs:
     def property_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "property_name", value)
 
+
+if not MYPY:
+    class LocalTimestampArgsDict(TypedDict):
+        """
+        An object that represents the local timestamp property. It contains the format of local timestamp that needs to be used and the corresponding timezone offset information. If a value isn't specified for localTimestamp, or if null, then the local timestamp will not be ingressed with the events.
+        """
+        format: NotRequired[pulumi.Input[Union[str, 'LocalTimestampFormat']]]
+        """
+        An enum that represents the format of the local timestamp property that needs to be set.
+        """
+        time_zone_offset: NotRequired[pulumi.Input['LocalTimestampTimeZoneOffsetArgsDict']]
+        """
+        An object that represents the offset information for the local timestamp format specified. Should not be specified for LocalTimestampFormat - Embedded.
+        """
+elif False:
+    LocalTimestampArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LocalTimestampArgs:
@@ -122,6 +180,22 @@ class LocalTimestampArgs:
         pulumi.set(self, "time_zone_offset", value)
 
 
+if not MYPY:
+    class ReferenceDataSetKeyPropertyArgsDict(TypedDict):
+        """
+        A key property for the reference data set. A reference data set can have multiple key properties.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the key property.
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'ReferenceDataKeyPropertyType']]]
+        """
+        The type of the key property.
+        """
+elif False:
+    ReferenceDataSetKeyPropertyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ReferenceDataSetKeyPropertyArgs:
     def __init__(__self__, *,
@@ -162,6 +236,22 @@ class ReferenceDataSetKeyPropertyArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class SkuArgsDict(TypedDict):
+        """
+        The sku determines the type of environment, either Gen1 (S1 or S2) or Gen2 (L1). For Gen1 environments the sku determines the capacity of the environment, the ingress rate, and the billing rate.
+        """
+        capacity: pulumi.Input[int]
+        """
+        The capacity of the sku. For Gen1 environments, this value can be changed to support scale out of environments after they have been created.
+        """
+        name: pulumi.Input[Union[str, 'SkuName']]
+        """
+        The name of this SKU.
+        """
+elif False:
+    SkuArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SkuArgs:
     def __init__(__self__, *,
@@ -199,6 +289,22 @@ class SkuArgs:
     def name(self, value: pulumi.Input[Union[str, 'SkuName']]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class TimeSeriesIdPropertyArgsDict(TypedDict):
+        """
+        The structure of the property that a time series id can have. An environment can have multiple such properties.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the property.
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'PropertyType']]]
+        """
+        The type of the property.
+        """
+elif False:
+    TimeSeriesIdPropertyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TimeSeriesIdPropertyArgs:
@@ -239,6 +345,18 @@ class TimeSeriesIdPropertyArgs:
     def type(self, value: Optional[pulumi.Input[Union[str, 'PropertyType']]]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class WarmStoreConfigurationPropertiesArgsDict(TypedDict):
+        """
+        The warm store configuration provides the details to create a warm store cache that will retain a copy of the environment's data available for faster query.
+        """
+        data_retention: pulumi.Input[str]
+        """
+        ISO8601 timespan specifying the number of days the environment's events will be available for query from the warm store.
+        """
+elif False:
+    WarmStoreConfigurationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WarmStoreConfigurationPropertiesArgs:

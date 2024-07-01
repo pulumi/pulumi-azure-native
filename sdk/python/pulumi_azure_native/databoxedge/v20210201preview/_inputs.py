@@ -4,17 +4,47 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'AsymmetricEncryptedSecretArgs',
+    'AsymmetricEncryptedSecretArgsDict',
     'ResourceIdentityArgs',
+    'ResourceIdentityArgsDict',
     'SkuArgs',
+    'SkuArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AsymmetricEncryptedSecretArgsDict(TypedDict):
+        """
+        Represent the secrets intended for encryption with asymmetric key pair.
+        """
+        encryption_algorithm: pulumi.Input[Union[str, 'EncryptionAlgorithm']]
+        """
+        The algorithm used to encrypt "Value".
+        """
+        value: pulumi.Input[str]
+        """
+        The value of the secret.
+        """
+        encryption_cert_thumbprint: NotRequired[pulumi.Input[str]]
+        """
+        Thumbprint certificate used to encrypt \\"Value\\". If the value is unencrypted, it will be null.
+        """
+elif False:
+    AsymmetricEncryptedSecretArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AsymmetricEncryptedSecretArgs:
@@ -70,6 +100,18 @@ class AsymmetricEncryptedSecretArgs:
         pulumi.set(self, "encryption_cert_thumbprint", value)
 
 
+if not MYPY:
+    class ResourceIdentityArgsDict(TypedDict):
+        """
+        Msi identity details of the resource
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'MsiIdentityType']]]
+        """
+        Identity type
+        """
+elif False:
+    ResourceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ResourceIdentityArgs:
     def __init__(__self__, *,
@@ -93,6 +135,22 @@ class ResourceIdentityArgs:
     def type(self, value: Optional[pulumi.Input[Union[str, 'MsiIdentityType']]]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class SkuArgsDict(TypedDict):
+        """
+        The SKU type.
+        """
+        name: NotRequired[pulumi.Input[Union[str, 'SkuName']]]
+        """
+        SKU name.
+        """
+        tier: NotRequired[pulumi.Input[Union[str, 'SkuTier']]]
+        """
+        The SKU tier. This is based on the SKU name.
+        """
+elif False:
+    SkuArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SkuArgs:

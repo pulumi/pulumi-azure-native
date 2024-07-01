@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -135,7 +140,7 @@ class UserRuleCollection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 applies_to_groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkManagerSecurityGroupItemArgs']]]]] = None,
+                 applies_to_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkManagerSecurityGroupItemArgs', 'NetworkManagerSecurityGroupItemArgsDict']]]]] = None,
                  configuration_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
@@ -148,7 +153,7 @@ class UserRuleCollection(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkManagerSecurityGroupItemArgs']]]] applies_to_groups: Groups for configuration
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkManagerSecurityGroupItemArgs', 'NetworkManagerSecurityGroupItemArgsDict']]]] applies_to_groups: Groups for configuration
         :param pulumi.Input[str] configuration_name: The name of the network manager security Configuration.
         :param pulumi.Input[str] description: A description of the rule collection.
         :param pulumi.Input[str] display_name: A display name of the rule collection.
@@ -180,7 +185,7 @@ class UserRuleCollection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 applies_to_groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkManagerSecurityGroupItemArgs']]]]] = None,
+                 applies_to_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkManagerSecurityGroupItemArgs', 'NetworkManagerSecurityGroupItemArgsDict']]]]] = None,
                  configuration_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,

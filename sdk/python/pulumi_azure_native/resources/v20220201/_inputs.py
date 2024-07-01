@@ -4,14 +4,38 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 
 __all__ = [
     'LinkedTemplateArtifactArgs',
+    'LinkedTemplateArtifactArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class LinkedTemplateArtifactArgsDict(TypedDict):
+        """
+        Represents a Template Spec artifact containing an embedded Azure Resource Manager template for use as a linked template.
+        """
+        path: pulumi.Input[str]
+        """
+        A filesystem safe relative path of the artifact.
+        """
+        template: Any
+        """
+        The Azure Resource Manager template.
+        """
+elif False:
+    LinkedTemplateArtifactArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LinkedTemplateArtifactArgs:

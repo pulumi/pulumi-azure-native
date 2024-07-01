@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -155,7 +160,7 @@ class NetworkGroup(pulumi.CustomResource):
                  conditional_membership: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 group_members: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupMembersItemArgs']]]]] = None,
+                 group_members: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GroupMembersItemArgs', 'GroupMembersItemArgsDict']]]]] = None,
                  member_type: Optional[pulumi.Input[str]] = None,
                  network_group_name: Optional[pulumi.Input[str]] = None,
                  network_manager_name: Optional[pulumi.Input[str]] = None,
@@ -169,7 +174,7 @@ class NetworkGroup(pulumi.CustomResource):
         :param pulumi.Input[str] conditional_membership: Network group conditional filter.
         :param pulumi.Input[str] description: A description of the network group.
         :param pulumi.Input[str] display_name: A friendly name for the network group.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupMembersItemArgs']]]] group_members: Group members of network group.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['GroupMembersItemArgs', 'GroupMembersItemArgsDict']]]] group_members: Group members of network group.
         :param pulumi.Input[str] member_type: Group member type.
         :param pulumi.Input[str] network_group_name: The name of the network group to get.
         :param pulumi.Input[str] network_manager_name: The name of the network manager.
@@ -202,7 +207,7 @@ class NetworkGroup(pulumi.CustomResource):
                  conditional_membership: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 group_members: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupMembersItemArgs']]]]] = None,
+                 group_members: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GroupMembersItemArgs', 'GroupMembersItemArgsDict']]]]] = None,
                  member_type: Optional[pulumi.Input[str]] = None,
                  network_group_name: Optional[pulumi.Input[str]] = None,
                  network_manager_name: Optional[pulumi.Input[str]] = None,

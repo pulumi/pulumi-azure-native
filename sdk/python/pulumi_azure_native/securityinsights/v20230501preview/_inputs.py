@@ -4,22 +4,53 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'AzureDevOpsResourceInfoArgs',
+    'AzureDevOpsResourceInfoArgsDict',
     'ContentPathMapArgs',
+    'ContentPathMapArgsDict',
     'DeploymentInfoArgs',
+    'DeploymentInfoArgsDict',
     'DeploymentArgs',
+    'DeploymentArgsDict',
     'GitHubResourceInfoArgs',
+    'GitHubResourceInfoArgsDict',
     'RepositoryResourceInfoArgs',
+    'RepositoryResourceInfoArgsDict',
     'RepositoryArgs',
+    'RepositoryArgsDict',
     'WebhookArgs',
+    'WebhookArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AzureDevOpsResourceInfoArgsDict(TypedDict):
+        """
+        Resources created in Azure DevOps repository.
+        """
+        pipeline_id: NotRequired[pulumi.Input[str]]
+        """
+        Id of the pipeline created for the source-control.
+        """
+        service_connection_id: NotRequired[pulumi.Input[str]]
+        """
+        Id of the service-connection created for the source-control.
+        """
+elif False:
+    AzureDevOpsResourceInfoArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AzureDevOpsResourceInfoArgs:
@@ -61,6 +92,22 @@ class AzureDevOpsResourceInfoArgs:
         pulumi.set(self, "service_connection_id", value)
 
 
+if not MYPY:
+    class ContentPathMapArgsDict(TypedDict):
+        """
+        The mapping of content type to a repo path.
+        """
+        content_type: NotRequired[pulumi.Input[Union[str, 'ContentType']]]
+        """
+        Content type.
+        """
+        path: NotRequired[pulumi.Input[str]]
+        """
+        The path to the content.
+        """
+elif False:
+    ContentPathMapArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ContentPathMapArgs:
     def __init__(__self__, *,
@@ -100,6 +147,26 @@ class ContentPathMapArgs:
     def path(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "path", value)
 
+
+if not MYPY:
+    class DeploymentInfoArgsDict(TypedDict):
+        """
+        Information regarding a deployment.
+        """
+        deployment: NotRequired[pulumi.Input['DeploymentArgsDict']]
+        """
+        Deployment information.
+        """
+        deployment_fetch_status: NotRequired[pulumi.Input[Union[str, 'DeploymentFetchStatus']]]
+        """
+        Status while fetching the last deployment.
+        """
+        message: NotRequired[pulumi.Input[str]]
+        """
+        Additional details about the deployment that can be shown to the user.
+        """
+elif False:
+    DeploymentInfoArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DeploymentInfoArgs:
@@ -156,6 +223,34 @@ class DeploymentInfoArgs:
     def message(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "message", value)
 
+
+if not MYPY:
+    class DeploymentArgsDict(TypedDict):
+        """
+        Description about a deployment.
+        """
+        deployment_id: NotRequired[pulumi.Input[str]]
+        """
+        Deployment identifier.
+        """
+        deployment_logs_url: NotRequired[pulumi.Input[str]]
+        """
+        Url to access repository action logs.
+        """
+        deployment_result: NotRequired[pulumi.Input[Union[str, 'DeploymentResult']]]
+        """
+        The outcome of the deployment.
+        """
+        deployment_state: NotRequired[pulumi.Input[Union[str, 'DeploymentState']]]
+        """
+        Current status of the deployment.
+        """
+        deployment_time: NotRequired[pulumi.Input[str]]
+        """
+        The time when the deployment finished.
+        """
+elif False:
+    DeploymentArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DeploymentArgs:
@@ -245,6 +340,18 @@ class DeploymentArgs:
         pulumi.set(self, "deployment_time", value)
 
 
+if not MYPY:
+    class GitHubResourceInfoArgsDict(TypedDict):
+        """
+        Resources created in GitHub repository.
+        """
+        app_installation_id: NotRequired[pulumi.Input[str]]
+        """
+        GitHub application installation id.
+        """
+elif False:
+    GitHubResourceInfoArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GitHubResourceInfoArgs:
     def __init__(__self__, *,
@@ -268,6 +375,26 @@ class GitHubResourceInfoArgs:
     def app_installation_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "app_installation_id", value)
 
+
+if not MYPY:
+    class RepositoryResourceInfoArgsDict(TypedDict):
+        """
+        Resources created in user's repository for the source-control.
+        """
+        azure_dev_ops_resource_info: NotRequired[pulumi.Input['AzureDevOpsResourceInfoArgsDict']]
+        """
+        Resources created in Azure DevOps for this source-control.
+        """
+        git_hub_resource_info: NotRequired[pulumi.Input['GitHubResourceInfoArgsDict']]
+        """
+        Resources created in GitHub for this source-control.
+        """
+        webhook: NotRequired[pulumi.Input['WebhookArgsDict']]
+        """
+        The webhook object created for the source-control.
+        """
+elif False:
+    RepositoryResourceInfoArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RepositoryResourceInfoArgs:
@@ -324,6 +451,34 @@ class RepositoryResourceInfoArgs:
     def webhook(self, value: Optional[pulumi.Input['WebhookArgs']]):
         pulumi.set(self, "webhook", value)
 
+
+if not MYPY:
+    class RepositoryArgsDict(TypedDict):
+        """
+        metadata of a repository.
+        """
+        branch: NotRequired[pulumi.Input[str]]
+        """
+        Branch name of repository.
+        """
+        deployment_logs_url: NotRequired[pulumi.Input[str]]
+        """
+        Url to access repository action logs.
+        """
+        display_url: NotRequired[pulumi.Input[str]]
+        """
+        Display url of repository.
+        """
+        path_mapping: NotRequired[pulumi.Input[Sequence[pulumi.Input['ContentPathMapArgsDict']]]]
+        """
+        Dictionary of source control content type and path mapping.
+        """
+        url: NotRequired[pulumi.Input[str]]
+        """
+        Url of repository.
+        """
+elif False:
+    RepositoryArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RepositoryArgs:
@@ -412,6 +567,30 @@ class RepositoryArgs:
     def url(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "url", value)
 
+
+if not MYPY:
+    class WebhookArgsDict(TypedDict):
+        """
+        Detail about the webhook object.
+        """
+        rotate_webhook_secret: NotRequired[pulumi.Input[bool]]
+        """
+        A flag to instruct the backend service to rotate webhook secret.
+        """
+        webhook_id: NotRequired[pulumi.Input[str]]
+        """
+        Unique identifier for the webhook.
+        """
+        webhook_secret_update_time: NotRequired[pulumi.Input[str]]
+        """
+        Time when the webhook secret was updated.
+        """
+        webhook_url: NotRequired[pulumi.Input[str]]
+        """
+        URL that gets invoked by the webhook.
+        """
+elif False:
+    WebhookArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WebhookArgs:

@@ -4,15 +4,39 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'AppServiceCertificateArgs',
+    'AppServiceCertificateArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AppServiceCertificateArgsDict(TypedDict):
+        """
+        Key Vault container for a certificate that is purchased through Azure.
+        """
+        key_vault_id: NotRequired[pulumi.Input[str]]
+        """
+        Key Vault resource Id.
+        """
+        key_vault_secret_name: NotRequired[pulumi.Input[str]]
+        """
+        Key Vault secret name.
+        """
+elif False:
+    AppServiceCertificateArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AppServiceCertificateArgs:

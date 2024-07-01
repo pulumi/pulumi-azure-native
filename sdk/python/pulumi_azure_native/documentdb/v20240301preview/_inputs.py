@@ -4,17 +4,43 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'MongoClusterRestoreParametersArgs',
+    'MongoClusterRestoreParametersArgsDict',
     'NodeGroupSpecArgs',
+    'NodeGroupSpecArgsDict',
     'PrivateLinkServiceConnectionStateArgs',
+    'PrivateLinkServiceConnectionStateArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class MongoClusterRestoreParametersArgsDict(TypedDict):
+        """
+        Parameters used for restore operations
+        """
+        point_in_time_utc: NotRequired[pulumi.Input[str]]
+        """
+        UTC point in time to restore a mongo cluster
+        """
+        source_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID to locate the source cluster to restore
+        """
+elif False:
+    MongoClusterRestoreParametersArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MongoClusterRestoreParametersArgs:
@@ -55,6 +81,34 @@ class MongoClusterRestoreParametersArgs:
     def source_resource_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "source_resource_id", value)
 
+
+if not MYPY:
+    class NodeGroupSpecArgsDict(TypedDict):
+        """
+        Specification for a node group.
+        """
+        disk_size_gb: NotRequired[pulumi.Input[float]]
+        """
+        The disk storage size for the node group in GB. Example values: 128, 256, 512, 1024.
+        """
+        enable_ha: NotRequired[pulumi.Input[bool]]
+        """
+        Whether high availability is enabled on the node group.
+        """
+        kind: NotRequired[pulumi.Input[Union[str, 'NodeKind']]]
+        """
+        The node type deployed in the node group.
+        """
+        node_count: NotRequired[pulumi.Input[int]]
+        """
+        The number of nodes in the node group.
+        """
+        sku: NotRequired[pulumi.Input[str]]
+        """
+        The resource sku for the node group. This defines the size of CPU and memory that is provisioned for each node. Example values: 'M30', 'M40'.
+        """
+elif False:
+    NodeGroupSpecArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NodeGroupSpecArgs:
@@ -143,6 +197,26 @@ class NodeGroupSpecArgs:
     def sku(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "sku", value)
 
+
+if not MYPY:
+    class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
+        """
+        A collection of information about the state of the connection between service consumer and provider.
+        """
+        actions_required: NotRequired[pulumi.Input[str]]
+        """
+        A message indicating if changes on the service provider require any updates on the consumer.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The reason for approval/rejection of the connection.
+        """
+        status: NotRequired[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]]
+        """
+        Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+        """
+elif False:
+    PrivateLinkServiceConnectionStateArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:

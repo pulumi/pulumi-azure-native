@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -188,7 +193,7 @@ class AnalyticsItem(pulumi.CustomResource):
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  override_item: Optional[pulumi.Input[bool]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['ApplicationInsightsComponentAnalyticsItemPropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['ApplicationInsightsComponentAnalyticsItemPropertiesArgs', 'ApplicationInsightsComponentAnalyticsItemPropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[Union[str, 'ItemScope']]] = None,
@@ -204,7 +209,7 @@ class AnalyticsItem(pulumi.CustomResource):
         :param pulumi.Input[str] id: Internally assigned unique id of the item definition.
         :param pulumi.Input[str] name: The user-defined name of the item.
         :param pulumi.Input[bool] override_item: Flag indicating whether or not to force save an item. This allows overriding an item if it already exists.
-        :param pulumi.Input[pulumi.InputType['ApplicationInsightsComponentAnalyticsItemPropertiesArgs']] properties: A set of properties that can be defined in the context of a specific item type. Each type may have its own properties.
+        :param pulumi.Input[Union['ApplicationInsightsComponentAnalyticsItemPropertiesArgs', 'ApplicationInsightsComponentAnalyticsItemPropertiesArgsDict']] properties: A set of properties that can be defined in the context of a specific item type. Each type may have its own properties.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] resource_name_: The name of the Application Insights component resource.
         :param pulumi.Input[Union[str, 'ItemScope']] scope: Enum indicating if this item definition is owned by a specific user or is shared between all users with access to the Application Insights component.
@@ -239,7 +244,7 @@ class AnalyticsItem(pulumi.CustomResource):
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  override_item: Optional[pulumi.Input[bool]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['ApplicationInsightsComponentAnalyticsItemPropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['ApplicationInsightsComponentAnalyticsItemPropertiesArgs', 'ApplicationInsightsComponentAnalyticsItemPropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[Union[str, 'ItemScope']]] = None,

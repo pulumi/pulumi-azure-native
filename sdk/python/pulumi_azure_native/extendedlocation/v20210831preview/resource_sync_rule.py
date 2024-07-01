@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -157,7 +162,7 @@ class ResourceSyncRule(pulumi.CustomResource):
                  priority: Optional[pulumi.Input[int]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
-                 selector: Optional[pulumi.Input[pulumi.InputType['ResourceSyncRulePropertiesSelectorArgs']]] = None,
+                 selector: Optional[pulumi.Input[Union['ResourceSyncRulePropertiesSelectorArgs', 'ResourceSyncRulePropertiesSelectorArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_resource_group: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -171,7 +176,7 @@ class ResourceSyncRule(pulumi.CustomResource):
         :param pulumi.Input[int] priority: Priority represents a priority of the Resource Sync Rule
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] resource_name_: Custom Locations name.
-        :param pulumi.Input[pulumi.InputType['ResourceSyncRulePropertiesSelectorArgs']] selector: A label selector is composed of two parts, matchLabels and matchExpressions. The first part, matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is 'key', the operator is 'In', and the values array contains only 'value'. The second part, matchExpressions is a list of resource selector requirements. Valid operators include In, NotIn, Exists, and DoesNotExist. The values set must be non-empty in the case of In and NotIn. The values set must be empty in the case of Exists and DoesNotExist. All of the requirements, from both matchLabels and matchExpressions must all be satisfied in order to match.
+        :param pulumi.Input[Union['ResourceSyncRulePropertiesSelectorArgs', 'ResourceSyncRulePropertiesSelectorArgsDict']] selector: A label selector is composed of two parts, matchLabels and matchExpressions. The first part, matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is 'key', the operator is 'In', and the values array contains only 'value'. The second part, matchExpressions is a list of resource selector requirements. Valid operators include In, NotIn, Exists, and DoesNotExist. The values set must be non-empty in the case of In and NotIn. The values set must be empty in the case of Exists and DoesNotExist. All of the requirements, from both matchLabels and matchExpressions must all be satisfied in order to match.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] target_resource_group: For an unmapped custom resource, its labels will be used to find matching resource sync rules. If this resource sync rule is one of the matching rules with highest priority, then the unmapped custom resource will be projected to the target resource group associated with this resource sync rule. The user creating this resource sync rule should have write permissions on the target resource group and this write permission will be validated when creating the resource sync rule.
         """
@@ -204,7 +209,7 @@ class ResourceSyncRule(pulumi.CustomResource):
                  priority: Optional[pulumi.Input[int]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
-                 selector: Optional[pulumi.Input[pulumi.InputType['ResourceSyncRulePropertiesSelectorArgs']]] = None,
+                 selector: Optional[pulumi.Input[Union['ResourceSyncRulePropertiesSelectorArgs', 'ResourceSyncRulePropertiesSelectorArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_resource_group: Optional[pulumi.Input[str]] = None,
                  __props__=None):

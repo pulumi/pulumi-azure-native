@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -141,7 +146,7 @@ class ForwardingRule(pulumi.CustomResource):
                  forwarding_rule_state: Optional[pulumi.Input[Union[str, 'ForwardingRuleState']]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 target_dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TargetDnsServerArgs']]]]] = None,
+                 target_dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TargetDnsServerArgs', 'TargetDnsServerArgsDict']]]]] = None,
                  __props__=None):
         """
         Describes a forwarding rule within a DNS forwarding ruleset.
@@ -155,7 +160,7 @@ class ForwardingRule(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'ForwardingRuleState']] forwarding_rule_state: The state of forwarding rule.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: Metadata attached to the forwarding rule.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TargetDnsServerArgs']]]] target_dns_servers: DNS servers to forward the DNS query to.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TargetDnsServerArgs', 'TargetDnsServerArgsDict']]]] target_dns_servers: DNS servers to forward the DNS query to.
         """
         ...
     @overload
@@ -188,7 +193,7 @@ class ForwardingRule(pulumi.CustomResource):
                  forwarding_rule_state: Optional[pulumi.Input[Union[str, 'ForwardingRuleState']]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 target_dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TargetDnsServerArgs']]]]] = None,
+                 target_dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TargetDnsServerArgs', 'TargetDnsServerArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

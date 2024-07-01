@@ -4,18 +4,46 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 
 __all__ = [
     'ArmTemplateParameterArgs',
+    'ArmTemplateParameterArgsDict',
     'ManagementAssociationPropertiesArgs',
+    'ManagementAssociationPropertiesArgsDict',
     'ManagementConfigurationPropertiesArgs',
+    'ManagementConfigurationPropertiesArgsDict',
     'SolutionPlanArgs',
+    'SolutionPlanArgsDict',
     'SolutionPropertiesArgs',
+    'SolutionPropertiesArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ArmTemplateParameterArgsDict(TypedDict):
+        """
+        Parameter to pass to ARM template
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        name of the parameter.
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        value for the parameter. In Jtoken 
+        """
+elif False:
+    ArmTemplateParameterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ArmTemplateParameterArgs:
@@ -57,6 +85,18 @@ class ArmTemplateParameterArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class ManagementAssociationPropertiesArgsDict(TypedDict):
+        """
+        ManagementAssociation properties supported by the OperationsManagement resource provider.
+        """
+        application_id: pulumi.Input[str]
+        """
+        The applicationId of the appliance for this association.
+        """
+elif False:
+    ManagementAssociationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ManagementAssociationPropertiesArgs:
     def __init__(__self__, *,
@@ -79,6 +119,30 @@ class ManagementAssociationPropertiesArgs:
     def application_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "application_id", value)
 
+
+if not MYPY:
+    class ManagementConfigurationPropertiesArgsDict(TypedDict):
+        """
+        ManagementConfiguration properties supported by the OperationsManagement resource provider.
+        """
+        parameters: pulumi.Input[Sequence[pulumi.Input['ArmTemplateParameterArgsDict']]]
+        """
+        Parameters to run the ARM template
+        """
+        parent_resource_type: pulumi.Input[str]
+        """
+        The type of the parent resource.
+        """
+        template: Any
+        """
+        The Json object containing the ARM template to deploy
+        """
+        application_id: NotRequired[pulumi.Input[str]]
+        """
+        The applicationId of the appliance for this Management.
+        """
+elif False:
+    ManagementConfigurationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ManagementConfigurationPropertiesArgs:
@@ -148,6 +212,30 @@ class ManagementConfigurationPropertiesArgs:
     def application_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "application_id", value)
 
+
+if not MYPY:
+    class SolutionPlanArgsDict(TypedDict):
+        """
+        Plan for solution object supported by the OperationsManagement resource provider.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        name of the solution to be created. For Microsoft published solution it should be in the format of solutionType(workspaceName). SolutionType part is case sensitive. For third party solution, it can be anything.
+        """
+        product: NotRequired[pulumi.Input[str]]
+        """
+        name of the solution to enabled/add. For Microsoft published gallery solution it should be in the format of OMSGallery/<solutionType>. This is case sensitive
+        """
+        promotion_code: NotRequired[pulumi.Input[str]]
+        """
+        promotionCode, Not really used now, can you left as empty
+        """
+        publisher: NotRequired[pulumi.Input[str]]
+        """
+        Publisher name. For gallery solution, it is Microsoft.
+        """
+elif False:
+    SolutionPlanArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SolutionPlanArgs:
@@ -220,6 +308,26 @@ class SolutionPlanArgs:
     def publisher(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "publisher", value)
 
+
+if not MYPY:
+    class SolutionPropertiesArgsDict(TypedDict):
+        """
+        Solution properties supported by the OperationsManagement resource provider.
+        """
+        workspace_resource_id: pulumi.Input[str]
+        """
+        The azure resourceId for the workspace where the solution will be deployed/enabled.
+        """
+        contained_resources: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The azure resources that will be contained within the solutions. They will be locked and gets deleted automatically when the solution is deleted.
+        """
+        referenced_resources: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The resources that will be referenced from this solution. Deleting any of those solution out of band will break the solution.
+        """
+elif False:
+    SolutionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SolutionPropertiesArgs:

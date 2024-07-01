@@ -4,28 +4,69 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'AvailabilityPropertiesArgs',
+    'AvailabilityPropertiesArgsDict',
     'DiskPoolVolumeArgs',
+    'DiskPoolVolumeArgsDict',
     'ElasticSanVolumeArgs',
+    'ElasticSanVolumeArgsDict',
     'EncryptionKeyVaultPropertiesArgs',
+    'EncryptionKeyVaultPropertiesArgsDict',
     'EncryptionArgs',
+    'EncryptionArgsDict',
     'IdentitySourceArgs',
+    'IdentitySourceArgsDict',
     'ManagementClusterArgs',
+    'ManagementClusterArgsDict',
     'NetAppVolumeArgs',
+    'NetAppVolumeArgsDict',
     'PSCredentialExecutionParameterArgs',
+    'PSCredentialExecutionParameterArgsDict',
     'ScriptSecureStringExecutionParameterArgs',
+    'ScriptSecureStringExecutionParameterArgsDict',
     'ScriptStringExecutionParameterArgs',
+    'ScriptStringExecutionParameterArgsDict',
     'SkuArgs',
+    'SkuArgsDict',
     'SystemAssignedServiceIdentityArgs',
+    'SystemAssignedServiceIdentityArgsDict',
     'WorkloadNetworkSegmentSubnetArgs',
+    'WorkloadNetworkSegmentSubnetArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AvailabilityPropertiesArgsDict(TypedDict):
+        """
+        The properties describing private cloud availability zone distribution
+        """
+        secondary_zone: NotRequired[pulumi.Input[int]]
+        """
+        The secondary availability zone for the private cloud
+        """
+        strategy: NotRequired[pulumi.Input[Union[str, 'AvailabilityStrategy']]]
+        """
+        The availability strategy for the private cloud
+        """
+        zone: NotRequired[pulumi.Input[int]]
+        """
+        The primary availability zone for the private cloud
+        """
+elif False:
+    AvailabilityPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AvailabilityPropertiesArgs:
@@ -82,6 +123,27 @@ class AvailabilityPropertiesArgs:
     def zone(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "zone", value)
 
+
+if not MYPY:
+    class DiskPoolVolumeArgsDict(TypedDict):
+        """
+        An iSCSI volume from Microsoft.StoragePool provider
+        """
+        lun_name: pulumi.Input[str]
+        """
+        Name of the LUN to be used for datastore
+        """
+        target_id: pulumi.Input[str]
+        """
+        Azure resource ID of the iSCSI target
+        """
+        mount_option: NotRequired[pulumi.Input[Union[str, 'MountOptionEnum']]]
+        """
+        Mode that describes whether the LUN has to be mounted as a datastore or
+        attached as a LUN
+        """
+elif False:
+    DiskPoolVolumeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DiskPoolVolumeArgs:
@@ -141,6 +203,18 @@ class DiskPoolVolumeArgs:
         pulumi.set(self, "mount_option", value)
 
 
+if not MYPY:
+    class ElasticSanVolumeArgsDict(TypedDict):
+        """
+        An Elastic SAN volume from Microsoft.ElasticSan provider
+        """
+        target_id: pulumi.Input[str]
+        """
+        Azure resource ID of the Elastic SAN Volume
+        """
+elif False:
+    ElasticSanVolumeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ElasticSanVolumeArgs:
     def __init__(__self__, *,
@@ -163,6 +237,26 @@ class ElasticSanVolumeArgs:
     def target_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "target_id", value)
 
+
+if not MYPY:
+    class EncryptionKeyVaultPropertiesArgsDict(TypedDict):
+        """
+        An Encryption Key
+        """
+        key_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the key.
+        """
+        key_vault_url: NotRequired[pulumi.Input[str]]
+        """
+        The URL of the vault.
+        """
+        key_version: NotRequired[pulumi.Input[str]]
+        """
+        The version of the key.
+        """
+elif False:
+    EncryptionKeyVaultPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EncryptionKeyVaultPropertiesArgs:
@@ -220,6 +314,22 @@ class EncryptionKeyVaultPropertiesArgs:
         pulumi.set(self, "key_version", value)
 
 
+if not MYPY:
+    class EncryptionArgsDict(TypedDict):
+        """
+        The properties of customer managed encryption key
+        """
+        key_vault_properties: NotRequired[pulumi.Input['EncryptionKeyVaultPropertiesArgsDict']]
+        """
+        The key vault where the encryption key is stored
+        """
+        status: NotRequired[pulumi.Input[Union[str, 'EncryptionState']]]
+        """
+        Status of customer managed encryption key
+        """
+elif False:
+    EncryptionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EncryptionArgs:
     def __init__(__self__, *,
@@ -259,6 +369,56 @@ class EncryptionArgs:
     def status(self, value: Optional[pulumi.Input[Union[str, 'EncryptionState']]]):
         pulumi.set(self, "status", value)
 
+
+if not MYPY:
+    class IdentitySourceArgsDict(TypedDict):
+        """
+        vCenter Single Sign On Identity Source
+        """
+        alias: NotRequired[pulumi.Input[str]]
+        """
+        The domain's NetBIOS name
+        """
+        base_group_dn: NotRequired[pulumi.Input[str]]
+        """
+        The base distinguished name for groups
+        """
+        base_user_dn: NotRequired[pulumi.Input[str]]
+        """
+        The base distinguished name for users
+        """
+        domain: NotRequired[pulumi.Input[str]]
+        """
+        The domain's dns name
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the identity source
+        """
+        password: NotRequired[pulumi.Input[str]]
+        """
+        The password of the Active Directory user with a minimum of read-only access to
+        Base DN for users and groups.
+        """
+        primary_server: NotRequired[pulumi.Input[str]]
+        """
+        Primary server URL
+        """
+        secondary_server: NotRequired[pulumi.Input[str]]
+        """
+        Secondary server URL
+        """
+        ssl: NotRequired[pulumi.Input[Union[str, 'SslEnum']]]
+        """
+        Protect LDAP communication using SSL certificate (LDAPS)
+        """
+        username: NotRequired[pulumi.Input[str]]
+        """
+        The ID of an Active Directory user with a minimum of read-only access to Base
+        DN for users and group
+        """
+elif False:
+    IdentitySourceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IdentitySourceArgs:
@@ -432,6 +592,26 @@ class IdentitySourceArgs:
         pulumi.set(self, "username", value)
 
 
+if not MYPY:
+    class ManagementClusterArgsDict(TypedDict):
+        """
+        The properties of a management cluster
+        """
+        cluster_size: NotRequired[pulumi.Input[int]]
+        """
+        The cluster size
+        """
+        hosts: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The hosts
+        """
+        vsan_datastore_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the vsan datastore associated with the cluster
+        """
+elif False:
+    ManagementClusterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ManagementClusterArgs:
     def __init__(__self__, *,
@@ -488,6 +668,18 @@ class ManagementClusterArgs:
         pulumi.set(self, "vsan_datastore_name", value)
 
 
+if not MYPY:
+    class NetAppVolumeArgsDict(TypedDict):
+        """
+        An Azure NetApp Files volume from Microsoft.NetApp provider
+        """
+        id: pulumi.Input[str]
+        """
+        Azure resource ID of the NetApp volume
+        """
+elif False:
+    NetAppVolumeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NetAppVolumeArgs:
     def __init__(__self__, *,
@@ -510,6 +702,31 @@ class NetAppVolumeArgs:
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class PSCredentialExecutionParameterArgsDict(TypedDict):
+        """
+        a powershell credential object
+        """
+        name: pulumi.Input[str]
+        """
+        The parameter name
+        """
+        type: pulumi.Input[str]
+        """
+        script execution parameter type
+        Expected value is 'Credential'.
+        """
+        password: NotRequired[pulumi.Input[str]]
+        """
+        password for login
+        """
+        username: NotRequired[pulumi.Input[str]]
+        """
+        username for login
+        """
+elif False:
+    PSCredentialExecutionParameterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PSCredentialExecutionParameterArgs:
@@ -583,6 +800,27 @@ class PSCredentialExecutionParameterArgs:
         pulumi.set(self, "username", value)
 
 
+if not MYPY:
+    class ScriptSecureStringExecutionParameterArgsDict(TypedDict):
+        """
+        a plain text value execution parameter
+        """
+        name: pulumi.Input[str]
+        """
+        The parameter name
+        """
+        type: pulumi.Input[str]
+        """
+        script execution parameter type
+        Expected value is 'SecureValue'.
+        """
+        secure_value: NotRequired[pulumi.Input[str]]
+        """
+        A secure value for the passed parameter, not to be stored in logs
+        """
+elif False:
+    ScriptSecureStringExecutionParameterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ScriptSecureStringExecutionParameterArgs:
     def __init__(__self__, *,
@@ -639,6 +877,27 @@ class ScriptSecureStringExecutionParameterArgs:
         pulumi.set(self, "secure_value", value)
 
 
+if not MYPY:
+    class ScriptStringExecutionParameterArgsDict(TypedDict):
+        """
+        a plain text value execution parameter
+        """
+        name: pulumi.Input[str]
+        """
+        The parameter name
+        """
+        type: pulumi.Input[str]
+        """
+        script execution parameter type
+        Expected value is 'Value'.
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        The value for the passed parameter
+        """
+elif False:
+    ScriptStringExecutionParameterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ScriptStringExecutionParameterArgs:
     def __init__(__self__, *,
@@ -694,6 +953,34 @@ class ScriptStringExecutionParameterArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class SkuArgsDict(TypedDict):
+        """
+        The resource model definition representing SKU
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the SKU. E.g. P3. It is typically a letter+number code
+        """
+        capacity: NotRequired[pulumi.Input[int]]
+        """
+        If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
+        """
+        family: NotRequired[pulumi.Input[str]]
+        """
+        If the service has different generations of hardware, for the same SKU, then that can be captured here.
+        """
+        size: NotRequired[pulumi.Input[str]]
+        """
+        The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+        """
+        tier: NotRequired[pulumi.Input['SkuTier']]
+        """
+        This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+        """
+elif False:
+    SkuArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SkuArgs:
@@ -782,6 +1069,18 @@ class SkuArgs:
         pulumi.set(self, "tier", value)
 
 
+if not MYPY:
+    class SystemAssignedServiceIdentityArgsDict(TypedDict):
+        """
+        Managed service identity (either system assigned, or none)
+        """
+        type: pulumi.Input[Union[str, 'SystemAssignedServiceIdentityType']]
+        """
+        Type of managed service identity (either system assigned, or none).
+        """
+elif False:
+    SystemAssignedServiceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SystemAssignedServiceIdentityArgs:
     def __init__(__self__, *,
@@ -804,6 +1103,22 @@ class SystemAssignedServiceIdentityArgs:
     def type(self, value: pulumi.Input[Union[str, 'SystemAssignedServiceIdentityType']]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class WorkloadNetworkSegmentSubnetArgsDict(TypedDict):
+        """
+        Subnet configuration for segment
+        """
+        dhcp_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        DHCP Range assigned for subnet.
+        """
+        gateway_address: NotRequired[pulumi.Input[str]]
+        """
+        Gateway address.
+        """
+elif False:
+    WorkloadNetworkSegmentSubnetArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WorkloadNetworkSegmentSubnetArgs:

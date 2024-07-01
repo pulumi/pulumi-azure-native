@@ -4,17 +4,44 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'DatasetPropertyKeyArgs',
+    'DatasetPropertyKeyArgsDict',
     'ExtendedLocationArgs',
+    'ExtendedLocationArgsDict',
     'PipelineInputArgs',
+    'PipelineInputArgsDict',
     'PipelineStageArgs',
+    'PipelineStageArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class DatasetPropertyKeyArgsDict(TypedDict):
+        """
+        Key that can be used for joining on enrich.
+        """
+        path: pulumi.Input[str]
+        """
+        Path to the input value from the message.
+        """
+        primary_key: NotRequired[pulumi.Input[bool]]
+        """
+        If true the property will be used as a primary key. At most one primary key can exists.
+        """
+elif False:
+    DatasetPropertyKeyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DatasetPropertyKeyArgs:
@@ -55,6 +82,22 @@ class DatasetPropertyKeyArgs:
         pulumi.set(self, "primary_key", value)
 
 
+if not MYPY:
+    class ExtendedLocationArgsDict(TypedDict):
+        """
+        Extended location is an extension of Azure locations. They provide a way to use their Azure ARC enabled Kubernetes clusters as target locations for deploying Azure services instances.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the extended location.
+        """
+        type: pulumi.Input[str]
+        """
+        The type of the extended location.
+        """
+elif False:
+    ExtendedLocationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ExtendedLocationArgs:
     def __init__(__self__, *,
@@ -92,6 +135,26 @@ class ExtendedLocationArgs:
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class PipelineInputArgsDict(TypedDict):
+        """
+        Stage configuration for Pipeline input stage.
+        """
+        next: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Next stage in the pipeline.
+        """
+        type: pulumi.Input[str]
+        """
+        ARM resource type.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Description for stage.
+        """
+elif False:
+    PipelineInputArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PipelineInputArgs:
@@ -146,6 +209,26 @@ class PipelineInputArgs:
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
 
+
+if not MYPY:
+    class PipelineStageArgsDict(TypedDict):
+        """
+        Stage configurations for all Pipeline processing and output stages.
+        """
+        type: pulumi.Input[str]
+        """
+        ARM resource type.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Description for stage.
+        """
+        next: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Next stage in the pipeline. Not required if output stage.
+        """
+elif False:
+    PipelineStageArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PipelineStageArgs:

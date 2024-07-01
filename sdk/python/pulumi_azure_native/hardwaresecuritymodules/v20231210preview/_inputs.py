@@ -4,22 +4,49 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'BackupPropertiesArgs',
+    'BackupPropertiesArgsDict',
     'CloudHsmClusterSecurityDomainPropertiesArgs',
+    'CloudHsmClusterSecurityDomainPropertiesArgsDict',
     'CloudHsmClusterSkuArgs',
+    'CloudHsmClusterSkuArgsDict',
     'CloudHsmPropertiesArgs',
+    'CloudHsmPropertiesArgsDict',
     'ManagedServiceIdentityArgs',
+    'ManagedServiceIdentityArgsDict',
     'PrivateEndpointConnectionArgs',
+    'PrivateEndpointConnectionArgsDict',
     'PrivateLinkServiceConnectionStateArgs',
+    'PrivateLinkServiceConnectionStateArgsDict',
     'RestorePropertiesArgs',
+    'RestorePropertiesArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class BackupPropertiesArgsDict(TypedDict):
+        """
+        Cloud Hsm Cluster backup information
+        """
+        azure_storage_resource_uri: NotRequired[pulumi.Input[str]]
+        """
+        Azure storage Resource Uri
+        """
+elif False:
+    BackupPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class BackupPropertiesArgs:
@@ -44,6 +71,22 @@ class BackupPropertiesArgs:
     def azure_storage_resource_uri(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "azure_storage_resource_uri", value)
 
+
+if not MYPY:
+    class CloudHsmClusterSecurityDomainPropertiesArgsDict(TypedDict):
+        """
+        Security domain properties information for Cloud HSM cluster
+        """
+        activation_status: NotRequired[pulumi.Input[str]]
+        """
+        status of security domain activation
+        """
+        fips_state: NotRequired[pulumi.Input[int]]
+        """
+        FIPS state information for security domain
+        """
+elif False:
+    CloudHsmClusterSecurityDomainPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CloudHsmClusterSecurityDomainPropertiesArgs:
@@ -84,6 +127,26 @@ class CloudHsmClusterSecurityDomainPropertiesArgs:
     def fips_state(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "fips_state", value)
 
+
+if not MYPY:
+    class CloudHsmClusterSkuArgsDict(TypedDict):
+        """
+        Cloud Hsm Cluster SKU information
+        """
+        family: pulumi.Input[Union[str, 'CloudHsmClusterSkuFamily']]
+        """
+        Sku family of the Cloud HSM Cluster
+        """
+        name: pulumi.Input['CloudHsmClusterSkuName']
+        """
+        Sku name of the Cloud HSM Cluster
+        """
+        capacity: NotRequired[pulumi.Input[int]]
+        """
+        Sku capacity
+        """
+elif False:
+    CloudHsmClusterSkuArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CloudHsmClusterSkuArgs:
@@ -138,6 +201,26 @@ class CloudHsmClusterSkuArgs:
     def capacity(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "capacity", value)
 
+
+if not MYPY:
+    class CloudHsmPropertiesArgsDict(TypedDict):
+        """
+        The Cloud HSM Properties
+        """
+        fqdn: NotRequired[pulumi.Input[str]]
+        """
+        FQDN of the Cloud HSM
+        """
+        state: NotRequired[pulumi.Input[str]]
+        """
+        The Cloud HSM State
+        """
+        state_message: NotRequired[pulumi.Input[str]]
+        """
+        The Cloud HSM State message
+        """
+elif False:
+    CloudHsmPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CloudHsmPropertiesArgs:
@@ -195,6 +278,22 @@ class CloudHsmPropertiesArgs:
         pulumi.set(self, "state_message", value)
 
 
+if not MYPY:
+    class ManagedServiceIdentityArgsDict(TypedDict):
+        """
+        Managed service identity (system assigned and/or user assigned identities)
+        """
+        type: pulumi.Input[Union[str, 'ManagedServiceIdentityType']]
+        """
+        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        """
+        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        """
+elif False:
+    ManagedServiceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ManagedServiceIdentityArgs:
     def __init__(__self__, *,
@@ -234,6 +333,22 @@ class ManagedServiceIdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
+if not MYPY:
+    class PrivateEndpointConnectionArgsDict(TypedDict):
+        """
+        The private endpoint connection resource.
+        """
+        private_link_service_connection_state: pulumi.Input['PrivateLinkServiceConnectionStateArgsDict']
+        """
+        A collection of information about the state of the connection between service consumer and provider.
+        """
+        etag: NotRequired[pulumi.Input[str]]
+        """
+        Modified whenever there is a change in the state of private endpoint connection.
+        """
+elif False:
+    PrivateEndpointConnectionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PrivateEndpointConnectionArgs:
     def __init__(__self__, *,
@@ -272,6 +387,26 @@ class PrivateEndpointConnectionArgs:
     def etag(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "etag", value)
 
+
+if not MYPY:
+    class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
+        """
+        A collection of information about the state of the connection between service consumer and provider.
+        """
+        actions_required: NotRequired[pulumi.Input[str]]
+        """
+        A message indicating if changes on the service provider require any updates on the consumer.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The reason for approval/rejection of the connection.
+        """
+        status: NotRequired[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]]
+        """
+        Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+        """
+elif False:
+    PrivateLinkServiceConnectionStateArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:
@@ -328,6 +463,22 @@ class PrivateLinkServiceConnectionStateArgs:
     def status(self, value: Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]]):
         pulumi.set(self, "status", value)
 
+
+if not MYPY:
+    class RestorePropertiesArgsDict(TypedDict):
+        """
+        Cloud Hsm Cluster restore information
+        """
+        azure_storage_resource_uri: NotRequired[pulumi.Input[str]]
+        """
+        Azure Blob storage container Uri
+        """
+        foldername: NotRequired[pulumi.Input[str]]
+        """
+        Directory name in Azure Storage Blob where the backup is stored
+        """
+elif False:
+    RestorePropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RestorePropertiesArgs:

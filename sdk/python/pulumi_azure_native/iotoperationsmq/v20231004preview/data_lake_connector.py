@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -246,18 +251,18 @@ class DataLakeConnector(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_lake_connector_name: Optional[pulumi.Input[str]] = None,
                  database_format: Optional[pulumi.Input[Union[str, 'DataLakeDatabaseFormat']]] = None,
-                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationPropertyArgs']]] = None,
-                 image: Optional[pulumi.Input[pulumi.InputType['ContainerImageArgs']]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationPropertyArgs', 'ExtendedLocationPropertyArgsDict']]] = None,
+                 image: Optional[pulumi.Input[Union['ContainerImageArgs', 'ContainerImageArgsDict']]] = None,
                  instances: Optional[pulumi.Input[int]] = None,
-                 local_broker_connection: Optional[pulumi.Input[pulumi.InputType['LocalBrokerConnectionSpecArgs']]] = None,
+                 local_broker_connection: Optional[pulumi.Input[Union['LocalBrokerConnectionSpecArgs', 'LocalBrokerConnectionSpecArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  log_level: Optional[pulumi.Input[str]] = None,
                  mq_name: Optional[pulumi.Input[str]] = None,
-                 node_tolerations: Optional[pulumi.Input[pulumi.InputType['NodeTolerationsArgs']]] = None,
+                 node_tolerations: Optional[pulumi.Input[Union['NodeTolerationsArgs', 'NodeTolerationsArgsDict']]] = None,
                  protocol: Optional[pulumi.Input[Union[str, 'MqttProtocol']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 target: Optional[pulumi.Input[pulumi.InputType['DataLakeTargetStorageArgs']]] = None,
+                 target: Optional[pulumi.Input[Union['DataLakeTargetStorageArgs', 'DataLakeTargetStorageArgsDict']]] = None,
                  __props__=None):
         """
         MQ dataLakeConnector resource
@@ -266,18 +271,18 @@ class DataLakeConnector(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] data_lake_connector_name: Name of MQ dataLakeConnector resource
         :param pulumi.Input[Union[str, 'DataLakeDatabaseFormat']] database_format: DataLake database format to use.
-        :param pulumi.Input[pulumi.InputType['ExtendedLocationPropertyArgs']] extended_location: Extended Location
-        :param pulumi.Input[pulumi.InputType['ContainerImageArgs']] image: The details of DataLakeConnector Docker Image.
+        :param pulumi.Input[Union['ExtendedLocationPropertyArgs', 'ExtendedLocationPropertyArgsDict']] extended_location: Extended Location
+        :param pulumi.Input[Union['ContainerImageArgs', 'ContainerImageArgsDict']] image: The details of DataLakeConnector Docker Image.
         :param pulumi.Input[int] instances: The number of DataLakeConnector pods to spin up.
-        :param pulumi.Input[pulumi.InputType['LocalBrokerConnectionSpecArgs']] local_broker_connection: The details for connecting with Local Broker.
+        :param pulumi.Input[Union['LocalBrokerConnectionSpecArgs', 'LocalBrokerConnectionSpecArgsDict']] local_broker_connection: The details for connecting with Local Broker.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] log_level: The log level of the DataLake Connector instances.
         :param pulumi.Input[str] mq_name: Name of MQ resource
-        :param pulumi.Input[pulumi.InputType['NodeTolerationsArgs']] node_tolerations: The Node Tolerations for the DataLake Connector pods.
+        :param pulumi.Input[Union['NodeTolerationsArgs', 'NodeTolerationsArgsDict']] node_tolerations: The Node Tolerations for the DataLake Connector pods.
         :param pulumi.Input[Union[str, 'MqttProtocol']] protocol: The protocol to use for connecting with Brokers.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[pulumi.InputType['DataLakeTargetStorageArgs']] target: The protocol to use for connecting with Brokers. NOTE - Enum only storage is supported at at time.
+        :param pulumi.Input[Union['DataLakeTargetStorageArgs', 'DataLakeTargetStorageArgsDict']] target: The protocol to use for connecting with Brokers. NOTE - Enum only storage is supported at at time.
         """
         ...
     @overload
@@ -305,18 +310,18 @@ class DataLakeConnector(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_lake_connector_name: Optional[pulumi.Input[str]] = None,
                  database_format: Optional[pulumi.Input[Union[str, 'DataLakeDatabaseFormat']]] = None,
-                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationPropertyArgs']]] = None,
-                 image: Optional[pulumi.Input[pulumi.InputType['ContainerImageArgs']]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationPropertyArgs', 'ExtendedLocationPropertyArgsDict']]] = None,
+                 image: Optional[pulumi.Input[Union['ContainerImageArgs', 'ContainerImageArgsDict']]] = None,
                  instances: Optional[pulumi.Input[int]] = None,
-                 local_broker_connection: Optional[pulumi.Input[pulumi.InputType['LocalBrokerConnectionSpecArgs']]] = None,
+                 local_broker_connection: Optional[pulumi.Input[Union['LocalBrokerConnectionSpecArgs', 'LocalBrokerConnectionSpecArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  log_level: Optional[pulumi.Input[str]] = None,
                  mq_name: Optional[pulumi.Input[str]] = None,
-                 node_tolerations: Optional[pulumi.Input[pulumi.InputType['NodeTolerationsArgs']]] = None,
+                 node_tolerations: Optional[pulumi.Input[Union['NodeTolerationsArgs', 'NodeTolerationsArgsDict']]] = None,
                  protocol: Optional[pulumi.Input[Union[str, 'MqttProtocol']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 target: Optional[pulumi.Input[pulumi.InputType['DataLakeTargetStorageArgs']]] = None,
+                 target: Optional[pulumi.Input[Union['DataLakeTargetStorageArgs', 'DataLakeTargetStorageArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

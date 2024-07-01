@@ -4,15 +4,39 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'ReferenceDataSetKeyPropertyArgs',
+    'ReferenceDataSetKeyPropertyArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ReferenceDataSetKeyPropertyArgsDict(TypedDict):
+        """
+        A key property for the reference data set. A reference data set can have multiple key properties.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the key property.
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'ReferenceDataKeyPropertyType']]]
+        """
+        The type of the key property.
+        """
+elif False:
+    ReferenceDataSetKeyPropertyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ReferenceDataSetKeyPropertyArgs:

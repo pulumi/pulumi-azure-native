@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -213,16 +218,16 @@ class KubernetesCluster(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aad_configuration: Optional[pulumi.Input[pulumi.InputType['AadConfigurationArgs']]] = None,
-                 administrator_configuration: Optional[pulumi.Input[pulumi.InputType['AdministratorConfigurationArgs']]] = None,
-                 control_plane_node_configuration: Optional[pulumi.Input[pulumi.InputType['ControlPlaneNodeConfigurationArgs']]] = None,
-                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
-                 initial_agent_pool_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InitialAgentPoolConfigurationArgs']]]]] = None,
+                 aad_configuration: Optional[pulumi.Input[Union['AadConfigurationArgs', 'AadConfigurationArgsDict']]] = None,
+                 administrator_configuration: Optional[pulumi.Input[Union['AdministratorConfigurationArgs', 'AdministratorConfigurationArgsDict']]] = None,
+                 control_plane_node_configuration: Optional[pulumi.Input[Union['ControlPlaneNodeConfigurationArgs', 'ControlPlaneNodeConfigurationArgsDict']]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 initial_agent_pool_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InitialAgentPoolConfigurationArgs', 'InitialAgentPoolConfigurationArgsDict']]]]] = None,
                  kubernetes_cluster_name: Optional[pulumi.Input[str]] = None,
                  kubernetes_version: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 managed_resource_group_configuration: Optional[pulumi.Input[pulumi.InputType['ManagedResourceGroupConfigurationArgs']]] = None,
-                 network_configuration: Optional[pulumi.Input[pulumi.InputType['NetworkConfigurationArgs']]] = None,
+                 managed_resource_group_configuration: Optional[pulumi.Input[Union['ManagedResourceGroupConfigurationArgs', 'ManagedResourceGroupConfigurationArgsDict']]] = None,
+                 network_configuration: Optional[pulumi.Input[Union['NetworkConfigurationArgs', 'NetworkConfigurationArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -230,16 +235,16 @@ class KubernetesCluster(pulumi.CustomResource):
         Create a KubernetesCluster resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['AadConfigurationArgs']] aad_configuration: The Azure Active Directory Integration properties.
-        :param pulumi.Input[pulumi.InputType['AdministratorConfigurationArgs']] administrator_configuration: The administrative credentials that will be applied to the control plane and agent pool nodes that do not specify their own values.
-        :param pulumi.Input[pulumi.InputType['ControlPlaneNodeConfigurationArgs']] control_plane_node_configuration: The defining characteristics of the control plane for this Kubernetes Cluster.
-        :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: The extended location of the cluster associated with the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InitialAgentPoolConfigurationArgs']]]] initial_agent_pool_configurations: The agent pools that are created with this Kubernetes cluster for running critical system services and workloads. This data in this field is only used during creation, and the field will be empty following the creation of the Kubernetes Cluster. After creation, the management of agent pools is done using the agentPools sub-resource.
+        :param pulumi.Input[Union['AadConfigurationArgs', 'AadConfigurationArgsDict']] aad_configuration: The Azure Active Directory Integration properties.
+        :param pulumi.Input[Union['AdministratorConfigurationArgs', 'AdministratorConfigurationArgsDict']] administrator_configuration: The administrative credentials that will be applied to the control plane and agent pool nodes that do not specify their own values.
+        :param pulumi.Input[Union['ControlPlaneNodeConfigurationArgs', 'ControlPlaneNodeConfigurationArgsDict']] control_plane_node_configuration: The defining characteristics of the control plane for this Kubernetes Cluster.
+        :param pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']] extended_location: The extended location of the cluster associated with the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['InitialAgentPoolConfigurationArgs', 'InitialAgentPoolConfigurationArgsDict']]]] initial_agent_pool_configurations: The agent pools that are created with this Kubernetes cluster for running critical system services and workloads. This data in this field is only used during creation, and the field will be empty following the creation of the Kubernetes Cluster. After creation, the management of agent pools is done using the agentPools sub-resource.
         :param pulumi.Input[str] kubernetes_cluster_name: The name of the Kubernetes cluster.
         :param pulumi.Input[str] kubernetes_version: The Kubernetes version for this cluster. Accepts n.n, n.n.n, and n.n.n-n format. The interpreted version used will be resolved into this field after creation or update.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[pulumi.InputType['ManagedResourceGroupConfigurationArgs']] managed_resource_group_configuration: The configuration of the managed resource group associated with the resource.
-        :param pulumi.Input[pulumi.InputType['NetworkConfigurationArgs']] network_configuration: The configuration of the Kubernetes cluster networking, including the attachment of networks that span the cluster.
+        :param pulumi.Input[Union['ManagedResourceGroupConfigurationArgs', 'ManagedResourceGroupConfigurationArgsDict']] managed_resource_group_configuration: The configuration of the managed resource group associated with the resource.
+        :param pulumi.Input[Union['NetworkConfigurationArgs', 'NetworkConfigurationArgsDict']] network_configuration: The configuration of the Kubernetes cluster networking, including the attachment of networks that span the cluster.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -266,16 +271,16 @@ class KubernetesCluster(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aad_configuration: Optional[pulumi.Input[pulumi.InputType['AadConfigurationArgs']]] = None,
-                 administrator_configuration: Optional[pulumi.Input[pulumi.InputType['AdministratorConfigurationArgs']]] = None,
-                 control_plane_node_configuration: Optional[pulumi.Input[pulumi.InputType['ControlPlaneNodeConfigurationArgs']]] = None,
-                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
-                 initial_agent_pool_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InitialAgentPoolConfigurationArgs']]]]] = None,
+                 aad_configuration: Optional[pulumi.Input[Union['AadConfigurationArgs', 'AadConfigurationArgsDict']]] = None,
+                 administrator_configuration: Optional[pulumi.Input[Union['AdministratorConfigurationArgs', 'AdministratorConfigurationArgsDict']]] = None,
+                 control_plane_node_configuration: Optional[pulumi.Input[Union['ControlPlaneNodeConfigurationArgs', 'ControlPlaneNodeConfigurationArgsDict']]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 initial_agent_pool_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InitialAgentPoolConfigurationArgs', 'InitialAgentPoolConfigurationArgsDict']]]]] = None,
                  kubernetes_cluster_name: Optional[pulumi.Input[str]] = None,
                  kubernetes_version: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 managed_resource_group_configuration: Optional[pulumi.Input[pulumi.InputType['ManagedResourceGroupConfigurationArgs']]] = None,
-                 network_configuration: Optional[pulumi.Input[pulumi.InputType['NetworkConfigurationArgs']]] = None,
+                 managed_resource_group_configuration: Optional[pulumi.Input[Union['ManagedResourceGroupConfigurationArgs', 'ManagedResourceGroupConfigurationArgsDict']]] = None,
+                 network_configuration: Optional[pulumi.Input[Union['NetworkConfigurationArgs', 'NetworkConfigurationArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):

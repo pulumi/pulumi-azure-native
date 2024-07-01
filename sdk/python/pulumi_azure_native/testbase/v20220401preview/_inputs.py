@@ -4,23 +4,87 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'CommandArgs',
+    'CommandArgsDict',
     'DistributionGroupListReceiverValueArgs',
+    'DistributionGroupListReceiverValueArgsDict',
     'NotificationEventReceiverArgs',
+    'NotificationEventReceiverArgsDict',
     'NotificationReceiverValueArgs',
+    'NotificationReceiverValueArgsDict',
     'SubscriptionReceiverValueArgs',
+    'SubscriptionReceiverValueArgsDict',
     'TargetOSInfoArgs',
+    'TargetOSInfoArgsDict',
     'TestBaseAccountSKUArgs',
+    'TestBaseAccountSKUArgsDict',
     'TestArgs',
+    'TestArgsDict',
     'UserObjectReceiverValueArgs',
+    'UserObjectReceiverValueArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class CommandArgsDict(TypedDict):
+        """
+        The command used in the test
+        """
+        action: pulumi.Input[Union[str, 'Action']]
+        """
+        The action of the command.
+        """
+        content: pulumi.Input[str]
+        """
+        The content of the command. The content depends on source type.
+        """
+        content_type: pulumi.Input[Union[str, 'ContentType']]
+        """
+        The type of command content.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the command.
+        """
+        always_run: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies whether to run the command even if a previous command is failed.
+        """
+        apply_update_before: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies whether to apply update before the command.
+        """
+        max_run_time: NotRequired[pulumi.Input[int]]
+        """
+        Specifies the max run time of the command.
+        """
+        restart_after: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies whether to restart the VM after the command executed.
+        """
+        run_as_interactive: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies whether to run the command in interactive mode.
+        """
+        run_elevated: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies whether to run the command as administrator.
+        """
+elif False:
+    CommandArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CommandArgs:
@@ -186,6 +250,18 @@ class CommandArgs:
         pulumi.set(self, "run_elevated", value)
 
 
+if not MYPY:
+    class DistributionGroupListReceiverValueArgsDict(TypedDict):
+        """
+        The user object receiver value.
+        """
+        distribution_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of distribution groups.
+        """
+elif False:
+    DistributionGroupListReceiverValueArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DistributionGroupListReceiverValueArgs:
     def __init__(__self__, *,
@@ -209,6 +285,22 @@ class DistributionGroupListReceiverValueArgs:
     def distribution_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "distribution_groups", value)
 
+
+if not MYPY:
+    class NotificationEventReceiverArgsDict(TypedDict):
+        """
+        A notification event receivers.
+        """
+        receiver_type: NotRequired[pulumi.Input[str]]
+        """
+        The type of the notification event receiver.
+        """
+        receiver_value: NotRequired[pulumi.Input['NotificationReceiverValueArgsDict']]
+        """
+        The notification event receiver value.
+        """
+elif False:
+    NotificationEventReceiverArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NotificationEventReceiverArgs:
@@ -249,6 +341,26 @@ class NotificationEventReceiverArgs:
     def receiver_value(self, value: Optional[pulumi.Input['NotificationReceiverValueArgs']]):
         pulumi.set(self, "receiver_value", value)
 
+
+if not MYPY:
+    class NotificationReceiverValueArgsDict(TypedDict):
+        """
+        A notification event receiver value.
+        """
+        distribution_group_list_receiver_value: NotRequired[pulumi.Input['DistributionGroupListReceiverValueArgsDict']]
+        """
+        The user object receiver value.
+        """
+        subscription_receiver_value: NotRequired[pulumi.Input['SubscriptionReceiverValueArgsDict']]
+        """
+        The user object receiver value.
+        """
+        user_object_receiver_value: NotRequired[pulumi.Input['UserObjectReceiverValueArgsDict']]
+        """
+        The user object receiver value.
+        """
+elif False:
+    NotificationReceiverValueArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NotificationReceiverValueArgs:
@@ -306,6 +418,26 @@ class NotificationReceiverValueArgs:
         pulumi.set(self, "user_object_receiver_value", value)
 
 
+if not MYPY:
+    class SubscriptionReceiverValueArgsDict(TypedDict):
+        """
+        The subscription role receiver value.
+        """
+        role: NotRequired[pulumi.Input[str]]
+        """
+        The role of the notification receiver.
+        """
+        subscription_id: NotRequired[pulumi.Input[str]]
+        """
+        The subscription id of the notification receiver.
+        """
+        subscription_name: NotRequired[pulumi.Input[str]]
+        """
+        The subscription name of the notification receiver.
+        """
+elif False:
+    SubscriptionReceiverValueArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SubscriptionReceiverValueArgs:
     def __init__(__self__, *,
@@ -362,6 +494,26 @@ class SubscriptionReceiverValueArgs:
         pulumi.set(self, "subscription_name", value)
 
 
+if not MYPY:
+    class TargetOSInfoArgsDict(TypedDict):
+        """
+        The information of the target OS to be tested.
+        """
+        os_update_type: pulumi.Input[str]
+        """
+        Specifies the OS update type to test against, e.g., 'Security updates' or 'Feature updates'.
+        """
+        target_oss: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Specifies the target OSs to be tested.
+        """
+        baseline_oss: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies the baseline OSs to be tested.
+        """
+elif False:
+    TargetOSInfoArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TargetOSInfoArgs:
     def __init__(__self__, *,
@@ -415,6 +567,30 @@ class TargetOSInfoArgs:
     def baseline_oss(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "baseline_oss", value)
 
+
+if not MYPY:
+    class TestBaseAccountSKUArgsDict(TypedDict):
+        """
+        Describes a Test Base Account SKU.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the SKU. This is typically a letter + number code, such as B0 or S0.
+        """
+        tier: pulumi.Input[Union[str, 'Tier']]
+        """
+        The tier of this particular SKU.
+        """
+        locations: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The locations that the SKU is available.
+        """
+        resource_type: NotRequired[pulumi.Input[str]]
+        """
+        The type of resource the SKU applies to.
+        """
+elif False:
+    TestBaseAccountSKUArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TestBaseAccountSKUArgs:
@@ -486,6 +662,26 @@ class TestBaseAccountSKUArgs:
         pulumi.set(self, "resource_type", value)
 
 
+if not MYPY:
+    class TestArgsDict(TypedDict):
+        """
+        The definition of a Test.
+        """
+        commands: pulumi.Input[Sequence[pulumi.Input['CommandArgsDict']]]
+        """
+        The commands used in the test.
+        """
+        test_type: pulumi.Input[Union[str, 'TestType']]
+        """
+        The type of the test.
+        """
+        is_active: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates if this test is active.It doesn't schedule test for not active Test.
+        """
+elif False:
+    TestArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TestArgs:
     def __init__(__self__, *,
@@ -539,6 +735,18 @@ class TestArgs:
     def is_active(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "is_active", value)
 
+
+if not MYPY:
+    class UserObjectReceiverValueArgsDict(TypedDict):
+        """
+        The user object receiver value.
+        """
+        user_object_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        user object ids.
+        """
+elif False:
+    UserObjectReceiverValueArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserObjectReceiverValueArgs:

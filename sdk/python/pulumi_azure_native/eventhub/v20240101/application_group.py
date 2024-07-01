@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -124,7 +129,7 @@ class ApplicationGroup(pulumi.CustomResource):
                  client_app_group_identifier: Optional[pulumi.Input[str]] = None,
                  is_enabled: Optional[pulumi.Input[bool]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
-                 policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThrottlingPolicyArgs']]]]] = None,
+                 policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ThrottlingPolicyArgs', 'ThrottlingPolicyArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -136,7 +141,7 @@ class ApplicationGroup(pulumi.CustomResource):
         :param pulumi.Input[str] client_app_group_identifier: The Unique identifier for application group.Supports SAS(SASKeyName=KeyName) or AAD(AADAppID=Guid)
         :param pulumi.Input[bool] is_enabled: Determines if Application Group is allowed to create connection with namespace or not. Once the isEnabled is set to false, all the existing connections of application group gets dropped and no new connections will be allowed
         :param pulumi.Input[str] namespace_name: The Namespace name
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThrottlingPolicyArgs']]]] policies: List of group policies that define the behavior of application group. The policies can support resource governance scenarios such as limiting ingress or egress traffic.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ThrottlingPolicyArgs', 'ThrottlingPolicyArgsDict']]]] policies: List of group policies that define the behavior of application group. The policies can support resource governance scenarios such as limiting ingress or egress traffic.
         :param pulumi.Input[str] resource_group_name: Name of the resource group within the azure subscription.
         """
         ...
@@ -167,7 +172,7 @@ class ApplicationGroup(pulumi.CustomResource):
                  client_app_group_identifier: Optional[pulumi.Input[str]] = None,
                  is_enabled: Optional[pulumi.Input[bool]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
-                 policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThrottlingPolicyArgs']]]]] = None,
+                 policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ThrottlingPolicyArgs', 'ThrottlingPolicyArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

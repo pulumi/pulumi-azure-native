@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -170,14 +175,14 @@ class Formula(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 formula_content: Optional[pulumi.Input[pulumi.InputType['LabVirtualMachineCreationParameterArgs']]] = None,
+                 formula_content: Optional[pulumi.Input[Union['LabVirtualMachineCreationParameterArgs', 'LabVirtualMachineCreationParameterArgsDict']]] = None,
                  lab_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  os_type: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 vm: Optional[pulumi.Input[pulumi.InputType['FormulaPropertiesFromVmArgs']]] = None,
+                 vm: Optional[pulumi.Input[Union['FormulaPropertiesFromVmArgs', 'FormulaPropertiesFromVmArgsDict']]] = None,
                  __props__=None):
         """
         A formula for creating a VM, specifying an image base and other parameters
@@ -185,14 +190,14 @@ class Formula(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the formula.
-        :param pulumi.Input[pulumi.InputType['LabVirtualMachineCreationParameterArgs']] formula_content: The content of the formula.
+        :param pulumi.Input[Union['LabVirtualMachineCreationParameterArgs', 'LabVirtualMachineCreationParameterArgsDict']] formula_content: The content of the formula.
         :param pulumi.Input[str] lab_name: The name of the lab.
         :param pulumi.Input[str] location: The location of the resource.
         :param pulumi.Input[str] name: The name of the formula.
         :param pulumi.Input[str] os_type: The OS type of the formula.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
-        :param pulumi.Input[pulumi.InputType['FormulaPropertiesFromVmArgs']] vm: Information about a VM from which a formula is to be created.
+        :param pulumi.Input[Union['FormulaPropertiesFromVmArgs', 'FormulaPropertiesFromVmArgsDict']] vm: Information about a VM from which a formula is to be created.
         """
         ...
     @overload
@@ -219,14 +224,14 @@ class Formula(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 formula_content: Optional[pulumi.Input[pulumi.InputType['LabVirtualMachineCreationParameterArgs']]] = None,
+                 formula_content: Optional[pulumi.Input[Union['LabVirtualMachineCreationParameterArgs', 'LabVirtualMachineCreationParameterArgsDict']]] = None,
                  lab_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  os_type: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 vm: Optional[pulumi.Input[pulumi.InputType['FormulaPropertiesFromVmArgs']]] = None,
+                 vm: Optional[pulumi.Input[Union['FormulaPropertiesFromVmArgs', 'FormulaPropertiesFromVmArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

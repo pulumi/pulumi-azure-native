@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -191,9 +196,9 @@ class Channel(pulumi.CustomResource):
                  channel_type: Optional[pulumi.Input[Union[str, 'ChannelType']]] = None,
                  expiration_time_if_not_activated_utc: Optional[pulumi.Input[str]] = None,
                  message_for_activation: Optional[pulumi.Input[str]] = None,
-                 partner_destination_info: Optional[pulumi.Input[pulumi.InputType['WebhookPartnerDestinationInfoArgs']]] = None,
+                 partner_destination_info: Optional[pulumi.Input[Union['WebhookPartnerDestinationInfoArgs', 'WebhookPartnerDestinationInfoArgsDict']]] = None,
                  partner_namespace_name: Optional[pulumi.Input[str]] = None,
-                 partner_topic_info: Optional[pulumi.Input[pulumi.InputType['PartnerTopicInfoArgs']]] = None,
+                 partner_topic_info: Optional[pulumi.Input[Union['PartnerTopicInfoArgs', 'PartnerTopicInfoArgsDict']]] = None,
                  provisioning_state: Optional[pulumi.Input[Union[str, 'ChannelProvisioningState']]] = None,
                  readiness_state: Optional[pulumi.Input[Union[str, 'ReadinessState']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -208,9 +213,9 @@ class Channel(pulumi.CustomResource):
         :param pulumi.Input[str] expiration_time_if_not_activated_utc: Expiration time of the channel. If this timer expires while the corresponding partner topic is never activated,
                the channel and corresponding partner topic are deleted.
         :param pulumi.Input[str] message_for_activation: Context or helpful message that can be used during the approval process by the subscriber.
-        :param pulumi.Input[pulumi.InputType['WebhookPartnerDestinationInfoArgs']] partner_destination_info: This property should be populated when channelType is PartnerDestination and represents information about the partner destination resource corresponding to the channel.
+        :param pulumi.Input[Union['WebhookPartnerDestinationInfoArgs', 'WebhookPartnerDestinationInfoArgsDict']] partner_destination_info: This property should be populated when channelType is PartnerDestination and represents information about the partner destination resource corresponding to the channel.
         :param pulumi.Input[str] partner_namespace_name: Name of the partner namespace.
-        :param pulumi.Input[pulumi.InputType['PartnerTopicInfoArgs']] partner_topic_info: This property should be populated when channelType is PartnerTopic and represents information about the partner topic resource corresponding to the channel.
+        :param pulumi.Input[Union['PartnerTopicInfoArgs', 'PartnerTopicInfoArgsDict']] partner_topic_info: This property should be populated when channelType is PartnerTopic and represents information about the partner topic resource corresponding to the channel.
         :param pulumi.Input[Union[str, 'ChannelProvisioningState']] provisioning_state: Provisioning state of the channel.
         :param pulumi.Input[Union[str, 'ReadinessState']] readiness_state: The readiness state of the corresponding partner topic.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the partners subscription.
@@ -243,9 +248,9 @@ class Channel(pulumi.CustomResource):
                  channel_type: Optional[pulumi.Input[Union[str, 'ChannelType']]] = None,
                  expiration_time_if_not_activated_utc: Optional[pulumi.Input[str]] = None,
                  message_for_activation: Optional[pulumi.Input[str]] = None,
-                 partner_destination_info: Optional[pulumi.Input[pulumi.InputType['WebhookPartnerDestinationInfoArgs']]] = None,
+                 partner_destination_info: Optional[pulumi.Input[Union['WebhookPartnerDestinationInfoArgs', 'WebhookPartnerDestinationInfoArgsDict']]] = None,
                  partner_namespace_name: Optional[pulumi.Input[str]] = None,
-                 partner_topic_info: Optional[pulumi.Input[pulumi.InputType['PartnerTopicInfoArgs']]] = None,
+                 partner_topic_info: Optional[pulumi.Input[Union['PartnerTopicInfoArgs', 'PartnerTopicInfoArgsDict']]] = None,
                  provisioning_state: Optional[pulumi.Input[Union[str, 'ChannelProvisioningState']]] = None,
                  readiness_state: Optional[pulumi.Input[Union[str, 'ReadinessState']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,

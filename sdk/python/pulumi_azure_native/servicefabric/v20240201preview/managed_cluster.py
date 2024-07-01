@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -625,11 +630,11 @@ class ManagedCluster(pulumi.CustomResource):
                  admin_password: Optional[pulumi.Input[str]] = None,
                  admin_user_name: Optional[pulumi.Input[str]] = None,
                  allow_rdp_access: Optional[pulumi.Input[bool]] = None,
-                 application_type_versions_cleanup_policy: Optional[pulumi.Input[pulumi.InputType['ApplicationTypeVersionsCleanupPolicyArgs']]] = None,
-                 auxiliary_subnets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubnetArgs']]]]] = None,
-                 azure_active_directory: Optional[pulumi.Input[pulumi.InputType['AzureActiveDirectoryArgs']]] = None,
+                 application_type_versions_cleanup_policy: Optional[pulumi.Input[Union['ApplicationTypeVersionsCleanupPolicyArgs', 'ApplicationTypeVersionsCleanupPolicyArgsDict']]] = None,
+                 auxiliary_subnets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SubnetArgs', 'SubnetArgsDict']]]]] = None,
+                 azure_active_directory: Optional[pulumi.Input[Union['AzureActiveDirectoryArgs', 'AzureActiveDirectoryArgsDict']]] = None,
                  client_connection_port: Optional[pulumi.Input[int]] = None,
-                 clients: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClientCertificateArgs']]]]] = None,
+                 clients: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClientCertificateArgs', 'ClientCertificateArgsDict']]]]] = None,
                  cluster_code_version: Optional[pulumi.Input[str]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  cluster_upgrade_cadence: Optional[pulumi.Input[Union[str, 'ClusterUpgradeCadence']]] = None,
@@ -640,21 +645,21 @@ class ManagedCluster(pulumi.CustomResource):
                  enable_http_gateway_exclusive_auth_mode: Optional[pulumi.Input[bool]] = None,
                  enable_ipv6: Optional[pulumi.Input[bool]] = None,
                  enable_service_public_ip: Optional[pulumi.Input[bool]] = None,
-                 fabric_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SettingsSectionDescriptionArgs']]]]] = None,
+                 fabric_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SettingsSectionDescriptionArgs', 'SettingsSectionDescriptionArgsDict']]]]] = None,
                  http_gateway_connection_port: Optional[pulumi.Input[int]] = None,
                  http_gateway_token_auth_connection_port: Optional[pulumi.Input[int]] = None,
-                 ip_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IPTagArgs']]]]] = None,
-                 load_balancing_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LoadBalancingRuleArgs']]]]] = None,
+                 ip_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IPTagArgs', 'IPTagArgsDict']]]]] = None,
+                 load_balancing_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LoadBalancingRuleArgs', 'LoadBalancingRuleArgsDict']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 network_security_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkSecurityRuleArgs']]]]] = None,
+                 network_security_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkSecurityRuleArgs', 'NetworkSecurityRuleArgsDict']]]]] = None,
                  public_ip_prefix_id: Optional[pulumi.Input[str]] = None,
                  public_i_pv6_prefix_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 service_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceEndpointArgs']]]]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 service_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceEndpointArgs', 'ServiceEndpointArgsDict']]]]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 upgrade_description: Optional[pulumi.Input[pulumi.InputType['ClusterUpgradePolicyArgs']]] = None,
+                 upgrade_description: Optional[pulumi.Input[Union['ClusterUpgradePolicyArgs', 'ClusterUpgradePolicyArgsDict']]] = None,
                  use_custom_vnet: Optional[pulumi.Input[bool]] = None,
                  zonal_resiliency: Optional[pulumi.Input[bool]] = None,
                  zonal_update_mode: Optional[pulumi.Input[Union[str, 'ZonalUpdateMode']]] = None,
@@ -668,11 +673,11 @@ class ManagedCluster(pulumi.CustomResource):
         :param pulumi.Input[str] admin_password: VM admin user password.
         :param pulumi.Input[str] admin_user_name: VM admin user name.
         :param pulumi.Input[bool] allow_rdp_access: Setting this to true enables RDP access to the VM. The default NSG rule opens RDP port to Internet which can be overridden with custom Network Security Rules. The default value for this setting is false.
-        :param pulumi.Input[pulumi.InputType['ApplicationTypeVersionsCleanupPolicyArgs']] application_type_versions_cleanup_policy: The policy used to clean up unused versions.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubnetArgs']]]] auxiliary_subnets: Auxiliary subnets for the cluster.
-        :param pulumi.Input[pulumi.InputType['AzureActiveDirectoryArgs']] azure_active_directory: The AAD authentication settings of the cluster.
+        :param pulumi.Input[Union['ApplicationTypeVersionsCleanupPolicyArgs', 'ApplicationTypeVersionsCleanupPolicyArgsDict']] application_type_versions_cleanup_policy: The policy used to clean up unused versions.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SubnetArgs', 'SubnetArgsDict']]]] auxiliary_subnets: Auxiliary subnets for the cluster.
+        :param pulumi.Input[Union['AzureActiveDirectoryArgs', 'AzureActiveDirectoryArgsDict']] azure_active_directory: The AAD authentication settings of the cluster.
         :param pulumi.Input[int] client_connection_port: The port used for client connections to the cluster.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClientCertificateArgs']]]] clients: Client certificates that are allowed to manage the cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ClientCertificateArgs', 'ClientCertificateArgsDict']]]] clients: Client certificates that are allowed to manage the cluster.
         :param pulumi.Input[str] cluster_code_version: The Service Fabric runtime version of the cluster. This property is required when **clusterUpgradeMode** is set to 'Manual'. To get list of available Service Fabric versions for new clusters use [ClusterVersion API](./ClusterVersion.md). To get the list of available version for existing clusters use **availableClusterVersions**.
         :param pulumi.Input[str] cluster_name: The name of the cluster resource.
         :param pulumi.Input[Union[str, 'ClusterUpgradeCadence']] cluster_upgrade_cadence: Indicates when new cluster runtime version upgrades will be applied after they are released. By default is Wave0. Only applies when **clusterUpgradeMode** is set to 'Automatic'.
@@ -683,21 +688,21 @@ class ManagedCluster(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_http_gateway_exclusive_auth_mode: If true, token-based authentication is not allowed on the HttpGatewayEndpoint. This is required to support TLS versions 1.3 and above. If token-based authentication is used, HttpGatewayTokenAuthConnectionPort must be defined.
         :param pulumi.Input[bool] enable_ipv6: Setting this to true creates IPv6 address space for the default VNet used by the cluster. This setting cannot be changed once the cluster is created. The default value for this setting is false.
         :param pulumi.Input[bool] enable_service_public_ip: Setting this to true will link the IPv4 address as the ServicePublicIP of the IPv6 address. It can only be set to True if IPv6 is enabled on the cluster.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SettingsSectionDescriptionArgs']]]] fabric_settings: The list of custom fabric settings to configure the cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SettingsSectionDescriptionArgs', 'SettingsSectionDescriptionArgsDict']]]] fabric_settings: The list of custom fabric settings to configure the cluster.
         :param pulumi.Input[int] http_gateway_connection_port: The port used for HTTP connections to the cluster.
         :param pulumi.Input[int] http_gateway_token_auth_connection_port: The port used for token-auth based HTTPS connections to the cluster. Cannot be set to the same port as HttpGatewayEndpoint.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IPTagArgs']]]] ip_tags: The list of IP tags associated with the default public IP address of the cluster.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LoadBalancingRuleArgs']]]] load_balancing_rules: Load balancing rules that are applied to the public load balancer of the cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IPTagArgs', 'IPTagArgsDict']]]] ip_tags: The list of IP tags associated with the default public IP address of the cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LoadBalancingRuleArgs', 'LoadBalancingRuleArgsDict']]]] load_balancing_rules: Load balancing rules that are applied to the public load balancer of the cluster.
         :param pulumi.Input[str] location: Azure resource location.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkSecurityRuleArgs']]]] network_security_rules: Custom Network Security Rules that are applied to the Virtual Network of the cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkSecurityRuleArgs', 'NetworkSecurityRuleArgsDict']]]] network_security_rules: Custom Network Security Rules that are applied to the Virtual Network of the cluster.
         :param pulumi.Input[str] public_ip_prefix_id: Specify the resource id of a public IPv4 prefix that the load balancer will allocate a public IPv4 address from. This setting cannot be changed once the cluster is created.
         :param pulumi.Input[str] public_i_pv6_prefix_id: Specify the resource id of a public IPv6 prefix that the load balancer will allocate a public IPv6 address from. This setting cannot be changed once the cluster is created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceEndpointArgs']]]] service_endpoints: Service endpoints for subnets in the cluster.
-        :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The sku of the managed cluster
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceEndpointArgs', 'ServiceEndpointArgsDict']]]] service_endpoints: Service endpoints for subnets in the cluster.
+        :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: The sku of the managed cluster
         :param pulumi.Input[str] subnet_id: If specified, the node types for the cluster are created in this subnet instead of the default VNet. The **networkSecurityRules** specified for the cluster are also applied to this subnet. This setting cannot be changed once the cluster is created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Azure resource tags.
-        :param pulumi.Input[pulumi.InputType['ClusterUpgradePolicyArgs']] upgrade_description: The policy to use when upgrading the cluster.
+        :param pulumi.Input[Union['ClusterUpgradePolicyArgs', 'ClusterUpgradePolicyArgsDict']] upgrade_description: The policy to use when upgrading the cluster.
         :param pulumi.Input[bool] use_custom_vnet: For new clusters, this parameter indicates that it uses Bring your own VNet, but the subnet is specified at node type level; and for such clusters, the subnetId property is required for node types.
         :param pulumi.Input[bool] zonal_resiliency: Indicates if the cluster has zone resiliency.
         :param pulumi.Input[Union[str, 'ZonalUpdateMode']] zonal_update_mode: Indicates the update mode for Cross Az clusters.
@@ -730,11 +735,11 @@ class ManagedCluster(pulumi.CustomResource):
                  admin_password: Optional[pulumi.Input[str]] = None,
                  admin_user_name: Optional[pulumi.Input[str]] = None,
                  allow_rdp_access: Optional[pulumi.Input[bool]] = None,
-                 application_type_versions_cleanup_policy: Optional[pulumi.Input[pulumi.InputType['ApplicationTypeVersionsCleanupPolicyArgs']]] = None,
-                 auxiliary_subnets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubnetArgs']]]]] = None,
-                 azure_active_directory: Optional[pulumi.Input[pulumi.InputType['AzureActiveDirectoryArgs']]] = None,
+                 application_type_versions_cleanup_policy: Optional[pulumi.Input[Union['ApplicationTypeVersionsCleanupPolicyArgs', 'ApplicationTypeVersionsCleanupPolicyArgsDict']]] = None,
+                 auxiliary_subnets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SubnetArgs', 'SubnetArgsDict']]]]] = None,
+                 azure_active_directory: Optional[pulumi.Input[Union['AzureActiveDirectoryArgs', 'AzureActiveDirectoryArgsDict']]] = None,
                  client_connection_port: Optional[pulumi.Input[int]] = None,
-                 clients: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClientCertificateArgs']]]]] = None,
+                 clients: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClientCertificateArgs', 'ClientCertificateArgsDict']]]]] = None,
                  cluster_code_version: Optional[pulumi.Input[str]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  cluster_upgrade_cadence: Optional[pulumi.Input[Union[str, 'ClusterUpgradeCadence']]] = None,
@@ -745,21 +750,21 @@ class ManagedCluster(pulumi.CustomResource):
                  enable_http_gateway_exclusive_auth_mode: Optional[pulumi.Input[bool]] = None,
                  enable_ipv6: Optional[pulumi.Input[bool]] = None,
                  enable_service_public_ip: Optional[pulumi.Input[bool]] = None,
-                 fabric_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SettingsSectionDescriptionArgs']]]]] = None,
+                 fabric_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SettingsSectionDescriptionArgs', 'SettingsSectionDescriptionArgsDict']]]]] = None,
                  http_gateway_connection_port: Optional[pulumi.Input[int]] = None,
                  http_gateway_token_auth_connection_port: Optional[pulumi.Input[int]] = None,
-                 ip_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IPTagArgs']]]]] = None,
-                 load_balancing_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LoadBalancingRuleArgs']]]]] = None,
+                 ip_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IPTagArgs', 'IPTagArgsDict']]]]] = None,
+                 load_balancing_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LoadBalancingRuleArgs', 'LoadBalancingRuleArgsDict']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 network_security_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkSecurityRuleArgs']]]]] = None,
+                 network_security_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkSecurityRuleArgs', 'NetworkSecurityRuleArgsDict']]]]] = None,
                  public_ip_prefix_id: Optional[pulumi.Input[str]] = None,
                  public_i_pv6_prefix_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 service_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceEndpointArgs']]]]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 service_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceEndpointArgs', 'ServiceEndpointArgsDict']]]]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 upgrade_description: Optional[pulumi.Input[pulumi.InputType['ClusterUpgradePolicyArgs']]] = None,
+                 upgrade_description: Optional[pulumi.Input[Union['ClusterUpgradePolicyArgs', 'ClusterUpgradePolicyArgsDict']]] = None,
                  use_custom_vnet: Optional[pulumi.Input[bool]] = None,
                  zonal_resiliency: Optional[pulumi.Input[bool]] = None,
                  zonal_update_mode: Optional[pulumi.Input[Union[str, 'ZonalUpdateMode']]] = None,

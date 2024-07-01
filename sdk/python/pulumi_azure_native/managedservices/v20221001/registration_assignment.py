@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -73,7 +78,7 @@ class RegistrationAssignment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['RegistrationAssignmentPropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['RegistrationAssignmentPropertiesArgs', 'RegistrationAssignmentPropertiesArgsDict']]] = None,
                  registration_assignment_id: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -82,7 +87,7 @@ class RegistrationAssignment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['RegistrationAssignmentPropertiesArgs']] properties: The properties of a registration assignment.
+        :param pulumi.Input[Union['RegistrationAssignmentPropertiesArgs', 'RegistrationAssignmentPropertiesArgsDict']] properties: The properties of a registration assignment.
         :param pulumi.Input[str] registration_assignment_id: The GUID of the registration assignment.
         :param pulumi.Input[str] scope: The scope of the resource.
         """
@@ -110,7 +115,7 @@ class RegistrationAssignment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['RegistrationAssignmentPropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['RegistrationAssignmentPropertiesArgs', 'RegistrationAssignmentPropertiesArgsDict']]] = None,
                  registration_assignment_id: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  __props__=None):

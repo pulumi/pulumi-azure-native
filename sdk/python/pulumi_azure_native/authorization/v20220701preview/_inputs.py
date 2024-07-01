@@ -4,16 +4,41 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'ResourceSelectorArgs',
+    'ResourceSelectorArgsDict',
     'SelectorArgs',
+    'SelectorArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ResourceSelectorArgsDict(TypedDict):
+        """
+        The resource selector to filter policies by resource properties.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the resource selector.
+        """
+        selectors: NotRequired[pulumi.Input[Sequence[pulumi.Input['SelectorArgsDict']]]]
+        """
+        The list of the selector expressions.
+        """
+elif False:
+    ResourceSelectorArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ResourceSelectorArgs:
@@ -54,6 +79,26 @@ class ResourceSelectorArgs:
     def selectors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SelectorArgs']]]]):
         pulumi.set(self, "selectors", value)
 
+
+if not MYPY:
+    class SelectorArgsDict(TypedDict):
+        """
+        The selector expression.
+        """
+        in_: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of values to filter in.
+        """
+        kind: NotRequired[pulumi.Input[Union[str, 'SelectorKind']]]
+        """
+        The selector kind.
+        """
+        not_in: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of values to filter out.
+        """
+elif False:
+    SelectorArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SelectorArgs:

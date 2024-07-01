@@ -4,18 +4,61 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'AccessReviewHistoryInstanceArgs',
+    'AccessReviewHistoryInstanceArgsDict',
     'AccessReviewInstanceArgs',
+    'AccessReviewInstanceArgsDict',
     'AccessReviewReviewerArgs',
+    'AccessReviewReviewerArgsDict',
     'AccessReviewScopeArgs',
+    'AccessReviewScopeArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AccessReviewHistoryInstanceArgsDict(TypedDict):
+        """
+        Access Review History Definition Instance.
+        """
+        display_name: NotRequired[pulumi.Input[str]]
+        """
+        The display name for the parent history definition.
+        """
+        expiration: NotRequired[pulumi.Input[str]]
+        """
+        Date time when history data report expires and the associated data is deleted.
+        """
+        fulfilled_date_time: NotRequired[pulumi.Input[str]]
+        """
+        Date time when the history data report is scheduled to be generated.
+        """
+        review_history_period_end_date_time: NotRequired[pulumi.Input[str]]
+        """
+        Date time used when selecting review data, all reviews included in data end on or before this date. For use only with one-time/non-recurring reports.
+        """
+        review_history_period_start_date_time: NotRequired[pulumi.Input[str]]
+        """
+        Date time used when selecting review data, all reviews included in data start on or after this date. For use only with one-time/non-recurring reports.
+        """
+        run_date_time: NotRequired[pulumi.Input[str]]
+        """
+        Date time when the history data report is scheduled to be generated.
+        """
+elif False:
+    AccessReviewHistoryInstanceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AccessReviewHistoryInstanceArgs:
@@ -121,6 +164,30 @@ class AccessReviewHistoryInstanceArgs:
         pulumi.set(self, "run_date_time", value)
 
 
+if not MYPY:
+    class AccessReviewInstanceArgsDict(TypedDict):
+        """
+        Access Review Instance.
+        """
+        backup_reviewers: NotRequired[pulumi.Input[Sequence[pulumi.Input['AccessReviewReviewerArgsDict']]]]
+        """
+        This is the collection of backup reviewers.
+        """
+        end_date_time: NotRequired[pulumi.Input[str]]
+        """
+        The DateTime when the review instance is scheduled to end.
+        """
+        reviewers: NotRequired[pulumi.Input[Sequence[pulumi.Input['AccessReviewReviewerArgsDict']]]]
+        """
+        This is the collection of reviewers.
+        """
+        start_date_time: NotRequired[pulumi.Input[str]]
+        """
+        The DateTime when the review instance is scheduled to be start.
+        """
+elif False:
+    AccessReviewInstanceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AccessReviewInstanceArgs:
     def __init__(__self__, *,
@@ -193,6 +260,18 @@ class AccessReviewInstanceArgs:
         pulumi.set(self, "start_date_time", value)
 
 
+if not MYPY:
+    class AccessReviewReviewerArgsDict(TypedDict):
+        """
+        Descriptor for what needs to be reviewed
+        """
+        principal_id: NotRequired[pulumi.Input[str]]
+        """
+        The id of the reviewer(user/servicePrincipal)
+        """
+elif False:
+    AccessReviewReviewerArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AccessReviewReviewerArgs:
     def __init__(__self__, *,
@@ -216,6 +295,38 @@ class AccessReviewReviewerArgs:
     def principal_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "principal_id", value)
 
+
+if not MYPY:
+    class AccessReviewScopeArgsDict(TypedDict):
+        """
+        Descriptor for what needs to be reviewed
+        """
+        exclude_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        This is used to indicate the resource id(s) to exclude
+        """
+        exclude_role_definition_id: NotRequired[pulumi.Input[str]]
+        """
+        This is used to indicate the role definition id(s) to exclude
+        """
+        expand_nested_memberships: NotRequired[pulumi.Input[bool]]
+        """
+        Flag to indicate whether to expand nested memberships or not.
+        """
+        inactive_duration: NotRequired[pulumi.Input[str]]
+        """
+        Duration users are inactive for. The value should be in ISO  8601 format (http://en.wikipedia.org/wiki/ISO_8601#Durations).This code can be used to convert TimeSpan to a valid interval string: XmlConvert.ToString(new TimeSpan(hours, minutes, seconds))
+        """
+        include_access_below_resource: NotRequired[pulumi.Input[bool]]
+        """
+        Flag to indicate whether to expand nested memberships or not.
+        """
+        include_inherited_access: NotRequired[pulumi.Input[bool]]
+        """
+        Flag to indicate whether to expand nested memberships or not.
+        """
+elif False:
+    AccessReviewScopeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AccessReviewScopeArgs:

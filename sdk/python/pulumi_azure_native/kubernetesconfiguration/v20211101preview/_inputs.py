@@ -4,18 +4,41 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'DependsOnDefinitionArgs',
+    'DependsOnDefinitionArgsDict',
     'GitRepositoryDefinitionArgs',
+    'GitRepositoryDefinitionArgsDict',
     'KustomizationDefinitionArgs',
+    'KustomizationDefinitionArgsDict',
     'RepositoryRefDefinitionArgs',
+    'RepositoryRefDefinitionArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class DependsOnDefinitionArgsDict(TypedDict):
+        """
+        Specify which kustomizations must succeed reconciliation on the cluster prior to reconciling this kustomization
+        """
+        kustomization_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the kustomization to claim dependency on
+        """
+elif False:
+    DependsOnDefinitionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DependsOnDefinitionArgs:
@@ -40,6 +63,46 @@ class DependsOnDefinitionArgs:
     def kustomization_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "kustomization_name", value)
 
+
+if not MYPY:
+    class GitRepositoryDefinitionArgsDict(TypedDict):
+        """
+        Parameters to reconcile to the GitRepository source kind type.
+        """
+        https_ca_file: NotRequired[pulumi.Input[str]]
+        """
+        Base64-encoded HTTPS certificate authority contents used to access git private git repositories over HTTPS
+        """
+        https_user: NotRequired[pulumi.Input[str]]
+        """
+        Base64-encoded HTTPS username used to access private git repositories over HTTPS
+        """
+        local_auth_ref: NotRequired[pulumi.Input[str]]
+        """
+        Name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets.
+        """
+        repository_ref: NotRequired[pulumi.Input['RepositoryRefDefinitionArgsDict']]
+        """
+        The source reference for the GitRepository object.
+        """
+        ssh_known_hosts: NotRequired[pulumi.Input[str]]
+        """
+        Base64-encoded known_hosts value containing public SSH keys required to access private git repositories over SSH
+        """
+        sync_interval_in_seconds: NotRequired[pulumi.Input[float]]
+        """
+        The interval at which to re-reconcile the cluster git repository source with the remote.
+        """
+        timeout_in_seconds: NotRequired[pulumi.Input[float]]
+        """
+        The maximum time to attempt to reconcile the cluster git repository source with the remote.
+        """
+        url: NotRequired[pulumi.Input[str]]
+        """
+        The URL to sync for the flux configuration git repository.
+        """
+elif False:
+    GitRepositoryDefinitionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GitRepositoryDefinitionArgs:
@@ -180,6 +243,46 @@ class GitRepositoryDefinitionArgs:
     def url(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "url", value)
 
+
+if not MYPY:
+    class KustomizationDefinitionArgsDict(TypedDict):
+        """
+        The Kustomization defining how to reconcile the artifact pulled by the source type on the cluster.
+        """
+        depends_on: NotRequired[pulumi.Input[Sequence[pulumi.Input['DependsOnDefinitionArgsDict']]]]
+        """
+        Specifies other Kustomizations that this Kustomization depends on. This Kustomization will not reconcile until all dependencies have completed their reconciliation.
+        """
+        force: NotRequired[pulumi.Input[bool]]
+        """
+        Enable/disable re-creating Kubernetes resources on the cluster when patching fails due to an immutable field change.
+        """
+        path: NotRequired[pulumi.Input[str]]
+        """
+        The path in the source reference to reconcile on the cluster.
+        """
+        prune: NotRequired[pulumi.Input[bool]]
+        """
+        Enable/disable garbage collections of Kubernetes objects created by this Kustomization.
+        """
+        retry_interval_in_seconds: NotRequired[pulumi.Input[float]]
+        """
+        The interval at which to re-reconcile the Kustomization on the cluster in the event of failure on reconciliation.
+        """
+        sync_interval_in_seconds: NotRequired[pulumi.Input[float]]
+        """
+        The interval at which to re-reconcile the Kustomization on the cluster.
+        """
+        timeout_in_seconds: NotRequired[pulumi.Input[float]]
+        """
+        The maximum time to attempt to reconcile the Kustomization on the cluster.
+        """
+        validation: NotRequired[pulumi.Input[Union[str, 'KustomizationValidationType']]]
+        """
+        Specify whether to validate the Kubernetes objects referenced in the Kustomization before applying them to the cluster.
+        """
+elif False:
+    KustomizationDefinitionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class KustomizationDefinitionArgs:
@@ -326,6 +429,30 @@ class KustomizationDefinitionArgs:
     def validation(self, value: Optional[pulumi.Input[Union[str, 'KustomizationValidationType']]]):
         pulumi.set(self, "validation", value)
 
+
+if not MYPY:
+    class RepositoryRefDefinitionArgsDict(TypedDict):
+        """
+        The source reference for the GitRepository object.
+        """
+        branch: NotRequired[pulumi.Input[str]]
+        """
+        The git repository branch name to checkout.
+        """
+        commit: NotRequired[pulumi.Input[str]]
+        """
+        The commit SHA to checkout. This value must be combined with the branch name to be valid. This takes precedence over semver.
+        """
+        semver: NotRequired[pulumi.Input[str]]
+        """
+        The semver range used to match against git repository tags. This takes precedence over tag.
+        """
+        tag: NotRequired[pulumi.Input[str]]
+        """
+        The git repository tag name to checkout. This takes precedence over branch.
+        """
+elif False:
+    RepositoryRefDefinitionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RepositoryRefDefinitionArgs:

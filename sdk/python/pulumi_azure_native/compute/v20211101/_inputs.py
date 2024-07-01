@@ -4,17 +4,39 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'ApiEntityReferenceArgs',
+    'ApiEntityReferenceArgsDict',
     'InstanceViewStatusArgs',
+    'InstanceViewStatusArgsDict',
     'VirtualMachineExtensionInstanceViewArgs',
+    'VirtualMachineExtensionInstanceViewArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ApiEntityReferenceArgsDict(TypedDict):
+        """
+        The API entity reference.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The ARM resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
+        """
+elif False:
+    ApiEntityReferenceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApiEntityReferenceArgs:
@@ -39,6 +61,34 @@ class ApiEntityReferenceArgs:
     def id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class InstanceViewStatusArgsDict(TypedDict):
+        """
+        Instance view status.
+        """
+        code: NotRequired[pulumi.Input[str]]
+        """
+        The status code.
+        """
+        display_status: NotRequired[pulumi.Input[str]]
+        """
+        The short localizable label for the status.
+        """
+        level: NotRequired[pulumi.Input['StatusLevelTypes']]
+        """
+        The level code.
+        """
+        message: NotRequired[pulumi.Input[str]]
+        """
+        The detailed status message, including for alerts and error messages.
+        """
+        time: NotRequired[pulumi.Input[str]]
+        """
+        The time of the status.
+        """
+elif False:
+    InstanceViewStatusArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InstanceViewStatusArgs:
@@ -127,6 +177,34 @@ class InstanceViewStatusArgs:
     def time(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "time", value)
 
+
+if not MYPY:
+    class VirtualMachineExtensionInstanceViewArgsDict(TypedDict):
+        """
+        The instance view of a virtual machine extension.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The virtual machine extension name.
+        """
+        statuses: NotRequired[pulumi.Input[Sequence[pulumi.Input['InstanceViewStatusArgsDict']]]]
+        """
+        The resource status information.
+        """
+        substatuses: NotRequired[pulumi.Input[Sequence[pulumi.Input['InstanceViewStatusArgsDict']]]]
+        """
+        The resource status information.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the type of the extension; an example is "CustomScriptExtension".
+        """
+        type_handler_version: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the version of the script handler.
+        """
+elif False:
+    VirtualMachineExtensionInstanceViewArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VirtualMachineExtensionInstanceViewArgs:

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -410,26 +415,26 @@ class Cluster(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  add_on_features: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 application_type_versions_cleanup_policy: Optional[pulumi.Input[pulumi.InputType['ApplicationTypeVersionsCleanupPolicyArgs']]] = None,
-                 azure_active_directory: Optional[pulumi.Input[pulumi.InputType['AzureActiveDirectoryArgs']]] = None,
-                 certificate: Optional[pulumi.Input[pulumi.InputType['CertificateDescriptionArgs']]] = None,
-                 certificate_common_names: Optional[pulumi.Input[pulumi.InputType['ServerCertificateCommonNamesArgs']]] = None,
-                 client_certificate_common_names: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClientCertificateCommonNameArgs']]]]] = None,
-                 client_certificate_thumbprints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClientCertificateThumbprintArgs']]]]] = None,
+                 application_type_versions_cleanup_policy: Optional[pulumi.Input[Union['ApplicationTypeVersionsCleanupPolicyArgs', 'ApplicationTypeVersionsCleanupPolicyArgsDict']]] = None,
+                 azure_active_directory: Optional[pulumi.Input[Union['AzureActiveDirectoryArgs', 'AzureActiveDirectoryArgsDict']]] = None,
+                 certificate: Optional[pulumi.Input[Union['CertificateDescriptionArgs', 'CertificateDescriptionArgsDict']]] = None,
+                 certificate_common_names: Optional[pulumi.Input[Union['ServerCertificateCommonNamesArgs', 'ServerCertificateCommonNamesArgsDict']]] = None,
+                 client_certificate_common_names: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClientCertificateCommonNameArgs', 'ClientCertificateCommonNameArgsDict']]]]] = None,
+                 client_certificate_thumbprints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClientCertificateThumbprintArgs', 'ClientCertificateThumbprintArgsDict']]]]] = None,
                  cluster_code_version: Optional[pulumi.Input[str]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
-                 diagnostics_storage_account_config: Optional[pulumi.Input[pulumi.InputType['DiagnosticsStorageAccountConfigArgs']]] = None,
+                 diagnostics_storage_account_config: Optional[pulumi.Input[Union['DiagnosticsStorageAccountConfigArgs', 'DiagnosticsStorageAccountConfigArgsDict']]] = None,
                  event_store_service_enabled: Optional[pulumi.Input[bool]] = None,
-                 fabric_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SettingsSectionDescriptionArgs']]]]] = None,
+                 fabric_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SettingsSectionDescriptionArgs', 'SettingsSectionDescriptionArgsDict']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  management_endpoint: Optional[pulumi.Input[str]] = None,
-                 node_types: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NodeTypeDescriptionArgs']]]]] = None,
+                 node_types: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NodeTypeDescriptionArgs', 'NodeTypeDescriptionArgsDict']]]]] = None,
                  reliability_level: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 reverse_proxy_certificate: Optional[pulumi.Input[pulumi.InputType['CertificateDescriptionArgs']]] = None,
-                 reverse_proxy_certificate_common_names: Optional[pulumi.Input[pulumi.InputType['ServerCertificateCommonNamesArgs']]] = None,
+                 reverse_proxy_certificate: Optional[pulumi.Input[Union['CertificateDescriptionArgs', 'CertificateDescriptionArgsDict']]] = None,
+                 reverse_proxy_certificate_common_names: Optional[pulumi.Input[Union['ServerCertificateCommonNamesArgs', 'ServerCertificateCommonNamesArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 upgrade_description: Optional[pulumi.Input[pulumi.InputType['ClusterUpgradePolicyArgs']]] = None,
+                 upgrade_description: Optional[pulumi.Input[Union['ClusterUpgradePolicyArgs', 'ClusterUpgradePolicyArgsDict']]] = None,
                  upgrade_mode: Optional[pulumi.Input[str]] = None,
                  vm_image: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -439,20 +444,20 @@ class Cluster(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] add_on_features: The list of add-on features to enable in the cluster.
-        :param pulumi.Input[pulumi.InputType['ApplicationTypeVersionsCleanupPolicyArgs']] application_type_versions_cleanup_policy: The policy used to clean up unused versions.
-        :param pulumi.Input[pulumi.InputType['AzureActiveDirectoryArgs']] azure_active_directory: The AAD authentication settings of the cluster.
-        :param pulumi.Input[pulumi.InputType['CertificateDescriptionArgs']] certificate: The certificate to use for securing the cluster. The certificate provided will be used for node to node security within the cluster, SSL certificate for cluster management endpoint and default admin client.
-        :param pulumi.Input[pulumi.InputType['ServerCertificateCommonNamesArgs']] certificate_common_names: Describes a list of server certificates referenced by common name that are used to secure the cluster.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClientCertificateCommonNameArgs']]]] client_certificate_common_names: The list of client certificates referenced by common name that are allowed to manage the cluster.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClientCertificateThumbprintArgs']]]] client_certificate_thumbprints: The list of client certificates referenced by thumbprint that are allowed to manage the cluster.
+        :param pulumi.Input[Union['ApplicationTypeVersionsCleanupPolicyArgs', 'ApplicationTypeVersionsCleanupPolicyArgsDict']] application_type_versions_cleanup_policy: The policy used to clean up unused versions.
+        :param pulumi.Input[Union['AzureActiveDirectoryArgs', 'AzureActiveDirectoryArgsDict']] azure_active_directory: The AAD authentication settings of the cluster.
+        :param pulumi.Input[Union['CertificateDescriptionArgs', 'CertificateDescriptionArgsDict']] certificate: The certificate to use for securing the cluster. The certificate provided will be used for node to node security within the cluster, SSL certificate for cluster management endpoint and default admin client.
+        :param pulumi.Input[Union['ServerCertificateCommonNamesArgs', 'ServerCertificateCommonNamesArgsDict']] certificate_common_names: Describes a list of server certificates referenced by common name that are used to secure the cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ClientCertificateCommonNameArgs', 'ClientCertificateCommonNameArgsDict']]]] client_certificate_common_names: The list of client certificates referenced by common name that are allowed to manage the cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ClientCertificateThumbprintArgs', 'ClientCertificateThumbprintArgsDict']]]] client_certificate_thumbprints: The list of client certificates referenced by thumbprint that are allowed to manage the cluster.
         :param pulumi.Input[str] cluster_code_version: The Service Fabric runtime version of the cluster. This property can only by set the user when **upgradeMode** is set to 'Manual'. To get list of available Service Fabric versions for new clusters use [ClusterVersion API](./ClusterVersion.md). To get the list of available version for existing clusters use **availableClusterVersions**.
         :param pulumi.Input[str] cluster_name: The name of the cluster resource.
-        :param pulumi.Input[pulumi.InputType['DiagnosticsStorageAccountConfigArgs']] diagnostics_storage_account_config: The storage account information for storing Service Fabric diagnostic logs.
+        :param pulumi.Input[Union['DiagnosticsStorageAccountConfigArgs', 'DiagnosticsStorageAccountConfigArgsDict']] diagnostics_storage_account_config: The storage account information for storing Service Fabric diagnostic logs.
         :param pulumi.Input[bool] event_store_service_enabled: Indicates if the event store service is enabled.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SettingsSectionDescriptionArgs']]]] fabric_settings: The list of custom fabric settings to configure the cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SettingsSectionDescriptionArgs', 'SettingsSectionDescriptionArgsDict']]]] fabric_settings: The list of custom fabric settings to configure the cluster.
         :param pulumi.Input[str] location: Azure resource location.
         :param pulumi.Input[str] management_endpoint: The http management endpoint of the cluster.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NodeTypeDescriptionArgs']]]] node_types: The list of node types in the cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NodeTypeDescriptionArgs', 'NodeTypeDescriptionArgsDict']]]] node_types: The list of node types in the cluster.
         :param pulumi.Input[str] reliability_level: The reliability level sets the replica set size of system services. Learn about [ReliabilityLevel](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity).
                
                  - None - Run the System services with a target replica set count of 1. This should only be used for test clusters.
@@ -461,10 +466,10 @@ class Cluster(pulumi.CustomResource):
                  - Gold - Run the System services with a target replica set count of 7.
                  - Platinum - Run the System services with a target replica set count of 9.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[pulumi.InputType['CertificateDescriptionArgs']] reverse_proxy_certificate: The server certificate used by reverse proxy.
-        :param pulumi.Input[pulumi.InputType['ServerCertificateCommonNamesArgs']] reverse_proxy_certificate_common_names: Describes a list of server certificates referenced by common name that are used to secure the cluster.
+        :param pulumi.Input[Union['CertificateDescriptionArgs', 'CertificateDescriptionArgsDict']] reverse_proxy_certificate: The server certificate used by reverse proxy.
+        :param pulumi.Input[Union['ServerCertificateCommonNamesArgs', 'ServerCertificateCommonNamesArgsDict']] reverse_proxy_certificate_common_names: Describes a list of server certificates referenced by common name that are used to secure the cluster.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Azure resource tags.
-        :param pulumi.Input[pulumi.InputType['ClusterUpgradePolicyArgs']] upgrade_description: The policy to use when upgrading the cluster.
+        :param pulumi.Input[Union['ClusterUpgradePolicyArgs', 'ClusterUpgradePolicyArgsDict']] upgrade_description: The policy to use when upgrading the cluster.
         :param pulumi.Input[str] upgrade_mode: The upgrade mode of the cluster when new Service Fabric runtime version is available.
                
                  - Automatic - The cluster will be automatically upgraded to the latest Service Fabric runtime version as soon as it is available.
@@ -496,26 +501,26 @@ class Cluster(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  add_on_features: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 application_type_versions_cleanup_policy: Optional[pulumi.Input[pulumi.InputType['ApplicationTypeVersionsCleanupPolicyArgs']]] = None,
-                 azure_active_directory: Optional[pulumi.Input[pulumi.InputType['AzureActiveDirectoryArgs']]] = None,
-                 certificate: Optional[pulumi.Input[pulumi.InputType['CertificateDescriptionArgs']]] = None,
-                 certificate_common_names: Optional[pulumi.Input[pulumi.InputType['ServerCertificateCommonNamesArgs']]] = None,
-                 client_certificate_common_names: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClientCertificateCommonNameArgs']]]]] = None,
-                 client_certificate_thumbprints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClientCertificateThumbprintArgs']]]]] = None,
+                 application_type_versions_cleanup_policy: Optional[pulumi.Input[Union['ApplicationTypeVersionsCleanupPolicyArgs', 'ApplicationTypeVersionsCleanupPolicyArgsDict']]] = None,
+                 azure_active_directory: Optional[pulumi.Input[Union['AzureActiveDirectoryArgs', 'AzureActiveDirectoryArgsDict']]] = None,
+                 certificate: Optional[pulumi.Input[Union['CertificateDescriptionArgs', 'CertificateDescriptionArgsDict']]] = None,
+                 certificate_common_names: Optional[pulumi.Input[Union['ServerCertificateCommonNamesArgs', 'ServerCertificateCommonNamesArgsDict']]] = None,
+                 client_certificate_common_names: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClientCertificateCommonNameArgs', 'ClientCertificateCommonNameArgsDict']]]]] = None,
+                 client_certificate_thumbprints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClientCertificateThumbprintArgs', 'ClientCertificateThumbprintArgsDict']]]]] = None,
                  cluster_code_version: Optional[pulumi.Input[str]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
-                 diagnostics_storage_account_config: Optional[pulumi.Input[pulumi.InputType['DiagnosticsStorageAccountConfigArgs']]] = None,
+                 diagnostics_storage_account_config: Optional[pulumi.Input[Union['DiagnosticsStorageAccountConfigArgs', 'DiagnosticsStorageAccountConfigArgsDict']]] = None,
                  event_store_service_enabled: Optional[pulumi.Input[bool]] = None,
-                 fabric_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SettingsSectionDescriptionArgs']]]]] = None,
+                 fabric_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SettingsSectionDescriptionArgs', 'SettingsSectionDescriptionArgsDict']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  management_endpoint: Optional[pulumi.Input[str]] = None,
-                 node_types: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NodeTypeDescriptionArgs']]]]] = None,
+                 node_types: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NodeTypeDescriptionArgs', 'NodeTypeDescriptionArgsDict']]]]] = None,
                  reliability_level: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 reverse_proxy_certificate: Optional[pulumi.Input[pulumi.InputType['CertificateDescriptionArgs']]] = None,
-                 reverse_proxy_certificate_common_names: Optional[pulumi.Input[pulumi.InputType['ServerCertificateCommonNamesArgs']]] = None,
+                 reverse_proxy_certificate: Optional[pulumi.Input[Union['CertificateDescriptionArgs', 'CertificateDescriptionArgsDict']]] = None,
+                 reverse_proxy_certificate_common_names: Optional[pulumi.Input[Union['ServerCertificateCommonNamesArgs', 'ServerCertificateCommonNamesArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 upgrade_description: Optional[pulumi.Input[pulumi.InputType['ClusterUpgradePolicyArgs']]] = None,
+                 upgrade_description: Optional[pulumi.Input[Union['ClusterUpgradePolicyArgs', 'ClusterUpgradePolicyArgsDict']]] = None,
                  upgrade_mode: Optional[pulumi.Input[str]] = None,
                  vm_image: Optional[pulumi.Input[str]] = None,
                  __props__=None):

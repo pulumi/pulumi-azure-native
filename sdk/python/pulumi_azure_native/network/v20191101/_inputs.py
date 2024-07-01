@@ -4,15 +4,39 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'ExperimentEndpointArgs',
+    'ExperimentEndpointArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ExperimentEndpointArgsDict(TypedDict):
+        """
+        Defines the endpoint properties
+        """
+        endpoint: NotRequired[pulumi.Input[str]]
+        """
+        The endpoint URL
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the endpoint
+        """
+elif False:
+    ExperimentEndpointArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ExperimentEndpointArgs:

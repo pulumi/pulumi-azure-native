@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -57,7 +62,7 @@ class Report(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['ReportPropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['ReportPropertiesArgs', 'ReportPropertiesArgsDict']]] = None,
                  report_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -65,7 +70,7 @@ class Report(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ReportPropertiesArgs']] properties: Report property.
+        :param pulumi.Input[Union['ReportPropertiesArgs', 'ReportPropertiesArgsDict']] properties: Report property.
         :param pulumi.Input[str] report_name: Report Name.
         """
         ...
@@ -92,7 +97,7 @@ class Report(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['ReportPropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['ReportPropertiesArgs', 'ReportPropertiesArgsDict']]] = None,
                  report_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

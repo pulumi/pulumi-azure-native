@@ -4,14 +4,38 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'DocumentProcessorPropertiesArgs',
+    'DocumentProcessorPropertiesArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class DocumentProcessorPropertiesArgsDict(TypedDict):
+        """
+        Document processor properties
+        """
+        spo_tenant_id: pulumi.Input[str]
+        """
+        The ID (GUID) of an SharePoint Online (SPO) tenant associated with this document processor resource
+        """
+        spo_tenant_url: pulumi.Input[str]
+        """
+        The URL of an SharePoint Online (SPO) tenant associated with this document processor resource
+        """
+elif False:
+    DocumentProcessorPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DocumentProcessorPropertiesArgs:

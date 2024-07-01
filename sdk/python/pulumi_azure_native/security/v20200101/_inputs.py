@@ -4,31 +4,75 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'AssessmentStatusArgs',
+    'AssessmentStatusArgsDict',
     'AzureResourceDetailsArgs',
+    'AzureResourceDetailsArgsDict',
     'JitNetworkAccessPolicyVirtualMachineArgs',
+    'JitNetworkAccessPolicyVirtualMachineArgsDict',
     'JitNetworkAccessPortRuleArgs',
+    'JitNetworkAccessPortRuleArgsDict',
     'JitNetworkAccessRequestPortArgs',
+    'JitNetworkAccessRequestPortArgsDict',
     'JitNetworkAccessRequestVirtualMachineArgs',
+    'JitNetworkAccessRequestVirtualMachineArgsDict',
     'JitNetworkAccessRequestArgs',
+    'JitNetworkAccessRequestArgsDict',
     'OnPremiseResourceDetailsArgs',
+    'OnPremiseResourceDetailsArgsDict',
     'OnPremiseSqlResourceDetailsArgs',
+    'OnPremiseSqlResourceDetailsArgsDict',
     'PathRecommendationArgs',
+    'PathRecommendationArgsDict',
     'ProtectionModeArgs',
+    'ProtectionModeArgsDict',
     'PublisherInfoArgs',
+    'PublisherInfoArgsDict',
     'SecurityAssessmentMetadataPartnerDataArgs',
+    'SecurityAssessmentMetadataPartnerDataArgsDict',
     'SecurityAssessmentMetadataPropertiesArgs',
+    'SecurityAssessmentMetadataPropertiesArgsDict',
     'SecurityAssessmentPartnerDataArgs',
+    'SecurityAssessmentPartnerDataArgsDict',
     'UserRecommendationArgs',
+    'UserRecommendationArgsDict',
     'VmRecommendationArgs',
+    'VmRecommendationArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AssessmentStatusArgsDict(TypedDict):
+        """
+        The result of the assessment
+        """
+        code: pulumi.Input[Union[str, 'AssessmentStatusCode']]
+        """
+        Programmatic code for the status of the assessment
+        """
+        cause: NotRequired[pulumi.Input[str]]
+        """
+        Programmatic code for the cause of the assessment status
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Human readable description of the assessment status
+        """
+elif False:
+    AssessmentStatusArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AssessmentStatusArgs:
@@ -85,6 +129,19 @@ class AssessmentStatusArgs:
         pulumi.set(self, "description", value)
 
 
+if not MYPY:
+    class AzureResourceDetailsArgsDict(TypedDict):
+        """
+        Details of the Azure resource that was assessed
+        """
+        source: pulumi.Input[str]
+        """
+        The platform where the assessed resource resides
+        Expected value is 'Azure'.
+        """
+elif False:
+    AzureResourceDetailsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AzureResourceDetailsArgs:
     def __init__(__self__, *,
@@ -109,6 +166,23 @@ class AzureResourceDetailsArgs:
     def source(self, value: pulumi.Input[str]):
         pulumi.set(self, "source", value)
 
+
+if not MYPY:
+    class JitNetworkAccessPolicyVirtualMachineArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        Resource ID of the virtual machine that is linked to this policy
+        """
+        ports: pulumi.Input[Sequence[pulumi.Input['JitNetworkAccessPortRuleArgsDict']]]
+        """
+        Port configurations for the virtual machine
+        """
+        public_ip_address: NotRequired[pulumi.Input[str]]
+        """
+        Public IP address of the Azure Firewall that is linked to this policy, if applicable
+        """
+elif False:
+    JitNetworkAccessPolicyVirtualMachineArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class JitNetworkAccessPolicyVirtualMachineArgs:
@@ -162,6 +236,25 @@ class JitNetworkAccessPolicyVirtualMachineArgs:
     def public_ip_address(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "public_ip_address", value)
 
+
+if not MYPY:
+    class JitNetworkAccessPortRuleArgsDict(TypedDict):
+        max_request_access_duration: pulumi.Input[str]
+        """
+        Maximum duration requests can be made for. In ISO 8601 duration format. Minimum 5 minutes, maximum 1 day
+        """
+        number: pulumi.Input[int]
+        protocol: pulumi.Input[Union[str, 'Protocol']]
+        allowed_source_address_prefix: NotRequired[pulumi.Input[str]]
+        """
+        Mutually exclusive with the "allowedSourceAddressPrefixes" parameter. Should be an IP address or CIDR, for example "192.168.0.3" or "192.168.0.0/16".
+        """
+        allowed_source_address_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Mutually exclusive with the "allowedSourceAddressPrefix" parameter.
+        """
+elif False:
+    JitNetworkAccessPortRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class JitNetworkAccessPortRuleArgs:
@@ -238,6 +331,36 @@ class JitNetworkAccessPortRuleArgs:
     def allowed_source_address_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "allowed_source_address_prefixes", value)
 
+
+if not MYPY:
+    class JitNetworkAccessRequestPortArgsDict(TypedDict):
+        end_time_utc: pulumi.Input[str]
+        """
+        The date & time at which the request ends in UTC
+        """
+        number: pulumi.Input[int]
+        status: pulumi.Input[Union[str, 'Status']]
+        """
+        The status of the port
+        """
+        status_reason: pulumi.Input[Union[str, 'StatusReason']]
+        """
+        A description of why the `status` has its value
+        """
+        allowed_source_address_prefix: NotRequired[pulumi.Input[str]]
+        """
+        Mutually exclusive with the "allowedSourceAddressPrefixes" parameter. Should be an IP address or CIDR, for example "192.168.0.3" or "192.168.0.0/16".
+        """
+        allowed_source_address_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Mutually exclusive with the "allowedSourceAddressPrefix" parameter.
+        """
+        mapped_port: NotRequired[pulumi.Input[int]]
+        """
+        The port which is mapped to this port's `number` in the Azure Firewall, if applicable
+        """
+elif False:
+    JitNetworkAccessRequestPortArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class JitNetworkAccessRequestPortArgs:
@@ -350,6 +473,19 @@ class JitNetworkAccessRequestPortArgs:
         pulumi.set(self, "mapped_port", value)
 
 
+if not MYPY:
+    class JitNetworkAccessRequestVirtualMachineArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        Resource ID of the virtual machine that is linked to this policy
+        """
+        ports: pulumi.Input[Sequence[pulumi.Input['JitNetworkAccessRequestPortArgsDict']]]
+        """
+        The ports that were opened for the virtual machine
+        """
+elif False:
+    JitNetworkAccessRequestVirtualMachineArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class JitNetworkAccessRequestVirtualMachineArgs:
     def __init__(__self__, *,
@@ -386,6 +522,24 @@ class JitNetworkAccessRequestVirtualMachineArgs:
     def ports(self, value: pulumi.Input[Sequence[pulumi.Input['JitNetworkAccessRequestPortArgs']]]):
         pulumi.set(self, "ports", value)
 
+
+if not MYPY:
+    class JitNetworkAccessRequestArgsDict(TypedDict):
+        requestor: pulumi.Input[str]
+        """
+        The identity of the person who made the request
+        """
+        start_time_utc: pulumi.Input[str]
+        """
+        The start time of the request in UTC
+        """
+        virtual_machines: pulumi.Input[Sequence[pulumi.Input['JitNetworkAccessRequestVirtualMachineArgsDict']]]
+        justification: NotRequired[pulumi.Input[str]]
+        """
+        The justification for making the initiate request
+        """
+elif False:
+    JitNetworkAccessRequestArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class JitNetworkAccessRequestArgs:
@@ -450,6 +604,35 @@ class JitNetworkAccessRequestArgs:
     def justification(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "justification", value)
 
+
+if not MYPY:
+    class OnPremiseResourceDetailsArgsDict(TypedDict):
+        """
+        Details of the On Premise resource that was assessed
+        """
+        machine_name: pulumi.Input[str]
+        """
+        The name of the machine
+        """
+        source: pulumi.Input[str]
+        """
+        The platform where the assessed resource resides
+        Expected value is 'OnPremise'.
+        """
+        source_computer_id: pulumi.Input[str]
+        """
+        The oms agent Id installed on the machine
+        """
+        vmuuid: pulumi.Input[str]
+        """
+        The unique Id of the machine
+        """
+        workspace_id: pulumi.Input[str]
+        """
+        Azure resource Id of the workspace the machine is attached to
+        """
+elif False:
+    OnPremiseResourceDetailsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OnPremiseResourceDetailsArgs:
@@ -535,6 +718,43 @@ class OnPremiseResourceDetailsArgs:
     def workspace_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "workspace_id", value)
 
+
+if not MYPY:
+    class OnPremiseSqlResourceDetailsArgsDict(TypedDict):
+        """
+        Details of the On Premise Sql resource that was assessed
+        """
+        database_name: pulumi.Input[str]
+        """
+        The Sql database name installed on the machine
+        """
+        machine_name: pulumi.Input[str]
+        """
+        The name of the machine
+        """
+        server_name: pulumi.Input[str]
+        """
+        The Sql server name installed on the machine
+        """
+        source: pulumi.Input[str]
+        """
+        The platform where the assessed resource resides
+        Expected value is 'OnPremiseSql'.
+        """
+        source_computer_id: pulumi.Input[str]
+        """
+        The oms agent Id installed on the machine
+        """
+        vmuuid: pulumi.Input[str]
+        """
+        The unique Id of the machine
+        """
+        workspace_id: pulumi.Input[str]
+        """
+        Azure resource Id of the workspace the machine is attached to
+        """
+elif False:
+    OnPremiseSqlResourceDetailsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OnPremiseSqlResourceDetailsArgs:
@@ -650,6 +870,44 @@ class OnPremiseSqlResourceDetailsArgs:
     def workspace_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "workspace_id", value)
 
+
+if not MYPY:
+    class PathRecommendationArgsDict(TypedDict):
+        """
+        Represents a path that is recommended to be allowed and its properties
+        """
+        action: NotRequired[pulumi.Input[str]]
+        """
+        The recommendation action of the machine or rule
+        """
+        common: NotRequired[pulumi.Input[bool]]
+        """
+        Whether the application is commonly run on the machine
+        """
+        configuration_status: NotRequired[pulumi.Input[str]]
+        """
+        The configuration status of the machines group or machine or rule
+        """
+        file_type: NotRequired[pulumi.Input[str]]
+        """
+        The type of the file (for Linux files - Executable is used)
+        """
+        path: NotRequired[pulumi.Input[str]]
+        """
+        The full path of the file, or an identifier of the application
+        """
+        publisher_info: NotRequired[pulumi.Input['PublisherInfoArgsDict']]
+        """
+        Represents the publisher information of a process/rule
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        The type of the rule to be allowed
+        """
+        user_sids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        usernames: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserRecommendationArgsDict']]]]
+elif False:
+    PathRecommendationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PathRecommendationArgs:
@@ -795,6 +1053,30 @@ class PathRecommendationArgs:
         pulumi.set(self, "usernames", value)
 
 
+if not MYPY:
+    class ProtectionModeArgsDict(TypedDict):
+        """
+        The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
+        """
+        exe: NotRequired[pulumi.Input[str]]
+        """
+        The application control policy enforcement/protection mode of the machine group
+        """
+        executable: NotRequired[pulumi.Input[str]]
+        """
+        The application control policy enforcement/protection mode of the machine group
+        """
+        msi: NotRequired[pulumi.Input[str]]
+        """
+        The application control policy enforcement/protection mode of the machine group
+        """
+        script: NotRequired[pulumi.Input[str]]
+        """
+        The application control policy enforcement/protection mode of the machine group
+        """
+elif False:
+    ProtectionModeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ProtectionModeArgs:
     def __init__(__self__, *,
@@ -866,6 +1148,30 @@ class ProtectionModeArgs:
     def script(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "script", value)
 
+
+if not MYPY:
+    class PublisherInfoArgsDict(TypedDict):
+        """
+        Represents the publisher information of a process/rule
+        """
+        binary_name: NotRequired[pulumi.Input[str]]
+        """
+        The "OriginalName" field taken from the file's version resource
+        """
+        product_name: NotRequired[pulumi.Input[str]]
+        """
+        The product name taken from the file's version resource
+        """
+        publisher_name: NotRequired[pulumi.Input[str]]
+        """
+        The Subject field of the x.509 certificate used to sign the code, using the following fields -  O = Organization, L = Locality, S = State or Province, and C = Country
+        """
+        version: NotRequired[pulumi.Input[str]]
+        """
+        The binary file version taken from the file's version resource
+        """
+elif False:
+    PublisherInfoArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PublisherInfoArgs:
@@ -939,6 +1245,26 @@ class PublisherInfoArgs:
         pulumi.set(self, "version", value)
 
 
+if not MYPY:
+    class SecurityAssessmentMetadataPartnerDataArgsDict(TypedDict):
+        """
+        Describes the partner that created the assessment
+        """
+        partner_name: pulumi.Input[str]
+        """
+        Name of the company of the partner
+        """
+        secret: pulumi.Input[str]
+        """
+        Secret to authenticate the partner and verify it created the assessment - write only
+        """
+        product_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the product of the partner that created the assessment
+        """
+elif False:
+    SecurityAssessmentMetadataPartnerDataArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SecurityAssessmentMetadataPartnerDataArgs:
     def __init__(__self__, *,
@@ -992,6 +1318,52 @@ class SecurityAssessmentMetadataPartnerDataArgs:
     def product_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "product_name", value)
 
+
+if not MYPY:
+    class SecurityAssessmentMetadataPropertiesArgsDict(TypedDict):
+        """
+        Describes properties of an assessment metadata.
+        """
+        assessment_type: pulumi.Input[Union[str, 'AssessmentType']]
+        """
+        BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition
+        """
+        display_name: pulumi.Input[str]
+        """
+        User friendly display name of the assessment
+        """
+        severity: pulumi.Input[Union[str, 'Severity']]
+        """
+        The severity level of the assessment
+        """
+        categories: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Categories']]]]]
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Human readable description of the assessment
+        """
+        implementation_effort: NotRequired[pulumi.Input[Union[str, 'ImplementationEffort']]]
+        """
+        The implementation effort required to remediate this assessment
+        """
+        partner_data: NotRequired[pulumi.Input['SecurityAssessmentMetadataPartnerDataArgsDict']]
+        """
+        Describes the partner that created the assessment
+        """
+        preview: NotRequired[pulumi.Input[bool]]
+        """
+        True if this assessment is in preview release status
+        """
+        remediation_description: NotRequired[pulumi.Input[str]]
+        """
+        Human readable description of what you should do to mitigate this security issue
+        """
+        threats: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Threats']]]]]
+        user_impact: NotRequired[pulumi.Input[Union[str, 'UserImpact']]]
+        """
+        The user impact of the assessment
+        """
+elif False:
+    SecurityAssessmentMetadataPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SecurityAssessmentMetadataPropertiesArgs:
@@ -1166,6 +1538,22 @@ class SecurityAssessmentMetadataPropertiesArgs:
         pulumi.set(self, "user_impact", value)
 
 
+if not MYPY:
+    class SecurityAssessmentPartnerDataArgsDict(TypedDict):
+        """
+        Data regarding 3rd party partner integration
+        """
+        partner_name: pulumi.Input[str]
+        """
+        Name of the company of the partner
+        """
+        secret: pulumi.Input[str]
+        """
+        secret to authenticate the partner - write only
+        """
+elif False:
+    SecurityAssessmentPartnerDataArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SecurityAssessmentPartnerDataArgs:
     def __init__(__self__, *,
@@ -1203,6 +1591,22 @@ class SecurityAssessmentPartnerDataArgs:
     def secret(self, value: pulumi.Input[str]):
         pulumi.set(self, "secret", value)
 
+
+if not MYPY:
+    class UserRecommendationArgsDict(TypedDict):
+        """
+        Represents a user that is recommended to be allowed for a certain rule
+        """
+        recommendation_action: NotRequired[pulumi.Input[str]]
+        """
+        The recommendation action of the machine or rule
+        """
+        username: NotRequired[pulumi.Input[str]]
+        """
+        Represents a user that is recommended to be allowed for a certain rule
+        """
+elif False:
+    UserRecommendationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserRecommendationArgs:
@@ -1243,6 +1647,30 @@ class UserRecommendationArgs:
     def username(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "username", value)
 
+
+if not MYPY:
+    class VmRecommendationArgsDict(TypedDict):
+        """
+        Represents a machine that is part of a machine group
+        """
+        configuration_status: NotRequired[pulumi.Input[str]]
+        """
+        The configuration status of the machines group or machine or rule
+        """
+        enforcement_support: NotRequired[pulumi.Input[str]]
+        """
+        The machine supportability of Enforce feature
+        """
+        recommendation_action: NotRequired[pulumi.Input[str]]
+        """
+        The recommendation action of the machine or rule
+        """
+        resource_id: NotRequired[pulumi.Input[str]]
+        """
+        The full resource id of the machine
+        """
+elif False:
+    VmRecommendationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VmRecommendationArgs:

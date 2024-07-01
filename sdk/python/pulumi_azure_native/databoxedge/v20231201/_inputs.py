@@ -4,42 +4,113 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'AddressArgs',
+    'AddressArgsDict',
     'AsymmetricEncryptedSecretArgs',
+    'AsymmetricEncryptedSecretArgsDict',
     'AuthenticationArgs',
+    'AuthenticationArgsDict',
     'AzureContainerInfoArgs',
+    'AzureContainerInfoArgsDict',
     'ClientAccessRightArgs',
+    'ClientAccessRightArgsDict',
     'ComputeResourceArgs',
+    'ComputeResourceArgsDict',
     'ContactDetailsArgs',
+    'ContactDetailsArgsDict',
     'DataResidencyArgs',
+    'DataResidencyArgsDict',
     'FileSourceInfoArgs',
+    'FileSourceInfoArgsDict',
     'ImageRepositoryCredentialArgs',
+    'ImageRepositoryCredentialArgsDict',
     'IoTDeviceInfoArgs',
+    'IoTDeviceInfoArgsDict',
     'IoTEdgeAgentInfoArgs',
+    'IoTEdgeAgentInfoArgsDict',
     'KubernetesClusterInfoArgs',
+    'KubernetesClusterInfoArgsDict',
     'KubernetesRoleComputeArgs',
+    'KubernetesRoleComputeArgsDict',
     'KubernetesRoleResourcesArgs',
+    'KubernetesRoleResourcesArgsDict',
     'KubernetesRoleStorageArgs',
+    'KubernetesRoleStorageArgsDict',
     'MetricConfigurationArgs',
+    'MetricConfigurationArgsDict',
     'MetricCounterSetArgs',
+    'MetricCounterSetArgsDict',
     'MetricCounterArgs',
+    'MetricCounterArgsDict',
     'MetricDimensionArgs',
+    'MetricDimensionArgsDict',
     'MountPointMapArgs',
+    'MountPointMapArgsDict',
     'PeriodicTimerSourceInfoArgs',
+    'PeriodicTimerSourceInfoArgsDict',
     'RefreshDetailsArgs',
+    'RefreshDetailsArgsDict',
     'ResourceIdentityArgs',
+    'ResourceIdentityArgsDict',
     'RoleSinkInfoArgs',
+    'RoleSinkInfoArgsDict',
     'SkuArgs',
+    'SkuArgsDict',
     'SymmetricKeyArgs',
+    'SymmetricKeyArgsDict',
     'UserAccessRightArgs',
+    'UserAccessRightArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AddressArgsDict(TypedDict):
+        """
+        The shipping address of the customer.
+        """
+        country: pulumi.Input[str]
+        """
+        The country name.
+        """
+        address_line1: NotRequired[pulumi.Input[str]]
+        """
+        The address line1.
+        """
+        address_line2: NotRequired[pulumi.Input[str]]
+        """
+        The address line2.
+        """
+        address_line3: NotRequired[pulumi.Input[str]]
+        """
+        The address line3.
+        """
+        city: NotRequired[pulumi.Input[str]]
+        """
+        The city name.
+        """
+        postal_code: NotRequired[pulumi.Input[str]]
+        """
+        The postal code.
+        """
+        state: NotRequired[pulumi.Input[str]]
+        """
+        The state name.
+        """
+elif False:
+    AddressArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AddressArgs:
@@ -160,6 +231,26 @@ class AddressArgs:
         pulumi.set(self, "state", value)
 
 
+if not MYPY:
+    class AsymmetricEncryptedSecretArgsDict(TypedDict):
+        """
+        Represent the secrets intended for encryption with asymmetric key pair.
+        """
+        encryption_algorithm: pulumi.Input[Union[str, 'EncryptionAlgorithm']]
+        """
+        The algorithm used to encrypt "Value".
+        """
+        value: pulumi.Input[str]
+        """
+        The value of the secret.
+        """
+        encryption_cert_thumbprint: NotRequired[pulumi.Input[str]]
+        """
+        Thumbprint certificate used to encrypt \\"Value\\". If the value is unencrypted, it will be null.
+        """
+elif False:
+    AsymmetricEncryptedSecretArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AsymmetricEncryptedSecretArgs:
     def __init__(__self__, *,
@@ -214,6 +305,18 @@ class AsymmetricEncryptedSecretArgs:
         pulumi.set(self, "encryption_cert_thumbprint", value)
 
 
+if not MYPY:
+    class AuthenticationArgsDict(TypedDict):
+        """
+        Authentication mechanism for IoT devices.
+        """
+        symmetric_key: NotRequired[pulumi.Input['SymmetricKeyArgsDict']]
+        """
+        Symmetric key for authentication.
+        """
+elif False:
+    AuthenticationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AuthenticationArgs:
     def __init__(__self__, *,
@@ -237,6 +340,26 @@ class AuthenticationArgs:
     def symmetric_key(self, value: Optional[pulumi.Input['SymmetricKeyArgs']]):
         pulumi.set(self, "symmetric_key", value)
 
+
+if not MYPY:
+    class AzureContainerInfoArgsDict(TypedDict):
+        """
+        Azure container mapping of the endpoint.
+        """
+        container_name: pulumi.Input[str]
+        """
+        Container name (Based on the data format specified, this represents the name of Azure Files/Page blob/Block blob).
+        """
+        data_format: pulumi.Input[Union[str, 'AzureContainerDataFormat']]
+        """
+        Storage format used for the file represented by the share.
+        """
+        storage_account_credential_id: pulumi.Input[str]
+        """
+        ID of the storage account credential used to access storage.
+        """
+elif False:
+    AzureContainerInfoArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AzureContainerInfoArgs:
@@ -291,6 +414,22 @@ class AzureContainerInfoArgs:
         pulumi.set(self, "storage_account_credential_id", value)
 
 
+if not MYPY:
+    class ClientAccessRightArgsDict(TypedDict):
+        """
+        The mapping between a particular client IP and the type of access client has on the NFS share.
+        """
+        access_permission: pulumi.Input[Union[str, 'ClientPermissionType']]
+        """
+        Type of access to be allowed for the client.
+        """
+        client: pulumi.Input[str]
+        """
+        IP of the client.
+        """
+elif False:
+    ClientAccessRightArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ClientAccessRightArgs:
     def __init__(__self__, *,
@@ -329,6 +468,22 @@ class ClientAccessRightArgs:
         pulumi.set(self, "client", value)
 
 
+if not MYPY:
+    class ComputeResourceArgsDict(TypedDict):
+        """
+        Compute infrastructure Resource
+        """
+        memory_in_gb: pulumi.Input[float]
+        """
+        Memory in GB
+        """
+        processor_count: pulumi.Input[int]
+        """
+        Processor count
+        """
+elif False:
+    ComputeResourceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ComputeResourceArgs:
     def __init__(__self__, *,
@@ -366,6 +521,30 @@ class ComputeResourceArgs:
     def processor_count(self, value: pulumi.Input[int]):
         pulumi.set(self, "processor_count", value)
 
+
+if not MYPY:
+    class ContactDetailsArgsDict(TypedDict):
+        """
+        Contains all the contact details of the customer.
+        """
+        company_name: pulumi.Input[str]
+        """
+        The name of the company.
+        """
+        contact_person: pulumi.Input[str]
+        """
+        The contact person name.
+        """
+        email_list: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        The email list.
+        """
+        phone: pulumi.Input[str]
+        """
+        The phone number.
+        """
+elif False:
+    ContactDetailsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ContactDetailsArgs:
@@ -435,6 +614,18 @@ class ContactDetailsArgs:
         pulumi.set(self, "phone", value)
 
 
+if not MYPY:
+    class DataResidencyArgsDict(TypedDict):
+        """
+        Wraps data-residency related information for edge-resource and this should be used with ARM layer.
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'DataResidencyType']]]
+        """
+        DataResidencyType enum
+        """
+elif False:
+    DataResidencyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DataResidencyArgs:
     def __init__(__self__, *,
@@ -459,6 +650,18 @@ class DataResidencyArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class FileSourceInfoArgsDict(TypedDict):
+        """
+        File source details.
+        """
+        share_id: pulumi.Input[str]
+        """
+        File share ID.
+        """
+elif False:
+    FileSourceInfoArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FileSourceInfoArgs:
     def __init__(__self__, *,
@@ -481,6 +684,26 @@ class FileSourceInfoArgs:
     def share_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "share_id", value)
 
+
+if not MYPY:
+    class ImageRepositoryCredentialArgsDict(TypedDict):
+        """
+        Image repository credential.
+        """
+        image_repository_url: pulumi.Input[str]
+        """
+        Image repository url (e.g.: mcr.microsoft.com).
+        """
+        user_name: pulumi.Input[str]
+        """
+        Repository user name.
+        """
+        password: NotRequired[pulumi.Input['AsymmetricEncryptedSecretArgsDict']]
+        """
+        Repository user password.
+        """
+elif False:
+    ImageRepositoryCredentialArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ImageRepositoryCredentialArgs:
@@ -535,6 +758,30 @@ class ImageRepositoryCredentialArgs:
     def password(self, value: Optional[pulumi.Input['AsymmetricEncryptedSecretArgs']]):
         pulumi.set(self, "password", value)
 
+
+if not MYPY:
+    class IoTDeviceInfoArgsDict(TypedDict):
+        """
+        Metadata of IoT device/IoT Edge device to be configured.
+        """
+        device_id: pulumi.Input[str]
+        """
+        ID of the IoT device/edge device.
+        """
+        io_t_host_hub: pulumi.Input[str]
+        """
+        Host name for the IoT hub associated to the device.
+        """
+        authentication: NotRequired[pulumi.Input['AuthenticationArgsDict']]
+        """
+        Encrypted IoT device/IoT edge device connection string.
+        """
+        io_t_host_hub_id: NotRequired[pulumi.Input[str]]
+        """
+        Id for the IoT hub associated to the device.
+        """
+elif False:
+    IoTDeviceInfoArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IoTDeviceInfoArgs:
@@ -606,6 +853,26 @@ class IoTDeviceInfoArgs:
         pulumi.set(self, "io_t_host_hub_id", value)
 
 
+if not MYPY:
+    class IoTEdgeAgentInfoArgsDict(TypedDict):
+        """
+        IoT edge agent details is optional, this will be used for download system Agent module while bootstrapping IoT Role if specified.
+        """
+        image_name: pulumi.Input[str]
+        """
+        Name of the IoT edge agent image.
+        """
+        tag: pulumi.Input[str]
+        """
+        Image Tag.
+        """
+        image_repository: NotRequired[pulumi.Input['ImageRepositoryCredentialArgsDict']]
+        """
+        Image repository details.
+        """
+elif False:
+    IoTEdgeAgentInfoArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IoTEdgeAgentInfoArgs:
     def __init__(__self__, *,
@@ -660,6 +927,18 @@ class IoTEdgeAgentInfoArgs:
         pulumi.set(self, "image_repository", value)
 
 
+if not MYPY:
+    class KubernetesClusterInfoArgsDict(TypedDict):
+        """
+        Kubernetes cluster configuration
+        """
+        version: pulumi.Input[str]
+        """
+        Kubernetes cluster version
+        """
+elif False:
+    KubernetesClusterInfoArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class KubernetesClusterInfoArgs:
     def __init__(__self__, *,
@@ -683,6 +962,18 @@ class KubernetesClusterInfoArgs:
         pulumi.set(self, "version", value)
 
 
+if not MYPY:
+    class KubernetesRoleComputeArgsDict(TypedDict):
+        """
+        Kubernetes role compute resource
+        """
+        vm_profile: pulumi.Input[str]
+        """
+        VM profile
+        """
+elif False:
+    KubernetesRoleComputeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class KubernetesRoleComputeArgs:
     def __init__(__self__, *,
@@ -705,6 +996,22 @@ class KubernetesRoleComputeArgs:
     def vm_profile(self, value: pulumi.Input[str]):
         pulumi.set(self, "vm_profile", value)
 
+
+if not MYPY:
+    class KubernetesRoleResourcesArgsDict(TypedDict):
+        """
+        Kubernetes role resources
+        """
+        compute: pulumi.Input['KubernetesRoleComputeArgsDict']
+        """
+        Kubernetes role compute resource
+        """
+        storage: NotRequired[pulumi.Input['KubernetesRoleStorageArgsDict']]
+        """
+        Kubernetes role storage resource
+        """
+elif False:
+    KubernetesRoleResourcesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class KubernetesRoleResourcesArgs:
@@ -745,6 +1052,18 @@ class KubernetesRoleResourcesArgs:
         pulumi.set(self, "storage", value)
 
 
+if not MYPY:
+    class KubernetesRoleStorageArgsDict(TypedDict):
+        """
+        Kubernetes role storage resource
+        """
+        endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input['MountPointMapArgsDict']]]]
+        """
+        Mount points of shares in role(s).
+        """
+elif False:
+    KubernetesRoleStorageArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class KubernetesRoleStorageArgs:
     def __init__(__self__, *,
@@ -768,6 +1087,30 @@ class KubernetesRoleStorageArgs:
     def endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MountPointMapArgs']]]]):
         pulumi.set(self, "endpoints", value)
 
+
+if not MYPY:
+    class MetricConfigurationArgsDict(TypedDict):
+        """
+        Metric configuration.
+        """
+        counter_sets: pulumi.Input[Sequence[pulumi.Input['MetricCounterSetArgsDict']]]
+        """
+        Host name for the IoT hub associated to the device.
+        """
+        resource_id: pulumi.Input[str]
+        """
+        The Resource ID on which the metrics should be pushed.
+        """
+        mdm_account: NotRequired[pulumi.Input[str]]
+        """
+        The MDM account to which the counters should be pushed.
+        """
+        metric_name_space: NotRequired[pulumi.Input[str]]
+        """
+        The MDM namespace to which the counters should be pushed. This is required if MDMAccount is specified
+        """
+elif False:
+    MetricConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MetricConfigurationArgs:
@@ -839,6 +1182,18 @@ class MetricConfigurationArgs:
         pulumi.set(self, "metric_name_space", value)
 
 
+if not MYPY:
+    class MetricCounterSetArgsDict(TypedDict):
+        """
+        The metric counter set
+        """
+        counters: pulumi.Input[Sequence[pulumi.Input['MetricCounterArgsDict']]]
+        """
+        The counters that should be collected in this set.
+        """
+elif False:
+    MetricCounterSetArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MetricCounterSetArgs:
     def __init__(__self__, *,
@@ -861,6 +1216,30 @@ class MetricCounterSetArgs:
     def counters(self, value: pulumi.Input[Sequence[pulumi.Input['MetricCounterArgs']]]):
         pulumi.set(self, "counters", value)
 
+
+if not MYPY:
+    class MetricCounterArgsDict(TypedDict):
+        """
+        The metric counter
+        """
+        name: pulumi.Input[str]
+        """
+        The counter name.
+        """
+        additional_dimensions: NotRequired[pulumi.Input[Sequence[pulumi.Input['MetricDimensionArgsDict']]]]
+        """
+        The additional dimensions to be added to metric.
+        """
+        dimension_filter: NotRequired[pulumi.Input[Sequence[pulumi.Input['MetricDimensionArgsDict']]]]
+        """
+        The dimension filter.
+        """
+        instance: NotRequired[pulumi.Input[str]]
+        """
+        The instance from which counter should be collected.
+        """
+elif False:
+    MetricCounterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MetricCounterArgs:
@@ -933,6 +1312,22 @@ class MetricCounterArgs:
         pulumi.set(self, "instance", value)
 
 
+if not MYPY:
+    class MetricDimensionArgsDict(TypedDict):
+        """
+        The metric dimension
+        """
+        source_name: pulumi.Input[str]
+        """
+        The dimension value.
+        """
+        source_type: pulumi.Input[str]
+        """
+        The dimension type.
+        """
+elif False:
+    MetricDimensionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MetricDimensionArgs:
     def __init__(__self__, *,
@@ -971,6 +1366,18 @@ class MetricDimensionArgs:
         pulumi.set(self, "source_type", value)
 
 
+if not MYPY:
+    class MountPointMapArgsDict(TypedDict):
+        """
+        The share mount point.
+        """
+        share_id: pulumi.Input[str]
+        """
+        ID of the share mounted to the role VM.
+        """
+elif False:
+    MountPointMapArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MountPointMapArgs:
     def __init__(__self__, *,
@@ -993,6 +1400,26 @@ class MountPointMapArgs:
     def share_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "share_id", value)
 
+
+if not MYPY:
+    class PeriodicTimerSourceInfoArgsDict(TypedDict):
+        """
+        Periodic timer event source.
+        """
+        schedule: pulumi.Input[str]
+        """
+        Periodic frequency at which timer event needs to be raised. Supports daily, hourly, minutes, and seconds.
+        """
+        start_time: pulumi.Input[str]
+        """
+        The time of the day that results in a valid trigger. Schedule is computed with reference to the time specified upto seconds. If timezone is not specified the time will considered to be in device timezone. The value will always be returned as UTC time.
+        """
+        topic: NotRequired[pulumi.Input[str]]
+        """
+        Topic where periodic events are published to IoT device.
+        """
+elif False:
+    PeriodicTimerSourceInfoArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PeriodicTimerSourceInfoArgs:
@@ -1047,6 +1474,30 @@ class PeriodicTimerSourceInfoArgs:
     def topic(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "topic", value)
 
+
+if not MYPY:
+    class RefreshDetailsArgsDict(TypedDict):
+        """
+        Fields for tracking refresh job on the share or container.
+        """
+        error_manifest_file: NotRequired[pulumi.Input[str]]
+        """
+        Indicates the relative path of the error xml for the last refresh job on this particular share or container, if any. This could be a failed job or a successful job.
+        """
+        in_progress_refresh_job_id: NotRequired[pulumi.Input[str]]
+        """
+        If a refresh job is currently in progress on this share or container, this field indicates the ARM resource ID of that job. The field is empty if no job is in progress.
+        """
+        last_completed_refresh_job_time_in_utc: NotRequired[pulumi.Input[str]]
+        """
+        Indicates the completed time for the last refresh job on this particular share or container, if any.This could be a failed job or a successful job.
+        """
+        last_job: NotRequired[pulumi.Input[str]]
+        """
+        Indicates the id of the last refresh job on this particular share or container,if any. This could be a failed job or a successful job.
+        """
+elif False:
+    RefreshDetailsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RefreshDetailsArgs:
@@ -1120,6 +1571,18 @@ class RefreshDetailsArgs:
         pulumi.set(self, "last_job", value)
 
 
+if not MYPY:
+    class ResourceIdentityArgsDict(TypedDict):
+        """
+        Msi identity details of the resource
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'MsiIdentityType']]]
+        """
+        Identity type
+        """
+elif False:
+    ResourceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ResourceIdentityArgs:
     def __init__(__self__, *,
@@ -1144,6 +1607,18 @@ class ResourceIdentityArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class RoleSinkInfoArgsDict(TypedDict):
+        """
+        Compute role against which events will be raised.
+        """
+        role_id: pulumi.Input[str]
+        """
+        Compute role ID.
+        """
+elif False:
+    RoleSinkInfoArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RoleSinkInfoArgs:
     def __init__(__self__, *,
@@ -1166,6 +1641,22 @@ class RoleSinkInfoArgs:
     def role_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "role_id", value)
 
+
+if not MYPY:
+    class SkuArgsDict(TypedDict):
+        """
+        The SKU type.
+        """
+        name: NotRequired[pulumi.Input[Union[str, 'SkuName']]]
+        """
+        SKU name.
+        """
+        tier: NotRequired[pulumi.Input[Union[str, 'SkuTier']]]
+        """
+        The SKU tier. This is based on the SKU name.
+        """
+elif False:
+    SkuArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SkuArgs:
@@ -1207,6 +1698,18 @@ class SkuArgs:
         pulumi.set(self, "tier", value)
 
 
+if not MYPY:
+    class SymmetricKeyArgsDict(TypedDict):
+        """
+        Symmetric key for authentication.
+        """
+        connection_string: NotRequired[pulumi.Input['AsymmetricEncryptedSecretArgsDict']]
+        """
+        Connection string based on the symmetric key.
+        """
+elif False:
+    SymmetricKeyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SymmetricKeyArgs:
     def __init__(__self__, *,
@@ -1230,6 +1733,22 @@ class SymmetricKeyArgs:
     def connection_string(self, value: Optional[pulumi.Input['AsymmetricEncryptedSecretArgs']]):
         pulumi.set(self, "connection_string", value)
 
+
+if not MYPY:
+    class UserAccessRightArgsDict(TypedDict):
+        """
+        The mapping between a particular user and the access type on the SMB share.
+        """
+        access_type: pulumi.Input[Union[str, 'ShareAccessType']]
+        """
+        Type of access to be allowed for the user.
+        """
+        user_id: pulumi.Input[str]
+        """
+        User ID (already existing in the device).
+        """
+elif False:
+    UserAccessRightArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserAccessRightArgs:

@@ -4,21 +4,59 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'LocationDataArgs',
+    'LocationDataArgsDict',
     'MachineExtensionInstanceViewStatusArgs',
+    'MachineExtensionInstanceViewStatusArgsDict',
     'MachineExtensionInstanceViewArgs',
+    'MachineExtensionInstanceViewArgsDict',
     'MachineExtensionPropertiesInstanceViewArgs',
+    'MachineExtensionPropertiesInstanceViewArgsDict',
     'MachineIdentityArgs',
+    'MachineIdentityArgsDict',
     'PrivateEndpointPropertyArgs',
+    'PrivateEndpointPropertyArgsDict',
     'PrivateLinkServiceConnectionStatePropertyArgs',
+    'PrivateLinkServiceConnectionStatePropertyArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class LocationDataArgsDict(TypedDict):
+        """
+        Metadata pertaining to the geographic location of the resource.
+        """
+        name: pulumi.Input[str]
+        """
+        A canonical name for the geographic or physical location.
+        """
+        city: NotRequired[pulumi.Input[str]]
+        """
+        The city or locality where the resource is located.
+        """
+        country_or_region: NotRequired[pulumi.Input[str]]
+        """
+        The country or region where the resource is located
+        """
+        district: NotRequired[pulumi.Input[str]]
+        """
+        The district, state, or province where the resource is located.
+        """
+elif False:
+    LocationDataArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LocationDataArgs:
@@ -90,6 +128,34 @@ class LocationDataArgs:
     def district(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "district", value)
 
+
+if not MYPY:
+    class MachineExtensionInstanceViewStatusArgsDict(TypedDict):
+        """
+        Instance view status.
+        """
+        code: NotRequired[pulumi.Input[str]]
+        """
+        The status code.
+        """
+        display_status: NotRequired[pulumi.Input[str]]
+        """
+        The short localizable label for the status.
+        """
+        level: NotRequired[pulumi.Input[Union[str, 'StatusLevelTypes']]]
+        """
+        The level code.
+        """
+        message: NotRequired[pulumi.Input[str]]
+        """
+        The detailed status message, including for alerts and error messages.
+        """
+        time: NotRequired[pulumi.Input[str]]
+        """
+        The time of the status.
+        """
+elif False:
+    MachineExtensionInstanceViewStatusArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MachineExtensionInstanceViewStatusArgs:
@@ -179,6 +245,30 @@ class MachineExtensionInstanceViewStatusArgs:
         pulumi.set(self, "time", value)
 
 
+if not MYPY:
+    class MachineExtensionInstanceViewArgsDict(TypedDict):
+        """
+        Describes the Machine Extension Instance View.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The machine extension name.
+        """
+        status: NotRequired[pulumi.Input['MachineExtensionInstanceViewStatusArgsDict']]
+        """
+        Instance view status.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the type of the extension; an example is "CustomScriptExtension".
+        """
+        type_handler_version: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the version of the script handler.
+        """
+elif False:
+    MachineExtensionInstanceViewArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MachineExtensionInstanceViewArgs:
     def __init__(__self__, *,
@@ -250,6 +340,30 @@ class MachineExtensionInstanceViewArgs:
     def type_handler_version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type_handler_version", value)
 
+
+if not MYPY:
+    class MachineExtensionPropertiesInstanceViewArgsDict(TypedDict):
+        """
+        The machine extension instance view.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The machine extension name.
+        """
+        status: NotRequired[pulumi.Input['MachineExtensionInstanceViewStatusArgsDict']]
+        """
+        Instance view status.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the type of the extension; an example is "CustomScriptExtension".
+        """
+        type_handler_version: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the version of the script handler.
+        """
+elif False:
+    MachineExtensionPropertiesInstanceViewArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MachineExtensionPropertiesInstanceViewArgs:
@@ -323,6 +437,15 @@ class MachineExtensionPropertiesInstanceViewArgs:
         pulumi.set(self, "type_handler_version", value)
 
 
+if not MYPY:
+    class MachineIdentityArgsDict(TypedDict):
+        type: NotRequired[pulumi.Input[str]]
+        """
+        The identity type.
+        """
+elif False:
+    MachineIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MachineIdentityArgs:
     def __init__(__self__, *,
@@ -345,6 +468,18 @@ class MachineIdentityArgs:
     def type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class PrivateEndpointPropertyArgsDict(TypedDict):
+        """
+        Private endpoint which the connection belongs to.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource id of the private endpoint.
+        """
+elif False:
+    PrivateEndpointPropertyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PrivateEndpointPropertyArgs:
@@ -369,6 +504,22 @@ class PrivateEndpointPropertyArgs:
     def id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class PrivateLinkServiceConnectionStatePropertyArgsDict(TypedDict):
+        """
+        State of the private endpoint connection.
+        """
+        description: pulumi.Input[str]
+        """
+        The private link service connection description.
+        """
+        status: pulumi.Input[str]
+        """
+        The private link service connection status.
+        """
+elif False:
+    PrivateLinkServiceConnectionStatePropertyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PrivateLinkServiceConnectionStatePropertyArgs:

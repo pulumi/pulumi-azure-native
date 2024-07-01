@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -136,12 +141,12 @@ class SoftwareUpdateConfigurationByName(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  automation_account_name: Optional[pulumi.Input[str]] = None,
-                 error: Optional[pulumi.Input[pulumi.InputType['ErrorResponseArgs']]] = None,
+                 error: Optional[pulumi.Input[Union['ErrorResponseArgs', 'ErrorResponseArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 schedule_info: Optional[pulumi.Input[pulumi.InputType['SchedulePropertiesArgs']]] = None,
+                 schedule_info: Optional[pulumi.Input[Union['SchedulePropertiesArgs', 'SchedulePropertiesArgsDict']]] = None,
                  software_update_configuration_name: Optional[pulumi.Input[str]] = None,
-                 tasks: Optional[pulumi.Input[pulumi.InputType['SoftwareUpdateConfigurationTasksArgs']]] = None,
-                 update_configuration: Optional[pulumi.Input[pulumi.InputType['UpdateConfigurationArgs']]] = None,
+                 tasks: Optional[pulumi.Input[Union['SoftwareUpdateConfigurationTasksArgs', 'SoftwareUpdateConfigurationTasksArgsDict']]] = None,
+                 update_configuration: Optional[pulumi.Input[Union['UpdateConfigurationArgs', 'UpdateConfigurationArgsDict']]] = None,
                  __props__=None):
         """
         Software update configuration properties.
@@ -149,12 +154,12 @@ class SoftwareUpdateConfigurationByName(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] automation_account_name: The name of the automation account.
-        :param pulumi.Input[pulumi.InputType['ErrorResponseArgs']] error: Details of provisioning error
+        :param pulumi.Input[Union['ErrorResponseArgs', 'ErrorResponseArgsDict']] error: Details of provisioning error
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
-        :param pulumi.Input[pulumi.InputType['SchedulePropertiesArgs']] schedule_info: Schedule information for the Software update configuration
+        :param pulumi.Input[Union['SchedulePropertiesArgs', 'SchedulePropertiesArgsDict']] schedule_info: Schedule information for the Software update configuration
         :param pulumi.Input[str] software_update_configuration_name: The name of the software update configuration to be created.
-        :param pulumi.Input[pulumi.InputType['SoftwareUpdateConfigurationTasksArgs']] tasks: Tasks information for the Software update configuration.
-        :param pulumi.Input[pulumi.InputType['UpdateConfigurationArgs']] update_configuration: update specific properties for the Software update configuration
+        :param pulumi.Input[Union['SoftwareUpdateConfigurationTasksArgs', 'SoftwareUpdateConfigurationTasksArgsDict']] tasks: Tasks information for the Software update configuration.
+        :param pulumi.Input[Union['UpdateConfigurationArgs', 'UpdateConfigurationArgsDict']] update_configuration: update specific properties for the Software update configuration
         """
         ...
     @overload
@@ -181,12 +186,12 @@ class SoftwareUpdateConfigurationByName(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  automation_account_name: Optional[pulumi.Input[str]] = None,
-                 error: Optional[pulumi.Input[pulumi.InputType['ErrorResponseArgs']]] = None,
+                 error: Optional[pulumi.Input[Union['ErrorResponseArgs', 'ErrorResponseArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 schedule_info: Optional[pulumi.Input[pulumi.InputType['SchedulePropertiesArgs']]] = None,
+                 schedule_info: Optional[pulumi.Input[Union['SchedulePropertiesArgs', 'SchedulePropertiesArgsDict']]] = None,
                  software_update_configuration_name: Optional[pulumi.Input[str]] = None,
-                 tasks: Optional[pulumi.Input[pulumi.InputType['SoftwareUpdateConfigurationTasksArgs']]] = None,
-                 update_configuration: Optional[pulumi.Input[pulumi.InputType['UpdateConfigurationArgs']]] = None,
+                 tasks: Optional[pulumi.Input[Union['SoftwareUpdateConfigurationTasksArgs', 'SoftwareUpdateConfigurationTasksArgsDict']]] = None,
+                 update_configuration: Optional[pulumi.Input[Union['UpdateConfigurationArgs', 'UpdateConfigurationArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -366,23 +371,23 @@ class Server(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  administrator_login: Optional[pulumi.Input[str]] = None,
                  administrator_login_password: Optional[pulumi.Input[str]] = None,
-                 auth_config: Optional[pulumi.Input[pulumi.InputType['AuthConfigArgs']]] = None,
+                 auth_config: Optional[pulumi.Input[Union['AuthConfigArgs', 'AuthConfigArgsDict']]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
-                 backup: Optional[pulumi.Input[pulumi.InputType['BackupArgs']]] = None,
+                 backup: Optional[pulumi.Input[Union['BackupArgs', 'BackupArgsDict']]] = None,
                  create_mode: Optional[pulumi.Input[Union[str, 'CreateMode']]] = None,
-                 data_encryption: Optional[pulumi.Input[pulumi.InputType['DataEncryptionArgs']]] = None,
-                 high_availability: Optional[pulumi.Input[pulumi.InputType['HighAvailabilityArgs']]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['UserAssignedIdentityArgs']]] = None,
+                 data_encryption: Optional[pulumi.Input[Union['DataEncryptionArgs', 'DataEncryptionArgsDict']]] = None,
+                 high_availability: Optional[pulumi.Input[Union['HighAvailabilityArgs', 'HighAvailabilityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['UserAssignedIdentityArgs', 'UserAssignedIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 maintenance_window: Optional[pulumi.Input[pulumi.InputType['MaintenanceWindowArgs']]] = None,
-                 network: Optional[pulumi.Input[pulumi.InputType['NetworkArgs']]] = None,
+                 maintenance_window: Optional[pulumi.Input[Union['MaintenanceWindowArgs', 'MaintenanceWindowArgsDict']]] = None,
+                 network: Optional[pulumi.Input[Union['NetworkArgs', 'NetworkArgsDict']]] = None,
                  point_in_time_utc: Optional[pulumi.Input[str]] = None,
                  replication_role: Optional[pulumi.Input[Union[str, 'ReplicationRole']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  source_server_resource_id: Optional[pulumi.Input[str]] = None,
-                 storage: Optional[pulumi.Input[pulumi.InputType['StorageArgs']]] = None,
+                 storage: Optional[pulumi.Input[Union['StorageArgs', 'StorageArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  version: Optional[pulumi.Input[Union[str, 'ServerVersion']]] = None,
                  __props__=None):
@@ -396,23 +401,23 @@ class Server(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] administrator_login: The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
         :param pulumi.Input[str] administrator_login_password: The administrator login password (required for server creation).
-        :param pulumi.Input[pulumi.InputType['AuthConfigArgs']] auth_config: AuthConfig properties of a server.
+        :param pulumi.Input[Union['AuthConfigArgs', 'AuthConfigArgsDict']] auth_config: AuthConfig properties of a server.
         :param pulumi.Input[str] availability_zone: availability zone information of the server.
-        :param pulumi.Input[pulumi.InputType['BackupArgs']] backup: Backup properties of a server.
+        :param pulumi.Input[Union['BackupArgs', 'BackupArgsDict']] backup: Backup properties of a server.
         :param pulumi.Input[Union[str, 'CreateMode']] create_mode: The mode to create a new PostgreSQL server.
-        :param pulumi.Input[pulumi.InputType['DataEncryptionArgs']] data_encryption: Data encryption properties of a server.
-        :param pulumi.Input[pulumi.InputType['HighAvailabilityArgs']] high_availability: High availability properties of a server.
-        :param pulumi.Input[pulumi.InputType['UserAssignedIdentityArgs']] identity: Describes the identity of the application.
+        :param pulumi.Input[Union['DataEncryptionArgs', 'DataEncryptionArgsDict']] data_encryption: Data encryption properties of a server.
+        :param pulumi.Input[Union['HighAvailabilityArgs', 'HighAvailabilityArgsDict']] high_availability: High availability properties of a server.
+        :param pulumi.Input[Union['UserAssignedIdentityArgs', 'UserAssignedIdentityArgsDict']] identity: Describes the identity of the application.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[pulumi.InputType['MaintenanceWindowArgs']] maintenance_window: Maintenance window properties of a server.
-        :param pulumi.Input[pulumi.InputType['NetworkArgs']] network: Network properties of a server. This Network property is required to be passed only in case you want the server to be Private access server.
+        :param pulumi.Input[Union['MaintenanceWindowArgs', 'MaintenanceWindowArgsDict']] maintenance_window: Maintenance window properties of a server.
+        :param pulumi.Input[Union['NetworkArgs', 'NetworkArgsDict']] network: Network properties of a server. This Network property is required to be passed only in case you want the server to be Private access server.
         :param pulumi.Input[str] point_in_time_utc: Restore point creation time (ISO8601 format), specifying the time to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'GeoRestore'.
         :param pulumi.Input[Union[str, 'ReplicationRole']] replication_role: Replication role of the server
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] server_name: The name of the server.
-        :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The SKU (pricing tier) of the server.
+        :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: The SKU (pricing tier) of the server.
         :param pulumi.Input[str] source_server_resource_id: The source server resource ID to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'GeoRestore' or 'Replica'. This property is returned only for Replica server
-        :param pulumi.Input[pulumi.InputType['StorageArgs']] storage: Storage properties of a server.
+        :param pulumi.Input[Union['StorageArgs', 'StorageArgsDict']] storage: Storage properties of a server.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[Union[str, 'ServerVersion']] version: PostgreSQL Server version.
         """
@@ -445,23 +450,23 @@ class Server(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  administrator_login: Optional[pulumi.Input[str]] = None,
                  administrator_login_password: Optional[pulumi.Input[str]] = None,
-                 auth_config: Optional[pulumi.Input[pulumi.InputType['AuthConfigArgs']]] = None,
+                 auth_config: Optional[pulumi.Input[Union['AuthConfigArgs', 'AuthConfigArgsDict']]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
-                 backup: Optional[pulumi.Input[pulumi.InputType['BackupArgs']]] = None,
+                 backup: Optional[pulumi.Input[Union['BackupArgs', 'BackupArgsDict']]] = None,
                  create_mode: Optional[pulumi.Input[Union[str, 'CreateMode']]] = None,
-                 data_encryption: Optional[pulumi.Input[pulumi.InputType['DataEncryptionArgs']]] = None,
-                 high_availability: Optional[pulumi.Input[pulumi.InputType['HighAvailabilityArgs']]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['UserAssignedIdentityArgs']]] = None,
+                 data_encryption: Optional[pulumi.Input[Union['DataEncryptionArgs', 'DataEncryptionArgsDict']]] = None,
+                 high_availability: Optional[pulumi.Input[Union['HighAvailabilityArgs', 'HighAvailabilityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['UserAssignedIdentityArgs', 'UserAssignedIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 maintenance_window: Optional[pulumi.Input[pulumi.InputType['MaintenanceWindowArgs']]] = None,
-                 network: Optional[pulumi.Input[pulumi.InputType['NetworkArgs']]] = None,
+                 maintenance_window: Optional[pulumi.Input[Union['MaintenanceWindowArgs', 'MaintenanceWindowArgsDict']]] = None,
+                 network: Optional[pulumi.Input[Union['NetworkArgs', 'NetworkArgsDict']]] = None,
                  point_in_time_utc: Optional[pulumi.Input[str]] = None,
                  replication_role: Optional[pulumi.Input[Union[str, 'ReplicationRole']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  source_server_resource_id: Optional[pulumi.Input[str]] = None,
-                 storage: Optional[pulumi.Input[pulumi.InputType['StorageArgs']]] = None,
+                 storage: Optional[pulumi.Input[Union['StorageArgs', 'StorageArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  version: Optional[pulumi.Input[Union[str, 'ServerVersion']]] = None,
                  __props__=None):

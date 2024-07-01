@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -299,11 +304,11 @@ class Budget(pulumi.CustomResource):
                  budget_name: Optional[pulumi.Input[str]] = None,
                  category: Optional[pulumi.Input[Union[str, 'CategoryType']]] = None,
                  e_tag: Optional[pulumi.Input[str]] = None,
-                 filter: Optional[pulumi.Input[pulumi.InputType['BudgetFilterArgs']]] = None,
-                 notifications: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['NotificationArgs']]]]] = None,
+                 filter: Optional[pulumi.Input[Union['BudgetFilterArgs', 'BudgetFilterArgsDict']]] = None,
+                 notifications: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['NotificationArgs', 'NotificationArgsDict']]]]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  time_grain: Optional[pulumi.Input[Union[str, 'TimeGrainType']]] = None,
-                 time_period: Optional[pulumi.Input[pulumi.InputType['BudgetTimePeriodArgs']]] = None,
+                 time_period: Optional[pulumi.Input[Union['BudgetTimePeriodArgs', 'BudgetTimePeriodArgsDict']]] = None,
                  __props__=None):
         """
         A budget resource.
@@ -320,10 +325,10 @@ class Budget(pulumi.CustomResource):
                - 'Cost' defines a Budget.
                - 'ReservationUtilization' defines a Reservation Utilization Alert Rule.
         :param pulumi.Input[str] e_tag: eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
-        :param pulumi.Input[pulumi.InputType['BudgetFilterArgs']] filter: May be used to filter budgets by user-specified dimensions and/or tags.
+        :param pulumi.Input[Union['BudgetFilterArgs', 'BudgetFilterArgsDict']] filter: May be used to filter budgets by user-specified dimensions and/or tags.
                
                 Supported for CategoryType(s): Cost, ReservationUtilization.
-        :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['NotificationArgs']]]] notifications: Dictionary of notifications associated with the budget.
+        :param pulumi.Input[Mapping[str, pulumi.Input[Union['NotificationArgs', 'NotificationArgsDict']]]] notifications: Dictionary of notifications associated with the budget.
                
                 Supported for CategoryType(s): Cost, ReservationUtilization.
                
@@ -378,7 +383,7 @@ class Budget(pulumi.CustomResource):
                - Last30Days
                
                 Required for CategoryType(s): Cost, ReservationUtilization.
-        :param pulumi.Input[pulumi.InputType['BudgetTimePeriodArgs']] time_period: The time period that defines the active period of the budget. The budget will evaluate data on or after the startDate and will expire on the endDate.
+        :param pulumi.Input[Union['BudgetTimePeriodArgs', 'BudgetTimePeriodArgsDict']] time_period: The time period that defines the active period of the budget. The budget will evaluate data on or after the startDate and will expire on the endDate.
                
                 Supported for CategoryType(s): Cost, ReservationUtilization.
                
@@ -412,11 +417,11 @@ class Budget(pulumi.CustomResource):
                  budget_name: Optional[pulumi.Input[str]] = None,
                  category: Optional[pulumi.Input[Union[str, 'CategoryType']]] = None,
                  e_tag: Optional[pulumi.Input[str]] = None,
-                 filter: Optional[pulumi.Input[pulumi.InputType['BudgetFilterArgs']]] = None,
-                 notifications: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['NotificationArgs']]]]] = None,
+                 filter: Optional[pulumi.Input[Union['BudgetFilterArgs', 'BudgetFilterArgsDict']]] = None,
+                 notifications: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['NotificationArgs', 'NotificationArgsDict']]]]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  time_grain: Optional[pulumi.Input[Union[str, 'TimeGrainType']]] = None,
-                 time_period: Optional[pulumi.Input[pulumi.InputType['BudgetTimePeriodArgs']]] = None,
+                 time_period: Optional[pulumi.Input[Union['BudgetTimePeriodArgs', 'BudgetTimePeriodArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

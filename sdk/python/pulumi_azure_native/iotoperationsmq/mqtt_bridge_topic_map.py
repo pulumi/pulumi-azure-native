@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -166,13 +171,13 @@ class MqttBridgeTopicMap(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationPropertyArgs']]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationPropertyArgs', 'ExtendedLocationPropertyArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  mq_name: Optional[pulumi.Input[str]] = None,
                  mqtt_bridge_connector_name: Optional[pulumi.Input[str]] = None,
                  mqtt_bridge_connector_ref: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 routes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MqttBridgeRoutesArgs']]]]] = None,
+                 routes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MqttBridgeRoutesArgs', 'MqttBridgeRoutesArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  topic_map_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -182,13 +187,13 @@ class MqttBridgeTopicMap(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ExtendedLocationPropertyArgs']] extended_location: Extended Location
+        :param pulumi.Input[Union['ExtendedLocationPropertyArgs', 'ExtendedLocationPropertyArgsDict']] extended_location: Extended Location
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] mq_name: Name of MQ resource
         :param pulumi.Input[str] mqtt_bridge_connector_name: Name of MQ mqttBridgeConnector resource
         :param pulumi.Input[str] mqtt_bridge_connector_ref: The MqttBridgeConnector CRD it refers to.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MqttBridgeRoutesArgs']]]] routes: The route details for MqttBridge connector.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MqttBridgeRoutesArgs', 'MqttBridgeRoutesArgsDict']]]] routes: The route details for MqttBridge connector.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] topic_map_name: Name of MQ mqttBridgeTopicMap resource
         """
@@ -217,13 +222,13 @@ class MqttBridgeTopicMap(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationPropertyArgs']]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationPropertyArgs', 'ExtendedLocationPropertyArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  mq_name: Optional[pulumi.Input[str]] = None,
                  mqtt_bridge_connector_name: Optional[pulumi.Input[str]] = None,
                  mqtt_bridge_connector_ref: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 routes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MqttBridgeRoutesArgs']]]]] = None,
+                 routes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MqttBridgeRoutesArgs', 'MqttBridgeRoutesArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  topic_map_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -140,7 +145,7 @@ class KustoTableDataSet(pulumi.CustomResource):
                  kusto_database_resource_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  share_name: Optional[pulumi.Input[str]] = None,
-                 table_level_sharing_properties: Optional[pulumi.Input[pulumi.InputType['TableLevelSharingPropertiesArgs']]] = None,
+                 table_level_sharing_properties: Optional[pulumi.Input[Union['TableLevelSharingPropertiesArgs', 'TableLevelSharingPropertiesArgsDict']]] = None,
                  __props__=None):
         """
         A kusto table data set.
@@ -155,7 +160,7 @@ class KustoTableDataSet(pulumi.CustomResource):
         :param pulumi.Input[str] kusto_database_resource_id: Resource id of the kusto database.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[str] share_name: The name of the share to add the data set to.
-        :param pulumi.Input[pulumi.InputType['TableLevelSharingPropertiesArgs']] table_level_sharing_properties: Table level sharing properties for kusto database
+        :param pulumi.Input[Union['TableLevelSharingPropertiesArgs', 'TableLevelSharingPropertiesArgsDict']] table_level_sharing_properties: Table level sharing properties for kusto database
         """
         ...
     @overload
@@ -188,7 +193,7 @@ class KustoTableDataSet(pulumi.CustomResource):
                  kusto_database_resource_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  share_name: Optional[pulumi.Input[str]] = None,
-                 table_level_sharing_properties: Optional[pulumi.Input[pulumi.InputType['TableLevelSharingPropertiesArgs']]] = None,
+                 table_level_sharing_properties: Optional[pulumi.Input[Union['TableLevelSharingPropertiesArgs', 'TableLevelSharingPropertiesArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

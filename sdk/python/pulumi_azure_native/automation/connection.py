@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -136,7 +141,7 @@ class Connection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  automation_account_name: Optional[pulumi.Input[str]] = None,
                  connection_name: Optional[pulumi.Input[str]] = None,
-                 connection_type: Optional[pulumi.Input[pulumi.InputType['ConnectionTypeAssociationPropertyArgs']]] = None,
+                 connection_type: Optional[pulumi.Input[Union['ConnectionTypeAssociationPropertyArgs', 'ConnectionTypeAssociationPropertyArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  field_definition_values: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -152,7 +157,7 @@ class Connection(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] automation_account_name: The name of the automation account.
         :param pulumi.Input[str] connection_name: The parameters supplied to the create or update connection operation.
-        :param pulumi.Input[pulumi.InputType['ConnectionTypeAssociationPropertyArgs']] connection_type: Gets or sets the connectionType of the connection.
+        :param pulumi.Input[Union['ConnectionTypeAssociationPropertyArgs', 'ConnectionTypeAssociationPropertyArgsDict']] connection_type: Gets or sets the connectionType of the connection.
         :param pulumi.Input[str] description: Gets or sets the description of the connection.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] field_definition_values: Gets or sets the field definition properties of the connection.
         :param pulumi.Input[str] name: Gets or sets the name of the connection.
@@ -187,7 +192,7 @@ class Connection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  automation_account_name: Optional[pulumi.Input[str]] = None,
                  connection_name: Optional[pulumi.Input[str]] = None,
-                 connection_type: Optional[pulumi.Input[pulumi.InputType['ConnectionTypeAssociationPropertyArgs']]] = None,
+                 connection_type: Optional[pulumi.Input[Union['ConnectionTypeAssociationPropertyArgs', 'ConnectionTypeAssociationPropertyArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  field_definition_values: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,

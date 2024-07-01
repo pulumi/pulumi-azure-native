@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -235,14 +240,14 @@ class View(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  accumulated: Optional[pulumi.Input[Union[str, 'AccumulatedType']]] = None,
                  chart: Optional[pulumi.Input[Union[str, 'ChartType']]] = None,
-                 data_set: Optional[pulumi.Input[pulumi.InputType['ReportConfigDatasetArgs']]] = None,
+                 data_set: Optional[pulumi.Input[Union['ReportConfigDatasetArgs', 'ReportConfigDatasetArgsDict']]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  e_tag: Optional[pulumi.Input[str]] = None,
-                 kpis: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KpiPropertiesArgs']]]]] = None,
+                 kpis: Optional[pulumi.Input[Sequence[pulumi.Input[Union['KpiPropertiesArgs', 'KpiPropertiesArgsDict']]]]] = None,
                  metric: Optional[pulumi.Input[Union[str, 'MetricType']]] = None,
-                 pivots: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PivotPropertiesArgs']]]]] = None,
+                 pivots: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PivotPropertiesArgs', 'PivotPropertiesArgsDict']]]]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
-                 time_period: Optional[pulumi.Input[pulumi.InputType['ReportConfigTimePeriodArgs']]] = None,
+                 time_period: Optional[pulumi.Input[Union['ReportConfigTimePeriodArgs', 'ReportConfigTimePeriodArgsDict']]] = None,
                  timeframe: Optional[pulumi.Input[Union[str, 'ReportTimeframeType']]] = None,
                  type: Optional[pulumi.Input[Union[str, 'ReportType']]] = None,
                  view_name: Optional[pulumi.Input[str]] = None,
@@ -254,14 +259,14 @@ class View(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[str, 'AccumulatedType']] accumulated: Show costs accumulated over time.
         :param pulumi.Input[Union[str, 'ChartType']] chart: Chart type of the main view in Cost Analysis. Required.
-        :param pulumi.Input[pulumi.InputType['ReportConfigDatasetArgs']] data_set: Has definition for data in this report config.
+        :param pulumi.Input[Union['ReportConfigDatasetArgs', 'ReportConfigDatasetArgsDict']] data_set: Has definition for data in this report config.
         :param pulumi.Input[str] display_name: User input name of the view. Required.
         :param pulumi.Input[str] e_tag: eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KpiPropertiesArgs']]]] kpis: List of KPIs to show in Cost Analysis UI.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['KpiPropertiesArgs', 'KpiPropertiesArgsDict']]]] kpis: List of KPIs to show in Cost Analysis UI.
         :param pulumi.Input[Union[str, 'MetricType']] metric: Metric to use when displaying costs.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PivotPropertiesArgs']]]] pivots: Configuration of 3 sub-views in the Cost Analysis UI.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PivotPropertiesArgs', 'PivotPropertiesArgsDict']]]] pivots: Configuration of 3 sub-views in the Cost Analysis UI.
         :param pulumi.Input[str] scope: Cost Management scope to save the view on. This includes 'subscriptions/{subscriptionId}' for subscription scope, 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for BillingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for InvoiceSection scope, 'providers/Microsoft.Management/managementGroups/{managementGroupId}' for Management Group scope, '/providers/Microsoft.CostManagement/externalBillingAccounts/{externalBillingAccountName}' for ExternalBillingAccount scope, and '/providers/Microsoft.CostManagement/externalSubscriptions/{externalSubscriptionName}' for ExternalSubscription scope.
-        :param pulumi.Input[pulumi.InputType['ReportConfigTimePeriodArgs']] time_period: Has time period for pulling data for the report.
+        :param pulumi.Input[Union['ReportConfigTimePeriodArgs', 'ReportConfigTimePeriodArgsDict']] time_period: Has time period for pulling data for the report.
         :param pulumi.Input[Union[str, 'ReportTimeframeType']] timeframe: The time frame for pulling data for the report. If custom, then a specific time period must be provided.
         :param pulumi.Input[Union[str, 'ReportType']] type: The type of the report. Usage represents actual usage, forecast represents forecasted data and UsageAndForecast represents both usage and forecasted data. Actual usage and forecasted data can be differentiated based on dates.
         :param pulumi.Input[str] view_name: View name
@@ -292,14 +297,14 @@ class View(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  accumulated: Optional[pulumi.Input[Union[str, 'AccumulatedType']]] = None,
                  chart: Optional[pulumi.Input[Union[str, 'ChartType']]] = None,
-                 data_set: Optional[pulumi.Input[pulumi.InputType['ReportConfigDatasetArgs']]] = None,
+                 data_set: Optional[pulumi.Input[Union['ReportConfigDatasetArgs', 'ReportConfigDatasetArgsDict']]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  e_tag: Optional[pulumi.Input[str]] = None,
-                 kpis: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KpiPropertiesArgs']]]]] = None,
+                 kpis: Optional[pulumi.Input[Sequence[pulumi.Input[Union['KpiPropertiesArgs', 'KpiPropertiesArgsDict']]]]] = None,
                  metric: Optional[pulumi.Input[Union[str, 'MetricType']]] = None,
-                 pivots: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PivotPropertiesArgs']]]]] = None,
+                 pivots: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PivotPropertiesArgs', 'PivotPropertiesArgsDict']]]]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
-                 time_period: Optional[pulumi.Input[pulumi.InputType['ReportConfigTimePeriodArgs']]] = None,
+                 time_period: Optional[pulumi.Input[Union['ReportConfigTimePeriodArgs', 'ReportConfigTimePeriodArgsDict']]] = None,
                  timeframe: Optional[pulumi.Input[Union[str, 'ReportTimeframeType']]] = None,
                  type: Optional[pulumi.Input[Union[str, 'ReportType']]] = None,
                  view_name: Optional[pulumi.Input[str]] = None,

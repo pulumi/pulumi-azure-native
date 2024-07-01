@@ -4,48 +4,105 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'AmbrArgs',
+    'AmbrArgsDict',
     'AttachedDataNetworkResourceIdArgs',
+    'AttachedDataNetworkResourceIdArgsDict',
     'AzureStackEdgeDeviceResourceIdArgs',
+    'AzureStackEdgeDeviceResourceIdArgsDict',
     'AzureStackHCIClusterResourceIdArgs',
+    'AzureStackHCIClusterResourceIdArgsDict',
     'ConnectedClusterResourceIdArgs',
+    'ConnectedClusterResourceIdArgsDict',
     'CustomLocationResourceIdArgs',
+    'CustomLocationResourceIdArgsDict',
     'DataNetworkConfigurationArgs',
+    'DataNetworkConfigurationArgsDict',
     'DataNetworkResourceIdArgs',
+    'DataNetworkResourceIdArgsDict',
     'DiagnosticsUploadConfigurationArgs',
+    'DiagnosticsUploadConfigurationArgsDict',
     'HttpsServerCertificateArgs',
+    'HttpsServerCertificateArgsDict',
     'InstallationArgs',
+    'InstallationArgsDict',
     'InterfacePropertiesArgs',
+    'InterfacePropertiesArgsDict',
     'KeyVaultKeyArgs',
+    'KeyVaultKeyArgsDict',
     'LocalDiagnosticsAccessConfigurationArgs',
+    'LocalDiagnosticsAccessConfigurationArgsDict',
     'ManagedServiceIdentityArgs',
+    'ManagedServiceIdentityArgsDict',
     'MobileNetworkResourceIdArgs',
+    'MobileNetworkResourceIdArgsDict',
     'NaptConfigurationArgs',
+    'NaptConfigurationArgsDict',
     'PccRuleConfigurationArgs',
+    'PccRuleConfigurationArgsDict',
     'PccRuleQosPolicyArgs',
+    'PccRuleQosPolicyArgsDict',
     'PinholeTimeoutsArgs',
+    'PinholeTimeoutsArgsDict',
     'PlatformConfigurationArgs',
+    'PlatformConfigurationArgsDict',
     'PlmnIdArgs',
+    'PlmnIdArgsDict',
     'PortRangeArgs',
+    'PortRangeArgsDict',
     'PortReuseHoldTimesArgs',
+    'PortReuseHoldTimesArgsDict',
     'QosPolicyArgs',
+    'QosPolicyArgsDict',
     'ServiceDataFlowTemplateArgs',
+    'ServiceDataFlowTemplateArgsDict',
     'ServiceResourceIdArgs',
+    'ServiceResourceIdArgsDict',
     'SimPolicyResourceIdArgs',
+    'SimPolicyResourceIdArgsDict',
     'SimStaticIpPropertiesStaticIpArgs',
+    'SimStaticIpPropertiesStaticIpArgsDict',
     'SimStaticIpPropertiesArgs',
+    'SimStaticIpPropertiesArgsDict',
     'SiteResourceIdArgs',
+    'SiteResourceIdArgsDict',
     'SliceConfigurationArgs',
+    'SliceConfigurationArgsDict',
     'SliceResourceIdArgs',
+    'SliceResourceIdArgsDict',
     'SnssaiArgs',
+    'SnssaiArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AmbrArgsDict(TypedDict):
+        """
+        Aggregate maximum bit rate.
+        """
+        downlink: pulumi.Input[str]
+        """
+        Downlink bit rate.
+        """
+        uplink: pulumi.Input[str]
+        """
+        Uplink bit rate.
+        """
+elif False:
+    AmbrArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AmbrArgs:
@@ -85,6 +142,18 @@ class AmbrArgs:
         pulumi.set(self, "uplink", value)
 
 
+if not MYPY:
+    class AttachedDataNetworkResourceIdArgsDict(TypedDict):
+        """
+        Reference to an attached data network resource.
+        """
+        id: pulumi.Input[str]
+        """
+        Attached data network resource ID.
+        """
+elif False:
+    AttachedDataNetworkResourceIdArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AttachedDataNetworkResourceIdArgs:
     def __init__(__self__, *,
@@ -107,6 +176,18 @@ class AttachedDataNetworkResourceIdArgs:
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class AzureStackEdgeDeviceResourceIdArgsDict(TypedDict):
+        """
+        Reference to an Azure Stack Edge device resource.
+        """
+        id: pulumi.Input[str]
+        """
+        Azure Stack Edge device resource ID.
+        """
+elif False:
+    AzureStackEdgeDeviceResourceIdArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AzureStackEdgeDeviceResourceIdArgs:
@@ -131,6 +212,18 @@ class AzureStackEdgeDeviceResourceIdArgs:
         pulumi.set(self, "id", value)
 
 
+if not MYPY:
+    class AzureStackHCIClusterResourceIdArgsDict(TypedDict):
+        """
+        Reference to an Azure Stack HCI cluster resource.
+        """
+        id: pulumi.Input[str]
+        """
+        Azure Stack HCI cluster resource ID.
+        """
+elif False:
+    AzureStackHCIClusterResourceIdArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AzureStackHCIClusterResourceIdArgs:
     def __init__(__self__, *,
@@ -153,6 +246,18 @@ class AzureStackHCIClusterResourceIdArgs:
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class ConnectedClusterResourceIdArgsDict(TypedDict):
+        """
+        Reference to an Azure Arc custom location resource.
+        """
+        id: pulumi.Input[str]
+        """
+        Azure Arc connected cluster resource ID.
+        """
+elif False:
+    ConnectedClusterResourceIdArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ConnectedClusterResourceIdArgs:
@@ -177,6 +282,18 @@ class ConnectedClusterResourceIdArgs:
         pulumi.set(self, "id", value)
 
 
+if not MYPY:
+    class CustomLocationResourceIdArgsDict(TypedDict):
+        """
+        Reference to an Azure Arc custom location resource.
+        """
+        id: pulumi.Input[str]
+        """
+        Azure Arc custom location resource ID.
+        """
+elif False:
+    CustomLocationResourceIdArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CustomLocationResourceIdArgs:
     def __init__(__self__, *,
@@ -199,6 +316,54 @@ class CustomLocationResourceIdArgs:
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class DataNetworkConfigurationArgsDict(TypedDict):
+        """
+        Settings controlling data network use
+        """
+        allowed_services: pulumi.Input[Sequence[pulumi.Input['ServiceResourceIdArgsDict']]]
+        """
+        List of services that can be used as part of this SIM policy. The list must not contain duplicate items and must contain at least one item. The services must be in the same location as the SIM policy.
+        """
+        data_network: pulumi.Input['DataNetworkResourceIdArgsDict']
+        """
+        A reference to the data network that these settings apply to. The data network must be in the same location as the SIM policy.
+        """
+        session_ambr: pulumi.Input['AmbrArgsDict']
+        """
+        Aggregate maximum bit rate across all non-GBR QoS flows of a given PDU session. See 3GPP TS23.501 section 5.7.2.6 for a full description of the Session-AMBR.
+        """
+        additional_allowed_session_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'PduSessionType']]]]]
+        """
+        Allowed session types in addition to the default session type. Must not duplicate the default session type.
+        """
+        allocation_and_retention_priority_level: NotRequired[pulumi.Input[int]]
+        """
+        Default QoS Flow allocation and retention priority (ARP) level. Flows with higher priority preempt flows with lower priority, if the settings of `preemptionCapability` and `preemptionVulnerability` allow it. 1 is the highest level of priority. If this field is not specified then `5qi` is used to derive the ARP value. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
+        """
+        default_session_type: NotRequired[pulumi.Input[Union[str, 'PduSessionType']]]
+        """
+        The default PDU session type, which is used if the UE does not request a specific session type.
+        """
+        five_qi: NotRequired[pulumi.Input[int]]
+        """
+        Default 5G QoS Flow Indicator value. The 5QI identifies a specific QoS forwarding treatment to be provided to a flow. See 3GPP TS23.501 section 5.7.2.1 for a full description of the 5QI parameter, and table 5.7.4-1 for the definition the 5QI values.
+        """
+        maximum_number_of_buffered_packets: NotRequired[pulumi.Input[int]]
+        """
+        The maximum number of downlink packets to buffer at the user plane for High Latency Communication - Extended Buffering. See 3GPP TS29.272 v15.10.0 section 7.3.188 for a full description. This maximum is not guaranteed because there is a internal limit on buffered packets across all PDU sessions.
+        """
+        preemption_capability: NotRequired[pulumi.Input[Union[str, 'PreemptionCapability']]]
+        """
+        Default QoS Flow preemption capability. The preemption capability of a QoS Flow controls whether it can preempt another QoS Flow with a lower priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
+        """
+        preemption_vulnerability: NotRequired[pulumi.Input[Union[str, 'PreemptionVulnerability']]]
+        """
+        Default QoS Flow preemption vulnerability. The preemption vulnerability of a QoS Flow controls whether it can be preempted by a QoS Flow with a higher priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
+        """
+elif False:
+    DataNetworkConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataNetworkConfigurationArgs:
@@ -377,6 +542,18 @@ class DataNetworkConfigurationArgs:
         pulumi.set(self, "preemption_vulnerability", value)
 
 
+if not MYPY:
+    class DataNetworkResourceIdArgsDict(TypedDict):
+        """
+        Reference to a data network resource.
+        """
+        id: pulumi.Input[str]
+        """
+        Data network resource ID.
+        """
+elif False:
+    DataNetworkResourceIdArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DataNetworkResourceIdArgs:
     def __init__(__self__, *,
@@ -399,6 +576,18 @@ class DataNetworkResourceIdArgs:
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class DiagnosticsUploadConfigurationArgsDict(TypedDict):
+        """
+        Configuration for uploading packet core diagnostics.
+        """
+        storage_account_container_url: pulumi.Input[str]
+        """
+        The Storage Account Container URL to upload diagnostics to.
+        """
+elif False:
+    DiagnosticsUploadConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DiagnosticsUploadConfigurationArgs:
@@ -423,6 +612,18 @@ class DiagnosticsUploadConfigurationArgs:
         pulumi.set(self, "storage_account_container_url", value)
 
 
+if not MYPY:
+    class HttpsServerCertificateArgsDict(TypedDict):
+        """
+        HTTPS server certificate configuration.
+        """
+        certificate_url: pulumi.Input[str]
+        """
+        The certificate URL, unversioned. For example: https://contosovault.vault.azure.net/certificates/ingress.
+        """
+elif False:
+    HttpsServerCertificateArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class HttpsServerCertificateArgs:
     def __init__(__self__, *,
@@ -445,6 +646,18 @@ class HttpsServerCertificateArgs:
     def certificate_url(self, value: pulumi.Input[str]):
         pulumi.set(self, "certificate_url", value)
 
+
+if not MYPY:
+    class InstallationArgsDict(TypedDict):
+        """
+        The installation state of the packet core.
+        """
+        desired_state: NotRequired[pulumi.Input[Union[str, 'DesiredInstallationState']]]
+        """
+        The desired installation state
+        """
+elif False:
+    InstallationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InstallationArgs:
@@ -471,6 +684,30 @@ class InstallationArgs:
     def desired_state(self, value: Optional[pulumi.Input[Union[str, 'DesiredInstallationState']]]):
         pulumi.set(self, "desired_state", value)
 
+
+if not MYPY:
+    class InterfacePropertiesArgsDict(TypedDict):
+        """
+        Interface properties
+        """
+        ipv4_address: NotRequired[pulumi.Input[str]]
+        """
+        The IPv4 address.
+        """
+        ipv4_gateway: NotRequired[pulumi.Input[str]]
+        """
+        The default IPv4 gateway (router).
+        """
+        ipv4_subnet: NotRequired[pulumi.Input[str]]
+        """
+        The IPv4 subnet.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The logical name for this interface. This should match one of the interfaces configured on your Azure Stack Edge device.
+        """
+elif False:
+    InterfacePropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InterfacePropertiesArgs:
@@ -544,6 +781,18 @@ class InterfacePropertiesArgs:
         pulumi.set(self, "name", value)
 
 
+if not MYPY:
+    class KeyVaultKeyArgsDict(TypedDict):
+        """
+        An Azure key vault key.
+        """
+        key_url: NotRequired[pulumi.Input[str]]
+        """
+        The key URL, unversioned. For example: https://contosovault.vault.azure.net/keys/azureKey.
+        """
+elif False:
+    KeyVaultKeyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class KeyVaultKeyArgs:
     def __init__(__self__, *,
@@ -567,6 +816,22 @@ class KeyVaultKeyArgs:
     def key_url(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "key_url", value)
 
+
+if not MYPY:
+    class LocalDiagnosticsAccessConfigurationArgsDict(TypedDict):
+        """
+        The kubernetes ingress configuration to control access to packet core diagnostics over local APIs.
+        """
+        authentication_type: pulumi.Input[Union[str, 'AuthenticationType']]
+        """
+        How to authenticate users who access local diagnostics APIs.
+        """
+        https_server_certificate: NotRequired[pulumi.Input['HttpsServerCertificateArgsDict']]
+        """
+        The HTTPS server TLS certificate used to secure local access to diagnostics.
+        """
+elif False:
+    LocalDiagnosticsAccessConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LocalDiagnosticsAccessConfigurationArgs:
@@ -607,6 +872,22 @@ class LocalDiagnosticsAccessConfigurationArgs:
         pulumi.set(self, "https_server_certificate", value)
 
 
+if not MYPY:
+    class ManagedServiceIdentityArgsDict(TypedDict):
+        """
+        Managed service identity (User assigned identity)
+        """
+        type: pulumi.Input[Union[str, 'ManagedServiceIdentityType']]
+        """
+        Type of managed service identity (currently only UserAssigned allowed).
+        """
+        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        """
+elif False:
+    ManagedServiceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ManagedServiceIdentityArgs:
     def __init__(__self__, *,
@@ -646,6 +927,18 @@ class ManagedServiceIdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
+if not MYPY:
+    class MobileNetworkResourceIdArgsDict(TypedDict):
+        """
+        Reference to a mobile network resource.
+        """
+        id: pulumi.Input[str]
+        """
+        Mobile network resource ID.
+        """
+elif False:
+    MobileNetworkResourceIdArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MobileNetworkResourceIdArgs:
     def __init__(__self__, *,
@@ -668,6 +961,36 @@ class MobileNetworkResourceIdArgs:
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class NaptConfigurationArgsDict(TypedDict):
+        """
+        The network address and port translation settings to use for the attached data network.
+        """
+        enabled: NotRequired[pulumi.Input[Union[str, 'NaptEnabled']]]
+        """
+        Whether NAPT is enabled for connections to this attached data network.
+        """
+        pinhole_limits: NotRequired[pulumi.Input[int]]
+        """
+        Maximum number of UDP and TCP pinholes that can be open simultaneously on the core interface. For 5G networks, this is the N6 interface. For 4G networks, this is the SGi interface.
+        """
+        pinhole_timeouts: NotRequired[pulumi.Input['PinholeTimeoutsArgsDict']]
+        """
+        Expiry times of inactive NAPT pinholes, in seconds. All timers must be at least 1 second.
+        """
+        port_range: NotRequired[pulumi.Input['PortRangeArgsDict']]
+        """
+        Range of port numbers to use as translated ports on each translated address.
+        If not specified and NAPT is enabled, this range defaults to 1,024 - 49,999.
+        (Ports under 1,024 should not be used because these are special purpose ports reserved by IANA. Ports 50,000 and above are reserved for non-NAPT use.)
+        """
+        port_reuse_hold_time: NotRequired[pulumi.Input['PortReuseHoldTimesArgsDict']]
+        """
+        The minimum time (in seconds) that will pass before a port that was used by a closed pinhole can be recycled for use by another pinhole. All hold times must be at least 1 second.
+        """
+elif False:
+    NaptConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NaptConfigurationArgs:
@@ -763,6 +1086,34 @@ class NaptConfigurationArgs:
         pulumi.set(self, "port_reuse_hold_time", value)
 
 
+if not MYPY:
+    class PccRuleConfigurationArgsDict(TypedDict):
+        """
+        Data flow policy rule configuration
+        """
+        rule_name: pulumi.Input[str]
+        """
+        The name of the rule. This must be unique within the parent service. You must not use any of the following reserved strings - `default`, `requested` or `service`.
+        """
+        rule_precedence: pulumi.Input[int]
+        """
+        A precedence value that is used to decide between data flow policy rules when identifying the QoS values to use for a particular SIM. A lower value means a higher priority. This value should be unique among all data flow policy rules configured in the mobile network.
+        """
+        service_data_flow_templates: pulumi.Input[Sequence[pulumi.Input['ServiceDataFlowTemplateArgsDict']]]
+        """
+        The set of data flow templates to use for this data flow policy rule.
+        """
+        rule_qos_policy: NotRequired[pulumi.Input['PccRuleQosPolicyArgsDict']]
+        """
+        The QoS policy to use for packets matching this rule. If this field is null then the parent service will define the QoS settings.
+        """
+        traffic_control: NotRequired[pulumi.Input[Union[str, 'TrafficControlPermission']]]
+        """
+        Determines whether flows that match this data flow policy rule are permitted.
+        """
+elif False:
+    PccRuleConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PccRuleConfigurationArgs:
     def __init__(__self__, *,
@@ -849,6 +1200,38 @@ class PccRuleConfigurationArgs:
     def traffic_control(self, value: Optional[pulumi.Input[Union[str, 'TrafficControlPermission']]]):
         pulumi.set(self, "traffic_control", value)
 
+
+if not MYPY:
+    class PccRuleQosPolicyArgsDict(TypedDict):
+        """
+        Data flow policy rule QoS policy
+        """
+        maximum_bit_rate: pulumi.Input['AmbrArgsDict']
+        """
+        The maximum bit rate (MBR) for all service data flows that use this data flow policy rule or service.
+        """
+        allocation_and_retention_priority_level: NotRequired[pulumi.Input[int]]
+        """
+        QoS Flow allocation and retention priority (ARP) level. Flows with higher priority preempt flows with lower priority, if the settings of `preemptionCapability` and `preemptionVulnerability` allow it. 1 is the highest level of priority. If this field is not specified then `5qi` is used to derive the ARP value. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
+        """
+        five_qi: NotRequired[pulumi.Input[int]]
+        """
+        5G QoS Flow Indicator value. The 5QI identifies a specific QoS forwarding treatment to be provided to a flow. See 3GPP TS23.501 section 5.7.2.1 for a full description of the 5QI parameter, and table 5.7.4-1 for the definition the 5QI values.
+        """
+        guaranteed_bit_rate: NotRequired[pulumi.Input['AmbrArgsDict']]
+        """
+        The guaranteed bit rate (GBR) for all service data flows that use this data flow policy rule. This is an optional setting. If you do not provide a value, there will be no GBR set for the data flow policy rule that uses this QoS definition.
+        """
+        preemption_capability: NotRequired[pulumi.Input[Union[str, 'PreemptionCapability']]]
+        """
+        QoS Flow preemption capability. The preemption capability of a QoS Flow controls whether it can preempt another QoS Flow with a lower priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
+        """
+        preemption_vulnerability: NotRequired[pulumi.Input[Union[str, 'PreemptionVulnerability']]]
+        """
+        QoS Flow preemption vulnerability. The preemption vulnerability of a QoS Flow controls whether it can be preempted by a QoS Flow with a higher priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
+        """
+elif False:
+    PccRuleQosPolicyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PccRuleQosPolicyArgs:
@@ -961,6 +1344,26 @@ class PccRuleQosPolicyArgs:
         pulumi.set(self, "preemption_vulnerability", value)
 
 
+if not MYPY:
+    class PinholeTimeoutsArgsDict(TypedDict):
+        """
+        Expiry times of inactive NAPT pinholes, in seconds. All timers must be at least 1 second.
+        """
+        icmp: NotRequired[pulumi.Input[int]]
+        """
+        Pinhole timeout for ICMP pinholes in seconds. Default for ICMP Echo is 30 seconds.
+        """
+        tcp: NotRequired[pulumi.Input[int]]
+        """
+        Pinhole timeout for TCP pinholes in seconds. Default for TCP is 3 minutes.
+        """
+        udp: NotRequired[pulumi.Input[int]]
+        """
+        Pinhole timeout for UDP pinholes in seconds. Default for UDP is 30 seconds.
+        """
+elif False:
+    PinholeTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PinholeTimeoutsArgs:
     def __init__(__self__, *,
@@ -1022,6 +1425,34 @@ class PinholeTimeoutsArgs:
     def udp(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "udp", value)
 
+
+if not MYPY:
+    class PlatformConfigurationArgsDict(TypedDict):
+        """
+        The platform where the packet core is deployed.
+        """
+        type: pulumi.Input[Union[str, 'PlatformType']]
+        """
+        The platform type where packet core is deployed.
+        """
+        azure_stack_edge_device: NotRequired[pulumi.Input['AzureStackEdgeDeviceResourceIdArgsDict']]
+        """
+        The Azure Stack Edge device where the packet core is deployed. If the device is part of a fault tolerant pair, either device in the pair can be specified.
+        """
+        azure_stack_hci_cluster: NotRequired[pulumi.Input['AzureStackHCIClusterResourceIdArgsDict']]
+        """
+        The Azure Stack HCI cluster where the packet core is deployed.
+        """
+        connected_cluster: NotRequired[pulumi.Input['ConnectedClusterResourceIdArgsDict']]
+        """
+        Azure Arc connected cluster where the packet core is deployed.
+        """
+        custom_location: NotRequired[pulumi.Input['CustomLocationResourceIdArgsDict']]
+        """
+        Azure Arc custom location where the packet core is deployed.
+        """
+elif False:
+    PlatformConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PlatformConfigurationArgs:
@@ -1110,6 +1541,22 @@ class PlatformConfigurationArgs:
         pulumi.set(self, "custom_location", value)
 
 
+if not MYPY:
+    class PlmnIdArgsDict(TypedDict):
+        """
+        Public land mobile network (PLMN) ID.
+        """
+        mcc: pulumi.Input[str]
+        """
+        Mobile country code (MCC).
+        """
+        mnc: pulumi.Input[str]
+        """
+        Mobile network code (MNC).
+        """
+elif False:
+    PlmnIdArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PlmnIdArgs:
     def __init__(__self__, *,
@@ -1147,6 +1594,24 @@ class PlmnIdArgs:
     def mnc(self, value: pulumi.Input[str]):
         pulumi.set(self, "mnc", value)
 
+
+if not MYPY:
+    class PortRangeArgsDict(TypedDict):
+        """
+        Range of port numbers to use as translated ports on each translated address.
+        If not specified and NAPT is enabled, this range defaults to 1,024 - 49,999.
+        (Ports under 1,024 should not be used because these are special purpose ports reserved by IANA. Ports 50,000 and above are reserved for non-NAPT use.)
+        """
+        max_port: NotRequired[pulumi.Input[int]]
+        """
+        The maximum port number
+        """
+        min_port: NotRequired[pulumi.Input[int]]
+        """
+        The minimum port number
+        """
+elif False:
+    PortRangeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PortRangeArgs:
@@ -1194,6 +1659,22 @@ class PortRangeArgs:
         pulumi.set(self, "min_port", value)
 
 
+if not MYPY:
+    class PortReuseHoldTimesArgsDict(TypedDict):
+        """
+        The minimum time (in seconds) that will pass before a port that was used by a closed pinhole can be recycled for use by another pinhole. All hold times must be minimum 1 second.
+        """
+        tcp: NotRequired[pulumi.Input[int]]
+        """
+        Minimum time in seconds that will pass before a TCP port that was used by a closed pinhole can be reused. Default for TCP is 2 minutes.
+        """
+        udp: NotRequired[pulumi.Input[int]]
+        """
+        Minimum time in seconds that will pass before a UDP port that was used by a closed pinhole can be reused. Default for UDP is 1 minute.
+        """
+elif False:
+    PortReuseHoldTimesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PortReuseHoldTimesArgs:
     def __init__(__self__, *,
@@ -1237,6 +1718,34 @@ class PortReuseHoldTimesArgs:
     def udp(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "udp", value)
 
+
+if not MYPY:
+    class QosPolicyArgsDict(TypedDict):
+        """
+        QoS policy
+        """
+        maximum_bit_rate: pulumi.Input['AmbrArgsDict']
+        """
+        The maximum bit rate (MBR) for all service data flows that use this data flow policy rule or service.
+        """
+        allocation_and_retention_priority_level: NotRequired[pulumi.Input[int]]
+        """
+        QoS Flow allocation and retention priority (ARP) level. Flows with higher priority preempt flows with lower priority, if the settings of `preemptionCapability` and `preemptionVulnerability` allow it. 1 is the highest level of priority. If this field is not specified then `5qi` is used to derive the ARP value. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
+        """
+        five_qi: NotRequired[pulumi.Input[int]]
+        """
+        5G QoS Flow Indicator value. The 5QI identifies a specific QoS forwarding treatment to be provided to a flow. See 3GPP TS23.501 section 5.7.2.1 for a full description of the 5QI parameter, and table 5.7.4-1 for the definition the 5QI values.
+        """
+        preemption_capability: NotRequired[pulumi.Input[Union[str, 'PreemptionCapability']]]
+        """
+        QoS Flow preemption capability. The preemption capability of a QoS Flow controls whether it can preempt another QoS Flow with a lower priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
+        """
+        preemption_vulnerability: NotRequired[pulumi.Input[Union[str, 'PreemptionVulnerability']]]
+        """
+        QoS Flow preemption vulnerability. The preemption vulnerability of a QoS Flow controls whether it can be preempted by a QoS Flow with a higher priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
+        """
+elif False:
+    QosPolicyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class QosPolicyArgs:
@@ -1333,6 +1842,34 @@ class QosPolicyArgs:
         pulumi.set(self, "preemption_vulnerability", value)
 
 
+if not MYPY:
+    class ServiceDataFlowTemplateArgsDict(TypedDict):
+        """
+        Data flow template
+        """
+        direction: pulumi.Input[Union[str, 'SdfDirection']]
+        """
+        The direction of this flow.
+        """
+        protocol: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        A list of the allowed protocol(s) for this flow. If you want this flow to be able to use any protocol within the internet protocol suite, use the value `ip`. If you only want to allow a selection of protocols, you must use the corresponding IANA Assigned Internet Protocol Number for each protocol, as described in https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml. For example, for UDP, you must use 17. If you use the value `ip` then you must leave the field `port` unspecified.
+        """
+        remote_ip_list: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        The remote IP address(es) to which UEs will connect for this flow. If you want to allow connections on any IP address, use the value `any`. Otherwise, you must provide each of the remote IP addresses to which the packet core instance will connect for this flow. You must provide each IP address in CIDR notation, including the netmask (for example, 192.0.2.54/24).
+        """
+        template_name: pulumi.Input[str]
+        """
+        The name of the data flow template. This must be unique within the parent data flow policy rule. You must not use any of the following reserved strings - `default`, `requested` or `service`.
+        """
+        ports: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The port(s) to which UEs will connect for this flow. You can specify zero or more ports or port ranges. If you specify one or more ports or port ranges then you must specify a value other than `ip` in the `protocol` field. This is an optional setting. If you do not specify it then connections will be allowed on all ports. Port ranges must be specified as <FirstPort>-<LastPort>. For example: [`8080`, `8082-8085`].
+        """
+elif False:
+    ServiceDataFlowTemplateArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ServiceDataFlowTemplateArgs:
     def __init__(__self__, *,
@@ -1417,6 +1954,18 @@ class ServiceDataFlowTemplateArgs:
         pulumi.set(self, "ports", value)
 
 
+if not MYPY:
+    class ServiceResourceIdArgsDict(TypedDict):
+        """
+        Reference to a service resource.
+        """
+        id: pulumi.Input[str]
+        """
+        Service resource ID.
+        """
+elif False:
+    ServiceResourceIdArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ServiceResourceIdArgs:
     def __init__(__self__, *,
@@ -1439,6 +1988,18 @@ class ServiceResourceIdArgs:
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class SimPolicyResourceIdArgsDict(TypedDict):
+        """
+        Reference to a SIM policy resource.
+        """
+        id: pulumi.Input[str]
+        """
+        SIM policy resource ID.
+        """
+elif False:
+    SimPolicyResourceIdArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SimPolicyResourceIdArgs:
@@ -1463,6 +2024,18 @@ class SimPolicyResourceIdArgs:
         pulumi.set(self, "id", value)
 
 
+if not MYPY:
+    class SimStaticIpPropertiesStaticIpArgsDict(TypedDict):
+        """
+        The static IP configuration for the SIM to use at the defined network scope.
+        """
+        ipv4_address: NotRequired[pulumi.Input[str]]
+        """
+        The IPv4 address assigned to the SIM at this network scope. This address must be in the userEquipmentStaticAddressPoolPrefix defined in the attached data network.
+        """
+elif False:
+    SimStaticIpPropertiesStaticIpArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SimStaticIpPropertiesStaticIpArgs:
     def __init__(__self__, *,
@@ -1486,6 +2059,26 @@ class SimStaticIpPropertiesStaticIpArgs:
     def ipv4_address(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "ipv4_address", value)
 
+
+if not MYPY:
+    class SimStaticIpPropertiesArgsDict(TypedDict):
+        """
+        Static IP configuration for a SIM, scoped to a particular attached data network and slice.
+        """
+        attached_data_network: NotRequired[pulumi.Input['AttachedDataNetworkResourceIdArgsDict']]
+        """
+        The attached data network on which the static IP address will be used. The combination of attached data network and slice defines the network scope of the IP address. The attached data network must be in the same location as the SIM.
+        """
+        slice: NotRequired[pulumi.Input['SliceResourceIdArgsDict']]
+        """
+        The network slice on which the static IP address will be used. The combination of attached data network and slice defines the network scope of the IP address. The slice must be in the same location as the SIM.
+        """
+        static_ip: NotRequired[pulumi.Input['SimStaticIpPropertiesStaticIpArgsDict']]
+        """
+        The static IP configuration for the SIM to use at the defined network scope.
+        """
+elif False:
+    SimStaticIpPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SimStaticIpPropertiesArgs:
@@ -1543,6 +2136,18 @@ class SimStaticIpPropertiesArgs:
         pulumi.set(self, "static_ip", value)
 
 
+if not MYPY:
+    class SiteResourceIdArgsDict(TypedDict):
+        """
+        Reference to a site resource.
+        """
+        id: pulumi.Input[str]
+        """
+        Site resource ID.
+        """
+elif False:
+    SiteResourceIdArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SiteResourceIdArgs:
     def __init__(__self__, *,
@@ -1565,6 +2170,26 @@ class SiteResourceIdArgs:
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class SliceConfigurationArgsDict(TypedDict):
+        """
+        Per-slice settings
+        """
+        data_network_configurations: pulumi.Input[Sequence[pulumi.Input['DataNetworkConfigurationArgsDict']]]
+        """
+        The allowed data networks and the settings to use for them. The list must not contain duplicate items and must contain at least one item.
+        """
+        default_data_network: pulumi.Input['DataNetworkResourceIdArgsDict']
+        """
+        The default data network to use if the UE does not explicitly specify it. Configuration for this object must exist in the `dataNetworkConfigurations` map. The data network must be in the same location as the SIM policy.
+        """
+        slice: pulumi.Input['SliceResourceIdArgsDict']
+        """
+        A reference to the slice that these settings apply to. The slice must be in the same location as the SIM policy.
+        """
+elif False:
+    SliceConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SliceConfigurationArgs:
@@ -1619,6 +2244,18 @@ class SliceConfigurationArgs:
         pulumi.set(self, "slice", value)
 
 
+if not MYPY:
+    class SliceResourceIdArgsDict(TypedDict):
+        """
+        Reference to a slice resource.
+        """
+        id: pulumi.Input[str]
+        """
+        Slice resource ID.
+        """
+elif False:
+    SliceResourceIdArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SliceResourceIdArgs:
     def __init__(__self__, *,
@@ -1641,6 +2278,22 @@ class SliceResourceIdArgs:
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class SnssaiArgsDict(TypedDict):
+        """
+        Single-network slice selection assistance information (S-NSSAI).
+        """
+        sst: pulumi.Input[int]
+        """
+        Slice/service type (SST).
+        """
+        sd: NotRequired[pulumi.Input[str]]
+        """
+        Slice differentiator (SD).
+        """
+elif False:
+    SnssaiArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SnssaiArgs:

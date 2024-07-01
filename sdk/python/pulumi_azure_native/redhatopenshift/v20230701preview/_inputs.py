@@ -4,26 +4,65 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'APIServerProfileArgs',
+    'APIServerProfileArgsDict',
     'ClusterProfileArgs',
+    'ClusterProfileArgsDict',
     'ConsoleProfileArgs',
+    'ConsoleProfileArgsDict',
     'IngressProfileArgs',
+    'IngressProfileArgsDict',
     'LoadBalancerProfileArgs',
+    'LoadBalancerProfileArgsDict',
     'ManagedOutboundIPsArgs',
+    'ManagedOutboundIPsArgsDict',
     'MasterProfileArgs',
+    'MasterProfileArgsDict',
     'NetworkProfileArgs',
+    'NetworkProfileArgsDict',
     'OutboundIPPrefixArgs',
+    'OutboundIPPrefixArgsDict',
     'OutboundIPArgs',
+    'OutboundIPArgsDict',
     'ServicePrincipalProfileArgs',
+    'ServicePrincipalProfileArgsDict',
     'WorkerProfileArgs',
+    'WorkerProfileArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class APIServerProfileArgsDict(TypedDict):
+        """
+        APIServerProfile represents an API server profile.
+        """
+        ip: NotRequired[pulumi.Input[str]]
+        """
+        The IP of the cluster API server.
+        """
+        url: NotRequired[pulumi.Input[str]]
+        """
+        The URL to access the cluster API server.
+        """
+        visibility: NotRequired[pulumi.Input[Union[str, 'Visibility']]]
+        """
+        API server visibility.
+        """
+elif False:
+    APIServerProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class APIServerProfileArgs:
@@ -80,6 +119,34 @@ class APIServerProfileArgs:
     def visibility(self, value: Optional[pulumi.Input[Union[str, 'Visibility']]]):
         pulumi.set(self, "visibility", value)
 
+
+if not MYPY:
+    class ClusterProfileArgsDict(TypedDict):
+        """
+        ClusterProfile represents a cluster profile.
+        """
+        domain: NotRequired[pulumi.Input[str]]
+        """
+        The domain for the cluster.
+        """
+        fips_validated_modules: NotRequired[pulumi.Input[Union[str, 'FipsValidatedModules']]]
+        """
+        If FIPS validated crypto modules are used
+        """
+        pull_secret: NotRequired[pulumi.Input[str]]
+        """
+        The pull secret for the cluster.
+        """
+        resource_group_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the cluster resource group.
+        """
+        version: NotRequired[pulumi.Input[str]]
+        """
+        The version of the cluster.
+        """
+elif False:
+    ClusterProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ClusterProfileArgs:
@@ -169,6 +236,18 @@ class ClusterProfileArgs:
         pulumi.set(self, "version", value)
 
 
+if not MYPY:
+    class ConsoleProfileArgsDict(TypedDict):
+        """
+        ConsoleProfile represents a console profile.
+        """
+        url: NotRequired[pulumi.Input[str]]
+        """
+        The URL to access the cluster console.
+        """
+elif False:
+    ConsoleProfileArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ConsoleProfileArgs:
     def __init__(__self__, *,
@@ -192,6 +271,26 @@ class ConsoleProfileArgs:
     def url(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "url", value)
 
+
+if not MYPY:
+    class IngressProfileArgsDict(TypedDict):
+        """
+        IngressProfile represents an ingress profile.
+        """
+        ip: NotRequired[pulumi.Input[str]]
+        """
+        The IP of the ingress.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The ingress profile name.
+        """
+        visibility: NotRequired[pulumi.Input[Union[str, 'Visibility']]]
+        """
+        Ingress visibility.
+        """
+elif False:
+    IngressProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IngressProfileArgs:
@@ -248,6 +347,30 @@ class IngressProfileArgs:
     def visibility(self, value: Optional[pulumi.Input[Union[str, 'Visibility']]]):
         pulumi.set(self, "visibility", value)
 
+
+if not MYPY:
+    class LoadBalancerProfileArgsDict(TypedDict):
+        """
+        LoadBalancerProfile represents the profile of the cluster public load balancer.
+        """
+        allocated_outbound_ports: NotRequired[pulumi.Input[int]]
+        """
+        The desired number of allocated SNAT ports per VM. Allowed values are in the range of 0 to 64000 (inclusive). The default value is 1024.
+        """
+        managed_outbound_ips: NotRequired[pulumi.Input['ManagedOutboundIPsArgsDict']]
+        """
+        The desired managed outbound IPs for the cluster public load balancer.
+        """
+        outbound_ip_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input['OutboundIPPrefixArgsDict']]]]
+        """
+        The desired outbound IP Prefix resources for the cluster load balancer.
+        """
+        outbound_ips: NotRequired[pulumi.Input[Sequence[pulumi.Input['OutboundIPArgsDict']]]]
+        """
+        The desired outbound IP resources for the cluster load balancer.
+        """
+elif False:
+    LoadBalancerProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LoadBalancerProfileArgs:
@@ -321,6 +444,18 @@ class LoadBalancerProfileArgs:
         pulumi.set(self, "outbound_ips", value)
 
 
+if not MYPY:
+    class ManagedOutboundIPsArgsDict(TypedDict):
+        """
+        ManagedOutboundIPs represents the desired managed outbound IPs for the cluster public load balancer.
+        """
+        count: NotRequired[pulumi.Input[int]]
+        """
+        Count represents the desired number of IPv4 outbound IPs created and managed by Azure for the cluster public load balancer.  Allowed values are in the range of 1 - 20.  The default value is 1.
+        """
+elif False:
+    ManagedOutboundIPsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ManagedOutboundIPsArgs:
     def __init__(__self__, *,
@@ -344,6 +479,30 @@ class ManagedOutboundIPsArgs:
     def count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "count", value)
 
+
+if not MYPY:
+    class MasterProfileArgsDict(TypedDict):
+        """
+        MasterProfile represents a master profile.
+        """
+        disk_encryption_set_id: NotRequired[pulumi.Input[str]]
+        """
+        The resource ID of an associated DiskEncryptionSet, if applicable.
+        """
+        encryption_at_host: NotRequired[pulumi.Input[Union[str, 'EncryptionAtHost']]]
+        """
+        Whether master virtual machines are encrypted at host.
+        """
+        subnet_id: NotRequired[pulumi.Input[str]]
+        """
+        The Azure resource ID of the master subnet.
+        """
+        vm_size: NotRequired[pulumi.Input[str]]
+        """
+        The size of the master VMs.
+        """
+elif False:
+    MasterProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MasterProfileArgs:
@@ -417,6 +576,30 @@ class MasterProfileArgs:
         pulumi.set(self, "vm_size", value)
 
 
+if not MYPY:
+    class NetworkProfileArgsDict(TypedDict):
+        """
+        NetworkProfile represents a network profile.
+        """
+        load_balancer_profile: NotRequired[pulumi.Input['LoadBalancerProfileArgsDict']]
+        """
+        The cluster load balancer profile.
+        """
+        outbound_type: NotRequired[pulumi.Input[Union[str, 'OutboundType']]]
+        """
+        The OutboundType used for egress traffic.
+        """
+        pod_cidr: NotRequired[pulumi.Input[str]]
+        """
+        The CIDR used for OpenShift/Kubernetes Pods.
+        """
+        service_cidr: NotRequired[pulumi.Input[str]]
+        """
+        The CIDR used for OpenShift/Kubernetes Services.
+        """
+elif False:
+    NetworkProfileArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NetworkProfileArgs:
     def __init__(__self__, *,
@@ -489,6 +672,18 @@ class NetworkProfileArgs:
         pulumi.set(self, "service_cidr", value)
 
 
+if not MYPY:
+    class OutboundIPPrefixArgsDict(TypedDict):
+        """
+        OutboundIPPrefix represents a desired outbound IP Prefix resource for the cluster load balancer.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The fully qualified Azure resource id of an IP Prefix resource.
+        """
+elif False:
+    OutboundIPPrefixArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OutboundIPPrefixArgs:
     def __init__(__self__, *,
@@ -513,6 +708,18 @@ class OutboundIPPrefixArgs:
         pulumi.set(self, "id", value)
 
 
+if not MYPY:
+    class OutboundIPArgsDict(TypedDict):
+        """
+        OutboundIP represents a desired outbound IP resource for the cluster load balancer.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The fully qualified Azure resource id of the IP address resource.
+        """
+elif False:
+    OutboundIPArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OutboundIPArgs:
     def __init__(__self__, *,
@@ -536,6 +743,22 @@ class OutboundIPArgs:
     def id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class ServicePrincipalProfileArgsDict(TypedDict):
+        """
+        ServicePrincipalProfile represents a service principal profile.
+        """
+        client_id: NotRequired[pulumi.Input[str]]
+        """
+        The client ID used for the cluster.
+        """
+        client_secret: NotRequired[pulumi.Input[str]]
+        """
+        The client secret used for the cluster.
+        """
+elif False:
+    ServicePrincipalProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ServicePrincipalProfileArgs:
@@ -576,6 +799,42 @@ class ServicePrincipalProfileArgs:
     def client_secret(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "client_secret", value)
 
+
+if not MYPY:
+    class WorkerProfileArgsDict(TypedDict):
+        """
+        WorkerProfile represents a worker profile.
+        """
+        count: NotRequired[pulumi.Input[int]]
+        """
+        The number of worker VMs.
+        """
+        disk_encryption_set_id: NotRequired[pulumi.Input[str]]
+        """
+        The resource ID of an associated DiskEncryptionSet, if applicable.
+        """
+        disk_size_gb: NotRequired[pulumi.Input[int]]
+        """
+        The disk size of the worker VMs.
+        """
+        encryption_at_host: NotRequired[pulumi.Input[Union[str, 'EncryptionAtHost']]]
+        """
+        Whether master virtual machines are encrypted at host.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The worker profile name.
+        """
+        subnet_id: NotRequired[pulumi.Input[str]]
+        """
+        The Azure resource ID of the worker subnet.
+        """
+        vm_size: NotRequired[pulumi.Input[str]]
+        """
+        The size of the worker VMs.
+        """
+elif False:
+    WorkerProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WorkerProfileArgs:

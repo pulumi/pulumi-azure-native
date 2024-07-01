@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -139,7 +144,7 @@ class VolumeGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  elastic_san_name: Optional[pulumi.Input[str]] = None,
                  encryption: Optional[pulumi.Input[Union[str, 'EncryptionType']]] = None,
-                 network_acls: Optional[pulumi.Input[pulumi.InputType['NetworkRuleSetArgs']]] = None,
+                 network_acls: Optional[pulumi.Input[Union['NetworkRuleSetArgs', 'NetworkRuleSetArgsDict']]] = None,
                  protocol_type: Optional[pulumi.Input[Union[str, 'StorageTargetType']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -155,7 +160,7 @@ class VolumeGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] elastic_san_name: The name of the ElasticSan.
         :param pulumi.Input[Union[str, 'EncryptionType']] encryption: Type of encryption
-        :param pulumi.Input[pulumi.InputType['NetworkRuleSetArgs']] network_acls: A collection of rules governing the accessibility from specific network locations.
+        :param pulumi.Input[Union['NetworkRuleSetArgs', 'NetworkRuleSetArgsDict']] network_acls: A collection of rules governing the accessibility from specific network locations.
         :param pulumi.Input[Union[str, 'StorageTargetType']] protocol_type: Type of storage target
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Azure resource tags.
@@ -190,7 +195,7 @@ class VolumeGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  elastic_san_name: Optional[pulumi.Input[str]] = None,
                  encryption: Optional[pulumi.Input[Union[str, 'EncryptionType']]] = None,
-                 network_acls: Optional[pulumi.Input[pulumi.InputType['NetworkRuleSetArgs']]] = None,
+                 network_acls: Optional[pulumi.Input[Union['NetworkRuleSetArgs', 'NetworkRuleSetArgsDict']]] = None,
                  protocol_type: Optional[pulumi.Input[Union[str, 'StorageTargetType']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,

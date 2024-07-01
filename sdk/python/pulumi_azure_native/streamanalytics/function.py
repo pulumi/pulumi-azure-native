@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -107,7 +112,7 @@ class Function(pulumi.CustomResource):
                  function_name: Optional[pulumi.Input[str]] = None,
                  job_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[Union[pulumi.InputType['AggregateFunctionPropertiesArgs'], pulumi.InputType['ScalarFunctionPropertiesArgs']]]] = None,
+                 properties: Optional[pulumi.Input[Union[Union['AggregateFunctionPropertiesArgs', 'AggregateFunctionPropertiesArgsDict'], Union['ScalarFunctionPropertiesArgs', 'ScalarFunctionPropertiesArgsDict']]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -121,7 +126,7 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[str] function_name: The name of the function.
         :param pulumi.Input[str] job_name: The name of the streaming job.
         :param pulumi.Input[str] name: Resource name
-        :param pulumi.Input[Union[pulumi.InputType['AggregateFunctionPropertiesArgs'], pulumi.InputType['ScalarFunctionPropertiesArgs']]] properties: The properties that are associated with a function.
+        :param pulumi.Input[Union[Union['AggregateFunctionPropertiesArgs', 'AggregateFunctionPropertiesArgsDict'], Union['ScalarFunctionPropertiesArgs', 'ScalarFunctionPropertiesArgsDict']]] properties: The properties that are associated with a function.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         """
         ...
@@ -154,7 +159,7 @@ class Function(pulumi.CustomResource):
                  function_name: Optional[pulumi.Input[str]] = None,
                  job_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[Union[pulumi.InputType['AggregateFunctionPropertiesArgs'], pulumi.InputType['ScalarFunctionPropertiesArgs']]]] = None,
+                 properties: Optional[pulumi.Input[Union[Union['AggregateFunctionPropertiesArgs', 'AggregateFunctionPropertiesArgsDict'], Union['ScalarFunctionPropertiesArgs', 'ScalarFunctionPropertiesArgsDict']]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

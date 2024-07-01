@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -75,7 +80,7 @@ class LinkerDryrun(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  dryrun_name: Optional[pulumi.Input[str]] = None,
-                 parameters: Optional[pulumi.Input[pulumi.InputType['CreateOrUpdateDryrunParametersArgs']]] = None,
+                 parameters: Optional[pulumi.Input[Union['CreateOrUpdateDryrunParametersArgs', 'CreateOrUpdateDryrunParametersArgsDict']]] = None,
                  resource_uri: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -84,7 +89,7 @@ class LinkerDryrun(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] dryrun_name: The name of dryrun.
-        :param pulumi.Input[pulumi.InputType['CreateOrUpdateDryrunParametersArgs']] parameters: The parameters of the dryrun
+        :param pulumi.Input[Union['CreateOrUpdateDryrunParametersArgs', 'CreateOrUpdateDryrunParametersArgsDict']] parameters: The parameters of the dryrun
         :param pulumi.Input[str] resource_uri: The fully qualified Azure Resource manager identifier of the resource to be connected.
         """
         ...
@@ -112,7 +117,7 @@ class LinkerDryrun(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  dryrun_name: Optional[pulumi.Input[str]] = None,
-                 parameters: Optional[pulumi.Input[pulumi.InputType['CreateOrUpdateDryrunParametersArgs']]] = None,
+                 parameters: Optional[pulumi.Input[Union['CreateOrUpdateDryrunParametersArgs', 'CreateOrUpdateDryrunParametersArgsDict']]] = None,
                  resource_uri: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

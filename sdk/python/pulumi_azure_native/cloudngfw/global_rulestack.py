@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -207,13 +212,13 @@ class GlobalRulestack(pulumi.CustomResource):
                  default_mode: Optional[pulumi.Input[Union[str, 'DefaultMode']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  global_rulestack_name: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['AzureResourceManagerManagedIdentityPropertiesArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['AzureResourceManagerManagedIdentityPropertiesArgs', 'AzureResourceManagerManagedIdentityPropertiesArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  min_app_id_version: Optional[pulumi.Input[str]] = None,
                  pan_etag: Optional[pulumi.Input[str]] = None,
                  pan_location: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[Union[str, 'ScopeType']]] = None,
-                 security_services: Optional[pulumi.Input[pulumi.InputType['SecurityServicesArgs']]] = None,
+                 security_services: Optional[pulumi.Input[Union['SecurityServicesArgs', 'SecurityServicesArgsDict']]] = None,
                  __props__=None):
         """
         PaloAltoNetworks GlobalRulestack
@@ -227,13 +232,13 @@ class GlobalRulestack(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'DefaultMode']] default_mode: Mode for default rules creation
         :param pulumi.Input[str] description: rulestack description
         :param pulumi.Input[str] global_rulestack_name: GlobalRulestack resource name
-        :param pulumi.Input[pulumi.InputType['AzureResourceManagerManagedIdentityPropertiesArgs']] identity: The managed service identities assigned to this resource.
+        :param pulumi.Input[Union['AzureResourceManagerManagedIdentityPropertiesArgs', 'AzureResourceManagerManagedIdentityPropertiesArgsDict']] identity: The managed service identities assigned to this resource.
         :param pulumi.Input[str] location: Global Location
         :param pulumi.Input[str] min_app_id_version: minimum version
         :param pulumi.Input[str] pan_etag: PanEtag info
         :param pulumi.Input[str] pan_location: Rulestack Location, Required for GlobalRulestacks, Not for LocalRulestacks
         :param pulumi.Input[Union[str, 'ScopeType']] scope: Rulestack Type
-        :param pulumi.Input[pulumi.InputType['SecurityServicesArgs']] security_services: Security Profile
+        :param pulumi.Input[Union['SecurityServicesArgs', 'SecurityServicesArgsDict']] security_services: Security Profile
         """
         ...
     @overload
@@ -266,13 +271,13 @@ class GlobalRulestack(pulumi.CustomResource):
                  default_mode: Optional[pulumi.Input[Union[str, 'DefaultMode']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  global_rulestack_name: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['AzureResourceManagerManagedIdentityPropertiesArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['AzureResourceManagerManagedIdentityPropertiesArgs', 'AzureResourceManagerManagedIdentityPropertiesArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  min_app_id_version: Optional[pulumi.Input[str]] = None,
                  pan_etag: Optional[pulumi.Input[str]] = None,
                  pan_location: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[Union[str, 'ScopeType']]] = None,
-                 security_services: Optional[pulumi.Input[pulumi.InputType['SecurityServicesArgs']]] = None,
+                 security_services: Optional[pulumi.Input[Union['SecurityServicesArgs', 'SecurityServicesArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

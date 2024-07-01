@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -412,15 +417,15 @@ class Asset(pulumi.CustomResource):
                  asset_name: Optional[pulumi.Input[str]] = None,
                  asset_type: Optional[pulumi.Input[str]] = None,
                  attributes: Optional[Any] = None,
-                 data_points: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataPointArgs']]]]] = None,
+                 data_points: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DataPointArgs', 'DataPointArgsDict']]]]] = None,
                  default_data_points_configuration: Optional[pulumi.Input[str]] = None,
                  default_events_configuration: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  documentation_uri: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 events: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventArgs']]]]] = None,
-                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
+                 events: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EventArgs', 'EventArgsDict']]]]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
                  external_asset_id: Optional[pulumi.Input[str]] = None,
                  hardware_revision: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -443,15 +448,15 @@ class Asset(pulumi.CustomResource):
         :param pulumi.Input[str] asset_name: Asset name parameter.
         :param pulumi.Input[str] asset_type: Resource path to asset type (model) definition.
         :param Any attributes: A set of key-value pairs that contain custom attributes set by the customer.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataPointArgs']]]] data_points: Array of data points that are part of the asset. Each data point can reference an asset type capability and have per-data point configuration. See below for more details for the definition of the dataPoints element.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DataPointArgs', 'DataPointArgsDict']]]] data_points: Array of data points that are part of the asset. Each data point can reference an asset type capability and have per-data point configuration. See below for more details for the definition of the dataPoints element.
         :param pulumi.Input[str] default_data_points_configuration: Protocol-specific default configuration for all data points. Each data point can have its own configuration that overrides the default settings here. This assumes that each asset instance has one protocol.
         :param pulumi.Input[str] default_events_configuration: Protocol-specific default configuration for all events. Each event can have its own configuration that overrides the default settings here. This assumes that each asset instance has one protocol.
         :param pulumi.Input[str] description: Human-readable description of the asset.
         :param pulumi.Input[str] display_name: Human-readable display name.
         :param pulumi.Input[str] documentation_uri: Reference to the documentation.
         :param pulumi.Input[bool] enabled: Enabled/Disabled status of the asset.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventArgs']]]] events: Array of events that are part of the asset. Each event can reference an asset type capability and have per-event configuration. See below for more details about the definition of the events element.
-        :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: The extended location.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EventArgs', 'EventArgsDict']]]] events: Array of events that are part of the asset. Each event can reference an asset type capability and have per-event configuration. See below for more details about the definition of the events element.
+        :param pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']] extended_location: The extended location.
         :param pulumi.Input[str] external_asset_id: Asset id provided by the customer.
         :param pulumi.Input[str] hardware_revision: Revision number of the hardware.
         :param pulumi.Input[str] location: The geo-location where the resource lives
@@ -493,15 +498,15 @@ class Asset(pulumi.CustomResource):
                  asset_name: Optional[pulumi.Input[str]] = None,
                  asset_type: Optional[pulumi.Input[str]] = None,
                  attributes: Optional[Any] = None,
-                 data_points: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataPointArgs']]]]] = None,
+                 data_points: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DataPointArgs', 'DataPointArgsDict']]]]] = None,
                  default_data_points_configuration: Optional[pulumi.Input[str]] = None,
                  default_events_configuration: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  documentation_uri: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 events: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventArgs']]]]] = None,
-                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
+                 events: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EventArgs', 'EventArgsDict']]]]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
                  external_asset_id: Optional[pulumi.Input[str]] = None,
                  hardware_revision: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,

@@ -4,14 +4,38 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 
 __all__ = [
     'LinkedWorkspacePropsArgs',
+    'LinkedWorkspacePropsArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class LinkedWorkspacePropsArgsDict(TypedDict):
+        """
+        LinkedWorkspace specific properties.
+        """
+        linked_workspace_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        ResourceId of the link target of the linked workspace.
+        """
+        user_assigned_identity_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        ResourceId of the user assigned identity for the linked workspace.
+        """
+elif False:
+    LinkedWorkspacePropsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LinkedWorkspacePropsArgs:

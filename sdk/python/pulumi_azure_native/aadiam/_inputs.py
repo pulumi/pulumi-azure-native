@@ -4,19 +4,51 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'LogSettingsArgs',
+    'LogSettingsArgsDict',
     'PrivateEndpointArgs',
+    'PrivateEndpointArgsDict',
     'PrivateLinkServiceConnectionStateArgs',
+    'PrivateLinkServiceConnectionStateArgsDict',
     'RetentionPolicyArgs',
+    'RetentionPolicyArgsDict',
     'TagsResourceArgs',
+    'TagsResourceArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class LogSettingsArgsDict(TypedDict):
+        """
+        Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular log.
+        """
+        enabled: pulumi.Input[bool]
+        """
+        A value indicating whether this log is enabled.
+        """
+        category: NotRequired[pulumi.Input[Union[str, 'Category']]]
+        """
+        Name of a Diagnostic Log category for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
+        """
+        retention_policy: NotRequired[pulumi.Input['RetentionPolicyArgsDict']]
+        """
+        The retention policy for this log.
+        """
+elif False:
+    LogSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LogSettingsArgs:
@@ -73,6 +105,18 @@ class LogSettingsArgs:
         pulumi.set(self, "retention_policy", value)
 
 
+if not MYPY:
+    class PrivateEndpointArgsDict(TypedDict):
+        """
+        Private endpoint object properties.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Full identifier of the private endpoint resource.
+        """
+elif False:
+    PrivateEndpointArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PrivateEndpointArgs:
     def __init__(__self__, *,
@@ -96,6 +140,26 @@ class PrivateEndpointArgs:
     def id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
+        """
+        An object that represents the approval state of the private link connection.
+        """
+        actions_required: NotRequired[pulumi.Input[str]]
+        """
+        A message indicating if changes on the service provider require any updates on the consumer.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The reason for approval or rejection.
+        """
+        status: NotRequired[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]]
+        """
+        Indicates whether the connection has been approved, rejected or removed by the given policy owner.
+        """
+elif False:
+    PrivateLinkServiceConnectionStateArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:
@@ -153,6 +217,22 @@ class PrivateLinkServiceConnectionStateArgs:
         pulumi.set(self, "status", value)
 
 
+if not MYPY:
+    class RetentionPolicyArgsDict(TypedDict):
+        """
+        Specifies the retention policy for the log.
+        """
+        days: pulumi.Input[int]
+        """
+        The number of days for the retention in days. A value of 0 will retain the events indefinitely.
+        """
+        enabled: pulumi.Input[bool]
+        """
+        A value indicating whether the retention policy is enabled.
+        """
+elif False:
+    RetentionPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RetentionPolicyArgs:
     def __init__(__self__, *,
@@ -190,6 +270,18 @@ class RetentionPolicyArgs:
     def enabled(self, value: pulumi.Input[bool]):
         pulumi.set(self, "enabled", value)
 
+
+if not MYPY:
+    class TagsResourceArgsDict(TypedDict):
+        """
+        A container holding only the Tags for a resource, allowing the user to update the tags on a PrivateLinkConnection instance.
+        """
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Resource tags
+        """
+elif False:
+    TagsResourceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TagsResourceArgs:

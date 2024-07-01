@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -232,9 +237,9 @@ class Link(pulumi.CustomResource):
                  display_name: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  hub_name: Optional[pulumi.Input[str]] = None,
                  link_name: Optional[pulumi.Input[str]] = None,
-                 mappings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TypePropertiesMappingArgs']]]]] = None,
+                 mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TypePropertiesMappingArgs', 'TypePropertiesMappingArgsDict']]]]] = None,
                  operation_type: Optional[pulumi.Input['InstanceOperationType']] = None,
-                 participant_property_references: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ParticipantPropertyReferenceArgs']]]]] = None,
+                 participant_property_references: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ParticipantPropertyReferenceArgs', 'ParticipantPropertyReferenceArgsDict']]]]] = None,
                  reference_only: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  source_entity_type: Optional[pulumi.Input['EntityType']] = None,
@@ -254,9 +259,9 @@ class Link(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] display_name: Localized display name for the Link.
         :param pulumi.Input[str] hub_name: The name of the hub.
         :param pulumi.Input[str] link_name: The name of the link.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TypePropertiesMappingArgs']]]] mappings: The set of properties mappings between the source and target Types.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TypePropertiesMappingArgs', 'TypePropertiesMappingArgsDict']]]] mappings: The set of properties mappings between the source and target Types.
         :param pulumi.Input['InstanceOperationType'] operation_type: Determines whether this link is supposed to create or delete instances if Link is NOT Reference Only.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ParticipantPropertyReferenceArgs']]]] participant_property_references: The properties that represent the participating profile.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ParticipantPropertyReferenceArgs', 'ParticipantPropertyReferenceArgsDict']]]] participant_property_references: The properties that represent the participating profile.
         :param pulumi.Input[bool] reference_only: Indicating whether the link is reference only link. This flag is ignored if the Mappings are defined. If the mappings are not defined and it is set to true, links processing will not create or update profiles.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input['EntityType'] source_entity_type: Type of source entity.
@@ -295,9 +300,9 @@ class Link(pulumi.CustomResource):
                  display_name: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  hub_name: Optional[pulumi.Input[str]] = None,
                  link_name: Optional[pulumi.Input[str]] = None,
-                 mappings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TypePropertiesMappingArgs']]]]] = None,
+                 mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TypePropertiesMappingArgs', 'TypePropertiesMappingArgsDict']]]]] = None,
                  operation_type: Optional[pulumi.Input['InstanceOperationType']] = None,
-                 participant_property_references: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ParticipantPropertyReferenceArgs']]]]] = None,
+                 participant_property_references: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ParticipantPropertyReferenceArgs', 'ParticipantPropertyReferenceArgsDict']]]]] = None,
                  reference_only: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  source_entity_type: Optional[pulumi.Input['EntityType']] = None,

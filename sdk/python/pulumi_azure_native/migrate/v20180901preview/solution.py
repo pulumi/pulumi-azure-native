@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -89,7 +94,7 @@ class Solution(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  migrate_project_name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['SolutionPropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['SolutionPropertiesArgs', 'SolutionPropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  solution_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -99,7 +104,7 @@ class Solution(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] migrate_project_name: Name of the Azure Migrate project.
-        :param pulumi.Input[pulumi.InputType['SolutionPropertiesArgs']] properties: Gets or sets the properties of the solution.
+        :param pulumi.Input[Union['SolutionPropertiesArgs', 'SolutionPropertiesArgsDict']] properties: Gets or sets the properties of the solution.
         :param pulumi.Input[str] resource_group_name: Name of the Azure Resource Group that migrate project is part of.
         :param pulumi.Input[str] solution_name: Unique name of a migration solution within a migrate project.
         """
@@ -128,7 +133,7 @@ class Solution(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  migrate_project_name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['SolutionPropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['SolutionPropertiesArgs', 'SolutionPropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  solution_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):

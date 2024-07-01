@@ -4,25 +4,55 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'DataPlaneAadOrApiKeyAuthOptionArgs',
+    'DataPlaneAadOrApiKeyAuthOptionArgsDict',
     'DataPlaneAuthOptionsArgs',
+    'DataPlaneAuthOptionsArgsDict',
     'EncryptionWithCmkArgs',
+    'EncryptionWithCmkArgsDict',
     'IdentityArgs',
+    'IdentityArgsDict',
     'IpRuleArgs',
+    'IpRuleArgsDict',
     'NetworkRuleSetArgs',
+    'NetworkRuleSetArgsDict',
     'PrivateEndpointConnectionPropertiesPrivateEndpointArgs',
+    'PrivateEndpointConnectionPropertiesPrivateEndpointArgsDict',
     'PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateArgs',
+    'PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateArgsDict',
     'PrivateEndpointConnectionPropertiesArgs',
+    'PrivateEndpointConnectionPropertiesArgsDict',
     'SharedPrivateLinkResourcePropertiesArgs',
+    'SharedPrivateLinkResourcePropertiesArgsDict',
     'SkuArgs',
+    'SkuArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class DataPlaneAadOrApiKeyAuthOptionArgsDict(TypedDict):
+        """
+        Indicates that either the API key or an access token from Azure Active Directory can be used for authentication.
+        """
+        aad_auth_failure_mode: NotRequired[pulumi.Input['AadAuthFailureMode']]
+        """
+        Describes what response the data plane API of a Search service would send for requests that failed authentication.
+        """
+elif False:
+    DataPlaneAadOrApiKeyAuthOptionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataPlaneAadOrApiKeyAuthOptionArgs:
@@ -47,6 +77,22 @@ class DataPlaneAadOrApiKeyAuthOptionArgs:
     def aad_auth_failure_mode(self, value: Optional[pulumi.Input['AadAuthFailureMode']]):
         pulumi.set(self, "aad_auth_failure_mode", value)
 
+
+if not MYPY:
+    class DataPlaneAuthOptionsArgsDict(TypedDict):
+        """
+        Defines the options for how the data plane API of a Search service authenticates requests. This cannot be set if 'disableLocalAuth' is set to true.
+        """
+        aad_or_api_key: NotRequired[pulumi.Input['DataPlaneAadOrApiKeyAuthOptionArgsDict']]
+        """
+        Indicates that either the API key or an access token from Azure Active Directory can be used for authentication.
+        """
+        api_key_only: NotRequired[Any]
+        """
+        Indicates that only the API key needs to be used for authentication.
+        """
+elif False:
+    DataPlaneAuthOptionsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataPlaneAuthOptionsArgs:
@@ -88,6 +134,18 @@ class DataPlaneAuthOptionsArgs:
         pulumi.set(self, "api_key_only", value)
 
 
+if not MYPY:
+    class EncryptionWithCmkArgsDict(TypedDict):
+        """
+        Describes a policy that determines how resources within the search service are to be encrypted with Customer Managed Keys.
+        """
+        enforcement: NotRequired[pulumi.Input['SearchEncryptionWithCmk']]
+        """
+        Describes how a search service should enforce having one or more non customer encrypted resources.
+        """
+elif False:
+    EncryptionWithCmkArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EncryptionWithCmkArgs:
     def __init__(__self__, *,
@@ -112,6 +170,18 @@ class EncryptionWithCmkArgs:
         pulumi.set(self, "enforcement", value)
 
 
+if not MYPY:
+    class IdentityArgsDict(TypedDict):
+        """
+        Identity for the resource.
+        """
+        type: pulumi.Input['IdentityType']
+        """
+        The identity type.
+        """
+elif False:
+    IdentityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IdentityArgs:
     def __init__(__self__, *,
@@ -134,6 +204,18 @@ class IdentityArgs:
     def type(self, value: pulumi.Input['IdentityType']):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class IpRuleArgsDict(TypedDict):
+        """
+        The IP restriction rule of the Azure Cognitive Search service.
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        Value corresponding to a single IPv4 address (eg., 123.1.2.3) or an IP range in CIDR format (eg., 123.1.2.3/24) to be allowed.
+        """
+elif False:
+    IpRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IpRuleArgs:
@@ -159,6 +241,18 @@ class IpRuleArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class NetworkRuleSetArgsDict(TypedDict):
+        """
+        Network specific rules that determine how the Azure Cognitive Search service may be reached.
+        """
+        ip_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['IpRuleArgsDict']]]]
+        """
+        A list of IP restriction rules that defines the inbound network(s) with allowing access to the search service endpoint. At the meantime, all other public IP networks are blocked by the firewall. These restriction rules are applied only when the 'publicNetworkAccess' of the search service is 'enabled'; otherwise, traffic over public interface is not allowed even with any public IP rules, and private endpoint connections would be the exclusive access method.
+        """
+elif False:
+    NetworkRuleSetArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NetworkRuleSetArgs:
     def __init__(__self__, *,
@@ -183,6 +277,18 @@ class NetworkRuleSetArgs:
         pulumi.set(self, "ip_rules", value)
 
 
+if not MYPY:
+    class PrivateEndpointConnectionPropertiesPrivateEndpointArgsDict(TypedDict):
+        """
+        The private endpoint resource from Microsoft.Network provider.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The resource id of the private endpoint resource from Microsoft.Network provider.
+        """
+elif False:
+    PrivateEndpointConnectionPropertiesPrivateEndpointArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PrivateEndpointConnectionPropertiesPrivateEndpointArgs:
     def __init__(__self__, *,
@@ -206,6 +312,26 @@ class PrivateEndpointConnectionPropertiesPrivateEndpointArgs:
     def id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateArgsDict(TypedDict):
+        """
+        Describes the current state of an existing Private Link Service connection to the Azure Private Endpoint.
+        """
+        actions_required: NotRequired[pulumi.Input[str]]
+        """
+        A description of any extra actions that may be required.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The description for the private link service connection state.
+        """
+        status: NotRequired[pulumi.Input['PrivateLinkServiceConnectionStatus']]
+        """
+        Status of the the private link service connection. Can be Pending, Approved, Rejected, or Disconnected.
+        """
+elif False:
+    PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateArgs:
@@ -264,6 +390,30 @@ class PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateArgs:
     def status(self, value: Optional[pulumi.Input['PrivateLinkServiceConnectionStatus']]):
         pulumi.set(self, "status", value)
 
+
+if not MYPY:
+    class PrivateEndpointConnectionPropertiesArgsDict(TypedDict):
+        """
+        Describes the properties of an existing Private Endpoint connection to the Azure Cognitive Search service.
+        """
+        group_id: NotRequired[pulumi.Input[str]]
+        """
+        The group id from the provider of resource the private link service connection is for.
+        """
+        private_endpoint: NotRequired[pulumi.Input['PrivateEndpointConnectionPropertiesPrivateEndpointArgsDict']]
+        """
+        The private endpoint resource from Microsoft.Network provider.
+        """
+        private_link_service_connection_state: NotRequired[pulumi.Input['PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateArgsDict']]
+        """
+        Describes the current state of an existing Private Link Service connection to the Azure Private Endpoint.
+        """
+        provisioning_state: NotRequired[pulumi.Input[Union[str, 'PrivateLinkServiceConnectionProvisioningState']]]
+        """
+        The provisioning state of the private link service connection. Can be Updating, Deleting, Failed, Succeeded, or Incomplete
+        """
+elif False:
+    PrivateEndpointConnectionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PrivateEndpointConnectionPropertiesArgs:
@@ -336,6 +486,38 @@ class PrivateEndpointConnectionPropertiesArgs:
     def provisioning_state(self, value: Optional[pulumi.Input[Union[str, 'PrivateLinkServiceConnectionProvisioningState']]]):
         pulumi.set(self, "provisioning_state", value)
 
+
+if not MYPY:
+    class SharedPrivateLinkResourcePropertiesArgsDict(TypedDict):
+        """
+        Describes the properties of an existing Shared Private Link Resource managed by the Azure Cognitive Search service.
+        """
+        group_id: NotRequired[pulumi.Input[str]]
+        """
+        The group id from the provider of resource the shared private link resource is for.
+        """
+        private_link_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        The resource id of the resource the shared private link resource is for.
+        """
+        provisioning_state: NotRequired[pulumi.Input['SharedPrivateLinkResourceProvisioningState']]
+        """
+        The provisioning state of the shared private link resource. Can be Updating, Deleting, Failed, Succeeded or Incomplete.
+        """
+        request_message: NotRequired[pulumi.Input[str]]
+        """
+        The request message for requesting approval of the shared private link resource.
+        """
+        resource_region: NotRequired[pulumi.Input[str]]
+        """
+        Optional. Can be used to specify the Azure Resource Manager location of the resource to which a shared private link is to be created. This is only required for those resources whose DNS configuration are regional (such as Azure Kubernetes Service).
+        """
+        status: NotRequired[pulumi.Input['SharedPrivateLinkResourceStatus']]
+        """
+        Status of the shared private link resource. Can be Pending, Approved, Rejected or Disconnected.
+        """
+elif False:
+    SharedPrivateLinkResourcePropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SharedPrivateLinkResourcePropertiesArgs:
@@ -440,6 +622,18 @@ class SharedPrivateLinkResourcePropertiesArgs:
     def status(self, value: Optional[pulumi.Input['SharedPrivateLinkResourceStatus']]):
         pulumi.set(self, "status", value)
 
+
+if not MYPY:
+    class SkuArgsDict(TypedDict):
+        """
+        Defines the SKU of an Azure Cognitive Search Service, which determines price tier and capacity limits.
+        """
+        name: NotRequired[pulumi.Input['SkuName']]
+        """
+        The SKU of the search service. Valid values include: 'free': Shared service. 'basic': Dedicated service with up to 3 replicas. 'standard': Dedicated service with up to 12 partitions and 12 replicas. 'standard2': Similar to standard, but with more capacity per search unit. 'standard3': The largest Standard offering with up to 12 partitions and 12 replicas (or up to 3 partitions with more indexes if you also set the hostingMode property to 'highDensity'). 'storage_optimized_l1': Supports 1TB per partition, up to 12 partitions. 'storage_optimized_l2': Supports 2TB per partition, up to 12 partitions.'
+        """
+elif False:
+    SkuArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SkuArgs:

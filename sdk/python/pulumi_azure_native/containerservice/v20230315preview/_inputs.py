@@ -4,20 +4,45 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'FleetHubProfileArgs',
+    'FleetHubProfileArgsDict',
     'ManagedClusterUpdateArgs',
+    'ManagedClusterUpdateArgsDict',
     'ManagedClusterUpgradeSpecArgs',
+    'ManagedClusterUpgradeSpecArgsDict',
     'UpdateGroupArgs',
+    'UpdateGroupArgsDict',
     'UpdateRunStrategyArgs',
+    'UpdateRunStrategyArgsDict',
     'UpdateStageArgs',
+    'UpdateStageArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class FleetHubProfileArgsDict(TypedDict):
+        """
+        The FleetHubProfile configures the fleet hub.
+        """
+        dns_prefix: NotRequired[pulumi.Input[str]]
+        """
+        DNS prefix used to create the FQDN for the Fleet hub.
+        """
+elif False:
+    FleetHubProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FleetHubProfileArgs:
@@ -43,6 +68,18 @@ class FleetHubProfileArgs:
         pulumi.set(self, "dns_prefix", value)
 
 
+if not MYPY:
+    class ManagedClusterUpdateArgsDict(TypedDict):
+        """
+        The update to be applied to the ManagedClusters.
+        """
+        upgrade: pulumi.Input['ManagedClusterUpgradeSpecArgsDict']
+        """
+        The upgrade to apply to the ManagedClusters.
+        """
+elif False:
+    ManagedClusterUpdateArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ManagedClusterUpdateArgs:
     def __init__(__self__, *,
@@ -65,6 +102,22 @@ class ManagedClusterUpdateArgs:
     def upgrade(self, value: pulumi.Input['ManagedClusterUpgradeSpecArgs']):
         pulumi.set(self, "upgrade", value)
 
+
+if not MYPY:
+    class ManagedClusterUpgradeSpecArgsDict(TypedDict):
+        """
+        The upgrade to apply to a ManagedCluster.
+        """
+        type: pulumi.Input[Union[str, 'ManagedClusterUpgradeType']]
+        """
+        ManagedClusterUpgradeType is the type of upgrade to be applied.
+        """
+        kubernetes_version: NotRequired[pulumi.Input[str]]
+        """
+        The Kubernetes version to upgrade the member clusters to.
+        """
+elif False:
+    ManagedClusterUpgradeSpecArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ManagedClusterUpgradeSpecArgs:
@@ -105,6 +158,19 @@ class ManagedClusterUpgradeSpecArgs:
         pulumi.set(self, "kubernetes_version", value)
 
 
+if not MYPY:
+    class UpdateGroupArgsDict(TypedDict):
+        """
+        A group to be updated.
+        """
+        name: pulumi.Input[str]
+        """
+        Name of the group.
+        It must match a group name of an existing fleet member. 
+        """
+elif False:
+    UpdateGroupArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class UpdateGroupArgs:
     def __init__(__self__, *,
@@ -129,6 +195,24 @@ class UpdateGroupArgs:
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class UpdateRunStrategyArgsDict(TypedDict):
+        """
+        Defines the update sequence of the clusters via stages and groups.
+
+        Stages within a run are executed sequentially one after another.
+        Groups within a stage are executed in parallel.
+        Member clusters within a group are updated sequentially one after another.
+
+        A valid strategy contains no duplicate groups within or across stages.
+        """
+        stages: pulumi.Input[Sequence[pulumi.Input['UpdateStageArgsDict']]]
+        """
+        The list of stages that compose this update run. Min size: 1.
+        """
+elif False:
+    UpdateRunStrategyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UpdateRunStrategyArgs:
@@ -158,6 +242,26 @@ class UpdateRunStrategyArgs:
     def stages(self, value: pulumi.Input[Sequence[pulumi.Input['UpdateStageArgs']]]):
         pulumi.set(self, "stages", value)
 
+
+if not MYPY:
+    class UpdateStageArgsDict(TypedDict):
+        """
+        Defines a stage which contains the groups to update and the steps to take (e.g., wait for a time period) before starting the next stage.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the stage. Must be unique within the UpdateRun.
+        """
+        after_stage_wait_in_seconds: NotRequired[pulumi.Input[int]]
+        """
+        The time in seconds to wait at the end of this stage before starting the next one. Defaults to 0 seconds if unspecified.
+        """
+        groups: NotRequired[pulumi.Input[Sequence[pulumi.Input['UpdateGroupArgsDict']]]]
+        """
+        Defines the groups to be executed in parallel in this stage. Duplicate groups are not allowed. Min size: 1.
+        """
+elif False:
+    UpdateStageArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UpdateStageArgs:

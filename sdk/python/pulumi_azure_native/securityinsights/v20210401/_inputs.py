@@ -4,20 +4,61 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'ThreatIntelligenceExternalReferenceArgs',
+    'ThreatIntelligenceExternalReferenceArgsDict',
     'ThreatIntelligenceGranularMarkingModelArgs',
+    'ThreatIntelligenceGranularMarkingModelArgsDict',
     'ThreatIntelligenceKillChainPhaseArgs',
+    'ThreatIntelligenceKillChainPhaseArgsDict',
     'ThreatIntelligenceParsedPatternTypeValueArgs',
+    'ThreatIntelligenceParsedPatternTypeValueArgsDict',
     'ThreatIntelligenceParsedPatternArgs',
+    'ThreatIntelligenceParsedPatternArgsDict',
     'WatchlistUserInfoArgs',
+    'WatchlistUserInfoArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ThreatIntelligenceExternalReferenceArgsDict(TypedDict):
+        """
+        Describes external reference
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        External reference description
+        """
+        external_id: NotRequired[pulumi.Input[str]]
+        """
+        External reference ID
+        """
+        hashes: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        External reference hashes
+        """
+        source_name: NotRequired[pulumi.Input[str]]
+        """
+        External reference source name
+        """
+        url: NotRequired[pulumi.Input[str]]
+        """
+        External reference URL
+        """
+elif False:
+    ThreatIntelligenceExternalReferenceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ThreatIntelligenceExternalReferenceArgs:
@@ -107,6 +148,26 @@ class ThreatIntelligenceExternalReferenceArgs:
         pulumi.set(self, "url", value)
 
 
+if not MYPY:
+    class ThreatIntelligenceGranularMarkingModelArgsDict(TypedDict):
+        """
+        Describes threat granular marking model entity
+        """
+        language: NotRequired[pulumi.Input[str]]
+        """
+        Language granular marking model
+        """
+        marking_ref: NotRequired[pulumi.Input[int]]
+        """
+        marking reference granular marking model
+        """
+        selectors: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        granular marking model selectors
+        """
+elif False:
+    ThreatIntelligenceGranularMarkingModelArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ThreatIntelligenceGranularMarkingModelArgs:
     def __init__(__self__, *,
@@ -163,6 +224,22 @@ class ThreatIntelligenceGranularMarkingModelArgs:
         pulumi.set(self, "selectors", value)
 
 
+if not MYPY:
+    class ThreatIntelligenceKillChainPhaseArgsDict(TypedDict):
+        """
+        Describes threat kill chain phase entity
+        """
+        kill_chain_name: NotRequired[pulumi.Input[str]]
+        """
+        Kill chainName name
+        """
+        phase_name: NotRequired[pulumi.Input[str]]
+        """
+        Phase name
+        """
+elif False:
+    ThreatIntelligenceKillChainPhaseArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ThreatIntelligenceKillChainPhaseArgs:
     def __init__(__self__, *,
@@ -202,6 +279,22 @@ class ThreatIntelligenceKillChainPhaseArgs:
     def phase_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "phase_name", value)
 
+
+if not MYPY:
+    class ThreatIntelligenceParsedPatternTypeValueArgsDict(TypedDict):
+        """
+        Describes threat kill chain phase entity
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        Value of parsed pattern
+        """
+        value_type: NotRequired[pulumi.Input[str]]
+        """
+        Type of the value
+        """
+elif False:
+    ThreatIntelligenceParsedPatternTypeValueArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ThreatIntelligenceParsedPatternTypeValueArgs:
@@ -243,6 +336,22 @@ class ThreatIntelligenceParsedPatternTypeValueArgs:
         pulumi.set(self, "value_type", value)
 
 
+if not MYPY:
+    class ThreatIntelligenceParsedPatternArgsDict(TypedDict):
+        """
+        Describes parsed pattern entity
+        """
+        pattern_type_key: NotRequired[pulumi.Input[str]]
+        """
+        Pattern type key
+        """
+        pattern_type_values: NotRequired[pulumi.Input[Sequence[pulumi.Input['ThreatIntelligenceParsedPatternTypeValueArgsDict']]]]
+        """
+        Pattern type keys
+        """
+elif False:
+    ThreatIntelligenceParsedPatternArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ThreatIntelligenceParsedPatternArgs:
     def __init__(__self__, *,
@@ -282,6 +391,18 @@ class ThreatIntelligenceParsedPatternArgs:
     def pattern_type_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ThreatIntelligenceParsedPatternTypeValueArgs']]]]):
         pulumi.set(self, "pattern_type_values", value)
 
+
+if not MYPY:
+    class WatchlistUserInfoArgsDict(TypedDict):
+        """
+        User information that made some action
+        """
+        object_id: NotRequired[pulumi.Input[str]]
+        """
+        The object id of the user.
+        """
+elif False:
+    WatchlistUserInfoArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WatchlistUserInfoArgs:

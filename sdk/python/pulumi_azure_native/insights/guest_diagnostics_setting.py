@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -133,7 +138,7 @@ class GuestDiagnosticsSetting(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_sources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSourceArgs']]]]] = None,
+                 data_sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DataSourceArgs', 'DataSourceArgsDict']]]]] = None,
                  diagnostic_settings_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  os_type: Optional[pulumi.Input[str]] = None,
@@ -147,7 +152,7 @@ class GuestDiagnosticsSetting(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSourceArgs']]]] data_sources: the array of data source object which are configured to collect and send data
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DataSourceArgs', 'DataSourceArgsDict']]]] data_sources: the array of data source object which are configured to collect and send data
         :param pulumi.Input[str] diagnostic_settings_name: The name of the diagnostic setting.
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] os_type: Operating system type for the configuration
@@ -179,7 +184,7 @@ class GuestDiagnosticsSetting(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_sources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSourceArgs']]]]] = None,
+                 data_sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DataSourceArgs', 'DataSourceArgsDict']]]]] = None,
                  diagnostic_settings_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  os_type: Optional[pulumi.Input[str]] = None,

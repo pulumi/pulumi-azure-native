@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -167,13 +172,13 @@ class Rule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action: Optional[pulumi.Input[pulumi.InputType['ActionArgs']]] = None,
-                 correlation_filter: Optional[pulumi.Input[pulumi.InputType['CorrelationFilterArgs']]] = None,
+                 action: Optional[pulumi.Input[Union['ActionArgs', 'ActionArgsDict']]] = None,
+                 correlation_filter: Optional[pulumi.Input[Union['CorrelationFilterArgs', 'CorrelationFilterArgsDict']]] = None,
                  filter_type: Optional[pulumi.Input[Union[str, 'FilterType']]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  rule_name: Optional[pulumi.Input[str]] = None,
-                 sql_filter: Optional[pulumi.Input[pulumi.InputType['SqlFilterArgs']]] = None,
+                 sql_filter: Optional[pulumi.Input[Union['SqlFilterArgs', 'SqlFilterArgsDict']]] = None,
                  subscription_name: Optional[pulumi.Input[str]] = None,
                  topic_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -185,13 +190,13 @@ class Rule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ActionArgs']] action: Represents the filter actions which are allowed for the transformation of a message that have been matched by a filter expression.
-        :param pulumi.Input[pulumi.InputType['CorrelationFilterArgs']] correlation_filter: Properties of correlationFilter
+        :param pulumi.Input[Union['ActionArgs', 'ActionArgsDict']] action: Represents the filter actions which are allowed for the transformation of a message that have been matched by a filter expression.
+        :param pulumi.Input[Union['CorrelationFilterArgs', 'CorrelationFilterArgsDict']] correlation_filter: Properties of correlationFilter
         :param pulumi.Input[Union[str, 'FilterType']] filter_type: Filter type that is evaluated against a BrokeredMessage.
         :param pulumi.Input[str] namespace_name: The namespace name
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
         :param pulumi.Input[str] rule_name: The rule name.
-        :param pulumi.Input[pulumi.InputType['SqlFilterArgs']] sql_filter: Properties of sqlFilter
+        :param pulumi.Input[Union['SqlFilterArgs', 'SqlFilterArgsDict']] sql_filter: Properties of sqlFilter
         :param pulumi.Input[str] subscription_name: The subscription name.
         :param pulumi.Input[str] topic_name: The topic name.
         """
@@ -222,13 +227,13 @@ class Rule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action: Optional[pulumi.Input[pulumi.InputType['ActionArgs']]] = None,
-                 correlation_filter: Optional[pulumi.Input[pulumi.InputType['CorrelationFilterArgs']]] = None,
+                 action: Optional[pulumi.Input[Union['ActionArgs', 'ActionArgsDict']]] = None,
+                 correlation_filter: Optional[pulumi.Input[Union['CorrelationFilterArgs', 'CorrelationFilterArgsDict']]] = None,
                  filter_type: Optional[pulumi.Input[Union[str, 'FilterType']]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  rule_name: Optional[pulumi.Input[str]] = None,
-                 sql_filter: Optional[pulumi.Input[pulumi.InputType['SqlFilterArgs']]] = None,
+                 sql_filter: Optional[pulumi.Input[Union['SqlFilterArgs', 'SqlFilterArgsDict']]] = None,
                  subscription_name: Optional[pulumi.Input[str]] = None,
                  topic_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):

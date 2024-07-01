@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -107,8 +112,8 @@ class AksAssessmentOperation(pulumi.CustomResource):
                  assessment_name: Optional[pulumi.Input[str]] = None,
                  project_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 scope: Optional[pulumi.Input[pulumi.InputType['AssessmentScopeParametersArgs']]] = None,
-                 settings: Optional[pulumi.Input[pulumi.InputType['AKSAssessmentSettingsArgs']]] = None,
+                 scope: Optional[pulumi.Input[Union['AssessmentScopeParametersArgs', 'AssessmentScopeParametersArgsDict']]] = None,
+                 settings: Optional[pulumi.Input[Union['AKSAssessmentSettingsArgs', 'AKSAssessmentSettingsArgsDict']]] = None,
                  __props__=None):
         """
         ARM model of AKS Assessment.
@@ -119,8 +124,8 @@ class AksAssessmentOperation(pulumi.CustomResource):
         :param pulumi.Input[str] assessment_name: AKS Assessment Name.
         :param pulumi.Input[str] project_name: Assessment Project Name
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[pulumi.InputType['AssessmentScopeParametersArgs']] scope: Gets or sets scope parameters to identify inventory items for assessment.
-        :param pulumi.Input[pulumi.InputType['AKSAssessmentSettingsArgs']] settings: Gets or sets AKS Assessment Settings.
+        :param pulumi.Input[Union['AssessmentScopeParametersArgs', 'AssessmentScopeParametersArgsDict']] scope: Gets or sets scope parameters to identify inventory items for assessment.
+        :param pulumi.Input[Union['AKSAssessmentSettingsArgs', 'AKSAssessmentSettingsArgsDict']] settings: Gets or sets AKS Assessment Settings.
         """
         ...
     @overload
@@ -150,8 +155,8 @@ class AksAssessmentOperation(pulumi.CustomResource):
                  assessment_name: Optional[pulumi.Input[str]] = None,
                  project_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 scope: Optional[pulumi.Input[pulumi.InputType['AssessmentScopeParametersArgs']]] = None,
-                 settings: Optional[pulumi.Input[pulumi.InputType['AKSAssessmentSettingsArgs']]] = None,
+                 scope: Optional[pulumi.Input[Union['AssessmentScopeParametersArgs', 'AssessmentScopeParametersArgsDict']]] = None,
+                 settings: Optional[pulumi.Input[Union['AKSAssessmentSettingsArgs', 'AKSAssessmentSettingsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

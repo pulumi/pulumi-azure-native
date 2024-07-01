@@ -4,20 +4,49 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'ApiCreateOrUpdatePropertiesWsdlSelectorArgs',
+    'ApiCreateOrUpdatePropertiesWsdlSelectorArgsDict',
     'ApiVersionSetContractDetailsArgs',
+    'ApiVersionSetContractDetailsArgsDict',
     'AuthenticationSettingsContractArgs',
+    'AuthenticationSettingsContractArgsDict',
     'OAuth2AuthenticationSettingsContractArgs',
+    'OAuth2AuthenticationSettingsContractArgsDict',
     'OpenIdAuthenticationSettingsContractArgs',
+    'OpenIdAuthenticationSettingsContractArgsDict',
     'SubscriptionKeyParameterNamesContractArgs',
+    'SubscriptionKeyParameterNamesContractArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ApiCreateOrUpdatePropertiesWsdlSelectorArgsDict(TypedDict):
+        """
+        Criteria to limit import of WSDL to a subset of the document.
+        """
+        wsdl_endpoint_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of endpoint(port) to import from WSDL
+        """
+        wsdl_service_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of service to import from WSDL
+        """
+elif False:
+    ApiCreateOrUpdatePropertiesWsdlSelectorArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApiCreateOrUpdatePropertiesWsdlSelectorArgs:
@@ -58,6 +87,34 @@ class ApiCreateOrUpdatePropertiesWsdlSelectorArgs:
     def wsdl_service_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "wsdl_service_name", value)
 
+
+if not MYPY:
+    class ApiVersionSetContractDetailsArgsDict(TypedDict):
+        """
+        An API Version Set contains the common configuration for a set of API Versions relating 
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Description of API Version Set.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Identifier for existing API Version Set. Omit this value to create a new Version Set.
+        """
+        version_header_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of HTTP header parameter that indicates the API Version if versioningScheme is set to `header`.
+        """
+        version_query_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of query parameter that indicates the API Version if versioningScheme is set to `query`.
+        """
+        versioning_scheme: NotRequired[pulumi.Input[str]]
+        """
+        An value that determines where the API Version identifier will be located in a HTTP request.
+        """
+elif False:
+    ApiVersionSetContractDetailsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApiVersionSetContractDetailsArgs:
@@ -147,6 +204,26 @@ class ApiVersionSetContractDetailsArgs:
         pulumi.set(self, "versioning_scheme", value)
 
 
+if not MYPY:
+    class AuthenticationSettingsContractArgsDict(TypedDict):
+        """
+        API Authentication Settings.
+        """
+        o_auth2: NotRequired[pulumi.Input['OAuth2AuthenticationSettingsContractArgsDict']]
+        """
+        OAuth2 Authentication settings
+        """
+        openid: NotRequired[pulumi.Input['OpenIdAuthenticationSettingsContractArgsDict']]
+        """
+        OpenID Connect Authentication Settings
+        """
+        subscription_key_required: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies whether subscription key is required during call to this API, true - API is included into closed products only, false - API is included into open products alone, null - there is a mix of products.
+        """
+elif False:
+    AuthenticationSettingsContractArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AuthenticationSettingsContractArgs:
     def __init__(__self__, *,
@@ -203,6 +280,22 @@ class AuthenticationSettingsContractArgs:
         pulumi.set(self, "subscription_key_required", value)
 
 
+if not MYPY:
+    class OAuth2AuthenticationSettingsContractArgsDict(TypedDict):
+        """
+        API OAuth2 Authentication settings details.
+        """
+        authorization_server_id: NotRequired[pulumi.Input[str]]
+        """
+        OAuth authorization server identifier.
+        """
+        scope: NotRequired[pulumi.Input[str]]
+        """
+        operations scope.
+        """
+elif False:
+    OAuth2AuthenticationSettingsContractArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OAuth2AuthenticationSettingsContractArgs:
     def __init__(__self__, *,
@@ -243,6 +336,22 @@ class OAuth2AuthenticationSettingsContractArgs:
         pulumi.set(self, "scope", value)
 
 
+if not MYPY:
+    class OpenIdAuthenticationSettingsContractArgsDict(TypedDict):
+        """
+        API OAuth2 Authentication settings details.
+        """
+        bearer_token_sending_methods: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'BearerTokenSendingMethods']]]]]
+        """
+        How to send token to the server.
+        """
+        openid_provider_id: NotRequired[pulumi.Input[str]]
+        """
+        OAuth authorization server identifier.
+        """
+elif False:
+    OpenIdAuthenticationSettingsContractArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OpenIdAuthenticationSettingsContractArgs:
     def __init__(__self__, *,
@@ -282,6 +391,22 @@ class OpenIdAuthenticationSettingsContractArgs:
     def openid_provider_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "openid_provider_id", value)
 
+
+if not MYPY:
+    class SubscriptionKeyParameterNamesContractArgsDict(TypedDict):
+        """
+        Subscription key parameter names details.
+        """
+        header: NotRequired[pulumi.Input[str]]
+        """
+        Subscription key header name.
+        """
+        query: NotRequired[pulumi.Input[str]]
+        """
+        Subscription key query string parameter name.
+        """
+elif False:
+    SubscriptionKeyParameterNamesContractArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SubscriptionKeyParameterNamesContractArgs:

@@ -4,15 +4,39 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'B2CResourceSKUArgs',
+    'B2CResourceSKUArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class B2CResourceSKUArgsDict(TypedDict):
+        """
+        SKU properties of the Azure AD B2C tenant. Learn more about Azure AD B2C billing at [aka.ms/b2cBilling](https://aka.ms/b2cBilling).
+        """
+        name: NotRequired[pulumi.Input[Union[str, 'B2CResourceSKUName']]]
+        """
+        The name of the SKU for the tenant.
+        """
+        tier: NotRequired[pulumi.Input[Union[str, 'B2CResourceSKUTier']]]
+        """
+        The tier of the tenant.
+        """
+elif False:
+    B2CResourceSKUArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class B2CResourceSKUArgs:

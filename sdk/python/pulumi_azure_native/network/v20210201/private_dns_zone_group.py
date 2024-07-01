@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -138,7 +143,7 @@ class PrivateDnsZoneGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 private_dns_zone_configs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrivateDnsZoneConfigArgs']]]]] = None,
+                 private_dns_zone_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PrivateDnsZoneConfigArgs', 'PrivateDnsZoneConfigArgsDict']]]]] = None,
                  private_dns_zone_group_name: Optional[pulumi.Input[str]] = None,
                  private_endpoint_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -151,7 +156,7 @@ class PrivateDnsZoneGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] name: Name of the resource that is unique within a resource group. This name can be used to access the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrivateDnsZoneConfigArgs']]]] private_dns_zone_configs: A collection of private dns zone configurations of the private dns zone group.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PrivateDnsZoneConfigArgs', 'PrivateDnsZoneConfigArgsDict']]]] private_dns_zone_configs: A collection of private dns zone configurations of the private dns zone group.
         :param pulumi.Input[str] private_dns_zone_group_name: The name of the private dns zone group.
         :param pulumi.Input[str] private_endpoint_name: The name of the private endpoint.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
@@ -183,7 +188,7 @@ class PrivateDnsZoneGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 private_dns_zone_configs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrivateDnsZoneConfigArgs']]]]] = None,
+                 private_dns_zone_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PrivateDnsZoneConfigArgs', 'PrivateDnsZoneConfigArgsDict']]]]] = None,
                  private_dns_zone_group_name: Optional[pulumi.Input[str]] = None,
                  private_endpoint_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,

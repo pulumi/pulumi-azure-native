@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -120,7 +125,7 @@ class RaiBlocklistItem(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['RaiBlocklistItemPropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['RaiBlocklistItemPropertiesArgs', 'RaiBlocklistItemPropertiesArgsDict']]] = None,
                  rai_blocklist_item_name: Optional[pulumi.Input[str]] = None,
                  rai_blocklist_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -132,7 +137,7 @@ class RaiBlocklistItem(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of Cognitive Services account.
-        :param pulumi.Input[pulumi.InputType['RaiBlocklistItemPropertiesArgs']] properties: Properties of Cognitive Services RaiBlocklist Item.
+        :param pulumi.Input[Union['RaiBlocklistItemPropertiesArgs', 'RaiBlocklistItemPropertiesArgsDict']] properties: Properties of Cognitive Services RaiBlocklist Item.
         :param pulumi.Input[str] rai_blocklist_item_name: The name of the RaiBlocklist Item associated with the custom blocklist
         :param pulumi.Input[str] rai_blocklist_name: The name of the RaiBlocklist associated with the Cognitive Services Account
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -163,7 +168,7 @@ class RaiBlocklistItem(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['RaiBlocklistItemPropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['RaiBlocklistItemPropertiesArgs', 'RaiBlocklistItemPropertiesArgsDict']]] = None,
                  rai_blocklist_item_name: Optional[pulumi.Input[str]] = None,
                  rai_blocklist_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,

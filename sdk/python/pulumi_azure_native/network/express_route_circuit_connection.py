@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -203,11 +208,11 @@ class ExpressRouteCircuitConnection(pulumi.CustomResource):
                  authorization_key: Optional[pulumi.Input[str]] = None,
                  circuit_name: Optional[pulumi.Input[str]] = None,
                  connection_name: Optional[pulumi.Input[str]] = None,
-                 express_route_circuit_peering: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
+                 express_route_circuit_peering: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
                  id: Optional[pulumi.Input[str]] = None,
-                 ipv6_circuit_connection_config: Optional[pulumi.Input[pulumi.InputType['Ipv6CircuitConnectionConfigArgs']]] = None,
+                 ipv6_circuit_connection_config: Optional[pulumi.Input[Union['Ipv6CircuitConnectionConfigArgs', 'Ipv6CircuitConnectionConfigArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 peer_express_route_circuit_peering: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
+                 peer_express_route_circuit_peering: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
                  peering_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -223,11 +228,11 @@ class ExpressRouteCircuitConnection(pulumi.CustomResource):
         :param pulumi.Input[str] authorization_key: The authorization key.
         :param pulumi.Input[str] circuit_name: The name of the express route circuit.
         :param pulumi.Input[str] connection_name: The name of the express route circuit connection.
-        :param pulumi.Input[pulumi.InputType['SubResourceArgs']] express_route_circuit_peering: Reference to Express Route Circuit Private Peering Resource of the circuit initiating connection.
+        :param pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']] express_route_circuit_peering: Reference to Express Route Circuit Private Peering Resource of the circuit initiating connection.
         :param pulumi.Input[str] id: Resource ID.
-        :param pulumi.Input[pulumi.InputType['Ipv6CircuitConnectionConfigArgs']] ipv6_circuit_connection_config: IPv6 Address PrefixProperties of the express route circuit connection.
+        :param pulumi.Input[Union['Ipv6CircuitConnectionConfigArgs', 'Ipv6CircuitConnectionConfigArgsDict']] ipv6_circuit_connection_config: IPv6 Address PrefixProperties of the express route circuit connection.
         :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
-        :param pulumi.Input[pulumi.InputType['SubResourceArgs']] peer_express_route_circuit_peering: Reference to Express Route Circuit Private Peering Resource of the peered circuit.
+        :param pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']] peer_express_route_circuit_peering: Reference to Express Route Circuit Private Peering Resource of the peered circuit.
         :param pulumi.Input[str] peering_name: The name of the peering.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         """
@@ -262,11 +267,11 @@ class ExpressRouteCircuitConnection(pulumi.CustomResource):
                  authorization_key: Optional[pulumi.Input[str]] = None,
                  circuit_name: Optional[pulumi.Input[str]] = None,
                  connection_name: Optional[pulumi.Input[str]] = None,
-                 express_route_circuit_peering: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
+                 express_route_circuit_peering: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
                  id: Optional[pulumi.Input[str]] = None,
-                 ipv6_circuit_connection_config: Optional[pulumi.Input[pulumi.InputType['Ipv6CircuitConnectionConfigArgs']]] = None,
+                 ipv6_circuit_connection_config: Optional[pulumi.Input[Union['Ipv6CircuitConnectionConfigArgs', 'Ipv6CircuitConnectionConfigArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 peer_express_route_circuit_peering: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
+                 peer_express_route_circuit_peering: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
                  peering_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):

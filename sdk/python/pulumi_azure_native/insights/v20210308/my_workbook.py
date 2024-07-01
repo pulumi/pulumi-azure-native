@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -266,7 +271,7 @@ class MyWorkbook(pulumi.CustomResource):
                  category: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['MyWorkbookManagedIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['MyWorkbookManagedIdentityArgs', 'MyWorkbookManagedIdentityArgsDict']]] = None,
                  kind: Optional[pulumi.Input[Union[str, 'Kind']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -287,7 +292,7 @@ class MyWorkbook(pulumi.CustomResource):
         :param pulumi.Input[str] category: Workbook category, as defined by the user at creation time.
         :param pulumi.Input[str] display_name: The user-defined name of the private workbook.
         :param pulumi.Input[str] id: Azure resource Id
-        :param pulumi.Input[pulumi.InputType['MyWorkbookManagedIdentityArgs']] identity: Identity used for BYOS
+        :param pulumi.Input[Union['MyWorkbookManagedIdentityArgs', 'MyWorkbookManagedIdentityArgsDict']] identity: Identity used for BYOS
         :param pulumi.Input[Union[str, 'Kind']] kind: The kind of workbook. Choices are user and shared.
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] name: Azure resource name
@@ -327,7 +332,7 @@ class MyWorkbook(pulumi.CustomResource):
                  category: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['MyWorkbookManagedIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['MyWorkbookManagedIdentityArgs', 'MyWorkbookManagedIdentityArgsDict']]] = None,
                  kind: Optional[pulumi.Input[Union[str, 'Kind']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,

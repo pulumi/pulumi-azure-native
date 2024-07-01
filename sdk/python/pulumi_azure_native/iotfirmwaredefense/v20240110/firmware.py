@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -210,7 +215,7 @@ class Firmware(pulumi.CustomResource):
                  model: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[Union[str, 'Status']]] = None,
-                 status_messages: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StatusMessageArgs']]]]] = None,
+                 status_messages: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StatusMessageArgs', 'StatusMessageArgsDict']]]]] = None,
                  vendor: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
@@ -227,7 +232,7 @@ class Firmware(pulumi.CustomResource):
         :param pulumi.Input[str] model: Firmware model.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union[str, 'Status']] status: The status of firmware scan.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StatusMessageArgs']]]] status_messages: A list of errors or other messages generated during firmware analysis
+        :param pulumi.Input[Sequence[pulumi.Input[Union['StatusMessageArgs', 'StatusMessageArgsDict']]]] status_messages: A list of errors or other messages generated during firmware analysis
         :param pulumi.Input[str] vendor: Firmware vendor.
         :param pulumi.Input[str] version: Firmware version.
         :param pulumi.Input[str] workspace_name: The name of the firmware analysis workspace.
@@ -263,7 +268,7 @@ class Firmware(pulumi.CustomResource):
                  model: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[Union[str, 'Status']]] = None,
-                 status_messages: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StatusMessageArgs']]]]] = None,
+                 status_messages: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StatusMessageArgs', 'StatusMessageArgsDict']]]]] = None,
                  vendor: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,

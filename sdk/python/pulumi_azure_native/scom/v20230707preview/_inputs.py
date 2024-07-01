@@ -4,21 +4,55 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'AzureHybridBenefitPropertiesArgs',
+    'AzureHybridBenefitPropertiesArgsDict',
     'DatabaseInstancePropertiesArgs',
+    'DatabaseInstancePropertiesArgsDict',
     'DomainControllerPropertiesArgs',
+    'DomainControllerPropertiesArgsDict',
     'DomainUserCredentialsArgs',
+    'DomainUserCredentialsArgsDict',
     'GmsaDetailsArgs',
+    'GmsaDetailsArgsDict',
     'ManagedIdentityArgs',
+    'ManagedIdentityArgsDict',
     'MonitoringInstancePropertiesArgs',
+    'MonitoringInstancePropertiesArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AzureHybridBenefitPropertiesArgsDict(TypedDict):
+        """
+        The properties to maximize savings by using Azure Hybrid Benefit
+        """
+        scom_license_type: NotRequired[pulumi.Input[Union[str, 'HybridLicenseType']]]
+        """
+        SCOM license type. Maximize savings by using license you already own
+        """
+        sql_server_license_type: NotRequired[pulumi.Input[Union[str, 'HybridLicenseType']]]
+        """
+        SQL Server license type. Maximize savings by using Azure Hybrid Benefit for SQL Server with license you already own
+        """
+        windows_server_license_type: NotRequired[pulumi.Input[Union[str, 'HybridLicenseType']]]
+        """
+        Specifies that the image or disk that is being used was licensed on-premises. <br><br> For more information, see [Azure Hybrid Use Benefit for Windows Server](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-hybrid-use-benefit-licensing?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+        """
+elif False:
+    AzureHybridBenefitPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AzureHybridBenefitPropertiesArgs:
@@ -76,6 +110,18 @@ class AzureHybridBenefitPropertiesArgs:
         pulumi.set(self, "windows_server_license_type", value)
 
 
+if not MYPY:
+    class DatabaseInstancePropertiesArgsDict(TypedDict):
+        """
+        The properties of database instance
+        """
+        database_instance_id: NotRequired[pulumi.Input[str]]
+        """
+        Resource Id of existing database instance
+        """
+elif False:
+    DatabaseInstancePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DatabaseInstancePropertiesArgs:
     def __init__(__self__, *,
@@ -99,6 +145,26 @@ class DatabaseInstancePropertiesArgs:
     def database_instance_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "database_instance_id", value)
 
+
+if not MYPY:
+    class DomainControllerPropertiesArgsDict(TypedDict):
+        """
+        The properties of domain controller to which SCOM and SQL servers join for AuthN/AuthZ.
+        """
+        dns_server: NotRequired[pulumi.Input[str]]
+        """
+        IP address of DNS server 
+        """
+        domain_name: NotRequired[pulumi.Input[str]]
+        """
+        Fully qualified domain name
+        """
+        ou_path: NotRequired[pulumi.Input[str]]
+        """
+        Organizational Unit path in which the SCOM servers will be present
+        """
+elif False:
+    DomainControllerPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DomainControllerPropertiesArgs:
@@ -158,6 +224,26 @@ class DomainControllerPropertiesArgs:
         pulumi.set(self, "ou_path", value)
 
 
+if not MYPY:
+    class DomainUserCredentialsArgsDict(TypedDict):
+        """
+        Get Domain user name and password from key vault
+        """
+        key_vault_url: NotRequired[pulumi.Input[str]]
+        """
+        Key vault url to get the domain username and password
+        """
+        password_secret: NotRequired[pulumi.Input[str]]
+        """
+        Domain Password secret 
+        """
+        user_name_secret: NotRequired[pulumi.Input[str]]
+        """
+        Domain user name secret 
+        """
+elif False:
+    DomainUserCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DomainUserCredentialsArgs:
     def __init__(__self__, *,
@@ -213,6 +299,30 @@ class DomainUserCredentialsArgs:
     def user_name_secret(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "user_name_secret", value)
 
+
+if not MYPY:
+    class GmsaDetailsArgsDict(TypedDict):
+        """
+        Gmsa Details
+        """
+        dns_name: NotRequired[pulumi.Input[str]]
+        """
+        Frontend DNS name for Load Balancer which will be used by Agents to initiate communication
+        """
+        gmsa_account: NotRequired[pulumi.Input[str]]
+        """
+        gMSA account under which context all Management Server services will run
+        """
+        load_balancer_ip: NotRequired[pulumi.Input[str]]
+        """
+        Frontend IP configuration for Load Balancer, which should be an available IP in customer VNet
+        """
+        management_server_group_name: NotRequired[pulumi.Input[str]]
+        """
+        OnPrem AD Computer Group where we will join VMs for ease of management
+        """
+elif False:
+    GmsaDetailsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GmsaDetailsArgs:
@@ -286,6 +396,22 @@ class GmsaDetailsArgs:
         pulumi.set(self, "management_server_group_name", value)
 
 
+if not MYPY:
+    class ManagedIdentityArgsDict(TypedDict):
+        """
+        Azure Active Directory identity configuration for a resource.
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'ManagedIdentityType']]]
+        """
+        The identity type
+        """
+        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The resource ids of the user assigned identities to use
+        """
+elif False:
+    ManagedIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ManagedIdentityArgs:
     def __init__(__self__, *,
@@ -325,6 +451,38 @@ class ManagedIdentityArgs:
     def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
+
+if not MYPY:
+    class MonitoringInstancePropertiesArgsDict(TypedDict):
+        """
+        The properties of a SCOM instance resource
+        """
+        azure_hybrid_benefit: NotRequired[pulumi.Input['AzureHybridBenefitPropertiesArgsDict']]
+        """
+        The properties to enable Azure Hybrid benefit for various SCOM infrastructure license.
+        """
+        database_instance: NotRequired[pulumi.Input['DatabaseInstancePropertiesArgsDict']]
+        """
+        The database instance where the SCOM Operational and Warehouse databases will be stored.
+        """
+        domain_controller: NotRequired[pulumi.Input['DomainControllerPropertiesArgsDict']]
+        """
+        Domain controller details
+        """
+        domain_user_credentials: NotRequired[pulumi.Input['DomainUserCredentialsArgsDict']]
+        """
+        Domain user which will be used to join VMs to domain and login to VMs.
+        """
+        gmsa_details: NotRequired[pulumi.Input['GmsaDetailsArgsDict']]
+        """
+        Gmsa Details for load balancer and vmss
+        """
+        v_net_subnet_id: NotRequired[pulumi.Input[str]]
+        """
+        Virtual Network subnet id on which Aquila instance will be provisioned
+        """
+elif False:
+    MonitoringInstancePropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MonitoringInstancePropertiesArgs:

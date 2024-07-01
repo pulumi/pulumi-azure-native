@@ -4,24 +4,53 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'EnterprisePolicyIdentityArgs',
+    'EnterprisePolicyIdentityArgsDict',
     'KeyPropertiesArgs',
+    'KeyPropertiesArgsDict',
     'KeyVaultPropertiesArgs',
+    'KeyVaultPropertiesArgsDict',
     'PrivateLinkServiceConnectionStateArgs',
+    'PrivateLinkServiceConnectionStateArgsDict',
     'PropertiesEncryptionArgs',
+    'PropertiesEncryptionArgsDict',
     'PropertiesLockboxArgs',
+    'PropertiesLockboxArgsDict',
     'PropertiesNetworkInjectionArgs',
+    'PropertiesNetworkInjectionArgsDict',
     'SubnetPropertiesArgs',
+    'SubnetPropertiesArgsDict',
     'VirtualNetworkPropertiesListArgs',
+    'VirtualNetworkPropertiesListArgsDict',
     'VirtualNetworkPropertiesArgs',
+    'VirtualNetworkPropertiesArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class EnterprisePolicyIdentityArgsDict(TypedDict):
+        """
+        The identity of the EnterprisePolicy.
+        """
+        type: NotRequired[pulumi.Input['ResourceIdentityType']]
+        """
+        The type of identity used for the EnterprisePolicy. Currently, the only supported type is 'SystemAssigned', which implicitly creates an identity.
+        """
+elif False:
+    EnterprisePolicyIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EnterprisePolicyIdentityArgs:
@@ -46,6 +75,22 @@ class EnterprisePolicyIdentityArgs:
     def type(self, value: Optional[pulumi.Input['ResourceIdentityType']]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class KeyPropertiesArgsDict(TypedDict):
+        """
+        Url and version of the KeyVault Secret
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The identifier of the key vault key used to encrypt data.
+        """
+        version: NotRequired[pulumi.Input[str]]
+        """
+        The version of the identity which will be used to access key vault.
+        """
+elif False:
+    KeyPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class KeyPropertiesArgs:
@@ -87,6 +132,22 @@ class KeyPropertiesArgs:
         pulumi.set(self, "version", value)
 
 
+if not MYPY:
+    class KeyVaultPropertiesArgsDict(TypedDict):
+        """
+        Settings concerning key vault encryption for a configuration store.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Uri of KeyVault
+        """
+        key: NotRequired[pulumi.Input['KeyPropertiesArgsDict']]
+        """
+        Identity of the secret that includes name and version.
+        """
+elif False:
+    KeyVaultPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class KeyVaultPropertiesArgs:
     def __init__(__self__, *,
@@ -126,6 +187,26 @@ class KeyVaultPropertiesArgs:
     def key(self, value: Optional[pulumi.Input['KeyPropertiesArgs']]):
         pulumi.set(self, "key", value)
 
+
+if not MYPY:
+    class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
+        """
+        A collection of information about the state of the connection between service consumer and provider.
+        """
+        actions_required: NotRequired[pulumi.Input[str]]
+        """
+        A message indicating if changes on the service provider require any updates on the consumer.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The reason for approval/rejection of the connection.
+        """
+        status: NotRequired[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]]
+        """
+        Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+        """
+elif False:
+    PrivateLinkServiceConnectionStateArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:
@@ -183,6 +264,22 @@ class PrivateLinkServiceConnectionStateArgs:
         pulumi.set(self, "status", value)
 
 
+if not MYPY:
+    class PropertiesEncryptionArgsDict(TypedDict):
+        """
+        The encryption settings for a configuration store.
+        """
+        key_vault: NotRequired[pulumi.Input['KeyVaultPropertiesArgsDict']]
+        """
+        Key vault properties.
+        """
+        state: NotRequired[pulumi.Input[Union[str, 'State']]]
+        """
+        The state of onboarding, which only appears in the response.
+        """
+elif False:
+    PropertiesEncryptionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PropertiesEncryptionArgs:
     def __init__(__self__, *,
@@ -223,6 +320,18 @@ class PropertiesEncryptionArgs:
         pulumi.set(self, "state", value)
 
 
+if not MYPY:
+    class PropertiesLockboxArgsDict(TypedDict):
+        """
+        Settings concerning lockbox.
+        """
+        state: NotRequired[pulumi.Input[Union[str, 'State']]]
+        """
+        lockbox configuration
+        """
+elif False:
+    PropertiesLockboxArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PropertiesLockboxArgs:
     def __init__(__self__, *,
@@ -246,6 +355,18 @@ class PropertiesLockboxArgs:
     def state(self, value: Optional[pulumi.Input[Union[str, 'State']]]):
         pulumi.set(self, "state", value)
 
+
+if not MYPY:
+    class PropertiesNetworkInjectionArgsDict(TypedDict):
+        """
+        Settings concerning network injection.
+        """
+        virtual_networks: NotRequired[pulumi.Input['VirtualNetworkPropertiesListArgsDict']]
+        """
+        Network injection configuration
+        """
+elif False:
+    PropertiesNetworkInjectionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PropertiesNetworkInjectionArgs:
@@ -271,6 +392,18 @@ class PropertiesNetworkInjectionArgs:
         pulumi.set(self, "virtual_networks", value)
 
 
+if not MYPY:
+    class SubnetPropertiesArgsDict(TypedDict):
+        """
+        Properties of a subnet.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Subnet name.
+        """
+elif False:
+    SubnetPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SubnetPropertiesArgs:
     def __init__(__self__, *,
@@ -294,6 +427,22 @@ class SubnetPropertiesArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class VirtualNetworkPropertiesListArgsDict(TypedDict):
+        """
+        A list of private link resources
+        """
+        next_link: NotRequired[pulumi.Input[str]]
+        """
+        Next page link if any.
+        """
+        value: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkPropertiesArgsDict']]]]
+        """
+        Array of virtual networks.
+        """
+elif False:
+    VirtualNetworkPropertiesListArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VirtualNetworkPropertiesListArgs:
@@ -334,6 +483,22 @@ class VirtualNetworkPropertiesListArgs:
     def value(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkPropertiesArgs']]]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class VirtualNetworkPropertiesArgsDict(TypedDict):
+        """
+        Settings concerning the virtual network.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Uri of the virtual network.
+        """
+        subnet: NotRequired[pulumi.Input['SubnetPropertiesArgsDict']]
+        """
+        Properties of a subnet.
+        """
+elif False:
+    VirtualNetworkPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VirtualNetworkPropertiesArgs:

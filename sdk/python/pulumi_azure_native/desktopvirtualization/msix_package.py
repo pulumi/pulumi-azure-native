@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -255,8 +260,8 @@ class MSIXPackage(pulumi.CustomResource):
                  is_regular_registration: Optional[pulumi.Input[bool]] = None,
                  last_updated: Optional[pulumi.Input[str]] = None,
                  msix_package_full_name: Optional[pulumi.Input[str]] = None,
-                 package_applications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MsixPackageApplicationsArgs']]]]] = None,
-                 package_dependencies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MsixPackageDependenciesArgs']]]]] = None,
+                 package_applications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MsixPackageApplicationsArgs', 'MsixPackageApplicationsArgsDict']]]]] = None,
+                 package_dependencies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MsixPackageDependenciesArgs', 'MsixPackageDependenciesArgsDict']]]]] = None,
                  package_family_name: Optional[pulumi.Input[str]] = None,
                  package_name: Optional[pulumi.Input[str]] = None,
                  package_relative_path: Optional[pulumi.Input[str]] = None,
@@ -278,8 +283,8 @@ class MSIXPackage(pulumi.CustomResource):
         :param pulumi.Input[bool] is_regular_registration: Specifies how to register Package in feed.
         :param pulumi.Input[str] last_updated: Date Package was last updated, found in the appxmanifest.xml. 
         :param pulumi.Input[str] msix_package_full_name: The version specific package full name of the MSIX package within specified hostpool
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MsixPackageApplicationsArgs']]]] package_applications: List of package applications. 
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MsixPackageDependenciesArgs']]]] package_dependencies: List of package dependencies. 
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MsixPackageApplicationsArgs', 'MsixPackageApplicationsArgsDict']]]] package_applications: List of package applications. 
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MsixPackageDependenciesArgs', 'MsixPackageDependenciesArgsDict']]]] package_dependencies: List of package dependencies. 
         :param pulumi.Input[str] package_family_name: Package Family Name from appxmanifest.xml. Contains Package Name and Publisher name. 
         :param pulumi.Input[str] package_name: Package Name from appxmanifest.xml. 
         :param pulumi.Input[str] package_relative_path: Relative Path to the package inside the image. 
@@ -320,8 +325,8 @@ class MSIXPackage(pulumi.CustomResource):
                  is_regular_registration: Optional[pulumi.Input[bool]] = None,
                  last_updated: Optional[pulumi.Input[str]] = None,
                  msix_package_full_name: Optional[pulumi.Input[str]] = None,
-                 package_applications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MsixPackageApplicationsArgs']]]]] = None,
-                 package_dependencies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MsixPackageDependenciesArgs']]]]] = None,
+                 package_applications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MsixPackageApplicationsArgs', 'MsixPackageApplicationsArgsDict']]]]] = None,
+                 package_dependencies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MsixPackageDependenciesArgs', 'MsixPackageDependenciesArgsDict']]]]] = None,
                  package_family_name: Optional[pulumi.Input[str]] = None,
                  package_name: Optional[pulumi.Input[str]] = None,
                  package_relative_path: Optional[pulumi.Input[str]] = None,

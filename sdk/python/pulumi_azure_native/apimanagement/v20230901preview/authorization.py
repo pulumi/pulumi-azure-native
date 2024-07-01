@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -171,7 +176,7 @@ class Authorization(pulumi.CustomResource):
                  authorization_id: Optional[pulumi.Input[str]] = None,
                  authorization_provider_id: Optional[pulumi.Input[str]] = None,
                  authorization_type: Optional[pulumi.Input[Union[str, 'AuthorizationType']]] = None,
-                 error: Optional[pulumi.Input[pulumi.InputType['AuthorizationErrorArgs']]] = None,
+                 error: Optional[pulumi.Input[Union['AuthorizationErrorArgs', 'AuthorizationErrorArgsDict']]] = None,
                  o_auth2_grant_type: Optional[pulumi.Input[Union[str, 'OAuth2GrantType']]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -186,7 +191,7 @@ class Authorization(pulumi.CustomResource):
         :param pulumi.Input[str] authorization_id: Identifier of the authorization.
         :param pulumi.Input[str] authorization_provider_id: Identifier of the authorization provider.
         :param pulumi.Input[Union[str, 'AuthorizationType']] authorization_type: Authorization type options
-        :param pulumi.Input[pulumi.InputType['AuthorizationErrorArgs']] error: Authorization error details.
+        :param pulumi.Input[Union['AuthorizationErrorArgs', 'AuthorizationErrorArgsDict']] error: Authorization error details.
         :param pulumi.Input[Union[str, 'OAuth2GrantType']] o_auth2_grant_type: OAuth2 grant type options
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: Authorization parameters
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -220,7 +225,7 @@ class Authorization(pulumi.CustomResource):
                  authorization_id: Optional[pulumi.Input[str]] = None,
                  authorization_provider_id: Optional[pulumi.Input[str]] = None,
                  authorization_type: Optional[pulumi.Input[Union[str, 'AuthorizationType']]] = None,
-                 error: Optional[pulumi.Input[pulumi.InputType['AuthorizationErrorArgs']]] = None,
+                 error: Optional[pulumi.Input[Union['AuthorizationErrorArgs', 'AuthorizationErrorArgsDict']]] = None,
                  o_auth2_grant_type: Optional[pulumi.Input[Union[str, 'OAuth2GrantType']]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,

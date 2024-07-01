@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -238,14 +243,14 @@ class PacketCapture(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bytes_to_capture_per_packet: Optional[pulumi.Input[float]] = None,
-                 capture_settings: Optional[pulumi.Input[pulumi.InputType['PacketCaptureSettingsArgs']]] = None,
+                 capture_settings: Optional[pulumi.Input[Union['PacketCaptureSettingsArgs', 'PacketCaptureSettingsArgsDict']]] = None,
                  continuous_capture: Optional[pulumi.Input[bool]] = None,
-                 filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PacketCaptureFilterArgs']]]]] = None,
+                 filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PacketCaptureFilterArgs', 'PacketCaptureFilterArgsDict']]]]] = None,
                  network_watcher_name: Optional[pulumi.Input[str]] = None,
                  packet_capture_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 scope: Optional[pulumi.Input[pulumi.InputType['PacketCaptureMachineScopeArgs']]] = None,
-                 storage_location: Optional[pulumi.Input[pulumi.InputType['PacketCaptureStorageLocationArgs']]] = None,
+                 scope: Optional[pulumi.Input[Union['PacketCaptureMachineScopeArgs', 'PacketCaptureMachineScopeArgsDict']]] = None,
+                 storage_location: Optional[pulumi.Input[Union['PacketCaptureStorageLocationArgs', 'PacketCaptureStorageLocationArgsDict']]] = None,
                  target: Optional[pulumi.Input[str]] = None,
                  target_type: Optional[pulumi.Input['PacketCaptureTargetType']] = None,
                  time_limit_in_seconds: Optional[pulumi.Input[int]] = None,
@@ -257,14 +262,14 @@ class PacketCapture(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[float] bytes_to_capture_per_packet: Number of bytes captured per packet, the remaining bytes are truncated.
-        :param pulumi.Input[pulumi.InputType['PacketCaptureSettingsArgs']] capture_settings: The capture setting holds the 'FileCount', 'FileSizeInBytes', 'SessionTimeLimitInSeconds' values.
+        :param pulumi.Input[Union['PacketCaptureSettingsArgs', 'PacketCaptureSettingsArgsDict']] capture_settings: The capture setting holds the 'FileCount', 'FileSizeInBytes', 'SessionTimeLimitInSeconds' values.
         :param pulumi.Input[bool] continuous_capture: This continuous capture is a nullable boolean, which can hold 'null', 'true' or 'false' value. If we do not pass this parameter, it would be consider as 'null', default value is 'null'.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PacketCaptureFilterArgs']]]] filters: A list of packet capture filters.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PacketCaptureFilterArgs', 'PacketCaptureFilterArgsDict']]]] filters: A list of packet capture filters.
         :param pulumi.Input[str] network_watcher_name: The name of the network watcher.
         :param pulumi.Input[str] packet_capture_name: The name of the packet capture session.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[pulumi.InputType['PacketCaptureMachineScopeArgs']] scope: A list of AzureVMSS instances which can be included or excluded to run packet capture. If both included and excluded are empty, then the packet capture will run on all instances of AzureVMSS.
-        :param pulumi.Input[pulumi.InputType['PacketCaptureStorageLocationArgs']] storage_location: The storage location for a packet capture session.
+        :param pulumi.Input[Union['PacketCaptureMachineScopeArgs', 'PacketCaptureMachineScopeArgsDict']] scope: A list of AzureVMSS instances which can be included or excluded to run packet capture. If both included and excluded are empty, then the packet capture will run on all instances of AzureVMSS.
+        :param pulumi.Input[Union['PacketCaptureStorageLocationArgs', 'PacketCaptureStorageLocationArgsDict']] storage_location: The storage location for a packet capture session.
         :param pulumi.Input[str] target: The ID of the targeted resource, only AzureVM and AzureVMSS as target type are currently supported.
         :param pulumi.Input['PacketCaptureTargetType'] target_type: Target type of the resource provided.
         :param pulumi.Input[int] time_limit_in_seconds: Maximum duration of the capture session in seconds.
@@ -295,14 +300,14 @@ class PacketCapture(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bytes_to_capture_per_packet: Optional[pulumi.Input[float]] = None,
-                 capture_settings: Optional[pulumi.Input[pulumi.InputType['PacketCaptureSettingsArgs']]] = None,
+                 capture_settings: Optional[pulumi.Input[Union['PacketCaptureSettingsArgs', 'PacketCaptureSettingsArgsDict']]] = None,
                  continuous_capture: Optional[pulumi.Input[bool]] = None,
-                 filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PacketCaptureFilterArgs']]]]] = None,
+                 filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PacketCaptureFilterArgs', 'PacketCaptureFilterArgsDict']]]]] = None,
                  network_watcher_name: Optional[pulumi.Input[str]] = None,
                  packet_capture_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 scope: Optional[pulumi.Input[pulumi.InputType['PacketCaptureMachineScopeArgs']]] = None,
-                 storage_location: Optional[pulumi.Input[pulumi.InputType['PacketCaptureStorageLocationArgs']]] = None,
+                 scope: Optional[pulumi.Input[Union['PacketCaptureMachineScopeArgs', 'PacketCaptureMachineScopeArgsDict']]] = None,
+                 storage_location: Optional[pulumi.Input[Union['PacketCaptureStorageLocationArgs', 'PacketCaptureStorageLocationArgsDict']]] = None,
                  target: Optional[pulumi.Input[str]] = None,
                  target_type: Optional[pulumi.Input['PacketCaptureTargetType']] = None,
                  time_limit_in_seconds: Optional[pulumi.Input[int]] = None,

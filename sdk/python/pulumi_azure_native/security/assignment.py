@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -249,9 +254,9 @@ class Assignment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_data: Optional[pulumi.Input[pulumi.InputType['AssignmentPropertiesAdditionalDataArgs']]] = None,
-                 assigned_component: Optional[pulumi.Input[pulumi.InputType['AssignedComponentItemArgs']]] = None,
-                 assigned_standard: Optional[pulumi.Input[pulumi.InputType['AssignedStandardItemArgs']]] = None,
+                 additional_data: Optional[pulumi.Input[Union['AssignmentPropertiesAdditionalDataArgs', 'AssignmentPropertiesAdditionalDataArgsDict']]] = None,
+                 assigned_component: Optional[pulumi.Input[Union['AssignedComponentItemArgs', 'AssignedComponentItemArgsDict']]] = None,
+                 assigned_standard: Optional[pulumi.Input[Union['AssignedStandardItemArgs', 'AssignedStandardItemArgsDict']]] = None,
                  assignment_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
@@ -270,9 +275,9 @@ class Assignment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['AssignmentPropertiesAdditionalDataArgs']] additional_data: Additional data about the assignment
-        :param pulumi.Input[pulumi.InputType['AssignedComponentItemArgs']] assigned_component: Component item with key as applied to this standard assignment over the given scope
-        :param pulumi.Input[pulumi.InputType['AssignedStandardItemArgs']] assigned_standard: Standard item with key as applied to this standard assignment over the given scope
+        :param pulumi.Input[Union['AssignmentPropertiesAdditionalDataArgs', 'AssignmentPropertiesAdditionalDataArgsDict']] additional_data: Additional data about the assignment
+        :param pulumi.Input[Union['AssignedComponentItemArgs', 'AssignedComponentItemArgsDict']] assigned_component: Component item with key as applied to this standard assignment over the given scope
+        :param pulumi.Input[Union['AssignedStandardItemArgs', 'AssignedStandardItemArgsDict']] assigned_standard: Standard item with key as applied to this standard assignment over the given scope
         :param pulumi.Input[str] assignment_id: The security assignment key - unique key for the standard assignment
         :param pulumi.Input[str] description: description of the standardAssignment
         :param pulumi.Input[str] display_name: display name of the standardAssignment
@@ -310,9 +315,9 @@ class Assignment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_data: Optional[pulumi.Input[pulumi.InputType['AssignmentPropertiesAdditionalDataArgs']]] = None,
-                 assigned_component: Optional[pulumi.Input[pulumi.InputType['AssignedComponentItemArgs']]] = None,
-                 assigned_standard: Optional[pulumi.Input[pulumi.InputType['AssignedStandardItemArgs']]] = None,
+                 additional_data: Optional[pulumi.Input[Union['AssignmentPropertiesAdditionalDataArgs', 'AssignmentPropertiesAdditionalDataArgsDict']]] = None,
+                 assigned_component: Optional[pulumi.Input[Union['AssignedComponentItemArgs', 'AssignedComponentItemArgsDict']]] = None,
+                 assigned_standard: Optional[pulumi.Input[Union['AssignedStandardItemArgs', 'AssignedStandardItemArgsDict']]] = None,
                  assignment_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,

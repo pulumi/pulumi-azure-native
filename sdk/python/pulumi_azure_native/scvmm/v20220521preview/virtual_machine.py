@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -361,21 +366,21 @@ class VirtualMachine(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 availability_sets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualMachinePropertiesAvailabilitySetsArgs']]]]] = None,
+                 availability_sets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VirtualMachinePropertiesAvailabilitySetsArgs', 'VirtualMachinePropertiesAvailabilitySetsArgsDict']]]]] = None,
                  checkpoint_type: Optional[pulumi.Input[str]] = None,
-                 checkpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CheckpointArgs']]]]] = None,
+                 checkpoints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CheckpointArgs', 'CheckpointArgsDict']]]]] = None,
                  cloud_id: Optional[pulumi.Input[str]] = None,
-                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
                  generation: Optional[pulumi.Input[int]] = None,
-                 guest_agent_profile: Optional[pulumi.Input[pulumi.InputType['GuestAgentProfileArgs']]] = None,
-                 hardware_profile: Optional[pulumi.Input[pulumi.InputType['HardwareProfileArgs']]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
+                 guest_agent_profile: Optional[pulumi.Input[Union['GuestAgentProfileArgs', 'GuestAgentProfileArgsDict']]] = None,
+                 hardware_profile: Optional[pulumi.Input[Union['HardwareProfileArgs', 'HardwareProfileArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']]] = None,
                  inventory_item_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 network_profile: Optional[pulumi.Input[pulumi.InputType['NetworkProfileArgs']]] = None,
-                 os_profile: Optional[pulumi.Input[pulumi.InputType['OsProfileArgs']]] = None,
+                 network_profile: Optional[pulumi.Input[Union['NetworkProfileArgs', 'NetworkProfileArgsDict']]] = None,
+                 os_profile: Optional[pulumi.Input[Union['OsProfileArgs', 'OsProfileArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 storage_profile: Optional[pulumi.Input[pulumi.InputType['StorageProfileArgs']]] = None,
+                 storage_profile: Optional[pulumi.Input[Union['StorageProfileArgs', 'StorageProfileArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  template_id: Optional[pulumi.Input[str]] = None,
                  uuid: Optional[pulumi.Input[str]] = None,
@@ -388,21 +393,21 @@ class VirtualMachine(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualMachinePropertiesAvailabilitySetsArgs']]]] availability_sets: Availability Sets in vm.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['VirtualMachinePropertiesAvailabilitySetsArgs', 'VirtualMachinePropertiesAvailabilitySetsArgsDict']]]] availability_sets: Availability Sets in vm.
         :param pulumi.Input[str] checkpoint_type: Type of checkpoint supported for the vm.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CheckpointArgs']]]] checkpoints: Checkpoints in the vm.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CheckpointArgs', 'CheckpointArgsDict']]]] checkpoints: Checkpoints in the vm.
         :param pulumi.Input[str] cloud_id: ARM Id of the cloud resource to use for deploying the vm.
-        :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: The extended location.
+        :param pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']] extended_location: The extended location.
         :param pulumi.Input[int] generation: Gets or sets the generation for the vm.
-        :param pulumi.Input[pulumi.InputType['GuestAgentProfileArgs']] guest_agent_profile: Guest agent status properties.
-        :param pulumi.Input[pulumi.InputType['HardwareProfileArgs']] hardware_profile: Hardware properties.
-        :param pulumi.Input[pulumi.InputType['IdentityArgs']] identity: The identity of the resource.
+        :param pulumi.Input[Union['GuestAgentProfileArgs', 'GuestAgentProfileArgsDict']] guest_agent_profile: Guest agent status properties.
+        :param pulumi.Input[Union['HardwareProfileArgs', 'HardwareProfileArgsDict']] hardware_profile: Hardware properties.
+        :param pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']] identity: The identity of the resource.
         :param pulumi.Input[str] inventory_item_id: Gets or sets the inventory Item ID for the resource.
         :param pulumi.Input[str] location: Gets or sets the location.
-        :param pulumi.Input[pulumi.InputType['NetworkProfileArgs']] network_profile: Network properties.
-        :param pulumi.Input[pulumi.InputType['OsProfileArgs']] os_profile: OS properties.
+        :param pulumi.Input[Union['NetworkProfileArgs', 'NetworkProfileArgsDict']] network_profile: Network properties.
+        :param pulumi.Input[Union['OsProfileArgs', 'OsProfileArgsDict']] os_profile: OS properties.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[pulumi.InputType['StorageProfileArgs']] storage_profile: Storage properties.
+        :param pulumi.Input[Union['StorageProfileArgs', 'StorageProfileArgsDict']] storage_profile: Storage properties.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[str] template_id: ARM Id of the template resource to use for deploying the vm.
         :param pulumi.Input[str] uuid: Unique ID of the virtual machine.
@@ -434,21 +439,21 @@ class VirtualMachine(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 availability_sets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualMachinePropertiesAvailabilitySetsArgs']]]]] = None,
+                 availability_sets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VirtualMachinePropertiesAvailabilitySetsArgs', 'VirtualMachinePropertiesAvailabilitySetsArgsDict']]]]] = None,
                  checkpoint_type: Optional[pulumi.Input[str]] = None,
-                 checkpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CheckpointArgs']]]]] = None,
+                 checkpoints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CheckpointArgs', 'CheckpointArgsDict']]]]] = None,
                  cloud_id: Optional[pulumi.Input[str]] = None,
-                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
                  generation: Optional[pulumi.Input[int]] = None,
-                 guest_agent_profile: Optional[pulumi.Input[pulumi.InputType['GuestAgentProfileArgs']]] = None,
-                 hardware_profile: Optional[pulumi.Input[pulumi.InputType['HardwareProfileArgs']]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
+                 guest_agent_profile: Optional[pulumi.Input[Union['GuestAgentProfileArgs', 'GuestAgentProfileArgsDict']]] = None,
+                 hardware_profile: Optional[pulumi.Input[Union['HardwareProfileArgs', 'HardwareProfileArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']]] = None,
                  inventory_item_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 network_profile: Optional[pulumi.Input[pulumi.InputType['NetworkProfileArgs']]] = None,
-                 os_profile: Optional[pulumi.Input[pulumi.InputType['OsProfileArgs']]] = None,
+                 network_profile: Optional[pulumi.Input[Union['NetworkProfileArgs', 'NetworkProfileArgsDict']]] = None,
+                 os_profile: Optional[pulumi.Input[Union['OsProfileArgs', 'OsProfileArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 storage_profile: Optional[pulumi.Input[pulumi.InputType['StorageProfileArgs']]] = None,
+                 storage_profile: Optional[pulumi.Input[Union['StorageProfileArgs', 'StorageProfileArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  template_id: Optional[pulumi.Input[str]] = None,
                  uuid: Optional[pulumi.Input[str]] = None,

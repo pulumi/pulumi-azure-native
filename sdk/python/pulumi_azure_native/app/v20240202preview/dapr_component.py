@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -223,12 +228,12 @@ class DaprComponent(pulumi.CustomResource):
                  environment_name: Optional[pulumi.Input[str]] = None,
                  ignore_errors: Optional[pulumi.Input[bool]] = None,
                  init_timeout: Optional[pulumi.Input[str]] = None,
-                 metadata: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DaprMetadataArgs']]]]] = None,
+                 metadata: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DaprMetadataArgs', 'DaprMetadataArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  secret_store_component: Optional[pulumi.Input[str]] = None,
-                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecretArgs']]]]] = None,
-                 service_component_bind: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DaprComponentServiceBindingArgs']]]]] = None,
+                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecretArgs', 'SecretArgsDict']]]]] = None,
+                 service_component_bind: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DaprComponentServiceBindingArgs', 'DaprComponentServiceBindingArgsDict']]]]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -241,12 +246,12 @@ class DaprComponent(pulumi.CustomResource):
         :param pulumi.Input[str] environment_name: Name of the Managed Environment.
         :param pulumi.Input[bool] ignore_errors: Boolean describing if the component errors are ignores
         :param pulumi.Input[str] init_timeout: Initialization timeout
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DaprMetadataArgs']]]] metadata: Component metadata
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DaprMetadataArgs', 'DaprMetadataArgsDict']]]] metadata: Component metadata
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: Names of container apps that can use this Dapr component
         :param pulumi.Input[str] secret_store_component: Name of a Dapr component to retrieve component secrets from
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecretArgs']]]] secrets: Collection of secrets used by a Dapr component
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DaprComponentServiceBindingArgs']]]] service_component_bind: List of container app services that are bound to the Dapr component
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SecretArgs', 'SecretArgsDict']]]] secrets: Collection of secrets used by a Dapr component
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DaprComponentServiceBindingArgs', 'DaprComponentServiceBindingArgsDict']]]] service_component_bind: List of container app services that are bound to the Dapr component
         :param pulumi.Input[str] version: Component version
         """
         ...
@@ -278,12 +283,12 @@ class DaprComponent(pulumi.CustomResource):
                  environment_name: Optional[pulumi.Input[str]] = None,
                  ignore_errors: Optional[pulumi.Input[bool]] = None,
                  init_timeout: Optional[pulumi.Input[str]] = None,
-                 metadata: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DaprMetadataArgs']]]]] = None,
+                 metadata: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DaprMetadataArgs', 'DaprMetadataArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  secret_store_component: Optional[pulumi.Input[str]] = None,
-                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecretArgs']]]]] = None,
-                 service_component_bind: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DaprComponentServiceBindingArgs']]]]] = None,
+                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecretArgs', 'SecretArgsDict']]]]] = None,
+                 service_component_bind: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DaprComponentServiceBindingArgs', 'DaprComponentServiceBindingArgsDict']]]]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -123,9 +128,9 @@ class CredentialSet(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auth_credentials: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AuthCredentialArgs']]]]] = None,
+                 auth_credentials: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AuthCredentialArgs', 'AuthCredentialArgsDict']]]]] = None,
                  credential_set_name: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['IdentityPropertiesArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['IdentityPropertiesArgs', 'IdentityPropertiesArgsDict']]] = None,
                  login_server: Optional[pulumi.Input[str]] = None,
                  registry_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -138,10 +143,10 @@ class CredentialSet(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AuthCredentialArgs']]]] auth_credentials: List of authentication credentials stored for an upstream.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AuthCredentialArgs', 'AuthCredentialArgsDict']]]] auth_credentials: List of authentication credentials stored for an upstream.
                Usually consists of a primary and an optional secondary credential.
         :param pulumi.Input[str] credential_set_name: The name of the credential set.
-        :param pulumi.Input[pulumi.InputType['IdentityPropertiesArgs']] identity: Identities associated with the resource. This is used to access the KeyVault secrets.
+        :param pulumi.Input[Union['IdentityPropertiesArgs', 'IdentityPropertiesArgsDict']] identity: Identities associated with the resource. This is used to access the KeyVault secrets.
         :param pulumi.Input[str] login_server: The credentials are stored for this upstream or login server.
         :param pulumi.Input[str] registry_name: The name of the container registry.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -173,9 +178,9 @@ class CredentialSet(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auth_credentials: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AuthCredentialArgs']]]]] = None,
+                 auth_credentials: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AuthCredentialArgs', 'AuthCredentialArgsDict']]]]] = None,
                  credential_set_name: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['IdentityPropertiesArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['IdentityPropertiesArgs', 'IdentityPropertiesArgsDict']]] = None,
                  login_server: Optional[pulumi.Input[str]] = None,
                  registry_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,

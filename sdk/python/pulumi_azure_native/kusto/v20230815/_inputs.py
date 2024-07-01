@@ -4,25 +4,55 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'AcceptedAudiencesArgs',
+    'AcceptedAudiencesArgsDict',
     'AzureSkuArgs',
+    'AzureSkuArgsDict',
     'IdentityArgs',
+    'IdentityArgsDict',
     'KeyVaultPropertiesArgs',
+    'KeyVaultPropertiesArgsDict',
     'LanguageExtensionsListArgs',
+    'LanguageExtensionsListArgsDict',
     'LanguageExtensionArgs',
+    'LanguageExtensionArgsDict',
     'OptimizedAutoscaleArgs',
+    'OptimizedAutoscaleArgsDict',
     'PrivateLinkServiceConnectionStatePropertyArgs',
+    'PrivateLinkServiceConnectionStatePropertyArgsDict',
     'TableLevelSharingPropertiesArgs',
+    'TableLevelSharingPropertiesArgsDict',
     'TrustedExternalTenantArgs',
+    'TrustedExternalTenantArgsDict',
     'VirtualNetworkConfigurationArgs',
+    'VirtualNetworkConfigurationArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AcceptedAudiencesArgsDict(TypedDict):
+        """
+        Represents an accepted audience trusted by the cluster.
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        GUID or valid URL representing an accepted audience.
+        """
+elif False:
+    AcceptedAudiencesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AcceptedAudiencesArgs:
@@ -47,6 +77,26 @@ class AcceptedAudiencesArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class AzureSkuArgsDict(TypedDict):
+        """
+        Azure SKU definition.
+        """
+        name: pulumi.Input[Union[str, 'AzureSkuName']]
+        """
+        SKU name.
+        """
+        tier: pulumi.Input[Union[str, 'AzureSkuTier']]
+        """
+        SKU tier.
+        """
+        capacity: NotRequired[pulumi.Input[int]]
+        """
+        The number of instances of the cluster.
+        """
+elif False:
+    AzureSkuArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AzureSkuArgs:
@@ -102,6 +152,22 @@ class AzureSkuArgs:
         pulumi.set(self, "capacity", value)
 
 
+if not MYPY:
+    class IdentityArgsDict(TypedDict):
+        """
+        Identity for the resource.
+        """
+        type: pulumi.Input[Union[str, 'IdentityType']]
+        """
+        The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove all identities.
+        """
+        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of user identities associated with the Kusto cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+elif False:
+    IdentityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IdentityArgs:
     def __init__(__self__, *,
@@ -140,6 +206,30 @@ class IdentityArgs:
     def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
+
+if not MYPY:
+    class KeyVaultPropertiesArgsDict(TypedDict):
+        """
+        Properties of the key vault.
+        """
+        key_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the key vault key.
+        """
+        key_vault_uri: NotRequired[pulumi.Input[str]]
+        """
+        The Uri of the key vault.
+        """
+        key_version: NotRequired[pulumi.Input[str]]
+        """
+        The version of the key vault key.
+        """
+        user_identity: NotRequired[pulumi.Input[str]]
+        """
+        The user assigned identity (ARM resource id) that has access to the key.
+        """
+elif False:
+    KeyVaultPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class KeyVaultPropertiesArgs:
@@ -213,6 +303,18 @@ class KeyVaultPropertiesArgs:
         pulumi.set(self, "user_identity", value)
 
 
+if not MYPY:
+    class LanguageExtensionsListArgsDict(TypedDict):
+        """
+        The list of language extension objects.
+        """
+        value: NotRequired[pulumi.Input[Sequence[pulumi.Input['LanguageExtensionArgsDict']]]]
+        """
+        The list of language extensions.
+        """
+elif False:
+    LanguageExtensionsListArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LanguageExtensionsListArgs:
     def __init__(__self__, *,
@@ -236,6 +338,26 @@ class LanguageExtensionsListArgs:
     def value(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LanguageExtensionArgs']]]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class LanguageExtensionArgsDict(TypedDict):
+        """
+        The language extension object.
+        """
+        language_extension_custom_image_name: NotRequired[pulumi.Input[str]]
+        """
+        The language extension custom image name.
+        """
+        language_extension_image_name: NotRequired[pulumi.Input[Union[str, 'LanguageExtensionImageName']]]
+        """
+        The language extension image name.
+        """
+        language_extension_name: NotRequired[pulumi.Input[Union[str, 'LanguageExtensionName']]]
+        """
+        The language extension name.
+        """
+elif False:
+    LanguageExtensionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LanguageExtensionArgs:
@@ -292,6 +414,30 @@ class LanguageExtensionArgs:
     def language_extension_name(self, value: Optional[pulumi.Input[Union[str, 'LanguageExtensionName']]]):
         pulumi.set(self, "language_extension_name", value)
 
+
+if not MYPY:
+    class OptimizedAutoscaleArgsDict(TypedDict):
+        """
+        A class that contains the optimized auto scale definition.
+        """
+        is_enabled: pulumi.Input[bool]
+        """
+        A boolean value that indicate if the optimized autoscale feature is enabled or not.
+        """
+        maximum: pulumi.Input[int]
+        """
+        Maximum allowed instances count.
+        """
+        minimum: pulumi.Input[int]
+        """
+        Minimum allowed instances count.
+        """
+        version: pulumi.Input[int]
+        """
+        The version of the template defined, for instance 1.
+        """
+elif False:
+    OptimizedAutoscaleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OptimizedAutoscaleArgs:
@@ -361,6 +507,22 @@ class OptimizedAutoscaleArgs:
         pulumi.set(self, "version", value)
 
 
+if not MYPY:
+    class PrivateLinkServiceConnectionStatePropertyArgsDict(TypedDict):
+        """
+        Connection State of the Private Endpoint Connection.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The private link service connection description.
+        """
+        status: NotRequired[pulumi.Input[str]]
+        """
+        The private link service connection status.
+        """
+elif False:
+    PrivateLinkServiceConnectionStatePropertyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PrivateLinkServiceConnectionStatePropertyArgs:
     def __init__(__self__, *,
@@ -400,6 +562,46 @@ class PrivateLinkServiceConnectionStatePropertyArgs:
     def status(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "status", value)
 
+
+if not MYPY:
+    class TableLevelSharingPropertiesArgsDict(TypedDict):
+        """
+        Tables that will be included and excluded in the follower database
+        """
+        external_tables_to_exclude: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of external tables to exclude from the follower database
+        """
+        external_tables_to_include: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of external tables to include in the follower database
+        """
+        functions_to_exclude: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of functions to exclude from the follower database
+        """
+        functions_to_include: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of functions to include in the follower database
+        """
+        materialized_views_to_exclude: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of materialized views to exclude from the follower database
+        """
+        materialized_views_to_include: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of materialized views to include in the follower database
+        """
+        tables_to_exclude: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of tables to exclude from the follower database
+        """
+        tables_to_include: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of tables to include in the follower database
+        """
+elif False:
+    TableLevelSharingPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TableLevelSharingPropertiesArgs:
@@ -537,6 +739,18 @@ class TableLevelSharingPropertiesArgs:
         pulumi.set(self, "tables_to_include", value)
 
 
+if not MYPY:
+    class TrustedExternalTenantArgsDict(TypedDict):
+        """
+        Represents a tenant ID that is trusted by the cluster.
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        GUID representing an external tenant.
+        """
+elif False:
+    TrustedExternalTenantArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TrustedExternalTenantArgs:
     def __init__(__self__, *,
@@ -560,6 +774,30 @@ class TrustedExternalTenantArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class VirtualNetworkConfigurationArgsDict(TypedDict):
+        """
+        A class that contains virtual network definition.
+        """
+        data_management_public_ip_id: pulumi.Input[str]
+        """
+        Data management's service public IP address resource id.
+        """
+        engine_public_ip_id: pulumi.Input[str]
+        """
+        Engine service's public IP address resource id.
+        """
+        subnet_id: pulumi.Input[str]
+        """
+        The subnet resource id.
+        """
+        state: NotRequired[pulumi.Input[Union[str, 'VnetState']]]
+        """
+        When enabled, the cluster is deployed into the configured subnet, when disabled it will be removed from the subnet.
+        """
+elif False:
+    VirtualNetworkConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VirtualNetworkConfigurationArgs:

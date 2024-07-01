@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -75,18 +80,18 @@ class Connector(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authentication_details: Optional[pulumi.Input[Union[pulumi.InputType['AwAssumeRoleAuthenticationDetailsPropertiesArgs'], pulumi.InputType['AwsCredsAuthenticationDetailsPropertiesArgs'], pulumi.InputType['GcpCredentialsDetailsPropertiesArgs']]]] = None,
+                 authentication_details: Optional[pulumi.Input[Union[Union['AwAssumeRoleAuthenticationDetailsPropertiesArgs', 'AwAssumeRoleAuthenticationDetailsPropertiesArgsDict'], Union['AwsCredsAuthenticationDetailsPropertiesArgs', 'AwsCredsAuthenticationDetailsPropertiesArgsDict'], Union['GcpCredentialsDetailsPropertiesArgs', 'GcpCredentialsDetailsPropertiesArgsDict']]]] = None,
                  connector_name: Optional[pulumi.Input[str]] = None,
-                 hybrid_compute_settings: Optional[pulumi.Input[pulumi.InputType['HybridComputeSettingsPropertiesArgs']]] = None,
+                 hybrid_compute_settings: Optional[pulumi.Input[Union['HybridComputeSettingsPropertiesArgs', 'HybridComputeSettingsPropertiesArgsDict']]] = None,
                  __props__=None):
         """
         The connector setting
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union[pulumi.InputType['AwAssumeRoleAuthenticationDetailsPropertiesArgs'], pulumi.InputType['AwsCredsAuthenticationDetailsPropertiesArgs'], pulumi.InputType['GcpCredentialsDetailsPropertiesArgs']]] authentication_details: Settings for authentication management, these settings are relevant only for the cloud connector.
+        :param pulumi.Input[Union[Union['AwAssumeRoleAuthenticationDetailsPropertiesArgs', 'AwAssumeRoleAuthenticationDetailsPropertiesArgsDict'], Union['AwsCredsAuthenticationDetailsPropertiesArgs', 'AwsCredsAuthenticationDetailsPropertiesArgsDict'], Union['GcpCredentialsDetailsPropertiesArgs', 'GcpCredentialsDetailsPropertiesArgsDict']]] authentication_details: Settings for authentication management, these settings are relevant only for the cloud connector.
         :param pulumi.Input[str] connector_name: Name of the cloud account connector
-        :param pulumi.Input[pulumi.InputType['HybridComputeSettingsPropertiesArgs']] hybrid_compute_settings: Settings for hybrid compute management. These settings are relevant only for Arc autoProvision (Hybrid Compute).
+        :param pulumi.Input[Union['HybridComputeSettingsPropertiesArgs', 'HybridComputeSettingsPropertiesArgsDict']] hybrid_compute_settings: Settings for hybrid compute management. These settings are relevant only for Arc autoProvision (Hybrid Compute).
         """
         ...
     @overload
@@ -112,9 +117,9 @@ class Connector(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authentication_details: Optional[pulumi.Input[Union[pulumi.InputType['AwAssumeRoleAuthenticationDetailsPropertiesArgs'], pulumi.InputType['AwsCredsAuthenticationDetailsPropertiesArgs'], pulumi.InputType['GcpCredentialsDetailsPropertiesArgs']]]] = None,
+                 authentication_details: Optional[pulumi.Input[Union[Union['AwAssumeRoleAuthenticationDetailsPropertiesArgs', 'AwAssumeRoleAuthenticationDetailsPropertiesArgsDict'], Union['AwsCredsAuthenticationDetailsPropertiesArgs', 'AwsCredsAuthenticationDetailsPropertiesArgsDict'], Union['GcpCredentialsDetailsPropertiesArgs', 'GcpCredentialsDetailsPropertiesArgsDict']]]] = None,
                  connector_name: Optional[pulumi.Input[str]] = None,
-                 hybrid_compute_settings: Optional[pulumi.Input[pulumi.InputType['HybridComputeSettingsPropertiesArgs']]] = None,
+                 hybrid_compute_settings: Optional[pulumi.Input[Union['HybridComputeSettingsPropertiesArgs', 'HybridComputeSettingsPropertiesArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

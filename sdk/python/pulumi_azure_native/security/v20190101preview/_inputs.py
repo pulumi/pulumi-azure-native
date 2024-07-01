@@ -4,23 +4,60 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'AutomationActionEventHubArgs',
+    'AutomationActionEventHubArgsDict',
     'AutomationActionLogicAppArgs',
+    'AutomationActionLogicAppArgsDict',
     'AutomationActionWorkspaceArgs',
+    'AutomationActionWorkspaceArgsDict',
     'AutomationRuleSetArgs',
+    'AutomationRuleSetArgsDict',
     'AutomationScopeArgs',
+    'AutomationScopeArgsDict',
     'AutomationSourceArgs',
+    'AutomationSourceArgsDict',
     'AutomationTriggeringRuleArgs',
+    'AutomationTriggeringRuleArgsDict',
     'ScopeElementArgs',
+    'ScopeElementArgsDict',
     'SuppressionAlertsScopeArgs',
+    'SuppressionAlertsScopeArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AutomationActionEventHubArgsDict(TypedDict):
+        """
+        The target Event Hub to which event data will be exported. To learn more about Microsoft Defender for Cloud continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
+        """
+        action_type: pulumi.Input[str]
+        """
+        The type of the action that will be triggered by the Automation
+        Expected value is 'EventHub'.
+        """
+        connection_string: NotRequired[pulumi.Input[str]]
+        """
+        The target Event Hub connection string (it will not be included in any response).
+        """
+        event_hub_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        The target Event Hub Azure Resource ID.
+        """
+elif False:
+    AutomationActionEventHubArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AutomationActionEventHubArgs:
@@ -79,6 +116,27 @@ class AutomationActionEventHubArgs:
         pulumi.set(self, "event_hub_resource_id", value)
 
 
+if not MYPY:
+    class AutomationActionLogicAppArgsDict(TypedDict):
+        """
+        The logic app action that should be triggered. To learn more about Microsoft Defender for Cloud's Workflow Automation capabilities, visit https://aka.ms/ASCWorkflowAutomationLearnMore
+        """
+        action_type: pulumi.Input[str]
+        """
+        The type of the action that will be triggered by the Automation
+        Expected value is 'LogicApp'.
+        """
+        logic_app_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        The triggered Logic App Azure Resource ID. This can also reside on other subscriptions, given that you have permissions to trigger the Logic App
+        """
+        uri: NotRequired[pulumi.Input[str]]
+        """
+        The Logic App trigger URI endpoint (it will not be included in any response).
+        """
+elif False:
+    AutomationActionLogicAppArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AutomationActionLogicAppArgs:
     def __init__(__self__, *,
@@ -136,6 +194,23 @@ class AutomationActionLogicAppArgs:
         pulumi.set(self, "uri", value)
 
 
+if not MYPY:
+    class AutomationActionWorkspaceArgsDict(TypedDict):
+        """
+        The Log Analytics Workspace to which event data will be exported. Security alerts data will reside in the 'SecurityAlert' table and the assessments data will reside in the 'SecurityRecommendation' table (under the 'Security'/'SecurityCenterFree' solutions). Note that in order to view the data in the workspace, the Security Center Log Analytics free/standard solution needs to be enabled on that workspace. To learn more about Microsoft Defender for Cloud continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
+        """
+        action_type: pulumi.Input[str]
+        """
+        The type of the action that will be triggered by the Automation
+        Expected value is 'Workspace'.
+        """
+        workspace_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        The fully qualified Log Analytics Workspace Azure Resource ID.
+        """
+elif False:
+    AutomationActionWorkspaceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AutomationActionWorkspaceArgs:
     def __init__(__self__, *,
@@ -177,6 +252,15 @@ class AutomationActionWorkspaceArgs:
         pulumi.set(self, "workspace_resource_id", value)
 
 
+if not MYPY:
+    class AutomationRuleSetArgsDict(TypedDict):
+        """
+        A rule set which evaluates all its rules upon an event interception. Only when all the included rules in the rule set will be evaluated as 'true', will the event trigger the defined actions.
+        """
+        rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationTriggeringRuleArgsDict']]]]
+elif False:
+    AutomationRuleSetArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AutomationRuleSetArgs:
     def __init__(__self__, *,
@@ -196,6 +280,22 @@ class AutomationRuleSetArgs:
     def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationTriggeringRuleArgs']]]]):
         pulumi.set(self, "rules", value)
 
+
+if not MYPY:
+    class AutomationScopeArgsDict(TypedDict):
+        """
+        A single automation scope.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The resources scope description.
+        """
+        scope_path: NotRequired[pulumi.Input[str]]
+        """
+        The resources scope path. Can be the subscription on which the automation is defined on or a resource group under that subscription (fully qualified Azure resource IDs).
+        """
+elif False:
+    AutomationScopeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AutomationScopeArgs:
@@ -237,6 +337,22 @@ class AutomationScopeArgs:
         pulumi.set(self, "scope_path", value)
 
 
+if not MYPY:
+    class AutomationSourceArgsDict(TypedDict):
+        """
+        The source event types which evaluate the security automation set of rules. For example - security alerts and security assessments. To learn more about the supported security events data models schemas - please visit https://aka.ms/ASCAutomationSchemas.
+        """
+        event_source: NotRequired[pulumi.Input[Union[str, 'EventSource']]]
+        """
+        A valid event source type.
+        """
+        rule_sets: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleSetArgsDict']]]]
+        """
+        A set of rules which evaluate upon event interception. A logical disjunction is applied between defined rule sets (logical 'or').
+        """
+elif False:
+    AutomationSourceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AutomationSourceArgs:
     def __init__(__self__, *,
@@ -276,6 +392,30 @@ class AutomationSourceArgs:
     def rule_sets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleSetArgs']]]]):
         pulumi.set(self, "rule_sets", value)
 
+
+if not MYPY:
+    class AutomationTriggeringRuleArgsDict(TypedDict):
+        """
+        A rule which is evaluated upon event interception. The rule is configured by comparing a specific value from the event model to an expected value. This comparison is done by using one of the supported operators set.
+        """
+        expected_value: NotRequired[pulumi.Input[str]]
+        """
+        The expected value.
+        """
+        operator: NotRequired[pulumi.Input[Union[str, 'Operator']]]
+        """
+        A valid comparer operator to use. A case-insensitive comparison will be applied for String PropertyType.
+        """
+        property_j_path: NotRequired[pulumi.Input[str]]
+        """
+        The JPath of the entity model property that should be checked.
+        """
+        property_type: NotRequired[pulumi.Input[Union[str, 'PropertyType']]]
+        """
+        The data type of the compared operands (string, integer, floating point number or a boolean [true/false]]
+        """
+elif False:
+    AutomationTriggeringRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AutomationTriggeringRuleArgs:
@@ -349,6 +489,18 @@ class AutomationTriggeringRuleArgs:
         pulumi.set(self, "property_type", value)
 
 
+if not MYPY:
+    class ScopeElementArgsDict(TypedDict):
+        """
+        A more specific scope used to identify the alerts to suppress.
+        """
+        field: NotRequired[pulumi.Input[str]]
+        """
+        The alert entity type to suppress by.
+        """
+elif False:
+    ScopeElementArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ScopeElementArgs:
     def __init__(__self__, *,
@@ -372,6 +524,15 @@ class ScopeElementArgs:
     def field(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "field", value)
 
+
+if not MYPY:
+    class SuppressionAlertsScopeArgsDict(TypedDict):
+        all_of: pulumi.Input[Sequence[pulumi.Input['ScopeElementArgsDict']]]
+        """
+        All the conditions inside need to be true in order to suppress the alert
+        """
+elif False:
+    SuppressionAlertsScopeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SuppressionAlertsScopeArgs:

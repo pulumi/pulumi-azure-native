@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -238,18 +243,18 @@ class ManagedEnvironment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_logs_configuration: Optional[pulumi.Input[pulumi.InputType['AppLogsConfigurationArgs']]] = None,
-                 custom_domain_configuration: Optional[pulumi.Input[pulumi.InputType['CustomDomainConfigurationArgs']]] = None,
+                 app_logs_configuration: Optional[pulumi.Input[Union['AppLogsConfigurationArgs', 'AppLogsConfigurationArgsDict']]] = None,
+                 custom_domain_configuration: Optional[pulumi.Input[Union['CustomDomainConfigurationArgs', 'CustomDomainConfigurationArgsDict']]] = None,
                  dapr_ai_connection_string: Optional[pulumi.Input[str]] = None,
                  dapr_ai_instrumentation_key: Optional[pulumi.Input[str]] = None,
                  environment_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['EnvironmentSkuPropertiesArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['EnvironmentSkuPropertiesArgs', 'EnvironmentSkuPropertiesArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 vnet_configuration: Optional[pulumi.Input[pulumi.InputType['VnetConfigurationArgs']]] = None,
-                 workload_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkloadProfileArgs']]]]] = None,
+                 vnet_configuration: Optional[pulumi.Input[Union['VnetConfigurationArgs', 'VnetConfigurationArgsDict']]] = None,
+                 workload_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WorkloadProfileArgs', 'WorkloadProfileArgsDict']]]]] = None,
                  zone_redundant: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
@@ -260,20 +265,20 @@ class ManagedEnvironment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['AppLogsConfigurationArgs']] app_logs_configuration: Cluster configuration which enables the log daemon to export
+        :param pulumi.Input[Union['AppLogsConfigurationArgs', 'AppLogsConfigurationArgsDict']] app_logs_configuration: Cluster configuration which enables the log daemon to export
                app logs to a destination. Currently only "log-analytics" is
                supported
-        :param pulumi.Input[pulumi.InputType['CustomDomainConfigurationArgs']] custom_domain_configuration: Custom domain configuration for the environment
+        :param pulumi.Input[Union['CustomDomainConfigurationArgs', 'CustomDomainConfigurationArgsDict']] custom_domain_configuration: Custom domain configuration for the environment
         :param pulumi.Input[str] dapr_ai_connection_string: Application Insights connection string used by Dapr to export Service to Service communication telemetry
         :param pulumi.Input[str] dapr_ai_instrumentation_key: Azure Monitor instrumentation key used by Dapr to export Service to Service communication telemetry
         :param pulumi.Input[str] environment_name: Name of the Environment.
         :param pulumi.Input[str] kind: Kind of the Environment.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[pulumi.InputType['EnvironmentSkuPropertiesArgs']] sku: SKU properties of the Environment.
+        :param pulumi.Input[Union['EnvironmentSkuPropertiesArgs', 'EnvironmentSkuPropertiesArgsDict']] sku: SKU properties of the Environment.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[pulumi.InputType['VnetConfigurationArgs']] vnet_configuration: Vnet configuration for the environment
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkloadProfileArgs']]]] workload_profiles: Workload profiles configured for the Managed Environment.
+        :param pulumi.Input[Union['VnetConfigurationArgs', 'VnetConfigurationArgsDict']] vnet_configuration: Vnet configuration for the environment
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkloadProfileArgs', 'WorkloadProfileArgsDict']]]] workload_profiles: Workload profiles configured for the Managed Environment.
         :param pulumi.Input[bool] zone_redundant: Whether or not this Managed Environment is zone-redundant.
         """
         ...
@@ -303,18 +308,18 @@ class ManagedEnvironment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_logs_configuration: Optional[pulumi.Input[pulumi.InputType['AppLogsConfigurationArgs']]] = None,
-                 custom_domain_configuration: Optional[pulumi.Input[pulumi.InputType['CustomDomainConfigurationArgs']]] = None,
+                 app_logs_configuration: Optional[pulumi.Input[Union['AppLogsConfigurationArgs', 'AppLogsConfigurationArgsDict']]] = None,
+                 custom_domain_configuration: Optional[pulumi.Input[Union['CustomDomainConfigurationArgs', 'CustomDomainConfigurationArgsDict']]] = None,
                  dapr_ai_connection_string: Optional[pulumi.Input[str]] = None,
                  dapr_ai_instrumentation_key: Optional[pulumi.Input[str]] = None,
                  environment_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['EnvironmentSkuPropertiesArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['EnvironmentSkuPropertiesArgs', 'EnvironmentSkuPropertiesArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 vnet_configuration: Optional[pulumi.Input[pulumi.InputType['VnetConfigurationArgs']]] = None,
-                 workload_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkloadProfileArgs']]]]] = None,
+                 vnet_configuration: Optional[pulumi.Input[Union['VnetConfigurationArgs', 'VnetConfigurationArgsDict']]] = None,
+                 workload_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WorkloadProfileArgs', 'WorkloadProfileArgsDict']]]]] = None,
                  zone_redundant: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -105,7 +110,7 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
                  factory_name: Optional[pulumi.Input[str]] = None,
                  managed_private_endpoint_name: Optional[pulumi.Input[str]] = None,
                  managed_virtual_network_name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['ManagedPrivateEndpointArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['ManagedPrivateEndpointArgs', 'ManagedPrivateEndpointArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -117,7 +122,7 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
         :param pulumi.Input[str] factory_name: The factory name.
         :param pulumi.Input[str] managed_private_endpoint_name: Managed private endpoint name
         :param pulumi.Input[str] managed_virtual_network_name: Managed virtual network name
-        :param pulumi.Input[pulumi.InputType['ManagedPrivateEndpointArgs']] properties: Managed private endpoint properties.
+        :param pulumi.Input[Union['ManagedPrivateEndpointArgs', 'ManagedPrivateEndpointArgsDict']] properties: Managed private endpoint properties.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         """
         ...
@@ -148,7 +153,7 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
                  factory_name: Optional[pulumi.Input[str]] = None,
                  managed_private_endpoint_name: Optional[pulumi.Input[str]] = None,
                  managed_virtual_network_name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['ManagedPrivateEndpointArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['ManagedPrivateEndpointArgs', 'ManagedPrivateEndpointArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

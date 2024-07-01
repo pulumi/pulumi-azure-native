@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -133,7 +138,7 @@ class Archife(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  archive_name: Optional[pulumi.Input[str]] = None,
-                 package_source: Optional[pulumi.Input[pulumi.InputType['ArchivePackageSourcePropertiesArgs']]] = None,
+                 package_source: Optional[pulumi.Input[Union['ArchivePackageSourcePropertiesArgs', 'ArchivePackageSourcePropertiesArgsDict']]] = None,
                  package_type: Optional[pulumi.Input[str]] = None,
                  published_version: Optional[pulumi.Input[str]] = None,
                  registry_name: Optional[pulumi.Input[str]] = None,
@@ -146,7 +151,7 @@ class Archife(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] archive_name: The name of the archive resource.
-        :param pulumi.Input[pulumi.InputType['ArchivePackageSourcePropertiesArgs']] package_source: The package source of the archive.
+        :param pulumi.Input[Union['ArchivePackageSourcePropertiesArgs', 'ArchivePackageSourcePropertiesArgsDict']] package_source: The package source of the archive.
         :param pulumi.Input[str] package_type: The type of the package resource.
         :param pulumi.Input[str] published_version: The published version of the archive.
         :param pulumi.Input[str] registry_name: The name of the container registry.
@@ -177,7 +182,7 @@ class Archife(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  archive_name: Optional[pulumi.Input[str]] = None,
-                 package_source: Optional[pulumi.Input[pulumi.InputType['ArchivePackageSourcePropertiesArgs']]] = None,
+                 package_source: Optional[pulumi.Input[Union['ArchivePackageSourcePropertiesArgs', 'ArchivePackageSourcePropertiesArgsDict']]] = None,
                  package_type: Optional[pulumi.Input[str]] = None,
                  published_version: Optional[pulumi.Input[str]] = None,
                  registry_name: Optional[pulumi.Input[str]] = None,

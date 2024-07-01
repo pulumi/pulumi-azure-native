@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -157,7 +162,7 @@ class ConfigurationPolicyGroup(pulumi.CustomResource):
                  id: Optional[pulumi.Input[str]] = None,
                  is_default: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 policy_members: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnServerConfigurationPolicyGroupMemberArgs']]]]] = None,
+                 policy_members: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VpnServerConfigurationPolicyGroupMemberArgs', 'VpnServerConfigurationPolicyGroupMemberArgsDict']]]]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  vpn_server_configuration_name: Optional[pulumi.Input[str]] = None,
@@ -174,7 +179,7 @@ class ConfigurationPolicyGroup(pulumi.CustomResource):
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[bool] is_default: Shows if this is a Default VpnServerConfigurationPolicyGroup or not.
         :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnServerConfigurationPolicyGroupMemberArgs']]]] policy_members: Multiple PolicyMembers for VpnServerConfigurationPolicyGroup.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['VpnServerConfigurationPolicyGroupMemberArgs', 'VpnServerConfigurationPolicyGroupMemberArgsDict']]]] policy_members: Multiple PolicyMembers for VpnServerConfigurationPolicyGroup.
         :param pulumi.Input[int] priority: Priority for VpnServerConfigurationPolicyGroup.
         :param pulumi.Input[str] resource_group_name: The resource group name of the ConfigurationPolicyGroup.
         :param pulumi.Input[str] vpn_server_configuration_name: The name of the VpnServerConfiguration.
@@ -210,7 +215,7 @@ class ConfigurationPolicyGroup(pulumi.CustomResource):
                  id: Optional[pulumi.Input[str]] = None,
                  is_default: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 policy_members: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnServerConfigurationPolicyGroupMemberArgs']]]]] = None,
+                 policy_members: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VpnServerConfigurationPolicyGroupMemberArgs', 'VpnServerConfigurationPolicyGroupMemberArgsDict']]]]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  vpn_server_configuration_name: Optional[pulumi.Input[str]] = None,

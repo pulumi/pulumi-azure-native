@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -154,7 +159,7 @@ class StorageInsightConfig(pulumi.CustomResource):
                  containers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  e_tag: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 storage_account: Optional[pulumi.Input[pulumi.InputType['StorageAccountArgs']]] = None,
+                 storage_account: Optional[pulumi.Input[Union['StorageAccountArgs', 'StorageAccountArgsDict']]] = None,
                  storage_insight_name: Optional[pulumi.Input[str]] = None,
                  tables: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -168,7 +173,7 @@ class StorageInsightConfig(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] containers: The names of the blob containers that the workspace should read
         :param pulumi.Input[str] e_tag: The ETag of the storage insight.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[pulumi.InputType['StorageAccountArgs']] storage_account: The storage account connection details
+        :param pulumi.Input[Union['StorageAccountArgs', 'StorageAccountArgsDict']] storage_account: The storage account connection details
         :param pulumi.Input[str] storage_insight_name: Name of the storageInsightsConfigs resource
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tables: The names of the Azure tables that the workspace should read
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -201,7 +206,7 @@ class StorageInsightConfig(pulumi.CustomResource):
                  containers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  e_tag: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 storage_account: Optional[pulumi.Input[pulumi.InputType['StorageAccountArgs']]] = None,
+                 storage_account: Optional[pulumi.Input[Union['StorageAccountArgs', 'StorageAccountArgsDict']]] = None,
                  storage_insight_name: Optional[pulumi.Input[str]] = None,
                  tables: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,

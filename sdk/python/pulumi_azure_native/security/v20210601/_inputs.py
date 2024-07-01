@@ -4,22 +4,57 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'AssessmentStatusArgs',
+    'AssessmentStatusArgsDict',
     'AzureResourceDetailsArgs',
+    'AzureResourceDetailsArgsDict',
     'OnPremiseResourceDetailsArgs',
+    'OnPremiseResourceDetailsArgsDict',
     'OnPremiseSqlResourceDetailsArgs',
+    'OnPremiseSqlResourceDetailsArgsDict',
     'SecurityAssessmentMetadataPartnerDataArgs',
+    'SecurityAssessmentMetadataPartnerDataArgsDict',
     'SecurityAssessmentMetadataPropertiesResponsePublishDatesArgs',
+    'SecurityAssessmentMetadataPropertiesResponsePublishDatesArgsDict',
     'SecurityAssessmentMetadataPropertiesArgs',
+    'SecurityAssessmentMetadataPropertiesArgsDict',
     'SecurityAssessmentPartnerDataArgs',
+    'SecurityAssessmentPartnerDataArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AssessmentStatusArgsDict(TypedDict):
+        """
+        The result of the assessment
+        """
+        code: pulumi.Input[Union[str, 'AssessmentStatusCode']]
+        """
+        Programmatic code for the status of the assessment
+        """
+        cause: NotRequired[pulumi.Input[str]]
+        """
+        Programmatic code for the cause of the assessment status
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Human readable description of the assessment status
+        """
+elif False:
+    AssessmentStatusArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AssessmentStatusArgs:
@@ -76,6 +111,19 @@ class AssessmentStatusArgs:
         pulumi.set(self, "description", value)
 
 
+if not MYPY:
+    class AzureResourceDetailsArgsDict(TypedDict):
+        """
+        Details of the Azure resource that was assessed
+        """
+        source: pulumi.Input[str]
+        """
+        The platform where the assessed resource resides
+        Expected value is 'Azure'.
+        """
+elif False:
+    AzureResourceDetailsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AzureResourceDetailsArgs:
     def __init__(__self__, *,
@@ -100,6 +148,35 @@ class AzureResourceDetailsArgs:
     def source(self, value: pulumi.Input[str]):
         pulumi.set(self, "source", value)
 
+
+if not MYPY:
+    class OnPremiseResourceDetailsArgsDict(TypedDict):
+        """
+        Details of the On Premise resource that was assessed
+        """
+        machine_name: pulumi.Input[str]
+        """
+        The name of the machine
+        """
+        source: pulumi.Input[str]
+        """
+        The platform where the assessed resource resides
+        Expected value is 'OnPremise'.
+        """
+        source_computer_id: pulumi.Input[str]
+        """
+        The oms agent Id installed on the machine
+        """
+        vmuuid: pulumi.Input[str]
+        """
+        The unique Id of the machine
+        """
+        workspace_id: pulumi.Input[str]
+        """
+        Azure resource Id of the workspace the machine is attached to
+        """
+elif False:
+    OnPremiseResourceDetailsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OnPremiseResourceDetailsArgs:
@@ -185,6 +262,43 @@ class OnPremiseResourceDetailsArgs:
     def workspace_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "workspace_id", value)
 
+
+if not MYPY:
+    class OnPremiseSqlResourceDetailsArgsDict(TypedDict):
+        """
+        Details of the On Premise Sql resource that was assessed
+        """
+        database_name: pulumi.Input[str]
+        """
+        The Sql database name installed on the machine
+        """
+        machine_name: pulumi.Input[str]
+        """
+        The name of the machine
+        """
+        server_name: pulumi.Input[str]
+        """
+        The Sql server name installed on the machine
+        """
+        source: pulumi.Input[str]
+        """
+        The platform where the assessed resource resides
+        Expected value is 'OnPremiseSql'.
+        """
+        source_computer_id: pulumi.Input[str]
+        """
+        The oms agent Id installed on the machine
+        """
+        vmuuid: pulumi.Input[str]
+        """
+        The unique Id of the machine
+        """
+        workspace_id: pulumi.Input[str]
+        """
+        Azure resource Id of the workspace the machine is attached to
+        """
+elif False:
+    OnPremiseSqlResourceDetailsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OnPremiseSqlResourceDetailsArgs:
@@ -301,6 +415,26 @@ class OnPremiseSqlResourceDetailsArgs:
         pulumi.set(self, "workspace_id", value)
 
 
+if not MYPY:
+    class SecurityAssessmentMetadataPartnerDataArgsDict(TypedDict):
+        """
+        Describes the partner that created the assessment
+        """
+        partner_name: pulumi.Input[str]
+        """
+        Name of the company of the partner
+        """
+        secret: pulumi.Input[str]
+        """
+        Secret to authenticate the partner and verify it created the assessment - write only
+        """
+        product_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the product of the partner that created the assessment
+        """
+elif False:
+    SecurityAssessmentMetadataPartnerDataArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SecurityAssessmentMetadataPartnerDataArgs:
     def __init__(__self__, *,
@@ -355,6 +489,13 @@ class SecurityAssessmentMetadataPartnerDataArgs:
         pulumi.set(self, "product_name", value)
 
 
+if not MYPY:
+    class SecurityAssessmentMetadataPropertiesResponsePublishDatesArgsDict(TypedDict):
+        public: pulumi.Input[str]
+        g_a: NotRequired[pulumi.Input[str]]
+elif False:
+    SecurityAssessmentMetadataPropertiesResponsePublishDatesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SecurityAssessmentMetadataPropertiesResponsePublishDatesArgs:
     def __init__(__self__, *,
@@ -382,6 +523,52 @@ class SecurityAssessmentMetadataPropertiesResponsePublishDatesArgs:
     def g_a(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "g_a", value)
 
+
+if not MYPY:
+    class SecurityAssessmentMetadataPropertiesArgsDict(TypedDict):
+        """
+        Describes properties of an assessment metadata.
+        """
+        assessment_type: pulumi.Input[Union[str, 'AssessmentType']]
+        """
+        BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition
+        """
+        display_name: pulumi.Input[str]
+        """
+        User friendly display name of the assessment
+        """
+        severity: pulumi.Input[Union[str, 'Severity']]
+        """
+        The severity level of the assessment
+        """
+        categories: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Categories']]]]]
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Human readable description of the assessment
+        """
+        implementation_effort: NotRequired[pulumi.Input[Union[str, 'ImplementationEffort']]]
+        """
+        The implementation effort required to remediate this assessment
+        """
+        partner_data: NotRequired[pulumi.Input['SecurityAssessmentMetadataPartnerDataArgsDict']]
+        """
+        Describes the partner that created the assessment
+        """
+        preview: NotRequired[pulumi.Input[bool]]
+        """
+        True if this assessment is in preview release status
+        """
+        remediation_description: NotRequired[pulumi.Input[str]]
+        """
+        Human readable description of what you should do to mitigate this security issue
+        """
+        threats: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Threats']]]]]
+        user_impact: NotRequired[pulumi.Input[Union[str, 'UserImpact']]]
+        """
+        The user impact of the assessment
+        """
+elif False:
+    SecurityAssessmentMetadataPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SecurityAssessmentMetadataPropertiesArgs:
@@ -555,6 +742,22 @@ class SecurityAssessmentMetadataPropertiesArgs:
     def user_impact(self, value: Optional[pulumi.Input[Union[str, 'UserImpact']]]):
         pulumi.set(self, "user_impact", value)
 
+
+if not MYPY:
+    class SecurityAssessmentPartnerDataArgsDict(TypedDict):
+        """
+        Data regarding 3rd party partner integration
+        """
+        partner_name: pulumi.Input[str]
+        """
+        Name of the company of the partner
+        """
+        secret: pulumi.Input[str]
+        """
+        secret to authenticate the partner - write only
+        """
+elif False:
+    SecurityAssessmentPartnerDataArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SecurityAssessmentPartnerDataArgs:

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -218,17 +223,17 @@ class DscpConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 destination_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['QosIpRangeArgs']]]]] = None,
-                 destination_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['QosPortRangeArgs']]]]] = None,
+                 destination_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[Union['QosIpRangeArgs', 'QosIpRangeArgsDict']]]]] = None,
+                 destination_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[Union['QosPortRangeArgs', 'QosPortRangeArgsDict']]]]] = None,
                  dscp_configuration_name: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  markings: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
                  protocol: Optional[pulumi.Input[Union[str, 'ProtocolType']]] = None,
-                 qos_definition_collection: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['QosDefinitionArgs']]]]] = None,
+                 qos_definition_collection: Optional[pulumi.Input[Sequence[pulumi.Input[Union['QosDefinitionArgs', 'QosDefinitionArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 source_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['QosIpRangeArgs']]]]] = None,
-                 source_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['QosPortRangeArgs']]]]] = None,
+                 source_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[Union['QosIpRangeArgs', 'QosIpRangeArgsDict']]]]] = None,
+                 source_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[Union['QosPortRangeArgs', 'QosPortRangeArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -236,17 +241,17 @@ class DscpConfiguration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['QosIpRangeArgs']]]] destination_ip_ranges: Destination IP ranges.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['QosPortRangeArgs']]]] destination_port_ranges: Destination port ranges.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['QosIpRangeArgs', 'QosIpRangeArgsDict']]]] destination_ip_ranges: Destination IP ranges.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['QosPortRangeArgs', 'QosPortRangeArgsDict']]]] destination_port_ranges: Destination port ranges.
         :param pulumi.Input[str] dscp_configuration_name: The name of the resource.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] markings: List of markings to be used in the configuration.
         :param pulumi.Input[Union[str, 'ProtocolType']] protocol: RNM supported protocol types.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['QosDefinitionArgs']]]] qos_definition_collection: QoS object definitions
+        :param pulumi.Input[Sequence[pulumi.Input[Union['QosDefinitionArgs', 'QosDefinitionArgsDict']]]] qos_definition_collection: QoS object definitions
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['QosIpRangeArgs']]]] source_ip_ranges: Source IP ranges.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['QosPortRangeArgs']]]] source_port_ranges: Sources port ranges.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['QosIpRangeArgs', 'QosIpRangeArgsDict']]]] source_ip_ranges: Source IP ranges.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['QosPortRangeArgs', 'QosPortRangeArgsDict']]]] source_port_ranges: Sources port ranges.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         ...
@@ -273,17 +278,17 @@ class DscpConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 destination_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['QosIpRangeArgs']]]]] = None,
-                 destination_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['QosPortRangeArgs']]]]] = None,
+                 destination_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[Union['QosIpRangeArgs', 'QosIpRangeArgsDict']]]]] = None,
+                 destination_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[Union['QosPortRangeArgs', 'QosPortRangeArgsDict']]]]] = None,
                  dscp_configuration_name: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  markings: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
                  protocol: Optional[pulumi.Input[Union[str, 'ProtocolType']]] = None,
-                 qos_definition_collection: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['QosDefinitionArgs']]]]] = None,
+                 qos_definition_collection: Optional[pulumi.Input[Sequence[pulumi.Input[Union['QosDefinitionArgs', 'QosDefinitionArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 source_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['QosIpRangeArgs']]]]] = None,
-                 source_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['QosPortRangeArgs']]]]] = None,
+                 source_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[Union['QosIpRangeArgs', 'QosIpRangeArgsDict']]]]] = None,
+                 source_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[Union['QosPortRangeArgs', 'QosPortRangeArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

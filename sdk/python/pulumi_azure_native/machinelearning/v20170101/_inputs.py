@@ -4,37 +4,107 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'AssetItemArgs',
+    'AssetItemArgsDict',
     'BlobLocationArgs',
+    'BlobLocationArgsDict',
     'ColumnSpecificationArgs',
+    'ColumnSpecificationArgsDict',
     'CommitmentPlanArgs',
+    'CommitmentPlanArgsDict',
     'DiagnosticsConfigurationArgs',
+    'DiagnosticsConfigurationArgsDict',
     'ExampleRequestArgs',
+    'ExampleRequestArgsDict',
     'GraphEdgeArgs',
+    'GraphEdgeArgsDict',
     'GraphNodeArgs',
+    'GraphNodeArgsDict',
     'GraphPackageArgs',
+    'GraphPackageArgsDict',
     'GraphParameterLinkArgs',
+    'GraphParameterLinkArgsDict',
     'GraphParameterArgs',
+    'GraphParameterArgsDict',
     'InputPortArgs',
+    'InputPortArgsDict',
     'MachineLearningWorkspaceArgs',
+    'MachineLearningWorkspaceArgsDict',
     'ModeValueInfoArgs',
+    'ModeValueInfoArgsDict',
     'ModuleAssetParameterArgs',
+    'ModuleAssetParameterArgsDict',
     'OutputPortArgs',
+    'OutputPortArgsDict',
     'RealtimeConfigurationArgs',
+    'RealtimeConfigurationArgsDict',
     'ServiceInputOutputSpecificationArgs',
+    'ServiceInputOutputSpecificationArgsDict',
     'StorageAccountArgs',
+    'StorageAccountArgsDict',
     'TableSpecificationArgs',
+    'TableSpecificationArgsDict',
     'WebServiceKeysArgs',
+    'WebServiceKeysArgsDict',
     'WebServiceParameterArgs',
+    'WebServiceParameterArgsDict',
     'WebServicePropertiesForGraphArgs',
+    'WebServicePropertiesForGraphArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AssetItemArgsDict(TypedDict):
+        """
+        Information about an asset associated with the web service.
+        """
+        location_info: pulumi.Input['BlobLocationArgsDict']
+        """
+        Access information for the asset.
+        """
+        name: pulumi.Input[str]
+        """
+        Asset's friendly name.
+        """
+        type: pulumi.Input[Union[str, 'AssetType']]
+        """
+        Asset's type.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Asset's Id.
+        """
+        input_ports: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['InputPortArgsDict']]]]
+        """
+        Information about the asset's input ports.
+        """
+        metadata: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        If the asset is a custom module, this holds the module's metadata.
+        """
+        output_ports: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['OutputPortArgsDict']]]]
+        """
+        Information about the asset's output ports.
+        """
+        parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['ModuleAssetParameterArgsDict']]]]
+        """
+        If the asset is a custom module, this holds the module's parameters.
+        """
+elif False:
+    AssetItemArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AssetItemArgs:
@@ -169,6 +239,22 @@ class AssetItemArgs:
         pulumi.set(self, "parameters", value)
 
 
+if not MYPY:
+    class BlobLocationArgsDict(TypedDict):
+        """
+        Describes the access location for a blob.
+        """
+        uri: pulumi.Input[str]
+        """
+        The URI from which the blob is accessible from. For example, aml://abc for system assets or https://xyz for user assets or payload.
+        """
+        credentials: NotRequired[pulumi.Input[str]]
+        """
+        Access credentials for the blob, if applicable (e.g. blob specified by storage account connection string + blob URI)
+        """
+elif False:
+    BlobLocationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class BlobLocationArgs:
     def __init__(__self__, *,
@@ -207,6 +293,34 @@ class BlobLocationArgs:
     def credentials(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "credentials", value)
 
+
+if not MYPY:
+    class ColumnSpecificationArgsDict(TypedDict):
+        """
+        Swagger 2.0 schema for a column within the data table representing a web service input or output. See Swagger specification: http://swagger.io/specification/
+        """
+        type: pulumi.Input[Union[str, 'ColumnType']]
+        """
+        Data type of the column.
+        """
+        enum: NotRequired[pulumi.Input[Sequence[Any]]]
+        """
+        If the data type is categorical, this provides the list of accepted categories.
+        """
+        format: NotRequired[pulumi.Input[Union[str, 'ColumnFormat']]]
+        """
+        Additional format information for the data type.
+        """
+        x_ms_isnullable: NotRequired[pulumi.Input[bool]]
+        """
+        Flag indicating if the type supports null values or not.
+        """
+        x_ms_isordered: NotRequired[pulumi.Input[bool]]
+        """
+        Flag indicating whether the categories are treated as an ordered set or not, if this is a categorical column.
+        """
+elif False:
+    ColumnSpecificationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ColumnSpecificationArgs:
@@ -295,6 +409,18 @@ class ColumnSpecificationArgs:
         pulumi.set(self, "x_ms_isordered", value)
 
 
+if not MYPY:
+    class CommitmentPlanArgsDict(TypedDict):
+        """
+        Information about the machine learning commitment plan associated with the web service.
+        """
+        id: pulumi.Input[str]
+        """
+        Specifies the Azure Resource Manager ID of the commitment plan associated with the web service.
+        """
+elif False:
+    CommitmentPlanArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CommitmentPlanArgs:
     def __init__(__self__, *,
@@ -317,6 +443,22 @@ class CommitmentPlanArgs:
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class DiagnosticsConfigurationArgsDict(TypedDict):
+        """
+        Diagnostics settings for an Azure ML web service.
+        """
+        level: pulumi.Input[Union[str, 'DiagnosticsLevel']]
+        """
+        Specifies the verbosity of the diagnostic output. Valid values are: None - disables tracing; Error - collects only error (stderr) traces; All - collects all traces (stdout and stderr).
+        """
+        expiry: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the date and time when the logging will cease. If null, diagnostic collection is not time limited.
+        """
+elif False:
+    DiagnosticsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DiagnosticsConfigurationArgs:
@@ -357,6 +499,22 @@ class DiagnosticsConfigurationArgs:
         pulumi.set(self, "expiry", value)
 
 
+if not MYPY:
+    class ExampleRequestArgsDict(TypedDict):
+        """
+        Sample input data for the service's input(s).
+        """
+        global_parameters: NotRequired[pulumi.Input[Mapping[str, Any]]]
+        """
+        Sample input data for the web service's global parameters
+        """
+        inputs: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[Sequence[Any]]]]]]]
+        """
+        Sample input data for the web service's input(s) given as an input name to sample input values matrix map.
+        """
+elif False:
+    ExampleRequestArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ExampleRequestArgs:
     def __init__(__self__, *,
@@ -396,6 +554,30 @@ class ExampleRequestArgs:
     def inputs(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[Sequence[Any]]]]]]]):
         pulumi.set(self, "inputs", value)
 
+
+if not MYPY:
+    class GraphEdgeArgsDict(TypedDict):
+        """
+        Defines an edge within the web service's graph.
+        """
+        source_node_id: NotRequired[pulumi.Input[str]]
+        """
+        The source graph node's identifier.
+        """
+        source_port_id: NotRequired[pulumi.Input[str]]
+        """
+        The identifier of the source node's port that the edge connects from.
+        """
+        target_node_id: NotRequired[pulumi.Input[str]]
+        """
+        The destination graph node's identifier.
+        """
+        target_port_id: NotRequired[pulumi.Input[str]]
+        """
+        The identifier of the destination node's port that the edge connects into.
+        """
+elif False:
+    GraphEdgeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GraphEdgeArgs:
@@ -469,6 +651,30 @@ class GraphEdgeArgs:
         pulumi.set(self, "target_port_id", value)
 
 
+if not MYPY:
+    class GraphNodeArgsDict(TypedDict):
+        """
+        Specifies a node in the web service graph. The node can either be an input, output or asset node, so only one of the corresponding id properties is populated at any given time.
+        """
+        asset_id: NotRequired[pulumi.Input[str]]
+        """
+        The id of the asset represented by this node.
+        """
+        input_id: NotRequired[pulumi.Input[str]]
+        """
+        The id of the input element represented by this node.
+        """
+        output_id: NotRequired[pulumi.Input[str]]
+        """
+        The id of the output element represented by this node.
+        """
+        parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['WebServiceParameterArgsDict']]]]
+        """
+        If applicable, parameters of the node. Global graph parameters map into these, with values set at runtime.
+        """
+elif False:
+    GraphNodeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GraphNodeArgs:
     def __init__(__self__, *,
@@ -541,6 +747,26 @@ class GraphNodeArgs:
         pulumi.set(self, "parameters", value)
 
 
+if not MYPY:
+    class GraphPackageArgsDict(TypedDict):
+        """
+        Defines the graph of modules making up the machine learning solution.
+        """
+        edges: NotRequired[pulumi.Input[Sequence[pulumi.Input['GraphEdgeArgsDict']]]]
+        """
+        The list of edges making up the graph.
+        """
+        graph_parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['GraphParameterArgsDict']]]]
+        """
+        The collection of global parameters for the graph, given as a global parameter name to GraphParameter map. Each parameter here has a 1:1 match with the global parameters values map declared at the WebServiceProperties level.
+        """
+        nodes: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['GraphNodeArgsDict']]]]
+        """
+        The set of nodes making up the graph, provided as a nodeId to GraphNode map
+        """
+elif False:
+    GraphPackageArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GraphPackageArgs:
     def __init__(__self__, *,
@@ -597,6 +823,22 @@ class GraphPackageArgs:
         pulumi.set(self, "nodes", value)
 
 
+if not MYPY:
+    class GraphParameterLinkArgsDict(TypedDict):
+        """
+        Association link for a graph global parameter to a node in the graph.
+        """
+        node_id: pulumi.Input[str]
+        """
+        The graph node's identifier
+        """
+        parameter_key: pulumi.Input[str]
+        """
+        The identifier of the node parameter that the global parameter maps to.
+        """
+elif False:
+    GraphParameterLinkArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GraphParameterLinkArgs:
     def __init__(__self__, *,
@@ -634,6 +876,26 @@ class GraphParameterLinkArgs:
     def parameter_key(self, value: pulumi.Input[str]):
         pulumi.set(self, "parameter_key", value)
 
+
+if not MYPY:
+    class GraphParameterArgsDict(TypedDict):
+        """
+        Defines a global parameter in the graph.
+        """
+        links: pulumi.Input[Sequence[pulumi.Input['GraphParameterLinkArgsDict']]]
+        """
+        Association links for this parameter to nodes in the graph.
+        """
+        type: pulumi.Input[Union[str, 'ParameterType']]
+        """
+        Graph parameter's type.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Description of this graph parameter.
+        """
+elif False:
+    GraphParameterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GraphParameterArgs:
@@ -689,6 +951,18 @@ class GraphParameterArgs:
         pulumi.set(self, "description", value)
 
 
+if not MYPY:
+    class InputPortArgsDict(TypedDict):
+        """
+        Asset input port
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'InputPortType']]]
+        """
+        Port data type.
+        """
+elif False:
+    InputPortArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InputPortArgs:
     def __init__(__self__, *,
@@ -715,6 +989,18 @@ class InputPortArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class MachineLearningWorkspaceArgsDict(TypedDict):
+        """
+        Information about the machine learning workspace containing the experiment that is source for the web service.
+        """
+        id: pulumi.Input[str]
+        """
+        Specifies the workspace ID of the machine learning workspace associated with the web service
+        """
+elif False:
+    MachineLearningWorkspaceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MachineLearningWorkspaceArgs:
     def __init__(__self__, *,
@@ -737,6 +1023,22 @@ class MachineLearningWorkspaceArgs:
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class ModeValueInfoArgsDict(TypedDict):
+        """
+        Nested parameter definition.
+        """
+        interface_string: NotRequired[pulumi.Input[str]]
+        """
+        The interface string name for the nested parameter.
+        """
+        parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['ModuleAssetParameterArgsDict']]]]
+        """
+        The definition of the parameter.
+        """
+elif False:
+    ModeValueInfoArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ModeValueInfoArgs:
@@ -777,6 +1079,26 @@ class ModeValueInfoArgs:
     def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ModuleAssetParameterArgs']]]]):
         pulumi.set(self, "parameters", value)
 
+
+if not MYPY:
+    class ModuleAssetParameterArgsDict(TypedDict):
+        """
+        Parameter definition for a module asset.
+        """
+        mode_values_info: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['ModeValueInfoArgsDict']]]]
+        """
+        Definitions for nested interface parameters if this is a complex module parameter.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Parameter name.
+        """
+        parameter_type: NotRequired[pulumi.Input[str]]
+        """
+        Parameter type.
+        """
+elif False:
+    ModuleAssetParameterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ModuleAssetParameterArgs:
@@ -834,6 +1156,18 @@ class ModuleAssetParameterArgs:
         pulumi.set(self, "parameter_type", value)
 
 
+if not MYPY:
+    class OutputPortArgsDict(TypedDict):
+        """
+        Asset output port
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'OutputPortType']]]
+        """
+        Port data type.
+        """
+elif False:
+    OutputPortArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OutputPortArgs:
     def __init__(__self__, *,
@@ -860,6 +1194,18 @@ class OutputPortArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class RealtimeConfigurationArgsDict(TypedDict):
+        """
+        Holds the available configuration options for an Azure ML web service endpoint.
+        """
+        max_concurrent_calls: NotRequired[pulumi.Input[int]]
+        """
+        Specifies the maximum concurrent calls that can be made to the web service. Minimum value: 4, Maximum value: 200.
+        """
+elif False:
+    RealtimeConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RealtimeConfigurationArgs:
     def __init__(__self__, *,
@@ -883,6 +1229,30 @@ class RealtimeConfigurationArgs:
     def max_concurrent_calls(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max_concurrent_calls", value)
 
+
+if not MYPY:
+    class ServiceInputOutputSpecificationArgsDict(TypedDict):
+        """
+        The swagger 2.0 schema describing the service's inputs or outputs. See Swagger specification: http://swagger.io/specification/
+        """
+        properties: pulumi.Input[Mapping[str, pulumi.Input['TableSpecificationArgsDict']]]
+        """
+        Specifies a collection that contains the column schema for each input or output of the web service. For more information, see the Swagger specification.
+        """
+        type: pulumi.Input[str]
+        """
+        The type of the entity described in swagger. Always 'object'.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The description of the Swagger schema.
+        """
+        title: NotRequired[pulumi.Input[str]]
+        """
+        The title of your Swagger schema.
+        """
+elif False:
+    ServiceInputOutputSpecificationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ServiceInputOutputSpecificationArgs:
@@ -956,6 +1326,22 @@ class ServiceInputOutputSpecificationArgs:
         pulumi.set(self, "title", value)
 
 
+if not MYPY:
+    class StorageAccountArgsDict(TypedDict):
+        """
+        Access information for a storage account.
+        """
+        key: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the key used to access the storage account.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the name of the storage account.
+        """
+elif False:
+    StorageAccountArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class StorageAccountArgs:
     def __init__(__self__, *,
@@ -995,6 +1381,34 @@ class StorageAccountArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class TableSpecificationArgsDict(TypedDict):
+        """
+        The swagger 2.0 schema describing a single service input or output. See Swagger specification: http://swagger.io/specification/
+        """
+        type: pulumi.Input[str]
+        """
+        The type of the entity described in swagger.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Swagger schema description.
+        """
+        format: NotRequired[pulumi.Input[str]]
+        """
+        The format, if 'type' is not 'object'
+        """
+        properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['ColumnSpecificationArgsDict']]]]
+        """
+        The set of columns within the data table.
+        """
+        title: NotRequired[pulumi.Input[str]]
+        """
+        Swagger schema title.
+        """
+elif False:
+    TableSpecificationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TableSpecificationArgs:
@@ -1085,6 +1499,22 @@ class TableSpecificationArgs:
         pulumi.set(self, "title", value)
 
 
+if not MYPY:
+    class WebServiceKeysArgsDict(TypedDict):
+        """
+        Access keys for the web service calls.
+        """
+        primary: NotRequired[pulumi.Input[str]]
+        """
+        The primary access key.
+        """
+        secondary: NotRequired[pulumi.Input[str]]
+        """
+        The secondary access key.
+        """
+elif False:
+    WebServiceKeysArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WebServiceKeysArgs:
     def __init__(__self__, *,
@@ -1125,6 +1555,22 @@ class WebServiceKeysArgs:
         pulumi.set(self, "secondary", value)
 
 
+if not MYPY:
+    class WebServiceParameterArgsDict(TypedDict):
+        """
+        Web Service Parameter object for node and global parameter
+        """
+        certificate_thumbprint: NotRequired[pulumi.Input[str]]
+        """
+        If the parameter value in 'value' field is encrypted, the thumbprint of the certificate should be put here.
+        """
+        value: NotRequired[Any]
+        """
+        The parameter value
+        """
+elif False:
+    WebServiceParameterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WebServiceParameterArgs:
     def __init__(__self__, *,
@@ -1164,6 +1610,91 @@ class WebServiceParameterArgs:
     def value(self, value: Optional[Any]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class WebServicePropertiesForGraphArgsDict(TypedDict):
+        """
+        Properties specific to a Graph based web service.
+        """
+        package_type: pulumi.Input[str]
+        """
+        Specifies the package type. Valid values are Graph (Specifies a web service published through the Machine Learning Studio) and Code (Specifies a web service published using code such as Python). Note: Code is not supported at this time.
+        Expected value is 'Graph'.
+        """
+        assets: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['AssetItemArgsDict']]]]
+        """
+        Contains user defined properties describing web service assets. Properties are expressed as Key/Value pairs.
+        """
+        commitment_plan: NotRequired[pulumi.Input['CommitmentPlanArgsDict']]
+        """
+        Contains the commitment plan associated with this web service. Set at creation time. Once set, this value cannot be changed. Note: The commitment plan is not returned from calls to GET operations.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The description of the web service.
+        """
+        diagnostics: NotRequired[pulumi.Input['DiagnosticsConfigurationArgsDict']]
+        """
+        Settings controlling the diagnostics traces collection for the web service.
+        """
+        example_request: NotRequired[pulumi.Input['ExampleRequestArgsDict']]
+        """
+        Defines sample input data for one or more of the service's inputs.
+        """
+        expose_sample_data: NotRequired[pulumi.Input[bool]]
+        """
+        When set to true, sample data is included in the web service's swagger definition. The default value is true.
+        """
+        input: NotRequired[pulumi.Input['ServiceInputOutputSpecificationArgsDict']]
+        """
+        Contains the Swagger 2.0 schema describing one or more of the web service's inputs. For more information, see the Swagger specification.
+        """
+        keys: NotRequired[pulumi.Input['WebServiceKeysArgsDict']]
+        """
+        Contains the web service provisioning keys. If you do not specify provisioning keys, the Azure Machine Learning system generates them for you. Note: The keys are not returned from calls to GET operations.
+        """
+        machine_learning_workspace: NotRequired[pulumi.Input['MachineLearningWorkspaceArgsDict']]
+        """
+        Specifies the Machine Learning workspace containing the experiment that is source for the web service.
+        """
+        output: NotRequired[pulumi.Input['ServiceInputOutputSpecificationArgsDict']]
+        """
+        Contains the Swagger 2.0 schema describing one or more of the web service's outputs. For more information, see the Swagger specification.
+        """
+        package: NotRequired[pulumi.Input['GraphPackageArgsDict']]
+        """
+        The definition of the graph package making up this web service.
+        """
+        parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['WebServiceParameterArgsDict']]]]
+        """
+        The set of global parameters values defined for the web service, given as a global parameter name to default value map. If no default value is specified, the parameter is considered to be required.
+        """
+        payloads_in_blob_storage: NotRequired[pulumi.Input[bool]]
+        """
+        When set to true, indicates that the payload size is larger than 3 MB. Otherwise false. If the payload size exceed 3 MB, the payload is stored in a blob and the PayloadsLocation parameter contains the URI of the blob. Otherwise, this will be set to false and Assets, Input, Output, Package, Parameters, ExampleRequest are inline. The Payload sizes is determined by adding the size of the Assets, Input, Output, Package, Parameters, and the ExampleRequest.
+        """
+        payloads_location: NotRequired[pulumi.Input['BlobLocationArgsDict']]
+        """
+        The URI of the payload blob. This parameter contains a value only if the payloadsInBlobStorage parameter is set to true. Otherwise is set to null.
+        """
+        read_only: NotRequired[pulumi.Input[bool]]
+        """
+        When set to true, indicates that the web service is read-only and can no longer be updated or patched, only removed. Default, is false. Note: Once set to true, you cannot change its value.
+        """
+        realtime_configuration: NotRequired[pulumi.Input['RealtimeConfigurationArgsDict']]
+        """
+        Contains the configuration settings for the web service endpoint.
+        """
+        storage_account: NotRequired[pulumi.Input['StorageAccountArgsDict']]
+        """
+        Specifies the storage account that Azure Machine Learning uses to store information about the web service. Only the name of the storage account is returned from calls to GET operations. When updating the storage account information, you must ensure that all necessary assets are available in the new storage account or calls to your web service will fail.
+        """
+        title: NotRequired[pulumi.Input[str]]
+        """
+        The title of the web service.
+        """
+elif False:
+    WebServicePropertiesForGraphArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WebServicePropertiesForGraphArgs:

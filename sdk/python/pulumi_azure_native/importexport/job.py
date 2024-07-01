@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -108,7 +113,7 @@ class Job(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  job_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['JobDetailsArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['JobDetailsArgs', 'JobDetailsArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[Any] = None,
                  __props__=None):
@@ -120,7 +125,7 @@ class Job(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] job_name: The name of the import/export job.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the job should be created
-        :param pulumi.Input[pulumi.InputType['JobDetailsArgs']] properties: Specifies the job properties
+        :param pulumi.Input[Union['JobDetailsArgs', 'JobDetailsArgsDict']] properties: Specifies the job properties
         :param pulumi.Input[str] resource_group_name: The resource group name uniquely identifies the resource group within the user subscription.
         :param Any tags: Specifies the tags that will be assigned to the job.
         """
@@ -151,7 +156,7 @@ class Job(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  job_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['JobDetailsArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['JobDetailsArgs', 'JobDetailsArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[Any] = None,
                  __props__=None):

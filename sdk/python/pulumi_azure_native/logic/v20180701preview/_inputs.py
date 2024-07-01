@@ -4,17 +4,39 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'ResourceReferenceArgs',
+    'ResourceReferenceArgsDict',
     'SkuArgs',
+    'SkuArgsDict',
     'WorkflowParameterArgs',
+    'WorkflowParameterArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ResourceReferenceArgsDict(TypedDict):
+        """
+        The resource reference.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The resource id.
+        """
+elif False:
+    ResourceReferenceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ResourceReferenceArgs:
@@ -39,6 +61,22 @@ class ResourceReferenceArgs:
     def id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class SkuArgsDict(TypedDict):
+        """
+        The sku type.
+        """
+        name: pulumi.Input[Union[str, 'SkuName']]
+        """
+        The name.
+        """
+        plan: NotRequired[pulumi.Input['ResourceReferenceArgsDict']]
+        """
+        The reference to plan.
+        """
+elif False:
+    SkuArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SkuArgs:
@@ -78,6 +116,30 @@ class SkuArgs:
     def plan(self, value: Optional[pulumi.Input['ResourceReferenceArgs']]):
         pulumi.set(self, "plan", value)
 
+
+if not MYPY:
+    class WorkflowParameterArgsDict(TypedDict):
+        """
+        The workflow parameters.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The description.
+        """
+        metadata: NotRequired[Any]
+        """
+        The metadata.
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'ParameterType']]]
+        """
+        The type.
+        """
+        value: NotRequired[Any]
+        """
+        The value.
+        """
+elif False:
+    WorkflowParameterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WorkflowParameterArgs:

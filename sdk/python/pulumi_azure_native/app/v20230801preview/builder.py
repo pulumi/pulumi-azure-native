@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -138,9 +143,9 @@ class Builder(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  builder_name: Optional[pulumi.Input[str]] = None,
-                 container_registries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContainerRegistryArgs']]]]] = None,
+                 container_registries: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ContainerRegistryArgs', 'ContainerRegistryArgsDict']]]]] = None,
                  environment_id: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -151,9 +156,9 @@ class Builder(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] builder_name: The name of the builder.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContainerRegistryArgs']]]] container_registries: List of mappings of container registries and the managed identity used to connect to it.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ContainerRegistryArgs', 'ContainerRegistryArgsDict']]]] container_registries: List of mappings of container registries and the managed identity used to connect to it.
         :param pulumi.Input[str] environment_id: Resource ID of the container apps environment that the builder is associated with.
-        :param pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']] identity: The managed service identities assigned to this resource.
+        :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: The managed service identities assigned to this resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -183,9 +188,9 @@ class Builder(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  builder_name: Optional[pulumi.Input[str]] = None,
-                 container_registries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContainerRegistryArgs']]]]] = None,
+                 container_registries: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ContainerRegistryArgs', 'ContainerRegistryArgsDict']]]]] = None,
                  environment_id: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
