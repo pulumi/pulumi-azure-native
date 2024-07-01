@@ -29,6 +29,7 @@ import * as azurestack from "./azurestack";
 import * as azurestackhci from "./azurestackhci";
 import * as baremetalinfrastructure from "./baremetalinfrastructure";
 import * as batch from "./batch";
+import * as billing from "./billing";
 import * as blueprint from "./blueprint";
 import * as botservice from "./botservice";
 import * as cache from "./cache";
@@ -91,6 +92,7 @@ import * as enterpriseknowledgegraph from "./enterpriseknowledgegraph";
 import * as eventgrid from "./eventgrid";
 import * as eventhub from "./eventhub";
 import * as extendedlocation from "./extendedlocation";
+import * as fabric from "./fabric";
 import * as features from "./features";
 import * as fluidrelay from "./fluidrelay";
 import * as guestconfiguration from "./guestconfiguration";
@@ -230,6 +232,7 @@ export {
     azurestackhci,
     baremetalinfrastructure,
     batch,
+    billing,
     blueprint,
     botservice,
     cache,
@@ -292,6 +295,7 @@ export {
     eventgrid,
     eventhub,
     extendedlocation,
+    fabric,
     features,
     fluidrelay,
     guestconfiguration,

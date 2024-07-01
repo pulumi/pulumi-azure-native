@@ -163,6 +163,8 @@ class BillingRoleAssignmentByDepartment(pulumi.CustomResource):
         The role assignment
         Azure REST API version: 2019-10-01-preview. Prior API version in Azure Native 1.x: 2019-10-01-preview.
 
+        Other available API versions: 2024-04-01.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] billing_account_name: The ID that uniquely identifies a billing account.
@@ -183,6 +185,8 @@ class BillingRoleAssignmentByDepartment(pulumi.CustomResource):
         """
         The role assignment
         Azure REST API version: 2019-10-01-preview. Prior API version in Azure Native 1.x: 2019-10-01-preview.
+
+        Other available API versions: 2024-04-01.
 
         :param str resource_name: The name of the resource.
         :param BillingRoleAssignmentByDepartmentArgs args: The arguments to use to populate this resource's properties.
@@ -235,7 +239,7 @@ class BillingRoleAssignmentByDepartment(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["scope"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:billing/v20191001preview:BillingRoleAssignmentByDepartment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:billing/v20191001preview:BillingRoleAssignmentByDepartment"), pulumi.Alias(type_="azure-native:billing/v20240401:BillingRoleAssignmentByDepartment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BillingRoleAssignmentByDepartment, __self__).__init__(
             'azure-native:billing:BillingRoleAssignmentByDepartment',

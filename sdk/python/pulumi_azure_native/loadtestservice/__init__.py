@@ -7,7 +7,11 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .get_load_test import *
+from .get_load_test_mapping import *
+from .get_load_test_profile_mapping import *
 from .load_test import *
+from .load_test_mapping import *
+from .load_test_profile_mapping import *
 from ._inputs import *
 from . import outputs
 
@@ -17,7 +21,10 @@ if typing.TYPE_CHECKING:
     v20211201preview = __v20211201preview
     import pulumi_azure_native.loadtestservice.v20221201 as __v20221201
     v20221201 = __v20221201
+    import pulumi_azure_native.loadtestservice.v20231201preview as __v20231201preview
+    v20231201preview = __v20231201preview
 else:
     v20211201preview = _utilities.lazy_import('pulumi_azure_native.loadtestservice.v20211201preview')
     v20221201 = _utilities.lazy_import('pulumi_azure_native.loadtestservice.v20221201')
+    v20231201preview = _utilities.lazy_import('pulumi_azure_native.loadtestservice.v20231201preview')
 

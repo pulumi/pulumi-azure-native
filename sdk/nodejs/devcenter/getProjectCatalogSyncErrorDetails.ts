@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Gets project catalog synchronization error details
  * Azure REST API version: 2024-02-01.
  *
- * Other available API versions: 2024-05-01-preview, 2024-06-01-preview.
+ * Other available API versions: 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview.
  */
 export function getProjectCatalogSyncErrorDetails(args: GetProjectCatalogSyncErrorDetailsArgs, opts?: pulumi.InvokeOptions): Promise<GetProjectCatalogSyncErrorDetailsResult> {
 
@@ -59,7 +59,7 @@ export interface GetProjectCatalogSyncErrorDetailsResult {
  * Gets project catalog synchronization error details
  * Azure REST API version: 2024-02-01.
  *
- * Other available API versions: 2024-05-01-preview, 2024-06-01-preview.
+ * Other available API versions: 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview.
  */
 export function getProjectCatalogSyncErrorDetailsOutput(args: GetProjectCatalogSyncErrorDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProjectCatalogSyncErrorDetailsResult> {
     return pulumi.output(args).apply((a: any) => getProjectCatalogSyncErrorDetails(a, opts))

@@ -7,6 +7,8 @@ import * as utilities from "../utilities";
 /**
  * The role assignment
  * Azure REST API version: 2019-10-01-preview. Prior API version in Azure Native 1.x: 2019-10-01-preview.
+ *
+ * Other available API versions: 2024-04-01.
  */
 export class BillingRoleAssignmentByBillingAccount extends pulumi.CustomResource {
     /**
@@ -127,7 +129,7 @@ export class BillingRoleAssignmentByBillingAccount extends pulumi.CustomResource
             resourceInputs["userEmailAddress"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:billing/v20191001preview:BillingRoleAssignmentByBillingAccount" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:billing/v20191001preview:BillingRoleAssignmentByBillingAccount" }, { type: "azure-native:billing/v20240401:BillingRoleAssignmentByBillingAccount" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BillingRoleAssignmentByBillingAccount.__pulumiType, name, resourceInputs, opts);
     }

@@ -228,9 +228,12 @@ Batch:
 Billing:
     tracking: "2020-05-01"
     additions:
+        AssociatedTenant: "2024-04-01"
+        BillingProfile: "2024-04-01"
         BillingRoleAssignmentByBillingAccount: 2019-10-01-preview
         BillingRoleAssignmentByDepartment: 2019-10-01-preview
         BillingRoleAssignmentByEnrollmentAccount: 2019-10-01-preview
+        InvoiceSection: "2024-04-01"
 BillingBenefits: {}
 Blueprint:
     tracking: 2018-11-01-preview
@@ -521,6 +524,15 @@ DBforMySQL:
           resourcename: Server
           detail: version 2023-12-01-preview is greater than 2017-12-01
         - provider: DBforMySQL
+          resourcename: Configuration
+          detail: version 2023-12-30 is greater than 2017-12-01
+        - provider: DBforMySQL
+          resourcename: Database
+          detail: version 2023-12-30 is greater than 2017-12-01
+        - provider: DBforMySQL
+          resourcename: FirewallRule
+          detail: version 2023-12-30 is greater than 2017-12-01
+        - provider: DBforMySQL
           resourcename: Server
           detail: version 2023-12-30 is greater than 2017-12-01
         - provider: DBforMySQL
@@ -747,6 +759,7 @@ DevCenter:
         getCustomizationTaskErrorDetails: 2023-08-01-preview
         getEnvironmentDefinitionErrorDetails: 2023-08-01-preview
         getProjectCatalogEnvironmentDefinitionErrorDetails: "2024-02-01"
+        getProjectCatalogImageDefinitionBuildDetails: 2024-07-01-preview
         getProjectCatalogSyncErrorDetails: "2024-02-01"
         getProjectInheritedSettings: 2024-05-01-preview
         listSkusByProject: 2024-06-01-preview
@@ -850,6 +863,8 @@ ExtendedLocation:
     tracking: "2021-08-15"
     additions:
         ResourceSyncRule: 2021-08-31-preview
+Fabric:
+    tracking: "2023-11-01"
 Features:
     tracking: "2021-07-01"
 FluidRelay:
@@ -1015,6 +1030,9 @@ LabServices:
           detail: version 2023-06-07 is greater than 2018-10-15
 LoadTestService:
     tracking: "2022-12-01"
+    additions:
+        LoadTestMapping: 2023-12-01-preview
+        LoadTestProfileMapping: 2023-12-01-preview
 Logic:
     tracking: "2019-05-01"
     additions:

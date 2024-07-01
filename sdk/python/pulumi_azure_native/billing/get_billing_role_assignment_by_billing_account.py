@@ -195,6 +195,8 @@ def get_billing_role_assignment_by_billing_account(billing_account_name: Optiona
     Gets a role assignment for the caller on a billing account. The operation is supported for billing accounts with agreement type Microsoft Partner Agreement, Microsoft Customer Agreement or Enterprise Agreement.
     Azure REST API version: 2019-10-01-preview.
 
+    Other available API versions: 2024-04-01.
+
 
     :param str billing_account_name: The ID that uniquely identifies a billing account.
     :param str billing_role_assignment_name: The ID that uniquely identifies a role assignment.
@@ -228,6 +230,8 @@ def get_billing_role_assignment_by_billing_account_output(billing_account_name: 
     """
     Gets a role assignment for the caller on a billing account. The operation is supported for billing accounts with agreement type Microsoft Partner Agreement, Microsoft Customer Agreement or Enterprise Agreement.
     Azure REST API version: 2019-10-01-preview.
+
+    Other available API versions: 2024-04-01.
 
 
     :param str billing_account_name: The ID that uniquely identifies a billing account.

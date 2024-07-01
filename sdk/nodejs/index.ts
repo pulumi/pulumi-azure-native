@@ -110,6 +110,7 @@ import * as enterpriseknowledgegraph from "./enterpriseknowledgegraph";
 import * as eventgrid from "./eventgrid";
 import * as eventhub from "./eventhub";
 import * as extendedlocation from "./extendedlocation";
+import * as fabric from "./fabric";
 import * as features from "./features";
 import * as fluidrelay from "./fluidrelay";
 import * as graphservices from "./graphservices";
@@ -338,6 +339,7 @@ export {
     eventgrid,
     eventhub,
     extendedlocation,
+    fabric,
     features,
     fluidrelay,
     graphservices,

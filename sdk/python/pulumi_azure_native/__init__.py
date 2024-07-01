@@ -205,6 +205,8 @@ if typing.TYPE_CHECKING:
     eventhub = __eventhub
     import pulumi_azure_native.extendedlocation as __extendedlocation
     extendedlocation = __extendedlocation
+    import pulumi_azure_native.fabric as __fabric
+    fabric = __fabric
     import pulumi_azure_native.features as __features
     features = __features
     import pulumi_azure_native.fluidrelay as __fluidrelay
@@ -558,6 +560,7 @@ else:
     eventgrid = _utilities.lazy_import('pulumi_azure_native.eventgrid')
     eventhub = _utilities.lazy_import('pulumi_azure_native.eventhub')
     extendedlocation = _utilities.lazy_import('pulumi_azure_native.extendedlocation')
+    fabric = _utilities.lazy_import('pulumi_azure_native.fabric')
     features = _utilities.lazy_import('pulumi_azure_native.features')
     fluidrelay = _utilities.lazy_import('pulumi_azure_native.fluidrelay')
     graphservices = _utilities.lazy_import('pulumi_azure_native.graphservices')
@@ -3359,9 +3362,12 @@ _utilities.register(
   "mod": "billing",
   "fqn": "pulumi_azure_native.billing",
   "classes": {
+   "azure-native:billing:AssociatedTenant": "AssociatedTenant",
+   "azure-native:billing:BillingProfile": "BillingProfile",
    "azure-native:billing:BillingRoleAssignmentByBillingAccount": "BillingRoleAssignmentByBillingAccount",
    "azure-native:billing:BillingRoleAssignmentByDepartment": "BillingRoleAssignmentByDepartment",
-   "azure-native:billing:BillingRoleAssignmentByEnrollmentAccount": "BillingRoleAssignmentByEnrollmentAccount"
+   "azure-native:billing:BillingRoleAssignmentByEnrollmentAccount": "BillingRoleAssignmentByEnrollmentAccount",
+   "azure-native:billing:InvoiceSection": "InvoiceSection"
   }
  },
  {
@@ -3372,6 +3378,19 @@ _utilities.register(
    "azure-native:billing/v20191001preview:BillingRoleAssignmentByBillingAccount": "BillingRoleAssignmentByBillingAccount",
    "azure-native:billing/v20191001preview:BillingRoleAssignmentByDepartment": "BillingRoleAssignmentByDepartment",
    "azure-native:billing/v20191001preview:BillingRoleAssignmentByEnrollmentAccount": "BillingRoleAssignmentByEnrollmentAccount"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "billing/v20240401",
+  "fqn": "pulumi_azure_native.billing.v20240401",
+  "classes": {
+   "azure-native:billing/v20240401:AssociatedTenant": "AssociatedTenant",
+   "azure-native:billing/v20240401:BillingProfile": "BillingProfile",
+   "azure-native:billing/v20240401:BillingRoleAssignmentByBillingAccount": "BillingRoleAssignmentByBillingAccount",
+   "azure-native:billing/v20240401:BillingRoleAssignmentByDepartment": "BillingRoleAssignmentByDepartment",
+   "azure-native:billing/v20240401:BillingRoleAssignmentByEnrollmentAccount": "BillingRoleAssignmentByEnrollmentAccount",
+   "azure-native:billing/v20240401:InvoiceSection": "InvoiceSection"
   }
  },
  {
@@ -4692,6 +4711,14 @@ _utilities.register(
   "fqn": "pulumi_azure_native.containerinstance.v20230501",
   "classes": {
    "azure-native:containerinstance/v20230501:ContainerGroup": "ContainerGroup"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "containerinstance/v20240501preview",
+  "fqn": "pulumi_azure_native.containerinstance.v20240501preview",
+  "classes": {
+   "azure-native:containerinstance/v20240501preview:ContainerGroup": "ContainerGroup"
   }
  },
  {
@@ -6483,6 +6510,10 @@ _utilities.register(
   "mod": "dbformysql/v20231230",
   "fqn": "pulumi_azure_native.dbformysql.v20231230",
   "classes": {
+   "azure-native:dbformysql/v20231230:AzureADAdministrator": "AzureADAdministrator",
+   "azure-native:dbformysql/v20231230:Configuration": "Configuration",
+   "azure-native:dbformysql/v20231230:Database": "Database",
+   "azure-native:dbformysql/v20231230:FirewallRule": "FirewallRule",
    "azure-native:dbformysql/v20231230:Server": "Server"
   }
  },
@@ -7079,6 +7110,28 @@ _utilities.register(
    "azure-native:devcenter/v20240601preview:ProjectCatalog": "ProjectCatalog",
    "azure-native:devcenter/v20240601preview:ProjectEnvironmentType": "ProjectEnvironmentType",
    "azure-native:devcenter/v20240601preview:Schedule": "Schedule"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "devcenter/v20240701preview",
+  "fqn": "pulumi_azure_native.devcenter.v20240701preview",
+  "classes": {
+   "azure-native:devcenter/v20240701preview:AttachedNetworkByDevCenter": "AttachedNetworkByDevCenter",
+   "azure-native:devcenter/v20240701preview:Catalog": "Catalog",
+   "azure-native:devcenter/v20240701preview:DevBoxDefinition": "DevBoxDefinition",
+   "azure-native:devcenter/v20240701preview:DevCenter": "DevCenter",
+   "azure-native:devcenter/v20240701preview:EncryptionSet": "EncryptionSet",
+   "azure-native:devcenter/v20240701preview:EnvironmentType": "EnvironmentType",
+   "azure-native:devcenter/v20240701preview:Gallery": "Gallery",
+   "azure-native:devcenter/v20240701preview:NetworkConnection": "NetworkConnection",
+   "azure-native:devcenter/v20240701preview:Plan": "Plan",
+   "azure-native:devcenter/v20240701preview:PlanMember": "PlanMember",
+   "azure-native:devcenter/v20240701preview:Pool": "Pool",
+   "azure-native:devcenter/v20240701preview:Project": "Project",
+   "azure-native:devcenter/v20240701preview:ProjectCatalog": "ProjectCatalog",
+   "azure-native:devcenter/v20240701preview:ProjectEnvironmentType": "ProjectEnvironmentType",
+   "azure-native:devcenter/v20240701preview:Schedule": "Schedule"
   }
  },
  {
@@ -8370,6 +8423,22 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "fabric",
+  "fqn": "pulumi_azure_native.fabric",
+  "classes": {
+   "azure-native:fabric:FabricCapacity": "FabricCapacity"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "fabric/v20231101",
+  "fqn": "pulumi_azure_native.fabric.v20231101",
+  "classes": {
+   "azure-native:fabric/v20231101:FabricCapacity": "FabricCapacity"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "features",
   "fqn": "pulumi_azure_native.features",
   "classes": {
@@ -9614,6 +9683,14 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "kubernetes/v20240701preview",
+  "fqn": "pulumi_azure_native.kubernetes.v20240701preview",
+  "classes": {
+   "azure-native:kubernetes/v20240701preview:ConnectedCluster": "ConnectedCluster"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "kubernetesconfiguration",
   "fqn": "pulumi_azure_native.kubernetesconfiguration",
   "classes": {
@@ -9913,7 +9990,9 @@ _utilities.register(
   "mod": "loadtestservice",
   "fqn": "pulumi_azure_native.loadtestservice",
   "classes": {
-   "azure-native:loadtestservice:LoadTest": "LoadTest"
+   "azure-native:loadtestservice:LoadTest": "LoadTest",
+   "azure-native:loadtestservice:LoadTestMapping": "LoadTestMapping",
+   "azure-native:loadtestservice:LoadTestProfileMapping": "LoadTestProfileMapping"
   }
  },
  {
@@ -9930,6 +10009,16 @@ _utilities.register(
   "fqn": "pulumi_azure_native.loadtestservice.v20221201",
   "classes": {
    "azure-native:loadtestservice/v20221201:LoadTest": "LoadTest"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "loadtestservice/v20231201preview",
+  "fqn": "pulumi_azure_native.loadtestservice.v20231201preview",
+  "classes": {
+   "azure-native:loadtestservice/v20231201preview:LoadTest": "LoadTest",
+   "azure-native:loadtestservice/v20231201preview:LoadTestMapping": "LoadTestMapping",
+   "azure-native:loadtestservice/v20231201preview:LoadTestProfileMapping": "LoadTestProfileMapping"
   }
  },
  {

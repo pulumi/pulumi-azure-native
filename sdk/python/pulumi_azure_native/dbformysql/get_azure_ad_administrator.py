@@ -149,7 +149,7 @@ def get_azure_ad_administrator(administrator_name: Optional[str] = None,
     Gets information about an azure ad administrator.
     Azure REST API version: 2022-01-01.
 
-    Other available API versions: 2023-06-01-preview, 2023-06-30.
+    Other available API versions: 2023-06-01-preview, 2023-06-30, 2023-12-30.
 
 
     :param str administrator_name: The name of the Azure AD Administrator.
@@ -184,7 +184,7 @@ def get_azure_ad_administrator_output(administrator_name: Optional[pulumi.Input[
     Gets information about an azure ad administrator.
     Azure REST API version: 2022-01-01.
 
-    Other available API versions: 2023-06-01-preview, 2023-06-30.
+    Other available API versions: 2023-06-01-preview, 2023-06-30, 2023-12-30.
 
 
     :param str administrator_name: The name of the Azure AD Administrator.

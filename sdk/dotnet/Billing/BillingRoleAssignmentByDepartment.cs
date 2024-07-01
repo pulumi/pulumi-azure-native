@@ -12,6 +12,8 @@ namespace Pulumi.AzureNative.Billing
     /// <summary>
     /// The role assignment
     /// Azure REST API version: 2019-10-01-preview. Prior API version in Azure Native 1.x: 2019-10-01-preview.
+    /// 
+    /// Other available API versions: 2024-04-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:billing:BillingRoleAssignmentByDepartment")]
     public partial class BillingRoleAssignmentByDepartment : global::Pulumi.CustomResource
@@ -114,6 +116,7 @@ namespace Pulumi.AzureNative.Billing
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:billing/v20191001preview:BillingRoleAssignmentByDepartment" },
+                    new global::Pulumi.Alias { Type = "azure-native:billing/v20240401:BillingRoleAssignmentByDepartment" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

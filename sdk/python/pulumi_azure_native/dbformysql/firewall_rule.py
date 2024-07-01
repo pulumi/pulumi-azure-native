@@ -111,7 +111,7 @@ class FirewallRule(pulumi.CustomResource):
         Represents a server firewall rule.
         Azure REST API version: 2022-01-01. Prior API version in Azure Native 1.x: 2017-12-01.
 
-        Other available API versions: 2017-12-01, 2023-06-01-preview, 2023-06-30.
+        Other available API versions: 2017-12-01, 2023-06-01-preview, 2023-06-30, 2023-12-30.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -131,7 +131,7 @@ class FirewallRule(pulumi.CustomResource):
         Represents a server firewall rule.
         Azure REST API version: 2022-01-01. Prior API version in Azure Native 1.x: 2017-12-01.
 
-        Other available API versions: 2017-12-01, 2023-06-01-preview, 2023-06-30.
+        Other available API versions: 2017-12-01, 2023-06-01-preview, 2023-06-30, 2023-12-30.
 
         :param str resource_name: The name of the resource.
         :param FirewallRuleArgs args: The arguments to use to populate this resource's properties.
@@ -178,7 +178,7 @@ class FirewallRule(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dbformysql/v20200701preview:FirewallRule"), pulumi.Alias(type_="azure-native:dbformysql/v20200701privatepreview:FirewallRule"), pulumi.Alias(type_="azure-native:dbformysql/v20210501:FirewallRule"), pulumi.Alias(type_="azure-native:dbformysql/v20210501preview:FirewallRule"), pulumi.Alias(type_="azure-native:dbformysql/v20211201preview:FirewallRule"), pulumi.Alias(type_="azure-native:dbformysql/v20220101:FirewallRule"), pulumi.Alias(type_="azure-native:dbformysql/v20230601preview:FirewallRule"), pulumi.Alias(type_="azure-native:dbformysql/v20230630:FirewallRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dbformysql/v20200701preview:FirewallRule"), pulumi.Alias(type_="azure-native:dbformysql/v20200701privatepreview:FirewallRule"), pulumi.Alias(type_="azure-native:dbformysql/v20210501:FirewallRule"), pulumi.Alias(type_="azure-native:dbformysql/v20210501preview:FirewallRule"), pulumi.Alias(type_="azure-native:dbformysql/v20211201preview:FirewallRule"), pulumi.Alias(type_="azure-native:dbformysql/v20220101:FirewallRule"), pulumi.Alias(type_="azure-native:dbformysql/v20230601preview:FirewallRule"), pulumi.Alias(type_="azure-native:dbformysql/v20230630:FirewallRule"), pulumi.Alias(type_="azure-native:dbformysql/v20231230:FirewallRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(FirewallRule, __self__).__init__(
             'azure-native:dbformysql:FirewallRule',

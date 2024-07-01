@@ -63,7 +63,7 @@ def list_billing_account_invoice_sections_by_create_subscription_permission(bill
     Lists the invoice sections for which the user has permission to create Azure subscriptions. The operation is supported only for billing accounts with agreement type Microsoft Customer Agreement.
     Azure REST API version: 2020-05-01.
 
-    Other available API versions: 2019-10-01-preview.
+    Other available API versions: 2019-10-01-preview, 2024-04-01.
 
 
     :param str billing_account_name: The ID that uniquely identifies a billing account.
@@ -85,7 +85,7 @@ def list_billing_account_invoice_sections_by_create_subscription_permission_outp
     Lists the invoice sections for which the user has permission to create Azure subscriptions. The operation is supported only for billing accounts with agreement type Microsoft Customer Agreement.
     Azure REST API version: 2020-05-01.
 
-    Other available API versions: 2019-10-01-preview.
+    Other available API versions: 2019-10-01-preview, 2024-04-01.
 
 
     :param str billing_account_name: The ID that uniquely identifies a billing account.

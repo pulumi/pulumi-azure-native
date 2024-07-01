@@ -21,6 +21,10 @@ __all__ = [
     'EnvironmentRoleResponse',
     'GitCatalogResponse',
     'HealthStatusDetailResponse',
+    'ImageCreationErrorDetailsResponse',
+    'ImageDefinitionBuildTaskGroupResponse',
+    'ImageDefinitionBuildTaskResponse',
+    'ImageDefinitionBuildTaskResponseParameters',
     'ImageReferenceResponse',
     'ImageValidationErrorDetailsResponse',
     'ManagedServiceIdentityResponse',
@@ -451,6 +455,228 @@ class HealthStatusDetailResponse(dict):
         A message describing the issue, intended to be suitable for display in a user interface
         """
         return pulumi.get(self, "message")
+
+
+@pulumi.output_type
+class ImageCreationErrorDetailsResponse(dict):
+    """
+    Image creation error details
+    """
+    def __init__(__self__, *,
+                 code: Optional[str] = None,
+                 message: Optional[str] = None):
+        """
+        Image creation error details
+        :param str code: An identifier for the error.
+        :param str message: A message describing the error.
+        """
+        if code is not None:
+            pulumi.set(__self__, "code", code)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
+
+    @property
+    @pulumi.getter
+    def code(self) -> Optional[str]:
+        """
+        An identifier for the error.
+        """
+        return pulumi.get(self, "code")
+
+    @property
+    @pulumi.getter
+    def message(self) -> Optional[str]:
+        """
+        A message describing the error.
+        """
+        return pulumi.get(self, "message")
+
+
+@pulumi.output_type
+class ImageDefinitionBuildTaskGroupResponse(dict):
+    """
+    A task group executed during the image definition build.
+    """
+    def __init__(__self__, *,
+                 end_time: str,
+                 name: str,
+                 start_time: str,
+                 status: str,
+                 tasks: Sequence['outputs.ImageDefinitionBuildTaskResponse']):
+        """
+        A task group executed during the image definition build.
+        :param str end_time: End time of the task group.
+        :param str name: The name of the task group.
+        :param str start_time: Start time of the task group.
+        :param str status: The status of the task group.
+        :param Sequence['ImageDefinitionBuildTaskResponse'] tasks: The list of tasks executed during the task group.
+        """
+        pulumi.set(__self__, "end_time", end_time)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "start_time", start_time)
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "tasks", tasks)
+
+    @property
+    @pulumi.getter(name="endTime")
+    def end_time(self) -> str:
+        """
+        End time of the task group.
+        """
+        return pulumi.get(self, "end_time")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the task group.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> str:
+        """
+        Start time of the task group.
+        """
+        return pulumi.get(self, "start_time")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        The status of the task group.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter
+    def tasks(self) -> Sequence['outputs.ImageDefinitionBuildTaskResponse']:
+        """
+        The list of tasks executed during the task group.
+        """
+        return pulumi.get(self, "tasks")
+
+
+@pulumi.output_type
+class ImageDefinitionBuildTaskResponse(dict):
+    """
+    A task executed during the image definition build.
+    """
+    def __init__(__self__, *,
+                 end_time: str,
+                 id: str,
+                 log_uri: str,
+                 start_time: str,
+                 status: str,
+                 display_name: Optional[str] = None,
+                 name: Optional[str] = None,
+                 parameters: Optional[Sequence['outputs.ImageDefinitionBuildTaskResponseParameters']] = None):
+        """
+        A task executed during the image definition build.
+        :param str end_time: End time of the task.
+        :param str id: ID of the task instance.
+        :param str log_uri: The URI for retrieving logs for the task execution.
+        :param str start_time: Start time of the task.
+        :param str status: The status of the task.
+        :param str display_name: Display name to help differentiate multiple instances of the same task.
+        :param str name: The name of the task.
+        :param Sequence['ImageDefinitionBuildTaskResponseParameters'] parameters: Parameters for the task.
+        """
+        pulumi.set(__self__, "end_time", end_time)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "log_uri", log_uri)
+        pulumi.set(__self__, "start_time", start_time)
+        pulumi.set(__self__, "status", status)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter(name="endTime")
+    def end_time(self) -> str:
+        """
+        End time of the task.
+        """
+        return pulumi.get(self, "end_time")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        ID of the task instance.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="logUri")
+    def log_uri(self) -> str:
+        """
+        The URI for retrieving logs for the task execution.
+        """
+        return pulumi.get(self, "log_uri")
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> str:
+        """
+        Start time of the task.
+        """
+        return pulumi.get(self, "start_time")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        The status of the task.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[str]:
+        """
+        Display name to help differentiate multiple instances of the same task.
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the task.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Sequence['outputs.ImageDefinitionBuildTaskResponseParameters']]:
+        """
+        Parameters for the task.
+        """
+        return pulumi.get(self, "parameters")
+
+
+@pulumi.output_type
+class ImageDefinitionBuildTaskResponseParameters(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

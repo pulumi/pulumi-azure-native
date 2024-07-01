@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.Billing.Outputs
     public sealed class AzurePlanResponse
     {
         /// <summary>
+        /// The ID that uniquely identifies a product.
+        /// </summary>
+        public readonly string? ProductId;
+        /// <summary>
         /// The sku description.
         /// </summary>
         public readonly string SkuDescription;
@@ -27,10 +31,13 @@ namespace Pulumi.AzureNative.Billing.Outputs
 
         [OutputConstructor]
         private AzurePlanResponse(
+            string? productId,
+
             string skuDescription,
 
             string? skuId)
         {
+            ProductId = productId;
             SkuDescription = skuDescription;
             SkuId = skuId;
         }

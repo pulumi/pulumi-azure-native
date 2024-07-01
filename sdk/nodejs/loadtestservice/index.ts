@@ -10,10 +10,30 @@ export const getLoadTest: typeof import("./getLoadTest").getLoadTest = null as a
 export const getLoadTestOutput: typeof import("./getLoadTest").getLoadTestOutput = null as any;
 utilities.lazyLoad(exports, ["getLoadTest","getLoadTestOutput"], () => require("./getLoadTest"));
 
+export { GetLoadTestMappingArgs, GetLoadTestMappingResult, GetLoadTestMappingOutputArgs } from "./getLoadTestMapping";
+export const getLoadTestMapping: typeof import("./getLoadTestMapping").getLoadTestMapping = null as any;
+export const getLoadTestMappingOutput: typeof import("./getLoadTestMapping").getLoadTestMappingOutput = null as any;
+utilities.lazyLoad(exports, ["getLoadTestMapping","getLoadTestMappingOutput"], () => require("./getLoadTestMapping"));
+
+export { GetLoadTestProfileMappingArgs, GetLoadTestProfileMappingResult, GetLoadTestProfileMappingOutputArgs } from "./getLoadTestProfileMapping";
+export const getLoadTestProfileMapping: typeof import("./getLoadTestProfileMapping").getLoadTestProfileMapping = null as any;
+export const getLoadTestProfileMappingOutput: typeof import("./getLoadTestProfileMapping").getLoadTestProfileMappingOutput = null as any;
+utilities.lazyLoad(exports, ["getLoadTestProfileMapping","getLoadTestProfileMappingOutput"], () => require("./getLoadTestProfileMapping"));
+
 export { LoadTestArgs } from "./loadTest";
 export type LoadTest = import("./loadTest").LoadTest;
 export const LoadTest: typeof import("./loadTest").LoadTest = null as any;
 utilities.lazyLoad(exports, ["LoadTest"], () => require("./loadTest"));
+
+export { LoadTestMappingArgs } from "./loadTestMapping";
+export type LoadTestMapping = import("./loadTestMapping").LoadTestMapping;
+export const LoadTestMapping: typeof import("./loadTestMapping").LoadTestMapping = null as any;
+utilities.lazyLoad(exports, ["LoadTestMapping"], () => require("./loadTestMapping"));
+
+export { LoadTestProfileMappingArgs } from "./loadTestProfileMapping";
+export type LoadTestProfileMapping = import("./loadTestProfileMapping").LoadTestProfileMapping;
+export const LoadTestProfileMapping: typeof import("./loadTestProfileMapping").LoadTestProfileMapping = null as any;
+utilities.lazyLoad(exports, ["LoadTestProfileMapping"], () => require("./loadTestProfileMapping"));
 
 
 // Export enums:
@@ -22,10 +42,12 @@ export * from "../types/enums/loadtestservice";
 // Export sub-modules:
 import * as v20211201preview from "./v20211201preview";
 import * as v20221201 from "./v20221201";
+import * as v20231201preview from "./v20231201preview";
 
 export {
     v20211201preview,
     v20221201,
+    v20231201preview,
 };
 
 const _module = {
@@ -34,6 +56,10 @@ const _module = {
         switch (type) {
             case "azure-native:loadtestservice:LoadTest":
                 return new LoadTest(name, <any>undefined, { urn })
+            case "azure-native:loadtestservice:LoadTestMapping":
+                return new LoadTestMapping(name, <any>undefined, { urn })
+            case "azure-native:loadtestservice:LoadTestProfileMapping":
+                return new LoadTestProfileMapping(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

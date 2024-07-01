@@ -136,7 +136,7 @@ def get_plan(plan_name: Optional[str] = None,
     Gets a devcenter plan.
     Azure REST API version: 2024-05-01-preview.
 
-    Other available API versions: 2024-06-01-preview.
+    Other available API versions: 2024-06-01-preview, 2024-07-01-preview.
 
 
     :param str plan_name: The name of the devcenter plan.
@@ -167,7 +167,7 @@ def get_plan_output(plan_name: Optional[pulumi.Input[str]] = None,
     Gets a devcenter plan.
     Azure REST API version: 2024-05-01-preview.
 
-    Other available API versions: 2024-06-01-preview.
+    Other available API versions: 2024-06-01-preview, 2024-07-01-preview.
 
 
     :param str plan_name: The name of the devcenter plan.

@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.Billing
         /// <summary>
         /// Gets a role assignment for the caller on a enrollment Account. The operation is supported only for billing accounts with agreement type Enterprise Agreement.
         /// Azure REST API version: 2019-10-01-preview.
+        /// 
+        /// Other available API versions: 2024-04-01.
         /// </summary>
         public static Task<GetBillingRoleAssignmentByEnrollmentAccountResult> InvokeAsync(GetBillingRoleAssignmentByEnrollmentAccountArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBillingRoleAssignmentByEnrollmentAccountResult>("azure-native:billing:getBillingRoleAssignmentByEnrollmentAccount", args ?? new GetBillingRoleAssignmentByEnrollmentAccountArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.Billing
         /// <summary>
         /// Gets a role assignment for the caller on a enrollment Account. The operation is supported only for billing accounts with agreement type Enterprise Agreement.
         /// Azure REST API version: 2019-10-01-preview.
+        /// 
+        /// Other available API versions: 2024-04-01.
         /// </summary>
         public static Output<GetBillingRoleAssignmentByEnrollmentAccountResult> Invoke(GetBillingRoleAssignmentByEnrollmentAccountInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBillingRoleAssignmentByEnrollmentAccountResult>("azure-native:billing:getBillingRoleAssignmentByEnrollmentAccount", args ?? new GetBillingRoleAssignmentByEnrollmentAccountInvokeArgs(), options.WithDefaults());

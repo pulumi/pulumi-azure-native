@@ -135,6 +135,7 @@ namespace Pulumi.AzureNative.DevCenter.V20240201
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20231001preview:DevBoxDefinition" },
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20240501preview:DevBoxDefinition" },
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20240601preview:DevBoxDefinition" },
+                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20240701preview:DevBoxDefinition" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

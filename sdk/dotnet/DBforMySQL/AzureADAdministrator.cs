@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DBforMySQL
     /// Represents a Administrator.
     /// Azure REST API version: 2022-01-01.
     /// 
-    /// Other available API versions: 2023-06-01-preview, 2023-06-30.
+    /// Other available API versions: 2023-06-01-preview, 2023-06-30, 2023-12-30.
     /// </summary>
     [AzureNativeResourceType("azure-native:dbformysql:AzureADAdministrator")]
     public partial class AzureADAdministrator : global::Pulumi.CustomResource
@@ -95,6 +95,7 @@ namespace Pulumi.AzureNative.DBforMySQL
                     new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20220101:AzureADAdministrator" },
                     new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20230601preview:AzureADAdministrator" },
                     new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20230630:AzureADAdministrator" },
+                    new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20231230:AzureADAdministrator" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

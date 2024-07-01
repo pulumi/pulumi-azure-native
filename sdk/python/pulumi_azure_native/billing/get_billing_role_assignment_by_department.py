@@ -196,6 +196,8 @@ def get_billing_role_assignment_by_department(billing_account_name: Optional[str
     Gets a role assignment for the caller on a department. The operation is supported only for billing accounts with agreement type Enterprise Agreement.
     Azure REST API version: 2019-10-01-preview.
 
+    Other available API versions: 2024-04-01.
+
 
     :param str billing_account_name: The ID that uniquely identifies a billing account.
     :param str billing_role_assignment_name: The ID that uniquely identifies a role assignment.
@@ -232,6 +234,8 @@ def get_billing_role_assignment_by_department_output(billing_account_name: Optio
     """
     Gets a role assignment for the caller on a department. The operation is supported only for billing accounts with agreement type Enterprise Agreement.
     Azure REST API version: 2019-10-01-preview.
+
+    Other available API versions: 2024-04-01.
 
 
     :param str billing_account_name: The ID that uniquely identifies a billing account.

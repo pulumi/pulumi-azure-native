@@ -2,6 +2,25 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const AdministratorType = {
+    ActiveDirectory: "ActiveDirectory",
+} as const;
+
+/**
+ * Type of the sever administrator.
+ */
+export type AdministratorType = (typeof AdministratorType)[keyof typeof AdministratorType];
+
+export const ConfigurationSource = {
+    System_default: "system-default",
+    User_override: "user-override",
+} as const;
+
+/**
+ * Source of the configuration.
+ */
+export type ConfigurationSource = (typeof ConfigurationSource)[keyof typeof ConfigurationSource];
+
 export const CreateMode = {
     Default: "Default",
     PointInTimeRestore: "PointInTimeRestore",
