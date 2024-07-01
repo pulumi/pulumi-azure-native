@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -338,11 +343,11 @@ class Connection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api: Optional[pulumi.Input[pulumi.InputType['ExpandedParentApiEntityArgs']]] = None,
+                 api: Optional[pulumi.Input[Union['ExpandedParentApiEntityArgs', 'ExpandedParentApiEntityArgsDict']]] = None,
                  changed_time: Optional[pulumi.Input[str]] = None,
                  connection_name: Optional[pulumi.Input[str]] = None,
                  created_time: Optional[pulumi.Input[str]] = None,
-                 custom_parameter_values: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ParameterCustomLoginSettingValuesArgs']]]]] = None,
+                 custom_parameter_values: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['ParameterCustomLoginSettingValuesArgs', 'ParameterCustomLoginSettingValuesArgsDict']]]]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  first_expiration_time: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
@@ -354,7 +359,7 @@ class Connection(pulumi.CustomResource):
                  non_secret_parameter_values: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  parameter_values: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 statuses: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConnectionStatusArgs']]]]] = None,
+                 statuses: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ConnectionStatusArgs', 'ConnectionStatusArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
@@ -364,11 +369,11 @@ class Connection(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ExpandedParentApiEntityArgs']] api: expanded connection provider name
+        :param pulumi.Input[Union['ExpandedParentApiEntityArgs', 'ExpandedParentApiEntityArgsDict']] api: expanded connection provider name
         :param pulumi.Input[str] changed_time: Timestamp of last connection change.
         :param pulumi.Input[str] connection_name: The connection name.
         :param pulumi.Input[str] created_time: Timestamp of the connection creation
-        :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ParameterCustomLoginSettingValuesArgs']]]] custom_parameter_values: Custom login setting values.
+        :param pulumi.Input[Mapping[str, pulumi.Input[Union['ParameterCustomLoginSettingValuesArgs', 'ParameterCustomLoginSettingValuesArgsDict']]]] custom_parameter_values: Custom login setting values.
         :param pulumi.Input[str] display_name: display name
         :param pulumi.Input[str] first_expiration_time: Time in UTC when the first expiration of OAuth tokens
         :param pulumi.Input[str] id: Resource Id
@@ -379,7 +384,7 @@ class Connection(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, Any]] non_secret_parameter_values: Tokens/Claim
         :param pulumi.Input[Mapping[str, Any]] parameter_values: Tokens/Claim
         :param pulumi.Input[str] resource_group_name: The resource group name.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConnectionStatusArgs']]]] statuses: Status of the connection
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ConnectionStatusArgs', 'ConnectionStatusArgsDict']]]] statuses: Status of the connection
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[str] type: Resource type
         """
@@ -407,11 +412,11 @@ class Connection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api: Optional[pulumi.Input[pulumi.InputType['ExpandedParentApiEntityArgs']]] = None,
+                 api: Optional[pulumi.Input[Union['ExpandedParentApiEntityArgs', 'ExpandedParentApiEntityArgsDict']]] = None,
                  changed_time: Optional[pulumi.Input[str]] = None,
                  connection_name: Optional[pulumi.Input[str]] = None,
                  created_time: Optional[pulumi.Input[str]] = None,
-                 custom_parameter_values: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ParameterCustomLoginSettingValuesArgs']]]]] = None,
+                 custom_parameter_values: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['ParameterCustomLoginSettingValuesArgs', 'ParameterCustomLoginSettingValuesArgsDict']]]]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  first_expiration_time: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
@@ -423,7 +428,7 @@ class Connection(pulumi.CustomResource):
                  non_secret_parameter_values: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  parameter_values: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 statuses: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConnectionStatusArgs']]]]] = None,
+                 statuses: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ConnectionStatusArgs', 'ConnectionStatusArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,

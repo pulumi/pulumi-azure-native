@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -328,14 +333,14 @@ class DataProduct(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  current_minor_version: Optional[pulumi.Input[str]] = None,
-                 customer_encryption_key: Optional[pulumi.Input[pulumi.InputType['EncryptionKeyDetailsArgs']]] = None,
+                 customer_encryption_key: Optional[pulumi.Input[Union['EncryptionKeyDetailsArgs', 'EncryptionKeyDetailsArgsDict']]] = None,
                  customer_managed_key_encryption_enabled: Optional[pulumi.Input[Union[str, 'ControlState']]] = None,
                  data_product_name: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  major_version: Optional[pulumi.Input[str]] = None,
-                 managed_resource_group_configuration: Optional[pulumi.Input[pulumi.InputType['ManagedResourceGroupConfigurationArgs']]] = None,
-                 networkacls: Optional[pulumi.Input[pulumi.InputType['DataProductNetworkAclsArgs']]] = None,
+                 managed_resource_group_configuration: Optional[pulumi.Input[Union['ManagedResourceGroupConfigurationArgs', 'ManagedResourceGroupConfigurationArgsDict']]] = None,
+                 networkacls: Optional[pulumi.Input[Union['DataProductNetworkAclsArgs', 'DataProductNetworkAclsArgsDict']]] = None,
                  owners: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  private_links_enabled: Optional[pulumi.Input[Union[str, 'ControlState']]] = None,
                  product: Optional[pulumi.Input[str]] = None,
@@ -353,14 +358,14 @@ class DataProduct(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] current_minor_version: Current configured minor version of the data product resource.
-        :param pulumi.Input[pulumi.InputType['EncryptionKeyDetailsArgs']] customer_encryption_key: Customer managed encryption key details for data product.
+        :param pulumi.Input[Union['EncryptionKeyDetailsArgs', 'EncryptionKeyDetailsArgsDict']] customer_encryption_key: Customer managed encryption key details for data product.
         :param pulumi.Input[Union[str, 'ControlState']] customer_managed_key_encryption_enabled: Flag to enable customer managed key encryption for data product.
         :param pulumi.Input[str] data_product_name: The data product resource name
-        :param pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']] identity: The managed service identities assigned to this resource.
+        :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: The managed service identities assigned to this resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] major_version: Major version of data product.
-        :param pulumi.Input[pulumi.InputType['ManagedResourceGroupConfigurationArgs']] managed_resource_group_configuration: Managed resource group configuration.
-        :param pulumi.Input[pulumi.InputType['DataProductNetworkAclsArgs']] networkacls: Network rule set for data product.
+        :param pulumi.Input[Union['ManagedResourceGroupConfigurationArgs', 'ManagedResourceGroupConfigurationArgsDict']] managed_resource_group_configuration: Managed resource group configuration.
+        :param pulumi.Input[Union['DataProductNetworkAclsArgs', 'DataProductNetworkAclsArgsDict']] networkacls: Network rule set for data product.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] owners: List of name or email associated with data product resource deployment.
         :param pulumi.Input[Union[str, 'ControlState']] private_links_enabled: Flag to enable or disable private link for data product resource.
         :param pulumi.Input[str] product: Product name of data product.
@@ -397,14 +402,14 @@ class DataProduct(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  current_minor_version: Optional[pulumi.Input[str]] = None,
-                 customer_encryption_key: Optional[pulumi.Input[pulumi.InputType['EncryptionKeyDetailsArgs']]] = None,
+                 customer_encryption_key: Optional[pulumi.Input[Union['EncryptionKeyDetailsArgs', 'EncryptionKeyDetailsArgsDict']]] = None,
                  customer_managed_key_encryption_enabled: Optional[pulumi.Input[Union[str, 'ControlState']]] = None,
                  data_product_name: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  major_version: Optional[pulumi.Input[str]] = None,
-                 managed_resource_group_configuration: Optional[pulumi.Input[pulumi.InputType['ManagedResourceGroupConfigurationArgs']]] = None,
-                 networkacls: Optional[pulumi.Input[pulumi.InputType['DataProductNetworkAclsArgs']]] = None,
+                 managed_resource_group_configuration: Optional[pulumi.Input[Union['ManagedResourceGroupConfigurationArgs', 'ManagedResourceGroupConfigurationArgsDict']]] = None,
+                 networkacls: Optional[pulumi.Input[Union['DataProductNetworkAclsArgs', 'DataProductNetworkAclsArgsDict']]] = None,
                  owners: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  private_links_enabled: Optional[pulumi.Input[Union[str, 'ControlState']]] = None,
                  product: Optional[pulumi.Input[str]] = None,

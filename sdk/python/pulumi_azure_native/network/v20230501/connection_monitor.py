@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -271,19 +276,19 @@ class ConnectionMonitor(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_start: Optional[pulumi.Input[bool]] = None,
                  connection_monitor_name: Optional[pulumi.Input[str]] = None,
-                 destination: Optional[pulumi.Input[pulumi.InputType['ConnectionMonitorDestinationArgs']]] = None,
-                 endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConnectionMonitorEndpointArgs']]]]] = None,
+                 destination: Optional[pulumi.Input[Union['ConnectionMonitorDestinationArgs', 'ConnectionMonitorDestinationArgsDict']]] = None,
+                 endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ConnectionMonitorEndpointArgs', 'ConnectionMonitorEndpointArgsDict']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  migrate: Optional[pulumi.Input[str]] = None,
                  monitoring_interval_in_seconds: Optional[pulumi.Input[int]] = None,
                  network_watcher_name: Optional[pulumi.Input[str]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
-                 outputs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConnectionMonitorOutputArgs']]]]] = None,
+                 outputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ConnectionMonitorOutputArgs', 'ConnectionMonitorOutputArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 source: Optional[pulumi.Input[pulumi.InputType['ConnectionMonitorSourceArgs']]] = None,
+                 source: Optional[pulumi.Input[Union['ConnectionMonitorSourceArgs', 'ConnectionMonitorSourceArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 test_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConnectionMonitorTestConfigurationArgs']]]]] = None,
-                 test_groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConnectionMonitorTestGroupArgs']]]]] = None,
+                 test_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ConnectionMonitorTestConfigurationArgs', 'ConnectionMonitorTestConfigurationArgsDict']]]]] = None,
+                 test_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ConnectionMonitorTestGroupArgs', 'ConnectionMonitorTestGroupArgsDict']]]]] = None,
                  __props__=None):
         """
         Information about the connection monitor.
@@ -292,19 +297,19 @@ class ConnectionMonitor(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_start: Determines if the connection monitor will start automatically once created.
         :param pulumi.Input[str] connection_monitor_name: The name of the connection monitor.
-        :param pulumi.Input[pulumi.InputType['ConnectionMonitorDestinationArgs']] destination: Describes the destination of connection monitor.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConnectionMonitorEndpointArgs']]]] endpoints: List of connection monitor endpoints.
+        :param pulumi.Input[Union['ConnectionMonitorDestinationArgs', 'ConnectionMonitorDestinationArgsDict']] destination: Describes the destination of connection monitor.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ConnectionMonitorEndpointArgs', 'ConnectionMonitorEndpointArgsDict']]]] endpoints: List of connection monitor endpoints.
         :param pulumi.Input[str] location: Connection monitor location.
         :param pulumi.Input[str] migrate: Value indicating whether connection monitor V1 should be migrated to V2 format.
         :param pulumi.Input[int] monitoring_interval_in_seconds: Monitoring interval in seconds.
         :param pulumi.Input[str] network_watcher_name: The name of the Network Watcher resource.
         :param pulumi.Input[str] notes: Optional notes to be associated with the connection monitor.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConnectionMonitorOutputArgs']]]] outputs: List of connection monitor outputs.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ConnectionMonitorOutputArgs', 'ConnectionMonitorOutputArgsDict']]]] outputs: List of connection monitor outputs.
         :param pulumi.Input[str] resource_group_name: The name of the resource group containing Network Watcher.
-        :param pulumi.Input[pulumi.InputType['ConnectionMonitorSourceArgs']] source: Describes the source of connection monitor.
+        :param pulumi.Input[Union['ConnectionMonitorSourceArgs', 'ConnectionMonitorSourceArgsDict']] source: Describes the source of connection monitor.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Connection monitor tags.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConnectionMonitorTestConfigurationArgs']]]] test_configurations: List of connection monitor test configurations.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConnectionMonitorTestGroupArgs']]]] test_groups: List of connection monitor test groups.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ConnectionMonitorTestConfigurationArgs', 'ConnectionMonitorTestConfigurationArgsDict']]]] test_configurations: List of connection monitor test configurations.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ConnectionMonitorTestGroupArgs', 'ConnectionMonitorTestGroupArgsDict']]]] test_groups: List of connection monitor test groups.
         """
         ...
     @overload
@@ -332,19 +337,19 @@ class ConnectionMonitor(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_start: Optional[pulumi.Input[bool]] = None,
                  connection_monitor_name: Optional[pulumi.Input[str]] = None,
-                 destination: Optional[pulumi.Input[pulumi.InputType['ConnectionMonitorDestinationArgs']]] = None,
-                 endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConnectionMonitorEndpointArgs']]]]] = None,
+                 destination: Optional[pulumi.Input[Union['ConnectionMonitorDestinationArgs', 'ConnectionMonitorDestinationArgsDict']]] = None,
+                 endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ConnectionMonitorEndpointArgs', 'ConnectionMonitorEndpointArgsDict']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  migrate: Optional[pulumi.Input[str]] = None,
                  monitoring_interval_in_seconds: Optional[pulumi.Input[int]] = None,
                  network_watcher_name: Optional[pulumi.Input[str]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
-                 outputs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConnectionMonitorOutputArgs']]]]] = None,
+                 outputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ConnectionMonitorOutputArgs', 'ConnectionMonitorOutputArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 source: Optional[pulumi.Input[pulumi.InputType['ConnectionMonitorSourceArgs']]] = None,
+                 source: Optional[pulumi.Input[Union['ConnectionMonitorSourceArgs', 'ConnectionMonitorSourceArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 test_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConnectionMonitorTestConfigurationArgs']]]]] = None,
-                 test_groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConnectionMonitorTestGroupArgs']]]]] = None,
+                 test_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ConnectionMonitorTestConfigurationArgs', 'ConnectionMonitorTestConfigurationArgsDict']]]]] = None,
+                 test_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ConnectionMonitorTestGroupArgs', 'ConnectionMonitorTestGroupArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -4,19 +4,44 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'ContentHashArgs',
+    'ContentHashArgsDict',
     'ContentLinkArgs',
+    'ContentLinkArgsDict',
     'ResourceReferenceArgs',
+    'ResourceReferenceArgsDict',
     'SkuArgs',
+    'SkuArgsDict',
     'WorkflowParameterArgs',
+    'WorkflowParameterArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ContentHashArgsDict(TypedDict):
+        algorithm: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the algorithm.
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the value.
+        """
+elif False:
+    ContentHashArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ContentHashArgs:
@@ -56,6 +81,31 @@ class ContentHashArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class ContentLinkArgsDict(TypedDict):
+        content_hash: NotRequired[pulumi.Input['ContentHashArgsDict']]
+        """
+        Gets or sets the content hash.
+        """
+        content_size: NotRequired[pulumi.Input[float]]
+        """
+        Gets or sets the content size.
+        """
+        content_version: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the content version.
+        """
+        metadata: NotRequired[Any]
+        """
+        Gets or sets the metadata.
+        """
+        uri: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the content link URI.
+        """
+elif False:
+    ContentLinkArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ContentLinkArgs:
@@ -144,6 +194,15 @@ class ContentLinkArgs:
         pulumi.set(self, "uri", value)
 
 
+if not MYPY:
+    class ResourceReferenceArgsDict(TypedDict):
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the resource id.
+        """
+elif False:
+    ResourceReferenceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ResourceReferenceArgs:
     def __init__(__self__, *,
@@ -166,6 +225,19 @@ class ResourceReferenceArgs:
     def id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class SkuArgsDict(TypedDict):
+        name: NotRequired[pulumi.Input['SkuName']]
+        """
+        Gets or sets the name.
+        """
+        plan: NotRequired[pulumi.Input['ResourceReferenceArgsDict']]
+        """
+        Gets or sets the reference to plan.
+        """
+elif False:
+    SkuArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SkuArgs:
@@ -205,6 +277,23 @@ class SkuArgs:
     def plan(self, value: Optional[pulumi.Input['ResourceReferenceArgs']]):
         pulumi.set(self, "plan", value)
 
+
+if not MYPY:
+    class WorkflowParameterArgsDict(TypedDict):
+        metadata: NotRequired[Any]
+        """
+        Gets or sets the metadata.
+        """
+        type: NotRequired[pulumi.Input['ParameterType']]
+        """
+        Gets or sets the type.
+        """
+        value: NotRequired[Any]
+        """
+        Gets or sets the value.
+        """
+elif False:
+    WorkflowParameterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WorkflowParameterArgs:

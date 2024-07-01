@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -187,7 +192,7 @@ class Standard(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  category: Optional[pulumi.Input[str]] = None,
-                 components: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StandardComponentPropertiesArgs']]]]] = None,
+                 components: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StandardComponentPropertiesArgs', 'StandardComponentPropertiesArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
@@ -203,7 +208,7 @@ class Standard(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] category: category of the standard provided
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StandardComponentPropertiesArgs']]]] components: List of component objects containing component unique keys (such as assessment keys) to apply to standard scope.  Currently only supports assessment keys.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['StandardComponentPropertiesArgs', 'StandardComponentPropertiesArgsDict']]]] components: List of component objects containing component unique keys (such as assessment keys) to apply to standard scope.  Currently only supports assessment keys.
         :param pulumi.Input[str] description: description of the standard
         :param pulumi.Input[str] display_name: display name of the standard, equivalent to the standardId
         :param pulumi.Input[str] kind: Kind of the resource
@@ -238,7 +243,7 @@ class Standard(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  category: Optional[pulumi.Input[str]] = None,
-                 components: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StandardComponentPropertiesArgs']]]]] = None,
+                 components: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StandardComponentPropertiesArgs', 'StandardComponentPropertiesArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,

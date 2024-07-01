@@ -4,22 +4,70 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'ActionGroupArgs',
+    'ActionGroupArgsDict',
     'ConditionsArgs',
+    'ConditionsArgsDict',
     'ConditionArgs',
+    'ConditionArgsDict',
     'DiagnosticsArgs',
+    'DiagnosticsArgsDict',
     'ScopeArgs',
+    'ScopeArgsDict',
     'SuppressionConfigArgs',
+    'SuppressionConfigArgsDict',
     'SuppressionScheduleArgs',
+    'SuppressionScheduleArgsDict',
     'SuppressionArgs',
+    'SuppressionArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ActionGroupArgsDict(TypedDict):
+        """
+        Action rule with action group configuration
+        """
+        action_group_id: pulumi.Input[str]
+        """
+        Action group to trigger if action rule matches
+        """
+        type: pulumi.Input[str]
+        """
+        Indicates type of action rule
+        Expected value is 'ActionGroup'.
+        """
+        conditions: NotRequired[pulumi.Input['ConditionsArgsDict']]
+        """
+        conditions on which alerts will be filtered
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Description of action rule
+        """
+        scope: NotRequired[pulumi.Input['ScopeArgsDict']]
+        """
+        scope on which action rule will apply
+        """
+        status: NotRequired[pulumi.Input[Union[str, 'ActionRuleStatus']]]
+        """
+        Indicates if the given action rule is enabled or disabled
+        """
+elif False:
+    ActionGroupArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ActionGroupArgs:
@@ -124,6 +172,46 @@ class ActionGroupArgs:
     def status(self, value: Optional[pulumi.Input[Union[str, 'ActionRuleStatus']]]):
         pulumi.set(self, "status", value)
 
+
+if not MYPY:
+    class ConditionsArgsDict(TypedDict):
+        """
+        Conditions in alert instance to be matched for a given action rule. Default value is all. Multiple values could be provided with comma separation.
+        """
+        alert_context: NotRequired[pulumi.Input['ConditionArgsDict']]
+        """
+        filter alerts by alert context (payload)
+        """
+        alert_rule_id: NotRequired[pulumi.Input['ConditionArgsDict']]
+        """
+        filter alerts by alert rule id
+        """
+        alert_rule_name: NotRequired[pulumi.Input['ConditionArgsDict']]
+        """
+        filter alerts by alert rule name
+        """
+        description: NotRequired[pulumi.Input['ConditionArgsDict']]
+        """
+        filter alerts by alert rule description
+        """
+        monitor_condition: NotRequired[pulumi.Input['ConditionArgsDict']]
+        """
+        filter alerts by monitor condition
+        """
+        monitor_service: NotRequired[pulumi.Input['ConditionArgsDict']]
+        """
+        filter alerts by monitor service
+        """
+        severity: NotRequired[pulumi.Input['ConditionArgsDict']]
+        """
+        filter alerts by severity
+        """
+        target_resource_type: NotRequired[pulumi.Input['ConditionArgsDict']]
+        """
+        filter alerts by target resource type
+        """
+elif False:
+    ConditionsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ConditionsArgs:
@@ -261,6 +349,22 @@ class ConditionsArgs:
         pulumi.set(self, "target_resource_type", value)
 
 
+if not MYPY:
+    class ConditionArgsDict(TypedDict):
+        """
+        condition to trigger an action rule
+        """
+        operator: NotRequired[pulumi.Input[Union[str, 'Operator']]]
+        """
+        operator for a given condition
+        """
+        values: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        list of values to match for a given condition.
+        """
+elif False:
+    ConditionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ConditionArgs:
     def __init__(__self__, *,
@@ -300,6 +404,35 @@ class ConditionArgs:
     def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "values", value)
 
+
+if not MYPY:
+    class DiagnosticsArgsDict(TypedDict):
+        """
+        Action rule with diagnostics configuration
+        """
+        type: pulumi.Input[str]
+        """
+        Indicates type of action rule
+        Expected value is 'Diagnostics'.
+        """
+        conditions: NotRequired[pulumi.Input['ConditionsArgsDict']]
+        """
+        conditions on which alerts will be filtered
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Description of action rule
+        """
+        scope: NotRequired[pulumi.Input['ScopeArgsDict']]
+        """
+        scope on which action rule will apply
+        """
+        status: NotRequired[pulumi.Input[Union[str, 'ActionRuleStatus']]]
+        """
+        Indicates if the given action rule is enabled or disabled
+        """
+elif False:
+    DiagnosticsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DiagnosticsArgs:
@@ -390,6 +523,22 @@ class DiagnosticsArgs:
         pulumi.set(self, "status", value)
 
 
+if not MYPY:
+    class ScopeArgsDict(TypedDict):
+        """
+        Target scope for a given action rule. By default scope will be the subscription. User can also provide list of resource groups or list of resources from the scope subscription as well.
+        """
+        scope_type: NotRequired[pulumi.Input[Union[str, 'ScopeType']]]
+        """
+        type of target scope
+        """
+        values: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        list of ARM IDs of the given scope type which will be the target of the given action rule.
+        """
+elif False:
+    ScopeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ScopeArgs:
     def __init__(__self__, *,
@@ -430,6 +579,22 @@ class ScopeArgs:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class SuppressionConfigArgsDict(TypedDict):
+        """
+        Suppression logic for a given action rule
+        """
+        recurrence_type: pulumi.Input[Union[str, 'SuppressionType']]
+        """
+        Specifies when the suppression should be applied
+        """
+        schedule: NotRequired[pulumi.Input['SuppressionScheduleArgsDict']]
+        """
+        suppression schedule configuration
+        """
+elif False:
+    SuppressionConfigArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SuppressionConfigArgs:
     def __init__(__self__, *,
@@ -468,6 +633,34 @@ class SuppressionConfigArgs:
     def schedule(self, value: Optional[pulumi.Input['SuppressionScheduleArgs']]):
         pulumi.set(self, "schedule", value)
 
+
+if not MYPY:
+    class SuppressionScheduleArgsDict(TypedDict):
+        """
+        Schedule for a given suppression configuration.
+        """
+        end_date: NotRequired[pulumi.Input[str]]
+        """
+        End date for suppression
+        """
+        end_time: NotRequired[pulumi.Input[str]]
+        """
+        End date for suppression
+        """
+        recurrence_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[int]]]]
+        """
+        Specifies the values for recurrence pattern
+        """
+        start_date: NotRequired[pulumi.Input[str]]
+        """
+        Start date for suppression
+        """
+        start_time: NotRequired[pulumi.Input[str]]
+        """
+        Start time for suppression
+        """
+elif False:
+    SuppressionScheduleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SuppressionScheduleArgs:
@@ -556,6 +749,39 @@ class SuppressionScheduleArgs:
     def start_time(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "start_time", value)
 
+
+if not MYPY:
+    class SuppressionArgsDict(TypedDict):
+        """
+        Action rule with suppression configuration
+        """
+        suppression_config: pulumi.Input['SuppressionConfigArgsDict']
+        """
+        suppression configuration for the action rule
+        """
+        type: pulumi.Input[str]
+        """
+        Indicates type of action rule
+        Expected value is 'Suppression'.
+        """
+        conditions: NotRequired[pulumi.Input['ConditionsArgsDict']]
+        """
+        conditions on which alerts will be filtered
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Description of action rule
+        """
+        scope: NotRequired[pulumi.Input['ScopeArgsDict']]
+        """
+        scope on which action rule will apply
+        """
+        status: NotRequired[pulumi.Input[Union[str, 'ActionRuleStatus']]]
+        """
+        Indicates if the given action rule is enabled or disabled
+        """
+elif False:
+    SuppressionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SuppressionArgs:

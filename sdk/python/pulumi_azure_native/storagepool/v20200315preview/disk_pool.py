@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -170,7 +175,7 @@ class DiskPool(pulumi.CustomResource):
                  additional_capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  disk_pool_name: Optional[pulumi.Input[str]] = None,
-                 disks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DiskArgs']]]]] = None,
+                 disks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DiskArgs', 'DiskArgsDict']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
@@ -185,7 +190,7 @@ class DiskPool(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] additional_capabilities: List of additional capabilities for a Disk pool.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: Logical zone for Disk pool resource; example: ["1"].
         :param pulumi.Input[str] disk_pool_name: The name of the Disk pool.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DiskArgs']]]] disks: List of Azure Managed Disks to attach to a Disk pool. Can attach 8 disks at most.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DiskArgs', 'DiskArgsDict']]]] disks: List of Azure Managed Disks to attach to a Disk pool. Can attach 8 disks at most.
         :param pulumi.Input[str] location: The geo-location where the resource lives.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] subnet_id: Azure Resource ID of a Subnet for the Disk pool.
@@ -219,7 +224,7 @@ class DiskPool(pulumi.CustomResource):
                  additional_capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  disk_pool_name: Optional[pulumi.Input[str]] = None,
-                 disks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DiskArgs']]]]] = None,
+                 disks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DiskArgs', 'DiskArgsDict']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,

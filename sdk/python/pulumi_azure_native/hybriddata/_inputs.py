@@ -4,17 +4,47 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'CustomerSecretArgs',
+    'CustomerSecretArgsDict',
     'ScheduleArgs',
+    'ScheduleArgsDict',
     'SkuArgs',
+    'SkuArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class CustomerSecretArgsDict(TypedDict):
+        """
+        The pair of customer secret.
+        """
+        algorithm: pulumi.Input['SupportedAlgorithm']
+        """
+        The encryption algorithm used to encrypt data.
+        """
+        key_identifier: pulumi.Input[str]
+        """
+        The identifier to the data service input object which this secret corresponds to.
+        """
+        key_value: pulumi.Input[str]
+        """
+        It contains the encrypted customer secret.
+        """
+elif False:
+    CustomerSecretArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CustomerSecretArgs:
@@ -69,6 +99,22 @@ class CustomerSecretArgs:
         pulumi.set(self, "key_value", value)
 
 
+if not MYPY:
+    class ScheduleArgsDict(TypedDict):
+        """
+        Schedule for the job run.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the schedule.
+        """
+        policy_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of repetition intervals in ISO 8601 format.
+        """
+elif False:
+    ScheduleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ScheduleArgs:
     def __init__(__self__, *,
@@ -108,6 +154,22 @@ class ScheduleArgs:
     def policy_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "policy_list", value)
 
+
+if not MYPY:
+    class SkuArgsDict(TypedDict):
+        """
+        The sku type.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The sku name. Required for data manager creation, optional for update.
+        """
+        tier: NotRequired[pulumi.Input[str]]
+        """
+        The sku tier. This is based on the SKU name.
+        """
+elif False:
+    SkuArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SkuArgs:

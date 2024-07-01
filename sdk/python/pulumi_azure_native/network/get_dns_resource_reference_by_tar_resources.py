@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -46,7 +51,7 @@ class AwaitableGetDnsResourceReferenceByTarResourcesResult(GetDnsResourceReferen
             dns_resource_references=self.dns_resource_references)
 
 
-def get_dns_resource_reference_by_tar_resources(target_resources: Optional[Sequence[pulumi.InputType['SubResource']]] = None,
+def get_dns_resource_reference_by_tar_resources(target_resources: Optional[Sequence[Union['SubResource', 'SubResourceDict']]] = None,
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDnsResourceReferenceByTarResourcesResult:
     """
     Returns the DNS records specified by the referencing targetResourceIds.
@@ -55,7 +60,7 @@ def get_dns_resource_reference_by_tar_resources(target_resources: Optional[Seque
     Other available API versions: 2023-07-01-preview.
 
 
-    :param Sequence[pulumi.InputType['SubResource']] target_resources: A list of references to azure resources for which referencing dns records need to be queried.
+    :param Sequence[Union['SubResource', 'SubResourceDict']] target_resources: A list of references to azure resources for which referencing dns records need to be queried.
     """
     __args__ = dict()
     __args__['targetResources'] = target_resources
@@ -67,7 +72,7 @@ def get_dns_resource_reference_by_tar_resources(target_resources: Optional[Seque
 
 
 @_utilities.lift_output_func(get_dns_resource_reference_by_tar_resources)
-def get_dns_resource_reference_by_tar_resources_output(target_resources: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['SubResource']]]]] = None,
+def get_dns_resource_reference_by_tar_resources_output(target_resources: Optional[pulumi.Input[Optional[Sequence[Union['SubResource', 'SubResourceDict']]]]] = None,
                                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDnsResourceReferenceByTarResourcesResult]:
     """
     Returns the DNS records specified by the referencing targetResourceIds.
@@ -76,6 +81,6 @@ def get_dns_resource_reference_by_tar_resources_output(target_resources: Optiona
     Other available API versions: 2023-07-01-preview.
 
 
-    :param Sequence[pulumi.InputType['SubResource']] target_resources: A list of references to azure resources for which referencing dns records need to be queried.
+    :param Sequence[Union['SubResource', 'SubResourceDict']] target_resources: A list of references to azure resources for which referencing dns records need to be queried.
     """
     ...

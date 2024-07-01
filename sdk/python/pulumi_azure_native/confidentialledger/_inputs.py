@@ -4,21 +4,55 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'AADBasedSecurityPrincipalArgs',
+    'AADBasedSecurityPrincipalArgsDict',
     'CertBasedSecurityPrincipalArgs',
+    'CertBasedSecurityPrincipalArgsDict',
     'CertificateTagsArgs',
+    'CertificateTagsArgsDict',
     'DeploymentTypeArgs',
+    'DeploymentTypeArgsDict',
     'LedgerPropertiesArgs',
+    'LedgerPropertiesArgsDict',
     'ManagedCCFPropertiesArgs',
+    'ManagedCCFPropertiesArgsDict',
     'MemberIdentityCertificateArgs',
+    'MemberIdentityCertificateArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AADBasedSecurityPrincipalArgsDict(TypedDict):
+        """
+        AAD based security principal with associated Ledger RoleName
+        """
+        ledger_role_name: NotRequired[pulumi.Input[Union[str, 'LedgerRoleName']]]
+        """
+        LedgerRole associated with the Security Principal of Ledger
+        """
+        principal_id: NotRequired[pulumi.Input[str]]
+        """
+        UUID/GUID based Principal Id of the Security Principal
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        UUID/GUID based Tenant Id of the Security Principal
+        """
+elif False:
+    AADBasedSecurityPrincipalArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AADBasedSecurityPrincipalArgs:
@@ -76,6 +110,22 @@ class AADBasedSecurityPrincipalArgs:
         pulumi.set(self, "tenant_id", value)
 
 
+if not MYPY:
+    class CertBasedSecurityPrincipalArgsDict(TypedDict):
+        """
+        Cert based security principal with Ledger RoleName
+        """
+        cert: NotRequired[pulumi.Input[str]]
+        """
+        Public key of the user cert (.pem or .cer)
+        """
+        ledger_role_name: NotRequired[pulumi.Input[Union[str, 'LedgerRoleName']]]
+        """
+        LedgerRole associated with the Security Principal of Ledger
+        """
+elif False:
+    CertBasedSecurityPrincipalArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CertBasedSecurityPrincipalArgs:
     def __init__(__self__, *,
@@ -116,6 +166,18 @@ class CertBasedSecurityPrincipalArgs:
         pulumi.set(self, "ledger_role_name", value)
 
 
+if not MYPY:
+    class CertificateTagsArgsDict(TypedDict):
+        """
+        Tags for Managed CCF Certificates
+        """
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Additional tags for Managed CCF Certificates
+        """
+elif False:
+    CertificateTagsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CertificateTagsArgs:
     def __init__(__self__, *,
@@ -139,6 +201,22 @@ class CertificateTagsArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+
+if not MYPY:
+    class DeploymentTypeArgsDict(TypedDict):
+        """
+        Object representing DeploymentType for Managed CCF.
+        """
+        app_source_uri: NotRequired[pulumi.Input[str]]
+        """
+        Source Uri containing ManagedCCF code
+        """
+        language_runtime: NotRequired[pulumi.Input[Union[str, 'LanguageRuntime']]]
+        """
+        Unique name for the Managed CCF.
+        """
+elif False:
+    DeploymentTypeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DeploymentTypeArgs:
@@ -179,6 +257,26 @@ class DeploymentTypeArgs:
     def language_runtime(self, value: Optional[pulumi.Input[Union[str, 'LanguageRuntime']]]):
         pulumi.set(self, "language_runtime", value)
 
+
+if not MYPY:
+    class LedgerPropertiesArgsDict(TypedDict):
+        """
+        Additional Confidential Ledger properties.
+        """
+        aad_based_security_principals: NotRequired[pulumi.Input[Sequence[pulumi.Input['AADBasedSecurityPrincipalArgsDict']]]]
+        """
+        Array of all AAD based Security Principals.
+        """
+        cert_based_security_principals: NotRequired[pulumi.Input[Sequence[pulumi.Input['CertBasedSecurityPrincipalArgsDict']]]]
+        """
+        Array of all cert based Security Principals.
+        """
+        ledger_type: NotRequired[pulumi.Input[Union[str, 'LedgerType']]]
+        """
+        Type of Confidential Ledger
+        """
+elif False:
+    LedgerPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LedgerPropertiesArgs:
@@ -236,6 +334,26 @@ class LedgerPropertiesArgs:
         pulumi.set(self, "ledger_type", value)
 
 
+if not MYPY:
+    class ManagedCCFPropertiesArgsDict(TypedDict):
+        """
+        Additional Managed CCF properties.
+        """
+        deployment_type: NotRequired[pulumi.Input['DeploymentTypeArgsDict']]
+        """
+        Deployment Type of Managed CCF
+        """
+        member_identity_certificates: NotRequired[pulumi.Input[Sequence[pulumi.Input['MemberIdentityCertificateArgsDict']]]]
+        """
+        List of member identity certificates for  Managed CCF
+        """
+        node_count: NotRequired[pulumi.Input[int]]
+        """
+        Number of CCF nodes in the Managed CCF.
+        """
+elif False:
+    ManagedCCFPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ManagedCCFPropertiesArgs:
     def __init__(__self__, *,
@@ -291,6 +409,23 @@ class ManagedCCFPropertiesArgs:
     def node_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "node_count", value)
 
+
+if not MYPY:
+    class MemberIdentityCertificateArgsDict(TypedDict):
+        """
+        Object representing MemberIdentityCertificate for Managed CCF.
+        """
+        certificate: NotRequired[pulumi.Input[str]]
+        """
+        Member Identity Certificate
+        """
+        encryptionkey: NotRequired[pulumi.Input[str]]
+        """
+        Member Identity Certificate Encryption Key
+        """
+        tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['CertificateTagsArgsDict']]]]
+elif False:
+    MemberIdentityCertificateArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MemberIdentityCertificateArgs:

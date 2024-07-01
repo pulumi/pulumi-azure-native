@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -373,7 +378,7 @@ class AuthorizationServer(pulumi.CustomResource):
                  resource_owner_username: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  support_state: Optional[pulumi.Input[bool]] = None,
-                 token_body_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TokenBodyParameterContractArgs']]]]] = None,
+                 token_body_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TokenBodyParameterContractArgs', 'TokenBodyParameterContractArgsDict']]]]] = None,
                  token_endpoint: Optional[pulumi.Input[str]] = None,
                  use_in_api_documentation: Optional[pulumi.Input[bool]] = None,
                  use_in_test_console: Optional[pulumi.Input[bool]] = None,
@@ -400,7 +405,7 @@ class AuthorizationServer(pulumi.CustomResource):
         :param pulumi.Input[str] resource_owner_username: Can be optionally specified when resource owner password grant type is supported by this authorization server. Default resource owner username.
         :param pulumi.Input[str] service_name: The name of the API Management service.
         :param pulumi.Input[bool] support_state: If true, authorization server will include state parameter from the authorization request to its response. Client may use state parameter to raise protocol security.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TokenBodyParameterContractArgs']]]] token_body_parameters: Additional parameters required by the token endpoint of this authorization server represented as an array of JSON objects with name and value string properties, i.e. {"name" : "name value", "value": "a value"}.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TokenBodyParameterContractArgs', 'TokenBodyParameterContractArgsDict']]]] token_body_parameters: Additional parameters required by the token endpoint of this authorization server represented as an array of JSON objects with name and value string properties, i.e. {"name" : "name value", "value": "a value"}.
         :param pulumi.Input[str] token_endpoint: OAuth token endpoint. Contains absolute URI to entity being referenced.
         :param pulumi.Input[bool] use_in_api_documentation: If true, the authorization server will be used in the API documentation in the developer portal. False by default if no value is provided.
         :param pulumi.Input[bool] use_in_test_console: If true, the authorization server may be used in the developer portal test console. True by default if no value is provided.
@@ -446,7 +451,7 @@ class AuthorizationServer(pulumi.CustomResource):
                  resource_owner_username: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  support_state: Optional[pulumi.Input[bool]] = None,
-                 token_body_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TokenBodyParameterContractArgs']]]]] = None,
+                 token_body_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TokenBodyParameterContractArgs', 'TokenBodyParameterContractArgsDict']]]]] = None,
                  token_endpoint: Optional[pulumi.Input[str]] = None,
                  use_in_api_documentation: Optional[pulumi.Input[bool]] = None,
                  use_in_test_console: Optional[pulumi.Input[bool]] = None,

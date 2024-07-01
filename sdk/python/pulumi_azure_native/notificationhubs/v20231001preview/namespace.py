@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -269,14 +274,14 @@ class Namespace(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
                  namespace_type: Optional[pulumi.Input[Union[str, 'NamespaceType']]] = None,
-                 network_acls: Optional[pulumi.Input[pulumi.InputType['NetworkAclsArgs']]] = None,
-                 pns_credentials: Optional[pulumi.Input[pulumi.InputType['PnsCredentialsArgs']]] = None,
+                 network_acls: Optional[pulumi.Input[Union['NetworkAclsArgs', 'NetworkAclsArgsDict']]] = None,
+                 pns_credentials: Optional[pulumi.Input[Union['PnsCredentialsArgs', 'PnsCredentialsArgsDict']]] = None,
                  provisioning_state: Optional[pulumi.Input[Union[str, 'OperationProvisioningState']]] = None,
                  public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
                  replication_region: Optional[pulumi.Input[Union[str, 'ReplicationRegion']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  scale_unit: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  status: Optional[pulumi.Input[Union[str, 'NamespaceStatus']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  zone_redundancy: Optional[pulumi.Input[Union[str, 'ZoneRedundancyPreference']]] = None,
@@ -290,14 +295,14 @@ class Namespace(pulumi.CustomResource):
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] namespace_name: Namespace name
         :param pulumi.Input[Union[str, 'NamespaceType']] namespace_type: Defines values for NamespaceType.
-        :param pulumi.Input[pulumi.InputType['NetworkAclsArgs']] network_acls: A collection of network authorization rules.
-        :param pulumi.Input[pulumi.InputType['PnsCredentialsArgs']] pns_credentials: Collection of Notification Hub or Notification Hub Namespace PNS credentials.
+        :param pulumi.Input[Union['NetworkAclsArgs', 'NetworkAclsArgsDict']] network_acls: A collection of network authorization rules.
+        :param pulumi.Input[Union['PnsCredentialsArgs', 'PnsCredentialsArgsDict']] pns_credentials: Collection of Notification Hub or Notification Hub Namespace PNS credentials.
         :param pulumi.Input[Union[str, 'OperationProvisioningState']] provisioning_state: Defines values for OperationProvisioningState.
         :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: Type of public network access.
         :param pulumi.Input[Union[str, 'ReplicationRegion']] replication_region: Allowed replication region
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] scale_unit: Gets or sets scaleUnit where the namespace gets created
-        :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The Sku description for a namespace
+        :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: The Sku description for a namespace
         :param pulumi.Input[Union[str, 'NamespaceStatus']] status: Namespace status.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[Union[str, 'ZoneRedundancyPreference']] zone_redundancy: Namespace SKU name.
@@ -330,14 +335,14 @@ class Namespace(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
                  namespace_type: Optional[pulumi.Input[Union[str, 'NamespaceType']]] = None,
-                 network_acls: Optional[pulumi.Input[pulumi.InputType['NetworkAclsArgs']]] = None,
-                 pns_credentials: Optional[pulumi.Input[pulumi.InputType['PnsCredentialsArgs']]] = None,
+                 network_acls: Optional[pulumi.Input[Union['NetworkAclsArgs', 'NetworkAclsArgsDict']]] = None,
+                 pns_credentials: Optional[pulumi.Input[Union['PnsCredentialsArgs', 'PnsCredentialsArgsDict']]] = None,
                  provisioning_state: Optional[pulumi.Input[Union[str, 'OperationProvisioningState']]] = None,
                  public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
                  replication_region: Optional[pulumi.Input[Union[str, 'ReplicationRegion']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  scale_unit: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  status: Optional[pulumi.Input[Union[str, 'NamespaceStatus']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  zone_redundancy: Optional[pulumi.Input[Union[str, 'ZoneRedundancyPreference']]] = None,

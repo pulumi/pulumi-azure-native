@@ -4,19 +4,71 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'DatadogOrganizationPropertiesArgs',
+    'DatadogOrganizationPropertiesArgsDict',
     'IdentityPropertiesArgs',
+    'IdentityPropertiesArgsDict',
     'MonitorPropertiesArgs',
+    'MonitorPropertiesArgsDict',
     'ResourceSkuArgs',
+    'ResourceSkuArgsDict',
     'UserInfoArgs',
+    'UserInfoArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class DatadogOrganizationPropertiesArgsDict(TypedDict):
+        """
+        Datadog organization properties
+        """
+        api_key: NotRequired[pulumi.Input[str]]
+        """
+        Api key associated to the Datadog organization.
+        """
+        application_key: NotRequired[pulumi.Input[str]]
+        """
+        Application key associated to the Datadog organization.
+        """
+        enterprise_app_id: NotRequired[pulumi.Input[str]]
+        """
+        The Id of the Enterprise App used for Single sign on.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Id of the Datadog organization.
+        """
+        linking_auth_code: NotRequired[pulumi.Input[str]]
+        """
+        The auth code used to linking to an existing datadog organization.
+        """
+        linking_client_id: NotRequired[pulumi.Input[str]]
+        """
+        The client_id from an existing in exchange for an auth token to link organization.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the Datadog organization.
+        """
+        redirect_uri: NotRequired[pulumi.Input[str]]
+        """
+        The redirect uri for linking.
+        """
+elif False:
+    DatadogOrganizationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DatadogOrganizationPropertiesArgs:
@@ -154,6 +206,15 @@ class DatadogOrganizationPropertiesArgs:
         pulumi.set(self, "redirect_uri", value)
 
 
+if not MYPY:
+    class IdentityPropertiesArgsDict(TypedDict):
+        type: NotRequired[pulumi.Input[Union[str, 'ManagedIdentityTypes']]]
+        """
+        Identity type
+        """
+elif False:
+    IdentityPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IdentityPropertiesArgs:
     def __init__(__self__, *,
@@ -176,6 +237,26 @@ class IdentityPropertiesArgs:
     def type(self, value: Optional[pulumi.Input[Union[str, 'ManagedIdentityTypes']]]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class MonitorPropertiesArgsDict(TypedDict):
+        """
+        Properties specific to the monitor resource.
+        """
+        datadog_organization_properties: NotRequired[pulumi.Input['DatadogOrganizationPropertiesArgsDict']]
+        """
+        Datadog organization properties
+        """
+        monitoring_status: NotRequired[pulumi.Input[Union[str, 'MonitoringStatus']]]
+        """
+        Flag specifying if the resource monitoring is enabled or disabled.
+        """
+        user_info: NotRequired[pulumi.Input['UserInfoArgsDict']]
+        """
+        User info
+        """
+elif False:
+    MonitorPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MonitorPropertiesArgs:
@@ -233,6 +314,15 @@ class MonitorPropertiesArgs:
         pulumi.set(self, "user_info", value)
 
 
+if not MYPY:
+    class ResourceSkuArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        Name of the SKU.
+        """
+elif False:
+    ResourceSkuArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ResourceSkuArgs:
     def __init__(__self__, *,
@@ -254,6 +344,26 @@ class ResourceSkuArgs:
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class UserInfoArgsDict(TypedDict):
+        """
+        User info
+        """
+        email_address: NotRequired[pulumi.Input[str]]
+        """
+        Email of the user used by Datadog for contacting them if needed
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the user
+        """
+        phone_number: NotRequired[pulumi.Input[str]]
+        """
+        Phone number of the user used by Datadog for contacting them if needed
+        """
+elif False:
+    UserInfoArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserInfoArgs:

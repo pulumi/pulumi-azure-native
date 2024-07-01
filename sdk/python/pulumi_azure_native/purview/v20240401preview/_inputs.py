@@ -4,20 +4,49 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'AccountSkuArgs',
+    'AccountSkuArgsDict',
     'CredentialsArgs',
+    'CredentialsArgsDict',
     'IdentityArgs',
+    'IdentityArgsDict',
     'IngestionStorageArgs',
+    'IngestionStorageArgsDict',
     'PrivateEndpointArgs',
+    'PrivateEndpointArgsDict',
     'PrivateLinkServiceConnectionStateArgs',
+    'PrivateLinkServiceConnectionStateArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AccountSkuArgsDict(TypedDict):
+        """
+        Gets or sets the Sku.
+        """
+        capacity: NotRequired[pulumi.Input[int]]
+        """
+        Gets or sets the sku capacity.
+        """
+        name: NotRequired[pulumi.Input[Union[str, 'AccountSkuName']]]
+        """
+        Gets or sets the sku name.
+        """
+elif False:
+    AccountSkuArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AccountSkuArgs:
@@ -59,6 +88,22 @@ class AccountSkuArgs:
         pulumi.set(self, "name", value)
 
 
+if not MYPY:
+    class CredentialsArgsDict(TypedDict):
+        """
+        Credentials to access the event streaming service attached to the purview account.
+        """
+        identity_id: NotRequired[pulumi.Input[str]]
+        """
+        Identity identifier for UserAssign type.
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'KafkaConfigurationIdentityType']]]
+        """
+        Identity Type.
+        """
+elif False:
+    CredentialsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CredentialsArgs:
     def __init__(__self__, *,
@@ -98,6 +143,22 @@ class CredentialsArgs:
     def type(self, value: Optional[pulumi.Input[Union[str, 'KafkaConfigurationIdentityType']]]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class IdentityArgsDict(TypedDict):
+        """
+        The Managed Identity of the resource
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'ManagedIdentityType']]]
+        """
+        Identity Type
+        """
+        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        User Assigned Identities
+        """
+elif False:
+    IdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IdentityArgs:
@@ -139,6 +200,18 @@ class IdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
+if not MYPY:
+    class IngestionStorageArgsDict(TypedDict):
+        """
+        Ingestion Storage Account Info
+        """
+        public_network_access: NotRequired[pulumi.Input[Union[str, 'PublicNetworkAccess']]]
+        """
+        Gets or sets the public network access setting
+        """
+elif False:
+    IngestionStorageArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IngestionStorageArgs:
     def __init__(__self__, *,
@@ -163,6 +236,18 @@ class IngestionStorageArgs:
         pulumi.set(self, "public_network_access", value)
 
 
+if not MYPY:
+    class PrivateEndpointArgsDict(TypedDict):
+        """
+        A private endpoint class.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The private endpoint identifier.
+        """
+elif False:
+    PrivateEndpointArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PrivateEndpointArgs:
     def __init__(__self__, *,
@@ -186,6 +271,26 @@ class PrivateEndpointArgs:
     def id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
+        """
+        The private link service connection state.
+        """
+        actions_required: NotRequired[pulumi.Input[str]]
+        """
+        The required actions.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The description.
+        """
+        status: NotRequired[pulumi.Input[Union[str, 'PrivateEndpointConnectionStatus']]]
+        """
+        The status.
+        """
+elif False:
+    PrivateLinkServiceConnectionStateArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:

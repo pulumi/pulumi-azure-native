@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -171,12 +176,12 @@ class RemoteRenderingAccount(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
-                 kind: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']]] = None,
+                 kind: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 plan: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
+                 plan: Optional[pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  storage_account_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -186,12 +191,12 @@ class RemoteRenderingAccount(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: Name of an Mixed Reality Account.
-        :param pulumi.Input[pulumi.InputType['IdentityArgs']] identity: The identity associated with this account
-        :param pulumi.Input[pulumi.InputType['SkuArgs']] kind: The kind of account, if supported
+        :param pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']] identity: The identity associated with this account
+        :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] kind: The kind of account, if supported
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[pulumi.InputType['IdentityArgs']] plan: The plan associated with this account
+        :param pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']] plan: The plan associated with this account
         :param pulumi.Input[str] resource_group_name: Name of an Azure resource group.
-        :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The sku associated with this account
+        :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: The sku associated with this account
         :param pulumi.Input[str] storage_account_name: The name of the storage account associated with this accountId
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -220,12 +225,12 @@ class RemoteRenderingAccount(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
-                 kind: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']]] = None,
+                 kind: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 plan: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
+                 plan: Optional[pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  storage_account_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):

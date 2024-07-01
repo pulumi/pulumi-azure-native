@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -104,7 +109,7 @@ class JobTargetGroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  job_agent_name: Optional[pulumi.Input[str]] = None,
-                 members: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobTargetArgs']]]]] = None,
+                 members: Optional[pulumi.Input[Sequence[pulumi.Input[Union['JobTargetArgs', 'JobTargetArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
                  target_group_name: Optional[pulumi.Input[str]] = None,
@@ -115,7 +120,7 @@ class JobTargetGroup(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] job_agent_name: The name of the job agent.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobTargetArgs']]]] members: Members of the target group.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['JobTargetArgs', 'JobTargetArgsDict']]]] members: Members of the target group.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] server_name: The name of the server.
         :param pulumi.Input[str] target_group_name: The name of the target group.
@@ -145,7 +150,7 @@ class JobTargetGroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  job_agent_name: Optional[pulumi.Input[str]] = None,
-                 members: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobTargetArgs']]]]] = None,
+                 members: Optional[pulumi.Input[Sequence[pulumi.Input[Union['JobTargetArgs', 'JobTargetArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
                  target_group_name: Optional[pulumi.Input[str]] = None,

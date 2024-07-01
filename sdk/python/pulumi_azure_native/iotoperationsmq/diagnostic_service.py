@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -261,8 +266,8 @@ class DiagnosticService(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_export_frequency_seconds: Optional[pulumi.Input[int]] = None,
                  diagnostic_service_name: Optional[pulumi.Input[str]] = None,
-                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationPropertyArgs']]] = None,
-                 image: Optional[pulumi.Input[pulumi.InputType['ContainerImageArgs']]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationPropertyArgs', 'ExtendedLocationPropertyArgsDict']]] = None,
+                 image: Optional[pulumi.Input[Union['ContainerImageArgs', 'ContainerImageArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  log_format: Optional[pulumi.Input[str]] = None,
                  log_level: Optional[pulumi.Input[str]] = None,
@@ -282,8 +287,8 @@ class DiagnosticService(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] data_export_frequency_seconds: The frequency at which the data will be exported.
         :param pulumi.Input[str] diagnostic_service_name: Name of MQ diagnostic resource
-        :param pulumi.Input[pulumi.InputType['ExtendedLocationPropertyArgs']] extended_location: Extended Location
-        :param pulumi.Input[pulumi.InputType['ContainerImageArgs']] image: The details of Diagnostic Service Docker Image.
+        :param pulumi.Input[Union['ExtendedLocationPropertyArgs', 'ExtendedLocationPropertyArgsDict']] extended_location: Extended Location
+        :param pulumi.Input[Union['ContainerImageArgs', 'ContainerImageArgsDict']] image: The details of Diagnostic Service Docker Image.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] log_format: The format for the logs generated.
         :param pulumi.Input[str] log_level: The format for the logs generated.
@@ -322,8 +327,8 @@ class DiagnosticService(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_export_frequency_seconds: Optional[pulumi.Input[int]] = None,
                  diagnostic_service_name: Optional[pulumi.Input[str]] = None,
-                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationPropertyArgs']]] = None,
-                 image: Optional[pulumi.Input[pulumi.InputType['ContainerImageArgs']]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationPropertyArgs', 'ExtendedLocationPropertyArgsDict']]] = None,
+                 image: Optional[pulumi.Input[Union['ContainerImageArgs', 'ContainerImageArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  log_format: Optional[pulumi.Input[str]] = None,
                  log_level: Optional[pulumi.Input[str]] = None,

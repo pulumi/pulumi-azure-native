@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -138,7 +143,7 @@ class DeploymentSetting(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  arc_node_resource_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
-                 deployment_configuration: Optional[pulumi.Input[pulumi.InputType['DeploymentConfigurationArgs']]] = None,
+                 deployment_configuration: Optional[pulumi.Input[Union['DeploymentConfigurationArgs', 'DeploymentConfigurationArgsDict']]] = None,
                  deployment_mode: Optional[pulumi.Input[Union[str, 'DeploymentMode']]] = None,
                  deployment_settings_name: Optional[pulumi.Input[str]] = None,
                  operation_type: Optional[pulumi.Input[Union[str, 'OperationType']]] = None,
@@ -151,7 +156,7 @@ class DeploymentSetting(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] arc_node_resource_ids: Azure resource ids of Arc machines to be part of cluster.
         :param pulumi.Input[str] cluster_name: The name of the cluster.
-        :param pulumi.Input[pulumi.InputType['DeploymentConfigurationArgs']] deployment_configuration: Scale units will contains list of deployment data
+        :param pulumi.Input[Union['DeploymentConfigurationArgs', 'DeploymentConfigurationArgsDict']] deployment_configuration: Scale units will contains list of deployment data
         :param pulumi.Input[Union[str, 'DeploymentMode']] deployment_mode: The deployment mode for cluster deployment.
         :param pulumi.Input[str] deployment_settings_name: Name of Deployment Setting
         :param pulumi.Input[Union[str, 'OperationType']] operation_type: The intended operation for a cluster.
@@ -183,7 +188,7 @@ class DeploymentSetting(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  arc_node_resource_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
-                 deployment_configuration: Optional[pulumi.Input[pulumi.InputType['DeploymentConfigurationArgs']]] = None,
+                 deployment_configuration: Optional[pulumi.Input[Union['DeploymentConfigurationArgs', 'DeploymentConfigurationArgsDict']]] = None,
                  deployment_mode: Optional[pulumi.Input[Union[str, 'DeploymentMode']]] = None,
                  deployment_settings_name: Optional[pulumi.Input[str]] = None,
                  operation_type: Optional[pulumi.Input[Union[str, 'OperationType']]] = None,

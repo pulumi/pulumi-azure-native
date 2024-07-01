@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -155,8 +160,8 @@ class RemediationAtSubscription(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 failure_threshold: Optional[pulumi.Input[pulumi.InputType['RemediationPropertiesFailureThresholdArgs']]] = None,
-                 filters: Optional[pulumi.Input[pulumi.InputType['RemediationFiltersArgs']]] = None,
+                 failure_threshold: Optional[pulumi.Input[Union['RemediationPropertiesFailureThresholdArgs', 'RemediationPropertiesFailureThresholdArgsDict']]] = None,
+                 filters: Optional[pulumi.Input[Union['RemediationFiltersArgs', 'RemediationFiltersArgsDict']]] = None,
                  parallel_deployments: Optional[pulumi.Input[int]] = None,
                  policy_assignment_id: Optional[pulumi.Input[str]] = None,
                  policy_definition_reference_id: Optional[pulumi.Input[str]] = None,
@@ -169,8 +174,8 @@ class RemediationAtSubscription(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['RemediationPropertiesFailureThresholdArgs']] failure_threshold: The remediation failure threshold settings
-        :param pulumi.Input[pulumi.InputType['RemediationFiltersArgs']] filters: The filters that will be applied to determine which resources to remediate.
+        :param pulumi.Input[Union['RemediationPropertiesFailureThresholdArgs', 'RemediationPropertiesFailureThresholdArgsDict']] failure_threshold: The remediation failure threshold settings
+        :param pulumi.Input[Union['RemediationFiltersArgs', 'RemediationFiltersArgsDict']] filters: The filters that will be applied to determine which resources to remediate.
         :param pulumi.Input[int] parallel_deployments: Determines how many resources to remediate at any given time. Can be used to increase or reduce the pace of the remediation. If not provided, the default parallel deployments value is used.
         :param pulumi.Input[str] policy_assignment_id: The resource ID of the policy assignment that should be remediated.
         :param pulumi.Input[str] policy_definition_reference_id: The policy definition reference ID of the individual definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
@@ -202,8 +207,8 @@ class RemediationAtSubscription(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 failure_threshold: Optional[pulumi.Input[pulumi.InputType['RemediationPropertiesFailureThresholdArgs']]] = None,
-                 filters: Optional[pulumi.Input[pulumi.InputType['RemediationFiltersArgs']]] = None,
+                 failure_threshold: Optional[pulumi.Input[Union['RemediationPropertiesFailureThresholdArgs', 'RemediationPropertiesFailureThresholdArgsDict']]] = None,
+                 filters: Optional[pulumi.Input[Union['RemediationFiltersArgs', 'RemediationFiltersArgsDict']]] = None,
                  parallel_deployments: Optional[pulumi.Input[int]] = None,
                  policy_assignment_id: Optional[pulumi.Input[str]] = None,
                  policy_definition_reference_id: Optional[pulumi.Input[str]] = None,

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -233,7 +238,7 @@ class UserRule(pulumi.CustomResource):
                  configuration_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  destination_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 destinations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AddressPrefixItemArgs']]]]] = None,
+                 destinations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AddressPrefixItemArgs', 'AddressPrefixItemArgsDict']]]]] = None,
                  direction: Optional[pulumi.Input[Union[str, 'SecurityConfigurationRuleDirection']]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  network_manager_name: Optional[pulumi.Input[str]] = None,
@@ -242,7 +247,7 @@ class UserRule(pulumi.CustomResource):
                  rule_collection_name: Optional[pulumi.Input[str]] = None,
                  rule_name: Optional[pulumi.Input[str]] = None,
                  source_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 sources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AddressPrefixItemArgs']]]]] = None,
+                 sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AddressPrefixItemArgs', 'AddressPrefixItemArgsDict']]]]] = None,
                  __props__=None):
         """
         Network security user rule.
@@ -252,7 +257,7 @@ class UserRule(pulumi.CustomResource):
         :param pulumi.Input[str] configuration_name: The name of the network manager Security Configuration.
         :param pulumi.Input[str] description: A description for this rule.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] destination_port_ranges: The destination port ranges.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AddressPrefixItemArgs']]]] destinations: The destination address prefixes. CIDR or destination IP ranges.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AddressPrefixItemArgs', 'AddressPrefixItemArgsDict']]]] destinations: The destination address prefixes. CIDR or destination IP ranges.
         :param pulumi.Input[Union[str, 'SecurityConfigurationRuleDirection']] direction: Indicates if the traffic matched against the rule in inbound or outbound.
         :param pulumi.Input[str] kind: Whether the rule is custom or default.
                Expected value is 'Custom'.
@@ -262,7 +267,7 @@ class UserRule(pulumi.CustomResource):
         :param pulumi.Input[str] rule_collection_name: The name of the network manager security Configuration rule collection.
         :param pulumi.Input[str] rule_name: The name of the rule.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] source_port_ranges: The source port ranges.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AddressPrefixItemArgs']]]] sources: The CIDR or source IP ranges.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AddressPrefixItemArgs', 'AddressPrefixItemArgsDict']]]] sources: The CIDR or source IP ranges.
         """
         ...
     @overload
@@ -291,7 +296,7 @@ class UserRule(pulumi.CustomResource):
                  configuration_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  destination_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 destinations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AddressPrefixItemArgs']]]]] = None,
+                 destinations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AddressPrefixItemArgs', 'AddressPrefixItemArgsDict']]]]] = None,
                  direction: Optional[pulumi.Input[Union[str, 'SecurityConfigurationRuleDirection']]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  network_manager_name: Optional[pulumi.Input[str]] = None,
@@ -300,7 +305,7 @@ class UserRule(pulumi.CustomResource):
                  rule_collection_name: Optional[pulumi.Input[str]] = None,
                  rule_name: Optional[pulumi.Input[str]] = None,
                  source_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 sources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AddressPrefixItemArgs']]]]] = None,
+                 sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AddressPrefixItemArgs', 'AddressPrefixItemArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

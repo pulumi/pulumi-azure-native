@@ -4,16 +4,41 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'StorageBillingPropertiesArgs',
+    'StorageBillingPropertiesArgsDict',
     'StoragePropertiesArgs',
+    'StoragePropertiesArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class StorageBillingPropertiesArgsDict(TypedDict):
+        """
+        Describes the billing related details of the AzureBareMetalStorageInstance.
+        """
+        azure_bare_metal_storage_instance_size: NotRequired[pulumi.Input[str]]
+        """
+        the SKU type that is provisioned
+        """
+        billing_mode: NotRequired[pulumi.Input[str]]
+        """
+        the billing mode for the storage instance
+        """
+elif False:
+    StorageBillingPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class StorageBillingPropertiesArgs:
@@ -54,6 +79,42 @@ class StorageBillingPropertiesArgs:
     def billing_mode(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "billing_mode", value)
 
+
+if not MYPY:
+    class StoragePropertiesArgsDict(TypedDict):
+        """
+        described the storage properties of the azure baremetalstorage instance
+        """
+        generation: NotRequired[pulumi.Input[str]]
+        """
+        the kind of storage instance
+        """
+        hardware_type: NotRequired[pulumi.Input[str]]
+        """
+        the hardware type of the storage instance
+        """
+        offering_type: NotRequired[pulumi.Input[str]]
+        """
+        the offering type for which the resource is getting provisioned
+        """
+        provisioning_state: NotRequired[pulumi.Input[Union[str, 'ProvisioningState']]]
+        """
+        State of provisioning of the AzureBareMetalStorageInstance
+        """
+        storage_billing_properties: NotRequired[pulumi.Input['StorageBillingPropertiesArgsDict']]
+        """
+        the billing related information for the resource
+        """
+        storage_type: NotRequired[pulumi.Input[str]]
+        """
+        the storage protocol for which the resource is getting provisioned
+        """
+        workload_type: NotRequired[pulumi.Input[str]]
+        """
+        the workload for which the resource is getting provisioned
+        """
+elif False:
+    StoragePropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class StoragePropertiesArgs:

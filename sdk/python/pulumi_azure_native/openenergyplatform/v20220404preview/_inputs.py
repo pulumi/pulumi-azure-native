@@ -4,15 +4,33 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 
 __all__ = [
     'DataPartitionNamesArgs',
+    'DataPartitionNamesArgsDict',
     'EnergyServicePropertiesArgs',
+    'EnergyServicePropertiesArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class DataPartitionNamesArgsDict(TypedDict):
+        """
+        The list of Energy services resource's Data Partition Names.
+        """
+        name: NotRequired[pulumi.Input[str]]
+elif False:
+    DataPartitionNamesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataPartitionNamesArgs:
@@ -33,6 +51,13 @@ class DataPartitionNamesArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class EnergyServicePropertiesArgsDict(TypedDict):
+        auth_app_id: NotRequired[pulumi.Input[str]]
+        data_partition_names: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataPartitionNamesArgsDict']]]]
+elif False:
+    EnergyServicePropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EnergyServicePropertiesArgs:

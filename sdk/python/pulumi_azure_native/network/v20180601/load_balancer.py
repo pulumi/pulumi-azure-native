@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -268,20 +273,20 @@ class LoadBalancer(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 backend_address_pools: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BackendAddressPoolArgs']]]]] = None,
-                 frontend_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrontendIPConfigurationArgs']]]]] = None,
+                 backend_address_pools: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BackendAddressPoolArgs', 'BackendAddressPoolArgsDict']]]]] = None,
+                 frontend_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FrontendIPConfigurationArgs', 'FrontendIPConfigurationArgsDict']]]]] = None,
                  id: Optional[pulumi.Input[str]] = None,
-                 inbound_nat_pools: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InboundNatPoolArgs']]]]] = None,
-                 inbound_nat_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InboundNatRuleArgs']]]]] = None,
+                 inbound_nat_pools: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InboundNatPoolArgs', 'InboundNatPoolArgsDict']]]]] = None,
+                 inbound_nat_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InboundNatRuleArgs', 'InboundNatRuleArgsDict']]]]] = None,
                  load_balancer_name: Optional[pulumi.Input[str]] = None,
-                 load_balancing_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LoadBalancingRuleArgs']]]]] = None,
+                 load_balancing_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LoadBalancingRuleArgs', 'LoadBalancingRuleArgsDict']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 outbound_nat_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OutboundNatRuleArgs']]]]] = None,
-                 probes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProbeArgs']]]]] = None,
+                 outbound_nat_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OutboundNatRuleArgs', 'OutboundNatRuleArgsDict']]]]] = None,
+                 probes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProbeArgs', 'ProbeArgsDict']]]]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_guid: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['LoadBalancerSkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['LoadBalancerSkuArgs', 'LoadBalancerSkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -289,21 +294,21 @@ class LoadBalancer(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BackendAddressPoolArgs']]]] backend_address_pools: Collection of backend address pools used by a load balancer
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrontendIPConfigurationArgs']]]] frontend_ip_configurations: Object representing the frontend IPs to be used for the load balancer
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BackendAddressPoolArgs', 'BackendAddressPoolArgsDict']]]] backend_address_pools: Collection of backend address pools used by a load balancer
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FrontendIPConfigurationArgs', 'FrontendIPConfigurationArgsDict']]]] frontend_ip_configurations: Object representing the frontend IPs to be used for the load balancer
         :param pulumi.Input[str] id: Resource ID.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InboundNatPoolArgs']]]] inbound_nat_pools: Defines an external port range for inbound NAT to a single backend port on NICs associated with a load balancer. Inbound NAT rules are created automatically for each NIC associated with the Load Balancer using an external port from this range. Defining an Inbound NAT pool on your Load Balancer is mutually exclusive with defining inbound Nat rules. Inbound NAT pools are referenced from virtual machine scale sets. NICs that are associated with individual virtual machines cannot reference an inbound NAT pool. They have to reference individual inbound NAT rules.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InboundNatRuleArgs']]]] inbound_nat_rules: Collection of inbound NAT Rules used by a load balancer. Defining inbound NAT rules on your load balancer is mutually exclusive with defining an inbound NAT pool. Inbound NAT pools are referenced from virtual machine scale sets. NICs that are associated with individual virtual machines cannot reference an Inbound NAT pool. They have to reference individual inbound NAT rules.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['InboundNatPoolArgs', 'InboundNatPoolArgsDict']]]] inbound_nat_pools: Defines an external port range for inbound NAT to a single backend port on NICs associated with a load balancer. Inbound NAT rules are created automatically for each NIC associated with the Load Balancer using an external port from this range. Defining an Inbound NAT pool on your Load Balancer is mutually exclusive with defining inbound Nat rules. Inbound NAT pools are referenced from virtual machine scale sets. NICs that are associated with individual virtual machines cannot reference an inbound NAT pool. They have to reference individual inbound NAT rules.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['InboundNatRuleArgs', 'InboundNatRuleArgsDict']]]] inbound_nat_rules: Collection of inbound NAT Rules used by a load balancer. Defining inbound NAT rules on your load balancer is mutually exclusive with defining an inbound NAT pool. Inbound NAT pools are referenced from virtual machine scale sets. NICs that are associated with individual virtual machines cannot reference an Inbound NAT pool. They have to reference individual inbound NAT rules.
                These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
         :param pulumi.Input[str] load_balancer_name: The name of the load balancer.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LoadBalancingRuleArgs']]]] load_balancing_rules: Object collection representing the load balancing rules Gets the provisioning 
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LoadBalancingRuleArgs', 'LoadBalancingRuleArgsDict']]]] load_balancing_rules: Object collection representing the load balancing rules Gets the provisioning 
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OutboundNatRuleArgs']]]] outbound_nat_rules: The outbound NAT rules.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProbeArgs']]]] probes: Collection of probe objects used in the load balancer
+        :param pulumi.Input[Sequence[pulumi.Input[Union['OutboundNatRuleArgs', 'OutboundNatRuleArgsDict']]]] outbound_nat_rules: The outbound NAT rules.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ProbeArgs', 'ProbeArgsDict']]]] probes: Collection of probe objects used in the load balancer
         :param pulumi.Input[str] provisioning_state: Gets the provisioning state of the PublicIP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] resource_guid: The resource GUID property of the load balancer resource.
-        :param pulumi.Input[pulumi.InputType['LoadBalancerSkuArgs']] sku: The load balancer SKU.
+        :param pulumi.Input[Union['LoadBalancerSkuArgs', 'LoadBalancerSkuArgsDict']] sku: The load balancer SKU.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         ...
@@ -330,20 +335,20 @@ class LoadBalancer(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 backend_address_pools: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BackendAddressPoolArgs']]]]] = None,
-                 frontend_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrontendIPConfigurationArgs']]]]] = None,
+                 backend_address_pools: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BackendAddressPoolArgs', 'BackendAddressPoolArgsDict']]]]] = None,
+                 frontend_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FrontendIPConfigurationArgs', 'FrontendIPConfigurationArgsDict']]]]] = None,
                  id: Optional[pulumi.Input[str]] = None,
-                 inbound_nat_pools: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InboundNatPoolArgs']]]]] = None,
-                 inbound_nat_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InboundNatRuleArgs']]]]] = None,
+                 inbound_nat_pools: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InboundNatPoolArgs', 'InboundNatPoolArgsDict']]]]] = None,
+                 inbound_nat_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InboundNatRuleArgs', 'InboundNatRuleArgsDict']]]]] = None,
                  load_balancer_name: Optional[pulumi.Input[str]] = None,
-                 load_balancing_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LoadBalancingRuleArgs']]]]] = None,
+                 load_balancing_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LoadBalancingRuleArgs', 'LoadBalancingRuleArgsDict']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 outbound_nat_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OutboundNatRuleArgs']]]]] = None,
-                 probes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProbeArgs']]]]] = None,
+                 outbound_nat_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OutboundNatRuleArgs', 'OutboundNatRuleArgsDict']]]]] = None,
+                 probes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProbeArgs', 'ProbeArgsDict']]]]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_guid: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['LoadBalancerSkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['LoadBalancerSkuArgs', 'LoadBalancerSkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

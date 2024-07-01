@@ -4,19 +4,55 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'DenySettingsArgs',
+    'DenySettingsArgsDict',
     'DeploymentStackPropertiesActionOnUnmanageArgs',
+    'DeploymentStackPropertiesActionOnUnmanageArgsDict',
     'DeploymentStacksDebugSettingArgs',
+    'DeploymentStacksDebugSettingArgsDict',
     'DeploymentStacksParametersLinkArgs',
+    'DeploymentStacksParametersLinkArgsDict',
     'DeploymentStacksTemplateLinkArgs',
+    'DeploymentStacksTemplateLinkArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class DenySettingsArgsDict(TypedDict):
+        """
+        Defines how resources deployed by the deployment stack are locked.
+        """
+        mode: pulumi.Input[Union[str, 'DenySettingsMode']]
+        """
+        denySettings Mode.
+        """
+        apply_to_child_scopes: NotRequired[pulumi.Input[bool]]
+        """
+        DenySettings will be applied to child scopes.
+        """
+        excluded_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of role-based management operations that are excluded from the denySettings. Up to 200 actions are permitted. If the denySetting mode is set to 'denyWriteAndDelete', then the following actions are automatically appended to 'excludedActions': '*\\/read' and 'Microsoft.Authorization/locks/delete'. If the denySetting mode is set to 'denyDelete', then the following actions are automatically appended to 'excludedActions': 'Microsoft.Authorization/locks/delete'. Duplicate actions will be removed.
+        """
+        excluded_principals: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of AAD principal IDs excluded from the lock. Up to 5 principals are permitted.
+        """
+elif False:
+    DenySettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DenySettingsArgs:
@@ -89,6 +125,26 @@ class DenySettingsArgs:
         pulumi.set(self, "excluded_principals", value)
 
 
+if not MYPY:
+    class DeploymentStackPropertiesActionOnUnmanageArgsDict(TypedDict):
+        """
+        Defines the behavior of resources that are not managed immediately after the stack is updated.
+        """
+        resources: pulumi.Input[Union[str, 'DeploymentStacksDeleteDetachEnum']]
+        """
+        Specifies the action that should be taken on the resource when the deployment stack is deleted. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
+        """
+        management_groups: NotRequired[pulumi.Input[Union[str, 'DeploymentStacksDeleteDetachEnum']]]
+        """
+        Specifies the action that should be taken on the resource when the deployment stack is deleted. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
+        """
+        resource_groups: NotRequired[pulumi.Input[Union[str, 'DeploymentStacksDeleteDetachEnum']]]
+        """
+        Specifies the action that should be taken on the resource when the deployment stack is deleted. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
+        """
+elif False:
+    DeploymentStackPropertiesActionOnUnmanageArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DeploymentStackPropertiesActionOnUnmanageArgs:
     def __init__(__self__, *,
@@ -144,6 +200,18 @@ class DeploymentStackPropertiesActionOnUnmanageArgs:
         pulumi.set(self, "resource_groups", value)
 
 
+if not MYPY:
+    class DeploymentStacksDebugSettingArgsDict(TypedDict):
+        """
+        The debug setting.
+        """
+        detail_level: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the type of information to log for debugging. The permitted values are none, requestContent, responseContent, or both requestContent and responseContent separated by a comma. The default is none. When setting this value, carefully consider the type of information that is being passed in during deployment. By logging information about the request or response, sensitive data that is retrieved through the deployment operations could potentially be exposed.
+        """
+elif False:
+    DeploymentStacksDebugSettingArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DeploymentStacksDebugSettingArgs:
     def __init__(__self__, *,
@@ -167,6 +235,22 @@ class DeploymentStacksDebugSettingArgs:
     def detail_level(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "detail_level", value)
 
+
+if not MYPY:
+    class DeploymentStacksParametersLinkArgsDict(TypedDict):
+        """
+        Entity representing the reference to the deployment parameters.
+        """
+        uri: pulumi.Input[str]
+        """
+        The URI of the parameters file.
+        """
+        content_version: NotRequired[pulumi.Input[str]]
+        """
+        If included, must match the ContentVersion in the template.
+        """
+elif False:
+    DeploymentStacksParametersLinkArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DeploymentStacksParametersLinkArgs:
@@ -206,6 +290,34 @@ class DeploymentStacksParametersLinkArgs:
     def content_version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "content_version", value)
 
+
+if not MYPY:
+    class DeploymentStacksTemplateLinkArgsDict(TypedDict):
+        """
+        Entity representing the reference to the template.
+        """
+        content_version: NotRequired[pulumi.Input[str]]
+        """
+        If included, must match the ContentVersion in the template.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The resource id of a Template Spec. Use either the id or uri property, but not both.
+        """
+        query_string: NotRequired[pulumi.Input[str]]
+        """
+        The query string (for example, a SAS token) to be used with the templateLink URI.
+        """
+        relative_path: NotRequired[pulumi.Input[str]]
+        """
+        The relativePath property can be used to deploy a linked template at a location relative to the parent. If the parent template was linked with a TemplateSpec, this will reference an artifact in the TemplateSpec.  If the parent was linked with a URI, the child deployment will be a combination of the parent and relativePath URIs
+        """
+        uri: NotRequired[pulumi.Input[str]]
+        """
+        The URI of the template to deploy. Use either the uri or id property, but not both.
+        """
+elif False:
+    DeploymentStacksTemplateLinkArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DeploymentStacksTemplateLinkArgs:

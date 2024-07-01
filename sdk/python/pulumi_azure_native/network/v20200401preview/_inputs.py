@@ -4,16 +4,45 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'InboundEndpointIPConfigurationArgs',
+    'InboundEndpointIPConfigurationArgsDict',
     'SubResourceArgs',
+    'SubResourceArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class InboundEndpointIPConfigurationArgsDict(TypedDict):
+        """
+        IP configuration.
+        """
+        private_ip_address: NotRequired[pulumi.Input[str]]
+        """
+        Private IP address of the IP configuration.
+        """
+        private_ip_allocation_method: NotRequired[pulumi.Input[Union[str, 'IpAllocationMethod']]]
+        """
+        Private IP address allocation method.
+        """
+        subnet: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        """
+        The reference to the subnet bound to the IP configuration.
+        """
+elif False:
+    InboundEndpointIPConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InboundEndpointIPConfigurationArgs:
@@ -72,6 +101,21 @@ class InboundEndpointIPConfigurationArgs:
     def subnet(self, value: Optional[pulumi.Input['SubResourceArgs']]):
         pulumi.set(self, "subnet", value)
 
+
+if not MYPY:
+    class SubResourceArgsDict(TypedDict):
+        """
+        Reference to another ARM resource.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Sub-resource ID. Both absolute resource ID and a relative resource ID are accepted.
+        An absolute ID starts with /subscriptions/ and contains the entire ID of the parent resource and the ID of the sub-resource in the end.
+        A relative ID replaces the ID of the parent resource with a token '$self', followed by the sub-resource ID itself.
+        Example of a relative ID: $self/frontEndConfigurations/my-frontend.
+        """
+elif False:
+    SubResourceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SubResourceArgs:

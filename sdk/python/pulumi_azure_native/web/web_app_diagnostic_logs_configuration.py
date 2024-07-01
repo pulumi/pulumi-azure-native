@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -137,10 +142,10 @@ class WebAppDiagnosticLogsConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_logs: Optional[pulumi.Input[pulumi.InputType['ApplicationLogsConfigArgs']]] = None,
-                 detailed_error_messages: Optional[pulumi.Input[pulumi.InputType['EnabledConfigArgs']]] = None,
-                 failed_requests_tracing: Optional[pulumi.Input[pulumi.InputType['EnabledConfigArgs']]] = None,
-                 http_logs: Optional[pulumi.Input[pulumi.InputType['HttpLogsConfigArgs']]] = None,
+                 application_logs: Optional[pulumi.Input[Union['ApplicationLogsConfigArgs', 'ApplicationLogsConfigArgsDict']]] = None,
+                 detailed_error_messages: Optional[pulumi.Input[Union['EnabledConfigArgs', 'EnabledConfigArgsDict']]] = None,
+                 failed_requests_tracing: Optional[pulumi.Input[Union['EnabledConfigArgs', 'EnabledConfigArgsDict']]] = None,
+                 http_logs: Optional[pulumi.Input[Union['HttpLogsConfigArgs', 'HttpLogsConfigArgsDict']]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -153,10 +158,10 @@ class WebAppDiagnosticLogsConfiguration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ApplicationLogsConfigArgs']] application_logs: Application logs configuration.
-        :param pulumi.Input[pulumi.InputType['EnabledConfigArgs']] detailed_error_messages: Detailed error messages configuration.
-        :param pulumi.Input[pulumi.InputType['EnabledConfigArgs']] failed_requests_tracing: Failed requests tracing configuration.
-        :param pulumi.Input[pulumi.InputType['HttpLogsConfigArgs']] http_logs: HTTP logs configuration.
+        :param pulumi.Input[Union['ApplicationLogsConfigArgs', 'ApplicationLogsConfigArgsDict']] application_logs: Application logs configuration.
+        :param pulumi.Input[Union['EnabledConfigArgs', 'EnabledConfigArgsDict']] detailed_error_messages: Detailed error messages configuration.
+        :param pulumi.Input[Union['EnabledConfigArgs', 'EnabledConfigArgsDict']] failed_requests_tracing: Failed requests tracing configuration.
+        :param pulumi.Input[Union['HttpLogsConfigArgs', 'HttpLogsConfigArgsDict']] http_logs: HTTP logs configuration.
         :param pulumi.Input[str] kind: Kind of resource.
         :param pulumi.Input[str] name: Name of the app.
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
@@ -188,10 +193,10 @@ class WebAppDiagnosticLogsConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_logs: Optional[pulumi.Input[pulumi.InputType['ApplicationLogsConfigArgs']]] = None,
-                 detailed_error_messages: Optional[pulumi.Input[pulumi.InputType['EnabledConfigArgs']]] = None,
-                 failed_requests_tracing: Optional[pulumi.Input[pulumi.InputType['EnabledConfigArgs']]] = None,
-                 http_logs: Optional[pulumi.Input[pulumi.InputType['HttpLogsConfigArgs']]] = None,
+                 application_logs: Optional[pulumi.Input[Union['ApplicationLogsConfigArgs', 'ApplicationLogsConfigArgsDict']]] = None,
+                 detailed_error_messages: Optional[pulumi.Input[Union['EnabledConfigArgs', 'EnabledConfigArgsDict']]] = None,
+                 failed_requests_tracing: Optional[pulumi.Input[Union['EnabledConfigArgs', 'EnabledConfigArgsDict']]] = None,
+                 http_logs: Optional[pulumi.Input[Union['HttpLogsConfigArgs', 'HttpLogsConfigArgsDict']]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -173,12 +178,12 @@ class Registry(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  admin_user_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 network_rule_set: Optional[pulumi.Input[pulumi.InputType['NetworkRuleSetArgs']]] = None,
-                 policies: Optional[pulumi.Input[pulumi.InputType['PoliciesArgs']]] = None,
+                 network_rule_set: Optional[pulumi.Input[Union['NetworkRuleSetArgs', 'NetworkRuleSetArgsDict']]] = None,
+                 policies: Optional[pulumi.Input[Union['PoliciesArgs', 'PoliciesArgsDict']]] = None,
                  registry_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
-                 storage_account: Optional[pulumi.Input[pulumi.InputType['StorageAccountPropertiesArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
+                 storage_account: Optional[pulumi.Input[Union['StorageAccountPropertiesArgs', 'StorageAccountPropertiesArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -188,12 +193,12 @@ class Registry(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] admin_user_enabled: The value that indicates whether the admin user is enabled.
         :param pulumi.Input[str] location: The location of the resource. This cannot be changed after the resource is created.
-        :param pulumi.Input[pulumi.InputType['NetworkRuleSetArgs']] network_rule_set: The network rule set for a container registry.
-        :param pulumi.Input[pulumi.InputType['PoliciesArgs']] policies: The policies for a container registry.
+        :param pulumi.Input[Union['NetworkRuleSetArgs', 'NetworkRuleSetArgsDict']] network_rule_set: The network rule set for a container registry.
+        :param pulumi.Input[Union['PoliciesArgs', 'PoliciesArgsDict']] policies: The policies for a container registry.
         :param pulumi.Input[str] registry_name: The name of the container registry.
         :param pulumi.Input[str] resource_group_name: The name of the resource group to which the container registry belongs.
-        :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The SKU of the container registry.
-        :param pulumi.Input[pulumi.InputType['StorageAccountPropertiesArgs']] storage_account: The properties of the storage account for the container registry. Only applicable to Classic SKU.
+        :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: The SKU of the container registry.
+        :param pulumi.Input[Union['StorageAccountPropertiesArgs', 'StorageAccountPropertiesArgsDict']] storage_account: The properties of the storage account for the container registry. Only applicable to Classic SKU.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
         """
         ...
@@ -222,12 +227,12 @@ class Registry(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  admin_user_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 network_rule_set: Optional[pulumi.Input[pulumi.InputType['NetworkRuleSetArgs']]] = None,
-                 policies: Optional[pulumi.Input[pulumi.InputType['PoliciesArgs']]] = None,
+                 network_rule_set: Optional[pulumi.Input[Union['NetworkRuleSetArgs', 'NetworkRuleSetArgsDict']]] = None,
+                 policies: Optional[pulumi.Input[Union['PoliciesArgs', 'PoliciesArgsDict']]] = None,
                  registry_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
-                 storage_account: Optional[pulumi.Input[pulumi.InputType['StorageAccountPropertiesArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
+                 storage_account: Optional[pulumi.Input[Union['StorageAccountPropertiesArgs', 'StorageAccountPropertiesArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

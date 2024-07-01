@@ -4,113 +4,239 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'AFDDomainHttpsCustomizedCipherSuiteSetArgs',
+    'AFDDomainHttpsCustomizedCipherSuiteSetArgsDict',
     'AFDDomainHttpsParametersArgs',
+    'AFDDomainHttpsParametersArgsDict',
     'AFDDomainMtlsParametersArgs',
+    'AFDDomainMtlsParametersArgsDict',
     'ActivatedResourceReferenceArgs',
+    'ActivatedResourceReferenceArgsDict',
     'AfdRouteCacheConfigurationArgs',
+    'AfdRouteCacheConfigurationArgsDict',
     'AfdSecretMtlsCertificateChainArgs',
+    'AfdSecretMtlsCertificateChainArgsDict',
     'AzureFirstPartyManagedCertificateParametersArgs',
+    'AzureFirstPartyManagedCertificateParametersArgsDict',
     'CacheConfigurationArgs',
+    'CacheConfigurationArgsDict',
     'CacheExpirationActionParametersArgs',
+    'CacheExpirationActionParametersArgsDict',
     'CacheKeyQueryStringActionParametersArgs',
+    'CacheKeyQueryStringActionParametersArgsDict',
     'ClientPortMatchConditionParametersArgs',
+    'ClientPortMatchConditionParametersArgsDict',
     'CompressionSettingsArgs',
+    'CompressionSettingsArgsDict',
     'CookiesMatchConditionParametersArgs',
+    'CookiesMatchConditionParametersArgsDict',
     'CustomRuleListArgs',
+    'CustomRuleListArgsDict',
     'CustomRuleArgs',
+    'CustomRuleArgsDict',
     'CustomerCertificateParametersArgs',
+    'CustomerCertificateParametersArgsDict',
     'DeepCreatedOriginGroupArgs',
+    'DeepCreatedOriginGroupArgsDict',
     'DeepCreatedOriginArgs',
+    'DeepCreatedOriginArgsDict',
     'DeliveryRuleCacheExpirationActionArgs',
+    'DeliveryRuleCacheExpirationActionArgsDict',
     'DeliveryRuleCacheKeyQueryStringActionArgs',
+    'DeliveryRuleCacheKeyQueryStringActionArgsDict',
     'DeliveryRuleClientPortConditionArgs',
+    'DeliveryRuleClientPortConditionArgsDict',
     'DeliveryRuleCookiesConditionArgs',
+    'DeliveryRuleCookiesConditionArgsDict',
     'DeliveryRuleHostNameConditionArgs',
+    'DeliveryRuleHostNameConditionArgsDict',
     'DeliveryRuleHttpVersionConditionArgs',
+    'DeliveryRuleHttpVersionConditionArgsDict',
     'DeliveryRuleIsDeviceConditionArgs',
+    'DeliveryRuleIsDeviceConditionArgsDict',
     'DeliveryRulePostArgsConditionArgs',
+    'DeliveryRulePostArgsConditionArgsDict',
     'DeliveryRuleQueryStringConditionArgs',
+    'DeliveryRuleQueryStringConditionArgsDict',
     'DeliveryRuleRemoteAddressConditionArgs',
+    'DeliveryRuleRemoteAddressConditionArgsDict',
     'DeliveryRuleRequestBodyConditionArgs',
+    'DeliveryRuleRequestBodyConditionArgsDict',
     'DeliveryRuleRequestHeaderActionArgs',
+    'DeliveryRuleRequestHeaderActionArgsDict',
     'DeliveryRuleRequestHeaderConditionArgs',
+    'DeliveryRuleRequestHeaderConditionArgsDict',
     'DeliveryRuleRequestMethodConditionArgs',
+    'DeliveryRuleRequestMethodConditionArgsDict',
     'DeliveryRuleRequestSchemeConditionArgs',
+    'DeliveryRuleRequestSchemeConditionArgsDict',
     'DeliveryRuleRequestUriConditionArgs',
+    'DeliveryRuleRequestUriConditionArgsDict',
     'DeliveryRuleResponseHeaderActionArgs',
+    'DeliveryRuleResponseHeaderActionArgsDict',
     'DeliveryRuleRouteConfigurationOverrideActionArgs',
+    'DeliveryRuleRouteConfigurationOverrideActionArgsDict',
     'DeliveryRuleServerPortConditionArgs',
+    'DeliveryRuleServerPortConditionArgsDict',
     'DeliveryRuleSocketAddrConditionArgs',
+    'DeliveryRuleSocketAddrConditionArgsDict',
     'DeliveryRuleSslProtocolConditionArgs',
+    'DeliveryRuleSslProtocolConditionArgsDict',
     'DeliveryRuleUrlFileExtensionConditionArgs',
+    'DeliveryRuleUrlFileExtensionConditionArgsDict',
     'DeliveryRuleUrlFileNameConditionArgs',
+    'DeliveryRuleUrlFileNameConditionArgsDict',
     'DeliveryRuleUrlPathConditionArgs',
+    'DeliveryRuleUrlPathConditionArgsDict',
     'DeliveryRuleArgs',
+    'DeliveryRuleArgsDict',
     'EndpointPropertiesUpdateParametersDeliveryPolicyArgs',
+    'EndpointPropertiesUpdateParametersDeliveryPolicyArgsDict',
     'EndpointPropertiesUpdateParametersWebApplicationFirewallPolicyLinkArgs',
+    'EndpointPropertiesUpdateParametersWebApplicationFirewallPolicyLinkArgsDict',
     'GeoFilterArgs',
+    'GeoFilterArgsDict',
     'HeaderActionParametersArgs',
+    'HeaderActionParametersArgsDict',
     'HealthProbeParametersArgs',
+    'HealthProbeParametersArgsDict',
     'HostNameMatchConditionParametersArgs',
+    'HostNameMatchConditionParametersArgsDict',
     'HttpErrorRangeParametersArgs',
+    'HttpErrorRangeParametersArgsDict',
     'HttpVersionMatchConditionParametersArgs',
+    'HttpVersionMatchConditionParametersArgsDict',
     'IsDeviceMatchConditionParametersArgs',
+    'IsDeviceMatchConditionParametersArgsDict',
     'KeyVaultSigningKeyParametersArgs',
+    'KeyVaultSigningKeyParametersArgsDict',
     'LoadBalancingSettingsParametersArgs',
+    'LoadBalancingSettingsParametersArgsDict',
     'ManagedCertificateParametersArgs',
+    'ManagedCertificateParametersArgsDict',
     'ManagedRuleGroupOverrideArgs',
+    'ManagedRuleGroupOverrideArgsDict',
     'ManagedRuleOverrideArgs',
+    'ManagedRuleOverrideArgsDict',
     'ManagedRuleSetListArgs',
+    'ManagedRuleSetListArgsDict',
     'ManagedRuleSetArgs',
+    'ManagedRuleSetArgsDict',
     'ManagedServiceIdentityArgs',
+    'ManagedServiceIdentityArgsDict',
     'MatchConditionArgs',
+    'MatchConditionArgsDict',
     'OriginGroupOverrideActionParametersArgs',
+    'OriginGroupOverrideActionParametersArgsDict',
     'OriginGroupOverrideActionArgs',
+    'OriginGroupOverrideActionArgsDict',
     'OriginGroupOverrideArgs',
+    'OriginGroupOverrideArgsDict',
     'PolicySettingsArgs',
+    'PolicySettingsArgsDict',
     'PostArgsMatchConditionParametersArgs',
+    'PostArgsMatchConditionParametersArgsDict',
     'ProfileLogScrubbingArgs',
+    'ProfileLogScrubbingArgsDict',
     'ProfileScrubbingRulesArgs',
+    'ProfileScrubbingRulesArgsDict',
     'QueryStringMatchConditionParametersArgs',
+    'QueryStringMatchConditionParametersArgsDict',
     'RateLimitRuleListArgs',
+    'RateLimitRuleListArgsDict',
     'RateLimitRuleArgs',
+    'RateLimitRuleArgsDict',
     'RemoteAddressMatchConditionParametersArgs',
+    'RemoteAddressMatchConditionParametersArgsDict',
     'RequestBodyMatchConditionParametersArgs',
+    'RequestBodyMatchConditionParametersArgsDict',
     'RequestHeaderMatchConditionParametersArgs',
+    'RequestHeaderMatchConditionParametersArgsDict',
     'RequestMethodMatchConditionParametersArgs',
+    'RequestMethodMatchConditionParametersArgsDict',
     'RequestSchemeMatchConditionParametersArgs',
+    'RequestSchemeMatchConditionParametersArgsDict',
     'RequestUriMatchConditionParametersArgs',
+    'RequestUriMatchConditionParametersArgsDict',
     'ResourceReferenceArgs',
+    'ResourceReferenceArgsDict',
     'ResponseBasedOriginErrorDetectionParametersArgs',
+    'ResponseBasedOriginErrorDetectionParametersArgsDict',
     'RouteConfigurationOverrideActionParametersArgs',
+    'RouteConfigurationOverrideActionParametersArgsDict',
     'SecurityPolicyWebApplicationFirewallAssociationArgs',
+    'SecurityPolicyWebApplicationFirewallAssociationArgsDict',
     'SecurityPolicyWebApplicationFirewallParametersArgs',
+    'SecurityPolicyWebApplicationFirewallParametersArgsDict',
     'ServerPortMatchConditionParametersArgs',
+    'ServerPortMatchConditionParametersArgsDict',
     'SharedPrivateLinkResourcePropertiesArgs',
+    'SharedPrivateLinkResourcePropertiesArgsDict',
     'SkuArgs',
+    'SkuArgsDict',
     'SocketAddrMatchConditionParametersArgs',
+    'SocketAddrMatchConditionParametersArgsDict',
     'SslProtocolMatchConditionParametersArgs',
+    'SslProtocolMatchConditionParametersArgsDict',
     'UrlFileExtensionMatchConditionParametersArgs',
+    'UrlFileExtensionMatchConditionParametersArgsDict',
     'UrlFileNameMatchConditionParametersArgs',
+    'UrlFileNameMatchConditionParametersArgsDict',
     'UrlPathMatchConditionParametersArgs',
+    'UrlPathMatchConditionParametersArgsDict',
     'UrlRedirectActionParametersArgs',
+    'UrlRedirectActionParametersArgsDict',
     'UrlRedirectActionArgs',
+    'UrlRedirectActionArgsDict',
     'UrlRewriteActionParametersArgs',
+    'UrlRewriteActionParametersArgsDict',
     'UrlRewriteActionArgs',
+    'UrlRewriteActionArgsDict',
     'UrlSigningActionParametersArgs',
+    'UrlSigningActionParametersArgsDict',
     'UrlSigningActionArgs',
+    'UrlSigningActionArgsDict',
     'UrlSigningKeyParametersArgs',
+    'UrlSigningKeyParametersArgsDict',
     'UrlSigningKeyArgs',
+    'UrlSigningKeyArgsDict',
     'UrlSigningParamIdentifierArgs',
+    'UrlSigningParamIdentifierArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AFDDomainHttpsCustomizedCipherSuiteSetArgsDict(TypedDict):
+        """
+        Customized cipher suite set object that will be used for Https when cipherSuiteSetType is Customized.
+        """
+        cipher_suite_set_for_tls10: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AfdCustomizedCipherSuiteForTls10']]]]]
+        """
+        Cipher suites for TLS 1.0. Required at least one in minimumTlsVersion TLS 1.0.
+        """
+        cipher_suite_set_for_tls12: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AfdCustomizedCipherSuiteForTls12']]]]]
+        """
+        Cipher suites for TLS 1.2. Required at least one in minimumTlsVersion TLS 1.2, option in minimumTlsVersion TLS 1.0.
+        """
+        cipher_suite_set_for_tls13: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AfdCustomizedCipherSuiteForTls13']]]]]
+        """
+        Cipher suites for TLS 1.3. Required at least one in minimumTlsVersion TLS 1.0, TLS 1.2, TLS 1.3.
+        """
+elif False:
+    AFDDomainHttpsCustomizedCipherSuiteSetArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AFDDomainHttpsCustomizedCipherSuiteSetArgs:
@@ -167,6 +293,34 @@ class AFDDomainHttpsCustomizedCipherSuiteSetArgs:
     def cipher_suite_set_for_tls13(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AfdCustomizedCipherSuiteForTls13']]]]]):
         pulumi.set(self, "cipher_suite_set_for_tls13", value)
 
+
+if not MYPY:
+    class AFDDomainHttpsParametersArgsDict(TypedDict):
+        """
+        The JSON object that contains the properties to secure a domain.
+        """
+        certificate_type: pulumi.Input[Union[str, 'AfdCertificateType']]
+        """
+        Defines the source of the SSL certificate.
+        """
+        cipher_suite_set_type: NotRequired[pulumi.Input[Union[str, 'AfdCipherSuiteSetType']]]
+        """
+        cipher suite set type that will be used for Https
+        """
+        customized_cipher_suite_set: NotRequired[pulumi.Input['AFDDomainHttpsCustomizedCipherSuiteSetArgsDict']]
+        """
+        Customized cipher suites object that will be used for Https when cipherSuiteSetType is Customized.
+        """
+        minimum_tls_version: NotRequired[pulumi.Input['AfdMinimumTlsVersion']]
+        """
+        TLS protocol version that will be used for Https when cipherSuiteSetType is Customized.
+        """
+        secret: NotRequired[pulumi.Input['ResourceReferenceArgsDict']]
+        """
+        Resource reference to the secret. ie. subs/rg/profile/secret
+        """
+elif False:
+    AFDDomainHttpsParametersArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AFDDomainHttpsParametersArgs:
@@ -254,6 +408,34 @@ class AFDDomainHttpsParametersArgs:
     def secret(self, value: Optional[pulumi.Input['ResourceReferenceArgs']]):
         pulumi.set(self, "secret", value)
 
+
+if not MYPY:
+    class AFDDomainMtlsParametersArgsDict(TypedDict):
+        """
+        The JSON object that contains the properties to configure mutual TLS for a custom domain with FQDN. Mutual TLS cannot be configured for custom domains with wildcard host names.
+        """
+        certificate_passthrough: NotRequired[pulumi.Input[Union[str, 'EnabledState']]]
+        """
+        Set to Disabled by default. If set to Enabled, then selected client certificate chain(s) are sent directly to origin using reserved header.
+        """
+        certificate_validation: NotRequired[pulumi.Input[Union[str, 'EnabledState']]]
+        """
+        Set to Enabled by default. If set to Disabled, validation of client certificate chain for mutual TLS handshake will be skipped.
+        """
+        ocsp: NotRequired[pulumi.Input[Union[str, 'EnabledState']]]
+        """
+        Set to Enabled by default. If set to Disabled, revocation status of client certificate chain will be checked before establishing mutual TLS connection.
+        """
+        other_allowed_fqdn: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of FQDN that will be accepted for mutual TLS validation in addition to custom domain's hostname.
+        """
+        secrets: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgsDict']]]]
+        """
+        List of one or two of Resource References (ie. subs/rg/profile/secret) to Secrets of type MtlsCertificateChain to use in mutual TLS handshake.
+        """
+elif False:
+    AFDDomainMtlsParametersArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AFDDomainMtlsParametersArgs:
@@ -343,6 +525,18 @@ class AFDDomainMtlsParametersArgs:
         pulumi.set(self, "secrets", value)
 
 
+if not MYPY:
+    class ActivatedResourceReferenceArgsDict(TypedDict):
+        """
+        Reference to another resource along with its state.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+elif False:
+    ActivatedResourceReferenceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ActivatedResourceReferenceArgs:
     def __init__(__self__, *,
@@ -366,6 +560,26 @@ class ActivatedResourceReferenceArgs:
     def id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class AfdRouteCacheConfigurationArgsDict(TypedDict):
+        """
+        Caching settings for a caching-type route. To disable caching, do not provide a cacheConfiguration object.
+        """
+        compression_settings: NotRequired[pulumi.Input['CompressionSettingsArgsDict']]
+        """
+        compression settings.
+        """
+        query_parameters: NotRequired[pulumi.Input[str]]
+        """
+        query parameters to include or exclude (comma separated).
+        """
+        query_string_caching_behavior: NotRequired[pulumi.Input[Union[str, 'AfdQueryStringCachingBehavior']]]
+        """
+        Defines how Frontdoor caches requests that include query strings. You can ignore any query strings when caching, ignore specific query strings, cache every request with a unique URL, or cache specific query strings.
+        """
+elif False:
+    AfdRouteCacheConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AfdRouteCacheConfigurationArgs:
@@ -423,6 +637,27 @@ class AfdRouteCacheConfigurationArgs:
         pulumi.set(self, "query_string_caching_behavior", value)
 
 
+if not MYPY:
+    class AfdSecretMtlsCertificateChainArgsDict(TypedDict):
+        """
+        Server-side certificate used for mTLS validation
+        """
+        secret_source: pulumi.Input['ResourceReferenceArgsDict']
+        """
+        Resource reference to the Azure Key Vault secret. Expected to be in format of /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{vaultName}/secrets/{secretName}
+        """
+        secret_version: pulumi.Input[str]
+        """
+        Version of the secret to be used
+        """
+        type: pulumi.Input[str]
+        """
+        The type of the secret resource.
+        Expected value is 'MtlsCertificateChain'.
+        """
+elif False:
+    AfdSecretMtlsCertificateChainArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AfdSecretMtlsCertificateChainArgs:
     def __init__(__self__, *,
@@ -478,6 +713,23 @@ class AfdSecretMtlsCertificateChainArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class AzureFirstPartyManagedCertificateParametersArgsDict(TypedDict):
+        """
+        Azure FirstParty Managed Certificate provided by other first party resource providers to enable HTTPS.
+        """
+        type: pulumi.Input[str]
+        """
+        The type of the secret resource.
+        Expected value is 'AzureFirstPartyManagedCertificate'.
+        """
+        subject_alternative_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of SANs.
+        """
+elif False:
+    AzureFirstPartyManagedCertificateParametersArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AzureFirstPartyManagedCertificateParametersArgs:
     def __init__(__self__, *,
@@ -518,6 +770,34 @@ class AzureFirstPartyManagedCertificateParametersArgs:
     def subject_alternative_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "subject_alternative_names", value)
 
+
+if not MYPY:
+    class CacheConfigurationArgsDict(TypedDict):
+        """
+        Caching settings for a caching-type route. To disable caching, do not provide a cacheConfiguration object.
+        """
+        cache_behavior: NotRequired[pulumi.Input[Union[str, 'RuleCacheBehavior']]]
+        """
+        Caching behavior for the requests
+        """
+        cache_duration: NotRequired[pulumi.Input[str]]
+        """
+        The duration for which the content needs to be cached. Allowed format is [d.]hh:mm:ss
+        """
+        is_compression_enabled: NotRequired[pulumi.Input[Union[str, 'RuleIsCompressionEnabled']]]
+        """
+        Indicates whether content compression is enabled. If compression is enabled, content will be served as compressed if user requests for a compressed version. Content won't be compressed on AzureFrontDoor when requested content is smaller than 1 byte or larger than 1 MB.
+        """
+        query_parameters: NotRequired[pulumi.Input[str]]
+        """
+        query parameters to include or exclude (comma separated).
+        """
+        query_string_caching_behavior: NotRequired[pulumi.Input[Union[str, 'RuleQueryStringCachingBehavior']]]
+        """
+        Defines how Frontdoor caches requests that include query strings. You can ignore any query strings when caching, ignore specific query strings, cache every request with a unique URL, or cache specific query strings.
+        """
+elif False:
+    CacheConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CacheConfigurationArgs:
@@ -607,6 +887,27 @@ class CacheConfigurationArgs:
         pulumi.set(self, "query_string_caching_behavior", value)
 
 
+if not MYPY:
+    class CacheExpirationActionParametersArgsDict(TypedDict):
+        """
+        Defines the parameters for the cache expiration action.
+        """
+        cache_behavior: pulumi.Input[Union[str, 'CacheBehavior']]
+        """
+        Caching behavior for the requests
+        """
+        cache_type: pulumi.Input[Union[str, 'CacheType']]
+        """
+        The level at which the content needs to be cached.
+        """
+        type_name: pulumi.Input[str]
+        cache_duration: NotRequired[pulumi.Input[str]]
+        """
+        The duration for which the content needs to be cached. Allowed format is [d.]hh:mm:ss
+        """
+elif False:
+    CacheExpirationActionParametersArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CacheExpirationActionParametersArgs:
     def __init__(__self__, *,
@@ -672,6 +973,23 @@ class CacheExpirationActionParametersArgs:
         pulumi.set(self, "cache_duration", value)
 
 
+if not MYPY:
+    class CacheKeyQueryStringActionParametersArgsDict(TypedDict):
+        """
+        Defines the parameters for the cache-key query string action.
+        """
+        query_string_behavior: pulumi.Input[Union[str, 'QueryStringBehavior']]
+        """
+        Caching behavior for the requests
+        """
+        type_name: pulumi.Input[str]
+        query_parameters: NotRequired[pulumi.Input[str]]
+        """
+        query parameters to include or exclude (comma separated).
+        """
+elif False:
+    CacheKeyQueryStringActionParametersArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CacheKeyQueryStringActionParametersArgs:
     def __init__(__self__, *,
@@ -721,6 +1039,31 @@ class CacheKeyQueryStringActionParametersArgs:
     def query_parameters(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "query_parameters", value)
 
+
+if not MYPY:
+    class ClientPortMatchConditionParametersArgsDict(TypedDict):
+        """
+        Defines the parameters for ClientPort match conditions
+        """
+        operator: pulumi.Input[Union[str, 'ClientPortOperator']]
+        """
+        Describes operator to be matched
+        """
+        type_name: pulumi.Input[str]
+        match_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The match value for the condition of the delivery rule
+        """
+        negate_condition: NotRequired[pulumi.Input[bool]]
+        """
+        Describes if this is negate condition or not
+        """
+        transforms: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Transform']]]]]
+        """
+        List of transforms
+        """
+elif False:
+    ClientPortMatchConditionParametersArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ClientPortMatchConditionParametersArgs:
@@ -806,6 +1149,22 @@ class ClientPortMatchConditionParametersArgs:
         pulumi.set(self, "transforms", value)
 
 
+if not MYPY:
+    class CompressionSettingsArgsDict(TypedDict):
+        """
+        settings for compression.
+        """
+        content_types_to_compress: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of content types on which compression applies. The value should be a valid MIME type.
+        """
+        is_compression_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether content compression is enabled on AzureFrontDoor. Default value is false. If compression is enabled, content will be served as compressed if user requests for a compressed version. Content won't be compressed on AzureFrontDoor when requested content is smaller than 1 byte or larger than 1 MB.
+        """
+elif False:
+    CompressionSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CompressionSettingsArgs:
     def __init__(__self__, *,
@@ -845,6 +1204,35 @@ class CompressionSettingsArgs:
     def is_compression_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "is_compression_enabled", value)
 
+
+if not MYPY:
+    class CookiesMatchConditionParametersArgsDict(TypedDict):
+        """
+        Defines the parameters for Cookies match conditions
+        """
+        operator: pulumi.Input[Union[str, 'CookiesOperator']]
+        """
+        Describes operator to be matched
+        """
+        type_name: pulumi.Input[str]
+        match_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The match value for the condition of the delivery rule
+        """
+        negate_condition: NotRequired[pulumi.Input[bool]]
+        """
+        Describes if this is negate condition or not
+        """
+        selector: NotRequired[pulumi.Input[str]]
+        """
+        Name of Cookies to be matched
+        """
+        transforms: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Transform']]]]]
+        """
+        List of transforms
+        """
+elif False:
+    CookiesMatchConditionParametersArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CookiesMatchConditionParametersArgs:
@@ -946,6 +1334,18 @@ class CookiesMatchConditionParametersArgs:
         pulumi.set(self, "transforms", value)
 
 
+if not MYPY:
+    class CustomRuleListArgsDict(TypedDict):
+        """
+        Defines contents of custom rules
+        """
+        rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['CustomRuleArgsDict']]]]
+        """
+        List of rules
+        """
+elif False:
+    CustomRuleListArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CustomRuleListArgs:
     def __init__(__self__, *,
@@ -969,6 +1369,34 @@ class CustomRuleListArgs:
     def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CustomRuleArgs']]]]):
         pulumi.set(self, "rules", value)
 
+
+if not MYPY:
+    class CustomRuleArgsDict(TypedDict):
+        """
+        Defines the common attributes for a custom rule that can be included in a waf policy
+        """
+        action: pulumi.Input[Union[str, 'ActionType']]
+        """
+        Describes what action to be applied when rule matches
+        """
+        match_conditions: pulumi.Input[Sequence[pulumi.Input['MatchConditionArgsDict']]]
+        """
+        List of match conditions.
+        """
+        name: pulumi.Input[str]
+        """
+        Defines the name of the custom rule
+        """
+        priority: pulumi.Input[int]
+        """
+        Defines in what order this rule be evaluated in the overall list of custom rules
+        """
+        enabled_state: NotRequired[pulumi.Input[Union[str, 'CustomRuleEnabledState']]]
+        """
+        Describes if the custom rule is in enabled or disabled state. Defaults to Enabled if not specified.
+        """
+elif False:
+    CustomRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CustomRuleArgs:
@@ -1053,6 +1481,35 @@ class CustomRuleArgs:
     def enabled_state(self, value: Optional[pulumi.Input[Union[str, 'CustomRuleEnabledState']]]):
         pulumi.set(self, "enabled_state", value)
 
+
+if not MYPY:
+    class CustomerCertificateParametersArgsDict(TypedDict):
+        """
+        Customer Certificate used for https
+        """
+        secret_source: pulumi.Input['ResourceReferenceArgsDict']
+        """
+        Resource reference to the Azure Key Vault certificate. Expected to be in format of /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{vaultName}/secrets/{certificateName}
+        """
+        type: pulumi.Input[str]
+        """
+        The type of the secret resource.
+        Expected value is 'CustomerCertificate'.
+        """
+        secret_version: NotRequired[pulumi.Input[str]]
+        """
+        Version of the secret to be used
+        """
+        subject_alternative_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of SANs.
+        """
+        use_latest_version: NotRequired[pulumi.Input[bool]]
+        """
+        Whether to use the latest version for the certificate
+        """
+elif False:
+    CustomerCertificateParametersArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CustomerCertificateParametersArgs:
@@ -1142,6 +1599,34 @@ class CustomerCertificateParametersArgs:
         pulumi.set(self, "use_latest_version", value)
 
 
+if not MYPY:
+    class DeepCreatedOriginGroupArgsDict(TypedDict):
+        """
+        The origin group for CDN content which is added when creating a CDN endpoint. Traffic is sent to the origins within the origin group based on origin health.
+        """
+        name: pulumi.Input[str]
+        """
+        Origin group name which must be unique within the endpoint.
+        """
+        origins: pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgsDict']]]
+        """
+        The source of the content being delivered via CDN within given origin group.
+        """
+        health_probe_settings: NotRequired[pulumi.Input['HealthProbeParametersArgsDict']]
+        """
+        Health probe settings to the origin that is used to determine the health of the origin.
+        """
+        response_based_origin_error_detection_settings: NotRequired[pulumi.Input['ResponseBasedOriginErrorDetectionParametersArgsDict']]
+        """
+        The JSON object that contains the properties to determine origin health using real requests/responses.This property is currently not supported.
+        """
+        traffic_restoration_time_to_healed_or_new_endpoints_in_minutes: NotRequired[pulumi.Input[int]]
+        """
+        Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
+        """
+elif False:
+    DeepCreatedOriginGroupArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DeepCreatedOriginGroupArgs:
     def __init__(__self__, *,
@@ -1227,6 +1712,62 @@ class DeepCreatedOriginGroupArgs:
     def traffic_restoration_time_to_healed_or_new_endpoints_in_minutes(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "traffic_restoration_time_to_healed_or_new_endpoints_in_minutes", value)
 
+
+if not MYPY:
+    class DeepCreatedOriginArgsDict(TypedDict):
+        """
+        The main origin of CDN content which is added when creating a CDN endpoint.
+        """
+        host_name: pulumi.Input[str]
+        """
+        The address of the origin. It can be a domain name, IPv4 address, or IPv6 address. This should be unique across all origins in an endpoint.
+        """
+        name: pulumi.Input[str]
+        """
+        Origin name which must be unique within the endpoint. 
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Origin is enabled for load balancing or not. By default, origin is always enabled.
+        """
+        http_port: NotRequired[pulumi.Input[int]]
+        """
+        The value of the HTTP port. Must be between 1 and 65535.
+        """
+        https_port: NotRequired[pulumi.Input[int]]
+        """
+        The value of the HTTPS port. Must be between 1 and 65535.
+        """
+        origin_host_header: NotRequired[pulumi.Input[str]]
+        """
+        The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default.
+        """
+        priority: NotRequired[pulumi.Input[int]]
+        """
+        Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy.Must be between 1 and 5.
+        """
+        private_link_alias: NotRequired[pulumi.Input[str]]
+        """
+        The Alias of the Private Link resource. Populating this optional field indicates that this origin is 'Private'
+        """
+        private_link_approval_message: NotRequired[pulumi.Input[str]]
+        """
+        A custom message to be included in the approval request to connect to the Private Link.
+        """
+        private_link_location: NotRequired[pulumi.Input[str]]
+        """
+        The location of the Private Link resource. Required only if 'privateLinkResourceId' is populated
+        """
+        private_link_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        The Resource Id of the Private Link resource. Populating this optional field indicates that this backend is 'Private'
+        """
+        weight: NotRequired[pulumi.Input[int]]
+        """
+        Weight of the origin in given origin group for load balancing. Must be between 1 and 1000
+        """
+elif False:
+    DeepCreatedOriginArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DeepCreatedOriginArgs:
@@ -1426,6 +1967,23 @@ class DeepCreatedOriginArgs:
         pulumi.set(self, "weight", value)
 
 
+if not MYPY:
+    class DeliveryRuleCacheExpirationActionArgsDict(TypedDict):
+        """
+        Defines the cache expiration action for the delivery rule.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the action for the delivery rule.
+        Expected value is 'CacheExpiration'.
+        """
+        parameters: pulumi.Input['CacheExpirationActionParametersArgsDict']
+        """
+        Defines the parameters for the action.
+        """
+elif False:
+    DeliveryRuleCacheExpirationActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DeliveryRuleCacheExpirationActionArgs:
     def __init__(__self__, *,
@@ -1465,6 +2023,23 @@ class DeliveryRuleCacheExpirationActionArgs:
     def parameters(self, value: pulumi.Input['CacheExpirationActionParametersArgs']):
         pulumi.set(self, "parameters", value)
 
+
+if not MYPY:
+    class DeliveryRuleCacheKeyQueryStringActionArgsDict(TypedDict):
+        """
+        Defines the cache-key query string action for the delivery rule.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the action for the delivery rule.
+        Expected value is 'CacheKeyQueryString'.
+        """
+        parameters: pulumi.Input['CacheKeyQueryStringActionParametersArgsDict']
+        """
+        Defines the parameters for the action.
+        """
+elif False:
+    DeliveryRuleCacheKeyQueryStringActionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DeliveryRuleCacheKeyQueryStringActionArgs:
@@ -1506,6 +2081,23 @@ class DeliveryRuleCacheKeyQueryStringActionArgs:
         pulumi.set(self, "parameters", value)
 
 
+if not MYPY:
+    class DeliveryRuleClientPortConditionArgsDict(TypedDict):
+        """
+        Defines the ClientPort condition for the delivery rule.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the condition for the delivery rule.
+        Expected value is 'ClientPort'.
+        """
+        parameters: pulumi.Input['ClientPortMatchConditionParametersArgsDict']
+        """
+        Defines the parameters for the condition.
+        """
+elif False:
+    DeliveryRuleClientPortConditionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DeliveryRuleClientPortConditionArgs:
     def __init__(__self__, *,
@@ -1545,6 +2137,23 @@ class DeliveryRuleClientPortConditionArgs:
     def parameters(self, value: pulumi.Input['ClientPortMatchConditionParametersArgs']):
         pulumi.set(self, "parameters", value)
 
+
+if not MYPY:
+    class DeliveryRuleCookiesConditionArgsDict(TypedDict):
+        """
+        Defines the Cookies condition for the delivery rule.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the condition for the delivery rule.
+        Expected value is 'Cookies'.
+        """
+        parameters: pulumi.Input['CookiesMatchConditionParametersArgsDict']
+        """
+        Defines the parameters for the condition.
+        """
+elif False:
+    DeliveryRuleCookiesConditionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DeliveryRuleCookiesConditionArgs:
@@ -1586,6 +2195,23 @@ class DeliveryRuleCookiesConditionArgs:
         pulumi.set(self, "parameters", value)
 
 
+if not MYPY:
+    class DeliveryRuleHostNameConditionArgsDict(TypedDict):
+        """
+        Defines the HostName condition for the delivery rule.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the condition for the delivery rule.
+        Expected value is 'HostName'.
+        """
+        parameters: pulumi.Input['HostNameMatchConditionParametersArgsDict']
+        """
+        Defines the parameters for the condition.
+        """
+elif False:
+    DeliveryRuleHostNameConditionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DeliveryRuleHostNameConditionArgs:
     def __init__(__self__, *,
@@ -1625,6 +2251,23 @@ class DeliveryRuleHostNameConditionArgs:
     def parameters(self, value: pulumi.Input['HostNameMatchConditionParametersArgs']):
         pulumi.set(self, "parameters", value)
 
+
+if not MYPY:
+    class DeliveryRuleHttpVersionConditionArgsDict(TypedDict):
+        """
+        Defines the HttpVersion condition for the delivery rule.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the condition for the delivery rule.
+        Expected value is 'HttpVersion'.
+        """
+        parameters: pulumi.Input['HttpVersionMatchConditionParametersArgsDict']
+        """
+        Defines the parameters for the condition.
+        """
+elif False:
+    DeliveryRuleHttpVersionConditionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DeliveryRuleHttpVersionConditionArgs:
@@ -1666,6 +2309,23 @@ class DeliveryRuleHttpVersionConditionArgs:
         pulumi.set(self, "parameters", value)
 
 
+if not MYPY:
+    class DeliveryRuleIsDeviceConditionArgsDict(TypedDict):
+        """
+        Defines the IsDevice condition for the delivery rule.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the condition for the delivery rule.
+        Expected value is 'IsDevice'.
+        """
+        parameters: pulumi.Input['IsDeviceMatchConditionParametersArgsDict']
+        """
+        Defines the parameters for the condition.
+        """
+elif False:
+    DeliveryRuleIsDeviceConditionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DeliveryRuleIsDeviceConditionArgs:
     def __init__(__self__, *,
@@ -1705,6 +2365,23 @@ class DeliveryRuleIsDeviceConditionArgs:
     def parameters(self, value: pulumi.Input['IsDeviceMatchConditionParametersArgs']):
         pulumi.set(self, "parameters", value)
 
+
+if not MYPY:
+    class DeliveryRulePostArgsConditionArgsDict(TypedDict):
+        """
+        Defines the PostArgs condition for the delivery rule.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the condition for the delivery rule.
+        Expected value is 'PostArgs'.
+        """
+        parameters: pulumi.Input['PostArgsMatchConditionParametersArgsDict']
+        """
+        Defines the parameters for the condition.
+        """
+elif False:
+    DeliveryRulePostArgsConditionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DeliveryRulePostArgsConditionArgs:
@@ -1746,6 +2423,23 @@ class DeliveryRulePostArgsConditionArgs:
         pulumi.set(self, "parameters", value)
 
 
+if not MYPY:
+    class DeliveryRuleQueryStringConditionArgsDict(TypedDict):
+        """
+        Defines the QueryString condition for the delivery rule.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the condition for the delivery rule.
+        Expected value is 'QueryString'.
+        """
+        parameters: pulumi.Input['QueryStringMatchConditionParametersArgsDict']
+        """
+        Defines the parameters for the condition.
+        """
+elif False:
+    DeliveryRuleQueryStringConditionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DeliveryRuleQueryStringConditionArgs:
     def __init__(__self__, *,
@@ -1785,6 +2479,23 @@ class DeliveryRuleQueryStringConditionArgs:
     def parameters(self, value: pulumi.Input['QueryStringMatchConditionParametersArgs']):
         pulumi.set(self, "parameters", value)
 
+
+if not MYPY:
+    class DeliveryRuleRemoteAddressConditionArgsDict(TypedDict):
+        """
+        Defines the RemoteAddress condition for the delivery rule.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the condition for the delivery rule.
+        Expected value is 'RemoteAddress'.
+        """
+        parameters: pulumi.Input['RemoteAddressMatchConditionParametersArgsDict']
+        """
+        Defines the parameters for the condition.
+        """
+elif False:
+    DeliveryRuleRemoteAddressConditionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DeliveryRuleRemoteAddressConditionArgs:
@@ -1826,6 +2537,23 @@ class DeliveryRuleRemoteAddressConditionArgs:
         pulumi.set(self, "parameters", value)
 
 
+if not MYPY:
+    class DeliveryRuleRequestBodyConditionArgsDict(TypedDict):
+        """
+        Defines the RequestBody condition for the delivery rule.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the condition for the delivery rule.
+        Expected value is 'RequestBody'.
+        """
+        parameters: pulumi.Input['RequestBodyMatchConditionParametersArgsDict']
+        """
+        Defines the parameters for the condition.
+        """
+elif False:
+    DeliveryRuleRequestBodyConditionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DeliveryRuleRequestBodyConditionArgs:
     def __init__(__self__, *,
@@ -1865,6 +2593,23 @@ class DeliveryRuleRequestBodyConditionArgs:
     def parameters(self, value: pulumi.Input['RequestBodyMatchConditionParametersArgs']):
         pulumi.set(self, "parameters", value)
 
+
+if not MYPY:
+    class DeliveryRuleRequestHeaderActionArgsDict(TypedDict):
+        """
+        Defines the request header action for the delivery rule.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the action for the delivery rule.
+        Expected value is 'ModifyRequestHeader'.
+        """
+        parameters: pulumi.Input['HeaderActionParametersArgsDict']
+        """
+        Defines the parameters for the action.
+        """
+elif False:
+    DeliveryRuleRequestHeaderActionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DeliveryRuleRequestHeaderActionArgs:
@@ -1906,6 +2651,23 @@ class DeliveryRuleRequestHeaderActionArgs:
         pulumi.set(self, "parameters", value)
 
 
+if not MYPY:
+    class DeliveryRuleRequestHeaderConditionArgsDict(TypedDict):
+        """
+        Defines the RequestHeader condition for the delivery rule.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the condition for the delivery rule.
+        Expected value is 'RequestHeader'.
+        """
+        parameters: pulumi.Input['RequestHeaderMatchConditionParametersArgsDict']
+        """
+        Defines the parameters for the condition.
+        """
+elif False:
+    DeliveryRuleRequestHeaderConditionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DeliveryRuleRequestHeaderConditionArgs:
     def __init__(__self__, *,
@@ -1945,6 +2707,23 @@ class DeliveryRuleRequestHeaderConditionArgs:
     def parameters(self, value: pulumi.Input['RequestHeaderMatchConditionParametersArgs']):
         pulumi.set(self, "parameters", value)
 
+
+if not MYPY:
+    class DeliveryRuleRequestMethodConditionArgsDict(TypedDict):
+        """
+        Defines the RequestMethod condition for the delivery rule.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the condition for the delivery rule.
+        Expected value is 'RequestMethod'.
+        """
+        parameters: pulumi.Input['RequestMethodMatchConditionParametersArgsDict']
+        """
+        Defines the parameters for the condition.
+        """
+elif False:
+    DeliveryRuleRequestMethodConditionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DeliveryRuleRequestMethodConditionArgs:
@@ -1986,6 +2765,23 @@ class DeliveryRuleRequestMethodConditionArgs:
         pulumi.set(self, "parameters", value)
 
 
+if not MYPY:
+    class DeliveryRuleRequestSchemeConditionArgsDict(TypedDict):
+        """
+        Defines the RequestScheme condition for the delivery rule.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the condition for the delivery rule.
+        Expected value is 'RequestScheme'.
+        """
+        parameters: pulumi.Input['RequestSchemeMatchConditionParametersArgsDict']
+        """
+        Defines the parameters for the condition.
+        """
+elif False:
+    DeliveryRuleRequestSchemeConditionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DeliveryRuleRequestSchemeConditionArgs:
     def __init__(__self__, *,
@@ -2025,6 +2821,23 @@ class DeliveryRuleRequestSchemeConditionArgs:
     def parameters(self, value: pulumi.Input['RequestSchemeMatchConditionParametersArgs']):
         pulumi.set(self, "parameters", value)
 
+
+if not MYPY:
+    class DeliveryRuleRequestUriConditionArgsDict(TypedDict):
+        """
+        Defines the RequestUri condition for the delivery rule.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the condition for the delivery rule.
+        Expected value is 'RequestUri'.
+        """
+        parameters: pulumi.Input['RequestUriMatchConditionParametersArgsDict']
+        """
+        Defines the parameters for the condition.
+        """
+elif False:
+    DeliveryRuleRequestUriConditionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DeliveryRuleRequestUriConditionArgs:
@@ -2066,6 +2879,23 @@ class DeliveryRuleRequestUriConditionArgs:
         pulumi.set(self, "parameters", value)
 
 
+if not MYPY:
+    class DeliveryRuleResponseHeaderActionArgsDict(TypedDict):
+        """
+        Defines the response header action for the delivery rule.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the action for the delivery rule.
+        Expected value is 'ModifyResponseHeader'.
+        """
+        parameters: pulumi.Input['HeaderActionParametersArgsDict']
+        """
+        Defines the parameters for the action.
+        """
+elif False:
+    DeliveryRuleResponseHeaderActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DeliveryRuleResponseHeaderActionArgs:
     def __init__(__self__, *,
@@ -2105,6 +2935,23 @@ class DeliveryRuleResponseHeaderActionArgs:
     def parameters(self, value: pulumi.Input['HeaderActionParametersArgs']):
         pulumi.set(self, "parameters", value)
 
+
+if not MYPY:
+    class DeliveryRuleRouteConfigurationOverrideActionArgsDict(TypedDict):
+        """
+        Defines the route configuration override action for the delivery rule. Only applicable to Frontdoor Standard/Premium Profiles.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the action for the delivery rule.
+        Expected value is 'RouteConfigurationOverride'.
+        """
+        parameters: pulumi.Input['RouteConfigurationOverrideActionParametersArgsDict']
+        """
+        Defines the parameters for the action.
+        """
+elif False:
+    DeliveryRuleRouteConfigurationOverrideActionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DeliveryRuleRouteConfigurationOverrideActionArgs:
@@ -2146,6 +2993,23 @@ class DeliveryRuleRouteConfigurationOverrideActionArgs:
         pulumi.set(self, "parameters", value)
 
 
+if not MYPY:
+    class DeliveryRuleServerPortConditionArgsDict(TypedDict):
+        """
+        Defines the ServerPort condition for the delivery rule.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the condition for the delivery rule.
+        Expected value is 'ServerPort'.
+        """
+        parameters: pulumi.Input['ServerPortMatchConditionParametersArgsDict']
+        """
+        Defines the parameters for the condition.
+        """
+elif False:
+    DeliveryRuleServerPortConditionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DeliveryRuleServerPortConditionArgs:
     def __init__(__self__, *,
@@ -2185,6 +3049,23 @@ class DeliveryRuleServerPortConditionArgs:
     def parameters(self, value: pulumi.Input['ServerPortMatchConditionParametersArgs']):
         pulumi.set(self, "parameters", value)
 
+
+if not MYPY:
+    class DeliveryRuleSocketAddrConditionArgsDict(TypedDict):
+        """
+        Defines the SocketAddress condition for the delivery rule.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the condition for the delivery rule.
+        Expected value is 'SocketAddr'.
+        """
+        parameters: pulumi.Input['SocketAddrMatchConditionParametersArgsDict']
+        """
+        Defines the parameters for the condition.
+        """
+elif False:
+    DeliveryRuleSocketAddrConditionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DeliveryRuleSocketAddrConditionArgs:
@@ -2226,6 +3107,23 @@ class DeliveryRuleSocketAddrConditionArgs:
         pulumi.set(self, "parameters", value)
 
 
+if not MYPY:
+    class DeliveryRuleSslProtocolConditionArgsDict(TypedDict):
+        """
+        Defines the SslProtocol condition for the delivery rule.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the condition for the delivery rule.
+        Expected value is 'SslProtocol'.
+        """
+        parameters: pulumi.Input['SslProtocolMatchConditionParametersArgsDict']
+        """
+        Defines the parameters for the condition.
+        """
+elif False:
+    DeliveryRuleSslProtocolConditionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DeliveryRuleSslProtocolConditionArgs:
     def __init__(__self__, *,
@@ -2265,6 +3163,23 @@ class DeliveryRuleSslProtocolConditionArgs:
     def parameters(self, value: pulumi.Input['SslProtocolMatchConditionParametersArgs']):
         pulumi.set(self, "parameters", value)
 
+
+if not MYPY:
+    class DeliveryRuleUrlFileExtensionConditionArgsDict(TypedDict):
+        """
+        Defines the UrlFileExtension condition for the delivery rule.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the condition for the delivery rule.
+        Expected value is 'UrlFileExtension'.
+        """
+        parameters: pulumi.Input['UrlFileExtensionMatchConditionParametersArgsDict']
+        """
+        Defines the parameters for the condition.
+        """
+elif False:
+    DeliveryRuleUrlFileExtensionConditionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DeliveryRuleUrlFileExtensionConditionArgs:
@@ -2306,6 +3221,23 @@ class DeliveryRuleUrlFileExtensionConditionArgs:
         pulumi.set(self, "parameters", value)
 
 
+if not MYPY:
+    class DeliveryRuleUrlFileNameConditionArgsDict(TypedDict):
+        """
+        Defines the UrlFileName condition for the delivery rule.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the condition for the delivery rule.
+        Expected value is 'UrlFileName'.
+        """
+        parameters: pulumi.Input['UrlFileNameMatchConditionParametersArgsDict']
+        """
+        Defines the parameters for the condition.
+        """
+elif False:
+    DeliveryRuleUrlFileNameConditionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DeliveryRuleUrlFileNameConditionArgs:
     def __init__(__self__, *,
@@ -2346,6 +3278,23 @@ class DeliveryRuleUrlFileNameConditionArgs:
         pulumi.set(self, "parameters", value)
 
 
+if not MYPY:
+    class DeliveryRuleUrlPathConditionArgsDict(TypedDict):
+        """
+        Defines the UrlPath condition for the delivery rule.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the condition for the delivery rule.
+        Expected value is 'UrlPath'.
+        """
+        parameters: pulumi.Input['UrlPathMatchConditionParametersArgsDict']
+        """
+        Defines the parameters for the condition.
+        """
+elif False:
+    DeliveryRuleUrlPathConditionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DeliveryRuleUrlPathConditionArgs:
     def __init__(__self__, *,
@@ -2385,6 +3334,30 @@ class DeliveryRuleUrlPathConditionArgs:
     def parameters(self, value: pulumi.Input['UrlPathMatchConditionParametersArgs']):
         pulumi.set(self, "parameters", value)
 
+
+if not MYPY:
+    class DeliveryRuleArgsDict(TypedDict):
+        """
+        A rule that specifies a set of actions and conditions
+        """
+        actions: pulumi.Input[Sequence[pulumi.Input[Union['DeliveryRuleCacheExpirationActionArgsDict', 'DeliveryRuleCacheKeyQueryStringActionArgsDict', 'DeliveryRuleRequestHeaderActionArgsDict', 'DeliveryRuleResponseHeaderActionArgsDict', 'DeliveryRuleRouteConfigurationOverrideActionArgsDict', 'OriginGroupOverrideActionArgsDict', 'UrlRedirectActionArgsDict', 'UrlRewriteActionArgsDict', 'UrlSigningActionArgsDict']]]]
+        """
+        A list of actions that are executed when all the conditions of a rule are satisfied.
+        """
+        order: pulumi.Input[int]
+        """
+        The order in which the rules are applied for the endpoint. Possible values {0,1,2,3,………}. A rule with a lesser order will be applied before a rule with a greater order. Rule with order 0 is a special rule. It does not require any condition and actions listed in it will always be applied.
+        """
+        conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union['DeliveryRuleClientPortConditionArgsDict', 'DeliveryRuleCookiesConditionArgsDict', 'DeliveryRuleHostNameConditionArgsDict', 'DeliveryRuleHttpVersionConditionArgsDict', 'DeliveryRuleIsDeviceConditionArgsDict', 'DeliveryRulePostArgsConditionArgsDict', 'DeliveryRuleQueryStringConditionArgsDict', 'DeliveryRuleRemoteAddressConditionArgsDict', 'DeliveryRuleRequestBodyConditionArgsDict', 'DeliveryRuleRequestHeaderConditionArgsDict', 'DeliveryRuleRequestMethodConditionArgsDict', 'DeliveryRuleRequestSchemeConditionArgsDict', 'DeliveryRuleRequestUriConditionArgsDict', 'DeliveryRuleServerPortConditionArgsDict', 'DeliveryRuleSocketAddrConditionArgsDict', 'DeliveryRuleSslProtocolConditionArgsDict', 'DeliveryRuleUrlFileExtensionConditionArgsDict', 'DeliveryRuleUrlFileNameConditionArgsDict', 'DeliveryRuleUrlPathConditionArgsDict']]]]]
+        """
+        A list of conditions that must be matched for the actions to be executed
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the rule
+        """
+elif False:
+    DeliveryRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DeliveryRuleArgs:
@@ -2456,6 +3429,22 @@ class DeliveryRuleArgs:
         pulumi.set(self, "name", value)
 
 
+if not MYPY:
+    class EndpointPropertiesUpdateParametersDeliveryPolicyArgsDict(TypedDict):
+        """
+        A policy that specifies the delivery rules to be used for an endpoint.
+        """
+        rules: pulumi.Input[Sequence[pulumi.Input['DeliveryRuleArgsDict']]]
+        """
+        A list of the delivery rules.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        User-friendly description of the policy.
+        """
+elif False:
+    EndpointPropertiesUpdateParametersDeliveryPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EndpointPropertiesUpdateParametersDeliveryPolicyArgs:
     def __init__(__self__, *,
@@ -2495,6 +3484,18 @@ class EndpointPropertiesUpdateParametersDeliveryPolicyArgs:
         pulumi.set(self, "description", value)
 
 
+if not MYPY:
+    class EndpointPropertiesUpdateParametersWebApplicationFirewallPolicyLinkArgsDict(TypedDict):
+        """
+        Defines the Web Application Firewall policy for the endpoint (if applicable)
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+elif False:
+    EndpointPropertiesUpdateParametersWebApplicationFirewallPolicyLinkArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EndpointPropertiesUpdateParametersWebApplicationFirewallPolicyLinkArgs:
     def __init__(__self__, *,
@@ -2518,6 +3519,26 @@ class EndpointPropertiesUpdateParametersWebApplicationFirewallPolicyLinkArgs:
     def id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class GeoFilterArgsDict(TypedDict):
+        """
+        Rules defining user's geo access within a CDN endpoint.
+        """
+        action: pulumi.Input['GeoFilterActions']
+        """
+        Action of the geo filter, i.e. allow or block access.
+        """
+        country_codes: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Two letter country or region codes defining user country or region access in a geo filter, e.g. AU, MX, US.
+        """
+        relative_path: pulumi.Input[str]
+        """
+        Relative path applicable to geo filter. (e.g. '/mypictures', '/mypicture/kitty.jpg', and etc.)
+        """
+elif False:
+    GeoFilterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GeoFilterArgs:
@@ -2571,6 +3592,27 @@ class GeoFilterArgs:
     def relative_path(self, value: pulumi.Input[str]):
         pulumi.set(self, "relative_path", value)
 
+
+if not MYPY:
+    class HeaderActionParametersArgsDict(TypedDict):
+        """
+        Defines the parameters for the request header action.
+        """
+        header_action: pulumi.Input[Union[str, 'HeaderAction']]
+        """
+        Action to perform
+        """
+        header_name: pulumi.Input[str]
+        """
+        Name of the header to modify
+        """
+        type_name: pulumi.Input[str]
+        value: NotRequired[pulumi.Input[str]]
+        """
+        Value for the specified action
+        """
+elif False:
+    HeaderActionParametersArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class HeaderActionParametersArgs:
@@ -2636,6 +3678,30 @@ class HeaderActionParametersArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class HealthProbeParametersArgsDict(TypedDict):
+        """
+        The JSON object that contains the properties to send health probes to origin.
+        """
+        probe_interval_in_seconds: NotRequired[pulumi.Input[int]]
+        """
+        The number of seconds between health probes.Default is 240sec.
+        """
+        probe_path: NotRequired[pulumi.Input[str]]
+        """
+        The path relative to the origin that is used to determine the health of the origin.
+        """
+        probe_protocol: NotRequired[pulumi.Input['ProbeProtocol']]
+        """
+        Protocol to use for health probe.
+        """
+        probe_request_type: NotRequired[pulumi.Input['HealthProbeRequestType']]
+        """
+        The type of health probe request that is made.
+        """
+elif False:
+    HealthProbeParametersArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class HealthProbeParametersArgs:
@@ -2708,6 +3774,31 @@ class HealthProbeParametersArgs:
     def probe_request_type(self, value: Optional[pulumi.Input['HealthProbeRequestType']]):
         pulumi.set(self, "probe_request_type", value)
 
+
+if not MYPY:
+    class HostNameMatchConditionParametersArgsDict(TypedDict):
+        """
+        Defines the parameters for HostName match conditions
+        """
+        operator: pulumi.Input[Union[str, 'HostNameOperator']]
+        """
+        Describes operator to be matched
+        """
+        type_name: pulumi.Input[str]
+        match_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The match value for the condition of the delivery rule
+        """
+        negate_condition: NotRequired[pulumi.Input[bool]]
+        """
+        Describes if this is negate condition or not
+        """
+        transforms: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Transform']]]]]
+        """
+        List of transforms
+        """
+elif False:
+    HostNameMatchConditionParametersArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class HostNameMatchConditionParametersArgs:
@@ -2793,6 +3884,22 @@ class HostNameMatchConditionParametersArgs:
         pulumi.set(self, "transforms", value)
 
 
+if not MYPY:
+    class HttpErrorRangeParametersArgsDict(TypedDict):
+        """
+        The JSON object that represents the range for http status codes
+        """
+        begin: NotRequired[pulumi.Input[int]]
+        """
+        The inclusive start of the http status code range.
+        """
+        end: NotRequired[pulumi.Input[int]]
+        """
+        The inclusive end of the http status code range.
+        """
+elif False:
+    HttpErrorRangeParametersArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class HttpErrorRangeParametersArgs:
     def __init__(__self__, *,
@@ -2832,6 +3939,31 @@ class HttpErrorRangeParametersArgs:
     def end(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "end", value)
 
+
+if not MYPY:
+    class HttpVersionMatchConditionParametersArgsDict(TypedDict):
+        """
+        Defines the parameters for HttpVersion match conditions
+        """
+        operator: pulumi.Input[Union[str, 'HttpVersionOperator']]
+        """
+        Describes operator to be matched
+        """
+        type_name: pulumi.Input[str]
+        match_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The match value for the condition of the delivery rule
+        """
+        negate_condition: NotRequired[pulumi.Input[bool]]
+        """
+        Describes if this is negate condition or not
+        """
+        transforms: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Transform']]]]]
+        """
+        List of transforms
+        """
+elif False:
+    HttpVersionMatchConditionParametersArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class HttpVersionMatchConditionParametersArgs:
@@ -2917,6 +4049,31 @@ class HttpVersionMatchConditionParametersArgs:
         pulumi.set(self, "transforms", value)
 
 
+if not MYPY:
+    class IsDeviceMatchConditionParametersArgsDict(TypedDict):
+        """
+        Defines the parameters for IsDevice match conditions
+        """
+        operator: pulumi.Input[Union[str, 'IsDeviceOperator']]
+        """
+        Describes operator to be matched
+        """
+        type_name: pulumi.Input[str]
+        match_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The match value for the condition of the delivery rule
+        """
+        negate_condition: NotRequired[pulumi.Input[bool]]
+        """
+        Describes if this is negate condition or not
+        """
+        transforms: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Transform']]]]]
+        """
+        List of transforms
+        """
+elif False:
+    IsDeviceMatchConditionParametersArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IsDeviceMatchConditionParametersArgs:
     def __init__(__self__, *,
@@ -3000,6 +4157,35 @@ class IsDeviceMatchConditionParametersArgs:
     def transforms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Transform']]]]]):
         pulumi.set(self, "transforms", value)
 
+
+if not MYPY:
+    class KeyVaultSigningKeyParametersArgsDict(TypedDict):
+        """
+        Describes the parameters for using a user's KeyVault for URL Signing Key.
+        """
+        resource_group_name: pulumi.Input[str]
+        """
+        Resource group of the user's Key Vault containing the secret
+        """
+        secret_name: pulumi.Input[str]
+        """
+        The name of secret in Key Vault.
+        """
+        secret_version: pulumi.Input[str]
+        """
+        The version(GUID) of secret in Key Vault.
+        """
+        subscription_id: pulumi.Input[str]
+        """
+        Subscription Id of the user's Key Vault containing the secret
+        """
+        type_name: pulumi.Input[str]
+        vault_name: pulumi.Input[str]
+        """
+        The name of the user's Key Vault containing the secret
+        """
+elif False:
+    KeyVaultSigningKeyParametersArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class KeyVaultSigningKeyParametersArgs:
@@ -3095,6 +4281,26 @@ class KeyVaultSigningKeyParametersArgs:
         pulumi.set(self, "vault_name", value)
 
 
+if not MYPY:
+    class LoadBalancingSettingsParametersArgsDict(TypedDict):
+        """
+        Round-Robin load balancing settings for a backend pool
+        """
+        additional_latency_in_milliseconds: NotRequired[pulumi.Input[int]]
+        """
+        The additional latency in milliseconds for probes to fall into the lowest latency bucket
+        """
+        sample_size: NotRequired[pulumi.Input[int]]
+        """
+        The number of samples to consider for load balancing decisions
+        """
+        successful_samples_required: NotRequired[pulumi.Input[int]]
+        """
+        The number of samples within the sample period that must succeed
+        """
+elif False:
+    LoadBalancingSettingsParametersArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LoadBalancingSettingsParametersArgs:
     def __init__(__self__, *,
@@ -3151,6 +4357,19 @@ class LoadBalancingSettingsParametersArgs:
         pulumi.set(self, "successful_samples_required", value)
 
 
+if not MYPY:
+    class ManagedCertificateParametersArgsDict(TypedDict):
+        """
+        Managed Certificate used for https
+        """
+        type: pulumi.Input[str]
+        """
+        The type of the secret resource.
+        Expected value is 'ManagedCertificate'.
+        """
+elif False:
+    ManagedCertificateParametersArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ManagedCertificateParametersArgs:
     def __init__(__self__, *,
@@ -3175,6 +4394,22 @@ class ManagedCertificateParametersArgs:
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class ManagedRuleGroupOverrideArgsDict(TypedDict):
+        """
+        Defines a managed rule group override setting.
+        """
+        rule_group_name: pulumi.Input[str]
+        """
+        Describes the managed rule group within the rule set to override
+        """
+        rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['ManagedRuleOverrideArgsDict']]]]
+        """
+        List of rules that will be enabled. If none specified, all rules in the group will be disabled.
+        """
+elif False:
+    ManagedRuleGroupOverrideArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ManagedRuleGroupOverrideArgs:
@@ -3214,6 +4449,26 @@ class ManagedRuleGroupOverrideArgs:
     def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedRuleOverrideArgs']]]]):
         pulumi.set(self, "rules", value)
 
+
+if not MYPY:
+    class ManagedRuleOverrideArgsDict(TypedDict):
+        """
+        Defines a managed rule group override setting.
+        """
+        rule_id: pulumi.Input[str]
+        """
+        Identifier for the managed rule.
+        """
+        action: NotRequired[pulumi.Input[Union[str, 'ActionType']]]
+        """
+        Describes the override action to be applied when rule matches.
+        """
+        enabled_state: NotRequired[pulumi.Input[Union[str, 'ManagedRuleEnabledState']]]
+        """
+        Describes if the managed rule is in enabled or disabled state. Defaults to Disabled if not specified.
+        """
+elif False:
+    ManagedRuleOverrideArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ManagedRuleOverrideArgs:
@@ -3270,6 +4525,18 @@ class ManagedRuleOverrideArgs:
         pulumi.set(self, "enabled_state", value)
 
 
+if not MYPY:
+    class ManagedRuleSetListArgsDict(TypedDict):
+        """
+        Defines the list of managed rule sets for the policy.
+        """
+        managed_rule_sets: NotRequired[pulumi.Input[Sequence[pulumi.Input['ManagedRuleSetArgsDict']]]]
+        """
+        List of rule sets.
+        """
+elif False:
+    ManagedRuleSetListArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ManagedRuleSetListArgs:
     def __init__(__self__, *,
@@ -3293,6 +4560,30 @@ class ManagedRuleSetListArgs:
     def managed_rule_sets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedRuleSetArgs']]]]):
         pulumi.set(self, "managed_rule_sets", value)
 
+
+if not MYPY:
+    class ManagedRuleSetArgsDict(TypedDict):
+        """
+        Defines a managed rule set.
+        """
+        rule_set_type: pulumi.Input[str]
+        """
+        Defines the rule set type to use.
+        """
+        rule_set_version: pulumi.Input[str]
+        """
+        Defines the version of the rule set to use.
+        """
+        anomaly_score: NotRequired[pulumi.Input[int]]
+        """
+        Verizon only : If the rule set supports anomaly detection mode, this describes the threshold for blocking requests.
+        """
+        rule_group_overrides: NotRequired[pulumi.Input[Sequence[pulumi.Input['ManagedRuleGroupOverrideArgsDict']]]]
+        """
+        Defines the rule overrides to apply to the rule set.
+        """
+elif False:
+    ManagedRuleSetArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ManagedRuleSetArgs:
@@ -3364,6 +4655,22 @@ class ManagedRuleSetArgs:
         pulumi.set(self, "rule_group_overrides", value)
 
 
+if not MYPY:
+    class ManagedServiceIdentityArgsDict(TypedDict):
+        """
+        Managed service identity (system assigned and/or user assigned identities)
+        """
+        type: pulumi.Input[Union[str, 'ManagedServiceIdentityType']]
+        """
+        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        """
+        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        """
+elif False:
+    ManagedServiceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ManagedServiceIdentityArgs:
     def __init__(__self__, *,
@@ -3402,6 +4709,38 @@ class ManagedServiceIdentityArgs:
     def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
+
+if not MYPY:
+    class MatchConditionArgsDict(TypedDict):
+        """
+        Define match conditions
+        """
+        match_value: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        List of possible match values.
+        """
+        match_variable: pulumi.Input[Union[str, 'WafMatchVariable']]
+        """
+        Match variable to compare against.
+        """
+        operator: pulumi.Input[Union[str, 'Operator']]
+        """
+        Describes operator to be matched
+        """
+        negate_condition: NotRequired[pulumi.Input[bool]]
+        """
+        Describes if the result of this condition should be negated.
+        """
+        selector: NotRequired[pulumi.Input[str]]
+        """
+        Selector can used to match a specific key for QueryString, Cookies, RequestHeader or PostArgs.
+        """
+        transforms: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'TransformType']]]]]
+        """
+        List of transforms.
+        """
+elif False:
+    MatchConditionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MatchConditionArgs:
@@ -3504,6 +4843,19 @@ class MatchConditionArgs:
         pulumi.set(self, "transforms", value)
 
 
+if not MYPY:
+    class OriginGroupOverrideActionParametersArgsDict(TypedDict):
+        """
+        Defines the parameters for the origin group override action.
+        """
+        origin_group: pulumi.Input['ResourceReferenceArgsDict']
+        """
+        defines the OriginGroup that would override the DefaultOriginGroup.
+        """
+        type_name: pulumi.Input[str]
+elif False:
+    OriginGroupOverrideActionParametersArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OriginGroupOverrideActionParametersArgs:
     def __init__(__self__, *,
@@ -3537,6 +4889,23 @@ class OriginGroupOverrideActionParametersArgs:
     def type_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "type_name", value)
 
+
+if not MYPY:
+    class OriginGroupOverrideActionArgsDict(TypedDict):
+        """
+        Defines the origin group override action for the delivery rule.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the action for the delivery rule.
+        Expected value is 'OriginGroupOverride'.
+        """
+        parameters: pulumi.Input['OriginGroupOverrideActionParametersArgsDict']
+        """
+        Defines the parameters for the action.
+        """
+elif False:
+    OriginGroupOverrideActionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OriginGroupOverrideActionArgs:
@@ -3578,6 +4947,22 @@ class OriginGroupOverrideActionArgs:
         pulumi.set(self, "parameters", value)
 
 
+if not MYPY:
+    class OriginGroupOverrideArgsDict(TypedDict):
+        """
+        Defines the parameters for the origin group override configuration.
+        """
+        forwarding_protocol: NotRequired[pulumi.Input[Union[str, 'ForwardingProtocol']]]
+        """
+        Protocol this rule will use when forwarding traffic to backends.
+        """
+        origin_group: NotRequired[pulumi.Input['ResourceReferenceArgsDict']]
+        """
+        defines the OriginGroup that would override the DefaultOriginGroup on route.
+        """
+elif False:
+    OriginGroupOverrideArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OriginGroupOverrideArgs:
     def __init__(__self__, *,
@@ -3617,6 +5002,34 @@ class OriginGroupOverrideArgs:
     def origin_group(self, value: Optional[pulumi.Input['ResourceReferenceArgs']]):
         pulumi.set(self, "origin_group", value)
 
+
+if not MYPY:
+    class PolicySettingsArgsDict(TypedDict):
+        """
+        Defines contents of a web application firewall global configuration
+        """
+        default_custom_block_response_body: NotRequired[pulumi.Input[str]]
+        """
+        If the action type is block, customer can override the response body. The body must be specified in base64 encoding.
+        """
+        default_custom_block_response_status_code: NotRequired[pulumi.Input[int]]
+        """
+        If the action type is block, this field defines the default customer overridable http response status code.
+        """
+        default_redirect_url: NotRequired[pulumi.Input[str]]
+        """
+        If action type is redirect, this field represents the default redirect URL for the client.
+        """
+        enabled_state: NotRequired[pulumi.Input[Union[str, 'PolicyEnabledState']]]
+        """
+        describes if the policy is in enabled state or disabled state
+        """
+        mode: NotRequired[pulumi.Input[Union[str, 'PolicyMode']]]
+        """
+        Describes if it is in detection mode or prevention mode at policy level.
+        """
+elif False:
+    PolicySettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PolicySettingsArgs:
@@ -3705,6 +5118,35 @@ class PolicySettingsArgs:
     def mode(self, value: Optional[pulumi.Input[Union[str, 'PolicyMode']]]):
         pulumi.set(self, "mode", value)
 
+
+if not MYPY:
+    class PostArgsMatchConditionParametersArgsDict(TypedDict):
+        """
+        Defines the parameters for PostArgs match conditions
+        """
+        operator: pulumi.Input[Union[str, 'PostArgsOperator']]
+        """
+        Describes operator to be matched
+        """
+        type_name: pulumi.Input[str]
+        match_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The match value for the condition of the delivery rule
+        """
+        negate_condition: NotRequired[pulumi.Input[bool]]
+        """
+        Describes if this is negate condition or not
+        """
+        selector: NotRequired[pulumi.Input[str]]
+        """
+        Name of PostArg to be matched
+        """
+        transforms: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Transform']]]]]
+        """
+        List of transforms
+        """
+elif False:
+    PostArgsMatchConditionParametersArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PostArgsMatchConditionParametersArgs:
@@ -3806,6 +5248,22 @@ class PostArgsMatchConditionParametersArgs:
         pulumi.set(self, "transforms", value)
 
 
+if not MYPY:
+    class ProfileLogScrubbingArgsDict(TypedDict):
+        """
+        Defines rules that scrub sensitive fields in the Azure Front Door profile logs.
+        """
+        scrubbing_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['ProfileScrubbingRulesArgsDict']]]]
+        """
+        List of log scrubbing rules applied to the Azure Front Door profile logs.
+        """
+        state: NotRequired[pulumi.Input[Union[str, 'ProfileScrubbingState']]]
+        """
+        State of the log scrubbing config. Default value is Enabled.
+        """
+elif False:
+    ProfileLogScrubbingArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ProfileLogScrubbingArgs:
     def __init__(__self__, *,
@@ -3845,6 +5303,30 @@ class ProfileLogScrubbingArgs:
     def state(self, value: Optional[pulumi.Input[Union[str, 'ProfileScrubbingState']]]):
         pulumi.set(self, "state", value)
 
+
+if not MYPY:
+    class ProfileScrubbingRulesArgsDict(TypedDict):
+        """
+        Defines the contents of the log scrubbing rules.
+        """
+        match_variable: pulumi.Input[Union[str, 'ScrubbingRuleEntryMatchVariable']]
+        """
+        The variable to be scrubbed from the logs.
+        """
+        selector_match_operator: pulumi.Input[Union[str, 'ScrubbingRuleEntryMatchOperator']]
+        """
+        When matchVariable is a collection, operate on the selector to specify which elements in the collection this rule applies to.
+        """
+        selector: NotRequired[pulumi.Input[str]]
+        """
+        When matchVariable is a collection, operator used to specify which elements in the collection this rule applies to.
+        """
+        state: NotRequired[pulumi.Input[Union[str, 'ScrubbingRuleEntryState']]]
+        """
+        Defines the state of a log scrubbing rule. Default value is enabled.
+        """
+elif False:
+    ProfileScrubbingRulesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ProfileScrubbingRulesArgs:
@@ -3915,6 +5397,31 @@ class ProfileScrubbingRulesArgs:
     def state(self, value: Optional[pulumi.Input[Union[str, 'ScrubbingRuleEntryState']]]):
         pulumi.set(self, "state", value)
 
+
+if not MYPY:
+    class QueryStringMatchConditionParametersArgsDict(TypedDict):
+        """
+        Defines the parameters for QueryString match conditions
+        """
+        operator: pulumi.Input[Union[str, 'QueryStringOperator']]
+        """
+        Describes operator to be matched
+        """
+        type_name: pulumi.Input[str]
+        match_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The match value for the condition of the delivery rule
+        """
+        negate_condition: NotRequired[pulumi.Input[bool]]
+        """
+        Describes if this is negate condition or not
+        """
+        transforms: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Transform']]]]]
+        """
+        List of transforms
+        """
+elif False:
+    QueryStringMatchConditionParametersArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class QueryStringMatchConditionParametersArgs:
@@ -4000,6 +5507,18 @@ class QueryStringMatchConditionParametersArgs:
         pulumi.set(self, "transforms", value)
 
 
+if not MYPY:
+    class RateLimitRuleListArgsDict(TypedDict):
+        """
+        Defines contents of rate limit rules
+        """
+        rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['RateLimitRuleArgsDict']]]]
+        """
+        List of rules
+        """
+elif False:
+    RateLimitRuleListArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RateLimitRuleListArgs:
     def __init__(__self__, *,
@@ -4023,6 +5542,42 @@ class RateLimitRuleListArgs:
     def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RateLimitRuleArgs']]]]):
         pulumi.set(self, "rules", value)
 
+
+if not MYPY:
+    class RateLimitRuleArgsDict(TypedDict):
+        """
+        Defines a rate limiting rule that can be included in a waf policy
+        """
+        action: pulumi.Input[Union[str, 'ActionType']]
+        """
+        Describes what action to be applied when rule matches
+        """
+        match_conditions: pulumi.Input[Sequence[pulumi.Input['MatchConditionArgsDict']]]
+        """
+        List of match conditions.
+        """
+        name: pulumi.Input[str]
+        """
+        Defines the name of the custom rule
+        """
+        priority: pulumi.Input[int]
+        """
+        Defines in what order this rule be evaluated in the overall list of custom rules
+        """
+        rate_limit_duration_in_minutes: pulumi.Input[int]
+        """
+        Defines rate limit duration. Default is 1 minute.
+        """
+        rate_limit_threshold: pulumi.Input[int]
+        """
+        Defines rate limit threshold.
+        """
+        enabled_state: NotRequired[pulumi.Input[Union[str, 'CustomRuleEnabledState']]]
+        """
+        Describes if the custom rule is in enabled or disabled state. Defaults to Enabled if not specified.
+        """
+elif False:
+    RateLimitRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RateLimitRuleArgs:
@@ -4138,6 +5693,31 @@ class RateLimitRuleArgs:
         pulumi.set(self, "enabled_state", value)
 
 
+if not MYPY:
+    class RemoteAddressMatchConditionParametersArgsDict(TypedDict):
+        """
+        Defines the parameters for RemoteAddress match conditions
+        """
+        operator: pulumi.Input[Union[str, 'RemoteAddressOperator']]
+        """
+        Describes operator to be matched
+        """
+        type_name: pulumi.Input[str]
+        match_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Match values to match against. The operator will apply to each value in here with OR semantics. If any of them match the variable with the given operator this match condition is considered a match.
+        """
+        negate_condition: NotRequired[pulumi.Input[bool]]
+        """
+        Describes if this is negate condition or not
+        """
+        transforms: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Transform']]]]]
+        """
+        List of transforms
+        """
+elif False:
+    RemoteAddressMatchConditionParametersArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RemoteAddressMatchConditionParametersArgs:
     def __init__(__self__, *,
@@ -4222,6 +5802,31 @@ class RemoteAddressMatchConditionParametersArgs:
         pulumi.set(self, "transforms", value)
 
 
+if not MYPY:
+    class RequestBodyMatchConditionParametersArgsDict(TypedDict):
+        """
+        Defines the parameters for RequestBody match conditions
+        """
+        operator: pulumi.Input[Union[str, 'RequestBodyOperator']]
+        """
+        Describes operator to be matched
+        """
+        type_name: pulumi.Input[str]
+        match_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The match value for the condition of the delivery rule
+        """
+        negate_condition: NotRequired[pulumi.Input[bool]]
+        """
+        Describes if this is negate condition or not
+        """
+        transforms: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Transform']]]]]
+        """
+        List of transforms
+        """
+elif False:
+    RequestBodyMatchConditionParametersArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RequestBodyMatchConditionParametersArgs:
     def __init__(__self__, *,
@@ -4305,6 +5910,35 @@ class RequestBodyMatchConditionParametersArgs:
     def transforms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Transform']]]]]):
         pulumi.set(self, "transforms", value)
 
+
+if not MYPY:
+    class RequestHeaderMatchConditionParametersArgsDict(TypedDict):
+        """
+        Defines the parameters for RequestHeader match conditions
+        """
+        operator: pulumi.Input[Union[str, 'RequestHeaderOperator']]
+        """
+        Describes operator to be matched
+        """
+        type_name: pulumi.Input[str]
+        match_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The match value for the condition of the delivery rule
+        """
+        negate_condition: NotRequired[pulumi.Input[bool]]
+        """
+        Describes if this is negate condition or not
+        """
+        selector: NotRequired[pulumi.Input[str]]
+        """
+        Name of Header to be matched
+        """
+        transforms: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Transform']]]]]
+        """
+        List of transforms
+        """
+elif False:
+    RequestHeaderMatchConditionParametersArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RequestHeaderMatchConditionParametersArgs:
@@ -4406,6 +6040,31 @@ class RequestHeaderMatchConditionParametersArgs:
         pulumi.set(self, "transforms", value)
 
 
+if not MYPY:
+    class RequestMethodMatchConditionParametersArgsDict(TypedDict):
+        """
+        Defines the parameters for RequestMethod match conditions
+        """
+        operator: pulumi.Input[Union[str, 'RequestMethodOperator']]
+        """
+        Describes operator to be matched
+        """
+        type_name: pulumi.Input[str]
+        match_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The match value for the condition of the delivery rule
+        """
+        negate_condition: NotRequired[pulumi.Input[bool]]
+        """
+        Describes if this is negate condition or not
+        """
+        transforms: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Transform']]]]]
+        """
+        List of transforms
+        """
+elif False:
+    RequestMethodMatchConditionParametersArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RequestMethodMatchConditionParametersArgs:
     def __init__(__self__, *,
@@ -4489,6 +6148,31 @@ class RequestMethodMatchConditionParametersArgs:
     def transforms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Transform']]]]]):
         pulumi.set(self, "transforms", value)
 
+
+if not MYPY:
+    class RequestSchemeMatchConditionParametersArgsDict(TypedDict):
+        """
+        Defines the parameters for RequestScheme match conditions 
+        """
+        operator: pulumi.Input[str]
+        """
+        Describes operator to be matched
+        """
+        type_name: pulumi.Input[str]
+        match_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The match value for the condition of the delivery rule
+        """
+        negate_condition: NotRequired[pulumi.Input[bool]]
+        """
+        Describes if this is negate condition or not
+        """
+        transforms: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Transform']]]]]
+        """
+        List of transforms
+        """
+elif False:
+    RequestSchemeMatchConditionParametersArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RequestSchemeMatchConditionParametersArgs:
@@ -4574,6 +6258,31 @@ class RequestSchemeMatchConditionParametersArgs:
         pulumi.set(self, "transforms", value)
 
 
+if not MYPY:
+    class RequestUriMatchConditionParametersArgsDict(TypedDict):
+        """
+        Defines the parameters for RequestUri match conditions
+        """
+        operator: pulumi.Input[Union[str, 'RequestUriOperator']]
+        """
+        Describes operator to be matched
+        """
+        type_name: pulumi.Input[str]
+        match_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The match value for the condition of the delivery rule
+        """
+        negate_condition: NotRequired[pulumi.Input[bool]]
+        """
+        Describes if this is negate condition or not
+        """
+        transforms: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Transform']]]]]
+        """
+        List of transforms
+        """
+elif False:
+    RequestUriMatchConditionParametersArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RequestUriMatchConditionParametersArgs:
     def __init__(__self__, *,
@@ -4658,6 +6367,18 @@ class RequestUriMatchConditionParametersArgs:
         pulumi.set(self, "transforms", value)
 
 
+if not MYPY:
+    class ResourceReferenceArgsDict(TypedDict):
+        """
+        Reference to another resource.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+elif False:
+    ResourceReferenceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ResourceReferenceArgs:
     def __init__(__self__, *,
@@ -4681,6 +6402,26 @@ class ResourceReferenceArgs:
     def id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class ResponseBasedOriginErrorDetectionParametersArgsDict(TypedDict):
+        """
+        The JSON object that contains the properties to determine origin health using real requests/responses.
+        """
+        http_error_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input['HttpErrorRangeParametersArgsDict']]]]
+        """
+        The list of Http status code ranges that are considered as server errors for origin and it is marked as unhealthy.
+        """
+        response_based_detected_error_types: NotRequired[pulumi.Input['ResponseBasedDetectedErrorTypes']]
+        """
+        Type of response errors for real user requests for which origin will be deemed unhealthy
+        """
+        response_based_failover_threshold_percentage: NotRequired[pulumi.Input[int]]
+        """
+        The percentage of failed requests in the sample where failover should trigger.
+        """
+elif False:
+    ResponseBasedOriginErrorDetectionParametersArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ResponseBasedOriginErrorDetectionParametersArgs:
@@ -4738,6 +6479,23 @@ class ResponseBasedOriginErrorDetectionParametersArgs:
         pulumi.set(self, "response_based_failover_threshold_percentage", value)
 
 
+if not MYPY:
+    class RouteConfigurationOverrideActionParametersArgsDict(TypedDict):
+        """
+        Defines the parameters for the route configuration override action.
+        """
+        type_name: pulumi.Input[str]
+        cache_configuration: NotRequired[pulumi.Input['CacheConfigurationArgsDict']]
+        """
+        The caching configuration associated with this rule. To disable caching, do not provide a cacheConfiguration object.
+        """
+        origin_group_override: NotRequired[pulumi.Input['OriginGroupOverrideArgsDict']]
+        """
+        A reference to the origin group override configuration. Leave empty to use the default origin group on route.
+        """
+elif False:
+    RouteConfigurationOverrideActionParametersArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RouteConfigurationOverrideActionParametersArgs:
     def __init__(__self__, *,
@@ -4789,6 +6547,22 @@ class RouteConfigurationOverrideActionParametersArgs:
         pulumi.set(self, "origin_group_override", value)
 
 
+if not MYPY:
+    class SecurityPolicyWebApplicationFirewallAssociationArgsDict(TypedDict):
+        """
+        settings for security policy patterns to match
+        """
+        domains: NotRequired[pulumi.Input[Sequence[pulumi.Input['ActivatedResourceReferenceArgsDict']]]]
+        """
+        List of domains.
+        """
+        patterns_to_match: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of paths
+        """
+elif False:
+    SecurityPolicyWebApplicationFirewallAssociationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SecurityPolicyWebApplicationFirewallAssociationArgs:
     def __init__(__self__, *,
@@ -4828,6 +6602,27 @@ class SecurityPolicyWebApplicationFirewallAssociationArgs:
     def patterns_to_match(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "patterns_to_match", value)
 
+
+if not MYPY:
+    class SecurityPolicyWebApplicationFirewallParametersArgsDict(TypedDict):
+        """
+        The json object containing security policy waf parameters
+        """
+        type: pulumi.Input[str]
+        """
+        The type of the Security policy to create.
+        Expected value is 'WebApplicationFirewall'.
+        """
+        associations: NotRequired[pulumi.Input[Sequence[pulumi.Input['SecurityPolicyWebApplicationFirewallAssociationArgsDict']]]]
+        """
+        Waf associations
+        """
+        waf_policy: NotRequired[pulumi.Input['ResourceReferenceArgsDict']]
+        """
+        Resource ID.
+        """
+elif False:
+    SecurityPolicyWebApplicationFirewallParametersArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SecurityPolicyWebApplicationFirewallParametersArgs:
@@ -4885,6 +6680,31 @@ class SecurityPolicyWebApplicationFirewallParametersArgs:
     def waf_policy(self, value: Optional[pulumi.Input['ResourceReferenceArgs']]):
         pulumi.set(self, "waf_policy", value)
 
+
+if not MYPY:
+    class ServerPortMatchConditionParametersArgsDict(TypedDict):
+        """
+        Defines the parameters for ServerPort match conditions
+        """
+        operator: pulumi.Input[Union[str, 'ServerPortOperator']]
+        """
+        Describes operator to be matched
+        """
+        type_name: pulumi.Input[str]
+        match_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The match value for the condition of the delivery rule
+        """
+        negate_condition: NotRequired[pulumi.Input[bool]]
+        """
+        Describes if this is negate condition or not
+        """
+        transforms: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Transform']]]]]
+        """
+        List of transforms
+        """
+elif False:
+    ServerPortMatchConditionParametersArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ServerPortMatchConditionParametersArgs:
@@ -4969,6 +6789,34 @@ class ServerPortMatchConditionParametersArgs:
     def transforms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Transform']]]]]):
         pulumi.set(self, "transforms", value)
 
+
+if not MYPY:
+    class SharedPrivateLinkResourcePropertiesArgsDict(TypedDict):
+        """
+        Describes the properties of an existing Shared Private Link Resource to use when connecting to a private origin.
+        """
+        group_id: NotRequired[pulumi.Input[str]]
+        """
+        The group id from the provider of resource the shared private link resource is for.
+        """
+        private_link: NotRequired[pulumi.Input['ResourceReferenceArgsDict']]
+        """
+        The resource id of the resource the shared private link resource is for.
+        """
+        private_link_location: NotRequired[pulumi.Input[str]]
+        """
+        The location of the shared private link resource
+        """
+        request_message: NotRequired[pulumi.Input[str]]
+        """
+        The request message for requesting approval of the shared private link resource.
+        """
+        status: NotRequired[pulumi.Input['SharedPrivateLinkResourceStatus']]
+        """
+        Status of the shared private link resource. Can be Pending, Approved, Rejected, Disconnected, or Timeout.
+        """
+elif False:
+    SharedPrivateLinkResourcePropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SharedPrivateLinkResourcePropertiesArgs:
@@ -5058,6 +6906,30 @@ class SharedPrivateLinkResourcePropertiesArgs:
         pulumi.set(self, "status", value)
 
 
+if not MYPY:
+    class SkuArgsDict(TypedDict):
+        """
+        Standard_Verizon = The SKU name for a Standard Verizon CDN profile.
+        Premium_Verizon = The SKU name for a Premium Verizon CDN profile.
+        Custom_Verizon = The SKU name for a Custom Verizon CDN profile.
+        Standard_Akamai = The SKU name for an Akamai CDN profile.
+        Standard_ChinaCdn = The SKU name for a China CDN profile for VOD, Web and download scenarios using GB based billing model.
+        Standard_Microsoft = The SKU name for a Standard Microsoft CDN profile.
+        Standard_AzureFrontDoor =  The SKU name for an Azure Front Door Standard profile.
+        Premium_AzureFrontDoor = The SKU name for an Azure Front Door Premium profile.
+        Standard_955BandWidth_ChinaCdn = The SKU name for a China CDN profile for VOD, Web and download scenarios using 95-5 peak bandwidth billing model.
+        Standard_AvgBandWidth_ChinaCdn = The SKU name for a China CDN profile for VOD, Web and download scenarios using monthly average peak bandwidth billing model.
+        StandardPlus_ChinaCdn = The SKU name for a China CDN profile for live-streaming using GB based billing model.
+        StandardPlus_955BandWidth_ChinaCdn = The SKU name for a China CDN live-streaming profile using 95-5 peak bandwidth billing model.
+        StandardPlus_AvgBandWidth_ChinaCdn = The SKU name for a China CDN live-streaming profile using monthly average peak bandwidth billing model.
+        """
+        name: NotRequired[pulumi.Input[Union[str, 'SkuName']]]
+        """
+        Name of the pricing tier.
+        """
+elif False:
+    SkuArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SkuArgs:
     def __init__(__self__, *,
@@ -5094,6 +6966,31 @@ class SkuArgs:
     def name(self, value: Optional[pulumi.Input[Union[str, 'SkuName']]]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class SocketAddrMatchConditionParametersArgsDict(TypedDict):
+        """
+        Defines the parameters for SocketAddress match conditions
+        """
+        operator: pulumi.Input[Union[str, 'SocketAddrOperator']]
+        """
+        Describes operator to be matched
+        """
+        type_name: pulumi.Input[str]
+        match_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The match value for the condition of the delivery rule
+        """
+        negate_condition: NotRequired[pulumi.Input[bool]]
+        """
+        Describes if this is negate condition or not
+        """
+        transforms: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Transform']]]]]
+        """
+        List of transforms
+        """
+elif False:
+    SocketAddrMatchConditionParametersArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SocketAddrMatchConditionParametersArgs:
@@ -5179,6 +7076,31 @@ class SocketAddrMatchConditionParametersArgs:
         pulumi.set(self, "transforms", value)
 
 
+if not MYPY:
+    class SslProtocolMatchConditionParametersArgsDict(TypedDict):
+        """
+        Defines the parameters for SslProtocol match conditions
+        """
+        operator: pulumi.Input[Union[str, 'SslProtocolOperator']]
+        """
+        Describes operator to be matched
+        """
+        type_name: pulumi.Input[str]
+        match_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'SslProtocol']]]]]
+        """
+        The match value for the condition of the delivery rule
+        """
+        negate_condition: NotRequired[pulumi.Input[bool]]
+        """
+        Describes if this is negate condition or not
+        """
+        transforms: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Transform']]]]]
+        """
+        List of transforms
+        """
+elif False:
+    SslProtocolMatchConditionParametersArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SslProtocolMatchConditionParametersArgs:
     def __init__(__self__, *,
@@ -5262,6 +7184,31 @@ class SslProtocolMatchConditionParametersArgs:
     def transforms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Transform']]]]]):
         pulumi.set(self, "transforms", value)
 
+
+if not MYPY:
+    class UrlFileExtensionMatchConditionParametersArgsDict(TypedDict):
+        """
+        Defines the parameters for UrlFileExtension match conditions
+        """
+        operator: pulumi.Input[Union[str, 'UrlFileExtensionOperator']]
+        """
+        Describes operator to be matched
+        """
+        type_name: pulumi.Input[str]
+        match_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The match value for the condition of the delivery rule
+        """
+        negate_condition: NotRequired[pulumi.Input[bool]]
+        """
+        Describes if this is negate condition or not
+        """
+        transforms: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Transform']]]]]
+        """
+        List of transforms
+        """
+elif False:
+    UrlFileExtensionMatchConditionParametersArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UrlFileExtensionMatchConditionParametersArgs:
@@ -5347,6 +7294,31 @@ class UrlFileExtensionMatchConditionParametersArgs:
         pulumi.set(self, "transforms", value)
 
 
+if not MYPY:
+    class UrlFileNameMatchConditionParametersArgsDict(TypedDict):
+        """
+        Defines the parameters for UrlFilename match conditions
+        """
+        operator: pulumi.Input[Union[str, 'UrlFileNameOperator']]
+        """
+        Describes operator to be matched
+        """
+        type_name: pulumi.Input[str]
+        match_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The match value for the condition of the delivery rule
+        """
+        negate_condition: NotRequired[pulumi.Input[bool]]
+        """
+        Describes if this is negate condition or not
+        """
+        transforms: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Transform']]]]]
+        """
+        List of transforms
+        """
+elif False:
+    UrlFileNameMatchConditionParametersArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class UrlFileNameMatchConditionParametersArgs:
     def __init__(__self__, *,
@@ -5431,6 +7403,31 @@ class UrlFileNameMatchConditionParametersArgs:
         pulumi.set(self, "transforms", value)
 
 
+if not MYPY:
+    class UrlPathMatchConditionParametersArgsDict(TypedDict):
+        """
+        Defines the parameters for UrlPath match conditions
+        """
+        operator: pulumi.Input[Union[str, 'UrlPathOperator']]
+        """
+        Describes operator to be matched
+        """
+        type_name: pulumi.Input[str]
+        match_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The match value for the condition of the delivery rule
+        """
+        negate_condition: NotRequired[pulumi.Input[bool]]
+        """
+        Describes if this is negate condition or not
+        """
+        transforms: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Transform']]]]]
+        """
+        List of transforms
+        """
+elif False:
+    UrlPathMatchConditionParametersArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class UrlPathMatchConditionParametersArgs:
     def __init__(__self__, *,
@@ -5514,6 +7511,39 @@ class UrlPathMatchConditionParametersArgs:
     def transforms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Transform']]]]]):
         pulumi.set(self, "transforms", value)
 
+
+if not MYPY:
+    class UrlRedirectActionParametersArgsDict(TypedDict):
+        """
+        Defines the parameters for the url redirect action.
+        """
+        redirect_type: pulumi.Input[Union[str, 'RedirectType']]
+        """
+        The redirect type the rule will use when redirecting traffic.
+        """
+        type_name: pulumi.Input[str]
+        custom_fragment: NotRequired[pulumi.Input[str]]
+        """
+        Fragment to add to the redirect URL. Fragment is the part of the URL that comes after #. Do not include the #.
+        """
+        custom_hostname: NotRequired[pulumi.Input[str]]
+        """
+        Host to redirect. Leave empty to use the incoming host as the destination host.
+        """
+        custom_path: NotRequired[pulumi.Input[str]]
+        """
+        The full path to redirect. Path cannot be empty and must start with /. Leave empty to use the incoming path as destination path.
+        """
+        custom_query_string: NotRequired[pulumi.Input[str]]
+        """
+        The set of query strings to be placed in the redirect URL. Setting this value would replace any existing query string; leave empty to preserve the incoming query string. Query string must be in <key>=<value> format. ? and & will be added automatically so do not include them.
+        """
+        destination_protocol: NotRequired[pulumi.Input[Union[str, 'DestinationProtocol']]]
+        """
+        Protocol to use for the redirect. The default value is MatchRequest
+        """
+elif False:
+    UrlRedirectActionParametersArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UrlRedirectActionParametersArgs:
@@ -5629,6 +7659,23 @@ class UrlRedirectActionParametersArgs:
         pulumi.set(self, "destination_protocol", value)
 
 
+if not MYPY:
+    class UrlRedirectActionArgsDict(TypedDict):
+        """
+        Defines the url redirect action for the delivery rule.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the action for the delivery rule.
+        Expected value is 'UrlRedirect'.
+        """
+        parameters: pulumi.Input['UrlRedirectActionParametersArgsDict']
+        """
+        Defines the parameters for the action.
+        """
+elif False:
+    UrlRedirectActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class UrlRedirectActionArgs:
     def __init__(__self__, *,
@@ -5668,6 +7715,27 @@ class UrlRedirectActionArgs:
     def parameters(self, value: pulumi.Input['UrlRedirectActionParametersArgs']):
         pulumi.set(self, "parameters", value)
 
+
+if not MYPY:
+    class UrlRewriteActionParametersArgsDict(TypedDict):
+        """
+        Defines the parameters for the url rewrite action.
+        """
+        destination: pulumi.Input[str]
+        """
+        Define the relative URL to which the above requests will be rewritten by.
+        """
+        source_pattern: pulumi.Input[str]
+        """
+        define a request URI pattern that identifies the type of requests that may be rewritten. If value is blank, all strings are matched.
+        """
+        type_name: pulumi.Input[str]
+        preserve_unmatched_path: NotRequired[pulumi.Input[bool]]
+        """
+        Whether to preserve unmatched path. Default value is true.
+        """
+elif False:
+    UrlRewriteActionParametersArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UrlRewriteActionParametersArgs:
@@ -5734,6 +7802,23 @@ class UrlRewriteActionParametersArgs:
         pulumi.set(self, "preserve_unmatched_path", value)
 
 
+if not MYPY:
+    class UrlRewriteActionArgsDict(TypedDict):
+        """
+        Defines the url rewrite action for the delivery rule.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the action for the delivery rule.
+        Expected value is 'UrlRewrite'.
+        """
+        parameters: pulumi.Input['UrlRewriteActionParametersArgsDict']
+        """
+        Defines the parameters for the action.
+        """
+elif False:
+    UrlRewriteActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class UrlRewriteActionArgs:
     def __init__(__self__, *,
@@ -5773,6 +7858,23 @@ class UrlRewriteActionArgs:
     def parameters(self, value: pulumi.Input['UrlRewriteActionParametersArgs']):
         pulumi.set(self, "parameters", value)
 
+
+if not MYPY:
+    class UrlSigningActionParametersArgsDict(TypedDict):
+        """
+        Defines the parameters for the Url Signing action.
+        """
+        type_name: pulumi.Input[str]
+        algorithm: NotRequired[pulumi.Input[Union[str, 'Algorithm']]]
+        """
+        Algorithm to use for URL signing
+        """
+        parameter_name_override: NotRequired[pulumi.Input[Sequence[pulumi.Input['UrlSigningParamIdentifierArgsDict']]]]
+        """
+        Defines which query string parameters in the url to be considered for expires, key id etc. 
+        """
+elif False:
+    UrlSigningActionParametersArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UrlSigningActionParametersArgs:
@@ -5825,6 +7927,23 @@ class UrlSigningActionParametersArgs:
         pulumi.set(self, "parameter_name_override", value)
 
 
+if not MYPY:
+    class UrlSigningActionArgsDict(TypedDict):
+        """
+        Defines the url signing action for the delivery rule.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the action for the delivery rule.
+        Expected value is 'UrlSigning'.
+        """
+        parameters: pulumi.Input['UrlSigningActionParametersArgsDict']
+        """
+        Defines the parameters for the action.
+        """
+elif False:
+    UrlSigningActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class UrlSigningActionArgs:
     def __init__(__self__, *,
@@ -5864,6 +7983,31 @@ class UrlSigningActionArgs:
     def parameters(self, value: pulumi.Input['UrlSigningActionParametersArgs']):
         pulumi.set(self, "parameters", value)
 
+
+if not MYPY:
+    class UrlSigningKeyParametersArgsDict(TypedDict):
+        """
+        Url signing key parameters
+        """
+        key_id: pulumi.Input[str]
+        """
+        Defines the customer defined key Id. This id will exist in the incoming request to indicate the key used to form the hash.
+        """
+        secret_source: pulumi.Input['ResourceReferenceArgsDict']
+        """
+        Resource reference to the Azure Key Vault secret. Expected to be in format of /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{vaultName}/secrets/{secretName}
+        """
+        secret_version: pulumi.Input[str]
+        """
+        Version of the secret to be used
+        """
+        type: pulumi.Input[str]
+        """
+        The type of the secret resource.
+        Expected value is 'UrlSigningKey'.
+        """
+elif False:
+    UrlSigningKeyParametersArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UrlSigningKeyParametersArgs:
@@ -5935,6 +8079,22 @@ class UrlSigningKeyParametersArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class UrlSigningKeyArgsDict(TypedDict):
+        """
+        Url signing key
+        """
+        key_id: pulumi.Input[str]
+        """
+        Defines the customer defined key Id. This id will exist in the incoming request to indicate the key used to form the hash.
+        """
+        key_source_parameters: pulumi.Input['KeyVaultSigningKeyParametersArgsDict']
+        """
+        Defines the parameters for using customer key vault for Url Signing Key.
+        """
+elif False:
+    UrlSigningKeyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class UrlSigningKeyArgs:
     def __init__(__self__, *,
@@ -5972,6 +8132,22 @@ class UrlSigningKeyArgs:
     def key_source_parameters(self, value: pulumi.Input['KeyVaultSigningKeyParametersArgs']):
         pulumi.set(self, "key_source_parameters", value)
 
+
+if not MYPY:
+    class UrlSigningParamIdentifierArgsDict(TypedDict):
+        """
+        Defines how to identify a parameter for a specific purpose e.g. expires
+        """
+        param_indicator: pulumi.Input[Union[str, 'ParamIndicator']]
+        """
+        Indicates the purpose of the parameter
+        """
+        param_name: pulumi.Input[str]
+        """
+        Parameter name
+        """
+elif False:
+    UrlSigningParamIdentifierArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UrlSigningParamIdentifierArgs:

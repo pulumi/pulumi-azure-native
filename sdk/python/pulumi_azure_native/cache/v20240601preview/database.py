@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -207,9 +212,9 @@ class Database(pulumi.CustomResource):
                  database_name: Optional[pulumi.Input[str]] = None,
                  defer_upgrade: Optional[pulumi.Input[Union[str, 'DeferUpgradeSetting']]] = None,
                  eviction_policy: Optional[pulumi.Input[Union[str, 'EvictionPolicy']]] = None,
-                 geo_replication: Optional[pulumi.Input[pulumi.InputType['DatabasePropertiesGeoReplicationArgs']]] = None,
-                 modules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ModuleArgs']]]]] = None,
-                 persistence: Optional[pulumi.Input[pulumi.InputType['PersistenceArgs']]] = None,
+                 geo_replication: Optional[pulumi.Input[Union['DatabasePropertiesGeoReplicationArgs', 'DatabasePropertiesGeoReplicationArgsDict']]] = None,
+                 modules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ModuleArgs', 'ModuleArgsDict']]]]] = None,
+                 persistence: Optional[pulumi.Input[Union['PersistenceArgs', 'PersistenceArgsDict']]] = None,
                  port: Optional[pulumi.Input[int]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -224,9 +229,9 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[str] database_name: The name of the Redis Enterprise database.
         :param pulumi.Input[Union[str, 'DeferUpgradeSetting']] defer_upgrade: Option to defer upgrade when newest version is released - default is NotDeferred. Learn more:  https://aka.ms/redisversionupgrade
         :param pulumi.Input[Union[str, 'EvictionPolicy']] eviction_policy: Redis eviction policy - default is VolatileLRU
-        :param pulumi.Input[pulumi.InputType['DatabasePropertiesGeoReplicationArgs']] geo_replication: Optional set of properties to configure geo replication for this database.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ModuleArgs']]]] modules: Optional set of redis modules to enable in this database - modules can only be added at creation time.
-        :param pulumi.Input[pulumi.InputType['PersistenceArgs']] persistence: Persistence settings
+        :param pulumi.Input[Union['DatabasePropertiesGeoReplicationArgs', 'DatabasePropertiesGeoReplicationArgsDict']] geo_replication: Optional set of properties to configure geo replication for this database.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ModuleArgs', 'ModuleArgsDict']]]] modules: Optional set of redis modules to enable in this database - modules can only be added at creation time.
+        :param pulumi.Input[Union['PersistenceArgs', 'PersistenceArgsDict']] persistence: Persistence settings
         :param pulumi.Input[int] port: TCP port of the database endpoint. Specified at create time. Defaults to an available port.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         """
@@ -260,9 +265,9 @@ class Database(pulumi.CustomResource):
                  database_name: Optional[pulumi.Input[str]] = None,
                  defer_upgrade: Optional[pulumi.Input[Union[str, 'DeferUpgradeSetting']]] = None,
                  eviction_policy: Optional[pulumi.Input[Union[str, 'EvictionPolicy']]] = None,
-                 geo_replication: Optional[pulumi.Input[pulumi.InputType['DatabasePropertiesGeoReplicationArgs']]] = None,
-                 modules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ModuleArgs']]]]] = None,
-                 persistence: Optional[pulumi.Input[pulumi.InputType['PersistenceArgs']]] = None,
+                 geo_replication: Optional[pulumi.Input[Union['DatabasePropertiesGeoReplicationArgs', 'DatabasePropertiesGeoReplicationArgsDict']]] = None,
+                 modules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ModuleArgs', 'ModuleArgsDict']]]]] = None,
+                 persistence: Optional[pulumi.Input[Union['PersistenceArgs', 'PersistenceArgsDict']]] = None,
                  port: Optional[pulumi.Input[int]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):

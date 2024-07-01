@@ -4,21 +4,47 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'CorsRulesArgs',
+    'CorsRulesArgsDict',
     'CorsRuleArgs',
+    'CorsRuleArgsDict',
     'CreatorPropertiesArgs',
+    'CreatorPropertiesArgsDict',
     'LinkedResourceArgs',
+    'LinkedResourceArgsDict',
     'ManagedServiceIdentityArgs',
+    'ManagedServiceIdentityArgsDict',
     'MapsAccountPropertiesArgs',
+    'MapsAccountPropertiesArgsDict',
     'SkuArgs',
+    'SkuArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class CorsRulesArgsDict(TypedDict):
+        """
+        Sets the CORS rules. You can include up to five CorsRule elements in the request. 
+        """
+        cors_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['CorsRuleArgsDict']]]]
+        """
+        The list of CORS rules. You can include up to five CorsRule elements in the request. 
+        """
+elif False:
+    CorsRulesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CorsRulesArgs:
@@ -44,6 +70,18 @@ class CorsRulesArgs:
         pulumi.set(self, "cors_rules", value)
 
 
+if not MYPY:
+    class CorsRuleArgsDict(TypedDict):
+        """
+        Specifies a CORS rule for the Map Account.
+        """
+        allowed_origins: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Required if CorsRule element is present. A list of origin domains that will be allowed via CORS, or "*" to allow all domains
+        """
+elif False:
+    CorsRuleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CorsRuleArgs:
     def __init__(__self__, *,
@@ -67,6 +105,18 @@ class CorsRuleArgs:
         pulumi.set(self, "allowed_origins", value)
 
 
+if not MYPY:
+    class CreatorPropertiesArgsDict(TypedDict):
+        """
+        Creator resource properties
+        """
+        storage_units: pulumi.Input[int]
+        """
+        The storage units to be allocated. Integer values from 1 to 100, inclusive.
+        """
+elif False:
+    CreatorPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CreatorPropertiesArgs:
     def __init__(__self__, *,
@@ -89,6 +139,22 @@ class CreatorPropertiesArgs:
     def storage_units(self, value: pulumi.Input[int]):
         pulumi.set(self, "storage_units", value)
 
+
+if not MYPY:
+    class LinkedResourceArgsDict(TypedDict):
+        """
+        Linked resource is reference to a resource deployed in an Azure subscription, add the linked resource `uniqueName` value as an optional parameter for operations on Azure Maps Geospatial REST APIs.
+        """
+        id: pulumi.Input[str]
+        """
+        ARM resource id in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/accounts/{storageName}'.
+        """
+        unique_name: pulumi.Input[str]
+        """
+        A provided name which uniquely identifies the linked resource.
+        """
+elif False:
+    LinkedResourceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LinkedResourceArgs:
@@ -127,6 +193,22 @@ class LinkedResourceArgs:
     def unique_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "unique_name", value)
 
+
+if not MYPY:
+    class ManagedServiceIdentityArgsDict(TypedDict):
+        """
+        Identity for the resource.
+        """
+        type: NotRequired[pulumi.Input['ResourceIdentityType']]
+        """
+        The identity type.
+        """
+        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+elif False:
+    ManagedServiceIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ManagedServiceIdentityArgs:
@@ -167,6 +249,26 @@ class ManagedServiceIdentityArgs:
     def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
+
+if not MYPY:
+    class MapsAccountPropertiesArgsDict(TypedDict):
+        """
+        Additional Map account properties
+        """
+        cors: NotRequired[pulumi.Input['CorsRulesArgsDict']]
+        """
+        Specifies CORS rules for the Blob service. You can include up to five CorsRule elements in the request. If no CorsRule elements are included in the request body, all CORS rules will be deleted, and CORS will be disabled for the Blob service.
+        """
+        disable_local_auth: NotRequired[pulumi.Input[bool]]
+        """
+        Allows toggle functionality on Azure Policy to disable Azure Maps local authentication support. This will disable Shared Keys authentication from any usage.
+        """
+        linked_resources: NotRequired[pulumi.Input[Sequence[pulumi.Input['LinkedResourceArgsDict']]]]
+        """
+        Sets the resources to be used for Managed Identities based operations for the Map account resource.
+        """
+elif False:
+    MapsAccountPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MapsAccountPropertiesArgs:
@@ -225,6 +327,18 @@ class MapsAccountPropertiesArgs:
     def linked_resources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinkedResourceArgs']]]]):
         pulumi.set(self, "linked_resources", value)
 
+
+if not MYPY:
+    class SkuArgsDict(TypedDict):
+        """
+        The SKU of the Maps Account.
+        """
+        name: pulumi.Input[Union[str, 'Name']]
+        """
+        The name of the SKU, in standard format (such as S0).
+        """
+elif False:
+    SkuArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SkuArgs:

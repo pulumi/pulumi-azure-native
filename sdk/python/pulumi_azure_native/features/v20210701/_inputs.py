@@ -4,15 +4,44 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'SubscriptionFeatureRegistrationPropertiesArgs',
+    'SubscriptionFeatureRegistrationPropertiesArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class SubscriptionFeatureRegistrationPropertiesArgsDict(TypedDict):
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The feature description.
+        """
+        metadata: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Key-value pairs for meta data.
+        """
+        should_feature_display_in_portal: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether feature should be displayed in Portal.
+        """
+        state: NotRequired[pulumi.Input[Union[str, 'SubscriptionFeatureRegistrationState']]]
+        """
+        The state.
+        """
+elif False:
+    SubscriptionFeatureRegistrationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SubscriptionFeatureRegistrationPropertiesArgs:

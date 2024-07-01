@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -124,7 +129,7 @@ class CapacityReservationGroup(pulumi.CustomResource):
                  capacity_reservation_group_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sharing_profile: Optional[pulumi.Input[pulumi.InputType['ResourceSharingProfileArgs']]] = None,
+                 sharing_profile: Optional[pulumi.Input[Union['ResourceSharingProfileArgs', 'ResourceSharingProfileArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -136,7 +141,7 @@ class CapacityReservationGroup(pulumi.CustomResource):
         :param pulumi.Input[str] capacity_reservation_group_name: The name of the capacity reservation group.
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[pulumi.InputType['ResourceSharingProfileArgs']] sharing_profile: Specifies the settings to enable sharing across subscriptions for the capacity reservation group resource. Pls. keep in mind the capacity reservation group resource generally can be shared across subscriptions belonging to a single azure AAD tenant or cross AAD tenant if there is a trust relationship established between the AAD tenants. **Note:** Minimum api-version: 2024-03-01. Please refer to https://aka.ms/computereservationsharing for more details.
+        :param pulumi.Input[Union['ResourceSharingProfileArgs', 'ResourceSharingProfileArgsDict']] sharing_profile: Specifies the settings to enable sharing across subscriptions for the capacity reservation group resource. Pls. keep in mind the capacity reservation group resource generally can be shared across subscriptions belonging to a single azure AAD tenant or cross AAD tenant if there is a trust relationship established between the AAD tenants. **Note:** Minimum api-version: 2024-03-01. Please refer to https://aka.ms/computereservationsharing for more details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Availability Zones to use for this capacity reservation group. The zones can be assigned only during creation. If not provided, the group supports only regional resources in the region. If provided, enforces each capacity reservation in the group to be in one of the zones.
         """
@@ -167,7 +172,7 @@ class CapacityReservationGroup(pulumi.CustomResource):
                  capacity_reservation_group_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sharing_profile: Optional[pulumi.Input[pulumi.InputType['ResourceSharingProfileArgs']]] = None,
+                 sharing_profile: Optional[pulumi.Input[Union['ResourceSharingProfileArgs', 'ResourceSharingProfileArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):

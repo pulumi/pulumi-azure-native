@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -89,7 +94,7 @@ class Job(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  id: Optional[pulumi.Input[str]] = None,
-                 job_base_properties: Optional[pulumi.Input[Union[pulumi.InputType['AutoMLJobArgs'], pulumi.InputType['CommandJobArgs'], pulumi.InputType['PipelineJobArgs'], pulumi.InputType['SparkJobArgs'], pulumi.InputType['SweepJobArgs']]]] = None,
+                 job_base_properties: Optional[pulumi.Input[Union[Union['AutoMLJobArgs', 'AutoMLJobArgsDict'], Union['CommandJobArgs', 'CommandJobArgsDict'], Union['PipelineJobArgs', 'PipelineJobArgsDict'], Union['SparkJobArgs', 'SparkJobArgsDict'], Union['SweepJobArgs', 'SweepJobArgsDict']]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -99,7 +104,7 @@ class Job(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] id: The name and identifier for the Job. This is case-sensitive.
-        :param pulumi.Input[Union[pulumi.InputType['AutoMLJobArgs'], pulumi.InputType['CommandJobArgs'], pulumi.InputType['PipelineJobArgs'], pulumi.InputType['SparkJobArgs'], pulumi.InputType['SweepJobArgs']]] job_base_properties: [Required] Additional attributes of the entity.
+        :param pulumi.Input[Union[Union['AutoMLJobArgs', 'AutoMLJobArgsDict'], Union['CommandJobArgs', 'CommandJobArgsDict'], Union['PipelineJobArgs', 'PipelineJobArgsDict'], Union['SparkJobArgs', 'SparkJobArgsDict'], Union['SweepJobArgs', 'SweepJobArgsDict']]] job_base_properties: [Required] Additional attributes of the entity.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] workspace_name: Name of Azure Machine Learning workspace.
         """
@@ -128,7 +133,7 @@ class Job(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  id: Optional[pulumi.Input[str]] = None,
-                 job_base_properties: Optional[pulumi.Input[Union[pulumi.InputType['AutoMLJobArgs'], pulumi.InputType['CommandJobArgs'], pulumi.InputType['PipelineJobArgs'], pulumi.InputType['SparkJobArgs'], pulumi.InputType['SweepJobArgs']]]] = None,
+                 job_base_properties: Optional[pulumi.Input[Union[Union['AutoMLJobArgs', 'AutoMLJobArgsDict'], Union['CommandJobArgs', 'CommandJobArgsDict'], Union['PipelineJobArgs', 'PipelineJobArgsDict'], Union['SparkJobArgs', 'SparkJobArgsDict'], Union['SweepJobArgs', 'SweepJobArgsDict']]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):

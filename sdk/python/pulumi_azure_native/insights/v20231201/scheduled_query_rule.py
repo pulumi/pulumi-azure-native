@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -375,22 +380,22 @@ class ScheduledQueryRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[pulumi.InputType['ActionsArgs']]] = None,
+                 actions: Optional[pulumi.Input[Union['ActionsArgs', 'ActionsArgsDict']]] = None,
                  auto_mitigate: Optional[pulumi.Input[bool]] = None,
                  check_workspace_alerts_storage_configured: Optional[pulumi.Input[bool]] = None,
-                 criteria: Optional[pulumi.Input[pulumi.InputType['ScheduledQueryRuleCriteriaArgs']]] = None,
+                 criteria: Optional[pulumi.Input[Union['ScheduledQueryRuleCriteriaArgs', 'ScheduledQueryRuleCriteriaArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  evaluation_frequency: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']]] = None,
                  kind: Optional[pulumi.Input[Union[str, 'Kind']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  mute_actions_duration: Optional[pulumi.Input[str]] = None,
                  override_query_time_range: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  rule_name: Optional[pulumi.Input[str]] = None,
-                 rule_resolve_configuration: Optional[pulumi.Input[pulumi.InputType['RuleResolveConfigurationArgs']]] = None,
+                 rule_resolve_configuration: Optional[pulumi.Input[Union['RuleResolveConfigurationArgs', 'RuleResolveConfigurationArgsDict']]] = None,
                  scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  severity: Optional[pulumi.Input[float]] = None,
                  skip_query_validation: Optional[pulumi.Input[bool]] = None,
@@ -403,22 +408,22 @@ class ScheduledQueryRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ActionsArgs']] actions: Actions to invoke when the alert fires.
+        :param pulumi.Input[Union['ActionsArgs', 'ActionsArgsDict']] actions: Actions to invoke when the alert fires.
         :param pulumi.Input[bool] auto_mitigate: The flag that indicates whether the alert should be automatically resolved or not. The default is true. Relevant only for rules of the kind LogAlert.
         :param pulumi.Input[bool] check_workspace_alerts_storage_configured: The flag which indicates whether this scheduled query rule should be stored in the customer's storage. The default is false. Relevant only for rules of the kind LogAlert.
-        :param pulumi.Input[pulumi.InputType['ScheduledQueryRuleCriteriaArgs']] criteria: The rule criteria that defines the conditions of the scheduled query rule.
+        :param pulumi.Input[Union['ScheduledQueryRuleCriteriaArgs', 'ScheduledQueryRuleCriteriaArgsDict']] criteria: The rule criteria that defines the conditions of the scheduled query rule.
         :param pulumi.Input[str] description: The description of the scheduled query rule.
         :param pulumi.Input[str] display_name: The display name of the alert rule
         :param pulumi.Input[bool] enabled: The flag which indicates whether this scheduled query rule is enabled. Value should be true or false
         :param pulumi.Input[str] evaluation_frequency: How often the scheduled query rule is evaluated represented in ISO 8601 duration format. Relevant and required only for rules of the kind LogAlert.
-        :param pulumi.Input[pulumi.InputType['IdentityArgs']] identity: The identity of the resource.
+        :param pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']] identity: The identity of the resource.
         :param pulumi.Input[Union[str, 'Kind']] kind: Indicates the type of scheduled query rule. The default is LogAlert.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] mute_actions_duration: Mute actions for the chosen period of time (in ISO 8601 duration format) after the alert is fired. Relevant only for rules of the kind LogAlert.
         :param pulumi.Input[str] override_query_time_range: If specified then overrides the query time range (default is WindowSize*NumberOfEvaluationPeriods). Relevant only for rules of the kind LogAlert.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] rule_name: The name of the rule.
-        :param pulumi.Input[pulumi.InputType['RuleResolveConfigurationArgs']] rule_resolve_configuration: Defines the configuration for resolving fired alerts. Relevant only for rules of the kind LogAlert.
+        :param pulumi.Input[Union['RuleResolveConfigurationArgs', 'RuleResolveConfigurationArgsDict']] rule_resolve_configuration: Defines the configuration for resolving fired alerts. Relevant only for rules of the kind LogAlert.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: The list of resource id's that this scheduled query rule is scoped to.
         :param pulumi.Input[float] severity: Severity of the alert. Should be an integer between [0-4]. Value of 0 is severest. Relevant and required only for rules of the kind LogAlert.
         :param pulumi.Input[bool] skip_query_validation: The flag which indicates whether the provided query should be validated or not. The default is false. Relevant only for rules of the kind LogAlert.
@@ -450,22 +455,22 @@ class ScheduledQueryRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[pulumi.InputType['ActionsArgs']]] = None,
+                 actions: Optional[pulumi.Input[Union['ActionsArgs', 'ActionsArgsDict']]] = None,
                  auto_mitigate: Optional[pulumi.Input[bool]] = None,
                  check_workspace_alerts_storage_configured: Optional[pulumi.Input[bool]] = None,
-                 criteria: Optional[pulumi.Input[pulumi.InputType['ScheduledQueryRuleCriteriaArgs']]] = None,
+                 criteria: Optional[pulumi.Input[Union['ScheduledQueryRuleCriteriaArgs', 'ScheduledQueryRuleCriteriaArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  evaluation_frequency: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']]] = None,
                  kind: Optional[pulumi.Input[Union[str, 'Kind']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  mute_actions_duration: Optional[pulumi.Input[str]] = None,
                  override_query_time_range: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  rule_name: Optional[pulumi.Input[str]] = None,
-                 rule_resolve_configuration: Optional[pulumi.Input[pulumi.InputType['RuleResolveConfigurationArgs']]] = None,
+                 rule_resolve_configuration: Optional[pulumi.Input[Union['RuleResolveConfigurationArgs', 'RuleResolveConfigurationArgsDict']]] = None,
                  scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  severity: Optional[pulumi.Input[float]] = None,
                  skip_query_validation: Optional[pulumi.Input[bool]] = None,

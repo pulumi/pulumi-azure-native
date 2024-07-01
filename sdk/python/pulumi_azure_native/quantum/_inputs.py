@@ -4,16 +4,57 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'ProviderArgs',
+    'ProviderArgsDict',
     'QuantumWorkspaceIdentityArgs',
+    'QuantumWorkspaceIdentityArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ProviderArgsDict(TypedDict):
+        """
+        Information about a Provider. A Provider is an entity that offers Targets to run Azure Quantum Jobs.
+        """
+        application_name: NotRequired[pulumi.Input[str]]
+        """
+        The provider's marketplace application display name.
+        """
+        instance_uri: NotRequired[pulumi.Input[str]]
+        """
+        A Uri identifying the specific instance of this provider.
+        """
+        provider_id: NotRequired[pulumi.Input[str]]
+        """
+        Unique id of this provider.
+        """
+        provider_sku: NotRequired[pulumi.Input[str]]
+        """
+        The sku associated with pricing information for this provider.
+        """
+        provisioning_state: NotRequired[pulumi.Input[Union[str, 'Status']]]
+        """
+        Provisioning status field
+        """
+        resource_usage_id: NotRequired[pulumi.Input[str]]
+        """
+        Id to track resource usage for the provider.
+        """
+elif False:
+    ProviderArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ProviderArgs:
@@ -118,6 +159,18 @@ class ProviderArgs:
     def resource_usage_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "resource_usage_id", value)
 
+
+if not MYPY:
+    class QuantumWorkspaceIdentityArgsDict(TypedDict):
+        """
+        Managed Identity information.
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'ResourceIdentityType']]]
+        """
+        The identity type.
+        """
+elif False:
+    QuantumWorkspaceIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class QuantumWorkspaceIdentityArgs:

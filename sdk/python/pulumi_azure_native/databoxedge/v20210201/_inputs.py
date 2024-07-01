@@ -4,17 +4,39 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'DataResidencyArgs',
+    'DataResidencyArgsDict',
     'ResourceIdentityArgs',
+    'ResourceIdentityArgsDict',
     'SkuArgs',
+    'SkuArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class DataResidencyArgsDict(TypedDict):
+        """
+        Wraps data-residency related information for edge-resource and this should be used with ARM layer.
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'DataResidencyType']]]
+        """
+        DataResidencyType enum
+        """
+elif False:
+    DataResidencyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataResidencyArgs:
@@ -40,6 +62,18 @@ class DataResidencyArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class ResourceIdentityArgsDict(TypedDict):
+        """
+        Msi identity details of the resource
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'MsiIdentityType']]]
+        """
+        Identity type
+        """
+elif False:
+    ResourceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ResourceIdentityArgs:
     def __init__(__self__, *,
@@ -63,6 +97,22 @@ class ResourceIdentityArgs:
     def type(self, value: Optional[pulumi.Input[Union[str, 'MsiIdentityType']]]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class SkuArgsDict(TypedDict):
+        """
+        The SKU type.
+        """
+        name: NotRequired[pulumi.Input[Union[str, 'SkuName']]]
+        """
+        SKU name.
+        """
+        tier: NotRequired[pulumi.Input[Union[str, 'SkuTier']]]
+        """
+        The SKU tier. This is based on the SKU name.
+        """
+elif False:
+    SkuArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SkuArgs:

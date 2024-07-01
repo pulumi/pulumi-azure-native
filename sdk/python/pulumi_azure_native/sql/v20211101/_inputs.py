@@ -4,43 +4,95 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'DatabaseIdentityArgs',
+    'DatabaseIdentityArgsDict',
     'DatabaseVulnerabilityAssessmentRuleBaselineItemArgs',
+    'DatabaseVulnerabilityAssessmentRuleBaselineItemArgsDict',
     'ElasticPoolPerDatabaseSettingsArgs',
+    'ElasticPoolPerDatabaseSettingsArgsDict',
     'FailoverGroupReadOnlyEndpointArgs',
+    'FailoverGroupReadOnlyEndpointArgsDict',
     'FailoverGroupReadWriteEndpointArgs',
+    'FailoverGroupReadWriteEndpointArgsDict',
     'InstanceFailoverGroupReadOnlyEndpointArgs',
+    'InstanceFailoverGroupReadOnlyEndpointArgsDict',
     'InstanceFailoverGroupReadWriteEndpointArgs',
+    'InstanceFailoverGroupReadWriteEndpointArgsDict',
     'JobScheduleArgs',
+    'JobScheduleArgsDict',
     'JobStepActionArgs',
+    'JobStepActionArgsDict',
     'JobStepExecutionOptionsArgs',
+    'JobStepExecutionOptionsArgsDict',
     'JobStepOutputArgs',
+    'JobStepOutputArgsDict',
     'JobTargetArgs',
+    'JobTargetArgsDict',
     'ManagedInstanceExternalAdministratorArgs',
+    'ManagedInstanceExternalAdministratorArgsDict',
     'ManagedInstancePairInfoArgs',
+    'ManagedInstancePairInfoArgsDict',
     'ManagedInstancePrivateEndpointPropertyArgs',
+    'ManagedInstancePrivateEndpointPropertyArgsDict',
     'ManagedInstancePrivateLinkServiceConnectionStatePropertyArgs',
+    'ManagedInstancePrivateLinkServiceConnectionStatePropertyArgsDict',
     'PartnerInfoArgs',
+    'PartnerInfoArgsDict',
     'PartnerRegionInfoArgs',
+    'PartnerRegionInfoArgsDict',
     'PrivateEndpointPropertyArgs',
+    'PrivateEndpointPropertyArgsDict',
     'PrivateLinkServiceConnectionStatePropertyArgs',
+    'PrivateLinkServiceConnectionStatePropertyArgsDict',
     'ResourceIdentityArgs',
+    'ResourceIdentityArgsDict',
     'ServerExternalAdministratorArgs',
+    'ServerExternalAdministratorArgsDict',
     'ServerInfoArgs',
+    'ServerInfoArgsDict',
     'ServicePrincipalArgs',
+    'ServicePrincipalArgsDict',
     'SkuArgs',
+    'SkuArgsDict',
     'SyncGroupSchemaTableColumnArgs',
+    'SyncGroupSchemaTableColumnArgsDict',
     'SyncGroupSchemaTableArgs',
+    'SyncGroupSchemaTableArgsDict',
     'SyncGroupSchemaArgs',
+    'SyncGroupSchemaArgsDict',
     'VulnerabilityAssessmentRecurringScansPropertiesArgs',
+    'VulnerabilityAssessmentRecurringScansPropertiesArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class DatabaseIdentityArgsDict(TypedDict):
+        """
+        Azure Active Directory identity configuration for a resource.
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'DatabaseIdentityType']]]
+        """
+        The identity type
+        """
+        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The resource ids of the user assigned identities to use
+        """
+elif False:
+    DatabaseIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DatabaseIdentityArgs:
@@ -82,6 +134,18 @@ class DatabaseIdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
+if not MYPY:
+    class DatabaseVulnerabilityAssessmentRuleBaselineItemArgsDict(TypedDict):
+        """
+        Properties for an Azure SQL Database Vulnerability Assessment rule baseline's result.
+        """
+        result: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        The rule baseline result
+        """
+elif False:
+    DatabaseVulnerabilityAssessmentRuleBaselineItemArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DatabaseVulnerabilityAssessmentRuleBaselineItemArgs:
     def __init__(__self__, *,
@@ -104,6 +168,22 @@ class DatabaseVulnerabilityAssessmentRuleBaselineItemArgs:
     def result(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "result", value)
 
+
+if not MYPY:
+    class ElasticPoolPerDatabaseSettingsArgsDict(TypedDict):
+        """
+        Per database settings of an elastic pool.
+        """
+        max_capacity: NotRequired[pulumi.Input[float]]
+        """
+        The maximum capacity any one database can consume.
+        """
+        min_capacity: NotRequired[pulumi.Input[float]]
+        """
+        The minimum capacity all databases are guaranteed.
+        """
+elif False:
+    ElasticPoolPerDatabaseSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ElasticPoolPerDatabaseSettingsArgs:
@@ -145,6 +225,18 @@ class ElasticPoolPerDatabaseSettingsArgs:
         pulumi.set(self, "min_capacity", value)
 
 
+if not MYPY:
+    class FailoverGroupReadOnlyEndpointArgsDict(TypedDict):
+        """
+        Read-only endpoint of the failover group instance.
+        """
+        failover_policy: NotRequired[pulumi.Input[Union[str, 'ReadOnlyEndpointFailoverPolicy']]]
+        """
+        Failover policy of the read-only endpoint for the failover group.
+        """
+elif False:
+    FailoverGroupReadOnlyEndpointArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FailoverGroupReadOnlyEndpointArgs:
     def __init__(__self__, *,
@@ -168,6 +260,22 @@ class FailoverGroupReadOnlyEndpointArgs:
     def failover_policy(self, value: Optional[pulumi.Input[Union[str, 'ReadOnlyEndpointFailoverPolicy']]]):
         pulumi.set(self, "failover_policy", value)
 
+
+if not MYPY:
+    class FailoverGroupReadWriteEndpointArgsDict(TypedDict):
+        """
+        Read-write endpoint of the failover group instance.
+        """
+        failover_policy: pulumi.Input[Union[str, 'ReadWriteEndpointFailoverPolicy']]
+        """
+        Failover policy of the read-write endpoint for the failover group. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
+        """
+        failover_with_data_loss_grace_period_minutes: NotRequired[pulumi.Input[int]]
+        """
+        Grace period before failover with data loss is attempted for the read-write endpoint. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
+        """
+elif False:
+    FailoverGroupReadWriteEndpointArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FailoverGroupReadWriteEndpointArgs:
@@ -208,6 +316,18 @@ class FailoverGroupReadWriteEndpointArgs:
         pulumi.set(self, "failover_with_data_loss_grace_period_minutes", value)
 
 
+if not MYPY:
+    class InstanceFailoverGroupReadOnlyEndpointArgsDict(TypedDict):
+        """
+        Read-only endpoint of the failover group instance.
+        """
+        failover_policy: NotRequired[pulumi.Input[Union[str, 'ReadOnlyEndpointFailoverPolicy']]]
+        """
+        Failover policy of the read-only endpoint for the failover group.
+        """
+elif False:
+    InstanceFailoverGroupReadOnlyEndpointArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InstanceFailoverGroupReadOnlyEndpointArgs:
     def __init__(__self__, *,
@@ -231,6 +351,22 @@ class InstanceFailoverGroupReadOnlyEndpointArgs:
     def failover_policy(self, value: Optional[pulumi.Input[Union[str, 'ReadOnlyEndpointFailoverPolicy']]]):
         pulumi.set(self, "failover_policy", value)
 
+
+if not MYPY:
+    class InstanceFailoverGroupReadWriteEndpointArgsDict(TypedDict):
+        """
+        Read-write endpoint of the failover group instance.
+        """
+        failover_policy: pulumi.Input[Union[str, 'ReadWriteEndpointFailoverPolicy']]
+        """
+        Failover policy of the read-write endpoint for the failover group. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
+        """
+        failover_with_data_loss_grace_period_minutes: NotRequired[pulumi.Input[int]]
+        """
+        Grace period before failover with data loss is attempted for the read-write endpoint. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
+        """
+elif False:
+    InstanceFailoverGroupReadWriteEndpointArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InstanceFailoverGroupReadWriteEndpointArgs:
@@ -270,6 +406,34 @@ class InstanceFailoverGroupReadWriteEndpointArgs:
     def failover_with_data_loss_grace_period_minutes(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "failover_with_data_loss_grace_period_minutes", value)
 
+
+if not MYPY:
+    class JobScheduleArgsDict(TypedDict):
+        """
+        Scheduling properties of a job.
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Whether or not the schedule is enabled.
+        """
+        end_time: NotRequired[pulumi.Input[str]]
+        """
+        Schedule end time.
+        """
+        interval: NotRequired[pulumi.Input[str]]
+        """
+        Value of the schedule's recurring interval, if the ScheduleType is recurring. ISO8601 duration format.
+        """
+        start_time: NotRequired[pulumi.Input[str]]
+        """
+        Schedule start time.
+        """
+        type: NotRequired[pulumi.Input['JobScheduleType']]
+        """
+        Schedule interval type
+        """
+elif False:
+    JobScheduleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class JobScheduleArgs:
@@ -365,6 +529,26 @@ class JobScheduleArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class JobStepActionArgsDict(TypedDict):
+        """
+        The action to be executed by a job step.
+        """
+        value: pulumi.Input[str]
+        """
+        The action value, for example the text of the T-SQL script to execute.
+        """
+        source: NotRequired[pulumi.Input[Union[str, 'JobStepActionSource']]]
+        """
+        The source of the action to execute.
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'JobStepActionType']]]
+        """
+        Type of action being executed by the job step.
+        """
+elif False:
+    JobStepActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class JobStepActionArgs:
     def __init__(__self__, *,
@@ -423,6 +607,34 @@ class JobStepActionArgs:
     def type(self, value: Optional[pulumi.Input[Union[str, 'JobStepActionType']]]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class JobStepExecutionOptionsArgsDict(TypedDict):
+        """
+        The execution options of a job step.
+        """
+        initial_retry_interval_seconds: NotRequired[pulumi.Input[int]]
+        """
+        Initial delay between retries for job step execution.
+        """
+        maximum_retry_interval_seconds: NotRequired[pulumi.Input[int]]
+        """
+        The maximum amount of time to wait between retries for job step execution.
+        """
+        retry_attempts: NotRequired[pulumi.Input[int]]
+        """
+        Maximum number of times the job step will be reattempted if the first attempt fails.
+        """
+        retry_interval_backoff_multiplier: NotRequired[pulumi.Input[float]]
+        """
+        The backoff multiplier for the time between retries.
+        """
+        timeout_seconds: NotRequired[pulumi.Input[int]]
+        """
+        Execution timeout for the job step.
+        """
+elif False:
+    JobStepExecutionOptionsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class JobStepExecutionOptionsArgs:
@@ -521,6 +733,46 @@ class JobStepExecutionOptionsArgs:
     def timeout_seconds(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "timeout_seconds", value)
 
+
+if not MYPY:
+    class JobStepOutputArgsDict(TypedDict):
+        """
+        The output configuration of a job step.
+        """
+        credential: pulumi.Input[str]
+        """
+        The resource ID of the credential to use to connect to the output destination.
+        """
+        database_name: pulumi.Input[str]
+        """
+        The output destination database.
+        """
+        server_name: pulumi.Input[str]
+        """
+        The output destination server name.
+        """
+        table_name: pulumi.Input[str]
+        """
+        The output destination table.
+        """
+        resource_group_name: NotRequired[pulumi.Input[str]]
+        """
+        The output destination resource group.
+        """
+        schema_name: NotRequired[pulumi.Input[str]]
+        """
+        The output destination schema.
+        """
+        subscription_id: NotRequired[pulumi.Input[str]]
+        """
+        The output destination subscription id.
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'JobStepOutputType']]]
+        """
+        The output destination type.
+        """
+elif False:
+    JobStepOutputArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class JobStepOutputArgs:
@@ -658,6 +910,42 @@ class JobStepOutputArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class JobTargetArgsDict(TypedDict):
+        """
+        A job target, for example a specific database or a container of databases that is evaluated during job execution.
+        """
+        type: pulumi.Input[Union[str, 'JobTargetType']]
+        """
+        The target type.
+        """
+        database_name: NotRequired[pulumi.Input[str]]
+        """
+        The target database name.
+        """
+        elastic_pool_name: NotRequired[pulumi.Input[str]]
+        """
+        The target elastic pool name.
+        """
+        membership_type: NotRequired[pulumi.Input['JobTargetGroupMembershipType']]
+        """
+        Whether the target is included or excluded from the group.
+        """
+        refresh_credential: NotRequired[pulumi.Input[str]]
+        """
+        The resource ID of the credential that is used during job execution to connect to the target and determine the list of databases inside the target.
+        """
+        server_name: NotRequired[pulumi.Input[str]]
+        """
+        The target server name.
+        """
+        shard_map_name: NotRequired[pulumi.Input[str]]
+        """
+        The target shard map.
+        """
+elif False:
+    JobTargetArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class JobTargetArgs:
     def __init__(__self__, *,
@@ -779,6 +1067,38 @@ class JobTargetArgs:
         pulumi.set(self, "shard_map_name", value)
 
 
+if not MYPY:
+    class ManagedInstanceExternalAdministratorArgsDict(TypedDict):
+        """
+        Properties of a active directory administrator.
+        """
+        administrator_type: NotRequired[pulumi.Input[Union[str, 'AdministratorType']]]
+        """
+        Type of the sever administrator.
+        """
+        azure_ad_only_authentication: NotRequired[pulumi.Input[bool]]
+        """
+        Azure Active Directory only Authentication enabled.
+        """
+        login: NotRequired[pulumi.Input[str]]
+        """
+        Login name of the server administrator.
+        """
+        principal_type: NotRequired[pulumi.Input[Union[str, 'PrincipalType']]]
+        """
+        Principal Type of the sever administrator.
+        """
+        sid: NotRequired[pulumi.Input[str]]
+        """
+        SID (object ID) of the server administrator.
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        Tenant ID of the administrator.
+        """
+elif False:
+    ManagedInstanceExternalAdministratorArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ManagedInstanceExternalAdministratorArgs:
     def __init__(__self__, *,
@@ -883,6 +1203,22 @@ class ManagedInstanceExternalAdministratorArgs:
         pulumi.set(self, "tenant_id", value)
 
 
+if not MYPY:
+    class ManagedInstancePairInfoArgsDict(TypedDict):
+        """
+        Pairs of Managed Instances in the failover group.
+        """
+        partner_managed_instance_id: NotRequired[pulumi.Input[str]]
+        """
+        Id of Partner Managed Instance in pair.
+        """
+        primary_managed_instance_id: NotRequired[pulumi.Input[str]]
+        """
+        Id of Primary Managed Instance in pair.
+        """
+elif False:
+    ManagedInstancePairInfoArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ManagedInstancePairInfoArgs:
     def __init__(__self__, *,
@@ -923,6 +1259,15 @@ class ManagedInstancePairInfoArgs:
         pulumi.set(self, "primary_managed_instance_id", value)
 
 
+if not MYPY:
+    class ManagedInstancePrivateEndpointPropertyArgsDict(TypedDict):
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource id of the private endpoint.
+        """
+elif False:
+    ManagedInstancePrivateEndpointPropertyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ManagedInstancePrivateEndpointPropertyArgs:
     def __init__(__self__, *,
@@ -945,6 +1290,19 @@ class ManagedInstancePrivateEndpointPropertyArgs:
     def id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class ManagedInstancePrivateLinkServiceConnectionStatePropertyArgsDict(TypedDict):
+        description: pulumi.Input[str]
+        """
+        The private link service connection description.
+        """
+        status: pulumi.Input[str]
+        """
+        The private link service connection status.
+        """
+elif False:
+    ManagedInstancePrivateLinkServiceConnectionStatePropertyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ManagedInstancePrivateLinkServiceConnectionStatePropertyArgs:
@@ -983,6 +1341,18 @@ class ManagedInstancePrivateLinkServiceConnectionStatePropertyArgs:
         pulumi.set(self, "status", value)
 
 
+if not MYPY:
+    class PartnerInfoArgsDict(TypedDict):
+        """
+        Partner server information for the failover group.
+        """
+        id: pulumi.Input[str]
+        """
+        Resource identifier of the partner server.
+        """
+elif False:
+    PartnerInfoArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PartnerInfoArgs:
     def __init__(__self__, *,
@@ -1005,6 +1375,18 @@ class PartnerInfoArgs:
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class PartnerRegionInfoArgsDict(TypedDict):
+        """
+        Partner region information for the failover group.
+        """
+        location: NotRequired[pulumi.Input[str]]
+        """
+        Geo location of the partner managed instances.
+        """
+elif False:
+    PartnerRegionInfoArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PartnerRegionInfoArgs:
@@ -1030,6 +1412,15 @@ class PartnerRegionInfoArgs:
         pulumi.set(self, "location", value)
 
 
+if not MYPY:
+    class PrivateEndpointPropertyArgsDict(TypedDict):
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource id of the private endpoint.
+        """
+elif False:
+    PrivateEndpointPropertyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PrivateEndpointPropertyArgs:
     def __init__(__self__, *,
@@ -1052,6 +1443,19 @@ class PrivateEndpointPropertyArgs:
     def id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class PrivateLinkServiceConnectionStatePropertyArgsDict(TypedDict):
+        description: pulumi.Input[str]
+        """
+        The private link service connection description.
+        """
+        status: pulumi.Input[Union[str, 'PrivateLinkServiceConnectionStateStatus']]
+        """
+        The private link service connection status.
+        """
+elif False:
+    PrivateLinkServiceConnectionStatePropertyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PrivateLinkServiceConnectionStatePropertyArgs:
@@ -1089,6 +1493,22 @@ class PrivateLinkServiceConnectionStatePropertyArgs:
     def status(self, value: pulumi.Input[Union[str, 'PrivateLinkServiceConnectionStateStatus']]):
         pulumi.set(self, "status", value)
 
+
+if not MYPY:
+    class ResourceIdentityArgsDict(TypedDict):
+        """
+        Azure Active Directory identity configuration for a resource.
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'IdentityType']]]
+        """
+        The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
+        """
+        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The resource ids of the user assigned identities to use
+        """
+elif False:
+    ResourceIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ResourceIdentityArgs:
@@ -1129,6 +1549,38 @@ class ResourceIdentityArgs:
     def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
+
+if not MYPY:
+    class ServerExternalAdministratorArgsDict(TypedDict):
+        """
+        Properties of a active directory administrator.
+        """
+        administrator_type: NotRequired[pulumi.Input[Union[str, 'AdministratorType']]]
+        """
+        Type of the sever administrator.
+        """
+        azure_ad_only_authentication: NotRequired[pulumi.Input[bool]]
+        """
+        Azure Active Directory only Authentication enabled.
+        """
+        login: NotRequired[pulumi.Input[str]]
+        """
+        Login name of the server administrator.
+        """
+        principal_type: NotRequired[pulumi.Input[Union[str, 'PrincipalType']]]
+        """
+        Principal Type of the sever administrator.
+        """
+        sid: NotRequired[pulumi.Input[str]]
+        """
+        SID (object ID) of the server administrator.
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        Tenant ID of the administrator.
+        """
+elif False:
+    ServerExternalAdministratorArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ServerExternalAdministratorArgs:
@@ -1234,6 +1686,18 @@ class ServerExternalAdministratorArgs:
         pulumi.set(self, "tenant_id", value)
 
 
+if not MYPY:
+    class ServerInfoArgsDict(TypedDict):
+        """
+        Server info for the server trust group.
+        """
+        server_id: pulumi.Input[str]
+        """
+        Server Id.
+        """
+elif False:
+    ServerInfoArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ServerInfoArgs:
     def __init__(__self__, *,
@@ -1256,6 +1720,18 @@ class ServerInfoArgs:
     def server_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "server_id", value)
 
+
+if not MYPY:
+    class ServicePrincipalArgsDict(TypedDict):
+        """
+        The managed instance's service principal configuration for a resource.
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'ServicePrincipalType']]]
+        """
+        Service principal type.
+        """
+elif False:
+    ServicePrincipalArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ServicePrincipalArgs:
@@ -1280,6 +1756,34 @@ class ServicePrincipalArgs:
     def type(self, value: Optional[pulumi.Input[Union[str, 'ServicePrincipalType']]]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class SkuArgsDict(TypedDict):
+        """
+        An ARM Resource SKU.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the SKU, typically, a letter + Number code, e.g. P3.
+        """
+        capacity: NotRequired[pulumi.Input[int]]
+        """
+        Capacity of the particular SKU.
+        """
+        family: NotRequired[pulumi.Input[str]]
+        """
+        If the service has different generations of hardware, for the same SKU, then that can be captured here.
+        """
+        size: NotRequired[pulumi.Input[str]]
+        """
+        Size of the particular SKU
+        """
+        tier: NotRequired[pulumi.Input[str]]
+        """
+        The tier or edition of the particular SKU, e.g. Basic, Premium.
+        """
+elif False:
+    SkuArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SkuArgs:
@@ -1368,6 +1872,26 @@ class SkuArgs:
         pulumi.set(self, "tier", value)
 
 
+if not MYPY:
+    class SyncGroupSchemaTableColumnArgsDict(TypedDict):
+        """
+        Properties of column in sync group table.
+        """
+        data_size: NotRequired[pulumi.Input[str]]
+        """
+        Data size of the column.
+        """
+        data_type: NotRequired[pulumi.Input[str]]
+        """
+        Data type of the column.
+        """
+        quoted_name: NotRequired[pulumi.Input[str]]
+        """
+        Quoted name of sync group table column.
+        """
+elif False:
+    SyncGroupSchemaTableColumnArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SyncGroupSchemaTableColumnArgs:
     def __init__(__self__, *,
@@ -1424,6 +1948,22 @@ class SyncGroupSchemaTableColumnArgs:
         pulumi.set(self, "quoted_name", value)
 
 
+if not MYPY:
+    class SyncGroupSchemaTableArgsDict(TypedDict):
+        """
+        Properties of table in sync group schema.
+        """
+        columns: NotRequired[pulumi.Input[Sequence[pulumi.Input['SyncGroupSchemaTableColumnArgsDict']]]]
+        """
+        List of columns in sync group schema.
+        """
+        quoted_name: NotRequired[pulumi.Input[str]]
+        """
+        Quoted name of sync group schema table.
+        """
+elif False:
+    SyncGroupSchemaTableArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SyncGroupSchemaTableArgs:
     def __init__(__self__, *,
@@ -1464,6 +2004,22 @@ class SyncGroupSchemaTableArgs:
         pulumi.set(self, "quoted_name", value)
 
 
+if not MYPY:
+    class SyncGroupSchemaArgsDict(TypedDict):
+        """
+        Properties of sync group schema.
+        """
+        master_sync_member_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of master sync member where the schema is from.
+        """
+        tables: NotRequired[pulumi.Input[Sequence[pulumi.Input['SyncGroupSchemaTableArgsDict']]]]
+        """
+        List of tables in sync group schema.
+        """
+elif False:
+    SyncGroupSchemaArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SyncGroupSchemaArgs:
     def __init__(__self__, *,
@@ -1503,6 +2059,26 @@ class SyncGroupSchemaArgs:
     def tables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SyncGroupSchemaTableArgs']]]]):
         pulumi.set(self, "tables", value)
 
+
+if not MYPY:
+    class VulnerabilityAssessmentRecurringScansPropertiesArgsDict(TypedDict):
+        """
+        Properties of a Vulnerability Assessment recurring scans.
+        """
+        email_subscription_admins: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies that the schedule scan notification will be is sent to the subscription administrators.
+        """
+        emails: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies an array of e-mail addresses to which the scan notification is sent.
+        """
+        is_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Recurring scans state.
+        """
+elif False:
+    VulnerabilityAssessmentRecurringScansPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VulnerabilityAssessmentRecurringScansPropertiesArgs:

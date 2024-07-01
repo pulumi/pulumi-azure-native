@@ -4,17 +4,39 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'CreatorPropertiesArgs',
+    'CreatorPropertiesArgsDict',
     'MapsAccountPropertiesArgs',
+    'MapsAccountPropertiesArgsDict',
     'SkuArgs',
+    'SkuArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class CreatorPropertiesArgsDict(TypedDict):
+        """
+        Creator resource properties
+        """
+        storage_units: pulumi.Input[int]
+        """
+        The storage units to be allocated. Integer values from 1 to 100, inclusive.
+        """
+elif False:
+    CreatorPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CreatorPropertiesArgs:
@@ -38,6 +60,18 @@ class CreatorPropertiesArgs:
     def storage_units(self, value: pulumi.Input[int]):
         pulumi.set(self, "storage_units", value)
 
+
+if not MYPY:
+    class MapsAccountPropertiesArgsDict(TypedDict):
+        """
+        Additional Map account properties
+        """
+        disable_local_auth: NotRequired[pulumi.Input[bool]]
+        """
+        Allows toggle functionality on Azure Policy to disable Azure Maps local authentication support. This will disable Shared Keys authentication from any usage.
+        """
+elif False:
+    MapsAccountPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MapsAccountPropertiesArgs:
@@ -64,6 +98,18 @@ class MapsAccountPropertiesArgs:
     def disable_local_auth(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "disable_local_auth", value)
 
+
+if not MYPY:
+    class SkuArgsDict(TypedDict):
+        """
+        The SKU of the Maps Account.
+        """
+        name: pulumi.Input[Union[str, 'Name']]
+        """
+        The name of the SKU, in standard format (such as S0).
+        """
+elif False:
+    SkuArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SkuArgs:

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -118,9 +123,9 @@ class Package(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 all_of: Optional[pulumi.Input[pulumi.InputType['TrackedResourceArgs']]] = None,
+                 all_of: Optional[pulumi.Input[Union['TrackedResourceArgs', 'TrackedResourceArgsDict']]] = None,
                  automation_account_name: Optional[pulumi.Input[str]] = None,
-                 content_link: Optional[pulumi.Input[pulumi.InputType['ContentLinkArgs']]] = None,
+                 content_link: Optional[pulumi.Input[Union['ContentLinkArgs', 'ContentLinkArgsDict']]] = None,
                  package_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  runtime_environment_name: Optional[pulumi.Input[str]] = None,
@@ -130,9 +135,9 @@ class Package(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['TrackedResourceArgs']] all_of: The resource model definition for an Azure Resource Manager tracked top level resource which has 'tags' and a 'location'
+        :param pulumi.Input[Union['TrackedResourceArgs', 'TrackedResourceArgsDict']] all_of: The resource model definition for an Azure Resource Manager tracked top level resource which has 'tags' and a 'location'
         :param pulumi.Input[str] automation_account_name: The name of the automation account.
-        :param pulumi.Input[pulumi.InputType['ContentLinkArgs']] content_link: Gets or sets the package content link.
+        :param pulumi.Input[Union['ContentLinkArgs', 'ContentLinkArgsDict']] content_link: Gets or sets the package content link.
         :param pulumi.Input[str] package_name: The name of Package.
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
         :param pulumi.Input[str] runtime_environment_name: The name of the Runtime Environment.
@@ -161,9 +166,9 @@ class Package(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 all_of: Optional[pulumi.Input[pulumi.InputType['TrackedResourceArgs']]] = None,
+                 all_of: Optional[pulumi.Input[Union['TrackedResourceArgs', 'TrackedResourceArgsDict']]] = None,
                  automation_account_name: Optional[pulumi.Input[str]] = None,
-                 content_link: Optional[pulumi.Input[pulumi.InputType['ContentLinkArgs']]] = None,
+                 content_link: Optional[pulumi.Input[Union['ContentLinkArgs', 'ContentLinkArgsDict']]] = None,
                  package_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  runtime_environment_name: Optional[pulumi.Input[str]] = None,

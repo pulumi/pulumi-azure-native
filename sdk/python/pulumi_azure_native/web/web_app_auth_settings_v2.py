@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -153,13 +158,13 @@ class WebAppAuthSettingsV2(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 global_validation: Optional[pulumi.Input[pulumi.InputType['GlobalValidationArgs']]] = None,
-                 http_settings: Optional[pulumi.Input[pulumi.InputType['HttpSettingsArgs']]] = None,
-                 identity_providers: Optional[pulumi.Input[pulumi.InputType['IdentityProvidersArgs']]] = None,
+                 global_validation: Optional[pulumi.Input[Union['GlobalValidationArgs', 'GlobalValidationArgsDict']]] = None,
+                 http_settings: Optional[pulumi.Input[Union['HttpSettingsArgs', 'HttpSettingsArgsDict']]] = None,
+                 identity_providers: Optional[pulumi.Input[Union['IdentityProvidersArgs', 'IdentityProvidersArgsDict']]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
-                 login: Optional[pulumi.Input[pulumi.InputType['LoginArgs']]] = None,
+                 login: Optional[pulumi.Input[Union['LoginArgs', 'LoginArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 platform: Optional[pulumi.Input[pulumi.InputType['AuthPlatformArgs']]] = None,
+                 platform: Optional[pulumi.Input[Union['AuthPlatformArgs', 'AuthPlatformArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -170,13 +175,13 @@ class WebAppAuthSettingsV2(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['GlobalValidationArgs']] global_validation: The configuration settings that determines the validation flow of users using App Service Authentication/Authorization.
-        :param pulumi.Input[pulumi.InputType['HttpSettingsArgs']] http_settings: The configuration settings of the HTTP requests for authentication and authorization requests made against App Service Authentication/Authorization.
-        :param pulumi.Input[pulumi.InputType['IdentityProvidersArgs']] identity_providers: The configuration settings of each of the identity providers used to configure App Service Authentication/Authorization.
+        :param pulumi.Input[Union['GlobalValidationArgs', 'GlobalValidationArgsDict']] global_validation: The configuration settings that determines the validation flow of users using App Service Authentication/Authorization.
+        :param pulumi.Input[Union['HttpSettingsArgs', 'HttpSettingsArgsDict']] http_settings: The configuration settings of the HTTP requests for authentication and authorization requests made against App Service Authentication/Authorization.
+        :param pulumi.Input[Union['IdentityProvidersArgs', 'IdentityProvidersArgsDict']] identity_providers: The configuration settings of each of the identity providers used to configure App Service Authentication/Authorization.
         :param pulumi.Input[str] kind: Kind of resource.
-        :param pulumi.Input[pulumi.InputType['LoginArgs']] login: The configuration settings of the login flow of users using App Service Authentication/Authorization.
+        :param pulumi.Input[Union['LoginArgs', 'LoginArgsDict']] login: The configuration settings of the login flow of users using App Service Authentication/Authorization.
         :param pulumi.Input[str] name: Name of web app.
-        :param pulumi.Input[pulumi.InputType['AuthPlatformArgs']] platform: The configuration settings of the platform of App Service Authentication/Authorization.
+        :param pulumi.Input[Union['AuthPlatformArgs', 'AuthPlatformArgsDict']] platform: The configuration settings of the platform of App Service Authentication/Authorization.
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
         """
         ...
@@ -206,13 +211,13 @@ class WebAppAuthSettingsV2(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 global_validation: Optional[pulumi.Input[pulumi.InputType['GlobalValidationArgs']]] = None,
-                 http_settings: Optional[pulumi.Input[pulumi.InputType['HttpSettingsArgs']]] = None,
-                 identity_providers: Optional[pulumi.Input[pulumi.InputType['IdentityProvidersArgs']]] = None,
+                 global_validation: Optional[pulumi.Input[Union['GlobalValidationArgs', 'GlobalValidationArgsDict']]] = None,
+                 http_settings: Optional[pulumi.Input[Union['HttpSettingsArgs', 'HttpSettingsArgsDict']]] = None,
+                 identity_providers: Optional[pulumi.Input[Union['IdentityProvidersArgs', 'IdentityProvidersArgsDict']]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
-                 login: Optional[pulumi.Input[pulumi.InputType['LoginArgs']]] = None,
+                 login: Optional[pulumi.Input[Union['LoginArgs', 'LoginArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 platform: Optional[pulumi.Input[pulumi.InputType['AuthPlatformArgs']]] = None,
+                 platform: Optional[pulumi.Input[Union['AuthPlatformArgs', 'AuthPlatformArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

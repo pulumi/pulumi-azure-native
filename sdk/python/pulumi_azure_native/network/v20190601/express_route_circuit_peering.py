@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -397,12 +402,12 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  azure_asn: Optional[pulumi.Input[int]] = None,
                  circuit_name: Optional[pulumi.Input[str]] = None,
-                 connections: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExpressRouteCircuitConnectionArgs']]]]] = None,
+                 connections: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ExpressRouteCircuitConnectionArgs', 'ExpressRouteCircuitConnectionArgsDict']]]]] = None,
                  gateway_manager_etag: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
-                 ipv6_peering_config: Optional[pulumi.Input[pulumi.InputType['Ipv6ExpressRouteCircuitPeeringConfigArgs']]] = None,
+                 ipv6_peering_config: Optional[pulumi.Input[Union['Ipv6ExpressRouteCircuitPeeringConfigArgs', 'Ipv6ExpressRouteCircuitPeeringConfigArgsDict']]] = None,
                  last_modified_by: Optional[pulumi.Input[str]] = None,
-                 microsoft_peering_config: Optional[pulumi.Input[pulumi.InputType['ExpressRouteCircuitPeeringConfigArgs']]] = None,
+                 microsoft_peering_config: Optional[pulumi.Input[Union['ExpressRouteCircuitPeeringConfigArgs', 'ExpressRouteCircuitPeeringConfigArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  peer_asn: Optional[pulumi.Input[float]] = None,
                  peering_name: Optional[pulumi.Input[str]] = None,
@@ -411,12 +416,12 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
                  primary_peer_address_prefix: Optional[pulumi.Input[str]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 route_filter: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
+                 route_filter: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
                  secondary_azure_port: Optional[pulumi.Input[str]] = None,
                  secondary_peer_address_prefix: Optional[pulumi.Input[str]] = None,
                  shared_key: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input[Union[str, 'ExpressRoutePeeringState']]] = None,
-                 stats: Optional[pulumi.Input[pulumi.InputType['ExpressRouteCircuitStatsArgs']]] = None,
+                 stats: Optional[pulumi.Input[Union['ExpressRouteCircuitStatsArgs', 'ExpressRouteCircuitStatsArgsDict']]] = None,
                  vlan_id: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         """
@@ -426,13 +431,13 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] azure_asn: The Azure ASN.
         :param pulumi.Input[str] circuit_name: The name of the express route circuit.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExpressRouteCircuitConnectionArgs']]]] connections: The list of circuit connections associated with Azure Private Peering for this circuit.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ExpressRouteCircuitConnectionArgs', 'ExpressRouteCircuitConnectionArgsDict']]]] connections: The list of circuit connections associated with Azure Private Peering for this circuit.
                These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
         :param pulumi.Input[str] gateway_manager_etag: The GatewayManager Etag.
         :param pulumi.Input[str] id: Resource ID.
-        :param pulumi.Input[pulumi.InputType['Ipv6ExpressRouteCircuitPeeringConfigArgs']] ipv6_peering_config: The IPv6 peering configuration.
+        :param pulumi.Input[Union['Ipv6ExpressRouteCircuitPeeringConfigArgs', 'Ipv6ExpressRouteCircuitPeeringConfigArgsDict']] ipv6_peering_config: The IPv6 peering configuration.
         :param pulumi.Input[str] last_modified_by: Gets whether the provider or the customer last modified the peering.
-        :param pulumi.Input[pulumi.InputType['ExpressRouteCircuitPeeringConfigArgs']] microsoft_peering_config: The Microsoft peering configuration.
+        :param pulumi.Input[Union['ExpressRouteCircuitPeeringConfigArgs', 'ExpressRouteCircuitPeeringConfigArgsDict']] microsoft_peering_config: The Microsoft peering configuration.
         :param pulumi.Input[str] name: Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param pulumi.Input[float] peer_asn: The peer ASN.
         :param pulumi.Input[str] peering_name: The name of the peering.
@@ -441,12 +446,12 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
         :param pulumi.Input[str] primary_peer_address_prefix: The primary address prefix.
         :param pulumi.Input[str] provisioning_state: Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[pulumi.InputType['SubResourceArgs']] route_filter: The reference of the RouteFilter resource.
+        :param pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']] route_filter: The reference of the RouteFilter resource.
         :param pulumi.Input[str] secondary_azure_port: The secondary port.
         :param pulumi.Input[str] secondary_peer_address_prefix: The secondary address prefix.
         :param pulumi.Input[str] shared_key: The shared key.
         :param pulumi.Input[Union[str, 'ExpressRoutePeeringState']] state: The peering state.
-        :param pulumi.Input[pulumi.InputType['ExpressRouteCircuitStatsArgs']] stats: Gets peering stats.
+        :param pulumi.Input[Union['ExpressRouteCircuitStatsArgs', 'ExpressRouteCircuitStatsArgsDict']] stats: Gets peering stats.
         :param pulumi.Input[int] vlan_id: The VLAN ID.
         """
         ...
@@ -475,12 +480,12 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  azure_asn: Optional[pulumi.Input[int]] = None,
                  circuit_name: Optional[pulumi.Input[str]] = None,
-                 connections: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExpressRouteCircuitConnectionArgs']]]]] = None,
+                 connections: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ExpressRouteCircuitConnectionArgs', 'ExpressRouteCircuitConnectionArgsDict']]]]] = None,
                  gateway_manager_etag: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
-                 ipv6_peering_config: Optional[pulumi.Input[pulumi.InputType['Ipv6ExpressRouteCircuitPeeringConfigArgs']]] = None,
+                 ipv6_peering_config: Optional[pulumi.Input[Union['Ipv6ExpressRouteCircuitPeeringConfigArgs', 'Ipv6ExpressRouteCircuitPeeringConfigArgsDict']]] = None,
                  last_modified_by: Optional[pulumi.Input[str]] = None,
-                 microsoft_peering_config: Optional[pulumi.Input[pulumi.InputType['ExpressRouteCircuitPeeringConfigArgs']]] = None,
+                 microsoft_peering_config: Optional[pulumi.Input[Union['ExpressRouteCircuitPeeringConfigArgs', 'ExpressRouteCircuitPeeringConfigArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  peer_asn: Optional[pulumi.Input[float]] = None,
                  peering_name: Optional[pulumi.Input[str]] = None,
@@ -489,12 +494,12 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
                  primary_peer_address_prefix: Optional[pulumi.Input[str]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 route_filter: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
+                 route_filter: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
                  secondary_azure_port: Optional[pulumi.Input[str]] = None,
                  secondary_peer_address_prefix: Optional[pulumi.Input[str]] = None,
                  shared_key: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input[Union[str, 'ExpressRoutePeeringState']]] = None,
-                 stats: Optional[pulumi.Input[pulumi.InputType['ExpressRouteCircuitStatsArgs']]] = None,
+                 stats: Optional[pulumi.Input[Union['ExpressRouteCircuitStatsArgs', 'ExpressRouteCircuitStatsArgsDict']]] = None,
                  vlan_id: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

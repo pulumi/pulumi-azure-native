@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -89,7 +94,7 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['SharedPrivateLinkResourcePropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['SharedPrivateLinkResourcePropertiesArgs', 'SharedPrivateLinkResourcePropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  search_service_name: Optional[pulumi.Input[str]] = None,
                  shared_private_link_resource_name: Optional[pulumi.Input[str]] = None,
@@ -99,7 +104,7 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['SharedPrivateLinkResourcePropertiesArgs']] properties: Describes the properties of a Shared Private Link Resource managed by the search service.
+        :param pulumi.Input[Union['SharedPrivateLinkResourcePropertiesArgs', 'SharedPrivateLinkResourcePropertiesArgsDict']] properties: Describes the properties of a Shared Private Link Resource managed by the search service.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] search_service_name: The name of the search service associated with the specified resource group.
         :param pulumi.Input[str] shared_private_link_resource_name: The name of the shared private link resource managed by the search service within the specified resource group.
@@ -128,7 +133,7 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['SharedPrivateLinkResourcePropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['SharedPrivateLinkResourcePropertiesArgs', 'SharedPrivateLinkResourcePropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  search_service_name: Optional[pulumi.Input[str]] = None,
                  shared_private_link_resource_name: Optional[pulumi.Input[str]] = None,

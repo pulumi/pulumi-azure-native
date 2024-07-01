@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -153,11 +158,11 @@ class IotDpsResource(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['IotDpsPropertiesDescriptionArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['IotDpsPropertiesDescriptionArgs', 'IotDpsPropertiesDescriptionArgsDict']]] = None,
                  provisioning_service_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resourcegroup: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['IotDpsSkuInfoArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['IotDpsSkuInfoArgs', 'IotDpsSkuInfoArgsDict']]] = None,
                  subscriptionid: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -167,11 +172,11 @@ class IotDpsResource(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The resource location.
-        :param pulumi.Input[pulumi.InputType['IotDpsPropertiesDescriptionArgs']] properties: Service specific properties for a provisioning service
+        :param pulumi.Input[Union['IotDpsPropertiesDescriptionArgs', 'IotDpsPropertiesDescriptionArgsDict']] properties: Service specific properties for a provisioning service
         :param pulumi.Input[str] provisioning_service_name: Name of provisioning service to create or update.
         :param pulumi.Input[str] resource_group_name: Resource group identifier.
         :param pulumi.Input[str] resourcegroup: The resource group of the resource.
-        :param pulumi.Input[pulumi.InputType['IotDpsSkuInfoArgs']] sku: Sku info for a provisioning Service.
+        :param pulumi.Input[Union['IotDpsSkuInfoArgs', 'IotDpsSkuInfoArgsDict']] sku: Sku info for a provisioning Service.
         :param pulumi.Input[str] subscriptionid: The subscription id of the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
         """
@@ -200,11 +205,11 @@ class IotDpsResource(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['IotDpsPropertiesDescriptionArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['IotDpsPropertiesDescriptionArgs', 'IotDpsPropertiesDescriptionArgsDict']]] = None,
                  provisioning_service_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resourcegroup: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['IotDpsSkuInfoArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['IotDpsSkuInfoArgs', 'IotDpsSkuInfoArgsDict']]] = None,
                  subscriptionid: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):

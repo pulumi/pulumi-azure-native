@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -105,7 +110,7 @@ class CustomDomain(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_name: Optional[pulumi.Input[str]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['CustomDomainPropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['CustomDomainPropertiesArgs', 'CustomDomainPropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -119,7 +124,7 @@ class CustomDomain(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_name: The name of the App resource.
         :param pulumi.Input[str] domain_name: The name of the custom domain resource.
-        :param pulumi.Input[pulumi.InputType['CustomDomainPropertiesArgs']] properties: Properties of the custom domain resource.
+        :param pulumi.Input[Union['CustomDomainPropertiesArgs', 'CustomDomainPropertiesArgsDict']] properties: Properties of the custom domain resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] service_name: The name of the Service resource.
         """
@@ -152,7 +157,7 @@ class CustomDomain(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_name: Optional[pulumi.Input[str]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['CustomDomainPropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['CustomDomainPropertiesArgs', 'CustomDomainPropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):

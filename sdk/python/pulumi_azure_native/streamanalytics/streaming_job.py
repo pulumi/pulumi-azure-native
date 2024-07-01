@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -378,28 +383,28 @@ class StreamingJob(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster: Optional[pulumi.Input[pulumi.InputType['ClusterInfoArgs']]] = None,
+                 cluster: Optional[pulumi.Input[Union['ClusterInfoArgs', 'ClusterInfoArgsDict']]] = None,
                  compatibility_level: Optional[pulumi.Input[Union[str, 'CompatibilityLevel']]] = None,
                  content_storage_policy: Optional[pulumi.Input[Union[str, 'ContentStoragePolicy']]] = None,
                  data_locale: Optional[pulumi.Input[str]] = None,
                  events_late_arrival_max_delay_in_seconds: Optional[pulumi.Input[int]] = None,
                  events_out_of_order_max_delay_in_seconds: Optional[pulumi.Input[int]] = None,
                  events_out_of_order_policy: Optional[pulumi.Input[Union[str, 'EventsOutOfOrderPolicy']]] = None,
-                 functions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionArgs']]]]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
-                 inputs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InputArgs']]]]] = None,
+                 functions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FunctionArgs', 'FunctionArgsDict']]]]] = None,
+                 identity: Optional[pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']]] = None,
+                 inputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InputArgs', 'InputArgsDict']]]]] = None,
                  job_name: Optional[pulumi.Input[str]] = None,
-                 job_storage_account: Optional[pulumi.Input[pulumi.InputType['JobStorageAccountArgs']]] = None,
+                 job_storage_account: Optional[pulumi.Input[Union['JobStorageAccountArgs', 'JobStorageAccountArgsDict']]] = None,
                  job_type: Optional[pulumi.Input[Union[str, 'JobType']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  output_error_policy: Optional[pulumi.Input[Union[str, 'OutputErrorPolicy']]] = None,
                  output_start_mode: Optional[pulumi.Input[Union[str, 'OutputStartMode']]] = None,
                  output_start_time: Optional[pulumi.Input[str]] = None,
-                 outputs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OutputArgs']]]]] = None,
+                 outputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OutputArgs', 'OutputArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 transformation: Optional[pulumi.Input[pulumi.InputType['TransformationArgs']]] = None,
+                 transformation: Optional[pulumi.Input[Union['TransformationArgs', 'TransformationArgsDict']]] = None,
                  __props__=None):
         """
         A streaming job object, containing all information associated with the named streaming job.
@@ -409,28 +414,28 @@ class StreamingJob(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ClusterInfoArgs']] cluster: The cluster which streaming jobs will run on.
+        :param pulumi.Input[Union['ClusterInfoArgs', 'ClusterInfoArgsDict']] cluster: The cluster which streaming jobs will run on.
         :param pulumi.Input[Union[str, 'CompatibilityLevel']] compatibility_level: Controls certain runtime behaviors of the streaming job.
         :param pulumi.Input[Union[str, 'ContentStoragePolicy']] content_storage_policy: Valid values are JobStorageAccount and SystemAccount. If set to JobStorageAccount, this requires the user to also specify jobStorageAccount property. .
         :param pulumi.Input[str] data_locale: The data locale of the stream analytics job. Value should be the name of a supported .NET Culture from the set https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx. Defaults to 'en-US' if none specified.
         :param pulumi.Input[int] events_late_arrival_max_delay_in_seconds: The maximum tolerable delay in seconds where events arriving late could be included.  Supported range is -1 to 1814399 (20.23:59:59 days) and -1 is used to specify wait indefinitely. If the property is absent, it is interpreted to have a value of -1.
         :param pulumi.Input[int] events_out_of_order_max_delay_in_seconds: The maximum tolerable delay in seconds where out-of-order events can be adjusted to be back in order.
         :param pulumi.Input[Union[str, 'EventsOutOfOrderPolicy']] events_out_of_order_policy: Indicates the policy to apply to events that arrive out of order in the input event stream.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionArgs']]]] functions: A list of one or more functions for the streaming job. The name property for each function is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual transformation.
-        :param pulumi.Input[pulumi.InputType['IdentityArgs']] identity: Describes the system-assigned managed identity assigned to this job that can be used to authenticate with inputs and outputs.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InputArgs']]]] inputs: A list of one or more inputs to the streaming job. The name property for each input is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual input.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FunctionArgs', 'FunctionArgsDict']]]] functions: A list of one or more functions for the streaming job. The name property for each function is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual transformation.
+        :param pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']] identity: Describes the system-assigned managed identity assigned to this job that can be used to authenticate with inputs and outputs.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['InputArgs', 'InputArgsDict']]]] inputs: A list of one or more inputs to the streaming job. The name property for each input is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual input.
         :param pulumi.Input[str] job_name: The name of the streaming job.
-        :param pulumi.Input[pulumi.InputType['JobStorageAccountArgs']] job_storage_account: The properties that are associated with an Azure Storage account with MSI
+        :param pulumi.Input[Union['JobStorageAccountArgs', 'JobStorageAccountArgsDict']] job_storage_account: The properties that are associated with an Azure Storage account with MSI
         :param pulumi.Input[Union[str, 'JobType']] job_type: Describes the type of the job. Valid modes are `Cloud` and 'Edge'.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Union[str, 'OutputErrorPolicy']] output_error_policy: Indicates the policy to apply to events that arrive at the output and cannot be written to the external storage due to being malformed (missing column values, column values of wrong type or size).
         :param pulumi.Input[Union[str, 'OutputStartMode']] output_start_mode: This property should only be utilized when it is desired that the job be started immediately upon creation. Value may be JobStartTime, CustomTime, or LastOutputEventTime to indicate whether the starting point of the output event stream should start whenever the job is started, start at a custom user time stamp specified via the outputStartTime property, or start from the last event output time.
         :param pulumi.Input[str] output_start_time: Value is either an ISO-8601 formatted time stamp that indicates the starting point of the output event stream, or null to indicate that the output event stream will start whenever the streaming job is started. This property must have a value if outputStartMode is set to CustomTime.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OutputArgs']]]] outputs: A list of one or more outputs for the streaming job. The name property for each output is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual output.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['OutputArgs', 'OutputArgsDict']]]] outputs: A list of one or more outputs for the streaming job. The name property for each output is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual output.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: Describes the SKU of the streaming job. Required on PUT (CreateOrReplace) requests.
+        :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: Describes the SKU of the streaming job. Required on PUT (CreateOrReplace) requests.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[pulumi.InputType['TransformationArgs']] transformation: Indicates the query and the number of streaming units to use for the streaming job. The name property of the transformation is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual transformation.
+        :param pulumi.Input[Union['TransformationArgs', 'TransformationArgsDict']] transformation: Indicates the query and the number of streaming units to use for the streaming job. The name property of the transformation is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual transformation.
         """
         ...
     @overload
@@ -459,28 +464,28 @@ class StreamingJob(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster: Optional[pulumi.Input[pulumi.InputType['ClusterInfoArgs']]] = None,
+                 cluster: Optional[pulumi.Input[Union['ClusterInfoArgs', 'ClusterInfoArgsDict']]] = None,
                  compatibility_level: Optional[pulumi.Input[Union[str, 'CompatibilityLevel']]] = None,
                  content_storage_policy: Optional[pulumi.Input[Union[str, 'ContentStoragePolicy']]] = None,
                  data_locale: Optional[pulumi.Input[str]] = None,
                  events_late_arrival_max_delay_in_seconds: Optional[pulumi.Input[int]] = None,
                  events_out_of_order_max_delay_in_seconds: Optional[pulumi.Input[int]] = None,
                  events_out_of_order_policy: Optional[pulumi.Input[Union[str, 'EventsOutOfOrderPolicy']]] = None,
-                 functions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionArgs']]]]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
-                 inputs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InputArgs']]]]] = None,
+                 functions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FunctionArgs', 'FunctionArgsDict']]]]] = None,
+                 identity: Optional[pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']]] = None,
+                 inputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InputArgs', 'InputArgsDict']]]]] = None,
                  job_name: Optional[pulumi.Input[str]] = None,
-                 job_storage_account: Optional[pulumi.Input[pulumi.InputType['JobStorageAccountArgs']]] = None,
+                 job_storage_account: Optional[pulumi.Input[Union['JobStorageAccountArgs', 'JobStorageAccountArgsDict']]] = None,
                  job_type: Optional[pulumi.Input[Union[str, 'JobType']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  output_error_policy: Optional[pulumi.Input[Union[str, 'OutputErrorPolicy']]] = None,
                  output_start_mode: Optional[pulumi.Input[Union[str, 'OutputStartMode']]] = None,
                  output_start_time: Optional[pulumi.Input[str]] = None,
-                 outputs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OutputArgs']]]]] = None,
+                 outputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OutputArgs', 'OutputArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 transformation: Optional[pulumi.Input[pulumi.InputType['TransformationArgs']]] = None,
+                 transformation: Optional[pulumi.Input[Union['TransformationArgs', 'TransformationArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

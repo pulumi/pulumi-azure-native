@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -177,7 +182,7 @@ class Endpoint(pulumi.CustomResource):
                  last_modified_at: Optional[pulumi.Input[str]] = None,
                  last_modified_by: Optional[pulumi.Input[str]] = None,
                  last_modified_by_type: Optional[pulumi.Input[Union[str, 'CreatedByType']]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['EndpointPropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['EndpointPropertiesArgs', 'EndpointPropertiesArgsDict']]] = None,
                  resource_uri: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -195,7 +200,7 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[str] last_modified_at: The timestamp of resource last modification (UTC)
         :param pulumi.Input[str] last_modified_by: The identity that last modified the resource.
         :param pulumi.Input[Union[str, 'CreatedByType']] last_modified_by_type: The type of identity that last modified the resource.
-        :param pulumi.Input[pulumi.InputType['EndpointPropertiesArgs']] properties: The endpoint properties.
+        :param pulumi.Input[Union['EndpointPropertiesArgs', 'EndpointPropertiesArgsDict']] properties: The endpoint properties.
         :param pulumi.Input[str] resource_uri: The fully qualified Azure Resource manager identifier of the resource to be connected.
         """
         ...
@@ -232,7 +237,7 @@ class Endpoint(pulumi.CustomResource):
                  last_modified_at: Optional[pulumi.Input[str]] = None,
                  last_modified_by: Optional[pulumi.Input[str]] = None,
                  last_modified_by_type: Optional[pulumi.Input[Union[str, 'CreatedByType']]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['EndpointPropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['EndpointPropertiesArgs', 'EndpointPropertiesArgsDict']]] = None,
                  resource_uri: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

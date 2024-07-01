@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -122,11 +127,11 @@ class FileServiceProperties(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
-                 cors: Optional[pulumi.Input[pulumi.InputType['CorsRulesArgs']]] = None,
+                 cors: Optional[pulumi.Input[Union['CorsRulesArgs', 'CorsRulesArgsDict']]] = None,
                  file_services_name: Optional[pulumi.Input[str]] = None,
-                 protocol_settings: Optional[pulumi.Input[pulumi.InputType['ProtocolSettingsArgs']]] = None,
+                 protocol_settings: Optional[pulumi.Input[Union['ProtocolSettingsArgs', 'ProtocolSettingsArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 share_delete_retention_policy: Optional[pulumi.Input[pulumi.InputType['DeleteRetentionPolicyArgs']]] = None,
+                 share_delete_retention_policy: Optional[pulumi.Input[Union['DeleteRetentionPolicyArgs', 'DeleteRetentionPolicyArgsDict']]] = None,
                  __props__=None):
         """
         The properties of File services in storage account.
@@ -134,11 +139,11 @@ class FileServiceProperties(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
-        :param pulumi.Input[pulumi.InputType['CorsRulesArgs']] cors: Specifies CORS rules for the File service. You can include up to five CorsRule elements in the request. If no CorsRule elements are included in the request body, all CORS rules will be deleted, and CORS will be disabled for the File service.
+        :param pulumi.Input[Union['CorsRulesArgs', 'CorsRulesArgsDict']] cors: Specifies CORS rules for the File service. You can include up to five CorsRule elements in the request. If no CorsRule elements are included in the request body, all CORS rules will be deleted, and CORS will be disabled for the File service.
         :param pulumi.Input[str] file_services_name: The name of the file Service within the specified storage account. File Service Name must be "default"
-        :param pulumi.Input[pulumi.InputType['ProtocolSettingsArgs']] protocol_settings: Protocol settings for file service
+        :param pulumi.Input[Union['ProtocolSettingsArgs', 'ProtocolSettingsArgsDict']] protocol_settings: Protocol settings for file service
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
-        :param pulumi.Input[pulumi.InputType['DeleteRetentionPolicyArgs']] share_delete_retention_policy: The file service properties for share soft delete.
+        :param pulumi.Input[Union['DeleteRetentionPolicyArgs', 'DeleteRetentionPolicyArgsDict']] share_delete_retention_policy: The file service properties for share soft delete.
         """
         ...
     @overload
@@ -165,11 +170,11 @@ class FileServiceProperties(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
-                 cors: Optional[pulumi.Input[pulumi.InputType['CorsRulesArgs']]] = None,
+                 cors: Optional[pulumi.Input[Union['CorsRulesArgs', 'CorsRulesArgsDict']]] = None,
                  file_services_name: Optional[pulumi.Input[str]] = None,
-                 protocol_settings: Optional[pulumi.Input[pulumi.InputType['ProtocolSettingsArgs']]] = None,
+                 protocol_settings: Optional[pulumi.Input[Union['ProtocolSettingsArgs', 'ProtocolSettingsArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 share_delete_retention_policy: Optional[pulumi.Input[pulumi.InputType['DeleteRetentionPolicyArgs']]] = None,
+                 share_delete_retention_policy: Optional[pulumi.Input[Union['DeleteRetentionPolicyArgs', 'DeleteRetentionPolicyArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

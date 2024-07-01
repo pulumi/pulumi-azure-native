@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -121,7 +126,7 @@ class ACSSBackupConnection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 backup_data: Optional[pulumi.Input[Union[pulumi.InputType['HanaBackupDataArgs'], pulumi.InputType['SqlBackupDataArgs'], pulumi.InputType['VMBackupDataArgs']]]] = None,
+                 backup_data: Optional[pulumi.Input[Union[Union['HanaBackupDataArgs', 'HanaBackupDataArgsDict'], Union['SqlBackupDataArgs', 'SqlBackupDataArgsDict'], Union['VMBackupDataArgs', 'VMBackupDataArgsDict']]]] = None,
                  backup_name: Optional[pulumi.Input[str]] = None,
                  connector_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -134,7 +139,7 @@ class ACSSBackupConnection(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union[pulumi.InputType['HanaBackupDataArgs'], pulumi.InputType['SqlBackupDataArgs'], pulumi.InputType['VMBackupDataArgs']]] backup_data: Information about the recovery services vault and backup policy used for backup.
+        :param pulumi.Input[Union[Union['HanaBackupDataArgs', 'HanaBackupDataArgsDict'], Union['SqlBackupDataArgs', 'SqlBackupDataArgsDict'], Union['VMBackupDataArgs', 'VMBackupDataArgsDict']]] backup_data: Information about the recovery services vault and backup policy used for backup.
         :param pulumi.Input[str] backup_name: The name of the backup connection resource of virtual instance for SAP.
         :param pulumi.Input[str] connector_name: The name of the connector resource
         :param pulumi.Input[str] location: The geo-location where the resource lives
@@ -166,7 +171,7 @@ class ACSSBackupConnection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 backup_data: Optional[pulumi.Input[Union[pulumi.InputType['HanaBackupDataArgs'], pulumi.InputType['SqlBackupDataArgs'], pulumi.InputType['VMBackupDataArgs']]]] = None,
+                 backup_data: Optional[pulumi.Input[Union[Union['HanaBackupDataArgs', 'HanaBackupDataArgsDict'], Union['SqlBackupDataArgs', 'SqlBackupDataArgsDict'], Union['VMBackupDataArgs', 'VMBackupDataArgsDict']]]] = None,
                  backup_name: Optional[pulumi.Input[str]] = None,
                  connector_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,

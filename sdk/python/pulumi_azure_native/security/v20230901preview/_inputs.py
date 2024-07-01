@@ -4,16 +4,39 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'AuthorizationArgs',
+    'AuthorizationArgsDict',
     'DevOpsConfigurationPropertiesArgs',
+    'DevOpsConfigurationPropertiesArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AuthorizationArgsDict(TypedDict):
+        """
+        Authorization payload.
+        """
+        code: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets one-time OAuth code to exchange for refresh and access tokens.
+        
+        Only used during PUT/PATCH operations. The secret is cleared during GET.
+        """
+elif False:
+    AuthorizationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AuthorizationArgs:
@@ -42,6 +65,39 @@ class AuthorizationArgs:
     def code(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "code", value)
 
+
+if not MYPY:
+    class DevOpsConfigurationPropertiesArgsDict(TypedDict):
+        """
+        DevOps Configuration properties.
+        """
+        authorization: NotRequired[pulumi.Input['AuthorizationArgsDict']]
+        """
+        Authorization payload.
+        """
+        auto_discovery: NotRequired[pulumi.Input[Union[str, 'AutoDiscovery']]]
+        """
+        AutoDiscovery states.
+        """
+        provisioning_state: NotRequired[pulumi.Input[Union[str, 'DevOpsProvisioningState']]]
+        """
+        The provisioning state of the resource.
+        
+        Pending - Provisioning pending.
+        Failed - Provisioning failed.
+        Succeeded - Successful provisioning.
+        Canceled - Provisioning canceled.
+        PendingDeletion - Deletion pending.
+        DeletionSuccess - Deletion successful.
+        DeletionFailure - Deletion failure.
+        """
+        top_level_inventory_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of top-level inventory to select when AutoDiscovery is disabled.
+        This field is ignored when AutoDiscovery is enabled.
+        """
+elif False:
+    DevOpsConfigurationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DevOpsConfigurationPropertiesArgs:

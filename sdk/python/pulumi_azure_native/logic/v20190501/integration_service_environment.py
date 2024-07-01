@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -138,12 +143,12 @@ class IntegrationServiceEnvironment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  integration_service_environment_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['IntegrationServiceEnvironmentPropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['IntegrationServiceEnvironmentPropertiesArgs', 'IntegrationServiceEnvironmentPropertiesArgsDict']]] = None,
                  resource_group: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['IntegrationServiceEnvironmentSkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['IntegrationServiceEnvironmentSkuArgs', 'IntegrationServiceEnvironmentSkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -151,12 +156,12 @@ class IntegrationServiceEnvironment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']] identity: Managed service identity properties.
+        :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: Managed service identity properties.
         :param pulumi.Input[str] integration_service_environment_name: The integration service environment name.
         :param pulumi.Input[str] location: The resource location.
-        :param pulumi.Input[pulumi.InputType['IntegrationServiceEnvironmentPropertiesArgs']] properties: The integration service environment properties.
+        :param pulumi.Input[Union['IntegrationServiceEnvironmentPropertiesArgs', 'IntegrationServiceEnvironmentPropertiesArgsDict']] properties: The integration service environment properties.
         :param pulumi.Input[str] resource_group: The resource group.
-        :param pulumi.Input[pulumi.InputType['IntegrationServiceEnvironmentSkuArgs']] sku: The sku.
+        :param pulumi.Input[Union['IntegrationServiceEnvironmentSkuArgs', 'IntegrationServiceEnvironmentSkuArgsDict']] sku: The sku.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
         """
         ...
@@ -183,12 +188,12 @@ class IntegrationServiceEnvironment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  integration_service_environment_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['IntegrationServiceEnvironmentPropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['IntegrationServiceEnvironmentPropertiesArgs', 'IntegrationServiceEnvironmentPropertiesArgsDict']]] = None,
                  resource_group: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['IntegrationServiceEnvironmentSkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['IntegrationServiceEnvironmentSkuArgs', 'IntegrationServiceEnvironmentSkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

@@ -4,19 +4,51 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'AccountEncryptionArgs',
+    'AccountEncryptionArgsDict',
     'KeyVaultPropertiesArgs',
+    'KeyVaultPropertiesArgsDict',
     'ResourceIdentityArgs',
+    'ResourceIdentityArgsDict',
     'StorageAccountArgs',
+    'StorageAccountArgsDict',
     'VideoAnalyzerIdentityArgs',
+    'VideoAnalyzerIdentityArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AccountEncryptionArgsDict(TypedDict):
+        """
+        Defines how the Video Analyzer account is (optionally) encrypted.
+        """
+        type: pulumi.Input[Union[str, 'AccountEncryptionKeyType']]
+        """
+        The type of key used to encrypt the Account Key.
+        """
+        identity: NotRequired[pulumi.Input['ResourceIdentityArgsDict']]
+        """
+        The Key Vault identity.
+        """
+        key_vault_properties: NotRequired[pulumi.Input['KeyVaultPropertiesArgsDict']]
+        """
+        The properties of the key used to encrypt the account.
+        """
+elif False:
+    AccountEncryptionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AccountEncryptionArgs:
@@ -73,6 +105,18 @@ class AccountEncryptionArgs:
         pulumi.set(self, "key_vault_properties", value)
 
 
+if not MYPY:
+    class KeyVaultPropertiesArgsDict(TypedDict):
+        """
+        The details for accessing the encryption keys in Key Vault.
+        """
+        key_identifier: pulumi.Input[str]
+        """
+        The URL of the Key Vault key used to encrypt the account. The key may either be versioned (for example https://vault/keys/mykey/version1) or reference a key without a version (for example https://vault/keys/mykey).
+        """
+elif False:
+    KeyVaultPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class KeyVaultPropertiesArgs:
     def __init__(__self__, *,
@@ -96,6 +140,18 @@ class KeyVaultPropertiesArgs:
         pulumi.set(self, "key_identifier", value)
 
 
+if not MYPY:
+    class ResourceIdentityArgsDict(TypedDict):
+        """
+        The user assigned managed identity to use when accessing a resource.
+        """
+        user_assigned_identity: pulumi.Input[str]
+        """
+        The user assigned managed identity's resource identifier to use when accessing a resource.
+        """
+elif False:
+    ResourceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ResourceIdentityArgs:
     def __init__(__self__, *,
@@ -118,6 +174,22 @@ class ResourceIdentityArgs:
     def user_assigned_identity(self, value: pulumi.Input[str]):
         pulumi.set(self, "user_assigned_identity", value)
 
+
+if not MYPY:
+    class StorageAccountArgsDict(TypedDict):
+        """
+        The details about the associated storage account.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the storage account resource. Video Analyzer relies on tables, queues, and blobs. The primary storage account must be a Standard Storage account (either Microsoft.ClassicStorage or Microsoft.Storage).
+        """
+        identity: NotRequired[pulumi.Input['ResourceIdentityArgsDict']]
+        """
+        A managed identity that Video Analyzer will use to access the storage account.
+        """
+elif False:
+    StorageAccountArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class StorageAccountArgs:
@@ -158,6 +230,22 @@ class StorageAccountArgs:
     def identity(self, value: Optional[pulumi.Input['ResourceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
+
+if not MYPY:
+    class VideoAnalyzerIdentityArgsDict(TypedDict):
+        """
+        The managed identity for the Video Analyzer resource.
+        """
+        type: pulumi.Input[str]
+        """
+        The identity type.
+        """
+        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The User Assigned Managed Identities.
+        """
+elif False:
+    VideoAnalyzerIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VideoAnalyzerIdentityArgs:

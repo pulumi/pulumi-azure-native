@@ -4,16 +4,69 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'IdentityConfigurationPropertiesArgs',
+    'IdentityConfigurationPropertiesArgsDict',
     'SkuArgs',
+    'SkuArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class IdentityConfigurationPropertiesArgsDict(TypedDict):
+        """
+        Details of the Community CommunityTraining Identity Configuration
+        """
+        client_id: pulumi.Input[str]
+        """
+        The clientId of the application registered in the selected identity provider for the Community Training Resource
+        """
+        client_secret: pulumi.Input[str]
+        """
+        The client secret of the application registered in the selected identity provider for the Community Training Resource
+        """
+        domain_name: pulumi.Input[str]
+        """
+        The domain name of the selected identity provider for the Community Training Resource
+        """
+        identity_type: pulumi.Input[str]
+        """
+        The identity type of the Community Training Resource
+        """
+        tenant_id: pulumi.Input[str]
+        """
+        The tenantId of the selected identity provider for the Community Training Resource
+        """
+        b2c_authentication_policy: NotRequired[pulumi.Input[str]]
+        """
+        The name of the authentication policy registered in ADB2C for the Community Training Resource
+        """
+        b2c_password_reset_policy: NotRequired[pulumi.Input[str]]
+        """
+        The name of the password reset policy registered in ADB2C for the Community Training Resource
+        """
+        custom_login_parameters: NotRequired[pulumi.Input[str]]
+        """
+        The custom login parameters for the Community Training Resource
+        """
+        teams_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        To indicate whether the Community Training Resource has Teams enabled
+        """
+elif False:
+    IdentityConfigurationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IdentityConfigurationPropertiesArgs:
@@ -163,6 +216,34 @@ class IdentityConfigurationPropertiesArgs:
     def teams_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "teams_enabled", value)
 
+
+if not MYPY:
+    class SkuArgsDict(TypedDict):
+        """
+        The resource model definition representing SKU
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the SKU. Ex - P3. It is typically a letter+number code
+        """
+        capacity: NotRequired[pulumi.Input[int]]
+        """
+        If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
+        """
+        family: NotRequired[pulumi.Input[str]]
+        """
+        If the service has different generations of hardware, for the same SKU, then that can be captured here.
+        """
+        size: NotRequired[pulumi.Input[str]]
+        """
+        The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+        """
+        tier: NotRequired[pulumi.Input['SkuTier']]
+        """
+        This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+        """
+elif False:
+    SkuArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SkuArgs:

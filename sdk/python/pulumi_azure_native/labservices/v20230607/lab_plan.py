@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -219,16 +224,16 @@ class LabPlan(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allowed_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 default_auto_shutdown_profile: Optional[pulumi.Input[pulumi.InputType['AutoShutdownProfileArgs']]] = None,
-                 default_connection_profile: Optional[pulumi.Input[pulumi.InputType['ConnectionProfileArgs']]] = None,
-                 default_network_profile: Optional[pulumi.Input[pulumi.InputType['LabPlanNetworkProfileArgs']]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
+                 default_auto_shutdown_profile: Optional[pulumi.Input[Union['AutoShutdownProfileArgs', 'AutoShutdownProfileArgsDict']]] = None,
+                 default_connection_profile: Optional[pulumi.Input[Union['ConnectionProfileArgs', 'ConnectionProfileArgsDict']]] = None,
+                 default_network_profile: Optional[pulumi.Input[Union['LabPlanNetworkProfileArgs', 'LabPlanNetworkProfileArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']]] = None,
                  lab_plan_name: Optional[pulumi.Input[str]] = None,
                  linked_lms_instance: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  shared_gallery_id: Optional[pulumi.Input[str]] = None,
-                 support_info: Optional[pulumi.Input[pulumi.InputType['SupportInfoArgs']]] = None,
+                 support_info: Optional[pulumi.Input[Union['SupportInfoArgs', 'SupportInfoArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -237,16 +242,16 @@ class LabPlan(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_regions: The allowed regions for the lab creator to use when creating labs using this lab plan.
-        :param pulumi.Input[pulumi.InputType['AutoShutdownProfileArgs']] default_auto_shutdown_profile: The default lab shutdown profile. This can be changed on a lab resource and only provides a default profile.
-        :param pulumi.Input[pulumi.InputType['ConnectionProfileArgs']] default_connection_profile: The default lab connection profile. This can be changed on a lab resource and only provides a default profile.
-        :param pulumi.Input[pulumi.InputType['LabPlanNetworkProfileArgs']] default_network_profile: The lab plan network profile. To enforce lab network policies they must be defined here and cannot be changed when there are existing labs associated with this lab plan.
-        :param pulumi.Input[pulumi.InputType['IdentityArgs']] identity: Managed Identity Information
+        :param pulumi.Input[Union['AutoShutdownProfileArgs', 'AutoShutdownProfileArgsDict']] default_auto_shutdown_profile: The default lab shutdown profile. This can be changed on a lab resource and only provides a default profile.
+        :param pulumi.Input[Union['ConnectionProfileArgs', 'ConnectionProfileArgsDict']] default_connection_profile: The default lab connection profile. This can be changed on a lab resource and only provides a default profile.
+        :param pulumi.Input[Union['LabPlanNetworkProfileArgs', 'LabPlanNetworkProfileArgsDict']] default_network_profile: The lab plan network profile. To enforce lab network policies they must be defined here and cannot be changed when there are existing labs associated with this lab plan.
+        :param pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']] identity: Managed Identity Information
         :param pulumi.Input[str] lab_plan_name: The name of the lab plan that uniquely identifies it within containing resource group. Used in resource URIs and in UI.
         :param pulumi.Input[str] linked_lms_instance: Base Url of the lms instance this lab plan can link lab rosters against.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] shared_gallery_id: Resource ID of the Shared Image Gallery attached to this lab plan. When saving a lab template virtual machine image it will be persisted in this gallery. Shared images from the gallery can be made available to use when creating new labs.
-        :param pulumi.Input[pulumi.InputType['SupportInfoArgs']] support_info: Support contact information and instructions for users of the lab plan. This information is displayed to lab owners and virtual machine users for all labs in the lab plan.
+        :param pulumi.Input[Union['SupportInfoArgs', 'SupportInfoArgsDict']] support_info: Support contact information and instructions for users of the lab plan. This information is displayed to lab owners and virtual machine users for all labs in the lab plan.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         ...
@@ -274,16 +279,16 @@ class LabPlan(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allowed_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 default_auto_shutdown_profile: Optional[pulumi.Input[pulumi.InputType['AutoShutdownProfileArgs']]] = None,
-                 default_connection_profile: Optional[pulumi.Input[pulumi.InputType['ConnectionProfileArgs']]] = None,
-                 default_network_profile: Optional[pulumi.Input[pulumi.InputType['LabPlanNetworkProfileArgs']]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
+                 default_auto_shutdown_profile: Optional[pulumi.Input[Union['AutoShutdownProfileArgs', 'AutoShutdownProfileArgsDict']]] = None,
+                 default_connection_profile: Optional[pulumi.Input[Union['ConnectionProfileArgs', 'ConnectionProfileArgsDict']]] = None,
+                 default_network_profile: Optional[pulumi.Input[Union['LabPlanNetworkProfileArgs', 'LabPlanNetworkProfileArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']]] = None,
                  lab_plan_name: Optional[pulumi.Input[str]] = None,
                  linked_lms_instance: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  shared_gallery_id: Optional[pulumi.Input[str]] = None,
-                 support_info: Optional[pulumi.Input[pulumi.InputType['SupportInfoArgs']]] = None,
+                 support_info: Optional[pulumi.Input[Union['SupportInfoArgs', 'SupportInfoArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -201,14 +206,14 @@ class MediaService(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
-                 encryption: Optional[pulumi.Input[pulumi.InputType['AccountEncryptionArgs']]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['MediaServiceIdentityArgs']]] = None,
-                 key_delivery: Optional[pulumi.Input[pulumi.InputType['KeyDeliveryArgs']]] = None,
+                 encryption: Optional[pulumi.Input[Union['AccountEncryptionArgs', 'AccountEncryptionArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['MediaServiceIdentityArgs', 'MediaServiceIdentityArgsDict']]] = None,
+                 key_delivery: Optional[pulumi.Input[Union['KeyDeliveryArgs', 'KeyDeliveryArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  minimum_tls_version: Optional[pulumi.Input[Union[str, 'MinimumTlsVersion']]] = None,
                  public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StorageAccountArgs']]]]] = None,
+                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StorageAccountArgs', 'StorageAccountArgsDict']]]]] = None,
                  storage_authentication: Optional[pulumi.Input[Union[str, 'StorageAuthentication']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -221,14 +226,14 @@ class MediaService(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The Media Services account name.
-        :param pulumi.Input[pulumi.InputType['AccountEncryptionArgs']] encryption: The account encryption properties.
-        :param pulumi.Input[pulumi.InputType['MediaServiceIdentityArgs']] identity: The Managed Identity for the Media Services account.
-        :param pulumi.Input[pulumi.InputType['KeyDeliveryArgs']] key_delivery: The Key Delivery properties for Media Services account.
+        :param pulumi.Input[Union['AccountEncryptionArgs', 'AccountEncryptionArgsDict']] encryption: The account encryption properties.
+        :param pulumi.Input[Union['MediaServiceIdentityArgs', 'MediaServiceIdentityArgsDict']] identity: The Managed Identity for the Media Services account.
+        :param pulumi.Input[Union['KeyDeliveryArgs', 'KeyDeliveryArgsDict']] key_delivery: The Key Delivery properties for Media Services account.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Union[str, 'MinimumTlsVersion']] minimum_tls_version: The minimum TLS version allowed for this account's requests. This is an optional property. If unspecified, a secure default value will be used.
         :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: Whether or not public network access is allowed for resources under the Media Services account.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the Azure subscription.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StorageAccountArgs']]]] storage_accounts: The storage accounts for this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['StorageAccountArgs', 'StorageAccountArgsDict']]]] storage_accounts: The storage accounts for this resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         ...
@@ -259,14 +264,14 @@ class MediaService(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
-                 encryption: Optional[pulumi.Input[pulumi.InputType['AccountEncryptionArgs']]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['MediaServiceIdentityArgs']]] = None,
-                 key_delivery: Optional[pulumi.Input[pulumi.InputType['KeyDeliveryArgs']]] = None,
+                 encryption: Optional[pulumi.Input[Union['AccountEncryptionArgs', 'AccountEncryptionArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['MediaServiceIdentityArgs', 'MediaServiceIdentityArgsDict']]] = None,
+                 key_delivery: Optional[pulumi.Input[Union['KeyDeliveryArgs', 'KeyDeliveryArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  minimum_tls_version: Optional[pulumi.Input[Union[str, 'MinimumTlsVersion']]] = None,
                  public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StorageAccountArgs']]]]] = None,
+                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StorageAccountArgs', 'StorageAccountArgsDict']]]]] = None,
                  storage_authentication: Optional[pulumi.Input[Union[str, 'StorageAuthentication']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):

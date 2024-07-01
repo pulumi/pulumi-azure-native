@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -358,21 +363,21 @@ class Server(pulumi.CustomResource):
                  administrator_login_password: Optional[pulumi.Input[str]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  create_mode: Optional[pulumi.Input[Union[str, 'CreateMode']]] = None,
-                 delegated_subnet_arguments: Optional[pulumi.Input[pulumi.InputType['ServerPropertiesDelegatedSubnetArgumentsArgs']]] = None,
+                 delegated_subnet_arguments: Optional[pulumi.Input[Union['ServerPropertiesDelegatedSubnetArgumentsArgs', 'ServerPropertiesDelegatedSubnetArgumentsArgsDict']]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  ha_enabled: Optional[pulumi.Input['HAEnabledEnum']] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 maintenance_window: Optional[pulumi.Input[pulumi.InputType['MaintenanceWindowArgs']]] = None,
+                 maintenance_window: Optional[pulumi.Input[Union['MaintenanceWindowArgs', 'MaintenanceWindowArgsDict']]] = None,
                  point_in_time_utc: Optional[pulumi.Input[str]] = None,
-                 private_dns_zone_arguments: Optional[pulumi.Input[pulumi.InputType['ServerPropertiesPrivateDnsZoneArgumentsArgs']]] = None,
+                 private_dns_zone_arguments: Optional[pulumi.Input[Union['ServerPropertiesPrivateDnsZoneArgumentsArgs', 'ServerPropertiesPrivateDnsZoneArgumentsArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  source_resource_group_name: Optional[pulumi.Input[str]] = None,
                  source_server_name: Optional[pulumi.Input[str]] = None,
                  source_subscription_id: Optional[pulumi.Input[str]] = None,
-                 storage_profile: Optional[pulumi.Input[pulumi.InputType['StorageProfileArgs']]] = None,
+                 storage_profile: Optional[pulumi.Input[Union['StorageProfileArgs', 'StorageProfileArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  version: Optional[pulumi.Input[Union[str, 'ServerVersion']]] = None,
                  __props__=None):
@@ -387,17 +392,17 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'CreateMode']] create_mode: The mode to create a new PostgreSQL server.
         :param pulumi.Input[str] display_name: The display name of a server.
         :param pulumi.Input['HAEnabledEnum'] ha_enabled: stand by count value can be either enabled or disabled
-        :param pulumi.Input[pulumi.InputType['IdentityArgs']] identity: The Azure Active Directory identity of the server.
+        :param pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']] identity: The Azure Active Directory identity of the server.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[pulumi.InputType['MaintenanceWindowArgs']] maintenance_window: Maintenance window of a server.
+        :param pulumi.Input[Union['MaintenanceWindowArgs', 'MaintenanceWindowArgsDict']] maintenance_window: Maintenance window of a server.
         :param pulumi.Input[str] point_in_time_utc: Restore point creation time (ISO8601 format), specifying the time to restore from.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] server_name: The name of the server.
-        :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The SKU (pricing tier) of the server.
+        :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: The SKU (pricing tier) of the server.
         :param pulumi.Input[str] source_resource_group_name: The resource group name of source PostgreSQL server name to restore from.
         :param pulumi.Input[str] source_server_name: The source PostgreSQL server name to restore from.
         :param pulumi.Input[str] source_subscription_id: The subscription id of source PostgreSQL server name to restore from.
-        :param pulumi.Input[pulumi.InputType['StorageProfileArgs']] storage_profile: Storage profile of a server.
+        :param pulumi.Input[Union['StorageProfileArgs', 'StorageProfileArgsDict']] storage_profile: Storage profile of a server.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[Union[str, 'ServerVersion']] version: PostgreSQL Server version.
         """
@@ -429,21 +434,21 @@ class Server(pulumi.CustomResource):
                  administrator_login_password: Optional[pulumi.Input[str]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  create_mode: Optional[pulumi.Input[Union[str, 'CreateMode']]] = None,
-                 delegated_subnet_arguments: Optional[pulumi.Input[pulumi.InputType['ServerPropertiesDelegatedSubnetArgumentsArgs']]] = None,
+                 delegated_subnet_arguments: Optional[pulumi.Input[Union['ServerPropertiesDelegatedSubnetArgumentsArgs', 'ServerPropertiesDelegatedSubnetArgumentsArgsDict']]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  ha_enabled: Optional[pulumi.Input['HAEnabledEnum']] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 maintenance_window: Optional[pulumi.Input[pulumi.InputType['MaintenanceWindowArgs']]] = None,
+                 maintenance_window: Optional[pulumi.Input[Union['MaintenanceWindowArgs', 'MaintenanceWindowArgsDict']]] = None,
                  point_in_time_utc: Optional[pulumi.Input[str]] = None,
-                 private_dns_zone_arguments: Optional[pulumi.Input[pulumi.InputType['ServerPropertiesPrivateDnsZoneArgumentsArgs']]] = None,
+                 private_dns_zone_arguments: Optional[pulumi.Input[Union['ServerPropertiesPrivateDnsZoneArgumentsArgs', 'ServerPropertiesPrivateDnsZoneArgumentsArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  source_resource_group_name: Optional[pulumi.Input[str]] = None,
                  source_server_name: Optional[pulumi.Input[str]] = None,
                  source_subscription_id: Optional[pulumi.Input[str]] = None,
-                 storage_profile: Optional[pulumi.Input[pulumi.InputType['StorageProfileArgs']]] = None,
+                 storage_profile: Optional[pulumi.Input[Union['StorageProfileArgs', 'StorageProfileArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  version: Optional[pulumi.Input[Union[str, 'ServerVersion']]] = None,
                  __props__=None):

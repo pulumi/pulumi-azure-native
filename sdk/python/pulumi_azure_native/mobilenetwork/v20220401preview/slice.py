@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -243,7 +248,7 @@ class Slice(pulumi.CustomResource):
                  mobile_network_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  slice_name: Optional[pulumi.Input[str]] = None,
-                 snssai: Optional[pulumi.Input[pulumi.InputType['SnssaiArgs']]] = None,
+                 snssai: Optional[pulumi.Input[Union['SnssaiArgs', 'SnssaiArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -262,7 +267,7 @@ class Slice(pulumi.CustomResource):
         :param pulumi.Input[str] mobile_network_name: The name of the mobile network.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] slice_name: The name of the network slice.
-        :param pulumi.Input[pulumi.InputType['SnssaiArgs']] snssai: Single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
+        :param pulumi.Input[Union['SnssaiArgs', 'SnssaiArgsDict']] snssai: Single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         ...
@@ -300,7 +305,7 @@ class Slice(pulumi.CustomResource):
                  mobile_network_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  slice_name: Optional[pulumi.Input[str]] = None,
-                 snssai: Optional[pulumi.Input[pulumi.InputType['SnssaiArgs']]] = None,
+                 snssai: Optional[pulumi.Input[Union['SnssaiArgs', 'SnssaiArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

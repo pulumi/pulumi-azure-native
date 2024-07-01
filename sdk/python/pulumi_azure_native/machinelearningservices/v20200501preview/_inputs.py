@@ -4,20 +4,46 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'DatasetCreateRequestDataPathArgs',
+    'DatasetCreateRequestDataPathArgsDict',
     'DatasetCreateRequestParametersArgs',
+    'DatasetCreateRequestParametersArgsDict',
     'DatasetCreateRequestPathArgs',
+    'DatasetCreateRequestPathArgsDict',
     'DatasetCreateRequestQueryArgs',
+    'DatasetCreateRequestQueryArgsDict',
     'DatasetCreateRequestRegistrationArgs',
+    'DatasetCreateRequestRegistrationArgsDict',
     'DatasetCreateRequestTimeSeriesArgs',
+    'DatasetCreateRequestTimeSeriesArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class DatasetCreateRequestDataPathArgsDict(TypedDict):
+        datastore_name: NotRequired[pulumi.Input[str]]
+        """
+        The datastore name.
+        """
+        relative_path: NotRequired[pulumi.Input[str]]
+        """
+        Path within the datastore.
+        """
+elif False:
+    DatasetCreateRequestDataPathArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DatasetCreateRequestDataPathArgs:
@@ -57,6 +83,33 @@ class DatasetCreateRequestDataPathArgs:
     def relative_path(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "relative_path", value)
 
+
+if not MYPY:
+    class DatasetCreateRequestParametersArgsDict(TypedDict):
+        header: NotRequired[pulumi.Input[Union[str, 'Header']]]
+        """
+        Header type.
+        """
+        include_path: NotRequired[pulumi.Input[bool]]
+        """
+        Boolean to keep path information as column in the dataset. Defaults to False. This is useful when reading multiple files, and want to know which file a particular record originated from, or to keep useful information in file path.
+        """
+        partition_format: NotRequired[pulumi.Input[str]]
+        """
+        The partition information of each path will be extracted into columns based on the specified format. Format part '{column_name}' creates string column, and '{column_name:yyyy/MM/dd/HH/mm/ss}' creates datetime column, where 'yyyy', 'MM', 'dd', 'HH', 'mm' and 'ss' are used to extract year, month, day, hour, minute and second for the datetime type. The format should start from the position of first partition key until the end of file path. For example, given the path '../USA/2019/01/01/data.parquet' where the partition is by country/region and time, partition_format='/{CountryOrRegion}/{PartitionDate:yyyy/MM/dd}/data.csv' creates a string column 'CountryOrRegion' with the value 'USA' and a datetime column 'PartitionDate' with the value '2019-01-01
+        """
+        path: NotRequired[pulumi.Input['DatasetCreateRequestPathArgsDict']]
+        query: NotRequired[pulumi.Input['DatasetCreateRequestQueryArgsDict']]
+        separator: NotRequired[pulumi.Input[str]]
+        """
+        The separator used to split columns for 'delimited_files' sourceType.
+        """
+        source_type: NotRequired[pulumi.Input[Union[str, 'SourceType']]]
+        """
+        Data source type.
+        """
+elif False:
+    DatasetCreateRequestParametersArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DatasetCreateRequestParametersArgs:
@@ -171,6 +224,16 @@ class DatasetCreateRequestParametersArgs:
         pulumi.set(self, "source_type", value)
 
 
+if not MYPY:
+    class DatasetCreateRequestPathArgsDict(TypedDict):
+        data_path: NotRequired[pulumi.Input['DatasetCreateRequestDataPathArgsDict']]
+        http_url: NotRequired[pulumi.Input[str]]
+        """
+        The Http URL.
+        """
+elif False:
+    DatasetCreateRequestPathArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DatasetCreateRequestPathArgs:
     def __init__(__self__, *,
@@ -205,6 +268,19 @@ class DatasetCreateRequestPathArgs:
     def http_url(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "http_url", value)
 
+
+if not MYPY:
+    class DatasetCreateRequestQueryArgsDict(TypedDict):
+        datastore_name: NotRequired[pulumi.Input[str]]
+        """
+        The SQL/PostgreSQL/MySQL datastore name.
+        """
+        query: NotRequired[pulumi.Input[str]]
+        """
+        SQL Quey.
+        """
+elif False:
+    DatasetCreateRequestQueryArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DatasetCreateRequestQueryArgs:
@@ -244,6 +320,23 @@ class DatasetCreateRequestQueryArgs:
     def query(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "query", value)
 
+
+if not MYPY:
+    class DatasetCreateRequestRegistrationArgsDict(TypedDict):
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The description for the dataset.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the dataset.
+        """
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Tags associated with the dataset.
+        """
+elif False:
+    DatasetCreateRequestRegistrationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DatasetCreateRequestRegistrationArgs:
@@ -299,6 +392,19 @@ class DatasetCreateRequestRegistrationArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+
+if not MYPY:
+    class DatasetCreateRequestTimeSeriesArgsDict(TypedDict):
+        coarse_grain_timestamp: NotRequired[pulumi.Input[str]]
+        """
+        Column name to be used as CoarseGrainTimestamp. Can only be used if 'fineGrainTimestamp' is specified and cannot be same as 'fineGrainTimestamp'.
+        """
+        fine_grain_timestamp: NotRequired[pulumi.Input[str]]
+        """
+         Column name to be used as FineGrainTimestamp
+        """
+elif False:
+    DatasetCreateRequestTimeSeriesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DatasetCreateRequestTimeSeriesArgs:

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -90,7 +95,7 @@ class BlobInventoryPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  blob_inventory_policy_name: Optional[pulumi.Input[str]] = None,
-                 policy: Optional[pulumi.Input[pulumi.InputType['BlobInventoryPolicySchemaArgs']]] = None,
+                 policy: Optional[pulumi.Input[Union['BlobInventoryPolicySchemaArgs', 'BlobInventoryPolicySchemaArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -103,7 +108,7 @@ class BlobInventoryPolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
         :param pulumi.Input[str] blob_inventory_policy_name: The name of the storage account blob inventory policy. It should always be 'default'
-        :param pulumi.Input[pulumi.InputType['BlobInventoryPolicySchemaArgs']] policy: The storage account blob inventory policy object. It is composed of policy rules.
+        :param pulumi.Input[Union['BlobInventoryPolicySchemaArgs', 'BlobInventoryPolicySchemaArgsDict']] policy: The storage account blob inventory policy object. It is composed of policy rules.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         """
         ...
@@ -135,7 +140,7 @@ class BlobInventoryPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  blob_inventory_policy_name: Optional[pulumi.Input[str]] = None,
-                 policy: Optional[pulumi.Input[pulumi.InputType['BlobInventoryPolicySchemaArgs']]] = None,
+                 policy: Optional[pulumi.Input[Union['BlobInventoryPolicySchemaArgs', 'BlobInventoryPolicySchemaArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

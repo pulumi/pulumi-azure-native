@@ -4,17 +4,43 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'ConfigurationParameterArgs',
+    'ConfigurationParameterArgsDict',
     'GuestConfigurationAssignmentPropertiesArgs',
+    'GuestConfigurationAssignmentPropertiesArgsDict',
     'GuestConfigurationNavigationArgs',
+    'GuestConfigurationNavigationArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ConfigurationParameterArgsDict(TypedDict):
+        """
+        Represents a configuration parameter.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the configuration parameter.
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        Value of the configuration parameter.
+        """
+elif False:
+    ConfigurationParameterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ConfigurationParameterArgs:
@@ -56,6 +82,22 @@ class ConfigurationParameterArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class GuestConfigurationAssignmentPropertiesArgsDict(TypedDict):
+        """
+        Guest configuration assignment properties.
+        """
+        context: NotRequired[pulumi.Input[str]]
+        """
+        The source which initiated the guest configuration assignment. Ex: Azure Policy
+        """
+        guest_configuration: NotRequired[pulumi.Input['GuestConfigurationNavigationArgsDict']]
+        """
+        The guest configuration to assign.
+        """
+elif False:
+    GuestConfigurationAssignmentPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GuestConfigurationAssignmentPropertiesArgs:
     def __init__(__self__, *,
@@ -95,6 +137,46 @@ class GuestConfigurationAssignmentPropertiesArgs:
     def guest_configuration(self, value: Optional[pulumi.Input['GuestConfigurationNavigationArgs']]):
         pulumi.set(self, "guest_configuration", value)
 
+
+if not MYPY:
+    class GuestConfigurationNavigationArgsDict(TypedDict):
+        """
+        Guest configuration is an artifact that encapsulates DSC configuration and its dependencies. The artifact is a zip file containing DSC configuration (as MOF) and dependent resources and other dependencies like modules.
+        """
+        assignment_type: NotRequired[pulumi.Input[Union[str, 'AssignmentType']]]
+        """
+        Specifies the assignment type and execution of the configuration. Possible values are Audit, DeployAndAutoCorrect, ApplyAndAutoCorrect and ApplyAndMonitor.
+        """
+        configuration_parameter: NotRequired[pulumi.Input[Sequence[pulumi.Input['ConfigurationParameterArgsDict']]]]
+        """
+        The configuration parameters for the guest configuration.
+        """
+        configuration_protected_parameter: NotRequired[pulumi.Input[Sequence[pulumi.Input['ConfigurationParameterArgsDict']]]]
+        """
+        The protected configuration parameters for the guest configuration.
+        """
+        content_hash: NotRequired[pulumi.Input[str]]
+        """
+        Combined hash of the guest configuration package and configuration parameters.
+        """
+        content_uri: NotRequired[pulumi.Input[str]]
+        """
+        Uri of the storage where guest configuration package is uploaded.
+        """
+        kind: NotRequired[pulumi.Input[Union[str, 'Kind']]]
+        """
+        Kind of the guest configuration. For example:DSC
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the guest configuration.
+        """
+        version: NotRequired[pulumi.Input[str]]
+        """
+        Version of the guest configuration.
+        """
+elif False:
+    GuestConfigurationNavigationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GuestConfigurationNavigationArgs:

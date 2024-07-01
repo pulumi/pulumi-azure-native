@@ -4,19 +4,51 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'GovernanceAssignmentAdditionalDataArgs',
+    'GovernanceAssignmentAdditionalDataArgsDict',
     'GovernanceEmailNotificationArgs',
+    'GovernanceEmailNotificationArgsDict',
     'GovernanceRuleEmailNotificationArgs',
+    'GovernanceRuleEmailNotificationArgsDict',
     'GovernanceRuleOwnerSourceArgs',
+    'GovernanceRuleOwnerSourceArgsDict',
     'RemediationEtaArgs',
+    'RemediationEtaArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class GovernanceAssignmentAdditionalDataArgsDict(TypedDict):
+        """
+        Describe the additional data of governance assignment - optional
+        """
+        ticket_link: NotRequired[pulumi.Input[str]]
+        """
+        Ticket link associated with this governance assignment - for example: https://snow.com
+        """
+        ticket_number: NotRequired[pulumi.Input[int]]
+        """
+        Ticket number associated with this governance assignment
+        """
+        ticket_status: NotRequired[pulumi.Input[str]]
+        """
+        The ticket status associated with this governance assignment - for example: Active
+        """
+elif False:
+    GovernanceAssignmentAdditionalDataArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GovernanceAssignmentAdditionalDataArgs:
@@ -74,6 +106,22 @@ class GovernanceAssignmentAdditionalDataArgs:
         pulumi.set(self, "ticket_status", value)
 
 
+if not MYPY:
+    class GovernanceEmailNotificationArgsDict(TypedDict):
+        """
+        The governance email weekly notification configuration.
+        """
+        disable_manager_email_notification: NotRequired[pulumi.Input[bool]]
+        """
+        Exclude manager from weekly email notification.
+        """
+        disable_owner_email_notification: NotRequired[pulumi.Input[bool]]
+        """
+        Exclude  owner from weekly email notification.
+        """
+elif False:
+    GovernanceEmailNotificationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GovernanceEmailNotificationArgs:
     def __init__(__self__, *,
@@ -113,6 +161,22 @@ class GovernanceEmailNotificationArgs:
     def disable_owner_email_notification(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "disable_owner_email_notification", value)
 
+
+if not MYPY:
+    class GovernanceRuleEmailNotificationArgsDict(TypedDict):
+        """
+        The governance email weekly notification configuration
+        """
+        disable_manager_email_notification: NotRequired[pulumi.Input[bool]]
+        """
+        Defines whether manager email notifications are disabled
+        """
+        disable_owner_email_notification: NotRequired[pulumi.Input[bool]]
+        """
+        Defines whether owner email notifications are disabled
+        """
+elif False:
+    GovernanceRuleEmailNotificationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GovernanceRuleEmailNotificationArgs:
@@ -154,6 +218,22 @@ class GovernanceRuleEmailNotificationArgs:
         pulumi.set(self, "disable_owner_email_notification", value)
 
 
+if not MYPY:
+    class GovernanceRuleOwnerSourceArgsDict(TypedDict):
+        """
+        Describe the owner source of governance rule
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'GovernanceRuleOwnerSourceType']]]
+        """
+        The owner type for the governance rule owner source
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        The source value e.g. tag key like owner name or email address
+        """
+elif False:
+    GovernanceRuleOwnerSourceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GovernanceRuleOwnerSourceArgs:
     def __init__(__self__, *,
@@ -193,6 +273,22 @@ class GovernanceRuleOwnerSourceArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class RemediationEtaArgsDict(TypedDict):
+        """
+        The ETA (estimated time of arrival) for remediation
+        """
+        eta: pulumi.Input[str]
+        """
+        ETA for remediation.
+        """
+        justification: pulumi.Input[str]
+        """
+        Justification for change of Eta.
+        """
+elif False:
+    RemediationEtaArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RemediationEtaArgs:

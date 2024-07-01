@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -123,7 +128,7 @@ class AuthorizationProvider(pulumi.CustomResource):
                  authorization_provider_id: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  identity_provider: Optional[pulumi.Input[str]] = None,
-                 oauth2: Optional[pulumi.Input[pulumi.InputType['AuthorizationProviderOAuth2SettingsArgs']]] = None,
+                 oauth2: Optional[pulumi.Input[Union['AuthorizationProviderOAuth2SettingsArgs', 'AuthorizationProviderOAuth2SettingsArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -138,7 +143,7 @@ class AuthorizationProvider(pulumi.CustomResource):
         :param pulumi.Input[str] authorization_provider_id: Identifier of the authorization provider.
         :param pulumi.Input[str] display_name: Authorization Provider name. Must be 1 to 300 characters long.
         :param pulumi.Input[str] identity_provider: Identity provider name. Must be 1 to 300 characters long.
-        :param pulumi.Input[pulumi.InputType['AuthorizationProviderOAuth2SettingsArgs']] oauth2: OAuth2 settings
+        :param pulumi.Input[Union['AuthorizationProviderOAuth2SettingsArgs', 'AuthorizationProviderOAuth2SettingsArgsDict']] oauth2: OAuth2 settings
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] service_name: The name of the API Management service.
         """
@@ -172,7 +177,7 @@ class AuthorizationProvider(pulumi.CustomResource):
                  authorization_provider_id: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  identity_provider: Optional[pulumi.Input[str]] = None,
-                 oauth2: Optional[pulumi.Input[pulumi.InputType['AuthorizationProviderOAuth2SettingsArgs']]] = None,
+                 oauth2: Optional[pulumi.Input[Union['AuthorizationProviderOAuth2SettingsArgs', 'AuthorizationProviderOAuth2SettingsArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):

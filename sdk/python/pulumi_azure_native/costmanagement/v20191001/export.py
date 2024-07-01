@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -120,11 +125,11 @@ class Export(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 definition: Optional[pulumi.Input[pulumi.InputType['QueryDefinitionArgs']]] = None,
-                 delivery_info: Optional[pulumi.Input[pulumi.InputType['ExportDeliveryInfoArgs']]] = None,
+                 definition: Optional[pulumi.Input[Union['QueryDefinitionArgs', 'QueryDefinitionArgsDict']]] = None,
+                 delivery_info: Optional[pulumi.Input[Union['ExportDeliveryInfoArgs', 'ExportDeliveryInfoArgsDict']]] = None,
                  export_name: Optional[pulumi.Input[str]] = None,
                  format: Optional[pulumi.Input[Union[str, 'FormatType']]] = None,
-                 schedule: Optional[pulumi.Input[pulumi.InputType['ExportScheduleArgs']]] = None,
+                 schedule: Optional[pulumi.Input[Union['ExportScheduleArgs', 'ExportScheduleArgsDict']]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -132,11 +137,11 @@ class Export(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['QueryDefinitionArgs']] definition: Has definition for the export.
-        :param pulumi.Input[pulumi.InputType['ExportDeliveryInfoArgs']] delivery_info: Has delivery information for the export.
+        :param pulumi.Input[Union['QueryDefinitionArgs', 'QueryDefinitionArgsDict']] definition: Has definition for the export.
+        :param pulumi.Input[Union['ExportDeliveryInfoArgs', 'ExportDeliveryInfoArgsDict']] delivery_info: Has delivery information for the export.
         :param pulumi.Input[str] export_name: Export Name.
         :param pulumi.Input[Union[str, 'FormatType']] format: The format of the export being delivered.
-        :param pulumi.Input[pulumi.InputType['ExportScheduleArgs']] schedule: Has schedule information for the export.
+        :param pulumi.Input[Union['ExportScheduleArgs', 'ExportScheduleArgsDict']] schedule: Has schedule information for the export.
         :param pulumi.Input[str] scope: The scope associated with query and export operations. This includes '/subscriptions/{subscriptionId}/' for subscription scope, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope and '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, '/providers/Microsoft.Management/managementGroups/{managementGroupId} for Management Group scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for billingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}/invoiceSections/{invoiceSectionId}' for invoiceSection scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/customers/{customerId}' specific for partners, 'providers/Microsoft.CostManagement/ExternalSubscriptions/{externalSubscriptionId}' for linked account and 'providers/Microsoft.CostManagement/externalBillingAccounts/{externalBillingAccountId}' for consolidated account
         """
         ...
@@ -163,11 +168,11 @@ class Export(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 definition: Optional[pulumi.Input[pulumi.InputType['QueryDefinitionArgs']]] = None,
-                 delivery_info: Optional[pulumi.Input[pulumi.InputType['ExportDeliveryInfoArgs']]] = None,
+                 definition: Optional[pulumi.Input[Union['QueryDefinitionArgs', 'QueryDefinitionArgsDict']]] = None,
+                 delivery_info: Optional[pulumi.Input[Union['ExportDeliveryInfoArgs', 'ExportDeliveryInfoArgsDict']]] = None,
                  export_name: Optional[pulumi.Input[str]] = None,
                  format: Optional[pulumi.Input[Union[str, 'FormatType']]] = None,
-                 schedule: Optional[pulumi.Input[pulumi.InputType['ExportScheduleArgs']]] = None,
+                 schedule: Optional[pulumi.Input[Union['ExportScheduleArgs', 'ExportScheduleArgsDict']]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

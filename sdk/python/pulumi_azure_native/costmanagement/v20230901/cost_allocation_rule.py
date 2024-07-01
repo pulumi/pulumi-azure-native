@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -75,7 +80,7 @@ class CostAllocationRule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  billing_account_id: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['CostAllocationRulePropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['CostAllocationRulePropertiesArgs', 'CostAllocationRulePropertiesArgsDict']]] = None,
                  rule_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -84,7 +89,7 @@ class CostAllocationRule(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] billing_account_id: BillingAccount ID
-        :param pulumi.Input[pulumi.InputType['CostAllocationRulePropertiesArgs']] properties: Cost allocation rule properties
+        :param pulumi.Input[Union['CostAllocationRulePropertiesArgs', 'CostAllocationRulePropertiesArgsDict']] properties: Cost allocation rule properties
         :param pulumi.Input[str] rule_name: Cost allocation rule name. The name cannot include spaces or any non alphanumeric characters other than '_' and '-'. The max length is 260 characters.
         """
         ...
@@ -112,7 +117,7 @@ class CostAllocationRule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  billing_account_id: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['CostAllocationRulePropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['CostAllocationRulePropertiesArgs', 'CostAllocationRulePropertiesArgsDict']]] = None,
                  rule_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

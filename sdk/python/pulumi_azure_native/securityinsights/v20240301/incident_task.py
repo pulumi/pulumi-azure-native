@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -166,11 +171,11 @@ class IncidentTask(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 created_by: Optional[pulumi.Input[pulumi.InputType['ClientInfoArgs']]] = None,
+                 created_by: Optional[pulumi.Input[Union['ClientInfoArgs', 'ClientInfoArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  incident_id: Optional[pulumi.Input[str]] = None,
                  incident_task_id: Optional[pulumi.Input[str]] = None,
-                 last_modified_by: Optional[pulumi.Input[pulumi.InputType['ClientInfoArgs']]] = None,
+                 last_modified_by: Optional[pulumi.Input[Union['ClientInfoArgs', 'ClientInfoArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[Union[str, 'IncidentTaskStatus']]] = None,
                  title: Optional[pulumi.Input[str]] = None,
@@ -181,11 +186,11 @@ class IncidentTask(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ClientInfoArgs']] created_by: Information on the client (user or application) that made some action
+        :param pulumi.Input[Union['ClientInfoArgs', 'ClientInfoArgsDict']] created_by: Information on the client (user or application) that made some action
         :param pulumi.Input[str] description: The description of the task
         :param pulumi.Input[str] incident_id: Incident ID
         :param pulumi.Input[str] incident_task_id: Incident task ID
-        :param pulumi.Input[pulumi.InputType['ClientInfoArgs']] last_modified_by: Information on the client (user or application) that made some action
+        :param pulumi.Input[Union['ClientInfoArgs', 'ClientInfoArgsDict']] last_modified_by: Information on the client (user or application) that made some action
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union[str, 'IncidentTaskStatus']] status: The status of the task
         :param pulumi.Input[str] title: The title of the task
@@ -215,11 +220,11 @@ class IncidentTask(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 created_by: Optional[pulumi.Input[pulumi.InputType['ClientInfoArgs']]] = None,
+                 created_by: Optional[pulumi.Input[Union['ClientInfoArgs', 'ClientInfoArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  incident_id: Optional[pulumi.Input[str]] = None,
                  incident_task_id: Optional[pulumi.Input[str]] = None,
-                 last_modified_by: Optional[pulumi.Input[pulumi.InputType['ClientInfoArgs']]] = None,
+                 last_modified_by: Optional[pulumi.Input[Union['ClientInfoArgs', 'ClientInfoArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[Union[str, 'IncidentTaskStatus']]] = None,
                  title: Optional[pulumi.Input[str]] = None,

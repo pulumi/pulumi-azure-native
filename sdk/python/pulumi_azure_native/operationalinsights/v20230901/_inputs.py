@@ -4,18 +4,45 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'IdentityArgs',
+    'IdentityArgsDict',
     'WorkspaceCappingArgs',
+    'WorkspaceCappingArgsDict',
     'WorkspaceFeaturesArgs',
+    'WorkspaceFeaturesArgsDict',
     'WorkspaceSkuArgs',
+    'WorkspaceSkuArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class IdentityArgsDict(TypedDict):
+        """
+        Identity for the resource.
+        """
+        type: pulumi.Input['IdentityType']
+        """
+        Type of managed service identity.
+        """
+        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+elif False:
+    IdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IdentityArgs:
@@ -56,6 +83,18 @@ class IdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
+if not MYPY:
+    class WorkspaceCappingArgsDict(TypedDict):
+        """
+        The daily volume cap for ingestion.
+        """
+        daily_quota_gb: NotRequired[pulumi.Input[float]]
+        """
+        The workspace daily quota for ingestion.
+        """
+elif False:
+    WorkspaceCappingArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WorkspaceCappingArgs:
     def __init__(__self__, *,
@@ -79,6 +118,34 @@ class WorkspaceCappingArgs:
     def daily_quota_gb(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "daily_quota_gb", value)
 
+
+if not MYPY:
+    class WorkspaceFeaturesArgsDict(TypedDict):
+        """
+        Workspace features.
+        """
+        cluster_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        Dedicated LA cluster resourceId that is linked to the workspaces.
+        """
+        disable_local_auth: NotRequired[pulumi.Input[bool]]
+        """
+        Disable Non-AAD based Auth.
+        """
+        enable_data_export: NotRequired[pulumi.Input[bool]]
+        """
+        Flag that indicate if data should be exported.
+        """
+        enable_log_access_using_only_resource_permissions: NotRequired[pulumi.Input[bool]]
+        """
+        Flag that indicate which permission to use - resource or workspace or both.
+        """
+        immediate_purge_data_on30_days: NotRequired[pulumi.Input[bool]]
+        """
+        Flag that describes if we want to remove the data after 30 days.
+        """
+elif False:
+    WorkspaceFeaturesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WorkspaceFeaturesArgs:
@@ -167,6 +234,22 @@ class WorkspaceFeaturesArgs:
     def immediate_purge_data_on30_days(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "immediate_purge_data_on30_days", value)
 
+
+if not MYPY:
+    class WorkspaceSkuArgsDict(TypedDict):
+        """
+        The SKU (tier) of a workspace.
+        """
+        name: pulumi.Input[Union[str, 'WorkspaceSkuNameEnum']]
+        """
+        The name of the SKU.
+        """
+        capacity_reservation_level: NotRequired[pulumi.Input[int]]
+        """
+        The capacity reservation level in GB for this workspace, when CapacityReservation sku is selected.
+        """
+elif False:
+    WorkspaceSkuArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WorkspaceSkuArgs:

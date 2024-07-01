@@ -4,22 +4,65 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'DataPointArgs',
+    'DataPointArgsDict',
     'EventArgs',
+    'EventArgsDict',
     'ExtendedLocationArgs',
+    'ExtendedLocationArgsDict',
     'OwnCertificateArgs',
+    'OwnCertificateArgsDict',
     'TransportAuthenticationArgs',
+    'TransportAuthenticationArgsDict',
     'UserAuthenticationArgs',
+    'UserAuthenticationArgsDict',
     'UsernamePasswordCredentialsArgs',
+    'UsernamePasswordCredentialsArgsDict',
     'X509CredentialsArgs',
+    'X509CredentialsArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class DataPointArgsDict(TypedDict):
+        """
+        Defines the data point properties.
+        """
+        data_source: pulumi.Input[str]
+        """
+        The address of the source of the data in the asset (e.g. URL) so that a client can access the data source on the asset.
+        """
+        capability_id: NotRequired[pulumi.Input[str]]
+        """
+        The path to the type definition of the capability (e.g. DTMI, OPC UA information model node id, etc.), for example dtmi:com:example:Robot:_contents:__prop1;1.
+        """
+        data_point_configuration: NotRequired[pulumi.Input[str]]
+        """
+        Protocol-specific configuration for the data point. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the data point.
+        """
+        observability_mode: NotRequired[pulumi.Input[Union[str, 'DataPointsObservabilityMode']]]
+        """
+        An indication of how the data point should be mapped to OpenTelemetry.
+        """
+elif False:
+    DataPointArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataPointArgs:
@@ -110,6 +153,34 @@ class DataPointArgs:
         pulumi.set(self, "observability_mode", value)
 
 
+if not MYPY:
+    class EventArgsDict(TypedDict):
+        """
+        Defines the event properties.
+        """
+        event_notifier: pulumi.Input[str]
+        """
+        The address of the notifier of the event in the asset (e.g. URL) so that a client can access the event on the asset.
+        """
+        capability_id: NotRequired[pulumi.Input[str]]
+        """
+        The path to the type definition of the capability (e.g. DTMI, OPC UA information model node id, etc.), for example dtmi:com:example:Robot:_contents:__prop1;1.
+        """
+        event_configuration: NotRequired[pulumi.Input[str]]
+        """
+        Protocol-specific configuration for the event. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the event.
+        """
+        observability_mode: NotRequired[pulumi.Input[Union[str, 'EventsObservabilityMode']]]
+        """
+        An indication of how the event should be mapped to OpenTelemetry.
+        """
+elif False:
+    EventArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EventArgs:
     def __init__(__self__, *,
@@ -199,6 +270,22 @@ class EventArgs:
         pulumi.set(self, "observability_mode", value)
 
 
+if not MYPY:
+    class ExtendedLocationArgsDict(TypedDict):
+        """
+        The extended location.
+        """
+        name: pulumi.Input[str]
+        """
+        The extended location name.
+        """
+        type: pulumi.Input[str]
+        """
+        The extended location type.
+        """
+elif False:
+    ExtendedLocationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ExtendedLocationArgs:
     def __init__(__self__, *,
@@ -236,6 +323,26 @@ class ExtendedLocationArgs:
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class OwnCertificateArgsDict(TypedDict):
+        """
+        Certificate or private key that can be used by the southbound connector connecting to the shop floor/OT device. The accepted extensions are .der for certificates and .pfx/.pem for private keys.
+        """
+        cert_password_reference: NotRequired[pulumi.Input[str]]
+        """
+        Secret Reference Name (Pfx or Pem password).
+        """
+        cert_secret_reference: NotRequired[pulumi.Input[str]]
+        """
+        Secret Reference name (cert and private key).
+        """
+        cert_thumbprint: NotRequired[pulumi.Input[str]]
+        """
+        Certificate thumbprint.
+        """
+elif False:
+    OwnCertificateArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OwnCertificateArgs:
@@ -293,6 +400,18 @@ class OwnCertificateArgs:
         pulumi.set(self, "cert_thumbprint", value)
 
 
+if not MYPY:
+    class TransportAuthenticationArgsDict(TypedDict):
+        """
+        Definition of the authentication mechanism for the southbound connector.
+        """
+        own_certificates: pulumi.Input[Sequence[pulumi.Input['OwnCertificateArgsDict']]]
+        """
+        Defines a reference to a secret which contains all certificates and private keys that can be used by the southbound connector connecting to the shop floor/OT device. The accepted extensions are .der for certificates and .pfx/.pem for private keys.
+        """
+elif False:
+    TransportAuthenticationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TransportAuthenticationArgs:
     def __init__(__self__, *,
@@ -315,6 +434,26 @@ class TransportAuthenticationArgs:
     def own_certificates(self, value: pulumi.Input[Sequence[pulumi.Input['OwnCertificateArgs']]]):
         pulumi.set(self, "own_certificates", value)
 
+
+if not MYPY:
+    class UserAuthenticationArgsDict(TypedDict):
+        """
+        Definition of the client authentication mechanism to the server.
+        """
+        mode: pulumi.Input[Union[str, 'UserAuthenticationMode']]
+        """
+        Defines the mode to authenticate the user of the client at the server.
+        """
+        username_password_credentials: NotRequired[pulumi.Input['UsernamePasswordCredentialsArgsDict']]
+        """
+        Defines the username and password references when UsernamePassword user authentication mode is selected.
+        """
+        x509_credentials: NotRequired[pulumi.Input['X509CredentialsArgsDict']]
+        """
+        Defines the certificate reference when Certificate user authentication mode is selected.
+        """
+elif False:
+    UserAuthenticationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserAuthenticationArgs:
@@ -373,6 +512,22 @@ class UserAuthenticationArgs:
         pulumi.set(self, "x509_credentials", value)
 
 
+if not MYPY:
+    class UsernamePasswordCredentialsArgsDict(TypedDict):
+        """
+        The credentials for authentication mode UsernamePassword.
+        """
+        password_reference: pulumi.Input[str]
+        """
+        A reference to secret containing the password.
+        """
+        username_reference: pulumi.Input[str]
+        """
+        A reference to secret containing the username.
+        """
+elif False:
+    UsernamePasswordCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class UsernamePasswordCredentialsArgs:
     def __init__(__self__, *,
@@ -410,6 +565,18 @@ class UsernamePasswordCredentialsArgs:
     def username_reference(self, value: pulumi.Input[str]):
         pulumi.set(self, "username_reference", value)
 
+
+if not MYPY:
+    class X509CredentialsArgsDict(TypedDict):
+        """
+        The x509 certificate for authentication mode Certificate.
+        """
+        certificate_reference: pulumi.Input[str]
+        """
+        A reference to secret containing the certificate and private key (e.g. stored as .der/.pem or .der/.pfx).
+        """
+elif False:
+    X509CredentialsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class X509CredentialsArgs:

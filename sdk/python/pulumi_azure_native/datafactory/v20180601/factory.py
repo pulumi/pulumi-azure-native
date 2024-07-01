@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -186,14 +191,14 @@ class Factory(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 encryption: Optional[pulumi.Input[pulumi.InputType['EncryptionConfigurationArgs']]] = None,
+                 encryption: Optional[pulumi.Input[Union['EncryptionConfigurationArgs', 'EncryptionConfigurationArgsDict']]] = None,
                  factory_name: Optional[pulumi.Input[str]] = None,
-                 global_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['GlobalParameterSpecificationArgs']]]]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['FactoryIdentityArgs']]] = None,
+                 global_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['GlobalParameterSpecificationArgs', 'GlobalParameterSpecificationArgsDict']]]]] = None,
+                 identity: Optional[pulumi.Input[Union['FactoryIdentityArgs', 'FactoryIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
-                 purview_configuration: Optional[pulumi.Input[pulumi.InputType['PurviewConfigurationArgs']]] = None,
-                 repo_configuration: Optional[pulumi.Input[Union[pulumi.InputType['FactoryGitHubConfigurationArgs'], pulumi.InputType['FactoryVSTSConfigurationArgs']]]] = None,
+                 purview_configuration: Optional[pulumi.Input[Union['PurviewConfigurationArgs', 'PurviewConfigurationArgsDict']]] = None,
+                 repo_configuration: Optional[pulumi.Input[Union[Union['FactoryGitHubConfigurationArgs', 'FactoryGitHubConfigurationArgsDict'], Union['FactoryVSTSConfigurationArgs', 'FactoryVSTSConfigurationArgsDict']]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -202,14 +207,14 @@ class Factory(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['EncryptionConfigurationArgs']] encryption: Properties to enable Customer Managed Key for the factory.
+        :param pulumi.Input[Union['EncryptionConfigurationArgs', 'EncryptionConfigurationArgsDict']] encryption: Properties to enable Customer Managed Key for the factory.
         :param pulumi.Input[str] factory_name: The factory name.
-        :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['GlobalParameterSpecificationArgs']]]] global_parameters: List of parameters for factory.
-        :param pulumi.Input[pulumi.InputType['FactoryIdentityArgs']] identity: Managed service identity of the factory.
+        :param pulumi.Input[Mapping[str, pulumi.Input[Union['GlobalParameterSpecificationArgs', 'GlobalParameterSpecificationArgsDict']]]] global_parameters: List of parameters for factory.
+        :param pulumi.Input[Union['FactoryIdentityArgs', 'FactoryIdentityArgsDict']] identity: Managed service identity of the factory.
         :param pulumi.Input[str] location: The resource location.
         :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: Whether or not public network access is allowed for the data factory.
-        :param pulumi.Input[pulumi.InputType['PurviewConfigurationArgs']] purview_configuration: Purview information of the factory.
-        :param pulumi.Input[Union[pulumi.InputType['FactoryGitHubConfigurationArgs'], pulumi.InputType['FactoryVSTSConfigurationArgs']]] repo_configuration: Git repo information of the factory.
+        :param pulumi.Input[Union['PurviewConfigurationArgs', 'PurviewConfigurationArgsDict']] purview_configuration: Purview information of the factory.
+        :param pulumi.Input[Union[Union['FactoryGitHubConfigurationArgs', 'FactoryGitHubConfigurationArgsDict'], Union['FactoryVSTSConfigurationArgs', 'FactoryVSTSConfigurationArgsDict']]] repo_configuration: Git repo information of the factory.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
         """
@@ -237,14 +242,14 @@ class Factory(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 encryption: Optional[pulumi.Input[pulumi.InputType['EncryptionConfigurationArgs']]] = None,
+                 encryption: Optional[pulumi.Input[Union['EncryptionConfigurationArgs', 'EncryptionConfigurationArgsDict']]] = None,
                  factory_name: Optional[pulumi.Input[str]] = None,
-                 global_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['GlobalParameterSpecificationArgs']]]]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['FactoryIdentityArgs']]] = None,
+                 global_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['GlobalParameterSpecificationArgs', 'GlobalParameterSpecificationArgsDict']]]]] = None,
+                 identity: Optional[pulumi.Input[Union['FactoryIdentityArgs', 'FactoryIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
-                 purview_configuration: Optional[pulumi.Input[pulumi.InputType['PurviewConfigurationArgs']]] = None,
-                 repo_configuration: Optional[pulumi.Input[Union[pulumi.InputType['FactoryGitHubConfigurationArgs'], pulumi.InputType['FactoryVSTSConfigurationArgs']]]] = None,
+                 purview_configuration: Optional[pulumi.Input[Union['PurviewConfigurationArgs', 'PurviewConfigurationArgsDict']]] = None,
+                 repo_configuration: Optional[pulumi.Input[Union[Union['FactoryGitHubConfigurationArgs', 'FactoryGitHubConfigurationArgsDict'], Union['FactoryVSTSConfigurationArgs', 'FactoryVSTSConfigurationArgsDict']]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):

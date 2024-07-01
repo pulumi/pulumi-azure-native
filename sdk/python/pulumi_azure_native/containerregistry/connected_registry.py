@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -153,10 +158,10 @@ class ConnectedRegistry(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  client_token_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  connected_registry_name: Optional[pulumi.Input[str]] = None,
-                 logging: Optional[pulumi.Input[pulumi.InputType['LoggingPropertiesArgs']]] = None,
+                 logging: Optional[pulumi.Input[Union['LoggingPropertiesArgs', 'LoggingPropertiesArgsDict']]] = None,
                  mode: Optional[pulumi.Input[Union[str, 'ConnectedRegistryMode']]] = None,
                  notifications_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 parent: Optional[pulumi.Input[pulumi.InputType['ParentPropertiesArgs']]] = None,
+                 parent: Optional[pulumi.Input[Union['ParentPropertiesArgs', 'ParentPropertiesArgsDict']]] = None,
                  registry_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -170,10 +175,10 @@ class ConnectedRegistry(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] client_token_ids: The list of the ACR token resource IDs used to authenticate clients to the connected registry.
         :param pulumi.Input[str] connected_registry_name: The name of the connected registry.
-        :param pulumi.Input[pulumi.InputType['LoggingPropertiesArgs']] logging: The logging properties of the connected registry.
+        :param pulumi.Input[Union['LoggingPropertiesArgs', 'LoggingPropertiesArgsDict']] logging: The logging properties of the connected registry.
         :param pulumi.Input[Union[str, 'ConnectedRegistryMode']] mode: The mode of the connected registry resource that indicates the permissions of the registry.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] notifications_list: The list of notifications subscription information for the connected registry.
-        :param pulumi.Input[pulumi.InputType['ParentPropertiesArgs']] parent: The parent of the connected registry.
+        :param pulumi.Input[Union['ParentPropertiesArgs', 'ParentPropertiesArgsDict']] parent: The parent of the connected registry.
         :param pulumi.Input[str] registry_name: The name of the container registry.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         """
@@ -206,10 +211,10 @@ class ConnectedRegistry(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  client_token_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  connected_registry_name: Optional[pulumi.Input[str]] = None,
-                 logging: Optional[pulumi.Input[pulumi.InputType['LoggingPropertiesArgs']]] = None,
+                 logging: Optional[pulumi.Input[Union['LoggingPropertiesArgs', 'LoggingPropertiesArgsDict']]] = None,
                  mode: Optional[pulumi.Input[Union[str, 'ConnectedRegistryMode']]] = None,
                  notifications_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 parent: Optional[pulumi.Input[pulumi.InputType['ParentPropertiesArgs']]] = None,
+                 parent: Optional[pulumi.Input[Union['ParentPropertiesArgs', 'ParentPropertiesArgsDict']]] = None,
                  registry_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):

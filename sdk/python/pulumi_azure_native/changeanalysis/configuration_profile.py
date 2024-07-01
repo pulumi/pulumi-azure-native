@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -91,10 +96,10 @@ class ConfigurationProfile(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ResourceIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['ResourceIdentityArgs', 'ResourceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  profile_name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['ConfigurationProfileResourcePropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['ConfigurationProfileResourcePropertiesArgs', 'ConfigurationProfileResourcePropertiesArgsDict']]] = None,
                  __props__=None):
         """
         A profile object that contains change analysis configuration, such as notification settings, for this subscription
@@ -102,10 +107,10 @@ class ConfigurationProfile(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ResourceIdentityArgs']] identity: The identity block returned by ARM resource that supports managed identity.
+        :param pulumi.Input[Union['ResourceIdentityArgs', 'ResourceIdentityArgsDict']] identity: The identity block returned by ARM resource that supports managed identity.
         :param pulumi.Input[str] location: The location where the resource is to be deployed.
         :param pulumi.Input[str] profile_name: The name of the configuration profile. The profile name should be set to 'default', all other names will be overwritten.
-        :param pulumi.Input[pulumi.InputType['ConfigurationProfileResourcePropertiesArgs']] properties: The properties of a configuration profile.
+        :param pulumi.Input[Union['ConfigurationProfileResourcePropertiesArgs', 'ConfigurationProfileResourcePropertiesArgsDict']] properties: The properties of a configuration profile.
         """
         ...
     @overload
@@ -132,10 +137,10 @@ class ConfigurationProfile(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ResourceIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['ResourceIdentityArgs', 'ResourceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  profile_name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['ConfigurationProfileResourcePropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['ConfigurationProfileResourcePropertiesArgs', 'ConfigurationProfileResourcePropertiesArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

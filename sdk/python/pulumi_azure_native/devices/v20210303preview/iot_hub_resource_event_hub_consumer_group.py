@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._inputs import *
 
@@ -104,7 +109,7 @@ class IotHubResourceEventHubConsumerGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  event_hub_endpoint_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['EventHubConsumerGroupNameArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['EventHubConsumerGroupNameArgs', 'EventHubConsumerGroupNameArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -115,7 +120,7 @@ class IotHubResourceEventHubConsumerGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] event_hub_endpoint_name: The name of the Event Hub-compatible endpoint in the IoT hub.
         :param pulumi.Input[str] name: The name of the consumer group to add.
-        :param pulumi.Input[pulumi.InputType['EventHubConsumerGroupNameArgs']] properties: The EventHub consumer group name.
+        :param pulumi.Input[Union['EventHubConsumerGroupNameArgs', 'EventHubConsumerGroupNameArgsDict']] properties: The EventHub consumer group name.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the IoT hub.
         :param pulumi.Input[str] resource_name_: The name of the IoT hub.
         """
@@ -145,7 +150,7 @@ class IotHubResourceEventHubConsumerGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  event_hub_endpoint_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['EventHubConsumerGroupNameArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['EventHubConsumerGroupNameArgs', 'EventHubConsumerGroupNameArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
                  __props__=None):

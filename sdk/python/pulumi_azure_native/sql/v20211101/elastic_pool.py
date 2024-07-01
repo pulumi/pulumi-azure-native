@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -252,10 +257,10 @@ class ElasticPool(pulumi.CustomResource):
                  maintenance_configuration_id: Optional[pulumi.Input[str]] = None,
                  max_size_bytes: Optional[pulumi.Input[float]] = None,
                  min_capacity: Optional[pulumi.Input[float]] = None,
-                 per_database_settings: Optional[pulumi.Input[pulumi.InputType['ElasticPoolPerDatabaseSettingsArgs']]] = None,
+                 per_database_settings: Optional[pulumi.Input[Union['ElasticPoolPerDatabaseSettingsArgs', 'ElasticPoolPerDatabaseSettingsArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  zone_redundant: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
@@ -271,10 +276,10 @@ class ElasticPool(pulumi.CustomResource):
         :param pulumi.Input[str] maintenance_configuration_id: Maintenance configuration id assigned to the elastic pool. This configuration defines the period when the maintenance updates will will occur.
         :param pulumi.Input[float] max_size_bytes: The storage limit for the database elastic pool in bytes.
         :param pulumi.Input[float] min_capacity: Minimal capacity that serverless pool will not shrink below, if not paused
-        :param pulumi.Input[pulumi.InputType['ElasticPoolPerDatabaseSettingsArgs']] per_database_settings: The per database settings for the elastic pool.
+        :param pulumi.Input[Union['ElasticPoolPerDatabaseSettingsArgs', 'ElasticPoolPerDatabaseSettingsArgsDict']] per_database_settings: The per database settings for the elastic pool.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] server_name: The name of the server.
-        :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The elastic pool SKU.
+        :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: The elastic pool SKU.
                
                The list of SKUs may vary by region and support offer. To determine the SKUs (including the SKU name, tier/edition, family, and capacity) that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API or the following command:
                
@@ -315,10 +320,10 @@ class ElasticPool(pulumi.CustomResource):
                  maintenance_configuration_id: Optional[pulumi.Input[str]] = None,
                  max_size_bytes: Optional[pulumi.Input[float]] = None,
                  min_capacity: Optional[pulumi.Input[float]] = None,
-                 per_database_settings: Optional[pulumi.Input[pulumi.InputType['ElasticPoolPerDatabaseSettingsArgs']]] = None,
+                 per_database_settings: Optional[pulumi.Input[Union['ElasticPoolPerDatabaseSettingsArgs', 'ElasticPoolPerDatabaseSettingsArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  zone_redundant: Optional[pulumi.Input[bool]] = None,
                  __props__=None):

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 from ._inputs import *
@@ -208,7 +213,7 @@ class SourceControl(pulumi.CustomResource):
                  publish_runbook: Optional[pulumi.Input[bool]] = None,
                  repo_url: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 security_token: Optional[pulumi.Input[pulumi.InputType['SourceControlSecurityTokenPropertiesArgs']]] = None,
+                 security_token: Optional[pulumi.Input[Union['SourceControlSecurityTokenPropertiesArgs', 'SourceControlSecurityTokenPropertiesArgsDict']]] = None,
                  source_control_name: Optional[pulumi.Input[str]] = None,
                  source_type: Optional[pulumi.Input[Union[str, 'SourceType']]] = None,
                  __props__=None):
@@ -225,7 +230,7 @@ class SourceControl(pulumi.CustomResource):
         :param pulumi.Input[bool] publish_runbook: The auto publish of the source control. Default is true.
         :param pulumi.Input[str] repo_url: The repo url of the source control.
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
-        :param pulumi.Input[pulumi.InputType['SourceControlSecurityTokenPropertiesArgs']] security_token: The authorization token for the repo of the source control.
+        :param pulumi.Input[Union['SourceControlSecurityTokenPropertiesArgs', 'SourceControlSecurityTokenPropertiesArgsDict']] security_token: The authorization token for the repo of the source control.
         :param pulumi.Input[str] source_control_name: The source control name.
         :param pulumi.Input[Union[str, 'SourceType']] source_type: The source type. Must be one of VsoGit, VsoTfvc, GitHub, case sensitive.
         """
@@ -261,7 +266,7 @@ class SourceControl(pulumi.CustomResource):
                  publish_runbook: Optional[pulumi.Input[bool]] = None,
                  repo_url: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 security_token: Optional[pulumi.Input[pulumi.InputType['SourceControlSecurityTokenPropertiesArgs']]] = None,
+                 security_token: Optional[pulumi.Input[Union['SourceControlSecurityTokenPropertiesArgs', 'SourceControlSecurityTokenPropertiesArgsDict']]] = None,
                  source_control_name: Optional[pulumi.Input[str]] = None,
                  source_type: Optional[pulumi.Input[Union[str, 'SourceType']]] = None,
                  __props__=None):

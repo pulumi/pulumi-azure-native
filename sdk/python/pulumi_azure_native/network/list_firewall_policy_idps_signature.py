@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -59,9 +64,9 @@ class AwaitableListFirewallPolicyIdpsSignatureResult(ListFirewallPolicyIdpsSigna
             signatures=self.signatures)
 
 
-def list_firewall_policy_idps_signature(filters: Optional[Sequence[pulumi.InputType['FilterItems']]] = None,
+def list_firewall_policy_idps_signature(filters: Optional[Sequence[Union['FilterItems', 'FilterItemsDict']]] = None,
                                         firewall_policy_name: Optional[str] = None,
-                                        order_by: Optional[pulumi.InputType['OrderBy']] = None,
+                                        order_by: Optional[Union['OrderBy', 'OrderByDict']] = None,
                                         resource_group_name: Optional[str] = None,
                                         results_per_page: Optional[int] = None,
                                         search: Optional[str] = None,
@@ -74,9 +79,9 @@ def list_firewall_policy_idps_signature(filters: Optional[Sequence[pulumi.InputT
     Other available API versions: 2021-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01.
 
 
-    :param Sequence[pulumi.InputType['FilterItems']] filters: Contain all filters names and values
+    :param Sequence[Union['FilterItems', 'FilterItemsDict']] filters: Contain all filters names and values
     :param str firewall_policy_name: The name of the Firewall Policy.
-    :param pulumi.InputType['OrderBy'] order_by: Column to sort response by
+    :param Union['OrderBy', 'OrderByDict'] order_by: Column to sort response by
     :param str resource_group_name: The name of the resource group.
     :param int results_per_page: The number of the results to return in each page
     :param str search: Search term in all columns
@@ -99,9 +104,9 @@ def list_firewall_policy_idps_signature(filters: Optional[Sequence[pulumi.InputT
 
 
 @_utilities.lift_output_func(list_firewall_policy_idps_signature)
-def list_firewall_policy_idps_signature_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['FilterItems']]]]] = None,
+def list_firewall_policy_idps_signature_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['FilterItems', 'FilterItemsDict']]]]] = None,
                                                firewall_policy_name: Optional[pulumi.Input[str]] = None,
-                                               order_by: Optional[pulumi.Input[Optional[pulumi.InputType['OrderBy']]]] = None,
+                                               order_by: Optional[pulumi.Input[Optional[Union['OrderBy', 'OrderByDict']]]] = None,
                                                resource_group_name: Optional[pulumi.Input[str]] = None,
                                                results_per_page: Optional[pulumi.Input[Optional[int]]] = None,
                                                search: Optional[pulumi.Input[Optional[str]]] = None,
@@ -114,9 +119,9 @@ def list_firewall_policy_idps_signature_output(filters: Optional[pulumi.Input[Op
     Other available API versions: 2021-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01.
 
 
-    :param Sequence[pulumi.InputType['FilterItems']] filters: Contain all filters names and values
+    :param Sequence[Union['FilterItems', 'FilterItemsDict']] filters: Contain all filters names and values
     :param str firewall_policy_name: The name of the Firewall Policy.
-    :param pulumi.InputType['OrderBy'] order_by: Column to sort response by
+    :param Union['OrderBy', 'OrderByDict'] order_by: Column to sort response by
     :param str resource_group_name: The name of the resource group.
     :param int results_per_page: The number of the results to return in each page
     :param str search: Search term in all columns

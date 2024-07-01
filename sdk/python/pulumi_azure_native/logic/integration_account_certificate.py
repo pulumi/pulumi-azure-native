@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -154,7 +159,7 @@ class IntegrationAccountCertificate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  certificate_name: Optional[pulumi.Input[str]] = None,
                  integration_account_name: Optional[pulumi.Input[str]] = None,
-                 key: Optional[pulumi.Input[pulumi.InputType['KeyVaultKeyReferenceArgs']]] = None,
+                 key: Optional[pulumi.Input[Union['KeyVaultKeyReferenceArgs', 'KeyVaultKeyReferenceArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[Any] = None,
                  public_certificate: Optional[pulumi.Input[str]] = None,
@@ -171,7 +176,7 @@ class IntegrationAccountCertificate(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] certificate_name: The integration account certificate name.
         :param pulumi.Input[str] integration_account_name: The integration account name.
-        :param pulumi.Input[pulumi.InputType['KeyVaultKeyReferenceArgs']] key: The key details in the key vault.
+        :param pulumi.Input[Union['KeyVaultKeyReferenceArgs', 'KeyVaultKeyReferenceArgsDict']] key: The key details in the key vault.
         :param pulumi.Input[str] location: The resource location.
         :param Any metadata: The metadata.
         :param pulumi.Input[str] public_certificate: The public certificate.
@@ -207,7 +212,7 @@ class IntegrationAccountCertificate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  certificate_name: Optional[pulumi.Input[str]] = None,
                  integration_account_name: Optional[pulumi.Input[str]] = None,
-                 key: Optional[pulumi.Input[pulumi.InputType['KeyVaultKeyReferenceArgs']]] = None,
+                 key: Optional[pulumi.Input[Union['KeyVaultKeyReferenceArgs', 'KeyVaultKeyReferenceArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[Any] = None,
                  public_certificate: Optional[pulumi.Input[str]] = None,

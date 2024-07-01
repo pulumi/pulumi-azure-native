@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -275,18 +280,18 @@ class WorkspaceBackend(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  backend_id: Optional[pulumi.Input[str]] = None,
-                 circuit_breaker: Optional[pulumi.Input[pulumi.InputType['BackendCircuitBreakerArgs']]] = None,
-                 credentials: Optional[pulumi.Input[pulumi.InputType['BackendCredentialsContractArgs']]] = None,
+                 circuit_breaker: Optional[pulumi.Input[Union['BackendCircuitBreakerArgs', 'BackendCircuitBreakerArgsDict']]] = None,
+                 credentials: Optional[pulumi.Input[Union['BackendCredentialsContractArgs', 'BackendCredentialsContractArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 pool: Optional[pulumi.Input[pulumi.InputType['BackendBaseParametersPoolArgs']]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['BackendPropertiesArgs']]] = None,
+                 pool: Optional[pulumi.Input[Union['BackendBaseParametersPoolArgs', 'BackendBaseParametersPoolArgsDict']]] = None,
+                 properties: Optional[pulumi.Input[Union['BackendPropertiesArgs', 'BackendPropertiesArgsDict']]] = None,
                  protocol: Optional[pulumi.Input[Union[str, 'BackendProtocol']]] = None,
-                 proxy: Optional[pulumi.Input[pulumi.InputType['BackendProxyContractArgs']]] = None,
+                 proxy: Optional[pulumi.Input[Union['BackendProxyContractArgs', 'BackendProxyContractArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_id: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  title: Optional[pulumi.Input[str]] = None,
-                 tls: Optional[pulumi.Input[pulumi.InputType['BackendTlsPropertiesArgs']]] = None,
+                 tls: Optional[pulumi.Input[Union['BackendTlsPropertiesArgs', 'BackendTlsPropertiesArgsDict']]] = None,
                  type: Optional[pulumi.Input[Union[str, 'BackendType']]] = None,
                  url: Optional[pulumi.Input[str]] = None,
                  workspace_id: Optional[pulumi.Input[str]] = None,
@@ -297,17 +302,17 @@ class WorkspaceBackend(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] backend_id: Identifier of the Backend entity. Must be unique in the current API Management service instance.
-        :param pulumi.Input[pulumi.InputType['BackendCircuitBreakerArgs']] circuit_breaker: Backend Circuit Breaker Configuration
-        :param pulumi.Input[pulumi.InputType['BackendCredentialsContractArgs']] credentials: Backend Credentials Contract Properties
+        :param pulumi.Input[Union['BackendCircuitBreakerArgs', 'BackendCircuitBreakerArgsDict']] circuit_breaker: Backend Circuit Breaker Configuration
+        :param pulumi.Input[Union['BackendCredentialsContractArgs', 'BackendCredentialsContractArgsDict']] credentials: Backend Credentials Contract Properties
         :param pulumi.Input[str] description: Backend Description.
-        :param pulumi.Input[pulumi.InputType['BackendPropertiesArgs']] properties: Backend Properties contract
+        :param pulumi.Input[Union['BackendPropertiesArgs', 'BackendPropertiesArgsDict']] properties: Backend Properties contract
         :param pulumi.Input[Union[str, 'BackendProtocol']] protocol: Backend communication protocol.
-        :param pulumi.Input[pulumi.InputType['BackendProxyContractArgs']] proxy: Backend gateway Contract Properties
+        :param pulumi.Input[Union['BackendProxyContractArgs', 'BackendProxyContractArgsDict']] proxy: Backend gateway Contract Properties
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] resource_id: Management Uri of the Resource in External System. This URL can be the Arm Resource Id of Logic Apps, Function Apps or API Apps.
         :param pulumi.Input[str] service_name: The name of the API Management service.
         :param pulumi.Input[str] title: Backend Title.
-        :param pulumi.Input[pulumi.InputType['BackendTlsPropertiesArgs']] tls: Backend TLS Properties
+        :param pulumi.Input[Union['BackendTlsPropertiesArgs', 'BackendTlsPropertiesArgsDict']] tls: Backend TLS Properties
         :param pulumi.Input[Union[str, 'BackendType']] type: Type of the backend. A backend can be either Single or Pool.
         :param pulumi.Input[str] url: Runtime Url of the Backend.
         :param pulumi.Input[str] workspace_id: Workspace identifier. Must be unique in the current API Management service instance.
@@ -337,18 +342,18 @@ class WorkspaceBackend(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  backend_id: Optional[pulumi.Input[str]] = None,
-                 circuit_breaker: Optional[pulumi.Input[pulumi.InputType['BackendCircuitBreakerArgs']]] = None,
-                 credentials: Optional[pulumi.Input[pulumi.InputType['BackendCredentialsContractArgs']]] = None,
+                 circuit_breaker: Optional[pulumi.Input[Union['BackendCircuitBreakerArgs', 'BackendCircuitBreakerArgsDict']]] = None,
+                 credentials: Optional[pulumi.Input[Union['BackendCredentialsContractArgs', 'BackendCredentialsContractArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 pool: Optional[pulumi.Input[pulumi.InputType['BackendBaseParametersPoolArgs']]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['BackendPropertiesArgs']]] = None,
+                 pool: Optional[pulumi.Input[Union['BackendBaseParametersPoolArgs', 'BackendBaseParametersPoolArgsDict']]] = None,
+                 properties: Optional[pulumi.Input[Union['BackendPropertiesArgs', 'BackendPropertiesArgsDict']]] = None,
                  protocol: Optional[pulumi.Input[Union[str, 'BackendProtocol']]] = None,
-                 proxy: Optional[pulumi.Input[pulumi.InputType['BackendProxyContractArgs']]] = None,
+                 proxy: Optional[pulumi.Input[Union['BackendProxyContractArgs', 'BackendProxyContractArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_id: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  title: Optional[pulumi.Input[str]] = None,
-                 tls: Optional[pulumi.Input[pulumi.InputType['BackendTlsPropertiesArgs']]] = None,
+                 tls: Optional[pulumi.Input[Union['BackendTlsPropertiesArgs', 'BackendTlsPropertiesArgsDict']]] = None,
                  type: Optional[pulumi.Input[Union[str, 'BackendType']]] = None,
                  url: Optional[pulumi.Input[str]] = None,
                  workspace_id: Optional[pulumi.Input[str]] = None,

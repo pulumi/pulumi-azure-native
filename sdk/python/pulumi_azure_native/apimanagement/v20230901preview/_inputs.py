@@ -4,71 +4,171 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'AdditionalLocationArgs',
+    'AdditionalLocationArgsDict',
     'ApiContactInformationArgs',
+    'ApiContactInformationArgsDict',
     'ApiCreateOrUpdatePropertiesWsdlSelectorArgs',
+    'ApiCreateOrUpdatePropertiesWsdlSelectorArgsDict',
     'ApiLicenseInformationArgs',
+    'ApiLicenseInformationArgsDict',
     'ApiManagementGatewaySkuPropertiesArgs',
+    'ApiManagementGatewaySkuPropertiesArgsDict',
     'ApiManagementServiceIdentityArgs',
+    'ApiManagementServiceIdentityArgsDict',
     'ApiManagementServiceSkuPropertiesArgs',
+    'ApiManagementServiceSkuPropertiesArgsDict',
     'ApiVersionConstraintArgs',
+    'ApiVersionConstraintArgsDict',
     'ApiVersionSetContractDetailsArgs',
+    'ApiVersionSetContractDetailsArgsDict',
     'AuthenticationSettingsContractArgs',
+    'AuthenticationSettingsContractArgsDict',
     'AuthorizationErrorArgs',
+    'AuthorizationErrorArgsDict',
     'AuthorizationProviderOAuth2GrantTypesArgs',
+    'AuthorizationProviderOAuth2GrantTypesArgsDict',
     'AuthorizationProviderOAuth2SettingsArgs',
+    'AuthorizationProviderOAuth2SettingsArgsDict',
     'BackendAuthorizationHeaderCredentialsArgs',
+    'BackendAuthorizationHeaderCredentialsArgsDict',
     'BackendBaseParametersPoolArgs',
+    'BackendBaseParametersPoolArgsDict',
     'BackendCircuitBreakerArgs',
+    'BackendCircuitBreakerArgsDict',
     'BackendConfigurationArgs',
+    'BackendConfigurationArgsDict',
     'BackendCredentialsContractArgs',
+    'BackendCredentialsContractArgsDict',
     'BackendPoolItemArgs',
+    'BackendPoolItemArgsDict',
     'BackendPropertiesArgs',
+    'BackendPropertiesArgsDict',
     'BackendProxyContractArgs',
+    'BackendProxyContractArgsDict',
     'BackendServiceFabricClusterPropertiesArgs',
+    'BackendServiceFabricClusterPropertiesArgsDict',
     'BackendSubnetConfigurationArgs',
+    'BackendSubnetConfigurationArgsDict',
     'BackendTlsPropertiesArgs',
+    'BackendTlsPropertiesArgsDict',
     'BodyDiagnosticSettingsArgs',
+    'BodyDiagnosticSettingsArgsDict',
     'CertificateConfigurationArgs',
+    'CertificateConfigurationArgsDict',
     'CertificateInformationArgs',
+    'CertificateInformationArgsDict',
     'CircuitBreakerFailureConditionArgs',
+    'CircuitBreakerFailureConditionArgsDict',
     'CircuitBreakerRuleArgs',
+    'CircuitBreakerRuleArgsDict',
     'ConfigurationApiArgs',
+    'ConfigurationApiArgsDict',
     'DataMaskingEntityArgs',
+    'DataMaskingEntityArgsDict',
     'DataMaskingArgs',
+    'DataMaskingArgsDict',
     'EmailTemplateParametersContractPropertiesArgs',
+    'EmailTemplateParametersContractPropertiesArgsDict',
     'FailureStatusCodeRangeArgs',
+    'FailureStatusCodeRangeArgsDict',
     'HostnameConfigurationArgs',
+    'HostnameConfigurationArgsDict',
     'HttpMessageDiagnosticArgs',
+    'HttpMessageDiagnosticArgsDict',
     'KeyVaultContractCreatePropertiesArgs',
+    'KeyVaultContractCreatePropertiesArgsDict',
     'OAuth2AuthenticationSettingsContractArgs',
+    'OAuth2AuthenticationSettingsContractArgsDict',
     'OpenIdAuthenticationSettingsContractArgs',
+    'OpenIdAuthenticationSettingsContractArgsDict',
     'ParameterContractArgs',
+    'ParameterContractArgsDict',
     'ParameterExampleContractArgs',
+    'ParameterExampleContractArgsDict',
     'PipelineDiagnosticSettingsArgs',
+    'PipelineDiagnosticSettingsArgsDict',
     'PrivateEndpointConnectionRequestPropertiesArgs',
+    'PrivateEndpointConnectionRequestPropertiesArgsDict',
     'PrivateLinkServiceConnectionStateArgs',
+    'PrivateLinkServiceConnectionStateArgsDict',
     'RemotePrivateEndpointConnectionWrapperArgs',
+    'RemotePrivateEndpointConnectionWrapperArgsDict',
     'RepresentationContractArgs',
+    'RepresentationContractArgsDict',
     'RequestContractArgs',
+    'RequestContractArgsDict',
     'ResourceLocationDataContractArgs',
+    'ResourceLocationDataContractArgsDict',
     'ResponseContractArgs',
+    'ResponseContractArgsDict',
     'SamplingSettingsArgs',
+    'SamplingSettingsArgsDict',
     'SubscriptionKeyParameterNamesContractArgs',
+    'SubscriptionKeyParameterNamesContractArgsDict',
     'TokenBodyParameterContractArgs',
+    'TokenBodyParameterContractArgsDict',
     'UserIdentityContractArgs',
+    'UserIdentityContractArgsDict',
     'UserIdentityPropertiesArgs',
+    'UserIdentityPropertiesArgsDict',
     'VirtualNetworkConfigurationArgs',
+    'VirtualNetworkConfigurationArgsDict',
     'WikiDocumentationContractArgs',
+    'WikiDocumentationContractArgsDict',
     'X509CertificateNameArgs',
+    'X509CertificateNameArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AdditionalLocationArgsDict(TypedDict):
+        """
+        Description of an additional API Management resource location.
+        """
+        location: pulumi.Input[str]
+        """
+        The location name of the additional region among Azure Data center regions.
+        """
+        sku: pulumi.Input['ApiManagementServiceSkuPropertiesArgsDict']
+        """
+        SKU properties of the API Management service.
+        """
+        disable_gateway: NotRequired[pulumi.Input[bool]]
+        """
+        Property only valid for an Api Management service deployed in multiple locations. This can be used to disable the gateway in this additional location.
+        """
+        nat_gateway_state: NotRequired[pulumi.Input[Union[str, 'NatGatewayState']]]
+        """
+        Property can be used to enable NAT Gateway for this API Management service.
+        """
+        public_ip_address_id: NotRequired[pulumi.Input[str]]
+        """
+        Public Standard SKU IP V4 based IP address to be associated with Virtual Network deployed service in the location. Supported only for Premium SKU being deployed in Virtual Network.
+        """
+        virtual_network_configuration: NotRequired[pulumi.Input['VirtualNetworkConfigurationArgsDict']]
+        """
+        Virtual network configuration for the location.
+        """
+        zones: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of availability zones denoting where the resource needs to come from.
+        """
+elif False:
+    AdditionalLocationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AdditionalLocationArgs:
@@ -192,6 +292,26 @@ class AdditionalLocationArgs:
         pulumi.set(self, "zones", value)
 
 
+if not MYPY:
+    class ApiContactInformationArgsDict(TypedDict):
+        """
+        API contact information
+        """
+        email: NotRequired[pulumi.Input[str]]
+        """
+        The email address of the contact person/organization. MUST be in the format of an email address
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The identifying name of the contact person/organization
+        """
+        url: NotRequired[pulumi.Input[str]]
+        """
+        The URL pointing to the contact information. MUST be in the format of a URL
+        """
+elif False:
+    ApiContactInformationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ApiContactInformationArgs:
     def __init__(__self__, *,
@@ -248,6 +368,22 @@ class ApiContactInformationArgs:
         pulumi.set(self, "url", value)
 
 
+if not MYPY:
+    class ApiCreateOrUpdatePropertiesWsdlSelectorArgsDict(TypedDict):
+        """
+        Criteria to limit import of WSDL to a subset of the document.
+        """
+        wsdl_endpoint_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of endpoint(port) to import from WSDL
+        """
+        wsdl_service_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of service to import from WSDL
+        """
+elif False:
+    ApiCreateOrUpdatePropertiesWsdlSelectorArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ApiCreateOrUpdatePropertiesWsdlSelectorArgs:
     def __init__(__self__, *,
@@ -287,6 +423,22 @@ class ApiCreateOrUpdatePropertiesWsdlSelectorArgs:
     def wsdl_service_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "wsdl_service_name", value)
 
+
+if not MYPY:
+    class ApiLicenseInformationArgsDict(TypedDict):
+        """
+        API license information
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The license name used for the API
+        """
+        url: NotRequired[pulumi.Input[str]]
+        """
+        A URL to the license used for the API. MUST be in the format of a URL
+        """
+elif False:
+    ApiLicenseInformationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApiLicenseInformationArgs:
@@ -328,6 +480,22 @@ class ApiLicenseInformationArgs:
         pulumi.set(self, "url", value)
 
 
+if not MYPY:
+    class ApiManagementGatewaySkuPropertiesArgsDict(TypedDict):
+        """
+        API Management gateway resource SKU properties.
+        """
+        name: pulumi.Input[Union[str, 'SkuType']]
+        """
+        Name of the Sku.
+        """
+        capacity: NotRequired[pulumi.Input[int]]
+        """
+        Capacity of the SKU (number of deployed units of the SKU)
+        """
+elif False:
+    ApiManagementGatewaySkuPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ApiManagementGatewaySkuPropertiesArgs:
     def __init__(__self__, *,
@@ -366,6 +534,25 @@ class ApiManagementGatewaySkuPropertiesArgs:
     def capacity(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "capacity", value)
 
+
+if not MYPY:
+    class ApiManagementServiceIdentityArgsDict(TypedDict):
+        """
+        Identity properties of the Api Management service resource.
+        """
+        type: pulumi.Input[Union[str, 'ApimIdentityType']]
+        """
+        The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
+        """
+        user_assigned_identities: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['UserIdentityPropertiesArgsDict']]]]
+        """
+        The list of user identities associated with the resource. The user identity 
+        dictionary key references will be ARM resource ids in the form: 
+        '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/
+            providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+elif False:
+    ApiManagementServiceIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApiManagementServiceIdentityArgs:
@@ -412,6 +599,22 @@ class ApiManagementServiceIdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
+if not MYPY:
+    class ApiManagementServiceSkuPropertiesArgsDict(TypedDict):
+        """
+        API Management service resource SKU properties.
+        """
+        capacity: pulumi.Input[int]
+        """
+        Capacity of the SKU (number of deployed units of the SKU). For Consumption SKU capacity must be specified as 0.
+        """
+        name: pulumi.Input[Union[str, 'SkuType']]
+        """
+        Name of the Sku.
+        """
+elif False:
+    ApiManagementServiceSkuPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ApiManagementServiceSkuPropertiesArgs:
     def __init__(__self__, *,
@@ -450,6 +653,18 @@ class ApiManagementServiceSkuPropertiesArgs:
         pulumi.set(self, "name", value)
 
 
+if not MYPY:
+    class ApiVersionConstraintArgsDict(TypedDict):
+        """
+        Control Plane Apis version constraint for the API Management service.
+        """
+        min_api_version: NotRequired[pulumi.Input[str]]
+        """
+        Limit control plane API calls to API Management service with version equal to or newer than this value.
+        """
+elif False:
+    ApiVersionConstraintArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ApiVersionConstraintArgs:
     def __init__(__self__, *,
@@ -473,6 +688,38 @@ class ApiVersionConstraintArgs:
     def min_api_version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "min_api_version", value)
 
+
+if not MYPY:
+    class ApiVersionSetContractDetailsArgsDict(TypedDict):
+        """
+        An API Version Set contains the common configuration for a set of API Versions relating 
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Description of API Version Set.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Identifier for existing API Version Set. Omit this value to create a new Version Set.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The display Name of the API Version Set.
+        """
+        version_header_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of HTTP header parameter that indicates the API Version if versioningScheme is set to `header`.
+        """
+        version_query_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of query parameter that indicates the API Version if versioningScheme is set to `query`.
+        """
+        versioning_scheme: NotRequired[pulumi.Input[Union[str, 'VersioningScheme']]]
+        """
+        An value that determines where the API Version identifier will be located in a HTTP request.
+        """
+elif False:
+    ApiVersionSetContractDetailsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApiVersionSetContractDetailsArgs:
@@ -578,6 +825,30 @@ class ApiVersionSetContractDetailsArgs:
         pulumi.set(self, "versioning_scheme", value)
 
 
+if not MYPY:
+    class AuthenticationSettingsContractArgsDict(TypedDict):
+        """
+        API Authentication Settings.
+        """
+        o_auth2: NotRequired[pulumi.Input['OAuth2AuthenticationSettingsContractArgsDict']]
+        """
+        OAuth2 Authentication settings
+        """
+        o_auth2_authentication_settings: NotRequired[pulumi.Input[Sequence[pulumi.Input['OAuth2AuthenticationSettingsContractArgsDict']]]]
+        """
+        Collection of OAuth2 authentication settings included into this API.
+        """
+        openid: NotRequired[pulumi.Input['OpenIdAuthenticationSettingsContractArgsDict']]
+        """
+        OpenID Connect Authentication Settings
+        """
+        openid_authentication_settings: NotRequired[pulumi.Input[Sequence[pulumi.Input['OpenIdAuthenticationSettingsContractArgsDict']]]]
+        """
+        Collection of Open ID Connect authentication settings included into this API.
+        """
+elif False:
+    AuthenticationSettingsContractArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AuthenticationSettingsContractArgs:
     def __init__(__self__, *,
@@ -650,6 +921,22 @@ class AuthenticationSettingsContractArgs:
         pulumi.set(self, "openid_authentication_settings", value)
 
 
+if not MYPY:
+    class AuthorizationErrorArgsDict(TypedDict):
+        """
+        Authorization error details.
+        """
+        code: NotRequired[pulumi.Input[str]]
+        """
+        Error code
+        """
+        message: NotRequired[pulumi.Input[str]]
+        """
+        Error message
+        """
+elif False:
+    AuthorizationErrorArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AuthorizationErrorArgs:
     def __init__(__self__, *,
@@ -689,6 +976,22 @@ class AuthorizationErrorArgs:
     def message(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "message", value)
 
+
+if not MYPY:
+    class AuthorizationProviderOAuth2GrantTypesArgsDict(TypedDict):
+        """
+        Authorization Provider oauth2 grant types settings
+        """
+        authorization_code: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        OAuth2 authorization code grant parameters
+        """
+        client_credentials: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        OAuth2 client credential grant parameters
+        """
+elif False:
+    AuthorizationProviderOAuth2GrantTypesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AuthorizationProviderOAuth2GrantTypesArgs:
@@ -730,6 +1033,22 @@ class AuthorizationProviderOAuth2GrantTypesArgs:
         pulumi.set(self, "client_credentials", value)
 
 
+if not MYPY:
+    class AuthorizationProviderOAuth2SettingsArgsDict(TypedDict):
+        """
+        OAuth2 settings details
+        """
+        grant_types: NotRequired[pulumi.Input['AuthorizationProviderOAuth2GrantTypesArgsDict']]
+        """
+        OAuth2 settings
+        """
+        redirect_url: NotRequired[pulumi.Input[str]]
+        """
+        Redirect URL to be set in the OAuth application.
+        """
+elif False:
+    AuthorizationProviderOAuth2SettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AuthorizationProviderOAuth2SettingsArgs:
     def __init__(__self__, *,
@@ -770,6 +1089,22 @@ class AuthorizationProviderOAuth2SettingsArgs:
         pulumi.set(self, "redirect_url", value)
 
 
+if not MYPY:
+    class BackendAuthorizationHeaderCredentialsArgsDict(TypedDict):
+        """
+        Authorization header information.
+        """
+        parameter: pulumi.Input[str]
+        """
+        Authentication Parameter value.
+        """
+        scheme: pulumi.Input[str]
+        """
+        Authentication Scheme name.
+        """
+elif False:
+    BackendAuthorizationHeaderCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class BackendAuthorizationHeaderCredentialsArgs:
     def __init__(__self__, *,
@@ -808,6 +1143,15 @@ class BackendAuthorizationHeaderCredentialsArgs:
         pulumi.set(self, "scheme", value)
 
 
+if not MYPY:
+    class BackendBaseParametersPoolArgsDict(TypedDict):
+        services: NotRequired[pulumi.Input[Sequence[pulumi.Input['BackendPoolItemArgsDict']]]]
+        """
+        The list of backend entities belonging to a pool.
+        """
+elif False:
+    BackendBaseParametersPoolArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class BackendBaseParametersPoolArgs:
     def __init__(__self__, *,
@@ -830,6 +1174,18 @@ class BackendBaseParametersPoolArgs:
     def services(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BackendPoolItemArgs']]]]):
         pulumi.set(self, "services", value)
 
+
+if not MYPY:
+    class BackendCircuitBreakerArgsDict(TypedDict):
+        """
+        The configuration of the backend circuit breaker
+        """
+        rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['CircuitBreakerRuleArgsDict']]]]
+        """
+        The rules for tripping the backend.
+        """
+elif False:
+    BackendCircuitBreakerArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class BackendCircuitBreakerArgs:
@@ -855,6 +1211,18 @@ class BackendCircuitBreakerArgs:
         pulumi.set(self, "rules", value)
 
 
+if not MYPY:
+    class BackendConfigurationArgsDict(TypedDict):
+        """
+        Information regarding how the gateway should integrate with backend systems.
+        """
+        subnet: NotRequired[pulumi.Input['BackendSubnetConfigurationArgsDict']]
+        """
+        The default hostname of the data-plane gateway to which requests can be sent.
+        """
+elif False:
+    BackendConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class BackendConfigurationArgs:
     def __init__(__self__, *,
@@ -878,6 +1246,34 @@ class BackendConfigurationArgs:
     def subnet(self, value: Optional[pulumi.Input['BackendSubnetConfigurationArgs']]):
         pulumi.set(self, "subnet", value)
 
+
+if not MYPY:
+    class BackendCredentialsContractArgsDict(TypedDict):
+        """
+        Details of the Credentials used to connect to Backend.
+        """
+        authorization: NotRequired[pulumi.Input['BackendAuthorizationHeaderCredentialsArgsDict']]
+        """
+        Authorization header authentication
+        """
+        certificate: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of Client Certificate Thumbprints. Will be ignored if certificatesIds are provided.
+        """
+        certificate_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of Client Certificate Ids.
+        """
+        header: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[str]]]]]]
+        """
+        Header Parameter description.
+        """
+        query: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[str]]]]]]
+        """
+        Query Parameter description.
+        """
+elif False:
+    BackendCredentialsContractArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class BackendCredentialsContractArgs:
@@ -967,6 +1363,26 @@ class BackendCredentialsContractArgs:
         pulumi.set(self, "query", value)
 
 
+if not MYPY:
+    class BackendPoolItemArgsDict(TypedDict):
+        """
+        Backend pool service information
+        """
+        id: pulumi.Input[str]
+        """
+        The unique ARM id of the backend entity. The ARM id should refer to an already existing backend entity.
+        """
+        priority: NotRequired[pulumi.Input[int]]
+        """
+        The priority of the backend entity in the backend pool. Must be between 0 and 100. It can be also null if the value not specified.
+        """
+        weight: NotRequired[pulumi.Input[int]]
+        """
+        The weight of the backend entity in the backend pool. Must be between 0 and 100. It can be also null if the value not specified.
+        """
+elif False:
+    BackendPoolItemArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class BackendPoolItemArgs:
     def __init__(__self__, *,
@@ -1022,6 +1438,18 @@ class BackendPoolItemArgs:
         pulumi.set(self, "weight", value)
 
 
+if not MYPY:
+    class BackendPropertiesArgsDict(TypedDict):
+        """
+        Properties specific to the Backend Type.
+        """
+        service_fabric_cluster: NotRequired[pulumi.Input['BackendServiceFabricClusterPropertiesArgsDict']]
+        """
+        Backend Service Fabric Cluster Properties
+        """
+elif False:
+    BackendPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class BackendPropertiesArgs:
     def __init__(__self__, *,
@@ -1045,6 +1473,26 @@ class BackendPropertiesArgs:
     def service_fabric_cluster(self, value: Optional[pulumi.Input['BackendServiceFabricClusterPropertiesArgs']]):
         pulumi.set(self, "service_fabric_cluster", value)
 
+
+if not MYPY:
+    class BackendProxyContractArgsDict(TypedDict):
+        """
+        Details of the Backend WebProxy Server to use in the Request to Backend.
+        """
+        url: pulumi.Input[str]
+        """
+        WebProxy Server AbsoluteUri property which includes the entire URI stored in the Uri instance, including all fragments and query strings.
+        """
+        password: NotRequired[pulumi.Input[str]]
+        """
+        Password to connect to the WebProxy Server
+        """
+        username: NotRequired[pulumi.Input[str]]
+        """
+        Username to connect to the WebProxy server
+        """
+elif False:
+    BackendProxyContractArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class BackendProxyContractArgs:
@@ -1100,6 +1548,38 @@ class BackendProxyContractArgs:
     def username(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "username", value)
 
+
+if not MYPY:
+    class BackendServiceFabricClusterPropertiesArgsDict(TypedDict):
+        """
+        Properties of the Service Fabric Type Backend.
+        """
+        management_endpoints: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        The cluster management endpoint.
+        """
+        client_certificate_id: NotRequired[pulumi.Input[str]]
+        """
+        The client certificate id for the management endpoint.
+        """
+        client_certificatethumbprint: NotRequired[pulumi.Input[str]]
+        """
+        The client certificate thumbprint for the management endpoint. Will be ignored if certificatesIds are provided
+        """
+        max_partition_resolution_retries: NotRequired[pulumi.Input[int]]
+        """
+        Maximum number of retries while attempting resolve the partition.
+        """
+        server_certificate_thumbprints: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Thumbprints of certificates cluster management service uses for tls communication
+        """
+        server_x509_names: NotRequired[pulumi.Input[Sequence[pulumi.Input['X509CertificateNameArgsDict']]]]
+        """
+        Server X509 Certificate Names Collection
+        """
+elif False:
+    BackendServiceFabricClusterPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class BackendServiceFabricClusterPropertiesArgs:
@@ -1204,6 +1684,18 @@ class BackendServiceFabricClusterPropertiesArgs:
         pulumi.set(self, "server_x509_names", value)
 
 
+if not MYPY:
+    class BackendSubnetConfigurationArgsDict(TypedDict):
+        """
+        Information regarding how the subnet to which the gateway should be injected.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The ARM ID of the subnet in which the backend systems are hosted.
+        """
+elif False:
+    BackendSubnetConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class BackendSubnetConfigurationArgs:
     def __init__(__self__, *,
@@ -1227,6 +1719,22 @@ class BackendSubnetConfigurationArgs:
     def id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class BackendTlsPropertiesArgsDict(TypedDict):
+        """
+        Properties controlling TLS Certificate Validation.
+        """
+        validate_certificate_chain: NotRequired[pulumi.Input[bool]]
+        """
+        Flag indicating whether SSL certificate chain validation should be done when using self-signed certificates for this backend host.
+        """
+        validate_certificate_name: NotRequired[pulumi.Input[bool]]
+        """
+        Flag indicating whether SSL certificate name validation should be done when using self-signed certificates for this backend host.
+        """
+elif False:
+    BackendTlsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class BackendTlsPropertiesArgs:
@@ -1272,6 +1780,18 @@ class BackendTlsPropertiesArgs:
         pulumi.set(self, "validate_certificate_name", value)
 
 
+if not MYPY:
+    class BodyDiagnosticSettingsArgsDict(TypedDict):
+        """
+        Body logging settings.
+        """
+        bytes: NotRequired[pulumi.Input[int]]
+        """
+        Number of request body bytes to log.
+        """
+elif False:
+    BodyDiagnosticSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class BodyDiagnosticSettingsArgs:
     def __init__(__self__, *,
@@ -1295,6 +1815,30 @@ class BodyDiagnosticSettingsArgs:
     def bytes(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "bytes", value)
 
+
+if not MYPY:
+    class CertificateConfigurationArgsDict(TypedDict):
+        """
+        Certificate configuration which consist of non-trusted intermediates and root certificates.
+        """
+        store_name: pulumi.Input[str]
+        """
+        The System.Security.Cryptography.x509certificates.StoreName certificate store location. Only Root and CertificateAuthority are valid locations.
+        """
+        certificate: NotRequired[pulumi.Input['CertificateInformationArgsDict']]
+        """
+        Certificate information.
+        """
+        certificate_password: NotRequired[pulumi.Input[str]]
+        """
+        Certificate Password.
+        """
+        encoded_certificate: NotRequired[pulumi.Input[str]]
+        """
+        Base64 Encoded certificate.
+        """
+elif False:
+    CertificateConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CertificateConfigurationArgs:
@@ -1367,6 +1911,26 @@ class CertificateConfigurationArgs:
         pulumi.set(self, "encoded_certificate", value)
 
 
+if not MYPY:
+    class CertificateInformationArgsDict(TypedDict):
+        """
+        SSL certificate information.
+        """
+        expiry: pulumi.Input[str]
+        """
+        Expiration date of the certificate. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+        """
+        subject: pulumi.Input[str]
+        """
+        Subject of the certificate.
+        """
+        thumbprint: pulumi.Input[str]
+        """
+        Thumbprint of the certificate.
+        """
+elif False:
+    CertificateInformationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CertificateInformationArgs:
     def __init__(__self__, *,
@@ -1419,6 +1983,34 @@ class CertificateInformationArgs:
     def thumbprint(self, value: pulumi.Input[str]):
         pulumi.set(self, "thumbprint", value)
 
+
+if not MYPY:
+    class CircuitBreakerFailureConditionArgsDict(TypedDict):
+        """
+        The trip conditions of the circuit breaker
+        """
+        count: NotRequired[pulumi.Input[float]]
+        """
+        The threshold for opening the circuit.
+        """
+        error_reasons: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The error reasons which are considered as failure.
+        """
+        interval: NotRequired[pulumi.Input[str]]
+        """
+        The interval during which the failures are counted.
+        """
+        percentage: NotRequired[pulumi.Input[float]]
+        """
+        The threshold for opening the circuit.
+        """
+        status_code_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input['FailureStatusCodeRangeArgsDict']]]]
+        """
+        The status code ranges which are considered as failure.
+        """
+elif False:
+    CircuitBreakerFailureConditionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CircuitBreakerFailureConditionArgs:
@@ -1508,6 +2100,30 @@ class CircuitBreakerFailureConditionArgs:
         pulumi.set(self, "status_code_ranges", value)
 
 
+if not MYPY:
+    class CircuitBreakerRuleArgsDict(TypedDict):
+        """
+        Rule configuration to trip the backend.
+        """
+        accept_retry_after: NotRequired[pulumi.Input[bool]]
+        """
+        flag to accept Retry-After header from the backend.
+        """
+        failure_condition: NotRequired[pulumi.Input['CircuitBreakerFailureConditionArgsDict']]
+        """
+        The conditions for tripping the circuit breaker.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The rule name.
+        """
+        trip_duration: NotRequired[pulumi.Input[str]]
+        """
+        The duration for which the circuit will be tripped.
+        """
+elif False:
+    CircuitBreakerRuleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CircuitBreakerRuleArgs:
     def __init__(__self__, *,
@@ -1580,6 +2196,18 @@ class CircuitBreakerRuleArgs:
         pulumi.set(self, "trip_duration", value)
 
 
+if not MYPY:
+    class ConfigurationApiArgsDict(TypedDict):
+        """
+        Information regarding the Configuration API of the API Management service.
+        """
+        legacy_api: NotRequired[pulumi.Input[Union[str, 'LegacyApiState']]]
+        """
+        Indication whether or not the legacy Configuration API (v1) should be exposed on the API Management service. Value is optional but must be 'Enabled' or 'Disabled'. If 'Disabled', legacy Configuration API (v1) will not be available for self-hosted gateways. Default value is 'Enabled'
+        """
+elif False:
+    ConfigurationApiArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ConfigurationApiArgs:
     def __init__(__self__, *,
@@ -1605,6 +2233,19 @@ class ConfigurationApiArgs:
     def legacy_api(self, value: Optional[pulumi.Input[Union[str, 'LegacyApiState']]]):
         pulumi.set(self, "legacy_api", value)
 
+
+if not MYPY:
+    class DataMaskingEntityArgsDict(TypedDict):
+        mode: NotRequired[pulumi.Input[Union[str, 'DataMaskingMode']]]
+        """
+        Data masking mode.
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        The name of an entity to mask (e.g. a name of a header or a query parameter).
+        """
+elif False:
+    DataMaskingEntityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataMaskingEntityArgs:
@@ -1645,6 +2286,19 @@ class DataMaskingEntityArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class DataMaskingArgsDict(TypedDict):
+        headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataMaskingEntityArgsDict']]]]
+        """
+        Masking settings for headers
+        """
+        query_params: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataMaskingEntityArgsDict']]]]
+        """
+        Masking settings for Url query parameters
+        """
+elif False:
+    DataMaskingArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DataMaskingArgs:
     def __init__(__self__, *,
@@ -1683,6 +2337,26 @@ class DataMaskingArgs:
     def query_params(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataMaskingEntityArgs']]]]):
         pulumi.set(self, "query_params", value)
 
+
+if not MYPY:
+    class EmailTemplateParametersContractPropertiesArgsDict(TypedDict):
+        """
+        Email Template Parameter contract.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Template parameter description.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Template parameter name.
+        """
+        title: NotRequired[pulumi.Input[str]]
+        """
+        Template parameter title.
+        """
+elif False:
+    EmailTemplateParametersContractPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EmailTemplateParametersContractPropertiesArgs:
@@ -1740,6 +2414,22 @@ class EmailTemplateParametersContractPropertiesArgs:
         pulumi.set(self, "title", value)
 
 
+if not MYPY:
+    class FailureStatusCodeRangeArgsDict(TypedDict):
+        """
+        The failure http status code range
+        """
+        max: NotRequired[pulumi.Input[int]]
+        """
+        The maximum http status code.
+        """
+        min: NotRequired[pulumi.Input[int]]
+        """
+        The minimum http status code.
+        """
+elif False:
+    FailureStatusCodeRangeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FailureStatusCodeRangeArgs:
     def __init__(__self__, *,
@@ -1779,6 +2469,58 @@ class FailureStatusCodeRangeArgs:
     def min(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "min", value)
 
+
+if not MYPY:
+    class HostnameConfigurationArgsDict(TypedDict):
+        """
+        Custom hostname configuration.
+        """
+        host_name: pulumi.Input[str]
+        """
+        Hostname to configure on the Api Management service.
+        """
+        type: pulumi.Input[Union[str, 'HostnameType']]
+        """
+        Hostname type.
+        """
+        certificate: NotRequired[pulumi.Input['CertificateInformationArgsDict']]
+        """
+        Certificate information.
+        """
+        certificate_password: NotRequired[pulumi.Input[str]]
+        """
+        Certificate Password.
+        """
+        certificate_source: NotRequired[pulumi.Input[Union[str, 'CertificateSource']]]
+        """
+        Certificate Source.
+        """
+        certificate_status: NotRequired[pulumi.Input[Union[str, 'CertificateStatus']]]
+        """
+        Certificate Status.
+        """
+        default_ssl_binding: NotRequired[pulumi.Input[bool]]
+        """
+        Specify true to setup the certificate associated with this Hostname as the Default SSL Certificate. If a client does not send the SNI header, then this will be the certificate that will be challenged. The property is useful if a service has multiple custom hostname enabled and it needs to decide on the default ssl certificate. The setting only applied to gateway Hostname Type.
+        """
+        encoded_certificate: NotRequired[pulumi.Input[str]]
+        """
+        Base64 Encoded certificate.
+        """
+        identity_client_id: NotRequired[pulumi.Input[str]]
+        """
+        System or User Assigned Managed identity clientId as generated by Azure AD, which has GET access to the keyVault containing the SSL certificate.
+        """
+        key_vault_id: NotRequired[pulumi.Input[str]]
+        """
+        Url to the KeyVault Secret containing the Ssl Certificate. If absolute Url containing version is provided, auto-update of ssl certificate will not work. This requires Api Management service to be configured with aka.ms/apimmsi. The secret should be of type *application/x-pkcs12*
+        """
+        negotiate_client_certificate: NotRequired[pulumi.Input[bool]]
+        """
+        Specify true to always negotiate client certificate on the hostname. Default Value is false.
+        """
+elif False:
+    HostnameConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class HostnameConfigurationArgs:
@@ -1966,6 +2708,26 @@ class HostnameConfigurationArgs:
         pulumi.set(self, "negotiate_client_certificate", value)
 
 
+if not MYPY:
+    class HttpMessageDiagnosticArgsDict(TypedDict):
+        """
+        Http message diagnostic settings.
+        """
+        body: NotRequired[pulumi.Input['BodyDiagnosticSettingsArgsDict']]
+        """
+        Body logging settings.
+        """
+        data_masking: NotRequired[pulumi.Input['DataMaskingArgsDict']]
+        """
+        Data masking settings.
+        """
+        headers: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Array of HTTP Headers to log.
+        """
+elif False:
+    HttpMessageDiagnosticArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class HttpMessageDiagnosticArgs:
     def __init__(__self__, *,
@@ -2022,6 +2784,22 @@ class HttpMessageDiagnosticArgs:
         pulumi.set(self, "headers", value)
 
 
+if not MYPY:
+    class KeyVaultContractCreatePropertiesArgsDict(TypedDict):
+        """
+        Create keyVault contract details.
+        """
+        identity_client_id: NotRequired[pulumi.Input[str]]
+        """
+        Null for SystemAssignedIdentity or Client Id for UserAssignedIdentity , which will be used to access key vault secret.
+        """
+        secret_identifier: NotRequired[pulumi.Input[str]]
+        """
+        Key vault secret identifier for fetching secret. Providing a versioned secret will prevent auto-refresh. This requires API Management service to be configured with aka.ms/apimmsi
+        """
+elif False:
+    KeyVaultContractCreatePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class KeyVaultContractCreatePropertiesArgs:
     def __init__(__self__, *,
@@ -2061,6 +2839,22 @@ class KeyVaultContractCreatePropertiesArgs:
     def secret_identifier(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "secret_identifier", value)
 
+
+if not MYPY:
+    class OAuth2AuthenticationSettingsContractArgsDict(TypedDict):
+        """
+        API OAuth2 Authentication settings details.
+        """
+        authorization_server_id: NotRequired[pulumi.Input[str]]
+        """
+        OAuth authorization server identifier.
+        """
+        scope: NotRequired[pulumi.Input[str]]
+        """
+        operations scope.
+        """
+elif False:
+    OAuth2AuthenticationSettingsContractArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OAuth2AuthenticationSettingsContractArgs:
@@ -2102,6 +2896,22 @@ class OAuth2AuthenticationSettingsContractArgs:
         pulumi.set(self, "scope", value)
 
 
+if not MYPY:
+    class OpenIdAuthenticationSettingsContractArgsDict(TypedDict):
+        """
+        API OAuth2 Authentication settings details.
+        """
+        bearer_token_sending_methods: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'BearerTokenSendingMethods']]]]]
+        """
+        How to send token to the server.
+        """
+        openid_provider_id: NotRequired[pulumi.Input[str]]
+        """
+        OAuth authorization server identifier.
+        """
+elif False:
+    OpenIdAuthenticationSettingsContractArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OpenIdAuthenticationSettingsContractArgs:
     def __init__(__self__, *,
@@ -2141,6 +2951,50 @@ class OpenIdAuthenticationSettingsContractArgs:
     def openid_provider_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "openid_provider_id", value)
 
+
+if not MYPY:
+    class ParameterContractArgsDict(TypedDict):
+        """
+        Operation parameters details.
+        """
+        name: pulumi.Input[str]
+        """
+        Parameter name.
+        """
+        type: pulumi.Input[str]
+        """
+        Parameter type.
+        """
+        default_value: NotRequired[pulumi.Input[str]]
+        """
+        Default parameter value.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Parameter description.
+        """
+        examples: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['ParameterExampleContractArgsDict']]]]
+        """
+        Exampled defined for the parameter.
+        """
+        required: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies whether parameter is required or not.
+        """
+        schema_id: NotRequired[pulumi.Input[str]]
+        """
+        Schema identifier.
+        """
+        type_name: NotRequired[pulumi.Input[str]]
+        """
+        Type name defined by the schema.
+        """
+        values: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Parameter values.
+        """
+elif False:
+    ParameterContractArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ParameterContractArgs:
@@ -2292,6 +3146,30 @@ class ParameterContractArgs:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class ParameterExampleContractArgsDict(TypedDict):
+        """
+        Parameter example.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Long description for the example
+        """
+        external_value: NotRequired[pulumi.Input[str]]
+        """
+        A URL that points to the literal example
+        """
+        summary: NotRequired[pulumi.Input[str]]
+        """
+        Short description for the example
+        """
+        value: NotRequired[Any]
+        """
+        Example value. May be a primitive value, or an object.
+        """
+elif False:
+    ParameterExampleContractArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ParameterExampleContractArgs:
     def __init__(__self__, *,
@@ -2364,6 +3242,22 @@ class ParameterExampleContractArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class PipelineDiagnosticSettingsArgsDict(TypedDict):
+        """
+        Diagnostic settings for incoming/outgoing HTTP messages to the Gateway.
+        """
+        request: NotRequired[pulumi.Input['HttpMessageDiagnosticArgsDict']]
+        """
+        Diagnostic settings for request.
+        """
+        response: NotRequired[pulumi.Input['HttpMessageDiagnosticArgsDict']]
+        """
+        Diagnostic settings for response.
+        """
+elif False:
+    PipelineDiagnosticSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PipelineDiagnosticSettingsArgs:
     def __init__(__self__, *,
@@ -2404,6 +3298,18 @@ class PipelineDiagnosticSettingsArgs:
         pulumi.set(self, "response", value)
 
 
+if not MYPY:
+    class PrivateEndpointConnectionRequestPropertiesArgsDict(TypedDict):
+        """
+        The connection state of the private endpoint connection.
+        """
+        private_link_service_connection_state: NotRequired[pulumi.Input['PrivateLinkServiceConnectionStateArgsDict']]
+        """
+        A collection of information about the state of the connection between service consumer and provider.
+        """
+elif False:
+    PrivateEndpointConnectionRequestPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PrivateEndpointConnectionRequestPropertiesArgs:
     def __init__(__self__, *,
@@ -2427,6 +3333,26 @@ class PrivateEndpointConnectionRequestPropertiesArgs:
     def private_link_service_connection_state(self, value: Optional[pulumi.Input['PrivateLinkServiceConnectionStateArgs']]):
         pulumi.set(self, "private_link_service_connection_state", value)
 
+
+if not MYPY:
+    class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
+        """
+        A collection of information about the state of the connection between service consumer and provider.
+        """
+        actions_required: NotRequired[pulumi.Input[str]]
+        """
+        A message indicating if changes on the service provider require any updates on the consumer.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The reason for approval/rejection of the connection.
+        """
+        status: NotRequired[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]]
+        """
+        Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+        """
+elif False:
+    PrivateLinkServiceConnectionStateArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:
@@ -2483,6 +3409,30 @@ class PrivateLinkServiceConnectionStateArgs:
     def status(self, value: Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]]):
         pulumi.set(self, "status", value)
 
+
+if not MYPY:
+    class RemotePrivateEndpointConnectionWrapperArgsDict(TypedDict):
+        """
+        Remote Private Endpoint Connection resource.
+        """
+        private_link_service_connection_state: pulumi.Input['PrivateLinkServiceConnectionStateArgsDict']
+        """
+        A collection of information about the state of the connection between service consumer and provider.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Private Endpoint connection resource id
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Private Endpoint Connection Name
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        Private Endpoint Connection Resource Type
+        """
+elif False:
+    RemotePrivateEndpointConnectionWrapperArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RemotePrivateEndpointConnectionWrapperArgs:
@@ -2554,6 +3504,34 @@ class RemotePrivateEndpointConnectionWrapperArgs:
     def type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class RepresentationContractArgsDict(TypedDict):
+        """
+        Operation request/response representation details.
+        """
+        content_type: pulumi.Input[str]
+        """
+        Specifies a registered or custom content type for this representation, e.g. application/xml.
+        """
+        examples: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['ParameterExampleContractArgsDict']]]]
+        """
+        Exampled defined for the representation.
+        """
+        form_parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['ParameterContractArgsDict']]]]
+        """
+        Collection of form parameters. Required if 'contentType' value is either 'application/x-www-form-urlencoded' or 'multipart/form-data'..
+        """
+        schema_id: NotRequired[pulumi.Input[str]]
+        """
+        Schema identifier. Applicable only if 'contentType' value is neither 'application/x-www-form-urlencoded' nor 'multipart/form-data'.
+        """
+        type_name: NotRequired[pulumi.Input[str]]
+        """
+        Type name defined by the schema. Applicable only if 'contentType' value is neither 'application/x-www-form-urlencoded' nor 'multipart/form-data'.
+        """
+elif False:
+    RepresentationContractArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RepresentationContractArgs:
@@ -2642,6 +3620,30 @@ class RepresentationContractArgs:
         pulumi.set(self, "type_name", value)
 
 
+if not MYPY:
+    class RequestContractArgsDict(TypedDict):
+        """
+        Operation request details.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Operation request description.
+        """
+        headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['ParameterContractArgsDict']]]]
+        """
+        Collection of operation request headers.
+        """
+        query_parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['ParameterContractArgsDict']]]]
+        """
+        Collection of operation request query parameters.
+        """
+        representations: NotRequired[pulumi.Input[Sequence[pulumi.Input['RepresentationContractArgsDict']]]]
+        """
+        Collection of operation request representations.
+        """
+elif False:
+    RequestContractArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RequestContractArgs:
     def __init__(__self__, *,
@@ -2714,6 +3716,30 @@ class RequestContractArgs:
         pulumi.set(self, "representations", value)
 
 
+if not MYPY:
+    class ResourceLocationDataContractArgsDict(TypedDict):
+        """
+        Resource location data properties.
+        """
+        name: pulumi.Input[str]
+        """
+        A canonical name for the geographic or physical location.
+        """
+        city: NotRequired[pulumi.Input[str]]
+        """
+        The city or locality where the resource is located.
+        """
+        country_or_region: NotRequired[pulumi.Input[str]]
+        """
+        The country or region where the resource is located.
+        """
+        district: NotRequired[pulumi.Input[str]]
+        """
+        The district, state, or province where the resource is located.
+        """
+elif False:
+    ResourceLocationDataContractArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ResourceLocationDataContractArgs:
     def __init__(__self__, *,
@@ -2784,6 +3810,30 @@ class ResourceLocationDataContractArgs:
     def district(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "district", value)
 
+
+if not MYPY:
+    class ResponseContractArgsDict(TypedDict):
+        """
+        Operation response details.
+        """
+        status_code: pulumi.Input[int]
+        """
+        Operation response HTTP status code.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Operation response description.
+        """
+        headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['ParameterContractArgsDict']]]]
+        """
+        Collection of operation response headers.
+        """
+        representations: NotRequired[pulumi.Input[Sequence[pulumi.Input['RepresentationContractArgsDict']]]]
+        """
+        Collection of operation response representations.
+        """
+elif False:
+    ResponseContractArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ResponseContractArgs:
@@ -2856,6 +3906,22 @@ class ResponseContractArgs:
         pulumi.set(self, "representations", value)
 
 
+if not MYPY:
+    class SamplingSettingsArgsDict(TypedDict):
+        """
+        Sampling settings for Diagnostic.
+        """
+        percentage: NotRequired[pulumi.Input[float]]
+        """
+        Rate of sampling for fixed-rate sampling.
+        """
+        sampling_type: NotRequired[pulumi.Input[Union[str, 'SamplingType']]]
+        """
+        Sampling type.
+        """
+elif False:
+    SamplingSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SamplingSettingsArgs:
     def __init__(__self__, *,
@@ -2895,6 +3961,22 @@ class SamplingSettingsArgs:
     def sampling_type(self, value: Optional[pulumi.Input[Union[str, 'SamplingType']]]):
         pulumi.set(self, "sampling_type", value)
 
+
+if not MYPY:
+    class SubscriptionKeyParameterNamesContractArgsDict(TypedDict):
+        """
+        Subscription key parameter names details.
+        """
+        header: NotRequired[pulumi.Input[str]]
+        """
+        Subscription key header name.
+        """
+        query: NotRequired[pulumi.Input[str]]
+        """
+        Subscription key query string parameter name.
+        """
+elif False:
+    SubscriptionKeyParameterNamesContractArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SubscriptionKeyParameterNamesContractArgs:
@@ -2936,6 +4018,22 @@ class SubscriptionKeyParameterNamesContractArgs:
         pulumi.set(self, "query", value)
 
 
+if not MYPY:
+    class TokenBodyParameterContractArgsDict(TypedDict):
+        """
+        OAuth acquire token request body parameter (www-url-form-encoded).
+        """
+        name: pulumi.Input[str]
+        """
+        body parameter name.
+        """
+        value: pulumi.Input[str]
+        """
+        body parameter value.
+        """
+elif False:
+    TokenBodyParameterContractArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TokenBodyParameterContractArgs:
     def __init__(__self__, *,
@@ -2973,6 +4071,22 @@ class TokenBodyParameterContractArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class UserIdentityContractArgsDict(TypedDict):
+        """
+        User identity details.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Identifier value within provider.
+        """
+        provider: NotRequired[pulumi.Input[str]]
+        """
+        Identity provider name.
+        """
+elif False:
+    UserIdentityContractArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserIdentityContractArgs:
@@ -3014,6 +4128,19 @@ class UserIdentityContractArgs:
         pulumi.set(self, "provider", value)
 
 
+if not MYPY:
+    class UserIdentityPropertiesArgsDict(TypedDict):
+        client_id: NotRequired[pulumi.Input[str]]
+        """
+        The client id of user assigned identity.
+        """
+        principal_id: NotRequired[pulumi.Input[str]]
+        """
+        The principal id of user assigned identity.
+        """
+elif False:
+    UserIdentityPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class UserIdentityPropertiesArgs:
     def __init__(__self__, *,
@@ -3053,6 +4180,18 @@ class UserIdentityPropertiesArgs:
         pulumi.set(self, "principal_id", value)
 
 
+if not MYPY:
+    class VirtualNetworkConfigurationArgsDict(TypedDict):
+        """
+        Configuration of a virtual network to which API Management service is deployed.
+        """
+        subnet_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        The full resource ID of a subnet in a virtual network to deploy the API Management service in.
+        """
+elif False:
+    VirtualNetworkConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class VirtualNetworkConfigurationArgs:
     def __init__(__self__, *,
@@ -3077,6 +4216,18 @@ class VirtualNetworkConfigurationArgs:
         pulumi.set(self, "subnet_resource_id", value)
 
 
+if not MYPY:
+    class WikiDocumentationContractArgsDict(TypedDict):
+        """
+        Wiki documentation details.
+        """
+        documentation_id: NotRequired[pulumi.Input[str]]
+        """
+        Documentation Identifier
+        """
+elif False:
+    WikiDocumentationContractArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WikiDocumentationContractArgs:
     def __init__(__self__, *,
@@ -3100,6 +4251,22 @@ class WikiDocumentationContractArgs:
     def documentation_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "documentation_id", value)
 
+
+if not MYPY:
+    class X509CertificateNameArgsDict(TypedDict):
+        """
+        Properties of server X509Names.
+        """
+        issuer_certificate_thumbprint: NotRequired[pulumi.Input[str]]
+        """
+        Thumbprint for the Issuer of the Certificate.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Common Name of the Certificate.
+        """
+elif False:
+    X509CertificateNameArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class X509CertificateNameArgs:

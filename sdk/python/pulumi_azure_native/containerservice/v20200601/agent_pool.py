@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -464,7 +469,7 @@ class AgentPool(pulumi.CustomResource):
                  spot_max_price: Optional[pulumi.Input[float]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[Union[str, 'AgentPoolType']]] = None,
-                 upgrade_settings: Optional[pulumi.Input[pulumi.InputType['AgentPoolUpgradeSettingsArgs']]] = None,
+                 upgrade_settings: Optional[pulumi.Input[Union['AgentPoolUpgradeSettingsArgs', 'AgentPoolUpgradeSettingsArgsDict']]] = None,
                  vm_size: Optional[pulumi.Input[Union[str, 'ContainerServiceVMSizeTypes']]] = None,
                  vnet_subnet_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -496,7 +501,7 @@ class AgentPool(pulumi.CustomResource):
         :param pulumi.Input[float] spot_max_price: SpotMaxPrice to be used to specify the maximum price you are willing to pay in US Dollars. Possible values are any decimal value greater than zero or -1 which indicates default price to be up-to on-demand.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Agent pool tags to be persisted on the agent pool virtual machine scale set.
         :param pulumi.Input[Union[str, 'AgentPoolType']] type: AgentPoolType represents types of an agent pool
-        :param pulumi.Input[pulumi.InputType['AgentPoolUpgradeSettingsArgs']] upgrade_settings: Settings for upgrading the agentpool
+        :param pulumi.Input[Union['AgentPoolUpgradeSettingsArgs', 'AgentPoolUpgradeSettingsArgsDict']] upgrade_settings: Settings for upgrading the agentpool
         :param pulumi.Input[Union[str, 'ContainerServiceVMSizeTypes']] vm_size: Size of agent VMs.
         :param pulumi.Input[str] vnet_subnet_id: VNet SubnetID specifies the VNet's subnet identifier.
         """
@@ -547,7 +552,7 @@ class AgentPool(pulumi.CustomResource):
                  spot_max_price: Optional[pulumi.Input[float]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[Union[str, 'AgentPoolType']]] = None,
-                 upgrade_settings: Optional[pulumi.Input[pulumi.InputType['AgentPoolUpgradeSettingsArgs']]] = None,
+                 upgrade_settings: Optional[pulumi.Input[Union['AgentPoolUpgradeSettingsArgs', 'AgentPoolUpgradeSettingsArgsDict']]] = None,
                  vm_size: Optional[pulumi.Input[Union[str, 'ContainerServiceVMSizeTypes']]] = None,
                  vnet_subnet_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):

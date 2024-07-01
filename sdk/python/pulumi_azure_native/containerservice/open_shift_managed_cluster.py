@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -233,18 +238,18 @@ class OpenShiftManagedCluster(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 agent_pool_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OpenShiftManagedClusterAgentPoolProfileArgs']]]]] = None,
-                 auth_profile: Optional[pulumi.Input[pulumi.InputType['OpenShiftManagedClusterAuthProfileArgs']]] = None,
+                 agent_pool_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OpenShiftManagedClusterAgentPoolProfileArgs', 'OpenShiftManagedClusterAgentPoolProfileArgsDict']]]]] = None,
+                 auth_profile: Optional[pulumi.Input[Union['OpenShiftManagedClusterAuthProfileArgs', 'OpenShiftManagedClusterAuthProfileArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 master_pool_profile: Optional[pulumi.Input[pulumi.InputType['OpenShiftManagedClusterMasterPoolProfileArgs']]] = None,
-                 monitor_profile: Optional[pulumi.Input[pulumi.InputType['OpenShiftManagedClusterMonitorProfileArgs']]] = None,
-                 network_profile: Optional[pulumi.Input[pulumi.InputType['NetworkProfileArgs']]] = None,
+                 master_pool_profile: Optional[pulumi.Input[Union['OpenShiftManagedClusterMasterPoolProfileArgs', 'OpenShiftManagedClusterMasterPoolProfileArgsDict']]] = None,
+                 monitor_profile: Optional[pulumi.Input[Union['OpenShiftManagedClusterMonitorProfileArgs', 'OpenShiftManagedClusterMonitorProfileArgsDict']]] = None,
+                 network_profile: Optional[pulumi.Input[Union['NetworkProfileArgs', 'NetworkProfileArgsDict']]] = None,
                  open_shift_version: Optional[pulumi.Input[str]] = None,
-                 plan: Optional[pulumi.Input[pulumi.InputType['PurchasePlanArgs']]] = None,
+                 plan: Optional[pulumi.Input[Union['PurchasePlanArgs', 'PurchasePlanArgsDict']]] = None,
                  refresh_cluster: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
-                 router_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OpenShiftRouterProfileArgs']]]]] = None,
+                 router_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OpenShiftRouterProfileArgs', 'OpenShiftRouterProfileArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -255,18 +260,18 @@ class OpenShiftManagedCluster(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OpenShiftManagedClusterAgentPoolProfileArgs']]]] agent_pool_profiles: Configuration of OpenShift cluster VMs.
-        :param pulumi.Input[pulumi.InputType['OpenShiftManagedClusterAuthProfileArgs']] auth_profile: Configures OpenShift authentication.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['OpenShiftManagedClusterAgentPoolProfileArgs', 'OpenShiftManagedClusterAgentPoolProfileArgsDict']]]] agent_pool_profiles: Configuration of OpenShift cluster VMs.
+        :param pulumi.Input[Union['OpenShiftManagedClusterAuthProfileArgs', 'OpenShiftManagedClusterAuthProfileArgsDict']] auth_profile: Configures OpenShift authentication.
         :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[pulumi.InputType['OpenShiftManagedClusterMasterPoolProfileArgs']] master_pool_profile: Configuration for OpenShift master VMs.
-        :param pulumi.Input[pulumi.InputType['OpenShiftManagedClusterMonitorProfileArgs']] monitor_profile: Configures Log Analytics integration.
-        :param pulumi.Input[pulumi.InputType['NetworkProfileArgs']] network_profile: Configuration for OpenShift networking.
+        :param pulumi.Input[Union['OpenShiftManagedClusterMasterPoolProfileArgs', 'OpenShiftManagedClusterMasterPoolProfileArgsDict']] master_pool_profile: Configuration for OpenShift master VMs.
+        :param pulumi.Input[Union['OpenShiftManagedClusterMonitorProfileArgs', 'OpenShiftManagedClusterMonitorProfileArgsDict']] monitor_profile: Configures Log Analytics integration.
+        :param pulumi.Input[Union['NetworkProfileArgs', 'NetworkProfileArgsDict']] network_profile: Configuration for OpenShift networking.
         :param pulumi.Input[str] open_shift_version: Version of OpenShift specified when creating the cluster.
-        :param pulumi.Input[pulumi.InputType['PurchasePlanArgs']] plan: Define the resource plan as required by ARM for billing purposes
+        :param pulumi.Input[Union['PurchasePlanArgs', 'PurchasePlanArgsDict']] plan: Define the resource plan as required by ARM for billing purposes
         :param pulumi.Input[bool] refresh_cluster: Allows node rotation
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] resource_name_: The name of the OpenShift managed cluster resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OpenShiftRouterProfileArgs']]]] router_profiles: Configuration for OpenShift router(s).
+        :param pulumi.Input[Sequence[pulumi.Input[Union['OpenShiftRouterProfileArgs', 'OpenShiftRouterProfileArgsDict']]]] router_profiles: Configuration for OpenShift router(s).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
         ...
@@ -296,18 +301,18 @@ class OpenShiftManagedCluster(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 agent_pool_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OpenShiftManagedClusterAgentPoolProfileArgs']]]]] = None,
-                 auth_profile: Optional[pulumi.Input[pulumi.InputType['OpenShiftManagedClusterAuthProfileArgs']]] = None,
+                 agent_pool_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OpenShiftManagedClusterAgentPoolProfileArgs', 'OpenShiftManagedClusterAgentPoolProfileArgsDict']]]]] = None,
+                 auth_profile: Optional[pulumi.Input[Union['OpenShiftManagedClusterAuthProfileArgs', 'OpenShiftManagedClusterAuthProfileArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 master_pool_profile: Optional[pulumi.Input[pulumi.InputType['OpenShiftManagedClusterMasterPoolProfileArgs']]] = None,
-                 monitor_profile: Optional[pulumi.Input[pulumi.InputType['OpenShiftManagedClusterMonitorProfileArgs']]] = None,
-                 network_profile: Optional[pulumi.Input[pulumi.InputType['NetworkProfileArgs']]] = None,
+                 master_pool_profile: Optional[pulumi.Input[Union['OpenShiftManagedClusterMasterPoolProfileArgs', 'OpenShiftManagedClusterMasterPoolProfileArgsDict']]] = None,
+                 monitor_profile: Optional[pulumi.Input[Union['OpenShiftManagedClusterMonitorProfileArgs', 'OpenShiftManagedClusterMonitorProfileArgsDict']]] = None,
+                 network_profile: Optional[pulumi.Input[Union['NetworkProfileArgs', 'NetworkProfileArgsDict']]] = None,
                  open_shift_version: Optional[pulumi.Input[str]] = None,
-                 plan: Optional[pulumi.Input[pulumi.InputType['PurchasePlanArgs']]] = None,
+                 plan: Optional[pulumi.Input[Union['PurchasePlanArgs', 'PurchasePlanArgsDict']]] = None,
                  refresh_cluster: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
-                 router_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OpenShiftRouterProfileArgs']]]]] = None,
+                 router_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OpenShiftRouterProfileArgs', 'OpenShiftRouterProfileArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

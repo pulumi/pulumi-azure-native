@@ -4,17 +4,39 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'AppSkuInfoArgs',
+    'AppSkuInfoArgsDict',
     'PrivateLinkServiceConnectionStateArgs',
+    'PrivateLinkServiceConnectionStateArgsDict',
     'SystemAssignedServiceIdentityArgs',
+    'SystemAssignedServiceIdentityArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AppSkuInfoArgsDict(TypedDict):
+        """
+        Information about the SKU of the IoT Central application.
+        """
+        name: pulumi.Input[Union[str, 'AppSku']]
+        """
+        The name of the SKU.
+        """
+elif False:
+    AppSkuInfoArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AppSkuInfoArgs:
@@ -38,6 +60,26 @@ class AppSkuInfoArgs:
     def name(self, value: pulumi.Input[Union[str, 'AppSku']]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
+        """
+        A collection of information about the state of the connection between service consumer and provider.
+        """
+        actions_required: NotRequired[pulumi.Input[str]]
+        """
+        A message indicating if changes on the service provider require any updates on the consumer.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The reason for approval/rejection of the connection.
+        """
+        status: NotRequired[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]]
+        """
+        Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+        """
+elif False:
+    PrivateLinkServiceConnectionStateArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:
@@ -94,6 +136,18 @@ class PrivateLinkServiceConnectionStateArgs:
     def status(self, value: Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]]):
         pulumi.set(self, "status", value)
 
+
+if not MYPY:
+    class SystemAssignedServiceIdentityArgsDict(TypedDict):
+        """
+        Managed service identity (either system assigned, or none)
+        """
+        type: pulumi.Input[Union[str, 'SystemAssignedServiceIdentityType']]
+        """
+        Type of managed service identity (either system assigned, or none).
+        """
+elif False:
+    SystemAssignedServiceIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SystemAssignedServiceIdentityArgs:

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -223,11 +228,11 @@ class NatGateway(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  nat_gateway_name: Optional[pulumi.Input[str]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
-                 public_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubResourceArgs']]]]] = None,
-                 public_ip_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubResourceArgs']]]]] = None,
+                 public_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]]]] = None,
+                 public_ip_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_guid: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['NatGatewaySkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['NatGatewaySkuArgs', 'NatGatewaySkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -241,11 +246,11 @@ class NatGateway(pulumi.CustomResource):
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] nat_gateway_name: The name of the nat gateway.
         :param pulumi.Input[str] provisioning_state: The provisioning state of the NatGateway resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubResourceArgs']]]] public_ip_addresses: An array of public ip addresses associated with the nat gateway resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubResourceArgs']]]] public_ip_prefixes: An array of public ip prefixes associated with the nat gateway resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]]] public_ip_addresses: An array of public ip addresses associated with the nat gateway resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]]] public_ip_prefixes: An array of public ip prefixes associated with the nat gateway resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] resource_guid: The resource GUID property of the nat gateway resource.
-        :param pulumi.Input[pulumi.InputType['NatGatewaySkuArgs']] sku: The nat gateway SKU.
+        :param pulumi.Input[Union['NatGatewaySkuArgs', 'NatGatewaySkuArgsDict']] sku: The nat gateway SKU.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of availability zones denoting the zone in which Nat Gateway should be deployed.
         """
@@ -278,11 +283,11 @@ class NatGateway(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  nat_gateway_name: Optional[pulumi.Input[str]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
-                 public_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubResourceArgs']]]]] = None,
-                 public_ip_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubResourceArgs']]]]] = None,
+                 public_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]]]] = None,
+                 public_ip_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_guid: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['NatGatewaySkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['NatGatewaySkuArgs', 'NatGatewaySkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):

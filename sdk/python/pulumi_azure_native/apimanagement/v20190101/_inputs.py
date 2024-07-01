@@ -4,18 +4,41 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'BodyDiagnosticSettingsArgs',
+    'BodyDiagnosticSettingsArgsDict',
     'HttpMessageDiagnosticArgs',
+    'HttpMessageDiagnosticArgsDict',
     'PipelineDiagnosticSettingsArgs',
+    'PipelineDiagnosticSettingsArgsDict',
     'SamplingSettingsArgs',
+    'SamplingSettingsArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class BodyDiagnosticSettingsArgsDict(TypedDict):
+        """
+        Body logging settings.
+        """
+        bytes: NotRequired[pulumi.Input[int]]
+        """
+        Number of request body bytes to log.
+        """
+elif False:
+    BodyDiagnosticSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class BodyDiagnosticSettingsArgs:
@@ -40,6 +63,22 @@ class BodyDiagnosticSettingsArgs:
     def bytes(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "bytes", value)
 
+
+if not MYPY:
+    class HttpMessageDiagnosticArgsDict(TypedDict):
+        """
+        Http message diagnostic settings.
+        """
+        body: NotRequired[pulumi.Input['BodyDiagnosticSettingsArgsDict']]
+        """
+        Body logging settings.
+        """
+        headers: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Array of HTTP Headers to log.
+        """
+elif False:
+    HttpMessageDiagnosticArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class HttpMessageDiagnosticArgs:
@@ -81,6 +120,22 @@ class HttpMessageDiagnosticArgs:
         pulumi.set(self, "headers", value)
 
 
+if not MYPY:
+    class PipelineDiagnosticSettingsArgsDict(TypedDict):
+        """
+        Diagnostic settings for incoming/outgoing HTTP messages to the Gateway.
+        """
+        request: NotRequired[pulumi.Input['HttpMessageDiagnosticArgsDict']]
+        """
+        Diagnostic settings for request.
+        """
+        response: NotRequired[pulumi.Input['HttpMessageDiagnosticArgsDict']]
+        """
+        Diagnostic settings for response.
+        """
+elif False:
+    PipelineDiagnosticSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PipelineDiagnosticSettingsArgs:
     def __init__(__self__, *,
@@ -120,6 +175,22 @@ class PipelineDiagnosticSettingsArgs:
     def response(self, value: Optional[pulumi.Input['HttpMessageDiagnosticArgs']]):
         pulumi.set(self, "response", value)
 
+
+if not MYPY:
+    class SamplingSettingsArgsDict(TypedDict):
+        """
+        Sampling settings for Diagnostic.
+        """
+        percentage: NotRequired[pulumi.Input[float]]
+        """
+        Rate of sampling for fixed-rate sampling.
+        """
+        sampling_type: NotRequired[pulumi.Input[Union[str, 'SamplingType']]]
+        """
+        Sampling type.
+        """
+elif False:
+    SamplingSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SamplingSettingsArgs:

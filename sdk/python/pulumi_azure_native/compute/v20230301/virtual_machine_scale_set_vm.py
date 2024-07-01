@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -329,22 +334,22 @@ class VirtualMachineScaleSetVM(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_capabilities: Optional[pulumi.Input[pulumi.InputType['AdditionalCapabilitiesArgs']]] = None,
-                 availability_set: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
-                 diagnostics_profile: Optional[pulumi.Input[pulumi.InputType['DiagnosticsProfileArgs']]] = None,
-                 hardware_profile: Optional[pulumi.Input[pulumi.InputType['HardwareProfileArgs']]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['VirtualMachineIdentityArgs']]] = None,
+                 additional_capabilities: Optional[pulumi.Input[Union['AdditionalCapabilitiesArgs', 'AdditionalCapabilitiesArgsDict']]] = None,
+                 availability_set: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
+                 diagnostics_profile: Optional[pulumi.Input[Union['DiagnosticsProfileArgs', 'DiagnosticsProfileArgsDict']]] = None,
+                 hardware_profile: Optional[pulumi.Input[Union['HardwareProfileArgs', 'HardwareProfileArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['VirtualMachineIdentityArgs', 'VirtualMachineIdentityArgsDict']]] = None,
                  instance_id: Optional[pulumi.Input[str]] = None,
                  license_type: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 network_profile: Optional[pulumi.Input[pulumi.InputType['NetworkProfileArgs']]] = None,
-                 network_profile_configuration: Optional[pulumi.Input[pulumi.InputType['VirtualMachineScaleSetVMNetworkProfileConfigurationArgs']]] = None,
-                 os_profile: Optional[pulumi.Input[pulumi.InputType['OSProfileArgs']]] = None,
-                 plan: Optional[pulumi.Input[pulumi.InputType['PlanArgs']]] = None,
-                 protection_policy: Optional[pulumi.Input[pulumi.InputType['VirtualMachineScaleSetVMProtectionPolicyArgs']]] = None,
+                 network_profile: Optional[pulumi.Input[Union['NetworkProfileArgs', 'NetworkProfileArgsDict']]] = None,
+                 network_profile_configuration: Optional[pulumi.Input[Union['VirtualMachineScaleSetVMNetworkProfileConfigurationArgs', 'VirtualMachineScaleSetVMNetworkProfileConfigurationArgsDict']]] = None,
+                 os_profile: Optional[pulumi.Input[Union['OSProfileArgs', 'OSProfileArgsDict']]] = None,
+                 plan: Optional[pulumi.Input[Union['PlanArgs', 'PlanArgsDict']]] = None,
+                 protection_policy: Optional[pulumi.Input[Union['VirtualMachineScaleSetVMProtectionPolicyArgs', 'VirtualMachineScaleSetVMProtectionPolicyArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 security_profile: Optional[pulumi.Input[pulumi.InputType['SecurityProfileArgs']]] = None,
-                 storage_profile: Optional[pulumi.Input[pulumi.InputType['StorageProfileArgs']]] = None,
+                 security_profile: Optional[pulumi.Input[Union['SecurityProfileArgs', 'SecurityProfileArgsDict']]] = None,
+                 storage_profile: Optional[pulumi.Input[Union['StorageProfileArgs', 'StorageProfileArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  user_data: Optional[pulumi.Input[str]] = None,
                  vm_scale_set_name: Optional[pulumi.Input[str]] = None,
@@ -354,22 +359,22 @@ class VirtualMachineScaleSetVM(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['AdditionalCapabilitiesArgs']] additional_capabilities: Specifies additional capabilities enabled or disabled on the virtual machine in the scale set. For instance: whether the virtual machine has the capability to support attaching managed data disks with UltraSSD_LRS storage account type.
-        :param pulumi.Input[pulumi.InputType['SubResourceArgs']] availability_set: Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Availability sets overview](https://docs.microsoft.com/azure/virtual-machines/availability-set-overview). For more information on Azure planned maintenance, see [Maintenance and updates for Virtual Machines in Azure](https://docs.microsoft.com/azure/virtual-machines/maintenance-and-updates). Currently, a VM can only be added to availability set at creation time. An existing VM cannot be added to an availability set.
-        :param pulumi.Input[pulumi.InputType['DiagnosticsProfileArgs']] diagnostics_profile: Specifies the boot diagnostic settings state. Minimum api-version: 2015-06-15.
-        :param pulumi.Input[pulumi.InputType['HardwareProfileArgs']] hardware_profile: Specifies the hardware settings for the virtual machine.
-        :param pulumi.Input[pulumi.InputType['VirtualMachineIdentityArgs']] identity: The identity of the virtual machine, if configured.
+        :param pulumi.Input[Union['AdditionalCapabilitiesArgs', 'AdditionalCapabilitiesArgsDict']] additional_capabilities: Specifies additional capabilities enabled or disabled on the virtual machine in the scale set. For instance: whether the virtual machine has the capability to support attaching managed data disks with UltraSSD_LRS storage account type.
+        :param pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']] availability_set: Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Availability sets overview](https://docs.microsoft.com/azure/virtual-machines/availability-set-overview). For more information on Azure planned maintenance, see [Maintenance and updates for Virtual Machines in Azure](https://docs.microsoft.com/azure/virtual-machines/maintenance-and-updates). Currently, a VM can only be added to availability set at creation time. An existing VM cannot be added to an availability set.
+        :param pulumi.Input[Union['DiagnosticsProfileArgs', 'DiagnosticsProfileArgsDict']] diagnostics_profile: Specifies the boot diagnostic settings state. Minimum api-version: 2015-06-15.
+        :param pulumi.Input[Union['HardwareProfileArgs', 'HardwareProfileArgsDict']] hardware_profile: Specifies the hardware settings for the virtual machine.
+        :param pulumi.Input[Union['VirtualMachineIdentityArgs', 'VirtualMachineIdentityArgsDict']] identity: The identity of the virtual machine, if configured.
         :param pulumi.Input[str] instance_id: The instance ID of the virtual machine.
         :param pulumi.Input[str] license_type: Specifies that the image or disk that is being used was licensed on-premises. <br><br> Possible values for Windows Server operating system are: <br><br> Windows_Client <br><br> Windows_Server <br><br> Possible values for Linux Server operating system are: <br><br> RHEL_BYOS (for RHEL) <br><br> SLES_BYOS (for SUSE) <br><br> For more information, see [Azure Hybrid Use Benefit for Windows Server](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) <br><br> [Azure Hybrid Use Benefit for Linux Server](https://docs.microsoft.com/azure/virtual-machines/linux/azure-hybrid-benefit-linux) <br><br> Minimum api-version: 2015-06-15
         :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[pulumi.InputType['NetworkProfileArgs']] network_profile: Specifies the network interfaces of the virtual machine.
-        :param pulumi.Input[pulumi.InputType['VirtualMachineScaleSetVMNetworkProfileConfigurationArgs']] network_profile_configuration: Specifies the network profile configuration of the virtual machine.
-        :param pulumi.Input[pulumi.InputType['OSProfileArgs']] os_profile: Specifies the operating system settings for the virtual machine.
-        :param pulumi.Input[pulumi.InputType['PlanArgs']] plan: Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.
-        :param pulumi.Input[pulumi.InputType['VirtualMachineScaleSetVMProtectionPolicyArgs']] protection_policy: Specifies the protection policy of the virtual machine.
+        :param pulumi.Input[Union['NetworkProfileArgs', 'NetworkProfileArgsDict']] network_profile: Specifies the network interfaces of the virtual machine.
+        :param pulumi.Input[Union['VirtualMachineScaleSetVMNetworkProfileConfigurationArgs', 'VirtualMachineScaleSetVMNetworkProfileConfigurationArgsDict']] network_profile_configuration: Specifies the network profile configuration of the virtual machine.
+        :param pulumi.Input[Union['OSProfileArgs', 'OSProfileArgsDict']] os_profile: Specifies the operating system settings for the virtual machine.
+        :param pulumi.Input[Union['PlanArgs', 'PlanArgsDict']] plan: Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.
+        :param pulumi.Input[Union['VirtualMachineScaleSetVMProtectionPolicyArgs', 'VirtualMachineScaleSetVMProtectionPolicyArgsDict']] protection_policy: Specifies the protection policy of the virtual machine.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[pulumi.InputType['SecurityProfileArgs']] security_profile: Specifies the Security related profile settings for the virtual machine.
-        :param pulumi.Input[pulumi.InputType['StorageProfileArgs']] storage_profile: Specifies the storage settings for the virtual machine disks.
+        :param pulumi.Input[Union['SecurityProfileArgs', 'SecurityProfileArgsDict']] security_profile: Specifies the Security related profile settings for the virtual machine.
+        :param pulumi.Input[Union['StorageProfileArgs', 'StorageProfileArgsDict']] storage_profile: Specifies the storage settings for the virtual machine disks.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[str] user_data: UserData for the VM, which must be base-64 encoded. Customer should not pass any secrets in here. <br><br>Minimum api-version: 2021-03-01
         :param pulumi.Input[str] vm_scale_set_name: The name of the VM scale set where the extension should be create or updated.
@@ -398,22 +403,22 @@ class VirtualMachineScaleSetVM(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_capabilities: Optional[pulumi.Input[pulumi.InputType['AdditionalCapabilitiesArgs']]] = None,
-                 availability_set: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
-                 diagnostics_profile: Optional[pulumi.Input[pulumi.InputType['DiagnosticsProfileArgs']]] = None,
-                 hardware_profile: Optional[pulumi.Input[pulumi.InputType['HardwareProfileArgs']]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['VirtualMachineIdentityArgs']]] = None,
+                 additional_capabilities: Optional[pulumi.Input[Union['AdditionalCapabilitiesArgs', 'AdditionalCapabilitiesArgsDict']]] = None,
+                 availability_set: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
+                 diagnostics_profile: Optional[pulumi.Input[Union['DiagnosticsProfileArgs', 'DiagnosticsProfileArgsDict']]] = None,
+                 hardware_profile: Optional[pulumi.Input[Union['HardwareProfileArgs', 'HardwareProfileArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['VirtualMachineIdentityArgs', 'VirtualMachineIdentityArgsDict']]] = None,
                  instance_id: Optional[pulumi.Input[str]] = None,
                  license_type: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 network_profile: Optional[pulumi.Input[pulumi.InputType['NetworkProfileArgs']]] = None,
-                 network_profile_configuration: Optional[pulumi.Input[pulumi.InputType['VirtualMachineScaleSetVMNetworkProfileConfigurationArgs']]] = None,
-                 os_profile: Optional[pulumi.Input[pulumi.InputType['OSProfileArgs']]] = None,
-                 plan: Optional[pulumi.Input[pulumi.InputType['PlanArgs']]] = None,
-                 protection_policy: Optional[pulumi.Input[pulumi.InputType['VirtualMachineScaleSetVMProtectionPolicyArgs']]] = None,
+                 network_profile: Optional[pulumi.Input[Union['NetworkProfileArgs', 'NetworkProfileArgsDict']]] = None,
+                 network_profile_configuration: Optional[pulumi.Input[Union['VirtualMachineScaleSetVMNetworkProfileConfigurationArgs', 'VirtualMachineScaleSetVMNetworkProfileConfigurationArgsDict']]] = None,
+                 os_profile: Optional[pulumi.Input[Union['OSProfileArgs', 'OSProfileArgsDict']]] = None,
+                 plan: Optional[pulumi.Input[Union['PlanArgs', 'PlanArgsDict']]] = None,
+                 protection_policy: Optional[pulumi.Input[Union['VirtualMachineScaleSetVMProtectionPolicyArgs', 'VirtualMachineScaleSetVMProtectionPolicyArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 security_profile: Optional[pulumi.Input[pulumi.InputType['SecurityProfileArgs']]] = None,
-                 storage_profile: Optional[pulumi.Input[pulumi.InputType['StorageProfileArgs']]] = None,
+                 security_profile: Optional[pulumi.Input[Union['SecurityProfileArgs', 'SecurityProfileArgsDict']]] = None,
+                 storage_profile: Optional[pulumi.Input[Union['StorageProfileArgs', 'StorageProfileArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  user_data: Optional[pulumi.Input[str]] = None,
                  vm_scale_set_name: Optional[pulumi.Input[str]] = None,

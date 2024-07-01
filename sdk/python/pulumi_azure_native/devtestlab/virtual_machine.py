@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -482,28 +487,28 @@ class VirtualMachine(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allow_claim: Optional[pulumi.Input[bool]] = None,
-                 artifacts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ArtifactInstallPropertiesArgs']]]]] = None,
+                 artifacts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ArtifactInstallPropertiesArgs', 'ArtifactInstallPropertiesArgsDict']]]]] = None,
                  created_date: Optional[pulumi.Input[str]] = None,
                  custom_image_id: Optional[pulumi.Input[str]] = None,
-                 data_disk_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataDiskPropertiesArgs']]]]] = None,
+                 data_disk_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DataDiskPropertiesArgs', 'DataDiskPropertiesArgsDict']]]]] = None,
                  disallow_public_ip_address: Optional[pulumi.Input[bool]] = None,
                  environment_id: Optional[pulumi.Input[str]] = None,
                  expiration_date: Optional[pulumi.Input[str]] = None,
-                 gallery_image_reference: Optional[pulumi.Input[pulumi.InputType['GalleryImageReferenceArgs']]] = None,
+                 gallery_image_reference: Optional[pulumi.Input[Union['GalleryImageReferenceArgs', 'GalleryImageReferenceArgsDict']]] = None,
                  is_authentication_with_ssh_key: Optional[pulumi.Input[bool]] = None,
                  lab_name: Optional[pulumi.Input[str]] = None,
                  lab_subnet_name: Optional[pulumi.Input[str]] = None,
                  lab_virtual_network_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 network_interface: Optional[pulumi.Input[pulumi.InputType['NetworkInterfacePropertiesArgs']]] = None,
+                 network_interface: Optional[pulumi.Input[Union['NetworkInterfacePropertiesArgs', 'NetworkInterfacePropertiesArgsDict']]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
                  owner_object_id: Optional[pulumi.Input[str]] = None,
                  owner_user_principal_name: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  plan_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 schedule_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScheduleCreationParameterArgs']]]]] = None,
+                 schedule_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ScheduleCreationParameterArgs', 'ScheduleCreationParameterArgsDict']]]]] = None,
                  size: Optional[pulumi.Input[str]] = None,
                  ssh_key: Optional[pulumi.Input[str]] = None,
                  storage_type: Optional[pulumi.Input[str]] = None,
@@ -519,28 +524,28 @@ class VirtualMachine(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_claim: Indicates whether another user can take ownership of the virtual machine
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ArtifactInstallPropertiesArgs']]]] artifacts: The artifacts to be installed on the virtual machine.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ArtifactInstallPropertiesArgs', 'ArtifactInstallPropertiesArgsDict']]]] artifacts: The artifacts to be installed on the virtual machine.
         :param pulumi.Input[str] created_date: The creation date of the virtual machine.
         :param pulumi.Input[str] custom_image_id: The custom image identifier of the virtual machine.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataDiskPropertiesArgs']]]] data_disk_parameters: New or existing data disks to attach to the virtual machine after creation
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DataDiskPropertiesArgs', 'DataDiskPropertiesArgsDict']]]] data_disk_parameters: New or existing data disks to attach to the virtual machine after creation
         :param pulumi.Input[bool] disallow_public_ip_address: Indicates whether the virtual machine is to be created without a public IP address.
         :param pulumi.Input[str] environment_id: The resource ID of the environment that contains this virtual machine, if any.
         :param pulumi.Input[str] expiration_date: The expiration date for VM.
-        :param pulumi.Input[pulumi.InputType['GalleryImageReferenceArgs']] gallery_image_reference: The Microsoft Azure Marketplace image reference of the virtual machine.
+        :param pulumi.Input[Union['GalleryImageReferenceArgs', 'GalleryImageReferenceArgsDict']] gallery_image_reference: The Microsoft Azure Marketplace image reference of the virtual machine.
         :param pulumi.Input[bool] is_authentication_with_ssh_key: Indicates whether this virtual machine uses an SSH key for authentication.
         :param pulumi.Input[str] lab_name: The name of the lab.
         :param pulumi.Input[str] lab_subnet_name: The lab subnet name of the virtual machine.
         :param pulumi.Input[str] lab_virtual_network_id: The lab virtual network identifier of the virtual machine.
         :param pulumi.Input[str] location: The location of the resource.
         :param pulumi.Input[str] name: The name of the virtual machine.
-        :param pulumi.Input[pulumi.InputType['NetworkInterfacePropertiesArgs']] network_interface: The network interface properties.
+        :param pulumi.Input[Union['NetworkInterfacePropertiesArgs', 'NetworkInterfacePropertiesArgsDict']] network_interface: The network interface properties.
         :param pulumi.Input[str] notes: The notes of the virtual machine.
         :param pulumi.Input[str] owner_object_id: The object identifier of the owner of the virtual machine.
         :param pulumi.Input[str] owner_user_principal_name: The user principal name of the virtual machine owner.
         :param pulumi.Input[str] password: The password of the virtual machine administrator.
         :param pulumi.Input[str] plan_id: The id of the plan associated with the virtual machine image
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScheduleCreationParameterArgs']]]] schedule_parameters: Virtual Machine schedules to be created
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ScheduleCreationParameterArgs', 'ScheduleCreationParameterArgsDict']]]] schedule_parameters: Virtual Machine schedules to be created
         :param pulumi.Input[str] size: The size of the virtual machine.
         :param pulumi.Input[str] ssh_key: The SSH key of the virtual machine administrator.
         :param pulumi.Input[str] storage_type: Storage type to use for virtual machine (i.e. Standard, Premium).
@@ -575,28 +580,28 @@ class VirtualMachine(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allow_claim: Optional[pulumi.Input[bool]] = None,
-                 artifacts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ArtifactInstallPropertiesArgs']]]]] = None,
+                 artifacts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ArtifactInstallPropertiesArgs', 'ArtifactInstallPropertiesArgsDict']]]]] = None,
                  created_date: Optional[pulumi.Input[str]] = None,
                  custom_image_id: Optional[pulumi.Input[str]] = None,
-                 data_disk_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataDiskPropertiesArgs']]]]] = None,
+                 data_disk_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DataDiskPropertiesArgs', 'DataDiskPropertiesArgsDict']]]]] = None,
                  disallow_public_ip_address: Optional[pulumi.Input[bool]] = None,
                  environment_id: Optional[pulumi.Input[str]] = None,
                  expiration_date: Optional[pulumi.Input[str]] = None,
-                 gallery_image_reference: Optional[pulumi.Input[pulumi.InputType['GalleryImageReferenceArgs']]] = None,
+                 gallery_image_reference: Optional[pulumi.Input[Union['GalleryImageReferenceArgs', 'GalleryImageReferenceArgsDict']]] = None,
                  is_authentication_with_ssh_key: Optional[pulumi.Input[bool]] = None,
                  lab_name: Optional[pulumi.Input[str]] = None,
                  lab_subnet_name: Optional[pulumi.Input[str]] = None,
                  lab_virtual_network_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 network_interface: Optional[pulumi.Input[pulumi.InputType['NetworkInterfacePropertiesArgs']]] = None,
+                 network_interface: Optional[pulumi.Input[Union['NetworkInterfacePropertiesArgs', 'NetworkInterfacePropertiesArgsDict']]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
                  owner_object_id: Optional[pulumi.Input[str]] = None,
                  owner_user_principal_name: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  plan_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 schedule_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScheduleCreationParameterArgs']]]]] = None,
+                 schedule_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ScheduleCreationParameterArgs', 'ScheduleCreationParameterArgsDict']]]]] = None,
                  size: Optional[pulumi.Input[str]] = None,
                  ssh_key: Optional[pulumi.Input[str]] = None,
                  storage_type: Optional[pulumi.Input[str]] = None,

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -247,19 +252,19 @@ class Resource(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  managed_by: Optional[pulumi.Input[str]] = None,
                  parent_resource_path: Optional[pulumi.Input[str]] = None,
-                 plan: Optional[pulumi.Input[pulumi.InputType['PlanArgs']]] = None,
+                 plan: Optional[pulumi.Input[Union['PlanArgs', 'PlanArgsDict']]] = None,
                  properties: Optional[Any] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
                  resource_provider_namespace: Optional[pulumi.Input[str]] = None,
                  resource_type: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -267,19 +272,19 @@ class Resource(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: Resource extended location.
-        :param pulumi.Input[pulumi.InputType['IdentityArgs']] identity: The identity of the resource.
+        :param pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']] extended_location: Resource extended location.
+        :param pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']] identity: The identity of the resource.
         :param pulumi.Input[str] kind: The kind of the resource.
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] managed_by: ID of the resource that manages this resource.
         :param pulumi.Input[str] parent_resource_path: The parent resource identity.
-        :param pulumi.Input[pulumi.InputType['PlanArgs']] plan: The plan of the resource.
+        :param pulumi.Input[Union['PlanArgs', 'PlanArgsDict']] plan: The plan of the resource.
         :param Any properties: The resource properties.
         :param pulumi.Input[str] resource_group_name: The name of the resource group for the resource. The name is case insensitive.
         :param pulumi.Input[str] resource_name_: The name of the resource to create.
         :param pulumi.Input[str] resource_provider_namespace: The namespace of the resource provider.
         :param pulumi.Input[str] resource_type: The resource type of the resource to create.
-        :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The SKU of the resource.
+        :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: The SKU of the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
         ...
@@ -306,19 +311,19 @@ class Resource(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  managed_by: Optional[pulumi.Input[str]] = None,
                  parent_resource_path: Optional[pulumi.Input[str]] = None,
-                 plan: Optional[pulumi.Input[pulumi.InputType['PlanArgs']]] = None,
+                 plan: Optional[pulumi.Input[Union['PlanArgs', 'PlanArgsDict']]] = None,
                  properties: Optional[Any] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
                  resource_provider_namespace: Optional[pulumi.Input[str]] = None,
                  resource_type: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

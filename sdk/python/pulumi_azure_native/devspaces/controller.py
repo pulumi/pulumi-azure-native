@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -138,7 +143,7 @@ class Controller(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_container_host_credentials_base64: Optional[pulumi.Input[str]] = None,
                  target_container_host_resource_id: Optional[pulumi.Input[str]] = None,
@@ -151,7 +156,7 @@ class Controller(pulumi.CustomResource):
         :param pulumi.Input[str] location: Region where the Azure resource is located.
         :param pulumi.Input[str] name: Name of the resource.
         :param pulumi.Input[str] resource_group_name: Resource group to which the resource belongs.
-        :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: Model representing SKU for Azure Dev Spaces Controller.
+        :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: Model representing SKU for Azure Dev Spaces Controller.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags for the Azure resource.
         :param pulumi.Input[str] target_container_host_credentials_base64: Credentials of the target container host (base64).
         :param pulumi.Input[str] target_container_host_resource_id: Resource ID of the target container host
@@ -183,7 +188,7 @@ class Controller(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_container_host_credentials_base64: Optional[pulumi.Input[str]] = None,
                  target_container_host_resource_id: Optional[pulumi.Input[str]] = None,

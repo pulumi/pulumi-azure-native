@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -201,16 +206,16 @@ class VpnSite(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 address_space: Optional[pulumi.Input[pulumi.InputType['AddressSpaceArgs']]] = None,
-                 bgp_properties: Optional[pulumi.Input[pulumi.InputType['BgpSettingsArgs']]] = None,
-                 device_properties: Optional[pulumi.Input[pulumi.InputType['DevicePropertiesArgs']]] = None,
+                 address_space: Optional[pulumi.Input[Union['AddressSpaceArgs', 'AddressSpaceArgsDict']]] = None,
+                 bgp_properties: Optional[pulumi.Input[Union['BgpSettingsArgs', 'BgpSettingsArgsDict']]] = None,
+                 device_properties: Optional[pulumi.Input[Union['DevicePropertiesArgs', 'DevicePropertiesArgsDict']]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  site_key: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 virtual_wan: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
+                 virtual_wan: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
                  vpn_site_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -218,16 +223,16 @@ class VpnSite(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['AddressSpaceArgs']] address_space: The AddressSpace that contains an array of IP address ranges.
-        :param pulumi.Input[pulumi.InputType['BgpSettingsArgs']] bgp_properties: The set of bgp properties.
-        :param pulumi.Input[pulumi.InputType['DevicePropertiesArgs']] device_properties: The device properties
+        :param pulumi.Input[Union['AddressSpaceArgs', 'AddressSpaceArgsDict']] address_space: The AddressSpace that contains an array of IP address ranges.
+        :param pulumi.Input[Union['BgpSettingsArgs', 'BgpSettingsArgsDict']] bgp_properties: The set of bgp properties.
+        :param pulumi.Input[Union['DevicePropertiesArgs', 'DevicePropertiesArgsDict']] device_properties: The device properties
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] ip_address: The ip-address for the vpn-site.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] resource_group_name: The resource group name of the VpnSite.
         :param pulumi.Input[str] site_key: The key for vpn-site that can be used for connections.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[pulumi.InputType['SubResourceArgs']] virtual_wan: The VirtualWAN to which the vpnSite belongs
+        :param pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']] virtual_wan: The VirtualWAN to which the vpnSite belongs
         :param pulumi.Input[str] vpn_site_name: The name of the VpnSite being created or updated.
         """
         ...
@@ -254,16 +259,16 @@ class VpnSite(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 address_space: Optional[pulumi.Input[pulumi.InputType['AddressSpaceArgs']]] = None,
-                 bgp_properties: Optional[pulumi.Input[pulumi.InputType['BgpSettingsArgs']]] = None,
-                 device_properties: Optional[pulumi.Input[pulumi.InputType['DevicePropertiesArgs']]] = None,
+                 address_space: Optional[pulumi.Input[Union['AddressSpaceArgs', 'AddressSpaceArgsDict']]] = None,
+                 bgp_properties: Optional[pulumi.Input[Union['BgpSettingsArgs', 'BgpSettingsArgsDict']]] = None,
+                 device_properties: Optional[pulumi.Input[Union['DevicePropertiesArgs', 'DevicePropertiesArgsDict']]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  site_key: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 virtual_wan: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
+                 virtual_wan: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
                  vpn_site_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

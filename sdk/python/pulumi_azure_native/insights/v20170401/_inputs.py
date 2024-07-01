@@ -4,17 +4,44 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 
 __all__ = [
     'ActivityLogAlertActionGroupArgs',
+    'ActivityLogAlertActionGroupArgsDict',
     'ActivityLogAlertActionListArgs',
+    'ActivityLogAlertActionListArgsDict',
     'ActivityLogAlertAllOfConditionArgs',
+    'ActivityLogAlertAllOfConditionArgsDict',
     'ActivityLogAlertLeafConditionArgs',
+    'ActivityLogAlertLeafConditionArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ActivityLogAlertActionGroupArgsDict(TypedDict):
+        """
+        A pointer to an Azure Action Group.
+        """
+        action_group_id: pulumi.Input[str]
+        """
+        The resourceId of the action group. This cannot be null or empty.
+        """
+        webhook_properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        the dictionary of custom properties to include with the post operation. These data are appended to the webhook payload.
+        """
+elif False:
+    ActivityLogAlertActionGroupArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ActivityLogAlertActionGroupArgs:
@@ -55,6 +82,18 @@ class ActivityLogAlertActionGroupArgs:
         pulumi.set(self, "webhook_properties", value)
 
 
+if not MYPY:
+    class ActivityLogAlertActionListArgsDict(TypedDict):
+        """
+        A list of activity log alert actions.
+        """
+        action_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input['ActivityLogAlertActionGroupArgsDict']]]]
+        """
+        The list of activity log alerts.
+        """
+elif False:
+    ActivityLogAlertActionListArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ActivityLogAlertActionListArgs:
     def __init__(__self__, *,
@@ -79,6 +118,18 @@ class ActivityLogAlertActionListArgs:
         pulumi.set(self, "action_groups", value)
 
 
+if not MYPY:
+    class ActivityLogAlertAllOfConditionArgsDict(TypedDict):
+        """
+        An Activity Log alert condition that is met when all its member conditions are met.
+        """
+        all_of: pulumi.Input[Sequence[pulumi.Input['ActivityLogAlertLeafConditionArgsDict']]]
+        """
+        The list of activity log alert conditions.
+        """
+elif False:
+    ActivityLogAlertAllOfConditionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ActivityLogAlertAllOfConditionArgs:
     def __init__(__self__, *,
@@ -101,6 +152,22 @@ class ActivityLogAlertAllOfConditionArgs:
     def all_of(self, value: pulumi.Input[Sequence[pulumi.Input['ActivityLogAlertLeafConditionArgs']]]):
         pulumi.set(self, "all_of", value)
 
+
+if not MYPY:
+    class ActivityLogAlertLeafConditionArgsDict(TypedDict):
+        """
+        An Activity Log alert condition that is met by comparing an activity log field and value.
+        """
+        equals: pulumi.Input[str]
+        """
+        The field value will be compared to this value (case-insensitive) to determine if the condition is met.
+        """
+        field: pulumi.Input[str]
+        """
+        The name of the field that this condition will examine. The possible values for this field are (case-insensitive): 'resourceId', 'category', 'caller', 'level', 'operationName', 'resourceGroup', 'resourceProvider', 'status', 'subStatus', 'resourceType', or anything beginning with 'properties.'.
+        """
+elif False:
+    ActivityLogAlertLeafConditionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ActivityLogAlertLeafConditionArgs:

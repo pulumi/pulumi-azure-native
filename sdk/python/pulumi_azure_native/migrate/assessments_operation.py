@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -443,7 +448,7 @@ class AssessmentsOperation(pulumi.CustomResource):
                  scaling_factor: Optional[pulumi.Input[float]] = None,
                  sizing_criterion: Optional[pulumi.Input[Union[str, 'AssessmentSizingCriterion']]] = None,
                  time_range: Optional[pulumi.Input[Union[str, 'TimeRange']]] = None,
-                 vm_uptime: Optional[pulumi.Input[pulumi.InputType['VmUptimeArgs']]] = None,
+                 vm_uptime: Optional[pulumi.Input[Union['VmUptimeArgs', 'VmUptimeArgsDict']]] = None,
                  __props__=None):
         """
         Machine assessment resource.
@@ -481,7 +486,7 @@ class AssessmentsOperation(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'AssessmentSizingCriterion']] sizing_criterion: Assessment sizing criterion.
         :param pulumi.Input[Union[str, 'TimeRange']] time_range: Time Range for which the historic utilization data should be considered for
                assessment.
-        :param pulumi.Input[pulumi.InputType['VmUptimeArgs']] vm_uptime: Gets or sets the duration for which the VMs are up in the on-premises
+        :param pulumi.Input[Union['VmUptimeArgs', 'VmUptimeArgsDict']] vm_uptime: Gets or sets the duration for which the VMs are up in the on-premises
                environment.
         """
         ...
@@ -534,7 +539,7 @@ class AssessmentsOperation(pulumi.CustomResource):
                  scaling_factor: Optional[pulumi.Input[float]] = None,
                  sizing_criterion: Optional[pulumi.Input[Union[str, 'AssessmentSizingCriterion']]] = None,
                  time_range: Optional[pulumi.Input[Union[str, 'TimeRange']]] = None,
-                 vm_uptime: Optional[pulumi.Input[pulumi.InputType['VmUptimeArgs']]] = None,
+                 vm_uptime: Optional[pulumi.Input[Union['VmUptimeArgs', 'VmUptimeArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

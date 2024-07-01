@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -248,40 +253,40 @@ class DeploymentStackAtResourceGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action_on_unmanage: Optional[pulumi.Input[pulumi.InputType['ActionOnUnmanageArgs']]] = None,
+                 action_on_unmanage: Optional[pulumi.Input[Union['ActionOnUnmanageArgs', 'ActionOnUnmanageArgsDict']]] = None,
                  bypass_stack_out_of_sync_error: Optional[pulumi.Input[bool]] = None,
-                 debug_setting: Optional[pulumi.Input[pulumi.InputType['DeploymentStacksDebugSettingArgs']]] = None,
-                 deny_settings: Optional[pulumi.Input[pulumi.InputType['DenySettingsArgs']]] = None,
+                 debug_setting: Optional[pulumi.Input[Union['DeploymentStacksDebugSettingArgs', 'DeploymentStacksDebugSettingArgsDict']]] = None,
+                 deny_settings: Optional[pulumi.Input[Union['DenySettingsArgs', 'DenySettingsArgsDict']]] = None,
                  deployment_scope: Optional[pulumi.Input[str]] = None,
                  deployment_stack_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['DeploymentParameterArgs']]]]] = None,
-                 parameters_link: Optional[pulumi.Input[pulumi.InputType['DeploymentStacksParametersLinkArgs']]] = None,
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['DeploymentParameterArgs', 'DeploymentParameterArgsDict']]]]] = None,
+                 parameters_link: Optional[pulumi.Input[Union['DeploymentStacksParametersLinkArgs', 'DeploymentStacksParametersLinkArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  template: Optional[Any] = None,
-                 template_link: Optional[pulumi.Input[pulumi.InputType['DeploymentStacksTemplateLinkArgs']]] = None,
+                 template_link: Optional[pulumi.Input[Union['DeploymentStacksTemplateLinkArgs', 'DeploymentStacksTemplateLinkArgsDict']]] = None,
                  __props__=None):
         """
         Deployment stack object.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ActionOnUnmanageArgs']] action_on_unmanage: Defines the behavior of resources that are no longer managed after the Deployment stack is updated or deleted.
+        :param pulumi.Input[Union['ActionOnUnmanageArgs', 'ActionOnUnmanageArgsDict']] action_on_unmanage: Defines the behavior of resources that are no longer managed after the Deployment stack is updated or deleted.
         :param pulumi.Input[bool] bypass_stack_out_of_sync_error: Flag to bypass service errors that indicate the stack resource list is not correctly synchronized.
-        :param pulumi.Input[pulumi.InputType['DeploymentStacksDebugSettingArgs']] debug_setting: The debug setting of the deployment.
-        :param pulumi.Input[pulumi.InputType['DenySettingsArgs']] deny_settings: Defines how resources deployed by the stack are locked.
+        :param pulumi.Input[Union['DeploymentStacksDebugSettingArgs', 'DeploymentStacksDebugSettingArgsDict']] debug_setting: The debug setting of the deployment.
+        :param pulumi.Input[Union['DenySettingsArgs', 'DenySettingsArgsDict']] deny_settings: Defines how resources deployed by the stack are locked.
         :param pulumi.Input[str] deployment_scope: The scope at which the initial deployment should be created. If a scope is not specified, it will default to the scope of the deployment stack. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroupId}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}').
         :param pulumi.Input[str] deployment_stack_name: Name of the deployment stack.
         :param pulumi.Input[str] description: Deployment stack description. Max length of 4096 characters.
         :param pulumi.Input[str] location: The location of the Deployment stack. It cannot be changed after creation. It must be one of the supported Azure locations.
-        :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['DeploymentParameterArgs']]]] parameters: Name and value pairs that define the deployment parameters for the template. Use this element when providing the parameter values directly in the request, rather than linking to an existing parameter file. Use either the parametersLink property or the parameters property, but not both.
-        :param pulumi.Input[pulumi.InputType['DeploymentStacksParametersLinkArgs']] parameters_link: The URI of parameters file. Use this element to link to an existing parameters file. Use either the parametersLink property or the parameters property, but not both.
+        :param pulumi.Input[Mapping[str, pulumi.Input[Union['DeploymentParameterArgs', 'DeploymentParameterArgsDict']]]] parameters: Name and value pairs that define the deployment parameters for the template. Use this element when providing the parameter values directly in the request, rather than linking to an existing parameter file. Use either the parametersLink property or the parameters property, but not both.
+        :param pulumi.Input[Union['DeploymentStacksParametersLinkArgs', 'DeploymentStacksParametersLinkArgsDict']] parameters_link: The URI of parameters file. Use this element to link to an existing parameters file. Use either the parametersLink property or the parameters property, but not both.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Deployment stack resource tags.
         :param Any template: The template content. You use this element when you want to pass the template syntax directly in the request rather than link to an existing template. It can be a JObject or well-formed JSON string. Use either the templateLink property or the template property, but not both.
-        :param pulumi.Input[pulumi.InputType['DeploymentStacksTemplateLinkArgs']] template_link: The URI of the template. Use either the templateLink property or the template property, but not both.
+        :param pulumi.Input[Union['DeploymentStacksTemplateLinkArgs', 'DeploymentStacksTemplateLinkArgsDict']] template_link: The URI of the template. Use either the templateLink property or the template property, but not both.
         """
         ...
     @overload
@@ -307,20 +312,20 @@ class DeploymentStackAtResourceGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action_on_unmanage: Optional[pulumi.Input[pulumi.InputType['ActionOnUnmanageArgs']]] = None,
+                 action_on_unmanage: Optional[pulumi.Input[Union['ActionOnUnmanageArgs', 'ActionOnUnmanageArgsDict']]] = None,
                  bypass_stack_out_of_sync_error: Optional[pulumi.Input[bool]] = None,
-                 debug_setting: Optional[pulumi.Input[pulumi.InputType['DeploymentStacksDebugSettingArgs']]] = None,
-                 deny_settings: Optional[pulumi.Input[pulumi.InputType['DenySettingsArgs']]] = None,
+                 debug_setting: Optional[pulumi.Input[Union['DeploymentStacksDebugSettingArgs', 'DeploymentStacksDebugSettingArgsDict']]] = None,
+                 deny_settings: Optional[pulumi.Input[Union['DenySettingsArgs', 'DenySettingsArgsDict']]] = None,
                  deployment_scope: Optional[pulumi.Input[str]] = None,
                  deployment_stack_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['DeploymentParameterArgs']]]]] = None,
-                 parameters_link: Optional[pulumi.Input[pulumi.InputType['DeploymentStacksParametersLinkArgs']]] = None,
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['DeploymentParameterArgs', 'DeploymentParameterArgsDict']]]]] = None,
+                 parameters_link: Optional[pulumi.Input[Union['DeploymentStacksParametersLinkArgs', 'DeploymentStacksParametersLinkArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  template: Optional[Any] = None,
-                 template_link: Optional[pulumi.Input[pulumi.InputType['DeploymentStacksTemplateLinkArgs']]] = None,
+                 template_link: Optional[pulumi.Input[Union['DeploymentStacksTemplateLinkArgs', 'DeploymentStacksTemplateLinkArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

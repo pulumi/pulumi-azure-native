@@ -4,19 +4,79 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'CustomIpPrefixArgs',
+    'CustomIpPrefixArgsDict',
     'ExpressRouteGatewayPropertiesAutoScaleConfigurationArgs',
+    'ExpressRouteGatewayPropertiesAutoScaleConfigurationArgsDict',
     'ExpressRouteGatewayPropertiesBoundsArgs',
+    'ExpressRouteGatewayPropertiesBoundsArgsDict',
     'ExtendedLocationArgs',
+    'ExtendedLocationArgsDict',
     'VirtualHubIdArgs',
+    'VirtualHubIdArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class CustomIpPrefixArgsDict(TypedDict):
+        """
+        Custom IP prefix resource.
+        """
+        authorization_message: NotRequired[pulumi.Input[str]]
+        """
+        Authorization message for WAN validation.
+        """
+        cidr: NotRequired[pulumi.Input[str]]
+        """
+        The prefix range in CIDR notation. Should include the start address and the prefix length.
+        """
+        commissioned_state: NotRequired[pulumi.Input[Union[str, 'CommissionedState']]]
+        """
+        The commissioned state of the Custom IP Prefix.
+        """
+        custom_ip_prefix_parent: NotRequired[pulumi.Input['CustomIpPrefixArgsDict']]
+        """
+        The Parent CustomIpPrefix for IPv6 /64 CustomIpPrefix.
+        """
+        extended_location: NotRequired[pulumi.Input['ExtendedLocationArgsDict']]
+        """
+        The extended location of the custom IP prefix.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        location: NotRequired[pulumi.Input[str]]
+        """
+        Resource location.
+        """
+        signed_message: NotRequired[pulumi.Input[str]]
+        """
+        Signed message for WAN validation.
+        """
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Resource tags.
+        """
+        zones: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of availability zones denoting the IP allocated for the resource needs to come from.
+        """
+elif False:
+    CustomIpPrefixArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CustomIpPrefixArgs:
@@ -186,6 +246,18 @@ class CustomIpPrefixArgs:
         pulumi.set(self, "zones", value)
 
 
+if not MYPY:
+    class ExpressRouteGatewayPropertiesAutoScaleConfigurationArgsDict(TypedDict):
+        """
+        Configuration for auto scaling.
+        """
+        bounds: NotRequired[pulumi.Input['ExpressRouteGatewayPropertiesBoundsArgsDict']]
+        """
+        Minimum and maximum number of scale units to deploy.
+        """
+elif False:
+    ExpressRouteGatewayPropertiesAutoScaleConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ExpressRouteGatewayPropertiesAutoScaleConfigurationArgs:
     def __init__(__self__, *,
@@ -209,6 +281,22 @@ class ExpressRouteGatewayPropertiesAutoScaleConfigurationArgs:
     def bounds(self, value: Optional[pulumi.Input['ExpressRouteGatewayPropertiesBoundsArgs']]):
         pulumi.set(self, "bounds", value)
 
+
+if not MYPY:
+    class ExpressRouteGatewayPropertiesBoundsArgsDict(TypedDict):
+        """
+        Minimum and maximum number of scale units to deploy.
+        """
+        max: NotRequired[pulumi.Input[int]]
+        """
+        Maximum number of scale units deployed for ExpressRoute gateway.
+        """
+        min: NotRequired[pulumi.Input[int]]
+        """
+        Minimum number of scale units deployed for ExpressRoute gateway.
+        """
+elif False:
+    ExpressRouteGatewayPropertiesBoundsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ExpressRouteGatewayPropertiesBoundsArgs:
@@ -250,6 +338,22 @@ class ExpressRouteGatewayPropertiesBoundsArgs:
         pulumi.set(self, "min", value)
 
 
+if not MYPY:
+    class ExtendedLocationArgsDict(TypedDict):
+        """
+        ExtendedLocation complex type.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the extended location.
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'ExtendedLocationTypes']]]
+        """
+        The type of the extended location.
+        """
+elif False:
+    ExtendedLocationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ExtendedLocationArgs:
     def __init__(__self__, *,
@@ -289,6 +393,18 @@ class ExtendedLocationArgs:
     def type(self, value: Optional[pulumi.Input[Union[str, 'ExtendedLocationTypes']]]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class VirtualHubIdArgsDict(TypedDict):
+        """
+        Virtual Hub identifier.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The resource URI for the Virtual Hub where the ExpressRoute gateway is or will be deployed. The Virtual Hub resource and the ExpressRoute gateway resource reside in the same subscription.
+        """
+elif False:
+    VirtualHubIdArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VirtualHubIdArgs:

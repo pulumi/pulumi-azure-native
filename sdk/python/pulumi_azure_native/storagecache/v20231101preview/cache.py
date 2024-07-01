@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -252,17 +257,17 @@ class Cache(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cache_name: Optional[pulumi.Input[str]] = None,
                  cache_size_gb: Optional[pulumi.Input[int]] = None,
-                 directory_services_settings: Optional[pulumi.Input[pulumi.InputType['CacheDirectorySettingsArgs']]] = None,
-                 encryption_settings: Optional[pulumi.Input[pulumi.InputType['CacheEncryptionSettingsArgs']]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['CacheIdentityArgs']]] = None,
+                 directory_services_settings: Optional[pulumi.Input[Union['CacheDirectorySettingsArgs', 'CacheDirectorySettingsArgsDict']]] = None,
+                 encryption_settings: Optional[pulumi.Input[Union['CacheEncryptionSettingsArgs', 'CacheEncryptionSettingsArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['CacheIdentityArgs', 'CacheIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 network_settings: Optional[pulumi.Input[pulumi.InputType['CacheNetworkSettingsArgs']]] = None,
+                 network_settings: Optional[pulumi.Input[Union['CacheNetworkSettingsArgs', 'CacheNetworkSettingsArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 security_settings: Optional[pulumi.Input[pulumi.InputType['CacheSecuritySettingsArgs']]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['CacheSkuArgs']]] = None,
+                 security_settings: Optional[pulumi.Input[Union['CacheSecuritySettingsArgs', 'CacheSecuritySettingsArgsDict']]] = None,
+                 sku: Optional[pulumi.Input[Union['CacheSkuArgs', 'CacheSkuArgsDict']]] = None,
                  subnet: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 upgrade_settings: Optional[pulumi.Input[pulumi.InputType['CacheUpgradeSettingsArgs']]] = None,
+                 upgrade_settings: Optional[pulumi.Input[Union['CacheUpgradeSettingsArgs', 'CacheUpgradeSettingsArgsDict']]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -272,17 +277,17 @@ class Cache(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cache_name: Name of cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
         :param pulumi.Input[int] cache_size_gb: The size of this Cache, in GB.
-        :param pulumi.Input[pulumi.InputType['CacheDirectorySettingsArgs']] directory_services_settings: Specifies Directory Services settings of the cache.
-        :param pulumi.Input[pulumi.InputType['CacheEncryptionSettingsArgs']] encryption_settings: Specifies encryption settings of the cache.
-        :param pulumi.Input[pulumi.InputType['CacheIdentityArgs']] identity: The identity of the cache, if configured.
+        :param pulumi.Input[Union['CacheDirectorySettingsArgs', 'CacheDirectorySettingsArgsDict']] directory_services_settings: Specifies Directory Services settings of the cache.
+        :param pulumi.Input[Union['CacheEncryptionSettingsArgs', 'CacheEncryptionSettingsArgsDict']] encryption_settings: Specifies encryption settings of the cache.
+        :param pulumi.Input[Union['CacheIdentityArgs', 'CacheIdentityArgsDict']] identity: The identity of the cache, if configured.
         :param pulumi.Input[str] location: Region name string.
-        :param pulumi.Input[pulumi.InputType['CacheNetworkSettingsArgs']] network_settings: Specifies network settings of the cache.
+        :param pulumi.Input[Union['CacheNetworkSettingsArgs', 'CacheNetworkSettingsArgsDict']] network_settings: Specifies network settings of the cache.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[pulumi.InputType['CacheSecuritySettingsArgs']] security_settings: Specifies security settings of the cache.
-        :param pulumi.Input[pulumi.InputType['CacheSkuArgs']] sku: SKU for the cache.
+        :param pulumi.Input[Union['CacheSecuritySettingsArgs', 'CacheSecuritySettingsArgsDict']] security_settings: Specifies security settings of the cache.
+        :param pulumi.Input[Union['CacheSkuArgs', 'CacheSkuArgsDict']] sku: SKU for the cache.
         :param pulumi.Input[str] subnet: Subnet used for the cache.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[pulumi.InputType['CacheUpgradeSettingsArgs']] upgrade_settings: Upgrade settings of the cache.
+        :param pulumi.Input[Union['CacheUpgradeSettingsArgs', 'CacheUpgradeSettingsArgsDict']] upgrade_settings: Upgrade settings of the cache.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Availability zones for resources. This field should only contain a single element in the array.
         """
         ...
@@ -311,17 +316,17 @@ class Cache(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cache_name: Optional[pulumi.Input[str]] = None,
                  cache_size_gb: Optional[pulumi.Input[int]] = None,
-                 directory_services_settings: Optional[pulumi.Input[pulumi.InputType['CacheDirectorySettingsArgs']]] = None,
-                 encryption_settings: Optional[pulumi.Input[pulumi.InputType['CacheEncryptionSettingsArgs']]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['CacheIdentityArgs']]] = None,
+                 directory_services_settings: Optional[pulumi.Input[Union['CacheDirectorySettingsArgs', 'CacheDirectorySettingsArgsDict']]] = None,
+                 encryption_settings: Optional[pulumi.Input[Union['CacheEncryptionSettingsArgs', 'CacheEncryptionSettingsArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['CacheIdentityArgs', 'CacheIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 network_settings: Optional[pulumi.Input[pulumi.InputType['CacheNetworkSettingsArgs']]] = None,
+                 network_settings: Optional[pulumi.Input[Union['CacheNetworkSettingsArgs', 'CacheNetworkSettingsArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 security_settings: Optional[pulumi.Input[pulumi.InputType['CacheSecuritySettingsArgs']]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['CacheSkuArgs']]] = None,
+                 security_settings: Optional[pulumi.Input[Union['CacheSecuritySettingsArgs', 'CacheSecuritySettingsArgsDict']]] = None,
+                 sku: Optional[pulumi.Input[Union['CacheSkuArgs', 'CacheSkuArgsDict']]] = None,
                  subnet: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 upgrade_settings: Optional[pulumi.Input[pulumi.InputType['CacheUpgradeSettingsArgs']]] = None,
+                 upgrade_settings: Optional[pulumi.Input[Union['CacheUpgradeSettingsArgs', 'CacheUpgradeSettingsArgsDict']]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

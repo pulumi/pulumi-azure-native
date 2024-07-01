@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -318,7 +323,7 @@ class Profile(pulumi.CustomResource):
                  description: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  display_name: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  entity_type: Optional[pulumi.Input['EntityTypes']] = None,
-                 fields: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PropertyDefinitionArgs']]]]] = None,
+                 fields: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PropertyDefinitionArgs', 'PropertyDefinitionArgsDict']]]]] = None,
                  hub_name: Optional[pulumi.Input[str]] = None,
                  instances_count: Optional[pulumi.Input[int]] = None,
                  large_image: Optional[pulumi.Input[str]] = None,
@@ -328,7 +333,7 @@ class Profile(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  schema_item_type_link: Optional[pulumi.Input[str]] = None,
                  small_image: Optional[pulumi.Input[str]] = None,
-                 strong_ids: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StrongIdArgs']]]]] = None,
+                 strong_ids: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StrongIdArgs', 'StrongIdArgsDict']]]]] = None,
                  timestamp_field_name: Optional[pulumi.Input[str]] = None,
                  type_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -342,7 +347,7 @@ class Profile(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] description: Localized descriptions for the property.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] display_name: Localized display names for the property.
         :param pulumi.Input['EntityTypes'] entity_type: Type of entity.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PropertyDefinitionArgs']]]] fields: The properties of the Profile.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PropertyDefinitionArgs', 'PropertyDefinitionArgsDict']]]] fields: The properties of the Profile.
         :param pulumi.Input[str] hub_name: The name of the hub.
         :param pulumi.Input[int] instances_count: The instance count.
         :param pulumi.Input[str] large_image: Large Image associated with the Property or EntityType.
@@ -352,7 +357,7 @@ class Profile(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] schema_item_type_link: The schema org link. This helps ACI identify and suggest semantic models.
         :param pulumi.Input[str] small_image: Small Image associated with the Property or EntityType.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StrongIdArgs']]]] strong_ids: The strong IDs.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['StrongIdArgs', 'StrongIdArgsDict']]]] strong_ids: The strong IDs.
         :param pulumi.Input[str] timestamp_field_name: The timestamp property name. Represents the time when the interaction or profile update happened.
         :param pulumi.Input[str] type_name: The name of the entity.
         """
@@ -385,7 +390,7 @@ class Profile(pulumi.CustomResource):
                  description: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  display_name: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  entity_type: Optional[pulumi.Input['EntityTypes']] = None,
-                 fields: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PropertyDefinitionArgs']]]]] = None,
+                 fields: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PropertyDefinitionArgs', 'PropertyDefinitionArgsDict']]]]] = None,
                  hub_name: Optional[pulumi.Input[str]] = None,
                  instances_count: Optional[pulumi.Input[int]] = None,
                  large_image: Optional[pulumi.Input[str]] = None,
@@ -395,7 +400,7 @@ class Profile(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  schema_item_type_link: Optional[pulumi.Input[str]] = None,
                  small_image: Optional[pulumi.Input[str]] = None,
-                 strong_ids: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StrongIdArgs']]]]] = None,
+                 strong_ids: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StrongIdArgs', 'StrongIdArgsDict']]]]] = None,
                  timestamp_field_name: Optional[pulumi.Input[str]] = None,
                  type_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):

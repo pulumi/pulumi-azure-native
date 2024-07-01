@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -168,30 +173,30 @@ class AFDCustomDomain(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 azure_dns_zone: Optional[pulumi.Input[pulumi.InputType['ResourceReferenceArgs']]] = None,
+                 azure_dns_zone: Optional[pulumi.Input[Union['ResourceReferenceArgs', 'ResourceReferenceArgsDict']]] = None,
                  custom_domain_name: Optional[pulumi.Input[str]] = None,
                  extended_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  host_name: Optional[pulumi.Input[str]] = None,
-                 mtls_settings: Optional[pulumi.Input[pulumi.InputType['AFDDomainMtlsParametersArgs']]] = None,
-                 pre_validated_custom_domain_resource_id: Optional[pulumi.Input[pulumi.InputType['ResourceReferenceArgs']]] = None,
+                 mtls_settings: Optional[pulumi.Input[Union['AFDDomainMtlsParametersArgs', 'AFDDomainMtlsParametersArgsDict']]] = None,
+                 pre_validated_custom_domain_resource_id: Optional[pulumi.Input[Union['ResourceReferenceArgs', 'ResourceReferenceArgsDict']]] = None,
                  profile_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 tls_settings: Optional[pulumi.Input[pulumi.InputType['AFDDomainHttpsParametersArgs']]] = None,
+                 tls_settings: Optional[pulumi.Input[Union['AFDDomainHttpsParametersArgs', 'AFDDomainHttpsParametersArgsDict']]] = None,
                  __props__=None):
         """
         Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ResourceReferenceArgs']] azure_dns_zone: Resource reference to the Azure DNS zone
+        :param pulumi.Input[Union['ResourceReferenceArgs', 'ResourceReferenceArgsDict']] azure_dns_zone: Resource reference to the Azure DNS zone
         :param pulumi.Input[str] custom_domain_name: Name of the domain under the profile which is unique globally
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] extended_properties: Key-Value pair representing migration properties for domains.
         :param pulumi.Input[str] host_name: The host name of the domain. Must be a domain name.
-        :param pulumi.Input[pulumi.InputType['AFDDomainMtlsParametersArgs']] mtls_settings: The configuration specifying how to enable mutual TLS for the domain, including specifying allowed FQDN and which server certificate(s) to use.
-        :param pulumi.Input[pulumi.InputType['ResourceReferenceArgs']] pre_validated_custom_domain_resource_id: Resource reference to the Azure resource where custom domain ownership was prevalidated
+        :param pulumi.Input[Union['AFDDomainMtlsParametersArgs', 'AFDDomainMtlsParametersArgsDict']] mtls_settings: The configuration specifying how to enable mutual TLS for the domain, including specifying allowed FQDN and which server certificate(s) to use.
+        :param pulumi.Input[Union['ResourceReferenceArgs', 'ResourceReferenceArgsDict']] pre_validated_custom_domain_resource_id: Resource reference to the Azure resource where custom domain ownership was prevalidated
         :param pulumi.Input[str] profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
-        :param pulumi.Input[pulumi.InputType['AFDDomainHttpsParametersArgs']] tls_settings: The configuration specifying how to enable HTTPS for the domain - using AzureFrontDoor managed certificate or user's own certificate. If not specified, enabling ssl uses AzureFrontDoor managed certificate by default.
+        :param pulumi.Input[Union['AFDDomainHttpsParametersArgs', 'AFDDomainHttpsParametersArgsDict']] tls_settings: The configuration specifying how to enable HTTPS for the domain - using AzureFrontDoor managed certificate or user's own certificate. If not specified, enabling ssl uses AzureFrontDoor managed certificate by default.
         """
         ...
     @overload
@@ -217,15 +222,15 @@ class AFDCustomDomain(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 azure_dns_zone: Optional[pulumi.Input[pulumi.InputType['ResourceReferenceArgs']]] = None,
+                 azure_dns_zone: Optional[pulumi.Input[Union['ResourceReferenceArgs', 'ResourceReferenceArgsDict']]] = None,
                  custom_domain_name: Optional[pulumi.Input[str]] = None,
                  extended_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  host_name: Optional[pulumi.Input[str]] = None,
-                 mtls_settings: Optional[pulumi.Input[pulumi.InputType['AFDDomainMtlsParametersArgs']]] = None,
-                 pre_validated_custom_domain_resource_id: Optional[pulumi.Input[pulumi.InputType['ResourceReferenceArgs']]] = None,
+                 mtls_settings: Optional[pulumi.Input[Union['AFDDomainMtlsParametersArgs', 'AFDDomainMtlsParametersArgsDict']]] = None,
+                 pre_validated_custom_domain_resource_id: Optional[pulumi.Input[Union['ResourceReferenceArgs', 'ResourceReferenceArgsDict']]] = None,
                  profile_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 tls_settings: Optional[pulumi.Input[pulumi.InputType['AFDDomainHttpsParametersArgs']]] = None,
+                 tls_settings: Optional[pulumi.Input[Union['AFDDomainHttpsParametersArgs', 'AFDDomainHttpsParametersArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

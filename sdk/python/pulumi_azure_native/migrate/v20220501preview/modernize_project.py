@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -134,10 +139,10 @@ class ModernizeProject(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ResourceIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['ResourceIdentityArgs', 'ResourceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  modernize_project_name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['ModernizeProjectModelPropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['ModernizeProjectModelPropertiesArgs', 'ModernizeProjectModelPropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  subscription_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -149,7 +154,7 @@ class ModernizeProject(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Gets or sets the location of the modernizeProject.
         :param pulumi.Input[str] modernize_project_name: ModernizeProject Name.
-        :param pulumi.Input[pulumi.InputType['ModernizeProjectModelPropertiesArgs']] properties: ModernizeProject properties.
+        :param pulumi.Input[Union['ModernizeProjectModelPropertiesArgs', 'ModernizeProjectModelPropertiesArgsDict']] properties: ModernizeProject properties.
         :param pulumi.Input[str] resource_group_name: Name of the Azure Resource Group that project is part of.
         :param pulumi.Input[str] subscription_id: Azure Subscription Id in which project was created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Gets or sets the resource tags.
@@ -178,10 +183,10 @@ class ModernizeProject(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ResourceIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['ResourceIdentityArgs', 'ResourceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  modernize_project_name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['ModernizeProjectModelPropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['ModernizeProjectModelPropertiesArgs', 'ModernizeProjectModelPropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  subscription_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,

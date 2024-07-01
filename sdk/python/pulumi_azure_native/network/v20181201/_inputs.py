@@ -4,25 +4,71 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'ExpressRouteCircuitAuthorizationArgs',
+    'ExpressRouteCircuitAuthorizationArgsDict',
     'ExpressRouteCircuitConnectionArgs',
+    'ExpressRouteCircuitConnectionArgsDict',
     'ExpressRouteCircuitPeeringConfigArgs',
+    'ExpressRouteCircuitPeeringConfigArgsDict',
     'ExpressRouteCircuitPeeringArgs',
+    'ExpressRouteCircuitPeeringArgsDict',
     'ExpressRouteCircuitServiceProviderPropertiesArgs',
+    'ExpressRouteCircuitServiceProviderPropertiesArgsDict',
     'ExpressRouteCircuitSkuArgs',
+    'ExpressRouteCircuitSkuArgsDict',
     'ExpressRouteCircuitStatsArgs',
+    'ExpressRouteCircuitStatsArgsDict',
     'Ipv6ExpressRouteCircuitPeeringConfigArgs',
+    'Ipv6ExpressRouteCircuitPeeringConfigArgsDict',
     'RouteFilterRuleArgs',
+    'RouteFilterRuleArgsDict',
     'RouteFilterArgs',
+    'RouteFilterArgsDict',
     'SubResourceArgs',
+    'SubResourceArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ExpressRouteCircuitAuthorizationArgsDict(TypedDict):
+        """
+        Authorization in an ExpressRouteCircuit resource.
+        """
+        authorization_key: NotRequired[pulumi.Input[str]]
+        """
+        The authorization key.
+        """
+        authorization_use_status: NotRequired[pulumi.Input[Union[str, 'AuthorizationUseStatus']]]
+        """
+        AuthorizationUseStatus. Possible values are: 'Available' and 'InUse'.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+        provisioning_state: NotRequired[pulumi.Input[str]]
+        """
+        Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        """
+elif False:
+    ExpressRouteCircuitAuthorizationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ExpressRouteCircuitAuthorizationArgs:
@@ -111,6 +157,38 @@ class ExpressRouteCircuitAuthorizationArgs:
     def provisioning_state(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "provisioning_state", value)
 
+
+if not MYPY:
+    class ExpressRouteCircuitConnectionArgsDict(TypedDict):
+        """
+        Express Route Circuit Connection in an ExpressRouteCircuitPeering resource.
+        """
+        address_prefix: NotRequired[pulumi.Input[str]]
+        """
+        /29 IP address space to carve out Customer addresses for tunnels.
+        """
+        authorization_key: NotRequired[pulumi.Input[str]]
+        """
+        The authorization key.
+        """
+        express_route_circuit_peering: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        """
+        Reference to Express Route Circuit Private Peering Resource of the circuit initiating connection.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+        peer_express_route_circuit_peering: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        """
+        Reference to Express Route Circuit Private Peering Resource of the peered circuit.
+        """
+elif False:
+    ExpressRouteCircuitConnectionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ExpressRouteCircuitConnectionArgs:
@@ -216,6 +294,38 @@ class ExpressRouteCircuitConnectionArgs:
         pulumi.set(self, "peer_express_route_circuit_peering", value)
 
 
+if not MYPY:
+    class ExpressRouteCircuitPeeringConfigArgsDict(TypedDict):
+        """
+        Specifies the peering configuration.
+        """
+        advertised_communities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The communities of bgp peering. Specified for microsoft peering
+        """
+        advertised_public_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The reference of AdvertisedPublicPrefixes.
+        """
+        advertised_public_prefixes_state: NotRequired[pulumi.Input[Union[str, 'ExpressRouteCircuitPeeringAdvertisedPublicPrefixState']]]
+        """
+        AdvertisedPublicPrefixState of the Peering resource. Possible values are 'NotConfigured', 'Configuring', 'Configured', and 'ValidationNeeded'.
+        """
+        customer_asn: NotRequired[pulumi.Input[int]]
+        """
+        The CustomerASN of the peering.
+        """
+        legacy_mode: NotRequired[pulumi.Input[int]]
+        """
+        The legacy mode of the peering.
+        """
+        routing_registry_name: NotRequired[pulumi.Input[str]]
+        """
+        The RoutingRegistryName of the configuration.
+        """
+elif False:
+    ExpressRouteCircuitPeeringConfigArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ExpressRouteCircuitPeeringConfigArgs:
     def __init__(__self__, *,
@@ -319,6 +429,94 @@ class ExpressRouteCircuitPeeringConfigArgs:
     def routing_registry_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "routing_registry_name", value)
 
+
+if not MYPY:
+    class ExpressRouteCircuitPeeringArgsDict(TypedDict):
+        """
+        Peering in an ExpressRouteCircuit resource.
+        """
+        azure_asn: NotRequired[pulumi.Input[int]]
+        """
+        The Azure ASN.
+        """
+        connections: NotRequired[pulumi.Input[Sequence[pulumi.Input['ExpressRouteCircuitConnectionArgsDict']]]]
+        """
+        The list of circuit connections associated with Azure Private Peering for this circuit.
+        """
+        gateway_manager_etag: NotRequired[pulumi.Input[str]]
+        """
+        The GatewayManager Etag.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        ipv6_peering_config: NotRequired[pulumi.Input['Ipv6ExpressRouteCircuitPeeringConfigArgsDict']]
+        """
+        The IPv6 peering configuration.
+        """
+        last_modified_by: NotRequired[pulumi.Input[str]]
+        """
+        Gets whether the provider or the customer last modified the peering.
+        """
+        microsoft_peering_config: NotRequired[pulumi.Input['ExpressRouteCircuitPeeringConfigArgsDict']]
+        """
+        The Microsoft peering configuration.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+        peer_asn: NotRequired[pulumi.Input[float]]
+        """
+        The peer ASN.
+        """
+        peering_type: NotRequired[pulumi.Input[Union[str, 'ExpressRoutePeeringType']]]
+        """
+        The peering type.
+        """
+        primary_azure_port: NotRequired[pulumi.Input[str]]
+        """
+        The primary port.
+        """
+        primary_peer_address_prefix: NotRequired[pulumi.Input[str]]
+        """
+        The primary address prefix.
+        """
+        provisioning_state: NotRequired[pulumi.Input[str]]
+        """
+        Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        """
+        route_filter: NotRequired[pulumi.Input['RouteFilterArgsDict']]
+        """
+        The reference of the RouteFilter resource.
+        """
+        secondary_azure_port: NotRequired[pulumi.Input[str]]
+        """
+        The secondary port.
+        """
+        secondary_peer_address_prefix: NotRequired[pulumi.Input[str]]
+        """
+        The secondary address prefix.
+        """
+        shared_key: NotRequired[pulumi.Input[str]]
+        """
+        The shared key.
+        """
+        state: NotRequired[pulumi.Input[Union[str, 'ExpressRoutePeeringState']]]
+        """
+        The peering state.
+        """
+        stats: NotRequired[pulumi.Input['ExpressRouteCircuitStatsArgsDict']]
+        """
+        Gets peering stats.
+        """
+        vlan_id: NotRequired[pulumi.Input[int]]
+        """
+        The VLAN ID.
+        """
+elif False:
+    ExpressRouteCircuitPeeringArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ExpressRouteCircuitPeeringArgs:
@@ -648,6 +846,26 @@ class ExpressRouteCircuitPeeringArgs:
         pulumi.set(self, "vlan_id", value)
 
 
+if not MYPY:
+    class ExpressRouteCircuitServiceProviderPropertiesArgsDict(TypedDict):
+        """
+        Contains ServiceProviderProperties in an ExpressRouteCircuit.
+        """
+        bandwidth_in_mbps: NotRequired[pulumi.Input[int]]
+        """
+        The BandwidthInMbps.
+        """
+        peering_location: NotRequired[pulumi.Input[str]]
+        """
+        The peering location.
+        """
+        service_provider_name: NotRequired[pulumi.Input[str]]
+        """
+        The serviceProviderName.
+        """
+elif False:
+    ExpressRouteCircuitServiceProviderPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ExpressRouteCircuitServiceProviderPropertiesArgs:
     def __init__(__self__, *,
@@ -704,6 +922,26 @@ class ExpressRouteCircuitServiceProviderPropertiesArgs:
         pulumi.set(self, "service_provider_name", value)
 
 
+if not MYPY:
+    class ExpressRouteCircuitSkuArgsDict(TypedDict):
+        """
+        Contains SKU in an ExpressRouteCircuit.
+        """
+        family: NotRequired[pulumi.Input[Union[str, 'ExpressRouteCircuitSkuFamily']]]
+        """
+        The family of the SKU. Possible values are: 'UnlimitedData' and 'MeteredData'.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the SKU.
+        """
+        tier: NotRequired[pulumi.Input[Union[str, 'ExpressRouteCircuitSkuTier']]]
+        """
+        The tier of the SKU. Possible values are 'Standard', 'Premium' or 'Local'.
+        """
+elif False:
+    ExpressRouteCircuitSkuArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ExpressRouteCircuitSkuArgs:
     def __init__(__self__, *,
@@ -759,6 +997,30 @@ class ExpressRouteCircuitSkuArgs:
     def tier(self, value: Optional[pulumi.Input[Union[str, 'ExpressRouteCircuitSkuTier']]]):
         pulumi.set(self, "tier", value)
 
+
+if not MYPY:
+    class ExpressRouteCircuitStatsArgsDict(TypedDict):
+        """
+        Contains stats associated with the peering.
+        """
+        primarybytes_in: NotRequired[pulumi.Input[float]]
+        """
+        Gets BytesIn of the peering.
+        """
+        primarybytes_out: NotRequired[pulumi.Input[float]]
+        """
+        Gets BytesOut of the peering.
+        """
+        secondarybytes_in: NotRequired[pulumi.Input[float]]
+        """
+        Gets BytesIn of the peering.
+        """
+        secondarybytes_out: NotRequired[pulumi.Input[float]]
+        """
+        Gets BytesOut of the peering.
+        """
+elif False:
+    ExpressRouteCircuitStatsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ExpressRouteCircuitStatsArgs:
@@ -831,6 +1093,34 @@ class ExpressRouteCircuitStatsArgs:
     def secondarybytes_out(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "secondarybytes_out", value)
 
+
+if not MYPY:
+    class Ipv6ExpressRouteCircuitPeeringConfigArgsDict(TypedDict):
+        """
+        Contains IPv6 peering config.
+        """
+        microsoft_peering_config: NotRequired[pulumi.Input['ExpressRouteCircuitPeeringConfigArgsDict']]
+        """
+        The Microsoft peering configuration.
+        """
+        primary_peer_address_prefix: NotRequired[pulumi.Input[str]]
+        """
+        The primary address prefix.
+        """
+        route_filter: NotRequired[pulumi.Input['RouteFilterArgsDict']]
+        """
+        The reference of the RouteFilter resource.
+        """
+        secondary_peer_address_prefix: NotRequired[pulumi.Input[str]]
+        """
+        The secondary address prefix.
+        """
+        state: NotRequired[pulumi.Input[Union[str, 'ExpressRouteCircuitPeeringState']]]
+        """
+        The state of peering. Possible values are: 'Disabled' and 'Enabled'
+        """
+elif False:
+    Ipv6ExpressRouteCircuitPeeringConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class Ipv6ExpressRouteCircuitPeeringConfigArgs:
@@ -919,6 +1209,38 @@ class Ipv6ExpressRouteCircuitPeeringConfigArgs:
     def state(self, value: Optional[pulumi.Input[Union[str, 'ExpressRouteCircuitPeeringState']]]):
         pulumi.set(self, "state", value)
 
+
+if not MYPY:
+    class RouteFilterRuleArgsDict(TypedDict):
+        """
+        Route Filter Rule Resource
+        """
+        access: pulumi.Input[Union[str, 'Access']]
+        """
+        The access type of the rule. Valid values are: 'Allow', 'Deny'
+        """
+        communities: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        The collection for bgp community values to filter on. e.g. ['12076:5010','12076:5020']
+        """
+        route_filter_rule_type: pulumi.Input[Union[str, 'RouteFilterRuleType']]
+        """
+        The rule type of the rule. Valid value is: 'Community'
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        location: NotRequired[pulumi.Input[str]]
+        """
+        Resource location.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+elif False:
+    RouteFilterRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RouteFilterRuleArgs:
@@ -1021,6 +1343,34 @@ class RouteFilterRuleArgs:
         pulumi.set(self, "name", value)
 
 
+if not MYPY:
+    class RouteFilterArgsDict(TypedDict):
+        """
+        Route Filter Resource.
+        """
+        location: pulumi.Input[str]
+        """
+        Resource location.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        peerings: NotRequired[pulumi.Input[Sequence[pulumi.Input['ExpressRouteCircuitPeeringArgsDict']]]]
+        """
+        A collection of references to express route circuit peerings.
+        """
+        rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['RouteFilterRuleArgsDict']]]]
+        """
+        Collection of RouteFilterRules contained within a route filter.
+        """
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Resource tags.
+        """
+elif False:
+    RouteFilterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RouteFilterArgs:
     def __init__(__self__, *,
@@ -1107,6 +1457,21 @@ class RouteFilterArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+
+if not MYPY:
+    class SubResourceArgsDict(TypedDict):
+        """
+        Reference to another subresource.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Sub-resource ID. Both absolute resource ID and a relative resource ID are accepted.
+        An absolute ID starts with /subscriptions/ and contains the entire ID of the parent resource and the ID of the sub-resource in the end.
+        A relative ID replaces the ID of the parent resource with a token '$self', followed by the sub-resource ID itself.
+        Example of a relative ID: $self/frontEndConfigurations/my-frontend.
+        """
+elif False:
+    SubResourceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SubResourceArgs:

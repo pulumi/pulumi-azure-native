@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -260,9 +265,9 @@ class MetricAlert(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricAlertActionArgs']]]]] = None,
+                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MetricAlertActionArgs', 'MetricAlertActionArgsDict']]]]] = None,
                  auto_mitigate: Optional[pulumi.Input[bool]] = None,
-                 criteria: Optional[pulumi.Input[Union[pulumi.InputType['MetricAlertMultipleResourceMultipleMetricCriteriaArgs'], pulumi.InputType['MetricAlertSingleResourceMultipleMetricCriteriaArgs'], pulumi.InputType['WebtestLocationAvailabilityCriteriaArgs']]]] = None,
+                 criteria: Optional[pulumi.Input[Union[Union['MetricAlertMultipleResourceMultipleMetricCriteriaArgs', 'MetricAlertMultipleResourceMultipleMetricCriteriaArgsDict'], Union['MetricAlertSingleResourceMultipleMetricCriteriaArgs', 'MetricAlertSingleResourceMultipleMetricCriteriaArgsDict'], Union['WebtestLocationAvailabilityCriteriaArgs', 'WebtestLocationAvailabilityCriteriaArgsDict']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  evaluation_frequency: Optional[pulumi.Input[str]] = None,
@@ -281,9 +286,9 @@ class MetricAlert(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricAlertActionArgs']]]] actions: the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MetricAlertActionArgs', 'MetricAlertActionArgsDict']]]] actions: the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
         :param pulumi.Input[bool] auto_mitigate: the flag that indicates whether the alert should be auto resolved or not. The default is true.
-        :param pulumi.Input[Union[pulumi.InputType['MetricAlertMultipleResourceMultipleMetricCriteriaArgs'], pulumi.InputType['MetricAlertSingleResourceMultipleMetricCriteriaArgs'], pulumi.InputType['WebtestLocationAvailabilityCriteriaArgs']]] criteria: defines the specific alert criteria information.
+        :param pulumi.Input[Union[Union['MetricAlertMultipleResourceMultipleMetricCriteriaArgs', 'MetricAlertMultipleResourceMultipleMetricCriteriaArgsDict'], Union['MetricAlertSingleResourceMultipleMetricCriteriaArgs', 'MetricAlertSingleResourceMultipleMetricCriteriaArgsDict'], Union['WebtestLocationAvailabilityCriteriaArgs', 'WebtestLocationAvailabilityCriteriaArgsDict']]] criteria: defines the specific alert criteria information.
         :param pulumi.Input[str] description: the description of the metric alert that will be included in the alert email.
         :param pulumi.Input[bool] enabled: the flag that indicates whether the metric alert is enabled.
         :param pulumi.Input[str] evaluation_frequency: how often the metric alert is evaluated represented in ISO 8601 duration format.
@@ -321,9 +326,9 @@ class MetricAlert(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricAlertActionArgs']]]]] = None,
+                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MetricAlertActionArgs', 'MetricAlertActionArgsDict']]]]] = None,
                  auto_mitigate: Optional[pulumi.Input[bool]] = None,
-                 criteria: Optional[pulumi.Input[Union[pulumi.InputType['MetricAlertMultipleResourceMultipleMetricCriteriaArgs'], pulumi.InputType['MetricAlertSingleResourceMultipleMetricCriteriaArgs'], pulumi.InputType['WebtestLocationAvailabilityCriteriaArgs']]]] = None,
+                 criteria: Optional[pulumi.Input[Union[Union['MetricAlertMultipleResourceMultipleMetricCriteriaArgs', 'MetricAlertMultipleResourceMultipleMetricCriteriaArgsDict'], Union['MetricAlertSingleResourceMultipleMetricCriteriaArgs', 'MetricAlertSingleResourceMultipleMetricCriteriaArgsDict'], Union['WebtestLocationAvailabilityCriteriaArgs', 'WebtestLocationAvailabilityCriteriaArgsDict']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  evaluation_frequency: Optional[pulumi.Input[str]] = None,

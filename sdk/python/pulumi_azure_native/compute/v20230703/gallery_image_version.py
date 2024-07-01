@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -187,11 +192,11 @@ class GalleryImageVersion(pulumi.CustomResource):
                  gallery_image_version_name: Optional[pulumi.Input[str]] = None,
                  gallery_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 publishing_profile: Optional[pulumi.Input[pulumi.InputType['GalleryImageVersionPublishingProfileArgs']]] = None,
+                 publishing_profile: Optional[pulumi.Input[Union['GalleryImageVersionPublishingProfileArgs', 'GalleryImageVersionPublishingProfileArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 safety_profile: Optional[pulumi.Input[pulumi.InputType['GalleryImageVersionSafetyProfileArgs']]] = None,
-                 security_profile: Optional[pulumi.Input[pulumi.InputType['ImageVersionSecurityProfileArgs']]] = None,
-                 storage_profile: Optional[pulumi.Input[pulumi.InputType['GalleryImageVersionStorageProfileArgs']]] = None,
+                 safety_profile: Optional[pulumi.Input[Union['GalleryImageVersionSafetyProfileArgs', 'GalleryImageVersionSafetyProfileArgsDict']]] = None,
+                 security_profile: Optional[pulumi.Input[Union['ImageVersionSecurityProfileArgs', 'ImageVersionSecurityProfileArgsDict']]] = None,
+                 storage_profile: Optional[pulumi.Input[Union['GalleryImageVersionStorageProfileArgs', 'GalleryImageVersionStorageProfileArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -203,11 +208,11 @@ class GalleryImageVersion(pulumi.CustomResource):
         :param pulumi.Input[str] gallery_image_version_name: The name of the gallery image version to be created. Needs to follow semantic version name pattern: The allowed characters are digit and period. Digits must be within the range of a 32-bit integer. Format: <MajorVersion>.<MinorVersion>.<Patch>
         :param pulumi.Input[str] gallery_name: The name of the Shared Image Gallery in which the Image Definition resides.
         :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[pulumi.InputType['GalleryImageVersionPublishingProfileArgs']] publishing_profile: The publishing profile of a gallery image Version.
+        :param pulumi.Input[Union['GalleryImageVersionPublishingProfileArgs', 'GalleryImageVersionPublishingProfileArgsDict']] publishing_profile: The publishing profile of a gallery image Version.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[pulumi.InputType['GalleryImageVersionSafetyProfileArgs']] safety_profile: This is the safety profile of the Gallery Image Version.
-        :param pulumi.Input[pulumi.InputType['ImageVersionSecurityProfileArgs']] security_profile: The security profile of a gallery image version
-        :param pulumi.Input[pulumi.InputType['GalleryImageVersionStorageProfileArgs']] storage_profile: This is the storage profile of a Gallery Image Version.
+        :param pulumi.Input[Union['GalleryImageVersionSafetyProfileArgs', 'GalleryImageVersionSafetyProfileArgsDict']] safety_profile: This is the safety profile of the Gallery Image Version.
+        :param pulumi.Input[Union['ImageVersionSecurityProfileArgs', 'ImageVersionSecurityProfileArgsDict']] security_profile: The security profile of a gallery image version
+        :param pulumi.Input[Union['GalleryImageVersionStorageProfileArgs', 'GalleryImageVersionStorageProfileArgsDict']] storage_profile: This is the storage profile of a Gallery Image Version.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
         ...
@@ -238,11 +243,11 @@ class GalleryImageVersion(pulumi.CustomResource):
                  gallery_image_version_name: Optional[pulumi.Input[str]] = None,
                  gallery_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 publishing_profile: Optional[pulumi.Input[pulumi.InputType['GalleryImageVersionPublishingProfileArgs']]] = None,
+                 publishing_profile: Optional[pulumi.Input[Union['GalleryImageVersionPublishingProfileArgs', 'GalleryImageVersionPublishingProfileArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 safety_profile: Optional[pulumi.Input[pulumi.InputType['GalleryImageVersionSafetyProfileArgs']]] = None,
-                 security_profile: Optional[pulumi.Input[pulumi.InputType['ImageVersionSecurityProfileArgs']]] = None,
-                 storage_profile: Optional[pulumi.Input[pulumi.InputType['GalleryImageVersionStorageProfileArgs']]] = None,
+                 safety_profile: Optional[pulumi.Input[Union['GalleryImageVersionSafetyProfileArgs', 'GalleryImageVersionSafetyProfileArgsDict']]] = None,
+                 security_profile: Optional[pulumi.Input[Union['ImageVersionSecurityProfileArgs', 'ImageVersionSecurityProfileArgsDict']]] = None,
+                 storage_profile: Optional[pulumi.Input[Union['GalleryImageVersionStorageProfileArgs', 'GalleryImageVersionStorageProfileArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

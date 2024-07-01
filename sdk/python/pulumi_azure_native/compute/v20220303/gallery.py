@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -142,8 +147,8 @@ class Gallery(pulumi.CustomResource):
                  gallery_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sharing_profile: Optional[pulumi.Input[pulumi.InputType['SharingProfileArgs']]] = None,
-                 soft_delete_policy: Optional[pulumi.Input[pulumi.InputType['SoftDeletePolicyArgs']]] = None,
+                 sharing_profile: Optional[pulumi.Input[Union['SharingProfileArgs', 'SharingProfileArgsDict']]] = None,
+                 soft_delete_policy: Optional[pulumi.Input[Union['SoftDeletePolicyArgs', 'SoftDeletePolicyArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -155,8 +160,8 @@ class Gallery(pulumi.CustomResource):
         :param pulumi.Input[str] gallery_name: The name of the Shared Image Gallery. The allowed characters are alphabets and numbers with dots and periods allowed in the middle. The maximum length is 80 characters.
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[pulumi.InputType['SharingProfileArgs']] sharing_profile: Profile for gallery sharing to subscription or tenant
-        :param pulumi.Input[pulumi.InputType['SoftDeletePolicyArgs']] soft_delete_policy: Contains information about the soft deletion policy of the gallery.
+        :param pulumi.Input[Union['SharingProfileArgs', 'SharingProfileArgsDict']] sharing_profile: Profile for gallery sharing to subscription or tenant
+        :param pulumi.Input[Union['SoftDeletePolicyArgs', 'SoftDeletePolicyArgsDict']] soft_delete_policy: Contains information about the soft deletion policy of the gallery.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
         ...
@@ -187,8 +192,8 @@ class Gallery(pulumi.CustomResource):
                  gallery_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sharing_profile: Optional[pulumi.Input[pulumi.InputType['SharingProfileArgs']]] = None,
-                 soft_delete_policy: Optional[pulumi.Input[pulumi.InputType['SoftDeletePolicyArgs']]] = None,
+                 sharing_profile: Optional[pulumi.Input[Union['SharingProfileArgs', 'SharingProfileArgsDict']]] = None,
+                 soft_delete_policy: Optional[pulumi.Input[Union['SoftDeletePolicyArgs', 'SoftDeletePolicyArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

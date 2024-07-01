@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -88,7 +93,7 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['CreateRecoveryPlanInputPropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['CreateRecoveryPlanInputPropertiesArgs', 'CreateRecoveryPlanInputPropertiesArgsDict']]] = None,
                  recovery_plan_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
@@ -98,7 +103,7 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['CreateRecoveryPlanInputPropertiesArgs']] properties: Recovery plan creation properties.
+        :param pulumi.Input[Union['CreateRecoveryPlanInputPropertiesArgs', 'CreateRecoveryPlanInputPropertiesArgsDict']] properties: Recovery plan creation properties.
         :param pulumi.Input[str] recovery_plan_name: Recovery plan name.
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the recovery services vault is present.
         :param pulumi.Input[str] resource_name_: The name of the recovery services vault.
@@ -127,7 +132,7 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['CreateRecoveryPlanInputPropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['CreateRecoveryPlanInputPropertiesArgs', 'CreateRecoveryPlanInputPropertiesArgsDict']]] = None,
                  recovery_plan_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,

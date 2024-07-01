@@ -4,23 +4,59 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'AadProfileArgs',
+    'AadProfileArgsDict',
     'ArcAgentProfileArgs',
+    'ArcAgentProfileArgsDict',
     'ArcAgentryConfigurationsArgs',
+    'ArcAgentryConfigurationsArgsDict',
     'ConnectedClusterIdentityArgs',
+    'ConnectedClusterIdentityArgsDict',
     'GatewayArgs',
+    'GatewayArgsDict',
     'OidcIssuerProfileArgs',
+    'OidcIssuerProfileArgsDict',
     'SecurityProfileWorkloadIdentityArgs',
+    'SecurityProfileWorkloadIdentityArgsDict',
     'SecurityProfileArgs',
+    'SecurityProfileArgsDict',
     'SystemComponentArgs',
+    'SystemComponentArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AadProfileArgsDict(TypedDict):
+        """
+        AAD Profile specifies attributes for Azure Active Directory integration.
+        """
+        admin_group_object_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of AAD group object IDs that will have admin role of the cluster.
+        """
+        enable_azure_rbac: NotRequired[pulumi.Input[bool]]
+        """
+        Whether to enable Azure RBAC for Kubernetes authorization.
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        The AAD tenant ID to use for authentication. If not specified, will use the tenant of the deployment subscription.
+        """
+elif False:
+    AadProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AadProfileArgs:
@@ -77,6 +113,26 @@ class AadProfileArgs:
     def tenant_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tenant_id", value)
 
+
+if not MYPY:
+    class ArcAgentProfileArgsDict(TypedDict):
+        """
+        Defines the Arc Agent properties for the clusters.
+        """
+        agent_auto_upgrade: NotRequired[pulumi.Input[Union[str, 'AutoUpgradeOptions']]]
+        """
+        Indicates whether the Arc agents on the be upgraded automatically to the latest version. Defaults to Enabled.
+        """
+        desired_agent_version: NotRequired[pulumi.Input[str]]
+        """
+        Version of the Arc agents to be installed on the cluster resource
+        """
+        system_components: NotRequired[pulumi.Input[Sequence[pulumi.Input['SystemComponentArgsDict']]]]
+        """
+        List of system extensions that are installed on the cluster resource.
+        """
+elif False:
+    ArcAgentProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ArcAgentProfileArgs:
@@ -136,6 +192,23 @@ class ArcAgentProfileArgs:
         pulumi.set(self, "system_components", value)
 
 
+if not MYPY:
+    class ArcAgentryConfigurationsArgsDict(TypedDict):
+        feature: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the name of the feature for the configuration setting.
+        """
+        protected_settings: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        The configuration settings for the feature that contain any sensitive or secret information.
+        """
+        settings: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        The configuration settings for the feature that do not contain any sensitive or secret information.
+        """
+elif False:
+    ArcAgentryConfigurationsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ArcAgentryConfigurationsArgs:
     def __init__(__self__, *,
@@ -191,6 +264,18 @@ class ArcAgentryConfigurationsArgs:
         pulumi.set(self, "settings", value)
 
 
+if not MYPY:
+    class ConnectedClusterIdentityArgsDict(TypedDict):
+        """
+        Identity for the connected cluster.
+        """
+        type: pulumi.Input['ResourceIdentityType']
+        """
+        The type of identity used for the connected cluster. The type 'SystemAssigned, includes a system created identity. The type 'None' means no identity is assigned to the connected cluster.
+        """
+elif False:
+    ConnectedClusterIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ConnectedClusterIdentityArgs:
     def __init__(__self__, *,
@@ -215,6 +300,19 @@ class ConnectedClusterIdentityArgs:
     def type(self, value: pulumi.Input['ResourceIdentityType']):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class GatewayArgsDict(TypedDict):
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether the gateway for arc router connectivity is enabled.
+        """
+        resource_id: NotRequired[pulumi.Input[str]]
+        """
+        The resource ID of the gateway used for the Arc router feature.
+        """
+elif False:
+    GatewayArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GatewayArgs:
@@ -254,6 +352,22 @@ class GatewayArgs:
     def resource_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "resource_id", value)
 
+
+if not MYPY:
+    class OidcIssuerProfileArgsDict(TypedDict):
+        """
+        OIDC Issuer Profile specifies attributes for workload identity integration.
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Whether to enable oidc issuer for workload identity integration.
+        """
+        self_hosted_issuer_url: NotRequired[pulumi.Input[str]]
+        """
+        The issuer url for public cloud clusters - AKS, EKS, GKE - used for the workload identity feature.
+        """
+elif False:
+    OidcIssuerProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OidcIssuerProfileArgs:
@@ -295,6 +409,18 @@ class OidcIssuerProfileArgs:
         pulumi.set(self, "self_hosted_issuer_url", value)
 
 
+if not MYPY:
+    class SecurityProfileWorkloadIdentityArgsDict(TypedDict):
+        """
+        The workload identity feature webhook.
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Whether to enable or disable the workload identity Webhook
+        """
+elif False:
+    SecurityProfileWorkloadIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SecurityProfileWorkloadIdentityArgs:
     def __init__(__self__, *,
@@ -319,6 +445,18 @@ class SecurityProfileWorkloadIdentityArgs:
         pulumi.set(self, "enabled", value)
 
 
+if not MYPY:
+    class SecurityProfileArgsDict(TypedDict):
+        """
+        Security Profile specifies attributes for cluster security features.
+        """
+        workload_identity: NotRequired[pulumi.Input['SecurityProfileWorkloadIdentityArgsDict']]
+        """
+        The workload identity feature webhook.
+        """
+elif False:
+    SecurityProfileArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SecurityProfileArgs:
     def __init__(__self__, *,
@@ -342,6 +480,26 @@ class SecurityProfileArgs:
     def workload_identity(self, value: Optional[pulumi.Input['SecurityProfileWorkloadIdentityArgs']]):
         pulumi.set(self, "workload_identity", value)
 
+
+if not MYPY:
+    class SystemComponentArgsDict(TypedDict):
+        """
+        System extensions and its current versions installed on the cluster resource.
+        """
+        major_version: NotRequired[pulumi.Input[int]]
+        """
+        Major Version of the system extension that is currently installed on the cluster resource.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        Type of the system extension
+        """
+        user_specified_version: NotRequired[pulumi.Input[str]]
+        """
+        Version of the system extension to be installed on the cluster resource.
+        """
+elif False:
+    SystemComponentArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SystemComponentArgs:

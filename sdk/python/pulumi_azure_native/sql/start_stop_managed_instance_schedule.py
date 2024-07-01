@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -127,7 +132,7 @@ class StartStopManagedInstanceSchedule(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  managed_instance_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 schedule_list: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScheduleItemArgs']]]]] = None,
+                 schedule_list: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ScheduleItemArgs', 'ScheduleItemArgsDict']]]]] = None,
                  start_stop_schedule_name: Optional[pulumi.Input[str]] = None,
                  time_zone_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -142,7 +147,7 @@ class StartStopManagedInstanceSchedule(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description of the schedule.
         :param pulumi.Input[str] managed_instance_name: The name of the managed instance.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScheduleItemArgs']]]] schedule_list: Schedule list.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ScheduleItemArgs', 'ScheduleItemArgsDict']]]] schedule_list: Schedule list.
         :param pulumi.Input[str] start_stop_schedule_name: Name of the managed instance Start/Stop schedule.
         :param pulumi.Input[str] time_zone_id: The time zone of the schedule.
         """
@@ -176,7 +181,7 @@ class StartStopManagedInstanceSchedule(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  managed_instance_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 schedule_list: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScheduleItemArgs']]]]] = None,
+                 schedule_list: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ScheduleItemArgs', 'ScheduleItemArgsDict']]]]] = None,
                  start_stop_schedule_name: Optional[pulumi.Input[str]] = None,
                  time_zone_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):

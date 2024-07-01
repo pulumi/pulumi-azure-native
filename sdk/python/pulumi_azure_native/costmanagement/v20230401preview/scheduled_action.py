@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -183,12 +188,12 @@ class ScheduledAction(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 file_destination: Optional[pulumi.Input[pulumi.InputType['FileDestinationArgs']]] = None,
+                 file_destination: Optional[pulumi.Input[Union['FileDestinationArgs', 'FileDestinationArgsDict']]] = None,
                  kind: Optional[pulumi.Input[Union[str, 'ScheduledActionKind']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 notification: Optional[pulumi.Input[pulumi.InputType['NotificationPropertiesArgs']]] = None,
+                 notification: Optional[pulumi.Input[Union['NotificationPropertiesArgs', 'NotificationPropertiesArgsDict']]] = None,
                  notification_email: Optional[pulumi.Input[str]] = None,
-                 schedule: Optional[pulumi.Input[pulumi.InputType['SchedulePropertiesArgs']]] = None,
+                 schedule: Optional[pulumi.Input[Union['SchedulePropertiesArgs', 'SchedulePropertiesArgsDict']]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[Union[str, 'ScheduledActionStatus']]] = None,
                  view_id: Optional[pulumi.Input[str]] = None,
@@ -199,12 +204,12 @@ class ScheduledAction(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] display_name: Scheduled action name.
-        :param pulumi.Input[pulumi.InputType['FileDestinationArgs']] file_destination: Destination format of the view data. This is optional.
+        :param pulumi.Input[Union['FileDestinationArgs', 'FileDestinationArgsDict']] file_destination: Destination format of the view data. This is optional.
         :param pulumi.Input[Union[str, 'ScheduledActionKind']] kind: Kind of the scheduled action.
         :param pulumi.Input[str] name: Scheduled action name.
-        :param pulumi.Input[pulumi.InputType['NotificationPropertiesArgs']] notification: Notification properties based on scheduled action kind.
+        :param pulumi.Input[Union['NotificationPropertiesArgs', 'NotificationPropertiesArgsDict']] notification: Notification properties based on scheduled action kind.
         :param pulumi.Input[str] notification_email: Email address of the point of contact that should get the unsubscribe requests and notification emails.
-        :param pulumi.Input[pulumi.InputType['SchedulePropertiesArgs']] schedule: Schedule of the scheduled action.
+        :param pulumi.Input[Union['SchedulePropertiesArgs', 'SchedulePropertiesArgsDict']] schedule: Schedule of the scheduled action.
         :param pulumi.Input[str] scope: Cost Management scope like 'subscriptions/{subscriptionId}' for subscription scope, 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for BillingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for InvoiceSection scope, '/providers/Microsoft.CostManagement/externalBillingAccounts/{externalBillingAccountName}' for ExternalBillingAccount scope, and '/providers/Microsoft.CostManagement/externalSubscriptions/{externalSubscriptionName}' for ExternalSubscription scope.
         :param pulumi.Input[Union[str, 'ScheduledActionStatus']] status: Status of the scheduled action.
         :param pulumi.Input[str] view_id: Cost analysis viewId used for scheduled action. For example, '/providers/Microsoft.CostManagement/views/swaggerExample'
@@ -234,12 +239,12 @@ class ScheduledAction(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 file_destination: Optional[pulumi.Input[pulumi.InputType['FileDestinationArgs']]] = None,
+                 file_destination: Optional[pulumi.Input[Union['FileDestinationArgs', 'FileDestinationArgsDict']]] = None,
                  kind: Optional[pulumi.Input[Union[str, 'ScheduledActionKind']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 notification: Optional[pulumi.Input[pulumi.InputType['NotificationPropertiesArgs']]] = None,
+                 notification: Optional[pulumi.Input[Union['NotificationPropertiesArgs', 'NotificationPropertiesArgsDict']]] = None,
                  notification_email: Optional[pulumi.Input[str]] = None,
-                 schedule: Optional[pulumi.Input[pulumi.InputType['SchedulePropertiesArgs']]] = None,
+                 schedule: Optional[pulumi.Input[Union['SchedulePropertiesArgs', 'SchedulePropertiesArgsDict']]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[Union[str, 'ScheduledActionStatus']]] = None,
                  view_id: Optional[pulumi.Input[str]] = None,

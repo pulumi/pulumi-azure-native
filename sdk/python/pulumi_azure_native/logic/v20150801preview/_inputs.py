@@ -4,60 +4,134 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'AS2AcknowledgementConnectionSettingsArgs',
+    'AS2AcknowledgementConnectionSettingsArgsDict',
     'AS2AgreementContentArgs',
+    'AS2AgreementContentArgsDict',
     'AS2EnvelopeSettingsArgs',
+    'AS2EnvelopeSettingsArgsDict',
     'AS2ErrorSettingsArgs',
+    'AS2ErrorSettingsArgsDict',
     'AS2MdnSettingsArgs',
+    'AS2MdnSettingsArgsDict',
     'AS2MessageConnectionSettingsArgs',
+    'AS2MessageConnectionSettingsArgsDict',
     'AS2OneWayAgreementArgs',
+    'AS2OneWayAgreementArgsDict',
     'AS2ProtocolSettingsArgs',
+    'AS2ProtocolSettingsArgsDict',
     'AS2SecuritySettingsArgs',
+    'AS2SecuritySettingsArgsDict',
     'AS2ValidationSettingsArgs',
+    'AS2ValidationSettingsArgsDict',
     'AgreementContentArgs',
+    'AgreementContentArgsDict',
     'B2BPartnerContentArgs',
+    'B2BPartnerContentArgsDict',
     'BusinessIdentityArgs',
+    'BusinessIdentityArgsDict',
     'EdifactAcknowledgementSettingsArgs',
+    'EdifactAcknowledgementSettingsArgsDict',
     'EdifactAgreementContentArgs',
+    'EdifactAgreementContentArgsDict',
     'EdifactDelimiterOverrideArgs',
+    'EdifactDelimiterOverrideArgsDict',
     'EdifactEnvelopeOverrideArgs',
+    'EdifactEnvelopeOverrideArgsDict',
     'EdifactEnvelopeSettingsArgs',
+    'EdifactEnvelopeSettingsArgsDict',
     'EdifactFramingSettingsArgs',
+    'EdifactFramingSettingsArgsDict',
     'EdifactMessageFilterArgs',
+    'EdifactMessageFilterArgsDict',
     'EdifactMessageIdentifierArgs',
+    'EdifactMessageIdentifierArgsDict',
     'EdifactOneWayAgreementArgs',
+    'EdifactOneWayAgreementArgsDict',
     'EdifactProcessingSettingsArgs',
+    'EdifactProcessingSettingsArgsDict',
     'EdifactProtocolSettingsArgs',
+    'EdifactProtocolSettingsArgsDict',
     'EdifactSchemaReferenceArgs',
+    'EdifactSchemaReferenceArgsDict',
     'EdifactValidationOverrideArgs',
+    'EdifactValidationOverrideArgsDict',
     'EdifactValidationSettingsArgs',
+    'EdifactValidationSettingsArgsDict',
     'IntegrationAccountSkuArgs',
+    'IntegrationAccountSkuArgsDict',
     'KeyVaultKeyReferenceKeyVaultArgs',
+    'KeyVaultKeyReferenceKeyVaultArgsDict',
     'KeyVaultKeyReferenceArgs',
+    'KeyVaultKeyReferenceArgsDict',
     'PartnerContentArgs',
+    'PartnerContentArgsDict',
     'X12AcknowledgementSettingsArgs',
+    'X12AcknowledgementSettingsArgsDict',
     'X12AgreementContentArgs',
+    'X12AgreementContentArgsDict',
     'X12DelimiterOverridesArgs',
+    'X12DelimiterOverridesArgsDict',
     'X12EnvelopeOverrideArgs',
+    'X12EnvelopeOverrideArgsDict',
     'X12EnvelopeSettingsArgs',
+    'X12EnvelopeSettingsArgsDict',
     'X12FramingSettingsArgs',
+    'X12FramingSettingsArgsDict',
     'X12MessageFilterArgs',
+    'X12MessageFilterArgsDict',
     'X12MessageIdentifierArgs',
+    'X12MessageIdentifierArgsDict',
     'X12OneWayAgreementArgs',
+    'X12OneWayAgreementArgsDict',
     'X12ProcessingSettingsArgs',
+    'X12ProcessingSettingsArgsDict',
     'X12ProtocolSettingsArgs',
+    'X12ProtocolSettingsArgsDict',
     'X12SchemaReferenceArgs',
+    'X12SchemaReferenceArgsDict',
     'X12SecuritySettingsArgs',
+    'X12SecuritySettingsArgsDict',
     'X12ValidationOverrideArgs',
+    'X12ValidationOverrideArgsDict',
     'X12ValidationSettingsArgs',
+    'X12ValidationSettingsArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AS2AcknowledgementConnectionSettingsArgsDict(TypedDict):
+        ignore_certificate_name_mismatch: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether to ignore mismatch in certificate name.
+        """
+        keep_http_connection_alive: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether to keep the connection alive.
+        """
+        support_http_status_code_continue: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether to support HTTP status code 'CONTINUE'.
+        """
+        unfold_http_headers: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether to unfold the HTTP headers.
+        """
+elif False:
+    AS2AcknowledgementConnectionSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AS2AcknowledgementConnectionSettingsArgs:
@@ -130,6 +204,19 @@ class AS2AcknowledgementConnectionSettingsArgs:
         pulumi.set(self, "unfold_http_headers", value)
 
 
+if not MYPY:
+    class AS2AgreementContentArgsDict(TypedDict):
+        receive_agreement: NotRequired[pulumi.Input['AS2OneWayAgreementArgsDict']]
+        """
+        The AS2 one-way receive agreement.
+        """
+        send_agreement: NotRequired[pulumi.Input['AS2OneWayAgreementArgsDict']]
+        """
+        The AS2 one-way send agreement.
+        """
+elif False:
+    AS2AgreementContentArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AS2AgreementContentArgs:
     def __init__(__self__, *,
@@ -168,6 +255,31 @@ class AS2AgreementContentArgs:
     def send_agreement(self, value: Optional[pulumi.Input['AS2OneWayAgreementArgs']]):
         pulumi.set(self, "send_agreement", value)
 
+
+if not MYPY:
+    class AS2EnvelopeSettingsArgsDict(TypedDict):
+        autogenerate_file_name: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether to auto generate file name.
+        """
+        file_name_template: NotRequired[pulumi.Input[str]]
+        """
+        The template for file name.
+        """
+        message_content_type: NotRequired[pulumi.Input[str]]
+        """
+        The message content type.
+        """
+        suspend_message_on_file_name_generation_error: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether to suspend message on file name generation error.
+        """
+        transmit_file_name_in_mime_header: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether to transmit file name in mime header.
+        """
+elif False:
+    AS2EnvelopeSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AS2EnvelopeSettingsArgs:
@@ -256,6 +368,19 @@ class AS2EnvelopeSettingsArgs:
         pulumi.set(self, "transmit_file_name_in_mime_header", value)
 
 
+if not MYPY:
+    class AS2ErrorSettingsArgsDict(TypedDict):
+        resend_if_mdn_not_received: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether to resend message If MDN is not received.
+        """
+        suspend_duplicate_message: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether to suspend duplicate message.
+        """
+elif False:
+    AS2ErrorSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AS2ErrorSettingsArgs:
     def __init__(__self__, *,
@@ -294,6 +419,47 @@ class AS2ErrorSettingsArgs:
     def suspend_duplicate_message(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "suspend_duplicate_message", value)
 
+
+if not MYPY:
+    class AS2MdnSettingsArgsDict(TypedDict):
+        disposition_notification_to: NotRequired[pulumi.Input[str]]
+        """
+        The disposition notification to header value.
+        """
+        mdn_text: NotRequired[pulumi.Input[str]]
+        """
+        The MDN text.
+        """
+        mic_hashing_algorithm: NotRequired[pulumi.Input['HashingAlgorithm']]
+        """
+        The signing or hashing algorithm.
+        """
+        need_mdn: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether to send or request a MDN.
+        """
+        receipt_delivery_url: NotRequired[pulumi.Input[str]]
+        """
+        The receipt delivery URL.
+        """
+        send_inbound_mdn_to_message_box: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether to send inbound MDN to message box.
+        """
+        send_mdn_asynchronously: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether to send the asynchronous MDN.
+        """
+        sign_mdn: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether the MDN needs to be signed or not.
+        """
+        sign_outbound_mdn_if_optional: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether to sign the outbound MDN if optional.
+        """
+elif False:
+    AS2MdnSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AS2MdnSettingsArgs:
@@ -446,6 +612,27 @@ class AS2MdnSettingsArgs:
         pulumi.set(self, "sign_outbound_mdn_if_optional", value)
 
 
+if not MYPY:
+    class AS2MessageConnectionSettingsArgsDict(TypedDict):
+        ignore_certificate_name_mismatch: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether to ignore mismatch in certificate name.
+        """
+        keep_http_connection_alive: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether to keep the connection alive.
+        """
+        support_http_status_code_continue: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether to support HTTP status code 'CONTINUE'.
+        """
+        unfold_http_headers: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether to unfold the HTTP headers.
+        """
+elif False:
+    AS2MessageConnectionSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AS2MessageConnectionSettingsArgs:
     def __init__(__self__, *,
@@ -517,6 +704,23 @@ class AS2MessageConnectionSettingsArgs:
         pulumi.set(self, "unfold_http_headers", value)
 
 
+if not MYPY:
+    class AS2OneWayAgreementArgsDict(TypedDict):
+        protocol_settings: NotRequired[pulumi.Input['AS2ProtocolSettingsArgsDict']]
+        """
+        The AS2 protocol settings.
+        """
+        receiver_business_identity: NotRequired[pulumi.Input['BusinessIdentityArgsDict']]
+        """
+        The receiver business identity
+        """
+        sender_business_identity: NotRequired[pulumi.Input['BusinessIdentityArgsDict']]
+        """
+        The sender business identity
+        """
+elif False:
+    AS2OneWayAgreementArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AS2OneWayAgreementArgs:
     def __init__(__self__, *,
@@ -571,6 +775,39 @@ class AS2OneWayAgreementArgs:
     def sender_business_identity(self, value: Optional[pulumi.Input['BusinessIdentityArgs']]):
         pulumi.set(self, "sender_business_identity", value)
 
+
+if not MYPY:
+    class AS2ProtocolSettingsArgsDict(TypedDict):
+        acknowledgement_connection_settings: NotRequired[pulumi.Input['AS2AcknowledgementConnectionSettingsArgsDict']]
+        """
+        The acknowledgement connection settings.
+        """
+        envelope_settings: NotRequired[pulumi.Input['AS2EnvelopeSettingsArgsDict']]
+        """
+        The envelope settings.
+        """
+        error_settings: NotRequired[pulumi.Input['AS2ErrorSettingsArgsDict']]
+        """
+        The error settings.
+        """
+        mdn_settings: NotRequired[pulumi.Input['AS2MdnSettingsArgsDict']]
+        """
+        The MDN settings.
+        """
+        message_connection_settings: NotRequired[pulumi.Input['AS2MessageConnectionSettingsArgsDict']]
+        """
+        The message connection settings.
+        """
+        security_settings: NotRequired[pulumi.Input['AS2SecuritySettingsArgsDict']]
+        """
+        The security settings.
+        """
+        validation_settings: NotRequired[pulumi.Input['AS2ValidationSettingsArgsDict']]
+        """
+        The validation settings.
+        """
+elif False:
+    AS2ProtocolSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AS2ProtocolSettingsArgs:
@@ -690,6 +927,47 @@ class AS2ProtocolSettingsArgs:
     def validation_settings(self, value: Optional[pulumi.Input['AS2ValidationSettingsArgs']]):
         pulumi.set(self, "validation_settings", value)
 
+
+if not MYPY:
+    class AS2SecuritySettingsArgsDict(TypedDict):
+        enable_nrr_for_inbound_decoded_messages: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether to enable NRR for inbound decoded messages.
+        """
+        enable_nrr_for_inbound_encoded_messages: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether to enable NRR for inbound encoded messages.
+        """
+        enable_nrr_for_inbound_mdn: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether to enable NRR for inbound MDN.
+        """
+        enable_nrr_for_outbound_decoded_messages: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether to enable NRR for outbound decoded messages.
+        """
+        enable_nrr_for_outbound_encoded_messages: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether to enable NRR for outbound encoded messages.
+        """
+        enable_nrr_for_outbound_mdn: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether to enable NRR for outbound MDN.
+        """
+        encryption_certificate_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the encryption certificate.
+        """
+        override_group_signing_certificate: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether to send or request a MDN.
+        """
+        signing_certificate_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the signing certificate.
+        """
+elif False:
+    AS2SecuritySettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AS2SecuritySettingsArgs:
@@ -842,6 +1120,47 @@ class AS2SecuritySettingsArgs:
         pulumi.set(self, "signing_certificate_name", value)
 
 
+if not MYPY:
+    class AS2ValidationSettingsArgsDict(TypedDict):
+        check_certificate_revocation_list_on_receive: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether to check for certificate revocation list on receive.
+        """
+        check_certificate_revocation_list_on_send: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether to check for certificate revocation list on send.
+        """
+        check_duplicate_message: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether to check for duplicate message.
+        """
+        compress_message: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether the message has to be compressed.
+        """
+        encrypt_message: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether the message has to be encrypted.
+        """
+        encryption_algorithm: NotRequired[pulumi.Input['EncryptionAlgorithm']]
+        """
+        The encryption algorithm.
+        """
+        interchange_duplicates_validity_days: NotRequired[pulumi.Input[int]]
+        """
+        The number of days to look back for duplicate interchange.
+        """
+        override_message_properties: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether to override incoming message properties with those in agreement.
+        """
+        sign_message: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether the message has to be signed.
+        """
+elif False:
+    AS2ValidationSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AS2ValidationSettingsArgs:
     def __init__(__self__, *,
@@ -993,6 +1312,23 @@ class AS2ValidationSettingsArgs:
         pulumi.set(self, "sign_message", value)
 
 
+if not MYPY:
+    class AgreementContentArgsDict(TypedDict):
+        a_s2: NotRequired[pulumi.Input['AS2AgreementContentArgsDict']]
+        """
+        The AS2 agreement content.
+        """
+        edifact: NotRequired[pulumi.Input['EdifactAgreementContentArgsDict']]
+        """
+        The EDIFACT agreement content.
+        """
+        x12: NotRequired[pulumi.Input['X12AgreementContentArgsDict']]
+        """
+        The X12 agreement content.
+        """
+elif False:
+    AgreementContentArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AgreementContentArgs:
     def __init__(__self__, *,
@@ -1048,6 +1384,15 @@ class AgreementContentArgs:
         pulumi.set(self, "x12", value)
 
 
+if not MYPY:
+    class B2BPartnerContentArgsDict(TypedDict):
+        business_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input['BusinessIdentityArgsDict']]]]
+        """
+        The list of partner business identities.
+        """
+elif False:
+    B2BPartnerContentArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class B2BPartnerContentArgs:
     def __init__(__self__, *,
@@ -1070,6 +1415,19 @@ class B2BPartnerContentArgs:
     def business_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BusinessIdentityArgs']]]]):
         pulumi.set(self, "business_identities", value)
 
+
+if not MYPY:
+    class BusinessIdentityArgsDict(TypedDict):
+        qualifier: NotRequired[pulumi.Input[str]]
+        """
+        The business identity qualifier.
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        The business identity value.
+        """
+elif False:
+    BusinessIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class BusinessIdentityArgs:
@@ -1109,6 +1467,55 @@ class BusinessIdentityArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class EdifactAcknowledgementSettingsArgsDict(TypedDict):
+        acknowledgement_control_number_lower_bound: NotRequired[pulumi.Input[int]]
+        """
+        The acknowledgement control number lower bound.
+        """
+        acknowledgement_control_number_prefix: NotRequired[pulumi.Input[str]]
+        """
+        The acknowledgement control number prefix.
+        """
+        acknowledgement_control_number_suffix: NotRequired[pulumi.Input[str]]
+        """
+        The acknowledgement control number suffix.
+        """
+        acknowledgement_control_number_upper_bound: NotRequired[pulumi.Input[int]]
+        """
+        The acknowledgement control number upper bound.
+        """
+        batch_functional_acknowledgements: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether to batch functional acknowledgements.
+        """
+        batch_technical_acknowledgements: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether to batch the technical acknowledgements.
+        """
+        need_functional_acknowledgement: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether functional acknowledgement is needed.
+        """
+        need_loop_for_valid_messages: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether a loop is needed for valid messages.
+        """
+        need_technical_acknowledgement: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether technical acknowledgement is needed.
+        """
+        rollover_acknowledgement_control_number: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether to rollover acknowledgement control number.
+        """
+        send_synchronous_acknowledgement: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether to send synchronous acknowledgement.
+        """
+elif False:
+    EdifactAcknowledgementSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EdifactAcknowledgementSettingsArgs:
@@ -1293,6 +1700,19 @@ class EdifactAcknowledgementSettingsArgs:
         pulumi.set(self, "send_synchronous_acknowledgement", value)
 
 
+if not MYPY:
+    class EdifactAgreementContentArgsDict(TypedDict):
+        receive_agreement: NotRequired[pulumi.Input['EdifactOneWayAgreementArgsDict']]
+        """
+        The EDIFACT one-way receive agreement.
+        """
+        send_agreement: NotRequired[pulumi.Input['EdifactOneWayAgreementArgsDict']]
+        """
+        The EDIFACT one-way send agreement.
+        """
+elif False:
+    EdifactAgreementContentArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EdifactAgreementContentArgs:
     def __init__(__self__, *,
@@ -1331,6 +1751,59 @@ class EdifactAgreementContentArgs:
     def send_agreement(self, value: Optional[pulumi.Input['EdifactOneWayAgreementArgs']]):
         pulumi.set(self, "send_agreement", value)
 
+
+if not MYPY:
+    class EdifactDelimiterOverrideArgsDict(TypedDict):
+        component_separator: NotRequired[pulumi.Input[int]]
+        """
+        The component separator.
+        """
+        data_element_separator: NotRequired[pulumi.Input[int]]
+        """
+        The data element separator.
+        """
+        decimal_point_indicator: NotRequired[pulumi.Input['EdifactDecimalIndicator']]
+        """
+        The decimal point indicator.
+        """
+        message_association_assigned_code: NotRequired[pulumi.Input[str]]
+        """
+        The message association assigned code.
+        """
+        message_id: NotRequired[pulumi.Input[str]]
+        """
+        The message id.
+        """
+        message_release: NotRequired[pulumi.Input[str]]
+        """
+        The message release version.
+        """
+        message_version: NotRequired[pulumi.Input[str]]
+        """
+        The message version.
+        """
+        release_indicator: NotRequired[pulumi.Input[int]]
+        """
+        The release indicator.
+        """
+        repetition_separator: NotRequired[pulumi.Input[int]]
+        """
+        The repetition separator.
+        """
+        segment_terminator: NotRequired[pulumi.Input[int]]
+        """
+        The segment terminator.
+        """
+        segment_terminator_suffix: NotRequired[pulumi.Input['SegmentTerminatorSuffix']]
+        """
+        The segment terminator suffix.
+        """
+        target_namespace: NotRequired[pulumi.Input[str]]
+        """
+        The target namespace on which this delimiter settings has to be applied.
+        """
+elif False:
+    EdifactDelimiterOverrideArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EdifactDelimiterOverrideArgs:
@@ -1530,6 +2003,71 @@ class EdifactDelimiterOverrideArgs:
     def target_namespace(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "target_namespace", value)
 
+
+if not MYPY:
+    class EdifactEnvelopeOverrideArgsDict(TypedDict):
+        application_password: NotRequired[pulumi.Input[str]]
+        """
+        The application password.
+        """
+        association_assigned_code: NotRequired[pulumi.Input[str]]
+        """
+        The association assigned code.
+        """
+        controlling_agency_code: NotRequired[pulumi.Input[str]]
+        """
+        The controlling agency code.
+        """
+        functional_group_id: NotRequired[pulumi.Input[str]]
+        """
+        The functional group id.
+        """
+        group_header_message_release: NotRequired[pulumi.Input[str]]
+        """
+        The group header message release.
+        """
+        group_header_message_version: NotRequired[pulumi.Input[str]]
+        """
+        The group header message version.
+        """
+        message_association_assigned_code: NotRequired[pulumi.Input[str]]
+        """
+        The message association assigned code.
+        """
+        message_id: NotRequired[pulumi.Input[str]]
+        """
+        The message id on which this envelope settings has to be applied.
+        """
+        message_release: NotRequired[pulumi.Input[str]]
+        """
+        The message release version on which this envelope settings has to be applied.
+        """
+        message_version: NotRequired[pulumi.Input[str]]
+        """
+        The message version on which this envelope settings has to be applied.
+        """
+        receiver_application_id: NotRequired[pulumi.Input[str]]
+        """
+        The receiver application id.
+        """
+        receiver_application_qualifier: NotRequired[pulumi.Input[str]]
+        """
+        The receiver application qualifier.
+        """
+        sender_application_id: NotRequired[pulumi.Input[str]]
+        """
+        The sender application id.
+        """
+        sender_application_qualifier: NotRequired[pulumi.Input[str]]
+        """
+        The sender application qualifier.
+        """
+        target_namespace: NotRequired[pulumi.Input[str]]
+        """
+        The target namespace on which this envelope settings has to be applied.
+        """
+elif False:
+    EdifactEnvelopeOverrideArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EdifactEnvelopeOverrideArgs:
@@ -1777,6 +2315,175 @@ class EdifactEnvelopeOverrideArgs:
     def target_namespace(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "target_namespace", value)
 
+
+if not MYPY:
+    class EdifactEnvelopeSettingsArgsDict(TypedDict):
+        application_reference_id: NotRequired[pulumi.Input[str]]
+        """
+        The application reference id.
+        """
+        apply_delimiter_string_advice: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether to apply delimiter string advice.
+        """
+        communication_agreement_id: NotRequired[pulumi.Input[str]]
+        """
+        The communication agreement id.
+        """
+        create_grouping_segments: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether to create grouping segments.
+        """
+        enable_default_group_headers: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether to enable default group headers.
+        """
+        functional_group_id: NotRequired[pulumi.Input[str]]
+        """
+        The functional group id.
+        """
+        group_application_password: NotRequired[pulumi.Input[str]]
+        """
+        The group application password.
+        """
+        group_application_receiver_id: NotRequired[pulumi.Input[str]]
+        """
+        The group application receiver id.
+        """
+        group_application_receiver_qualifier: NotRequired[pulumi.Input[str]]
+        """
+        The group application receiver qualifier.
+        """
+        group_application_sender_id: NotRequired[pulumi.Input[str]]
+        """
+        The group application sender id.
+        """
+        group_application_sender_qualifier: NotRequired[pulumi.Input[str]]
+        """
+        The group application sender qualifier.
+        """
+        group_association_assigned_code: NotRequired[pulumi.Input[str]]
+        """
+        The group association assigned code.
+        """
+        group_control_number_lower_bound: NotRequired[pulumi.Input[float]]
+        """
+        The group control number lower bound.
+        """
+        group_control_number_prefix: NotRequired[pulumi.Input[str]]
+        """
+        The group control number prefix.
+        """
+        group_control_number_suffix: NotRequired[pulumi.Input[str]]
+        """
+        The group control number suffix.
+        """
+        group_control_number_upper_bound: NotRequired[pulumi.Input[float]]
+        """
+        The group control number upper bound.
+        """
+        group_controlling_agency_code: NotRequired[pulumi.Input[str]]
+        """
+        The group controlling agency code.
+        """
+        group_message_release: NotRequired[pulumi.Input[str]]
+        """
+        The group message release.
+        """
+        group_message_version: NotRequired[pulumi.Input[str]]
+        """
+        The group message version.
+        """
+        interchange_control_number_lower_bound: NotRequired[pulumi.Input[float]]
+        """
+        The interchange control number lower bound.
+        """
+        interchange_control_number_prefix: NotRequired[pulumi.Input[str]]
+        """
+        The interchange control number prefix.
+        """
+        interchange_control_number_suffix: NotRequired[pulumi.Input[str]]
+        """
+        The interchange control number suffix.
+        """
+        interchange_control_number_upper_bound: NotRequired[pulumi.Input[float]]
+        """
+        The interchange control number upper bound.
+        """
+        is_test_interchange: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether the message is a test interchange.
+        """
+        overwrite_existing_transaction_set_control_number: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether to overwrite existing transaction set control number.
+        """
+        processing_priority_code: NotRequired[pulumi.Input[str]]
+        """
+        The processing priority code.
+        """
+        receiver_internal_identification: NotRequired[pulumi.Input[str]]
+        """
+        The receiver internal identification.
+        """
+        receiver_internal_sub_identification: NotRequired[pulumi.Input[str]]
+        """
+        The receiver internal sub identification.
+        """
+        receiver_reverse_routing_address: NotRequired[pulumi.Input[str]]
+        """
+        The receiver reverse routing address.
+        """
+        recipient_reference_password_qualifier: NotRequired[pulumi.Input[str]]
+        """
+        The recipient reference password qualifier.
+        """
+        recipient_reference_password_value: NotRequired[pulumi.Input[str]]
+        """
+        The recipient reference password value.
+        """
+        rollover_group_control_number: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether to rollover group control number.
+        """
+        rollover_interchange_control_number: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether to rollover interchange control number.
+        """
+        rollover_transaction_set_control_number: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether to rollover transaction set control number.
+        """
+        sender_internal_identification: NotRequired[pulumi.Input[str]]
+        """
+        The sender internal identification.
+        """
+        sender_internal_sub_identification: NotRequired[pulumi.Input[str]]
+        """
+        The sender internal sub identification.
+        """
+        sender_reverse_routing_address: NotRequired[pulumi.Input[str]]
+        """
+        The sender reverse routing address.
+        """
+        transaction_set_control_number_lower_bound: NotRequired[pulumi.Input[float]]
+        """
+        The transaction set control number lower bound.
+        """
+        transaction_set_control_number_prefix: NotRequired[pulumi.Input[str]]
+        """
+        The transaction set control number prefix.
+        """
+        transaction_set_control_number_suffix: NotRequired[pulumi.Input[str]]
+        """
+        The transaction set control number suffix.
+        """
+        transaction_set_control_number_upper_bound: NotRequired[pulumi.Input[float]]
+        """
+        The transaction set control number upper bound.
+        """
+elif False:
+    EdifactEnvelopeSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EdifactEnvelopeSettingsArgs:
@@ -2441,6 +3148,55 @@ class EdifactEnvelopeSettingsArgs:
         pulumi.set(self, "transaction_set_control_number_upper_bound", value)
 
 
+if not MYPY:
+    class EdifactFramingSettingsArgsDict(TypedDict):
+        character_encoding: NotRequired[pulumi.Input[str]]
+        """
+        The character encoding.
+        """
+        character_set: NotRequired[pulumi.Input['EdifactCharacterSet']]
+        """
+        The EDIFACT frame setting characterSet.
+        """
+        component_separator: NotRequired[pulumi.Input[int]]
+        """
+        The component separator.
+        """
+        data_element_separator: NotRequired[pulumi.Input[int]]
+        """
+        The data element separator.
+        """
+        decimal_point_indicator: NotRequired[pulumi.Input['EdifactDecimalIndicator']]
+        """
+        The EDIFACT frame setting decimal indicator.
+        """
+        protocol_version: NotRequired[pulumi.Input[int]]
+        """
+        The protocol version.
+        """
+        release_indicator: NotRequired[pulumi.Input[int]]
+        """
+        The release indicator.
+        """
+        repetition_separator: NotRequired[pulumi.Input[int]]
+        """
+        The repetition separator.
+        """
+        segment_terminator: NotRequired[pulumi.Input[int]]
+        """
+        The segment terminator.
+        """
+        segment_terminator_suffix: NotRequired[pulumi.Input['SegmentTerminatorSuffix']]
+        """
+        The EDIFACT frame setting segment terminator suffix.
+        """
+        service_code_list_directory_version: NotRequired[pulumi.Input[str]]
+        """
+        The service code list directory version.
+        """
+elif False:
+    EdifactFramingSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EdifactFramingSettingsArgs:
     def __init__(__self__, *,
@@ -2624,6 +3380,15 @@ class EdifactFramingSettingsArgs:
         pulumi.set(self, "service_code_list_directory_version", value)
 
 
+if not MYPY:
+    class EdifactMessageFilterArgsDict(TypedDict):
+        message_filter_type: NotRequired[pulumi.Input['MessageFilterType']]
+        """
+        The message filter type.
+        """
+elif False:
+    EdifactMessageFilterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EdifactMessageFilterArgs:
     def __init__(__self__, *,
@@ -2647,6 +3412,15 @@ class EdifactMessageFilterArgs:
         pulumi.set(self, "message_filter_type", value)
 
 
+if not MYPY:
+    class EdifactMessageIdentifierArgsDict(TypedDict):
+        message_id: NotRequired[pulumi.Input[str]]
+        """
+        The message id on which this envelope settings has to be applied.
+        """
+elif False:
+    EdifactMessageIdentifierArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EdifactMessageIdentifierArgs:
     def __init__(__self__, *,
@@ -2669,6 +3443,23 @@ class EdifactMessageIdentifierArgs:
     def message_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "message_id", value)
 
+
+if not MYPY:
+    class EdifactOneWayAgreementArgsDict(TypedDict):
+        protocol_settings: NotRequired[pulumi.Input['EdifactProtocolSettingsArgsDict']]
+        """
+        The EDIFACT protocol settings.
+        """
+        receiver_business_identity: NotRequired[pulumi.Input['BusinessIdentityArgsDict']]
+        """
+        The receiver business identity
+        """
+        sender_business_identity: NotRequired[pulumi.Input['BusinessIdentityArgsDict']]
+        """
+        The sender business identity
+        """
+elif False:
+    EdifactOneWayAgreementArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EdifactOneWayAgreementArgs:
@@ -2724,6 +3515,31 @@ class EdifactOneWayAgreementArgs:
     def sender_business_identity(self, value: Optional[pulumi.Input['BusinessIdentityArgs']]):
         pulumi.set(self, "sender_business_identity", value)
 
+
+if not MYPY:
+    class EdifactProcessingSettingsArgsDict(TypedDict):
+        create_empty_xml_tags_for_trailing_separators: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether to create empty xml tags for trailing separators.
+        """
+        mask_security_info: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether to mask security information.
+        """
+        preserve_interchange: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether to preserve interchange.
+        """
+        suspend_interchange_on_error: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether to suspend interchange on error.
+        """
+        use_dot_as_decimal_separator: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether to use dot as decimal separator.
+        """
+elif False:
+    EdifactProcessingSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EdifactProcessingSettingsArgs:
@@ -2811,6 +3627,55 @@ class EdifactProcessingSettingsArgs:
     def use_dot_as_decimal_separator(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "use_dot_as_decimal_separator", value)
 
+
+if not MYPY:
+    class EdifactProtocolSettingsArgsDict(TypedDict):
+        acknowledgement_settings: NotRequired[pulumi.Input['EdifactAcknowledgementSettingsArgsDict']]
+        """
+        The EDIFACT acknowledgement settings.
+        """
+        edifact_delimiter_overrides: NotRequired[pulumi.Input[Sequence[pulumi.Input['EdifactDelimiterOverrideArgsDict']]]]
+        """
+        The EDIFACT delimiter override settings.
+        """
+        envelope_overrides: NotRequired[pulumi.Input[Sequence[pulumi.Input['EdifactEnvelopeOverrideArgsDict']]]]
+        """
+        The EDIFACT envelope override settings.
+        """
+        envelope_settings: NotRequired[pulumi.Input['EdifactEnvelopeSettingsArgsDict']]
+        """
+        The EDIFACT envelope settings.
+        """
+        framing_settings: NotRequired[pulumi.Input['EdifactFramingSettingsArgsDict']]
+        """
+        The EDIFACT framing settings.
+        """
+        message_filter: NotRequired[pulumi.Input['EdifactMessageFilterArgsDict']]
+        """
+        The EDIFACT message filter.
+        """
+        message_filter_list: NotRequired[pulumi.Input[Sequence[pulumi.Input['EdifactMessageIdentifierArgsDict']]]]
+        """
+        The EDIFACT message filter list.
+        """
+        processing_settings: NotRequired[pulumi.Input['EdifactProcessingSettingsArgsDict']]
+        """
+        The EDIFACT processing Settings.
+        """
+        schema_references: NotRequired[pulumi.Input[Sequence[pulumi.Input['EdifactSchemaReferenceArgsDict']]]]
+        """
+        The EDIFACT schema references.
+        """
+        validation_overrides: NotRequired[pulumi.Input[Sequence[pulumi.Input['EdifactValidationOverrideArgsDict']]]]
+        """
+        The EDIFACT validation override settings.
+        """
+        validation_settings: NotRequired[pulumi.Input['EdifactValidationSettingsArgsDict']]
+        """
+        The EDIFACT validation settings.
+        """
+elif False:
+    EdifactProtocolSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EdifactProtocolSettingsArgs:
@@ -2995,6 +3860,39 @@ class EdifactProtocolSettingsArgs:
         pulumi.set(self, "validation_settings", value)
 
 
+if not MYPY:
+    class EdifactSchemaReferenceArgsDict(TypedDict):
+        association_assigned_code: NotRequired[pulumi.Input[str]]
+        """
+        The association assigned code.
+        """
+        message_id: NotRequired[pulumi.Input[str]]
+        """
+        The message id.
+        """
+        message_release: NotRequired[pulumi.Input[str]]
+        """
+        The message release version.
+        """
+        message_version: NotRequired[pulumi.Input[str]]
+        """
+        The message version.
+        """
+        schema_name: NotRequired[pulumi.Input[str]]
+        """
+        The schema name.
+        """
+        sender_application_id: NotRequired[pulumi.Input[str]]
+        """
+        The sender application id.
+        """
+        sender_application_qualifier: NotRequired[pulumi.Input[str]]
+        """
+        The sender application qualifier.
+        """
+elif False:
+    EdifactSchemaReferenceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EdifactSchemaReferenceArgs:
     def __init__(__self__, *,
@@ -3114,6 +4012,39 @@ class EdifactSchemaReferenceArgs:
         pulumi.set(self, "sender_application_qualifier", value)
 
 
+if not MYPY:
+    class EdifactValidationOverrideArgsDict(TypedDict):
+        allow_leading_and_trailing_spaces_and_zeroes: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether to allow leading and trailing spaces and zeroes.
+        """
+        enforce_character_set: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether to validate character Set.
+        """
+        message_id: NotRequired[pulumi.Input[str]]
+        """
+        The message id on which the validation settings has to be applied.
+        """
+        trailing_separator_policy: NotRequired[pulumi.Input['TrailingSeparatorPolicy']]
+        """
+        The trailing separator policy.
+        """
+        trim_leading_and_trailing_spaces_and_zeroes: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether to trim leading and trailing spaces and zeroes.
+        """
+        validate_edi_types: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether to validate EDI types.
+        """
+        validate_xsd_types: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether to validate XSD types.
+        """
+elif False:
+    EdifactValidationOverrideArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EdifactValidationOverrideArgs:
     def __init__(__self__, *,
@@ -3232,6 +4163,51 @@ class EdifactValidationOverrideArgs:
     def validate_xsd_types(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "validate_xsd_types", value)
 
+
+if not MYPY:
+    class EdifactValidationSettingsArgsDict(TypedDict):
+        allow_leading_and_trailing_spaces_and_zeroes: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether to allow leading and trailing spaces and zeroes.
+        """
+        check_duplicate_group_control_number: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether to check for duplicate group control number.
+        """
+        check_duplicate_interchange_control_number: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether to check for duplicate interchange control number.
+        """
+        check_duplicate_transaction_set_control_number: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether to check for duplicate transaction set control number.
+        """
+        interchange_control_number_validity_days: NotRequired[pulumi.Input[int]]
+        """
+        The validity period of interchange control number.
+        """
+        trailing_separator_policy: NotRequired[pulumi.Input['TrailingSeparatorPolicy']]
+        """
+        The trailing separator policy.
+        """
+        trim_leading_and_trailing_spaces_and_zeroes: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether to trim leading and trailing spaces and zeroes.
+        """
+        validate_character_set: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether to validate character set in the message.
+        """
+        validate_edi_types: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether to Whether to validate EDI types.
+        """
+        validate_xsd_types: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether to Whether to validate XSD types.
+        """
+elif False:
+    EdifactValidationSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EdifactValidationSettingsArgs:
@@ -3400,6 +4376,15 @@ class EdifactValidationSettingsArgs:
         pulumi.set(self, "validate_xsd_types", value)
 
 
+if not MYPY:
+    class IntegrationAccountSkuArgsDict(TypedDict):
+        name: NotRequired[pulumi.Input['SkuName']]
+        """
+        The sku name.
+        """
+elif False:
+    IntegrationAccountSkuArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IntegrationAccountSkuArgs:
     def __init__(__self__, *,
@@ -3422,6 +4407,18 @@ class IntegrationAccountSkuArgs:
     def name(self, value: Optional[pulumi.Input['SkuName']]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class KeyVaultKeyReferenceKeyVaultArgsDict(TypedDict):
+        """
+        The key vault reference.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The resource id.
+        """
+elif False:
+    KeyVaultKeyReferenceKeyVaultArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class KeyVaultKeyReferenceKeyVaultArgs:
@@ -3446,6 +4443,23 @@ class KeyVaultKeyReferenceKeyVaultArgs:
     def id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class KeyVaultKeyReferenceArgsDict(TypedDict):
+        key_name: NotRequired[pulumi.Input[str]]
+        """
+        The private key name in key vault.
+        """
+        key_vault: NotRequired[pulumi.Input['KeyVaultKeyReferenceKeyVaultArgsDict']]
+        """
+        The key vault reference.
+        """
+        key_version: NotRequired[pulumi.Input[str]]
+        """
+        The private key version in key vault.
+        """
+elif False:
+    KeyVaultKeyReferenceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class KeyVaultKeyReferenceArgs:
@@ -3502,6 +4516,15 @@ class KeyVaultKeyReferenceArgs:
         pulumi.set(self, "key_version", value)
 
 
+if not MYPY:
+    class PartnerContentArgsDict(TypedDict):
+        b2b: NotRequired[pulumi.Input['B2BPartnerContentArgsDict']]
+        """
+        The B2B partner content.
+        """
+elif False:
+    PartnerContentArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PartnerContentArgs:
     def __init__(__self__, *,
@@ -3524,6 +4547,71 @@ class PartnerContentArgs:
     def b2b(self, value: Optional[pulumi.Input['B2BPartnerContentArgs']]):
         pulumi.set(self, "b2b", value)
 
+
+if not MYPY:
+    class X12AcknowledgementSettingsArgsDict(TypedDict):
+        acknowledgement_control_number_lower_bound: NotRequired[pulumi.Input[int]]
+        """
+        The acknowledgement control number lower bound.
+        """
+        acknowledgement_control_number_prefix: NotRequired[pulumi.Input[str]]
+        """
+        The acknowledgement control number prefix.
+        """
+        acknowledgement_control_number_suffix: NotRequired[pulumi.Input[str]]
+        """
+        The acknowledgement control number suffix.
+        """
+        acknowledgement_control_number_upper_bound: NotRequired[pulumi.Input[int]]
+        """
+        The acknowledgement control number upper bound.
+        """
+        batch_functional_acknowledgements: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether to batch functional acknowledgements.
+        """
+        batch_implementation_acknowledgements: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether to batch implementation acknowledgements.
+        """
+        batch_technical_acknowledgements: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether to batch the technical acknowledgements.
+        """
+        functional_acknowledgement_version: NotRequired[pulumi.Input[str]]
+        """
+        The functional acknowledgement version.
+        """
+        implementation_acknowledgement_version: NotRequired[pulumi.Input[str]]
+        """
+        The implementation acknowledgement version.
+        """
+        need_functional_acknowledgement: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether functional acknowledgement is needed.
+        """
+        need_implementation_acknowledgement: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether implementation acknowledgement is needed.
+        """
+        need_loop_for_valid_messages: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether a loop is needed for valid messages.
+        """
+        need_technical_acknowledgement: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether technical acknowledgement is needed.
+        """
+        rollover_acknowledgement_control_number: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether to rollover acknowledgement control number.
+        """
+        send_synchronous_acknowledgement: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether to send synchronous acknowledgement.
+        """
+elif False:
+    X12AcknowledgementSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class X12AcknowledgementSettingsArgs:
@@ -3772,6 +4860,19 @@ class X12AcknowledgementSettingsArgs:
         pulumi.set(self, "send_synchronous_acknowledgement", value)
 
 
+if not MYPY:
+    class X12AgreementContentArgsDict(TypedDict):
+        receive_agreement: NotRequired[pulumi.Input['X12OneWayAgreementArgsDict']]
+        """
+        The X12 one-way receive agreement.
+        """
+        send_agreement: NotRequired[pulumi.Input['X12OneWayAgreementArgsDict']]
+        """
+        The X12 one-way send agreement.
+        """
+elif False:
+    X12AgreementContentArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class X12AgreementContentArgs:
     def __init__(__self__, *,
@@ -3810,6 +4911,47 @@ class X12AgreementContentArgs:
     def send_agreement(self, value: Optional[pulumi.Input['X12OneWayAgreementArgs']]):
         pulumi.set(self, "send_agreement", value)
 
+
+if not MYPY:
+    class X12DelimiterOverridesArgsDict(TypedDict):
+        component_separator: NotRequired[pulumi.Input[int]]
+        """
+        The component separator.
+        """
+        data_element_separator: NotRequired[pulumi.Input[int]]
+        """
+        The data element separator.
+        """
+        message_id: NotRequired[pulumi.Input[str]]
+        """
+        The message id.
+        """
+        protocol_version: NotRequired[pulumi.Input[str]]
+        """
+        The protocol version.
+        """
+        replace_character: NotRequired[pulumi.Input[int]]
+        """
+        The replacement character.
+        """
+        replace_separators_in_payload: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether to replace separators in payload.
+        """
+        segment_terminator: NotRequired[pulumi.Input[int]]
+        """
+        The segment terminator.
+        """
+        segment_terminator_suffix: NotRequired[pulumi.Input['SegmentTerminatorSuffix']]
+        """
+        The segment terminator suffix.
+        """
+        target_namespace: NotRequired[pulumi.Input[str]]
+        """
+        The target namespace on which this delimiter settings has to be applied.
+        """
+elif False:
+    X12DelimiterOverridesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class X12DelimiterOverridesArgs:
@@ -3961,6 +5103,51 @@ class X12DelimiterOverridesArgs:
     def target_namespace(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "target_namespace", value)
 
+
+if not MYPY:
+    class X12EnvelopeOverrideArgsDict(TypedDict):
+        date_format: NotRequired[pulumi.Input['X12DateFormat']]
+        """
+        The date format.
+        """
+        functional_identifier_code: NotRequired[pulumi.Input[str]]
+        """
+        The functional identifier code.
+        """
+        header_version: NotRequired[pulumi.Input[str]]
+        """
+        The header version.
+        """
+        message_id: NotRequired[pulumi.Input[str]]
+        """
+        The message id on which this envelope settings has to be applied.
+        """
+        protocol_version: NotRequired[pulumi.Input[str]]
+        """
+        The protocol version on which this envelope settings has to be applied.
+        """
+        receiver_application_id: NotRequired[pulumi.Input[str]]
+        """
+        The receiver application id.
+        """
+        responsible_agency_code: NotRequired[pulumi.Input[int]]
+        """
+        The responsible agency code.
+        """
+        sender_application_id: NotRequired[pulumi.Input[str]]
+        """
+        The sender application id.
+        """
+        target_namespace: NotRequired[pulumi.Input[str]]
+        """
+        The target namespace on which this envelope settings has to be applied.
+        """
+        time_format: NotRequired[pulumi.Input['X12TimeFormat']]
+        """
+        The time format.
+        """
+elif False:
+    X12EnvelopeOverrideArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class X12EnvelopeOverrideArgs:
@@ -4128,6 +5315,107 @@ class X12EnvelopeOverrideArgs:
     def time_format(self, value: Optional[pulumi.Input['X12TimeFormat']]):
         pulumi.set(self, "time_format", value)
 
+
+if not MYPY:
+    class X12EnvelopeSettingsArgsDict(TypedDict):
+        control_standards_id: NotRequired[pulumi.Input[int]]
+        """
+        The controls standards id.
+        """
+        control_version_number: NotRequired[pulumi.Input[str]]
+        """
+        The control version number.
+        """
+        enable_default_group_headers: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether to enable default group headers.
+        """
+        functional_group_id: NotRequired[pulumi.Input[str]]
+        """
+        The functional group id.
+        """
+        group_control_number_lower_bound: NotRequired[pulumi.Input[int]]
+        """
+        The group control number lower bound.
+        """
+        group_control_number_upper_bound: NotRequired[pulumi.Input[int]]
+        """
+        The group control number upper bound.
+        """
+        group_header_agency_code: NotRequired[pulumi.Input[str]]
+        """
+        The group header agency code.
+        """
+        group_header_date_format: NotRequired[pulumi.Input['X12DateFormat']]
+        """
+        The group header date format.
+        """
+        group_header_time_format: NotRequired[pulumi.Input['X12TimeFormat']]
+        """
+        The group header time format.
+        """
+        group_header_version: NotRequired[pulumi.Input[str]]
+        """
+        The group header version.
+        """
+        interchange_control_number_lower_bound: NotRequired[pulumi.Input[int]]
+        """
+        The interchange  control number lower bound.
+        """
+        interchange_control_number_upper_bound: NotRequired[pulumi.Input[int]]
+        """
+        The interchange  control number upper bound.
+        """
+        overwrite_existing_transaction_set_control_number: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether to overwrite existing transaction set control number.
+        """
+        receiver_application_id: NotRequired[pulumi.Input[str]]
+        """
+        The receiver application id.
+        """
+        rollover_group_control_number: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether to rollover group control number.
+        """
+        rollover_interchange_control_number: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether to rollover interchange control number.
+        """
+        rollover_transaction_set_control_number: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether to rollover transaction set control number.
+        """
+        sender_application_id: NotRequired[pulumi.Input[str]]
+        """
+        The sender application id.
+        """
+        transaction_set_control_number_lower_bound: NotRequired[pulumi.Input[int]]
+        """
+        The transaction set control number lower bound.
+        """
+        transaction_set_control_number_prefix: NotRequired[pulumi.Input[str]]
+        """
+        The transaction set control number prefix.
+        """
+        transaction_set_control_number_suffix: NotRequired[pulumi.Input[str]]
+        """
+        The transaction set control number suffix.
+        """
+        transaction_set_control_number_upper_bound: NotRequired[pulumi.Input[int]]
+        """
+        The transaction set control number upper bound.
+        """
+        usage_indicator: NotRequired[pulumi.Input['UsageIndicator']]
+        """
+        The usage indicator.
+        """
+        use_control_standards_id_as_repetition_character: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether to use control standards id as repetition character.
+        """
+elif False:
+    X12EnvelopeSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class X12EnvelopeSettingsArgs:
@@ -4520,6 +5808,39 @@ class X12EnvelopeSettingsArgs:
         pulumi.set(self, "use_control_standards_id_as_repetition_character", value)
 
 
+if not MYPY:
+    class X12FramingSettingsArgsDict(TypedDict):
+        character_set: NotRequired[pulumi.Input['X12CharacterSet']]
+        """
+        The X12 character set.
+        """
+        component_separator: NotRequired[pulumi.Input[int]]
+        """
+        The component separator.
+        """
+        data_element_separator: NotRequired[pulumi.Input[int]]
+        """
+        The data element separator.
+        """
+        replace_character: NotRequired[pulumi.Input[int]]
+        """
+        The replacement character.
+        """
+        replace_separators_in_payload: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether to replace separators in payload.
+        """
+        segment_terminator: NotRequired[pulumi.Input[int]]
+        """
+        The segment terminator.
+        """
+        segment_terminator_suffix: NotRequired[pulumi.Input['SegmentTerminatorSuffix']]
+        """
+        The segment terminator suffix.
+        """
+elif False:
+    X12FramingSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class X12FramingSettingsArgs:
     def __init__(__self__, *,
@@ -4639,6 +5960,15 @@ class X12FramingSettingsArgs:
         pulumi.set(self, "segment_terminator_suffix", value)
 
 
+if not MYPY:
+    class X12MessageFilterArgsDict(TypedDict):
+        message_filter_type: NotRequired[pulumi.Input['MessageFilterType']]
+        """
+        The message filter type.
+        """
+elif False:
+    X12MessageFilterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class X12MessageFilterArgs:
     def __init__(__self__, *,
@@ -4662,6 +5992,15 @@ class X12MessageFilterArgs:
         pulumi.set(self, "message_filter_type", value)
 
 
+if not MYPY:
+    class X12MessageIdentifierArgsDict(TypedDict):
+        message_id: NotRequired[pulumi.Input[str]]
+        """
+        The message id.
+        """
+elif False:
+    X12MessageIdentifierArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class X12MessageIdentifierArgs:
     def __init__(__self__, *,
@@ -4684,6 +6023,23 @@ class X12MessageIdentifierArgs:
     def message_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "message_id", value)
 
+
+if not MYPY:
+    class X12OneWayAgreementArgsDict(TypedDict):
+        protocol_settings: NotRequired[pulumi.Input['X12ProtocolSettingsArgsDict']]
+        """
+        The X12 protocol settings.
+        """
+        receiver_business_identity: NotRequired[pulumi.Input['BusinessIdentityArgsDict']]
+        """
+        The receiver business identity
+        """
+        sender_business_identity: NotRequired[pulumi.Input['BusinessIdentityArgsDict']]
+        """
+        The sender business identity
+        """
+elif False:
+    X12OneWayAgreementArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class X12OneWayAgreementArgs:
@@ -4739,6 +6095,35 @@ class X12OneWayAgreementArgs:
     def sender_business_identity(self, value: Optional[pulumi.Input['BusinessIdentityArgs']]):
         pulumi.set(self, "sender_business_identity", value)
 
+
+if not MYPY:
+    class X12ProcessingSettingsArgsDict(TypedDict):
+        convert_implied_decimal: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether to convert numerical type to implied decimal.
+        """
+        create_empty_xml_tags_for_trailing_separators: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether to create empty xml tags for trailing separators.
+        """
+        mask_security_info: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether to mask security information.
+        """
+        preserve_interchange: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether to preserve interchange.
+        """
+        suspend_interchange_on_error: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether to suspend interchange on error.
+        """
+        use_dot_as_decimal_separator: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether to use dot as decimal separator.
+        """
+elif False:
+    X12ProcessingSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class X12ProcessingSettingsArgs:
@@ -4842,6 +6227,59 @@ class X12ProcessingSettingsArgs:
     def use_dot_as_decimal_separator(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "use_dot_as_decimal_separator", value)
 
+
+if not MYPY:
+    class X12ProtocolSettingsArgsDict(TypedDict):
+        acknowledgement_settings: NotRequired[pulumi.Input['X12AcknowledgementSettingsArgsDict']]
+        """
+        The X12 acknowledgment settings.
+        """
+        envelope_overrides: NotRequired[pulumi.Input[Sequence[pulumi.Input['X12EnvelopeOverrideArgsDict']]]]
+        """
+        The X12 envelope override settings.
+        """
+        envelope_settings: NotRequired[pulumi.Input['X12EnvelopeSettingsArgsDict']]
+        """
+        The X12 envelope settings.
+        """
+        framing_settings: NotRequired[pulumi.Input['X12FramingSettingsArgsDict']]
+        """
+        The X12 framing settings.
+        """
+        message_filter: NotRequired[pulumi.Input['X12MessageFilterArgsDict']]
+        """
+        The X12 message filter.
+        """
+        message_filter_list: NotRequired[pulumi.Input[Sequence[pulumi.Input['X12MessageIdentifierArgsDict']]]]
+        """
+        The X12 message filter list.
+        """
+        processing_settings: NotRequired[pulumi.Input['X12ProcessingSettingsArgsDict']]
+        """
+        The X12 processing settings.
+        """
+        schema_references: NotRequired[pulumi.Input[Sequence[pulumi.Input['X12SchemaReferenceArgsDict']]]]
+        """
+        The X12 schema references.
+        """
+        security_settings: NotRequired[pulumi.Input['X12SecuritySettingsArgsDict']]
+        """
+        The X12 security settings.
+        """
+        validation_overrides: NotRequired[pulumi.Input[Sequence[pulumi.Input['X12ValidationOverrideArgsDict']]]]
+        """
+        The X12 validation override settings.
+        """
+        validation_settings: NotRequired[pulumi.Input['X12ValidationSettingsArgsDict']]
+        """
+        The X12 validation settings.
+        """
+        x12_delimiter_overrides: NotRequired[pulumi.Input[Sequence[pulumi.Input['X12DelimiterOverridesArgsDict']]]]
+        """
+        The X12 delimiter override settings.
+        """
+elif False:
+    X12ProtocolSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class X12ProtocolSettingsArgs:
@@ -5042,6 +6480,27 @@ class X12ProtocolSettingsArgs:
         pulumi.set(self, "x12_delimiter_overrides", value)
 
 
+if not MYPY:
+    class X12SchemaReferenceArgsDict(TypedDict):
+        message_id: NotRequired[pulumi.Input[str]]
+        """
+        The message id.
+        """
+        schema_name: NotRequired[pulumi.Input[str]]
+        """
+        The schema name.
+        """
+        schema_version: NotRequired[pulumi.Input[str]]
+        """
+        The schema version.
+        """
+        sender_application_id: NotRequired[pulumi.Input[str]]
+        """
+        The sender application id.
+        """
+elif False:
+    X12SchemaReferenceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class X12SchemaReferenceArgs:
     def __init__(__self__, *,
@@ -5113,6 +6572,27 @@ class X12SchemaReferenceArgs:
         pulumi.set(self, "sender_application_id", value)
 
 
+if not MYPY:
+    class X12SecuritySettingsArgsDict(TypedDict):
+        authorization_qualifier: NotRequired[pulumi.Input[str]]
+        """
+        The authorization qualifier.
+        """
+        authorization_value: NotRequired[pulumi.Input[str]]
+        """
+        The authorization value.
+        """
+        password_value: NotRequired[pulumi.Input[str]]
+        """
+        The password value.
+        """
+        security_qualifier: NotRequired[pulumi.Input[str]]
+        """
+        The security qualifier.
+        """
+elif False:
+    X12SecuritySettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class X12SecuritySettingsArgs:
     def __init__(__self__, *,
@@ -5183,6 +6663,39 @@ class X12SecuritySettingsArgs:
     def security_qualifier(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "security_qualifier", value)
 
+
+if not MYPY:
+    class X12ValidationOverrideArgsDict(TypedDict):
+        allow_leading_and_trailing_spaces_and_zeroes: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether to allow leading and trailing spaces and zeroes.
+        """
+        message_id: NotRequired[pulumi.Input[str]]
+        """
+        The message id on which the validation settings has to be applied.
+        """
+        trailing_separator_policy: NotRequired[pulumi.Input['TrailingSeparatorPolicy']]
+        """
+        The trailing separator policy.
+        """
+        trim_leading_and_trailing_spaces_and_zeroes: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether to trim leading and trailing spaces and zeroes.
+        """
+        validate_character_set: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether to validate character Set.
+        """
+        validate_edi_types: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether to validate EDI types.
+        """
+        validate_xsd_types: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether to validate XSD types.
+        """
+elif False:
+    X12ValidationOverrideArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class X12ValidationOverrideArgs:
@@ -5302,6 +6815,51 @@ class X12ValidationOverrideArgs:
     def validate_xsd_types(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "validate_xsd_types", value)
 
+
+if not MYPY:
+    class X12ValidationSettingsArgsDict(TypedDict):
+        allow_leading_and_trailing_spaces_and_zeroes: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether to allow leading and trailing spaces and zeroes.
+        """
+        check_duplicate_group_control_number: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether to check for duplicate group control number.
+        """
+        check_duplicate_interchange_control_number: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether to check for duplicate interchange control number.
+        """
+        check_duplicate_transaction_set_control_number: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether to check for duplicate transaction set control number.
+        """
+        interchange_control_number_validity_days: NotRequired[pulumi.Input[int]]
+        """
+        The validity period of interchange control number.
+        """
+        trailing_separator_policy: NotRequired[pulumi.Input['TrailingSeparatorPolicy']]
+        """
+        The trailing separator policy.
+        """
+        trim_leading_and_trailing_spaces_and_zeroes: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether to trim leading and trailing spaces and zeroes.
+        """
+        validate_character_set: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether to validate character set in the message.
+        """
+        validate_edi_types: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether to Whether to validate EDI types.
+        """
+        validate_xsd_types: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether to Whether to validate XSD types.
+        """
+elif False:
+    X12ValidationSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class X12ValidationSettingsArgs:

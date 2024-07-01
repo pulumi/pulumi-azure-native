@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -153,7 +158,7 @@ class MetricsConfiguration(pulumi.CustomResource):
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  collection_interval: Optional[pulumi.Input[float]] = None,
                  enabled_metrics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  metrics_configuration_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -166,7 +171,7 @@ class MetricsConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] cluster_name: The name of the cluster.
         :param pulumi.Input[float] collection_interval: The interval in minutes by which metrics will be collected.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_metrics: The list of metric names that have been chosen to be enabled in addition to the core set of enabled metrics.
-        :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: The extended location of the cluster associated with the resource.
+        :param pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']] extended_location: The extended location of the cluster associated with the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] metrics_configuration_name: The name of the metrics configuration for the cluster.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -198,7 +203,7 @@ class MetricsConfiguration(pulumi.CustomResource):
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  collection_interval: Optional[pulumi.Input[float]] = None,
                  enabled_metrics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  metrics_configuration_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,

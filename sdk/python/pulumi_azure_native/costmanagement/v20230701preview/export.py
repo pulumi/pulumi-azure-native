@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -234,16 +239,16 @@ class Export(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  compression_mode: Optional[pulumi.Input[Union[str, 'CompressionModeType']]] = None,
                  data_overwrite_behavior: Optional[pulumi.Input[Union[str, 'DataOverwriteBehaviorType']]] = None,
-                 definition: Optional[pulumi.Input[pulumi.InputType['ExportDefinitionArgs']]] = None,
-                 delivery_info: Optional[pulumi.Input[pulumi.InputType['ExportDeliveryInfoArgs']]] = None,
+                 definition: Optional[pulumi.Input[Union['ExportDefinitionArgs', 'ExportDefinitionArgsDict']]] = None,
+                 delivery_info: Optional[pulumi.Input[Union['ExportDeliveryInfoArgs', 'ExportDeliveryInfoArgsDict']]] = None,
                  e_tag: Optional[pulumi.Input[str]] = None,
                  export_description: Optional[pulumi.Input[str]] = None,
                  export_name: Optional[pulumi.Input[str]] = None,
                  format: Optional[pulumi.Input[Union[str, 'FormatType']]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['SystemAssignedServiceIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['SystemAssignedServiceIdentityArgs', 'SystemAssignedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  partition_data: Optional[pulumi.Input[bool]] = None,
-                 schedule: Optional[pulumi.Input[pulumi.InputType['ExportScheduleArgs']]] = None,
+                 schedule: Optional[pulumi.Input[Union['ExportScheduleArgs', 'ExportScheduleArgsDict']]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -253,16 +258,16 @@ class Export(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[str, 'CompressionModeType']] compression_mode: Allow customers to select compress data(gzip) for exports. This setting will enable destination file compression scheme at runtime. By default set to None.
         :param pulumi.Input[Union[str, 'DataOverwriteBehaviorType']] data_overwrite_behavior: Allow customers to select overwrite data(OverwritePreviousReport) for exports. This setting will enable overwrite data for the same month in customer storage account. By default set to CreateNewReport.
-        :param pulumi.Input[pulumi.InputType['ExportDefinitionArgs']] definition: Has the definition for the export.
-        :param pulumi.Input[pulumi.InputType['ExportDeliveryInfoArgs']] delivery_info: Has delivery information for the export.
+        :param pulumi.Input[Union['ExportDefinitionArgs', 'ExportDefinitionArgsDict']] definition: Has the definition for the export.
+        :param pulumi.Input[Union['ExportDeliveryInfoArgs', 'ExportDeliveryInfoArgsDict']] delivery_info: Has delivery information for the export.
         :param pulumi.Input[str] e_tag: eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
         :param pulumi.Input[str] export_description: The export description set by customer at time of export creation/update.
         :param pulumi.Input[str] export_name: Export Name.
         :param pulumi.Input[Union[str, 'FormatType']] format: The format of the export being delivered. Currently only 'Csv' is supported.
-        :param pulumi.Input[pulumi.InputType['SystemAssignedServiceIdentityArgs']] identity: The managed identity associated with Export
+        :param pulumi.Input[Union['SystemAssignedServiceIdentityArgs', 'SystemAssignedServiceIdentityArgsDict']] identity: The managed identity associated with Export
         :param pulumi.Input[str] location: The location of the Export's managed identity. Only required when utilizing managed identity.
         :param pulumi.Input[bool] partition_data: If set to true, exported data will be partitioned by size and placed in a blob directory together with a manifest file. Note: this option is currently available only for Microsoft Customer Agreement commerce scopes.
-        :param pulumi.Input[pulumi.InputType['ExportScheduleArgs']] schedule: Has schedule information for the export.
+        :param pulumi.Input[Union['ExportScheduleArgs', 'ExportScheduleArgsDict']] schedule: Has schedule information for the export.
         :param pulumi.Input[str] scope: The scope associated with export operations. This includes '/subscriptions/{subscriptionId}/' for subscription scope, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope and '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, '/providers/Microsoft.Management/managementGroups/{managementGroupId} for Management Group scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for billingProfile scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}/invoiceSections/{invoiceSectionId}' for invoiceSection scope, and '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/customers/{customerId}' specific for partners.
         """
         ...
@@ -291,16 +296,16 @@ class Export(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  compression_mode: Optional[pulumi.Input[Union[str, 'CompressionModeType']]] = None,
                  data_overwrite_behavior: Optional[pulumi.Input[Union[str, 'DataOverwriteBehaviorType']]] = None,
-                 definition: Optional[pulumi.Input[pulumi.InputType['ExportDefinitionArgs']]] = None,
-                 delivery_info: Optional[pulumi.Input[pulumi.InputType['ExportDeliveryInfoArgs']]] = None,
+                 definition: Optional[pulumi.Input[Union['ExportDefinitionArgs', 'ExportDefinitionArgsDict']]] = None,
+                 delivery_info: Optional[pulumi.Input[Union['ExportDeliveryInfoArgs', 'ExportDeliveryInfoArgsDict']]] = None,
                  e_tag: Optional[pulumi.Input[str]] = None,
                  export_description: Optional[pulumi.Input[str]] = None,
                  export_name: Optional[pulumi.Input[str]] = None,
                  format: Optional[pulumi.Input[Union[str, 'FormatType']]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['SystemAssignedServiceIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['SystemAssignedServiceIdentityArgs', 'SystemAssignedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  partition_data: Optional[pulumi.Input[bool]] = None,
-                 schedule: Optional[pulumi.Input[pulumi.InputType['ExportScheduleArgs']]] = None,
+                 schedule: Optional[pulumi.Input[Union['ExportScheduleArgs', 'ExportScheduleArgsDict']]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

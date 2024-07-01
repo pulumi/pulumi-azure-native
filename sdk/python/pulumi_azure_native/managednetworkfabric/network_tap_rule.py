@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -189,9 +194,9 @@ class NetworkTapRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  annotation: Optional[pulumi.Input[str]] = None,
                  configuration_type: Optional[pulumi.Input[Union[str, 'ConfigurationType']]] = None,
-                 dynamic_match_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CommonDynamicMatchConfigurationArgs']]]]] = None,
+                 dynamic_match_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CommonDynamicMatchConfigurationArgs', 'CommonDynamicMatchConfigurationArgsDict']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 match_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkTapRuleMatchConfigurationArgs']]]]] = None,
+                 match_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkTapRuleMatchConfigurationArgs', 'NetworkTapRuleMatchConfigurationArgsDict']]]]] = None,
                  network_tap_rule_name: Optional[pulumi.Input[str]] = None,
                  polling_interval_in_seconds: Optional[pulumi.Input[int]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -206,9 +211,9 @@ class NetworkTapRule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] annotation: Switch configuration description.
         :param pulumi.Input[Union[str, 'ConfigurationType']] configuration_type: Input method to configure Network Tap Rule.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CommonDynamicMatchConfigurationArgs']]]] dynamic_match_configurations: List of dynamic match configurations.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CommonDynamicMatchConfigurationArgs', 'CommonDynamicMatchConfigurationArgsDict']]]] dynamic_match_configurations: List of dynamic match configurations.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkTapRuleMatchConfigurationArgs']]]] match_configurations: List of match configurations.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkTapRuleMatchConfigurationArgs', 'NetworkTapRuleMatchConfigurationArgsDict']]]] match_configurations: List of match configurations.
         :param pulumi.Input[str] network_tap_rule_name: Name of the Network Tap Rule.
         :param pulumi.Input[int] polling_interval_in_seconds: Polling interval in seconds.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -242,9 +247,9 @@ class NetworkTapRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  annotation: Optional[pulumi.Input[str]] = None,
                  configuration_type: Optional[pulumi.Input[Union[str, 'ConfigurationType']]] = None,
-                 dynamic_match_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CommonDynamicMatchConfigurationArgs']]]]] = None,
+                 dynamic_match_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CommonDynamicMatchConfigurationArgs', 'CommonDynamicMatchConfigurationArgsDict']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 match_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkTapRuleMatchConfigurationArgs']]]]] = None,
+                 match_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkTapRuleMatchConfigurationArgs', 'NetworkTapRuleMatchConfigurationArgsDict']]]]] = None,
                  network_tap_rule_name: Optional[pulumi.Input[str]] = None,
                  polling_interval_in_seconds: Optional[pulumi.Input[int]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,

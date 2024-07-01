@@ -4,18 +4,53 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'MaintenanceWindowArgs',
+    'MaintenanceWindowArgsDict',
     'ServerGroupPropertiesDelegatedSubnetArgumentsArgs',
+    'ServerGroupPropertiesDelegatedSubnetArgumentsArgsDict',
     'ServerGroupPropertiesPrivateDnsZoneArgumentsArgs',
+    'ServerGroupPropertiesPrivateDnsZoneArgumentsArgsDict',
     'ServerRoleGroupArgs',
+    'ServerRoleGroupArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class MaintenanceWindowArgsDict(TypedDict):
+        """
+        Maintenance window of a server group.
+        """
+        custom_window: NotRequired[pulumi.Input[str]]
+        """
+        indicates whether custom window is enabled or disabled
+        """
+        day_of_week: NotRequired[pulumi.Input[int]]
+        """
+        day of week for maintenance window
+        """
+        start_hour: NotRequired[pulumi.Input[int]]
+        """
+        start hour for maintenance window
+        """
+        start_minute: NotRequired[pulumi.Input[int]]
+        """
+        start minute for maintenance window
+        """
+elif False:
+    MaintenanceWindowArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MaintenanceWindowArgs:
@@ -89,6 +124,18 @@ class MaintenanceWindowArgs:
         pulumi.set(self, "start_minute", value)
 
 
+if not MYPY:
+    class ServerGroupPropertiesDelegatedSubnetArgumentsArgsDict(TypedDict):
+        """
+        The delegated subnet arguments for a server group.
+        """
+        subnet_arm_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        delegated subnet arm resource id.
+        """
+elif False:
+    ServerGroupPropertiesDelegatedSubnetArgumentsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ServerGroupPropertiesDelegatedSubnetArgumentsArgs:
     def __init__(__self__, *,
@@ -113,6 +160,18 @@ class ServerGroupPropertiesDelegatedSubnetArgumentsArgs:
         pulumi.set(self, "subnet_arm_resource_id", value)
 
 
+if not MYPY:
+    class ServerGroupPropertiesPrivateDnsZoneArgumentsArgsDict(TypedDict):
+        """
+        The private dns zone arguments for a server group.
+        """
+        private_dns_zone_arm_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        private dns zone arm resource id.
+        """
+elif False:
+    ServerGroupPropertiesPrivateDnsZoneArgumentsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ServerGroupPropertiesPrivateDnsZoneArgumentsArgs:
     def __init__(__self__, *,
@@ -136,6 +195,42 @@ class ServerGroupPropertiesPrivateDnsZoneArgumentsArgs:
     def private_dns_zone_arm_resource_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "private_dns_zone_arm_resource_id", value)
 
+
+if not MYPY:
+    class ServerRoleGroupArgsDict(TypedDict):
+        """
+        Represents a server role group.
+        """
+        enable_ha: NotRequired[pulumi.Input[bool]]
+        """
+        If high availability is enabled or not for the server.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the server role group.
+        """
+        role: NotRequired[pulumi.Input[Union[str, 'ServerRole']]]
+        """
+        The role of servers in the server role group.
+        """
+        server_count: NotRequired[pulumi.Input[int]]
+        """
+        The number of servers in the server role group.
+        """
+        server_edition: NotRequired[pulumi.Input[Union[str, 'ServerEdition']]]
+        """
+        The edition of a server (default: GeneralPurpose).
+        """
+        storage_quota_in_mb: NotRequired[pulumi.Input[float]]
+        """
+        The storage of a server in MB (max: 2097152 = 2TiB).
+        """
+        v_cores: NotRequired[pulumi.Input[float]]
+        """
+        The vCores count of a server (max: 64).
+        """
+elif False:
+    ServerRoleGroupArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ServerRoleGroupArgs:

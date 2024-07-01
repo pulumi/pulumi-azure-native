@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -706,21 +711,21 @@ class WebApp(pulumi.CustomResource):
                  client_cert_enabled: Optional[pulumi.Input[bool]] = None,
                  client_cert_exclusion_paths: Optional[pulumi.Input[str]] = None,
                  client_cert_mode: Optional[pulumi.Input['ClientCertMode']] = None,
-                 cloning_info: Optional[pulumi.Input[pulumi.InputType['CloningInfoArgs']]] = None,
+                 cloning_info: Optional[pulumi.Input[Union['CloningInfoArgs', 'CloningInfoArgsDict']]] = None,
                  container_size: Optional[pulumi.Input[int]] = None,
                  custom_domain_verification_id: Optional[pulumi.Input[str]] = None,
                  daily_memory_time_quota: Optional[pulumi.Input[int]] = None,
-                 dapr_config: Optional[pulumi.Input[pulumi.InputType['DaprConfigArgs']]] = None,
-                 dns_configuration: Optional[pulumi.Input[pulumi.InputType['SiteDnsConfigArgs']]] = None,
+                 dapr_config: Optional[pulumi.Input[Union['DaprConfigArgs', 'DaprConfigArgsDict']]] = None,
+                 dns_configuration: Optional[pulumi.Input[Union['SiteDnsConfigArgs', 'SiteDnsConfigArgsDict']]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
-                 function_app_config: Optional[pulumi.Input[pulumi.InputType['FunctionAppConfigArgs']]] = None,
-                 host_name_ssl_states: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HostNameSslStateArgs']]]]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 function_app_config: Optional[pulumi.Input[Union['FunctionAppConfigArgs', 'FunctionAppConfigArgsDict']]] = None,
+                 host_name_ssl_states: Optional[pulumi.Input[Sequence[pulumi.Input[Union['HostNameSslStateArgs', 'HostNameSslStateArgsDict']]]]] = None,
                  host_names_disabled: Optional[pulumi.Input[bool]] = None,
-                 hosting_environment_profile: Optional[pulumi.Input[pulumi.InputType['HostingEnvironmentProfileArgs']]] = None,
+                 hosting_environment_profile: Optional[pulumi.Input[Union['HostingEnvironmentProfileArgs', 'HostingEnvironmentProfileArgsDict']]] = None,
                  https_only: Optional[pulumi.Input[bool]] = None,
                  hyper_v: Optional[pulumi.Input[bool]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  is_xenon: Optional[pulumi.Input[bool]] = None,
                  key_vault_reference_identity: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
@@ -730,11 +735,11 @@ class WebApp(pulumi.CustomResource):
                  public_network_access: Optional[pulumi.Input[str]] = None,
                  redundancy_mode: Optional[pulumi.Input['RedundancyMode']] = None,
                  reserved: Optional[pulumi.Input[bool]] = None,
-                 resource_config: Optional[pulumi.Input[pulumi.InputType['ResourceConfigArgs']]] = None,
+                 resource_config: Optional[pulumi.Input[Union['ResourceConfigArgs', 'ResourceConfigArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  scm_site_also_stopped: Optional[pulumi.Input[bool]] = None,
                  server_farm_id: Optional[pulumi.Input[str]] = None,
-                 site_config: Optional[pulumi.Input[pulumi.InputType['SiteConfigArgs']]] = None,
+                 site_config: Optional[pulumi.Input[Union['SiteConfigArgs', 'SiteConfigArgsDict']]] = None,
                  storage_account_required: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
@@ -756,23 +761,23 @@ class WebApp(pulumi.CustomResource):
                - ClientCertEnabled: false means ClientCert is ignored.
                - ClientCertEnabled: true and ClientCertMode: Required means ClientCert is required.
                - ClientCertEnabled: true and ClientCertMode: Optional means ClientCert is optional or accepted.
-        :param pulumi.Input[pulumi.InputType['CloningInfoArgs']] cloning_info: If specified during app creation, the app is cloned from a source app.
+        :param pulumi.Input[Union['CloningInfoArgs', 'CloningInfoArgsDict']] cloning_info: If specified during app creation, the app is cloned from a source app.
         :param pulumi.Input[int] container_size: Size of the function container.
         :param pulumi.Input[str] custom_domain_verification_id: Unique identifier that verifies the custom domains assigned to the app. Customer will add this id to a txt record for verification.
         :param pulumi.Input[int] daily_memory_time_quota: Maximum allowed daily memory-time quota (applicable on dynamic apps only).
-        :param pulumi.Input[pulumi.InputType['DaprConfigArgs']] dapr_config: Dapr configuration of the app.
-        :param pulumi.Input[pulumi.InputType['SiteDnsConfigArgs']] dns_configuration: Property to configure various DNS related settings for a site.
+        :param pulumi.Input[Union['DaprConfigArgs', 'DaprConfigArgsDict']] dapr_config: Dapr configuration of the app.
+        :param pulumi.Input[Union['SiteDnsConfigArgs', 'SiteDnsConfigArgsDict']] dns_configuration: Property to configure various DNS related settings for a site.
         :param pulumi.Input[bool] enabled: <code>true</code> if the app is enabled; otherwise, <code>false</code>. Setting this value to false disables the app (takes the app offline).
-        :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: Extended Location.
-        :param pulumi.Input[pulumi.InputType['FunctionAppConfigArgs']] function_app_config: Configuration specific of the Azure Function app.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HostNameSslStateArgs']]]] host_name_ssl_states: Hostname SSL states are used to manage the SSL bindings for app's hostnames.
+        :param pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']] extended_location: Extended Location.
+        :param pulumi.Input[Union['FunctionAppConfigArgs', 'FunctionAppConfigArgsDict']] function_app_config: Configuration specific of the Azure Function app.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['HostNameSslStateArgs', 'HostNameSslStateArgsDict']]]] host_name_ssl_states: Hostname SSL states are used to manage the SSL bindings for app's hostnames.
         :param pulumi.Input[bool] host_names_disabled: <code>true</code> to disable the public hostnames of the app; otherwise, <code>false</code>.
                 If <code>true</code>, the app is only accessible via API management process.
-        :param pulumi.Input[pulumi.InputType['HostingEnvironmentProfileArgs']] hosting_environment_profile: App Service Environment to use for the app.
+        :param pulumi.Input[Union['HostingEnvironmentProfileArgs', 'HostingEnvironmentProfileArgsDict']] hosting_environment_profile: App Service Environment to use for the app.
         :param pulumi.Input[bool] https_only: HttpsOnly: configures a web site to accept only https requests. Issues redirect for
                http requests
         :param pulumi.Input[bool] hyper_v: Hyper-V sandbox.
-        :param pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']] identity: Managed service identity.
+        :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: Managed service identity.
         :param pulumi.Input[bool] is_xenon: Obsolete: Hyper-V sandbox.
         :param pulumi.Input[str] key_vault_reference_identity: Identity to use for Key Vault Reference authentication.
         :param pulumi.Input[str] kind: Kind of resource.
@@ -782,11 +787,11 @@ class WebApp(pulumi.CustomResource):
         :param pulumi.Input[str] public_network_access: Property to allow or block all public traffic. Allowed Values: 'Enabled', 'Disabled' or an empty string.
         :param pulumi.Input['RedundancyMode'] redundancy_mode: Site redundancy mode
         :param pulumi.Input[bool] reserved: <code>true</code> if reserved; otherwise, <code>false</code>.
-        :param pulumi.Input[pulumi.InputType['ResourceConfigArgs']] resource_config: Function app resource requirements.
+        :param pulumi.Input[Union['ResourceConfigArgs', 'ResourceConfigArgsDict']] resource_config: Function app resource requirements.
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
         :param pulumi.Input[bool] scm_site_also_stopped: <code>true</code> to stop SCM (KUDU) site when the app is stopped; otherwise, <code>false</code>. The default is <code>false</code>.
         :param pulumi.Input[str] server_farm_id: Resource ID of the associated App Service plan, formatted as: "/subscriptions/{subscriptionID}/resourceGroups/{groupName}/providers/Microsoft.Web/serverfarms/{appServicePlanName}".
-        :param pulumi.Input[pulumi.InputType['SiteConfigArgs']] site_config: Configuration of the app.
+        :param pulumi.Input[Union['SiteConfigArgs', 'SiteConfigArgsDict']] site_config: Configuration of the app.
         :param pulumi.Input[bool] storage_account_required: Checks if Customer provided storage account is required
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] virtual_network_subnet_id: Azure Resource Manager ID of the Virtual network and subnet to be joined by Regional VNET Integration.
@@ -825,21 +830,21 @@ class WebApp(pulumi.CustomResource):
                  client_cert_enabled: Optional[pulumi.Input[bool]] = None,
                  client_cert_exclusion_paths: Optional[pulumi.Input[str]] = None,
                  client_cert_mode: Optional[pulumi.Input['ClientCertMode']] = None,
-                 cloning_info: Optional[pulumi.Input[pulumi.InputType['CloningInfoArgs']]] = None,
+                 cloning_info: Optional[pulumi.Input[Union['CloningInfoArgs', 'CloningInfoArgsDict']]] = None,
                  container_size: Optional[pulumi.Input[int]] = None,
                  custom_domain_verification_id: Optional[pulumi.Input[str]] = None,
                  daily_memory_time_quota: Optional[pulumi.Input[int]] = None,
-                 dapr_config: Optional[pulumi.Input[pulumi.InputType['DaprConfigArgs']]] = None,
-                 dns_configuration: Optional[pulumi.Input[pulumi.InputType['SiteDnsConfigArgs']]] = None,
+                 dapr_config: Optional[pulumi.Input[Union['DaprConfigArgs', 'DaprConfigArgsDict']]] = None,
+                 dns_configuration: Optional[pulumi.Input[Union['SiteDnsConfigArgs', 'SiteDnsConfigArgsDict']]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
-                 function_app_config: Optional[pulumi.Input[pulumi.InputType['FunctionAppConfigArgs']]] = None,
-                 host_name_ssl_states: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HostNameSslStateArgs']]]]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 function_app_config: Optional[pulumi.Input[Union['FunctionAppConfigArgs', 'FunctionAppConfigArgsDict']]] = None,
+                 host_name_ssl_states: Optional[pulumi.Input[Sequence[pulumi.Input[Union['HostNameSslStateArgs', 'HostNameSslStateArgsDict']]]]] = None,
                  host_names_disabled: Optional[pulumi.Input[bool]] = None,
-                 hosting_environment_profile: Optional[pulumi.Input[pulumi.InputType['HostingEnvironmentProfileArgs']]] = None,
+                 hosting_environment_profile: Optional[pulumi.Input[Union['HostingEnvironmentProfileArgs', 'HostingEnvironmentProfileArgsDict']]] = None,
                  https_only: Optional[pulumi.Input[bool]] = None,
                  hyper_v: Optional[pulumi.Input[bool]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  is_xenon: Optional[pulumi.Input[bool]] = None,
                  key_vault_reference_identity: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
@@ -849,11 +854,11 @@ class WebApp(pulumi.CustomResource):
                  public_network_access: Optional[pulumi.Input[str]] = None,
                  redundancy_mode: Optional[pulumi.Input['RedundancyMode']] = None,
                  reserved: Optional[pulumi.Input[bool]] = None,
-                 resource_config: Optional[pulumi.Input[pulumi.InputType['ResourceConfigArgs']]] = None,
+                 resource_config: Optional[pulumi.Input[Union['ResourceConfigArgs', 'ResourceConfigArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  scm_site_also_stopped: Optional[pulumi.Input[bool]] = None,
                  server_farm_id: Optional[pulumi.Input[str]] = None,
-                 site_config: Optional[pulumi.Input[pulumi.InputType['SiteConfigArgs']]] = None,
+                 site_config: Optional[pulumi.Input[Union['SiteConfigArgs', 'SiteConfigArgsDict']]] = None,
                  storage_account_required: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,

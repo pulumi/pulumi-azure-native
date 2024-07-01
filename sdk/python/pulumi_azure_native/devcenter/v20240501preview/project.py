@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -186,11 +191,11 @@ class Project(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 catalog_settings: Optional[pulumi.Input[pulumi.InputType['ProjectCatalogSettingsArgs']]] = None,
+                 catalog_settings: Optional[pulumi.Input[Union['ProjectCatalogSettingsArgs', 'ProjectCatalogSettingsArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  dev_center_id: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  max_dev_boxes_per_user: Optional[pulumi.Input[int]] = None,
                  project_name: Optional[pulumi.Input[str]] = None,
@@ -202,11 +207,11 @@ class Project(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ProjectCatalogSettingsArgs']] catalog_settings: Settings to be used when associating a project with a catalog.
+        :param pulumi.Input[Union['ProjectCatalogSettingsArgs', 'ProjectCatalogSettingsArgsDict']] catalog_settings: Settings to be used when associating a project with a catalog.
         :param pulumi.Input[str] description: Description of the project.
         :param pulumi.Input[str] dev_center_id: Resource Id of an associated DevCenter
         :param pulumi.Input[str] display_name: The display name of the project.
-        :param pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']] identity: Managed identity properties
+        :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: Managed identity properties
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[int] max_dev_boxes_per_user: When specified, limits the maximum number of Dev Boxes a single user can create across all pools in the project. This will have no effect on existing Dev Boxes when reduced.
         :param pulumi.Input[str] project_name: The name of the project.
@@ -237,11 +242,11 @@ class Project(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 catalog_settings: Optional[pulumi.Input[pulumi.InputType['ProjectCatalogSettingsArgs']]] = None,
+                 catalog_settings: Optional[pulumi.Input[Union['ProjectCatalogSettingsArgs', 'ProjectCatalogSettingsArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  dev_center_id: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  max_dev_boxes_per_user: Optional[pulumi.Input[int]] = None,
                  project_name: Optional[pulumi.Input[str]] = None,

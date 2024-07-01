@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -240,8 +245,8 @@ class VirtualNetworkPeering(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  peering_state: Optional[pulumi.Input[Union[str, 'VirtualNetworkPeeringState']]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
-                 remote_address_space: Optional[pulumi.Input[pulumi.InputType['AddressSpaceArgs']]] = None,
-                 remote_virtual_network: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
+                 remote_address_space: Optional[pulumi.Input[Union['AddressSpaceArgs', 'AddressSpaceArgsDict']]] = None,
+                 remote_virtual_network: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  use_remote_gateways: Optional[pulumi.Input[bool]] = None,
                  virtual_network_name: Optional[pulumi.Input[str]] = None,
@@ -259,8 +264,8 @@ class VirtualNetworkPeering(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param pulumi.Input[Union[str, 'VirtualNetworkPeeringState']] peering_state: The status of the virtual network peering.
         :param pulumi.Input[str] provisioning_state: The provisioning state of the resource.
-        :param pulumi.Input[pulumi.InputType['AddressSpaceArgs']] remote_address_space: The reference of the remote virtual network address space.
-        :param pulumi.Input[pulumi.InputType['SubResourceArgs']] remote_virtual_network: The reference of the remote virtual network. The remote virtual network can be in the same or different region (preview). See here to register for the preview and learn more (https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-create-peering).
+        :param pulumi.Input[Union['AddressSpaceArgs', 'AddressSpaceArgsDict']] remote_address_space: The reference of the remote virtual network address space.
+        :param pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']] remote_virtual_network: The reference of the remote virtual network. The remote virtual network can be in the same or different region (preview). See here to register for the preview and learn more (https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-create-peering).
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[bool] use_remote_gateways: If remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.
         :param pulumi.Input[str] virtual_network_name: The name of the virtual network.
@@ -297,8 +302,8 @@ class VirtualNetworkPeering(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  peering_state: Optional[pulumi.Input[Union[str, 'VirtualNetworkPeeringState']]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
-                 remote_address_space: Optional[pulumi.Input[pulumi.InputType['AddressSpaceArgs']]] = None,
-                 remote_virtual_network: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
+                 remote_address_space: Optional[pulumi.Input[Union['AddressSpaceArgs', 'AddressSpaceArgsDict']]] = None,
+                 remote_virtual_network: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  use_remote_gateways: Optional[pulumi.Input[bool]] = None,
                  virtual_network_name: Optional[pulumi.Input[str]] = None,

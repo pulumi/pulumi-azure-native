@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -136,7 +141,7 @@ class Volume(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 creation_data: Optional[pulumi.Input[pulumi.InputType['SourceCreationDataArgs']]] = None,
+                 creation_data: Optional[pulumi.Input[Union['SourceCreationDataArgs', 'SourceCreationDataArgsDict']]] = None,
                  elastic_san_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  size_gi_b: Optional[pulumi.Input[float]] = None,
@@ -149,7 +154,7 @@ class Volume(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['SourceCreationDataArgs']] creation_data: State of the operation on the resource.
+        :param pulumi.Input[Union['SourceCreationDataArgs', 'SourceCreationDataArgsDict']] creation_data: State of the operation on the resource.
         :param pulumi.Input[str] elastic_san_name: The name of the ElasticSan.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[float] size_gi_b: Volume size.
@@ -181,7 +186,7 @@ class Volume(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 creation_data: Optional[pulumi.Input[pulumi.InputType['SourceCreationDataArgs']]] = None,
+                 creation_data: Optional[pulumi.Input[Union['SourceCreationDataArgs', 'SourceCreationDataArgsDict']]] = None,
                  elastic_san_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  size_gi_b: Optional[pulumi.Input[float]] = None,

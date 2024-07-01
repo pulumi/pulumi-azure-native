@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -311,48 +316,48 @@ class Cluster(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aggregator_or_single_rack_definition: Optional[pulumi.Input[pulumi.InputType['RackDefinitionArgs']]] = None,
+                 aggregator_or_single_rack_definition: Optional[pulumi.Input[Union['RackDefinitionArgs', 'RackDefinitionArgsDict']]] = None,
                  analytics_workspace_id: Optional[pulumi.Input[str]] = None,
                  cluster_location: Optional[pulumi.Input[str]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
-                 cluster_service_principal: Optional[pulumi.Input[pulumi.InputType['ServicePrincipalInformationArgs']]] = None,
+                 cluster_service_principal: Optional[pulumi.Input[Union['ServicePrincipalInformationArgs', 'ServicePrincipalInformationArgsDict']]] = None,
                  cluster_type: Optional[pulumi.Input[Union[str, 'ClusterType']]] = None,
                  cluster_version: Optional[pulumi.Input[str]] = None,
-                 compute_deployment_threshold: Optional[pulumi.Input[pulumi.InputType['ValidationThresholdArgs']]] = None,
-                 compute_rack_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RackDefinitionArgs']]]]] = None,
-                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
+                 compute_deployment_threshold: Optional[pulumi.Input[Union['ValidationThresholdArgs', 'ValidationThresholdArgsDict']]] = None,
+                 compute_rack_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RackDefinitionArgs', 'RackDefinitionArgsDict']]]]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 managed_resource_group_configuration: Optional[pulumi.Input[pulumi.InputType['ManagedResourceGroupConfigurationArgs']]] = None,
+                 managed_resource_group_configuration: Optional[pulumi.Input[Union['ManagedResourceGroupConfigurationArgs', 'ManagedResourceGroupConfigurationArgsDict']]] = None,
                  network_fabric_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 runtime_protection_configuration: Optional[pulumi.Input[pulumi.InputType['RuntimeProtectionConfigurationArgs']]] = None,
-                 secret_archive: Optional[pulumi.Input[pulumi.InputType['ClusterSecretArchiveArgs']]] = None,
+                 runtime_protection_configuration: Optional[pulumi.Input[Union['RuntimeProtectionConfigurationArgs', 'RuntimeProtectionConfigurationArgsDict']]] = None,
+                 secret_archive: Optional[pulumi.Input[Union['ClusterSecretArchiveArgs', 'ClusterSecretArchiveArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 update_strategy: Optional[pulumi.Input[pulumi.InputType['ClusterUpdateStrategyArgs']]] = None,
+                 update_strategy: Optional[pulumi.Input[Union['ClusterUpdateStrategyArgs', 'ClusterUpdateStrategyArgsDict']]] = None,
                  __props__=None):
         """
         Create a Cluster resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['RackDefinitionArgs']] aggregator_or_single_rack_definition: The rack definition that is intended to reflect only a single rack in a single rack cluster, or an aggregator rack in a multi-rack cluster.
+        :param pulumi.Input[Union['RackDefinitionArgs', 'RackDefinitionArgsDict']] aggregator_or_single_rack_definition: The rack definition that is intended to reflect only a single rack in a single rack cluster, or an aggregator rack in a multi-rack cluster.
         :param pulumi.Input[str] analytics_workspace_id: The resource ID of the Log Analytics Workspace that will be used for storing relevant logs.
         :param pulumi.Input[str] cluster_location: The customer-provided location information to identify where the cluster resides.
         :param pulumi.Input[str] cluster_name: The name of the cluster.
-        :param pulumi.Input[pulumi.InputType['ServicePrincipalInformationArgs']] cluster_service_principal: The service principal to be used by the cluster during Arc Appliance installation.
+        :param pulumi.Input[Union['ServicePrincipalInformationArgs', 'ServicePrincipalInformationArgsDict']] cluster_service_principal: The service principal to be used by the cluster during Arc Appliance installation.
         :param pulumi.Input[Union[str, 'ClusterType']] cluster_type: The type of rack configuration for the cluster.
         :param pulumi.Input[str] cluster_version: The current runtime version of the cluster.
-        :param pulumi.Input[pulumi.InputType['ValidationThresholdArgs']] compute_deployment_threshold: The validation threshold indicating the allowable failures of compute machines during environment validation and deployment.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RackDefinitionArgs']]]] compute_rack_definitions: The list of rack definitions for the compute racks in a multi-rack
+        :param pulumi.Input[Union['ValidationThresholdArgs', 'ValidationThresholdArgsDict']] compute_deployment_threshold: The validation threshold indicating the allowable failures of compute machines during environment validation and deployment.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RackDefinitionArgs', 'RackDefinitionArgsDict']]]] compute_rack_definitions: The list of rack definitions for the compute racks in a multi-rack
                cluster, or an empty list in a single-rack cluster.
-        :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: The extended location of the cluster manager associated with the cluster.
+        :param pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']] extended_location: The extended location of the cluster manager associated with the cluster.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[pulumi.InputType['ManagedResourceGroupConfigurationArgs']] managed_resource_group_configuration: The configuration of the managed resource group associated with the resource.
+        :param pulumi.Input[Union['ManagedResourceGroupConfigurationArgs', 'ManagedResourceGroupConfigurationArgsDict']] managed_resource_group_configuration: The configuration of the managed resource group associated with the resource.
         :param pulumi.Input[str] network_fabric_id: The resource ID of the Network Fabric associated with the cluster.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[pulumi.InputType['RuntimeProtectionConfigurationArgs']] runtime_protection_configuration: The settings for cluster runtime protection.
-        :param pulumi.Input[pulumi.InputType['ClusterSecretArchiveArgs']] secret_archive: The configuration for use of a key vault to store secrets for later retrieval by the operator.
+        :param pulumi.Input[Union['RuntimeProtectionConfigurationArgs', 'RuntimeProtectionConfigurationArgsDict']] runtime_protection_configuration: The settings for cluster runtime protection.
+        :param pulumi.Input[Union['ClusterSecretArchiveArgs', 'ClusterSecretArchiveArgsDict']] secret_archive: The configuration for use of a key vault to store secrets for later retrieval by the operator.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[pulumi.InputType['ClusterUpdateStrategyArgs']] update_strategy: The strategy for updating the cluster.
+        :param pulumi.Input[Union['ClusterUpdateStrategyArgs', 'ClusterUpdateStrategyArgsDict']] update_strategy: The strategy for updating the cluster.
         """
         ...
     @overload
@@ -377,24 +382,24 @@ class Cluster(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aggregator_or_single_rack_definition: Optional[pulumi.Input[pulumi.InputType['RackDefinitionArgs']]] = None,
+                 aggregator_or_single_rack_definition: Optional[pulumi.Input[Union['RackDefinitionArgs', 'RackDefinitionArgsDict']]] = None,
                  analytics_workspace_id: Optional[pulumi.Input[str]] = None,
                  cluster_location: Optional[pulumi.Input[str]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
-                 cluster_service_principal: Optional[pulumi.Input[pulumi.InputType['ServicePrincipalInformationArgs']]] = None,
+                 cluster_service_principal: Optional[pulumi.Input[Union['ServicePrincipalInformationArgs', 'ServicePrincipalInformationArgsDict']]] = None,
                  cluster_type: Optional[pulumi.Input[Union[str, 'ClusterType']]] = None,
                  cluster_version: Optional[pulumi.Input[str]] = None,
-                 compute_deployment_threshold: Optional[pulumi.Input[pulumi.InputType['ValidationThresholdArgs']]] = None,
-                 compute_rack_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RackDefinitionArgs']]]]] = None,
-                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
+                 compute_deployment_threshold: Optional[pulumi.Input[Union['ValidationThresholdArgs', 'ValidationThresholdArgsDict']]] = None,
+                 compute_rack_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RackDefinitionArgs', 'RackDefinitionArgsDict']]]]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 managed_resource_group_configuration: Optional[pulumi.Input[pulumi.InputType['ManagedResourceGroupConfigurationArgs']]] = None,
+                 managed_resource_group_configuration: Optional[pulumi.Input[Union['ManagedResourceGroupConfigurationArgs', 'ManagedResourceGroupConfigurationArgsDict']]] = None,
                  network_fabric_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 runtime_protection_configuration: Optional[pulumi.Input[pulumi.InputType['RuntimeProtectionConfigurationArgs']]] = None,
-                 secret_archive: Optional[pulumi.Input[pulumi.InputType['ClusterSecretArchiveArgs']]] = None,
+                 runtime_protection_configuration: Optional[pulumi.Input[Union['RuntimeProtectionConfigurationArgs', 'RuntimeProtectionConfigurationArgsDict']]] = None,
+                 secret_archive: Optional[pulumi.Input[Union['ClusterSecretArchiveArgs', 'ClusterSecretArchiveArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 update_strategy: Optional[pulumi.Input[pulumi.InputType['ClusterUpdateStrategyArgs']]] = None,
+                 update_strategy: Optional[pulumi.Input[Union['ClusterUpdateStrategyArgs', 'ClusterUpdateStrategyArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

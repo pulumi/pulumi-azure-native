@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -284,9 +289,9 @@ class Server(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  administrator_login: Optional[pulumi.Input[str]] = None,
                  administrator_login_password: Optional[pulumi.Input[str]] = None,
-                 administrators: Optional[pulumi.Input[pulumi.InputType['ServerExternalAdministratorArgs']]] = None,
+                 administrators: Optional[pulumi.Input[Union['ServerExternalAdministratorArgs', 'ServerExternalAdministratorArgsDict']]] = None,
                  federated_client_id: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ResourceIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['ResourceIdentityArgs', 'ResourceIdentityArgsDict']]] = None,
                  is_i_pv6_enabled: Optional[pulumi.Input[Union[str, 'ServerNetworkAccessFlag']]] = None,
                  key_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -306,9 +311,9 @@ class Server(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] administrator_login: Administrator username for the server. Once created it cannot be changed.
         :param pulumi.Input[str] administrator_login_password: The administrator login password (required for server creation).
-        :param pulumi.Input[pulumi.InputType['ServerExternalAdministratorArgs']] administrators: The Azure Active Directory administrator of the server. This can only be used at server create time. If used for server update, it will be ignored or it will result in an error. For updates individual APIs will need to be used.
+        :param pulumi.Input[Union['ServerExternalAdministratorArgs', 'ServerExternalAdministratorArgsDict']] administrators: The Azure Active Directory administrator of the server. This can only be used at server create time. If used for server update, it will be ignored or it will result in an error. For updates individual APIs will need to be used.
         :param pulumi.Input[str] federated_client_id: The Client id used for cross tenant CMK scenario
-        :param pulumi.Input[pulumi.InputType['ResourceIdentityArgs']] identity: The Azure Active Directory identity of the server.
+        :param pulumi.Input[Union['ResourceIdentityArgs', 'ResourceIdentityArgsDict']] identity: The Azure Active Directory identity of the server.
         :param pulumi.Input[Union[str, 'ServerNetworkAccessFlag']] is_i_pv6_enabled: Whether or not to enable IPv6 support for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
         :param pulumi.Input[str] key_id: A CMK URI of the key to use for encryption.
         :param pulumi.Input[str] location: Resource location.
@@ -347,9 +352,9 @@ class Server(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  administrator_login: Optional[pulumi.Input[str]] = None,
                  administrator_login_password: Optional[pulumi.Input[str]] = None,
-                 administrators: Optional[pulumi.Input[pulumi.InputType['ServerExternalAdministratorArgs']]] = None,
+                 administrators: Optional[pulumi.Input[Union['ServerExternalAdministratorArgs', 'ServerExternalAdministratorArgsDict']]] = None,
                  federated_client_id: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ResourceIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['ResourceIdentityArgs', 'ResourceIdentityArgsDict']]] = None,
                  is_i_pv6_enabled: Optional[pulumi.Input[Union[str, 'ServerNetworkAccessFlag']]] = None,
                  key_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -268,42 +273,42 @@ class NetworkInterface(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dns_settings: Optional[pulumi.Input[pulumi.InputType['NetworkInterfaceDnsSettingsArgs']]] = None,
+                 dns_settings: Optional[pulumi.Input[Union['NetworkInterfaceDnsSettingsArgs', 'NetworkInterfaceDnsSettingsArgsDict']]] = None,
                  enable_accelerated_networking: Optional[pulumi.Input[bool]] = None,
                  enable_ip_forwarding: Optional[pulumi.Input[bool]] = None,
                  id: Optional[pulumi.Input[str]] = None,
-                 ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkInterfaceIPConfigurationArgs']]]]] = None,
+                 ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkInterfaceIPConfigurationArgs', 'NetworkInterfaceIPConfigurationArgsDict']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  mac_address: Optional[pulumi.Input[str]] = None,
                  network_interface_name: Optional[pulumi.Input[str]] = None,
-                 network_security_group: Optional[pulumi.Input[pulumi.InputType['NetworkSecurityGroupArgs']]] = None,
+                 network_security_group: Optional[pulumi.Input[Union['NetworkSecurityGroupArgs', 'NetworkSecurityGroupArgsDict']]] = None,
                  primary: Optional[pulumi.Input[bool]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_guid: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tap_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkInterfaceTapConfigurationArgs']]]]] = None,
+                 tap_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkInterfaceTapConfigurationArgs', 'NetworkInterfaceTapConfigurationArgsDict']]]]] = None,
                  __props__=None):
         """
         A network interface in a resource group.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['NetworkInterfaceDnsSettingsArgs']] dns_settings: The DNS settings in network interface.
+        :param pulumi.Input[Union['NetworkInterfaceDnsSettingsArgs', 'NetworkInterfaceDnsSettingsArgsDict']] dns_settings: The DNS settings in network interface.
         :param pulumi.Input[bool] enable_accelerated_networking: If the network interface is accelerated networking enabled.
         :param pulumi.Input[bool] enable_ip_forwarding: Indicates whether IP forwarding is enabled on this network interface.
         :param pulumi.Input[str] id: Resource ID.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkInterfaceIPConfigurationArgs']]]] ip_configurations: A list of IPConfigurations of the network interface.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkInterfaceIPConfigurationArgs', 'NetworkInterfaceIPConfigurationArgsDict']]]] ip_configurations: A list of IPConfigurations of the network interface.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] mac_address: The MAC address of the network interface.
         :param pulumi.Input[str] network_interface_name: The name of the network interface.
-        :param pulumi.Input[pulumi.InputType['NetworkSecurityGroupArgs']] network_security_group: The reference of the NetworkSecurityGroup resource.
+        :param pulumi.Input[Union['NetworkSecurityGroupArgs', 'NetworkSecurityGroupArgsDict']] network_security_group: The reference of the NetworkSecurityGroup resource.
         :param pulumi.Input[bool] primary: Gets whether this is a primary network interface on a virtual machine.
         :param pulumi.Input[str] provisioning_state: The provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] resource_guid: The resource GUID property of the network interface resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkInterfaceTapConfigurationArgs']]]] tap_configurations: A list of TapConfigurations of the network interface.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkInterfaceTapConfigurationArgs', 'NetworkInterfaceTapConfigurationArgsDict']]]] tap_configurations: A list of TapConfigurations of the network interface.
                These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
         """
         ...
@@ -330,21 +335,21 @@ class NetworkInterface(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dns_settings: Optional[pulumi.Input[pulumi.InputType['NetworkInterfaceDnsSettingsArgs']]] = None,
+                 dns_settings: Optional[pulumi.Input[Union['NetworkInterfaceDnsSettingsArgs', 'NetworkInterfaceDnsSettingsArgsDict']]] = None,
                  enable_accelerated_networking: Optional[pulumi.Input[bool]] = None,
                  enable_ip_forwarding: Optional[pulumi.Input[bool]] = None,
                  id: Optional[pulumi.Input[str]] = None,
-                 ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkInterfaceIPConfigurationArgs']]]]] = None,
+                 ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkInterfaceIPConfigurationArgs', 'NetworkInterfaceIPConfigurationArgsDict']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  mac_address: Optional[pulumi.Input[str]] = None,
                  network_interface_name: Optional[pulumi.Input[str]] = None,
-                 network_security_group: Optional[pulumi.Input[pulumi.InputType['NetworkSecurityGroupArgs']]] = None,
+                 network_security_group: Optional[pulumi.Input[Union['NetworkSecurityGroupArgs', 'NetworkSecurityGroupArgsDict']]] = None,
                  primary: Optional[pulumi.Input[bool]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_guid: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tap_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkInterfaceTapConfigurationArgs']]]]] = None,
+                 tap_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkInterfaceTapConfigurationArgs', 'NetworkInterfaceTapConfigurationArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

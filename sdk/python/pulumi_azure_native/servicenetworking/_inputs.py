@@ -4,16 +4,37 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'AssociationSubnetArgs',
+    'AssociationSubnetArgsDict',
     'WafPolicyArgs',
+    'WafPolicyArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AssociationSubnetArgsDict(TypedDict):
+        """
+        Association Subnet.
+        """
+        id: pulumi.Input[str]
+        """
+        Association ID.
+        """
+elif False:
+    AssociationSubnetArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AssociationSubnetArgs:
@@ -37,6 +58,18 @@ class AssociationSubnetArgs:
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class WafPolicyArgsDict(TypedDict):
+        """
+        Web Application Firewall Policy
+        """
+        id: pulumi.Input[str]
+        """
+        Resource ID of the WAF
+        """
+elif False:
+    WafPolicyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WafPolicyArgs:

@@ -4,56 +4,129 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'ACRPropertiesArgs',
+    'ACRPropertiesArgsDict',
     'AKSDeploymentPropertiesArgs',
+    'AKSDeploymentPropertiesArgsDict',
     'AKSDeploymentSpecificationArgs',
+    'AKSDeploymentSpecificationArgsDict',
     'ApacheTomcatAKSWorkloadDeploymentModelCustomPropertiesArgs',
+    'ApacheTomcatAKSWorkloadDeploymentModelCustomPropertiesArgsDict',
     'ApacheTomcatAKSWorkloadDeploymentArgs',
+    'ApacheTomcatAKSWorkloadDeploymentArgsDict',
     'ApacheTomcatWebApplicationArgs',
+    'ApacheTomcatWebApplicationArgsDict',
     'ApacheTomcatWorkloadInstanceModelCustomPropertiesArgs',
+    'ApacheTomcatWorkloadInstanceModelCustomPropertiesArgsDict',
     'AppInsightMonitoringPropertiesArgs',
+    'AppInsightMonitoringPropertiesArgsDict',
     'AutomationArtifactArgs',
+    'AutomationArtifactArgsDict',
     'AzureFileShareHydrationProfileArgs',
+    'AzureFileShareHydrationProfileArgsDict',
     'BindingArgs',
+    'BindingArgsDict',
     'CertArgs',
+    'CertArgsDict',
     'ContainerImagePropertiesArgs',
+    'ContainerImagePropertiesArgsDict',
     'DirectoryPathArgs',
+    'DirectoryPathArgsDict',
     'GmsaAuthenticationPropertiesArgs',
+    'GmsaAuthenticationPropertiesArgsDict',
     'IISAKSWorkloadDeploymentModelCustomPropertiesArgs',
+    'IISAKSWorkloadDeploymentModelCustomPropertiesArgsDict',
     'IISAKSWorkloadDeploymentArgs',
+    'IISAKSWorkloadDeploymentArgsDict',
     'IISApplicationDetailsArgs',
+    'IISApplicationDetailsArgsDict',
     'IISVirtualApplicationDetailsArgs',
+    'IISVirtualApplicationDetailsArgsDict',
     'IISWebApplicationArgs',
+    'IISWebApplicationArgsDict',
     'IISWebServerArgs',
+    'IISWebServerArgsDict',
     'IISWorkloadInstanceModelCustomPropertiesArgs',
+    'IISWorkloadInstanceModelCustomPropertiesArgsDict',
     'IdentityModelArgs',
+    'IdentityModelArgsDict',
     'KeyVaultSecretStorePropertiesArgs',
+    'KeyVaultSecretStorePropertiesArgsDict',
     'ManagedIdentityPropertiesArgs',
+    'ManagedIdentityPropertiesArgsDict',
     'MigrateAgentModelPropertiesArgs',
+    'MigrateAgentModelPropertiesArgsDict',
     'MigrationConfigurationArgs',
+    'MigrationConfigurationArgsDict',
     'ModernizeProjectModelPropertiesArgs',
+    'ModernizeProjectModelPropertiesArgsDict',
     'OperatingSystemDetailsArgs',
+    'OperatingSystemDetailsArgsDict',
     'PortMappingArgs',
+    'PortMappingArgsDict',
     'ResourceIdentityArgs',
+    'ResourceIdentityArgsDict',
     'ResourceRequirementsArgs',
+    'ResourceRequirementsArgsDict',
     'SecretStoreDetailsArgs',
+    'SecretStoreDetailsArgsDict',
     'SecretStorePropertiesArgs',
+    'SecretStorePropertiesArgsDict',
     'TargetStorageProfileArgs',
+    'TargetStorageProfileArgsDict',
     'UserAssignedIdentityArgs',
+    'UserAssignedIdentityArgsDict',
     'VMwareMigrateAgentModelCustomPropertiesArgs',
+    'VMwareMigrateAgentModelCustomPropertiesArgsDict',
     'WebApplicationConfigurationArgs',
+    'WebApplicationConfigurationArgsDict',
     'WebApplicationDirectoryArgs',
+    'WebApplicationDirectoryArgsDict',
     'WebApplicationFrameworkArgs',
+    'WebApplicationFrameworkArgsDict',
     'WorkloadDeploymentModelPropertiesArgs',
+    'WorkloadDeploymentModelPropertiesArgsDict',
     'WorkloadInstanceModelPropertiesArgs',
+    'WorkloadInstanceModelPropertiesArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ACRPropertiesArgsDict(TypedDict):
+        """
+        Class for ACR Properties.
+        """
+        registry_name: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the azure container registry name.
+        """
+        resource_group: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the resource group of the resource.
+        """
+        subscription_id: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the subscription id of the resource.
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the tenant id.
+        """
+elif False:
+    ACRPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ACRPropertiesArgs:
@@ -127,6 +200,30 @@ class ACRPropertiesArgs:
         pulumi.set(self, "tenant_id", value)
 
 
+if not MYPY:
+    class AKSDeploymentPropertiesArgsDict(TypedDict):
+        """
+        Class for AKSDeployment Properties.
+        """
+        aks_cluster_name: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the AKS cluster name.
+        """
+        resource_group: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the resource group of the resource.
+        """
+        subscription_id: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the subscription id of the resource.
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the tenant id.
+        """
+elif False:
+    AKSDeploymentPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AKSDeploymentPropertiesArgs:
     def __init__(__self__, *,
@@ -199,6 +296,26 @@ class AKSDeploymentPropertiesArgs:
         pulumi.set(self, "tenant_id", value)
 
 
+if not MYPY:
+    class AKSDeploymentSpecificationArgsDict(TypedDict):
+        """
+        AKS Deployment Specification.
+        """
+        kubernetes_objects_yaml: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the Merged Deployment and service Yaml.
+        """
+        load_balancer_type: NotRequired[pulumi.Input[Union[str, 'LoadBalancerType']]]
+        """
+        Gets or sets the load balancer type.
+        """
+        replica_count: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the replica count to be created in AKS.
+        """
+elif False:
+    AKSDeploymentSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AKSDeploymentSpecificationArgs:
     def __init__(__self__, *,
@@ -255,6 +372,23 @@ class AKSDeploymentSpecificationArgs:
         pulumi.set(self, "replica_count", value)
 
 
+if not MYPY:
+    class ApacheTomcatAKSWorkloadDeploymentModelCustomPropertiesArgsDict(TypedDict):
+        """
+        ApacheTomcat workload instance model custom properties.
+        """
+        instance_type: pulumi.Input[str]
+        """
+        Gets or sets the instance type.
+        Expected value is 'ApacheTomcatAKSWorkloadDeploymentModelCustomProperties'.
+        """
+        apache_tomcat_aks_workload_deployment_properties: NotRequired[pulumi.Input['ApacheTomcatAKSWorkloadDeploymentArgsDict']]
+        """
+        ApacheTomcat web application.
+        """
+elif False:
+    ApacheTomcatAKSWorkloadDeploymentModelCustomPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ApacheTomcatAKSWorkloadDeploymentModelCustomPropertiesArgs:
     def __init__(__self__, *,
@@ -295,6 +429,66 @@ class ApacheTomcatAKSWorkloadDeploymentModelCustomPropertiesArgs:
     def apache_tomcat_aks_workload_deployment_properties(self, value: Optional[pulumi.Input['ApacheTomcatAKSWorkloadDeploymentArgs']]):
         pulumi.set(self, "apache_tomcat_aks_workload_deployment_properties", value)
 
+
+if not MYPY:
+    class ApacheTomcatAKSWorkloadDeploymentArgsDict(TypedDict):
+        """
+        ApacheTomcat web application.
+        """
+        automation_artifact_properties: NotRequired[pulumi.Input['AutomationArtifactArgsDict']]
+        """
+        Class for automation artifact.
+        """
+        bindings: NotRequired[pulumi.Input[Sequence[pulumi.Input['BindingArgsDict']]]]
+        """
+        Gets or sets the bindings for the application.
+        """
+        build_container_images: NotRequired[pulumi.Input[Sequence[pulumi.Input['ContainerImagePropertiesArgsDict']]]]
+        """
+        Gets or sets the build container images.
+        """
+        cluster_properties: NotRequired[pulumi.Input['AKSDeploymentPropertiesArgsDict']]
+        """
+        Class for AKSDeployment Properties.
+        """
+        configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['WebApplicationConfigurationArgsDict']]]]
+        """
+        Gets or sets application configuration.
+        """
+        container_image_properties: NotRequired[pulumi.Input['ContainerImagePropertiesArgsDict']]
+        """
+        Class for container image properties.
+        """
+        deployment_name_prefix: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the deployment name prefix.
+        """
+        deployment_spec: NotRequired[pulumi.Input['AKSDeploymentSpecificationArgsDict']]
+        """
+        AKS Deployment Specification.
+        """
+        directories: NotRequired[pulumi.Input[Sequence[pulumi.Input['WebApplicationDirectoryArgsDict']]]]
+        """
+        Gets or sets application directories.
+        """
+        limits: NotRequired[pulumi.Input['ResourceRequirementsArgsDict']]
+        """
+        Resource Requirements.
+        """
+        monitoring_properties: NotRequired[pulumi.Input['AppInsightMonitoringPropertiesArgsDict']]
+        """
+        Class for app insight monitoring properties.
+        """
+        requests: NotRequired[pulumi.Input['ResourceRequirementsArgsDict']]
+        """
+        Resource Requirements.
+        """
+        target_platform_identity: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the target platform managed identity.
+        """
+elif False:
+    ApacheTomcatAKSWorkloadDeploymentArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApacheTomcatAKSWorkloadDeploymentArgs:
@@ -511,6 +705,70 @@ class ApacheTomcatAKSWorkloadDeploymentArgs:
     def target_platform_identity(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "target_platform_identity", value)
 
+
+if not MYPY:
+    class ApacheTomcatWebApplicationArgsDict(TypedDict):
+        """
+        ApacheTomcat web application.
+        """
+        application_id: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the web application id.
+        """
+        application_name: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the web application name.
+        """
+        application_scratch_path: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets application scratch path.
+        """
+        bindings: NotRequired[pulumi.Input[Sequence[pulumi.Input['BindingArgsDict']]]]
+        """
+        Gets or sets the bindings for the application.
+        """
+        configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['WebApplicationConfigurationArgsDict']]]]
+        """
+        Gets or sets application configuration.
+        """
+        directories: NotRequired[pulumi.Input[Sequence[pulumi.Input['WebApplicationDirectoryArgsDict']]]]
+        """
+        Gets or sets application directories.
+        """
+        discovered_frameworks: NotRequired[pulumi.Input[Sequence[pulumi.Input['WebApplicationFrameworkArgsDict']]]]
+        """
+        Gets or sets the discovered frameworks of application.
+        """
+        display_name: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the display name.
+        """
+        limits: NotRequired[pulumi.Input['ResourceRequirementsArgsDict']]
+        """
+        Resource Requirements.
+        """
+        path: NotRequired[pulumi.Input['DirectoryPathArgsDict']]
+        """
+        Second level entity for virtual directories.
+        """
+        primary_framework: NotRequired[pulumi.Input['WebApplicationFrameworkArgsDict']]
+        """
+        Framework specific data for a web application.
+        """
+        requests: NotRequired[pulumi.Input['ResourceRequirementsArgsDict']]
+        """
+        Resource Requirements.
+        """
+        web_server_id: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the web server id.
+        """
+        web_server_name: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the web server name.
+        """
+elif False:
+    ApacheTomcatWebApplicationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApacheTomcatWebApplicationArgs:
@@ -744,6 +1002,31 @@ class ApacheTomcatWebApplicationArgs:
         pulumi.set(self, "web_server_name", value)
 
 
+if not MYPY:
+    class ApacheTomcatWorkloadInstanceModelCustomPropertiesArgsDict(TypedDict):
+        """
+        ApacheTomcat workload instance model custom properties.
+        """
+        instance_type: pulumi.Input[str]
+        """
+        Gets or sets the instance type.
+        Expected value is 'ApacheTomcatWorkloadInstanceModelCustomProperties'.
+        """
+        apache_tomcat_web_application: NotRequired[pulumi.Input['ApacheTomcatWebApplicationArgsDict']]
+        """
+        ApacheTomcat web application.
+        """
+        web_app_arm_id: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the Web application ARM id.
+        """
+        web_app_site_name: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the Web application site name.
+        """
+elif False:
+    ApacheTomcatWorkloadInstanceModelCustomPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ApacheTomcatWorkloadInstanceModelCustomPropertiesArgs:
     def __init__(__self__, *,
@@ -816,6 +1099,35 @@ class ApacheTomcatWorkloadInstanceModelCustomPropertiesArgs:
     def web_app_site_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "web_app_site_name", value)
 
+
+if not MYPY:
+    class AppInsightMonitoringPropertiesArgsDict(TypedDict):
+        """
+        Class for app insight monitoring properties.
+        """
+        app_insights_name: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the app insights name.
+        """
+        is_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Gets or sets a value indicating whether monitoring is enabled.
+        """
+        region: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the region.
+        """
+        resource_group: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the resource group of the resource.
+        """
+        secret_store_details: NotRequired[pulumi.Input['SecretStoreDetailsArgsDict']]
+        subscription_id: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the subscription id of the resource.
+        """
+elif False:
+    AppInsightMonitoringPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AppInsightMonitoringPropertiesArgs:
@@ -917,6 +1229,27 @@ class AppInsightMonitoringPropertiesArgs:
         pulumi.set(self, "subscription_id", value)
 
 
+if not MYPY:
+    class AutomationArtifactArgsDict(TypedDict):
+        """
+        Class for automation artifact.
+        """
+        artifacts: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Gets or sets the artifacts.
+        """
+        azure_file_share_profile: NotRequired[pulumi.Input['AzureFileShareHydrationProfileArgsDict']]
+        """
+        Azure file share profile for hydration of application folders not mounted on
+        the container file system.
+        """
+        status: NotRequired[pulumi.Input[Union[str, 'AutomationArtifactStatus']]]
+        """
+        Gets or sets the status of automation artifacts.
+        """
+elif False:
+    AutomationArtifactArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AutomationArtifactArgs:
     def __init__(__self__, *,
@@ -974,6 +1307,35 @@ class AutomationArtifactArgs:
     def status(self, value: Optional[pulumi.Input[Union[str, 'AutomationArtifactStatus']]]):
         pulumi.set(self, "status", value)
 
+
+if not MYPY:
+    class AzureFileShareHydrationProfileArgsDict(TypedDict):
+        """
+        Azure file share profile for hydration of application folders not mounted on
+        the container file system.
+        """
+        azure_file_share_dir_path: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the cloud directory path of the directory on azure file share.
+        """
+        azure_file_share_name: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the name of the azure file share.
+        """
+        azure_file_share_resource_group: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the name of the azure file share resource group.
+        """
+        azure_file_share_storage_account: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the name of the azure file share storage account.
+        """
+        azure_file_share_subscription_id: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the subscription id of the azure file share.
+        """
+elif False:
+    AzureFileShareHydrationProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AzureFileShareHydrationProfileArgs:
@@ -1063,6 +1425,38 @@ class AzureFileShareHydrationProfileArgs:
     def azure_file_share_subscription_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "azure_file_share_subscription_id", value)
 
+
+if not MYPY:
+    class BindingArgsDict(TypedDict):
+        """
+        Binding for a web application.
+        """
+        cert: NotRequired[pulumi.Input['CertArgsDict']]
+        """
+        WebApplication certificate.
+        """
+        host_name: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the binding host name.
+        """
+        ip_address: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the IP Address.
+        """
+        port: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the application port.
+        """
+        port_mapping: NotRequired[pulumi.Input['PortMappingArgsDict']]
+        """
+        WebApplication port mapping.
+        """
+        protocol: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the protocol.
+        """
+elif False:
+    BindingArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class BindingArgs:
@@ -1168,6 +1562,30 @@ class BindingArgs:
         pulumi.set(self, "protocol", value)
 
 
+if not MYPY:
+    class CertArgsDict(TypedDict):
+        """
+        WebApplication certificate.
+        """
+        cert_data: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the Certificate data.
+        """
+        cert_needed: NotRequired[pulumi.Input[bool]]
+        """
+        Gets or sets a value indicating whether certificate is needed or not.
+        """
+        cert_provided: NotRequired[pulumi.Input[bool]]
+        """
+        Gets or sets a value indicating whether certificate is provided or not.
+        """
+        secret_store: NotRequired[pulumi.Input[Union[str, 'SecretStoreType']]]
+        """
+        Gets or sets the type of secret store for the certificate.
+        """
+elif False:
+    CertArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CertArgs:
     def __init__(__self__, *,
@@ -1239,6 +1657,38 @@ class CertArgs:
     def secret_store(self, value: Optional[pulumi.Input[Union[str, 'SecretStoreType']]]):
         pulumi.set(self, "secret_store", value)
 
+
+if not MYPY:
+    class ContainerImagePropertiesArgsDict(TypedDict):
+        """
+        Class for container image properties.
+        """
+        dockerfile: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the dockerfile for the container image.
+        """
+        image_name: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the container image name.
+        """
+        image_tag: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the container image tag.
+        """
+        registry_properties: NotRequired[pulumi.Input['ACRPropertiesArgsDict']]
+        """
+        Class for ACR Properties.
+        """
+        run_id: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the RunId.
+        """
+        run_status: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the RunStatus.
+        """
+elif False:
+    ContainerImagePropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ContainerImagePropertiesArgs:
@@ -1344,6 +1794,22 @@ class ContainerImagePropertiesArgs:
         pulumi.set(self, "run_status", value)
 
 
+if not MYPY:
+    class DirectoryPathArgsDict(TypedDict):
+        """
+        Second level entity for virtual directories.
+        """
+        physical: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the physical path of the directory on the web server.
+        """
+        virtual: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the virtual path for the directory.
+        """
+elif False:
+    DirectoryPathArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DirectoryPathArgs:
     def __init__(__self__, *,
@@ -1383,6 +1849,47 @@ class DirectoryPathArgs:
     def virtual(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "virtual", value)
 
+
+if not MYPY:
+    class GmsaAuthenticationPropertiesArgsDict(TypedDict):
+        """
+        Class for GMSA authentication details to configure Active Directory connectivity.
+        """
+        ad_domain_controller_dns: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the list of dns server that can resolve the Active Directory Domain Name/Address.
+        """
+        ad_domain_fqdn: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the FQDN of the Active Directory Domain. For e.g. 'contoso.local', 'fareast.corp.microsoft.com' etc.
+        """
+        akv_properties: NotRequired[pulumi.Input['KeyVaultSecretStorePropertiesArgsDict']]
+        domain_admin_password: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the password of the user specified by RestApi.Controllers.V2022_05_01_preview.Models.WorkloadDeployment.Gmsa.GmsaAuthenticationProperties.DomainAdminUsername.
+        """
+        domain_admin_username: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the name of the user having admin rights on the Active Directory Domain Controller.
+        """
+        domain_controller_address: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the address of the Active Directory Domain Controller running Domain Services.
+        """
+        gmsa_account_name: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the name to be used for GMSA.
+        """
+        gmsa_user_password: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the password of the user specified by RestApi.Controllers.V2022_05_01_preview.Models.WorkloadDeployment.Gmsa.GmsaAuthenticationProperties.GmsaUsername.
+        """
+        gmsa_username: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets username of the user having authorization to access GMSA on Active Directory.
+        """
+elif False:
+    GmsaAuthenticationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GmsaAuthenticationPropertiesArgs:
@@ -1532,6 +2039,23 @@ class GmsaAuthenticationPropertiesArgs:
         pulumi.set(self, "gmsa_username", value)
 
 
+if not MYPY:
+    class IISAKSWorkloadDeploymentModelCustomPropertiesArgsDict(TypedDict):
+        """
+        IIS workload instance model custom properties.
+        """
+        instance_type: pulumi.Input[str]
+        """
+        Gets or sets the instance type.
+        Expected value is 'IISAKSWorkloadDeploymentModelCustomProperties'.
+        """
+        iis_aks_workload_deployment_properties: NotRequired[pulumi.Input['IISAKSWorkloadDeploymentArgsDict']]
+        """
+        IIS AKS workload deployment.
+        """
+elif False:
+    IISAKSWorkloadDeploymentModelCustomPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IISAKSWorkloadDeploymentModelCustomPropertiesArgs:
     def __init__(__self__, *,
@@ -1572,6 +2096,70 @@ class IISAKSWorkloadDeploymentModelCustomPropertiesArgs:
     def iis_aks_workload_deployment_properties(self, value: Optional[pulumi.Input['IISAKSWorkloadDeploymentArgs']]):
         pulumi.set(self, "iis_aks_workload_deployment_properties", value)
 
+
+if not MYPY:
+    class IISAKSWorkloadDeploymentArgsDict(TypedDict):
+        """
+        IIS AKS workload deployment.
+        """
+        authentication_properties: NotRequired[pulumi.Input['GmsaAuthenticationPropertiesArgsDict']]
+        """
+        Class for GMSA authentication details to configure Active Directory connectivity.
+        """
+        automation_artifact_properties: NotRequired[pulumi.Input['AutomationArtifactArgsDict']]
+        """
+        Class for automation artifact.
+        """
+        bindings: NotRequired[pulumi.Input[Sequence[pulumi.Input['BindingArgsDict']]]]
+        """
+        Gets or sets the bindings for the application.
+        """
+        build_container_images: NotRequired[pulumi.Input[Sequence[pulumi.Input['ContainerImagePropertiesArgsDict']]]]
+        """
+        Gets or sets the build container images.
+        """
+        cluster_properties: NotRequired[pulumi.Input['AKSDeploymentPropertiesArgsDict']]
+        """
+        Class for AKSDeployment Properties.
+        """
+        configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['WebApplicationConfigurationArgsDict']]]]
+        """
+        Gets or sets application configuration.
+        """
+        container_image_properties: NotRequired[pulumi.Input['ContainerImagePropertiesArgsDict']]
+        """
+        Class for container image properties.
+        """
+        deployment_name_prefix: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the deployment name prefix.
+        """
+        deployment_spec: NotRequired[pulumi.Input['AKSDeploymentSpecificationArgsDict']]
+        """
+        AKS Deployment Specification.
+        """
+        directories: NotRequired[pulumi.Input[Sequence[pulumi.Input['WebApplicationDirectoryArgsDict']]]]
+        """
+        Gets or sets application directories.
+        """
+        limits: NotRequired[pulumi.Input['ResourceRequirementsArgsDict']]
+        """
+        Resource Requirements.
+        """
+        monitoring_properties: NotRequired[pulumi.Input['AppInsightMonitoringPropertiesArgsDict']]
+        """
+        Class for app insight monitoring properties.
+        """
+        requests: NotRequired[pulumi.Input['ResourceRequirementsArgsDict']]
+        """
+        Resource Requirements.
+        """
+        target_platform_identity: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the target platform managed identity.
+        """
+elif False:
+    IISAKSWorkloadDeploymentArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IISAKSWorkloadDeploymentArgs:
@@ -1805,6 +2393,38 @@ class IISAKSWorkloadDeploymentArgs:
         pulumi.set(self, "target_platform_identity", value)
 
 
+if not MYPY:
+    class IISApplicationDetailsArgsDict(TypedDict):
+        """
+        IISApplication details.
+        """
+        application_pool_name: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the application pool name.
+        """
+        directories: NotRequired[pulumi.Input[Sequence[pulumi.Input['DirectoryPathArgsDict']]]]
+        """
+        Gets or sets the list of directories.
+        """
+        enable32_bit_api_on_win64: NotRequired[pulumi.Input[bool]]
+        """
+        Gets or sets a value indicating whether 32 bit applications are allowed to run on 64 bit.
+        """
+        managed_pipeline_mode: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the managed pipeline mode.
+        """
+        path: NotRequired[pulumi.Input['DirectoryPathArgsDict']]
+        """
+        Second level entity for virtual directories.
+        """
+        runtime_version: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the runtime version.
+        """
+elif False:
+    IISApplicationDetailsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IISApplicationDetailsArgs:
     def __init__(__self__, *,
@@ -1909,6 +2529,22 @@ class IISApplicationDetailsArgs:
         pulumi.set(self, "runtime_version", value)
 
 
+if not MYPY:
+    class IISVirtualApplicationDetailsArgsDict(TypedDict):
+        """
+        IIS virtual application details.
+        """
+        directories: NotRequired[pulumi.Input[Sequence[pulumi.Input['DirectoryPathArgsDict']]]]
+        """
+        Gets or sets the list of directories.
+        """
+        path: NotRequired[pulumi.Input['DirectoryPathArgsDict']]
+        """
+        Second level entity for virtual directories.
+        """
+elif False:
+    IISVirtualApplicationDetailsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IISVirtualApplicationDetailsArgs:
     def __init__(__self__, *,
@@ -1948,6 +2584,82 @@ class IISVirtualApplicationDetailsArgs:
     def path(self, value: Optional[pulumi.Input['DirectoryPathArgs']]):
         pulumi.set(self, "path", value)
 
+
+if not MYPY:
+    class IISWebApplicationArgsDict(TypedDict):
+        """
+        IISWeb application.
+        """
+        application_id: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the web application id.
+        """
+        application_name: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the web application name.
+        """
+        application_scratch_path: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets application scratch path.
+        """
+        applications: NotRequired[pulumi.Input[Sequence[pulumi.Input['IISApplicationDetailsArgsDict']]]]
+        """
+        Gets or sets the list of applications for the IIS web site.
+        """
+        bindings: NotRequired[pulumi.Input[Sequence[pulumi.Input['BindingArgsDict']]]]
+        """
+        Gets or sets the bindings for the application.
+        """
+        configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['WebApplicationConfigurationArgsDict']]]]
+        """
+        Gets or sets application configuration.
+        """
+        directories: NotRequired[pulumi.Input[Sequence[pulumi.Input['WebApplicationDirectoryArgsDict']]]]
+        """
+        Gets or sets application directories.
+        """
+        discovered_frameworks: NotRequired[pulumi.Input[Sequence[pulumi.Input['WebApplicationFrameworkArgsDict']]]]
+        """
+        Gets or sets the discovered frameworks of application.
+        """
+        display_name: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the display name.
+        """
+        iis_web_server: NotRequired[pulumi.Input['IISWebServerArgsDict']]
+        """
+        IISWeb server.
+        """
+        limits: NotRequired[pulumi.Input['ResourceRequirementsArgsDict']]
+        """
+        Resource Requirements.
+        """
+        path: NotRequired[pulumi.Input['DirectoryPathArgsDict']]
+        """
+        Second level entity for virtual directories.
+        """
+        primary_framework: NotRequired[pulumi.Input['WebApplicationFrameworkArgsDict']]
+        """
+        Framework specific data for a web application.
+        """
+        requests: NotRequired[pulumi.Input['ResourceRequirementsArgsDict']]
+        """
+        Resource Requirements.
+        """
+        virtual_applications: NotRequired[pulumi.Input[Sequence[pulumi.Input['IISVirtualApplicationDetailsArgsDict']]]]
+        """
+        Gets or sets the list of application units for the web site.
+        """
+        web_server_id: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the web server id.
+        """
+        web_server_name: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the web server name.
+        """
+elif False:
+    IISWebApplicationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IISWebApplicationArgs:
@@ -2229,6 +2941,55 @@ class IISWebApplicationArgs:
         pulumi.set(self, "web_server_name", value)
 
 
+if not MYPY:
+    class IISWebServerArgsDict(TypedDict):
+        """
+        IISWeb server.
+        """
+        display_name: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the display name.
+        """
+        ip_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Gets or sets list of ip addresses.
+        """
+        machines: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Gets or sets the list of machines.
+        """
+        operating_system_details: NotRequired[pulumi.Input['OperatingSystemDetailsArgsDict']]
+        root_configuration_location: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the server root configuration location.
+        """
+        run_as_account_id: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the run as account id.
+        """
+        server_fqdn: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the server FQDN.
+        """
+        server_id: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the web server id.
+        """
+        server_name: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the web server name.
+        """
+        version: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the server version.
+        """
+        web_applications: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Gets or sets the list of web applications.
+        """
+elif False:
+    IISWebServerArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IISWebServerArgs:
     def __init__(__self__, *,
@@ -2409,6 +3170,39 @@ class IISWebServerArgs:
         pulumi.set(self, "web_applications", value)
 
 
+if not MYPY:
+    class IISWorkloadInstanceModelCustomPropertiesArgsDict(TypedDict):
+        """
+        IIS workload instance model custom properties.
+        """
+        instance_type: pulumi.Input[str]
+        """
+        Gets or sets the instance type.
+        Expected value is 'IISWorkloadInstanceModelCustomProperties'.
+        """
+        container_name: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the container Id.
+        """
+        fileshare_name: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the fileshare name.
+        """
+        iis_web_application: NotRequired[pulumi.Input['IISWebApplicationArgsDict']]
+        """
+        IISWeb application.
+        """
+        web_app_arm_id: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the Web application ARM id.
+        """
+        web_app_site_name: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the Web application site name.
+        """
+elif False:
+    IISWorkloadInstanceModelCustomPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IISWorkloadInstanceModelCustomPropertiesArgs:
     def __init__(__self__, *,
@@ -2514,6 +3308,35 @@ class IISWorkloadInstanceModelCustomPropertiesArgs:
         pulumi.set(self, "web_app_site_name", value)
 
 
+if not MYPY:
+    class IdentityModelArgsDict(TypedDict):
+        """
+        Identity model.
+        """
+        aad_authority: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the authority of the SPN with which MigrateAgent communicates to service.
+        """
+        application_id: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the client/application Id of the SPN with which MigrateAgent communicates to
+        service.
+        """
+        audience: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the audience of the SPN with which MigrateAgent communicates to service.
+        """
+        object_id: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the object Id of the SPN with which MigrateAgent communicates to service.
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the tenant Id of the SPN with which MigrateAgent communicates to service.
+        """
+elif False:
+    IdentityModelArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IdentityModelArgs:
     def __init__(__self__, *,
@@ -2604,6 +3427,17 @@ class IdentityModelArgs:
         pulumi.set(self, "tenant_id", value)
 
 
+if not MYPY:
+    class KeyVaultSecretStorePropertiesArgsDict(TypedDict):
+        keyvault_name: NotRequired[pulumi.Input[str]]
+        managed_identity_properties: NotRequired[pulumi.Input['ManagedIdentityPropertiesArgsDict']]
+        resource_group: NotRequired[pulumi.Input[str]]
+        secret_store_id: NotRequired[pulumi.Input[str]]
+        subscription_id: NotRequired[pulumi.Input[str]]
+        tenant_id: NotRequired[pulumi.Input[str]]
+elif False:
+    KeyVaultSecretStorePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class KeyVaultSecretStorePropertiesArgs:
     def __init__(__self__, *,
@@ -2680,6 +3514,17 @@ class KeyVaultSecretStorePropertiesArgs:
     def tenant_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tenant_id", value)
 
+
+if not MYPY:
+    class ManagedIdentityPropertiesArgsDict(TypedDict):
+        client_id: NotRequired[pulumi.Input[str]]
+        managed_identity_name: NotRequired[pulumi.Input[str]]
+        principal_id: NotRequired[pulumi.Input[str]]
+        resource_group: NotRequired[pulumi.Input[str]]
+        subscription_id: NotRequired[pulumi.Input[str]]
+        tenant_id: NotRequired[pulumi.Input[str]]
+elif False:
+    ManagedIdentityPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ManagedIdentityPropertiesArgs:
@@ -2758,6 +3603,30 @@ class ManagedIdentityPropertiesArgs:
         pulumi.set(self, "tenant_id", value)
 
 
+if not MYPY:
+    class MigrateAgentModelPropertiesArgsDict(TypedDict):
+        """
+        MigrateAgent model properties.
+        """
+        authentication_identity: NotRequired[pulumi.Input['IdentityModelArgsDict']]
+        """
+        Identity model.
+        """
+        custom_properties: NotRequired[pulumi.Input['VMwareMigrateAgentModelCustomPropertiesArgsDict']]
+        """
+        MigrateAgent model custom properties.
+        """
+        machine_id: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the machine Id where MigrateAgent is running.
+        """
+        machine_name: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the machine name where MigrateAgent is running.
+        """
+elif False:
+    MigrateAgentModelPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MigrateAgentModelPropertiesArgs:
     def __init__(__self__, *,
@@ -2830,6 +3699,26 @@ class MigrateAgentModelPropertiesArgs:
         pulumi.set(self, "machine_name", value)
 
 
+if not MYPY:
+    class MigrationConfigurationArgsDict(TypedDict):
+        """
+        MigrationConfiguration properties.
+        """
+        key_vault_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the key vault resource Id.
+        """
+        migration_solution_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the migration solution resource Id.
+        """
+        storage_account_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the storage account resource Id.
+        """
+elif False:
+    MigrationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MigrationConfigurationArgs:
     def __init__(__self__, *,
@@ -2886,6 +3775,18 @@ class MigrationConfigurationArgs:
         pulumi.set(self, "storage_account_resource_id", value)
 
 
+if not MYPY:
+    class ModernizeProjectModelPropertiesArgsDict(TypedDict):
+        """
+        ModernizeProject properties.
+        """
+        migration_configuration: NotRequired[pulumi.Input['MigrationConfigurationArgsDict']]
+        """
+        MigrationConfiguration properties.
+        """
+elif False:
+    ModernizeProjectModelPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ModernizeProjectModelPropertiesArgs:
     def __init__(__self__, *,
@@ -2909,6 +3810,15 @@ class ModernizeProjectModelPropertiesArgs:
     def migration_configuration(self, value: Optional[pulumi.Input['MigrationConfigurationArgs']]):
         pulumi.set(self, "migration_configuration", value)
 
+
+if not MYPY:
+    class OperatingSystemDetailsArgsDict(TypedDict):
+        os: NotRequired[pulumi.Input[Union[str, 'OperatingSystemType']]]
+        os_architecture: NotRequired[pulumi.Input[str]]
+        os_name: NotRequired[pulumi.Input[str]]
+        os_version: NotRequired[pulumi.Input[str]]
+elif False:
+    OperatingSystemDetailsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OperatingSystemDetailsArgs:
@@ -2963,6 +3873,22 @@ class OperatingSystemDetailsArgs:
         pulumi.set(self, "os_version", value)
 
 
+if not MYPY:
+    class PortMappingArgsDict(TypedDict):
+        """
+        WebApplication port mapping.
+        """
+        external_port: NotRequired[pulumi.Input[int]]
+        """
+        Gets or sets the External Port.
+        """
+        internal_port: NotRequired[pulumi.Input[int]]
+        """
+        Gets or sets the Internal Port.
+        """
+elif False:
+    PortMappingArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PortMappingArgs:
     def __init__(__self__, *,
@@ -3002,6 +3928,15 @@ class PortMappingArgs:
     def internal_port(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "internal_port", value)
 
+
+if not MYPY:
+    class ResourceIdentityArgsDict(TypedDict):
+        principal_id: NotRequired[pulumi.Input[str]]
+        tenant_id: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[Union[str, 'ResourceIdentityTypes']]]
+        user_assigned_identities: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentityArgsDict']]]]
+elif False:
+    ResourceIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ResourceIdentityArgs:
@@ -3056,6 +3991,22 @@ class ResourceIdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
+if not MYPY:
+    class ResourceRequirementsArgsDict(TypedDict):
+        """
+        Resource Requirements.
+        """
+        cpu: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the Cpu requirement.
+        """
+        memory: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the Memory requirement.
+        """
+elif False:
+    ResourceRequirementsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ResourceRequirementsArgs:
     def __init__(__self__, *,
@@ -3096,6 +4047,13 @@ class ResourceRequirementsArgs:
         pulumi.set(self, "memory", value)
 
 
+if not MYPY:
+    class SecretStoreDetailsArgsDict(TypedDict):
+        secret_store: NotRequired[pulumi.Input[Union[str, 'SecretStoreType']]]
+        secret_store_properties: NotRequired[pulumi.Input['SecretStorePropertiesArgsDict']]
+elif False:
+    SecretStoreDetailsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SecretStoreDetailsArgs:
     def __init__(__self__, *,
@@ -3125,6 +4083,12 @@ class SecretStoreDetailsArgs:
         pulumi.set(self, "secret_store_properties", value)
 
 
+if not MYPY:
+    class SecretStorePropertiesArgsDict(TypedDict):
+        secret_store_id: NotRequired[pulumi.Input[str]]
+elif False:
+    SecretStorePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SecretStorePropertiesArgs:
     def __init__(__self__, *,
@@ -3141,6 +4105,48 @@ class SecretStorePropertiesArgs:
     def secret_store_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "secret_store_id", value)
 
+
+if not MYPY:
+    class TargetStorageProfileArgsDict(TypedDict):
+        """
+        Storage profile for the directory on the target container.
+        """
+        azure_file_share_profile: NotRequired[pulumi.Input['AzureFileShareHydrationProfileArgsDict']]
+        """
+        Azure file share profile for hydration of application folders not mounted on
+        the container file system.
+        """
+        hydration_storage_provider_type: NotRequired[pulumi.Input[Union[str, 'TargetHydrationStorageProviderType']]]
+        """
+        Gets or sets the storage provider type on the target.
+        Applicable when StorageProjectionType is not ContainerFileSystem.
+        """
+        persistent_volume_id: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the target persistent volume id.
+        Applicable when StorageProjectionType is PersistentVolume and on using an
+        existing PersistentVolume.
+        """
+        storage_access_type: NotRequired[pulumi.Input[Union[str, 'TargetStorageAccessType']]]
+        """
+        Gets or sets the target storage access type.
+        """
+        storage_projection_type: NotRequired[pulumi.Input[Union[str, 'TargetStorageProjectionType']]]
+        """
+        Gets or sets the target projection type.
+        """
+        target_name: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the name of the projected volume on the target environment.
+        """
+        target_size: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the storage size on the target.
+        Applicable when StorageProjectionType is PersistentVolume and on creating a new
+        PersistentVolume.
+        """
+elif False:
+    TargetStorageProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TargetStorageProfileArgs:
@@ -3274,6 +4280,13 @@ class TargetStorageProfileArgs:
         pulumi.set(self, "target_size", value)
 
 
+if not MYPY:
+    class UserAssignedIdentityArgsDict(TypedDict):
+        client_id: NotRequired[pulumi.Input[str]]
+        principal_id: NotRequired[pulumi.Input[str]]
+elif False:
+    UserAssignedIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class UserAssignedIdentityArgs:
     def __init__(__self__, *,
@@ -3302,6 +4315,27 @@ class UserAssignedIdentityArgs:
     def principal_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "principal_id", value)
 
+
+if not MYPY:
+    class VMwareMigrateAgentModelCustomPropertiesArgsDict(TypedDict):
+        """
+        VMware MigrateAgent model custom properties.
+        """
+        instance_type: pulumi.Input[str]
+        """
+        Gets or sets the instance type.
+        Expected value is 'VMwareMigrateAgentModelCustomProperties'.
+        """
+        fabric_friendly_name: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the friendly name of the,of the MigrateAgent fabric.
+        """
+        vmware_site_id: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the master Site Id of the Migrate Agent.
+        """
+elif False:
+    VMwareMigrateAgentModelCustomPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VMwareMigrateAgentModelCustomPropertiesArgs:
@@ -3359,6 +4393,51 @@ class VMwareMigrateAgentModelCustomPropertiesArgs:
     def vmware_site_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "vmware_site_id", value)
 
+
+if not MYPY:
+    class WebApplicationConfigurationArgsDict(TypedDict):
+        """
+        Class for web application configurations.
+        """
+        file_path: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the configuration file path.
+        """
+        identifier: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the identifier for the configuration.
+        """
+        is_deployment_time_editable: NotRequired[pulumi.Input[bool]]
+        """
+        Gets or sets a value indicating whether the configuration is edited or not by the user.
+        """
+        local_file_path: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the configuration local file path.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the configuration name.
+        """
+        secret_store_details: NotRequired[pulumi.Input['SecretStoreDetailsArgsDict']]
+        section: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the configuration section in the file.
+        """
+        target_file_path: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the configuration target file path.
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'ConfigurationType']]]
+        """
+        Gets or sets the configuration type.
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the configuration value.
+        """
+elif False:
+    WebApplicationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WebApplicationConfigurationArgs:
@@ -3524,6 +4603,32 @@ class WebApplicationConfigurationArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class WebApplicationDirectoryArgsDict(TypedDict):
+        """
+        WebApplication directory structure.
+        """
+        is_editable: NotRequired[pulumi.Input[bool]]
+        """
+        Gets or sets a value indicating whether the directory object is editable.
+        True when the directory is added as an optional directory, false when discovery is done
+        manually.
+        """
+        source_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Gets or sets the paths of the directory on the source machine.
+        """
+        source_size: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the size of the directory on the source machine.
+        """
+        storage_profile: NotRequired[pulumi.Input['TargetStorageProfileArgsDict']]
+        """
+        Storage profile for the directory on the target container.
+        """
+elif False:
+    WebApplicationDirectoryArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WebApplicationDirectoryArgs:
     def __init__(__self__, *,
@@ -3600,6 +4705,22 @@ class WebApplicationDirectoryArgs:
         pulumi.set(self, "storage_profile", value)
 
 
+if not MYPY:
+    class WebApplicationFrameworkArgsDict(TypedDict):
+        """
+        Framework specific data for a web application.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets Name of the framework.
+        """
+        version: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets Version of the framework.
+        """
+elif False:
+    WebApplicationFrameworkArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WebApplicationFrameworkArgs:
     def __init__(__self__, *,
@@ -3639,6 +4760,30 @@ class WebApplicationFrameworkArgs:
     def version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "version", value)
 
+
+if not MYPY:
+    class WorkloadDeploymentModelPropertiesArgsDict(TypedDict):
+        """
+        Workload deployment model properties.
+        """
+        custom_properties: NotRequired[pulumi.Input[Union['ApacheTomcatAKSWorkloadDeploymentModelCustomPropertiesArgsDict', 'IISAKSWorkloadDeploymentModelCustomPropertiesArgsDict']]]
+        """
+        Workload deployment model custom properties.
+        """
+        display_name: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the display name.
+        """
+        target_platform: NotRequired[pulumi.Input[Union[str, 'WorkloadDeploymentTarget']]]
+        """
+        Gets or sets the deployment target platform.
+        """
+        workload_instance_properties: NotRequired[pulumi.Input['WorkloadInstanceModelPropertiesArgsDict']]
+        """
+        Workload instance model properties.
+        """
+elif False:
+    WorkloadDeploymentModelPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WorkloadDeploymentModelPropertiesArgs:
@@ -3711,6 +4856,42 @@ class WorkloadDeploymentModelPropertiesArgs:
     def workload_instance_properties(self, value: Optional[pulumi.Input['WorkloadInstanceModelPropertiesArgs']]):
         pulumi.set(self, "workload_instance_properties", value)
 
+
+if not MYPY:
+    class WorkloadInstanceModelPropertiesArgsDict(TypedDict):
+        """
+        Workload instance model properties.
+        """
+        custom_properties: NotRequired[pulumi.Input[Union['ApacheTomcatWorkloadInstanceModelCustomPropertiesArgsDict', 'IISWorkloadInstanceModelCustomPropertiesArgsDict']]]
+        """
+        Workload instance model custom properties.
+        """
+        display_name: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the display name.
+        """
+        master_site_name: NotRequired[pulumi.Input[str]]
+        """
+        Gets or Sets the master site name.
+        """
+        migrate_agent_id: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the migrate agent id associated with the workload instance.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the workload instance name.
+        """
+        source_name: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the source name.
+        """
+        source_platform: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the source platform.
+        """
+elif False:
+    WorkloadInstanceModelPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WorkloadInstanceModelPropertiesArgs:

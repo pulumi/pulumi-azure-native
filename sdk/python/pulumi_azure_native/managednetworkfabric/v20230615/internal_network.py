@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -319,14 +324,14 @@ class InternalNetwork(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  annotation: Optional[pulumi.Input[str]] = None,
-                 bgp_configuration: Optional[pulumi.Input[pulumi.InputType['InternalNetworkPropertiesBgpConfigurationArgs']]] = None,
-                 connected_i_pv4_subnets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConnectedSubnetArgs']]]]] = None,
-                 connected_i_pv6_subnets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConnectedSubnetArgs']]]]] = None,
+                 bgp_configuration: Optional[pulumi.Input[Union['InternalNetworkPropertiesBgpConfigurationArgs', 'InternalNetworkPropertiesBgpConfigurationArgsDict']]] = None,
+                 connected_i_pv4_subnets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ConnectedSubnetArgs', 'ConnectedSubnetArgsDict']]]]] = None,
+                 connected_i_pv6_subnets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ConnectedSubnetArgs', 'ConnectedSubnetArgsDict']]]]] = None,
                  egress_acl_id: Optional[pulumi.Input[str]] = None,
-                 export_route_policy: Optional[pulumi.Input[pulumi.InputType['ExportRoutePolicyArgs']]] = None,
+                 export_route_policy: Optional[pulumi.Input[Union['ExportRoutePolicyArgs', 'ExportRoutePolicyArgsDict']]] = None,
                  export_route_policy_id: Optional[pulumi.Input[str]] = None,
                  extension: Optional[pulumi.Input[Union[str, 'Extension']]] = None,
-                 import_route_policy: Optional[pulumi.Input[pulumi.InputType['ImportRoutePolicyArgs']]] = None,
+                 import_route_policy: Optional[pulumi.Input[Union['ImportRoutePolicyArgs', 'ImportRoutePolicyArgsDict']]] = None,
                  import_route_policy_id: Optional[pulumi.Input[str]] = None,
                  ingress_acl_id: Optional[pulumi.Input[str]] = None,
                  internal_network_name: Optional[pulumi.Input[str]] = None,
@@ -334,7 +339,7 @@ class InternalNetwork(pulumi.CustomResource):
                  l3_isolation_domain_name: Optional[pulumi.Input[str]] = None,
                  mtu: Optional[pulumi.Input[int]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 static_route_configuration: Optional[pulumi.Input[pulumi.InputType['InternalNetworkPropertiesStaticRouteConfigurationArgs']]] = None,
+                 static_route_configuration: Optional[pulumi.Input[Union['InternalNetworkPropertiesStaticRouteConfigurationArgs', 'InternalNetworkPropertiesStaticRouteConfigurationArgsDict']]] = None,
                  vlan_id: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         """
@@ -343,14 +348,14 @@ class InternalNetwork(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] annotation: Switch configuration description.
-        :param pulumi.Input[pulumi.InputType['InternalNetworkPropertiesBgpConfigurationArgs']] bgp_configuration: BGP configuration properties.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConnectedSubnetArgs']]]] connected_i_pv4_subnets: List of Connected IPv4 Subnets.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConnectedSubnetArgs']]]] connected_i_pv6_subnets: List of connected IPv6 Subnets.
+        :param pulumi.Input[Union['InternalNetworkPropertiesBgpConfigurationArgs', 'InternalNetworkPropertiesBgpConfigurationArgsDict']] bgp_configuration: BGP configuration properties.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ConnectedSubnetArgs', 'ConnectedSubnetArgsDict']]]] connected_i_pv4_subnets: List of Connected IPv4 Subnets.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ConnectedSubnetArgs', 'ConnectedSubnetArgsDict']]]] connected_i_pv6_subnets: List of connected IPv6 Subnets.
         :param pulumi.Input[str] egress_acl_id: Egress Acl. ARM resource ID of Access Control Lists.
-        :param pulumi.Input[pulumi.InputType['ExportRoutePolicyArgs']] export_route_policy: Export Route Policy either IPv4 or IPv6.
+        :param pulumi.Input[Union['ExportRoutePolicyArgs', 'ExportRoutePolicyArgsDict']] export_route_policy: Export Route Policy either IPv4 or IPv6.
         :param pulumi.Input[str] export_route_policy_id: ARM Resource ID of the RoutePolicy. This is used for the backward compatibility.
         :param pulumi.Input[Union[str, 'Extension']] extension: Extension. Example: NoExtension | NPB.
-        :param pulumi.Input[pulumi.InputType['ImportRoutePolicyArgs']] import_route_policy: Import Route Policy either IPv4 or IPv6.
+        :param pulumi.Input[Union['ImportRoutePolicyArgs', 'ImportRoutePolicyArgsDict']] import_route_policy: Import Route Policy either IPv4 or IPv6.
         :param pulumi.Input[str] import_route_policy_id: ARM Resource ID of the RoutePolicy. This is used for the backward compatibility.
         :param pulumi.Input[str] ingress_acl_id: Ingress Acl. ARM resource ID of Access Control Lists.
         :param pulumi.Input[str] internal_network_name: Name of the Internal Network.
@@ -358,7 +363,7 @@ class InternalNetwork(pulumi.CustomResource):
         :param pulumi.Input[str] l3_isolation_domain_name: Name of the L3 Isolation Domain.
         :param pulumi.Input[int] mtu: Maximum transmission unit. Default value is 1500.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[pulumi.InputType['InternalNetworkPropertiesStaticRouteConfigurationArgs']] static_route_configuration: Static Route Configuration properties.
+        :param pulumi.Input[Union['InternalNetworkPropertiesStaticRouteConfigurationArgs', 'InternalNetworkPropertiesStaticRouteConfigurationArgsDict']] static_route_configuration: Static Route Configuration properties.
         :param pulumi.Input[int] vlan_id: Vlan identifier. Example: 1001.
         """
         ...
@@ -386,14 +391,14 @@ class InternalNetwork(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  annotation: Optional[pulumi.Input[str]] = None,
-                 bgp_configuration: Optional[pulumi.Input[pulumi.InputType['InternalNetworkPropertiesBgpConfigurationArgs']]] = None,
-                 connected_i_pv4_subnets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConnectedSubnetArgs']]]]] = None,
-                 connected_i_pv6_subnets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConnectedSubnetArgs']]]]] = None,
+                 bgp_configuration: Optional[pulumi.Input[Union['InternalNetworkPropertiesBgpConfigurationArgs', 'InternalNetworkPropertiesBgpConfigurationArgsDict']]] = None,
+                 connected_i_pv4_subnets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ConnectedSubnetArgs', 'ConnectedSubnetArgsDict']]]]] = None,
+                 connected_i_pv6_subnets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ConnectedSubnetArgs', 'ConnectedSubnetArgsDict']]]]] = None,
                  egress_acl_id: Optional[pulumi.Input[str]] = None,
-                 export_route_policy: Optional[pulumi.Input[pulumi.InputType['ExportRoutePolicyArgs']]] = None,
+                 export_route_policy: Optional[pulumi.Input[Union['ExportRoutePolicyArgs', 'ExportRoutePolicyArgsDict']]] = None,
                  export_route_policy_id: Optional[pulumi.Input[str]] = None,
                  extension: Optional[pulumi.Input[Union[str, 'Extension']]] = None,
-                 import_route_policy: Optional[pulumi.Input[pulumi.InputType['ImportRoutePolicyArgs']]] = None,
+                 import_route_policy: Optional[pulumi.Input[Union['ImportRoutePolicyArgs', 'ImportRoutePolicyArgsDict']]] = None,
                  import_route_policy_id: Optional[pulumi.Input[str]] = None,
                  ingress_acl_id: Optional[pulumi.Input[str]] = None,
                  internal_network_name: Optional[pulumi.Input[str]] = None,
@@ -401,7 +406,7 @@ class InternalNetwork(pulumi.CustomResource):
                  l3_isolation_domain_name: Optional[pulumi.Input[str]] = None,
                  mtu: Optional[pulumi.Input[int]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 static_route_configuration: Optional[pulumi.Input[pulumi.InputType['InternalNetworkPropertiesStaticRouteConfigurationArgs']]] = None,
+                 static_route_configuration: Optional[pulumi.Input[Union['InternalNetworkPropertiesStaticRouteConfigurationArgs', 'InternalNetworkPropertiesStaticRouteConfigurationArgsDict']]] = None,
                  vlan_id: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

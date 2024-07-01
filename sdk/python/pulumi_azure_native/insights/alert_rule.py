@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -199,9 +204,9 @@ class AlertRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action: Optional[pulumi.Input[Union[pulumi.InputType['RuleEmailActionArgs'], pulumi.InputType['RuleWebhookActionArgs']]]] = None,
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union[pulumi.InputType['RuleEmailActionArgs'], pulumi.InputType['RuleWebhookActionArgs']]]]]] = None,
-                 condition: Optional[pulumi.Input[Union[pulumi.InputType['LocationThresholdRuleConditionArgs'], pulumi.InputType['ManagementEventRuleConditionArgs'], pulumi.InputType['ThresholdRuleConditionArgs']]]] = None,
+                 action: Optional[pulumi.Input[Union[Union['RuleEmailActionArgs', 'RuleEmailActionArgsDict'], Union['RuleWebhookActionArgs', 'RuleWebhookActionArgsDict']]]] = None,
+                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union[Union['RuleEmailActionArgs', 'RuleEmailActionArgsDict'], Union['RuleWebhookActionArgs', 'RuleWebhookActionArgsDict']]]]]] = None,
+                 condition: Optional[pulumi.Input[Union[Union['LocationThresholdRuleConditionArgs', 'LocationThresholdRuleConditionArgsDict'], Union['ManagementEventRuleConditionArgs', 'ManagementEventRuleConditionArgsDict'], Union['ThresholdRuleConditionArgs', 'ThresholdRuleConditionArgsDict']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  is_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -217,9 +222,9 @@ class AlertRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union[pulumi.InputType['RuleEmailActionArgs'], pulumi.InputType['RuleWebhookActionArgs']]] action: action that is performed when the alert rule becomes active, and when an alert condition is resolved.
-        :param pulumi.Input[Sequence[pulumi.Input[Union[pulumi.InputType['RuleEmailActionArgs'], pulumi.InputType['RuleWebhookActionArgs']]]]] actions: the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
-        :param pulumi.Input[Union[pulumi.InputType['LocationThresholdRuleConditionArgs'], pulumi.InputType['ManagementEventRuleConditionArgs'], pulumi.InputType['ThresholdRuleConditionArgs']]] condition: the condition that results in the alert rule being activated.
+        :param pulumi.Input[Union[Union['RuleEmailActionArgs', 'RuleEmailActionArgsDict'], Union['RuleWebhookActionArgs', 'RuleWebhookActionArgsDict']]] action: action that is performed when the alert rule becomes active, and when an alert condition is resolved.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[Union['RuleEmailActionArgs', 'RuleEmailActionArgsDict'], Union['RuleWebhookActionArgs', 'RuleWebhookActionArgsDict']]]]] actions: the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
+        :param pulumi.Input[Union[Union['LocationThresholdRuleConditionArgs', 'LocationThresholdRuleConditionArgsDict'], Union['ManagementEventRuleConditionArgs', 'ManagementEventRuleConditionArgsDict'], Union['ThresholdRuleConditionArgs', 'ThresholdRuleConditionArgsDict']]] condition: the condition that results in the alert rule being activated.
         :param pulumi.Input[str] description: the description of the alert rule that will be included in the alert email.
         :param pulumi.Input[bool] is_enabled: the flag that indicates whether the alert rule is enabled.
         :param pulumi.Input[str] location: Resource location
@@ -254,9 +259,9 @@ class AlertRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action: Optional[pulumi.Input[Union[pulumi.InputType['RuleEmailActionArgs'], pulumi.InputType['RuleWebhookActionArgs']]]] = None,
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union[pulumi.InputType['RuleEmailActionArgs'], pulumi.InputType['RuleWebhookActionArgs']]]]]] = None,
-                 condition: Optional[pulumi.Input[Union[pulumi.InputType['LocationThresholdRuleConditionArgs'], pulumi.InputType['ManagementEventRuleConditionArgs'], pulumi.InputType['ThresholdRuleConditionArgs']]]] = None,
+                 action: Optional[pulumi.Input[Union[Union['RuleEmailActionArgs', 'RuleEmailActionArgsDict'], Union['RuleWebhookActionArgs', 'RuleWebhookActionArgsDict']]]] = None,
+                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union[Union['RuleEmailActionArgs', 'RuleEmailActionArgsDict'], Union['RuleWebhookActionArgs', 'RuleWebhookActionArgsDict']]]]]] = None,
+                 condition: Optional[pulumi.Input[Union[Union['LocationThresholdRuleConditionArgs', 'LocationThresholdRuleConditionArgsDict'], Union['ManagementEventRuleConditionArgs', 'ManagementEventRuleConditionArgsDict'], Union['ThresholdRuleConditionArgs', 'ThresholdRuleConditionArgsDict']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  is_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,

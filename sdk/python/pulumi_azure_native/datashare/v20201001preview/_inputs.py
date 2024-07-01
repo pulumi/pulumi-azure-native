@@ -4,16 +4,45 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'ADLSGen2StorageAccountPathArgs',
+    'ADLSGen2StorageAccountPathArgsDict',
     'BlobStorageAccountPathArgs',
+    'BlobStorageAccountPathArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ADLSGen2StorageAccountPathArgsDict(TypedDict):
+        """
+        Defines a single ADLS Gen2 storage account path.
+        """
+        container_name: pulumi.Input[str]
+        """
+        Gets or sets the container name to share.
+        """
+        consumer_path: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the path on the consumer side where the dataset is to be mapped.
+        """
+        provider_path: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the path to file/folder within the container.
+        """
+elif False:
+    ADLSGen2StorageAccountPathArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ADLSGen2StorageAccountPathArgs:
@@ -69,6 +98,26 @@ class ADLSGen2StorageAccountPathArgs:
     def provider_path(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "provider_path", value)
 
+
+if not MYPY:
+    class BlobStorageAccountPathArgsDict(TypedDict):
+        """
+        Defines a single blob storage account path.
+        """
+        container_name: pulumi.Input[str]
+        """
+        Gets or sets the container name to share.
+        """
+        consumer_path: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the path on the consumer side where the dataset is to be mapped.
+        """
+        provider_path: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the path to file/folder within the container.
+        """
+elif False:
+    BlobStorageAccountPathArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class BlobStorageAccountPathArgs:

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -342,59 +347,59 @@ class SignalR(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cors: Optional[pulumi.Input[pulumi.InputType['SignalRCorsSettingsArgs']]] = None,
+                 cors: Optional[pulumi.Input[Union['SignalRCorsSettingsArgs', 'SignalRCorsSettingsArgsDict']]] = None,
                  disable_aad_auth: Optional[pulumi.Input[bool]] = None,
                  disable_local_auth: Optional[pulumi.Input[bool]] = None,
-                 features: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SignalRFeatureArgs']]]]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedIdentityArgs']]] = None,
+                 features: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SignalRFeatureArgs', 'SignalRFeatureArgsDict']]]]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedIdentityArgs', 'ManagedIdentityArgsDict']]] = None,
                  kind: Optional[pulumi.Input[Union[str, 'ServiceKind']]] = None,
-                 live_trace_configuration: Optional[pulumi.Input[pulumi.InputType['LiveTraceConfigurationArgs']]] = None,
+                 live_trace_configuration: Optional[pulumi.Input[Union['LiveTraceConfigurationArgs', 'LiveTraceConfigurationArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 network_acls: Optional[pulumi.Input[pulumi.InputType['SignalRNetworkACLsArgs']]] = None,
+                 network_acls: Optional[pulumi.Input[Union['SignalRNetworkACLsArgs', 'SignalRNetworkACLsArgsDict']]] = None,
                  public_network_access: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 resource_log_configuration: Optional[pulumi.Input[pulumi.InputType['ResourceLogConfigurationArgs']]] = None,
+                 resource_log_configuration: Optional[pulumi.Input[Union['ResourceLogConfigurationArgs', 'ResourceLogConfigurationArgsDict']]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
-                 serverless: Optional[pulumi.Input[pulumi.InputType['ServerlessSettingsArgs']]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['ResourceSkuArgs']]] = None,
+                 serverless: Optional[pulumi.Input[Union['ServerlessSettingsArgs', 'ServerlessSettingsArgsDict']]] = None,
+                 sku: Optional[pulumi.Input[Union['ResourceSkuArgs', 'ResourceSkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tls: Optional[pulumi.Input[pulumi.InputType['SignalRTlsSettingsArgs']]] = None,
-                 upstream: Optional[pulumi.Input[pulumi.InputType['ServerlessUpstreamSettingsArgs']]] = None,
+                 tls: Optional[pulumi.Input[Union['SignalRTlsSettingsArgs', 'SignalRTlsSettingsArgsDict']]] = None,
+                 upstream: Optional[pulumi.Input[Union['ServerlessUpstreamSettingsArgs', 'ServerlessUpstreamSettingsArgsDict']]] = None,
                  __props__=None):
         """
         A class represent a resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['SignalRCorsSettingsArgs']] cors: Cross-Origin Resource Sharing (CORS) settings.
+        :param pulumi.Input[Union['SignalRCorsSettingsArgs', 'SignalRCorsSettingsArgsDict']] cors: Cross-Origin Resource Sharing (CORS) settings.
         :param pulumi.Input[bool] disable_aad_auth: DisableLocalAuth
                Enable or disable aad auth
                When set as true, connection with AuthType=aad won't work.
         :param pulumi.Input[bool] disable_local_auth: DisableLocalAuth
                Enable or disable local auth with AccessKey
                When set as true, connection with AccessKey=xxx won't work.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SignalRFeatureArgs']]]] features: List of the featureFlags.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SignalRFeatureArgs', 'SignalRFeatureArgsDict']]]] features: List of the featureFlags.
                
                FeatureFlags that are not included in the parameters for the update operation will not be modified.
                And the response will only include featureFlags that are explicitly set. 
                When a featureFlag is not explicitly set, its globally default value will be used
                But keep in mind, the default value doesn't mean "false". It varies in terms of different FeatureFlags.
-        :param pulumi.Input[pulumi.InputType['ManagedIdentityArgs']] identity: A class represent managed identities used for request and response
+        :param pulumi.Input[Union['ManagedIdentityArgs', 'ManagedIdentityArgsDict']] identity: A class represent managed identities used for request and response
         :param pulumi.Input[Union[str, 'ServiceKind']] kind: The kind of the service
-        :param pulumi.Input[pulumi.InputType['LiveTraceConfigurationArgs']] live_trace_configuration: Live trace configuration of a Microsoft.SignalRService resource.
+        :param pulumi.Input[Union['LiveTraceConfigurationArgs', 'LiveTraceConfigurationArgsDict']] live_trace_configuration: Live trace configuration of a Microsoft.SignalRService resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[pulumi.InputType['SignalRNetworkACLsArgs']] network_acls: Network ACLs for the resource
+        :param pulumi.Input[Union['SignalRNetworkACLsArgs', 'SignalRNetworkACLsArgsDict']] network_acls: Network ACLs for the resource
         :param pulumi.Input[str] public_network_access: Enable or disable public network access. Default to "Enabled".
                When it's Enabled, network ACLs still apply.
                When it's Disabled, public network access is always disabled no matter what you set in network ACLs.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[pulumi.InputType['ResourceLogConfigurationArgs']] resource_log_configuration: Resource log configuration of a Microsoft.SignalRService resource.
+        :param pulumi.Input[Union['ResourceLogConfigurationArgs', 'ResourceLogConfigurationArgsDict']] resource_log_configuration: Resource log configuration of a Microsoft.SignalRService resource.
         :param pulumi.Input[str] resource_name_: The name of the resource.
-        :param pulumi.Input[pulumi.InputType['ServerlessSettingsArgs']] serverless: Serverless settings.
-        :param pulumi.Input[pulumi.InputType['ResourceSkuArgs']] sku: The billing information of the resource.
+        :param pulumi.Input[Union['ServerlessSettingsArgs', 'ServerlessSettingsArgsDict']] serverless: Serverless settings.
+        :param pulumi.Input[Union['ResourceSkuArgs', 'ResourceSkuArgsDict']] sku: The billing information of the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[pulumi.InputType['SignalRTlsSettingsArgs']] tls: TLS settings for the resource
-        :param pulumi.Input[pulumi.InputType['ServerlessUpstreamSettingsArgs']] upstream: The settings for the Upstream when the service is in server-less mode.
+        :param pulumi.Input[Union['SignalRTlsSettingsArgs', 'SignalRTlsSettingsArgsDict']] tls: TLS settings for the resource
+        :param pulumi.Input[Union['ServerlessUpstreamSettingsArgs', 'ServerlessUpstreamSettingsArgsDict']] upstream: The settings for the Upstream when the service is in server-less mode.
         """
         ...
     @overload
@@ -420,24 +425,24 @@ class SignalR(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cors: Optional[pulumi.Input[pulumi.InputType['SignalRCorsSettingsArgs']]] = None,
+                 cors: Optional[pulumi.Input[Union['SignalRCorsSettingsArgs', 'SignalRCorsSettingsArgsDict']]] = None,
                  disable_aad_auth: Optional[pulumi.Input[bool]] = None,
                  disable_local_auth: Optional[pulumi.Input[bool]] = None,
-                 features: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SignalRFeatureArgs']]]]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedIdentityArgs']]] = None,
+                 features: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SignalRFeatureArgs', 'SignalRFeatureArgsDict']]]]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedIdentityArgs', 'ManagedIdentityArgsDict']]] = None,
                  kind: Optional[pulumi.Input[Union[str, 'ServiceKind']]] = None,
-                 live_trace_configuration: Optional[pulumi.Input[pulumi.InputType['LiveTraceConfigurationArgs']]] = None,
+                 live_trace_configuration: Optional[pulumi.Input[Union['LiveTraceConfigurationArgs', 'LiveTraceConfigurationArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 network_acls: Optional[pulumi.Input[pulumi.InputType['SignalRNetworkACLsArgs']]] = None,
+                 network_acls: Optional[pulumi.Input[Union['SignalRNetworkACLsArgs', 'SignalRNetworkACLsArgsDict']]] = None,
                  public_network_access: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 resource_log_configuration: Optional[pulumi.Input[pulumi.InputType['ResourceLogConfigurationArgs']]] = None,
+                 resource_log_configuration: Optional[pulumi.Input[Union['ResourceLogConfigurationArgs', 'ResourceLogConfigurationArgsDict']]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
-                 serverless: Optional[pulumi.Input[pulumi.InputType['ServerlessSettingsArgs']]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['ResourceSkuArgs']]] = None,
+                 serverless: Optional[pulumi.Input[Union['ServerlessSettingsArgs', 'ServerlessSettingsArgsDict']]] = None,
+                 sku: Optional[pulumi.Input[Union['ResourceSkuArgs', 'ResourceSkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tls: Optional[pulumi.Input[pulumi.InputType['SignalRTlsSettingsArgs']]] = None,
-                 upstream: Optional[pulumi.Input[pulumi.InputType['ServerlessUpstreamSettingsArgs']]] = None,
+                 tls: Optional[pulumi.Input[Union['SignalRTlsSettingsArgs', 'SignalRTlsSettingsArgsDict']]] = None,
+                 upstream: Optional[pulumi.Input[Union['ServerlessUpstreamSettingsArgs', 'ServerlessUpstreamSettingsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

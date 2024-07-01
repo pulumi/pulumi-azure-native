@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -122,10 +127,10 @@ class DefenderForStorage(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  is_enabled: Optional[pulumi.Input[bool]] = None,
-                 malware_scanning: Optional[pulumi.Input[pulumi.InputType['MalwareScanningPropertiesArgs']]] = None,
+                 malware_scanning: Optional[pulumi.Input[Union['MalwareScanningPropertiesArgs', 'MalwareScanningPropertiesArgsDict']]] = None,
                  override_subscription_level_settings: Optional[pulumi.Input[bool]] = None,
                  resource_id: Optional[pulumi.Input[str]] = None,
-                 sensitive_data_discovery: Optional[pulumi.Input[pulumi.InputType['SensitiveDataDiscoveryPropertiesArgs']]] = None,
+                 sensitive_data_discovery: Optional[pulumi.Input[Union['SensitiveDataDiscoveryPropertiesArgs', 'SensitiveDataDiscoveryPropertiesArgsDict']]] = None,
                  setting_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -134,10 +139,10 @@ class DefenderForStorage(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] is_enabled: Indicates whether Defender for Storage is enabled on this storage account.
-        :param pulumi.Input[pulumi.InputType['MalwareScanningPropertiesArgs']] malware_scanning: Properties of Malware Scanning.
+        :param pulumi.Input[Union['MalwareScanningPropertiesArgs', 'MalwareScanningPropertiesArgsDict']] malware_scanning: Properties of Malware Scanning.
         :param pulumi.Input[bool] override_subscription_level_settings: Indicates whether the settings defined for this storage account should override the settings defined for the subscription.
         :param pulumi.Input[str] resource_id: The identifier of the resource.
-        :param pulumi.Input[pulumi.InputType['SensitiveDataDiscoveryPropertiesArgs']] sensitive_data_discovery: Properties of Sensitive Data Discovery.
+        :param pulumi.Input[Union['SensitiveDataDiscoveryPropertiesArgs', 'SensitiveDataDiscoveryPropertiesArgsDict']] sensitive_data_discovery: Properties of Sensitive Data Discovery.
         :param pulumi.Input[str] setting_name: Defender for Storage setting name.
         """
         ...
@@ -165,10 +170,10 @@ class DefenderForStorage(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  is_enabled: Optional[pulumi.Input[bool]] = None,
-                 malware_scanning: Optional[pulumi.Input[pulumi.InputType['MalwareScanningPropertiesArgs']]] = None,
+                 malware_scanning: Optional[pulumi.Input[Union['MalwareScanningPropertiesArgs', 'MalwareScanningPropertiesArgsDict']]] = None,
                  override_subscription_level_settings: Optional[pulumi.Input[bool]] = None,
                  resource_id: Optional[pulumi.Input[str]] = None,
-                 sensitive_data_discovery: Optional[pulumi.Input[pulumi.InputType['SensitiveDataDiscoveryPropertiesArgs']]] = None,
+                 sensitive_data_discovery: Optional[pulumi.Input[Union['SensitiveDataDiscoveryPropertiesArgs', 'SensitiveDataDiscoveryPropertiesArgsDict']]] = None,
                  setting_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

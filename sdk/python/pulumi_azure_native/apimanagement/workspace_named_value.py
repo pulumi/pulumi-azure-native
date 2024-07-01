@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -167,7 +172,7 @@ class WorkspaceNamedValue(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 key_vault: Optional[pulumi.Input[pulumi.InputType['KeyVaultContractCreatePropertiesArgs']]] = None,
+                 key_vault: Optional[pulumi.Input[Union['KeyVaultContractCreatePropertiesArgs', 'KeyVaultContractCreatePropertiesArgsDict']]] = None,
                  named_value_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  secret: Optional[pulumi.Input[bool]] = None,
@@ -185,7 +190,7 @@ class WorkspaceNamedValue(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] display_name: Unique name of NamedValue. It may contain only letters, digits, period, dash, and underscore characters.
-        :param pulumi.Input[pulumi.InputType['KeyVaultContractCreatePropertiesArgs']] key_vault: KeyVault location details of the namedValue.
+        :param pulumi.Input[Union['KeyVaultContractCreatePropertiesArgs', 'KeyVaultContractCreatePropertiesArgsDict']] key_vault: KeyVault location details of the namedValue.
         :param pulumi.Input[str] named_value_id: Identifier of the NamedValue.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[bool] secret: Determines whether the value is a secret and should be encrypted or not. Default value is false.
@@ -222,7 +227,7 @@ class WorkspaceNamedValue(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 key_vault: Optional[pulumi.Input[pulumi.InputType['KeyVaultContractCreatePropertiesArgs']]] = None,
+                 key_vault: Optional[pulumi.Input[Union['KeyVaultContractCreatePropertiesArgs', 'KeyVaultContractCreatePropertiesArgsDict']]] = None,
                  named_value_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  secret: Optional[pulumi.Input[bool]] = None,

@@ -4,17 +4,47 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'AADBasedSecurityPrincipalArgs',
+    'AADBasedSecurityPrincipalArgsDict',
     'CertBasedSecurityPrincipalArgs',
+    'CertBasedSecurityPrincipalArgsDict',
     'LedgerPropertiesArgs',
+    'LedgerPropertiesArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AADBasedSecurityPrincipalArgsDict(TypedDict):
+        """
+        AAD based security principal with associated Ledger RoleName
+        """
+        ledger_role_name: NotRequired[pulumi.Input[Union[str, 'LedgerRoleName']]]
+        """
+        LedgerRole associated with the Security Principal of Ledger
+        """
+        principal_id: NotRequired[pulumi.Input[str]]
+        """
+        UUID/GUID based Principal Id of the Security Principal
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        UUID/GUID based Tenant Id of the Security Principal
+        """
+elif False:
+    AADBasedSecurityPrincipalArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AADBasedSecurityPrincipalArgs:
@@ -72,6 +102,22 @@ class AADBasedSecurityPrincipalArgs:
         pulumi.set(self, "tenant_id", value)
 
 
+if not MYPY:
+    class CertBasedSecurityPrincipalArgsDict(TypedDict):
+        """
+        Cert based security principal with Ledger RoleName
+        """
+        cert: NotRequired[pulumi.Input[str]]
+        """
+        Public key of the user cert (.pem or .cer)
+        """
+        ledger_role_name: NotRequired[pulumi.Input[Union[str, 'LedgerRoleName']]]
+        """
+        LedgerRole associated with the Security Principal of Ledger
+        """
+elif False:
+    CertBasedSecurityPrincipalArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CertBasedSecurityPrincipalArgs:
     def __init__(__self__, *,
@@ -111,6 +157,26 @@ class CertBasedSecurityPrincipalArgs:
     def ledger_role_name(self, value: Optional[pulumi.Input[Union[str, 'LedgerRoleName']]]):
         pulumi.set(self, "ledger_role_name", value)
 
+
+if not MYPY:
+    class LedgerPropertiesArgsDict(TypedDict):
+        """
+        Additional Confidential Ledger properties.
+        """
+        aad_based_security_principals: NotRequired[pulumi.Input[Sequence[pulumi.Input['AADBasedSecurityPrincipalArgsDict']]]]
+        """
+        Array of all AAD based Security Principals.
+        """
+        cert_based_security_principals: NotRequired[pulumi.Input[Sequence[pulumi.Input['CertBasedSecurityPrincipalArgsDict']]]]
+        """
+        Array of all cert based Security Principals.
+        """
+        ledger_type: NotRequired[pulumi.Input[Union[str, 'LedgerType']]]
+        """
+        Type of Confidential Ledger
+        """
+elif False:
+    LedgerPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LedgerPropertiesArgs:

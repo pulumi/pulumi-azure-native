@@ -4,25 +4,87 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'DatadogOrganizationPropertiesArgs',
+    'DatadogOrganizationPropertiesArgsDict',
     'FilteringTagArgs',
+    'FilteringTagArgsDict',
     'IdentityPropertiesArgs',
+    'IdentityPropertiesArgsDict',
     'LogRulesArgs',
+    'LogRulesArgsDict',
     'MetricRulesArgs',
+    'MetricRulesArgsDict',
     'MonitorPropertiesArgs',
+    'MonitorPropertiesArgsDict',
     'MonitoredSubscriptionArgs',
+    'MonitoredSubscriptionArgsDict',
     'MonitoringTagRulesPropertiesArgs',
+    'MonitoringTagRulesPropertiesArgsDict',
     'ResourceSkuArgs',
+    'ResourceSkuArgsDict',
     'SubscriptionListArgs',
+    'SubscriptionListArgsDict',
     'UserInfoArgs',
+    'UserInfoArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class DatadogOrganizationPropertiesArgsDict(TypedDict):
+        """
+        Specify the Datadog organization name. In the case of linking to existing organizations, Id, ApiKey, and Applicationkey is required as well.
+        """
+        api_key: NotRequired[pulumi.Input[str]]
+        """
+        Api key associated to the Datadog organization.
+        """
+        application_key: NotRequired[pulumi.Input[str]]
+        """
+        Application key associated to the Datadog organization.
+        """
+        cspm: NotRequired[pulumi.Input[bool]]
+        """
+        The configuration which describes the state of cloud security posture management. This collects configuration information for all resources in a subscription and track conformance to industry benchmarks.
+        """
+        enterprise_app_id: NotRequired[pulumi.Input[str]]
+        """
+        The Id of the Enterprise App used for Single sign on.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Id of the Datadog organization.
+        """
+        linking_auth_code: NotRequired[pulumi.Input[str]]
+        """
+        The auth code used to linking to an existing Datadog organization.
+        """
+        linking_client_id: NotRequired[pulumi.Input[str]]
+        """
+        The client_id from an existing in exchange for an auth token to link organization.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the Datadog organization.
+        """
+        redirect_uri: NotRequired[pulumi.Input[str]]
+        """
+        The redirect URI for linking.
+        """
+elif False:
+    DatadogOrganizationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DatadogOrganizationPropertiesArgs:
@@ -176,6 +238,26 @@ class DatadogOrganizationPropertiesArgs:
         pulumi.set(self, "redirect_uri", value)
 
 
+if not MYPY:
+    class FilteringTagArgsDict(TypedDict):
+        """
+        The definition of a filtering tag. Filtering tags are used for capturing resources and include/exclude them from being monitored.
+        """
+        action: NotRequired[pulumi.Input[Union[str, 'TagAction']]]
+        """
+        Valid actions for a filtering tag. Exclusion takes priority over inclusion.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name (also known as the key) of the tag.
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        The value of the tag.
+        """
+elif False:
+    FilteringTagArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FilteringTagArgs:
     def __init__(__self__, *,
@@ -232,6 +314,15 @@ class FilteringTagArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class IdentityPropertiesArgsDict(TypedDict):
+        type: NotRequired[pulumi.Input[Union[str, 'ManagedIdentityTypes']]]
+        """
+        Specifies the identity type of the Datadog Monitor. At this time the only allowed value is 'SystemAssigned'.
+        """
+elif False:
+    IdentityPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IdentityPropertiesArgs:
     def __init__(__self__, *,
@@ -254,6 +345,30 @@ class IdentityPropertiesArgs:
     def type(self, value: Optional[pulumi.Input[Union[str, 'ManagedIdentityTypes']]]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class LogRulesArgsDict(TypedDict):
+        """
+        Set of rules for sending logs for the Monitor resource.
+        """
+        filtering_tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilteringTagArgsDict']]]]
+        """
+        List of filtering tags to be used for capturing logs. This only takes effect if SendResourceLogs flag is enabled. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.
+        """
+        send_aad_logs: NotRequired[pulumi.Input[bool]]
+        """
+        Flag specifying if AAD logs should be sent for the Monitor resource.
+        """
+        send_resource_logs: NotRequired[pulumi.Input[bool]]
+        """
+        Flag specifying if Azure resource logs should be sent for the Monitor resource.
+        """
+        send_subscription_logs: NotRequired[pulumi.Input[bool]]
+        """
+        Flag specifying if Azure subscription logs should be sent for the Monitor resource.
+        """
+elif False:
+    LogRulesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LogRulesArgs:
@@ -327,6 +442,18 @@ class LogRulesArgs:
         pulumi.set(self, "send_subscription_logs", value)
 
 
+if not MYPY:
+    class MetricRulesArgsDict(TypedDict):
+        """
+        Set of rules for sending metrics for the Monitor resource.
+        """
+        filtering_tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilteringTagArgsDict']]]]
+        """
+        List of filtering tags to be used for capturing metrics. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.
+        """
+elif False:
+    MetricRulesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MetricRulesArgs:
     def __init__(__self__, *,
@@ -350,6 +477,26 @@ class MetricRulesArgs:
     def filtering_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FilteringTagArgs']]]]):
         pulumi.set(self, "filtering_tags", value)
 
+
+if not MYPY:
+    class MonitorPropertiesArgsDict(TypedDict):
+        """
+        Properties specific to the monitor resource.
+        """
+        datadog_organization_properties: NotRequired[pulumi.Input['DatadogOrganizationPropertiesArgsDict']]
+        """
+        Specify the Datadog organization name. In the case of linking to existing organizations, Id, ApiKey, and Applicationkey is required as well.
+        """
+        monitoring_status: NotRequired[pulumi.Input[Union[str, 'MonitoringStatus']]]
+        """
+        Flag specifying if the resource monitoring is enabled or disabled.
+        """
+        user_info: NotRequired[pulumi.Input['UserInfoArgsDict']]
+        """
+        Includes name, email and optionally, phone number. User Information can't be null.
+        """
+elif False:
+    MonitorPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MonitorPropertiesArgs:
@@ -406,6 +553,30 @@ class MonitorPropertiesArgs:
     def user_info(self, value: Optional[pulumi.Input['UserInfoArgs']]):
         pulumi.set(self, "user_info", value)
 
+
+if not MYPY:
+    class MonitoredSubscriptionArgsDict(TypedDict):
+        """
+        The list of subscriptions and it's monitoring status by current Datadog monitor.
+        """
+        error: NotRequired[pulumi.Input[str]]
+        """
+        The reason of not monitoring the subscription.
+        """
+        status: NotRequired[pulumi.Input[Union[str, 'Status']]]
+        """
+        The state of monitoring.
+        """
+        subscription_id: NotRequired[pulumi.Input[str]]
+        """
+        The subscriptionId to be monitored.
+        """
+        tag_rules: NotRequired[pulumi.Input['MonitoringTagRulesPropertiesArgsDict']]
+        """
+        Definition of the properties for a TagRules resource.
+        """
+elif False:
+    MonitoredSubscriptionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MonitoredSubscriptionArgs:
@@ -479,6 +650,26 @@ class MonitoredSubscriptionArgs:
         pulumi.set(self, "tag_rules", value)
 
 
+if not MYPY:
+    class MonitoringTagRulesPropertiesArgsDict(TypedDict):
+        """
+        Definition of the properties for a TagRules resource.
+        """
+        automuting: NotRequired[pulumi.Input[bool]]
+        """
+        Configuration to enable/disable auto-muting flag
+        """
+        log_rules: NotRequired[pulumi.Input['LogRulesArgsDict']]
+        """
+        Set of rules for sending logs for the Monitor resource.
+        """
+        metric_rules: NotRequired[pulumi.Input['MetricRulesArgsDict']]
+        """
+        Set of rules for sending metrics for the Monitor resource.
+        """
+elif False:
+    MonitoringTagRulesPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MonitoringTagRulesPropertiesArgs:
     def __init__(__self__, *,
@@ -535,6 +726,15 @@ class MonitoringTagRulesPropertiesArgs:
         pulumi.set(self, "metric_rules", value)
 
 
+if not MYPY:
+    class ResourceSkuArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        Name of the SKU in {PlanId} format. For Terraform, the only allowed value is 'linking'.
+        """
+elif False:
+    ResourceSkuArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ResourceSkuArgs:
     def __init__(__self__, *,
@@ -556,6 +756,22 @@ class ResourceSkuArgs:
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class SubscriptionListArgsDict(TypedDict):
+        """
+        The request to update subscriptions needed to be monitored by the Datadog monitor resource.
+        """
+        monitored_subscription_list: NotRequired[pulumi.Input[Sequence[pulumi.Input['MonitoredSubscriptionArgsDict']]]]
+        """
+        List of subscriptions and the state of the monitoring.
+        """
+        operation: NotRequired[pulumi.Input[Union[str, 'Operation']]]
+        """
+        The operation for the patch on the resource.
+        """
+elif False:
+    SubscriptionListArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SubscriptionListArgs:
@@ -596,6 +812,26 @@ class SubscriptionListArgs:
     def operation(self, value: Optional[pulumi.Input[Union[str, 'Operation']]]):
         pulumi.set(self, "operation", value)
 
+
+if not MYPY:
+    class UserInfoArgsDict(TypedDict):
+        """
+        Includes name, email and optionally, phone number. User Information can't be null.
+        """
+        email_address: NotRequired[pulumi.Input[str]]
+        """
+        Email of the user used by Datadog for contacting them if needed
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the user
+        """
+        phone_number: NotRequired[pulumi.Input[str]]
+        """
+        Phone number of the user used by Datadog for contacting them if needed
+        """
+elif False:
+    UserInfoArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserInfoArgs:

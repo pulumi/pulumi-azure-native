@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -101,9 +106,9 @@ class PrivateEndpointConnection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 private_endpoint: Optional[pulumi.Input[pulumi.InputType['PrivateEndpointPropertyArgs']]] = None,
+                 private_endpoint: Optional[pulumi.Input[Union['PrivateEndpointPropertyArgs', 'PrivateEndpointPropertyArgsDict']]] = None,
                  private_endpoint_connection_name: Optional[pulumi.Input[str]] = None,
-                 private_link_service_connection_state: Optional[pulumi.Input[pulumi.InputType['PrivateLinkServiceConnectionStatePropertyArgs']]] = None,
+                 private_link_service_connection_state: Optional[pulumi.Input[Union['PrivateLinkServiceConnectionStatePropertyArgs', 'PrivateLinkServiceConnectionStatePropertyArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -115,8 +120,8 @@ class PrivateEndpointConnection(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['PrivateEndpointPropertyArgs']] private_endpoint: Private endpoint which the connection belongs to.
-        :param pulumi.Input[pulumi.InputType['PrivateLinkServiceConnectionStatePropertyArgs']] private_link_service_connection_state: Connection state of the private endpoint connection.
+        :param pulumi.Input[Union['PrivateEndpointPropertyArgs', 'PrivateEndpointPropertyArgsDict']] private_endpoint: Private endpoint which the connection belongs to.
+        :param pulumi.Input[Union['PrivateLinkServiceConnectionStatePropertyArgs', 'PrivateLinkServiceConnectionStatePropertyArgsDict']] private_link_service_connection_state: Connection state of the private endpoint connection.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] server_name: The name of the server.
         """
@@ -147,9 +152,9 @@ class PrivateEndpointConnection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 private_endpoint: Optional[pulumi.Input[pulumi.InputType['PrivateEndpointPropertyArgs']]] = None,
+                 private_endpoint: Optional[pulumi.Input[Union['PrivateEndpointPropertyArgs', 'PrivateEndpointPropertyArgsDict']]] = None,
                  private_endpoint_connection_name: Optional[pulumi.Input[str]] = None,
-                 private_link_service_connection_state: Optional[pulumi.Input[pulumi.InputType['PrivateLinkServiceConnectionStatePropertyArgs']]] = None,
+                 private_link_service_connection_state: Optional[pulumi.Input[Union['PrivateLinkServiceConnectionStatePropertyArgs', 'PrivateLinkServiceConnectionStatePropertyArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):

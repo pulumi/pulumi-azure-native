@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -202,9 +207,9 @@ class Package(pulumi.CustomResource):
                  package_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 target_os_list: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TargetOSInfoArgs']]]]] = None,
+                 target_os_list: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TargetOSInfoArgs', 'TargetOSInfoArgsDict']]]]] = None,
                  test_base_account_name: Optional[pulumi.Input[str]] = None,
-                 tests: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TestArgs']]]]] = None,
+                 tests: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TestArgs', 'TestArgsDict']]]]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -219,9 +224,9 @@ class Package(pulumi.CustomResource):
         :param pulumi.Input[str] package_name: The resource name of the Test Base Package.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TargetOSInfoArgs']]]] target_os_list: Specifies the target OSs of specific OS Update types.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TargetOSInfoArgs', 'TargetOSInfoArgsDict']]]] target_os_list: Specifies the target OSs of specific OS Update types.
         :param pulumi.Input[str] test_base_account_name: The resource name of the Test Base Account.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TestArgs']]]] tests: The detailed test information.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TestArgs', 'TestArgsDict']]]] tests: The detailed test information.
         :param pulumi.Input[str] version: Application version
         """
         ...
@@ -255,9 +260,9 @@ class Package(pulumi.CustomResource):
                  package_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 target_os_list: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TargetOSInfoArgs']]]]] = None,
+                 target_os_list: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TargetOSInfoArgs', 'TargetOSInfoArgsDict']]]]] = None,
                  test_base_account_name: Optional[pulumi.Input[str]] = None,
-                 tests: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TestArgs']]]]] = None,
+                 tests: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TestArgs', 'TestArgsDict']]]]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

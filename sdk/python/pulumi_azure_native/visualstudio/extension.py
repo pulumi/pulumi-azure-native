@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -139,7 +144,7 @@ class Extension(pulumi.CustomResource):
                  account_resource_name: Optional[pulumi.Input[str]] = None,
                  extension_resource_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 plan: Optional[pulumi.Input[pulumi.InputType['ExtensionResourcePlanArgs']]] = None,
+                 plan: Optional[pulumi.Input[Union['ExtensionResourcePlanArgs', 'ExtensionResourcePlanArgsDict']]] = None,
                  properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -153,7 +158,7 @@ class Extension(pulumi.CustomResource):
         :param pulumi.Input[str] account_resource_name: The name of the Visual Studio Team Services account resource.
         :param pulumi.Input[str] extension_resource_name: The name of the extension.
         :param pulumi.Input[str] location: The Azure region of the Visual Studio account associated with this request (i.e 'southcentralus'.)
-        :param pulumi.Input[pulumi.InputType['ExtensionResourcePlanArgs']] plan: Extended information about the plan being purchased for this extension resource.
+        :param pulumi.Input[Union['ExtensionResourcePlanArgs', 'ExtensionResourcePlanArgsDict']] plan: Extended information about the plan being purchased for this extension resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: A dictionary of extended properties. This property is currently unused.
         :param pulumi.Input[str] resource_group_name: Name of the resource group within the Azure subscription.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A dictionary of user-defined tags to be stored with the extension resource.
@@ -186,7 +191,7 @@ class Extension(pulumi.CustomResource):
                  account_resource_name: Optional[pulumi.Input[str]] = None,
                  extension_resource_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 plan: Optional[pulumi.Input[pulumi.InputType['ExtensionResourcePlanArgs']]] = None,
+                 plan: Optional[pulumi.Input[Union['ExtensionResourcePlanArgs', 'ExtensionResourcePlanArgsDict']]] = None,
                  properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,

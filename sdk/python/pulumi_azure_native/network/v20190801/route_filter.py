@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -157,12 +162,12 @@ class RouteFilter(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  id: Optional[pulumi.Input[str]] = None,
-                 ipv6_peerings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExpressRouteCircuitPeeringArgs']]]]] = None,
+                 ipv6_peerings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ExpressRouteCircuitPeeringArgs', 'ExpressRouteCircuitPeeringArgsDict']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 peerings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExpressRouteCircuitPeeringArgs']]]]] = None,
+                 peerings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ExpressRouteCircuitPeeringArgs', 'ExpressRouteCircuitPeeringArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  route_filter_name: Optional[pulumi.Input[str]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RouteFilterRuleArgs']]]]] = None,
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RouteFilterRuleArgs', 'RouteFilterRuleArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -171,12 +176,12 @@ class RouteFilter(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] id: Resource ID.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExpressRouteCircuitPeeringArgs']]]] ipv6_peerings: A collection of references to express route circuit ipv6 peerings.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ExpressRouteCircuitPeeringArgs', 'ExpressRouteCircuitPeeringArgsDict']]]] ipv6_peerings: A collection of references to express route circuit ipv6 peerings.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExpressRouteCircuitPeeringArgs']]]] peerings: A collection of references to express route circuit peerings.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ExpressRouteCircuitPeeringArgs', 'ExpressRouteCircuitPeeringArgsDict']]]] peerings: A collection of references to express route circuit peerings.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] route_filter_name: The name of the route filter.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RouteFilterRuleArgs']]]] rules: Collection of RouteFilterRules contained within a route filter.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RouteFilterRuleArgs', 'RouteFilterRuleArgsDict']]]] rules: Collection of RouteFilterRules contained within a route filter.
                These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -205,12 +210,12 @@ class RouteFilter(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  id: Optional[pulumi.Input[str]] = None,
-                 ipv6_peerings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExpressRouteCircuitPeeringArgs']]]]] = None,
+                 ipv6_peerings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ExpressRouteCircuitPeeringArgs', 'ExpressRouteCircuitPeeringArgsDict']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 peerings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExpressRouteCircuitPeeringArgs']]]]] = None,
+                 peerings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ExpressRouteCircuitPeeringArgs', 'ExpressRouteCircuitPeeringArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  route_filter_name: Optional[pulumi.Input[str]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RouteFilterRuleArgs']]]]] = None,
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RouteFilterRuleArgs', 'RouteFilterRuleArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

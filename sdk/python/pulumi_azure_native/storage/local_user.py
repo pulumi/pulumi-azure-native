@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -173,9 +178,9 @@ class LocalUser(pulumi.CustomResource):
                  has_ssh_key: Optional[pulumi.Input[bool]] = None,
                  has_ssh_password: Optional[pulumi.Input[bool]] = None,
                  home_directory: Optional[pulumi.Input[str]] = None,
-                 permission_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PermissionScopeArgs']]]]] = None,
+                 permission_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PermissionScopeArgs', 'PermissionScopeArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 ssh_authorized_keys: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SshPublicKeyArgs']]]]] = None,
+                 ssh_authorized_keys: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SshPublicKeyArgs', 'SshPublicKeyArgsDict']]]]] = None,
                  username: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -191,9 +196,9 @@ class LocalUser(pulumi.CustomResource):
         :param pulumi.Input[bool] has_ssh_key: Indicates whether ssh key exists. Set it to false to remove existing SSH key.
         :param pulumi.Input[bool] has_ssh_password: Indicates whether ssh password exists. Set it to false to remove existing SSH password.
         :param pulumi.Input[str] home_directory: Optional, local user home directory.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PermissionScopeArgs']]]] permission_scopes: The permission scopes of the local user.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PermissionScopeArgs', 'PermissionScopeArgsDict']]]] permission_scopes: The permission scopes of the local user.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SshPublicKeyArgs']]]] ssh_authorized_keys: Optional, local user ssh authorized keys for SFTP.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SshPublicKeyArgs', 'SshPublicKeyArgsDict']]]] ssh_authorized_keys: Optional, local user ssh authorized keys for SFTP.
         :param pulumi.Input[str] username: The name of local user. The username must contain lowercase letters and numbers only. It must be unique only within the storage account.
         """
         ...
@@ -228,9 +233,9 @@ class LocalUser(pulumi.CustomResource):
                  has_ssh_key: Optional[pulumi.Input[bool]] = None,
                  has_ssh_password: Optional[pulumi.Input[bool]] = None,
                  home_directory: Optional[pulumi.Input[str]] = None,
-                 permission_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PermissionScopeArgs']]]]] = None,
+                 permission_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PermissionScopeArgs', 'PermissionScopeArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 ssh_authorized_keys: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SshPublicKeyArgs']]]]] = None,
+                 ssh_authorized_keys: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SshPublicKeyArgs', 'SshPublicKeyArgsDict']]]]] = None,
                  username: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

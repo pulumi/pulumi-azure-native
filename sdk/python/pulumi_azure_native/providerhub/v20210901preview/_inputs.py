@@ -4,79 +4,158 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'AuthorizationActionMappingArgs',
+    'AuthorizationActionMappingArgsDict',
     'DefaultRolloutPropertiesSpecificationArgs',
+    'DefaultRolloutPropertiesSpecificationArgsDict',
     'DefaultRolloutPropertiesStatusArgs',
+    'DefaultRolloutPropertiesStatusArgsDict',
     'DefaultRolloutPropertiesArgs',
+    'DefaultRolloutPropertiesArgsDict',
     'DefaultRolloutSpecificationCanaryArgs',
+    'DefaultRolloutSpecificationCanaryArgsDict',
     'DefaultRolloutSpecificationExpeditedRolloutArgs',
+    'DefaultRolloutSpecificationExpeditedRolloutArgsDict',
     'DefaultRolloutSpecificationHighTrafficArgs',
+    'DefaultRolloutSpecificationHighTrafficArgsDict',
     'DefaultRolloutSpecificationLowTrafficArgs',
+    'DefaultRolloutSpecificationLowTrafficArgsDict',
     'DefaultRolloutSpecificationMediumTrafficArgs',
+    'DefaultRolloutSpecificationMediumTrafficArgsDict',
     'DefaultRolloutSpecificationProviderRegistrationArgs',
+    'DefaultRolloutSpecificationProviderRegistrationArgsDict',
     'DefaultRolloutSpecificationRestOfTheWorldGroupOneArgs',
+    'DefaultRolloutSpecificationRestOfTheWorldGroupOneArgsDict',
     'DefaultRolloutSpecificationRestOfTheWorldGroupTwoArgs',
+    'DefaultRolloutSpecificationRestOfTheWorldGroupTwoArgsDict',
     'ExtendedErrorInfoArgs',
+    'ExtendedErrorInfoArgsDict',
     'ExtendedLocationOptionsArgs',
+    'ExtendedLocationOptionsArgsDict',
     'LightHouseAuthorizationArgs',
+    'LightHouseAuthorizationArgsDict',
     'LinkedAccessCheckArgs',
+    'LinkedAccessCheckArgsDict',
     'LoggingRuleHiddenPropertyPathsArgs',
+    'LoggingRuleHiddenPropertyPathsArgsDict',
     'LoggingRuleArgs',
+    'LoggingRuleArgsDict',
     'NotificationEndpointArgs',
+    'NotificationEndpointArgsDict',
     'NotificationRegistrationPropertiesArgs',
+    'NotificationRegistrationPropertiesArgsDict',
     'OpenApiConfigurationArgs',
+    'OpenApiConfigurationArgsDict',
     'OpenApiValidationArgs',
+    'OpenApiValidationArgsDict',
     'ProviderHubMetadataProviderAuthenticationArgs',
+    'ProviderHubMetadataProviderAuthenticationArgsDict',
     'ProviderHubMetadataThirdPartyProviderAuthorizationArgs',
+    'ProviderHubMetadataThirdPartyProviderAuthorizationArgsDict',
     'ProviderRegistrationPropertiesProviderHubMetadataArgs',
+    'ProviderRegistrationPropertiesProviderHubMetadataArgsDict',
     'ProviderRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsArgs',
+    'ProviderRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsArgsDict',
     'ProviderRegistrationPropertiesArgs',
+    'ProviderRegistrationPropertiesArgsDict',
     'ResourceConcurrencyControlOptionArgs',
+    'ResourceConcurrencyControlOptionArgsDict',
     'ResourceProviderAuthorizationArgs',
+    'ResourceProviderAuthorizationArgsDict',
     'ResourceProviderCapabilitiesArgs',
+    'ResourceProviderCapabilitiesArgsDict',
     'ResourceProviderManifestPropertiesFeaturesRuleArgs',
+    'ResourceProviderManifestPropertiesFeaturesRuleArgsDict',
     'ResourceProviderManifestPropertiesManagementArgs',
+    'ResourceProviderManifestPropertiesManagementArgsDict',
     'ResourceProviderManifestPropertiesProviderAuthenticationArgs',
+    'ResourceProviderManifestPropertiesProviderAuthenticationArgsDict',
     'ResourceProviderManifestPropertiesRequestHeaderOptionsArgs',
+    'ResourceProviderManifestPropertiesRequestHeaderOptionsArgsDict',
     'ResourceProviderManifestPropertiesTemplateDeploymentOptionsArgs',
+    'ResourceProviderManifestPropertiesTemplateDeploymentOptionsArgsDict',
     'ResourceTypeEndpointFeaturesRuleArgs',
+    'ResourceTypeEndpointFeaturesRuleArgsDict',
     'ResourceTypeEndpointArgs',
+    'ResourceTypeEndpointArgsDict',
     'ResourceTypeExtensionOptionsResourceCreationBeginArgs',
+    'ResourceTypeExtensionOptionsResourceCreationBeginArgsDict',
     'ResourceTypeExtensionArgs',
+    'ResourceTypeExtensionArgsDict',
     'ResourceTypeRegistrationPropertiesCheckNameAvailabilitySpecificationsArgs',
+    'ResourceTypeRegistrationPropertiesCheckNameAvailabilitySpecificationsArgsDict',
     'ResourceTypeRegistrationPropertiesExtensionOptionsArgs',
+    'ResourceTypeRegistrationPropertiesExtensionOptionsArgsDict',
     'ResourceTypeRegistrationPropertiesFeaturesRuleArgs',
+    'ResourceTypeRegistrationPropertiesFeaturesRuleArgsDict',
     'ResourceTypeRegistrationPropertiesIdentityManagementArgs',
+    'ResourceTypeRegistrationPropertiesIdentityManagementArgsDict',
     'ResourceTypeRegistrationPropertiesManagementArgs',
+    'ResourceTypeRegistrationPropertiesManagementArgsDict',
     'ResourceTypeRegistrationPropertiesRequestHeaderOptionsArgs',
+    'ResourceTypeRegistrationPropertiesRequestHeaderOptionsArgsDict',
     'ResourceTypeRegistrationPropertiesResourceGraphConfigurationArgs',
+    'ResourceTypeRegistrationPropertiesResourceGraphConfigurationArgsDict',
     'ResourceTypeRegistrationPropertiesResourceMovePolicyArgs',
+    'ResourceTypeRegistrationPropertiesResourceMovePolicyArgsDict',
     'ResourceTypeRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsArgs',
+    'ResourceTypeRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsArgsDict',
     'ResourceTypeRegistrationPropertiesTemplateDeploymentOptionsArgs',
+    'ResourceTypeRegistrationPropertiesTemplateDeploymentOptionsArgsDict',
     'ResourceTypeRegistrationPropertiesArgs',
+    'ResourceTypeRegistrationPropertiesArgsDict',
     'ResourceTypeRegistrationArgs',
+    'ResourceTypeRegistrationArgsDict',
     'ServiceTreeInfoArgs',
+    'ServiceTreeInfoArgsDict',
     'SkuCapabilityArgs',
+    'SkuCapabilityArgsDict',
     'SkuCostArgs',
+    'SkuCostArgsDict',
     'SkuLocationInfoArgs',
+    'SkuLocationInfoArgsDict',
     'SkuResourcePropertiesArgs',
+    'SkuResourcePropertiesArgsDict',
     'SkuSettingCapacityArgs',
+    'SkuSettingCapacityArgsDict',
     'SkuSettingArgs',
+    'SkuSettingArgsDict',
     'SkuZoneDetailArgs',
+    'SkuZoneDetailArgsDict',
     'SubscriptionStateOverrideActionArgs',
+    'SubscriptionStateOverrideActionArgsDict',
     'SubscriptionStateRuleArgs',
+    'SubscriptionStateRuleArgsDict',
     'SwaggerSpecificationArgs',
+    'SwaggerSpecificationArgsDict',
     'ThrottlingMetricArgs',
+    'ThrottlingMetricArgsDict',
     'ThrottlingRuleArgs',
+    'ThrottlingRuleArgsDict',
     'TypedErrorInfoArgs',
+    'TypedErrorInfoArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AuthorizationActionMappingArgsDict(TypedDict):
+        desired: NotRequired[pulumi.Input[str]]
+        original: NotRequired[pulumi.Input[str]]
+elif False:
+    AuthorizationActionMappingArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AuthorizationActionMappingArgs:
@@ -106,6 +185,20 @@ class AuthorizationActionMappingArgs:
     def original(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "original", value)
 
+
+if not MYPY:
+    class DefaultRolloutPropertiesSpecificationArgsDict(TypedDict):
+        canary: NotRequired[pulumi.Input['DefaultRolloutSpecificationCanaryArgsDict']]
+        expedited_rollout: NotRequired[pulumi.Input['DefaultRolloutSpecificationExpeditedRolloutArgsDict']]
+        high_traffic: NotRequired[pulumi.Input['DefaultRolloutSpecificationHighTrafficArgsDict']]
+        low_traffic: NotRequired[pulumi.Input['DefaultRolloutSpecificationLowTrafficArgsDict']]
+        medium_traffic: NotRequired[pulumi.Input['DefaultRolloutSpecificationMediumTrafficArgsDict']]
+        provider_registration: NotRequired[pulumi.Input['DefaultRolloutSpecificationProviderRegistrationArgsDict']]
+        resource_type_registrations: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceTypeRegistrationArgsDict']]]]
+        rest_of_the_world_group_one: NotRequired[pulumi.Input['DefaultRolloutSpecificationRestOfTheWorldGroupOneArgsDict']]
+        rest_of_the_world_group_two: NotRequired[pulumi.Input['DefaultRolloutSpecificationRestOfTheWorldGroupTwoArgsDict']]
+elif False:
+    DefaultRolloutPropertiesSpecificationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DefaultRolloutPropertiesSpecificationArgs:
@@ -220,6 +313,16 @@ class DefaultRolloutPropertiesSpecificationArgs:
         pulumi.set(self, "rest_of_the_world_group_two", value)
 
 
+if not MYPY:
+    class DefaultRolloutPropertiesStatusArgsDict(TypedDict):
+        completed_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        failed_or_skipped_regions: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['ExtendedErrorInfoArgsDict']]]]
+        next_traffic_region: NotRequired[pulumi.Input[Union[str, 'TrafficRegionCategory']]]
+        next_traffic_region_scheduled_time: NotRequired[pulumi.Input[str]]
+        subscription_reregistration_result: NotRequired[pulumi.Input[Union[str, 'SubscriptionReregistrationResult']]]
+elif False:
+    DefaultRolloutPropertiesStatusArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DefaultRolloutPropertiesStatusArgs:
     def __init__(__self__, *,
@@ -285,6 +388,20 @@ class DefaultRolloutPropertiesStatusArgs:
         pulumi.set(self, "subscription_reregistration_result", value)
 
 
+if not MYPY:
+    class DefaultRolloutPropertiesArgsDict(TypedDict):
+        """
+        Properties of the rollout.
+        """
+        provisioning_state: NotRequired[pulumi.Input[Union[str, 'ProvisioningState']]]
+        """
+        The provisioned state of the resource.
+        """
+        specification: NotRequired[pulumi.Input['DefaultRolloutPropertiesSpecificationArgsDict']]
+        status: NotRequired[pulumi.Input['DefaultRolloutPropertiesStatusArgsDict']]
+elif False:
+    DefaultRolloutPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DefaultRolloutPropertiesArgs:
     def __init__(__self__, *,
@@ -333,6 +450,13 @@ class DefaultRolloutPropertiesArgs:
         pulumi.set(self, "status", value)
 
 
+if not MYPY:
+    class DefaultRolloutSpecificationCanaryArgsDict(TypedDict):
+        regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        skip_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+elif False:
+    DefaultRolloutSpecificationCanaryArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DefaultRolloutSpecificationCanaryArgs:
     def __init__(__self__, *,
@@ -362,6 +486,15 @@ class DefaultRolloutSpecificationCanaryArgs:
         pulumi.set(self, "skip_regions", value)
 
 
+if not MYPY:
+    class DefaultRolloutSpecificationExpeditedRolloutArgsDict(TypedDict):
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether expedited rollout is enabled/disabled
+        """
+elif False:
+    DefaultRolloutSpecificationExpeditedRolloutArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DefaultRolloutSpecificationExpeditedRolloutArgs:
     def __init__(__self__, *,
@@ -384,6 +517,13 @@ class DefaultRolloutSpecificationExpeditedRolloutArgs:
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
 
+
+if not MYPY:
+    class DefaultRolloutSpecificationHighTrafficArgsDict(TypedDict):
+        regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        wait_duration: NotRequired[pulumi.Input[str]]
+elif False:
+    DefaultRolloutSpecificationHighTrafficArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DefaultRolloutSpecificationHighTrafficArgs:
@@ -414,6 +554,13 @@ class DefaultRolloutSpecificationHighTrafficArgs:
         pulumi.set(self, "wait_duration", value)
 
 
+if not MYPY:
+    class DefaultRolloutSpecificationLowTrafficArgsDict(TypedDict):
+        regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        wait_duration: NotRequired[pulumi.Input[str]]
+elif False:
+    DefaultRolloutSpecificationLowTrafficArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DefaultRolloutSpecificationLowTrafficArgs:
     def __init__(__self__, *,
@@ -442,6 +589,13 @@ class DefaultRolloutSpecificationLowTrafficArgs:
     def wait_duration(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "wait_duration", value)
 
+
+if not MYPY:
+    class DefaultRolloutSpecificationMediumTrafficArgsDict(TypedDict):
+        regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        wait_duration: NotRequired[pulumi.Input[str]]
+elif False:
+    DefaultRolloutSpecificationMediumTrafficArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DefaultRolloutSpecificationMediumTrafficArgs:
@@ -472,6 +626,12 @@ class DefaultRolloutSpecificationMediumTrafficArgs:
         pulumi.set(self, "wait_duration", value)
 
 
+if not MYPY:
+    class DefaultRolloutSpecificationProviderRegistrationArgsDict(TypedDict):
+        properties: NotRequired[pulumi.Input['ProviderRegistrationPropertiesArgsDict']]
+elif False:
+    DefaultRolloutSpecificationProviderRegistrationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DefaultRolloutSpecificationProviderRegistrationArgs:
     def __init__(__self__, *,
@@ -488,6 +648,13 @@ class DefaultRolloutSpecificationProviderRegistrationArgs:
     def properties(self, value: Optional[pulumi.Input['ProviderRegistrationPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
+
+if not MYPY:
+    class DefaultRolloutSpecificationRestOfTheWorldGroupOneArgsDict(TypedDict):
+        regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        wait_duration: NotRequired[pulumi.Input[str]]
+elif False:
+    DefaultRolloutSpecificationRestOfTheWorldGroupOneArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DefaultRolloutSpecificationRestOfTheWorldGroupOneArgs:
@@ -518,6 +685,13 @@ class DefaultRolloutSpecificationRestOfTheWorldGroupOneArgs:
         pulumi.set(self, "wait_duration", value)
 
 
+if not MYPY:
+    class DefaultRolloutSpecificationRestOfTheWorldGroupTwoArgsDict(TypedDict):
+        regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        wait_duration: NotRequired[pulumi.Input[str]]
+elif False:
+    DefaultRolloutSpecificationRestOfTheWorldGroupTwoArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DefaultRolloutSpecificationRestOfTheWorldGroupTwoArgs:
     def __init__(__self__, *,
@@ -546,6 +720,16 @@ class DefaultRolloutSpecificationRestOfTheWorldGroupTwoArgs:
     def wait_duration(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "wait_duration", value)
 
+
+if not MYPY:
+    class ExtendedErrorInfoArgsDict(TypedDict):
+        additional_info: NotRequired[pulumi.Input[Sequence[pulumi.Input['TypedErrorInfoArgsDict']]]]
+        code: NotRequired[pulumi.Input[str]]
+        details: NotRequired[pulumi.Input[Sequence[pulumi.Input['ExtendedErrorInfoArgsDict']]]]
+        message: NotRequired[pulumi.Input[str]]
+        target: NotRequired[pulumi.Input[str]]
+elif False:
+    ExtendedErrorInfoArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ExtendedErrorInfoArgs:
@@ -612,6 +796,13 @@ class ExtendedErrorInfoArgs:
         pulumi.set(self, "target", value)
 
 
+if not MYPY:
+    class ExtendedLocationOptionsArgsDict(TypedDict):
+        supported_policy: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+elif False:
+    ExtendedLocationOptionsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ExtendedLocationOptionsArgs:
     def __init__(__self__, *,
@@ -641,6 +832,13 @@ class ExtendedLocationOptionsArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class LightHouseAuthorizationArgsDict(TypedDict):
+        principal_id: pulumi.Input[str]
+        role_definition_id: pulumi.Input[str]
+elif False:
+    LightHouseAuthorizationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LightHouseAuthorizationArgs:
     def __init__(__self__, *,
@@ -667,6 +865,16 @@ class LightHouseAuthorizationArgs:
     def role_definition_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "role_definition_id", value)
 
+
+if not MYPY:
+    class LinkedAccessCheckArgsDict(TypedDict):
+        action_name: NotRequired[pulumi.Input[str]]
+        linked_action: NotRequired[pulumi.Input[str]]
+        linked_action_verb: NotRequired[pulumi.Input[str]]
+        linked_property: NotRequired[pulumi.Input[str]]
+        linked_type: NotRequired[pulumi.Input[str]]
+elif False:
+    LinkedAccessCheckArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LinkedAccessCheckArgs:
@@ -733,6 +941,13 @@ class LinkedAccessCheckArgs:
         pulumi.set(self, "linked_type", value)
 
 
+if not MYPY:
+    class LoggingRuleHiddenPropertyPathsArgsDict(TypedDict):
+        hidden_paths_on_request: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        hidden_paths_on_response: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+elif False:
+    LoggingRuleHiddenPropertyPathsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LoggingRuleHiddenPropertyPathsArgs:
     def __init__(__self__, *,
@@ -761,6 +976,15 @@ class LoggingRuleHiddenPropertyPathsArgs:
     def hidden_paths_on_response(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "hidden_paths_on_response", value)
 
+
+if not MYPY:
+    class LoggingRuleArgsDict(TypedDict):
+        action: pulumi.Input[str]
+        detail_level: pulumi.Input[Union[str, 'LoggingDetails']]
+        direction: pulumi.Input[Union[str, 'LoggingDirections']]
+        hidden_property_paths: NotRequired[pulumi.Input['LoggingRuleHiddenPropertyPathsArgsDict']]
+elif False:
+    LoggingRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LoggingRuleArgs:
@@ -812,6 +1036,13 @@ class LoggingRuleArgs:
         pulumi.set(self, "hidden_property_paths", value)
 
 
+if not MYPY:
+    class NotificationEndpointArgsDict(TypedDict):
+        locations: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        notification_destination: NotRequired[pulumi.Input[str]]
+elif False:
+    NotificationEndpointArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NotificationEndpointArgs:
     def __init__(__self__, *,
@@ -840,6 +1071,19 @@ class NotificationEndpointArgs:
     def notification_destination(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "notification_destination", value)
 
+
+if not MYPY:
+    class NotificationRegistrationPropertiesArgsDict(TypedDict):
+        included_events: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        message_scope: NotRequired[pulumi.Input[Union[str, 'MessageScope']]]
+        notification_endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input['NotificationEndpointArgsDict']]]]
+        notification_mode: NotRequired[pulumi.Input[Union[str, 'NotificationMode']]]
+        provisioning_state: NotRequired[pulumi.Input[Union[str, 'ProvisioningState']]]
+        """
+        The provisioned state of the resource.
+        """
+elif False:
+    NotificationRegistrationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NotificationRegistrationPropertiesArgs:
@@ -912,6 +1156,12 @@ class NotificationRegistrationPropertiesArgs:
         pulumi.set(self, "provisioning_state", value)
 
 
+if not MYPY:
+    class OpenApiConfigurationArgsDict(TypedDict):
+        validation: NotRequired[pulumi.Input['OpenApiValidationArgsDict']]
+elif False:
+    OpenApiConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OpenApiConfigurationArgs:
     def __init__(__self__, *,
@@ -928,6 +1178,15 @@ class OpenApiConfigurationArgs:
     def validation(self, value: Optional[pulumi.Input['OpenApiValidationArgs']]):
         pulumi.set(self, "validation", value)
 
+
+if not MYPY:
+    class OpenApiValidationArgsDict(TypedDict):
+        allow_noncompliant_collection_response: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether a non compliance response is allowed for a LIST call
+        """
+elif False:
+    OpenApiValidationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OpenApiValidationArgs:
@@ -952,6 +1211,12 @@ class OpenApiValidationArgs:
         pulumi.set(self, "allow_noncompliant_collection_response", value)
 
 
+if not MYPY:
+    class ProviderHubMetadataProviderAuthenticationArgsDict(TypedDict):
+        allowed_audiences: pulumi.Input[Sequence[pulumi.Input[str]]]
+elif False:
+    ProviderHubMetadataProviderAuthenticationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ProviderHubMetadataProviderAuthenticationArgs:
     def __init__(__self__, *,
@@ -967,6 +1232,13 @@ class ProviderHubMetadataProviderAuthenticationArgs:
     def allowed_audiences(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "allowed_audiences", value)
 
+
+if not MYPY:
+    class ProviderHubMetadataThirdPartyProviderAuthorizationArgsDict(TypedDict):
+        authorizations: NotRequired[pulumi.Input[Sequence[pulumi.Input['LightHouseAuthorizationArgsDict']]]]
+        managed_by_tenant_id: NotRequired[pulumi.Input[str]]
+elif False:
+    ProviderHubMetadataThirdPartyProviderAuthorizationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ProviderHubMetadataThirdPartyProviderAuthorizationArgs:
@@ -996,6 +1268,14 @@ class ProviderHubMetadataThirdPartyProviderAuthorizationArgs:
     def managed_by_tenant_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "managed_by_tenant_id", value)
 
+
+if not MYPY:
+    class ProviderRegistrationPropertiesProviderHubMetadataArgsDict(TypedDict):
+        provider_authentication: NotRequired[pulumi.Input['ProviderHubMetadataProviderAuthenticationArgsDict']]
+        provider_authorizations: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceProviderAuthorizationArgsDict']]]]
+        third_party_provider_authorization: NotRequired[pulumi.Input['ProviderHubMetadataThirdPartyProviderAuthorizationArgsDict']]
+elif False:
+    ProviderRegistrationPropertiesProviderHubMetadataArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ProviderRegistrationPropertiesProviderHubMetadataArgs:
@@ -1038,6 +1318,13 @@ class ProviderRegistrationPropertiesProviderHubMetadataArgs:
         pulumi.set(self, "third_party_provider_authorization", value)
 
 
+if not MYPY:
+    class ProviderRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsArgsDict(TypedDict):
+        soft_delete_ttl: NotRequired[pulumi.Input[str]]
+        subscription_state_override_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['SubscriptionStateOverrideActionArgsDict']]]]
+elif False:
+    ProviderRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ProviderRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsArgs:
     def __init__(__self__, *,
@@ -1066,6 +1353,29 @@ class ProviderRegistrationPropertiesSubscriptionLifecycleNotificationSpecificati
     def subscription_state_override_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionStateOverrideActionArgs']]]]):
         pulumi.set(self, "subscription_state_override_actions", value)
 
+
+if not MYPY:
+    class ProviderRegistrationPropertiesArgsDict(TypedDict):
+        capabilities: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceProviderCapabilitiesArgsDict']]]]
+        features_rule: NotRequired[pulumi.Input['ResourceProviderManifestPropertiesFeaturesRuleArgsDict']]
+        management: NotRequired[pulumi.Input['ResourceProviderManifestPropertiesManagementArgsDict']]
+        metadata: NotRequired[Any]
+        namespace: NotRequired[pulumi.Input[str]]
+        provider_authentication: NotRequired[pulumi.Input['ResourceProviderManifestPropertiesProviderAuthenticationArgsDict']]
+        provider_authorizations: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceProviderAuthorizationArgsDict']]]]
+        provider_hub_metadata: NotRequired[pulumi.Input['ProviderRegistrationPropertiesProviderHubMetadataArgsDict']]
+        provider_type: NotRequired[pulumi.Input[Union[str, 'ResourceProviderType']]]
+        provider_version: NotRequired[pulumi.Input[str]]
+        provisioning_state: NotRequired[pulumi.Input[Union[str, 'ProvisioningState']]]
+        """
+        The provisioned state of the resource.
+        """
+        request_header_options: NotRequired[pulumi.Input['ResourceProviderManifestPropertiesRequestHeaderOptionsArgsDict']]
+        required_features: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        subscription_lifecycle_notification_specifications: NotRequired[pulumi.Input['ProviderRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsArgsDict']]
+        template_deployment_options: NotRequired[pulumi.Input['ResourceProviderManifestPropertiesTemplateDeploymentOptionsArgsDict']]
+elif False:
+    ProviderRegistrationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ProviderRegistrationPropertiesArgs:
@@ -1258,6 +1568,12 @@ class ProviderRegistrationPropertiesArgs:
         pulumi.set(self, "template_deployment_options", value)
 
 
+if not MYPY:
+    class ResourceConcurrencyControlOptionArgsDict(TypedDict):
+        policy: NotRequired[pulumi.Input[Union[str, 'Policy']]]
+elif False:
+    ResourceConcurrencyControlOptionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ResourceConcurrencyControlOptionArgs:
     def __init__(__self__, *,
@@ -1274,6 +1590,14 @@ class ResourceConcurrencyControlOptionArgs:
     def policy(self, value: Optional[pulumi.Input[Union[str, 'Policy']]]):
         pulumi.set(self, "policy", value)
 
+
+if not MYPY:
+    class ResourceProviderAuthorizationArgsDict(TypedDict):
+        application_id: NotRequired[pulumi.Input[str]]
+        managed_by_role_definition_id: NotRequired[pulumi.Input[str]]
+        role_definition_id: NotRequired[pulumi.Input[str]]
+elif False:
+    ResourceProviderAuthorizationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ResourceProviderAuthorizationArgs:
@@ -1316,6 +1640,14 @@ class ResourceProviderAuthorizationArgs:
         pulumi.set(self, "role_definition_id", value)
 
 
+if not MYPY:
+    class ResourceProviderCapabilitiesArgsDict(TypedDict):
+        effect: pulumi.Input[Union[str, 'ResourceProviderCapabilitiesEffect']]
+        quota_id: pulumi.Input[str]
+        required_features: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+elif False:
+    ResourceProviderCapabilitiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ResourceProviderCapabilitiesArgs:
     def __init__(__self__, *,
@@ -1355,6 +1687,12 @@ class ResourceProviderCapabilitiesArgs:
         pulumi.set(self, "required_features", value)
 
 
+if not MYPY:
+    class ResourceProviderManifestPropertiesFeaturesRuleArgsDict(TypedDict):
+        required_features_policy: pulumi.Input[Union[str, 'FeaturesPolicy']]
+elif False:
+    ResourceProviderManifestPropertiesFeaturesRuleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ResourceProviderManifestPropertiesFeaturesRuleArgs:
     def __init__(__self__, *,
@@ -1370,6 +1708,19 @@ class ResourceProviderManifestPropertiesFeaturesRuleArgs:
     def required_features_policy(self, value: pulumi.Input[Union[str, 'FeaturesPolicy']]):
         pulumi.set(self, "required_features_policy", value)
 
+
+if not MYPY:
+    class ResourceProviderManifestPropertiesManagementArgsDict(TypedDict):
+        incident_contact_email: NotRequired[pulumi.Input[str]]
+        incident_routing_service: NotRequired[pulumi.Input[str]]
+        incident_routing_team: NotRequired[pulumi.Input[str]]
+        manifest_owners: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        resource_access_policy: NotRequired[pulumi.Input[str]]
+        resource_access_roles: NotRequired[pulumi.Input[Sequence[Any]]]
+        schema_owners: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        service_tree_infos: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceTreeInfoArgsDict']]]]
+elif False:
+    ResourceProviderManifestPropertiesManagementArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ResourceProviderManifestPropertiesManagementArgs:
@@ -1472,6 +1823,12 @@ class ResourceProviderManifestPropertiesManagementArgs:
         pulumi.set(self, "service_tree_infos", value)
 
 
+if not MYPY:
+    class ResourceProviderManifestPropertiesProviderAuthenticationArgsDict(TypedDict):
+        allowed_audiences: pulumi.Input[Sequence[pulumi.Input[str]]]
+elif False:
+    ResourceProviderManifestPropertiesProviderAuthenticationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ResourceProviderManifestPropertiesProviderAuthenticationArgs:
     def __init__(__self__, *,
@@ -1487,6 +1844,12 @@ class ResourceProviderManifestPropertiesProviderAuthenticationArgs:
     def allowed_audiences(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "allowed_audiences", value)
 
+
+if not MYPY:
+    class ResourceProviderManifestPropertiesRequestHeaderOptionsArgsDict(TypedDict):
+        opt_in_headers: NotRequired[pulumi.Input[Union[str, 'OptInHeaderType']]]
+elif False:
+    ResourceProviderManifestPropertiesRequestHeaderOptionsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ResourceProviderManifestPropertiesRequestHeaderOptionsArgs:
@@ -1504,6 +1867,13 @@ class ResourceProviderManifestPropertiesRequestHeaderOptionsArgs:
     def opt_in_headers(self, value: Optional[pulumi.Input[Union[str, 'OptInHeaderType']]]):
         pulumi.set(self, "opt_in_headers", value)
 
+
+if not MYPY:
+    class ResourceProviderManifestPropertiesTemplateDeploymentOptionsArgsDict(TypedDict):
+        preflight_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'PreflightOption']]]]]
+        preflight_supported: NotRequired[pulumi.Input[bool]]
+elif False:
+    ResourceProviderManifestPropertiesTemplateDeploymentOptionsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ResourceProviderManifestPropertiesTemplateDeploymentOptionsArgs:
@@ -1534,6 +1904,12 @@ class ResourceProviderManifestPropertiesTemplateDeploymentOptionsArgs:
         pulumi.set(self, "preflight_supported", value)
 
 
+if not MYPY:
+    class ResourceTypeEndpointFeaturesRuleArgsDict(TypedDict):
+        required_features_policy: pulumi.Input[Union[str, 'FeaturesPolicy']]
+elif False:
+    ResourceTypeEndpointFeaturesRuleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ResourceTypeEndpointFeaturesRuleArgs:
     def __init__(__self__, *,
@@ -1549,6 +1925,19 @@ class ResourceTypeEndpointFeaturesRuleArgs:
     def required_features_policy(self, value: pulumi.Input[Union[str, 'FeaturesPolicy']]):
         pulumi.set(self, "required_features_policy", value)
 
+
+if not MYPY:
+    class ResourceTypeEndpointArgsDict(TypedDict):
+        api_versions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        enabled: NotRequired[pulumi.Input[bool]]
+        endpoint_type: NotRequired[pulumi.Input[Union[str, 'EndpointType']]]
+        extensions: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceTypeExtensionArgsDict']]]]
+        features_rule: NotRequired[pulumi.Input['ResourceTypeEndpointFeaturesRuleArgsDict']]
+        locations: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        required_features: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        timeout: NotRequired[pulumi.Input[str]]
+elif False:
+    ResourceTypeEndpointArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ResourceTypeEndpointArgs:
@@ -1651,6 +2040,13 @@ class ResourceTypeEndpointArgs:
         pulumi.set(self, "timeout", value)
 
 
+if not MYPY:
+    class ResourceTypeExtensionOptionsResourceCreationBeginArgsDict(TypedDict):
+        request: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'ExtensionOptionType']]]]]
+        response: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'ExtensionOptionType']]]]]
+elif False:
+    ResourceTypeExtensionOptionsResourceCreationBeginArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ResourceTypeExtensionOptionsResourceCreationBeginArgs:
     def __init__(__self__, *,
@@ -1679,6 +2075,14 @@ class ResourceTypeExtensionOptionsResourceCreationBeginArgs:
     def response(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'ExtensionOptionType']]]]]):
         pulumi.set(self, "response", value)
 
+
+if not MYPY:
+    class ResourceTypeExtensionArgsDict(TypedDict):
+        endpoint_uri: NotRequired[pulumi.Input[str]]
+        extension_categories: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'ExtensionCategory']]]]]
+        timeout: NotRequired[pulumi.Input[str]]
+elif False:
+    ResourceTypeExtensionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ResourceTypeExtensionArgs:
@@ -1721,6 +2125,13 @@ class ResourceTypeExtensionArgs:
         pulumi.set(self, "timeout", value)
 
 
+if not MYPY:
+    class ResourceTypeRegistrationPropertiesCheckNameAvailabilitySpecificationsArgsDict(TypedDict):
+        enable_default_validation: NotRequired[pulumi.Input[bool]]
+        resource_types_with_custom_validation: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+elif False:
+    ResourceTypeRegistrationPropertiesCheckNameAvailabilitySpecificationsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ResourceTypeRegistrationPropertiesCheckNameAvailabilitySpecificationsArgs:
     def __init__(__self__, *,
@@ -1750,6 +2161,12 @@ class ResourceTypeRegistrationPropertiesCheckNameAvailabilitySpecificationsArgs:
         pulumi.set(self, "resource_types_with_custom_validation", value)
 
 
+if not MYPY:
+    class ResourceTypeRegistrationPropertiesExtensionOptionsArgsDict(TypedDict):
+        resource_creation_begin: NotRequired[pulumi.Input['ResourceTypeExtensionOptionsResourceCreationBeginArgsDict']]
+elif False:
+    ResourceTypeRegistrationPropertiesExtensionOptionsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ResourceTypeRegistrationPropertiesExtensionOptionsArgs:
     def __init__(__self__, *,
@@ -1767,6 +2184,12 @@ class ResourceTypeRegistrationPropertiesExtensionOptionsArgs:
         pulumi.set(self, "resource_creation_begin", value)
 
 
+if not MYPY:
+    class ResourceTypeRegistrationPropertiesFeaturesRuleArgsDict(TypedDict):
+        required_features_policy: pulumi.Input[Union[str, 'FeaturesPolicy']]
+elif False:
+    ResourceTypeRegistrationPropertiesFeaturesRuleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ResourceTypeRegistrationPropertiesFeaturesRuleArgs:
     def __init__(__self__, *,
@@ -1782,6 +2205,13 @@ class ResourceTypeRegistrationPropertiesFeaturesRuleArgs:
     def required_features_policy(self, value: pulumi.Input[Union[str, 'FeaturesPolicy']]):
         pulumi.set(self, "required_features_policy", value)
 
+
+if not MYPY:
+    class ResourceTypeRegistrationPropertiesIdentityManagementArgsDict(TypedDict):
+        application_id: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[Union[str, 'IdentityManagementTypes']]]
+elif False:
+    ResourceTypeRegistrationPropertiesIdentityManagementArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ResourceTypeRegistrationPropertiesIdentityManagementArgs:
@@ -1811,6 +2241,19 @@ class ResourceTypeRegistrationPropertiesIdentityManagementArgs:
     def type(self, value: Optional[pulumi.Input[Union[str, 'IdentityManagementTypes']]]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class ResourceTypeRegistrationPropertiesManagementArgsDict(TypedDict):
+        incident_contact_email: NotRequired[pulumi.Input[str]]
+        incident_routing_service: NotRequired[pulumi.Input[str]]
+        incident_routing_team: NotRequired[pulumi.Input[str]]
+        manifest_owners: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        resource_access_policy: NotRequired[pulumi.Input[str]]
+        resource_access_roles: NotRequired[pulumi.Input[Sequence[Any]]]
+        schema_owners: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        service_tree_infos: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceTreeInfoArgsDict']]]]
+elif False:
+    ResourceTypeRegistrationPropertiesManagementArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ResourceTypeRegistrationPropertiesManagementArgs:
@@ -1913,6 +2356,12 @@ class ResourceTypeRegistrationPropertiesManagementArgs:
         pulumi.set(self, "service_tree_infos", value)
 
 
+if not MYPY:
+    class ResourceTypeRegistrationPropertiesRequestHeaderOptionsArgsDict(TypedDict):
+        opt_in_headers: NotRequired[pulumi.Input[Union[str, 'OptInHeaderType']]]
+elif False:
+    ResourceTypeRegistrationPropertiesRequestHeaderOptionsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ResourceTypeRegistrationPropertiesRequestHeaderOptionsArgs:
     def __init__(__self__, *,
@@ -1929,6 +2378,13 @@ class ResourceTypeRegistrationPropertiesRequestHeaderOptionsArgs:
     def opt_in_headers(self, value: Optional[pulumi.Input[Union[str, 'OptInHeaderType']]]):
         pulumi.set(self, "opt_in_headers", value)
 
+
+if not MYPY:
+    class ResourceTypeRegistrationPropertiesResourceGraphConfigurationArgsDict(TypedDict):
+        api_version: NotRequired[pulumi.Input[str]]
+        enabled: NotRequired[pulumi.Input[bool]]
+elif False:
+    ResourceTypeRegistrationPropertiesResourceGraphConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ResourceTypeRegistrationPropertiesResourceGraphConfigurationArgs:
@@ -1958,6 +2414,14 @@ class ResourceTypeRegistrationPropertiesResourceGraphConfigurationArgs:
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
 
+
+if not MYPY:
+    class ResourceTypeRegistrationPropertiesResourceMovePolicyArgsDict(TypedDict):
+        cross_resource_group_move_enabled: NotRequired[pulumi.Input[bool]]
+        cross_subscription_move_enabled: NotRequired[pulumi.Input[bool]]
+        validation_required: NotRequired[pulumi.Input[bool]]
+elif False:
+    ResourceTypeRegistrationPropertiesResourceMovePolicyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ResourceTypeRegistrationPropertiesResourceMovePolicyArgs:
@@ -2000,6 +2464,13 @@ class ResourceTypeRegistrationPropertiesResourceMovePolicyArgs:
         pulumi.set(self, "validation_required", value)
 
 
+if not MYPY:
+    class ResourceTypeRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsArgsDict(TypedDict):
+        soft_delete_ttl: NotRequired[pulumi.Input[str]]
+        subscription_state_override_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['SubscriptionStateOverrideActionArgsDict']]]]
+elif False:
+    ResourceTypeRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ResourceTypeRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsArgs:
     def __init__(__self__, *,
@@ -2029,6 +2500,13 @@ class ResourceTypeRegistrationPropertiesSubscriptionLifecycleNotificationSpecifi
         pulumi.set(self, "subscription_state_override_actions", value)
 
 
+if not MYPY:
+    class ResourceTypeRegistrationPropertiesTemplateDeploymentOptionsArgsDict(TypedDict):
+        preflight_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'PreflightOption']]]]]
+        preflight_supported: NotRequired[pulumi.Input[bool]]
+elif False:
+    ResourceTypeRegistrationPropertiesTemplateDeploymentOptionsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ResourceTypeRegistrationPropertiesTemplateDeploymentOptionsArgs:
     def __init__(__self__, *,
@@ -2057,6 +2535,47 @@ class ResourceTypeRegistrationPropertiesTemplateDeploymentOptionsArgs:
     def preflight_supported(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "preflight_supported", value)
 
+
+if not MYPY:
+    class ResourceTypeRegistrationPropertiesArgsDict(TypedDict):
+        allowed_unauthorized_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        authorization_action_mappings: NotRequired[pulumi.Input[Sequence[pulumi.Input['AuthorizationActionMappingArgsDict']]]]
+        check_name_availability_specifications: NotRequired[pulumi.Input['ResourceTypeRegistrationPropertiesCheckNameAvailabilitySpecificationsArgsDict']]
+        default_api_version: NotRequired[pulumi.Input[str]]
+        disallowed_action_verbs: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        enable_async_operation: NotRequired[pulumi.Input[bool]]
+        enable_third_party_s2_s: NotRequired[pulumi.Input[bool]]
+        endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceTypeEndpointArgsDict']]]]
+        extended_locations: NotRequired[pulumi.Input[Sequence[pulumi.Input['ExtendedLocationOptionsArgsDict']]]]
+        extension_options: NotRequired[pulumi.Input['ResourceTypeRegistrationPropertiesExtensionOptionsArgsDict']]
+        features_rule: NotRequired[pulumi.Input['ResourceTypeRegistrationPropertiesFeaturesRuleArgsDict']]
+        identity_management: NotRequired[pulumi.Input['ResourceTypeRegistrationPropertiesIdentityManagementArgsDict']]
+        is_pure_proxy: NotRequired[pulumi.Input[bool]]
+        linked_access_checks: NotRequired[pulumi.Input[Sequence[pulumi.Input['LinkedAccessCheckArgsDict']]]]
+        logging_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['LoggingRuleArgsDict']]]]
+        management: NotRequired[pulumi.Input['ResourceTypeRegistrationPropertiesManagementArgsDict']]
+        marketplace_type: NotRequired[pulumi.Input[str]]
+        open_api_configuration: NotRequired[pulumi.Input['OpenApiConfigurationArgsDict']]
+        provisioning_state: NotRequired[pulumi.Input[Union[str, 'ProvisioningState']]]
+        """
+        The provisioned state of the resource.
+        """
+        regionality: NotRequired[pulumi.Input[Union[str, 'Regionality']]]
+        request_header_options: NotRequired[pulumi.Input['ResourceTypeRegistrationPropertiesRequestHeaderOptionsArgsDict']]
+        required_features: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        resource_concurrency_control_options: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['ResourceConcurrencyControlOptionArgsDict']]]]
+        resource_deletion_policy: NotRequired[pulumi.Input[Union[str, 'ResourceDeletionPolicy']]]
+        resource_graph_configuration: NotRequired[pulumi.Input['ResourceTypeRegistrationPropertiesResourceGraphConfigurationArgsDict']]
+        resource_move_policy: NotRequired[pulumi.Input['ResourceTypeRegistrationPropertiesResourceMovePolicyArgsDict']]
+        routing_type: NotRequired[pulumi.Input[Union[str, 'RoutingType']]]
+        service_tree_infos: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceTreeInfoArgsDict']]]]
+        subscription_lifecycle_notification_specifications: NotRequired[pulumi.Input['ResourceTypeRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsArgsDict']]
+        subscription_state_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['SubscriptionStateRuleArgsDict']]]]
+        swagger_specifications: NotRequired[pulumi.Input[Sequence[pulumi.Input['SwaggerSpecificationArgsDict']]]]
+        template_deployment_options: NotRequired[pulumi.Input['ResourceTypeRegistrationPropertiesTemplateDeploymentOptionsArgsDict']]
+        throttling_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['ThrottlingRuleArgsDict']]]]
+elif False:
+    ResourceTypeRegistrationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ResourceTypeRegistrationPropertiesArgs:
@@ -2465,6 +2984,12 @@ class ResourceTypeRegistrationPropertiesArgs:
         pulumi.set(self, "throttling_rules", value)
 
 
+if not MYPY:
+    class ResourceTypeRegistrationArgsDict(TypedDict):
+        properties: NotRequired[pulumi.Input['ResourceTypeRegistrationPropertiesArgsDict']]
+elif False:
+    ResourceTypeRegistrationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ResourceTypeRegistrationArgs:
     def __init__(__self__, *,
@@ -2481,6 +3006,14 @@ class ResourceTypeRegistrationArgs:
     def properties(self, value: Optional[pulumi.Input['ResourceTypeRegistrationPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
+
+if not MYPY:
+    class ServiceTreeInfoArgsDict(TypedDict):
+        component_id: NotRequired[pulumi.Input[str]]
+        readiness: NotRequired[pulumi.Input[Union[str, 'Readiness']]]
+        service_id: NotRequired[pulumi.Input[str]]
+elif False:
+    ServiceTreeInfoArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ServiceTreeInfoArgs:
@@ -2523,6 +3056,13 @@ class ServiceTreeInfoArgs:
         pulumi.set(self, "service_id", value)
 
 
+if not MYPY:
+    class SkuCapabilityArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    SkuCapabilityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SkuCapabilityArgs:
     def __init__(__self__, *,
@@ -2549,6 +3089,14 @@ class SkuCapabilityArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class SkuCostArgsDict(TypedDict):
+        meter_id: pulumi.Input[str]
+        extended_unit: NotRequired[pulumi.Input[str]]
+        quantity: NotRequired[pulumi.Input[int]]
+elif False:
+    SkuCostArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SkuCostArgs:
@@ -2589,6 +3137,16 @@ class SkuCostArgs:
     def quantity(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "quantity", value)
 
+
+if not MYPY:
+    class SkuLocationInfoArgsDict(TypedDict):
+        location: pulumi.Input[str]
+        extended_locations: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        type: NotRequired[pulumi.Input[str]]
+        zone_details: NotRequired[pulumi.Input[Sequence[pulumi.Input['SkuZoneDetailArgsDict']]]]
+        zones: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+elif False:
+    SkuLocationInfoArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SkuLocationInfoArgs:
@@ -2654,6 +3212,16 @@ class SkuLocationInfoArgs:
         pulumi.set(self, "zones", value)
 
 
+if not MYPY:
+    class SkuResourcePropertiesArgsDict(TypedDict):
+        sku_settings: pulumi.Input[Sequence[pulumi.Input['SkuSettingArgsDict']]]
+        provisioning_state: NotRequired[pulumi.Input[Union[str, 'ProvisioningState']]]
+        """
+        The provisioned state of the resource.
+        """
+elif False:
+    SkuResourcePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SkuResourcePropertiesArgs:
     def __init__(__self__, *,
@@ -2687,6 +3255,15 @@ class SkuResourcePropertiesArgs:
     def provisioning_state(self, value: Optional[pulumi.Input[Union[str, 'ProvisioningState']]]):
         pulumi.set(self, "provisioning_state", value)
 
+
+if not MYPY:
+    class SkuSettingCapacityArgsDict(TypedDict):
+        minimum: pulumi.Input[int]
+        default: NotRequired[pulumi.Input[int]]
+        maximum: NotRequired[pulumi.Input[int]]
+        scale_type: NotRequired[pulumi.Input[Union[str, 'SkuScaleType']]]
+elif False:
+    SkuSettingCapacityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SkuSettingCapacityArgs:
@@ -2739,6 +3316,23 @@ class SkuSettingCapacityArgs:
     def scale_type(self, value: Optional[pulumi.Input[Union[str, 'SkuScaleType']]]):
         pulumi.set(self, "scale_type", value)
 
+
+if not MYPY:
+    class SkuSettingArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        capabilities: NotRequired[pulumi.Input[Sequence[pulumi.Input['SkuCapabilityArgsDict']]]]
+        capacity: NotRequired[pulumi.Input['SkuSettingCapacityArgsDict']]
+        costs: NotRequired[pulumi.Input[Sequence[pulumi.Input['SkuCostArgsDict']]]]
+        family: NotRequired[pulumi.Input[str]]
+        kind: NotRequired[pulumi.Input[str]]
+        location_info: NotRequired[pulumi.Input[Sequence[pulumi.Input['SkuLocationInfoArgsDict']]]]
+        locations: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        required_features: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        required_quota_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        size: NotRequired[pulumi.Input[str]]
+        tier: NotRequired[pulumi.Input[str]]
+elif False:
+    SkuSettingArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SkuSettingArgs:
@@ -2888,6 +3482,13 @@ class SkuSettingArgs:
         pulumi.set(self, "tier", value)
 
 
+if not MYPY:
+    class SkuZoneDetailArgsDict(TypedDict):
+        capabilities: NotRequired[pulumi.Input[Sequence[pulumi.Input['SkuCapabilityArgsDict']]]]
+        name: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+elif False:
+    SkuZoneDetailArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SkuZoneDetailArgs:
     def __init__(__self__, *,
@@ -2917,6 +3518,13 @@ class SkuZoneDetailArgs:
         pulumi.set(self, "name", value)
 
 
+if not MYPY:
+    class SubscriptionStateOverrideActionArgsDict(TypedDict):
+        action: pulumi.Input[Union[str, 'SubscriptionNotificationOperation']]
+        state: pulumi.Input[Union[str, 'SubscriptionTransitioningState']]
+elif False:
+    SubscriptionStateOverrideActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SubscriptionStateOverrideActionArgs:
     def __init__(__self__, *,
@@ -2943,6 +3551,13 @@ class SubscriptionStateOverrideActionArgs:
     def state(self, value: pulumi.Input[Union[str, 'SubscriptionTransitioningState']]):
         pulumi.set(self, "state", value)
 
+
+if not MYPY:
+    class SubscriptionStateRuleArgsDict(TypedDict):
+        allowed_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        state: NotRequired[pulumi.Input[Union[str, 'SubscriptionState']]]
+elif False:
+    SubscriptionStateRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SubscriptionStateRuleArgs:
@@ -2973,6 +3588,13 @@ class SubscriptionStateRuleArgs:
         pulumi.set(self, "state", value)
 
 
+if not MYPY:
+    class SwaggerSpecificationArgsDict(TypedDict):
+        api_versions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        swagger_spec_folder_uri: NotRequired[pulumi.Input[str]]
+elif False:
+    SwaggerSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SwaggerSpecificationArgs:
     def __init__(__self__, *,
@@ -3001,6 +3623,14 @@ class SwaggerSpecificationArgs:
     def swagger_spec_folder_uri(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "swagger_spec_folder_uri", value)
 
+
+if not MYPY:
+    class ThrottlingMetricArgsDict(TypedDict):
+        limit: pulumi.Input[float]
+        type: pulumi.Input[Union[str, 'ThrottlingMetricType']]
+        interval: NotRequired[pulumi.Input[str]]
+elif False:
+    ThrottlingMetricArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ThrottlingMetricArgs:
@@ -3041,6 +3671,14 @@ class ThrottlingMetricArgs:
         pulumi.set(self, "interval", value)
 
 
+if not MYPY:
+    class ThrottlingRuleArgsDict(TypedDict):
+        action: pulumi.Input[str]
+        metrics: pulumi.Input[Sequence[pulumi.Input['ThrottlingMetricArgsDict']]]
+        required_features: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+elif False:
+    ThrottlingRuleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ThrottlingRuleArgs:
     def __init__(__self__, *,
@@ -3079,6 +3717,12 @@ class ThrottlingRuleArgs:
     def required_features(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "required_features", value)
 
+
+if not MYPY:
+    class TypedErrorInfoArgsDict(TypedDict):
+        type: pulumi.Input[str]
+elif False:
+    TypedErrorInfoArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TypedErrorInfoArgs:

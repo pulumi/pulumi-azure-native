@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -237,7 +242,7 @@ class LocalRulestack(pulumi.CustomResource):
                  associated_subscriptions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  default_mode: Optional[pulumi.Input[Union[str, 'DefaultMode']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['AzureResourceManagerManagedIdentityPropertiesArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['AzureResourceManagerManagedIdentityPropertiesArgs', 'AzureResourceManagerManagedIdentityPropertiesArgsDict']]] = None,
                  local_rulestack_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  min_app_id_version: Optional[pulumi.Input[str]] = None,
@@ -245,7 +250,7 @@ class LocalRulestack(pulumi.CustomResource):
                  pan_location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[Union[str, 'ScopeType']]] = None,
-                 security_services: Optional[pulumi.Input[pulumi.InputType['SecurityServicesArgs']]] = None,
+                 security_services: Optional[pulumi.Input[Union['SecurityServicesArgs', 'SecurityServicesArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -256,7 +261,7 @@ class LocalRulestack(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] associated_subscriptions: subscription scope of global rulestack
         :param pulumi.Input[Union[str, 'DefaultMode']] default_mode: Mode for default rules creation
         :param pulumi.Input[str] description: rulestack description
-        :param pulumi.Input[pulumi.InputType['AzureResourceManagerManagedIdentityPropertiesArgs']] identity: The managed service identities assigned to this resource.
+        :param pulumi.Input[Union['AzureResourceManagerManagedIdentityPropertiesArgs', 'AzureResourceManagerManagedIdentityPropertiesArgsDict']] identity: The managed service identities assigned to this resource.
         :param pulumi.Input[str] local_rulestack_name: LocalRulestack resource name
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] min_app_id_version: minimum version
@@ -264,7 +269,7 @@ class LocalRulestack(pulumi.CustomResource):
         :param pulumi.Input[str] pan_location: Rulestack Location, Required for GlobalRulestacks, Not for LocalRulestacks
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union[str, 'ScopeType']] scope: Rulestack Type
-        :param pulumi.Input[pulumi.InputType['SecurityServicesArgs']] security_services: Security Profile
+        :param pulumi.Input[Union['SecurityServicesArgs', 'SecurityServicesArgsDict']] security_services: Security Profile
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         ...
@@ -294,7 +299,7 @@ class LocalRulestack(pulumi.CustomResource):
                  associated_subscriptions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  default_mode: Optional[pulumi.Input[Union[str, 'DefaultMode']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['AzureResourceManagerManagedIdentityPropertiesArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['AzureResourceManagerManagedIdentityPropertiesArgs', 'AzureResourceManagerManagedIdentityPropertiesArgsDict']]] = None,
                  local_rulestack_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  min_app_id_version: Optional[pulumi.Input[str]] = None,
@@ -302,7 +307,7 @@ class LocalRulestack(pulumi.CustomResource):
                  pan_location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[Union[str, 'ScopeType']]] = None,
-                 security_services: Optional[pulumi.Input[pulumi.InputType['SecurityServicesArgs']]] = None,
+                 security_services: Optional[pulumi.Input[Union['SecurityServicesArgs', 'SecurityServicesArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

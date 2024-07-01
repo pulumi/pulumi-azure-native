@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -416,18 +421,18 @@ class ServerGroup(pulumi.CustomResource):
                  backup_retention_days: Optional[pulumi.Input[int]] = None,
                  citus_version: Optional[pulumi.Input[Union[str, 'CitusVersion']]] = None,
                  create_mode: Optional[pulumi.Input[Union[str, 'CreateMode']]] = None,
-                 delegated_subnet_arguments: Optional[pulumi.Input[pulumi.InputType['ServerGroupPropertiesDelegatedSubnetArgumentsArgs']]] = None,
+                 delegated_subnet_arguments: Optional[pulumi.Input[Union['ServerGroupPropertiesDelegatedSubnetArgumentsArgs', 'ServerGroupPropertiesDelegatedSubnetArgumentsArgsDict']]] = None,
                  enable_mx: Optional[pulumi.Input[bool]] = None,
                  enable_shards_on_coordinator: Optional[pulumi.Input[bool]] = None,
                  enable_zfs: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 maintenance_window: Optional[pulumi.Input[pulumi.InputType['MaintenanceWindowArgs']]] = None,
+                 maintenance_window: Optional[pulumi.Input[Union['MaintenanceWindowArgs', 'MaintenanceWindowArgsDict']]] = None,
                  point_in_time_utc: Optional[pulumi.Input[str]] = None,
                  postgresql_version: Optional[pulumi.Input[Union[str, 'PostgreSQLVersion']]] = None,
-                 private_dns_zone_arguments: Optional[pulumi.Input[pulumi.InputType['ServerGroupPropertiesPrivateDnsZoneArgumentsArgs']]] = None,
+                 private_dns_zone_arguments: Optional[pulumi.Input[Union['ServerGroupPropertiesPrivateDnsZoneArgumentsArgs', 'ServerGroupPropertiesPrivateDnsZoneArgumentsArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  server_group_name: Optional[pulumi.Input[str]] = None,
-                 server_role_groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerRoleGroupArgs']]]]] = None,
+                 server_role_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServerRoleGroupArgs', 'ServerRoleGroupArgsDict']]]]] = None,
                  source_location: Optional[pulumi.Input[str]] = None,
                  source_resource_group_name: Optional[pulumi.Input[str]] = None,
                  source_server_group_name: Optional[pulumi.Input[str]] = None,
@@ -446,18 +451,18 @@ class ServerGroup(pulumi.CustomResource):
         :param pulumi.Input[int] backup_retention_days: The backup retention days for server group.
         :param pulumi.Input[Union[str, 'CitusVersion']] citus_version: The Citus version of server group.
         :param pulumi.Input[Union[str, 'CreateMode']] create_mode: The mode to create a new server group.
-        :param pulumi.Input[pulumi.InputType['ServerGroupPropertiesDelegatedSubnetArgumentsArgs']] delegated_subnet_arguments: The delegated subnet arguments for a server group.
+        :param pulumi.Input[Union['ServerGroupPropertiesDelegatedSubnetArgumentsArgs', 'ServerGroupPropertiesDelegatedSubnetArgumentsArgsDict']] delegated_subnet_arguments: The delegated subnet arguments for a server group.
         :param pulumi.Input[bool] enable_mx: If Citus MX is enabled or not for the server group.
         :param pulumi.Input[bool] enable_shards_on_coordinator: If shards on coordinator is enabled or not for the server group.
         :param pulumi.Input[bool] enable_zfs: If ZFS compression is enabled or not for the server group.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[pulumi.InputType['MaintenanceWindowArgs']] maintenance_window: Maintenance window of a server group.
+        :param pulumi.Input[Union['MaintenanceWindowArgs', 'MaintenanceWindowArgsDict']] maintenance_window: Maintenance window of a server group.
         :param pulumi.Input[str] point_in_time_utc: Restore point creation time (ISO8601 format), specifying the time to restore from. It's required when 'createMode' is 'PointInTimeRestore'
         :param pulumi.Input[Union[str, 'PostgreSQLVersion']] postgresql_version: The PostgreSQL version of server group.
-        :param pulumi.Input[pulumi.InputType['ServerGroupPropertiesPrivateDnsZoneArgumentsArgs']] private_dns_zone_arguments: The private dns zone arguments for a server group.
+        :param pulumi.Input[Union['ServerGroupPropertiesPrivateDnsZoneArgumentsArgs', 'ServerGroupPropertiesPrivateDnsZoneArgumentsArgsDict']] private_dns_zone_arguments: The private dns zone arguments for a server group.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] server_group_name: The name of the server group.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerRoleGroupArgs']]]] server_role_groups: The list of server role groups.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ServerRoleGroupArgs', 'ServerRoleGroupArgsDict']]]] server_role_groups: The list of server role groups.
         :param pulumi.Input[str] source_location: The source server group location to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'ReadReplica'
         :param pulumi.Input[str] source_resource_group_name: The source resource group name to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'ReadReplica'
         :param pulumi.Input[str] source_server_group_name: The source server group name to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'ReadReplica'
@@ -495,18 +500,18 @@ class ServerGroup(pulumi.CustomResource):
                  backup_retention_days: Optional[pulumi.Input[int]] = None,
                  citus_version: Optional[pulumi.Input[Union[str, 'CitusVersion']]] = None,
                  create_mode: Optional[pulumi.Input[Union[str, 'CreateMode']]] = None,
-                 delegated_subnet_arguments: Optional[pulumi.Input[pulumi.InputType['ServerGroupPropertiesDelegatedSubnetArgumentsArgs']]] = None,
+                 delegated_subnet_arguments: Optional[pulumi.Input[Union['ServerGroupPropertiesDelegatedSubnetArgumentsArgs', 'ServerGroupPropertiesDelegatedSubnetArgumentsArgsDict']]] = None,
                  enable_mx: Optional[pulumi.Input[bool]] = None,
                  enable_shards_on_coordinator: Optional[pulumi.Input[bool]] = None,
                  enable_zfs: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 maintenance_window: Optional[pulumi.Input[pulumi.InputType['MaintenanceWindowArgs']]] = None,
+                 maintenance_window: Optional[pulumi.Input[Union['MaintenanceWindowArgs', 'MaintenanceWindowArgsDict']]] = None,
                  point_in_time_utc: Optional[pulumi.Input[str]] = None,
                  postgresql_version: Optional[pulumi.Input[Union[str, 'PostgreSQLVersion']]] = None,
-                 private_dns_zone_arguments: Optional[pulumi.Input[pulumi.InputType['ServerGroupPropertiesPrivateDnsZoneArgumentsArgs']]] = None,
+                 private_dns_zone_arguments: Optional[pulumi.Input[Union['ServerGroupPropertiesPrivateDnsZoneArgumentsArgs', 'ServerGroupPropertiesPrivateDnsZoneArgumentsArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  server_group_name: Optional[pulumi.Input[str]] = None,
-                 server_role_groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerRoleGroupArgs']]]]] = None,
+                 server_role_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServerRoleGroupArgs', 'ServerRoleGroupArgsDict']]]]] = None,
                  source_location: Optional[pulumi.Input[str]] = None,
                  source_resource_group_name: Optional[pulumi.Input[str]] = None,
                  source_server_group_name: Optional[pulumi.Input[str]] = None,

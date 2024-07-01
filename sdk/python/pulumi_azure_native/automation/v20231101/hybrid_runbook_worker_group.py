@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -105,7 +110,7 @@ class HybridRunbookWorkerGroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  automation_account_name: Optional[pulumi.Input[str]] = None,
-                 credential: Optional[pulumi.Input[pulumi.InputType['RunAsCredentialAssociationPropertyArgs']]] = None,
+                 credential: Optional[pulumi.Input[Union['RunAsCredentialAssociationPropertyArgs', 'RunAsCredentialAssociationPropertyArgsDict']]] = None,
                  hybrid_runbook_worker_group_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -116,7 +121,7 @@ class HybridRunbookWorkerGroup(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] automation_account_name: The name of the automation account.
-        :param pulumi.Input[pulumi.InputType['RunAsCredentialAssociationPropertyArgs']] credential: Sets the credential of a worker group.
+        :param pulumi.Input[Union['RunAsCredentialAssociationPropertyArgs', 'RunAsCredentialAssociationPropertyArgsDict']] credential: Sets the credential of a worker group.
         :param pulumi.Input[str] hybrid_runbook_worker_group_name: The hybrid runbook worker group name
         :param pulumi.Input[str] name: Gets or sets the name of the resource.
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
@@ -146,7 +151,7 @@ class HybridRunbookWorkerGroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  automation_account_name: Optional[pulumi.Input[str]] = None,
-                 credential: Optional[pulumi.Input[pulumi.InputType['RunAsCredentialAssociationPropertyArgs']]] = None,
+                 credential: Optional[pulumi.Input[Union['RunAsCredentialAssociationPropertyArgs', 'RunAsCredentialAssociationPropertyArgsDict']]] = None,
                  hybrid_runbook_worker_group_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,

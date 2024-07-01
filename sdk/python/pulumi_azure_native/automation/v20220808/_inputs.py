@@ -4,34 +4,77 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'AdvancedScheduleMonthlyOccurrenceArgs',
+    'AdvancedScheduleMonthlyOccurrenceArgsDict',
     'AdvancedScheduleArgs',
+    'AdvancedScheduleArgsDict',
     'ConnectionTypeAssociationPropertyArgs',
+    'ConnectionTypeAssociationPropertyArgsDict',
     'ContentHashArgs',
+    'ContentHashArgsDict',
     'ContentLinkArgs',
+    'ContentLinkArgsDict',
     'ContentSourceArgs',
+    'ContentSourceArgsDict',
     'DscConfigurationAssociationPropertyArgs',
+    'DscConfigurationAssociationPropertyArgsDict',
     'DscConfigurationParameterArgs',
+    'DscConfigurationParameterArgsDict',
     'EncryptionPropertiesIdentityArgs',
+    'EncryptionPropertiesIdentityArgsDict',
     'EncryptionPropertiesArgs',
+    'EncryptionPropertiesArgsDict',
     'FieldDefinitionArgs',
+    'FieldDefinitionArgsDict',
     'IdentityArgs',
+    'IdentityArgsDict',
     'KeyVaultPropertiesArgs',
+    'KeyVaultPropertiesArgsDict',
     'RunAsCredentialAssociationPropertyArgs',
+    'RunAsCredentialAssociationPropertyArgsDict',
     'RunbookAssociationPropertyArgs',
+    'RunbookAssociationPropertyArgsDict',
     'RunbookDraftArgs',
+    'RunbookDraftArgsDict',
     'RunbookParameterArgs',
+    'RunbookParameterArgsDict',
     'ScheduleAssociationPropertyArgs',
+    'ScheduleAssociationPropertyArgsDict',
     'SkuArgs',
+    'SkuArgsDict',
     'SourceControlSecurityTokenPropertiesArgs',
+    'SourceControlSecurityTokenPropertiesArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AdvancedScheduleMonthlyOccurrenceArgsDict(TypedDict):
+        """
+        The properties of the create advanced schedule monthly occurrence.
+        """
+        day: NotRequired[pulumi.Input[Union[str, 'ScheduleDay']]]
+        """
+        Day of the occurrence. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.
+        """
+        occurrence: NotRequired[pulumi.Input[int]]
+        """
+        Occurrence of the week within the month. Must be between 1 and 5
+        """
+elif False:
+    AdvancedScheduleMonthlyOccurrenceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AdvancedScheduleMonthlyOccurrenceArgs:
@@ -72,6 +115,26 @@ class AdvancedScheduleMonthlyOccurrenceArgs:
     def occurrence(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "occurrence", value)
 
+
+if not MYPY:
+    class AdvancedScheduleArgsDict(TypedDict):
+        """
+        The properties of the create Advanced Schedule.
+        """
+        month_days: NotRequired[pulumi.Input[Sequence[pulumi.Input[int]]]]
+        """
+        Days of the month that the job should execute on. Must be between 1 and 31.
+        """
+        monthly_occurrences: NotRequired[pulumi.Input[Sequence[pulumi.Input['AdvancedScheduleMonthlyOccurrenceArgsDict']]]]
+        """
+        Occurrences of days within a month.
+        """
+        week_days: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Days of the week that the job should execute on.
+        """
+elif False:
+    AdvancedScheduleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AdvancedScheduleArgs:
@@ -129,6 +192,18 @@ class AdvancedScheduleArgs:
         pulumi.set(self, "week_days", value)
 
 
+if not MYPY:
+    class ConnectionTypeAssociationPropertyArgsDict(TypedDict):
+        """
+        The connection type property associated with the entity.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the name of the connection type.
+        """
+elif False:
+    ConnectionTypeAssociationPropertyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ConnectionTypeAssociationPropertyArgs:
     def __init__(__self__, *,
@@ -152,6 +227,22 @@ class ConnectionTypeAssociationPropertyArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class ContentHashArgsDict(TypedDict):
+        """
+        Definition of the runbook property type.
+        """
+        algorithm: pulumi.Input[str]
+        """
+        Gets or sets the content hash algorithm used to hash the content.
+        """
+        value: pulumi.Input[str]
+        """
+        Gets or sets expected hash value of the content.
+        """
+elif False:
+    ContentHashArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ContentHashArgs:
@@ -190,6 +281,26 @@ class ContentHashArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class ContentLinkArgsDict(TypedDict):
+        """
+        Definition of the content link.
+        """
+        content_hash: NotRequired[pulumi.Input['ContentHashArgsDict']]
+        """
+        Gets or sets the hash.
+        """
+        uri: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the uri of the runbook content.
+        """
+        version: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the version of the content.
+        """
+elif False:
+    ContentLinkArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ContentLinkArgs:
@@ -246,6 +357,30 @@ class ContentLinkArgs:
     def version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "version", value)
 
+
+if not MYPY:
+    class ContentSourceArgsDict(TypedDict):
+        """
+        Definition of the content source.
+        """
+        hash: NotRequired[pulumi.Input['ContentHashArgsDict']]
+        """
+        Gets or sets the hash.
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'ContentSourceType']]]
+        """
+        Gets or sets the content source type.
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the value of the content. This is based on the content source type.
+        """
+        version: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the version of the content.
+        """
+elif False:
+    ContentSourceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ContentSourceArgs:
@@ -319,6 +454,18 @@ class ContentSourceArgs:
         pulumi.set(self, "version", value)
 
 
+if not MYPY:
+    class DscConfigurationAssociationPropertyArgsDict(TypedDict):
+        """
+        The Dsc configuration property associated with the entity.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the name of the Dsc configuration.
+        """
+elif False:
+    DscConfigurationAssociationPropertyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DscConfigurationAssociationPropertyArgs:
     def __init__(__self__, *,
@@ -342,6 +489,30 @@ class DscConfigurationAssociationPropertyArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class DscConfigurationParameterArgsDict(TypedDict):
+        """
+        Definition of the configuration parameter type.
+        """
+        default_value: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the default value of parameter.
+        """
+        is_mandatory: NotRequired[pulumi.Input[bool]]
+        """
+        Gets or sets a Boolean value to indicate whether the parameter is mandatory or not.
+        """
+        position: NotRequired[pulumi.Input[int]]
+        """
+        Get or sets the position of the parameter.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the type of the parameter.
+        """
+elif False:
+    DscConfigurationParameterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DscConfigurationParameterArgs:
@@ -415,6 +586,18 @@ class DscConfigurationParameterArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class EncryptionPropertiesIdentityArgsDict(TypedDict):
+        """
+        User identity used for CMK.
+        """
+        user_assigned_identity: NotRequired[Any]
+        """
+        The user identity used for CMK. It will be an ARM resource id in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+elif False:
+    EncryptionPropertiesIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EncryptionPropertiesIdentityArgs:
     def __init__(__self__, *,
@@ -438,6 +621,26 @@ class EncryptionPropertiesIdentityArgs:
     def user_assigned_identity(self, value: Optional[Any]):
         pulumi.set(self, "user_assigned_identity", value)
 
+
+if not MYPY:
+    class EncryptionPropertiesArgsDict(TypedDict):
+        """
+        The encryption settings for automation account
+        """
+        identity: NotRequired[pulumi.Input['EncryptionPropertiesIdentityArgsDict']]
+        """
+        User identity used for CMK.
+        """
+        key_source: NotRequired[pulumi.Input['EncryptionKeySourceType']]
+        """
+        Encryption Key Source
+        """
+        key_vault_properties: NotRequired[pulumi.Input['KeyVaultPropertiesArgsDict']]
+        """
+        Key vault properties.
+        """
+elif False:
+    EncryptionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EncryptionPropertiesArgs:
@@ -495,6 +698,26 @@ class EncryptionPropertiesArgs:
         pulumi.set(self, "key_vault_properties", value)
 
 
+if not MYPY:
+    class FieldDefinitionArgsDict(TypedDict):
+        """
+        Definition of the connection fields.
+        """
+        type: pulumi.Input[str]
+        """
+        Gets or sets the type of the connection field definition.
+        """
+        is_encrypted: NotRequired[pulumi.Input[bool]]
+        """
+        Gets or sets the isEncrypted flag of the connection field definition.
+        """
+        is_optional: NotRequired[pulumi.Input[bool]]
+        """
+        Gets or sets the isOptional flag of the connection field definition.
+        """
+elif False:
+    FieldDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FieldDefinitionArgs:
     def __init__(__self__, *,
@@ -550,6 +773,22 @@ class FieldDefinitionArgs:
         pulumi.set(self, "is_optional", value)
 
 
+if not MYPY:
+    class IdentityArgsDict(TypedDict):
+        """
+        Identity for the resource.
+        """
+        type: NotRequired[pulumi.Input['ResourceIdentityType']]
+        """
+        The identity type.
+        """
+        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+elif False:
+    IdentityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IdentityArgs:
     def __init__(__self__, *,
@@ -589,6 +828,26 @@ class IdentityArgs:
     def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
+
+if not MYPY:
+    class KeyVaultPropertiesArgsDict(TypedDict):
+        """
+        Settings concerning key vault encryption for a configuration store.
+        """
+        key_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of key used to encrypt data.
+        """
+        key_version: NotRequired[pulumi.Input[str]]
+        """
+        The key version of the key used to encrypt data.
+        """
+        keyvault_uri: NotRequired[pulumi.Input[str]]
+        """
+        The URI of the key vault key used to encrypt data.
+        """
+elif False:
+    KeyVaultPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class KeyVaultPropertiesArgs:
@@ -646,6 +905,18 @@ class KeyVaultPropertiesArgs:
         pulumi.set(self, "keyvault_uri", value)
 
 
+if not MYPY:
+    class RunAsCredentialAssociationPropertyArgsDict(TypedDict):
+        """
+        Definition of RunAs credential to use for hybrid worker.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the name of the credential.
+        """
+elif False:
+    RunAsCredentialAssociationPropertyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RunAsCredentialAssociationPropertyArgs:
     def __init__(__self__, *,
@@ -670,6 +941,18 @@ class RunAsCredentialAssociationPropertyArgs:
         pulumi.set(self, "name", value)
 
 
+if not MYPY:
+    class RunbookAssociationPropertyArgsDict(TypedDict):
+        """
+        The runbook property associated with the entity.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the name of the runbook.
+        """
+elif False:
+    RunbookAssociationPropertyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RunbookAssociationPropertyArgs:
     def __init__(__self__, *,
@@ -693,6 +976,35 @@ class RunbookAssociationPropertyArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class RunbookDraftArgsDict(TypedDict):
+        creation_time: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the creation time of the runbook draft.
+        """
+        draft_content_link: NotRequired[pulumi.Input['ContentLinkArgsDict']]
+        """
+        Gets or sets the draft runbook content link.
+        """
+        in_edit: NotRequired[pulumi.Input[bool]]
+        """
+        Gets or sets whether runbook is in edit mode.
+        """
+        last_modified_time: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the last modified time of the runbook draft.
+        """
+        output_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Gets or sets the runbook output types.
+        """
+        parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['RunbookParameterArgsDict']]]]
+        """
+        Gets or sets the runbook draft parameters.
+        """
+elif False:
+    RunbookDraftArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RunbookDraftArgs:
@@ -797,6 +1109,30 @@ class RunbookDraftArgs:
         pulumi.set(self, "parameters", value)
 
 
+if not MYPY:
+    class RunbookParameterArgsDict(TypedDict):
+        """
+        Definition of the runbook parameter type.
+        """
+        default_value: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the default value of parameter.
+        """
+        is_mandatory: NotRequired[pulumi.Input[bool]]
+        """
+        Gets or sets a Boolean value to indicate whether the parameter is mandatory or not.
+        """
+        position: NotRequired[pulumi.Input[int]]
+        """
+        Get or sets the position of the parameter.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the type of the parameter.
+        """
+elif False:
+    RunbookParameterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RunbookParameterArgs:
     def __init__(__self__, *,
@@ -869,6 +1205,18 @@ class RunbookParameterArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class ScheduleAssociationPropertyArgsDict(TypedDict):
+        """
+        The schedule property associated with the entity.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the name of the Schedule.
+        """
+elif False:
+    ScheduleAssociationPropertyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ScheduleAssociationPropertyArgs:
     def __init__(__self__, *,
@@ -892,6 +1240,26 @@ class ScheduleAssociationPropertyArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class SkuArgsDict(TypedDict):
+        """
+        The account SKU.
+        """
+        name: pulumi.Input[Union[str, 'SkuNameEnum']]
+        """
+        Gets or sets the SKU name of the account.
+        """
+        capacity: NotRequired[pulumi.Input[int]]
+        """
+        Gets or sets the SKU capacity.
+        """
+        family: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the SKU family.
+        """
+elif False:
+    SkuArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SkuArgs:
@@ -947,6 +1315,23 @@ class SkuArgs:
     def family(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "family", value)
 
+
+if not MYPY:
+    class SourceControlSecurityTokenPropertiesArgsDict(TypedDict):
+        access_token: NotRequired[pulumi.Input[str]]
+        """
+        The access token.
+        """
+        refresh_token: NotRequired[pulumi.Input[str]]
+        """
+        The refresh token.
+        """
+        token_type: NotRequired[pulumi.Input[Union[str, 'TokenType']]]
+        """
+        The token type. Must be either PersonalAccessToken or Oauth.
+        """
+elif False:
+    SourceControlSecurityTokenPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SourceControlSecurityTokenPropertiesArgs:

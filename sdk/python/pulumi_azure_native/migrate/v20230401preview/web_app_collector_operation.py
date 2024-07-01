@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -104,7 +109,7 @@ class WebAppCollectorOperation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 agent_properties: Optional[pulumi.Input[pulumi.InputType['CollectorAgentPropertiesBaseArgs']]] = None,
+                 agent_properties: Optional[pulumi.Input[Union['CollectorAgentPropertiesBaseArgs', 'CollectorAgentPropertiesBaseArgsDict']]] = None,
                  collector_name: Optional[pulumi.Input[str]] = None,
                  discovery_site_id: Optional[pulumi.Input[str]] = None,
                  project_name: Optional[pulumi.Input[str]] = None,
@@ -115,7 +120,7 @@ class WebAppCollectorOperation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['CollectorAgentPropertiesBaseArgs']] agent_properties: Gets or sets the collector agent properties.
+        :param pulumi.Input[Union['CollectorAgentPropertiesBaseArgs', 'CollectorAgentPropertiesBaseArgsDict']] agent_properties: Gets or sets the collector agent properties.
         :param pulumi.Input[str] collector_name: Web app collector ARM name.
         :param pulumi.Input[str] discovery_site_id: Gets the discovery site id.
         :param pulumi.Input[str] project_name: Assessment Project Name
@@ -145,7 +150,7 @@ class WebAppCollectorOperation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 agent_properties: Optional[pulumi.Input[pulumi.InputType['CollectorAgentPropertiesBaseArgs']]] = None,
+                 agent_properties: Optional[pulumi.Input[Union['CollectorAgentPropertiesBaseArgs', 'CollectorAgentPropertiesBaseArgsDict']]] = None,
                  collector_name: Optional[pulumi.Input[str]] = None,
                  discovery_site_id: Optional[pulumi.Input[str]] = None,
                  project_name: Optional[pulumi.Input[str]] = None,

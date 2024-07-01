@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -236,7 +241,7 @@ class MachineExtension(pulumi.CustomResource):
                  auto_upgrade_minor_version: Optional[pulumi.Input[bool]] = None,
                  extension_name: Optional[pulumi.Input[str]] = None,
                  force_update_tag: Optional[pulumi.Input[str]] = None,
-                 instance_view: Optional[pulumi.Input[pulumi.InputType['MachineExtensionPropertiesInstanceViewArgs']]] = None,
+                 instance_view: Optional[pulumi.Input[Union['MachineExtensionPropertiesInstanceViewArgs', 'MachineExtensionPropertiesInstanceViewArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  protected_settings: Optional[Any] = None,
@@ -255,7 +260,7 @@ class MachineExtension(pulumi.CustomResource):
         :param pulumi.Input[bool] auto_upgrade_minor_version: Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
         :param pulumi.Input[str] extension_name: The name of the machine extension.
         :param pulumi.Input[str] force_update_tag: How the extension handler should be forced to update even if the extension configuration has not changed.
-        :param pulumi.Input[pulumi.InputType['MachineExtensionPropertiesInstanceViewArgs']] instance_view: The machine extension instance view.
+        :param pulumi.Input[Union['MachineExtensionPropertiesInstanceViewArgs', 'MachineExtensionPropertiesInstanceViewArgsDict']] instance_view: The machine extension instance view.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] name: The name of the machine where the extension should be created or updated.
         :param Any protected_settings: The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
@@ -293,7 +298,7 @@ class MachineExtension(pulumi.CustomResource):
                  auto_upgrade_minor_version: Optional[pulumi.Input[bool]] = None,
                  extension_name: Optional[pulumi.Input[str]] = None,
                  force_update_tag: Optional[pulumi.Input[str]] = None,
-                 instance_view: Optional[pulumi.Input[pulumi.InputType['MachineExtensionPropertiesInstanceViewArgs']]] = None,
+                 instance_view: Optional[pulumi.Input[Union['MachineExtensionPropertiesInstanceViewArgs', 'MachineExtensionPropertiesInstanceViewArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  protected_settings: Optional[Any] = None,

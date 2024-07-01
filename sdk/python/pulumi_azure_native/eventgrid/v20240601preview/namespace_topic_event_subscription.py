@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -152,11 +157,11 @@ class NamespaceTopicEventSubscription(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 delivery_configuration: Optional[pulumi.Input[pulumi.InputType['DeliveryConfigurationArgs']]] = None,
+                 delivery_configuration: Optional[pulumi.Input[Union['DeliveryConfigurationArgs', 'DeliveryConfigurationArgsDict']]] = None,
                  event_delivery_schema: Optional[pulumi.Input[Union[str, 'DeliverySchema']]] = None,
                  event_subscription_name: Optional[pulumi.Input[str]] = None,
                  expiration_time_utc: Optional[pulumi.Input[str]] = None,
-                 filters_configuration: Optional[pulumi.Input[pulumi.InputType['FiltersConfigurationArgs']]] = None,
+                 filters_configuration: Optional[pulumi.Input[Union['FiltersConfigurationArgs', 'FiltersConfigurationArgsDict']]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  topic_name: Optional[pulumi.Input[str]] = None,
@@ -166,11 +171,11 @@ class NamespaceTopicEventSubscription(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['DeliveryConfigurationArgs']] delivery_configuration: Information about the delivery configuration of the event subscription.
+        :param pulumi.Input[Union['DeliveryConfigurationArgs', 'DeliveryConfigurationArgsDict']] delivery_configuration: Information about the delivery configuration of the event subscription.
         :param pulumi.Input[Union[str, 'DeliverySchema']] event_delivery_schema: The event delivery schema for the event subscription.
         :param pulumi.Input[str] event_subscription_name: Name of the event subscription to be created. Event subscription names must be between 3 and 50 characters in length and use alphanumeric letters only.
         :param pulumi.Input[str] expiration_time_utc: Expiration time of the event subscription.
-        :param pulumi.Input[pulumi.InputType['FiltersConfigurationArgs']] filters_configuration: Information about the filter for the event subscription.
+        :param pulumi.Input[Union['FiltersConfigurationArgs', 'FiltersConfigurationArgsDict']] filters_configuration: Information about the filter for the event subscription.
         :param pulumi.Input[str] namespace_name: Name of the namespace.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription.
         :param pulumi.Input[str] topic_name: Name of the namespace topic.
@@ -199,11 +204,11 @@ class NamespaceTopicEventSubscription(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 delivery_configuration: Optional[pulumi.Input[pulumi.InputType['DeliveryConfigurationArgs']]] = None,
+                 delivery_configuration: Optional[pulumi.Input[Union['DeliveryConfigurationArgs', 'DeliveryConfigurationArgsDict']]] = None,
                  event_delivery_schema: Optional[pulumi.Input[Union[str, 'DeliverySchema']]] = None,
                  event_subscription_name: Optional[pulumi.Input[str]] = None,
                  expiration_time_utc: Optional[pulumi.Input[str]] = None,
-                 filters_configuration: Optional[pulumi.Input[pulumi.InputType['FiltersConfigurationArgs']]] = None,
+                 filters_configuration: Optional[pulumi.Input[Union['FiltersConfigurationArgs', 'FiltersConfigurationArgsDict']]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  topic_name: Optional[pulumi.Input[str]] = None,

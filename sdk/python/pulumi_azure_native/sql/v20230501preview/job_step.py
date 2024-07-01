@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -197,12 +202,12 @@ class JobStep(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action: Optional[pulumi.Input[pulumi.InputType['JobStepActionArgs']]] = None,
+                 action: Optional[pulumi.Input[Union['JobStepActionArgs', 'JobStepActionArgsDict']]] = None,
                  credential: Optional[pulumi.Input[str]] = None,
-                 execution_options: Optional[pulumi.Input[pulumi.InputType['JobStepExecutionOptionsArgs']]] = None,
+                 execution_options: Optional[pulumi.Input[Union['JobStepExecutionOptionsArgs', 'JobStepExecutionOptionsArgsDict']]] = None,
                  job_agent_name: Optional[pulumi.Input[str]] = None,
                  job_name: Optional[pulumi.Input[str]] = None,
-                 output: Optional[pulumi.Input[pulumi.InputType['JobStepOutputArgs']]] = None,
+                 output: Optional[pulumi.Input[Union['JobStepOutputArgs', 'JobStepOutputArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
                  step_id: Optional[pulumi.Input[int]] = None,
@@ -214,12 +219,12 @@ class JobStep(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['JobStepActionArgs']] action: The action payload of the job step.
+        :param pulumi.Input[Union['JobStepActionArgs', 'JobStepActionArgsDict']] action: The action payload of the job step.
         :param pulumi.Input[str] credential: The resource ID of the job credential that will be used to connect to the targets.
-        :param pulumi.Input[pulumi.InputType['JobStepExecutionOptionsArgs']] execution_options: Execution options for the job step.
+        :param pulumi.Input[Union['JobStepExecutionOptionsArgs', 'JobStepExecutionOptionsArgsDict']] execution_options: Execution options for the job step.
         :param pulumi.Input[str] job_agent_name: The name of the job agent.
         :param pulumi.Input[str] job_name: The name of the job.
-        :param pulumi.Input[pulumi.InputType['JobStepOutputArgs']] output: Output destination properties of the job step.
+        :param pulumi.Input[Union['JobStepOutputArgs', 'JobStepOutputArgsDict']] output: Output destination properties of the job step.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] server_name: The name of the server.
         :param pulumi.Input[int] step_id: The job step's index within the job. If not specified when creating the job step, it will be created as the last step. If not specified when updating the job step, the step id is not modified.
@@ -250,12 +255,12 @@ class JobStep(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action: Optional[pulumi.Input[pulumi.InputType['JobStepActionArgs']]] = None,
+                 action: Optional[pulumi.Input[Union['JobStepActionArgs', 'JobStepActionArgsDict']]] = None,
                  credential: Optional[pulumi.Input[str]] = None,
-                 execution_options: Optional[pulumi.Input[pulumi.InputType['JobStepExecutionOptionsArgs']]] = None,
+                 execution_options: Optional[pulumi.Input[Union['JobStepExecutionOptionsArgs', 'JobStepExecutionOptionsArgsDict']]] = None,
                  job_agent_name: Optional[pulumi.Input[str]] = None,
                  job_name: Optional[pulumi.Input[str]] = None,
-                 output: Optional[pulumi.Input[pulumi.InputType['JobStepOutputArgs']]] = None,
+                 output: Optional[pulumi.Input[Union['JobStepOutputArgs', 'JobStepOutputArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
                  step_id: Optional[pulumi.Input[int]] = None,

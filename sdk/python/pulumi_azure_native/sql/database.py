@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -621,7 +626,7 @@ class Database(pulumi.CustomResource):
                  elastic_pool_id: Optional[pulumi.Input[str]] = None,
                  federated_client_id: Optional[pulumi.Input[str]] = None,
                  high_availability_replica_count: Optional[pulumi.Input[int]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['DatabaseIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['DatabaseIdentityArgs', 'DatabaseIdentityArgsDict']]] = None,
                  is_ledger_on: Optional[pulumi.Input[bool]] = None,
                  license_type: Optional[pulumi.Input[Union[str, 'DatabaseLicenseType']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -639,7 +644,7 @@ class Database(pulumi.CustomResource):
                  sample_name: Optional[pulumi.Input[Union[str, 'SampleName']]] = None,
                  secondary_type: Optional[pulumi.Input[Union[str, 'SecondaryType']]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  source_database_deletion_date: Optional[pulumi.Input[str]] = None,
                  source_database_id: Optional[pulumi.Input[str]] = None,
                  source_resource_id: Optional[pulumi.Input[str]] = None,
@@ -678,7 +683,7 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[str] elastic_pool_id: The resource identifier of the elastic pool containing this database.
         :param pulumi.Input[str] federated_client_id: The Client id used for cross tenant per database CMK scenario
         :param pulumi.Input[int] high_availability_replica_count: The number of secondary replicas associated with the database that are used to provide high availability. Not applicable to a Hyperscale database within an elastic pool.
-        :param pulumi.Input[pulumi.InputType['DatabaseIdentityArgs']] identity: The Azure Active Directory identity of the database.
+        :param pulumi.Input[Union['DatabaseIdentityArgs', 'DatabaseIdentityArgsDict']] identity: The Azure Active Directory identity of the database.
         :param pulumi.Input[bool] is_ledger_on: Whether or not this database is a ledger database, which means all tables in the database are ledger tables. Note: the value of this property cannot be changed after the database has been created.
         :param pulumi.Input[Union[str, 'DatabaseLicenseType']] license_type: The license type to apply for this database. `LicenseIncluded` if you need a license, or `BasePrice` if you have a license and are eligible for the Azure Hybrid Benefit.
         :param pulumi.Input[str] location: Resource location.
@@ -696,7 +701,7 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'SampleName']] sample_name: The name of the sample schema to apply when creating this database.
         :param pulumi.Input[Union[str, 'SecondaryType']] secondary_type: The secondary type of the database if it is a secondary.  Valid values are Geo and Named.
         :param pulumi.Input[str] server_name: The name of the server.
-        :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The database SKU.
+        :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: The database SKU.
                
                The list of SKUs may vary by region and support offer. To determine the SKUs (including the SKU name, tier/edition, family, and capacity) that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API or one of the following commands:
                
@@ -760,7 +765,7 @@ class Database(pulumi.CustomResource):
                  elastic_pool_id: Optional[pulumi.Input[str]] = None,
                  federated_client_id: Optional[pulumi.Input[str]] = None,
                  high_availability_replica_count: Optional[pulumi.Input[int]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['DatabaseIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['DatabaseIdentityArgs', 'DatabaseIdentityArgsDict']]] = None,
                  is_ledger_on: Optional[pulumi.Input[bool]] = None,
                  license_type: Optional[pulumi.Input[Union[str, 'DatabaseLicenseType']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -778,7 +783,7 @@ class Database(pulumi.CustomResource):
                  sample_name: Optional[pulumi.Input[Union[str, 'SampleName']]] = None,
                  secondary_type: Optional[pulumi.Input[Union[str, 'SecondaryType']]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  source_database_deletion_date: Optional[pulumi.Input[str]] = None,
                  source_database_id: Optional[pulumi.Input[str]] = None,
                  source_resource_id: Optional[pulumi.Input[str]] = None,

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -460,7 +465,7 @@ class AccessReviewScheduleDefinitionById(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_apply_decisions_enabled: Optional[pulumi.Input[bool]] = None,
-                 backup_reviewers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccessReviewReviewerArgs']]]]] = None,
+                 backup_reviewers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AccessReviewReviewerArgs', 'AccessReviewReviewerArgsDict']]]]] = None,
                  default_decision: Optional[pulumi.Input[Union[str, 'DefaultDecisionType']]] = None,
                  default_decision_enabled: Optional[pulumi.Input[bool]] = None,
                  description_for_admins: Optional[pulumi.Input[str]] = None,
@@ -474,7 +479,7 @@ class AccessReviewScheduleDefinitionById(pulumi.CustomResource):
                  include_access_below_resource: Optional[pulumi.Input[bool]] = None,
                  include_inherited_access: Optional[pulumi.Input[bool]] = None,
                  instance_duration_in_days: Optional[pulumi.Input[int]] = None,
-                 instances: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccessReviewInstanceArgs']]]]] = None,
+                 instances: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AccessReviewInstanceArgs', 'AccessReviewInstanceArgsDict']]]]] = None,
                  interval: Optional[pulumi.Input[int]] = None,
                  justification_required_on_approval: Optional[pulumi.Input[bool]] = None,
                  mail_notifications_enabled: Optional[pulumi.Input[bool]] = None,
@@ -482,7 +487,7 @@ class AccessReviewScheduleDefinitionById(pulumi.CustomResource):
                  recommendation_look_back_duration: Optional[pulumi.Input[str]] = None,
                  recommendations_enabled: Optional[pulumi.Input[bool]] = None,
                  reminder_notifications_enabled: Optional[pulumi.Input[bool]] = None,
-                 reviewers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccessReviewReviewerArgs']]]]] = None,
+                 reviewers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AccessReviewReviewerArgs', 'AccessReviewReviewerArgsDict']]]]] = None,
                  schedule_definition_id: Optional[pulumi.Input[str]] = None,
                  start_date: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[Union[str, 'AccessReviewRecurrenceRangeType']]] = None,
@@ -493,7 +498,7 @@ class AccessReviewScheduleDefinitionById(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_apply_decisions_enabled: Flag to indicate whether auto-apply capability, to automatically change the target object access resource, is enabled. If not enabled, a user must, after the review completes, apply the access review.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccessReviewReviewerArgs']]]] backup_reviewers: This is the collection of backup reviewers.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AccessReviewReviewerArgs', 'AccessReviewReviewerArgsDict']]]] backup_reviewers: This is the collection of backup reviewers.
         :param pulumi.Input[Union[str, 'DefaultDecisionType']] default_decision: This specifies the behavior for the autoReview feature when an access review completes.
         :param pulumi.Input[bool] default_decision_enabled: Flag to indicate whether reviewers are required to provide a justification when reviewing access.
         :param pulumi.Input[str] description_for_admins: The description provided by the access review creator and visible to admins.
@@ -507,7 +512,7 @@ class AccessReviewScheduleDefinitionById(pulumi.CustomResource):
         :param pulumi.Input[bool] include_access_below_resource: Flag to indicate whether to expand nested memberships or not.
         :param pulumi.Input[bool] include_inherited_access: Flag to indicate whether to expand nested memberships or not.
         :param pulumi.Input[int] instance_duration_in_days: The duration in days for an instance.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccessReviewInstanceArgs']]]] instances: This is the collection of instances returned when one does an expand on it.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AccessReviewInstanceArgs', 'AccessReviewInstanceArgsDict']]]] instances: This is the collection of instances returned when one does an expand on it.
         :param pulumi.Input[int] interval: The interval for recurrence. For a quarterly review, the interval is 3 for type : absoluteMonthly.
         :param pulumi.Input[bool] justification_required_on_approval: Flag to indicate whether the reviewer is required to pass justification when recording a decision.
         :param pulumi.Input[bool] mail_notifications_enabled: Flag to indicate whether sending mails to reviewers and the review creator is enabled.
@@ -515,7 +520,7 @@ class AccessReviewScheduleDefinitionById(pulumi.CustomResource):
         :param pulumi.Input[str] recommendation_look_back_duration: Recommendations for access reviews are calculated by looking back at 30 days of data(w.r.t the start date of the review) by default. However, in some scenarios, customers want to change how far back to look at and want to configure 60 days, 90 days, etc. instead. This setting allows customers to configure this duration. The value should be in ISO  8601 format (http://en.wikipedia.org/wiki/ISO_8601#Durations).This code can be used to convert TimeSpan to a valid interval string: XmlConvert.ToString(new TimeSpan(hours, minutes, seconds))
         :param pulumi.Input[bool] recommendations_enabled: Flag to indicate whether showing recommendations to reviewers is enabled.
         :param pulumi.Input[bool] reminder_notifications_enabled: Flag to indicate whether sending reminder emails to reviewers are enabled.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccessReviewReviewerArgs']]]] reviewers: This is the collection of reviewers.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AccessReviewReviewerArgs', 'AccessReviewReviewerArgsDict']]]] reviewers: This is the collection of reviewers.
         :param pulumi.Input[str] schedule_definition_id: The id of the access review schedule definition.
         :param pulumi.Input[str] start_date: The DateTime when the review is scheduled to be start. This could be a date in the future. Required on create.
         :param pulumi.Input[Union[str, 'AccessReviewRecurrenceRangeType']] type: The recurrence range type. The possible values are: endDate, noEnd, numbered.
@@ -545,7 +550,7 @@ class AccessReviewScheduleDefinitionById(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_apply_decisions_enabled: Optional[pulumi.Input[bool]] = None,
-                 backup_reviewers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccessReviewReviewerArgs']]]]] = None,
+                 backup_reviewers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AccessReviewReviewerArgs', 'AccessReviewReviewerArgsDict']]]]] = None,
                  default_decision: Optional[pulumi.Input[Union[str, 'DefaultDecisionType']]] = None,
                  default_decision_enabled: Optional[pulumi.Input[bool]] = None,
                  description_for_admins: Optional[pulumi.Input[str]] = None,
@@ -559,7 +564,7 @@ class AccessReviewScheduleDefinitionById(pulumi.CustomResource):
                  include_access_below_resource: Optional[pulumi.Input[bool]] = None,
                  include_inherited_access: Optional[pulumi.Input[bool]] = None,
                  instance_duration_in_days: Optional[pulumi.Input[int]] = None,
-                 instances: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccessReviewInstanceArgs']]]]] = None,
+                 instances: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AccessReviewInstanceArgs', 'AccessReviewInstanceArgsDict']]]]] = None,
                  interval: Optional[pulumi.Input[int]] = None,
                  justification_required_on_approval: Optional[pulumi.Input[bool]] = None,
                  mail_notifications_enabled: Optional[pulumi.Input[bool]] = None,
@@ -567,7 +572,7 @@ class AccessReviewScheduleDefinitionById(pulumi.CustomResource):
                  recommendation_look_back_duration: Optional[pulumi.Input[str]] = None,
                  recommendations_enabled: Optional[pulumi.Input[bool]] = None,
                  reminder_notifications_enabled: Optional[pulumi.Input[bool]] = None,
-                 reviewers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccessReviewReviewerArgs']]]]] = None,
+                 reviewers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AccessReviewReviewerArgs', 'AccessReviewReviewerArgsDict']]]]] = None,
                  schedule_definition_id: Optional[pulumi.Input[str]] = None,
                  start_date: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[Union[str, 'AccessReviewRecurrenceRangeType']]] = None,

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -138,11 +143,11 @@ class TaskRun(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  force_update_tag: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['IdentityPropertiesArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['IdentityPropertiesArgs', 'IdentityPropertiesArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  registry_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 run_request: Optional[pulumi.Input[Union[pulumi.InputType['DockerBuildRequestArgs'], pulumi.InputType['EncodedTaskRunRequestArgs'], pulumi.InputType['FileTaskRunRequestArgs'], pulumi.InputType['TaskRunRequestArgs']]]] = None,
+                 run_request: Optional[pulumi.Input[Union[Union['DockerBuildRequestArgs', 'DockerBuildRequestArgsDict'], Union['EncodedTaskRunRequestArgs', 'EncodedTaskRunRequestArgsDict'], Union['FileTaskRunRequestArgs', 'FileTaskRunRequestArgsDict'], Union['TaskRunRequestArgs', 'TaskRunRequestArgsDict']]]] = None,
                  task_run_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -152,11 +157,11 @@ class TaskRun(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] force_update_tag: How the run should be forced to rerun even if the run request configuration has not changed
-        :param pulumi.Input[pulumi.InputType['IdentityPropertiesArgs']] identity: Identity for the resource.
+        :param pulumi.Input[Union['IdentityPropertiesArgs', 'IdentityPropertiesArgsDict']] identity: Identity for the resource.
         :param pulumi.Input[str] location: The location of the resource
         :param pulumi.Input[str] registry_name: The name of the container registry.
         :param pulumi.Input[str] resource_group_name: The name of the resource group to which the container registry belongs.
-        :param pulumi.Input[Union[pulumi.InputType['DockerBuildRequestArgs'], pulumi.InputType['EncodedTaskRunRequestArgs'], pulumi.InputType['FileTaskRunRequestArgs'], pulumi.InputType['TaskRunRequestArgs']]] run_request: The request (parameters) for the run
+        :param pulumi.Input[Union[Union['DockerBuildRequestArgs', 'DockerBuildRequestArgsDict'], Union['EncodedTaskRunRequestArgs', 'EncodedTaskRunRequestArgsDict'], Union['FileTaskRunRequestArgs', 'FileTaskRunRequestArgsDict'], Union['TaskRunRequestArgs', 'TaskRunRequestArgsDict']]] run_request: The request (parameters) for the run
         :param pulumi.Input[str] task_run_name: The name of the task run.
         """
         ...
@@ -185,11 +190,11 @@ class TaskRun(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  force_update_tag: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['IdentityPropertiesArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['IdentityPropertiesArgs', 'IdentityPropertiesArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  registry_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 run_request: Optional[pulumi.Input[Union[pulumi.InputType['DockerBuildRequestArgs'], pulumi.InputType['EncodedTaskRunRequestArgs'], pulumi.InputType['FileTaskRunRequestArgs'], pulumi.InputType['TaskRunRequestArgs']]]] = None,
+                 run_request: Optional[pulumi.Input[Union[Union['DockerBuildRequestArgs', 'DockerBuildRequestArgsDict'], Union['EncodedTaskRunRequestArgs', 'EncodedTaskRunRequestArgsDict'], Union['FileTaskRunRequestArgs', 'FileTaskRunRequestArgsDict'], Union['TaskRunRequestArgs', 'TaskRunRequestArgsDict']]]] = None,
                  task_run_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

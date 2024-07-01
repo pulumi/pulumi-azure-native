@@ -4,15 +4,36 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 
 __all__ = [
     'ConfigurationProfileAssignmentPropertiesArgs',
+    'ConfigurationProfileAssignmentPropertiesArgsDict',
     'ConfigurationProfilePropertiesArgs',
+    'ConfigurationProfilePropertiesArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ConfigurationProfileAssignmentPropertiesArgsDict(TypedDict):
+        """
+        Automanage configuration profile assignment properties.
+        """
+        configuration_profile: NotRequired[pulumi.Input[str]]
+        """
+        The Automanage configurationProfile ARM Resource URI.
+        """
+elif False:
+    ConfigurationProfileAssignmentPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ConfigurationProfileAssignmentPropertiesArgs:
@@ -37,6 +58,18 @@ class ConfigurationProfileAssignmentPropertiesArgs:
     def configuration_profile(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "configuration_profile", value)
 
+
+if not MYPY:
+    class ConfigurationProfilePropertiesArgsDict(TypedDict):
+        """
+        Automanage configuration profile properties.
+        """
+        configuration: NotRequired[Any]
+        """
+        configuration dictionary of the configuration profile.
+        """
+elif False:
+    ConfigurationProfilePropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ConfigurationProfilePropertiesArgs:

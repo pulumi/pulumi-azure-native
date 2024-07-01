@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -234,13 +239,13 @@ class LiveEvent(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  auto_start: Optional[pulumi.Input[bool]] = None,
-                 cross_site_access_policies: Optional[pulumi.Input[pulumi.InputType['CrossSiteAccessPoliciesArgs']]] = None,
+                 cross_site_access_policies: Optional[pulumi.Input[Union['CrossSiteAccessPoliciesArgs', 'CrossSiteAccessPoliciesArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 encoding: Optional[pulumi.Input[pulumi.InputType['LiveEventEncodingArgs']]] = None,
-                 input: Optional[pulumi.Input[pulumi.InputType['LiveEventInputArgs']]] = None,
+                 encoding: Optional[pulumi.Input[Union['LiveEventEncodingArgs', 'LiveEventEncodingArgsDict']]] = None,
+                 input: Optional[pulumi.Input[Union['LiveEventInputArgs', 'LiveEventInputArgsDict']]] = None,
                  live_event_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 preview: Optional[pulumi.Input[pulumi.InputType['LiveEventPreviewArgs']]] = None,
+                 preview: Optional[pulumi.Input[Union['LiveEventPreviewArgs', 'LiveEventPreviewArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  stream_options: Optional[pulumi.Input[Sequence[pulumi.Input['StreamOptionsFlag']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -253,13 +258,13 @@ class LiveEvent(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The Media Services account name.
         :param pulumi.Input[bool] auto_start: The flag indicates if auto start the Live Event.
-        :param pulumi.Input[pulumi.InputType['CrossSiteAccessPoliciesArgs']] cross_site_access_policies: The Live Event access policies.
+        :param pulumi.Input[Union['CrossSiteAccessPoliciesArgs', 'CrossSiteAccessPoliciesArgsDict']] cross_site_access_policies: The Live Event access policies.
         :param pulumi.Input[str] description: The Live Event description.
-        :param pulumi.Input[pulumi.InputType['LiveEventEncodingArgs']] encoding: The Live Event encoding.
-        :param pulumi.Input[pulumi.InputType['LiveEventInputArgs']] input: The Live Event input.
+        :param pulumi.Input[Union['LiveEventEncodingArgs', 'LiveEventEncodingArgsDict']] encoding: The Live Event encoding.
+        :param pulumi.Input[Union['LiveEventInputArgs', 'LiveEventInputArgsDict']] input: The Live Event input.
         :param pulumi.Input[str] live_event_name: The name of the Live Event.
         :param pulumi.Input[str] location: The Azure Region of the resource.
-        :param pulumi.Input[pulumi.InputType['LiveEventPreviewArgs']] preview: The Live Event preview.
+        :param pulumi.Input[Union['LiveEventPreviewArgs', 'LiveEventPreviewArgsDict']] preview: The Live Event preview.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the Azure subscription.
         :param pulumi.Input[Sequence[pulumi.Input['StreamOptionsFlag']]] stream_options: The stream options.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -291,13 +296,13 @@ class LiveEvent(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  auto_start: Optional[pulumi.Input[bool]] = None,
-                 cross_site_access_policies: Optional[pulumi.Input[pulumi.InputType['CrossSiteAccessPoliciesArgs']]] = None,
+                 cross_site_access_policies: Optional[pulumi.Input[Union['CrossSiteAccessPoliciesArgs', 'CrossSiteAccessPoliciesArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 encoding: Optional[pulumi.Input[pulumi.InputType['LiveEventEncodingArgs']]] = None,
-                 input: Optional[pulumi.Input[pulumi.InputType['LiveEventInputArgs']]] = None,
+                 encoding: Optional[pulumi.Input[Union['LiveEventEncodingArgs', 'LiveEventEncodingArgsDict']]] = None,
+                 input: Optional[pulumi.Input[Union['LiveEventInputArgs', 'LiveEventInputArgsDict']]] = None,
                  live_event_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 preview: Optional[pulumi.Input[pulumi.InputType['LiveEventPreviewArgs']]] = None,
+                 preview: Optional[pulumi.Input[Union['LiveEventPreviewArgs', 'LiveEventPreviewArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  stream_options: Optional[pulumi.Input[Sequence[pulumi.Input['StreamOptionsFlag']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,

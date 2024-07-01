@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -215,14 +220,14 @@ class BareMetalMachineKeySet(pulumi.CustomResource):
                  bare_metal_machine_key_set_name: Optional[pulumi.Input[str]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  expiration: Optional[pulumi.Input[str]] = None,
-                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
                  jump_hosts_allowed: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  os_group_name: Optional[pulumi.Input[str]] = None,
                  privilege_level: Optional[pulumi.Input[Union[str, 'BareMetalMachineKeySetPrivilegeLevel']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 user_list: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KeySetUserArgs']]]]] = None,
+                 user_list: Optional[pulumi.Input[Sequence[pulumi.Input[Union['KeySetUserArgs', 'KeySetUserArgsDict']]]]] = None,
                  __props__=None):
         """
         Azure REST API version: 2023-10-01-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview.
@@ -235,14 +240,14 @@ class BareMetalMachineKeySet(pulumi.CustomResource):
         :param pulumi.Input[str] bare_metal_machine_key_set_name: The name of the bare metal machine key set.
         :param pulumi.Input[str] cluster_name: The name of the cluster.
         :param pulumi.Input[str] expiration: The date and time after which the users in this key set will be removed from the bare metal machines.
-        :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: The extended location of the cluster associated with the resource.
+        :param pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']] extended_location: The extended location of the cluster associated with the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] jump_hosts_allowed: The list of IP addresses of jump hosts with management network access from which a login will be allowed for the users.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] os_group_name: The name of the group that users will be assigned to on the operating system of the machines.
         :param pulumi.Input[Union[str, 'BareMetalMachineKeySetPrivilegeLevel']] privilege_level: The access level allowed for the users in this key set.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KeySetUserArgs']]]] user_list: The unique list of permitted users.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['KeySetUserArgs', 'KeySetUserArgsDict']]]] user_list: The unique list of permitted users.
         """
         ...
     @overload
@@ -274,14 +279,14 @@ class BareMetalMachineKeySet(pulumi.CustomResource):
                  bare_metal_machine_key_set_name: Optional[pulumi.Input[str]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  expiration: Optional[pulumi.Input[str]] = None,
-                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
                  jump_hosts_allowed: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  os_group_name: Optional[pulumi.Input[str]] = None,
                  privilege_level: Optional[pulumi.Input[Union[str, 'BareMetalMachineKeySetPrivilegeLevel']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 user_list: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KeySetUserArgs']]]]] = None,
+                 user_list: Optional[pulumi.Input[Sequence[pulumi.Input[Union['KeySetUserArgs', 'KeySetUserArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

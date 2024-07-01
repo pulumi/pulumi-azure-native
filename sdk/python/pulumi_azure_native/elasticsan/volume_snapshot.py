@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -102,7 +107,7 @@ class VolumeSnapshot(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 creation_data: Optional[pulumi.Input[pulumi.InputType['SnapshotCreationDataArgs']]] = None,
+                 creation_data: Optional[pulumi.Input[Union['SnapshotCreationDataArgs', 'SnapshotCreationDataArgsDict']]] = None,
                  elastic_san_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  snapshot_name: Optional[pulumi.Input[str]] = None,
@@ -116,7 +121,7 @@ class VolumeSnapshot(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['SnapshotCreationDataArgs']] creation_data: Data used when creating a volume snapshot.
+        :param pulumi.Input[Union['SnapshotCreationDataArgs', 'SnapshotCreationDataArgsDict']] creation_data: Data used when creating a volume snapshot.
         :param pulumi.Input[str] elastic_san_name: The name of the ElasticSan.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] snapshot_name: The name of the volume snapshot within the given volume group.
@@ -149,7 +154,7 @@ class VolumeSnapshot(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 creation_data: Optional[pulumi.Input[pulumi.InputType['SnapshotCreationDataArgs']]] = None,
+                 creation_data: Optional[pulumi.Input[Union['SnapshotCreationDataArgs', 'SnapshotCreationDataArgsDict']]] = None,
                  elastic_san_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  snapshot_name: Optional[pulumi.Input[str]] = None,

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -207,10 +212,10 @@ class MongoCluster(pulumi.CustomResource):
                  create_mode: Optional[pulumi.Input[Union[str, 'CreateMode']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  mongo_cluster_name: Optional[pulumi.Input[str]] = None,
-                 node_group_specs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NodeGroupSpecArgs']]]]] = None,
+                 node_group_specs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NodeGroupSpecArgs', 'NodeGroupSpecArgsDict']]]]] = None,
                  public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 restore_parameters: Optional[pulumi.Input[pulumi.InputType['MongoClusterRestoreParametersArgs']]] = None,
+                 restore_parameters: Optional[pulumi.Input[Union['MongoClusterRestoreParametersArgs', 'MongoClusterRestoreParametersArgsDict']]] = None,
                  server_version: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -224,10 +229,10 @@ class MongoCluster(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'CreateMode']] create_mode: The mode to create a mongo cluster.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] mongo_cluster_name: The name of the mongo cluster.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NodeGroupSpecArgs']]]] node_group_specs: The list of node group specs in the cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NodeGroupSpecArgs', 'NodeGroupSpecArgsDict']]]] node_group_specs: The list of node group specs in the cluster.
         :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: Whether or not public endpoint access is allowed for this mongo cluster.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[pulumi.InputType['MongoClusterRestoreParametersArgs']] restore_parameters: The parameters to create a point-in-time restore mongo cluster.
+        :param pulumi.Input[Union['MongoClusterRestoreParametersArgs', 'MongoClusterRestoreParametersArgsDict']] restore_parameters: The parameters to create a point-in-time restore mongo cluster.
         :param pulumi.Input[str] server_version: The Mongo DB server version. Defaults to the latest available version if not specified.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -260,10 +265,10 @@ class MongoCluster(pulumi.CustomResource):
                  create_mode: Optional[pulumi.Input[Union[str, 'CreateMode']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  mongo_cluster_name: Optional[pulumi.Input[str]] = None,
-                 node_group_specs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NodeGroupSpecArgs']]]]] = None,
+                 node_group_specs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NodeGroupSpecArgs', 'NodeGroupSpecArgsDict']]]]] = None,
                  public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 restore_parameters: Optional[pulumi.Input[pulumi.InputType['MongoClusterRestoreParametersArgs']]] = None,
+                 restore_parameters: Optional[pulumi.Input[Union['MongoClusterRestoreParametersArgs', 'MongoClusterRestoreParametersArgsDict']]] = None,
                  server_version: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):

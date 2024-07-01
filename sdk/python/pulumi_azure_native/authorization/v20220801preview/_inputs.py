@@ -4,15 +4,36 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 
 __all__ = [
     'PolicyVariableColumnArgs',
+    'PolicyVariableColumnArgsDict',
     'PolicyVariableValueColumnValueArgs',
+    'PolicyVariableValueColumnValueArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class PolicyVariableColumnArgsDict(TypedDict):
+        """
+        The variable column.
+        """
+        column_name: pulumi.Input[str]
+        """
+        The name of this policy variable column.
+        """
+elif False:
+    PolicyVariableColumnArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PolicyVariableColumnArgs:
@@ -36,6 +57,22 @@ class PolicyVariableColumnArgs:
     def column_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "column_name", value)
 
+
+if not MYPY:
+    class PolicyVariableValueColumnValueArgsDict(TypedDict):
+        """
+        The name value tuple for this variable value column.
+        """
+        column_name: pulumi.Input[str]
+        """
+        Column name for the variable value
+        """
+        column_value: Any
+        """
+        Column value for the variable value; this can be an integer, double, boolean, null or a string.
+        """
+elif False:
+    PolicyVariableValueColumnValueArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PolicyVariableValueColumnValueArgs:

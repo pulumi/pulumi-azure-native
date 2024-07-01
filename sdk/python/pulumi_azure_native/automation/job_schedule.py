@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -139,8 +144,8 @@ class JobSchedule(pulumi.CustomResource):
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  run_on: Optional[pulumi.Input[str]] = None,
-                 runbook: Optional[pulumi.Input[pulumi.InputType['RunbookAssociationPropertyArgs']]] = None,
-                 schedule: Optional[pulumi.Input[pulumi.InputType['ScheduleAssociationPropertyArgs']]] = None,
+                 runbook: Optional[pulumi.Input[Union['RunbookAssociationPropertyArgs', 'RunbookAssociationPropertyArgsDict']]] = None,
+                 schedule: Optional[pulumi.Input[Union['ScheduleAssociationPropertyArgs', 'ScheduleAssociationPropertyArgsDict']]] = None,
                  __props__=None):
         """
         Definition of the job schedule.
@@ -155,8 +160,8 @@ class JobSchedule(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: Gets or sets a list of job properties.
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
         :param pulumi.Input[str] run_on: Gets or sets the hybrid worker group that the scheduled job should run on.
-        :param pulumi.Input[pulumi.InputType['RunbookAssociationPropertyArgs']] runbook: Gets or sets the runbook.
-        :param pulumi.Input[pulumi.InputType['ScheduleAssociationPropertyArgs']] schedule: Gets or sets the schedule.
+        :param pulumi.Input[Union['RunbookAssociationPropertyArgs', 'RunbookAssociationPropertyArgsDict']] runbook: Gets or sets the runbook.
+        :param pulumi.Input[Union['ScheduleAssociationPropertyArgs', 'ScheduleAssociationPropertyArgsDict']] schedule: Gets or sets the schedule.
         """
         ...
     @overload
@@ -190,8 +195,8 @@ class JobSchedule(pulumi.CustomResource):
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  run_on: Optional[pulumi.Input[str]] = None,
-                 runbook: Optional[pulumi.Input[pulumi.InputType['RunbookAssociationPropertyArgs']]] = None,
-                 schedule: Optional[pulumi.Input[pulumi.InputType['ScheduleAssociationPropertyArgs']]] = None,
+                 runbook: Optional[pulumi.Input[Union['RunbookAssociationPropertyArgs', 'RunbookAssociationPropertyArgsDict']]] = None,
+                 schedule: Optional[pulumi.Input[Union['ScheduleAssociationPropertyArgs', 'ScheduleAssociationPropertyArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

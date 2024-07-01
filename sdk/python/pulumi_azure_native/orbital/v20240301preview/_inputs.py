@@ -4,18 +4,41 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'EdgeSitesPropertiesGlobalCommunicationsSiteArgs',
+    'EdgeSitesPropertiesGlobalCommunicationsSiteArgsDict',
     'GroundStationsPropertiesGlobalCommunicationsSiteArgs',
+    'GroundStationsPropertiesGlobalCommunicationsSiteArgsDict',
     'L2ConnectionsPropertiesEdgeSiteArgs',
+    'L2ConnectionsPropertiesEdgeSiteArgsDict',
     'L2ConnectionsPropertiesGroundStationArgs',
+    'L2ConnectionsPropertiesGroundStationArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class EdgeSitesPropertiesGlobalCommunicationsSiteArgsDict(TypedDict):
+        """
+        A reference to global communications site.
+        """
+        id: pulumi.Input[str]
+        """
+        Resource ID.
+        """
+elif False:
+    EdgeSitesPropertiesGlobalCommunicationsSiteArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EdgeSitesPropertiesGlobalCommunicationsSiteArgs:
@@ -40,6 +63,18 @@ class EdgeSitesPropertiesGlobalCommunicationsSiteArgs:
         pulumi.set(self, "id", value)
 
 
+if not MYPY:
+    class GroundStationsPropertiesGlobalCommunicationsSiteArgsDict(TypedDict):
+        """
+        A reference to global communications site.
+        """
+        id: pulumi.Input[str]
+        """
+        Resource ID.
+        """
+elif False:
+    GroundStationsPropertiesGlobalCommunicationsSiteArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GroundStationsPropertiesGlobalCommunicationsSiteArgs:
     def __init__(__self__, *,
@@ -63,6 +98,18 @@ class GroundStationsPropertiesGlobalCommunicationsSiteArgs:
         pulumi.set(self, "id", value)
 
 
+if not MYPY:
+    class L2ConnectionsPropertiesEdgeSiteArgsDict(TypedDict):
+        """
+        A reference to an Microsoft.Orbital/edgeSites resource to route traffic for.
+        """
+        id: pulumi.Input[str]
+        """
+        Resource ID.
+        """
+elif False:
+    L2ConnectionsPropertiesEdgeSiteArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class L2ConnectionsPropertiesEdgeSiteArgs:
     def __init__(__self__, *,
@@ -85,6 +132,18 @@ class L2ConnectionsPropertiesEdgeSiteArgs:
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class L2ConnectionsPropertiesGroundStationArgsDict(TypedDict):
+        """
+        A reference to an Microsoft.Orbital/groundStations resource to route traffic for.
+        """
+        id: pulumi.Input[str]
+        """
+        Resource ID.
+        """
+elif False:
+    L2ConnectionsPropertiesGroundStationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class L2ConnectionsPropertiesGroundStationArgs:

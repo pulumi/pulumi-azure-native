@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -138,7 +143,7 @@ class StandbyVirtualMachinePool(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  attached_virtual_machine_scale_set_id: Optional[pulumi.Input[str]] = None,
-                 elasticity_profile: Optional[pulumi.Input[pulumi.InputType['StandbyVirtualMachinePoolElasticityProfileArgs']]] = None,
+                 elasticity_profile: Optional[pulumi.Input[Union['StandbyVirtualMachinePoolElasticityProfileArgs', 'StandbyVirtualMachinePoolElasticityProfileArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  standby_virtual_machine_pool_name: Optional[pulumi.Input[str]] = None,
@@ -151,7 +156,7 @@ class StandbyVirtualMachinePool(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] attached_virtual_machine_scale_set_id: Specifies the fully qualified resource ID of a virtual machine scale set the pool is attached to.
-        :param pulumi.Input[pulumi.InputType['StandbyVirtualMachinePoolElasticityProfileArgs']] elasticity_profile: Specifies the elasticity profile of the standby virtual machine pools.
+        :param pulumi.Input[Union['StandbyVirtualMachinePoolElasticityProfileArgs', 'StandbyVirtualMachinePoolElasticityProfileArgsDict']] elasticity_profile: Specifies the elasticity profile of the standby virtual machine pools.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] standby_virtual_machine_pool_name: Name of the standby virtual machine pool
@@ -183,7 +188,7 @@ class StandbyVirtualMachinePool(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  attached_virtual_machine_scale_set_id: Optional[pulumi.Input[str]] = None,
-                 elasticity_profile: Optional[pulumi.Input[pulumi.InputType['StandbyVirtualMachinePoolElasticityProfileArgs']]] = None,
+                 elasticity_profile: Optional[pulumi.Input[Union['StandbyVirtualMachinePoolElasticityProfileArgs', 'StandbyVirtualMachinePoolElasticityProfileArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  standby_virtual_machine_pool_name: Optional[pulumi.Input[str]] = None,

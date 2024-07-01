@@ -4,19 +4,55 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'CollectorPolicyArgs',
+    'CollectorPolicyArgsDict',
     'EmissionPoliciesPropertiesFormatArgs',
+    'EmissionPoliciesPropertiesFormatArgsDict',
     'EmissionPolicyDestinationArgs',
+    'EmissionPolicyDestinationArgsDict',
     'IngestionPolicyPropertiesFormatArgs',
+    'IngestionPolicyPropertiesFormatArgsDict',
     'IngestionSourcesPropertiesFormatArgs',
+    'IngestionSourcesPropertiesFormatArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class CollectorPolicyArgsDict(TypedDict):
+        """
+        Collector policy resource.
+        """
+        emission_policies: NotRequired[pulumi.Input[Sequence[pulumi.Input['EmissionPoliciesPropertiesFormatArgsDict']]]]
+        """
+        Emission policies.
+        """
+        ingestion_policy: NotRequired[pulumi.Input['IngestionPolicyPropertiesFormatArgsDict']]
+        """
+        Ingestion policies.
+        """
+        location: NotRequired[pulumi.Input[str]]
+        """
+        Resource location.
+        """
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Resource tags.
+        """
+elif False:
+    CollectorPolicyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CollectorPolicyArgs:
@@ -90,6 +126,22 @@ class CollectorPolicyArgs:
         pulumi.set(self, "tags", value)
 
 
+if not MYPY:
+    class EmissionPoliciesPropertiesFormatArgsDict(TypedDict):
+        """
+        Emission policy properties.
+        """
+        emission_destinations: NotRequired[pulumi.Input[Sequence[pulumi.Input['EmissionPolicyDestinationArgsDict']]]]
+        """
+        Emission policy destinations.
+        """
+        emission_type: NotRequired[pulumi.Input[Union[str, 'EmissionType']]]
+        """
+        Emission format type.
+        """
+elif False:
+    EmissionPoliciesPropertiesFormatArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EmissionPoliciesPropertiesFormatArgs:
     def __init__(__self__, *,
@@ -130,6 +182,18 @@ class EmissionPoliciesPropertiesFormatArgs:
         pulumi.set(self, "emission_type", value)
 
 
+if not MYPY:
+    class EmissionPolicyDestinationArgsDict(TypedDict):
+        """
+        Emission policy destination properties.
+        """
+        destination_type: NotRequired[pulumi.Input[Union[str, 'DestinationType']]]
+        """
+        Emission destination type.
+        """
+elif False:
+    EmissionPolicyDestinationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EmissionPolicyDestinationArgs:
     def __init__(__self__, *,
@@ -153,6 +217,22 @@ class EmissionPolicyDestinationArgs:
     def destination_type(self, value: Optional[pulumi.Input[Union[str, 'DestinationType']]]):
         pulumi.set(self, "destination_type", value)
 
+
+if not MYPY:
+    class IngestionPolicyPropertiesFormatArgsDict(TypedDict):
+        """
+        Ingestion Policy properties.
+        """
+        ingestion_sources: NotRequired[pulumi.Input[Sequence[pulumi.Input['IngestionSourcesPropertiesFormatArgsDict']]]]
+        """
+        Ingestion Sources.
+        """
+        ingestion_type: NotRequired[pulumi.Input[Union[str, 'IngestionType']]]
+        """
+        The ingestion type.
+        """
+elif False:
+    IngestionPolicyPropertiesFormatArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IngestionPolicyPropertiesFormatArgs:
@@ -193,6 +273,22 @@ class IngestionPolicyPropertiesFormatArgs:
     def ingestion_type(self, value: Optional[pulumi.Input[Union[str, 'IngestionType']]]):
         pulumi.set(self, "ingestion_type", value)
 
+
+if not MYPY:
+    class IngestionSourcesPropertiesFormatArgsDict(TypedDict):
+        """
+        Ingestion policy properties.
+        """
+        resource_id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        source_type: NotRequired[pulumi.Input[Union[str, 'SourceType']]]
+        """
+        Ingestion source type.
+        """
+elif False:
+    IngestionSourcesPropertiesFormatArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IngestionSourcesPropertiesFormatArgs:

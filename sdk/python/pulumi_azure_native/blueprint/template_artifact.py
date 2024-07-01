@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -189,7 +194,7 @@ class TemplateArtifact(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ParameterValueArgs']]]]] = None,
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['ParameterValueArgs', 'ParameterValueArgsDict']]]]] = None,
                  resource_group: Optional[pulumi.Input[str]] = None,
                  resource_scope: Optional[pulumi.Input[str]] = None,
                  template: Optional[Any] = None,
@@ -207,7 +212,7 @@ class TemplateArtifact(pulumi.CustomResource):
         :param pulumi.Input[str] display_name: One-liner string explain this resource.
         :param pulumi.Input[str] kind: Specifies the kind of blueprint artifact.
                Expected value is 'template'.
-        :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ParameterValueArgs']]]] parameters: Resource Manager template blueprint artifact parameter values.
+        :param pulumi.Input[Mapping[str, pulumi.Input[Union['ParameterValueArgs', 'ParameterValueArgsDict']]]] parameters: Resource Manager template blueprint artifact parameter values.
         :param pulumi.Input[str] resource_group: If applicable, the name of the resource group placeholder to which the Resource Manager template blueprint artifact will be deployed.
         :param pulumi.Input[str] resource_scope: The scope of the resource. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}').
         :param Any template: The Resource Manager template blueprint artifact body.
@@ -243,7 +248,7 @@ class TemplateArtifact(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ParameterValueArgs']]]]] = None,
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['ParameterValueArgs', 'ParameterValueArgsDict']]]]] = None,
                  resource_group: Optional[pulumi.Input[str]] = None,
                  resource_scope: Optional[pulumi.Input[str]] = None,
                  template: Optional[Any] = None,

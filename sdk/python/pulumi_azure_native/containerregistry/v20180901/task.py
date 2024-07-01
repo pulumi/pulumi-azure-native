@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -217,18 +222,18 @@ class Task(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 agent_configuration: Optional[pulumi.Input[pulumi.InputType['AgentPropertiesArgs']]] = None,
-                 credentials: Optional[pulumi.Input[pulumi.InputType['CredentialsArgs']]] = None,
+                 agent_configuration: Optional[pulumi.Input[Union['AgentPropertiesArgs', 'AgentPropertiesArgsDict']]] = None,
+                 credentials: Optional[pulumi.Input[Union['CredentialsArgs', 'CredentialsArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 platform: Optional[pulumi.Input[pulumi.InputType['PlatformPropertiesArgs']]] = None,
+                 platform: Optional[pulumi.Input[Union['PlatformPropertiesArgs', 'PlatformPropertiesArgsDict']]] = None,
                  registry_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[Union[str, 'TaskStatus']]] = None,
-                 step: Optional[pulumi.Input[pulumi.InputType['TaskStepPropertiesArgs']]] = None,
+                 step: Optional[pulumi.Input[Union['TaskStepPropertiesArgs', 'TaskStepPropertiesArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  task_name: Optional[pulumi.Input[str]] = None,
                  timeout: Optional[pulumi.Input[int]] = None,
-                 trigger: Optional[pulumi.Input[pulumi.InputType['TriggerPropertiesArgs']]] = None,
+                 trigger: Optional[pulumi.Input[Union['TriggerPropertiesArgs', 'TriggerPropertiesArgsDict']]] = None,
                  __props__=None):
         """
         The task that has the ARM resource and task properties.
@@ -236,18 +241,18 @@ class Task(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['AgentPropertiesArgs']] agent_configuration: The machine configuration of the run agent.
-        :param pulumi.Input[pulumi.InputType['CredentialsArgs']] credentials: The properties that describes a set of credentials that will be used when this run is invoked.
+        :param pulumi.Input[Union['AgentPropertiesArgs', 'AgentPropertiesArgsDict']] agent_configuration: The machine configuration of the run agent.
+        :param pulumi.Input[Union['CredentialsArgs', 'CredentialsArgsDict']] credentials: The properties that describes a set of credentials that will be used when this run is invoked.
         :param pulumi.Input[str] location: The location of the resource. This cannot be changed after the resource is created.
-        :param pulumi.Input[pulumi.InputType['PlatformPropertiesArgs']] platform: The platform properties against which the run has to happen.
+        :param pulumi.Input[Union['PlatformPropertiesArgs', 'PlatformPropertiesArgsDict']] platform: The platform properties against which the run has to happen.
         :param pulumi.Input[str] registry_name: The name of the container registry.
         :param pulumi.Input[str] resource_group_name: The name of the resource group to which the container registry belongs.
         :param pulumi.Input[Union[str, 'TaskStatus']] status: The current status of task.
-        :param pulumi.Input[pulumi.InputType['TaskStepPropertiesArgs']] step: The properties of a task step.
+        :param pulumi.Input[Union['TaskStepPropertiesArgs', 'TaskStepPropertiesArgsDict']] step: The properties of a task step.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
         :param pulumi.Input[str] task_name: The name of the container registry task.
         :param pulumi.Input[int] timeout: Run timeout in seconds.
-        :param pulumi.Input[pulumi.InputType['TriggerPropertiesArgs']] trigger: The properties that describe all triggers for the task.
+        :param pulumi.Input[Union['TriggerPropertiesArgs', 'TriggerPropertiesArgsDict']] trigger: The properties that describe all triggers for the task.
         """
         ...
     @overload
@@ -274,18 +279,18 @@ class Task(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 agent_configuration: Optional[pulumi.Input[pulumi.InputType['AgentPropertiesArgs']]] = None,
-                 credentials: Optional[pulumi.Input[pulumi.InputType['CredentialsArgs']]] = None,
+                 agent_configuration: Optional[pulumi.Input[Union['AgentPropertiesArgs', 'AgentPropertiesArgsDict']]] = None,
+                 credentials: Optional[pulumi.Input[Union['CredentialsArgs', 'CredentialsArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 platform: Optional[pulumi.Input[pulumi.InputType['PlatformPropertiesArgs']]] = None,
+                 platform: Optional[pulumi.Input[Union['PlatformPropertiesArgs', 'PlatformPropertiesArgsDict']]] = None,
                  registry_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[Union[str, 'TaskStatus']]] = None,
-                 step: Optional[pulumi.Input[pulumi.InputType['TaskStepPropertiesArgs']]] = None,
+                 step: Optional[pulumi.Input[Union['TaskStepPropertiesArgs', 'TaskStepPropertiesArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  task_name: Optional[pulumi.Input[str]] = None,
                  timeout: Optional[pulumi.Input[int]] = None,
-                 trigger: Optional[pulumi.Input[pulumi.InputType['TriggerPropertiesArgs']]] = None,
+                 trigger: Optional[pulumi.Input[Union['TriggerPropertiesArgs', 'TriggerPropertiesArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

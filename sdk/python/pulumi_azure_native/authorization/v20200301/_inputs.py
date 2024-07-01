@@ -4,17 +4,39 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'IdentityArgs',
+    'IdentityArgsDict',
     'ParameterValuesValueArgs',
+    'ParameterValuesValueArgsDict',
     'PolicySkuArgs',
+    'PolicySkuArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class IdentityArgsDict(TypedDict):
+        """
+        Identity for the resource.
+        """
+        type: NotRequired[pulumi.Input['ResourceIdentityType']]
+        """
+        The identity type. This is the only required field when adding a system assigned identity to a resource.
+        """
+elif False:
+    IdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IdentityArgs:
@@ -40,6 +62,18 @@ class IdentityArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class ParameterValuesValueArgsDict(TypedDict):
+        """
+        The value of a parameter.
+        """
+        value: NotRequired[Any]
+        """
+        The value of the parameter.
+        """
+elif False:
+    ParameterValuesValueArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ParameterValuesValueArgs:
     def __init__(__self__, *,
@@ -63,6 +97,22 @@ class ParameterValuesValueArgs:
     def value(self, value: Optional[Any]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class PolicySkuArgsDict(TypedDict):
+        """
+        The policy sku. This property is optional, obsolete, and will be ignored.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the policy sku. Possible values are A0 and A1.
+        """
+        tier: NotRequired[pulumi.Input[str]]
+        """
+        The policy sku tier. Possible values are Free and Standard.
+        """
+elif False:
+    PolicySkuArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PolicySkuArgs:

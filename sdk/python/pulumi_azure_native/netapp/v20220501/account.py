@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -139,9 +144,9 @@ class Account(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
-                 active_directories: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ActiveDirectoryArgs']]]]] = None,
-                 encryption: Optional[pulumi.Input[pulumi.InputType['AccountEncryptionArgs']]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
+                 active_directories: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ActiveDirectoryArgs', 'ActiveDirectoryArgsDict']]]]] = None,
+                 encryption: Optional[pulumi.Input[Union['AccountEncryptionArgs', 'AccountEncryptionArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -152,9 +157,9 @@ class Account(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the NetApp account
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ActiveDirectoryArgs']]]] active_directories: Active Directories
-        :param pulumi.Input[pulumi.InputType['AccountEncryptionArgs']] encryption: Encryption settings
-        :param pulumi.Input[pulumi.InputType['IdentityArgs']] identity: The identity of the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ActiveDirectoryArgs', 'ActiveDirectoryArgsDict']]]] active_directories: Active Directories
+        :param pulumi.Input[Union['AccountEncryptionArgs', 'AccountEncryptionArgsDict']] encryption: Encryption settings
+        :param pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']] identity: The identity of the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -184,9 +189,9 @@ class Account(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
-                 active_directories: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ActiveDirectoryArgs']]]]] = None,
-                 encryption: Optional[pulumi.Input[pulumi.InputType['AccountEncryptionArgs']]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
+                 active_directories: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ActiveDirectoryArgs', 'ActiveDirectoryArgsDict']]]]] = None,
+                 encryption: Optional[pulumi.Input[Union['AccountEncryptionArgs', 'AccountEncryptionArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,

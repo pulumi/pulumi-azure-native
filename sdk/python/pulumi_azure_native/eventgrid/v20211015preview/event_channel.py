@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -156,30 +161,30 @@ class EventChannel(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 destination: Optional[pulumi.Input[pulumi.InputType['EventChannelDestinationArgs']]] = None,
+                 destination: Optional[pulumi.Input[Union['EventChannelDestinationArgs', 'EventChannelDestinationArgsDict']]] = None,
                  event_channel_name: Optional[pulumi.Input[str]] = None,
                  expiration_time_if_not_activated_utc: Optional[pulumi.Input[str]] = None,
-                 filter: Optional[pulumi.Input[pulumi.InputType['EventChannelFilterArgs']]] = None,
+                 filter: Optional[pulumi.Input[Union['EventChannelFilterArgs', 'EventChannelFilterArgsDict']]] = None,
                  partner_namespace_name: Optional[pulumi.Input[str]] = None,
                  partner_topic_friendly_description: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 source: Optional[pulumi.Input[pulumi.InputType['EventChannelSourceArgs']]] = None,
+                 source: Optional[pulumi.Input[Union['EventChannelSourceArgs', 'EventChannelSourceArgsDict']]] = None,
                  __props__=None):
         """
         Event Channel.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['EventChannelDestinationArgs']] destination: Represents the destination of an event channel.
+        :param pulumi.Input[Union['EventChannelDestinationArgs', 'EventChannelDestinationArgsDict']] destination: Represents the destination of an event channel.
         :param pulumi.Input[str] event_channel_name: Name of the event channel.
         :param pulumi.Input[str] expiration_time_if_not_activated_utc: Expiration time of the event channel. If this timer expires while the corresponding partner topic is never activated,
                the event channel and corresponding partner topic are deleted.
-        :param pulumi.Input[pulumi.InputType['EventChannelFilterArgs']] filter: Information about the filter for the event channel.
+        :param pulumi.Input[Union['EventChannelFilterArgs', 'EventChannelFilterArgsDict']] filter: Information about the filter for the event channel.
         :param pulumi.Input[str] partner_namespace_name: Name of the partner namespace.
         :param pulumi.Input[str] partner_topic_friendly_description: Friendly description about the topic. This can be set by the publisher/partner to show custom description for the customer partner topic.
                This will be helpful to remove any ambiguity of the origin of creation of the partner topic for the customer.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription.
-        :param pulumi.Input[pulumi.InputType['EventChannelSourceArgs']] source: Source of the event channel. This represents a unique resource in the partner's resource model.
+        :param pulumi.Input[Union['EventChannelSourceArgs', 'EventChannelSourceArgsDict']] source: Source of the event channel. This represents a unique resource in the partner's resource model.
         """
         ...
     @overload
@@ -205,14 +210,14 @@ class EventChannel(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 destination: Optional[pulumi.Input[pulumi.InputType['EventChannelDestinationArgs']]] = None,
+                 destination: Optional[pulumi.Input[Union['EventChannelDestinationArgs', 'EventChannelDestinationArgsDict']]] = None,
                  event_channel_name: Optional[pulumi.Input[str]] = None,
                  expiration_time_if_not_activated_utc: Optional[pulumi.Input[str]] = None,
-                 filter: Optional[pulumi.Input[pulumi.InputType['EventChannelFilterArgs']]] = None,
+                 filter: Optional[pulumi.Input[Union['EventChannelFilterArgs', 'EventChannelFilterArgsDict']]] = None,
                  partner_namespace_name: Optional[pulumi.Input[str]] = None,
                  partner_topic_friendly_description: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 source: Optional[pulumi.Input[pulumi.InputType['EventChannelSourceArgs']]] = None,
+                 source: Optional[pulumi.Input[Union['EventChannelSourceArgs', 'EventChannelSourceArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

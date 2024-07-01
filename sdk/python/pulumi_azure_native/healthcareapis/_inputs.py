@@ -4,41 +4,96 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'AnalyticsConnectorDataLakeDataDestinationArgs',
+    'AnalyticsConnectorDataLakeDataDestinationArgsDict',
     'AnalyticsConnectorFhirServiceDataSourceArgs',
+    'AnalyticsConnectorFhirServiceDataSourceArgsDict',
     'AnalyticsConnectorFhirToParquetMappingArgs',
+    'AnalyticsConnectorFhirToParquetMappingArgsDict',
     'CorsConfigurationArgs',
+    'CorsConfigurationArgsDict',
     'FhirServiceAccessPolicyEntryArgs',
+    'FhirServiceAccessPolicyEntryArgsDict',
     'FhirServiceAcrConfigurationArgs',
+    'FhirServiceAcrConfigurationArgsDict',
     'FhirServiceAuthenticationConfigurationArgs',
+    'FhirServiceAuthenticationConfigurationArgsDict',
     'FhirServiceCorsConfigurationArgs',
+    'FhirServiceCorsConfigurationArgsDict',
     'FhirServiceExportConfigurationArgs',
+    'FhirServiceExportConfigurationArgsDict',
     'FhirServiceImportConfigurationArgs',
+    'FhirServiceImportConfigurationArgsDict',
     'ImplementationGuidesConfigurationArgs',
+    'ImplementationGuidesConfigurationArgsDict',
     'IotEventHubIngestionEndpointConfigurationArgs',
+    'IotEventHubIngestionEndpointConfigurationArgsDict',
     'IotMappingPropertiesArgs',
+    'IotMappingPropertiesArgsDict',
     'PrivateEndpointConnectionArgs',
+    'PrivateEndpointConnectionArgsDict',
     'PrivateLinkServiceConnectionStateArgs',
+    'PrivateLinkServiceConnectionStateArgsDict',
     'ResourceVersionPolicyConfigurationArgs',
+    'ResourceVersionPolicyConfigurationArgsDict',
     'ServiceAccessPolicyEntryArgs',
+    'ServiceAccessPolicyEntryArgsDict',
     'ServiceAcrConfigurationInfoArgs',
+    'ServiceAcrConfigurationInfoArgsDict',
     'ServiceAuthenticationConfigurationInfoArgs',
+    'ServiceAuthenticationConfigurationInfoArgsDict',
     'ServiceCorsConfigurationInfoArgs',
+    'ServiceCorsConfigurationInfoArgsDict',
     'ServiceCosmosDbConfigurationInfoArgs',
+    'ServiceCosmosDbConfigurationInfoArgsDict',
     'ServiceExportConfigurationInfoArgs',
+    'ServiceExportConfigurationInfoArgsDict',
     'ServiceImportConfigurationInfoArgs',
+    'ServiceImportConfigurationInfoArgsDict',
     'ServiceManagedIdentityIdentityArgs',
+    'ServiceManagedIdentityIdentityArgsDict',
     'ServiceOciArtifactEntryArgs',
+    'ServiceOciArtifactEntryArgsDict',
     'ServicesPropertiesArgs',
+    'ServicesPropertiesArgsDict',
     'ServicesResourceIdentityArgs',
+    'ServicesResourceIdentityArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AnalyticsConnectorDataLakeDataDestinationArgsDict(TypedDict):
+        """
+        The Data Lake data destination for Analytics Connector.
+        """
+        data_lake_name: pulumi.Input[str]
+        """
+        The name for the Data Lake.
+        """
+        type: pulumi.Input[str]
+        """
+        Type of data destination.
+        Expected value is 'datalake'.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of data destination.
+        """
+elif False:
+    AnalyticsConnectorDataLakeDataDestinationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AnalyticsConnectorDataLakeDataDestinationArgs:
@@ -96,6 +151,27 @@ class AnalyticsConnectorDataLakeDataDestinationArgs:
         pulumi.set(self, "name", value)
 
 
+if not MYPY:
+    class AnalyticsConnectorFhirServiceDataSourceArgsDict(TypedDict):
+        """
+        The FHIR service data source for Analytics Connector.
+        """
+        kind: pulumi.Input[Union[str, 'FhirServiceVersion']]
+        """
+        The kind of FHIR Service.
+        """
+        type: pulumi.Input[str]
+        """
+        Type of data source.
+        Expected value is 'fhirservice'.
+        """
+        url: pulumi.Input[str]
+        """
+        The URL of FHIR service.
+        """
+elif False:
+    AnalyticsConnectorFhirServiceDataSourceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AnalyticsConnectorFhirServiceDataSourceArgs:
     def __init__(__self__, *,
@@ -150,6 +226,27 @@ class AnalyticsConnectorFhirServiceDataSourceArgs:
     def url(self, value: pulumi.Input[str]):
         pulumi.set(self, "url", value)
 
+
+if not MYPY:
+    class AnalyticsConnectorFhirToParquetMappingArgsDict(TypedDict):
+        """
+        FHIR Service data mapping configuration for Analytics Connector.
+        """
+        type: pulumi.Input[str]
+        """
+        Type of data mapping.
+        Expected value is 'fhirToParquet'.
+        """
+        extension_schema_reference: NotRequired[pulumi.Input[str]]
+        """
+        Artifact reference for extension schema.
+        """
+        filter_configuration_reference: NotRequired[pulumi.Input[str]]
+        """
+        Artifact reference for filter configurations.
+        """
+elif False:
+    AnalyticsConnectorFhirToParquetMappingArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AnalyticsConnectorFhirToParquetMappingArgs:
@@ -207,6 +304,34 @@ class AnalyticsConnectorFhirToParquetMappingArgs:
     def filter_configuration_reference(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "filter_configuration_reference", value)
 
+
+if not MYPY:
+    class CorsConfigurationArgsDict(TypedDict):
+        """
+        The settings for the CORS configuration of the service instance.
+        """
+        allow_credentials: NotRequired[pulumi.Input[bool]]
+        """
+        If credentials are allowed via CORS.
+        """
+        headers: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The headers to be allowed via CORS.
+        """
+        max_age: NotRequired[pulumi.Input[int]]
+        """
+        The max age to be allowed via CORS.
+        """
+        methods: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The methods to be allowed via CORS.
+        """
+        origins: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The origins to be allowed via CORS.
+        """
+elif False:
+    CorsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CorsConfigurationArgs:
@@ -296,6 +421,18 @@ class CorsConfigurationArgs:
         pulumi.set(self, "origins", value)
 
 
+if not MYPY:
+    class FhirServiceAccessPolicyEntryArgsDict(TypedDict):
+        """
+        An access policy entry.
+        """
+        object_id: pulumi.Input[str]
+        """
+        An Azure AD object ID (User or Apps) that is allowed access to the FHIR service.
+        """
+elif False:
+    FhirServiceAccessPolicyEntryArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FhirServiceAccessPolicyEntryArgs:
     def __init__(__self__, *,
@@ -318,6 +455,22 @@ class FhirServiceAccessPolicyEntryArgs:
     def object_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "object_id", value)
 
+
+if not MYPY:
+    class FhirServiceAcrConfigurationArgsDict(TypedDict):
+        """
+        Azure container registry configuration information
+        """
+        login_servers: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of the Azure container registry login servers.
+        """
+        oci_artifacts: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceOciArtifactEntryArgsDict']]]]
+        """
+        The list of Open Container Initiative (OCI) artifacts.
+        """
+elif False:
+    FhirServiceAcrConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FhirServiceAcrConfigurationArgs:
@@ -358,6 +511,26 @@ class FhirServiceAcrConfigurationArgs:
     def oci_artifacts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceOciArtifactEntryArgs']]]]):
         pulumi.set(self, "oci_artifacts", value)
 
+
+if not MYPY:
+    class FhirServiceAuthenticationConfigurationArgsDict(TypedDict):
+        """
+        Authentication configuration information
+        """
+        audience: NotRequired[pulumi.Input[str]]
+        """
+        The audience url for the service
+        """
+        authority: NotRequired[pulumi.Input[str]]
+        """
+        The authority url for the service
+        """
+        smart_proxy_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If the SMART on FHIR proxy is enabled
+        """
+elif False:
+    FhirServiceAuthenticationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FhirServiceAuthenticationConfigurationArgs:
@@ -414,6 +587,34 @@ class FhirServiceAuthenticationConfigurationArgs:
     def smart_proxy_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "smart_proxy_enabled", value)
 
+
+if not MYPY:
+    class FhirServiceCorsConfigurationArgsDict(TypedDict):
+        """
+        The settings for the CORS configuration of the service instance.
+        """
+        allow_credentials: NotRequired[pulumi.Input[bool]]
+        """
+        If credentials are allowed via CORS.
+        """
+        headers: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The headers to be allowed via CORS.
+        """
+        max_age: NotRequired[pulumi.Input[int]]
+        """
+        The max age to be allowed via CORS.
+        """
+        methods: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The methods to be allowed via CORS.
+        """
+        origins: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The origins to be allowed via CORS.
+        """
+elif False:
+    FhirServiceCorsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FhirServiceCorsConfigurationArgs:
@@ -503,6 +704,18 @@ class FhirServiceCorsConfigurationArgs:
         pulumi.set(self, "origins", value)
 
 
+if not MYPY:
+    class FhirServiceExportConfigurationArgsDict(TypedDict):
+        """
+        Export operation configuration information
+        """
+        storage_account_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the default export storage account.
+        """
+elif False:
+    FhirServiceExportConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FhirServiceExportConfigurationArgs:
     def __init__(__self__, *,
@@ -526,6 +739,26 @@ class FhirServiceExportConfigurationArgs:
     def storage_account_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "storage_account_name", value)
 
+
+if not MYPY:
+    class FhirServiceImportConfigurationArgsDict(TypedDict):
+        """
+        Import operation configuration information
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If the import operation is enabled.
+        """
+        initial_import_mode: NotRequired[pulumi.Input[bool]]
+        """
+        If the FHIR service is in InitialImportMode.
+        """
+        integration_data_store: NotRequired[pulumi.Input[str]]
+        """
+        The name of the default integration storage account.
+        """
+elif False:
+    FhirServiceImportConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FhirServiceImportConfigurationArgs:
@@ -583,6 +816,18 @@ class FhirServiceImportConfigurationArgs:
         pulumi.set(self, "integration_data_store", value)
 
 
+if not MYPY:
+    class ImplementationGuidesConfigurationArgsDict(TypedDict):
+        """
+        The settings for Implementation Guides - defining capabilities for national standards, vendor consortiums, clinical societies, etc.
+        """
+        us_core_missing_data: NotRequired[pulumi.Input[bool]]
+        """
+        If US Core Missing Data requirement is enabled.
+        """
+elif False:
+    ImplementationGuidesConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ImplementationGuidesConfigurationArgs:
     def __init__(__self__, *,
@@ -606,6 +851,26 @@ class ImplementationGuidesConfigurationArgs:
     def us_core_missing_data(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "us_core_missing_data", value)
 
+
+if not MYPY:
+    class IotEventHubIngestionEndpointConfigurationArgsDict(TypedDict):
+        """
+        Event Hub ingestion endpoint configuration
+        """
+        consumer_group: NotRequired[pulumi.Input[str]]
+        """
+        Consumer group of the event hub to connected to.
+        """
+        event_hub_name: NotRequired[pulumi.Input[str]]
+        """
+        Event Hub name to connect to.
+        """
+        fully_qualified_event_hub_namespace: NotRequired[pulumi.Input[str]]
+        """
+        Fully qualified namespace of the Event Hub to connect to.
+        """
+elif False:
+    IotEventHubIngestionEndpointConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IotEventHubIngestionEndpointConfigurationArgs:
@@ -663,6 +928,18 @@ class IotEventHubIngestionEndpointConfigurationArgs:
         pulumi.set(self, "fully_qualified_event_hub_namespace", value)
 
 
+if not MYPY:
+    class IotMappingPropertiesArgsDict(TypedDict):
+        """
+        The mapping content.
+        """
+        content: NotRequired[Any]
+        """
+        The mapping.
+        """
+elif False:
+    IotMappingPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IotMappingPropertiesArgs:
     def __init__(__self__, *,
@@ -687,6 +964,18 @@ class IotMappingPropertiesArgs:
         pulumi.set(self, "content", value)
 
 
+if not MYPY:
+    class PrivateEndpointConnectionArgsDict(TypedDict):
+        """
+        The Private Endpoint Connection resource.
+        """
+        private_link_service_connection_state: pulumi.Input['PrivateLinkServiceConnectionStateArgsDict']
+        """
+        A collection of information about the state of the connection between service consumer and provider.
+        """
+elif False:
+    PrivateEndpointConnectionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PrivateEndpointConnectionArgs:
     def __init__(__self__, *,
@@ -709,6 +998,26 @@ class PrivateEndpointConnectionArgs:
     def private_link_service_connection_state(self, value: pulumi.Input['PrivateLinkServiceConnectionStateArgs']):
         pulumi.set(self, "private_link_service_connection_state", value)
 
+
+if not MYPY:
+    class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
+        """
+        A collection of information about the state of the connection between service consumer and provider.
+        """
+        actions_required: NotRequired[pulumi.Input[str]]
+        """
+        A message indicating if changes on the service provider require any updates on the consumer.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The reason for approval/rejection of the connection.
+        """
+        status: NotRequired[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]]
+        """
+        Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+        """
+elif False:
+    PrivateLinkServiceConnectionStateArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:
@@ -766,6 +1075,22 @@ class PrivateLinkServiceConnectionStateArgs:
         pulumi.set(self, "status", value)
 
 
+if not MYPY:
+    class ResourceVersionPolicyConfigurationArgsDict(TypedDict):
+        """
+        The settings for history tracking for FHIR resources.
+        """
+        default: NotRequired[pulumi.Input[Union[str, 'FhirResourceVersionPolicy']]]
+        """
+        The default value for tracking history across all resources.
+        """
+        resource_type_overrides: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[Union[str, 'FhirResourceVersionPolicy']]]]]
+        """
+        A list of FHIR Resources and their version policy overrides.
+        """
+elif False:
+    ResourceVersionPolicyConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ResourceVersionPolicyConfigurationArgs:
     def __init__(__self__, *,
@@ -806,6 +1131,18 @@ class ResourceVersionPolicyConfigurationArgs:
         pulumi.set(self, "resource_type_overrides", value)
 
 
+if not MYPY:
+    class ServiceAccessPolicyEntryArgsDict(TypedDict):
+        """
+        An access policy entry.
+        """
+        object_id: pulumi.Input[str]
+        """
+        An Azure AD object ID (User or Apps) that is allowed access to the FHIR service.
+        """
+elif False:
+    ServiceAccessPolicyEntryArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ServiceAccessPolicyEntryArgs:
     def __init__(__self__, *,
@@ -828,6 +1165,22 @@ class ServiceAccessPolicyEntryArgs:
     def object_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "object_id", value)
 
+
+if not MYPY:
+    class ServiceAcrConfigurationInfoArgsDict(TypedDict):
+        """
+        Azure container registry configuration information
+        """
+        login_servers: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of the ACR login servers.
+        """
+        oci_artifacts: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceOciArtifactEntryArgsDict']]]]
+        """
+        The list of Open Container Initiative (OCI) artifacts.
+        """
+elif False:
+    ServiceAcrConfigurationInfoArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ServiceAcrConfigurationInfoArgs:
@@ -868,6 +1221,26 @@ class ServiceAcrConfigurationInfoArgs:
     def oci_artifacts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceOciArtifactEntryArgs']]]]):
         pulumi.set(self, "oci_artifacts", value)
 
+
+if not MYPY:
+    class ServiceAuthenticationConfigurationInfoArgsDict(TypedDict):
+        """
+        Authentication configuration information
+        """
+        audience: NotRequired[pulumi.Input[str]]
+        """
+        The audience url for the service
+        """
+        authority: NotRequired[pulumi.Input[str]]
+        """
+        The authority url for the service
+        """
+        smart_proxy_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If the SMART on FHIR proxy is enabled
+        """
+elif False:
+    ServiceAuthenticationConfigurationInfoArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ServiceAuthenticationConfigurationInfoArgs:
@@ -924,6 +1297,34 @@ class ServiceAuthenticationConfigurationInfoArgs:
     def smart_proxy_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "smart_proxy_enabled", value)
 
+
+if not MYPY:
+    class ServiceCorsConfigurationInfoArgsDict(TypedDict):
+        """
+        The settings for the CORS configuration of the service instance.
+        """
+        allow_credentials: NotRequired[pulumi.Input[bool]]
+        """
+        If credentials are allowed via CORS.
+        """
+        headers: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The headers to be allowed via CORS.
+        """
+        max_age: NotRequired[pulumi.Input[int]]
+        """
+        The max age to be allowed via CORS.
+        """
+        methods: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The methods to be allowed via CORS.
+        """
+        origins: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The origins to be allowed via CORS.
+        """
+elif False:
+    ServiceCorsConfigurationInfoArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ServiceCorsConfigurationInfoArgs:
@@ -1013,6 +1414,26 @@ class ServiceCorsConfigurationInfoArgs:
         pulumi.set(self, "origins", value)
 
 
+if not MYPY:
+    class ServiceCosmosDbConfigurationInfoArgsDict(TypedDict):
+        """
+        The settings for the Cosmos DB database backing the service.
+        """
+        cross_tenant_cmk_application_id: NotRequired[pulumi.Input[str]]
+        """
+        The multi-tenant application id used to enable CMK access for services in a data sovereign region.
+        """
+        key_vault_key_uri: NotRequired[pulumi.Input[str]]
+        """
+        The URI of the customer-managed key for the backing database.
+        """
+        offer_throughput: NotRequired[pulumi.Input[int]]
+        """
+        The provisioned throughput for the backing database.
+        """
+elif False:
+    ServiceCosmosDbConfigurationInfoArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ServiceCosmosDbConfigurationInfoArgs:
     def __init__(__self__, *,
@@ -1069,6 +1490,18 @@ class ServiceCosmosDbConfigurationInfoArgs:
         pulumi.set(self, "offer_throughput", value)
 
 
+if not MYPY:
+    class ServiceExportConfigurationInfoArgsDict(TypedDict):
+        """
+        Export operation configuration information
+        """
+        storage_account_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the default export storage account.
+        """
+elif False:
+    ServiceExportConfigurationInfoArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ServiceExportConfigurationInfoArgs:
     def __init__(__self__, *,
@@ -1092,6 +1525,26 @@ class ServiceExportConfigurationInfoArgs:
     def storage_account_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "storage_account_name", value)
 
+
+if not MYPY:
+    class ServiceImportConfigurationInfoArgsDict(TypedDict):
+        """
+        Import operation configuration information
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If the import operation is enabled.
+        """
+        initial_import_mode: NotRequired[pulumi.Input[bool]]
+        """
+        If the FHIR service is in InitialImportMode.
+        """
+        integration_data_store: NotRequired[pulumi.Input[str]]
+        """
+        The name of the default integration storage account.
+        """
+elif False:
+    ServiceImportConfigurationInfoArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ServiceImportConfigurationInfoArgs:
@@ -1149,6 +1602,22 @@ class ServiceImportConfigurationInfoArgs:
         pulumi.set(self, "integration_data_store", value)
 
 
+if not MYPY:
+    class ServiceManagedIdentityIdentityArgsDict(TypedDict):
+        """
+        Setting indicating whether the service has a managed identity associated with it.
+        """
+        type: pulumi.Input[Union[str, 'ServiceManagedIdentityType']]
+        """
+        Type of identity being specified, currently SystemAssigned and None are allowed.
+        """
+        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        """
+elif False:
+    ServiceManagedIdentityIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ServiceManagedIdentityIdentityArgs:
     def __init__(__self__, *,
@@ -1187,6 +1656,26 @@ class ServiceManagedIdentityIdentityArgs:
     def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
+
+if not MYPY:
+    class ServiceOciArtifactEntryArgsDict(TypedDict):
+        """
+        An Open Container Initiative (OCI) artifact.
+        """
+        digest: NotRequired[pulumi.Input[str]]
+        """
+        The artifact digest.
+        """
+        image_name: NotRequired[pulumi.Input[str]]
+        """
+        The artifact name.
+        """
+        login_server: NotRequired[pulumi.Input[str]]
+        """
+        The Azure Container Registry login server.
+        """
+elif False:
+    ServiceOciArtifactEntryArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ServiceOciArtifactEntryArgs:
@@ -1243,6 +1732,50 @@ class ServiceOciArtifactEntryArgs:
     def login_server(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "login_server", value)
 
+
+if not MYPY:
+    class ServicesPropertiesArgsDict(TypedDict):
+        """
+        The properties of a service instance.
+        """
+        access_policies: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceAccessPolicyEntryArgsDict']]]]
+        """
+        The access policies of the service instance.
+        """
+        acr_configuration: NotRequired[pulumi.Input['ServiceAcrConfigurationInfoArgsDict']]
+        """
+        The azure container registry settings used for convert data operation of the service instance.
+        """
+        authentication_configuration: NotRequired[pulumi.Input['ServiceAuthenticationConfigurationInfoArgsDict']]
+        """
+        The authentication configuration for the service instance.
+        """
+        cors_configuration: NotRequired[pulumi.Input['ServiceCorsConfigurationInfoArgsDict']]
+        """
+        The settings for the CORS configuration of the service instance.
+        """
+        cosmos_db_configuration: NotRequired[pulumi.Input['ServiceCosmosDbConfigurationInfoArgsDict']]
+        """
+        The settings for the Cosmos DB database backing the service.
+        """
+        export_configuration: NotRequired[pulumi.Input['ServiceExportConfigurationInfoArgsDict']]
+        """
+        The settings for the export operation of the service instance.
+        """
+        import_configuration: NotRequired[pulumi.Input['ServiceImportConfigurationInfoArgsDict']]
+        """
+        The settings for the import operation of the service instance.
+        """
+        private_endpoint_connections: NotRequired[pulumi.Input[Sequence[pulumi.Input['PrivateEndpointConnectionArgsDict']]]]
+        """
+        The list of private endpoint connections that are set up for this resource.
+        """
+        public_network_access: NotRequired[pulumi.Input[Union[str, 'PublicNetworkAccess']]]
+        """
+        Control permission for data plane traffic coming from public networks while private endpoint is enabled.
+        """
+elif False:
+    ServicesPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ServicesPropertiesArgs:
@@ -1395,6 +1928,18 @@ class ServicesPropertiesArgs:
     def public_network_access(self, value: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]]):
         pulumi.set(self, "public_network_access", value)
 
+
+if not MYPY:
+    class ServicesResourceIdentityArgsDict(TypedDict):
+        """
+        Setting indicating whether the service has a managed identity associated with it.
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'ManagedServiceIdentityType']]]
+        """
+        Type of identity being specified, currently SystemAssigned and None are allowed.
+        """
+elif False:
+    ServicesResourceIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ServicesResourceIdentityArgs:

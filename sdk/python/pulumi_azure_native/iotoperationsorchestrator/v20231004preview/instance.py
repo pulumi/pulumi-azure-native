@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -185,15 +190,15 @@ class Instance(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 reconciliation_policy: Optional[pulumi.Input[pulumi.InputType['ReconciliationPolicyArgs']]] = None,
+                 reconciliation_policy: Optional[pulumi.Input[Union['ReconciliationPolicyArgs', 'ReconciliationPolicyArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  solution: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 target: Optional[pulumi.Input[pulumi.InputType['TargetSelectorPropertiesArgs']]] = None,
+                 target: Optional[pulumi.Input[Union['TargetSelectorPropertiesArgs', 'TargetSelectorPropertiesArgsDict']]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -201,15 +206,15 @@ class Instance(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: Edge location of the resource.
+        :param pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']] extended_location: Edge location of the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] name: Name of Instance.
-        :param pulumi.Input[pulumi.InputType['ReconciliationPolicyArgs']] reconciliation_policy: Reconciliation Policy.
+        :param pulumi.Input[Union['ReconciliationPolicyArgs', 'ReconciliationPolicyArgsDict']] reconciliation_policy: Reconciliation Policy.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] scope: Deployment scope (such as Kubernetes namespace).
         :param pulumi.Input[str] solution: Name of the solution.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[pulumi.InputType['TargetSelectorPropertiesArgs']] target: Defines the Target the Instance will deploy to.
+        :param pulumi.Input[Union['TargetSelectorPropertiesArgs', 'TargetSelectorPropertiesArgsDict']] target: Defines the Target the Instance will deploy to.
         :param pulumi.Input[str] version: Version of the particular resource.
         """
         ...
@@ -236,15 +241,15 @@ class Instance(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 reconciliation_policy: Optional[pulumi.Input[pulumi.InputType['ReconciliationPolicyArgs']]] = None,
+                 reconciliation_policy: Optional[pulumi.Input[Union['ReconciliationPolicyArgs', 'ReconciliationPolicyArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  solution: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 target: Optional[pulumi.Input[pulumi.InputType['TargetSelectorPropertiesArgs']]] = None,
+                 target: Optional[pulumi.Input[Union['TargetSelectorPropertiesArgs', 'TargetSelectorPropertiesArgsDict']]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

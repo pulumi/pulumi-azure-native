@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -350,19 +355,19 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
                  enable_bgp: Optional[pulumi.Input[bool]] = None,
                  express_route_gateway_bypass: Optional[pulumi.Input[bool]] = None,
                  id: Optional[pulumi.Input[str]] = None,
-                 ipsec_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpsecPolicyArgs']]]]] = None,
-                 local_network_gateway2: Optional[pulumi.Input[pulumi.InputType['LocalNetworkGatewayArgs']]] = None,
+                 ipsec_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IpsecPolicyArgs', 'IpsecPolicyArgsDict']]]]] = None,
+                 local_network_gateway2: Optional[pulumi.Input[Union['LocalNetworkGatewayArgs', 'LocalNetworkGatewayArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 peer: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
+                 peer: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_guid: Optional[pulumi.Input[str]] = None,
                  routing_weight: Optional[pulumi.Input[int]] = None,
                  shared_key: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 traffic_selector_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TrafficSelectorPolicyArgs']]]]] = None,
+                 traffic_selector_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TrafficSelectorPolicyArgs', 'TrafficSelectorPolicyArgsDict']]]]] = None,
                  use_policy_based_traffic_selectors: Optional[pulumi.Input[bool]] = None,
-                 virtual_network_gateway1: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayArgs']]] = None,
-                 virtual_network_gateway2: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayArgs']]] = None,
+                 virtual_network_gateway1: Optional[pulumi.Input[Union['VirtualNetworkGatewayArgs', 'VirtualNetworkGatewayArgsDict']]] = None,
+                 virtual_network_gateway2: Optional[pulumi.Input[Union['VirtualNetworkGatewayArgs', 'VirtualNetworkGatewayArgsDict']]] = None,
                  virtual_network_gateway_connection_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -376,19 +381,19 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_bgp: EnableBgp flag.
         :param pulumi.Input[bool] express_route_gateway_bypass: Bypass ExpressRoute Gateway for data forwarding.
         :param pulumi.Input[str] id: Resource ID.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpsecPolicyArgs']]]] ipsec_policies: The IPSec Policies to be considered by this connection.
-        :param pulumi.Input[pulumi.InputType['LocalNetworkGatewayArgs']] local_network_gateway2: The reference to local network gateway resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IpsecPolicyArgs', 'IpsecPolicyArgsDict']]]] ipsec_policies: The IPSec Policies to be considered by this connection.
+        :param pulumi.Input[Union['LocalNetworkGatewayArgs', 'LocalNetworkGatewayArgsDict']] local_network_gateway2: The reference to local network gateway resource.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[pulumi.InputType['SubResourceArgs']] peer: The reference to peerings resource.
+        :param pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']] peer: The reference to peerings resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] resource_guid: The resource GUID property of the virtual network gateway connection resource.
         :param pulumi.Input[int] routing_weight: The routing weight.
         :param pulumi.Input[str] shared_key: The IPSec shared key.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TrafficSelectorPolicyArgs']]]] traffic_selector_policies: The Traffic Selector Policies to be considered by this connection.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TrafficSelectorPolicyArgs', 'TrafficSelectorPolicyArgsDict']]]] traffic_selector_policies: The Traffic Selector Policies to be considered by this connection.
         :param pulumi.Input[bool] use_policy_based_traffic_selectors: Enable policy-based traffic selectors.
-        :param pulumi.Input[pulumi.InputType['VirtualNetworkGatewayArgs']] virtual_network_gateway1: The reference to virtual network gateway resource.
-        :param pulumi.Input[pulumi.InputType['VirtualNetworkGatewayArgs']] virtual_network_gateway2: The reference to virtual network gateway resource.
+        :param pulumi.Input[Union['VirtualNetworkGatewayArgs', 'VirtualNetworkGatewayArgsDict']] virtual_network_gateway1: The reference to virtual network gateway resource.
+        :param pulumi.Input[Union['VirtualNetworkGatewayArgs', 'VirtualNetworkGatewayArgsDict']] virtual_network_gateway2: The reference to virtual network gateway resource.
         :param pulumi.Input[str] virtual_network_gateway_connection_name: The name of the virtual network gateway connection.
         """
         ...
@@ -421,19 +426,19 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
                  enable_bgp: Optional[pulumi.Input[bool]] = None,
                  express_route_gateway_bypass: Optional[pulumi.Input[bool]] = None,
                  id: Optional[pulumi.Input[str]] = None,
-                 ipsec_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpsecPolicyArgs']]]]] = None,
-                 local_network_gateway2: Optional[pulumi.Input[pulumi.InputType['LocalNetworkGatewayArgs']]] = None,
+                 ipsec_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IpsecPolicyArgs', 'IpsecPolicyArgsDict']]]]] = None,
+                 local_network_gateway2: Optional[pulumi.Input[Union['LocalNetworkGatewayArgs', 'LocalNetworkGatewayArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 peer: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
+                 peer: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_guid: Optional[pulumi.Input[str]] = None,
                  routing_weight: Optional[pulumi.Input[int]] = None,
                  shared_key: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 traffic_selector_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TrafficSelectorPolicyArgs']]]]] = None,
+                 traffic_selector_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TrafficSelectorPolicyArgs', 'TrafficSelectorPolicyArgsDict']]]]] = None,
                  use_policy_based_traffic_selectors: Optional[pulumi.Input[bool]] = None,
-                 virtual_network_gateway1: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayArgs']]] = None,
-                 virtual_network_gateway2: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayArgs']]] = None,
+                 virtual_network_gateway1: Optional[pulumi.Input[Union['VirtualNetworkGatewayArgs', 'VirtualNetworkGatewayArgsDict']]] = None,
+                 virtual_network_gateway2: Optional[pulumi.Input[Union['VirtualNetworkGatewayArgs', 'VirtualNetworkGatewayArgsDict']]] = None,
                  virtual_network_gateway_connection_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

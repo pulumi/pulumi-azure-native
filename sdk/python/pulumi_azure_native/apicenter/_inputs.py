@@ -4,23 +4,59 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'ContactArgs',
+    'ContactArgsDict',
     'DeploymentServerArgs',
+    'DeploymentServerArgsDict',
     'EnvironmentServerArgs',
+    'EnvironmentServerArgsDict',
     'ExternalDocumentationArgs',
+    'ExternalDocumentationArgsDict',
     'LicenseArgs',
+    'LicenseArgsDict',
     'ManagedServiceIdentityArgs',
+    'ManagedServiceIdentityArgsDict',
     'MetadataAssignmentArgs',
+    'MetadataAssignmentArgsDict',
     'OnboardingArgs',
+    'OnboardingArgsDict',
     'TermsOfServiceArgs',
+    'TermsOfServiceArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ContactArgsDict(TypedDict):
+        """
+        Contact information
+        """
+        email: NotRequired[pulumi.Input[str]]
+        """
+        Email address of the contact.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the contact.
+        """
+        url: NotRequired[pulumi.Input[str]]
+        """
+        URL for the contact.
+        """
+elif False:
+    ContactArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ContactArgs:
@@ -78,6 +114,18 @@ class ContactArgs:
         pulumi.set(self, "url", value)
 
 
+if not MYPY:
+    class DeploymentServerArgsDict(TypedDict):
+        """
+        Server
+        """
+        runtime_uri: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Base runtime URLs for this deployment.
+        """
+elif False:
+    DeploymentServerArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DeploymentServerArgs:
     def __init__(__self__, *,
@@ -101,6 +149,22 @@ class DeploymentServerArgs:
     def runtime_uri(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "runtime_uri", value)
 
+
+if not MYPY:
+    class EnvironmentServerArgsDict(TypedDict):
+        """
+        Server information of the environment.
+        """
+        management_portal_uri: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The location of the management portal
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'EnvironmentServerType']]]
+        """
+        Type of the server that represents the environment.
+        """
+elif False:
+    EnvironmentServerArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EnvironmentServerArgs:
@@ -141,6 +205,26 @@ class EnvironmentServerArgs:
     def type(self, value: Optional[pulumi.Input[Union[str, 'EnvironmentServerType']]]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class ExternalDocumentationArgsDict(TypedDict):
+        """
+        Additional, external documentation for the API.
+        """
+        url: pulumi.Input[str]
+        """
+        URL pointing to the documentation.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Description of the documentation.
+        """
+        title: NotRequired[pulumi.Input[str]]
+        """
+        Title of the documentation.
+        """
+elif False:
+    ExternalDocumentationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ExternalDocumentationArgs:
@@ -196,6 +280,28 @@ class ExternalDocumentationArgs:
     def title(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "title", value)
 
+
+if not MYPY:
+    class LicenseArgsDict(TypedDict):
+        """
+        The license information for the API.
+        """
+        identifier: NotRequired[pulumi.Input[str]]
+        """
+        SPDX license information for the API. The identifier field is mutually
+        exclusive of the URL field.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the license.
+        """
+        url: NotRequired[pulumi.Input[str]]
+        """
+        URL pointing to the license details. The URL field is mutually exclusive of the
+        identifier field.
+        """
+elif False:
+    LicenseArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LicenseArgs:
@@ -257,6 +363,22 @@ class LicenseArgs:
         pulumi.set(self, "url", value)
 
 
+if not MYPY:
+    class ManagedServiceIdentityArgsDict(TypedDict):
+        """
+        Managed service identity (system assigned and/or user assigned identities)
+        """
+        type: pulumi.Input[Union[str, 'ManagedServiceIdentityType']]
+        """
+        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        """
+        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        """
+elif False:
+    ManagedServiceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ManagedServiceIdentityArgs:
     def __init__(__self__, *,
@@ -295,6 +417,26 @@ class ManagedServiceIdentityArgs:
     def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
+
+if not MYPY:
+    class MetadataAssignmentArgsDict(TypedDict):
+        """
+        Assignment metadata
+        """
+        deprecated: NotRequired[pulumi.Input[bool]]
+        """
+        Deprecated assignment
+        """
+        entity: NotRequired[pulumi.Input[Union[str, 'MetadataAssignmentEntity']]]
+        """
+        The entities this metadata schema component gets applied to.
+        """
+        required: NotRequired[pulumi.Input[bool]]
+        """
+        Required assignment
+        """
+elif False:
+    MetadataAssignmentArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MetadataAssignmentArgs:
@@ -352,6 +494,22 @@ class MetadataAssignmentArgs:
         pulumi.set(self, "required", value)
 
 
+if not MYPY:
+    class OnboardingArgsDict(TypedDict):
+        """
+        Onboarding information
+        """
+        developer_portal_uri: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The location of the development portal
+        """
+        instructions: NotRequired[pulumi.Input[str]]
+        """
+        Onboarding guide.
+        """
+elif False:
+    OnboardingArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OnboardingArgs:
     def __init__(__self__, *,
@@ -391,6 +549,18 @@ class OnboardingArgs:
     def instructions(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "instructions", value)
 
+
+if not MYPY:
+    class TermsOfServiceArgsDict(TypedDict):
+        """
+        Terms of service for the API.
+        """
+        url: pulumi.Input[str]
+        """
+        URL pointing to the terms of service.
+        """
+elif False:
+    TermsOfServiceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TermsOfServiceArgs:

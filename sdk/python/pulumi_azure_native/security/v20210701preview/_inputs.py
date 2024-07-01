@@ -4,28 +4,61 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'CspmMonitorAwsOfferingNativeCloudConnectionArgs',
+    'CspmMonitorAwsOfferingNativeCloudConnectionArgsDict',
     'CspmMonitorAwsOfferingArgs',
+    'CspmMonitorAwsOfferingArgsDict',
     'DefenderForContainersAwsOfferingCloudWatchToKinesisArgs',
+    'DefenderForContainersAwsOfferingCloudWatchToKinesisArgsDict',
     'DefenderForContainersAwsOfferingKinesisToS3Args',
+    'DefenderForContainersAwsOfferingKinesisToS3ArgsDict',
     'DefenderForContainersAwsOfferingKubernetesScubaReaderArgs',
+    'DefenderForContainersAwsOfferingKubernetesScubaReaderArgsDict',
     'DefenderForContainersAwsOfferingKubernetesServiceArgs',
+    'DefenderForContainersAwsOfferingKubernetesServiceArgsDict',
     'DefenderForContainersAwsOfferingArgs',
+    'DefenderForContainersAwsOfferingArgsDict',
     'DefenderForServersAwsOfferingArcAutoProvisioningArgs',
+    'DefenderForServersAwsOfferingArcAutoProvisioningArgsDict',
     'DefenderForServersAwsOfferingDefenderForServersArgs',
+    'DefenderForServersAwsOfferingDefenderForServersArgsDict',
     'DefenderForServersAwsOfferingServicePrincipalSecretMetadataArgs',
+    'DefenderForServersAwsOfferingServicePrincipalSecretMetadataArgsDict',
     'DefenderForServersAwsOfferingArgs',
+    'DefenderForServersAwsOfferingArgsDict',
     'InformationProtectionAwsOfferingInformationProtectionArgs',
+    'InformationProtectionAwsOfferingInformationProtectionArgsDict',
     'InformationProtectionAwsOfferingArgs',
+    'InformationProtectionAwsOfferingArgsDict',
     'SecurityConnectorPropertiesOrganizationalDataArgs',
+    'SecurityConnectorPropertiesOrganizationalDataArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class CspmMonitorAwsOfferingNativeCloudConnectionArgsDict(TypedDict):
+        """
+        The native cloud connection configuration
+        """
+        cloud_role_arn: NotRequired[pulumi.Input[str]]
+        """
+        The cloud role ARN in AWS for this feature
+        """
+elif False:
+    CspmMonitorAwsOfferingNativeCloudConnectionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CspmMonitorAwsOfferingNativeCloudConnectionArgs:
@@ -50,6 +83,23 @@ class CspmMonitorAwsOfferingNativeCloudConnectionArgs:
     def cloud_role_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "cloud_role_arn", value)
 
+
+if not MYPY:
+    class CspmMonitorAwsOfferingArgsDict(TypedDict):
+        """
+        The CSPM monitoring for AWS offering configurations
+        """
+        offering_type: pulumi.Input[str]
+        """
+        The type of the security offering.
+        Expected value is 'CspmMonitorAws'.
+        """
+        native_cloud_connection: NotRequired[pulumi.Input['CspmMonitorAwsOfferingNativeCloudConnectionArgsDict']]
+        """
+        The native cloud connection configuration
+        """
+elif False:
+    CspmMonitorAwsOfferingArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CspmMonitorAwsOfferingArgs:
@@ -92,6 +142,18 @@ class CspmMonitorAwsOfferingArgs:
         pulumi.set(self, "native_cloud_connection", value)
 
 
+if not MYPY:
+    class DefenderForContainersAwsOfferingCloudWatchToKinesisArgsDict(TypedDict):
+        """
+        The cloudwatch to kinesis connection configuration
+        """
+        cloud_role_arn: NotRequired[pulumi.Input[str]]
+        """
+        The cloud role ARN in AWS for this feature
+        """
+elif False:
+    DefenderForContainersAwsOfferingCloudWatchToKinesisArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DefenderForContainersAwsOfferingCloudWatchToKinesisArgs:
     def __init__(__self__, *,
@@ -115,6 +177,18 @@ class DefenderForContainersAwsOfferingCloudWatchToKinesisArgs:
     def cloud_role_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "cloud_role_arn", value)
 
+
+if not MYPY:
+    class DefenderForContainersAwsOfferingKinesisToS3ArgsDict(TypedDict):
+        """
+        The kinesis to s3 connection configuration
+        """
+        cloud_role_arn: NotRequired[pulumi.Input[str]]
+        """
+        The cloud role ARN in AWS for this feature
+        """
+elif False:
+    DefenderForContainersAwsOfferingKinesisToS3ArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DefenderForContainersAwsOfferingKinesisToS3Args:
@@ -140,6 +214,18 @@ class DefenderForContainersAwsOfferingKinesisToS3Args:
         pulumi.set(self, "cloud_role_arn", value)
 
 
+if not MYPY:
+    class DefenderForContainersAwsOfferingKubernetesScubaReaderArgsDict(TypedDict):
+        """
+        The kubernetes to scuba connection configuration
+        """
+        cloud_role_arn: NotRequired[pulumi.Input[str]]
+        """
+        The cloud role ARN in AWS for this feature
+        """
+elif False:
+    DefenderForContainersAwsOfferingKubernetesScubaReaderArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DefenderForContainersAwsOfferingKubernetesScubaReaderArgs:
     def __init__(__self__, *,
@@ -164,6 +250,18 @@ class DefenderForContainersAwsOfferingKubernetesScubaReaderArgs:
         pulumi.set(self, "cloud_role_arn", value)
 
 
+if not MYPY:
+    class DefenderForContainersAwsOfferingKubernetesServiceArgsDict(TypedDict):
+        """
+        The kubernetes service connection configuration
+        """
+        cloud_role_arn: NotRequired[pulumi.Input[str]]
+        """
+        The cloud role ARN in AWS for this feature
+        """
+elif False:
+    DefenderForContainersAwsOfferingKubernetesServiceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DefenderForContainersAwsOfferingKubernetesServiceArgs:
     def __init__(__self__, *,
@@ -187,6 +285,35 @@ class DefenderForContainersAwsOfferingKubernetesServiceArgs:
     def cloud_role_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "cloud_role_arn", value)
 
+
+if not MYPY:
+    class DefenderForContainersAwsOfferingArgsDict(TypedDict):
+        """
+        The Defender for Containers AWS offering configurations
+        """
+        offering_type: pulumi.Input[str]
+        """
+        The type of the security offering.
+        Expected value is 'DefenderForContainersAws'.
+        """
+        cloud_watch_to_kinesis: NotRequired[pulumi.Input['DefenderForContainersAwsOfferingCloudWatchToKinesisArgsDict']]
+        """
+        The cloudwatch to kinesis connection configuration
+        """
+        kinesis_to_s3: NotRequired[pulumi.Input['DefenderForContainersAwsOfferingKinesisToS3ArgsDict']]
+        """
+        The kinesis to s3 connection configuration
+        """
+        kubernetes_scuba_reader: NotRequired[pulumi.Input['DefenderForContainersAwsOfferingKubernetesScubaReaderArgsDict']]
+        """
+        The kubernetes to scuba connection configuration
+        """
+        kubernetes_service: NotRequired[pulumi.Input['DefenderForContainersAwsOfferingKubernetesServiceArgsDict']]
+        """
+        The kubernetes service connection configuration
+        """
+elif False:
+    DefenderForContainersAwsOfferingArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DefenderForContainersAwsOfferingArgs:
@@ -277,6 +404,22 @@ class DefenderForContainersAwsOfferingArgs:
         pulumi.set(self, "kubernetes_service", value)
 
 
+if not MYPY:
+    class DefenderForServersAwsOfferingArcAutoProvisioningArgsDict(TypedDict):
+        """
+        The ARC autoprovisioning configuration
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is arc auto provisioning enabled
+        """
+        service_principal_secret_metadata: NotRequired[pulumi.Input['DefenderForServersAwsOfferingServicePrincipalSecretMetadataArgsDict']]
+        """
+        Metadata of Service Principal secret for autoprovisioning
+        """
+elif False:
+    DefenderForServersAwsOfferingArcAutoProvisioningArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DefenderForServersAwsOfferingArcAutoProvisioningArgs:
     def __init__(__self__, *,
@@ -317,6 +460,18 @@ class DefenderForServersAwsOfferingArcAutoProvisioningArgs:
         pulumi.set(self, "service_principal_secret_metadata", value)
 
 
+if not MYPY:
+    class DefenderForServersAwsOfferingDefenderForServersArgsDict(TypedDict):
+        """
+        The Defender for servers connection configuration
+        """
+        cloud_role_arn: NotRequired[pulumi.Input[str]]
+        """
+        The cloud role ARN in AWS for this feature
+        """
+elif False:
+    DefenderForServersAwsOfferingDefenderForServersArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DefenderForServersAwsOfferingDefenderForServersArgs:
     def __init__(__self__, *,
@@ -340,6 +495,26 @@ class DefenderForServersAwsOfferingDefenderForServersArgs:
     def cloud_role_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "cloud_role_arn", value)
 
+
+if not MYPY:
+    class DefenderForServersAwsOfferingServicePrincipalSecretMetadataArgsDict(TypedDict):
+        """
+        Metadata of Service Principal secret for autoprovisioning
+        """
+        expiry_date: NotRequired[pulumi.Input[str]]
+        """
+        expiration date of service principal secret
+        """
+        parameter_name_in_store: NotRequired[pulumi.Input[str]]
+        """
+        name of secret resource in parameter store
+        """
+        parameter_store_region: NotRequired[pulumi.Input[str]]
+        """
+        region of parameter store where secret is kept
+        """
+elif False:
+    DefenderForServersAwsOfferingServicePrincipalSecretMetadataArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DefenderForServersAwsOfferingServicePrincipalSecretMetadataArgs:
@@ -396,6 +571,27 @@ class DefenderForServersAwsOfferingServicePrincipalSecretMetadataArgs:
     def parameter_store_region(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "parameter_store_region", value)
 
+
+if not MYPY:
+    class DefenderForServersAwsOfferingArgsDict(TypedDict):
+        """
+        The Defender for Servers AWS offering configurations
+        """
+        offering_type: pulumi.Input[str]
+        """
+        The type of the security offering.
+        Expected value is 'DefenderForServersAws'.
+        """
+        arc_auto_provisioning: NotRequired[pulumi.Input['DefenderForServersAwsOfferingArcAutoProvisioningArgsDict']]
+        """
+        The ARC autoprovisioning configuration
+        """
+        defender_for_servers: NotRequired[pulumi.Input['DefenderForServersAwsOfferingDefenderForServersArgsDict']]
+        """
+        The Defender for servers connection configuration
+        """
+elif False:
+    DefenderForServersAwsOfferingArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DefenderForServersAwsOfferingArgs:
@@ -454,6 +650,18 @@ class DefenderForServersAwsOfferingArgs:
         pulumi.set(self, "defender_for_servers", value)
 
 
+if not MYPY:
+    class InformationProtectionAwsOfferingInformationProtectionArgsDict(TypedDict):
+        """
+        The native cloud connection configuration
+        """
+        cloud_role_arn: NotRequired[pulumi.Input[str]]
+        """
+        The cloud role ARN in AWS for this feature
+        """
+elif False:
+    InformationProtectionAwsOfferingInformationProtectionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InformationProtectionAwsOfferingInformationProtectionArgs:
     def __init__(__self__, *,
@@ -477,6 +685,23 @@ class InformationProtectionAwsOfferingInformationProtectionArgs:
     def cloud_role_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "cloud_role_arn", value)
 
+
+if not MYPY:
+    class InformationProtectionAwsOfferingArgsDict(TypedDict):
+        """
+        The information protection for AWS offering configurations
+        """
+        offering_type: pulumi.Input[str]
+        """
+        The type of the security offering.
+        Expected value is 'InformationProtectionAws'.
+        """
+        information_protection: NotRequired[pulumi.Input['InformationProtectionAwsOfferingInformationProtectionArgsDict']]
+        """
+        The native cloud connection configuration
+        """
+elif False:
+    InformationProtectionAwsOfferingArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InformationProtectionAwsOfferingArgs:
@@ -518,6 +743,30 @@ class InformationProtectionAwsOfferingArgs:
     def information_protection(self, value: Optional[pulumi.Input['InformationProtectionAwsOfferingInformationProtectionArgs']]):
         pulumi.set(self, "information_protection", value)
 
+
+if not MYPY:
+    class SecurityConnectorPropertiesOrganizationalDataArgsDict(TypedDict):
+        """
+        The multi cloud account's organizational data
+        """
+        excluded_account_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        If the multi cloud account is of membership type organization, list of accounts excluded from offering
+        """
+        organization_membership_type: NotRequired[pulumi.Input[Union[str, 'OrganizationMembershipType']]]
+        """
+        The multi cloud account's membership type in the organization
+        """
+        parent_hierarchy_id: NotRequired[pulumi.Input[str]]
+        """
+        If the multi cloud account is not of membership type organization, this will be the ID of the account's parent
+        """
+        stackset_name: NotRequired[pulumi.Input[str]]
+        """
+        If the multi cloud account is of membership type organization, this will be the name of the onboarding stackset
+        """
+elif False:
+    SecurityConnectorPropertiesOrganizationalDataArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SecurityConnectorPropertiesOrganizationalDataArgs:

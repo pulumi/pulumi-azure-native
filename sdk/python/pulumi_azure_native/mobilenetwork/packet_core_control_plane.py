@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -279,18 +284,18 @@ class PacketCoreControlPlane(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 control_plane_access_interface: Optional[pulumi.Input[pulumi.InputType['InterfacePropertiesArgs']]] = None,
+                 control_plane_access_interface: Optional[pulumi.Input[Union['InterfacePropertiesArgs', 'InterfacePropertiesArgsDict']]] = None,
                  core_network_technology: Optional[pulumi.Input[Union[str, 'CoreNetworkType']]] = None,
-                 diagnostics_upload: Optional[pulumi.Input[pulumi.InputType['DiagnosticsUploadConfigurationArgs']]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
-                 installation: Optional[pulumi.Input[pulumi.InputType['InstallationArgs']]] = None,
+                 diagnostics_upload: Optional[pulumi.Input[Union['DiagnosticsUploadConfigurationArgs', 'DiagnosticsUploadConfigurationArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 installation: Optional[pulumi.Input[Union['InstallationArgs', 'InstallationArgsDict']]] = None,
                  interop_settings: Optional[Any] = None,
-                 local_diagnostics_access: Optional[pulumi.Input[pulumi.InputType['LocalDiagnosticsAccessConfigurationArgs']]] = None,
+                 local_diagnostics_access: Optional[pulumi.Input[Union['LocalDiagnosticsAccessConfigurationArgs', 'LocalDiagnosticsAccessConfigurationArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  packet_core_control_plane_name: Optional[pulumi.Input[str]] = None,
-                 platform: Optional[pulumi.Input[pulumi.InputType['PlatformConfigurationArgs']]] = None,
+                 platform: Optional[pulumi.Input[Union['PlatformConfigurationArgs', 'PlatformConfigurationArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sites: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SiteResourceIdArgs']]]]] = None,
+                 sites: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SiteResourceIdArgs', 'SiteResourceIdArgsDict']]]]] = None,
                  sku: Optional[pulumi.Input[Union[str, 'BillingSku']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  ue_mtu: Optional[pulumi.Input[int]] = None,
@@ -304,18 +309,18 @@ class PacketCoreControlPlane(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['InterfacePropertiesArgs']] control_plane_access_interface: The control plane interface on the access network. For 5G networks, this is the N2 interface. For 4G networks, this is the S1-MME interface.
+        :param pulumi.Input[Union['InterfacePropertiesArgs', 'InterfacePropertiesArgsDict']] control_plane_access_interface: The control plane interface on the access network. For 5G networks, this is the N2 interface. For 4G networks, this is the S1-MME interface.
         :param pulumi.Input[Union[str, 'CoreNetworkType']] core_network_technology: The core network technology generation (5G core or EPC / 4G core).
-        :param pulumi.Input[pulumi.InputType['DiagnosticsUploadConfigurationArgs']] diagnostics_upload: Configuration for uploading packet core diagnostics
-        :param pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']] identity: The identity used to retrieve the ingress certificate from Azure key vault.
-        :param pulumi.Input[pulumi.InputType['InstallationArgs']] installation: The installation state of the packet core control plane resource.
+        :param pulumi.Input[Union['DiagnosticsUploadConfigurationArgs', 'DiagnosticsUploadConfigurationArgsDict']] diagnostics_upload: Configuration for uploading packet core diagnostics
+        :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: The identity used to retrieve the ingress certificate from Azure key vault.
+        :param pulumi.Input[Union['InstallationArgs', 'InstallationArgsDict']] installation: The installation state of the packet core control plane resource.
         :param Any interop_settings: Settings to allow interoperability with third party components e.g. RANs and UEs.
-        :param pulumi.Input[pulumi.InputType['LocalDiagnosticsAccessConfigurationArgs']] local_diagnostics_access: The kubernetes ingress configuration to control access to packet core diagnostics over local APIs.
+        :param pulumi.Input[Union['LocalDiagnosticsAccessConfigurationArgs', 'LocalDiagnosticsAccessConfigurationArgsDict']] local_diagnostics_access: The kubernetes ingress configuration to control access to packet core diagnostics over local APIs.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] packet_core_control_plane_name: The name of the packet core control plane.
-        :param pulumi.Input[pulumi.InputType['PlatformConfigurationArgs']] platform: The platform where the packet core is deployed.
+        :param pulumi.Input[Union['PlatformConfigurationArgs', 'PlatformConfigurationArgsDict']] platform: The platform where the packet core is deployed.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SiteResourceIdArgs']]]] sites: Site(s) under which this packet core control plane should be deployed. The sites must be in the same location as the packet core control plane.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SiteResourceIdArgs', 'SiteResourceIdArgsDict']]]] sites: Site(s) under which this packet core control plane should be deployed. The sites must be in the same location as the packet core control plane.
         :param pulumi.Input[Union[str, 'BillingSku']] sku: The SKU defining the throughput and SIM allowances for this packet core control plane deployment.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[int] ue_mtu: The MTU (in bytes) signaled to the UE. The same MTU is set on the user plane data links for all data networks. The MTU set on the user plane access link is calculated to be 60 bytes greater than this value to allow for GTP encapsulation.
@@ -348,18 +353,18 @@ class PacketCoreControlPlane(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 control_plane_access_interface: Optional[pulumi.Input[pulumi.InputType['InterfacePropertiesArgs']]] = None,
+                 control_plane_access_interface: Optional[pulumi.Input[Union['InterfacePropertiesArgs', 'InterfacePropertiesArgsDict']]] = None,
                  core_network_technology: Optional[pulumi.Input[Union[str, 'CoreNetworkType']]] = None,
-                 diagnostics_upload: Optional[pulumi.Input[pulumi.InputType['DiagnosticsUploadConfigurationArgs']]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
-                 installation: Optional[pulumi.Input[pulumi.InputType['InstallationArgs']]] = None,
+                 diagnostics_upload: Optional[pulumi.Input[Union['DiagnosticsUploadConfigurationArgs', 'DiagnosticsUploadConfigurationArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 installation: Optional[pulumi.Input[Union['InstallationArgs', 'InstallationArgsDict']]] = None,
                  interop_settings: Optional[Any] = None,
-                 local_diagnostics_access: Optional[pulumi.Input[pulumi.InputType['LocalDiagnosticsAccessConfigurationArgs']]] = None,
+                 local_diagnostics_access: Optional[pulumi.Input[Union['LocalDiagnosticsAccessConfigurationArgs', 'LocalDiagnosticsAccessConfigurationArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  packet_core_control_plane_name: Optional[pulumi.Input[str]] = None,
-                 platform: Optional[pulumi.Input[pulumi.InputType['PlatformConfigurationArgs']]] = None,
+                 platform: Optional[pulumi.Input[Union['PlatformConfigurationArgs', 'PlatformConfigurationArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sites: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SiteResourceIdArgs']]]]] = None,
+                 sites: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SiteResourceIdArgs', 'SiteResourceIdArgsDict']]]]] = None,
                  sku: Optional[pulumi.Input[Union[str, 'BillingSku']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  ue_mtu: Optional[pulumi.Input[int]] = None,

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -153,7 +158,7 @@ class Schedule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  lab_name: Optional[pulumi.Input[str]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
-                 recurrence_pattern: Optional[pulumi.Input[pulumi.InputType['RecurrencePatternArgs']]] = None,
+                 recurrence_pattern: Optional[pulumi.Input[Union['RecurrencePatternArgs', 'RecurrencePatternArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  schedule_name: Optional[pulumi.Input[str]] = None,
                  start_at: Optional[pulumi.Input[str]] = None,
@@ -167,7 +172,7 @@ class Schedule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] lab_name: The name of the lab that uniquely identifies it within containing lab plan. Used in resource URIs.
         :param pulumi.Input[str] notes: Notes for this schedule.
-        :param pulumi.Input[pulumi.InputType['RecurrencePatternArgs']] recurrence_pattern: The recurrence pattern of the scheduled actions.
+        :param pulumi.Input[Union['RecurrencePatternArgs', 'RecurrencePatternArgsDict']] recurrence_pattern: The recurrence pattern of the scheduled actions.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] schedule_name: The name of the schedule that uniquely identifies it within containing lab. Used in resource URIs.
         :param pulumi.Input[str] start_at: When lab user virtual machines will be started. Timestamp offsets will be ignored and timeZoneId is used instead.
@@ -200,7 +205,7 @@ class Schedule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  lab_name: Optional[pulumi.Input[str]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
-                 recurrence_pattern: Optional[pulumi.Input[pulumi.InputType['RecurrencePatternArgs']]] = None,
+                 recurrence_pattern: Optional[pulumi.Input[Union['RecurrencePatternArgs', 'RecurrencePatternArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  schedule_name: Optional[pulumi.Input[str]] = None,
                  start_at: Optional[pulumi.Input[str]] = None,

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -151,8 +156,8 @@ class ClusterService(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_service_name: Optional[pulumi.Input[str]] = None,
-                 cluster_type_specific_data: Optional[pulumi.Input[Union[pulumi.InputType['ClusterServiceAksClusterDataArgs'], pulumi.InputType['ClusterServiceNexusAksClusterDataArgs']]]] = None,
-                 component_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['QualifiedComponentDeploymentParametersArgs']]]]] = None,
+                 cluster_type_specific_data: Optional[pulumi.Input[Union[Union['ClusterServiceAksClusterDataArgs', 'ClusterServiceAksClusterDataArgsDict'], Union['ClusterServiceNexusAksClusterDataArgs', 'ClusterServiceNexusAksClusterDataArgsDict']]]] = None,
+                 component_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['QualifiedComponentDeploymentParametersArgs', 'QualifiedComponentDeploymentParametersArgsDict']]]]] = None,
                  deployment_type: Optional[pulumi.Input[Union[str, 'SkuDeploymentType']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  release_version: Optional[pulumi.Input[str]] = None,
@@ -166,8 +171,8 @@ class ClusterService(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_service_name: The name of the Cluster Service
-        :param pulumi.Input[Union[pulumi.InputType['ClusterServiceAksClusterDataArgs'], pulumi.InputType['ClusterServiceNexusAksClusterDataArgs']]] cluster_type_specific_data: Cluster type specific data.  Contents depend on the cluster type
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['QualifiedComponentDeploymentParametersArgs']]]] component_parameters: Azure for Operators 5G Core Local PaaS component parameters.  One set per component type
+        :param pulumi.Input[Union[Union['ClusterServiceAksClusterDataArgs', 'ClusterServiceAksClusterDataArgsDict'], Union['ClusterServiceNexusAksClusterDataArgs', 'ClusterServiceNexusAksClusterDataArgsDict']]] cluster_type_specific_data: Cluster type specific data.  Contents depend on the cluster type
+        :param pulumi.Input[Sequence[pulumi.Input[Union['QualifiedComponentDeploymentParametersArgs', 'QualifiedComponentDeploymentParametersArgsDict']]]] component_parameters: Azure for Operators 5G Core Local PaaS component parameters.  One set per component type
         :param pulumi.Input[Union[str, 'SkuDeploymentType']] deployment_type: Cluster type (Lab or Production)
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] release_version: Azure for Operators 5G Core Release Version.  This is applied to all platform as a service (PaaS) components and running workloads in this cluster
@@ -200,8 +205,8 @@ class ClusterService(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_service_name: Optional[pulumi.Input[str]] = None,
-                 cluster_type_specific_data: Optional[pulumi.Input[Union[pulumi.InputType['ClusterServiceAksClusterDataArgs'], pulumi.InputType['ClusterServiceNexusAksClusterDataArgs']]]] = None,
-                 component_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['QualifiedComponentDeploymentParametersArgs']]]]] = None,
+                 cluster_type_specific_data: Optional[pulumi.Input[Union[Union['ClusterServiceAksClusterDataArgs', 'ClusterServiceAksClusterDataArgsDict'], Union['ClusterServiceNexusAksClusterDataArgs', 'ClusterServiceNexusAksClusterDataArgsDict']]]] = None,
+                 component_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['QualifiedComponentDeploymentParametersArgs', 'QualifiedComponentDeploymentParametersArgsDict']]]]] = None,
                  deployment_type: Optional[pulumi.Input[Union[str, 'SkuDeploymentType']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  release_version: Optional[pulumi.Input[str]] = None,

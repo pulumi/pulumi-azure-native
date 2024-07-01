@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -125,7 +130,7 @@ class JobCollection(pulumi.CustomResource):
                  job_collection_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['JobCollectionPropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['JobCollectionPropertiesArgs', 'JobCollectionPropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -136,7 +141,7 @@ class JobCollection(pulumi.CustomResource):
         :param pulumi.Input[str] job_collection_name: The job collection name.
         :param pulumi.Input[str] location: Gets or sets the storage account location.
         :param pulumi.Input[str] name: Gets or sets the job collection resource name.
-        :param pulumi.Input[pulumi.InputType['JobCollectionPropertiesArgs']] properties: Gets or sets the job collection properties.
+        :param pulumi.Input[Union['JobCollectionPropertiesArgs', 'JobCollectionPropertiesArgsDict']] properties: Gets or sets the job collection properties.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Gets or sets the tags.
         """
@@ -166,7 +171,7 @@ class JobCollection(pulumi.CustomResource):
                  job_collection_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['JobCollectionPropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['JobCollectionPropertiesArgs', 'JobCollectionPropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):

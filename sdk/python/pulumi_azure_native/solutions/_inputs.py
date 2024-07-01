@@ -4,29 +4,67 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'ApplicationAuthorizationArgs',
+    'ApplicationAuthorizationArgsDict',
     'ApplicationDefinitionArtifactArgs',
+    'ApplicationDefinitionArtifactArgsDict',
     'ApplicationDeploymentPolicyArgs',
+    'ApplicationDeploymentPolicyArgsDict',
     'ApplicationJitAccessPolicyArgs',
+    'ApplicationJitAccessPolicyArgsDict',
     'ApplicationManagementPolicyArgs',
+    'ApplicationManagementPolicyArgsDict',
     'ApplicationNotificationEndpointArgs',
+    'ApplicationNotificationEndpointArgsDict',
     'ApplicationNotificationPolicyArgs',
+    'ApplicationNotificationPolicyArgsDict',
     'ApplicationPackageLockingPolicyDefinitionArgs',
+    'ApplicationPackageLockingPolicyDefinitionArgsDict',
     'ApplicationPolicyArgs',
+    'ApplicationPolicyArgsDict',
     'IdentityArgs',
+    'IdentityArgsDict',
     'JitApproverDefinitionArgs',
+    'JitApproverDefinitionArgsDict',
     'JitAuthorizationPoliciesArgs',
+    'JitAuthorizationPoliciesArgsDict',
     'JitSchedulingPolicyArgs',
+    'JitSchedulingPolicyArgsDict',
     'PlanArgs',
+    'PlanArgsDict',
     'SkuArgs',
+    'SkuArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ApplicationAuthorizationArgsDict(TypedDict):
+        """
+        The managed application provider authorization.
+        """
+        principal_id: pulumi.Input[str]
+        """
+        The provider's principal identifier. This is the identity that the provider will use to call ARM to manage the managed application resources.
+        """
+        role_definition_id: pulumi.Input[str]
+        """
+        The provider's role definition identifier. This role will define all the permissions that the provider must have on the managed application's container resource group. This role definition cannot have permission to delete the resource group.
+        """
+elif False:
+    ApplicationAuthorizationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApplicationAuthorizationArgs:
@@ -65,6 +103,26 @@ class ApplicationAuthorizationArgs:
     def role_definition_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "role_definition_id", value)
 
+
+if not MYPY:
+    class ApplicationDefinitionArtifactArgsDict(TypedDict):
+        """
+        Application definition artifact.
+        """
+        name: pulumi.Input[Union[str, 'ApplicationDefinitionArtifactName']]
+        """
+        The managed application definition artifact name.
+        """
+        type: pulumi.Input['ApplicationArtifactType']
+        """
+        The managed application definition artifact type.
+        """
+        uri: pulumi.Input[str]
+        """
+        The managed application definition artifact blob uri.
+        """
+elif False:
+    ApplicationDefinitionArtifactArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApplicationDefinitionArtifactArgs:
@@ -119,6 +177,18 @@ class ApplicationDefinitionArtifactArgs:
         pulumi.set(self, "uri", value)
 
 
+if not MYPY:
+    class ApplicationDeploymentPolicyArgsDict(TypedDict):
+        """
+        Managed application deployment policy.
+        """
+        deployment_mode: pulumi.Input[Union[str, 'DeploymentMode']]
+        """
+        The managed application deployment mode.
+        """
+elif False:
+    ApplicationDeploymentPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ApplicationDeploymentPolicyArgs:
     def __init__(__self__, *,
@@ -141,6 +211,30 @@ class ApplicationDeploymentPolicyArgs:
     def deployment_mode(self, value: pulumi.Input[Union[str, 'DeploymentMode']]):
         pulumi.set(self, "deployment_mode", value)
 
+
+if not MYPY:
+    class ApplicationJitAccessPolicyArgsDict(TypedDict):
+        """
+        Managed application Jit access policy.
+        """
+        jit_access_enabled: pulumi.Input[bool]
+        """
+        Whether the JIT access is enabled.
+        """
+        jit_approval_mode: NotRequired[pulumi.Input[Union[str, 'JitApprovalMode']]]
+        """
+        JIT approval mode.
+        """
+        jit_approvers: NotRequired[pulumi.Input[Sequence[pulumi.Input['JitApproverDefinitionArgsDict']]]]
+        """
+        The JIT approvers
+        """
+        maximum_jit_access_duration: NotRequired[pulumi.Input[str]]
+        """
+        The maximum duration JIT access is granted. This is an ISO8601 time period value.
+        """
+elif False:
+    ApplicationJitAccessPolicyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApplicationJitAccessPolicyArgs:
@@ -213,6 +307,18 @@ class ApplicationJitAccessPolicyArgs:
         pulumi.set(self, "maximum_jit_access_duration", value)
 
 
+if not MYPY:
+    class ApplicationManagementPolicyArgsDict(TypedDict):
+        """
+        Managed application management policy.
+        """
+        mode: NotRequired[pulumi.Input[Union[str, 'ApplicationManagementMode']]]
+        """
+        The managed application management mode.
+        """
+elif False:
+    ApplicationManagementPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ApplicationManagementPolicyArgs:
     def __init__(__self__, *,
@@ -237,6 +343,18 @@ class ApplicationManagementPolicyArgs:
         pulumi.set(self, "mode", value)
 
 
+if not MYPY:
+    class ApplicationNotificationEndpointArgsDict(TypedDict):
+        """
+        Managed application notification endpoint.
+        """
+        uri: pulumi.Input[str]
+        """
+        The managed application notification endpoint uri.
+        """
+elif False:
+    ApplicationNotificationEndpointArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ApplicationNotificationEndpointArgs:
     def __init__(__self__, *,
@@ -260,6 +378,18 @@ class ApplicationNotificationEndpointArgs:
         pulumi.set(self, "uri", value)
 
 
+if not MYPY:
+    class ApplicationNotificationPolicyArgsDict(TypedDict):
+        """
+        Managed application notification policy.
+        """
+        notification_endpoints: pulumi.Input[Sequence[pulumi.Input['ApplicationNotificationEndpointArgsDict']]]
+        """
+        The managed application notification endpoint.
+        """
+elif False:
+    ApplicationNotificationPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ApplicationNotificationPolicyArgs:
     def __init__(__self__, *,
@@ -282,6 +412,22 @@ class ApplicationNotificationPolicyArgs:
     def notification_endpoints(self, value: pulumi.Input[Sequence[pulumi.Input['ApplicationNotificationEndpointArgs']]]):
         pulumi.set(self, "notification_endpoints", value)
 
+
+if not MYPY:
+    class ApplicationPackageLockingPolicyDefinitionArgsDict(TypedDict):
+        """
+        Managed application locking policy.
+        """
+        allowed_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The deny assignment excluded actions.
+        """
+        allowed_data_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The deny assignment excluded data actions.
+        """
+elif False:
+    ApplicationPackageLockingPolicyDefinitionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApplicationPackageLockingPolicyDefinitionArgs:
@@ -322,6 +468,26 @@ class ApplicationPackageLockingPolicyDefinitionArgs:
     def allowed_data_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "allowed_data_actions", value)
 
+
+if not MYPY:
+    class ApplicationPolicyArgsDict(TypedDict):
+        """
+        Managed application policy.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The policy name
+        """
+        parameters: NotRequired[pulumi.Input[str]]
+        """
+        The policy parameters.
+        """
+        policy_definition_id: NotRequired[pulumi.Input[str]]
+        """
+        The policy definition Id.
+        """
+elif False:
+    ApplicationPolicyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApplicationPolicyArgs:
@@ -379,6 +545,22 @@ class ApplicationPolicyArgs:
         pulumi.set(self, "policy_definition_id", value)
 
 
+if not MYPY:
+    class IdentityArgsDict(TypedDict):
+        """
+        Identity for the resource.
+        """
+        type: NotRequired[pulumi.Input['ResourceIdentityType']]
+        """
+        The identity type.
+        """
+        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of user identities associated with the resource. The user identity dictionary key references will be resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+elif False:
+    IdentityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IdentityArgs:
     def __init__(__self__, *,
@@ -418,6 +600,26 @@ class IdentityArgs:
     def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
+
+if not MYPY:
+    class JitApproverDefinitionArgsDict(TypedDict):
+        """
+        JIT approver definition.
+        """
+        id: pulumi.Input[str]
+        """
+        The approver service principal Id.
+        """
+        display_name: NotRequired[pulumi.Input[str]]
+        """
+        The approver display name.
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'JitApproverType']]]
+        """
+        The approver type.
+        """
+elif False:
+    JitApproverDefinitionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class JitApproverDefinitionArgs:
@@ -474,6 +676,22 @@ class JitApproverDefinitionArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class JitAuthorizationPoliciesArgsDict(TypedDict):
+        """
+        The JIT authorization policies.
+        """
+        principal_id: pulumi.Input[str]
+        """
+        The the principal id that will be granted JIT access.
+        """
+        role_definition_id: pulumi.Input[str]
+        """
+        The role definition id that will be granted to the Principal.
+        """
+elif False:
+    JitAuthorizationPoliciesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class JitAuthorizationPoliciesArgs:
     def __init__(__self__, *,
@@ -511,6 +729,23 @@ class JitAuthorizationPoliciesArgs:
     def role_definition_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "role_definition_id", value)
 
+
+if not MYPY:
+    class JitSchedulingPolicyArgsDict(TypedDict):
+        """
+        The JIT scheduling policies.
+        """
+        duration: pulumi.Input[str]
+        start_time: pulumi.Input[str]
+        """
+        The start time of the request.
+        """
+        type: pulumi.Input[Union[str, 'JitSchedulingType']]
+        """
+        The type of JIT schedule.
+        """
+elif False:
+    JitSchedulingPolicyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class JitSchedulingPolicyArgs:
@@ -560,6 +795,34 @@ class JitSchedulingPolicyArgs:
     def type(self, value: pulumi.Input[Union[str, 'JitSchedulingType']]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class PlanArgsDict(TypedDict):
+        """
+        Plan for the managed application.
+        """
+        name: pulumi.Input[str]
+        """
+        The plan name.
+        """
+        product: pulumi.Input[str]
+        """
+        The product code.
+        """
+        publisher: pulumi.Input[str]
+        """
+        The publisher ID.
+        """
+        version: pulumi.Input[str]
+        """
+        The plan's version.
+        """
+        promotion_code: NotRequired[pulumi.Input[str]]
+        """
+        The promotion code.
+        """
+elif False:
+    PlanArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PlanArgs:
@@ -644,6 +907,38 @@ class PlanArgs:
     def promotion_code(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "promotion_code", value)
 
+
+if not MYPY:
+    class SkuArgsDict(TypedDict):
+        """
+        SKU for the resource.
+        """
+        name: pulumi.Input[str]
+        """
+        The SKU name.
+        """
+        capacity: NotRequired[pulumi.Input[int]]
+        """
+        The SKU capacity.
+        """
+        family: NotRequired[pulumi.Input[str]]
+        """
+        The SKU family.
+        """
+        model: NotRequired[pulumi.Input[str]]
+        """
+        The SKU model.
+        """
+        size: NotRequired[pulumi.Input[str]]
+        """
+        The SKU size.
+        """
+        tier: NotRequired[pulumi.Input[str]]
+        """
+        The SKU tier.
+        """
+elif False:
+    SkuArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SkuArgs:

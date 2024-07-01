@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -270,7 +275,7 @@ class SourceControlConfiguration(pulumi.CustomResource):
                  cluster_rp: Optional[pulumi.Input[str]] = None,
                  configuration_protected_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  enable_helm_operator: Optional[pulumi.Input[bool]] = None,
-                 helm_operator_properties: Optional[pulumi.Input[pulumi.InputType['HelmOperatorPropertiesArgs']]] = None,
+                 helm_operator_properties: Optional[pulumi.Input[Union['HelmOperatorPropertiesArgs', 'HelmOperatorPropertiesArgsDict']]] = None,
                  operator_instance_name: Optional[pulumi.Input[str]] = None,
                  operator_namespace: Optional[pulumi.Input[str]] = None,
                  operator_params: Optional[pulumi.Input[str]] = None,
@@ -291,7 +296,7 @@ class SourceControlConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] cluster_rp: The Kubernetes cluster RP - i.e. Microsoft.ContainerService, Microsoft.Kubernetes, Microsoft.HybridContainerService.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] configuration_protected_settings: Name-value pairs of protected configuration settings for the configuration
         :param pulumi.Input[bool] enable_helm_operator: Option to enable Helm Operator for this git configuration.
-        :param pulumi.Input[pulumi.InputType['HelmOperatorPropertiesArgs']] helm_operator_properties: Properties for Helm operator.
+        :param pulumi.Input[Union['HelmOperatorPropertiesArgs', 'HelmOperatorPropertiesArgsDict']] helm_operator_properties: Properties for Helm operator.
         :param pulumi.Input[str] operator_instance_name: Instance name of the operator - identifying the specific configuration.
         :param pulumi.Input[str] operator_namespace: The namespace to which this operator is installed to. Maximum of 253 lower case alphanumeric characters, hyphen and period only.
         :param pulumi.Input[str] operator_params: Any Parameters for the Operator instance in string format.
@@ -331,7 +336,7 @@ class SourceControlConfiguration(pulumi.CustomResource):
                  cluster_rp: Optional[pulumi.Input[str]] = None,
                  configuration_protected_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  enable_helm_operator: Optional[pulumi.Input[bool]] = None,
-                 helm_operator_properties: Optional[pulumi.Input[pulumi.InputType['HelmOperatorPropertiesArgs']]] = None,
+                 helm_operator_properties: Optional[pulumi.Input[Union['HelmOperatorPropertiesArgs', 'HelmOperatorPropertiesArgsDict']]] = None,
                  operator_instance_name: Optional[pulumi.Input[str]] = None,
                  operator_namespace: Optional[pulumi.Input[str]] = None,
                  operator_params: Optional[pulumi.Input[str]] = None,

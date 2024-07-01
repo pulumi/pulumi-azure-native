@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -174,14 +179,14 @@ class AppAttachPackage(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_attach_package_name: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ResourceModelWithAllowedPropertySetIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['ResourceModelWithAllowedPropertySetIdentityArgs', 'ResourceModelWithAllowedPropertySetIdentityArgsDict']]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  managed_by: Optional[pulumi.Input[str]] = None,
-                 plan: Optional[pulumi.Input[pulumi.InputType['ResourceModelWithAllowedPropertySetPlanArgs']]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['AppAttachPackagePropertiesArgs']]] = None,
+                 plan: Optional[pulumi.Input[Union['ResourceModelWithAllowedPropertySetPlanArgs', 'ResourceModelWithAllowedPropertySetPlanArgsDict']]] = None,
+                 properties: Optional[pulumi.Input[Union['AppAttachPackagePropertiesArgs', 'AppAttachPackagePropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['ResourceModelWithAllowedPropertySetSkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['ResourceModelWithAllowedPropertySetSkuArgs', 'ResourceModelWithAllowedPropertySetSkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -196,7 +201,7 @@ class AppAttachPackage(pulumi.CustomResource):
         :param pulumi.Input[str] kind: Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] managed_by: The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
-        :param pulumi.Input[pulumi.InputType['AppAttachPackagePropertiesArgs']] properties: Detailed properties for App Attach Package
+        :param pulumi.Input[Union['AppAttachPackagePropertiesArgs', 'AppAttachPackagePropertiesArgsDict']] properties: Detailed properties for App Attach Package
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -228,14 +233,14 @@ class AppAttachPackage(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_attach_package_name: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ResourceModelWithAllowedPropertySetIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['ResourceModelWithAllowedPropertySetIdentityArgs', 'ResourceModelWithAllowedPropertySetIdentityArgsDict']]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  managed_by: Optional[pulumi.Input[str]] = None,
-                 plan: Optional[pulumi.Input[pulumi.InputType['ResourceModelWithAllowedPropertySetPlanArgs']]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['AppAttachPackagePropertiesArgs']]] = None,
+                 plan: Optional[pulumi.Input[Union['ResourceModelWithAllowedPropertySetPlanArgs', 'ResourceModelWithAllowedPropertySetPlanArgsDict']]] = None,
+                 properties: Optional[pulumi.Input[Union['AppAttachPackagePropertiesArgs', 'AppAttachPackagePropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['ResourceModelWithAllowedPropertySetSkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['ResourceModelWithAllowedPropertySetSkuArgs', 'ResourceModelWithAllowedPropertySetSkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -174,9 +179,9 @@ class VirtualHubIpConfiguration(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  private_ip_address: Optional[pulumi.Input[str]] = None,
                  private_ip_allocation_method: Optional[pulumi.Input[Union[str, 'IPAllocationMethod']]] = None,
-                 public_ip_address: Optional[pulumi.Input[pulumi.InputType['PublicIPAddressArgs']]] = None,
+                 public_ip_address: Optional[pulumi.Input[Union['PublicIPAddressArgs', 'PublicIPAddressArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 subnet: Optional[pulumi.Input[pulumi.InputType['SubnetArgs']]] = None,
+                 subnet: Optional[pulumi.Input[Union['SubnetArgs', 'SubnetArgsDict']]] = None,
                  virtual_hub_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -189,9 +194,9 @@ class VirtualHubIpConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of the Ip Configuration.
         :param pulumi.Input[str] private_ip_address: The private IP address of the IP configuration.
         :param pulumi.Input[Union[str, 'IPAllocationMethod']] private_ip_allocation_method: The private IP address allocation method.
-        :param pulumi.Input[pulumi.InputType['PublicIPAddressArgs']] public_ip_address: The reference to the public IP resource.
+        :param pulumi.Input[Union['PublicIPAddressArgs', 'PublicIPAddressArgsDict']] public_ip_address: The reference to the public IP resource.
         :param pulumi.Input[str] resource_group_name: The resource group name of the VirtualHub.
-        :param pulumi.Input[pulumi.InputType['SubnetArgs']] subnet: The reference to the subnet resource.
+        :param pulumi.Input[Union['SubnetArgs', 'SubnetArgsDict']] subnet: The reference to the subnet resource.
         :param pulumi.Input[str] virtual_hub_name: The name of the VirtualHub.
         """
         ...
@@ -223,9 +228,9 @@ class VirtualHubIpConfiguration(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  private_ip_address: Optional[pulumi.Input[str]] = None,
                  private_ip_allocation_method: Optional[pulumi.Input[Union[str, 'IPAllocationMethod']]] = None,
-                 public_ip_address: Optional[pulumi.Input[pulumi.InputType['PublicIPAddressArgs']]] = None,
+                 public_ip_address: Optional[pulumi.Input[Union['PublicIPAddressArgs', 'PublicIPAddressArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 subnet: Optional[pulumi.Input[pulumi.InputType['SubnetArgs']]] = None,
+                 subnet: Optional[pulumi.Input[Union['SubnetArgs', 'SubnetArgsDict']]] = None,
                  virtual_hub_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

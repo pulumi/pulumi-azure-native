@@ -4,48 +4,113 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'CommunityGalleryInfoArgs',
+    'CommunityGalleryInfoArgsDict',
     'DataDiskImageEncryptionArgs',
+    'DataDiskImageEncryptionArgsDict',
     'DisallowedArgs',
+    'DisallowedArgsDict',
     'EncryptionImagesArgs',
+    'EncryptionImagesArgsDict',
     'GalleryApplicationCustomActionParameterArgs',
+    'GalleryApplicationCustomActionParameterArgsDict',
     'GalleryApplicationCustomActionArgs',
+    'GalleryApplicationCustomActionArgsDict',
     'GalleryApplicationVersionPublishingProfileArgs',
+    'GalleryApplicationVersionPublishingProfileArgsDict',
     'GalleryApplicationVersionSafetyProfileArgs',
+    'GalleryApplicationVersionSafetyProfileArgsDict',
     'GalleryArtifactVersionFullSourceArgs',
+    'GalleryArtifactVersionFullSourceArgsDict',
     'GalleryDataDiskImageArgs',
+    'GalleryDataDiskImageArgsDict',
     'GalleryDiskImageSourceArgs',
+    'GalleryDiskImageSourceArgsDict',
     'GalleryExtendedLocationArgs',
+    'GalleryExtendedLocationArgsDict',
     'GalleryImageFeatureArgs',
+    'GalleryImageFeatureArgsDict',
     'GalleryImageIdentifierArgs',
+    'GalleryImageIdentifierArgsDict',
     'GalleryImageVersionPublishingProfileArgs',
+    'GalleryImageVersionPublishingProfileArgsDict',
     'GalleryImageVersionSafetyProfileArgs',
+    'GalleryImageVersionSafetyProfileArgsDict',
     'GalleryImageVersionStorageProfileArgs',
+    'GalleryImageVersionStorageProfileArgsDict',
     'GalleryImageVersionUefiSettingsArgs',
+    'GalleryImageVersionUefiSettingsArgsDict',
     'GalleryOSDiskImageArgs',
+    'GalleryOSDiskImageArgsDict',
     'GalleryTargetExtendedLocationArgs',
+    'GalleryTargetExtendedLocationArgsDict',
     'ImagePurchasePlanArgs',
+    'ImagePurchasePlanArgsDict',
     'ImageVersionSecurityProfileArgs',
+    'ImageVersionSecurityProfileArgsDict',
     'OSDiskImageEncryptionArgs',
+    'OSDiskImageEncryptionArgsDict',
     'OSDiskImageSecurityProfileArgs',
+    'OSDiskImageSecurityProfileArgsDict',
     'RecommendedMachineConfigurationArgs',
+    'RecommendedMachineConfigurationArgsDict',
     'ResourceRangeArgs',
+    'ResourceRangeArgsDict',
     'SharingProfileArgs',
+    'SharingProfileArgsDict',
     'SoftDeletePolicyArgs',
+    'SoftDeletePolicyArgsDict',
     'TargetRegionArgs',
+    'TargetRegionArgsDict',
     'UefiKeySignaturesArgs',
+    'UefiKeySignaturesArgsDict',
     'UefiKeyArgs',
+    'UefiKeyArgsDict',
     'UserArtifactManageArgs',
+    'UserArtifactManageArgsDict',
     'UserArtifactSettingsArgs',
+    'UserArtifactSettingsArgsDict',
     'UserArtifactSourceArgs',
+    'UserArtifactSourceArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class CommunityGalleryInfoArgsDict(TypedDict):
+        """
+        Information of community gallery if current gallery is shared to community
+        """
+        eula: NotRequired[pulumi.Input[str]]
+        """
+        End-user license agreement for community gallery image.
+        """
+        public_name_prefix: NotRequired[pulumi.Input[str]]
+        """
+        The prefix of the gallery name that will be displayed publicly. Visible to all users.
+        """
+        publisher_contact: NotRequired[pulumi.Input[str]]
+        """
+        Community gallery publisher support email. The email address of the publisher. Visible to all users.
+        """
+        publisher_uri: NotRequired[pulumi.Input[str]]
+        """
+        The link to the publisher website. Visible to all users.
+        """
+elif False:
+    CommunityGalleryInfoArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CommunityGalleryInfoArgs:
@@ -119,6 +184,22 @@ class CommunityGalleryInfoArgs:
         pulumi.set(self, "publisher_uri", value)
 
 
+if not MYPY:
+    class DataDiskImageEncryptionArgsDict(TypedDict):
+        """
+        Contains encryption settings for a data disk image.
+        """
+        lun: pulumi.Input[int]
+        """
+        This property specifies the logical unit number of the data disk. This value is used to identify data disks within the Virtual Machine and therefore must be unique for each data disk attached to the Virtual Machine.
+        """
+        disk_encryption_set_id: NotRequired[pulumi.Input[str]]
+        """
+        A relative URI containing the resource ID of the disk encryption set.
+        """
+elif False:
+    DataDiskImageEncryptionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DataDiskImageEncryptionArgs:
     def __init__(__self__, *,
@@ -158,6 +239,18 @@ class DataDiskImageEncryptionArgs:
         pulumi.set(self, "disk_encryption_set_id", value)
 
 
+if not MYPY:
+    class DisallowedArgsDict(TypedDict):
+        """
+        Describes the disallowed disk types.
+        """
+        disk_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of disk types.
+        """
+elif False:
+    DisallowedArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DisallowedArgs:
     def __init__(__self__, *,
@@ -181,6 +274,22 @@ class DisallowedArgs:
     def disk_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "disk_types", value)
 
+
+if not MYPY:
+    class EncryptionImagesArgsDict(TypedDict):
+        """
+        Optional. Allows users to provide customer managed keys for encrypting the OS and data disks in the gallery artifact.
+        """
+        data_disk_images: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataDiskImageEncryptionArgsDict']]]]
+        """
+        A list of encryption specifications for data disk images.
+        """
+        os_disk_image: NotRequired[pulumi.Input['OSDiskImageEncryptionArgsDict']]
+        """
+        Contains encryption settings for an OS disk image.
+        """
+elif False:
+    EncryptionImagesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EncryptionImagesArgs:
@@ -221,6 +330,34 @@ class EncryptionImagesArgs:
     def os_disk_image(self, value: Optional[pulumi.Input['OSDiskImageEncryptionArgs']]):
         pulumi.set(self, "os_disk_image", value)
 
+
+if not MYPY:
+    class GalleryApplicationCustomActionParameterArgsDict(TypedDict):
+        """
+        The definition of a parameter that can be passed to a custom action of a Gallery Application Version.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the custom action.  Must be unique within the Gallery Application Version.
+        """
+        default_value: NotRequired[pulumi.Input[str]]
+        """
+        The default value of the parameter.  Only applies to string types
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        A description to help users understand what this parameter means
+        """
+        required: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether this parameter must be passed when running the custom action.
+        """
+        type: NotRequired[pulumi.Input['GalleryApplicationCustomActionParameterType']]
+        """
+        Specifies the type of the custom action parameter. Possible values are: String, ConfigurationDataBlob or LogOutputBlob
+        """
+elif False:
+    GalleryApplicationCustomActionParameterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GalleryApplicationCustomActionParameterArgs:
@@ -309,6 +446,30 @@ class GalleryApplicationCustomActionParameterArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class GalleryApplicationCustomActionArgsDict(TypedDict):
+        """
+        A custom action that can be performed with a Gallery Application Version.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the custom action.  Must be unique within the Gallery Application Version.
+        """
+        script: pulumi.Input[str]
+        """
+        The script to run when executing this custom action.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Description to help the users understand what this custom action does.
+        """
+        parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['GalleryApplicationCustomActionParameterArgsDict']]]]
+        """
+        The parameters that this custom action uses
+        """
+elif False:
+    GalleryApplicationCustomActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GalleryApplicationCustomActionArgs:
     def __init__(__self__, *,
@@ -378,6 +539,63 @@ class GalleryApplicationCustomActionArgs:
     def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GalleryApplicationCustomActionParameterArgs']]]]):
         pulumi.set(self, "parameters", value)
 
+
+if not MYPY:
+    class GalleryApplicationVersionPublishingProfileArgsDict(TypedDict):
+        """
+        The publishing profile of a gallery image version.
+        """
+        source: pulumi.Input['UserArtifactSourceArgsDict']
+        """
+        The source image from which the Image Version is going to be created.
+        """
+        advanced_settings: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Optional. Additional settings to pass to the vm-application-manager extension. For advanced use only.
+        """
+        custom_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['GalleryApplicationCustomActionArgsDict']]]]
+        """
+        A list of custom actions that can be performed with this Gallery Application Version.
+        """
+        enable_health_check: NotRequired[pulumi.Input[bool]]
+        """
+        Optional. Whether or not this application reports health.
+        """
+        end_of_life_date: NotRequired[pulumi.Input[str]]
+        """
+        The end of life date of the gallery image version. This property can be used for decommissioning purposes. This property is updatable.
+        """
+        exclude_from_latest: NotRequired[pulumi.Input[bool]]
+        """
+        If set to true, Virtual Machines deployed from the latest version of the Image Definition won't use this Image Version.
+        """
+        manage_actions: NotRequired[pulumi.Input['UserArtifactManageArgsDict']]
+        replica_count: NotRequired[pulumi.Input[int]]
+        """
+        The number of replicas of the Image Version to be created per region. This property would take effect for a region when regionalReplicaCount is not specified. This property is updatable.
+        """
+        replication_mode: NotRequired[pulumi.Input[Union[str, 'ReplicationMode']]]
+        """
+        Optional parameter which specifies the mode to be used for replication. This property is not updatable.
+        """
+        settings: NotRequired[pulumi.Input['UserArtifactSettingsArgsDict']]
+        """
+        Additional settings for the VM app that contains the target package and config file name when it is deployed to target VM or VM scale set.
+        """
+        storage_account_type: NotRequired[pulumi.Input[Union[str, 'StorageAccountType']]]
+        """
+        Specifies the storage account type to be used to store the image. This property is not updatable.
+        """
+        target_extended_locations: NotRequired[pulumi.Input[Sequence[pulumi.Input['GalleryTargetExtendedLocationArgsDict']]]]
+        """
+        The target extended locations where the Image Version is going to be replicated to. This property is updatable.
+        """
+        target_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input['TargetRegionArgsDict']]]]
+        """
+        The target regions where the Image Version is going to be replicated to. This property is updatable.
+        """
+elif False:
+    GalleryApplicationVersionPublishingProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GalleryApplicationVersionPublishingProfileArgs:
@@ -590,6 +808,18 @@ class GalleryApplicationVersionPublishingProfileArgs:
         pulumi.set(self, "target_regions", value)
 
 
+if not MYPY:
+    class GalleryApplicationVersionSafetyProfileArgsDict(TypedDict):
+        """
+        The safety profile of the Gallery Application Version.
+        """
+        allow_deletion_of_replicated_locations: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether or not removing this Gallery Image Version from replicated regions is allowed.
+        """
+elif False:
+    GalleryApplicationVersionSafetyProfileArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GalleryApplicationVersionSafetyProfileArgs:
     def __init__(__self__, *,
@@ -613,6 +843,22 @@ class GalleryApplicationVersionSafetyProfileArgs:
     def allow_deletion_of_replicated_locations(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "allow_deletion_of_replicated_locations", value)
 
+
+if not MYPY:
+    class GalleryArtifactVersionFullSourceArgsDict(TypedDict):
+        """
+        The source of the gallery artifact version.
+        """
+        community_gallery_image_id: NotRequired[pulumi.Input[str]]
+        """
+        The resource Id of the source Community Gallery Image.  Only required when using Community Gallery Image as a source.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The id of the gallery artifact version source. Can specify a disk uri, snapshot uri, user image or storage account resource.
+        """
+elif False:
+    GalleryArtifactVersionFullSourceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GalleryArtifactVersionFullSourceArgs:
@@ -653,6 +899,26 @@ class GalleryArtifactVersionFullSourceArgs:
     def id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class GalleryDataDiskImageArgsDict(TypedDict):
+        """
+        This is the data disk image.
+        """
+        lun: pulumi.Input[int]
+        """
+        This property specifies the logical unit number of the data disk. This value is used to identify data disks within the Virtual Machine and therefore must be unique for each data disk attached to the Virtual Machine.
+        """
+        host_caching: NotRequired[pulumi.Input['HostCaching']]
+        """
+        The host caching of the disk. Valid values are 'None', 'ReadOnly', and 'ReadWrite'
+        """
+        source: NotRequired[pulumi.Input['GalleryDiskImageSourceArgsDict']]
+        """
+        The source for the disk image.
+        """
+elif False:
+    GalleryDataDiskImageArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GalleryDataDiskImageArgs:
@@ -708,6 +974,26 @@ class GalleryDataDiskImageArgs:
     def source(self, value: Optional[pulumi.Input['GalleryDiskImageSourceArgs']]):
         pulumi.set(self, "source", value)
 
+
+if not MYPY:
+    class GalleryDiskImageSourceArgsDict(TypedDict):
+        """
+        The source for the disk image.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The id of the gallery artifact version source. Can specify a disk uri, snapshot uri, user image or storage account resource.
+        """
+        storage_account_id: NotRequired[pulumi.Input[str]]
+        """
+        The Storage Account Id that contains the vhd blob being used as a source for this artifact version.
+        """
+        uri: NotRequired[pulumi.Input[str]]
+        """
+        The uri of the gallery artifact version source. Currently used to specify vhd/blob source.
+        """
+elif False:
+    GalleryDiskImageSourceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GalleryDiskImageSourceArgs:
@@ -765,6 +1051,19 @@ class GalleryDiskImageSourceArgs:
         pulumi.set(self, "uri", value)
 
 
+if not MYPY:
+    class GalleryExtendedLocationArgsDict(TypedDict):
+        """
+        The name of the extended location.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[Union[str, 'GalleryExtendedLocationType']]]
+        """
+        It is type of the extended location.
+        """
+elif False:
+    GalleryExtendedLocationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GalleryExtendedLocationArgs:
     def __init__(__self__, *,
@@ -800,6 +1099,22 @@ class GalleryExtendedLocationArgs:
     def type(self, value: Optional[pulumi.Input[Union[str, 'GalleryExtendedLocationType']]]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class GalleryImageFeatureArgsDict(TypedDict):
+        """
+        A feature for gallery image.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the gallery image feature.
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        The value of the gallery image feature.
+        """
+elif False:
+    GalleryImageFeatureArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GalleryImageFeatureArgs:
@@ -840,6 +1155,26 @@ class GalleryImageFeatureArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class GalleryImageIdentifierArgsDict(TypedDict):
+        """
+        This is the gallery image definition identifier.
+        """
+        offer: pulumi.Input[str]
+        """
+        The name of the gallery image definition offer.
+        """
+        publisher: pulumi.Input[str]
+        """
+        The name of the gallery image definition publisher.
+        """
+        sku: pulumi.Input[str]
+        """
+        The name of the gallery image definition SKU.
+        """
+elif False:
+    GalleryImageIdentifierArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GalleryImageIdentifierArgs:
@@ -893,6 +1228,42 @@ class GalleryImageIdentifierArgs:
     def sku(self, value: pulumi.Input[str]):
         pulumi.set(self, "sku", value)
 
+
+if not MYPY:
+    class GalleryImageVersionPublishingProfileArgsDict(TypedDict):
+        """
+        The publishing profile of a gallery image Version.
+        """
+        end_of_life_date: NotRequired[pulumi.Input[str]]
+        """
+        The end of life date of the gallery image version. This property can be used for decommissioning purposes. This property is updatable.
+        """
+        exclude_from_latest: NotRequired[pulumi.Input[bool]]
+        """
+        If set to true, Virtual Machines deployed from the latest version of the Image Definition won't use this Image Version.
+        """
+        replica_count: NotRequired[pulumi.Input[int]]
+        """
+        The number of replicas of the Image Version to be created per region. This property would take effect for a region when regionalReplicaCount is not specified. This property is updatable.
+        """
+        replication_mode: NotRequired[pulumi.Input[Union[str, 'ReplicationMode']]]
+        """
+        Optional parameter which specifies the mode to be used for replication. This property is not updatable.
+        """
+        storage_account_type: NotRequired[pulumi.Input[Union[str, 'StorageAccountType']]]
+        """
+        Specifies the storage account type to be used to store the image. This property is not updatable.
+        """
+        target_extended_locations: NotRequired[pulumi.Input[Sequence[pulumi.Input['GalleryTargetExtendedLocationArgsDict']]]]
+        """
+        The target extended locations where the Image Version is going to be replicated to. This property is updatable.
+        """
+        target_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input['TargetRegionArgsDict']]]]
+        """
+        The target regions where the Image Version is going to be replicated to. This property is updatable.
+        """
+elif False:
+    GalleryImageVersionPublishingProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GalleryImageVersionPublishingProfileArgs:
@@ -1014,6 +1385,18 @@ class GalleryImageVersionPublishingProfileArgs:
         pulumi.set(self, "target_regions", value)
 
 
+if not MYPY:
+    class GalleryImageVersionSafetyProfileArgsDict(TypedDict):
+        """
+        This is the safety profile of the Gallery Image Version.
+        """
+        allow_deletion_of_replicated_locations: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether or not removing this Gallery Image Version from replicated regions is allowed.
+        """
+elif False:
+    GalleryImageVersionSafetyProfileArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GalleryImageVersionSafetyProfileArgs:
     def __init__(__self__, *,
@@ -1037,6 +1420,26 @@ class GalleryImageVersionSafetyProfileArgs:
     def allow_deletion_of_replicated_locations(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "allow_deletion_of_replicated_locations", value)
 
+
+if not MYPY:
+    class GalleryImageVersionStorageProfileArgsDict(TypedDict):
+        """
+        This is the storage profile of a Gallery Image Version.
+        """
+        data_disk_images: NotRequired[pulumi.Input[Sequence[pulumi.Input['GalleryDataDiskImageArgsDict']]]]
+        """
+        A list of data disk images.
+        """
+        os_disk_image: NotRequired[pulumi.Input['GalleryOSDiskImageArgsDict']]
+        """
+        This is the OS disk image.
+        """
+        source: NotRequired[pulumi.Input['GalleryArtifactVersionFullSourceArgsDict']]
+        """
+        The source of the gallery artifact version.
+        """
+elif False:
+    GalleryImageVersionStorageProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GalleryImageVersionStorageProfileArgs:
@@ -1094,6 +1497,22 @@ class GalleryImageVersionStorageProfileArgs:
         pulumi.set(self, "source", value)
 
 
+if not MYPY:
+    class GalleryImageVersionUefiSettingsArgsDict(TypedDict):
+        """
+        Contains UEFI settings for the image version.
+        """
+        additional_signatures: NotRequired[pulumi.Input['UefiKeySignaturesArgsDict']]
+        """
+        Additional UEFI key signatures that will be added to the image in addition to the signature templates
+        """
+        signature_template_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'UefiSignatureTemplateName']]]]]
+        """
+        The name of the template(s) that contains default UEFI key signatures that will be added to the image.
+        """
+elif False:
+    GalleryImageVersionUefiSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GalleryImageVersionUefiSettingsArgs:
     def __init__(__self__, *,
@@ -1134,6 +1553,22 @@ class GalleryImageVersionUefiSettingsArgs:
         pulumi.set(self, "signature_template_names", value)
 
 
+if not MYPY:
+    class GalleryOSDiskImageArgsDict(TypedDict):
+        """
+        This is the OS disk image.
+        """
+        host_caching: NotRequired[pulumi.Input['HostCaching']]
+        """
+        The host caching of the disk. Valid values are 'None', 'ReadOnly', and 'ReadWrite'
+        """
+        source: NotRequired[pulumi.Input['GalleryDiskImageSourceArgsDict']]
+        """
+        The source for the disk image.
+        """
+elif False:
+    GalleryOSDiskImageArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GalleryOSDiskImageArgs:
     def __init__(__self__, *,
@@ -1173,6 +1608,31 @@ class GalleryOSDiskImageArgs:
     def source(self, value: Optional[pulumi.Input['GalleryDiskImageSourceArgs']]):
         pulumi.set(self, "source", value)
 
+
+if not MYPY:
+    class GalleryTargetExtendedLocationArgsDict(TypedDict):
+        encryption: NotRequired[pulumi.Input['EncryptionImagesArgsDict']]
+        """
+        Optional. Allows users to provide customer managed keys for encrypting the OS and data disks in the gallery artifact.
+        """
+        extended_location: NotRequired[pulumi.Input['GalleryExtendedLocationArgsDict']]
+        """
+        The name of the extended location.
+        """
+        extended_location_replica_count: NotRequired[pulumi.Input[int]]
+        """
+        The number of replicas of the Image Version to be created per extended location. This property is updatable.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the region.
+        """
+        storage_account_type: NotRequired[pulumi.Input[Union[str, 'EdgeZoneStorageAccountType']]]
+        """
+        Specifies the storage account type to be used to store the image. This property is not updatable.
+        """
+elif False:
+    GalleryTargetExtendedLocationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GalleryTargetExtendedLocationArgs:
@@ -1261,6 +1721,26 @@ class GalleryTargetExtendedLocationArgs:
         pulumi.set(self, "storage_account_type", value)
 
 
+if not MYPY:
+    class ImagePurchasePlanArgsDict(TypedDict):
+        """
+        Describes the gallery image definition purchase plan. This is used by marketplace images.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The plan ID.
+        """
+        product: NotRequired[pulumi.Input[str]]
+        """
+        The product ID.
+        """
+        publisher: NotRequired[pulumi.Input[str]]
+        """
+        The publisher ID.
+        """
+elif False:
+    ImagePurchasePlanArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ImagePurchasePlanArgs:
     def __init__(__self__, *,
@@ -1317,6 +1797,18 @@ class ImagePurchasePlanArgs:
         pulumi.set(self, "publisher", value)
 
 
+if not MYPY:
+    class ImageVersionSecurityProfileArgsDict(TypedDict):
+        """
+        The security profile of a gallery image version
+        """
+        uefi_settings: NotRequired[pulumi.Input['GalleryImageVersionUefiSettingsArgsDict']]
+        """
+        Contains UEFI settings for the image version.
+        """
+elif False:
+    ImageVersionSecurityProfileArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ImageVersionSecurityProfileArgs:
     def __init__(__self__, *,
@@ -1340,6 +1832,22 @@ class ImageVersionSecurityProfileArgs:
     def uefi_settings(self, value: Optional[pulumi.Input['GalleryImageVersionUefiSettingsArgs']]):
         pulumi.set(self, "uefi_settings", value)
 
+
+if not MYPY:
+    class OSDiskImageEncryptionArgsDict(TypedDict):
+        """
+        Contains encryption settings for an OS disk image.
+        """
+        disk_encryption_set_id: NotRequired[pulumi.Input[str]]
+        """
+        A relative URI containing the resource ID of the disk encryption set.
+        """
+        security_profile: NotRequired[pulumi.Input['OSDiskImageSecurityProfileArgsDict']]
+        """
+        This property specifies the security profile of an OS disk image.
+        """
+elif False:
+    OSDiskImageEncryptionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OSDiskImageEncryptionArgs:
@@ -1381,6 +1889,22 @@ class OSDiskImageEncryptionArgs:
         pulumi.set(self, "security_profile", value)
 
 
+if not MYPY:
+    class OSDiskImageSecurityProfileArgsDict(TypedDict):
+        """
+        Contains security profile for an OS disk image.
+        """
+        confidential_vm_encryption_type: NotRequired[pulumi.Input[Union[str, 'ConfidentialVMEncryptionType']]]
+        """
+        confidential VM encryption types
+        """
+        secure_vm_disk_encryption_set_id: NotRequired[pulumi.Input[str]]
+        """
+        secure VM disk encryption set id
+        """
+elif False:
+    OSDiskImageSecurityProfileArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OSDiskImageSecurityProfileArgs:
     def __init__(__self__, *,
@@ -1420,6 +1944,22 @@ class OSDiskImageSecurityProfileArgs:
     def secure_vm_disk_encryption_set_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "secure_vm_disk_encryption_set_id", value)
 
+
+if not MYPY:
+    class RecommendedMachineConfigurationArgsDict(TypedDict):
+        """
+        The properties describe the recommended machine configuration for this Image Definition. These properties are updatable.
+        """
+        memory: NotRequired[pulumi.Input['ResourceRangeArgsDict']]
+        """
+        Describes the resource range.
+        """
+        v_cpus: NotRequired[pulumi.Input['ResourceRangeArgsDict']]
+        """
+        Describes the resource range.
+        """
+elif False:
+    RecommendedMachineConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RecommendedMachineConfigurationArgs:
@@ -1461,6 +2001,22 @@ class RecommendedMachineConfigurationArgs:
         pulumi.set(self, "v_cpus", value)
 
 
+if not MYPY:
+    class ResourceRangeArgsDict(TypedDict):
+        """
+        Describes the resource range.
+        """
+        max: NotRequired[pulumi.Input[int]]
+        """
+        The maximum number of the resource.
+        """
+        min: NotRequired[pulumi.Input[int]]
+        """
+        The minimum number of the resource.
+        """
+elif False:
+    ResourceRangeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ResourceRangeArgs:
     def __init__(__self__, *,
@@ -1500,6 +2056,22 @@ class ResourceRangeArgs:
     def min(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "min", value)
 
+
+if not MYPY:
+    class SharingProfileArgsDict(TypedDict):
+        """
+        Profile for gallery sharing to subscription or tenant
+        """
+        community_gallery_info: NotRequired[pulumi.Input['CommunityGalleryInfoArgsDict']]
+        """
+        Information of community gallery if current gallery is shared to community.
+        """
+        permissions: NotRequired[pulumi.Input[Union[str, 'GallerySharingPermissionTypes']]]
+        """
+        This property allows you to specify the permission of sharing gallery. Possible values are: **Private,** **Groups,** **Community.**
+        """
+elif False:
+    SharingProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SharingProfileArgs:
@@ -1541,6 +2113,18 @@ class SharingProfileArgs:
         pulumi.set(self, "permissions", value)
 
 
+if not MYPY:
+    class SoftDeletePolicyArgsDict(TypedDict):
+        """
+        Contains information about the soft deletion policy of the gallery.
+        """
+        is_soft_delete_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Enables soft-deletion for resources in this gallery, allowing them to be recovered within retention time.
+        """
+elif False:
+    SoftDeletePolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SoftDeletePolicyArgs:
     def __init__(__self__, *,
@@ -1564,6 +2148,34 @@ class SoftDeletePolicyArgs:
     def is_soft_delete_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "is_soft_delete_enabled", value)
 
+
+if not MYPY:
+    class TargetRegionArgsDict(TypedDict):
+        """
+        Describes the target region information.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the region.
+        """
+        encryption: NotRequired[pulumi.Input['EncryptionImagesArgsDict']]
+        """
+        Optional. Allows users to provide customer managed keys for encrypting the OS and data disks in the gallery artifact.
+        """
+        exclude_from_latest: NotRequired[pulumi.Input[bool]]
+        """
+        Contains the flag setting to hide an image when users specify version='latest'
+        """
+        regional_replica_count: NotRequired[pulumi.Input[int]]
+        """
+        The number of replicas of the Image Version to be created per region. This property is updatable.
+        """
+        storage_account_type: NotRequired[pulumi.Input[Union[str, 'StorageAccountType']]]
+        """
+        Specifies the storage account type to be used to store the image. This property is not updatable.
+        """
+elif False:
+    TargetRegionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TargetRegionArgs:
@@ -1652,6 +2264,30 @@ class TargetRegionArgs:
         pulumi.set(self, "storage_account_type", value)
 
 
+if not MYPY:
+    class UefiKeySignaturesArgsDict(TypedDict):
+        """
+        Additional UEFI key signatures that will be added to the image in addition to the signature templates
+        """
+        db: NotRequired[pulumi.Input[Sequence[pulumi.Input['UefiKeyArgsDict']]]]
+        """
+        The database of UEFI keys for this image version.
+        """
+        dbx: NotRequired[pulumi.Input[Sequence[pulumi.Input['UefiKeyArgsDict']]]]
+        """
+        The database of revoked UEFI keys for this image version.
+        """
+        kek: NotRequired[pulumi.Input[Sequence[pulumi.Input['UefiKeyArgsDict']]]]
+        """
+        The Key Encryption Keys of this image version.
+        """
+        pk: NotRequired[pulumi.Input['UefiKeyArgsDict']]
+        """
+        The Platform Key of this image version.
+        """
+elif False:
+    UefiKeySignaturesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class UefiKeySignaturesArgs:
     def __init__(__self__, *,
@@ -1724,6 +2360,22 @@ class UefiKeySignaturesArgs:
         pulumi.set(self, "pk", value)
 
 
+if not MYPY:
+    class UefiKeyArgsDict(TypedDict):
+        """
+        A UEFI key signature.
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'UefiKeyType']]]
+        """
+        The type of key signature.
+        """
+        value: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The value of the key signature.
+        """
+elif False:
+    UefiKeyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class UefiKeyArgs:
     def __init__(__self__, *,
@@ -1763,6 +2415,23 @@ class UefiKeyArgs:
     def value(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class UserArtifactManageArgsDict(TypedDict):
+        install: pulumi.Input[str]
+        """
+        Required. The path and arguments to install the gallery application. This is limited to 4096 characters.
+        """
+        remove: pulumi.Input[str]
+        """
+        Required. The path and arguments to remove the gallery application. This is limited to 4096 characters.
+        """
+        update: NotRequired[pulumi.Input[str]]
+        """
+        Optional. The path and arguments to update the gallery application. If not present, then update operation will invoke remove command on the previous version and install command on the current version of the gallery application. This is limited to 4096 characters.
+        """
+elif False:
+    UserArtifactManageArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserArtifactManageArgs:
@@ -1817,6 +2486,22 @@ class UserArtifactManageArgs:
         pulumi.set(self, "update", value)
 
 
+if not MYPY:
+    class UserArtifactSettingsArgsDict(TypedDict):
+        """
+        Additional settings for the VM app that contains the target package and config file name when it is deployed to target VM or VM scale set.
+        """
+        config_file_name: NotRequired[pulumi.Input[str]]
+        """
+        Optional. The name to assign the downloaded config file on the VM. This is limited to 4096 characters. If not specified, the config file will be named the Gallery Application name appended with "_config".
+        """
+        package_file_name: NotRequired[pulumi.Input[str]]
+        """
+        Optional. The name to assign the downloaded package file on the VM. This is limited to 4096 characters. If not specified, the package file will be named the same as the Gallery Application name.
+        """
+elif False:
+    UserArtifactSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class UserArtifactSettingsArgs:
     def __init__(__self__, *,
@@ -1856,6 +2541,22 @@ class UserArtifactSettingsArgs:
     def package_file_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "package_file_name", value)
 
+
+if not MYPY:
+    class UserArtifactSourceArgsDict(TypedDict):
+        """
+        The source image from which the Image Version is going to be created.
+        """
+        media_link: pulumi.Input[str]
+        """
+        Required. The mediaLink of the artifact, must be a readable storage page blob.
+        """
+        default_configuration_link: NotRequired[pulumi.Input[str]]
+        """
+        Optional. The defaultConfigurationLink of the artifact, must be a readable storage page blob.
+        """
+elif False:
+    UserArtifactSourceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserArtifactSourceArgs:

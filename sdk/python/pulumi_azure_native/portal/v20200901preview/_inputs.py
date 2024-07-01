@@ -4,20 +4,54 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 
 __all__ = [
     'DashboardLensArgs',
+    'DashboardLensArgsDict',
     'DashboardPartsPositionArgs',
+    'DashboardPartsPositionArgsDict',
     'DashboardPartsArgs',
+    'DashboardPartsArgsDict',
     'MarkdownPartMetadataContentArgs',
+    'MarkdownPartMetadataContentArgsDict',
     'MarkdownPartMetadataSettingsSettingsArgs',
+    'MarkdownPartMetadataSettingsSettingsArgsDict',
     'MarkdownPartMetadataSettingsArgs',
+    'MarkdownPartMetadataSettingsArgsDict',
     'MarkdownPartMetadataArgs',
+    'MarkdownPartMetadataArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class DashboardLensArgsDict(TypedDict):
+        """
+        A dashboard lens.
+        """
+        order: pulumi.Input[int]
+        """
+        The lens order.
+        """
+        parts: pulumi.Input[Sequence[pulumi.Input['DashboardPartsArgsDict']]]
+        """
+        The dashboard parts.
+        """
+        metadata: NotRequired[pulumi.Input[Mapping[str, Any]]]
+        """
+        The dashboard len's metadata.
+        """
+elif False:
+    DashboardLensArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DashboardLensArgs:
@@ -72,6 +106,34 @@ class DashboardLensArgs:
     def metadata(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
         pulumi.set(self, "metadata", value)
 
+
+if not MYPY:
+    class DashboardPartsPositionArgsDict(TypedDict):
+        """
+        The dashboard's part position.
+        """
+        col_span: pulumi.Input[int]
+        """
+        The dashboard's part column span.
+        """
+        row_span: pulumi.Input[int]
+        """
+        The dashboard's part row span.
+        """
+        x: pulumi.Input[int]
+        """
+        The dashboard's part x coordinate.
+        """
+        y: pulumi.Input[int]
+        """
+        The dashboard's part y coordinate.
+        """
+        metadata: NotRequired[pulumi.Input[Mapping[str, Any]]]
+        """
+        The dashboard part's metadata.
+        """
+elif False:
+    DashboardPartsPositionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DashboardPartsPositionArgs:
@@ -157,6 +219,22 @@ class DashboardPartsPositionArgs:
         pulumi.set(self, "metadata", value)
 
 
+if not MYPY:
+    class DashboardPartsArgsDict(TypedDict):
+        """
+        A dashboard part.
+        """
+        position: pulumi.Input['DashboardPartsPositionArgsDict']
+        """
+        The dashboard's part position.
+        """
+        metadata: NotRequired[pulumi.Input['MarkdownPartMetadataArgsDict']]
+        """
+        The dashboard part's metadata.
+        """
+elif False:
+    DashboardPartsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DashboardPartsArgs:
     def __init__(__self__, *,
@@ -196,6 +274,18 @@ class DashboardPartsArgs:
         pulumi.set(self, "metadata", value)
 
 
+if not MYPY:
+    class MarkdownPartMetadataContentArgsDict(TypedDict):
+        """
+        The content of markdown part.
+        """
+        settings: NotRequired[pulumi.Input['MarkdownPartMetadataSettingsSettingsArgsDict']]
+        """
+        The setting of the content of markdown part.
+        """
+elif False:
+    MarkdownPartMetadataContentArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MarkdownPartMetadataContentArgs:
     def __init__(__self__, *,
@@ -219,6 +309,34 @@ class MarkdownPartMetadataContentArgs:
     def settings(self, value: Optional[pulumi.Input['MarkdownPartMetadataSettingsSettingsArgs']]):
         pulumi.set(self, "settings", value)
 
+
+if not MYPY:
+    class MarkdownPartMetadataSettingsSettingsArgsDict(TypedDict):
+        """
+        The setting of the content of markdown part.
+        """
+        content: NotRequired[pulumi.Input[str]]
+        """
+        The content of the markdown part.
+        """
+        markdown_source: NotRequired[pulumi.Input[int]]
+        """
+        The source of the content of the markdown part.
+        """
+        markdown_uri: NotRequired[pulumi.Input[str]]
+        """
+        The uri of markdown content.
+        """
+        subtitle: NotRequired[pulumi.Input[str]]
+        """
+        The subtitle of the markdown part.
+        """
+        title: NotRequired[pulumi.Input[str]]
+        """
+        The title of the markdown part.
+        """
+elif False:
+    MarkdownPartMetadataSettingsSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MarkdownPartMetadataSettingsSettingsArgs:
@@ -308,6 +426,18 @@ class MarkdownPartMetadataSettingsSettingsArgs:
         pulumi.set(self, "title", value)
 
 
+if not MYPY:
+    class MarkdownPartMetadataSettingsArgsDict(TypedDict):
+        """
+        Markdown part settings.
+        """
+        content: NotRequired[pulumi.Input['MarkdownPartMetadataContentArgsDict']]
+        """
+        The content of markdown part.
+        """
+elif False:
+    MarkdownPartMetadataSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MarkdownPartMetadataSettingsArgs:
     def __init__(__self__, *,
@@ -331,6 +461,27 @@ class MarkdownPartMetadataSettingsArgs:
     def content(self, value: Optional[pulumi.Input['MarkdownPartMetadataContentArgs']]):
         pulumi.set(self, "content", value)
 
+
+if not MYPY:
+    class MarkdownPartMetadataArgsDict(TypedDict):
+        """
+        Markdown part metadata.
+        """
+        type: pulumi.Input[str]
+        """
+        The type of dashboard part.
+        Expected value is 'Extension/HubsExtension/PartType/MarkdownPart'.
+        """
+        inputs: NotRequired[pulumi.Input[Sequence[Any]]]
+        """
+        Input to dashboard part.
+        """
+        settings: NotRequired[pulumi.Input['MarkdownPartMetadataSettingsArgsDict']]
+        """
+        Markdown part settings.
+        """
+elif False:
+    MarkdownPartMetadataArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MarkdownPartMetadataArgs:

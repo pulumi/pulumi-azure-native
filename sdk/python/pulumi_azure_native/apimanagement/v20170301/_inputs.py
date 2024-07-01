@@ -4,26 +4,65 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'AdditionalLocationArgs',
+    'AdditionalLocationArgsDict',
     'ApiCreateOrUpdatePropertiesWsdlSelectorArgs',
+    'ApiCreateOrUpdatePropertiesWsdlSelectorArgsDict',
     'ApiManagementServiceIdentityArgs',
+    'ApiManagementServiceIdentityArgsDict',
     'ApiManagementServiceSkuPropertiesArgs',
+    'ApiManagementServiceSkuPropertiesArgsDict',
     'ApiVersionSetContractArgs',
+    'ApiVersionSetContractArgsDict',
     'AuthenticationSettingsContractArgs',
+    'AuthenticationSettingsContractArgsDict',
     'CertificateConfigurationArgs',
+    'CertificateConfigurationArgsDict',
     'HostnameConfigurationArgs',
+    'HostnameConfigurationArgsDict',
     'LoggerSamplingContractArgs',
+    'LoggerSamplingContractArgsDict',
     'OAuth2AuthenticationSettingsContractArgs',
+    'OAuth2AuthenticationSettingsContractArgsDict',
     'SubscriptionKeyParameterNamesContractArgs',
+    'SubscriptionKeyParameterNamesContractArgsDict',
     'VirtualNetworkConfigurationArgs',
+    'VirtualNetworkConfigurationArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AdditionalLocationArgsDict(TypedDict):
+        """
+        Description of an additional API Management resource location.
+        """
+        location: pulumi.Input[str]
+        """
+        The location name of the additional region among Azure Data center regions.
+        """
+        sku: pulumi.Input['ApiManagementServiceSkuPropertiesArgsDict']
+        """
+        SKU properties of the API Management service.
+        """
+        virtual_network_configuration: NotRequired[pulumi.Input['VirtualNetworkConfigurationArgsDict']]
+        """
+        Virtual network configuration for the location.
+        """
+elif False:
+    AdditionalLocationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AdditionalLocationArgs:
@@ -79,6 +118,22 @@ class AdditionalLocationArgs:
         pulumi.set(self, "virtual_network_configuration", value)
 
 
+if not MYPY:
+    class ApiCreateOrUpdatePropertiesWsdlSelectorArgsDict(TypedDict):
+        """
+        Criteria to limit import of WSDL to a subset of the document.
+        """
+        wsdl_endpoint_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of endpoint(port) to import from WSDL
+        """
+        wsdl_service_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of service to import from WSDL
+        """
+elif False:
+    ApiCreateOrUpdatePropertiesWsdlSelectorArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ApiCreateOrUpdatePropertiesWsdlSelectorArgs:
     def __init__(__self__, *,
@@ -119,6 +174,18 @@ class ApiCreateOrUpdatePropertiesWsdlSelectorArgs:
         pulumi.set(self, "wsdl_service_name", value)
 
 
+if not MYPY:
+    class ApiManagementServiceIdentityArgsDict(TypedDict):
+        """
+        Identity properties of the Api Management service resource.
+        """
+        type: pulumi.Input[Union[str, 'ApimIdentityType']]
+        """
+        The identity type. Currently the only supported type is 'SystemAssigned'.
+        """
+elif False:
+    ApiManagementServiceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ApiManagementServiceIdentityArgs:
     def __init__(__self__, *,
@@ -141,6 +208,22 @@ class ApiManagementServiceIdentityArgs:
     def type(self, value: pulumi.Input[Union[str, 'ApimIdentityType']]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class ApiManagementServiceSkuPropertiesArgsDict(TypedDict):
+        """
+        API Management service resource SKU properties.
+        """
+        name: pulumi.Input[Union[str, 'SkuType']]
+        """
+        Name of the Sku.
+        """
+        capacity: NotRequired[pulumi.Input[int]]
+        """
+        Capacity of the SKU (number of deployed units of the SKU). The default value is 1.
+        """
+elif False:
+    ApiManagementServiceSkuPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApiManagementServiceSkuPropertiesArgs:
@@ -182,6 +265,34 @@ class ApiManagementServiceSkuPropertiesArgs:
     def capacity(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "capacity", value)
 
+
+if not MYPY:
+    class ApiVersionSetContractArgsDict(TypedDict):
+        """
+        Api Version Set Contract details.
+        """
+        display_name: pulumi.Input[str]
+        """
+        Name of API Version Set
+        """
+        versioning_scheme: pulumi.Input[Union[str, 'VersioningScheme']]
+        """
+        An value that determines where the API Version identifier will be located in a HTTP request.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Description of API Version Set.
+        """
+        version_header_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of HTTP header parameter that indicates the API Version if versioningScheme is set to `header`.
+        """
+        version_query_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of query parameter that indicates the API Version if versioningScheme is set to `query`.
+        """
+elif False:
+    ApiVersionSetContractArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApiVersionSetContractArgs:
@@ -269,6 +380,18 @@ class ApiVersionSetContractArgs:
         pulumi.set(self, "version_query_name", value)
 
 
+if not MYPY:
+    class AuthenticationSettingsContractArgsDict(TypedDict):
+        """
+        API Authentication Settings.
+        """
+        o_auth2: NotRequired[pulumi.Input['OAuth2AuthenticationSettingsContractArgsDict']]
+        """
+        OAuth2 Authentication settings
+        """
+elif False:
+    AuthenticationSettingsContractArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AuthenticationSettingsContractArgs:
     def __init__(__self__, *,
@@ -292,6 +415,26 @@ class AuthenticationSettingsContractArgs:
     def o_auth2(self, value: Optional[pulumi.Input['OAuth2AuthenticationSettingsContractArgs']]):
         pulumi.set(self, "o_auth2", value)
 
+
+if not MYPY:
+    class CertificateConfigurationArgsDict(TypedDict):
+        """
+        Certificate configuration which consist of non-trusted intermediates and root certificates.
+        """
+        store_name: pulumi.Input[str]
+        """
+        The local certificate store location. Only Root and CertificateAuthority are valid locations.
+        """
+        certificate_password: NotRequired[pulumi.Input[str]]
+        """
+        Certificate Password.
+        """
+        encoded_certificate: NotRequired[pulumi.Input[str]]
+        """
+        Base64 Encoded certificate.
+        """
+elif False:
+    CertificateConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CertificateConfigurationArgs:
@@ -347,6 +490,42 @@ class CertificateConfigurationArgs:
     def encoded_certificate(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "encoded_certificate", value)
 
+
+if not MYPY:
+    class HostnameConfigurationArgsDict(TypedDict):
+        """
+        Custom hostname configuration.
+        """
+        host_name: pulumi.Input[str]
+        """
+        Hostname to configure on the Api Management service.
+        """
+        type: pulumi.Input['HostnameType']
+        """
+        Hostname type.
+        """
+        certificate_password: NotRequired[pulumi.Input[str]]
+        """
+        Certificate Password.
+        """
+        default_ssl_binding: NotRequired[pulumi.Input[bool]]
+        """
+        Specify true to setup the certificate associated with this Hostname as the Default SSL Certificate. If a client does not send the SNI header, then this will be the certificate that will be challenged. The property is useful if a service has multiple custom hostname enabled and it needs to decide on the default ssl certificate. The setting only applied to Proxy Hostname Type.
+        """
+        encoded_certificate: NotRequired[pulumi.Input[str]]
+        """
+        Base64 Encoded certificate.
+        """
+        key_vault_id: NotRequired[pulumi.Input[str]]
+        """
+        Url to the KeyVault Secret containing the Ssl Certificate. If absolute Url containing version is provided, auto-update of ssl certificate will not work. This requires Api Management service to be configured with MSI. The secret should be of type *application/x-pkcs12*
+        """
+        negotiate_client_certificate: NotRequired[pulumi.Input[bool]]
+        """
+        Specify true to always negotiate client certificate on the hostname. Default Value is false.
+        """
+elif False:
+    HostnameConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class HostnameConfigurationArgs:
@@ -469,6 +648,54 @@ class HostnameConfigurationArgs:
     def negotiate_client_certificate(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "negotiate_client_certificate", value)
 
+
+if not MYPY:
+    class LoggerSamplingContractArgsDict(TypedDict):
+        """
+        Sampling settings contract.
+        """
+        evaluation_interval: NotRequired[pulumi.Input[str]]
+        """
+        Rate re-evaluation interval in ISO8601 format.
+        """
+        initial_percentage: NotRequired[pulumi.Input[float]]
+        """
+        Initial sampling rate.
+        """
+        max_percentage: NotRequired[pulumi.Input[float]]
+        """
+        Maximum allowed rate of sampling.
+        """
+        max_telemetry_items_per_second: NotRequired[pulumi.Input[int]]
+        """
+        Target rate of telemetry items per second.
+        """
+        min_percentage: NotRequired[pulumi.Input[float]]
+        """
+        Minimum allowed rate of sampling.
+        """
+        moving_average_ratio: NotRequired[pulumi.Input[float]]
+        """
+        Moving average ration assigned to most recent value.
+        """
+        percentage: NotRequired[pulumi.Input[float]]
+        """
+        Rate of sampling for fixed-rate sampling.
+        """
+        percentage_decrease_timeout: NotRequired[pulumi.Input[str]]
+        """
+        Duration in ISO8601 format after which it's allowed to lower the sampling rate.
+        """
+        percentage_increase_timeout: NotRequired[pulumi.Input[str]]
+        """
+        Duration in ISO8601 format after which it's allowed to increase the sampling rate.
+        """
+        sampling_type: NotRequired[pulumi.Input[Union[str, 'SamplingType']]]
+        """
+        Sampling type.
+        """
+elif False:
+    LoggerSamplingContractArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LoggerSamplingContractArgs:
@@ -638,6 +865,22 @@ class LoggerSamplingContractArgs:
         pulumi.set(self, "sampling_type", value)
 
 
+if not MYPY:
+    class OAuth2AuthenticationSettingsContractArgsDict(TypedDict):
+        """
+        API OAuth2 Authentication settings details.
+        """
+        authorization_server_id: NotRequired[pulumi.Input[str]]
+        """
+        OAuth authorization server identifier.
+        """
+        scope: NotRequired[pulumi.Input[str]]
+        """
+        operations scope.
+        """
+elif False:
+    OAuth2AuthenticationSettingsContractArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OAuth2AuthenticationSettingsContractArgs:
     def __init__(__self__, *,
@@ -678,6 +921,22 @@ class OAuth2AuthenticationSettingsContractArgs:
         pulumi.set(self, "scope", value)
 
 
+if not MYPY:
+    class SubscriptionKeyParameterNamesContractArgsDict(TypedDict):
+        """
+        Subscription key parameter names details.
+        """
+        header: NotRequired[pulumi.Input[str]]
+        """
+        Subscription key header name.
+        """
+        query: NotRequired[pulumi.Input[str]]
+        """
+        Subscription key query string parameter name.
+        """
+elif False:
+    SubscriptionKeyParameterNamesContractArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SubscriptionKeyParameterNamesContractArgs:
     def __init__(__self__, *,
@@ -717,6 +976,18 @@ class SubscriptionKeyParameterNamesContractArgs:
     def query(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "query", value)
 
+
+if not MYPY:
+    class VirtualNetworkConfigurationArgsDict(TypedDict):
+        """
+        Configuration of a virtual network to which API Management service is deployed.
+        """
+        subnet_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        The full resource ID of a subnet in a virtual network to deploy the API Management service in.
+        """
+elif False:
+    VirtualNetworkConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VirtualNetworkConfigurationArgs:

@@ -4,15 +4,52 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 
 __all__ = [
     'WorkbookTemplateGalleryArgs',
+    'WorkbookTemplateGalleryArgsDict',
     'WorkbookTemplateLocalizedGalleryArgs',
+    'WorkbookTemplateLocalizedGalleryArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class WorkbookTemplateGalleryArgsDict(TypedDict):
+        """
+        Gallery information for a workbook template.
+        """
+        category: NotRequired[pulumi.Input[str]]
+        """
+        Category for the gallery.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the workbook template in the gallery.
+        """
+        order: NotRequired[pulumi.Input[int]]
+        """
+        Order of the template within the gallery.
+        """
+        resource_type: NotRequired[pulumi.Input[str]]
+        """
+        Azure resource type supported by the gallery.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        Type of workbook supported by the workbook template.
+        """
+elif False:
+    WorkbookTemplateGalleryArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WorkbookTemplateGalleryArgs:
@@ -101,6 +138,22 @@ class WorkbookTemplateGalleryArgs:
     def type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class WorkbookTemplateLocalizedGalleryArgsDict(TypedDict):
+        """
+        Localized template data and gallery information.
+        """
+        galleries: NotRequired[pulumi.Input[Sequence[pulumi.Input['WorkbookTemplateGalleryArgsDict']]]]
+        """
+        Workbook galleries supported by the template.
+        """
+        template_data: NotRequired[Any]
+        """
+        Valid JSON object containing workbook template payload.
+        """
+elif False:
+    WorkbookTemplateLocalizedGalleryArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WorkbookTemplateLocalizedGalleryArgs:

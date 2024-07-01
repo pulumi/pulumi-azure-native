@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -159,7 +164,7 @@ class Workspace(pulumi.CustomResource):
                  provisioning_state: Optional[pulumi.Input[Union[str, 'EntityStatus']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  retention_in_days: Optional[pulumi.Input[int]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -173,7 +178,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'EntityStatus']] provisioning_state: The provisioning state of the workspace.
         :param pulumi.Input[str] resource_group_name: The resource group name of the workspace.
         :param pulumi.Input[int] retention_in_days: The workspace data retention in days. -1 means Unlimited retention for the Unlimited Sku. 730 days is the maximum allowed for all other Skus. 
-        :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The SKU of the workspace.
+        :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: The SKU of the workspace.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         """
@@ -206,7 +211,7 @@ class Workspace(pulumi.CustomResource):
                  provisioning_state: Optional[pulumi.Input[Union[str, 'EntityStatus']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  retention_in_days: Optional[pulumi.Input[int]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):

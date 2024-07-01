@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -169,9 +174,9 @@ class FailoverGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  databases: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  failover_group_name: Optional[pulumi.Input[str]] = None,
-                 partner_servers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PartnerInfoArgs']]]]] = None,
-                 read_only_endpoint: Optional[pulumi.Input[pulumi.InputType['FailoverGroupReadOnlyEndpointArgs']]] = None,
-                 read_write_endpoint: Optional[pulumi.Input[pulumi.InputType['FailoverGroupReadWriteEndpointArgs']]] = None,
+                 partner_servers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PartnerInfoArgs', 'PartnerInfoArgsDict']]]]] = None,
+                 read_only_endpoint: Optional[pulumi.Input[Union['FailoverGroupReadOnlyEndpointArgs', 'FailoverGroupReadOnlyEndpointArgsDict']]] = None,
+                 read_write_endpoint: Optional[pulumi.Input[Union['FailoverGroupReadWriteEndpointArgs', 'FailoverGroupReadWriteEndpointArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  secondary_type: Optional[pulumi.Input[Union[str, 'FailoverGroupDatabasesSecondaryType']]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
@@ -184,9 +189,9 @@ class FailoverGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] databases: List of databases in the failover group.
         :param pulumi.Input[str] failover_group_name: The name of the failover group.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PartnerInfoArgs']]]] partner_servers: List of partner server information for the failover group.
-        :param pulumi.Input[pulumi.InputType['FailoverGroupReadOnlyEndpointArgs']] read_only_endpoint: Read-only endpoint of the failover group instance.
-        :param pulumi.Input[pulumi.InputType['FailoverGroupReadWriteEndpointArgs']] read_write_endpoint: Read-write endpoint of the failover group instance.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PartnerInfoArgs', 'PartnerInfoArgsDict']]]] partner_servers: List of partner server information for the failover group.
+        :param pulumi.Input[Union['FailoverGroupReadOnlyEndpointArgs', 'FailoverGroupReadOnlyEndpointArgsDict']] read_only_endpoint: Read-only endpoint of the failover group instance.
+        :param pulumi.Input[Union['FailoverGroupReadWriteEndpointArgs', 'FailoverGroupReadWriteEndpointArgsDict']] read_write_endpoint: Read-write endpoint of the failover group instance.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[Union[str, 'FailoverGroupDatabasesSecondaryType']] secondary_type: Databases secondary type on partner server.
         :param pulumi.Input[str] server_name: The name of the server containing the failover group.
@@ -218,9 +223,9 @@ class FailoverGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  databases: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  failover_group_name: Optional[pulumi.Input[str]] = None,
-                 partner_servers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PartnerInfoArgs']]]]] = None,
-                 read_only_endpoint: Optional[pulumi.Input[pulumi.InputType['FailoverGroupReadOnlyEndpointArgs']]] = None,
-                 read_write_endpoint: Optional[pulumi.Input[pulumi.InputType['FailoverGroupReadWriteEndpointArgs']]] = None,
+                 partner_servers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PartnerInfoArgs', 'PartnerInfoArgsDict']]]]] = None,
+                 read_only_endpoint: Optional[pulumi.Input[Union['FailoverGroupReadOnlyEndpointArgs', 'FailoverGroupReadOnlyEndpointArgsDict']]] = None,
+                 read_write_endpoint: Optional[pulumi.Input[Union['FailoverGroupReadWriteEndpointArgs', 'FailoverGroupReadWriteEndpointArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  secondary_type: Optional[pulumi.Input[Union[str, 'FailoverGroupDatabasesSecondaryType']]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,

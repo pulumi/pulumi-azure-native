@@ -4,15 +4,35 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'AgentPoolUpgradeSettingsArgs',
+    'AgentPoolUpgradeSettingsArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AgentPoolUpgradeSettingsArgsDict(TypedDict):
+        """
+        Settings for upgrading an agentpool
+        """
+        max_surge: NotRequired[pulumi.Input[str]]
+        """
+        Count or percentage of additional nodes to be added during upgrade. If empty uses AKS default
+        """
+elif False:
+    AgentPoolUpgradeSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AgentPoolUpgradeSettingsArgs:

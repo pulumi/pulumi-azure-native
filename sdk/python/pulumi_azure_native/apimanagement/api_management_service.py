@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -417,18 +422,18 @@ class ApiManagementService(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_locations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AdditionalLocationArgs']]]]] = None,
-                 api_version_constraint: Optional[pulumi.Input[pulumi.InputType['ApiVersionConstraintArgs']]] = None,
-                 certificates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertificateConfigurationArgs']]]]] = None,
+                 additional_locations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AdditionalLocationArgs', 'AdditionalLocationArgsDict']]]]] = None,
+                 api_version_constraint: Optional[pulumi.Input[Union['ApiVersionConstraintArgs', 'ApiVersionConstraintArgsDict']]] = None,
+                 certificates: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CertificateConfigurationArgs', 'CertificateConfigurationArgsDict']]]]] = None,
                  custom_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  disable_gateway: Optional[pulumi.Input[bool]] = None,
                  enable_client_certificate: Optional[pulumi.Input[bool]] = None,
-                 hostname_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HostnameConfigurationArgs']]]]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ApiManagementServiceIdentityArgs']]] = None,
+                 hostname_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['HostnameConfigurationArgs', 'HostnameConfigurationArgsDict']]]]] = None,
+                 identity: Optional[pulumi.Input[Union['ApiManagementServiceIdentityArgs', 'ApiManagementServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  nat_gateway_state: Optional[pulumi.Input[Union[str, 'NatGatewayState']]] = None,
                  notification_sender_email: Optional[pulumi.Input[str]] = None,
-                 private_endpoint_connections: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RemotePrivateEndpointConnectionWrapperArgs']]]]] = None,
+                 private_endpoint_connections: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RemotePrivateEndpointConnectionWrapperArgs', 'RemotePrivateEndpointConnectionWrapperArgsDict']]]]] = None,
                  public_ip_address_id: Optional[pulumi.Input[str]] = None,
                  public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
                  publisher_email: Optional[pulumi.Input[str]] = None,
@@ -436,9 +441,9 @@ class ApiManagementService(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  restore: Optional[pulumi.Input[bool]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['ApiManagementServiceSkuPropertiesArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['ApiManagementServiceSkuPropertiesArgs', 'ApiManagementServiceSkuPropertiesArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 virtual_network_configuration: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkConfigurationArgs']]] = None,
+                 virtual_network_configuration: Optional[pulumi.Input[Union['VirtualNetworkConfigurationArgs', 'VirtualNetworkConfigurationArgsDict']]] = None,
                  virtual_network_type: Optional[pulumi.Input[Union[str, 'VirtualNetworkType']]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -450,18 +455,18 @@ class ApiManagementService(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AdditionalLocationArgs']]]] additional_locations: Additional datacenter locations of the API Management service.
-        :param pulumi.Input[pulumi.InputType['ApiVersionConstraintArgs']] api_version_constraint: Control Plane Apis version constraint for the API Management service.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertificateConfigurationArgs']]]] certificates: List of Certificates that need to be installed in the API Management service. Max supported certificates that can be installed is 10.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AdditionalLocationArgs', 'AdditionalLocationArgsDict']]]] additional_locations: Additional datacenter locations of the API Management service.
+        :param pulumi.Input[Union['ApiVersionConstraintArgs', 'ApiVersionConstraintArgsDict']] api_version_constraint: Control Plane Apis version constraint for the API Management service.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CertificateConfigurationArgs', 'CertificateConfigurationArgsDict']]]] certificates: List of Certificates that need to be installed in the API Management service. Max supported certificates that can be installed is 10.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] custom_properties: Custom properties of the API Management service.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TripleDes168` will disable the cipher TLS_RSA_WITH_3DES_EDE_CBC_SHA for all TLS(1.0, 1.1 and 1.2).</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls11` can be used to disable just TLS 1.1.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls10` can be used to disable TLS 1.0 on an API Management service.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls11` can be used to disable just TLS 1.1 for communications with backends.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls10` can be used to disable TLS 1.0 for communications with backends.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Protocols.Server.Http2` can be used to enable HTTP2 protocol on an API Management service.</br>Not specifying any of these properties on PATCH operation will reset omitted properties' values to their defaults. For all the settings except Http2 the default value is `True` if the service was created on or before April 1, 2018 and `False` otherwise. Http2 setting's default value is `False`.</br></br>You can disable any of the following ciphers by using settings `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.[cipher_name]`: TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA, TLS_RSA_WITH_AES_128_GCM_SHA256, TLS_RSA_WITH_AES_256_CBC_SHA256, TLS_RSA_WITH_AES_128_CBC_SHA256, TLS_RSA_WITH_AES_256_CBC_SHA, TLS_RSA_WITH_AES_128_CBC_SHA. For example, `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_128_CBC_SHA256`:`false`. The default value is `true` for them.</br> Note: The following ciphers can't be disabled since they are required by internal platform components: TLS_AES_256_GCM_SHA384,TLS_AES_128_GCM_SHA256,TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384,TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
         :param pulumi.Input[bool] disable_gateway: Property only valid for an Api Management service deployed in multiple locations. This can be used to disable the gateway in master region.
         :param pulumi.Input[bool] enable_client_certificate: Property only meant to be used for Consumption SKU Service. This enforces a client certificate to be presented on each request to the gateway. This also enables the ability to authenticate the certificate in the policy on the gateway.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HostnameConfigurationArgs']]]] hostname_configurations: Custom hostname configuration of the API Management service.
-        :param pulumi.Input[pulumi.InputType['ApiManagementServiceIdentityArgs']] identity: Managed service identity of the Api Management service.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['HostnameConfigurationArgs', 'HostnameConfigurationArgsDict']]]] hostname_configurations: Custom hostname configuration of the API Management service.
+        :param pulumi.Input[Union['ApiManagementServiceIdentityArgs', 'ApiManagementServiceIdentityArgsDict']] identity: Managed service identity of the Api Management service.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[Union[str, 'NatGatewayState']] nat_gateway_state: Property can be used to enable NAT Gateway for this API Management service.
         :param pulumi.Input[str] notification_sender_email: Email address from which the notification will be sent.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RemotePrivateEndpointConnectionWrapperArgs']]]] private_endpoint_connections: List of Private Endpoint Connections of this service.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RemotePrivateEndpointConnectionWrapperArgs', 'RemotePrivateEndpointConnectionWrapperArgsDict']]]] private_endpoint_connections: List of Private Endpoint Connections of this service.
         :param pulumi.Input[str] public_ip_address_id: Public Standard SKU IP V4 based IP address to be associated with Virtual Network deployed service in the region. Supported only for Developer and Premium SKU being deployed in Virtual Network.
         :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: Whether or not public endpoint access is allowed for this API Management service.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'
         :param pulumi.Input[str] publisher_email: Publisher email.
@@ -469,9 +474,9 @@ class ApiManagementService(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[bool] restore: Undelete Api Management Service if it was previously soft-deleted. If this flag is specified and set to True all other properties will be ignored.
         :param pulumi.Input[str] service_name: The name of the API Management service.
-        :param pulumi.Input[pulumi.InputType['ApiManagementServiceSkuPropertiesArgs']] sku: SKU properties of the API Management service.
+        :param pulumi.Input[Union['ApiManagementServiceSkuPropertiesArgs', 'ApiManagementServiceSkuPropertiesArgsDict']] sku: SKU properties of the API Management service.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[pulumi.InputType['VirtualNetworkConfigurationArgs']] virtual_network_configuration: Virtual network configuration of the API Management service.
+        :param pulumi.Input[Union['VirtualNetworkConfigurationArgs', 'VirtualNetworkConfigurationArgsDict']] virtual_network_configuration: Virtual network configuration of the API Management service.
         :param pulumi.Input[Union[str, 'VirtualNetworkType']] virtual_network_type: The type of VPN in which API Management service needs to be configured in. None (Default Value) means the API Management service is not part of any Virtual Network, External means the API Management deployment is set up inside a Virtual Network having an Internet Facing Endpoint, and Internal means that API Management deployment is setup inside a Virtual Network having an Intranet Facing Endpoint only.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of availability zones denoting where the resource needs to come from.
         """
@@ -502,18 +507,18 @@ class ApiManagementService(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_locations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AdditionalLocationArgs']]]]] = None,
-                 api_version_constraint: Optional[pulumi.Input[pulumi.InputType['ApiVersionConstraintArgs']]] = None,
-                 certificates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertificateConfigurationArgs']]]]] = None,
+                 additional_locations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AdditionalLocationArgs', 'AdditionalLocationArgsDict']]]]] = None,
+                 api_version_constraint: Optional[pulumi.Input[Union['ApiVersionConstraintArgs', 'ApiVersionConstraintArgsDict']]] = None,
+                 certificates: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CertificateConfigurationArgs', 'CertificateConfigurationArgsDict']]]]] = None,
                  custom_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  disable_gateway: Optional[pulumi.Input[bool]] = None,
                  enable_client_certificate: Optional[pulumi.Input[bool]] = None,
-                 hostname_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HostnameConfigurationArgs']]]]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ApiManagementServiceIdentityArgs']]] = None,
+                 hostname_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['HostnameConfigurationArgs', 'HostnameConfigurationArgsDict']]]]] = None,
+                 identity: Optional[pulumi.Input[Union['ApiManagementServiceIdentityArgs', 'ApiManagementServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  nat_gateway_state: Optional[pulumi.Input[Union[str, 'NatGatewayState']]] = None,
                  notification_sender_email: Optional[pulumi.Input[str]] = None,
-                 private_endpoint_connections: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RemotePrivateEndpointConnectionWrapperArgs']]]]] = None,
+                 private_endpoint_connections: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RemotePrivateEndpointConnectionWrapperArgs', 'RemotePrivateEndpointConnectionWrapperArgsDict']]]]] = None,
                  public_ip_address_id: Optional[pulumi.Input[str]] = None,
                  public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
                  publisher_email: Optional[pulumi.Input[str]] = None,
@@ -521,9 +526,9 @@ class ApiManagementService(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  restore: Optional[pulumi.Input[bool]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['ApiManagementServiceSkuPropertiesArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['ApiManagementServiceSkuPropertiesArgs', 'ApiManagementServiceSkuPropertiesArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 virtual_network_configuration: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkConfigurationArgs']]] = None,
+                 virtual_network_configuration: Optional[pulumi.Input[Union['VirtualNetworkConfigurationArgs', 'VirtualNetworkConfigurationArgsDict']]] = None,
                  virtual_network_type: Optional[pulumi.Input[Union[str, 'VirtualNetworkType']]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):

@@ -4,271 +4,555 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'AadAuthenticationParametersArgs',
+    'AadAuthenticationParametersArgsDict',
     'ActionArgs',
+    'ActionArgsDict',
     'AddressPrefixItemArgs',
+    'AddressPrefixItemArgsDict',
     'AddressSpaceArgs',
+    'AddressSpaceArgsDict',
     'ApplicationGatewayAuthenticationCertificateArgs',
+    'ApplicationGatewayAuthenticationCertificateArgsDict',
     'ApplicationGatewayAutoscaleConfigurationArgs',
+    'ApplicationGatewayAutoscaleConfigurationArgsDict',
     'ApplicationGatewayBackendAddressPoolArgs',
+    'ApplicationGatewayBackendAddressPoolArgsDict',
     'ApplicationGatewayBackendAddressArgs',
+    'ApplicationGatewayBackendAddressArgsDict',
     'ApplicationGatewayBackendHttpSettingsArgs',
+    'ApplicationGatewayBackendHttpSettingsArgsDict',
     'ApplicationGatewayBackendSettingsArgs',
+    'ApplicationGatewayBackendSettingsArgsDict',
     'ApplicationGatewayClientAuthConfigurationArgs',
+    'ApplicationGatewayClientAuthConfigurationArgsDict',
     'ApplicationGatewayConnectionDrainingArgs',
+    'ApplicationGatewayConnectionDrainingArgsDict',
     'ApplicationGatewayCustomErrorArgs',
+    'ApplicationGatewayCustomErrorArgsDict',
     'ApplicationGatewayFirewallDisabledRuleGroupArgs',
+    'ApplicationGatewayFirewallDisabledRuleGroupArgsDict',
     'ApplicationGatewayFirewallExclusionArgs',
+    'ApplicationGatewayFirewallExclusionArgsDict',
     'ApplicationGatewayFrontendIPConfigurationArgs',
+    'ApplicationGatewayFrontendIPConfigurationArgsDict',
     'ApplicationGatewayFrontendPortArgs',
+    'ApplicationGatewayFrontendPortArgsDict',
     'ApplicationGatewayGlobalConfigurationArgs',
+    'ApplicationGatewayGlobalConfigurationArgsDict',
     'ApplicationGatewayHeaderConfigurationArgs',
+    'ApplicationGatewayHeaderConfigurationArgsDict',
     'ApplicationGatewayHttpListenerArgs',
+    'ApplicationGatewayHttpListenerArgsDict',
     'ApplicationGatewayIPConfigurationArgs',
+    'ApplicationGatewayIPConfigurationArgsDict',
     'ApplicationGatewayListenerArgs',
+    'ApplicationGatewayListenerArgsDict',
     'ApplicationGatewayLoadDistributionPolicyArgs',
+    'ApplicationGatewayLoadDistributionPolicyArgsDict',
     'ApplicationGatewayLoadDistributionTargetArgs',
+    'ApplicationGatewayLoadDistributionTargetArgsDict',
     'ApplicationGatewayPathRuleArgs',
+    'ApplicationGatewayPathRuleArgsDict',
     'ApplicationGatewayPrivateLinkConfigurationArgs',
+    'ApplicationGatewayPrivateLinkConfigurationArgsDict',
     'ApplicationGatewayPrivateLinkIpConfigurationArgs',
+    'ApplicationGatewayPrivateLinkIpConfigurationArgsDict',
     'ApplicationGatewayProbeHealthResponseMatch',
+    'ApplicationGatewayProbeHealthResponseMatchDict',
     'ApplicationGatewayProbeHealthResponseMatchArgs',
+    'ApplicationGatewayProbeHealthResponseMatchArgsDict',
     'ApplicationGatewayProbeArgs',
+    'ApplicationGatewayProbeArgsDict',
     'ApplicationGatewayRedirectConfigurationArgs',
+    'ApplicationGatewayRedirectConfigurationArgsDict',
     'ApplicationGatewayRequestRoutingRuleArgs',
+    'ApplicationGatewayRequestRoutingRuleArgsDict',
     'ApplicationGatewayRewriteRuleActionSetArgs',
+    'ApplicationGatewayRewriteRuleActionSetArgsDict',
     'ApplicationGatewayRewriteRuleConditionArgs',
+    'ApplicationGatewayRewriteRuleConditionArgsDict',
     'ApplicationGatewayRewriteRuleSetArgs',
+    'ApplicationGatewayRewriteRuleSetArgsDict',
     'ApplicationGatewayRewriteRuleArgs',
+    'ApplicationGatewayRewriteRuleArgsDict',
     'ApplicationGatewayRoutingRuleArgs',
+    'ApplicationGatewayRoutingRuleArgsDict',
     'ApplicationGatewaySkuArgs',
+    'ApplicationGatewaySkuArgsDict',
     'ApplicationGatewaySslCertificateArgs',
+    'ApplicationGatewaySslCertificateArgsDict',
     'ApplicationGatewaySslPolicyArgs',
+    'ApplicationGatewaySslPolicyArgsDict',
     'ApplicationGatewaySslProfileArgs',
+    'ApplicationGatewaySslProfileArgsDict',
     'ApplicationGatewayTrustedClientCertificateArgs',
+    'ApplicationGatewayTrustedClientCertificateArgsDict',
     'ApplicationGatewayTrustedRootCertificateArgs',
+    'ApplicationGatewayTrustedRootCertificateArgsDict',
     'ApplicationGatewayUrlConfigurationArgs',
+    'ApplicationGatewayUrlConfigurationArgsDict',
     'ApplicationGatewayUrlPathMapArgs',
+    'ApplicationGatewayUrlPathMapArgsDict',
     'ApplicationGatewayWebApplicationFirewallConfigurationArgs',
+    'ApplicationGatewayWebApplicationFirewallConfigurationArgsDict',
     'ApplicationRuleArgs',
+    'ApplicationRuleArgsDict',
     'ApplicationSecurityGroupArgs',
+    'ApplicationSecurityGroupArgsDict',
     'AzureFirewallApplicationRuleCollectionArgs',
+    'AzureFirewallApplicationRuleCollectionArgsDict',
     'AzureFirewallApplicationRuleProtocolArgs',
+    'AzureFirewallApplicationRuleProtocolArgsDict',
     'AzureFirewallApplicationRuleArgs',
+    'AzureFirewallApplicationRuleArgsDict',
     'AzureFirewallIPConfigurationArgs',
+    'AzureFirewallIPConfigurationArgsDict',
     'AzureFirewallNatRCActionArgs',
+    'AzureFirewallNatRCActionArgsDict',
     'AzureFirewallNatRuleCollectionArgs',
+    'AzureFirewallNatRuleCollectionArgsDict',
     'AzureFirewallNatRuleArgs',
+    'AzureFirewallNatRuleArgsDict',
     'AzureFirewallNetworkRuleCollectionArgs',
+    'AzureFirewallNetworkRuleCollectionArgsDict',
     'AzureFirewallNetworkRuleArgs',
+    'AzureFirewallNetworkRuleArgsDict',
     'AzureFirewallPublicIPAddressArgs',
+    'AzureFirewallPublicIPAddressArgsDict',
     'AzureFirewallRCActionArgs',
+    'AzureFirewallRCActionArgsDict',
     'AzureFirewallSkuArgs',
+    'AzureFirewallSkuArgsDict',
     'BackendAddressPoolArgs',
+    'BackendAddressPoolArgsDict',
     'BastionHostIPConfigurationArgs',
+    'BastionHostIPConfigurationArgsDict',
     'BastionShareableLink',
+    'BastionShareableLinkDict',
     'BgpSettingsArgs',
+    'BgpSettingsArgsDict',
     'BreakOutCategoryPoliciesArgs',
+    'BreakOutCategoryPoliciesArgsDict',
     'ConnectionMonitorDestinationArgs',
+    'ConnectionMonitorDestinationArgsDict',
     'ConnectionMonitorEndpointFilterItemArgs',
+    'ConnectionMonitorEndpointFilterItemArgsDict',
     'ConnectionMonitorEndpointFilterArgs',
+    'ConnectionMonitorEndpointFilterArgsDict',
     'ConnectionMonitorEndpointScopeItemArgs',
+    'ConnectionMonitorEndpointScopeItemArgsDict',
     'ConnectionMonitorEndpointScopeArgs',
+    'ConnectionMonitorEndpointScopeArgsDict',
     'ConnectionMonitorEndpointArgs',
+    'ConnectionMonitorEndpointArgsDict',
     'ConnectionMonitorHttpConfigurationArgs',
+    'ConnectionMonitorHttpConfigurationArgsDict',
     'ConnectionMonitorIcmpConfigurationArgs',
+    'ConnectionMonitorIcmpConfigurationArgsDict',
     'ConnectionMonitorOutputArgs',
+    'ConnectionMonitorOutputArgsDict',
     'ConnectionMonitorSourceArgs',
+    'ConnectionMonitorSourceArgsDict',
     'ConnectionMonitorSuccessThresholdArgs',
+    'ConnectionMonitorSuccessThresholdArgsDict',
     'ConnectionMonitorTcpConfigurationArgs',
+    'ConnectionMonitorTcpConfigurationArgsDict',
     'ConnectionMonitorTestConfigurationArgs',
+    'ConnectionMonitorTestConfigurationArgsDict',
     'ConnectionMonitorTestGroupArgs',
+    'ConnectionMonitorTestGroupArgsDict',
     'ConnectionMonitorWorkspaceSettingsArgs',
+    'ConnectionMonitorWorkspaceSettingsArgsDict',
     'ConnectivityGroupItemArgs',
+    'ConnectivityGroupItemArgsDict',
     'ContainerNetworkInterfaceConfigurationArgs',
+    'ContainerNetworkInterfaceConfigurationArgsDict',
     'CriterionArgs',
+    'CriterionArgsDict',
     'CustomDnsConfigPropertiesFormatArgs',
+    'CustomDnsConfigPropertiesFormatArgsDict',
     'DdosSettingsArgs',
+    'DdosSettingsArgsDict',
     'DelegationPropertiesArgs',
+    'DelegationPropertiesArgsDict',
     'DelegationArgs',
+    'DelegationArgsDict',
     'DevicePropertiesArgs',
+    'DevicePropertiesArgsDict',
     'DhcpOptionsArgs',
+    'DhcpOptionsArgsDict',
     'DnsSettingsArgs',
+    'DnsSettingsArgsDict',
     'ExclusionManagedRuleGroupArgs',
+    'ExclusionManagedRuleGroupArgsDict',
     'ExclusionManagedRuleSetArgs',
+    'ExclusionManagedRuleSetArgsDict',
     'ExclusionManagedRuleArgs',
+    'ExclusionManagedRuleArgsDict',
     'ExplicitProxyArgs',
+    'ExplicitProxyArgsDict',
     'ExpressRouteCircuitAuthorizationArgs',
+    'ExpressRouteCircuitAuthorizationArgsDict',
     'ExpressRouteCircuitConnectionArgs',
+    'ExpressRouteCircuitConnectionArgsDict',
     'ExpressRouteCircuitPeeringConfigArgs',
+    'ExpressRouteCircuitPeeringConfigArgsDict',
     'ExpressRouteCircuitPeeringIdArgs',
+    'ExpressRouteCircuitPeeringIdArgsDict',
     'ExpressRouteCircuitPeeringArgs',
+    'ExpressRouteCircuitPeeringArgsDict',
     'ExpressRouteCircuitServiceProviderPropertiesArgs',
+    'ExpressRouteCircuitServiceProviderPropertiesArgsDict',
     'ExpressRouteCircuitSkuArgs',
+    'ExpressRouteCircuitSkuArgsDict',
     'ExpressRouteCircuitStatsArgs',
+    'ExpressRouteCircuitStatsArgsDict',
     'ExpressRouteConnectionArgs',
+    'ExpressRouteConnectionArgsDict',
     'ExpressRouteGatewayPropertiesAutoScaleConfigurationArgs',
+    'ExpressRouteGatewayPropertiesAutoScaleConfigurationArgsDict',
     'ExpressRouteGatewayPropertiesBoundsArgs',
+    'ExpressRouteGatewayPropertiesBoundsArgsDict',
     'ExpressRouteLinkMacSecConfigArgs',
+    'ExpressRouteLinkMacSecConfigArgsDict',
     'ExpressRouteLinkArgs',
+    'ExpressRouteLinkArgsDict',
     'ExtendedLocationArgs',
+    'ExtendedLocationArgsDict',
     'FilterItems',
+    'FilterItemsDict',
     'FirewallPolicyCertificateAuthorityArgs',
+    'FirewallPolicyCertificateAuthorityArgsDict',
     'FirewallPolicyFilterRuleCollectionActionArgs',
+    'FirewallPolicyFilterRuleCollectionActionArgsDict',
     'FirewallPolicyFilterRuleCollectionArgs',
+    'FirewallPolicyFilterRuleCollectionArgsDict',
     'FirewallPolicyHttpHeaderToInsertArgs',
+    'FirewallPolicyHttpHeaderToInsertArgsDict',
     'FirewallPolicyInsightsArgs',
+    'FirewallPolicyInsightsArgsDict',
     'FirewallPolicyIntrusionDetectionBypassTrafficSpecificationsArgs',
+    'FirewallPolicyIntrusionDetectionBypassTrafficSpecificationsArgsDict',
     'FirewallPolicyIntrusionDetectionConfigurationArgs',
+    'FirewallPolicyIntrusionDetectionConfigurationArgsDict',
     'FirewallPolicyIntrusionDetectionSignatureSpecificationArgs',
+    'FirewallPolicyIntrusionDetectionSignatureSpecificationArgsDict',
     'FirewallPolicyIntrusionDetectionArgs',
+    'FirewallPolicyIntrusionDetectionArgsDict',
     'FirewallPolicyLogAnalyticsResourcesArgs',
+    'FirewallPolicyLogAnalyticsResourcesArgsDict',
     'FirewallPolicyLogAnalyticsWorkspaceArgs',
+    'FirewallPolicyLogAnalyticsWorkspaceArgsDict',
     'FirewallPolicyNatRuleCollectionActionArgs',
+    'FirewallPolicyNatRuleCollectionActionArgsDict',
     'FirewallPolicyNatRuleCollectionArgs',
+    'FirewallPolicyNatRuleCollectionArgsDict',
     'FirewallPolicyRuleApplicationProtocolArgs',
+    'FirewallPolicyRuleApplicationProtocolArgsDict',
     'FirewallPolicySNATArgs',
+    'FirewallPolicySNATArgsDict',
     'FirewallPolicySQLArgs',
+    'FirewallPolicySQLArgsDict',
     'FirewallPolicySkuArgs',
+    'FirewallPolicySkuArgsDict',
     'FirewallPolicyThreatIntelWhitelistArgs',
+    'FirewallPolicyThreatIntelWhitelistArgsDict',
     'FirewallPolicyTransportSecurityArgs',
+    'FirewallPolicyTransportSecurityArgsDict',
     'FlowLogFormatParametersArgs',
+    'FlowLogFormatParametersArgsDict',
     'FrontendIPConfigurationArgs',
+    'FrontendIPConfigurationArgsDict',
     'GatewayCustomBgpIpAddressIpConfigurationArgs',
+    'GatewayCustomBgpIpAddressIpConfigurationArgsDict',
     'GatewayLoadBalancerTunnelInterfaceArgs',
+    'GatewayLoadBalancerTunnelInterfaceArgsDict',
     'GroupByUserSessionArgs',
+    'GroupByUserSessionArgsDict',
     'GroupByVariableArgs',
+    'GroupByVariableArgsDict',
     'HTTPHeaderArgs',
+    'HTTPHeaderArgsDict',
     'HubIPAddressesArgs',
+    'HubIPAddressesArgsDict',
     'HubPublicIPAddressesArgs',
+    'HubPublicIPAddressesArgsDict',
     'HubRouteArgs',
+    'HubRouteArgsDict',
     'HubArgs',
+    'HubArgsDict',
     'IPConfigurationBgpPeeringAddressArgs',
+    'IPConfigurationBgpPeeringAddressArgsDict',
     'IPConfigurationProfileArgs',
+    'IPConfigurationProfileArgsDict',
     'InboundNatPoolArgs',
+    'InboundNatPoolArgsDict',
     'InboundNatRuleArgs',
+    'InboundNatRuleArgsDict',
     'IpTagArgs',
+    'IpTagArgsDict',
     'IpsecPolicyArgs',
+    'IpsecPolicyArgsDict',
     'Ipv6CircuitConnectionConfigArgs',
+    'Ipv6CircuitConnectionConfigArgsDict',
     'Ipv6ExpressRouteCircuitPeeringConfigArgs',
+    'Ipv6ExpressRouteCircuitPeeringConfigArgsDict',
     'LoadBalancerBackendAddressArgs',
+    'LoadBalancerBackendAddressArgsDict',
     'LoadBalancerSkuArgs',
+    'LoadBalancerSkuArgsDict',
     'LoadBalancingRuleArgs',
+    'LoadBalancingRuleArgsDict',
     'LocalNetworkGatewayArgs',
+    'LocalNetworkGatewayArgsDict',
     'ManagedRuleGroupOverrideArgs',
+    'ManagedRuleGroupOverrideArgsDict',
     'ManagedRuleOverrideArgs',
+    'ManagedRuleOverrideArgsDict',
     'ManagedRuleSetArgs',
+    'ManagedRuleSetArgsDict',
     'ManagedRulesDefinitionArgs',
+    'ManagedRulesDefinitionArgsDict',
     'ManagedServiceIdentityArgs',
+    'ManagedServiceIdentityArgsDict',
     'MatchConditionArgs',
+    'MatchConditionArgsDict',
     'MatchVariableArgs',
+    'MatchVariableArgsDict',
     'NatGatewaySkuArgs',
+    'NatGatewaySkuArgsDict',
     'NatGatewayArgs',
+    'NatGatewayArgsDict',
     'NatRuleArgs',
+    'NatRuleArgsDict',
     'NetworkInterfaceDnsSettingsArgs',
+    'NetworkInterfaceDnsSettingsArgsDict',
     'NetworkInterfaceIPConfigurationArgs',
+    'NetworkInterfaceIPConfigurationArgsDict',
     'NetworkManagerPropertiesNetworkManagerScopesArgs',
+    'NetworkManagerPropertiesNetworkManagerScopesArgsDict',
     'NetworkManagerSecurityGroupItemArgs',
+    'NetworkManagerSecurityGroupItemArgsDict',
     'NetworkRuleArgs',
+    'NetworkRuleArgsDict',
     'NetworkSecurityGroupArgs',
+    'NetworkSecurityGroupArgsDict',
     'O365BreakOutCategoryPoliciesArgs',
+    'O365BreakOutCategoryPoliciesArgsDict',
     'O365PolicyPropertiesArgs',
+    'O365PolicyPropertiesArgsDict',
     'Office365PolicyPropertiesArgs',
+    'Office365PolicyPropertiesArgsDict',
     'OrderBy',
+    'OrderByDict',
     'OutboundRuleArgs',
+    'OutboundRuleArgsDict',
     'OwaspCrsExclusionEntryArgs',
+    'OwaspCrsExclusionEntryArgsDict',
     'P2SConnectionConfigurationArgs',
+    'P2SConnectionConfigurationArgsDict',
     'PacketCaptureFilterArgs',
+    'PacketCaptureFilterArgsDict',
     'PacketCaptureMachineScopeArgs',
+    'PacketCaptureMachineScopeArgsDict',
     'PacketCaptureStorageLocationArgs',
+    'PacketCaptureStorageLocationArgsDict',
     'ParameterArgs',
+    'ParameterArgsDict',
     'PolicySettingsLogScrubbingArgs',
+    'PolicySettingsLogScrubbingArgsDict',
     'PolicySettingsArgs',
+    'PolicySettingsArgsDict',
     'PrivateDnsZoneConfigArgs',
+    'PrivateDnsZoneConfigArgsDict',
     'PrivateEndpointIPConfigurationArgs',
+    'PrivateEndpointIPConfigurationArgsDict',
     'PrivateLinkServiceConnectionStateArgs',
+    'PrivateLinkServiceConnectionStateArgsDict',
     'PrivateLinkServiceConnectionArgs',
+    'PrivateLinkServiceConnectionArgsDict',
     'PrivateLinkServiceIpConfigurationArgs',
+    'PrivateLinkServiceIpConfigurationArgsDict',
     'PrivateLinkServicePropertiesAutoApprovalArgs',
+    'PrivateLinkServicePropertiesAutoApprovalArgsDict',
     'PrivateLinkServicePropertiesVisibilityArgs',
+    'PrivateLinkServicePropertiesVisibilityArgsDict',
     'PrivateLinkServiceArgs',
+    'PrivateLinkServiceArgsDict',
     'ProbeArgs',
+    'ProbeArgsDict',
     'PropagatedRouteTableArgs',
+    'PropagatedRouteTableArgsDict',
     'PublicIPAddressDnsSettingsArgs',
+    'PublicIPAddressDnsSettingsArgsDict',
     'PublicIPAddressSkuArgs',
+    'PublicIPAddressSkuArgsDict',
     'PublicIPAddressArgs',
+    'PublicIPAddressArgsDict',
     'PublicIPPrefixSkuArgs',
+    'PublicIPPrefixSkuArgsDict',
     'QosDefinitionArgs',
+    'QosDefinitionArgsDict',
     'QosIpRangeArgs',
+    'QosIpRangeArgsDict',
     'QosPortRangeArgs',
+    'QosPortRangeArgsDict',
     'RadiusServerArgs',
+    'RadiusServerArgsDict',
     'RetentionPolicyParametersArgs',
+    'RetentionPolicyParametersArgsDict',
     'RouteFilterRuleArgs',
+    'RouteFilterRuleArgsDict',
     'RouteMapRuleArgs',
+    'RouteMapRuleArgsDict',
     'RouteTableArgs',
+    'RouteTableArgsDict',
     'RouteArgs',
+    'RouteArgsDict',
     'RoutingConfigurationArgs',
+    'RoutingConfigurationArgsDict',
     'RoutingPolicyArgs',
+    'RoutingPolicyArgsDict',
     'SecurityRuleArgs',
+    'SecurityRuleArgsDict',
     'ServiceEndpointPolicyDefinitionArgs',
+    'ServiceEndpointPolicyDefinitionArgsDict',
     'ServiceEndpointPolicyArgs',
+    'ServiceEndpointPolicyArgsDict',
     'ServiceEndpointPropertiesFormatArgs',
+    'ServiceEndpointPropertiesFormatArgsDict',
     'SkuArgs',
+    'SkuArgsDict',
     'StaticRoutesConfigArgs',
+    'StaticRoutesConfigArgsDict',
     'StaticRouteArgs',
+    'StaticRouteArgsDict',
     'SubResource',
+    'SubResourceDict',
     'SubResourceArgs',
+    'SubResourceArgsDict',
     'SubnetArgs',
+    'SubnetArgsDict',
     'TrafficAnalyticsConfigurationPropertiesArgs',
+    'TrafficAnalyticsConfigurationPropertiesArgsDict',
     'TrafficAnalyticsPropertiesArgs',
+    'TrafficAnalyticsPropertiesArgsDict',
     'TrafficSelectorPolicyArgs',
+    'TrafficSelectorPolicyArgsDict',
     'VM',
+    'VMDict',
     'VirtualApplianceAdditionalNicPropertiesArgs',
+    'VirtualApplianceAdditionalNicPropertiesArgsDict',
     'VirtualApplianceSkuPropertiesArgs',
+    'VirtualApplianceSkuPropertiesArgsDict',
     'VirtualHubIdArgs',
+    'VirtualHubIdArgsDict',
     'VirtualHubRouteTableV2Args',
+    'VirtualHubRouteTableV2ArgsDict',
     'VirtualHubRouteTableArgs',
+    'VirtualHubRouteTableArgsDict',
     'VirtualHubRouteV2Args',
+    'VirtualHubRouteV2ArgsDict',
     'VirtualHubRouteArgs',
+    'VirtualHubRouteArgsDict',
     'VirtualNetworkBgpCommunitiesArgs',
+    'VirtualNetworkBgpCommunitiesArgsDict',
     'VirtualNetworkEncryptionArgs',
+    'VirtualNetworkEncryptionArgsDict',
     'VirtualNetworkGatewayIPConfigurationArgs',
+    'VirtualNetworkGatewayIPConfigurationArgsDict',
     'VirtualNetworkGatewayNatRuleArgs',
+    'VirtualNetworkGatewayNatRuleArgsDict',
     'VirtualNetworkGatewayPolicyGroupMemberArgs',
+    'VirtualNetworkGatewayPolicyGroupMemberArgsDict',
     'VirtualNetworkGatewayPolicyGroupArgs',
+    'VirtualNetworkGatewayPolicyGroupArgsDict',
     'VirtualNetworkGatewaySkuArgs',
+    'VirtualNetworkGatewaySkuArgsDict',
     'VirtualNetworkGatewayArgs',
+    'VirtualNetworkGatewayArgsDict',
     'VirtualNetworkPeeringArgs',
+    'VirtualNetworkPeeringArgsDict',
     'VirtualNetworkTapArgs',
+    'VirtualNetworkTapArgsDict',
     'VirtualRouterAutoScaleConfigurationArgs',
+    'VirtualRouterAutoScaleConfigurationArgsDict',
     'VnetRouteArgs',
+    'VnetRouteArgsDict',
     'VngClientConnectionConfigurationArgs',
+    'VngClientConnectionConfigurationArgsDict',
     'VpnClientConfigurationArgs',
+    'VpnClientConfigurationArgsDict',
     'VpnClientRevokedCertificateArgs',
+    'VpnClientRevokedCertificateArgsDict',
     'VpnClientRootCertificateArgs',
+    'VpnClientRootCertificateArgsDict',
     'VpnConnectionArgs',
+    'VpnConnectionArgsDict',
     'VpnGatewayNatRuleArgs',
+    'VpnGatewayNatRuleArgsDict',
     'VpnLinkBgpSettingsArgs',
+    'VpnLinkBgpSettingsArgsDict',
     'VpnLinkProviderPropertiesArgs',
+    'VpnLinkProviderPropertiesArgsDict',
     'VpnNatRuleMappingArgs',
+    'VpnNatRuleMappingArgsDict',
     'VpnServerConfigRadiusClientRootCertificateArgs',
+    'VpnServerConfigRadiusClientRootCertificateArgsDict',
     'VpnServerConfigRadiusServerRootCertificateArgs',
+    'VpnServerConfigRadiusServerRootCertificateArgsDict',
     'VpnServerConfigVpnClientRevokedCertificateArgs',
+    'VpnServerConfigVpnClientRevokedCertificateArgsDict',
     'VpnServerConfigVpnClientRootCertificateArgs',
+    'VpnServerConfigVpnClientRootCertificateArgsDict',
     'VpnServerConfigurationPolicyGroupMemberArgs',
+    'VpnServerConfigurationPolicyGroupMemberArgsDict',
     'VpnServerConfigurationPolicyGroupArgs',
+    'VpnServerConfigurationPolicyGroupArgsDict',
     'VpnSiteLinkConnectionArgs',
+    'VpnSiteLinkConnectionArgsDict',
     'VpnSiteLinkArgs',
+    'VpnSiteLinkArgsDict',
     'WebApplicationFirewallCustomRuleArgs',
+    'WebApplicationFirewallCustomRuleArgsDict',
     'WebApplicationFirewallScrubbingRulesArgs',
+    'WebApplicationFirewallScrubbingRulesArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AadAuthenticationParametersArgsDict(TypedDict):
+        """
+        AAD Vpn authentication type related parameters.
+        """
+        aad_audience: NotRequired[pulumi.Input[str]]
+        """
+        AAD Vpn authentication parameter AAD audience.
+        """
+        aad_issuer: NotRequired[pulumi.Input[str]]
+        """
+        AAD Vpn authentication parameter AAD issuer.
+        """
+        aad_tenant: NotRequired[pulumi.Input[str]]
+        """
+        AAD Vpn authentication parameter AAD tenant.
+        """
+elif False:
+    AadAuthenticationParametersArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AadAuthenticationParametersArgs:
@@ -326,6 +610,22 @@ class AadAuthenticationParametersArgs:
         pulumi.set(self, "aad_tenant", value)
 
 
+if not MYPY:
+    class ActionArgsDict(TypedDict):
+        """
+        Action to be taken on a route matching a RouteMap criterion.
+        """
+        parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['ParameterArgsDict']]]]
+        """
+        List of parameters relevant to the action.For instance if type is drop then parameters has list of prefixes to be dropped.If type is add, parameters would have list of ASN numbers to be added
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'RouteMapActionType']]]
+        """
+        Type of action to be taken. Supported types are 'Remove', 'Add', 'Replace', and 'Drop.'
+        """
+elif False:
+    ActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ActionArgs:
     def __init__(__self__, *,
@@ -365,6 +665,22 @@ class ActionArgs:
     def type(self, value: Optional[pulumi.Input[Union[str, 'RouteMapActionType']]]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class AddressPrefixItemArgsDict(TypedDict):
+        """
+        Address prefix item.
+        """
+        address_prefix: NotRequired[pulumi.Input[str]]
+        """
+        Address prefix.
+        """
+        address_prefix_type: NotRequired[pulumi.Input[Union[str, 'AddressPrefixType']]]
+        """
+        Address prefix type.
+        """
+elif False:
+    AddressPrefixItemArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AddressPrefixItemArgs:
@@ -406,6 +722,18 @@ class AddressPrefixItemArgs:
         pulumi.set(self, "address_prefix_type", value)
 
 
+if not MYPY:
+    class AddressSpaceArgsDict(TypedDict):
+        """
+        AddressSpace contains an array of IP address ranges that can be used by subnets of the virtual network.
+        """
+        address_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of address blocks reserved for this virtual network in CIDR notation.
+        """
+elif False:
+    AddressSpaceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AddressSpaceArgs:
     def __init__(__self__, *,
@@ -429,6 +757,26 @@ class AddressSpaceArgs:
     def address_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "address_prefixes", value)
 
+
+if not MYPY:
+    class ApplicationGatewayAuthenticationCertificateArgsDict(TypedDict):
+        """
+        Authentication certificates of an application gateway.
+        """
+        data: NotRequired[pulumi.Input[str]]
+        """
+        Certificate public data.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the authentication certificate that is unique within an Application Gateway.
+        """
+elif False:
+    ApplicationGatewayAuthenticationCertificateArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApplicationGatewayAuthenticationCertificateArgs:
@@ -486,6 +834,22 @@ class ApplicationGatewayAuthenticationCertificateArgs:
         pulumi.set(self, "name", value)
 
 
+if not MYPY:
+    class ApplicationGatewayAutoscaleConfigurationArgsDict(TypedDict):
+        """
+        Application Gateway autoscale configuration.
+        """
+        min_capacity: pulumi.Input[int]
+        """
+        Lower bound on number of Application Gateway capacity.
+        """
+        max_capacity: NotRequired[pulumi.Input[int]]
+        """
+        Upper bound on number of Application Gateway capacity.
+        """
+elif False:
+    ApplicationGatewayAutoscaleConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ApplicationGatewayAutoscaleConfigurationArgs:
     def __init__(__self__, *,
@@ -524,6 +888,26 @@ class ApplicationGatewayAutoscaleConfigurationArgs:
     def max_capacity(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max_capacity", value)
 
+
+if not MYPY:
+    class ApplicationGatewayBackendAddressPoolArgsDict(TypedDict):
+        """
+        Backend Address Pool of an application gateway.
+        """
+        backend_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayBackendAddressArgsDict']]]]
+        """
+        Backend addresses.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the backend address pool that is unique within an Application Gateway.
+        """
+elif False:
+    ApplicationGatewayBackendAddressPoolArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApplicationGatewayBackendAddressPoolArgs:
@@ -581,6 +965,22 @@ class ApplicationGatewayBackendAddressPoolArgs:
         pulumi.set(self, "name", value)
 
 
+if not MYPY:
+    class ApplicationGatewayBackendAddressArgsDict(TypedDict):
+        """
+        Backend address of an application gateway.
+        """
+        fqdn: NotRequired[pulumi.Input[str]]
+        """
+        Fully qualified domain name (FQDN).
+        """
+        ip_address: NotRequired[pulumi.Input[str]]
+        """
+        IP address.
+        """
+elif False:
+    ApplicationGatewayBackendAddressArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ApplicationGatewayBackendAddressArgs:
     def __init__(__self__, *,
@@ -620,6 +1020,74 @@ class ApplicationGatewayBackendAddressArgs:
     def ip_address(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "ip_address", value)
 
+
+if not MYPY:
+    class ApplicationGatewayBackendHttpSettingsArgsDict(TypedDict):
+        """
+        Backend address pool settings of an application gateway.
+        """
+        affinity_cookie_name: NotRequired[pulumi.Input[str]]
+        """
+        Cookie name to use for the affinity cookie.
+        """
+        authentication_certificates: NotRequired[pulumi.Input[Sequence[pulumi.Input['SubResourceArgsDict']]]]
+        """
+        Array of references to application gateway authentication certificates.
+        """
+        connection_draining: NotRequired[pulumi.Input['ApplicationGatewayConnectionDrainingArgsDict']]
+        """
+        Connection draining of the backend http settings resource.
+        """
+        cookie_based_affinity: NotRequired[pulumi.Input[Union[str, 'ApplicationGatewayCookieBasedAffinity']]]
+        """
+        Cookie based affinity.
+        """
+        host_name: NotRequired[pulumi.Input[str]]
+        """
+        Host header to be sent to the backend servers.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the backend http settings that is unique within an Application Gateway.
+        """
+        path: NotRequired[pulumi.Input[str]]
+        """
+        Path which should be used as a prefix for all HTTP requests. Null means no path will be prefixed. Default value is null.
+        """
+        pick_host_name_from_backend_address: NotRequired[pulumi.Input[bool]]
+        """
+        Whether to pick host header should be picked from the host name of the backend server. Default value is false.
+        """
+        port: NotRequired[pulumi.Input[int]]
+        """
+        The destination port on the backend.
+        """
+        probe: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        """
+        Probe resource of an application gateway.
+        """
+        probe_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Whether the probe is enabled. Default value is false.
+        """
+        protocol: NotRequired[pulumi.Input[Union[str, 'ApplicationGatewayProtocol']]]
+        """
+        The protocol used to communicate with the backend.
+        """
+        request_timeout: NotRequired[pulumi.Input[int]]
+        """
+        Request timeout in seconds. Application Gateway will fail the request if response is not received within RequestTimeout. Acceptable values are from 1 second to 86400 seconds.
+        """
+        trusted_root_certificates: NotRequired[pulumi.Input[Sequence[pulumi.Input['SubResourceArgsDict']]]]
+        """
+        Array of references to application gateway trusted root certificates.
+        """
+elif False:
+    ApplicationGatewayBackendHttpSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApplicationGatewayBackendHttpSettingsArgs:
@@ -869,6 +1337,50 @@ class ApplicationGatewayBackendHttpSettingsArgs:
         pulumi.set(self, "trusted_root_certificates", value)
 
 
+if not MYPY:
+    class ApplicationGatewayBackendSettingsArgsDict(TypedDict):
+        """
+        Backend address pool settings of an application gateway.
+        """
+        host_name: NotRequired[pulumi.Input[str]]
+        """
+        Server name indication to be sent to the backend servers for Tls protocol.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the backend settings that is unique within an Application Gateway.
+        """
+        pick_host_name_from_backend_address: NotRequired[pulumi.Input[bool]]
+        """
+        Whether to pick server name indication from the host name of the backend server for Tls protocol. Default value is false.
+        """
+        port: NotRequired[pulumi.Input[int]]
+        """
+        The destination port on the backend.
+        """
+        probe: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        """
+        Probe resource of an application gateway.
+        """
+        protocol: NotRequired[pulumi.Input[Union[str, 'ApplicationGatewayProtocol']]]
+        """
+        The protocol used to communicate with the backend.
+        """
+        timeout: NotRequired[pulumi.Input[int]]
+        """
+        Connection timeout in seconds. Application Gateway will fail the request if response is not received within ConnectionTimeout. Acceptable values are from 1 second to 86400 seconds.
+        """
+        trusted_root_certificates: NotRequired[pulumi.Input[Sequence[pulumi.Input['SubResourceArgsDict']]]]
+        """
+        Array of references to application gateway trusted root certificates.
+        """
+elif False:
+    ApplicationGatewayBackendSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ApplicationGatewayBackendSettingsArgs:
     def __init__(__self__, *,
@@ -1021,6 +1533,22 @@ class ApplicationGatewayBackendSettingsArgs:
         pulumi.set(self, "trusted_root_certificates", value)
 
 
+if not MYPY:
+    class ApplicationGatewayClientAuthConfigurationArgsDict(TypedDict):
+        """
+        Application gateway client authentication configuration.
+        """
+        verify_client_cert_issuer_dn: NotRequired[pulumi.Input[bool]]
+        """
+        Verify client certificate issuer name on the application gateway.
+        """
+        verify_client_revocation: NotRequired[pulumi.Input[Union[str, 'ApplicationGatewayClientRevocationOptions']]]
+        """
+        Verify client certificate revocation status.
+        """
+elif False:
+    ApplicationGatewayClientAuthConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ApplicationGatewayClientAuthConfigurationArgs:
     def __init__(__self__, *,
@@ -1061,6 +1589,22 @@ class ApplicationGatewayClientAuthConfigurationArgs:
         pulumi.set(self, "verify_client_revocation", value)
 
 
+if not MYPY:
+    class ApplicationGatewayConnectionDrainingArgsDict(TypedDict):
+        """
+        Connection draining allows open connections to a backend server to be active for a specified time after the backend server got removed from the configuration.
+        """
+        drain_timeout_in_sec: pulumi.Input[int]
+        """
+        The number of seconds connection draining is active. Acceptable values are from 1 second to 3600 seconds.
+        """
+        enabled: pulumi.Input[bool]
+        """
+        Whether connection draining is enabled or not.
+        """
+elif False:
+    ApplicationGatewayConnectionDrainingArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ApplicationGatewayConnectionDrainingArgs:
     def __init__(__self__, *,
@@ -1098,6 +1642,22 @@ class ApplicationGatewayConnectionDrainingArgs:
     def enabled(self, value: pulumi.Input[bool]):
         pulumi.set(self, "enabled", value)
 
+
+if not MYPY:
+    class ApplicationGatewayCustomErrorArgsDict(TypedDict):
+        """
+        Custom error of an application gateway.
+        """
+        custom_error_page_url: NotRequired[pulumi.Input[str]]
+        """
+        Error page URL of the application gateway custom error.
+        """
+        status_code: NotRequired[pulumi.Input[Union[str, 'ApplicationGatewayCustomErrorStatusCode']]]
+        """
+        Status code of the application gateway custom error.
+        """
+elif False:
+    ApplicationGatewayCustomErrorArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApplicationGatewayCustomErrorArgs:
@@ -1139,6 +1699,22 @@ class ApplicationGatewayCustomErrorArgs:
         pulumi.set(self, "status_code", value)
 
 
+if not MYPY:
+    class ApplicationGatewayFirewallDisabledRuleGroupArgsDict(TypedDict):
+        """
+        Allows to disable rules within a rule group or an entire rule group.
+        """
+        rule_group_name: pulumi.Input[str]
+        """
+        The name of the rule group that will be disabled.
+        """
+        rules: NotRequired[pulumi.Input[Sequence[pulumi.Input[int]]]]
+        """
+        The list of rules that will be disabled. If null, all rules of the rule group will be disabled.
+        """
+elif False:
+    ApplicationGatewayFirewallDisabledRuleGroupArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ApplicationGatewayFirewallDisabledRuleGroupArgs:
     def __init__(__self__, *,
@@ -1177,6 +1753,26 @@ class ApplicationGatewayFirewallDisabledRuleGroupArgs:
     def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
         pulumi.set(self, "rules", value)
 
+
+if not MYPY:
+    class ApplicationGatewayFirewallExclusionArgsDict(TypedDict):
+        """
+        Allow to exclude some variable satisfy the condition for the WAF check.
+        """
+        match_variable: pulumi.Input[str]
+        """
+        The variable to be excluded.
+        """
+        selector: pulumi.Input[str]
+        """
+        When matchVariable is a collection, operator used to specify which elements in the collection this exclusion applies to.
+        """
+        selector_match_operator: pulumi.Input[str]
+        """
+        When matchVariable is a collection, operate on the selector to specify which elements in the collection this exclusion applies to.
+        """
+elif False:
+    ApplicationGatewayFirewallExclusionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApplicationGatewayFirewallExclusionArgs:
@@ -1230,6 +1826,42 @@ class ApplicationGatewayFirewallExclusionArgs:
     def selector_match_operator(self, value: pulumi.Input[str]):
         pulumi.set(self, "selector_match_operator", value)
 
+
+if not MYPY:
+    class ApplicationGatewayFrontendIPConfigurationArgsDict(TypedDict):
+        """
+        Frontend IP configuration of an application gateway.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the frontend IP configuration that is unique within an Application Gateway.
+        """
+        private_ip_address: NotRequired[pulumi.Input[str]]
+        """
+        PrivateIPAddress of the network interface IP Configuration.
+        """
+        private_ip_allocation_method: NotRequired[pulumi.Input[Union[str, 'IPAllocationMethod']]]
+        """
+        The private IP address allocation method.
+        """
+        private_link_configuration: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        """
+        Reference to the application gateway private link configuration.
+        """
+        public_ip_address: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        """
+        Reference to the PublicIP resource.
+        """
+        subnet: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        """
+        Reference to the subnet resource.
+        """
+elif False:
+    ApplicationGatewayFrontendIPConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApplicationGatewayFrontendIPConfigurationArgs:
@@ -1351,6 +1983,26 @@ class ApplicationGatewayFrontendIPConfigurationArgs:
         pulumi.set(self, "subnet", value)
 
 
+if not MYPY:
+    class ApplicationGatewayFrontendPortArgsDict(TypedDict):
+        """
+        Frontend port of an application gateway.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the frontend port that is unique within an Application Gateway.
+        """
+        port: NotRequired[pulumi.Input[int]]
+        """
+        Frontend port.
+        """
+elif False:
+    ApplicationGatewayFrontendPortArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ApplicationGatewayFrontendPortArgs:
     def __init__(__self__, *,
@@ -1407,6 +2059,22 @@ class ApplicationGatewayFrontendPortArgs:
         pulumi.set(self, "port", value)
 
 
+if not MYPY:
+    class ApplicationGatewayGlobalConfigurationArgsDict(TypedDict):
+        """
+        Application Gateway global configuration.
+        """
+        enable_request_buffering: NotRequired[pulumi.Input[bool]]
+        """
+        Enable request buffering.
+        """
+        enable_response_buffering: NotRequired[pulumi.Input[bool]]
+        """
+        Enable response buffering.
+        """
+elif False:
+    ApplicationGatewayGlobalConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ApplicationGatewayGlobalConfigurationArgs:
     def __init__(__self__, *,
@@ -1447,6 +2115,22 @@ class ApplicationGatewayGlobalConfigurationArgs:
         pulumi.set(self, "enable_response_buffering", value)
 
 
+if not MYPY:
+    class ApplicationGatewayHeaderConfigurationArgsDict(TypedDict):
+        """
+        Header configuration of the Actions set in Application Gateway.
+        """
+        header_name: NotRequired[pulumi.Input[str]]
+        """
+        Header name of the header configuration.
+        """
+        header_value: NotRequired[pulumi.Input[str]]
+        """
+        Header value of the header configuration.
+        """
+elif False:
+    ApplicationGatewayHeaderConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ApplicationGatewayHeaderConfigurationArgs:
     def __init__(__self__, *,
@@ -1486,6 +2170,62 @@ class ApplicationGatewayHeaderConfigurationArgs:
     def header_value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "header_value", value)
 
+
+if not MYPY:
+    class ApplicationGatewayHttpListenerArgsDict(TypedDict):
+        """
+        Http listener of an application gateway.
+        """
+        custom_error_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayCustomErrorArgsDict']]]]
+        """
+        Custom error configurations of the HTTP listener.
+        """
+        firewall_policy: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        """
+        Reference to the FirewallPolicy resource.
+        """
+        frontend_ip_configuration: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        """
+        Frontend IP configuration resource of an application gateway.
+        """
+        frontend_port: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        """
+        Frontend port resource of an application gateway.
+        """
+        host_name: NotRequired[pulumi.Input[str]]
+        """
+        Host name of HTTP listener.
+        """
+        host_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of Host names for HTTP Listener that allows special wildcard characters as well.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the HTTP listener that is unique within an Application Gateway.
+        """
+        protocol: NotRequired[pulumi.Input[Union[str, 'ApplicationGatewayProtocol']]]
+        """
+        Protocol of the HTTP listener.
+        """
+        require_server_name_indication: NotRequired[pulumi.Input[bool]]
+        """
+        Applicable only if protocol is https. Enables SNI for multi-hosting.
+        """
+        ssl_certificate: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        """
+        SSL certificate resource of an application gateway.
+        """
+        ssl_profile: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        """
+        SSL profile resource of the application gateway.
+        """
+elif False:
+    ApplicationGatewayHttpListenerArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApplicationGatewayHttpListenerArgs:
@@ -1687,6 +2427,26 @@ class ApplicationGatewayHttpListenerArgs:
         pulumi.set(self, "ssl_profile", value)
 
 
+if not MYPY:
+    class ApplicationGatewayIPConfigurationArgsDict(TypedDict):
+        """
+        IP configuration of an application gateway. Currently 1 public and 1 private IP configuration is allowed.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the IP configuration that is unique within an Application Gateway.
+        """
+        subnet: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        """
+        Reference to the subnet resource. A subnet from where application gateway gets its private address.
+        """
+elif False:
+    ApplicationGatewayIPConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ApplicationGatewayIPConfigurationArgs:
     def __init__(__self__, *,
@@ -1742,6 +2502,42 @@ class ApplicationGatewayIPConfigurationArgs:
     def subnet(self, value: Optional[pulumi.Input['SubResourceArgs']]):
         pulumi.set(self, "subnet", value)
 
+
+if not MYPY:
+    class ApplicationGatewayListenerArgsDict(TypedDict):
+        """
+        Listener of an application gateway.
+        """
+        frontend_ip_configuration: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        """
+        Frontend IP configuration resource of an application gateway.
+        """
+        frontend_port: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        """
+        Frontend port resource of an application gateway.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the listener that is unique within an Application Gateway.
+        """
+        protocol: NotRequired[pulumi.Input[Union[str, 'ApplicationGatewayProtocol']]]
+        """
+        Protocol of the listener.
+        """
+        ssl_certificate: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        """
+        SSL certificate resource of an application gateway.
+        """
+        ssl_profile: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        """
+        SSL profile resource of the application gateway.
+        """
+elif False:
+    ApplicationGatewayListenerArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApplicationGatewayListenerArgs:
@@ -1863,6 +2659,30 @@ class ApplicationGatewayListenerArgs:
         pulumi.set(self, "ssl_profile", value)
 
 
+if not MYPY:
+    class ApplicationGatewayLoadDistributionPolicyArgsDict(TypedDict):
+        """
+        Load Distribution Policy of an application gateway.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        load_distribution_algorithm: NotRequired[pulumi.Input[Union[str, 'ApplicationGatewayLoadDistributionAlgorithm']]]
+        """
+        Load Distribution Targets resource of an application gateway.
+        """
+        load_distribution_targets: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayLoadDistributionTargetArgsDict']]]]
+        """
+        Load Distribution Targets resource of an application gateway.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the load distribution policy that is unique within an Application Gateway.
+        """
+elif False:
+    ApplicationGatewayLoadDistributionPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ApplicationGatewayLoadDistributionPolicyArgs:
     def __init__(__self__, *,
@@ -1935,6 +2755,30 @@ class ApplicationGatewayLoadDistributionPolicyArgs:
         pulumi.set(self, "name", value)
 
 
+if not MYPY:
+    class ApplicationGatewayLoadDistributionTargetArgsDict(TypedDict):
+        """
+        Load Distribution Target of an application gateway.
+        """
+        backend_address_pool: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        """
+        Backend address pool resource of the application gateway.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the load distribution policy that is unique within an Application Gateway.
+        """
+        weight_per_server: NotRequired[pulumi.Input[int]]
+        """
+        Weight per server. Range between 1 and 100.
+        """
+elif False:
+    ApplicationGatewayLoadDistributionTargetArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ApplicationGatewayLoadDistributionTargetArgs:
     def __init__(__self__, *,
@@ -2006,6 +2850,50 @@ class ApplicationGatewayLoadDistributionTargetArgs:
     def weight_per_server(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "weight_per_server", value)
 
+
+if not MYPY:
+    class ApplicationGatewayPathRuleArgsDict(TypedDict):
+        """
+        Path rule of URL path map of an application gateway.
+        """
+        backend_address_pool: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        """
+        Backend address pool resource of URL path map path rule.
+        """
+        backend_http_settings: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        """
+        Backend http settings resource of URL path map path rule.
+        """
+        firewall_policy: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        """
+        Reference to the FirewallPolicy resource.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        load_distribution_policy: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        """
+        Load Distribution Policy resource of URL path map path rule.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the path rule that is unique within an Application Gateway.
+        """
+        paths: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Path rules of URL path map.
+        """
+        redirect_configuration: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        """
+        Redirect configuration resource of URL path map path rule.
+        """
+        rewrite_rule_set: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        """
+        Rewrite rule set resource of URL path map path rule.
+        """
+elif False:
+    ApplicationGatewayPathRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApplicationGatewayPathRuleArgs:
@@ -2159,6 +3047,26 @@ class ApplicationGatewayPathRuleArgs:
         pulumi.set(self, "rewrite_rule_set", value)
 
 
+if not MYPY:
+    class ApplicationGatewayPrivateLinkConfigurationArgsDict(TypedDict):
+        """
+        Private Link Configuration on an application gateway.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        ip_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayPrivateLinkIpConfigurationArgsDict']]]]
+        """
+        An array of application gateway private link ip configurations.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the private link configuration that is unique within an Application Gateway.
+        """
+elif False:
+    ApplicationGatewayPrivateLinkConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ApplicationGatewayPrivateLinkConfigurationArgs:
     def __init__(__self__, *,
@@ -2214,6 +3122,38 @@ class ApplicationGatewayPrivateLinkConfigurationArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class ApplicationGatewayPrivateLinkIpConfigurationArgsDict(TypedDict):
+        """
+        The application gateway private link ip configuration.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of application gateway private link ip configuration.
+        """
+        primary: NotRequired[pulumi.Input[bool]]
+        """
+        Whether the ip configuration is primary or not.
+        """
+        private_ip_address: NotRequired[pulumi.Input[str]]
+        """
+        The private IP address of the IP configuration.
+        """
+        private_ip_allocation_method: NotRequired[pulumi.Input[Union[str, 'IPAllocationMethod']]]
+        """
+        The private IP address allocation method.
+        """
+        subnet: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        """
+        Reference to the subnet resource.
+        """
+elif False:
+    ApplicationGatewayPrivateLinkIpConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApplicationGatewayPrivateLinkIpConfigurationArgs:
@@ -2319,6 +3259,22 @@ class ApplicationGatewayPrivateLinkIpConfigurationArgs:
         pulumi.set(self, "subnet", value)
 
 
+if not MYPY:
+    class ApplicationGatewayProbeHealthResponseMatchDict(TypedDict):
+        """
+        Application gateway probe health response match.
+        """
+        body: NotRequired[str]
+        """
+        Body that must be contained in the health response. Default value is empty.
+        """
+        status_codes: NotRequired[Sequence[str]]
+        """
+        Allowed ranges of healthy status codes. Default range of healthy status codes is 200-399.
+        """
+elif False:
+    ApplicationGatewayProbeHealthResponseMatchDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ApplicationGatewayProbeHealthResponseMatch:
     def __init__(__self__, *,
@@ -2359,6 +3315,22 @@ class ApplicationGatewayProbeHealthResponseMatch:
         pulumi.set(self, "status_codes", value)
 
 
+if not MYPY:
+    class ApplicationGatewayProbeHealthResponseMatchArgsDict(TypedDict):
+        """
+        Application gateway probe health response match.
+        """
+        body: NotRequired[pulumi.Input[str]]
+        """
+        Body that must be contained in the health response. Default value is empty.
+        """
+        status_codes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Allowed ranges of healthy status codes. Default range of healthy status codes is 200-399.
+        """
+elif False:
+    ApplicationGatewayProbeHealthResponseMatchArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ApplicationGatewayProbeHealthResponseMatchArgs:
     def __init__(__self__, *,
@@ -2398,6 +3370,66 @@ class ApplicationGatewayProbeHealthResponseMatchArgs:
     def status_codes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "status_codes", value)
 
+
+if not MYPY:
+    class ApplicationGatewayProbeArgsDict(TypedDict):
+        """
+        Probe of the application gateway.
+        """
+        host: NotRequired[pulumi.Input[str]]
+        """
+        Host name to send the probe to.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        interval: NotRequired[pulumi.Input[int]]
+        """
+        The probing interval in seconds. This is the time interval between two consecutive probes. Acceptable values are from 1 second to 86400 seconds.
+        """
+        match: NotRequired[pulumi.Input['ApplicationGatewayProbeHealthResponseMatchArgsDict']]
+        """
+        Criterion for classifying a healthy probe response.
+        """
+        min_servers: NotRequired[pulumi.Input[int]]
+        """
+        Minimum number of servers that are always marked healthy. Default value is 0.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the probe that is unique within an Application Gateway.
+        """
+        path: NotRequired[pulumi.Input[str]]
+        """
+        Relative path of probe. Valid path starts from '/'. Probe is sent to <Protocol>://<host>:<port><path>.
+        """
+        pick_host_name_from_backend_http_settings: NotRequired[pulumi.Input[bool]]
+        """
+        Whether the host header should be picked from the backend http settings. Default value is false.
+        """
+        pick_host_name_from_backend_settings: NotRequired[pulumi.Input[bool]]
+        """
+        Whether the server name indication should be picked from the backend settings for Tls protocol. Default value is false.
+        """
+        port: NotRequired[pulumi.Input[int]]
+        """
+        Custom port which will be used for probing the backend servers. The valid value ranges from 1 to 65535. In case not set, port from http settings will be used. This property is valid for Standard_v2 and WAF_v2 only.
+        """
+        protocol: NotRequired[pulumi.Input[Union[str, 'ApplicationGatewayProtocol']]]
+        """
+        The protocol used for the probe.
+        """
+        timeout: NotRequired[pulumi.Input[int]]
+        """
+        The probe timeout in seconds. Probe marked as failed if valid response is not received with this timeout period. Acceptable values are from 1 second to 86400 seconds.
+        """
+        unhealthy_threshold: NotRequired[pulumi.Input[int]]
+        """
+        The probe retry count. Backend server is marked down after consecutive probe failure count reaches UnhealthyThreshold. Acceptable values are from 1 second to 20.
+        """
+elif False:
+    ApplicationGatewayProbeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApplicationGatewayProbeArgs:
@@ -2615,6 +3647,54 @@ class ApplicationGatewayProbeArgs:
         pulumi.set(self, "unhealthy_threshold", value)
 
 
+if not MYPY:
+    class ApplicationGatewayRedirectConfigurationArgsDict(TypedDict):
+        """
+        Redirect configuration of an application gateway.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        include_path: NotRequired[pulumi.Input[bool]]
+        """
+        Include path in the redirected url.
+        """
+        include_query_string: NotRequired[pulumi.Input[bool]]
+        """
+        Include query string in the redirected url.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the redirect configuration that is unique within an Application Gateway.
+        """
+        path_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['SubResourceArgsDict']]]]
+        """
+        Path rules specifying redirect configuration.
+        """
+        redirect_type: NotRequired[pulumi.Input[Union[str, 'ApplicationGatewayRedirectType']]]
+        """
+        HTTP redirection type.
+        """
+        request_routing_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['SubResourceArgsDict']]]]
+        """
+        Request routing specifying redirect configuration.
+        """
+        target_listener: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        """
+        Reference to a listener to redirect the request to.
+        """
+        target_url: NotRequired[pulumi.Input[str]]
+        """
+        Url to redirect the request to.
+        """
+        url_path_maps: NotRequired[pulumi.Input[Sequence[pulumi.Input['SubResourceArgsDict']]]]
+        """
+        Url path maps specifying default redirect configuration.
+        """
+elif False:
+    ApplicationGatewayRedirectConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ApplicationGatewayRedirectConfigurationArgs:
     def __init__(__self__, *,
@@ -2782,6 +3862,58 @@ class ApplicationGatewayRedirectConfigurationArgs:
     def url_path_maps(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]]):
         pulumi.set(self, "url_path_maps", value)
 
+
+if not MYPY:
+    class ApplicationGatewayRequestRoutingRuleArgsDict(TypedDict):
+        """
+        Request routing rule of an application gateway.
+        """
+        backend_address_pool: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        """
+        Backend address pool resource of the application gateway.
+        """
+        backend_http_settings: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        """
+        Backend http settings resource of the application gateway.
+        """
+        http_listener: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        """
+        Http listener resource of the application gateway.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        load_distribution_policy: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        """
+        Load Distribution Policy resource of the application gateway.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the request routing rule that is unique within an Application Gateway.
+        """
+        priority: NotRequired[pulumi.Input[int]]
+        """
+        Priority of the request routing rule.
+        """
+        redirect_configuration: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        """
+        Redirect configuration resource of the application gateway.
+        """
+        rewrite_rule_set: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        """
+        Rewrite Rule Set resource in Basic rule of the application gateway.
+        """
+        rule_type: NotRequired[pulumi.Input[Union[str, 'ApplicationGatewayRequestRoutingRuleType']]]
+        """
+        Rule type.
+        """
+        url_path_map: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        """
+        URL path map resource of the application gateway.
+        """
+elif False:
+    ApplicationGatewayRequestRoutingRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApplicationGatewayRequestRoutingRuleArgs:
@@ -2967,6 +4099,26 @@ class ApplicationGatewayRequestRoutingRuleArgs:
         pulumi.set(self, "url_path_map", value)
 
 
+if not MYPY:
+    class ApplicationGatewayRewriteRuleActionSetArgsDict(TypedDict):
+        """
+        Set of actions in the Rewrite Rule in Application Gateway.
+        """
+        request_header_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayHeaderConfigurationArgsDict']]]]
+        """
+        Request Header Actions in the Action Set.
+        """
+        response_header_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayHeaderConfigurationArgsDict']]]]
+        """
+        Response Header Actions in the Action Set.
+        """
+        url_configuration: NotRequired[pulumi.Input['ApplicationGatewayUrlConfigurationArgsDict']]
+        """
+        Url Configuration Action in the Action Set.
+        """
+elif False:
+    ApplicationGatewayRewriteRuleActionSetArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ApplicationGatewayRewriteRuleActionSetArgs:
     def __init__(__self__, *,
@@ -3022,6 +4174,30 @@ class ApplicationGatewayRewriteRuleActionSetArgs:
     def url_configuration(self, value: Optional[pulumi.Input['ApplicationGatewayUrlConfigurationArgs']]):
         pulumi.set(self, "url_configuration", value)
 
+
+if not MYPY:
+    class ApplicationGatewayRewriteRuleConditionArgsDict(TypedDict):
+        """
+        Set of conditions in the Rewrite Rule in Application Gateway.
+        """
+        ignore_case: NotRequired[pulumi.Input[bool]]
+        """
+        Setting this parameter to truth value with force the pattern to do a case in-sensitive comparison.
+        """
+        negate: NotRequired[pulumi.Input[bool]]
+        """
+        Setting this value as truth will force to check the negation of the condition given by the user.
+        """
+        pattern: NotRequired[pulumi.Input[str]]
+        """
+        The pattern, either fixed string or regular expression, that evaluates the truthfulness of the condition.
+        """
+        variable: NotRequired[pulumi.Input[str]]
+        """
+        The condition parameter of the RewriteRuleCondition.
+        """
+elif False:
+    ApplicationGatewayRewriteRuleConditionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApplicationGatewayRewriteRuleConditionArgs:
@@ -3095,6 +4271,26 @@ class ApplicationGatewayRewriteRuleConditionArgs:
         pulumi.set(self, "variable", value)
 
 
+if not MYPY:
+    class ApplicationGatewayRewriteRuleSetArgsDict(TypedDict):
+        """
+        Rewrite rule set of an application gateway.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the rewrite rule set that is unique within an Application Gateway.
+        """
+        rewrite_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleArgsDict']]]]
+        """
+        Rewrite rules in the rewrite rule set.
+        """
+elif False:
+    ApplicationGatewayRewriteRuleSetArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ApplicationGatewayRewriteRuleSetArgs:
     def __init__(__self__, *,
@@ -3150,6 +4346,30 @@ class ApplicationGatewayRewriteRuleSetArgs:
     def rewrite_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleArgs']]]]):
         pulumi.set(self, "rewrite_rules", value)
 
+
+if not MYPY:
+    class ApplicationGatewayRewriteRuleArgsDict(TypedDict):
+        """
+        Rewrite rule of an application gateway.
+        """
+        action_set: NotRequired[pulumi.Input['ApplicationGatewayRewriteRuleActionSetArgsDict']]
+        """
+        Set of actions to be done as part of the rewrite Rule.
+        """
+        conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleConditionArgsDict']]]]
+        """
+        Conditions based on which the action set execution will be evaluated.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the rewrite rule that is unique within an Application Gateway.
+        """
+        rule_sequence: NotRequired[pulumi.Input[int]]
+        """
+        Rule Sequence of the rewrite rule that determines the order of execution of a particular rule in a RewriteRuleSet.
+        """
+elif False:
+    ApplicationGatewayRewriteRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApplicationGatewayRewriteRuleArgs:
@@ -3222,6 +4442,42 @@ class ApplicationGatewayRewriteRuleArgs:
     def rule_sequence(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "rule_sequence", value)
 
+
+if not MYPY:
+    class ApplicationGatewayRoutingRuleArgsDict(TypedDict):
+        """
+        Routing rule of an application gateway.
+        """
+        priority: pulumi.Input[int]
+        """
+        Priority of the routing rule.
+        """
+        backend_address_pool: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        """
+        Backend address pool resource of the application gateway.
+        """
+        backend_settings: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        """
+        Backend settings resource of the application gateway.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        listener: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        """
+        Listener resource of the application gateway.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the routing rule that is unique within an Application Gateway.
+        """
+        rule_type: NotRequired[pulumi.Input[Union[str, 'ApplicationGatewayRequestRoutingRuleType']]]
+        """
+        Rule type.
+        """
+elif False:
+    ApplicationGatewayRoutingRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApplicationGatewayRoutingRuleArgs:
@@ -3342,6 +4598,26 @@ class ApplicationGatewayRoutingRuleArgs:
         pulumi.set(self, "rule_type", value)
 
 
+if not MYPY:
+    class ApplicationGatewaySkuArgsDict(TypedDict):
+        """
+        SKU of an application gateway.
+        """
+        capacity: NotRequired[pulumi.Input[int]]
+        """
+        Capacity (instance count) of an application gateway.
+        """
+        name: NotRequired[pulumi.Input[Union[str, 'ApplicationGatewaySkuName']]]
+        """
+        Name of an application gateway SKU.
+        """
+        tier: NotRequired[pulumi.Input[Union[str, 'ApplicationGatewayTier']]]
+        """
+        Tier of an application gateway.
+        """
+elif False:
+    ApplicationGatewaySkuArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ApplicationGatewaySkuArgs:
     def __init__(__self__, *,
@@ -3397,6 +4673,34 @@ class ApplicationGatewaySkuArgs:
     def tier(self, value: Optional[pulumi.Input[Union[str, 'ApplicationGatewayTier']]]):
         pulumi.set(self, "tier", value)
 
+
+if not MYPY:
+    class ApplicationGatewaySslCertificateArgsDict(TypedDict):
+        """
+        SSL certificates of an application gateway.
+        """
+        data: NotRequired[pulumi.Input[str]]
+        """
+        Base-64 encoded pfx certificate. Only applicable in PUT Request.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        key_vault_secret_id: NotRequired[pulumi.Input[str]]
+        """
+        Secret Id of (base-64 encoded unencrypted pfx) 'Secret' or 'Certificate' object stored in KeyVault.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the SSL certificate that is unique within an Application Gateway.
+        """
+        password: NotRequired[pulumi.Input[str]]
+        """
+        Password for the pfx file specified in data. Only applicable in PUT request.
+        """
+elif False:
+    ApplicationGatewaySslCertificateArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApplicationGatewaySslCertificateArgs:
@@ -3486,6 +4790,34 @@ class ApplicationGatewaySslCertificateArgs:
         pulumi.set(self, "password", value)
 
 
+if not MYPY:
+    class ApplicationGatewaySslPolicyArgsDict(TypedDict):
+        """
+        Application Gateway Ssl policy.
+        """
+        cipher_suites: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'ApplicationGatewaySslCipherSuite']]]]]
+        """
+        Ssl cipher suites to be enabled in the specified order to application gateway.
+        """
+        disabled_ssl_protocols: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'ApplicationGatewaySslProtocol']]]]]
+        """
+        Ssl protocols to be disabled on application gateway.
+        """
+        min_protocol_version: NotRequired[pulumi.Input[Union[str, 'ApplicationGatewaySslProtocol']]]
+        """
+        Minimum version of Ssl protocol to be supported on application gateway.
+        """
+        policy_name: NotRequired[pulumi.Input[Union[str, 'ApplicationGatewaySslPolicyName']]]
+        """
+        Name of Ssl predefined policy.
+        """
+        policy_type: NotRequired[pulumi.Input[Union[str, 'ApplicationGatewaySslPolicyType']]]
+        """
+        Type of Ssl Policy.
+        """
+elif False:
+    ApplicationGatewaySslPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ApplicationGatewaySslPolicyArgs:
     def __init__(__self__, *,
@@ -3573,6 +4905,34 @@ class ApplicationGatewaySslPolicyArgs:
     def policy_type(self, value: Optional[pulumi.Input[Union[str, 'ApplicationGatewaySslPolicyType']]]):
         pulumi.set(self, "policy_type", value)
 
+
+if not MYPY:
+    class ApplicationGatewaySslProfileArgsDict(TypedDict):
+        """
+        SSL profile of an application gateway.
+        """
+        client_auth_configuration: NotRequired[pulumi.Input['ApplicationGatewayClientAuthConfigurationArgsDict']]
+        """
+        Client authentication configuration of the application gateway resource.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the SSL profile that is unique within an Application Gateway.
+        """
+        ssl_policy: NotRequired[pulumi.Input['ApplicationGatewaySslPolicyArgsDict']]
+        """
+        SSL policy of the application gateway resource.
+        """
+        trusted_client_certificates: NotRequired[pulumi.Input[Sequence[pulumi.Input['SubResourceArgsDict']]]]
+        """
+        Array of references to application gateway trusted client certificates.
+        """
+elif False:
+    ApplicationGatewaySslProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApplicationGatewaySslProfileArgs:
@@ -3662,6 +5022,26 @@ class ApplicationGatewaySslProfileArgs:
         pulumi.set(self, "trusted_client_certificates", value)
 
 
+if not MYPY:
+    class ApplicationGatewayTrustedClientCertificateArgsDict(TypedDict):
+        """
+        Trusted client certificates of an application gateway.
+        """
+        data: NotRequired[pulumi.Input[str]]
+        """
+        Certificate public data.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the trusted client certificate that is unique within an Application Gateway.
+        """
+elif False:
+    ApplicationGatewayTrustedClientCertificateArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ApplicationGatewayTrustedClientCertificateArgs:
     def __init__(__self__, *,
@@ -3717,6 +5097,30 @@ class ApplicationGatewayTrustedClientCertificateArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class ApplicationGatewayTrustedRootCertificateArgsDict(TypedDict):
+        """
+        Trusted Root certificates of an application gateway.
+        """
+        data: NotRequired[pulumi.Input[str]]
+        """
+        Certificate public data.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        key_vault_secret_id: NotRequired[pulumi.Input[str]]
+        """
+        Secret Id of (base-64 encoded unencrypted pfx) 'Secret' or 'Certificate' object stored in KeyVault.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the trusted root certificate that is unique within an Application Gateway.
+        """
+elif False:
+    ApplicationGatewayTrustedRootCertificateArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApplicationGatewayTrustedRootCertificateArgs:
@@ -3790,6 +5194,26 @@ class ApplicationGatewayTrustedRootCertificateArgs:
         pulumi.set(self, "name", value)
 
 
+if not MYPY:
+    class ApplicationGatewayUrlConfigurationArgsDict(TypedDict):
+        """
+        Url configuration of the Actions set in Application Gateway.
+        """
+        modified_path: NotRequired[pulumi.Input[str]]
+        """
+        Url path which user has provided for url rewrite. Null means no path will be updated. Default value is null.
+        """
+        modified_query_string: NotRequired[pulumi.Input[str]]
+        """
+        Query string which user has provided for url rewrite. Null means no query string will be updated. Default value is null.
+        """
+        reroute: NotRequired[pulumi.Input[bool]]
+        """
+        If set as true, it will re-evaluate the url path map provided in path based request routing rules using modified path. Default value is false.
+        """
+elif False:
+    ApplicationGatewayUrlConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ApplicationGatewayUrlConfigurationArgs:
     def __init__(__self__, *,
@@ -3845,6 +5269,46 @@ class ApplicationGatewayUrlConfigurationArgs:
     def reroute(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "reroute", value)
 
+
+if not MYPY:
+    class ApplicationGatewayUrlPathMapArgsDict(TypedDict):
+        """
+        UrlPathMaps give a url path to the backend mapping information for PathBasedRouting.
+        """
+        default_backend_address_pool: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        """
+        Default backend address pool resource of URL path map.
+        """
+        default_backend_http_settings: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        """
+        Default backend http settings resource of URL path map.
+        """
+        default_load_distribution_policy: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        """
+        Default Load Distribution Policy resource of URL path map.
+        """
+        default_redirect_configuration: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        """
+        Default redirect configuration resource of URL path map.
+        """
+        default_rewrite_rule_set: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        """
+        Default Rewrite rule set resource of URL path map.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the URL path map that is unique within an Application Gateway.
+        """
+        path_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayPathRuleArgsDict']]]]
+        """
+        Path rule of URL path map resource.
+        """
+elif False:
+    ApplicationGatewayUrlPathMapArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApplicationGatewayUrlPathMapArgs:
@@ -3981,6 +5445,54 @@ class ApplicationGatewayUrlPathMapArgs:
     def path_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayPathRuleArgs']]]]):
         pulumi.set(self, "path_rules", value)
 
+
+if not MYPY:
+    class ApplicationGatewayWebApplicationFirewallConfigurationArgsDict(TypedDict):
+        """
+        Application gateway web application firewall configuration.
+        """
+        enabled: pulumi.Input[bool]
+        """
+        Whether the web application firewall is enabled or not.
+        """
+        firewall_mode: pulumi.Input[Union[str, 'ApplicationGatewayFirewallMode']]
+        """
+        Web application firewall mode.
+        """
+        rule_set_type: pulumi.Input[str]
+        """
+        The type of the web application firewall rule set. Possible values are: 'OWASP'.
+        """
+        rule_set_version: pulumi.Input[str]
+        """
+        The version of the rule set type.
+        """
+        disabled_rule_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayFirewallDisabledRuleGroupArgsDict']]]]
+        """
+        The disabled rule groups.
+        """
+        exclusions: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayFirewallExclusionArgsDict']]]]
+        """
+        The exclusion list.
+        """
+        file_upload_limit_in_mb: NotRequired[pulumi.Input[int]]
+        """
+        Maximum file upload size in Mb for WAF.
+        """
+        max_request_body_size: NotRequired[pulumi.Input[int]]
+        """
+        Maximum request body size for WAF.
+        """
+        max_request_body_size_in_kb: NotRequired[pulumi.Input[int]]
+        """
+        Maximum request body size in Kb for WAF.
+        """
+        request_body_check: NotRequired[pulumi.Input[bool]]
+        """
+        Whether allow WAF to check request Body.
+        """
+elif False:
+    ApplicationGatewayWebApplicationFirewallConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApplicationGatewayWebApplicationFirewallConfigurationArgs:
@@ -4145,6 +5657,67 @@ class ApplicationGatewayWebApplicationFirewallConfigurationArgs:
     def request_body_check(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "request_body_check", value)
 
+
+if not MYPY:
+    class ApplicationRuleArgsDict(TypedDict):
+        """
+        Rule of type application.
+        """
+        rule_type: pulumi.Input[str]
+        """
+        Rule Type.
+        Expected value is 'ApplicationRule'.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Description of the rule.
+        """
+        destination_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of destination IP addresses or Service Tags.
+        """
+        fqdn_tags: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of FQDN Tags for this rule.
+        """
+        http_headers_to_insert: NotRequired[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyHttpHeaderToInsertArgsDict']]]]
+        """
+        List of HTTP/S headers to insert.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the rule.
+        """
+        protocols: NotRequired[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleApplicationProtocolArgsDict']]]]
+        """
+        Array of Application Protocols.
+        """
+        source_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of source IP addresses for this rule.
+        """
+        source_ip_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of source IpGroups for this rule.
+        """
+        target_fqdns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of FQDNs for this rule.
+        """
+        target_urls: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of Urls for this rule condition.
+        """
+        terminate_tls: NotRequired[pulumi.Input[bool]]
+        """
+        Terminate TLS connections for this rule.
+        """
+        web_categories: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of destination azure web categories.
+        """
+elif False:
+    ApplicationRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApplicationRuleArgs:
@@ -4363,6 +5936,26 @@ class ApplicationRuleArgs:
         pulumi.set(self, "web_categories", value)
 
 
+if not MYPY:
+    class ApplicationSecurityGroupArgsDict(TypedDict):
+        """
+        An application security group in a resource group.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        location: NotRequired[pulumi.Input[str]]
+        """
+        Resource location.
+        """
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Resource tags.
+        """
+elif False:
+    ApplicationSecurityGroupArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ApplicationSecurityGroupArgs:
     def __init__(__self__, *,
@@ -4418,6 +6011,34 @@ class ApplicationSecurityGroupArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+
+if not MYPY:
+    class AzureFirewallApplicationRuleCollectionArgsDict(TypedDict):
+        """
+        Application rule collection resource.
+        """
+        action: NotRequired[pulumi.Input['AzureFirewallRCActionArgsDict']]
+        """
+        The action type of a rule collection.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the resource that is unique within the Azure firewall. This name can be used to access the resource.
+        """
+        priority: NotRequired[pulumi.Input[int]]
+        """
+        Priority of the application rule collection resource.
+        """
+        rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['AzureFirewallApplicationRuleArgsDict']]]]
+        """
+        Collection of rules used by a application rule collection.
+        """
+elif False:
+    AzureFirewallApplicationRuleCollectionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AzureFirewallApplicationRuleCollectionArgs:
@@ -4507,6 +6128,22 @@ class AzureFirewallApplicationRuleCollectionArgs:
         pulumi.set(self, "rules", value)
 
 
+if not MYPY:
+    class AzureFirewallApplicationRuleProtocolArgsDict(TypedDict):
+        """
+        Properties of the application rule protocol.
+        """
+        port: NotRequired[pulumi.Input[int]]
+        """
+        Port number for the protocol, cannot be greater than 64000. This field is optional.
+        """
+        protocol_type: NotRequired[pulumi.Input[Union[str, 'AzureFirewallApplicationRuleProtocolType']]]
+        """
+        Protocol type.
+        """
+elif False:
+    AzureFirewallApplicationRuleProtocolArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AzureFirewallApplicationRuleProtocolArgs:
     def __init__(__self__, *,
@@ -4546,6 +6183,42 @@ class AzureFirewallApplicationRuleProtocolArgs:
     def protocol_type(self, value: Optional[pulumi.Input[Union[str, 'AzureFirewallApplicationRuleProtocolType']]]):
         pulumi.set(self, "protocol_type", value)
 
+
+if not MYPY:
+    class AzureFirewallApplicationRuleArgsDict(TypedDict):
+        """
+        Properties of an application rule.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Description of the rule.
+        """
+        fqdn_tags: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of FQDN Tags for this rule.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the application rule.
+        """
+        protocols: NotRequired[pulumi.Input[Sequence[pulumi.Input['AzureFirewallApplicationRuleProtocolArgsDict']]]]
+        """
+        Array of ApplicationRuleProtocols.
+        """
+        source_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of source IP addresses for this rule.
+        """
+        source_ip_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of source IpGroups for this rule.
+        """
+        target_fqdns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of FQDNs for this rule.
+        """
+elif False:
+    AzureFirewallApplicationRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AzureFirewallApplicationRuleArgs:
@@ -4667,6 +6340,30 @@ class AzureFirewallApplicationRuleArgs:
         pulumi.set(self, "target_fqdns", value)
 
 
+if not MYPY:
+    class AzureFirewallIPConfigurationArgsDict(TypedDict):
+        """
+        IP configuration of an Azure Firewall.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+        public_ip_address: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        """
+        Reference to the PublicIP resource. This field is a mandatory input if subnet is not null.
+        """
+        subnet: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        """
+        Reference to the subnet resource. This resource must be named 'AzureFirewallSubnet' or 'AzureFirewallManagementSubnet'.
+        """
+elif False:
+    AzureFirewallIPConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AzureFirewallIPConfigurationArgs:
     def __init__(__self__, *,
@@ -4739,6 +6436,18 @@ class AzureFirewallIPConfigurationArgs:
         pulumi.set(self, "subnet", value)
 
 
+if not MYPY:
+    class AzureFirewallNatRCActionArgsDict(TypedDict):
+        """
+        AzureFirewall NAT Rule Collection Action.
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'AzureFirewallNatRCActionType']]]
+        """
+        The type of action.
+        """
+elif False:
+    AzureFirewallNatRCActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AzureFirewallNatRCActionArgs:
     def __init__(__self__, *,
@@ -4762,6 +6471,34 @@ class AzureFirewallNatRCActionArgs:
     def type(self, value: Optional[pulumi.Input[Union[str, 'AzureFirewallNatRCActionType']]]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class AzureFirewallNatRuleCollectionArgsDict(TypedDict):
+        """
+        NAT rule collection resource.
+        """
+        action: NotRequired[pulumi.Input['AzureFirewallNatRCActionArgsDict']]
+        """
+        The action type of a NAT rule collection.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the resource that is unique within the Azure firewall. This name can be used to access the resource.
+        """
+        priority: NotRequired[pulumi.Input[int]]
+        """
+        Priority of the NAT rule collection resource.
+        """
+        rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['AzureFirewallNatRuleArgsDict']]]]
+        """
+        Collection of rules used by a NAT rule collection.
+        """
+elif False:
+    AzureFirewallNatRuleCollectionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AzureFirewallNatRuleCollectionArgs:
@@ -4850,6 +6587,54 @@ class AzureFirewallNatRuleCollectionArgs:
     def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AzureFirewallNatRuleArgs']]]]):
         pulumi.set(self, "rules", value)
 
+
+if not MYPY:
+    class AzureFirewallNatRuleArgsDict(TypedDict):
+        """
+        Properties of a NAT rule.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Description of the rule.
+        """
+        destination_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of destination IP addresses for this rule. Supports IP ranges, prefixes, and service tags.
+        """
+        destination_ports: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of destination ports.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the NAT rule.
+        """
+        protocols: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AzureFirewallNetworkRuleProtocol']]]]]
+        """
+        Array of AzureFirewallNetworkRuleProtocols applicable to this NAT rule.
+        """
+        source_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of source IP addresses for this rule.
+        """
+        source_ip_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of source IpGroups for this rule.
+        """
+        translated_address: NotRequired[pulumi.Input[str]]
+        """
+        The translated address for this NAT rule.
+        """
+        translated_fqdn: NotRequired[pulumi.Input[str]]
+        """
+        The translated FQDN for this NAT rule.
+        """
+        translated_port: NotRequired[pulumi.Input[str]]
+        """
+        The translated port for this NAT rule.
+        """
+elif False:
+    AzureFirewallNatRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AzureFirewallNatRuleArgs:
@@ -5019,6 +6804,34 @@ class AzureFirewallNatRuleArgs:
         pulumi.set(self, "translated_port", value)
 
 
+if not MYPY:
+    class AzureFirewallNetworkRuleCollectionArgsDict(TypedDict):
+        """
+        Network rule collection resource.
+        """
+        action: NotRequired[pulumi.Input['AzureFirewallRCActionArgsDict']]
+        """
+        The action type of a rule collection.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the resource that is unique within the Azure firewall. This name can be used to access the resource.
+        """
+        priority: NotRequired[pulumi.Input[int]]
+        """
+        Priority of the network rule collection resource.
+        """
+        rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['AzureFirewallNetworkRuleArgsDict']]]]
+        """
+        Collection of rules used by a network rule collection.
+        """
+elif False:
+    AzureFirewallNetworkRuleCollectionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AzureFirewallNetworkRuleCollectionArgs:
     def __init__(__self__, *,
@@ -5106,6 +6919,50 @@ class AzureFirewallNetworkRuleCollectionArgs:
     def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AzureFirewallNetworkRuleArgs']]]]):
         pulumi.set(self, "rules", value)
 
+
+if not MYPY:
+    class AzureFirewallNetworkRuleArgsDict(TypedDict):
+        """
+        Properties of the network rule.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Description of the rule.
+        """
+        destination_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of destination IP addresses.
+        """
+        destination_fqdns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of destination FQDNs.
+        """
+        destination_ip_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of destination IpGroups for this rule.
+        """
+        destination_ports: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of destination ports.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the network rule.
+        """
+        protocols: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AzureFirewallNetworkRuleProtocol']]]]]
+        """
+        Array of AzureFirewallNetworkRuleProtocols.
+        """
+        source_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of source IP addresses for this rule.
+        """
+        source_ip_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of source IpGroups for this rule.
+        """
+elif False:
+    AzureFirewallNetworkRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AzureFirewallNetworkRuleArgs:
@@ -5259,6 +7116,18 @@ class AzureFirewallNetworkRuleArgs:
         pulumi.set(self, "source_ip_groups", value)
 
 
+if not MYPY:
+    class AzureFirewallPublicIPAddressArgsDict(TypedDict):
+        """
+        Public IP Address associated with azure firewall.
+        """
+        address: NotRequired[pulumi.Input[str]]
+        """
+        Public IP Address value.
+        """
+elif False:
+    AzureFirewallPublicIPAddressArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AzureFirewallPublicIPAddressArgs:
     def __init__(__self__, *,
@@ -5283,6 +7152,18 @@ class AzureFirewallPublicIPAddressArgs:
         pulumi.set(self, "address", value)
 
 
+if not MYPY:
+    class AzureFirewallRCActionArgsDict(TypedDict):
+        """
+        Properties of the AzureFirewallRCAction.
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'AzureFirewallRCActionType']]]
+        """
+        The type of action.
+        """
+elif False:
+    AzureFirewallRCActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AzureFirewallRCActionArgs:
     def __init__(__self__, *,
@@ -5306,6 +7187,22 @@ class AzureFirewallRCActionArgs:
     def type(self, value: Optional[pulumi.Input[Union[str, 'AzureFirewallRCActionType']]]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class AzureFirewallSkuArgsDict(TypedDict):
+        """
+        SKU of an Azure Firewall.
+        """
+        name: NotRequired[pulumi.Input[Union[str, 'AzureFirewallSkuName']]]
+        """
+        Name of an Azure Firewall SKU.
+        """
+        tier: NotRequired[pulumi.Input[Union[str, 'AzureFirewallSkuTier']]]
+        """
+        Tier of an Azure Firewall.
+        """
+elif False:
+    AzureFirewallSkuArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AzureFirewallSkuArgs:
@@ -5346,6 +7243,42 @@ class AzureFirewallSkuArgs:
     def tier(self, value: Optional[pulumi.Input[Union[str, 'AzureFirewallSkuTier']]]):
         pulumi.set(self, "tier", value)
 
+
+if not MYPY:
+    class BackendAddressPoolArgsDict(TypedDict):
+        """
+        Pool of backend IP addresses.
+        """
+        drain_period_in_seconds: NotRequired[pulumi.Input[int]]
+        """
+        Amount of seconds Load Balancer waits for before sending RESET to client and backend address.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        load_balancer_backend_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input['LoadBalancerBackendAddressArgsDict']]]]
+        """
+        An array of backend addresses.
+        """
+        location: NotRequired[pulumi.Input[str]]
+        """
+        The location of the backend address pool.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the resource that is unique within the set of backend address pools used by the load balancer. This name can be used to access the resource.
+        """
+        tunnel_interfaces: NotRequired[pulumi.Input[Sequence[pulumi.Input['GatewayLoadBalancerTunnelInterfaceArgsDict']]]]
+        """
+        An array of gateway load balancer tunnel interfaces.
+        """
+        virtual_network: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        """
+        A reference to a virtual network.
+        """
+elif False:
+    BackendAddressPoolArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class BackendAddressPoolArgs:
@@ -5467,6 +7400,34 @@ class BackendAddressPoolArgs:
         pulumi.set(self, "virtual_network", value)
 
 
+if not MYPY:
+    class BastionHostIPConfigurationArgsDict(TypedDict):
+        """
+        IP configuration of an Bastion Host.
+        """
+        public_ip_address: pulumi.Input['SubResourceArgsDict']
+        """
+        Reference of the PublicIP resource.
+        """
+        subnet: pulumi.Input['SubResourceArgsDict']
+        """
+        Reference of the subnet resource.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+        private_ip_allocation_method: NotRequired[pulumi.Input[Union[str, 'IPAllocationMethod']]]
+        """
+        Private IP allocation method.
+        """
+elif False:
+    BastionHostIPConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class BastionHostIPConfigurationArgs:
     def __init__(__self__, *,
@@ -5553,6 +7514,18 @@ class BastionHostIPConfigurationArgs:
         pulumi.set(self, "private_ip_allocation_method", value)
 
 
+if not MYPY:
+    class BastionShareableLinkDict(TypedDict):
+        """
+        Bastion Shareable Link.
+        """
+        vm: 'VMDict'
+        """
+        Reference of the virtual machine resource.
+        """
+elif False:
+    BastionShareableLinkDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class BastionShareableLink:
     def __init__(__self__, *,
@@ -5575,6 +7548,30 @@ class BastionShareableLink:
     def vm(self, value: 'VM'):
         pulumi.set(self, "vm", value)
 
+
+if not MYPY:
+    class BgpSettingsArgsDict(TypedDict):
+        """
+        BGP settings details.
+        """
+        asn: NotRequired[pulumi.Input[float]]
+        """
+        The BGP speaker's ASN.
+        """
+        bgp_peering_address: NotRequired[pulumi.Input[str]]
+        """
+        The BGP peering address and BGP identifier of this BGP speaker.
+        """
+        bgp_peering_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input['IPConfigurationBgpPeeringAddressArgsDict']]]]
+        """
+        BGP peering address with IP configuration ID for virtual network gateway.
+        """
+        peer_weight: NotRequired[pulumi.Input[int]]
+        """
+        The weight added to routes learned from this BGP speaker.
+        """
+elif False:
+    BgpSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class BgpSettingsArgs:
@@ -5648,6 +7645,26 @@ class BgpSettingsArgs:
         pulumi.set(self, "peer_weight", value)
 
 
+if not MYPY:
+    class BreakOutCategoryPoliciesArgsDict(TypedDict):
+        """
+        Network Virtual Appliance Sku Properties.
+        """
+        allow: NotRequired[pulumi.Input[bool]]
+        """
+        Flag to control breakout of o365 allow category.
+        """
+        default: NotRequired[pulumi.Input[bool]]
+        """
+        Flag to control breakout of o365 default category.
+        """
+        optimize: NotRequired[pulumi.Input[bool]]
+        """
+        Flag to control breakout of o365 optimize category.
+        """
+elif False:
+    BreakOutCategoryPoliciesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class BreakOutCategoryPoliciesArgs:
     def __init__(__self__, *,
@@ -5703,6 +7720,26 @@ class BreakOutCategoryPoliciesArgs:
     def optimize(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "optimize", value)
 
+
+if not MYPY:
+    class ConnectionMonitorDestinationArgsDict(TypedDict):
+        """
+        Describes the destination of connection monitor.
+        """
+        address: NotRequired[pulumi.Input[str]]
+        """
+        Address of the connection monitor destination (IP or domain name).
+        """
+        port: NotRequired[pulumi.Input[int]]
+        """
+        The destination port used by connection monitor.
+        """
+        resource_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the resource used as the destination by connection monitor.
+        """
+elif False:
+    ConnectionMonitorDestinationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ConnectionMonitorDestinationArgs:
@@ -5760,6 +7797,22 @@ class ConnectionMonitorDestinationArgs:
         pulumi.set(self, "resource_id", value)
 
 
+if not MYPY:
+    class ConnectionMonitorEndpointFilterItemArgsDict(TypedDict):
+        """
+        Describes the connection monitor endpoint filter item.
+        """
+        address: NotRequired[pulumi.Input[str]]
+        """
+        The address of the filter item.
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'ConnectionMonitorEndpointFilterItemType']]]
+        """
+        The type of item included in the filter. Currently only 'AgentAddress' is supported.
+        """
+elif False:
+    ConnectionMonitorEndpointFilterItemArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ConnectionMonitorEndpointFilterItemArgs:
     def __init__(__self__, *,
@@ -5799,6 +7852,22 @@ class ConnectionMonitorEndpointFilterItemArgs:
     def type(self, value: Optional[pulumi.Input[Union[str, 'ConnectionMonitorEndpointFilterItemType']]]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class ConnectionMonitorEndpointFilterArgsDict(TypedDict):
+        """
+        Describes the connection monitor endpoint filter.
+        """
+        items: NotRequired[pulumi.Input[Sequence[pulumi.Input['ConnectionMonitorEndpointFilterItemArgsDict']]]]
+        """
+        List of items in the filter.
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'ConnectionMonitorEndpointFilterType']]]
+        """
+        The behavior of the endpoint filter. Currently only 'Include' is supported.
+        """
+elif False:
+    ConnectionMonitorEndpointFilterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ConnectionMonitorEndpointFilterArgs:
@@ -5840,6 +7909,18 @@ class ConnectionMonitorEndpointFilterArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class ConnectionMonitorEndpointScopeItemArgsDict(TypedDict):
+        """
+        Describes the connection monitor endpoint scope item.
+        """
+        address: NotRequired[pulumi.Input[str]]
+        """
+        The address of the endpoint item. Supported types are IPv4/IPv6 subnet mask or IPv4/IPv6 IP address.
+        """
+elif False:
+    ConnectionMonitorEndpointScopeItemArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ConnectionMonitorEndpointScopeItemArgs:
     def __init__(__self__, *,
@@ -5863,6 +7944,22 @@ class ConnectionMonitorEndpointScopeItemArgs:
     def address(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "address", value)
 
+
+if not MYPY:
+    class ConnectionMonitorEndpointScopeArgsDict(TypedDict):
+        """
+        Describes the connection monitor endpoint scope.
+        """
+        exclude: NotRequired[pulumi.Input[Sequence[pulumi.Input['ConnectionMonitorEndpointScopeItemArgsDict']]]]
+        """
+        List of items which needs to be excluded from the endpoint scope.
+        """
+        include: NotRequired[pulumi.Input[Sequence[pulumi.Input['ConnectionMonitorEndpointScopeItemArgsDict']]]]
+        """
+        List of items which needs to be included to the endpoint scope.
+        """
+elif False:
+    ConnectionMonitorEndpointScopeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ConnectionMonitorEndpointScopeArgs:
@@ -5903,6 +8000,42 @@ class ConnectionMonitorEndpointScopeArgs:
     def include(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectionMonitorEndpointScopeItemArgs']]]]):
         pulumi.set(self, "include", value)
 
+
+if not MYPY:
+    class ConnectionMonitorEndpointArgsDict(TypedDict):
+        """
+        Describes the connection monitor endpoint.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the connection monitor endpoint.
+        """
+        address: NotRequired[pulumi.Input[str]]
+        """
+        Address of the connection monitor endpoint (IP or domain name).
+        """
+        coverage_level: NotRequired[pulumi.Input[Union[str, 'CoverageLevel']]]
+        """
+        Test coverage for the endpoint.
+        """
+        filter: NotRequired[pulumi.Input['ConnectionMonitorEndpointFilterArgsDict']]
+        """
+        Filter for sub-items within the endpoint.
+        """
+        resource_id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID of the connection monitor endpoint.
+        """
+        scope: NotRequired[pulumi.Input['ConnectionMonitorEndpointScopeArgsDict']]
+        """
+        Endpoint scope.
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'EndpointType']]]
+        """
+        The endpoint type.
+        """
+elif False:
+    ConnectionMonitorEndpointArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ConnectionMonitorEndpointArgs:
@@ -6023,6 +8156,38 @@ class ConnectionMonitorEndpointArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class ConnectionMonitorHttpConfigurationArgsDict(TypedDict):
+        """
+        Describes the HTTP configuration.
+        """
+        method: NotRequired[pulumi.Input[Union[str, 'HTTPConfigurationMethod']]]
+        """
+        The HTTP method to use.
+        """
+        path: NotRequired[pulumi.Input[str]]
+        """
+        The path component of the URI. For instance, "/dir1/dir2".
+        """
+        port: NotRequired[pulumi.Input[int]]
+        """
+        The port to connect to.
+        """
+        prefer_https: NotRequired[pulumi.Input[bool]]
+        """
+        Value indicating whether HTTPS is preferred over HTTP in cases where the choice is not explicit.
+        """
+        request_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['HTTPHeaderArgsDict']]]]
+        """
+        The HTTP headers to transmit with the request.
+        """
+        valid_status_code_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        HTTP status codes to consider successful. For instance, "2xx,301-304,418".
+        """
+elif False:
+    ConnectionMonitorHttpConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ConnectionMonitorHttpConfigurationArgs:
     def __init__(__self__, *,
@@ -6127,6 +8292,18 @@ class ConnectionMonitorHttpConfigurationArgs:
         pulumi.set(self, "valid_status_code_ranges", value)
 
 
+if not MYPY:
+    class ConnectionMonitorIcmpConfigurationArgsDict(TypedDict):
+        """
+        Describes the ICMP configuration.
+        """
+        disable_trace_route: NotRequired[pulumi.Input[bool]]
+        """
+        Value indicating whether path evaluation with trace route should be disabled.
+        """
+elif False:
+    ConnectionMonitorIcmpConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ConnectionMonitorIcmpConfigurationArgs:
     def __init__(__self__, *,
@@ -6150,6 +8327,22 @@ class ConnectionMonitorIcmpConfigurationArgs:
     def disable_trace_route(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "disable_trace_route", value)
 
+
+if not MYPY:
+    class ConnectionMonitorOutputArgsDict(TypedDict):
+        """
+        Describes a connection monitor output destination.
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'OutputType']]]
+        """
+        Connection monitor output destination type. Currently, only "Workspace" is supported.
+        """
+        workspace_settings: NotRequired[pulumi.Input['ConnectionMonitorWorkspaceSettingsArgsDict']]
+        """
+        Describes the settings for producing output into a log analytics workspace.
+        """
+elif False:
+    ConnectionMonitorOutputArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ConnectionMonitorOutputArgs:
@@ -6191,6 +8384,22 @@ class ConnectionMonitorOutputArgs:
         pulumi.set(self, "workspace_settings", value)
 
 
+if not MYPY:
+    class ConnectionMonitorSourceArgsDict(TypedDict):
+        """
+        Describes the source of connection monitor.
+        """
+        resource_id: pulumi.Input[str]
+        """
+        The ID of the resource used as the source by connection monitor.
+        """
+        port: NotRequired[pulumi.Input[int]]
+        """
+        The source port used by connection monitor.
+        """
+elif False:
+    ConnectionMonitorSourceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ConnectionMonitorSourceArgs:
     def __init__(__self__, *,
@@ -6229,6 +8438,22 @@ class ConnectionMonitorSourceArgs:
     def port(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "port", value)
 
+
+if not MYPY:
+    class ConnectionMonitorSuccessThresholdArgsDict(TypedDict):
+        """
+        Describes the threshold for declaring a test successful.
+        """
+        checks_failed_percent: NotRequired[pulumi.Input[int]]
+        """
+        The maximum percentage of failed checks permitted for a test to evaluate as successful.
+        """
+        round_trip_time_ms: NotRequired[pulumi.Input[float]]
+        """
+        The maximum round-trip time in milliseconds permitted for a test to evaluate as successful.
+        """
+elif False:
+    ConnectionMonitorSuccessThresholdArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ConnectionMonitorSuccessThresholdArgs:
@@ -6269,6 +8494,26 @@ class ConnectionMonitorSuccessThresholdArgs:
     def round_trip_time_ms(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "round_trip_time_ms", value)
 
+
+if not MYPY:
+    class ConnectionMonitorTcpConfigurationArgsDict(TypedDict):
+        """
+        Describes the TCP configuration.
+        """
+        destination_port_behavior: NotRequired[pulumi.Input[Union[str, 'DestinationPortBehavior']]]
+        """
+        Destination port behavior.
+        """
+        disable_trace_route: NotRequired[pulumi.Input[bool]]
+        """
+        Value indicating whether path evaluation with trace route should be disabled.
+        """
+        port: NotRequired[pulumi.Input[int]]
+        """
+        The port to connect to.
+        """
+elif False:
+    ConnectionMonitorTcpConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ConnectionMonitorTcpConfigurationArgs:
@@ -6325,6 +8570,46 @@ class ConnectionMonitorTcpConfigurationArgs:
     def port(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "port", value)
 
+
+if not MYPY:
+    class ConnectionMonitorTestConfigurationArgsDict(TypedDict):
+        """
+        Describes a connection monitor test configuration.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the connection monitor test configuration.
+        """
+        protocol: pulumi.Input[Union[str, 'ConnectionMonitorTestConfigurationProtocol']]
+        """
+        The protocol to use in test evaluation.
+        """
+        http_configuration: NotRequired[pulumi.Input['ConnectionMonitorHttpConfigurationArgsDict']]
+        """
+        The parameters used to perform test evaluation over HTTP.
+        """
+        icmp_configuration: NotRequired[pulumi.Input['ConnectionMonitorIcmpConfigurationArgsDict']]
+        """
+        The parameters used to perform test evaluation over ICMP.
+        """
+        preferred_ip_version: NotRequired[pulumi.Input[Union[str, 'PreferredIPVersion']]]
+        """
+        The preferred IP version to use in test evaluation. The connection monitor may choose to use a different version depending on other parameters.
+        """
+        success_threshold: NotRequired[pulumi.Input['ConnectionMonitorSuccessThresholdArgsDict']]
+        """
+        The threshold for declaring a test successful.
+        """
+        tcp_configuration: NotRequired[pulumi.Input['ConnectionMonitorTcpConfigurationArgsDict']]
+        """
+        The parameters used to perform test evaluation over TCP.
+        """
+        test_frequency_sec: NotRequired[pulumi.Input[int]]
+        """
+        The frequency of test evaluation, in seconds.
+        """
+elif False:
+    ConnectionMonitorTestConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ConnectionMonitorTestConfigurationArgs:
@@ -6460,6 +8745,34 @@ class ConnectionMonitorTestConfigurationArgs:
         pulumi.set(self, "test_frequency_sec", value)
 
 
+if not MYPY:
+    class ConnectionMonitorTestGroupArgsDict(TypedDict):
+        """
+        Describes the connection monitor test group.
+        """
+        destinations: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        List of destination endpoint names.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the connection monitor test group.
+        """
+        sources: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        List of source endpoint names.
+        """
+        test_configurations: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        List of test configuration names.
+        """
+        disable: NotRequired[pulumi.Input[bool]]
+        """
+        Value indicating whether test group is disabled.
+        """
+elif False:
+    ConnectionMonitorTestGroupArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ConnectionMonitorTestGroupArgs:
     def __init__(__self__, *,
@@ -6544,6 +8857,18 @@ class ConnectionMonitorTestGroupArgs:
         pulumi.set(self, "disable", value)
 
 
+if not MYPY:
+    class ConnectionMonitorWorkspaceSettingsArgsDict(TypedDict):
+        """
+        Describes the settings for producing output into a log analytics workspace.
+        """
+        workspace_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        Log analytics workspace resource ID.
+        """
+elif False:
+    ConnectionMonitorWorkspaceSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ConnectionMonitorWorkspaceSettingsArgs:
     def __init__(__self__, *,
@@ -6567,6 +8892,30 @@ class ConnectionMonitorWorkspaceSettingsArgs:
     def workspace_resource_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "workspace_resource_id", value)
 
+
+if not MYPY:
+    class ConnectivityGroupItemArgsDict(TypedDict):
+        """
+        Connectivity group item.
+        """
+        group_connectivity: pulumi.Input[Union[str, 'GroupConnectivity']]
+        """
+        Group connectivity type.
+        """
+        network_group_id: pulumi.Input[str]
+        """
+        Network group Id.
+        """
+        is_global: NotRequired[pulumi.Input[Union[str, 'IsGlobal']]]
+        """
+        Flag if global is supported.
+        """
+        use_hub_gateway: NotRequired[pulumi.Input[Union[str, 'UseHubGateway']]]
+        """
+        Flag if need to use hub gateway.
+        """
+elif False:
+    ConnectivityGroupItemArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ConnectivityGroupItemArgs:
@@ -6637,6 +8986,30 @@ class ConnectivityGroupItemArgs:
     def use_hub_gateway(self, value: Optional[pulumi.Input[Union[str, 'UseHubGateway']]]):
         pulumi.set(self, "use_hub_gateway", value)
 
+
+if not MYPY:
+    class ContainerNetworkInterfaceConfigurationArgsDict(TypedDict):
+        """
+        Container network interface configuration child resource.
+        """
+        container_network_interfaces: NotRequired[pulumi.Input[Sequence[pulumi.Input['SubResourceArgsDict']]]]
+        """
+        A list of container network interfaces created from this container network interface configuration.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        ip_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['IPConfigurationProfileArgsDict']]]]
+        """
+        A list of ip configurations of the container network interface configuration.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the resource. This name can be used to access the resource.
+        """
+elif False:
+    ContainerNetworkInterfaceConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ContainerNetworkInterfaceConfigurationArgs:
@@ -6710,6 +9083,30 @@ class ContainerNetworkInterfaceConfigurationArgs:
         pulumi.set(self, "name", value)
 
 
+if not MYPY:
+    class CriterionArgsDict(TypedDict):
+        """
+        A matching criteria which matches routes based on route prefix, community, and AS path.
+        """
+        as_path: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of AS paths which this criteria matches.
+        """
+        community: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of BGP communities which this criteria matches.
+        """
+        match_condition: NotRequired[pulumi.Input[Union[str, 'RouteMapMatchCondition']]]
+        """
+        Match condition to apply RouteMap rules.
+        """
+        route_prefix: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of route prefixes which this criteria matches.
+        """
+elif False:
+    CriterionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CriterionArgs:
     def __init__(__self__, *,
@@ -6782,6 +9179,22 @@ class CriterionArgs:
         pulumi.set(self, "route_prefix", value)
 
 
+if not MYPY:
+    class CustomDnsConfigPropertiesFormatArgsDict(TypedDict):
+        """
+        Contains custom Dns resolution configuration from customer.
+        """
+        fqdn: NotRequired[pulumi.Input[str]]
+        """
+        Fqdn that resolves to private endpoint ip address.
+        """
+        ip_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of private ip addresses of the private endpoint.
+        """
+elif False:
+    CustomDnsConfigPropertiesFormatArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CustomDnsConfigPropertiesFormatArgs:
     def __init__(__self__, *,
@@ -6821,6 +9234,22 @@ class CustomDnsConfigPropertiesFormatArgs:
     def ip_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "ip_addresses", value)
 
+
+if not MYPY:
+    class DdosSettingsArgsDict(TypedDict):
+        """
+        Contains the DDoS protection settings of the public IP.
+        """
+        ddos_protection_plan: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        """
+        The DDoS protection plan associated with the public IP. Can only be set if ProtectionMode is Enabled
+        """
+        protection_mode: NotRequired[pulumi.Input[Union[str, 'DdosSettingsProtectionMode']]]
+        """
+        The DDoS protection mode of the public IP
+        """
+elif False:
+    DdosSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DdosSettingsArgs:
@@ -6862,6 +9291,18 @@ class DdosSettingsArgs:
         pulumi.set(self, "protection_mode", value)
 
 
+if not MYPY:
+    class DelegationPropertiesArgsDict(TypedDict):
+        """
+        Properties of the delegation.
+        """
+        service_name: NotRequired[pulumi.Input[str]]
+        """
+        The service name to which the NVA is delegated.
+        """
+elif False:
+    DelegationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DelegationPropertiesArgs:
     def __init__(__self__, *,
@@ -6885,6 +9326,30 @@ class DelegationPropertiesArgs:
     def service_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "service_name", value)
 
+
+if not MYPY:
+    class DelegationArgsDict(TypedDict):
+        """
+        Details the service to which the subnet is delegated.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the resource that is unique within a subnet. This name can be used to access the resource.
+        """
+        service_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the service to whom the subnet should be delegated (e.g. Microsoft.Sql/servers).
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        Resource type.
+        """
+elif False:
+    DelegationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DelegationArgs:
@@ -6958,6 +9423,26 @@ class DelegationArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class DevicePropertiesArgsDict(TypedDict):
+        """
+        List of properties of the device.
+        """
+        device_model: NotRequired[pulumi.Input[str]]
+        """
+        Model of the device.
+        """
+        device_vendor: NotRequired[pulumi.Input[str]]
+        """
+        Name of the device Vendor.
+        """
+        link_speed_in_mbps: NotRequired[pulumi.Input[int]]
+        """
+        Link speed.
+        """
+elif False:
+    DevicePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DevicePropertiesArgs:
     def __init__(__self__, *,
@@ -7014,6 +9499,18 @@ class DevicePropertiesArgs:
         pulumi.set(self, "link_speed_in_mbps", value)
 
 
+if not MYPY:
+    class DhcpOptionsArgsDict(TypedDict):
+        """
+        DhcpOptions contains an array of DNS servers available to VMs deployed in the virtual network. Standard DHCP option for a subnet overrides VNET DHCP options.
+        """
+        dns_servers: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of DNS servers IP addresses.
+        """
+elif False:
+    DhcpOptionsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DhcpOptionsArgs:
     def __init__(__self__, *,
@@ -7037,6 +9534,26 @@ class DhcpOptionsArgs:
     def dns_servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "dns_servers", value)
 
+
+if not MYPY:
+    class DnsSettingsArgsDict(TypedDict):
+        """
+        DNS Proxy Settings in Firewall Policy.
+        """
+        enable_proxy: NotRequired[pulumi.Input[bool]]
+        """
+        Enable DNS Proxy on Firewalls attached to the Firewall Policy.
+        """
+        require_proxy_for_network_rules: NotRequired[pulumi.Input[bool]]
+        """
+        FQDNs in Network Rules are supported when set to true.
+        """
+        servers: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of Custom DNS Servers.
+        """
+elif False:
+    DnsSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DnsSettingsArgs:
@@ -7094,6 +9611,22 @@ class DnsSettingsArgs:
         pulumi.set(self, "servers", value)
 
 
+if not MYPY:
+    class ExclusionManagedRuleGroupArgsDict(TypedDict):
+        """
+        Defines a managed rule group to use for exclusion.
+        """
+        rule_group_name: pulumi.Input[str]
+        """
+        The managed rule group for exclusion.
+        """
+        rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['ExclusionManagedRuleArgsDict']]]]
+        """
+        List of rules that will be excluded. If none specified, all rules in the group will be excluded.
+        """
+elif False:
+    ExclusionManagedRuleGroupArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ExclusionManagedRuleGroupArgs:
     def __init__(__self__, *,
@@ -7132,6 +9665,26 @@ class ExclusionManagedRuleGroupArgs:
     def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ExclusionManagedRuleArgs']]]]):
         pulumi.set(self, "rules", value)
 
+
+if not MYPY:
+    class ExclusionManagedRuleSetArgsDict(TypedDict):
+        """
+        Defines a managed rule set for Exclusions.
+        """
+        rule_set_type: pulumi.Input[str]
+        """
+        Defines the rule set type to use.
+        """
+        rule_set_version: pulumi.Input[str]
+        """
+        Defines the version of the rule set to use.
+        """
+        rule_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input['ExclusionManagedRuleGroupArgsDict']]]]
+        """
+        Defines the rule groups to apply to the rule set.
+        """
+elif False:
+    ExclusionManagedRuleSetArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ExclusionManagedRuleSetArgs:
@@ -7187,6 +9740,18 @@ class ExclusionManagedRuleSetArgs:
         pulumi.set(self, "rule_groups", value)
 
 
+if not MYPY:
+    class ExclusionManagedRuleArgsDict(TypedDict):
+        """
+        Defines a managed rule to use for exclusion.
+        """
+        rule_id: pulumi.Input[str]
+        """
+        Identifier for the managed rule.
+        """
+elif False:
+    ExclusionManagedRuleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ExclusionManagedRuleArgs:
     def __init__(__self__, *,
@@ -7209,6 +9774,38 @@ class ExclusionManagedRuleArgs:
     def rule_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "rule_id", value)
 
+
+if not MYPY:
+    class ExplicitProxyArgsDict(TypedDict):
+        """
+        Explicit Proxy Settings in Firewall Policy.
+        """
+        enable_explicit_proxy: NotRequired[pulumi.Input[bool]]
+        """
+        When set to true, explicit proxy mode is enabled.
+        """
+        enable_pac_file: NotRequired[pulumi.Input[bool]]
+        """
+        When set to true, pac file port and url needs to be provided.
+        """
+        http_port: NotRequired[pulumi.Input[int]]
+        """
+        Port number for explicit proxy http protocol, cannot be greater than 64000.
+        """
+        https_port: NotRequired[pulumi.Input[int]]
+        """
+        Port number for explicit proxy https protocol, cannot be greater than 64000.
+        """
+        pac_file: NotRequired[pulumi.Input[str]]
+        """
+        SAS URL for PAC file.
+        """
+        pac_file_port: NotRequired[pulumi.Input[int]]
+        """
+        Port number for firewall to serve PAC file.
+        """
+elif False:
+    ExplicitProxyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ExplicitProxyArgs:
@@ -7314,6 +9911,30 @@ class ExplicitProxyArgs:
         pulumi.set(self, "pac_file_port", value)
 
 
+if not MYPY:
+    class ExpressRouteCircuitAuthorizationArgsDict(TypedDict):
+        """
+        Authorization in an ExpressRouteCircuit resource.
+        """
+        authorization_key: NotRequired[pulumi.Input[str]]
+        """
+        The authorization key.
+        """
+        authorization_use_status: NotRequired[pulumi.Input[Union[str, 'AuthorizationUseStatus']]]
+        """
+        The authorization use status.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+elif False:
+    ExpressRouteCircuitAuthorizationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ExpressRouteCircuitAuthorizationArgs:
     def __init__(__self__, *,
@@ -7385,6 +10006,42 @@ class ExpressRouteCircuitAuthorizationArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class ExpressRouteCircuitConnectionArgsDict(TypedDict):
+        """
+        Express Route Circuit Connection in an ExpressRouteCircuitPeering resource.
+        """
+        address_prefix: NotRequired[pulumi.Input[str]]
+        """
+        /29 IP address space to carve out Customer addresses for tunnels.
+        """
+        authorization_key: NotRequired[pulumi.Input[str]]
+        """
+        The authorization key.
+        """
+        express_route_circuit_peering: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        """
+        Reference to Express Route Circuit Private Peering Resource of the circuit initiating connection.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        ipv6_circuit_connection_config: NotRequired[pulumi.Input['Ipv6CircuitConnectionConfigArgsDict']]
+        """
+        IPv6 Address PrefixProperties of the express route circuit connection.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+        peer_express_route_circuit_peering: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        """
+        Reference to Express Route Circuit Private Peering Resource of the peered circuit.
+        """
+elif False:
+    ExpressRouteCircuitConnectionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ExpressRouteCircuitConnectionArgs:
@@ -7506,6 +10163,34 @@ class ExpressRouteCircuitConnectionArgs:
         pulumi.set(self, "peer_express_route_circuit_peering", value)
 
 
+if not MYPY:
+    class ExpressRouteCircuitPeeringConfigArgsDict(TypedDict):
+        """
+        Specifies the peering configuration.
+        """
+        advertised_communities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The communities of bgp peering. Specified for microsoft peering.
+        """
+        advertised_public_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The reference to AdvertisedPublicPrefixes.
+        """
+        customer_asn: NotRequired[pulumi.Input[int]]
+        """
+        The CustomerASN of the peering.
+        """
+        legacy_mode: NotRequired[pulumi.Input[int]]
+        """
+        The legacy mode of the peering.
+        """
+        routing_registry_name: NotRequired[pulumi.Input[str]]
+        """
+        The RoutingRegistryName of the configuration.
+        """
+elif False:
+    ExpressRouteCircuitPeeringConfigArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ExpressRouteCircuitPeeringConfigArgs:
     def __init__(__self__, *,
@@ -7594,6 +10279,18 @@ class ExpressRouteCircuitPeeringConfigArgs:
         pulumi.set(self, "routing_registry_name", value)
 
 
+if not MYPY:
+    class ExpressRouteCircuitPeeringIdArgsDict(TypedDict):
+        """
+        ExpressRoute circuit peering identifier.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the ExpressRoute circuit peering.
+        """
+elif False:
+    ExpressRouteCircuitPeeringIdArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ExpressRouteCircuitPeeringIdArgs:
     def __init__(__self__, *,
@@ -7617,6 +10314,86 @@ class ExpressRouteCircuitPeeringIdArgs:
     def id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class ExpressRouteCircuitPeeringArgsDict(TypedDict):
+        """
+        Peering in an ExpressRouteCircuit resource.
+        """
+        azure_asn: NotRequired[pulumi.Input[int]]
+        """
+        The Azure ASN.
+        """
+        connections: NotRequired[pulumi.Input[Sequence[pulumi.Input['ExpressRouteCircuitConnectionArgsDict']]]]
+        """
+        The list of circuit connections associated with Azure Private Peering for this circuit.
+        """
+        gateway_manager_etag: NotRequired[pulumi.Input[str]]
+        """
+        The GatewayManager Etag.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        ipv6_peering_config: NotRequired[pulumi.Input['Ipv6ExpressRouteCircuitPeeringConfigArgsDict']]
+        """
+        The IPv6 peering configuration.
+        """
+        microsoft_peering_config: NotRequired[pulumi.Input['ExpressRouteCircuitPeeringConfigArgsDict']]
+        """
+        The Microsoft peering configuration.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+        peer_asn: NotRequired[pulumi.Input[float]]
+        """
+        The peer ASN.
+        """
+        peering_type: NotRequired[pulumi.Input[Union[str, 'ExpressRoutePeeringType']]]
+        """
+        The peering type.
+        """
+        primary_azure_port: NotRequired[pulumi.Input[str]]
+        """
+        The primary port.
+        """
+        primary_peer_address_prefix: NotRequired[pulumi.Input[str]]
+        """
+        The primary address prefix.
+        """
+        route_filter: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        """
+        The reference to the RouteFilter resource.
+        """
+        secondary_azure_port: NotRequired[pulumi.Input[str]]
+        """
+        The secondary port.
+        """
+        secondary_peer_address_prefix: NotRequired[pulumi.Input[str]]
+        """
+        The secondary address prefix.
+        """
+        shared_key: NotRequired[pulumi.Input[str]]
+        """
+        The shared key.
+        """
+        state: NotRequired[pulumi.Input[Union[str, 'ExpressRoutePeeringState']]]
+        """
+        The peering state.
+        """
+        stats: NotRequired[pulumi.Input['ExpressRouteCircuitStatsArgsDict']]
+        """
+        The peering stats of express route circuit.
+        """
+        vlan_id: NotRequired[pulumi.Input[int]]
+        """
+        The VLAN ID.
+        """
+elif False:
+    ExpressRouteCircuitPeeringArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ExpressRouteCircuitPeeringArgs:
@@ -7914,6 +10691,26 @@ class ExpressRouteCircuitPeeringArgs:
         pulumi.set(self, "vlan_id", value)
 
 
+if not MYPY:
+    class ExpressRouteCircuitServiceProviderPropertiesArgsDict(TypedDict):
+        """
+        Contains ServiceProviderProperties in an ExpressRouteCircuit.
+        """
+        bandwidth_in_mbps: NotRequired[pulumi.Input[int]]
+        """
+        The BandwidthInMbps.
+        """
+        peering_location: NotRequired[pulumi.Input[str]]
+        """
+        The peering location.
+        """
+        service_provider_name: NotRequired[pulumi.Input[str]]
+        """
+        The serviceProviderName.
+        """
+elif False:
+    ExpressRouteCircuitServiceProviderPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ExpressRouteCircuitServiceProviderPropertiesArgs:
     def __init__(__self__, *,
@@ -7970,6 +10767,26 @@ class ExpressRouteCircuitServiceProviderPropertiesArgs:
         pulumi.set(self, "service_provider_name", value)
 
 
+if not MYPY:
+    class ExpressRouteCircuitSkuArgsDict(TypedDict):
+        """
+        Contains SKU in an ExpressRouteCircuit.
+        """
+        family: NotRequired[pulumi.Input[Union[str, 'ExpressRouteCircuitSkuFamily']]]
+        """
+        The family of the SKU.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the SKU.
+        """
+        tier: NotRequired[pulumi.Input[Union[str, 'ExpressRouteCircuitSkuTier']]]
+        """
+        The tier of the SKU.
+        """
+elif False:
+    ExpressRouteCircuitSkuArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ExpressRouteCircuitSkuArgs:
     def __init__(__self__, *,
@@ -8025,6 +10842,30 @@ class ExpressRouteCircuitSkuArgs:
     def tier(self, value: Optional[pulumi.Input[Union[str, 'ExpressRouteCircuitSkuTier']]]):
         pulumi.set(self, "tier", value)
 
+
+if not MYPY:
+    class ExpressRouteCircuitStatsArgsDict(TypedDict):
+        """
+        Contains stats associated with the peering.
+        """
+        primarybytes_in: NotRequired[pulumi.Input[float]]
+        """
+        The Primary BytesIn of the peering.
+        """
+        primarybytes_out: NotRequired[pulumi.Input[float]]
+        """
+        The primary BytesOut of the peering.
+        """
+        secondarybytes_in: NotRequired[pulumi.Input[float]]
+        """
+        The secondary BytesIn of the peering.
+        """
+        secondarybytes_out: NotRequired[pulumi.Input[float]]
+        """
+        The secondary BytesOut of the peering.
+        """
+elif False:
+    ExpressRouteCircuitStatsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ExpressRouteCircuitStatsArgs:
@@ -8097,6 +10938,50 @@ class ExpressRouteCircuitStatsArgs:
     def secondarybytes_out(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "secondarybytes_out", value)
 
+
+if not MYPY:
+    class ExpressRouteConnectionArgsDict(TypedDict):
+        """
+        ExpressRouteConnection resource.
+        """
+        express_route_circuit_peering: pulumi.Input['ExpressRouteCircuitPeeringIdArgsDict']
+        """
+        The ExpressRoute circuit peering.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the resource.
+        """
+        authorization_key: NotRequired[pulumi.Input[str]]
+        """
+        Authorization key to establish the connection.
+        """
+        enable_internet_security: NotRequired[pulumi.Input[bool]]
+        """
+        Enable internet security.
+        """
+        enable_private_link_fast_path: NotRequired[pulumi.Input[bool]]
+        """
+        Bypass the ExpressRoute gateway when accessing private-links. ExpressRoute FastPath (expressRouteGatewayBypass) must be enabled.
+        """
+        express_route_gateway_bypass: NotRequired[pulumi.Input[bool]]
+        """
+        Enable FastPath to vWan Firewall hub.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        routing_configuration: NotRequired[pulumi.Input['RoutingConfigurationArgsDict']]
+        """
+        The Routing Configuration indicating the associated and propagated route tables on this connection.
+        """
+        routing_weight: NotRequired[pulumi.Input[int]]
+        """
+        The routing weight associated to the connection.
+        """
+elif False:
+    ExpressRouteConnectionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ExpressRouteConnectionArgs:
@@ -8248,6 +11133,18 @@ class ExpressRouteConnectionArgs:
         pulumi.set(self, "routing_weight", value)
 
 
+if not MYPY:
+    class ExpressRouteGatewayPropertiesAutoScaleConfigurationArgsDict(TypedDict):
+        """
+        Configuration for auto scaling.
+        """
+        bounds: NotRequired[pulumi.Input['ExpressRouteGatewayPropertiesBoundsArgsDict']]
+        """
+        Minimum and maximum number of scale units to deploy.
+        """
+elif False:
+    ExpressRouteGatewayPropertiesAutoScaleConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ExpressRouteGatewayPropertiesAutoScaleConfigurationArgs:
     def __init__(__self__, *,
@@ -8271,6 +11168,22 @@ class ExpressRouteGatewayPropertiesAutoScaleConfigurationArgs:
     def bounds(self, value: Optional[pulumi.Input['ExpressRouteGatewayPropertiesBoundsArgs']]):
         pulumi.set(self, "bounds", value)
 
+
+if not MYPY:
+    class ExpressRouteGatewayPropertiesBoundsArgsDict(TypedDict):
+        """
+        Minimum and maximum number of scale units to deploy.
+        """
+        max: NotRequired[pulumi.Input[int]]
+        """
+        Maximum number of scale units deployed for ExpressRoute gateway.
+        """
+        min: NotRequired[pulumi.Input[int]]
+        """
+        Minimum number of scale units deployed for ExpressRoute gateway.
+        """
+elif False:
+    ExpressRouteGatewayPropertiesBoundsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ExpressRouteGatewayPropertiesBoundsArgs:
@@ -8311,6 +11224,30 @@ class ExpressRouteGatewayPropertiesBoundsArgs:
     def min(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "min", value)
 
+
+if not MYPY:
+    class ExpressRouteLinkMacSecConfigArgsDict(TypedDict):
+        """
+        ExpressRouteLink Mac Security Configuration.
+        """
+        cak_secret_identifier: NotRequired[pulumi.Input[str]]
+        """
+        Keyvault Secret Identifier URL containing Mac security CAK key.
+        """
+        cipher: NotRequired[pulumi.Input[Union[str, 'ExpressRouteLinkMacSecCipher']]]
+        """
+        Mac security cipher.
+        """
+        ckn_secret_identifier: NotRequired[pulumi.Input[str]]
+        """
+        Keyvault Secret Identifier URL containing Mac security CKN key.
+        """
+        sci_state: NotRequired[pulumi.Input[Union[str, 'ExpressRouteLinkMacSecSciState']]]
+        """
+        Sci mode enabled/disabled.
+        """
+elif False:
+    ExpressRouteLinkMacSecConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ExpressRouteLinkMacSecConfigArgs:
@@ -8384,6 +11321,30 @@ class ExpressRouteLinkMacSecConfigArgs:
         pulumi.set(self, "sci_state", value)
 
 
+if not MYPY:
+    class ExpressRouteLinkArgsDict(TypedDict):
+        """
+        ExpressRouteLink child resource definition.
+        """
+        admin_state: NotRequired[pulumi.Input[Union[str, 'ExpressRouteLinkAdminState']]]
+        """
+        Administrative state of the physical port.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        mac_sec_config: NotRequired[pulumi.Input['ExpressRouteLinkMacSecConfigArgsDict']]
+        """
+        MacSec configuration.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of child port resource that is unique among child port resources of the parent.
+        """
+elif False:
+    ExpressRouteLinkArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ExpressRouteLinkArgs:
     def __init__(__self__, *,
@@ -8456,6 +11417,22 @@ class ExpressRouteLinkArgs:
         pulumi.set(self, "name", value)
 
 
+if not MYPY:
+    class ExtendedLocationArgsDict(TypedDict):
+        """
+        ExtendedLocation complex type.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the extended location.
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'ExtendedLocationTypes']]]
+        """
+        The type of the extended location.
+        """
+elif False:
+    ExtendedLocationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ExtendedLocationArgs:
     def __init__(__self__, *,
@@ -8495,6 +11472,22 @@ class ExtendedLocationArgs:
     def type(self, value: Optional[pulumi.Input[Union[str, 'ExtendedLocationTypes']]]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class FilterItemsDict(TypedDict):
+        """
+        Will contain the filter name and values to operate on
+        """
+        field: NotRequired[str]
+        """
+        The name of the field we would like to filter
+        """
+        values: NotRequired[Sequence[str]]
+        """
+        List of values to filter the current field by
+        """
+elif False:
+    FilterItemsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FilterItems:
@@ -8536,6 +11529,22 @@ class FilterItems:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class FirewallPolicyCertificateAuthorityArgsDict(TypedDict):
+        """
+        Trusted Root certificates properties for tls.
+        """
+        key_vault_secret_id: NotRequired[pulumi.Input[str]]
+        """
+        Secret Id of (base-64 encoded unencrypted pfx) 'Secret' or 'Certificate' object stored in KeyVault.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the CA certificate.
+        """
+elif False:
+    FirewallPolicyCertificateAuthorityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FirewallPolicyCertificateAuthorityArgs:
     def __init__(__self__, *,
@@ -8576,6 +11585,18 @@ class FirewallPolicyCertificateAuthorityArgs:
         pulumi.set(self, "name", value)
 
 
+if not MYPY:
+    class FirewallPolicyFilterRuleCollectionActionArgsDict(TypedDict):
+        """
+        Properties of the FirewallPolicyFilterRuleCollectionAction.
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'FirewallPolicyFilterRuleCollectionActionType']]]
+        """
+        The type of action.
+        """
+elif False:
+    FirewallPolicyFilterRuleCollectionActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FirewallPolicyFilterRuleCollectionActionArgs:
     def __init__(__self__, *,
@@ -8599,6 +11620,35 @@ class FirewallPolicyFilterRuleCollectionActionArgs:
     def type(self, value: Optional[pulumi.Input[Union[str, 'FirewallPolicyFilterRuleCollectionActionType']]]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class FirewallPolicyFilterRuleCollectionArgsDict(TypedDict):
+        """
+        Firewall Policy Filter Rule Collection.
+        """
+        rule_collection_type: pulumi.Input[str]
+        """
+        The type of the rule collection.
+        Expected value is 'FirewallPolicyFilterRuleCollection'.
+        """
+        action: NotRequired[pulumi.Input['FirewallPolicyFilterRuleCollectionActionArgsDict']]
+        """
+        The action type of a Filter rule collection.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the rule collection.
+        """
+        priority: NotRequired[pulumi.Input[int]]
+        """
+        Priority of the Firewall Policy Rule Collection resource.
+        """
+        rules: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationRuleArgsDict', 'NatRuleArgsDict', 'NetworkRuleArgsDict']]]]]
+        """
+        List of rules included in a rule collection.
+        """
+elif False:
+    FirewallPolicyFilterRuleCollectionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FirewallPolicyFilterRuleCollectionArgs:
@@ -8689,6 +11739,22 @@ class FirewallPolicyFilterRuleCollectionArgs:
         pulumi.set(self, "rules", value)
 
 
+if not MYPY:
+    class FirewallPolicyHttpHeaderToInsertArgsDict(TypedDict):
+        """
+        name and value of HTTP/S header to insert
+        """
+        header_name: NotRequired[pulumi.Input[str]]
+        """
+        Contains the name of the header
+        """
+        header_value: NotRequired[pulumi.Input[str]]
+        """
+        Contains the value of the header
+        """
+elif False:
+    FirewallPolicyHttpHeaderToInsertArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FirewallPolicyHttpHeaderToInsertArgs:
     def __init__(__self__, *,
@@ -8728,6 +11794,26 @@ class FirewallPolicyHttpHeaderToInsertArgs:
     def header_value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "header_value", value)
 
+
+if not MYPY:
+    class FirewallPolicyInsightsArgsDict(TypedDict):
+        """
+        Firewall Policy Insights.
+        """
+        is_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        A flag to indicate if the insights are enabled on the policy.
+        """
+        log_analytics_resources: NotRequired[pulumi.Input['FirewallPolicyLogAnalyticsResourcesArgsDict']]
+        """
+        Workspaces needed to configure the Firewall Policy Insights.
+        """
+        retention_days: NotRequired[pulumi.Input[int]]
+        """
+        Number of days the insights should be enabled on the policy.
+        """
+elif False:
+    FirewallPolicyInsightsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FirewallPolicyInsightsArgs:
@@ -8784,6 +11870,46 @@ class FirewallPolicyInsightsArgs:
     def retention_days(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "retention_days", value)
 
+
+if not MYPY:
+    class FirewallPolicyIntrusionDetectionBypassTrafficSpecificationsArgsDict(TypedDict):
+        """
+        Intrusion detection bypass traffic specification.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Description of the bypass traffic rule.
+        """
+        destination_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of destination IP addresses or ranges for this rule.
+        """
+        destination_ip_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of destination IpGroups for this rule.
+        """
+        destination_ports: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of destination ports or ranges.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the bypass traffic rule.
+        """
+        protocol: NotRequired[pulumi.Input[Union[str, 'FirewallPolicyIntrusionDetectionProtocol']]]
+        """
+        The rule bypass protocol.
+        """
+        source_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of source IP addresses or ranges for this rule.
+        """
+        source_ip_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of source IpGroups for this rule.
+        """
+elif False:
+    FirewallPolicyIntrusionDetectionBypassTrafficSpecificationsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FirewallPolicyIntrusionDetectionBypassTrafficSpecificationsArgs:
@@ -8921,6 +12047,26 @@ class FirewallPolicyIntrusionDetectionBypassTrafficSpecificationsArgs:
         pulumi.set(self, "source_ip_groups", value)
 
 
+if not MYPY:
+    class FirewallPolicyIntrusionDetectionConfigurationArgsDict(TypedDict):
+        """
+        The operation for configuring intrusion detection.
+        """
+        bypass_traffic_settings: NotRequired[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyIntrusionDetectionBypassTrafficSpecificationsArgsDict']]]]
+        """
+        List of rules for traffic to bypass.
+        """
+        private_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        IDPS Private IP address ranges are used to identify traffic direction (i.e. inbound, outbound, etc.). By default, only ranges defined by IANA RFC 1918 are considered private IP addresses. To modify default ranges, specify your Private IP address ranges with this property
+        """
+        signature_overrides: NotRequired[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyIntrusionDetectionSignatureSpecificationArgsDict']]]]
+        """
+        List of specific signatures states.
+        """
+elif False:
+    FirewallPolicyIntrusionDetectionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FirewallPolicyIntrusionDetectionConfigurationArgs:
     def __init__(__self__, *,
@@ -8977,6 +12123,22 @@ class FirewallPolicyIntrusionDetectionConfigurationArgs:
         pulumi.set(self, "signature_overrides", value)
 
 
+if not MYPY:
+    class FirewallPolicyIntrusionDetectionSignatureSpecificationArgsDict(TypedDict):
+        """
+        Intrusion detection signatures specification states.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Signature id.
+        """
+        mode: NotRequired[pulumi.Input[Union[str, 'FirewallPolicyIntrusionDetectionStateType']]]
+        """
+        The signature state.
+        """
+elif False:
+    FirewallPolicyIntrusionDetectionSignatureSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FirewallPolicyIntrusionDetectionSignatureSpecificationArgs:
     def __init__(__self__, *,
@@ -9016,6 +12178,22 @@ class FirewallPolicyIntrusionDetectionSignatureSpecificationArgs:
     def mode(self, value: Optional[pulumi.Input[Union[str, 'FirewallPolicyIntrusionDetectionStateType']]]):
         pulumi.set(self, "mode", value)
 
+
+if not MYPY:
+    class FirewallPolicyIntrusionDetectionArgsDict(TypedDict):
+        """
+        Configuration for intrusion detection mode and rules.
+        """
+        configuration: NotRequired[pulumi.Input['FirewallPolicyIntrusionDetectionConfigurationArgsDict']]
+        """
+        Intrusion detection configuration properties.
+        """
+        mode: NotRequired[pulumi.Input[Union[str, 'FirewallPolicyIntrusionDetectionStateType']]]
+        """
+        Intrusion detection general state.
+        """
+elif False:
+    FirewallPolicyIntrusionDetectionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FirewallPolicyIntrusionDetectionArgs:
@@ -9057,6 +12235,22 @@ class FirewallPolicyIntrusionDetectionArgs:
         pulumi.set(self, "mode", value)
 
 
+if not MYPY:
+    class FirewallPolicyLogAnalyticsResourcesArgsDict(TypedDict):
+        """
+        Log Analytics Resources for Firewall Policy Insights.
+        """
+        default_workspace_id: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        """
+        The default workspace Id for Firewall Policy Insights.
+        """
+        workspaces: NotRequired[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyLogAnalyticsWorkspaceArgsDict']]]]
+        """
+        List of workspaces for Firewall Policy Insights.
+        """
+elif False:
+    FirewallPolicyLogAnalyticsResourcesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FirewallPolicyLogAnalyticsResourcesArgs:
     def __init__(__self__, *,
@@ -9096,6 +12290,22 @@ class FirewallPolicyLogAnalyticsResourcesArgs:
     def workspaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyLogAnalyticsWorkspaceArgs']]]]):
         pulumi.set(self, "workspaces", value)
 
+
+if not MYPY:
+    class FirewallPolicyLogAnalyticsWorkspaceArgsDict(TypedDict):
+        """
+        Log Analytics Workspace for Firewall Policy Insights.
+        """
+        region: NotRequired[pulumi.Input[str]]
+        """
+        Region to configure the Workspace.
+        """
+        workspace_id: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        """
+        The workspace Id for Firewall Policy Insights.
+        """
+elif False:
+    FirewallPolicyLogAnalyticsWorkspaceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FirewallPolicyLogAnalyticsWorkspaceArgs:
@@ -9137,6 +12347,18 @@ class FirewallPolicyLogAnalyticsWorkspaceArgs:
         pulumi.set(self, "workspace_id", value)
 
 
+if not MYPY:
+    class FirewallPolicyNatRuleCollectionActionArgsDict(TypedDict):
+        """
+        Properties of the FirewallPolicyNatRuleCollectionAction.
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'FirewallPolicyNatRuleCollectionActionType']]]
+        """
+        The type of action.
+        """
+elif False:
+    FirewallPolicyNatRuleCollectionActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FirewallPolicyNatRuleCollectionActionArgs:
     def __init__(__self__, *,
@@ -9160,6 +12382,35 @@ class FirewallPolicyNatRuleCollectionActionArgs:
     def type(self, value: Optional[pulumi.Input[Union[str, 'FirewallPolicyNatRuleCollectionActionType']]]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class FirewallPolicyNatRuleCollectionArgsDict(TypedDict):
+        """
+        Firewall Policy NAT Rule Collection.
+        """
+        rule_collection_type: pulumi.Input[str]
+        """
+        The type of the rule collection.
+        Expected value is 'FirewallPolicyNatRuleCollection'.
+        """
+        action: NotRequired[pulumi.Input['FirewallPolicyNatRuleCollectionActionArgsDict']]
+        """
+        The action type of a Nat rule collection.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the rule collection.
+        """
+        priority: NotRequired[pulumi.Input[int]]
+        """
+        Priority of the Firewall Policy Rule Collection resource.
+        """
+        rules: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationRuleArgsDict', 'NatRuleArgsDict', 'NetworkRuleArgsDict']]]]]
+        """
+        List of rules included in a rule collection.
+        """
+elif False:
+    FirewallPolicyNatRuleCollectionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FirewallPolicyNatRuleCollectionArgs:
@@ -9250,6 +12501,22 @@ class FirewallPolicyNatRuleCollectionArgs:
         pulumi.set(self, "rules", value)
 
 
+if not MYPY:
+    class FirewallPolicyRuleApplicationProtocolArgsDict(TypedDict):
+        """
+        Properties of the application rule protocol.
+        """
+        port: NotRequired[pulumi.Input[int]]
+        """
+        Port number for the protocol, cannot be greater than 64000.
+        """
+        protocol_type: NotRequired[pulumi.Input[Union[str, 'FirewallPolicyRuleApplicationProtocolType']]]
+        """
+        Protocol type.
+        """
+elif False:
+    FirewallPolicyRuleApplicationProtocolArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FirewallPolicyRuleApplicationProtocolArgs:
     def __init__(__self__, *,
@@ -9289,6 +12556,22 @@ class FirewallPolicyRuleApplicationProtocolArgs:
     def protocol_type(self, value: Optional[pulumi.Input[Union[str, 'FirewallPolicyRuleApplicationProtocolType']]]):
         pulumi.set(self, "protocol_type", value)
 
+
+if not MYPY:
+    class FirewallPolicySNATArgsDict(TypedDict):
+        """
+        The private IP addresses/IP ranges to which traffic will not be SNAT.
+        """
+        auto_learn_private_ranges: NotRequired[pulumi.Input[Union[str, 'AutoLearnPrivateRangesMode']]]
+        """
+        The operation mode for automatically learning private ranges to not be SNAT
+        """
+        private_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of private IP addresses/IP address ranges to not be SNAT.
+        """
+elif False:
+    FirewallPolicySNATArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FirewallPolicySNATArgs:
@@ -9330,6 +12613,18 @@ class FirewallPolicySNATArgs:
         pulumi.set(self, "private_ranges", value)
 
 
+if not MYPY:
+    class FirewallPolicySQLArgsDict(TypedDict):
+        """
+        SQL Settings in Firewall Policy.
+        """
+        allow_sql_redirect: NotRequired[pulumi.Input[bool]]
+        """
+        A flag to indicate if SQL Redirect traffic filtering is enabled. Turning on the flag requires no rule using port 11000-11999.
+        """
+elif False:
+    FirewallPolicySQLArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FirewallPolicySQLArgs:
     def __init__(__self__, *,
@@ -9354,6 +12649,18 @@ class FirewallPolicySQLArgs:
         pulumi.set(self, "allow_sql_redirect", value)
 
 
+if not MYPY:
+    class FirewallPolicySkuArgsDict(TypedDict):
+        """
+        SKU of Firewall policy.
+        """
+        tier: NotRequired[pulumi.Input[Union[str, 'FirewallPolicySkuTier']]]
+        """
+        Tier of Firewall Policy.
+        """
+elif False:
+    FirewallPolicySkuArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FirewallPolicySkuArgs:
     def __init__(__self__, *,
@@ -9377,6 +12684,22 @@ class FirewallPolicySkuArgs:
     def tier(self, value: Optional[pulumi.Input[Union[str, 'FirewallPolicySkuTier']]]):
         pulumi.set(self, "tier", value)
 
+
+if not MYPY:
+    class FirewallPolicyThreatIntelWhitelistArgsDict(TypedDict):
+        """
+        ThreatIntel Whitelist for Firewall Policy.
+        """
+        fqdns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of FQDNs for the ThreatIntel Whitelist.
+        """
+        ip_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of IP addresses for the ThreatIntel Whitelist.
+        """
+elif False:
+    FirewallPolicyThreatIntelWhitelistArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FirewallPolicyThreatIntelWhitelistArgs:
@@ -9418,6 +12741,18 @@ class FirewallPolicyThreatIntelWhitelistArgs:
         pulumi.set(self, "ip_addresses", value)
 
 
+if not MYPY:
+    class FirewallPolicyTransportSecurityArgsDict(TypedDict):
+        """
+        Configuration needed to perform TLS termination & initiation.
+        """
+        certificate_authority: NotRequired[pulumi.Input['FirewallPolicyCertificateAuthorityArgsDict']]
+        """
+        The CA used for intermediate CA generation.
+        """
+elif False:
+    FirewallPolicyTransportSecurityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FirewallPolicyTransportSecurityArgs:
     def __init__(__self__, *,
@@ -9441,6 +12776,22 @@ class FirewallPolicyTransportSecurityArgs:
     def certificate_authority(self, value: Optional[pulumi.Input['FirewallPolicyCertificateAuthorityArgs']]):
         pulumi.set(self, "certificate_authority", value)
 
+
+if not MYPY:
+    class FlowLogFormatParametersArgsDict(TypedDict):
+        """
+        Parameters that define the flow log format.
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'FlowLogFormatType']]]
+        """
+        The file type of flow log.
+        """
+        version: NotRequired[pulumi.Input[int]]
+        """
+        The version (revision) of the flow log.
+        """
+elif False:
+    FlowLogFormatParametersArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FlowLogFormatParametersArgs:
@@ -9483,6 +12834,54 @@ class FlowLogFormatParametersArgs:
     def version(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "version", value)
 
+
+if not MYPY:
+    class FrontendIPConfigurationArgsDict(TypedDict):
+        """
+        Frontend IP address of the load balancer.
+        """
+        gateway_load_balancer: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        """
+        The reference to gateway load balancer frontend IP.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the resource that is unique within the set of frontend IP configurations used by the load balancer. This name can be used to access the resource.
+        """
+        private_ip_address: NotRequired[pulumi.Input[str]]
+        """
+        The private IP address of the IP configuration.
+        """
+        private_ip_address_version: NotRequired[pulumi.Input[Union[str, 'IPVersion']]]
+        """
+        Whether the specific ipconfiguration is IPv4 or IPv6. Default is taken as IPv4.
+        """
+        private_ip_allocation_method: NotRequired[pulumi.Input[Union[str, 'IPAllocationMethod']]]
+        """
+        The Private IP allocation method.
+        """
+        public_ip_address: NotRequired[pulumi.Input['PublicIPAddressArgsDict']]
+        """
+        The reference to the Public IP resource.
+        """
+        public_ip_prefix: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        """
+        The reference to the Public IP Prefix resource.
+        """
+        subnet: NotRequired[pulumi.Input['SubnetArgsDict']]
+        """
+        The reference to the subnet resource.
+        """
+        zones: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of availability zones denoting the IP allocated for the resource needs to come from.
+        """
+elif False:
+    FrontendIPConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FrontendIPConfigurationArgs:
@@ -9652,6 +13051,22 @@ class FrontendIPConfigurationArgs:
         pulumi.set(self, "zones", value)
 
 
+if not MYPY:
+    class GatewayCustomBgpIpAddressIpConfigurationArgsDict(TypedDict):
+        """
+        GatewayCustomBgpIpAddressIpConfiguration for a virtual network gateway connection.
+        """
+        custom_bgp_ip_address: pulumi.Input[str]
+        """
+        The custom BgpPeeringAddress which belongs to IpconfigurationId.
+        """
+        ip_configuration_id: pulumi.Input[str]
+        """
+        The IpconfigurationId of ipconfiguration which belongs to gateway.
+        """
+elif False:
+    GatewayCustomBgpIpAddressIpConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GatewayCustomBgpIpAddressIpConfigurationArgs:
     def __init__(__self__, *,
@@ -9689,6 +13104,30 @@ class GatewayCustomBgpIpAddressIpConfigurationArgs:
     def ip_configuration_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "ip_configuration_id", value)
 
+
+if not MYPY:
+    class GatewayLoadBalancerTunnelInterfaceArgsDict(TypedDict):
+        """
+        Gateway load balancer tunnel interface of a load balancer backend address pool.
+        """
+        identifier: NotRequired[pulumi.Input[int]]
+        """
+        Identifier of gateway load balancer tunnel interface.
+        """
+        port: NotRequired[pulumi.Input[int]]
+        """
+        Port of gateway load balancer tunnel interface.
+        """
+        protocol: NotRequired[pulumi.Input[Union[str, 'GatewayLoadBalancerTunnelProtocol']]]
+        """
+        Protocol of gateway load balancer tunnel interface.
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'GatewayLoadBalancerTunnelInterfaceType']]]
+        """
+        Traffic type of gateway load balancer tunnel interface.
+        """
+elif False:
+    GatewayLoadBalancerTunnelInterfaceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GatewayLoadBalancerTunnelInterfaceArgs:
@@ -9762,6 +13201,18 @@ class GatewayLoadBalancerTunnelInterfaceArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class GroupByUserSessionArgsDict(TypedDict):
+        """
+        Define user session identifier group by clauses.
+        """
+        group_by_variables: pulumi.Input[Sequence[pulumi.Input['GroupByVariableArgsDict']]]
+        """
+        List of group by clause variables.
+        """
+elif False:
+    GroupByUserSessionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GroupByUserSessionArgs:
     def __init__(__self__, *,
@@ -9785,6 +13236,18 @@ class GroupByUserSessionArgs:
         pulumi.set(self, "group_by_variables", value)
 
 
+if not MYPY:
+    class GroupByVariableArgsDict(TypedDict):
+        """
+        Define user session group by clause variables.
+        """
+        variable_name: pulumi.Input[Union[str, 'ApplicationGatewayFirewallUserSessionVariable']]
+        """
+        User Session clause variable.
+        """
+elif False:
+    GroupByVariableArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GroupByVariableArgs:
     def __init__(__self__, *,
@@ -9807,6 +13270,22 @@ class GroupByVariableArgs:
     def variable_name(self, value: pulumi.Input[Union[str, 'ApplicationGatewayFirewallUserSessionVariable']]):
         pulumi.set(self, "variable_name", value)
 
+
+if not MYPY:
+    class HTTPHeaderArgsDict(TypedDict):
+        """
+        The HTTP header.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name in HTTP header.
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        The value in HTTP header.
+        """
+elif False:
+    HTTPHeaderArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class HTTPHeaderArgs:
@@ -9848,6 +13327,22 @@ class HTTPHeaderArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class HubIPAddressesArgsDict(TypedDict):
+        """
+        IP addresses associated with azure firewall.
+        """
+        private_ip_address: NotRequired[pulumi.Input[str]]
+        """
+        Private IP Address associated with azure firewall.
+        """
+        public_ips: NotRequired[pulumi.Input['HubPublicIPAddressesArgsDict']]
+        """
+        Public IP addresses associated with azure firewall.
+        """
+elif False:
+    HubIPAddressesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class HubIPAddressesArgs:
     def __init__(__self__, *,
@@ -9888,6 +13383,22 @@ class HubIPAddressesArgs:
         pulumi.set(self, "public_ips", value)
 
 
+if not MYPY:
+    class HubPublicIPAddressesArgsDict(TypedDict):
+        """
+        Public IP addresses associated with azure firewall.
+        """
+        addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input['AzureFirewallPublicIPAddressArgsDict']]]]
+        """
+        The list of Public IP addresses associated with azure firewall or IP addresses to be retained.
+        """
+        count: NotRequired[pulumi.Input[int]]
+        """
+        The number of Public IP addresses associated with azure firewall.
+        """
+elif False:
+    HubPublicIPAddressesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class HubPublicIPAddressesArgs:
     def __init__(__self__, *,
@@ -9927,6 +13438,34 @@ class HubPublicIPAddressesArgs:
     def count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "count", value)
 
+
+if not MYPY:
+    class HubRouteArgsDict(TypedDict):
+        """
+        RouteTable route.
+        """
+        destination_type: pulumi.Input[str]
+        """
+        The type of destinations (eg: CIDR, ResourceId, Service).
+        """
+        destinations: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        List of all destinations.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the Route that is unique within a RouteTable. This name can be used to access this route.
+        """
+        next_hop: pulumi.Input[str]
+        """
+        NextHop resource ID.
+        """
+        next_hop_type: pulumi.Input[str]
+        """
+        The type of next hop (eg: ResourceId).
+        """
+elif False:
+    HubRouteArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class HubRouteArgs:
@@ -10011,6 +13550,22 @@ class HubRouteArgs:
         pulumi.set(self, "next_hop_type", value)
 
 
+if not MYPY:
+    class HubArgsDict(TypedDict):
+        """
+        Hub Item.
+        """
+        resource_id: NotRequired[pulumi.Input[str]]
+        """
+        Resource Id.
+        """
+        resource_type: NotRequired[pulumi.Input[str]]
+        """
+        Resource Type.
+        """
+elif False:
+    HubArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class HubArgs:
     def __init__(__self__, *,
@@ -10051,6 +13606,22 @@ class HubArgs:
         pulumi.set(self, "resource_type", value)
 
 
+if not MYPY:
+    class IPConfigurationBgpPeeringAddressArgsDict(TypedDict):
+        """
+        Properties of IPConfigurationBgpPeeringAddress.
+        """
+        custom_bgp_ip_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of custom BGP peering addresses which belong to IP configuration.
+        """
+        ipconfiguration_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of IP configuration which belongs to gateway.
+        """
+elif False:
+    IPConfigurationBgpPeeringAddressArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IPConfigurationBgpPeeringAddressArgs:
     def __init__(__self__, *,
@@ -10090,6 +13661,26 @@ class IPConfigurationBgpPeeringAddressArgs:
     def ipconfiguration_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "ipconfiguration_id", value)
 
+
+if not MYPY:
+    class IPConfigurationProfileArgsDict(TypedDict):
+        """
+        IP configuration profile child resource.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the resource. This name can be used to access the resource.
+        """
+        subnet: NotRequired[pulumi.Input['SubnetArgsDict']]
+        """
+        The reference to the subnet resource to create a container network interface ip configuration.
+        """
+elif False:
+    IPConfigurationProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IPConfigurationProfileArgs:
@@ -10146,6 +13737,54 @@ class IPConfigurationProfileArgs:
     def subnet(self, value: Optional[pulumi.Input['SubnetArgs']]):
         pulumi.set(self, "subnet", value)
 
+
+if not MYPY:
+    class InboundNatPoolArgsDict(TypedDict):
+        """
+        Inbound NAT pool of the load balancer.
+        """
+        backend_port: pulumi.Input[int]
+        """
+        The port used for internal connections on the endpoint. Acceptable values are between 1 and 65535.
+        """
+        frontend_port_range_end: pulumi.Input[int]
+        """
+        The last port number in the range of external ports that will be used to provide Inbound Nat to NICs associated with a load balancer. Acceptable values range between 1 and 65535.
+        """
+        frontend_port_range_start: pulumi.Input[int]
+        """
+        The first port number in the range of external ports that will be used to provide Inbound Nat to NICs associated with a load balancer. Acceptable values range between 1 and 65534.
+        """
+        protocol: pulumi.Input[Union[str, 'TransportProtocol']]
+        """
+        The reference to the transport protocol used by the inbound NAT pool.
+        """
+        enable_floating_ip: NotRequired[pulumi.Input[bool]]
+        """
+        Configures a virtual machine's endpoint for the floating IP capability required to configure a SQL AlwaysOn Availability Group. This setting is required when using the SQL AlwaysOn Availability Groups in SQL server. This setting can't be changed after you create the endpoint.
+        """
+        enable_tcp_reset: NotRequired[pulumi.Input[bool]]
+        """
+        Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
+        """
+        frontend_ip_configuration: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        """
+        A reference to frontend IP addresses.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        idle_timeout_in_minutes: NotRequired[pulumi.Input[int]]
+        """
+        The timeout for the TCP idle connection. The value can be set between 4 and 30 minutes. The default value is 4 minutes. This element is only used when the protocol is set to TCP.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the resource that is unique within the set of inbound NAT pools used by the load balancer. This name can be used to access the resource.
+        """
+elif False:
+    InboundNatPoolArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InboundNatPoolArgs:
@@ -10310,6 +13949,62 @@ class InboundNatPoolArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class InboundNatRuleArgsDict(TypedDict):
+        """
+        Inbound NAT rule of the load balancer.
+        """
+        backend_address_pool: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        """
+        A reference to backendAddressPool resource.
+        """
+        backend_port: NotRequired[pulumi.Input[int]]
+        """
+        The port used for the internal endpoint. Acceptable values range from 1 to 65535.
+        """
+        enable_floating_ip: NotRequired[pulumi.Input[bool]]
+        """
+        Configures a virtual machine's endpoint for the floating IP capability required to configure a SQL AlwaysOn Availability Group. This setting is required when using the SQL AlwaysOn Availability Groups in SQL server. This setting can't be changed after you create the endpoint.
+        """
+        enable_tcp_reset: NotRequired[pulumi.Input[bool]]
+        """
+        Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
+        """
+        frontend_ip_configuration: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        """
+        A reference to frontend IP addresses.
+        """
+        frontend_port: NotRequired[pulumi.Input[int]]
+        """
+        The port for the external endpoint. Port numbers for each rule must be unique within the Load Balancer. Acceptable values range from 1 to 65534.
+        """
+        frontend_port_range_end: NotRequired[pulumi.Input[int]]
+        """
+        The port range end for the external endpoint. This property is used together with BackendAddressPool and FrontendPortRangeStart. Individual inbound NAT rule port mappings will be created for each backend address from BackendAddressPool. Acceptable values range from 1 to 65534.
+        """
+        frontend_port_range_start: NotRequired[pulumi.Input[int]]
+        """
+        The port range start for the external endpoint. This property is used together with BackendAddressPool and FrontendPortRangeEnd. Individual inbound NAT rule port mappings will be created for each backend address from BackendAddressPool. Acceptable values range from 1 to 65534.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        idle_timeout_in_minutes: NotRequired[pulumi.Input[int]]
+        """
+        The timeout for the TCP idle connection. The value can be set between 4 and 30 minutes. The default value is 4 minutes. This element is only used when the protocol is set to TCP.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the resource that is unique within the set of inbound NAT rules used by the load balancer. This name can be used to access the resource.
+        """
+        protocol: NotRequired[pulumi.Input[Union[str, 'TransportProtocol']]]
+        """
+        The reference to the transport protocol used by the load balancing rule.
+        """
+elif False:
+    InboundNatRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InboundNatRuleArgs:
@@ -10511,6 +14206,22 @@ class InboundNatRuleArgs:
         pulumi.set(self, "protocol", value)
 
 
+if not MYPY:
+    class IpTagArgsDict(TypedDict):
+        """
+        Contains the IpTag associated with the object.
+        """
+        ip_tag_type: NotRequired[pulumi.Input[str]]
+        """
+        The IP tag type. Example: FirstPartyUsage.
+        """
+        tag: NotRequired[pulumi.Input[str]]
+        """
+        The value of the IP tag associated with the public IP. Example: SQL.
+        """
+elif False:
+    IpTagArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IpTagArgs:
     def __init__(__self__, *,
@@ -10550,6 +14261,46 @@ class IpTagArgs:
     def tag(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tag", value)
 
+
+if not MYPY:
+    class IpsecPolicyArgsDict(TypedDict):
+        """
+        An IPSec Policy configuration for a virtual network gateway connection.
+        """
+        dh_group: pulumi.Input[Union[str, 'DhGroup']]
+        """
+        The DH Group used in IKE Phase 1 for initial SA.
+        """
+        ike_encryption: pulumi.Input[Union[str, 'IkeEncryption']]
+        """
+        The IKE encryption algorithm (IKE phase 2).
+        """
+        ike_integrity: pulumi.Input[Union[str, 'IkeIntegrity']]
+        """
+        The IKE integrity algorithm (IKE phase 2).
+        """
+        ipsec_encryption: pulumi.Input[Union[str, 'IpsecEncryption']]
+        """
+        The IPSec encryption algorithm (IKE phase 1).
+        """
+        ipsec_integrity: pulumi.Input[Union[str, 'IpsecIntegrity']]
+        """
+        The IPSec integrity algorithm (IKE phase 1).
+        """
+        pfs_group: pulumi.Input[Union[str, 'PfsGroup']]
+        """
+        The Pfs Group used in IKE Phase 2 for new child SA.
+        """
+        sa_data_size_kilobytes: pulumi.Input[int]
+        """
+        The IPSec Security Association (also called Quick Mode or Phase 2 SA) payload size in KB for a site to site VPN tunnel.
+        """
+        sa_life_time_seconds: pulumi.Input[int]
+        """
+        The IPSec Security Association (also called Quick Mode or Phase 2 SA) lifetime in seconds for a site to site VPN tunnel.
+        """
+elif False:
+    IpsecPolicyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IpsecPolicyArgs:
@@ -10679,6 +14430,18 @@ class IpsecPolicyArgs:
         pulumi.set(self, "sa_life_time_seconds", value)
 
 
+if not MYPY:
+    class Ipv6CircuitConnectionConfigArgsDict(TypedDict):
+        """
+        IPv6 Circuit Connection properties for global reach.
+        """
+        address_prefix: NotRequired[pulumi.Input[str]]
+        """
+        /125 IP address space to carve out customer addresses for global reach.
+        """
+elif False:
+    Ipv6CircuitConnectionConfigArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class Ipv6CircuitConnectionConfigArgs:
     def __init__(__self__, *,
@@ -10702,6 +14465,34 @@ class Ipv6CircuitConnectionConfigArgs:
     def address_prefix(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "address_prefix", value)
 
+
+if not MYPY:
+    class Ipv6ExpressRouteCircuitPeeringConfigArgsDict(TypedDict):
+        """
+        Contains IPv6 peering config.
+        """
+        microsoft_peering_config: NotRequired[pulumi.Input['ExpressRouteCircuitPeeringConfigArgsDict']]
+        """
+        The Microsoft peering configuration.
+        """
+        primary_peer_address_prefix: NotRequired[pulumi.Input[str]]
+        """
+        The primary address prefix.
+        """
+        route_filter: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        """
+        The reference to the RouteFilter resource.
+        """
+        secondary_peer_address_prefix: NotRequired[pulumi.Input[str]]
+        """
+        The secondary address prefix.
+        """
+        state: NotRequired[pulumi.Input[Union[str, 'ExpressRouteCircuitPeeringState']]]
+        """
+        The state of peering.
+        """
+elif False:
+    Ipv6ExpressRouteCircuitPeeringConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class Ipv6ExpressRouteCircuitPeeringConfigArgs:
@@ -10790,6 +14581,38 @@ class Ipv6ExpressRouteCircuitPeeringConfigArgs:
     def state(self, value: Optional[pulumi.Input[Union[str, 'ExpressRouteCircuitPeeringState']]]):
         pulumi.set(self, "state", value)
 
+
+if not MYPY:
+    class LoadBalancerBackendAddressArgsDict(TypedDict):
+        """
+        Load balancer backend addresses.
+        """
+        admin_state: NotRequired[pulumi.Input[Union[str, 'LoadBalancerBackendAddressAdminState']]]
+        """
+        A list of administrative states which once set can override health probe so that Load Balancer will always forward new connections to backend, or deny new connections and reset existing connections.
+        """
+        ip_address: NotRequired[pulumi.Input[str]]
+        """
+        IP Address belonging to the referenced virtual network.
+        """
+        load_balancer_frontend_ip_configuration: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        """
+        Reference to the frontend ip address configuration defined in regional loadbalancer.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the backend address.
+        """
+        subnet: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        """
+        Reference to an existing subnet.
+        """
+        virtual_network: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        """
+        Reference to an existing virtual network.
+        """
+elif False:
+    LoadBalancerBackendAddressArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LoadBalancerBackendAddressArgs:
@@ -10895,6 +14718,22 @@ class LoadBalancerBackendAddressArgs:
         pulumi.set(self, "virtual_network", value)
 
 
+if not MYPY:
+    class LoadBalancerSkuArgsDict(TypedDict):
+        """
+        SKU of a load balancer.
+        """
+        name: NotRequired[pulumi.Input[Union[str, 'LoadBalancerSkuName']]]
+        """
+        Name of a load balancer SKU.
+        """
+        tier: NotRequired[pulumi.Input[Union[str, 'LoadBalancerSkuTier']]]
+        """
+        Tier of a load balancer SKU.
+        """
+elif False:
+    LoadBalancerSkuArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LoadBalancerSkuArgs:
     def __init__(__self__, *,
@@ -10934,6 +14773,70 @@ class LoadBalancerSkuArgs:
     def tier(self, value: Optional[pulumi.Input[Union[str, 'LoadBalancerSkuTier']]]):
         pulumi.set(self, "tier", value)
 
+
+if not MYPY:
+    class LoadBalancingRuleArgsDict(TypedDict):
+        """
+        A load balancing rule for a load balancer.
+        """
+        frontend_port: pulumi.Input[int]
+        """
+        The port for the external endpoint. Port numbers for each rule must be unique within the Load Balancer. Acceptable values are between 0 and 65534. Note that value 0 enables "Any Port".
+        """
+        protocol: pulumi.Input[Union[str, 'TransportProtocol']]
+        """
+        The reference to the transport protocol used by the load balancing rule.
+        """
+        backend_address_pool: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        """
+        A reference to a pool of DIPs. Inbound traffic is randomly load balanced across IPs in the backend IPs.
+        """
+        backend_address_pools: NotRequired[pulumi.Input[Sequence[pulumi.Input['SubResourceArgsDict']]]]
+        """
+        An array of references to pool of DIPs.
+        """
+        backend_port: NotRequired[pulumi.Input[int]]
+        """
+        The port used for internal connections on the endpoint. Acceptable values are between 0 and 65535. Note that value 0 enables "Any Port".
+        """
+        disable_outbound_snat: NotRequired[pulumi.Input[bool]]
+        """
+        Configures SNAT for the VMs in the backend pool to use the publicIP address specified in the frontend of the load balancing rule.
+        """
+        enable_floating_ip: NotRequired[pulumi.Input[bool]]
+        """
+        Configures a virtual machine's endpoint for the floating IP capability required to configure a SQL AlwaysOn Availability Group. This setting is required when using the SQL AlwaysOn Availability Groups in SQL server. This setting can't be changed after you create the endpoint.
+        """
+        enable_tcp_reset: NotRequired[pulumi.Input[bool]]
+        """
+        Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
+        """
+        frontend_ip_configuration: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        """
+        A reference to frontend IP addresses.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        idle_timeout_in_minutes: NotRequired[pulumi.Input[int]]
+        """
+        The timeout for the TCP idle connection. The value can be set between 4 and 30 minutes. The default value is 4 minutes. This element is only used when the protocol is set to TCP.
+        """
+        load_distribution: NotRequired[pulumi.Input[Union[str, 'LoadDistribution']]]
+        """
+        The load distribution policy for this rule.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the resource that is unique within the set of load balancing rules used by the load balancer. This name can be used to access the resource.
+        """
+        probe: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        """
+        The reference to the load balancer probe used by the load balancing rule.
+        """
+elif False:
+    LoadBalancingRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LoadBalancingRuleArgs:
@@ -11165,6 +15068,42 @@ class LoadBalancingRuleArgs:
         pulumi.set(self, "probe", value)
 
 
+if not MYPY:
+    class LocalNetworkGatewayArgsDict(TypedDict):
+        """
+        A common class for general resource information.
+        """
+        bgp_settings: NotRequired[pulumi.Input['BgpSettingsArgsDict']]
+        """
+        Local network gateway's BGP speaker settings.
+        """
+        fqdn: NotRequired[pulumi.Input[str]]
+        """
+        FQDN of local network gateway.
+        """
+        gateway_ip_address: NotRequired[pulumi.Input[str]]
+        """
+        IP address of local network gateway.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        local_network_address_space: NotRequired[pulumi.Input['AddressSpaceArgsDict']]
+        """
+        Local network site address space.
+        """
+        location: NotRequired[pulumi.Input[str]]
+        """
+        Resource location.
+        """
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Resource tags.
+        """
+elif False:
+    LocalNetworkGatewayArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LocalNetworkGatewayArgs:
     def __init__(__self__, *,
@@ -11285,6 +15224,22 @@ class LocalNetworkGatewayArgs:
         pulumi.set(self, "tags", value)
 
 
+if not MYPY:
+    class ManagedRuleGroupOverrideArgsDict(TypedDict):
+        """
+        Defines a managed rule group override setting.
+        """
+        rule_group_name: pulumi.Input[str]
+        """
+        The managed rule group to override.
+        """
+        rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['ManagedRuleOverrideArgsDict']]]]
+        """
+        List of rules that will be disabled. If none specified, all rules in the group will be disabled.
+        """
+elif False:
+    ManagedRuleGroupOverrideArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ManagedRuleGroupOverrideArgs:
     def __init__(__self__, *,
@@ -11323,6 +15278,26 @@ class ManagedRuleGroupOverrideArgs:
     def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedRuleOverrideArgs']]]]):
         pulumi.set(self, "rules", value)
 
+
+if not MYPY:
+    class ManagedRuleOverrideArgsDict(TypedDict):
+        """
+        Defines a managed rule group override setting.
+        """
+        rule_id: pulumi.Input[str]
+        """
+        Identifier for the managed rule.
+        """
+        action: NotRequired[pulumi.Input[Union[str, 'ActionType']]]
+        """
+        Describes the override action to be applied when rule matches.
+        """
+        state: NotRequired[pulumi.Input[Union[str, 'ManagedRuleEnabledState']]]
+        """
+        The state of the managed rule. Defaults to Disabled if not specified.
+        """
+elif False:
+    ManagedRuleOverrideArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ManagedRuleOverrideArgs:
@@ -11379,6 +15354,26 @@ class ManagedRuleOverrideArgs:
         pulumi.set(self, "state", value)
 
 
+if not MYPY:
+    class ManagedRuleSetArgsDict(TypedDict):
+        """
+        Defines a managed rule set.
+        """
+        rule_set_type: pulumi.Input[str]
+        """
+        Defines the rule set type to use.
+        """
+        rule_set_version: pulumi.Input[str]
+        """
+        Defines the version of the rule set to use.
+        """
+        rule_group_overrides: NotRequired[pulumi.Input[Sequence[pulumi.Input['ManagedRuleGroupOverrideArgsDict']]]]
+        """
+        Defines the rule group overrides to apply to the rule set.
+        """
+elif False:
+    ManagedRuleSetArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ManagedRuleSetArgs:
     def __init__(__self__, *,
@@ -11433,6 +15428,22 @@ class ManagedRuleSetArgs:
         pulumi.set(self, "rule_group_overrides", value)
 
 
+if not MYPY:
+    class ManagedRulesDefinitionArgsDict(TypedDict):
+        """
+        Allow to exclude some variable satisfy the condition for the WAF check.
+        """
+        managed_rule_sets: pulumi.Input[Sequence[pulumi.Input['ManagedRuleSetArgsDict']]]
+        """
+        The managed rule sets that are associated with the policy.
+        """
+        exclusions: NotRequired[pulumi.Input[Sequence[pulumi.Input['OwaspCrsExclusionEntryArgsDict']]]]
+        """
+        The Exclusions that are applied on the policy.
+        """
+elif False:
+    ManagedRulesDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ManagedRulesDefinitionArgs:
     def __init__(__self__, *,
@@ -11471,6 +15482,22 @@ class ManagedRulesDefinitionArgs:
     def exclusions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OwaspCrsExclusionEntryArgs']]]]):
         pulumi.set(self, "exclusions", value)
 
+
+if not MYPY:
+    class ManagedServiceIdentityArgsDict(TypedDict):
+        """
+        Identity for the resource.
+        """
+        type: NotRequired[pulumi.Input['ResourceIdentityType']]
+        """
+        The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the virtual machine.
+        """
+        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of user identities associated with resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+elif False:
+    ManagedServiceIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ManagedServiceIdentityArgs:
@@ -11511,6 +15538,34 @@ class ManagedServiceIdentityArgs:
     def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
+
+if not MYPY:
+    class MatchConditionArgsDict(TypedDict):
+        """
+        Define match conditions.
+        """
+        match_values: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Match value.
+        """
+        match_variables: pulumi.Input[Sequence[pulumi.Input['MatchVariableArgsDict']]]
+        """
+        List of match variables.
+        """
+        operator: pulumi.Input[Union[str, 'WebApplicationFirewallOperator']]
+        """
+        The operator to be matched.
+        """
+        negation_conditon: NotRequired[pulumi.Input[bool]]
+        """
+        Whether this is negate condition or not.
+        """
+        transforms: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'WebApplicationFirewallTransform']]]]]
+        """
+        List of transforms.
+        """
+elif False:
+    MatchConditionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MatchConditionArgs:
@@ -11597,6 +15652,22 @@ class MatchConditionArgs:
         pulumi.set(self, "transforms", value)
 
 
+if not MYPY:
+    class MatchVariableArgsDict(TypedDict):
+        """
+        Define match variables.
+        """
+        variable_name: pulumi.Input[Union[str, 'WebApplicationFirewallMatchVariable']]
+        """
+        Match Variable.
+        """
+        selector: NotRequired[pulumi.Input[str]]
+        """
+        The selector of match variable.
+        """
+elif False:
+    MatchVariableArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MatchVariableArgs:
     def __init__(__self__, *,
@@ -11636,6 +15707,18 @@ class MatchVariableArgs:
         pulumi.set(self, "selector", value)
 
 
+if not MYPY:
+    class NatGatewaySkuArgsDict(TypedDict):
+        """
+        SKU of nat gateway.
+        """
+        name: NotRequired[pulumi.Input[Union[str, 'NatGatewaySkuName']]]
+        """
+        Name of Nat Gateway SKU.
+        """
+elif False:
+    NatGatewaySkuArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NatGatewaySkuArgs:
     def __init__(__self__, *,
@@ -11659,6 +15742,46 @@ class NatGatewaySkuArgs:
     def name(self, value: Optional[pulumi.Input[Union[str, 'NatGatewaySkuName']]]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class NatGatewayArgsDict(TypedDict):
+        """
+        Nat Gateway resource.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        idle_timeout_in_minutes: NotRequired[pulumi.Input[int]]
+        """
+        The idle timeout of the nat gateway.
+        """
+        location: NotRequired[pulumi.Input[str]]
+        """
+        Resource location.
+        """
+        public_ip_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input['SubResourceArgsDict']]]]
+        """
+        An array of public ip addresses associated with the nat gateway resource.
+        """
+        public_ip_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input['SubResourceArgsDict']]]]
+        """
+        An array of public ip prefixes associated with the nat gateway resource.
+        """
+        sku: NotRequired[pulumi.Input['NatGatewaySkuArgsDict']]
+        """
+        The nat gateway SKU.
+        """
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Resource tags.
+        """
+        zones: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of availability zones denoting the zone in which Nat Gateway should be deployed.
+        """
+elif False:
+    NatGatewayArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NatGatewayArgs:
@@ -11795,6 +15918,59 @@ class NatGatewayArgs:
     def zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "zones", value)
 
+
+if not MYPY:
+    class NatRuleArgsDict(TypedDict):
+        """
+        Rule of type nat.
+        """
+        rule_type: pulumi.Input[str]
+        """
+        Rule Type.
+        Expected value is 'NatRule'.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Description of the rule.
+        """
+        destination_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of destination IP addresses or Service Tags.
+        """
+        destination_ports: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of destination ports.
+        """
+        ip_protocols: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'FirewallPolicyRuleNetworkProtocol']]]]]
+        """
+        Array of FirewallPolicyRuleNetworkProtocols.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the rule.
+        """
+        source_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of source IP addresses for this rule.
+        """
+        source_ip_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of source IpGroups for this rule.
+        """
+        translated_address: NotRequired[pulumi.Input[str]]
+        """
+        The translated address for this NAT rule.
+        """
+        translated_fqdn: NotRequired[pulumi.Input[str]]
+        """
+        The translated FQDN for this NAT rule.
+        """
+        translated_port: NotRequired[pulumi.Input[str]]
+        """
+        The translated port for this NAT rule.
+        """
+elif False:
+    NatRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NatRuleArgs:
@@ -11981,6 +16157,22 @@ class NatRuleArgs:
         pulumi.set(self, "translated_port", value)
 
 
+if not MYPY:
+    class NetworkInterfaceDnsSettingsArgsDict(TypedDict):
+        """
+        DNS settings of a network interface.
+        """
+        dns_servers: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of DNS servers IP addresses. Use 'AzureProvidedDNS' to switch to azure provided DNS resolution. 'AzureProvidedDNS' value cannot be combined with other IPs, it must be the only value in dnsServers collection.
+        """
+        internal_dns_name_label: NotRequired[pulumi.Input[str]]
+        """
+        Relative DNS name for this NIC used for internal communications between VMs in the same virtual network.
+        """
+elif False:
+    NetworkInterfaceDnsSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NetworkInterfaceDnsSettingsArgs:
     def __init__(__self__, *,
@@ -12020,6 +16212,74 @@ class NetworkInterfaceDnsSettingsArgs:
     def internal_dns_name_label(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "internal_dns_name_label", value)
 
+
+if not MYPY:
+    class NetworkInterfaceIPConfigurationArgsDict(TypedDict):
+        """
+        IPConfiguration in a network interface.
+        """
+        application_gateway_backend_address_pools: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayBackendAddressPoolArgsDict']]]]
+        """
+        The reference to ApplicationGatewayBackendAddressPool resource.
+        """
+        application_security_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationSecurityGroupArgsDict']]]]
+        """
+        Application security groups in which the IP configuration is included.
+        """
+        gateway_load_balancer: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        """
+        The reference to gateway load balancer frontend IP.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        load_balancer_backend_address_pools: NotRequired[pulumi.Input[Sequence[pulumi.Input['BackendAddressPoolArgsDict']]]]
+        """
+        The reference to LoadBalancerBackendAddressPool resource.
+        """
+        load_balancer_inbound_nat_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['InboundNatRuleArgsDict']]]]
+        """
+        A list of references of LoadBalancerInboundNatRules.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+        primary: NotRequired[pulumi.Input[bool]]
+        """
+        Whether this is a primary customer address on the network interface.
+        """
+        private_ip_address: NotRequired[pulumi.Input[str]]
+        """
+        Private IP address of the IP configuration.
+        """
+        private_ip_address_version: NotRequired[pulumi.Input[Union[str, 'IPVersion']]]
+        """
+        Whether the specific IP configuration is IPv4 or IPv6. Default is IPv4.
+        """
+        private_ip_allocation_method: NotRequired[pulumi.Input[Union[str, 'IPAllocationMethod']]]
+        """
+        The private IP address allocation method.
+        """
+        public_ip_address: NotRequired[pulumi.Input['PublicIPAddressArgsDict']]
+        """
+        Public IP address bound to the IP configuration.
+        """
+        subnet: NotRequired[pulumi.Input['SubnetArgsDict']]
+        """
+        Subnet bound to the IP configuration.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        Resource type.
+        """
+        virtual_network_taps: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkTapArgsDict']]]]
+        """
+        The reference to Virtual Network Taps.
+        """
+elif False:
+    NetworkInterfaceIPConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NetworkInterfaceIPConfigurationArgs:
@@ -12269,6 +16529,22 @@ class NetworkInterfaceIPConfigurationArgs:
         pulumi.set(self, "virtual_network_taps", value)
 
 
+if not MYPY:
+    class NetworkManagerPropertiesNetworkManagerScopesArgsDict(TypedDict):
+        """
+        Scope of Network Manager.
+        """
+        management_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of management groups.
+        """
+        subscriptions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of subscriptions.
+        """
+elif False:
+    NetworkManagerPropertiesNetworkManagerScopesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NetworkManagerPropertiesNetworkManagerScopesArgs:
     def __init__(__self__, *,
@@ -12309,6 +16585,18 @@ class NetworkManagerPropertiesNetworkManagerScopesArgs:
         pulumi.set(self, "subscriptions", value)
 
 
+if not MYPY:
+    class NetworkManagerSecurityGroupItemArgsDict(TypedDict):
+        """
+        Network manager security group item.
+        """
+        network_group_id: pulumi.Input[str]
+        """
+        Network manager group Id.
+        """
+elif False:
+    NetworkManagerSecurityGroupItemArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NetworkManagerSecurityGroupItemArgs:
     def __init__(__self__, *,
@@ -12331,6 +16619,55 @@ class NetworkManagerSecurityGroupItemArgs:
     def network_group_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "network_group_id", value)
 
+
+if not MYPY:
+    class NetworkRuleArgsDict(TypedDict):
+        """
+        Rule of type network.
+        """
+        rule_type: pulumi.Input[str]
+        """
+        Rule Type.
+        Expected value is 'NetworkRule'.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Description of the rule.
+        """
+        destination_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of destination IP addresses or Service Tags.
+        """
+        destination_fqdns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of destination FQDNs.
+        """
+        destination_ip_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of destination IpGroups for this rule.
+        """
+        destination_ports: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of destination ports.
+        """
+        ip_protocols: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'FirewallPolicyRuleNetworkProtocol']]]]]
+        """
+        Array of FirewallPolicyRuleNetworkProtocols.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the rule.
+        """
+        source_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of source IP addresses for this rule.
+        """
+        source_ip_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of source IpGroups for this rule.
+        """
+elif False:
+    NetworkRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NetworkRuleArgs:
@@ -12501,6 +16838,34 @@ class NetworkRuleArgs:
         pulumi.set(self, "source_ip_groups", value)
 
 
+if not MYPY:
+    class NetworkSecurityGroupArgsDict(TypedDict):
+        """
+        NetworkSecurityGroup resource.
+        """
+        flush_connection: NotRequired[pulumi.Input[bool]]
+        """
+        When enabled, flows created from Network Security Group connections will be re-evaluated when rules are updates. Initial enablement will trigger re-evaluation.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        location: NotRequired[pulumi.Input[str]]
+        """
+        Resource location.
+        """
+        security_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['SecurityRuleArgsDict']]]]
+        """
+        A collection of security rules of the network security group.
+        """
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Resource tags.
+        """
+elif False:
+    NetworkSecurityGroupArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NetworkSecurityGroupArgs:
     def __init__(__self__, *,
@@ -12589,6 +16954,26 @@ class NetworkSecurityGroupArgs:
         pulumi.set(self, "tags", value)
 
 
+if not MYPY:
+    class O365BreakOutCategoryPoliciesArgsDict(TypedDict):
+        """
+        Office365 breakout categories.
+        """
+        allow: NotRequired[pulumi.Input[bool]]
+        """
+        Flag to control allow category.
+        """
+        default: NotRequired[pulumi.Input[bool]]
+        """
+        Flag to control default category.
+        """
+        optimize: NotRequired[pulumi.Input[bool]]
+        """
+        Flag to control optimize category.
+        """
+elif False:
+    O365BreakOutCategoryPoliciesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class O365BreakOutCategoryPoliciesArgs:
     def __init__(__self__, *,
@@ -12645,6 +17030,18 @@ class O365BreakOutCategoryPoliciesArgs:
         pulumi.set(self, "optimize", value)
 
 
+if not MYPY:
+    class O365PolicyPropertiesArgsDict(TypedDict):
+        """
+        The Office365 breakout policy.
+        """
+        break_out_categories: NotRequired[pulumi.Input['O365BreakOutCategoryPoliciesArgsDict']]
+        """
+        Office365 breakout categories.
+        """
+elif False:
+    O365PolicyPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class O365PolicyPropertiesArgs:
     def __init__(__self__, *,
@@ -12669,6 +17066,18 @@ class O365PolicyPropertiesArgs:
         pulumi.set(self, "break_out_categories", value)
 
 
+if not MYPY:
+    class Office365PolicyPropertiesArgsDict(TypedDict):
+        """
+        Network Virtual Appliance Sku Properties.
+        """
+        break_out_categories: NotRequired[pulumi.Input['BreakOutCategoryPoliciesArgsDict']]
+        """
+        Office 365 breakout categories.
+        """
+elif False:
+    Office365PolicyPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class Office365PolicyPropertiesArgs:
     def __init__(__self__, *,
@@ -12692,6 +17101,22 @@ class Office365PolicyPropertiesArgs:
     def break_out_categories(self, value: Optional[pulumi.Input['BreakOutCategoryPoliciesArgs']]):
         pulumi.set(self, "break_out_categories", value)
 
+
+if not MYPY:
+    class OrderByDict(TypedDict):
+        """
+        Describes a column to sort
+        """
+        field: NotRequired[str]
+        """
+        Describes the actual column name to sort by
+        """
+        order: NotRequired[Union[str, 'FirewallPolicyIDPSQuerySortOrder']]
+        """
+        Describes if results should be in ascending/descending order
+        """
+elif False:
+    OrderByDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OrderBy:
@@ -12732,6 +17157,46 @@ class OrderBy:
     def order(self, value: Optional[Union[str, 'FirewallPolicyIDPSQuerySortOrder']]):
         pulumi.set(self, "order", value)
 
+
+if not MYPY:
+    class OutboundRuleArgsDict(TypedDict):
+        """
+        Outbound rule of the load balancer.
+        """
+        backend_address_pool: pulumi.Input['SubResourceArgsDict']
+        """
+        A reference to a pool of DIPs. Outbound traffic is randomly load balanced across IPs in the backend IPs.
+        """
+        frontend_ip_configurations: pulumi.Input[Sequence[pulumi.Input['SubResourceArgsDict']]]
+        """
+        The Frontend IP addresses of the load balancer.
+        """
+        protocol: pulumi.Input[Union[str, 'LoadBalancerOutboundRuleProtocol']]
+        """
+        The protocol for the outbound rule in load balancer.
+        """
+        allocated_outbound_ports: NotRequired[pulumi.Input[int]]
+        """
+        The number of outbound ports to be used for NAT.
+        """
+        enable_tcp_reset: NotRequired[pulumi.Input[bool]]
+        """
+        Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        idle_timeout_in_minutes: NotRequired[pulumi.Input[int]]
+        """
+        The timeout for the TCP idle connection.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the resource that is unique within the set of outbound rules used by the load balancer. This name can be used to access the resource.
+        """
+elif False:
+    OutboundRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OutboundRuleArgs:
@@ -12866,6 +17331,30 @@ class OutboundRuleArgs:
         pulumi.set(self, "name", value)
 
 
+if not MYPY:
+    class OwaspCrsExclusionEntryArgsDict(TypedDict):
+        """
+        Allow to exclude some variable satisfy the condition for the WAF check.
+        """
+        match_variable: pulumi.Input[Union[str, 'OwaspCrsExclusionEntryMatchVariable']]
+        """
+        The variable to be excluded.
+        """
+        selector: pulumi.Input[str]
+        """
+        When matchVariable is a collection, operator used to specify which elements in the collection this exclusion applies to.
+        """
+        selector_match_operator: pulumi.Input[Union[str, 'OwaspCrsExclusionEntrySelectorMatchOperator']]
+        """
+        When matchVariable is a collection, operate on the selector to specify which elements in the collection this exclusion applies to.
+        """
+        exclusion_managed_rule_sets: NotRequired[pulumi.Input[Sequence[pulumi.Input['ExclusionManagedRuleSetArgsDict']]]]
+        """
+        The managed rule sets that are associated with the exclusion.
+        """
+elif False:
+    OwaspCrsExclusionEntryArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OwaspCrsExclusionEntryArgs:
     def __init__(__self__, *,
@@ -12934,6 +17423,34 @@ class OwaspCrsExclusionEntryArgs:
     def exclusion_managed_rule_sets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ExclusionManagedRuleSetArgs']]]]):
         pulumi.set(self, "exclusion_managed_rule_sets", value)
 
+
+if not MYPY:
+    class P2SConnectionConfigurationArgsDict(TypedDict):
+        """
+        P2SConnectionConfiguration Resource.
+        """
+        enable_internet_security: NotRequired[pulumi.Input[bool]]
+        """
+        Flag indicating whether the enable internet security flag is turned on for the P2S Connections or not.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+        routing_configuration: NotRequired[pulumi.Input['RoutingConfigurationArgsDict']]
+        """
+        The Routing Configuration indicating the associated and propagated route tables on this connection.
+        """
+        vpn_client_address_pool: NotRequired[pulumi.Input['AddressSpaceArgsDict']]
+        """
+        The reference to the address space resource which represents Address space for P2S VpnClient.
+        """
+elif False:
+    P2SConnectionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class P2SConnectionConfigurationArgs:
@@ -13022,6 +17539,34 @@ class P2SConnectionConfigurationArgs:
     def vpn_client_address_pool(self, value: Optional[pulumi.Input['AddressSpaceArgs']]):
         pulumi.set(self, "vpn_client_address_pool", value)
 
+
+if not MYPY:
+    class PacketCaptureFilterArgsDict(TypedDict):
+        """
+        Filter that is applied to packet capture request. Multiple filters can be applied.
+        """
+        local_ip_address: NotRequired[pulumi.Input[str]]
+        """
+        Local IP Address to be filtered on. Notation: "127.0.0.1" for single address entry. "127.0.0.1-127.0.0.255" for range. "127.0.0.1;127.0.0.5"? for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Default = null.
+        """
+        local_port: NotRequired[pulumi.Input[str]]
+        """
+        Local port to be filtered on. Notation: "80" for single port entry."80-85" for range. "80;443;" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Default = null.
+        """
+        protocol: NotRequired[pulumi.Input[Union[str, 'PcProtocol']]]
+        """
+        Protocol to be filtered on.
+        """
+        remote_ip_address: NotRequired[pulumi.Input[str]]
+        """
+        Local IP Address to be filtered on. Notation: "127.0.0.1" for single address entry. "127.0.0.1-127.0.0.255" for range. "127.0.0.1;127.0.0.5;" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Default = null.
+        """
+        remote_port: NotRequired[pulumi.Input[str]]
+        """
+        Remote port to be filtered on. Notation: "80" for single port entry."80-85" for range. "80;443;" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Default = null.
+        """
+elif False:
+    PacketCaptureFilterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PacketCaptureFilterArgs:
@@ -13113,6 +17658,22 @@ class PacketCaptureFilterArgs:
         pulumi.set(self, "remote_port", value)
 
 
+if not MYPY:
+    class PacketCaptureMachineScopeArgsDict(TypedDict):
+        """
+        A list of AzureVMSS instances which can be included or excluded to run packet capture. If both included and excluded are empty, then the packet capture will run on all instances of AzureVMSS.
+        """
+        exclude: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of AzureVMSS instances which has to be excluded from the AzureVMSS from running packet capture.
+        """
+        include: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of AzureVMSS instances to run packet capture on.
+        """
+elif False:
+    PacketCaptureMachineScopeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PacketCaptureMachineScopeArgs:
     def __init__(__self__, *,
@@ -13152,6 +17713,26 @@ class PacketCaptureMachineScopeArgs:
     def include(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "include", value)
 
+
+if not MYPY:
+    class PacketCaptureStorageLocationArgsDict(TypedDict):
+        """
+        The storage location for a packet capture session.
+        """
+        file_path: NotRequired[pulumi.Input[str]]
+        """
+        A valid local path on the targeting VM. Must include the name of the capture file (*.cap). For linux virtual machine it must start with /var/captures. Required if no storage ID is provided, otherwise optional.
+        """
+        storage_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the storage account to save the packet capture session. Required if no local file path is provided.
+        """
+        storage_path: NotRequired[pulumi.Input[str]]
+        """
+        The URI of the storage path to save the packet capture. Must be a well-formed URI describing the location to save the packet capture.
+        """
+elif False:
+    PacketCaptureStorageLocationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PacketCaptureStorageLocationArgs:
@@ -13209,6 +17790,26 @@ class PacketCaptureStorageLocationArgs:
         pulumi.set(self, "storage_path", value)
 
 
+if not MYPY:
+    class ParameterArgsDict(TypedDict):
+        """
+        Parameters for an Action.
+        """
+        as_path: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of AS paths.
+        """
+        community: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of BGP communities.
+        """
+        route_prefix: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of route prefixes.
+        """
+elif False:
+    ParameterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ParameterArgs:
     def __init__(__self__, *,
@@ -13265,6 +17866,22 @@ class ParameterArgs:
         pulumi.set(self, "route_prefix", value)
 
 
+if not MYPY:
+    class PolicySettingsLogScrubbingArgsDict(TypedDict):
+        """
+        To scrub sensitive log fields
+        """
+        scrubbing_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['WebApplicationFirewallScrubbingRulesArgsDict']]]]
+        """
+        The rules that are applied to the logs for scrubbing.
+        """
+        state: NotRequired[pulumi.Input[Union[str, 'WebApplicationFirewallScrubbingState']]]
+        """
+        State of the log scrubbing config. Default value is Enabled.
+        """
+elif False:
+    PolicySettingsLogScrubbingArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PolicySettingsLogScrubbingArgs:
     def __init__(__self__, *,
@@ -13304,6 +17921,58 @@ class PolicySettingsLogScrubbingArgs:
     def state(self, value: Optional[pulumi.Input[Union[str, 'WebApplicationFirewallScrubbingState']]]):
         pulumi.set(self, "state", value)
 
+
+if not MYPY:
+    class PolicySettingsArgsDict(TypedDict):
+        """
+        Defines contents of a web application firewall global configuration.
+        """
+        custom_block_response_body: NotRequired[pulumi.Input[str]]
+        """
+        If the action type is block, customer can override the response body. The body must be specified in base64 encoding.
+        """
+        custom_block_response_status_code: NotRequired[pulumi.Input[int]]
+        """
+        If the action type is block, customer can override the response status code.
+        """
+        file_upload_enforcement: NotRequired[pulumi.Input[bool]]
+        """
+        Whether allow WAF to enforce file upload limits.
+        """
+        file_upload_limit_in_mb: NotRequired[pulumi.Input[int]]
+        """
+        Maximum file upload size in Mb for WAF.
+        """
+        log_scrubbing: NotRequired[pulumi.Input['PolicySettingsLogScrubbingArgsDict']]
+        """
+        To scrub sensitive log fields
+        """
+        max_request_body_size_in_kb: NotRequired[pulumi.Input[int]]
+        """
+        Maximum request body size in Kb for WAF.
+        """
+        mode: NotRequired[pulumi.Input[Union[str, 'WebApplicationFirewallMode']]]
+        """
+        The mode of the policy.
+        """
+        request_body_check: NotRequired[pulumi.Input[bool]]
+        """
+        Whether to allow WAF to check request Body.
+        """
+        request_body_enforcement: NotRequired[pulumi.Input[bool]]
+        """
+        Whether allow WAF to enforce request body limits.
+        """
+        request_body_inspect_limit_in_kb: NotRequired[pulumi.Input[int]]
+        """
+        Max inspection limit in KB for request body inspection for WAF.
+        """
+        state: NotRequired[pulumi.Input[Union[str, 'WebApplicationFirewallEnabledState']]]
+        """
+        The state of the policy.
+        """
+elif False:
+    PolicySettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PolicySettingsArgs:
@@ -13493,6 +18162,22 @@ class PolicySettingsArgs:
         pulumi.set(self, "state", value)
 
 
+if not MYPY:
+    class PrivateDnsZoneConfigArgsDict(TypedDict):
+        """
+        PrivateDnsZoneConfig resource.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+        private_dns_zone_id: NotRequired[pulumi.Input[str]]
+        """
+        The resource id of the private dns zone.
+        """
+elif False:
+    PrivateDnsZoneConfigArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PrivateDnsZoneConfigArgs:
     def __init__(__self__, *,
@@ -13532,6 +18217,30 @@ class PrivateDnsZoneConfigArgs:
     def private_dns_zone_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "private_dns_zone_id", value)
 
+
+if not MYPY:
+    class PrivateEndpointIPConfigurationArgsDict(TypedDict):
+        """
+        An IP Configuration of the private endpoint.
+        """
+        group_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of a group obtained from the remote resource that this private endpoint should connect to.
+        """
+        member_name: NotRequired[pulumi.Input[str]]
+        """
+        The member name of a group obtained from the remote resource that this private endpoint should connect to.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the resource that is unique within a resource group.
+        """
+        private_ip_address: NotRequired[pulumi.Input[str]]
+        """
+        A private ip address obtained from the private endpoint's subnet.
+        """
+elif False:
+    PrivateEndpointIPConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PrivateEndpointIPConfigurationArgs:
@@ -13605,6 +18314,26 @@ class PrivateEndpointIPConfigurationArgs:
         pulumi.set(self, "private_ip_address", value)
 
 
+if not MYPY:
+    class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
+        """
+        A collection of information about the state of the connection between service consumer and provider.
+        """
+        actions_required: NotRequired[pulumi.Input[str]]
+        """
+        A message indicating if changes on the service provider require any updates on the consumer.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The reason for approval/rejection of the connection.
+        """
+        status: NotRequired[pulumi.Input[str]]
+        """
+        Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+        """
+elif False:
+    PrivateLinkServiceConnectionStateArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:
     def __init__(__self__, *,
@@ -13660,6 +18389,38 @@ class PrivateLinkServiceConnectionStateArgs:
     def status(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "status", value)
 
+
+if not MYPY:
+    class PrivateLinkServiceConnectionArgsDict(TypedDict):
+        """
+        PrivateLinkServiceConnection resource.
+        """
+        group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The ID(s) of the group(s) obtained from the remote resource that this private endpoint should connect to.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+        private_link_service_connection_state: NotRequired[pulumi.Input['PrivateLinkServiceConnectionStateArgsDict']]
+        """
+        A collection of read-only information about the state of the connection to the remote resource.
+        """
+        private_link_service_id: NotRequired[pulumi.Input[str]]
+        """
+        The resource id of private link service.
+        """
+        request_message: NotRequired[pulumi.Input[str]]
+        """
+        A message passed to the owner of the remote resource with this connection request. Restricted to 140 chars.
+        """
+elif False:
+    PrivateLinkServiceConnectionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PrivateLinkServiceConnectionArgs:
@@ -13764,6 +18525,42 @@ class PrivateLinkServiceConnectionArgs:
     def request_message(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "request_message", value)
 
+
+if not MYPY:
+    class PrivateLinkServiceIpConfigurationArgsDict(TypedDict):
+        """
+        The private link service ip configuration.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of private link service ip configuration.
+        """
+        primary: NotRequired[pulumi.Input[bool]]
+        """
+        Whether the ip configuration is primary or not.
+        """
+        private_ip_address: NotRequired[pulumi.Input[str]]
+        """
+        The private IP address of the IP configuration.
+        """
+        private_ip_address_version: NotRequired[pulumi.Input[Union[str, 'IPVersion']]]
+        """
+        Whether the specific IP configuration is IPv4 or IPv6. Default is IPv4.
+        """
+        private_ip_allocation_method: NotRequired[pulumi.Input[Union[str, 'IPAllocationMethod']]]
+        """
+        The private IP address allocation method.
+        """
+        subnet: NotRequired[pulumi.Input['SubnetArgsDict']]
+        """
+        The reference to the subnet resource.
+        """
+elif False:
+    PrivateLinkServiceIpConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PrivateLinkServiceIpConfigurationArgs:
@@ -13885,6 +18682,18 @@ class PrivateLinkServiceIpConfigurationArgs:
         pulumi.set(self, "subnet", value)
 
 
+if not MYPY:
+    class PrivateLinkServicePropertiesAutoApprovalArgsDict(TypedDict):
+        """
+        The auto-approval list of the private link service.
+        """
+        subscriptions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of subscriptions.
+        """
+elif False:
+    PrivateLinkServicePropertiesAutoApprovalArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PrivateLinkServicePropertiesAutoApprovalArgs:
     def __init__(__self__, *,
@@ -13909,6 +18718,18 @@ class PrivateLinkServicePropertiesAutoApprovalArgs:
         pulumi.set(self, "subscriptions", value)
 
 
+if not MYPY:
+    class PrivateLinkServicePropertiesVisibilityArgsDict(TypedDict):
+        """
+        The visibility list of the private link service.
+        """
+        subscriptions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of subscriptions.
+        """
+elif False:
+    PrivateLinkServicePropertiesVisibilityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PrivateLinkServicePropertiesVisibilityArgs:
     def __init__(__self__, *,
@@ -13932,6 +18753,54 @@ class PrivateLinkServicePropertiesVisibilityArgs:
     def subscriptions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "subscriptions", value)
 
+
+if not MYPY:
+    class PrivateLinkServiceArgsDict(TypedDict):
+        """
+        Private link service resource.
+        """
+        auto_approval: NotRequired[pulumi.Input['PrivateLinkServicePropertiesAutoApprovalArgsDict']]
+        """
+        The auto-approval list of the private link service.
+        """
+        enable_proxy_protocol: NotRequired[pulumi.Input[bool]]
+        """
+        Whether the private link service is enabled for proxy protocol or not.
+        """
+        extended_location: NotRequired[pulumi.Input['ExtendedLocationArgsDict']]
+        """
+        The extended location of the load balancer.
+        """
+        fqdns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of Fqdn.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        ip_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['PrivateLinkServiceIpConfigurationArgsDict']]]]
+        """
+        An array of private link service IP configurations.
+        """
+        load_balancer_frontend_ip_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['FrontendIPConfigurationArgsDict']]]]
+        """
+        An array of references to the load balancer IP configurations.
+        """
+        location: NotRequired[pulumi.Input[str]]
+        """
+        Resource location.
+        """
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Resource tags.
+        """
+        visibility: NotRequired[pulumi.Input['PrivateLinkServicePropertiesVisibilityArgsDict']]
+        """
+        The visibility list of the private link service.
+        """
+elif False:
+    PrivateLinkServiceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PrivateLinkServiceArgs:
@@ -14101,6 +18970,46 @@ class PrivateLinkServiceArgs:
         pulumi.set(self, "visibility", value)
 
 
+if not MYPY:
+    class ProbeArgsDict(TypedDict):
+        """
+        A load balancer probe.
+        """
+        port: pulumi.Input[int]
+        """
+        The port for communicating the probe. Possible values range from 1 to 65535, inclusive.
+        """
+        protocol: pulumi.Input[Union[str, 'ProbeProtocol']]
+        """
+        The protocol of the end point. If 'Tcp' is specified, a received ACK is required for the probe to be successful. If 'Http' or 'Https' is specified, a 200 OK response from the specifies URI is required for the probe to be successful.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        interval_in_seconds: NotRequired[pulumi.Input[int]]
+        """
+        The interval, in seconds, for how frequently to probe the endpoint for health status. Typically, the interval is slightly less than half the allocated timeout period (in seconds) which allows two full probes before taking the instance out of rotation. The default value is 15, the minimum value is 5.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the resource that is unique within the set of probes used by the load balancer. This name can be used to access the resource.
+        """
+        number_of_probes: NotRequired[pulumi.Input[int]]
+        """
+        The number of probes where if no response, will result in stopping further traffic from being delivered to the endpoint. This values allows endpoints to be taken out of rotation faster or slower than the typical times used in Azure.
+        """
+        probe_threshold: NotRequired[pulumi.Input[int]]
+        """
+        The number of consecutive successful or failed probes in order to allow or deny traffic from being delivered to this endpoint. After failing the number of consecutive probes equal to this value, the endpoint will be taken out of rotation and require the same number of successful consecutive probes to be placed back in rotation.
+        """
+        request_path: NotRequired[pulumi.Input[str]]
+        """
+        The URI used for requesting health status from the VM. Path is required if a protocol is set to http. Otherwise, it is not allowed. There is no default value.
+        """
+elif False:
+    ProbeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ProbeArgs:
     def __init__(__self__, *,
@@ -14235,6 +19144,22 @@ class ProbeArgs:
         pulumi.set(self, "request_path", value)
 
 
+if not MYPY:
+    class PropagatedRouteTableArgsDict(TypedDict):
+        """
+        The list of RouteTables to advertise the routes to.
+        """
+        ids: NotRequired[pulumi.Input[Sequence[pulumi.Input['SubResourceArgsDict']]]]
+        """
+        The list of resource ids of all the RouteTables.
+        """
+        labels: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of labels.
+        """
+elif False:
+    PropagatedRouteTableArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PropagatedRouteTableArgs:
     def __init__(__self__, *,
@@ -14274,6 +19199,30 @@ class PropagatedRouteTableArgs:
     def labels(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "labels", value)
 
+
+if not MYPY:
+    class PublicIPAddressDnsSettingsArgsDict(TypedDict):
+        """
+        Contains FQDN of the DNS record associated with the public IP address.
+        """
+        domain_name_label: NotRequired[pulumi.Input[str]]
+        """
+        The domain name label. The concatenation of the domain name label and the regionalized DNS zone make up the fully qualified domain name associated with the public IP address. If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
+        """
+        domain_name_label_scope: NotRequired[pulumi.Input['PublicIpAddressDnsSettingsDomainNameLabelScope']]
+        """
+        The domain name label scope. If a domain name label and a domain name label scope are specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system with a hashed value includes in FQDN.
+        """
+        fqdn: NotRequired[pulumi.Input[str]]
+        """
+        The Fully Qualified Domain Name of the A DNS record associated with the public IP. This is the concatenation of the domainNameLabel and the regionalized DNS zone.
+        """
+        reverse_fqdn: NotRequired[pulumi.Input[str]]
+        """
+        The reverse FQDN. A user-visible, fully qualified domain name that resolves to this public IP address. If the reverseFqdn is specified, then a PTR DNS record is created pointing from the IP address in the in-addr.arpa domain to the reverse FQDN.
+        """
+elif False:
+    PublicIPAddressDnsSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PublicIPAddressDnsSettingsArgs:
@@ -14347,6 +19296,22 @@ class PublicIPAddressDnsSettingsArgs:
         pulumi.set(self, "reverse_fqdn", value)
 
 
+if not MYPY:
+    class PublicIPAddressSkuArgsDict(TypedDict):
+        """
+        SKU of a public IP address.
+        """
+        name: NotRequired[pulumi.Input[Union[str, 'PublicIPAddressSkuName']]]
+        """
+        Name of a public IP address SKU.
+        """
+        tier: NotRequired[pulumi.Input[Union[str, 'PublicIPAddressSkuTier']]]
+        """
+        Tier of a public IP address SKU.
+        """
+elif False:
+    PublicIPAddressSkuArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PublicIPAddressSkuArgs:
     def __init__(__self__, *,
@@ -14386,6 +19351,90 @@ class PublicIPAddressSkuArgs:
     def tier(self, value: Optional[pulumi.Input[Union[str, 'PublicIPAddressSkuTier']]]):
         pulumi.set(self, "tier", value)
 
+
+if not MYPY:
+    class PublicIPAddressArgsDict(TypedDict):
+        """
+        Public IP address resource.
+        """
+        ddos_settings: NotRequired[pulumi.Input['DdosSettingsArgsDict']]
+        """
+        The DDoS protection custom policy associated with the public IP address.
+        """
+        delete_option: NotRequired[pulumi.Input[Union[str, 'DeleteOptions']]]
+        """
+        Specify what happens to the public IP address when the VM using it is deleted
+        """
+        dns_settings: NotRequired[pulumi.Input['PublicIPAddressDnsSettingsArgsDict']]
+        """
+        The FQDN of the DNS record associated with the public IP address.
+        """
+        extended_location: NotRequired[pulumi.Input['ExtendedLocationArgsDict']]
+        """
+        The extended location of the public ip address.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        idle_timeout_in_minutes: NotRequired[pulumi.Input[int]]
+        """
+        The idle timeout of the public IP address.
+        """
+        ip_address: NotRequired[pulumi.Input[str]]
+        """
+        The IP address associated with the public IP address resource.
+        """
+        ip_tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['IpTagArgsDict']]]]
+        """
+        The list of tags associated with the public IP address.
+        """
+        linked_public_ip_address: NotRequired[pulumi.Input['PublicIPAddressArgsDict']]
+        """
+        The linked public IP address of the public IP address resource.
+        """
+        location: NotRequired[pulumi.Input[str]]
+        """
+        Resource location.
+        """
+        migration_phase: NotRequired[pulumi.Input[Union[str, 'PublicIPAddressMigrationPhase']]]
+        """
+        Migration phase of Public IP Address.
+        """
+        nat_gateway: NotRequired[pulumi.Input['NatGatewayArgsDict']]
+        """
+        The NatGateway for the Public IP address.
+        """
+        public_ip_address_version: NotRequired[pulumi.Input[Union[str, 'IPVersion']]]
+        """
+        The public IP address version.
+        """
+        public_ip_allocation_method: NotRequired[pulumi.Input[Union[str, 'IPAllocationMethod']]]
+        """
+        The public IP address allocation method.
+        """
+        public_ip_prefix: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        """
+        The Public IP Prefix this Public IP Address should be allocated from.
+        """
+        service_public_ip_address: NotRequired[pulumi.Input['PublicIPAddressArgsDict']]
+        """
+        The service public IP address of the public IP address resource.
+        """
+        sku: NotRequired[pulumi.Input['PublicIPAddressSkuArgsDict']]
+        """
+        The public IP address SKU.
+        """
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Resource tags.
+        """
+        zones: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of availability zones denoting the IP allocated for the resource needs to come from.
+        """
+elif False:
+    PublicIPAddressArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PublicIPAddressArgs:
@@ -14699,6 +19748,22 @@ class PublicIPAddressArgs:
         pulumi.set(self, "zones", value)
 
 
+if not MYPY:
+    class PublicIPPrefixSkuArgsDict(TypedDict):
+        """
+        SKU of a public IP prefix.
+        """
+        name: NotRequired[pulumi.Input[Union[str, 'PublicIPPrefixSkuName']]]
+        """
+        Name of a public IP prefix SKU.
+        """
+        tier: NotRequired[pulumi.Input[Union[str, 'PublicIPPrefixSkuTier']]]
+        """
+        Tier of a public IP prefix SKU.
+        """
+elif False:
+    PublicIPPrefixSkuArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PublicIPPrefixSkuArgs:
     def __init__(__self__, *,
@@ -14738,6 +19803,38 @@ class PublicIPPrefixSkuArgs:
     def tier(self, value: Optional[pulumi.Input[Union[str, 'PublicIPPrefixSkuTier']]]):
         pulumi.set(self, "tier", value)
 
+
+if not MYPY:
+    class QosDefinitionArgsDict(TypedDict):
+        """
+        Quality of Service defines the traffic configuration between endpoints. Mandatory to have one marking.
+        """
+        destination_ip_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input['QosIpRangeArgsDict']]]]
+        """
+        Destination IP ranges.
+        """
+        destination_port_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input['QosPortRangeArgsDict']]]]
+        """
+        Destination port ranges.
+        """
+        markings: NotRequired[pulumi.Input[Sequence[pulumi.Input[int]]]]
+        """
+        List of markings to be used in the configuration.
+        """
+        protocol: NotRequired[pulumi.Input[Union[str, 'ProtocolType']]]
+        """
+        RNM supported protocol types.
+        """
+        source_ip_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input['QosIpRangeArgsDict']]]]
+        """
+        Source IP ranges.
+        """
+        source_port_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input['QosPortRangeArgsDict']]]]
+        """
+        Sources port ranges.
+        """
+elif False:
+    QosDefinitionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class QosDefinitionArgs:
@@ -14843,6 +19940,22 @@ class QosDefinitionArgs:
         pulumi.set(self, "source_port_ranges", value)
 
 
+if not MYPY:
+    class QosIpRangeArgsDict(TypedDict):
+        """
+        Qos Traffic Profiler IP Range properties.
+        """
+        end_ip: NotRequired[pulumi.Input[str]]
+        """
+        End IP Address.
+        """
+        start_ip: NotRequired[pulumi.Input[str]]
+        """
+        Start IP Address.
+        """
+elif False:
+    QosIpRangeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class QosIpRangeArgs:
     def __init__(__self__, *,
@@ -14883,6 +19996,22 @@ class QosIpRangeArgs:
         pulumi.set(self, "start_ip", value)
 
 
+if not MYPY:
+    class QosPortRangeArgsDict(TypedDict):
+        """
+        Qos Traffic Profiler Port range properties.
+        """
+        end: NotRequired[pulumi.Input[int]]
+        """
+        Qos Port Range end.
+        """
+        start: NotRequired[pulumi.Input[int]]
+        """
+        Qos Port Range start.
+        """
+elif False:
+    QosPortRangeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class QosPortRangeArgs:
     def __init__(__self__, *,
@@ -14922,6 +20051,26 @@ class QosPortRangeArgs:
     def start(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "start", value)
 
+
+if not MYPY:
+    class RadiusServerArgsDict(TypedDict):
+        """
+        Radius Server Settings.
+        """
+        radius_server_address: pulumi.Input[str]
+        """
+        The address of this radius server.
+        """
+        radius_server_score: NotRequired[pulumi.Input[float]]
+        """
+        The initial score assigned to this radius server.
+        """
+        radius_server_secret: NotRequired[pulumi.Input[str]]
+        """
+        The secret used for this radius server.
+        """
+elif False:
+    RadiusServerArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RadiusServerArgs:
@@ -14978,6 +20127,22 @@ class RadiusServerArgs:
         pulumi.set(self, "radius_server_secret", value)
 
 
+if not MYPY:
+    class RetentionPolicyParametersArgsDict(TypedDict):
+        """
+        Parameters that define the retention policy for flow log.
+        """
+        days: NotRequired[pulumi.Input[int]]
+        """
+        Number of days to retain flow log records.
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Flag to enable/disable retention.
+        """
+elif False:
+    RetentionPolicyParametersArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RetentionPolicyParametersArgs:
     def __init__(__self__, *,
@@ -15021,6 +20186,38 @@ class RetentionPolicyParametersArgs:
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
 
+
+if not MYPY:
+    class RouteFilterRuleArgsDict(TypedDict):
+        """
+        Route Filter Rule Resource.
+        """
+        access: pulumi.Input[Union[str, 'Access']]
+        """
+        The access type of the rule.
+        """
+        communities: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        The collection for bgp community values to filter on. e.g. ['12076:5010','12076:5020'].
+        """
+        route_filter_rule_type: pulumi.Input[Union[str, 'RouteFilterRuleType']]
+        """
+        The rule type of the rule.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        location: NotRequired[pulumi.Input[str]]
+        """
+        Resource location.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+elif False:
+    RouteFilterRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RouteFilterRuleArgs:
@@ -15123,6 +20320,30 @@ class RouteFilterRuleArgs:
         pulumi.set(self, "name", value)
 
 
+if not MYPY:
+    class RouteMapRuleArgsDict(TypedDict):
+        """
+        A RouteMap Rule.
+        """
+        actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['ActionArgsDict']]]]
+        """
+        List of actions which will be applied on a match.
+        """
+        match_criteria: NotRequired[pulumi.Input[Sequence[pulumi.Input['CriterionArgsDict']]]]
+        """
+        List of matching criterion which will be applied to traffic.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The unique name for the rule.
+        """
+        next_step_if_matched: NotRequired[pulumi.Input[Union[str, 'NextStep']]]
+        """
+        Next step after rule is evaluated. Current supported behaviors are 'Continue'(to next rule) and 'Terminate'.
+        """
+elif False:
+    RouteMapRuleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RouteMapRuleArgs:
     def __init__(__self__, *,
@@ -15194,6 +20415,34 @@ class RouteMapRuleArgs:
     def next_step_if_matched(self, value: Optional[pulumi.Input[Union[str, 'NextStep']]]):
         pulumi.set(self, "next_step_if_matched", value)
 
+
+if not MYPY:
+    class RouteTableArgsDict(TypedDict):
+        """
+        Route table resource.
+        """
+        disable_bgp_route_propagation: NotRequired[pulumi.Input[bool]]
+        """
+        Whether to disable the routes learned by BGP on that route table. True means disable.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        location: NotRequired[pulumi.Input[str]]
+        """
+        Resource location.
+        """
+        routes: NotRequired[pulumi.Input[Sequence[pulumi.Input['RouteArgsDict']]]]
+        """
+        Collection of routes contained within a route table.
+        """
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Resource tags.
+        """
+elif False:
+    RouteTableArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RouteTableArgs:
@@ -15282,6 +20531,42 @@ class RouteTableArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+
+if not MYPY:
+    class RouteArgsDict(TypedDict):
+        """
+        Route resource.
+        """
+        next_hop_type: pulumi.Input[Union[str, 'RouteNextHopType']]
+        """
+        The type of Azure hop the packet should be sent to.
+        """
+        address_prefix: NotRequired[pulumi.Input[str]]
+        """
+        The destination CIDR to which the route applies.
+        """
+        has_bgp_override: NotRequired[pulumi.Input[bool]]
+        """
+        A value indicating whether this route overrides overlapping BGP routes regardless of LPM.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+        next_hop_ip_address: NotRequired[pulumi.Input[str]]
+        """
+        The IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is VirtualAppliance.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        The type of the resource.
+        """
+elif False:
+    RouteArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RouteArgs:
@@ -15402,6 +20687,34 @@ class RouteArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class RoutingConfigurationArgsDict(TypedDict):
+        """
+        Routing Configuration indicating the associated and propagated route tables for this connection.
+        """
+        associated_route_table: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        """
+        The resource id RouteTable associated with this RoutingConfiguration.
+        """
+        inbound_route_map: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        """
+        The resource id of the RouteMap associated with this RoutingConfiguration for inbound learned routes.
+        """
+        outbound_route_map: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        """
+        The resource id of theRouteMap associated with this RoutingConfiguration for outbound advertised routes.
+        """
+        propagated_route_tables: NotRequired[pulumi.Input['PropagatedRouteTableArgsDict']]
+        """
+        The list of RouteTables to advertise the routes to.
+        """
+        vnet_routes: NotRequired[pulumi.Input['VnetRouteArgsDict']]
+        """
+        List of routes that control routing from VirtualHub into a virtual network connection.
+        """
+elif False:
+    RoutingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RoutingConfigurationArgs:
     def __init__(__self__, *,
@@ -15490,6 +20803,26 @@ class RoutingConfigurationArgs:
         pulumi.set(self, "vnet_routes", value)
 
 
+if not MYPY:
+    class RoutingPolicyArgsDict(TypedDict):
+        """
+        The routing policy object used in a RoutingIntent resource.
+        """
+        destinations: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        List of all destinations which this routing policy is applicable to (for example: Internet, PrivateTraffic).
+        """
+        name: pulumi.Input[str]
+        """
+        The unique name for the routing policy.
+        """
+        next_hop: pulumi.Input[str]
+        """
+        The next hop resource id on which this routing policy is applicable to.
+        """
+elif False:
+    RoutingPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RoutingPolicyArgs:
     def __init__(__self__, *,
@@ -15542,6 +20875,86 @@ class RoutingPolicyArgs:
     def next_hop(self, value: pulumi.Input[str]):
         pulumi.set(self, "next_hop", value)
 
+
+if not MYPY:
+    class SecurityRuleArgsDict(TypedDict):
+        """
+        Network security rule.
+        """
+        access: pulumi.Input[Union[str, 'SecurityRuleAccess']]
+        """
+        The network traffic is allowed or denied.
+        """
+        direction: pulumi.Input[Union[str, 'SecurityRuleDirection']]
+        """
+        The direction of the rule. The direction specifies if rule will be evaluated on incoming or outgoing traffic.
+        """
+        priority: pulumi.Input[int]
+        """
+        The priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
+        """
+        protocol: pulumi.Input[Union[str, 'SecurityRuleProtocol']]
+        """
+        Network protocol this rule applies to.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        A description for this rule. Restricted to 140 chars.
+        """
+        destination_address_prefix: NotRequired[pulumi.Input[str]]
+        """
+        The destination address prefix. CIDR or destination IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used.
+        """
+        destination_address_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The destination address prefixes. CIDR or destination IP ranges.
+        """
+        destination_application_security_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationSecurityGroupArgsDict']]]]
+        """
+        The application security group specified as destination.
+        """
+        destination_port_range: NotRequired[pulumi.Input[str]]
+        """
+        The destination port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
+        """
+        destination_port_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The destination port ranges.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+        source_address_prefix: NotRequired[pulumi.Input[str]]
+        """
+        The CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. If this is an ingress rule, specifies where network traffic originates from.
+        """
+        source_address_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The CIDR or source IP ranges.
+        """
+        source_application_security_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationSecurityGroupArgsDict']]]]
+        """
+        The application security group specified as source.
+        """
+        source_port_range: NotRequired[pulumi.Input[str]]
+        """
+        The source port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
+        """
+        source_port_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The source port ranges.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        The type of the resource.
+        """
+elif False:
+    SecurityRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SecurityRuleArgs:
@@ -15835,6 +21248,38 @@ class SecurityRuleArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class ServiceEndpointPolicyDefinitionArgsDict(TypedDict):
+        """
+        Service Endpoint policy definitions.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        A description for this rule. Restricted to 140 chars.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+        service: NotRequired[pulumi.Input[str]]
+        """
+        Service endpoint name.
+        """
+        service_resources: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of service resources.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        The type of the resource.
+        """
+elif False:
+    ServiceEndpointPolicyDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ServiceEndpointPolicyDefinitionArgs:
     def __init__(__self__, *,
@@ -15938,6 +21383,38 @@ class ServiceEndpointPolicyDefinitionArgs:
     def type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class ServiceEndpointPolicyArgsDict(TypedDict):
+        """
+        Service End point policy resource.
+        """
+        contextual_service_endpoint_policies: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A collection of contextual service endpoint policy.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        location: NotRequired[pulumi.Input[str]]
+        """
+        Resource location.
+        """
+        service_alias: NotRequired[pulumi.Input[str]]
+        """
+        The alias indicating if the policy belongs to a service
+        """
+        service_endpoint_policy_definitions: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceEndpointPolicyDefinitionArgsDict']]]]
+        """
+        A collection of service endpoint policy definitions of the service endpoint policy.
+        """
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Resource tags.
+        """
+elif False:
+    ServiceEndpointPolicyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ServiceEndpointPolicyArgs:
@@ -16043,6 +21520,22 @@ class ServiceEndpointPolicyArgs:
         pulumi.set(self, "tags", value)
 
 
+if not MYPY:
+    class ServiceEndpointPropertiesFormatArgsDict(TypedDict):
+        """
+        The service endpoint properties.
+        """
+        locations: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of locations.
+        """
+        service: NotRequired[pulumi.Input[str]]
+        """
+        The type of the endpoint service.
+        """
+elif False:
+    ServiceEndpointPropertiesFormatArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ServiceEndpointPropertiesFormatArgs:
     def __init__(__self__, *,
@@ -16083,6 +21576,18 @@ class ServiceEndpointPropertiesFormatArgs:
         pulumi.set(self, "service", value)
 
 
+if not MYPY:
+    class SkuArgsDict(TypedDict):
+        """
+        The sku of this Bastion Host.
+        """
+        name: NotRequired[pulumi.Input[Union[str, 'BastionHostSkuName']]]
+        """
+        The name of this Bastion Host.
+        """
+elif False:
+    SkuArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SkuArgs:
     def __init__(__self__, *,
@@ -16109,6 +21614,18 @@ class SkuArgs:
         pulumi.set(self, "name", value)
 
 
+if not MYPY:
+    class StaticRoutesConfigArgsDict(TypedDict):
+        """
+        Configuration for static routes on this HubVnetConnectionConfiguration for static routes on this HubVnetConnection.
+        """
+        vnet_local_route_override_criteria: NotRequired[pulumi.Input[Union[str, 'VnetLocalRouteOverrideCriteria']]]
+        """
+        Parameter determining whether NVA in spoke vnet is bypassed for traffic with destination in spoke.
+        """
+elif False:
+    StaticRoutesConfigArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class StaticRoutesConfigArgs:
     def __init__(__self__, *,
@@ -16132,6 +21649,26 @@ class StaticRoutesConfigArgs:
     def vnet_local_route_override_criteria(self, value: Optional[pulumi.Input[Union[str, 'VnetLocalRouteOverrideCriteria']]]):
         pulumi.set(self, "vnet_local_route_override_criteria", value)
 
+
+if not MYPY:
+    class StaticRouteArgsDict(TypedDict):
+        """
+        List of all Static Routes.
+        """
+        address_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of all address prefixes.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the StaticRoute that is unique within a VnetRoute.
+        """
+        next_hop_ip_address: NotRequired[pulumi.Input[str]]
+        """
+        The ip address of the next hop.
+        """
+elif False:
+    StaticRouteArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class StaticRouteArgs:
@@ -16189,6 +21726,21 @@ class StaticRouteArgs:
         pulumi.set(self, "next_hop_ip_address", value)
 
 
+if not MYPY:
+    class SubResourceDict(TypedDict):
+        """
+        Reference to another subresource.
+        """
+        id: NotRequired[str]
+        """
+        Sub-resource ID. Both absolute resource ID and a relative resource ID are accepted.
+        An absolute ID starts with /subscriptions/ and contains the entire ID of the parent resource and the ID of the sub-resource in the end.
+        A relative ID replaces the ID of the parent resource with a token '$self', followed by the sub-resource ID itself.
+        Example of a relative ID: $self/frontEndConfigurations/my-frontend.
+        """
+elif False:
+    SubResourceDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SubResource:
     def __init__(__self__, *,
@@ -16219,6 +21771,21 @@ class SubResource:
         pulumi.set(self, "id", value)
 
 
+if not MYPY:
+    class SubResourceArgsDict(TypedDict):
+        """
+        Reference to another subresource.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Sub-resource ID. Both absolute resource ID and a relative resource ID are accepted.
+        An absolute ID starts with /subscriptions/ and contains the entire ID of the parent resource and the ID of the sub-resource in the end.
+        A relative ID replaces the ID of the parent resource with a token '$self', followed by the sub-resource ID itself.
+        Example of a relative ID: $self/frontEndConfigurations/my-frontend.
+        """
+elif False:
+    SubResourceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SubResourceArgs:
     def __init__(__self__, *,
@@ -16248,6 +21815,74 @@ class SubResourceArgs:
     def id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class SubnetArgsDict(TypedDict):
+        """
+        Subnet in a virtual network resource.
+        """
+        address_prefix: NotRequired[pulumi.Input[str]]
+        """
+        The address prefix for the subnet.
+        """
+        address_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of address prefixes for the subnet.
+        """
+        application_gateway_ip_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayIPConfigurationArgsDict']]]]
+        """
+        Application gateway IP configurations of virtual network resource.
+        """
+        delegations: NotRequired[pulumi.Input[Sequence[pulumi.Input['DelegationArgsDict']]]]
+        """
+        An array of references to the delegations on the subnet.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        ip_allocations: NotRequired[pulumi.Input[Sequence[pulumi.Input['SubResourceArgsDict']]]]
+        """
+        Array of IpAllocation which reference this subnet.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+        nat_gateway: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        """
+        Nat gateway associated with this subnet.
+        """
+        network_security_group: NotRequired[pulumi.Input['NetworkSecurityGroupArgsDict']]
+        """
+        The reference to the NetworkSecurityGroup resource.
+        """
+        private_endpoint_network_policies: NotRequired[pulumi.Input[Union[str, 'VirtualNetworkPrivateEndpointNetworkPolicies']]]
+        """
+        Enable or Disable apply network policies on private end point in the subnet.
+        """
+        private_link_service_network_policies: NotRequired[pulumi.Input[Union[str, 'VirtualNetworkPrivateLinkServiceNetworkPolicies']]]
+        """
+        Enable or Disable apply network policies on private link service in the subnet.
+        """
+        route_table: NotRequired[pulumi.Input['RouteTableArgsDict']]
+        """
+        The reference to the RouteTable resource.
+        """
+        service_endpoint_policies: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceEndpointPolicyArgsDict']]]]
+        """
+        An array of service endpoint policies.
+        """
+        service_endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceEndpointPropertiesFormatArgsDict']]]]
+        """
+        An array of service endpoints.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        Resource type.
+        """
+elif False:
+    SubnetArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SubnetArgs:
@@ -16501,6 +22136,34 @@ class SubnetArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class TrafficAnalyticsConfigurationPropertiesArgsDict(TypedDict):
+        """
+        Parameters that define the configuration of traffic analytics.
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Flag to enable/disable traffic analytics.
+        """
+        traffic_analytics_interval: NotRequired[pulumi.Input[int]]
+        """
+        The interval in minutes which would decide how frequently TA service should do flow analytics.
+        """
+        workspace_id: NotRequired[pulumi.Input[str]]
+        """
+        The resource guid of the attached workspace.
+        """
+        workspace_region: NotRequired[pulumi.Input[str]]
+        """
+        The location of the attached workspace.
+        """
+        workspace_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        Resource Id of the attached workspace.
+        """
+elif False:
+    TrafficAnalyticsConfigurationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TrafficAnalyticsConfigurationPropertiesArgs:
     def __init__(__self__, *,
@@ -16589,6 +22252,18 @@ class TrafficAnalyticsConfigurationPropertiesArgs:
         pulumi.set(self, "workspace_resource_id", value)
 
 
+if not MYPY:
+    class TrafficAnalyticsPropertiesArgsDict(TypedDict):
+        """
+        Parameters that define the configuration of traffic analytics.
+        """
+        network_watcher_flow_analytics_configuration: NotRequired[pulumi.Input['TrafficAnalyticsConfigurationPropertiesArgsDict']]
+        """
+        Parameters that define the configuration of traffic analytics.
+        """
+elif False:
+    TrafficAnalyticsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TrafficAnalyticsPropertiesArgs:
     def __init__(__self__, *,
@@ -16612,6 +22287,22 @@ class TrafficAnalyticsPropertiesArgs:
     def network_watcher_flow_analytics_configuration(self, value: Optional[pulumi.Input['TrafficAnalyticsConfigurationPropertiesArgs']]):
         pulumi.set(self, "network_watcher_flow_analytics_configuration", value)
 
+
+if not MYPY:
+    class TrafficSelectorPolicyArgsDict(TypedDict):
+        """
+        An traffic selector policy for a virtual network gateway connection.
+        """
+        local_address_ranges: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        A collection of local address spaces in CIDR format.
+        """
+        remote_address_ranges: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        A collection of remote address spaces in CIDR format.
+        """
+elif False:
+    TrafficSelectorPolicyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TrafficSelectorPolicyArgs:
@@ -16650,6 +22341,26 @@ class TrafficSelectorPolicyArgs:
     def remote_address_ranges(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "remote_address_ranges", value)
 
+
+if not MYPY:
+    class VMDict(TypedDict):
+        """
+        Describes a Virtual Machine.
+        """
+        id: NotRequired[str]
+        """
+        Resource ID.
+        """
+        location: NotRequired[str]
+        """
+        Resource location.
+        """
+        tags: NotRequired[Mapping[str, str]]
+        """
+        Resource tags.
+        """
+elif False:
+    VMDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VM:
@@ -16707,6 +22418,22 @@ class VM:
         pulumi.set(self, "tags", value)
 
 
+if not MYPY:
+    class VirtualApplianceAdditionalNicPropertiesArgsDict(TypedDict):
+        """
+        Network Virtual Appliance Additional NIC properties.
+        """
+        has_public_ip: NotRequired[pulumi.Input[bool]]
+        """
+        Flag (true or false) for Intent for Public Ip on additional nic
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of additional nic
+        """
+elif False:
+    VirtualApplianceAdditionalNicPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class VirtualApplianceAdditionalNicPropertiesArgs:
     def __init__(__self__, *,
@@ -16746,6 +22473,26 @@ class VirtualApplianceAdditionalNicPropertiesArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class VirtualApplianceSkuPropertiesArgsDict(TypedDict):
+        """
+        Network Virtual Appliance Sku Properties.
+        """
+        bundled_scale_unit: NotRequired[pulumi.Input[str]]
+        """
+        Virtual Appliance Scale Unit.
+        """
+        market_place_version: NotRequired[pulumi.Input[str]]
+        """
+        Virtual Appliance Version.
+        """
+        vendor: NotRequired[pulumi.Input[str]]
+        """
+        Virtual Appliance Vendor.
+        """
+elif False:
+    VirtualApplianceSkuPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VirtualApplianceSkuPropertiesArgs:
@@ -16803,6 +22550,18 @@ class VirtualApplianceSkuPropertiesArgs:
         pulumi.set(self, "vendor", value)
 
 
+if not MYPY:
+    class VirtualHubIdArgsDict(TypedDict):
+        """
+        Virtual Hub identifier.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The resource URI for the Virtual Hub where the ExpressRoute gateway is or will be deployed. The Virtual Hub resource and the ExpressRoute gateway resource reside in the same subscription.
+        """
+elif False:
+    VirtualHubIdArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class VirtualHubIdArgs:
     def __init__(__self__, *,
@@ -16826,6 +22585,30 @@ class VirtualHubIdArgs:
     def id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class VirtualHubRouteTableV2ArgsDict(TypedDict):
+        """
+        VirtualHubRouteTableV2 Resource.
+        """
+        attached_connections: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of all connections attached to this route table v2.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+        routes: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualHubRouteV2ArgsDict']]]]
+        """
+        List of all routes.
+        """
+elif False:
+    VirtualHubRouteTableV2ArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VirtualHubRouteTableV2Args:
@@ -16899,6 +22682,18 @@ class VirtualHubRouteTableV2Args:
         pulumi.set(self, "routes", value)
 
 
+if not MYPY:
+    class VirtualHubRouteTableArgsDict(TypedDict):
+        """
+        VirtualHub route table.
+        """
+        routes: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualHubRouteArgsDict']]]]
+        """
+        List of all routes.
+        """
+elif False:
+    VirtualHubRouteTableArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class VirtualHubRouteTableArgs:
     def __init__(__self__, *,
@@ -16922,6 +22717,30 @@ class VirtualHubRouteTableArgs:
     def routes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualHubRouteArgs']]]]):
         pulumi.set(self, "routes", value)
 
+
+if not MYPY:
+    class VirtualHubRouteV2ArgsDict(TypedDict):
+        """
+        VirtualHubRouteTableV2 route.
+        """
+        destination_type: NotRequired[pulumi.Input[str]]
+        """
+        The type of destinations.
+        """
+        destinations: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of all destinations.
+        """
+        next_hop_type: NotRequired[pulumi.Input[str]]
+        """
+        The type of next hops.
+        """
+        next_hops: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        NextHops ip address.
+        """
+elif False:
+    VirtualHubRouteV2ArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VirtualHubRouteV2Args:
@@ -16995,6 +22814,22 @@ class VirtualHubRouteV2Args:
         pulumi.set(self, "next_hops", value)
 
 
+if not MYPY:
+    class VirtualHubRouteArgsDict(TypedDict):
+        """
+        VirtualHub route.
+        """
+        address_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of all addressPrefixes.
+        """
+        next_hop_ip_address: NotRequired[pulumi.Input[str]]
+        """
+        NextHop ip address.
+        """
+elif False:
+    VirtualHubRouteArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class VirtualHubRouteArgs:
     def __init__(__self__, *,
@@ -17035,6 +22870,18 @@ class VirtualHubRouteArgs:
         pulumi.set(self, "next_hop_ip_address", value)
 
 
+if not MYPY:
+    class VirtualNetworkBgpCommunitiesArgsDict(TypedDict):
+        """
+        Bgp Communities sent over ExpressRoute with each route corresponding to a prefix in this VNET.
+        """
+        virtual_network_community: pulumi.Input[str]
+        """
+        The BGP community associated with the virtual network.
+        """
+elif False:
+    VirtualNetworkBgpCommunitiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class VirtualNetworkBgpCommunitiesArgs:
     def __init__(__self__, *,
@@ -17057,6 +22904,22 @@ class VirtualNetworkBgpCommunitiesArgs:
     def virtual_network_community(self, value: pulumi.Input[str]):
         pulumi.set(self, "virtual_network_community", value)
 
+
+if not MYPY:
+    class VirtualNetworkEncryptionArgsDict(TypedDict):
+        """
+        Indicates if encryption is enabled on virtual network and if VM without encryption is allowed in encrypted VNet.
+        """
+        enabled: pulumi.Input[bool]
+        """
+        Indicates if encryption is enabled on the virtual network.
+        """
+        enforcement: NotRequired[pulumi.Input[Union[str, 'VirtualNetworkEncryptionEnforcement']]]
+        """
+        If the encrypted VNet allows VM that does not support encryption
+        """
+elif False:
+    VirtualNetworkEncryptionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VirtualNetworkEncryptionArgs:
@@ -17096,6 +22959,34 @@ class VirtualNetworkEncryptionArgs:
     def enforcement(self, value: Optional[pulumi.Input[Union[str, 'VirtualNetworkEncryptionEnforcement']]]):
         pulumi.set(self, "enforcement", value)
 
+
+if not MYPY:
+    class VirtualNetworkGatewayIPConfigurationArgsDict(TypedDict):
+        """
+        IP configuration for virtual network gateway.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+        private_ip_allocation_method: NotRequired[pulumi.Input[Union[str, 'IPAllocationMethod']]]
+        """
+        The private IP address allocation method.
+        """
+        public_ip_address: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        """
+        The reference to the public IP resource.
+        """
+        subnet: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        """
+        The reference to the subnet resource.
+        """
+elif False:
+    VirtualNetworkGatewayIPConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VirtualNetworkGatewayIPConfigurationArgs:
@@ -17184,6 +23075,42 @@ class VirtualNetworkGatewayIPConfigurationArgs:
     def subnet(self, value: Optional[pulumi.Input['SubResourceArgs']]):
         pulumi.set(self, "subnet", value)
 
+
+if not MYPY:
+    class VirtualNetworkGatewayNatRuleArgsDict(TypedDict):
+        """
+        VirtualNetworkGatewayNatRule Resource.
+        """
+        external_mappings: NotRequired[pulumi.Input[Sequence[pulumi.Input['VpnNatRuleMappingArgsDict']]]]
+        """
+        The private IP address external mapping for NAT.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        internal_mappings: NotRequired[pulumi.Input[Sequence[pulumi.Input['VpnNatRuleMappingArgsDict']]]]
+        """
+        The private IP address internal mapping for NAT.
+        """
+        ip_configuration_id: NotRequired[pulumi.Input[str]]
+        """
+        The IP Configuration ID this NAT rule applies to.
+        """
+        mode: NotRequired[pulumi.Input[Union[str, 'VpnNatRuleMode']]]
+        """
+        The Source NAT direction of a VPN NAT.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'VpnNatRuleType']]]
+        """
+        The type of NAT rule for VPN NAT.
+        """
+elif False:
+    VirtualNetworkGatewayNatRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VirtualNetworkGatewayNatRuleArgs:
@@ -17305,6 +23232,26 @@ class VirtualNetworkGatewayNatRuleArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class VirtualNetworkGatewayPolicyGroupMemberArgsDict(TypedDict):
+        """
+        Vpn Client Connection configuration PolicyGroup member
+        """
+        attribute_type: NotRequired[pulumi.Input[Union[str, 'VpnPolicyMemberAttributeType']]]
+        """
+        The Vpn Policy member attribute type.
+        """
+        attribute_value: NotRequired[pulumi.Input[str]]
+        """
+        The value of Attribute used for this VirtualNetworkGatewayPolicyGroupMember.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the VirtualNetworkGatewayPolicyGroupMember.
+        """
+elif False:
+    VirtualNetworkGatewayPolicyGroupMemberArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class VirtualNetworkGatewayPolicyGroupMemberArgs:
     def __init__(__self__, *,
@@ -17360,6 +23307,34 @@ class VirtualNetworkGatewayPolicyGroupMemberArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class VirtualNetworkGatewayPolicyGroupArgsDict(TypedDict):
+        """
+        Parameters for VirtualNetworkGatewayPolicyGroup.
+        """
+        is_default: pulumi.Input[bool]
+        """
+        Shows if this is a Default VirtualNetworkGatewayPolicyGroup or not.
+        """
+        policy_members: pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayPolicyGroupMemberArgsDict']]]
+        """
+        Multiple PolicyMembers for VirtualNetworkGatewayPolicyGroup.
+        """
+        priority: pulumi.Input[int]
+        """
+        Priority for VirtualNetworkGatewayPolicyGroup.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+elif False:
+    VirtualNetworkGatewayPolicyGroupArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VirtualNetworkGatewayPolicyGroupArgs:
@@ -17446,6 +23421,22 @@ class VirtualNetworkGatewayPolicyGroupArgs:
         pulumi.set(self, "name", value)
 
 
+if not MYPY:
+    class VirtualNetworkGatewaySkuArgsDict(TypedDict):
+        """
+        VirtualNetworkGatewaySku details.
+        """
+        name: NotRequired[pulumi.Input[Union[str, 'VirtualNetworkGatewaySkuName']]]
+        """
+        Gateway SKU name.
+        """
+        tier: NotRequired[pulumi.Input[Union[str, 'VirtualNetworkGatewaySkuTier']]]
+        """
+        Gateway SKU tier.
+        """
+elif False:
+    VirtualNetworkGatewaySkuArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class VirtualNetworkGatewaySkuArgs:
     def __init__(__self__, *,
@@ -17485,6 +23476,114 @@ class VirtualNetworkGatewaySkuArgs:
     def tier(self, value: Optional[pulumi.Input[Union[str, 'VirtualNetworkGatewaySkuTier']]]):
         pulumi.set(self, "tier", value)
 
+
+if not MYPY:
+    class VirtualNetworkGatewayArgsDict(TypedDict):
+        """
+        A common class for general resource information.
+        """
+        active_active: NotRequired[pulumi.Input[bool]]
+        """
+        ActiveActive flag.
+        """
+        admin_state: NotRequired[pulumi.Input[Union[str, 'AdminState']]]
+        """
+        Property to indicate if the Express Route Gateway serves traffic when there are multiple Express Route Gateways in the vnet
+        """
+        allow_remote_vnet_traffic: NotRequired[pulumi.Input[bool]]
+        """
+        Configure this gateway to accept traffic from other Azure Virtual Networks. This configuration does not support connectivity to Azure Virtual WAN.
+        """
+        allow_virtual_wan_traffic: NotRequired[pulumi.Input[bool]]
+        """
+        Configures this gateway to accept traffic from remote Virtual WAN networks.
+        """
+        bgp_settings: NotRequired[pulumi.Input['BgpSettingsArgsDict']]
+        """
+        Virtual network gateway's BGP speaker settings.
+        """
+        custom_routes: NotRequired[pulumi.Input['AddressSpaceArgsDict']]
+        """
+        The reference to the address space resource which represents the custom routes address space specified by the customer for virtual network gateway and VpnClient.
+        """
+        disable_ip_sec_replay_protection: NotRequired[pulumi.Input[bool]]
+        """
+        disableIPSecReplayProtection flag.
+        """
+        enable_bgp: NotRequired[pulumi.Input[bool]]
+        """
+        Whether BGP is enabled for this virtual network gateway or not.
+        """
+        enable_bgp_route_translation_for_nat: NotRequired[pulumi.Input[bool]]
+        """
+        EnableBgpRouteTranslationForNat flag.
+        """
+        enable_dns_forwarding: NotRequired[pulumi.Input[bool]]
+        """
+        Whether dns forwarding is enabled or not.
+        """
+        enable_private_ip_address: NotRequired[pulumi.Input[bool]]
+        """
+        Whether private IP needs to be enabled on this gateway for connections or not.
+        """
+        extended_location: NotRequired[pulumi.Input['ExtendedLocationArgsDict']]
+        """
+        The extended location of type local virtual network gateway.
+        """
+        gateway_default_site: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        """
+        The reference to the LocalNetworkGateway resource which represents local network site having default routes. Assign Null value in case of removing existing default site setting.
+        """
+        gateway_type: NotRequired[pulumi.Input[Union[str, 'VirtualNetworkGatewayType']]]
+        """
+        The type of this virtual network gateway.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        ip_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayIPConfigurationArgsDict']]]]
+        """
+        IP configurations for virtual network gateway.
+        """
+        location: NotRequired[pulumi.Input[str]]
+        """
+        Resource location.
+        """
+        nat_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayNatRuleArgsDict']]]]
+        """
+        NatRules for virtual network gateway.
+        """
+        sku: NotRequired[pulumi.Input['VirtualNetworkGatewaySkuArgsDict']]
+        """
+        The reference to the VirtualNetworkGatewaySku resource which represents the SKU selected for Virtual network gateway.
+        """
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Resource tags.
+        """
+        v_net_extended_location_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        Customer vnet resource id. VirtualNetworkGateway of type local gateway is associated with the customer vnet.
+        """
+        virtual_network_gateway_policy_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayPolicyGroupArgsDict']]]]
+        """
+        The reference to the VirtualNetworkGatewayPolicyGroup resource which represents the available VirtualNetworkGatewayPolicyGroup for the gateway.
+        """
+        vpn_client_configuration: NotRequired[pulumi.Input['VpnClientConfigurationArgsDict']]
+        """
+        The reference to the VpnClientConfiguration resource which represents the P2S VpnClient configurations.
+        """
+        vpn_gateway_generation: NotRequired[pulumi.Input[Union[str, 'VpnGatewayGeneration']]]
+        """
+        The generation for this VirtualNetworkGateway. Must be None if gatewayType is not VPN.
+        """
+        vpn_type: NotRequired[pulumi.Input[Union[str, 'VpnType']]]
+        """
+        The type of this virtual network gateway.
+        """
+elif False:
+    VirtualNetworkGatewayArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VirtualNetworkGatewayArgs:
@@ -17894,6 +23993,70 @@ class VirtualNetworkGatewayArgs:
         pulumi.set(self, "vpn_type", value)
 
 
+if not MYPY:
+    class VirtualNetworkPeeringArgsDict(TypedDict):
+        """
+        Peerings in a virtual network resource.
+        """
+        allow_forwarded_traffic: NotRequired[pulumi.Input[bool]]
+        """
+        Whether the forwarded traffic from the VMs in the local virtual network will be allowed/disallowed in remote virtual network.
+        """
+        allow_gateway_transit: NotRequired[pulumi.Input[bool]]
+        """
+        If gateway links can be used in remote virtual networking to link to this virtual network.
+        """
+        allow_virtual_network_access: NotRequired[pulumi.Input[bool]]
+        """
+        Whether the VMs in the local virtual network space would be able to access the VMs in remote virtual network space.
+        """
+        do_not_verify_remote_gateways: NotRequired[pulumi.Input[bool]]
+        """
+        If we need to verify the provisioning state of the remote gateway.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+        peering_state: NotRequired[pulumi.Input[Union[str, 'VirtualNetworkPeeringState']]]
+        """
+        The status of the virtual network peering.
+        """
+        peering_sync_level: NotRequired[pulumi.Input[Union[str, 'VirtualNetworkPeeringLevel']]]
+        """
+        The peering sync status of the virtual network peering.
+        """
+        remote_address_space: NotRequired[pulumi.Input['AddressSpaceArgsDict']]
+        """
+        The reference to the address space peered with the remote virtual network.
+        """
+        remote_bgp_communities: NotRequired[pulumi.Input['VirtualNetworkBgpCommunitiesArgsDict']]
+        """
+        The reference to the remote virtual network's Bgp Communities.
+        """
+        remote_virtual_network: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        """
+        The reference to the remote virtual network. The remote virtual network can be in the same or different region (preview). See here to register for the preview and learn more (https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-create-peering).
+        """
+        remote_virtual_network_address_space: NotRequired[pulumi.Input['AddressSpaceArgsDict']]
+        """
+        The reference to the current address space of the remote virtual network.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        Resource type.
+        """
+        use_remote_gateways: NotRequired[pulumi.Input[bool]]
+        """
+        If remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.
+        """
+elif False:
+    VirtualNetworkPeeringArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class VirtualNetworkPeeringArgs:
     def __init__(__self__, *,
@@ -18126,6 +24289,38 @@ class VirtualNetworkPeeringArgs:
         pulumi.set(self, "use_remote_gateways", value)
 
 
+if not MYPY:
+    class VirtualNetworkTapArgsDict(TypedDict):
+        """
+        Virtual Network Tap resource.
+        """
+        destination_load_balancer_front_end_ip_configuration: NotRequired[pulumi.Input['FrontendIPConfigurationArgsDict']]
+        """
+        The reference to the private IP address on the internal Load Balancer that will receive the tap.
+        """
+        destination_network_interface_ip_configuration: NotRequired[pulumi.Input['NetworkInterfaceIPConfigurationArgsDict']]
+        """
+        The reference to the private IP Address of the collector nic that will receive the tap.
+        """
+        destination_port: NotRequired[pulumi.Input[int]]
+        """
+        The VXLAN destination port that will receive the tapped traffic.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        location: NotRequired[pulumi.Input[str]]
+        """
+        Resource location.
+        """
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Resource tags.
+        """
+elif False:
+    VirtualNetworkTapArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class VirtualNetworkTapArgs:
     def __init__(__self__, *,
@@ -18230,6 +24425,18 @@ class VirtualNetworkTapArgs:
         pulumi.set(self, "tags", value)
 
 
+if not MYPY:
+    class VirtualRouterAutoScaleConfigurationArgsDict(TypedDict):
+        """
+        The VirtualHub Router autoscale configuration.
+        """
+        min_capacity: NotRequired[pulumi.Input[int]]
+        """
+        The minimum number of scale units for VirtualHub Router.
+        """
+elif False:
+    VirtualRouterAutoScaleConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class VirtualRouterAutoScaleConfigurationArgs:
     def __init__(__self__, *,
@@ -18253,6 +24460,22 @@ class VirtualRouterAutoScaleConfigurationArgs:
     def min_capacity(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "min_capacity", value)
 
+
+if not MYPY:
+    class VnetRouteArgsDict(TypedDict):
+        """
+        List of routes that control routing from VirtualHub into a virtual network connection.
+        """
+        static_routes: NotRequired[pulumi.Input[Sequence[pulumi.Input['StaticRouteArgsDict']]]]
+        """
+        List of all Static Routes.
+        """
+        static_routes_config: NotRequired[pulumi.Input['StaticRoutesConfigArgsDict']]
+        """
+        Configuration for static routes on this HubVnetConnection.
+        """
+elif False:
+    VnetRouteArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VnetRouteArgs:
@@ -18293,6 +24516,30 @@ class VnetRouteArgs:
     def static_routes_config(self, value: Optional[pulumi.Input['StaticRoutesConfigArgs']]):
         pulumi.set(self, "static_routes_config", value)
 
+
+if not MYPY:
+    class VngClientConnectionConfigurationArgsDict(TypedDict):
+        """
+        A vpn client connection configuration for client connection configuration.
+        """
+        virtual_network_gateway_policy_groups: pulumi.Input[Sequence[pulumi.Input['SubResourceArgsDict']]]
+        """
+        List of references to virtualNetworkGatewayPolicyGroups
+        """
+        vpn_client_address_pool: pulumi.Input['AddressSpaceArgsDict']
+        """
+        The reference to the address space resource which represents Address space for P2S VpnClient.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+elif False:
+    VngClientConnectionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VngClientConnectionConfigurationArgs:
@@ -18363,6 +24610,66 @@ class VngClientConnectionConfigurationArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class VpnClientConfigurationArgsDict(TypedDict):
+        """
+        VpnClientConfiguration for P2S client.
+        """
+        aad_audience: NotRequired[pulumi.Input[str]]
+        """
+        The AADAudience property of the VirtualNetworkGateway resource for vpn client connection used for AAD authentication.
+        """
+        aad_issuer: NotRequired[pulumi.Input[str]]
+        """
+        The AADIssuer property of the VirtualNetworkGateway resource for vpn client connection used for AAD authentication.
+        """
+        aad_tenant: NotRequired[pulumi.Input[str]]
+        """
+        The AADTenant property of the VirtualNetworkGateway resource for vpn client connection used for AAD authentication.
+        """
+        radius_server_address: NotRequired[pulumi.Input[str]]
+        """
+        The radius server address property of the VirtualNetworkGateway resource for vpn client connection.
+        """
+        radius_server_secret: NotRequired[pulumi.Input[str]]
+        """
+        The radius secret property of the VirtualNetworkGateway resource for vpn client connection.
+        """
+        radius_servers: NotRequired[pulumi.Input[Sequence[pulumi.Input['RadiusServerArgsDict']]]]
+        """
+        The radiusServers property for multiple radius server configuration.
+        """
+        vng_client_connection_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['VngClientConnectionConfigurationArgsDict']]]]
+        """
+        per ip address pool connection policy for virtual network gateway P2S client.
+        """
+        vpn_authentication_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'VpnAuthenticationType']]]]]
+        """
+        VPN authentication types for the virtual network gateway..
+        """
+        vpn_client_address_pool: NotRequired[pulumi.Input['AddressSpaceArgsDict']]
+        """
+        The reference to the address space resource which represents Address space for P2S VpnClient.
+        """
+        vpn_client_ipsec_policies: NotRequired[pulumi.Input[Sequence[pulumi.Input['IpsecPolicyArgsDict']]]]
+        """
+        VpnClientIpsecPolicies for virtual network gateway P2S client.
+        """
+        vpn_client_protocols: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'VpnClientProtocol']]]]]
+        """
+        VpnClientProtocols for Virtual network gateway.
+        """
+        vpn_client_revoked_certificates: NotRequired[pulumi.Input[Sequence[pulumi.Input['VpnClientRevokedCertificateArgsDict']]]]
+        """
+        VpnClientRevokedCertificate for Virtual network gateway.
+        """
+        vpn_client_root_certificates: NotRequired[pulumi.Input[Sequence[pulumi.Input['VpnClientRootCertificateArgsDict']]]]
+        """
+        VpnClientRootCertificate for virtual network gateway.
+        """
+elif False:
+    VpnClientConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VpnClientConfigurationArgs:
@@ -18580,6 +24887,26 @@ class VpnClientConfigurationArgs:
         pulumi.set(self, "vpn_client_root_certificates", value)
 
 
+if not MYPY:
+    class VpnClientRevokedCertificateArgsDict(TypedDict):
+        """
+        VPN client revoked certificate of virtual network gateway.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+        thumbprint: NotRequired[pulumi.Input[str]]
+        """
+        The revoked VPN client certificate thumbprint.
+        """
+elif False:
+    VpnClientRevokedCertificateArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class VpnClientRevokedCertificateArgs:
     def __init__(__self__, *,
@@ -18636,6 +24963,26 @@ class VpnClientRevokedCertificateArgs:
         pulumi.set(self, "thumbprint", value)
 
 
+if not MYPY:
+    class VpnClientRootCertificateArgsDict(TypedDict):
+        """
+        VPN client root certificate of virtual network gateway.
+        """
+        public_cert_data: pulumi.Input[str]
+        """
+        The certificate public data.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+elif False:
+    VpnClientRootCertificateArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class VpnClientRootCertificateArgs:
     def __init__(__self__, *,
@@ -18690,6 +25037,82 @@ class VpnClientRootCertificateArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class VpnConnectionArgsDict(TypedDict):
+        """
+        VpnConnection Resource.
+        """
+        connection_bandwidth: NotRequired[pulumi.Input[int]]
+        """
+        Expected bandwidth in MBPS.
+        """
+        dpd_timeout_seconds: NotRequired[pulumi.Input[int]]
+        """
+        DPD timeout in seconds for vpn connection.
+        """
+        enable_bgp: NotRequired[pulumi.Input[bool]]
+        """
+        EnableBgp flag.
+        """
+        enable_internet_security: NotRequired[pulumi.Input[bool]]
+        """
+        Enable internet security.
+        """
+        enable_rate_limiting: NotRequired[pulumi.Input[bool]]
+        """
+        EnableBgp flag.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        ipsec_policies: NotRequired[pulumi.Input[Sequence[pulumi.Input['IpsecPolicyArgsDict']]]]
+        """
+        The IPSec Policies to be considered by this connection.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+        remote_vpn_site: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        """
+        Id of the connected vpn site.
+        """
+        routing_configuration: NotRequired[pulumi.Input['RoutingConfigurationArgsDict']]
+        """
+        The Routing Configuration indicating the associated and propagated route tables on this connection.
+        """
+        routing_weight: NotRequired[pulumi.Input[int]]
+        """
+        Routing weight for vpn connection.
+        """
+        shared_key: NotRequired[pulumi.Input[str]]
+        """
+        SharedKey for the vpn connection.
+        """
+        traffic_selector_policies: NotRequired[pulumi.Input[Sequence[pulumi.Input['TrafficSelectorPolicyArgsDict']]]]
+        """
+        The Traffic Selector Policies to be considered by this connection.
+        """
+        use_local_azure_ip_address: NotRequired[pulumi.Input[bool]]
+        """
+        Use local azure ip to initiate connection.
+        """
+        use_policy_based_traffic_selectors: NotRequired[pulumi.Input[bool]]
+        """
+        Enable policy-based traffic selectors.
+        """
+        vpn_connection_protocol_type: NotRequired[pulumi.Input[Union[str, 'VirtualNetworkGatewayConnectionProtocol']]]
+        """
+        Connection protocol used for this connection.
+        """
+        vpn_link_connections: NotRequired[pulumi.Input[Sequence[pulumi.Input['VpnSiteLinkConnectionArgsDict']]]]
+        """
+        List of all vpn site link connections to the gateway.
+        """
+elif False:
+    VpnConnectionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VpnConnectionArgs:
@@ -18971,6 +25394,42 @@ class VpnConnectionArgs:
         pulumi.set(self, "vpn_link_connections", value)
 
 
+if not MYPY:
+    class VpnGatewayNatRuleArgsDict(TypedDict):
+        """
+        VpnGatewayNatRule Resource.
+        """
+        external_mappings: NotRequired[pulumi.Input[Sequence[pulumi.Input['VpnNatRuleMappingArgsDict']]]]
+        """
+        The private IP address external mapping for NAT.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        internal_mappings: NotRequired[pulumi.Input[Sequence[pulumi.Input['VpnNatRuleMappingArgsDict']]]]
+        """
+        The private IP address internal mapping for NAT.
+        """
+        ip_configuration_id: NotRequired[pulumi.Input[str]]
+        """
+        The IP Configuration ID this NAT rule applies to.
+        """
+        mode: NotRequired[pulumi.Input[Union[str, 'VpnNatRuleMode']]]
+        """
+        The Source NAT direction of a VPN NAT.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'VpnNatRuleType']]]
+        """
+        The type of NAT rule for VPN NAT.
+        """
+elif False:
+    VpnGatewayNatRuleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class VpnGatewayNatRuleArgs:
     def __init__(__self__, *,
@@ -19091,6 +25550,22 @@ class VpnGatewayNatRuleArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class VpnLinkBgpSettingsArgsDict(TypedDict):
+        """
+        BGP settings details for a link.
+        """
+        asn: NotRequired[pulumi.Input[float]]
+        """
+        The BGP speaker's ASN.
+        """
+        bgp_peering_address: NotRequired[pulumi.Input[str]]
+        """
+        The BGP peering address and BGP identifier of this BGP speaker.
+        """
+elif False:
+    VpnLinkBgpSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class VpnLinkBgpSettingsArgs:
     def __init__(__self__, *,
@@ -19130,6 +25605,22 @@ class VpnLinkBgpSettingsArgs:
     def bgp_peering_address(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "bgp_peering_address", value)
 
+
+if not MYPY:
+    class VpnLinkProviderPropertiesArgsDict(TypedDict):
+        """
+        List of properties of a link provider.
+        """
+        link_provider_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the link provider.
+        """
+        link_speed_in_mbps: NotRequired[pulumi.Input[int]]
+        """
+        Link speed.
+        """
+elif False:
+    VpnLinkProviderPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VpnLinkProviderPropertiesArgs:
@@ -19171,6 +25662,22 @@ class VpnLinkProviderPropertiesArgs:
         pulumi.set(self, "link_speed_in_mbps", value)
 
 
+if not MYPY:
+    class VpnNatRuleMappingArgsDict(TypedDict):
+        """
+        Vpn NatRule mapping.
+        """
+        address_space: NotRequired[pulumi.Input[str]]
+        """
+        Address space for Vpn NatRule mapping.
+        """
+        port_range: NotRequired[pulumi.Input[str]]
+        """
+        Port range for Vpn NatRule mapping.
+        """
+elif False:
+    VpnNatRuleMappingArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class VpnNatRuleMappingArgs:
     def __init__(__self__, *,
@@ -19210,6 +25717,22 @@ class VpnNatRuleMappingArgs:
     def port_range(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "port_range", value)
 
+
+if not MYPY:
+    class VpnServerConfigRadiusClientRootCertificateArgsDict(TypedDict):
+        """
+        Properties of the Radius client root certificate of VpnServerConfiguration.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The certificate name.
+        """
+        thumbprint: NotRequired[pulumi.Input[str]]
+        """
+        The Radius client root certificate thumbprint.
+        """
+elif False:
+    VpnServerConfigRadiusClientRootCertificateArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VpnServerConfigRadiusClientRootCertificateArgs:
@@ -19251,6 +25774,22 @@ class VpnServerConfigRadiusClientRootCertificateArgs:
         pulumi.set(self, "thumbprint", value)
 
 
+if not MYPY:
+    class VpnServerConfigRadiusServerRootCertificateArgsDict(TypedDict):
+        """
+        Properties of Radius Server root certificate of VpnServerConfiguration.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The certificate name.
+        """
+        public_cert_data: NotRequired[pulumi.Input[str]]
+        """
+        The certificate public data.
+        """
+elif False:
+    VpnServerConfigRadiusServerRootCertificateArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class VpnServerConfigRadiusServerRootCertificateArgs:
     def __init__(__self__, *,
@@ -19290,6 +25829,22 @@ class VpnServerConfigRadiusServerRootCertificateArgs:
     def public_cert_data(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "public_cert_data", value)
 
+
+if not MYPY:
+    class VpnServerConfigVpnClientRevokedCertificateArgsDict(TypedDict):
+        """
+        Properties of the revoked VPN client certificate of VpnServerConfiguration.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The certificate name.
+        """
+        thumbprint: NotRequired[pulumi.Input[str]]
+        """
+        The revoked VPN client certificate thumbprint.
+        """
+elif False:
+    VpnServerConfigVpnClientRevokedCertificateArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VpnServerConfigVpnClientRevokedCertificateArgs:
@@ -19331,6 +25886,22 @@ class VpnServerConfigVpnClientRevokedCertificateArgs:
         pulumi.set(self, "thumbprint", value)
 
 
+if not MYPY:
+    class VpnServerConfigVpnClientRootCertificateArgsDict(TypedDict):
+        """
+        Properties of VPN client root certificate of VpnServerConfiguration.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The certificate name.
+        """
+        public_cert_data: NotRequired[pulumi.Input[str]]
+        """
+        The certificate public data.
+        """
+elif False:
+    VpnServerConfigVpnClientRootCertificateArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class VpnServerConfigVpnClientRootCertificateArgs:
     def __init__(__self__, *,
@@ -19370,6 +25941,26 @@ class VpnServerConfigVpnClientRootCertificateArgs:
     def public_cert_data(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "public_cert_data", value)
 
+
+if not MYPY:
+    class VpnServerConfigurationPolicyGroupMemberArgsDict(TypedDict):
+        """
+        VpnServerConfiguration PolicyGroup member
+        """
+        attribute_type: NotRequired[pulumi.Input[Union[str, 'VpnPolicyMemberAttributeType']]]
+        """
+        The Vpn Policy member attribute type.
+        """
+        attribute_value: NotRequired[pulumi.Input[str]]
+        """
+        The value of Attribute used for this VpnServerConfigurationPolicyGroupMember.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the VpnServerConfigurationPolicyGroupMember.
+        """
+elif False:
+    VpnServerConfigurationPolicyGroupMemberArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VpnServerConfigurationPolicyGroupMemberArgs:
@@ -19426,6 +26017,34 @@ class VpnServerConfigurationPolicyGroupMemberArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class VpnServerConfigurationPolicyGroupArgsDict(TypedDict):
+        """
+        VpnServerConfigurationPolicyGroup Resource.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        is_default: NotRequired[pulumi.Input[bool]]
+        """
+        Shows if this is a Default VpnServerConfigurationPolicyGroup or not.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+        policy_members: NotRequired[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationPolicyGroupMemberArgsDict']]]]
+        """
+        Multiple PolicyMembers for VpnServerConfigurationPolicyGroup.
+        """
+        priority: NotRequired[pulumi.Input[int]]
+        """
+        Priority for VpnServerConfigurationPolicyGroup.
+        """
+elif False:
+    VpnServerConfigurationPolicyGroupArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VpnServerConfigurationPolicyGroupArgs:
@@ -19514,6 +26133,78 @@ class VpnServerConfigurationPolicyGroupArgs:
     def priority(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "priority", value)
 
+
+if not MYPY:
+    class VpnSiteLinkConnectionArgsDict(TypedDict):
+        """
+        VpnSiteLinkConnection Resource.
+        """
+        connection_bandwidth: NotRequired[pulumi.Input[int]]
+        """
+        Expected bandwidth in MBPS.
+        """
+        egress_nat_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['SubResourceArgsDict']]]]
+        """
+        List of egress NatRules.
+        """
+        enable_bgp: NotRequired[pulumi.Input[bool]]
+        """
+        EnableBgp flag.
+        """
+        enable_rate_limiting: NotRequired[pulumi.Input[bool]]
+        """
+        EnableBgp flag.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        ingress_nat_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['SubResourceArgsDict']]]]
+        """
+        List of ingress NatRules.
+        """
+        ipsec_policies: NotRequired[pulumi.Input[Sequence[pulumi.Input['IpsecPolicyArgsDict']]]]
+        """
+        The IPSec Policies to be considered by this connection.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+        routing_weight: NotRequired[pulumi.Input[int]]
+        """
+        Routing weight for vpn connection.
+        """
+        shared_key: NotRequired[pulumi.Input[str]]
+        """
+        SharedKey for the vpn connection.
+        """
+        use_local_azure_ip_address: NotRequired[pulumi.Input[bool]]
+        """
+        Use local azure ip to initiate connection.
+        """
+        use_policy_based_traffic_selectors: NotRequired[pulumi.Input[bool]]
+        """
+        Enable policy-based traffic selectors.
+        """
+        vpn_connection_protocol_type: NotRequired[pulumi.Input[Union[str, 'VirtualNetworkGatewayConnectionProtocol']]]
+        """
+        Connection protocol used for this connection.
+        """
+        vpn_gateway_custom_bgp_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input['GatewayCustomBgpIpAddressIpConfigurationArgsDict']]]]
+        """
+        vpnGatewayCustomBgpAddresses used by this connection.
+        """
+        vpn_link_connection_mode: NotRequired[pulumi.Input[Union[str, 'VpnLinkConnectionMode']]]
+        """
+        Vpn link connection mode.
+        """
+        vpn_site_link: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        """
+        Id of the connected vpn site link.
+        """
+elif False:
+    VpnSiteLinkConnectionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VpnSiteLinkConnectionArgs:
@@ -19779,6 +26470,38 @@ class VpnSiteLinkConnectionArgs:
         pulumi.set(self, "vpn_site_link", value)
 
 
+if not MYPY:
+    class VpnSiteLinkArgsDict(TypedDict):
+        """
+        VpnSiteLink Resource.
+        """
+        bgp_properties: NotRequired[pulumi.Input['VpnLinkBgpSettingsArgsDict']]
+        """
+        The set of bgp properties.
+        """
+        fqdn: NotRequired[pulumi.Input[str]]
+        """
+        FQDN of vpn-site-link.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        ip_address: NotRequired[pulumi.Input[str]]
+        """
+        The ip-address for the vpn-site-link.
+        """
+        link_properties: NotRequired[pulumi.Input['VpnLinkProviderPropertiesArgsDict']]
+        """
+        The link provider properties.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+elif False:
+    VpnSiteLinkArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class VpnSiteLinkArgs:
     def __init__(__self__, *,
@@ -19882,6 +26605,50 @@ class VpnSiteLinkArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class WebApplicationFirewallCustomRuleArgsDict(TypedDict):
+        """
+        Defines contents of a web application rule.
+        """
+        action: pulumi.Input[Union[str, 'WebApplicationFirewallAction']]
+        """
+        Type of Actions.
+        """
+        match_conditions: pulumi.Input[Sequence[pulumi.Input['MatchConditionArgsDict']]]
+        """
+        List of match conditions.
+        """
+        priority: pulumi.Input[int]
+        """
+        Priority of the rule. Rules with a lower value will be evaluated before rules with a higher value.
+        """
+        rule_type: pulumi.Input[Union[str, 'WebApplicationFirewallRuleType']]
+        """
+        The rule type.
+        """
+        group_by_user_session: NotRequired[pulumi.Input[Sequence[pulumi.Input['GroupByUserSessionArgsDict']]]]
+        """
+        List of user session identifier group by clauses.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the resource that is unique within a policy. This name can be used to access the resource.
+        """
+        rate_limit_duration: NotRequired[pulumi.Input[Union[str, 'ApplicationGatewayFirewallRateLimitDuration']]]
+        """
+        Duration over which Rate Limit policy will be applied. Applies only when ruleType is RateLimitRule.
+        """
+        rate_limit_threshold: NotRequired[pulumi.Input[int]]
+        """
+        Rate Limit threshold to apply in case ruleType is RateLimitRule. Must be greater than or equal to 1
+        """
+        state: NotRequired[pulumi.Input[Union[str, 'WebApplicationFirewallState']]]
+        """
+        Describes if the custom rule is in enabled or disabled state. Defaults to Enabled if not specified.
+        """
+elif False:
+    WebApplicationFirewallCustomRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WebApplicationFirewallCustomRuleArgs:
@@ -20030,6 +26797,30 @@ class WebApplicationFirewallCustomRuleArgs:
     def state(self, value: Optional[pulumi.Input[Union[str, 'WebApplicationFirewallState']]]):
         pulumi.set(self, "state", value)
 
+
+if not MYPY:
+    class WebApplicationFirewallScrubbingRulesArgsDict(TypedDict):
+        """
+        Allow certain variables to be scrubbed on WAF logs
+        """
+        match_variable: pulumi.Input[Union[str, 'ScrubbingRuleEntryMatchVariable']]
+        """
+        The variable to be scrubbed from the logs.
+        """
+        selector_match_operator: pulumi.Input[Union[str, 'ScrubbingRuleEntryMatchOperator']]
+        """
+        When matchVariable is a collection, operate on the selector to specify which elements in the collection this rule applies to.
+        """
+        selector: NotRequired[pulumi.Input[str]]
+        """
+        When matchVariable is a collection, operator used to specify which elements in the collection this rule applies to.
+        """
+        state: NotRequired[pulumi.Input[Union[str, 'ScrubbingRuleEntryState']]]
+        """
+        Defines the state of log scrubbing rule. Default value is Enabled.
+        """
+elif False:
+    WebApplicationFirewallScrubbingRulesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WebApplicationFirewallScrubbingRulesArgs:

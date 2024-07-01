@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -210,7 +215,7 @@ class Hunt(pulumi.CustomResource):
                  hunt_id: Optional[pulumi.Input[str]] = None,
                  hypothesis_status: Optional[pulumi.Input[Union[str, 'HypothesisStatus']]] = None,
                  labels: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 owner: Optional[pulumi.Input[pulumi.InputType['HuntOwnerArgs']]] = None,
+                 owner: Optional[pulumi.Input[Union['HuntOwnerArgs', 'HuntOwnerArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[Union[str, 'Status']]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
@@ -227,7 +232,7 @@ class Hunt(pulumi.CustomResource):
         :param pulumi.Input[str] hunt_id: The hunt id (GUID)
         :param pulumi.Input[Union[str, 'HypothesisStatus']] hypothesis_status: The hypothesis status of the hunt.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] labels: List of labels relevant to this hunt 
-        :param pulumi.Input[pulumi.InputType['HuntOwnerArgs']] owner: Describes a user that the hunt is assigned to
+        :param pulumi.Input[Union['HuntOwnerArgs', 'HuntOwnerArgsDict']] owner: Describes a user that the hunt is assigned to
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union[str, 'Status']] status: The status of the hunt.
         :param pulumi.Input[str] workspace_name: The name of the workspace.
@@ -263,7 +268,7 @@ class Hunt(pulumi.CustomResource):
                  hunt_id: Optional[pulumi.Input[str]] = None,
                  hypothesis_status: Optional[pulumi.Input[Union[str, 'HypothesisStatus']]] = None,
                  labels: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 owner: Optional[pulumi.Input[pulumi.InputType['HuntOwnerArgs']]] = None,
+                 owner: Optional[pulumi.Input[Union['HuntOwnerArgs', 'HuntOwnerArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[Union[str, 'Status']]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,

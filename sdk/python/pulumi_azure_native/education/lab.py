@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -165,7 +170,7 @@ class Lab(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  billing_account_name: Optional[pulumi.Input[str]] = None,
                  billing_profile_name: Optional[pulumi.Input[str]] = None,
-                 budget_per_student: Optional[pulumi.Input[pulumi.InputType['AmountArgs']]] = None,
+                 budget_per_student: Optional[pulumi.Input[Union['AmountArgs', 'AmountArgsDict']]] = None,
                  currency: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
@@ -181,7 +186,7 @@ class Lab(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] billing_account_name: The ID that uniquely identifies a billing account.
         :param pulumi.Input[str] billing_profile_name: The ID that uniquely identifies a billing profile.
-        :param pulumi.Input[pulumi.InputType['AmountArgs']] budget_per_student: Default monetary cap for each student in this lab
+        :param pulumi.Input[Union['AmountArgs', 'AmountArgsDict']] budget_per_student: Default monetary cap for each student in this lab
         :param pulumi.Input[str] currency: The type of currency being used for the value.
         :param pulumi.Input[str] description: Detail description of this lab
         :param pulumi.Input[str] display_name: Lab Display Name
@@ -216,7 +221,7 @@ class Lab(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  billing_account_name: Optional[pulumi.Input[str]] = None,
                  billing_profile_name: Optional[pulumi.Input[str]] = None,
-                 budget_per_student: Optional[pulumi.Input[pulumi.InputType['AmountArgs']]] = None,
+                 budget_per_student: Optional[pulumi.Input[Union['AmountArgs', 'AmountArgsDict']]] = None,
                  currency: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,

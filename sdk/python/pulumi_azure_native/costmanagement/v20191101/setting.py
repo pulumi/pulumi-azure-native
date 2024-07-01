@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -89,7 +94,7 @@ class Setting(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cache: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SettingsPropertiesCacheArgs']]]]] = None,
+                 cache: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SettingsPropertiesCacheArgs', 'SettingsPropertiesCacheArgsDict']]]]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  setting_name: Optional[pulumi.Input[str]] = None,
                  start_on: Optional[pulumi.Input[str]] = None,
@@ -99,7 +104,7 @@ class Setting(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SettingsPropertiesCacheArgs']]]] cache: Array of scopes with additional details used by Cost Management in the Azure portal.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SettingsPropertiesCacheArgs', 'SettingsPropertiesCacheArgsDict']]]] cache: Array of scopes with additional details used by Cost Management in the Azure portal.
         :param pulumi.Input[str] scope: Sets the default scope the current user will see when they sign into Azure Cost Management in the Azure portal.
         :param pulumi.Input[str] setting_name: Name of the setting. Allowed values: myscope
         :param pulumi.Input[str] start_on: Indicates what scope Cost Management in the Azure portal should default to. Allowed values: LastUsed.
@@ -128,7 +133,7 @@ class Setting(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cache: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SettingsPropertiesCacheArgs']]]]] = None,
+                 cache: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SettingsPropertiesCacheArgs', 'SettingsPropertiesCacheArgsDict']]]]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  setting_name: Optional[pulumi.Input[str]] = None,
                  start_on: Optional[pulumi.Input[str]] = None,

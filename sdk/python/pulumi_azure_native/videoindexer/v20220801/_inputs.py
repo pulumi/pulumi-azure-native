@@ -4,16 +4,41 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'ManagedServiceIdentityArgs',
+    'ManagedServiceIdentityArgsDict',
     'MediaServicesForPutRequestArgs',
+    'MediaServicesForPutRequestArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ManagedServiceIdentityArgsDict(TypedDict):
+        """
+        Managed service identity (system assigned and/or user assigned identities)
+        """
+        type: pulumi.Input[Union[str, 'ManagedServiceIdentityType']]
+        """
+        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        """
+        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        """
+elif False:
+    ManagedServiceIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ManagedServiceIdentityArgs:
@@ -53,6 +78,22 @@ class ManagedServiceIdentityArgs:
     def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
+
+if not MYPY:
+    class MediaServicesForPutRequestArgsDict(TypedDict):
+        """
+        The media services details
+        """
+        resource_id: NotRequired[pulumi.Input[str]]
+        """
+        The media services resource id
+        """
+        user_assigned_identity: NotRequired[pulumi.Input[str]]
+        """
+        The user assigned identity to be used to grant permissions
+        """
+elif False:
+    MediaServicesForPutRequestArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MediaServicesForPutRequestArgs:

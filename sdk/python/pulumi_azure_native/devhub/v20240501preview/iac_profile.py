@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -248,13 +253,13 @@ class IacProfile(pulumi.CustomResource):
                  repository_name: Optional[pulumi.Input[str]] = None,
                  repository_owner: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 stages: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StagePropertiesArgs']]]]] = None,
+                 stages: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StagePropertiesArgs', 'StagePropertiesArgsDict']]]]] = None,
                  storage_account_name: Optional[pulumi.Input[str]] = None,
                  storage_account_resource_group: Optional[pulumi.Input[str]] = None,
                  storage_account_subscription: Optional[pulumi.Input[str]] = None,
                  storage_container_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 templates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IacTemplatePropertiesArgs']]]]] = None,
+                 templates: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IacTemplatePropertiesArgs', 'IacTemplatePropertiesArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource representation of a IacProfile.
@@ -305,13 +310,13 @@ class IacProfile(pulumi.CustomResource):
                  repository_name: Optional[pulumi.Input[str]] = None,
                  repository_owner: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 stages: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StagePropertiesArgs']]]]] = None,
+                 stages: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StagePropertiesArgs', 'StagePropertiesArgsDict']]]]] = None,
                  storage_account_name: Optional[pulumi.Input[str]] = None,
                  storage_account_resource_group: Optional[pulumi.Input[str]] = None,
                  storage_account_subscription: Optional[pulumi.Input[str]] = None,
                  storage_container_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 templates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IacTemplatePropertiesArgs']]]]] = None,
+                 templates: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IacTemplatePropertiesArgs', 'IacTemplatePropertiesArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -89,7 +94,7 @@ class FleetUpdateStrategy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  fleet_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 strategy: Optional[pulumi.Input[pulumi.InputType['UpdateRunStrategyArgs']]] = None,
+                 strategy: Optional[pulumi.Input[Union['UpdateRunStrategyArgs', 'UpdateRunStrategyArgsDict']]] = None,
                  update_strategy_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -99,7 +104,7 @@ class FleetUpdateStrategy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] fleet_name: The name of the Fleet resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[pulumi.InputType['UpdateRunStrategyArgs']] strategy: Defines the update sequence of the clusters.
+        :param pulumi.Input[Union['UpdateRunStrategyArgs', 'UpdateRunStrategyArgsDict']] strategy: Defines the update sequence of the clusters.
         :param pulumi.Input[str] update_strategy_name: The name of the UpdateStrategy resource.
         """
         ...
@@ -128,7 +133,7 @@ class FleetUpdateStrategy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  fleet_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 strategy: Optional[pulumi.Input[pulumi.InputType['UpdateRunStrategyArgs']]] = None,
+                 strategy: Optional[pulumi.Input[Union['UpdateRunStrategyArgs', 'UpdateRunStrategyArgsDict']]] = None,
                  update_strategy_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

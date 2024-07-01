@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -108,7 +113,7 @@ class InvoiceSection(pulumi.CustomResource):
                  billing_account_name: Optional[pulumi.Input[str]] = None,
                  billing_profile_name: Optional[pulumi.Input[str]] = None,
                  invoice_section_name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['InvoiceSectionPropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['InvoiceSectionPropertiesArgs', 'InvoiceSectionPropertiesArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -119,7 +124,7 @@ class InvoiceSection(pulumi.CustomResource):
         :param pulumi.Input[str] billing_account_name: The ID that uniquely identifies a billing account.
         :param pulumi.Input[str] billing_profile_name: The ID that uniquely identifies a billing profile.
         :param pulumi.Input[str] invoice_section_name: The ID that uniquely identifies an invoice section.
-        :param pulumi.Input[pulumi.InputType['InvoiceSectionPropertiesArgs']] properties: An invoice section.
+        :param pulumi.Input[Union['InvoiceSectionPropertiesArgs', 'InvoiceSectionPropertiesArgsDict']] properties: An invoice section.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Dictionary of metadata associated with the resource. It may not be populated for all resource types. Maximum key/value length supported of 256 characters. Keys/value should not empty value nor null. Keys can not contain < > % & \\ ? /
         """
         ...
@@ -149,7 +154,7 @@ class InvoiceSection(pulumi.CustomResource):
                  billing_account_name: Optional[pulumi.Input[str]] = None,
                  billing_profile_name: Optional[pulumi.Input[str]] = None,
                  invoice_section_name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['InvoiceSectionPropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['InvoiceSectionPropertiesArgs', 'InvoiceSectionPropertiesArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

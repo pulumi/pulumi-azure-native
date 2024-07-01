@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -155,9 +160,9 @@ class ConnectedEnvironment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  connected_environment_name: Optional[pulumi.Input[str]] = None,
-                 custom_domain_configuration: Optional[pulumi.Input[pulumi.InputType['CustomDomainConfigurationArgs']]] = None,
+                 custom_domain_configuration: Optional[pulumi.Input[Union['CustomDomainConfigurationArgs', 'CustomDomainConfigurationArgsDict']]] = None,
                  dapr_ai_connection_string: Optional[pulumi.Input[str]] = None,
-                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  static_ip: Optional[pulumi.Input[str]] = None,
@@ -172,9 +177,9 @@ class ConnectedEnvironment(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] connected_environment_name: Name of the connectedEnvironment.
-        :param pulumi.Input[pulumi.InputType['CustomDomainConfigurationArgs']] custom_domain_configuration: Custom domain configuration for the environment
+        :param pulumi.Input[Union['CustomDomainConfigurationArgs', 'CustomDomainConfigurationArgsDict']] custom_domain_configuration: Custom domain configuration for the environment
         :param pulumi.Input[str] dapr_ai_connection_string: Application Insights connection string used by Dapr to export Service to Service communication telemetry
-        :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: The complex type of the extended location.
+        :param pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']] extended_location: The complex type of the extended location.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] static_ip: Static IP of the connectedEnvironment
@@ -208,9 +213,9 @@ class ConnectedEnvironment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  connected_environment_name: Optional[pulumi.Input[str]] = None,
-                 custom_domain_configuration: Optional[pulumi.Input[pulumi.InputType['CustomDomainConfigurationArgs']]] = None,
+                 custom_domain_configuration: Optional[pulumi.Input[Union['CustomDomainConfigurationArgs', 'CustomDomainConfigurationArgsDict']]] = None,
                  dapr_ai_connection_string: Optional[pulumi.Input[str]] = None,
-                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  static_ip: Optional[pulumi.Input[str]] = None,

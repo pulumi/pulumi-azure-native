@@ -4,16 +4,42 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'ConnectionPropertiesPrivateLinkServiceConnectionStateArgs',
+    'ConnectionPropertiesPrivateLinkServiceConnectionStateArgsDict',
     'PrivateEndpointConnectionPropertiesArgs',
+    'PrivateEndpointConnectionPropertiesArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ConnectionPropertiesPrivateLinkServiceConnectionStateArgsDict(TypedDict):
+        description: pulumi.Input[str]
+        """
+        The description for the current state of a private endpoint connection.
+        """
+        status: pulumi.Input[Union[str, 'PrivateLinkServiceConnectionStatus']]
+        """
+        The status of a private endpoint connection.
+        """
+        actions_required: NotRequired[pulumi.Input[str]]
+        """
+        Actions required for a private endpoint connection.
+        """
+elif False:
+    ConnectionPropertiesPrivateLinkServiceConnectionStateArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ConnectionPropertiesPrivateLinkServiceConnectionStateArgs:
@@ -67,6 +93,16 @@ class ConnectionPropertiesPrivateLinkServiceConnectionStateArgs:
     def actions_required(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "actions_required", value)
 
+
+if not MYPY:
+    class PrivateEndpointConnectionPropertiesArgsDict(TypedDict):
+        group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of group ids for the private endpoint connection.
+        """
+        private_link_service_connection_state: NotRequired[pulumi.Input['ConnectionPropertiesPrivateLinkServiceConnectionStateArgsDict']]
+elif False:
+    PrivateEndpointConnectionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PrivateEndpointConnectionPropertiesArgs:

@@ -4,16 +4,37 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'MyWorkbookManagedIdentityArgs',
+    'MyWorkbookManagedIdentityArgsDict',
     'WorkbookManagedIdentityArgs',
+    'WorkbookManagedIdentityArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class MyWorkbookManagedIdentityArgsDict(TypedDict):
+        """
+        Customer Managed Identity
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        The identity type.
+        """
+elif False:
+    MyWorkbookManagedIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MyWorkbookManagedIdentityArgs:
@@ -38,6 +59,18 @@ class MyWorkbookManagedIdentityArgs:
     def type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class WorkbookManagedIdentityArgsDict(TypedDict):
+        """
+        Customer Managed Identity
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        The identity type.
+        """
+elif False:
+    WorkbookManagedIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WorkbookManagedIdentityArgs:

@@ -4,23 +4,107 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'ExportPolicyRuleArgs',
+    'ExportPolicyRuleArgsDict',
     'PlacementKeyValuePairsArgs',
+    'PlacementKeyValuePairsArgsDict',
     'ReplicationObjectArgs',
+    'ReplicationObjectArgsDict',
     'VolumeBackupPropertiesArgs',
+    'VolumeBackupPropertiesArgsDict',
     'VolumeGroupMetaDataArgs',
+    'VolumeGroupMetaDataArgsDict',
     'VolumeGroupVolumePropertiesArgs',
+    'VolumeGroupVolumePropertiesArgsDict',
     'VolumePropertiesDataProtectionArgs',
+    'VolumePropertiesDataProtectionArgsDict',
     'VolumePropertiesExportPolicyArgs',
+    'VolumePropertiesExportPolicyArgsDict',
     'VolumeSnapshotPropertiesArgs',
+    'VolumeSnapshotPropertiesArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ExportPolicyRuleArgsDict(TypedDict):
+        """
+        Volume Export Policy Rule
+        """
+        allowed_clients: NotRequired[pulumi.Input[str]]
+        """
+        Client ingress specification as comma separated string with IPv4 CIDRs, IPv4 host addresses and host names
+        """
+        chown_mode: NotRequired[pulumi.Input[Union[str, 'ChownMode']]]
+        """
+        This parameter specifies who is authorized to change the ownership of a file. restricted - Only root user can change the ownership of the file. unrestricted - Non-root users can change ownership of files that they own.
+        """
+        cifs: NotRequired[pulumi.Input[bool]]
+        """
+        Allows CIFS protocol
+        """
+        has_root_access: NotRequired[pulumi.Input[bool]]
+        """
+        Has root access to volume
+        """
+        kerberos5_read_only: NotRequired[pulumi.Input[bool]]
+        """
+        Kerberos5 Read only access. To be use with swagger version 2020-05-01 or later
+        """
+        kerberos5_read_write: NotRequired[pulumi.Input[bool]]
+        """
+        Kerberos5 Read and write access. To be use with swagger version 2020-05-01 or later
+        """
+        kerberos5i_read_only: NotRequired[pulumi.Input[bool]]
+        """
+        Kerberos5i Read only access. To be use with swagger version 2020-05-01 or later
+        """
+        kerberos5i_read_write: NotRequired[pulumi.Input[bool]]
+        """
+        Kerberos5i Read and write access. To be use with swagger version 2020-05-01 or later
+        """
+        kerberos5p_read_only: NotRequired[pulumi.Input[bool]]
+        """
+        Kerberos5p Read only access. To be use with swagger version 2020-05-01 or later
+        """
+        kerberos5p_read_write: NotRequired[pulumi.Input[bool]]
+        """
+        Kerberos5p Read and write access. To be use with swagger version 2020-05-01 or later
+        """
+        nfsv3: NotRequired[pulumi.Input[bool]]
+        """
+        Allows NFSv3 protocol. Enable only for NFSv3 type volumes
+        """
+        nfsv41: NotRequired[pulumi.Input[bool]]
+        """
+        Allows NFSv4.1 protocol. Enable only for NFSv4.1 type volumes
+        """
+        rule_index: NotRequired[pulumi.Input[int]]
+        """
+        Order index
+        """
+        unix_read_only: NotRequired[pulumi.Input[bool]]
+        """
+        Read only access
+        """
+        unix_read_write: NotRequired[pulumi.Input[bool]]
+        """
+        Read and write access
+        """
+elif False:
+    ExportPolicyRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ExportPolicyRuleArgs:
@@ -286,6 +370,22 @@ class ExportPolicyRuleArgs:
         pulumi.set(self, "unix_read_write", value)
 
 
+if not MYPY:
+    class PlacementKeyValuePairsArgsDict(TypedDict):
+        """
+        Application specific parameters for the placement of volumes in the volume group
+        """
+        key: pulumi.Input[str]
+        """
+        Key for an application specific parameter for the placement of volumes in the volume group
+        """
+        value: pulumi.Input[str]
+        """
+        Value for an application specific parameter for the placement of volumes in the volume group
+        """
+elif False:
+    PlacementKeyValuePairsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PlacementKeyValuePairsArgs:
     def __init__(__self__, *,
@@ -323,6 +423,34 @@ class PlacementKeyValuePairsArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class ReplicationObjectArgsDict(TypedDict):
+        """
+        Replication properties
+        """
+        remote_volume_resource_id: pulumi.Input[str]
+        """
+        The resource ID of the remote volume.
+        """
+        endpoint_type: NotRequired[pulumi.Input[Union[str, 'EndpointType']]]
+        """
+        Indicates whether the local volume is the source or destination for the Volume Replication
+        """
+        remote_volume_region: NotRequired[pulumi.Input[str]]
+        """
+        The remote region for the other end of the Volume Replication.
+        """
+        replication_id: NotRequired[pulumi.Input[str]]
+        """
+        Id
+        """
+        replication_schedule: NotRequired[pulumi.Input[Union[str, 'ReplicationSchedule']]]
+        """
+        Schedule
+        """
+elif False:
+    ReplicationObjectArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ReplicationObjectArgs:
@@ -411,6 +539,30 @@ class ReplicationObjectArgs:
         pulumi.set(self, "replication_schedule", value)
 
 
+if not MYPY:
+    class VolumeBackupPropertiesArgsDict(TypedDict):
+        """
+        Volume Backup Properties
+        """
+        backup_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Backup Enabled
+        """
+        backup_policy_id: NotRequired[pulumi.Input[str]]
+        """
+        Backup Policy Resource ID
+        """
+        policy_enforced: NotRequired[pulumi.Input[bool]]
+        """
+        Policy Enforced
+        """
+        vault_id: NotRequired[pulumi.Input[str]]
+        """
+        Vault Resource ID
+        """
+elif False:
+    VolumeBackupPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class VolumeBackupPropertiesArgs:
     def __init__(__self__, *,
@@ -482,6 +634,34 @@ class VolumeBackupPropertiesArgs:
     def vault_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "vault_id", value)
 
+
+if not MYPY:
+    class VolumeGroupMetaDataArgsDict(TypedDict):
+        """
+        Volume group properties
+        """
+        application_identifier: NotRequired[pulumi.Input[str]]
+        """
+        Application specific identifier
+        """
+        application_type: NotRequired[pulumi.Input[Union[str, 'ApplicationType']]]
+        """
+        Application Type
+        """
+        deployment_spec_id: NotRequired[pulumi.Input[str]]
+        """
+        Application specific identifier of deployment rules for the volume group
+        """
+        global_placement_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlacementKeyValuePairsArgsDict']]]]
+        """
+        Application specific placement rules for the volume group
+        """
+        group_description: NotRequired[pulumi.Input[str]]
+        """
+        Group Description
+        """
+elif False:
+    VolumeGroupMetaDataArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VolumeGroupMetaDataArgs:
@@ -570,6 +750,147 @@ class VolumeGroupMetaDataArgs:
     def group_description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "group_description", value)
 
+
+if not MYPY:
+    class VolumeGroupVolumePropertiesArgsDict(TypedDict):
+        """
+        Volume resource
+        """
+        creation_token: pulumi.Input[str]
+        """
+        A unique file path for the volume. Used when creating mount targets
+        """
+        subnet_id: pulumi.Input[str]
+        """
+        The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
+        """
+        usage_threshold: pulumi.Input[float]
+        """
+        Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
+        """
+        avs_data_store: NotRequired[pulumi.Input[Union[str, 'AvsDataStore']]]
+        """
+        Specifies whether the volume is enabled for Azure VMware Solution (AVS) datastore purpose
+        """
+        backup_id: NotRequired[pulumi.Input[str]]
+        """
+        UUID v4 or resource identifier used to identify the Backup.
+        """
+        capacity_pool_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        Pool Resource Id used in case of creating a volume through volume group
+        """
+        cool_access: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies whether Cool Access(tiering) is enabled for the volume.
+        """
+        coolness_period: NotRequired[pulumi.Input[int]]
+        """
+        Specifies the number of days after which data that is not accessed by clients will be tiered.
+        """
+        data_protection: NotRequired[pulumi.Input['VolumePropertiesDataProtectionArgsDict']]
+        """
+        DataProtection type volumes include an object containing details of the replication
+        """
+        default_group_quota_in_ki_bs: NotRequired[pulumi.Input[float]]
+        """
+        Default group quota for volume in KiBs. If isDefaultQuotaEnabled is set, the minimum value of 4 KiBs applies.
+        """
+        default_user_quota_in_ki_bs: NotRequired[pulumi.Input[float]]
+        """
+        Default user quota for volume in KiBs. If isDefaultQuotaEnabled is set, the minimum value of 4 KiBs applies .
+        """
+        enable_subvolumes: NotRequired[pulumi.Input[Union[str, 'EnableSubvolumes']]]
+        """
+        Flag indicating whether subvolume operations are enabled on the volume
+        """
+        encryption_key_source: NotRequired[pulumi.Input[str]]
+        """
+        Encryption Key Source. Possible values are: 'Microsoft.NetApp'
+        """
+        export_policy: NotRequired[pulumi.Input['VolumePropertiesExportPolicyArgsDict']]
+        """
+        Set of export policy rules
+        """
+        is_default_quota_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies if default quota is enabled for the volume.
+        """
+        is_restoring: NotRequired[pulumi.Input[bool]]
+        """
+        Restoring
+        """
+        kerberos_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Describe if a volume is KerberosEnabled. To be use with swagger version 2020-05-01 or later
+        """
+        ldap_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies whether LDAP is enabled or not for a given NFS volume.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Resource name
+        """
+        network_features: NotRequired[pulumi.Input[Union[str, 'NetworkFeatures']]]
+        """
+        Basic network, or Standard features available to the volume.
+        """
+        placement_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlacementKeyValuePairsArgsDict']]]]
+        """
+        Application specific placement rules for the particular volume
+        """
+        protocol_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Set of protocol types, default NFSv3, CIFS for SMB protocol
+        """
+        proximity_placement_group: NotRequired[pulumi.Input[str]]
+        """
+        Proximity placement group associated with the volume
+        """
+        security_style: NotRequired[pulumi.Input[Union[str, 'SecurityStyle']]]
+        """
+        The security style of volume, default unix, defaults to ntfs for dual protocol or CIFS protocol
+        """
+        service_level: NotRequired[pulumi.Input[Union[str, 'ServiceLevel']]]
+        """
+        The service level of the file system
+        """
+        smb_continuously_available: NotRequired[pulumi.Input[bool]]
+        """
+        Enables continuously available share property for smb volume. Only applicable for SMB volume
+        """
+        smb_encryption: NotRequired[pulumi.Input[bool]]
+        """
+        Enables encryption for in-flight smb3 data. Only applicable for SMB/DualProtocol volume. To be used with swagger version 2020-08-01 or later
+        """
+        snapshot_directory_visible: NotRequired[pulumi.Input[bool]]
+        """
+        If enabled (true) the volume will contain a read-only snapshot directory which provides access to each of the volume's snapshots (default to true).
+        """
+        snapshot_id: NotRequired[pulumi.Input[str]]
+        """
+        UUID v4 or resource identifier used to identify the Snapshot.
+        """
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Resource tags
+        """
+        throughput_mibps: NotRequired[pulumi.Input[float]]
+        unix_permissions: NotRequired[pulumi.Input[str]]
+        """
+        UNIX permissions for NFS volume accepted in octal 4 digit format. First digit selects the set user ID(4), set group ID (2) and sticky (1) attributes. Second digit selects permission for the owner of the file: read (4), write (2) and execute (1). Third selects permissions for other users in the same group. the fourth for other users not in the group. 0755 - gives read/write/execute permissions to owner and read/execute to group and other users.
+        """
+        volume_spec_name: NotRequired[pulumi.Input[str]]
+        """
+        Volume spec name is the application specific designation or identifier for the particular volume in a volume group for e.g. data, log
+        """
+        volume_type: NotRequired[pulumi.Input[str]]
+        """
+        What type of volume is this. For destination volumes in Cross Region Replication, set type to DataProtection
+        """
+elif False:
+    VolumeGroupVolumePropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VolumeGroupVolumePropertiesArgs:
@@ -1146,6 +1467,26 @@ class VolumeGroupVolumePropertiesArgs:
         pulumi.set(self, "volume_type", value)
 
 
+if not MYPY:
+    class VolumePropertiesDataProtectionArgsDict(TypedDict):
+        """
+        DataProtection type volumes include an object containing details of the replication
+        """
+        backup: NotRequired[pulumi.Input['VolumeBackupPropertiesArgsDict']]
+        """
+        Backup Properties
+        """
+        replication: NotRequired[pulumi.Input['ReplicationObjectArgsDict']]
+        """
+        Replication properties
+        """
+        snapshot: NotRequired[pulumi.Input['VolumeSnapshotPropertiesArgsDict']]
+        """
+        Snapshot properties.
+        """
+elif False:
+    VolumePropertiesDataProtectionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class VolumePropertiesDataProtectionArgs:
     def __init__(__self__, *,
@@ -1202,6 +1543,18 @@ class VolumePropertiesDataProtectionArgs:
         pulumi.set(self, "snapshot", value)
 
 
+if not MYPY:
+    class VolumePropertiesExportPolicyArgsDict(TypedDict):
+        """
+        Set of export policy rules
+        """
+        rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['ExportPolicyRuleArgsDict']]]]
+        """
+        Export policy rule
+        """
+elif False:
+    VolumePropertiesExportPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class VolumePropertiesExportPolicyArgs:
     def __init__(__self__, *,
@@ -1225,6 +1578,18 @@ class VolumePropertiesExportPolicyArgs:
     def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ExportPolicyRuleArgs']]]]):
         pulumi.set(self, "rules", value)
 
+
+if not MYPY:
+    class VolumeSnapshotPropertiesArgsDict(TypedDict):
+        """
+        Volume Snapshot Properties
+        """
+        snapshot_policy_id: NotRequired[pulumi.Input[str]]
+        """
+        Snapshot Policy ResourceId
+        """
+elif False:
+    VolumeSnapshotPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VolumeSnapshotPropertiesArgs:

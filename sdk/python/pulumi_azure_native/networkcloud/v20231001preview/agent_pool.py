@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -278,42 +283,42 @@ class AgentPool(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 administrator_configuration: Optional[pulumi.Input[pulumi.InputType['AdministratorConfigurationArgs']]] = None,
-                 agent_options: Optional[pulumi.Input[pulumi.InputType['AgentOptionsArgs']]] = None,
+                 administrator_configuration: Optional[pulumi.Input[Union['AdministratorConfigurationArgs', 'AdministratorConfigurationArgsDict']]] = None,
+                 agent_options: Optional[pulumi.Input[Union['AgentOptionsArgs', 'AgentOptionsArgsDict']]] = None,
                  agent_pool_name: Optional[pulumi.Input[str]] = None,
-                 attached_network_configuration: Optional[pulumi.Input[pulumi.InputType['AttachedNetworkConfigurationArgs']]] = None,
+                 attached_network_configuration: Optional[pulumi.Input[Union['AttachedNetworkConfigurationArgs', 'AttachedNetworkConfigurationArgsDict']]] = None,
                  availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  count: Optional[pulumi.Input[float]] = None,
-                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
                  kubernetes_cluster_name: Optional[pulumi.Input[str]] = None,
-                 labels: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KubernetesLabelArgs']]]]] = None,
+                 labels: Optional[pulumi.Input[Sequence[pulumi.Input[Union['KubernetesLabelArgs', 'KubernetesLabelArgsDict']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  mode: Optional[pulumi.Input[Union[str, 'AgentPoolMode']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 taints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KubernetesLabelArgs']]]]] = None,
-                 upgrade_settings: Optional[pulumi.Input[pulumi.InputType['AgentPoolUpgradeSettingsArgs']]] = None,
+                 taints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['KubernetesLabelArgs', 'KubernetesLabelArgsDict']]]]] = None,
+                 upgrade_settings: Optional[pulumi.Input[Union['AgentPoolUpgradeSettingsArgs', 'AgentPoolUpgradeSettingsArgsDict']]] = None,
                  vm_sku_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Create a AgentPool resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['AdministratorConfigurationArgs']] administrator_configuration: The administrator credentials to be used for the nodes in this agent pool.
-        :param pulumi.Input[pulumi.InputType['AgentOptionsArgs']] agent_options: The configurations that will be applied to each agent in this agent pool.
+        :param pulumi.Input[Union['AdministratorConfigurationArgs', 'AdministratorConfigurationArgsDict']] administrator_configuration: The administrator credentials to be used for the nodes in this agent pool.
+        :param pulumi.Input[Union['AgentOptionsArgs', 'AgentOptionsArgsDict']] agent_options: The configurations that will be applied to each agent in this agent pool.
         :param pulumi.Input[str] agent_pool_name: The name of the Kubernetes cluster agent pool.
-        :param pulumi.Input[pulumi.InputType['AttachedNetworkConfigurationArgs']] attached_network_configuration: The configuration of networks being attached to the agent pool for use by the workloads that run on this Kubernetes cluster.
+        :param pulumi.Input[Union['AttachedNetworkConfigurationArgs', 'AttachedNetworkConfigurationArgsDict']] attached_network_configuration: The configuration of networks being attached to the agent pool for use by the workloads that run on this Kubernetes cluster.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: The list of availability zones of the Network Cloud cluster used for the provisioning of nodes in this agent pool. If not specified, all availability zones will be used.
         :param pulumi.Input[float] count: The number of virtual machines that use this configuration.
-        :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: The extended location of the cluster associated with the resource.
+        :param pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']] extended_location: The extended location of the cluster associated with the resource.
         :param pulumi.Input[str] kubernetes_cluster_name: The name of the Kubernetes cluster.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KubernetesLabelArgs']]]] labels: The labels applied to the nodes in this agent pool.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['KubernetesLabelArgs', 'KubernetesLabelArgsDict']]]] labels: The labels applied to the nodes in this agent pool.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Union[str, 'AgentPoolMode']] mode: The selection of how this agent pool is utilized, either as a system pool or a user pool. System pools run the features and critical services for the Kubernetes Cluster, while user pools are dedicated to user workloads. Every Kubernetes cluster must contain at least one system node pool with at least one node.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KubernetesLabelArgs']]]] taints: The taints applied to the nodes in this agent pool.
-        :param pulumi.Input[pulumi.InputType['AgentPoolUpgradeSettingsArgs']] upgrade_settings: The configuration of the agent pool.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['KubernetesLabelArgs', 'KubernetesLabelArgsDict']]]] taints: The taints applied to the nodes in this agent pool.
+        :param pulumi.Input[Union['AgentPoolUpgradeSettingsArgs', 'AgentPoolUpgradeSettingsArgsDict']] upgrade_settings: The configuration of the agent pool.
         :param pulumi.Input[str] vm_sku_name: The name of the VM SKU that determines the size of resources allocated for node VMs.
         """
         ...
@@ -339,21 +344,21 @@ class AgentPool(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 administrator_configuration: Optional[pulumi.Input[pulumi.InputType['AdministratorConfigurationArgs']]] = None,
-                 agent_options: Optional[pulumi.Input[pulumi.InputType['AgentOptionsArgs']]] = None,
+                 administrator_configuration: Optional[pulumi.Input[Union['AdministratorConfigurationArgs', 'AdministratorConfigurationArgsDict']]] = None,
+                 agent_options: Optional[pulumi.Input[Union['AgentOptionsArgs', 'AgentOptionsArgsDict']]] = None,
                  agent_pool_name: Optional[pulumi.Input[str]] = None,
-                 attached_network_configuration: Optional[pulumi.Input[pulumi.InputType['AttachedNetworkConfigurationArgs']]] = None,
+                 attached_network_configuration: Optional[pulumi.Input[Union['AttachedNetworkConfigurationArgs', 'AttachedNetworkConfigurationArgsDict']]] = None,
                  availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  count: Optional[pulumi.Input[float]] = None,
-                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
                  kubernetes_cluster_name: Optional[pulumi.Input[str]] = None,
-                 labels: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KubernetesLabelArgs']]]]] = None,
+                 labels: Optional[pulumi.Input[Sequence[pulumi.Input[Union['KubernetesLabelArgs', 'KubernetesLabelArgsDict']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  mode: Optional[pulumi.Input[Union[str, 'AgentPoolMode']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 taints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KubernetesLabelArgs']]]]] = None,
-                 upgrade_settings: Optional[pulumi.Input[pulumi.InputType['AgentPoolUpgradeSettingsArgs']]] = None,
+                 taints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['KubernetesLabelArgs', 'KubernetesLabelArgsDict']]]]] = None,
+                 upgrade_settings: Optional[pulumi.Input[Union['AgentPoolUpgradeSettingsArgs', 'AgentPoolUpgradeSettingsArgsDict']]] = None,
                  vm_sku_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

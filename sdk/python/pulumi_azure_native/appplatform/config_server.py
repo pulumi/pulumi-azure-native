@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -73,7 +78,7 @@ class ConfigServer(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['ConfigServerPropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['ConfigServerPropertiesArgs', 'ConfigServerPropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -85,7 +90,7 @@ class ConfigServer(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ConfigServerPropertiesArgs']] properties: Properties of the Config Server resource
+        :param pulumi.Input[Union['ConfigServerPropertiesArgs', 'ConfigServerPropertiesArgsDict']] properties: Properties of the Config Server resource
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] service_name: The name of the Service resource.
         """
@@ -116,7 +121,7 @@ class ConfigServer(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['ConfigServerPropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['ConfigServerPropertiesArgs', 'ConfigServerPropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):

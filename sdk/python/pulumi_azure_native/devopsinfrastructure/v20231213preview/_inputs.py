@@ -4,29 +4,72 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'AzureDevOpsOrganizationProfileArgs',
+    'AzureDevOpsOrganizationProfileArgsDict',
     'AzureDevOpsPermissionProfileArgs',
+    'AzureDevOpsPermissionProfileArgsDict',
     'DevOpsAzureSkuArgs',
+    'DevOpsAzureSkuArgsDict',
     'GitHubOrganizationProfileArgs',
+    'GitHubOrganizationProfileArgsDict',
     'GitHubOrganizationArgs',
+    'GitHubOrganizationArgsDict',
     'ManagedServiceIdentityArgs',
+    'ManagedServiceIdentityArgsDict',
     'NetworkProfileArgs',
+    'NetworkProfileArgsDict',
     'OrganizationArgs',
+    'OrganizationArgsDict',
     'OsProfileArgs',
+    'OsProfileArgsDict',
     'PoolImageArgs',
+    'PoolImageArgsDict',
     'SecretsManagementSettingsArgs',
+    'SecretsManagementSettingsArgsDict',
     'StatefulArgs',
+    'StatefulArgsDict',
     'StatelessAgentProfileArgs',
+    'StatelessAgentProfileArgsDict',
     'StorageProfileArgs',
+    'StorageProfileArgsDict',
     'VmssFabricProfileArgs',
+    'VmssFabricProfileArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AzureDevOpsOrganizationProfileArgsDict(TypedDict):
+        """
+        Azure DevOps organization profile
+        """
+        kind: pulumi.Input[str]
+        """
+        Discriminator property for OrganizationProfile.
+        Expected value is 'AzureDevOps'.
+        """
+        organizations: pulumi.Input[Sequence[pulumi.Input['OrganizationArgsDict']]]
+        """
+        The list of Azure DevOps organizations the pool should be present in.
+        """
+        permission_profile: NotRequired[pulumi.Input['AzureDevOpsPermissionProfileArgsDict']]
+        """
+        The type of permission which determines which accounts are admins on the Azure DevOps pool.
+        """
+elif False:
+    AzureDevOpsOrganizationProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AzureDevOpsOrganizationProfileArgs:
@@ -84,6 +127,26 @@ class AzureDevOpsOrganizationProfileArgs:
         pulumi.set(self, "permission_profile", value)
 
 
+if not MYPY:
+    class AzureDevOpsPermissionProfileArgsDict(TypedDict):
+        """
+        Defines the type of Azure DevOps pool permission.
+        """
+        kind: pulumi.Input[Union[str, 'AzureDevOpsPermissionType']]
+        """
+        Determines who has admin permissions to the Azure DevOps pool.
+        """
+        groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Group email addresses
+        """
+        users: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        User email addresses
+        """
+elif False:
+    AzureDevOpsPermissionProfileArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AzureDevOpsPermissionProfileArgs:
     def __init__(__self__, *,
@@ -139,6 +202,18 @@ class AzureDevOpsPermissionProfileArgs:
         pulumi.set(self, "users", value)
 
 
+if not MYPY:
+    class DevOpsAzureSkuArgsDict(TypedDict):
+        """
+        The Azure SKU of the machines in the pool.
+        """
+        name: pulumi.Input[str]
+        """
+        The Azure SKU name of the machines in the pool.
+        """
+elif False:
+    DevOpsAzureSkuArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DevOpsAzureSkuArgs:
     def __init__(__self__, *,
@@ -161,6 +236,23 @@ class DevOpsAzureSkuArgs:
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class GitHubOrganizationProfileArgsDict(TypedDict):
+        """
+        GitHub organization profile
+        """
+        kind: pulumi.Input[str]
+        """
+        Discriminator property for OrganizationProfile.
+        Expected value is 'GitHub'.
+        """
+        organizations: pulumi.Input[Sequence[pulumi.Input['GitHubOrganizationArgsDict']]]
+        """
+        The list of GitHub organizations/repositories the pool should be present in.
+        """
+elif False:
+    GitHubOrganizationProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GitHubOrganizationProfileArgs:
@@ -202,6 +294,22 @@ class GitHubOrganizationProfileArgs:
         pulumi.set(self, "organizations", value)
 
 
+if not MYPY:
+    class GitHubOrganizationArgsDict(TypedDict):
+        """
+        Defines a GitHub organization
+        """
+        url: pulumi.Input[str]
+        """
+        The GitHub organization URL in which the pool should be created.
+        """
+        repositories: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Optional list of repositories in which the pool should be created.
+        """
+elif False:
+    GitHubOrganizationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GitHubOrganizationArgs:
     def __init__(__self__, *,
@@ -240,6 +348,22 @@ class GitHubOrganizationArgs:
     def repositories(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "repositories", value)
 
+
+if not MYPY:
+    class ManagedServiceIdentityArgsDict(TypedDict):
+        """
+        Managed service identity (system assigned and/or user assigned identities)
+        """
+        type: pulumi.Input[Union[str, 'ManagedServiceIdentityType']]
+        """
+        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        """
+        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        """
+elif False:
+    ManagedServiceIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ManagedServiceIdentityArgs:
@@ -280,6 +404,18 @@ class ManagedServiceIdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
+if not MYPY:
+    class NetworkProfileArgsDict(TypedDict):
+        """
+        The network profile of the machines in the pool.
+        """
+        subnet_id: pulumi.Input[str]
+        """
+        The subnet id on which to put all machines created in the pool.
+        """
+elif False:
+    NetworkProfileArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NetworkProfileArgs:
     def __init__(__self__, *,
@@ -302,6 +438,26 @@ class NetworkProfileArgs:
     def subnet_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "subnet_id", value)
 
+
+if not MYPY:
+    class OrganizationArgsDict(TypedDict):
+        """
+        Defines an Azure DevOps organization.
+        """
+        url: pulumi.Input[str]
+        """
+        The Azure DevOps organization URL in which the pool should be created.
+        """
+        parallelism: NotRequired[pulumi.Input[int]]
+        """
+        How many machines can be created at maximum in this organization out of the maximumConcurrency of the pool.
+        """
+        projects: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Optional list of projects in which the pool should be created.
+        """
+elif False:
+    OrganizationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OrganizationArgs:
@@ -358,6 +514,22 @@ class OrganizationArgs:
         pulumi.set(self, "projects", value)
 
 
+if not MYPY:
+    class OsProfileArgsDict(TypedDict):
+        """
+        The OS profile of the machines in the pool.
+        """
+        logon_type: NotRequired[pulumi.Input[Union[str, 'LogonType']]]
+        """
+        Determines how the service should be run. By default, this will be set to Service.
+        """
+        secrets_management_settings: NotRequired[pulumi.Input['SecretsManagementSettingsArgsDict']]
+        """
+        The secret management settings of the machines in the pool.
+        """
+elif False:
+    OsProfileArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OsProfileArgs:
     def __init__(__self__, *,
@@ -397,6 +569,26 @@ class OsProfileArgs:
     def secrets_management_settings(self, value: Optional[pulumi.Input['SecretsManagementSettingsArgs']]):
         pulumi.set(self, "secrets_management_settings", value)
 
+
+if not MYPY:
+    class PoolImageArgsDict(TypedDict):
+        """
+        The VM image of the machines in the pool.
+        """
+        resource_id: pulumi.Input[str]
+        """
+        The resource id of the image.
+        """
+        aliases: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of aliases to reference the image by.
+        """
+        buffer: NotRequired[pulumi.Input[str]]
+        """
+        The percentage of the buffer to be allocated to this image.
+        """
+elif False:
+    PoolImageArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PoolImageArgs:
@@ -455,6 +647,26 @@ class PoolImageArgs:
         pulumi.set(self, "buffer", value)
 
 
+if not MYPY:
+    class SecretsManagementSettingsArgsDict(TypedDict):
+        """
+        The secret management settings of the machines in the pool.
+        """
+        key_exportable: pulumi.Input[bool]
+        """
+        Defines if the key of the certificates should be exportable.
+        """
+        observed_certificates: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        The list of certificates to install on all machines in the pool.
+        """
+        certificate_store_location: NotRequired[pulumi.Input[str]]
+        """
+        Where to store certificates on the machine.
+        """
+elif False:
+    SecretsManagementSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SecretsManagementSettingsArgs:
     def __init__(__self__, *,
@@ -508,6 +720,27 @@ class SecretsManagementSettingsArgs:
     def certificate_store_location(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "certificate_store_location", value)
 
+
+if not MYPY:
+    class StatefulArgsDict(TypedDict):
+        """
+        Stateful profile meaning that the machines will be returned to the pool after running a job.
+        """
+        kind: pulumi.Input[str]
+        """
+        Discriminator property for AgentProfile.
+        Expected value is 'Stateful'.
+        """
+        max_agent_lifetime: pulumi.Input[str]
+        """
+        How long should stateful machines be kept around. The maximum is one week.
+        """
+        resource_predictions: NotRequired[Any]
+        """
+        Defines pool buffer.
+        """
+elif False:
+    StatefulArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class StatefulArgs:
@@ -565,6 +798,23 @@ class StatefulArgs:
         pulumi.set(self, "resource_predictions", value)
 
 
+if not MYPY:
+    class StatelessAgentProfileArgsDict(TypedDict):
+        """
+        Stateless profile meaning that the machines will be cleaned up after running a job.
+        """
+        kind: pulumi.Input[str]
+        """
+        Discriminator property for AgentProfile.
+        Expected value is 'Stateless'.
+        """
+        resource_predictions: NotRequired[Any]
+        """
+        Defines pool buffer.
+        """
+elif False:
+    StatelessAgentProfileArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class StatelessAgentProfileArgs:
     def __init__(__self__, *,
@@ -606,6 +856,18 @@ class StatelessAgentProfileArgs:
         pulumi.set(self, "resource_predictions", value)
 
 
+if not MYPY:
+    class StorageProfileArgsDict(TypedDict):
+        """
+        The storage profile of the VMSS.
+        """
+        os_disk_storage_account_type: NotRequired[pulumi.Input[Union[str, 'OsDiskStorageAccountType']]]
+        """
+        The Azure SKU name of the machines in the pool.
+        """
+elif False:
+    StorageProfileArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class StorageProfileArgs:
     def __init__(__self__, *,
@@ -629,6 +891,39 @@ class StorageProfileArgs:
     def os_disk_storage_account_type(self, value: Optional[pulumi.Input[Union[str, 'OsDiskStorageAccountType']]]):
         pulumi.set(self, "os_disk_storage_account_type", value)
 
+
+if not MYPY:
+    class VmssFabricProfileArgsDict(TypedDict):
+        """
+        The agents will run on Virtual Machine Scale Sets.
+        """
+        images: pulumi.Input[Sequence[pulumi.Input['PoolImageArgsDict']]]
+        """
+        The VM images of the machines in the pool.
+        """
+        kind: pulumi.Input[str]
+        """
+        Discriminator property for FabricProfile.
+        Expected value is 'Vmss'.
+        """
+        sku: pulumi.Input['DevOpsAzureSkuArgsDict']
+        """
+        The Azure SKU of the machines in the pool.
+        """
+        network_profile: NotRequired[pulumi.Input['NetworkProfileArgsDict']]
+        """
+        The network profile of the machines in the pool.
+        """
+        os_profile: NotRequired[pulumi.Input['OsProfileArgsDict']]
+        """
+        The OS profile of the machines in the pool.
+        """
+        storage_profile: NotRequired[pulumi.Input['StorageProfileArgsDict']]
+        """
+        The storage profile of the machines in the pool.
+        """
+elif False:
+    VmssFabricProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VmssFabricProfileArgs:

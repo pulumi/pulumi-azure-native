@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -124,7 +129,7 @@ class CloudService(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cloud_service_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['CloudServicePropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['CloudServicePropertiesArgs', 'CloudServicePropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -136,7 +141,7 @@ class CloudService(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cloud_service_name: Name of the cloud service.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[pulumi.InputType['CloudServicePropertiesArgs']] properties: Cloud service properties
+        :param pulumi.Input[Union['CloudServicePropertiesArgs', 'CloudServicePropertiesArgsDict']] properties: Cloud service properties
         :param pulumi.Input[str] resource_group_name: Name of the resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: List of logical availability zone of the resource. List should contain only 1 zone where cloud service should be provisioned. This field is optional.
@@ -167,7 +172,7 @@ class CloudService(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cloud_service_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['CloudServicePropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['CloudServicePropertiesArgs', 'CloudServicePropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,

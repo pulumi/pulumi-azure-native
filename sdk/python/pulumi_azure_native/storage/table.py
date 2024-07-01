@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -90,7 +95,7 @@ class Table(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 signed_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableSignedIdentifierArgs']]]]] = None,
+                 signed_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TableSignedIdentifierArgs', 'TableSignedIdentifierArgsDict']]]]] = None,
                  table_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -103,7 +108,7 @@ class Table(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableSignedIdentifierArgs']]]] signed_identifiers: List of stored access policies specified on the table.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TableSignedIdentifierArgs', 'TableSignedIdentifierArgsDict']]]] signed_identifiers: List of stored access policies specified on the table.
         :param pulumi.Input[str] table_name: A table name must be unique within a storage account and must be between 3 and 63 characters.The name must comprise of only alphanumeric characters and it cannot begin with a numeric character.
         """
         ...
@@ -135,7 +140,7 @@ class Table(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 signed_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableSignedIdentifierArgs']]]]] = None,
+                 signed_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TableSignedIdentifierArgs', 'TableSignedIdentifierArgsDict']]]]] = None,
                  table_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

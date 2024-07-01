@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -224,26 +229,26 @@ class Namespace(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['IdentityInfoArgs']]] = None,
-                 inbound_ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InboundIpRuleArgs']]]]] = None,
+                 identity: Optional[pulumi.Input[Union['IdentityInfoArgs', 'IdentityInfoArgsDict']]] = None,
+                 inbound_ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InboundIpRuleArgs', 'InboundIpRuleArgsDict']]]]] = None,
                  is_zone_redundant: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  minimum_tls_version_allowed: Optional[pulumi.Input[Union[str, 'TlsVersion']]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
-                 private_endpoint_connections: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrivateEndpointConnectionArgs']]]]] = None,
+                 private_endpoint_connections: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PrivateEndpointConnectionArgs', 'PrivateEndpointConnectionArgsDict']]]]] = None,
                  public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['NamespaceSkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['NamespaceSkuArgs', 'NamespaceSkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 topic_spaces_configuration: Optional[pulumi.Input[pulumi.InputType['TopicSpacesConfigurationArgs']]] = None,
+                 topic_spaces_configuration: Optional[pulumi.Input[Union['TopicSpacesConfigurationArgs', 'TopicSpacesConfigurationArgsDict']]] = None,
                  __props__=None):
         """
         Namespace resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['IdentityInfoArgs']] identity: Identity information for the Namespace resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InboundIpRuleArgs']]]] inbound_ip_rules: This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
+        :param pulumi.Input[Union['IdentityInfoArgs', 'IdentityInfoArgsDict']] identity: Identity information for the Namespace resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['InboundIpRuleArgs', 'InboundIpRuleArgsDict']]]] inbound_ip_rules: This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
         :param pulumi.Input[bool] is_zone_redundant: This is an optional property and it allows the user to specify if the namespace resource supports zone-redundancy capability or not. If this
                property is not specified explicitly by the user, its default value depends on the following conditions:
                    a. For Availability Zones enabled regions - The default property value would be true.
@@ -255,9 +260,9 @@ class Namespace(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: This determines if traffic is allowed over public network. By default it is enabled.
                You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.PubSub.NamespaceProperties.InboundIpRules" />
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription.
-        :param pulumi.Input[pulumi.InputType['NamespaceSkuArgs']] sku: Represents available Sku pricing tiers.
+        :param pulumi.Input[Union['NamespaceSkuArgs', 'NamespaceSkuArgsDict']] sku: Represents available Sku pricing tiers.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags of the resource.
-        :param pulumi.Input[pulumi.InputType['TopicSpacesConfigurationArgs']] topic_spaces_configuration: Topic spaces configuration information for the namespace resource
+        :param pulumi.Input[Union['TopicSpacesConfigurationArgs', 'TopicSpacesConfigurationArgsDict']] topic_spaces_configuration: Topic spaces configuration information for the namespace resource
         """
         ...
     @overload
@@ -283,18 +288,18 @@ class Namespace(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['IdentityInfoArgs']]] = None,
-                 inbound_ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InboundIpRuleArgs']]]]] = None,
+                 identity: Optional[pulumi.Input[Union['IdentityInfoArgs', 'IdentityInfoArgsDict']]] = None,
+                 inbound_ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InboundIpRuleArgs', 'InboundIpRuleArgsDict']]]]] = None,
                  is_zone_redundant: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  minimum_tls_version_allowed: Optional[pulumi.Input[Union[str, 'TlsVersion']]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
-                 private_endpoint_connections: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrivateEndpointConnectionArgs']]]]] = None,
+                 private_endpoint_connections: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PrivateEndpointConnectionArgs', 'PrivateEndpointConnectionArgsDict']]]]] = None,
                  public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['NamespaceSkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['NamespaceSkuArgs', 'NamespaceSkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 topic_spaces_configuration: Optional[pulumi.Input[pulumi.InputType['TopicSpacesConfigurationArgs']]] = None,
+                 topic_spaces_configuration: Optional[pulumi.Input[Union['TopicSpacesConfigurationArgs', 'TopicSpacesConfigurationArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

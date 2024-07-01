@@ -4,93 +4,191 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'ApiDefinitionInfoArgs',
+    'ApiDefinitionInfoArgsDict',
     'ApiManagementConfigArgs',
+    'ApiManagementConfigArgsDict',
     'AppLogsConfigurationArgs',
+    'AppLogsConfigurationArgsDict',
     'ApplicationLogsConfigArgs',
+    'ApplicationLogsConfigArgsDict',
     'ArcConfigurationArgs',
+    'ArcConfigurationArgsDict',
     'AseV3NetworkingConfigurationArgs',
+    'AseV3NetworkingConfigurationArgsDict',
     'AutoHealActionsArgs',
+    'AutoHealActionsArgsDict',
     'AutoHealCustomActionArgs',
+    'AutoHealCustomActionArgsDict',
     'AutoHealRulesArgs',
+    'AutoHealRulesArgsDict',
     'AutoHealTriggersArgs',
+    'AutoHealTriggersArgsDict',
     'AzureBlobStorageApplicationLogsConfigArgs',
+    'AzureBlobStorageApplicationLogsConfigArgsDict',
     'AzureBlobStorageHttpLogsConfigArgs',
+    'AzureBlobStorageHttpLogsConfigArgsDict',
     'AzureStorageInfoValueArgs',
+    'AzureStorageInfoValueArgsDict',
     'AzureTableStorageApplicationLogsConfigArgs',
+    'AzureTableStorageApplicationLogsConfigArgsDict',
     'BackupSchedule',
+    'BackupScheduleDict',
     'BackupScheduleArgs',
+    'BackupScheduleArgsDict',
     'CapabilityArgs',
+    'CapabilityArgsDict',
     'CloningInfoArgs',
+    'CloningInfoArgsDict',
     'ConfigurationArgs',
+    'ConfigurationArgsDict',
     'ConnStringInfoArgs',
+    'ConnStringInfoArgsDict',
     'ConnStringValueTypePairArgs',
+    'ConnStringValueTypePairArgsDict',
     'ContainerAppsConfigurationArgs',
+    'ContainerAppsConfigurationArgsDict',
     'ContainerResourcesArgs',
+    'ContainerResourcesArgsDict',
     'ContainerArgs',
+    'ContainerArgsDict',
     'CorsSettingsArgs',
+    'CorsSettingsArgsDict',
     'CustomDnsSuffixConfigurationArgs',
+    'CustomDnsSuffixConfigurationArgsDict',
     'CustomScaleRuleArgs',
+    'CustomScaleRuleArgsDict',
     'DaprComponentArgs',
+    'DaprComponentArgsDict',
     'DaprConfigArgs',
+    'DaprConfigArgsDict',
     'DaprMetadataArgs',
+    'DaprMetadataArgsDict',
     'DaprArgs',
+    'DaprArgsDict',
     'DatabaseBackupSetting',
+    'DatabaseBackupSettingDict',
     'DatabaseBackupSettingArgs',
+    'DatabaseBackupSettingArgsDict',
     'EnabledConfigArgs',
+    'EnabledConfigArgsDict',
     'EnvironmentVarArgs',
+    'EnvironmentVarArgsDict',
     'ExperimentsArgs',
+    'ExperimentsArgsDict',
     'ExtendedLocationArgs',
+    'ExtendedLocationArgsDict',
     'FileSystemApplicationLogsConfigArgs',
+    'FileSystemApplicationLogsConfigArgsDict',
     'FileSystemHttpLogsConfigArgs',
+    'FileSystemHttpLogsConfigArgsDict',
     'FrontEndConfigurationArgs',
+    'FrontEndConfigurationArgsDict',
     'GitHubActionCodeConfigurationArgs',
+    'GitHubActionCodeConfigurationArgsDict',
     'GitHubActionConfigurationArgs',
+    'GitHubActionConfigurationArgsDict',
     'GitHubActionContainerConfigurationArgs',
+    'GitHubActionContainerConfigurationArgsDict',
     'HandlerMappingArgs',
+    'HandlerMappingArgsDict',
     'HostNameSslStateArgs',
+    'HostNameSslStateArgsDict',
     'HostingEnvironmentProfileArgs',
+    'HostingEnvironmentProfileArgsDict',
     'HttpLogsConfigArgs',
+    'HttpLogsConfigArgsDict',
     'HttpScaleRuleArgs',
+    'HttpScaleRuleArgsDict',
     'IngressArgs',
+    'IngressArgsDict',
     'IpSecurityRestrictionArgs',
+    'IpSecurityRestrictionArgsDict',
     'KubeEnvironmentProfileArgs',
+    'KubeEnvironmentProfileArgsDict',
     'LogAnalyticsConfigurationArgs',
+    'LogAnalyticsConfigurationArgsDict',
     'ManagedServiceIdentityArgs',
+    'ManagedServiceIdentityArgsDict',
     'NameValuePairArgs',
+    'NameValuePairArgsDict',
     'PrivateLinkConnectionStateArgs',
+    'PrivateLinkConnectionStateArgsDict',
     'PushSettingsArgs',
+    'PushSettingsArgsDict',
     'QueueScaleRuleArgs',
+    'QueueScaleRuleArgsDict',
     'RampUpRuleArgs',
+    'RampUpRuleArgsDict',
     'RegistryCredentialsArgs',
+    'RegistryCredentialsArgsDict',
     'RequestsBasedTriggerArgs',
+    'RequestsBasedTriggerArgsDict',
     'ResourceConfigArgs',
+    'ResourceConfigArgsDict',
     'ScaleRuleAuthArgs',
+    'ScaleRuleAuthArgsDict',
     'ScaleRuleArgs',
+    'ScaleRuleArgsDict',
     'ScaleArgs',
+    'ScaleArgsDict',
     'SecretArgs',
+    'SecretArgsDict',
     'SiteConfigArgs',
+    'SiteConfigArgsDict',
     'SiteLimitsArgs',
+    'SiteLimitsArgsDict',
     'SkuCapacityArgs',
+    'SkuCapacityArgsDict',
     'SkuDescriptionArgs',
+    'SkuDescriptionArgsDict',
     'SlowRequestsBasedTriggerArgs',
+    'SlowRequestsBasedTriggerArgsDict',
     'StaticSiteBuildPropertiesArgs',
+    'StaticSiteBuildPropertiesArgsDict',
     'StaticSiteTemplateOptionsArgs',
+    'StaticSiteTemplateOptionsArgsDict',
     'StatusCodesBasedTriggerArgs',
+    'StatusCodesBasedTriggerArgsDict',
     'StatusCodesRangeBasedTriggerArgs',
+    'StatusCodesRangeBasedTriggerArgsDict',
     'TemplateArgs',
+    'TemplateArgsDict',
     'TrafficWeightArgs',
+    'TrafficWeightArgsDict',
     'VirtualApplicationArgs',
+    'VirtualApplicationArgsDict',
     'VirtualDirectoryArgs',
+    'VirtualDirectoryArgsDict',
     'VirtualNetworkProfileArgs',
+    'VirtualNetworkProfileArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ApiDefinitionInfoArgsDict(TypedDict):
+        """
+        Information about the formal API definition for the app.
+        """
+        url: NotRequired[pulumi.Input[str]]
+        """
+        The URL of the API definition.
+        """
+elif False:
+    ApiDefinitionInfoArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApiDefinitionInfoArgs:
@@ -116,6 +214,18 @@ class ApiDefinitionInfoArgs:
         pulumi.set(self, "url", value)
 
 
+if not MYPY:
+    class ApiManagementConfigArgsDict(TypedDict):
+        """
+        Azure API management (APIM) configuration linked to the app.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        APIM-Api Identifier.
+        """
+elif False:
+    ApiManagementConfigArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ApiManagementConfigArgs:
     def __init__(__self__, *,
@@ -139,6 +249,13 @@ class ApiManagementConfigArgs:
     def id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class AppLogsConfigurationArgsDict(TypedDict):
+        destination: NotRequired[pulumi.Input[str]]
+        log_analytics_configuration: NotRequired[pulumi.Input['LogAnalyticsConfigurationArgsDict']]
+elif False:
+    AppLogsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AppLogsConfigurationArgs:
@@ -168,6 +285,26 @@ class AppLogsConfigurationArgs:
     def log_analytics_configuration(self, value: Optional[pulumi.Input['LogAnalyticsConfigurationArgs']]):
         pulumi.set(self, "log_analytics_configuration", value)
 
+
+if not MYPY:
+    class ApplicationLogsConfigArgsDict(TypedDict):
+        """
+        Application logs configuration.
+        """
+        azure_blob_storage: NotRequired[pulumi.Input['AzureBlobStorageApplicationLogsConfigArgsDict']]
+        """
+        Application logs to blob storage configuration.
+        """
+        azure_table_storage: NotRequired[pulumi.Input['AzureTableStorageApplicationLogsConfigArgsDict']]
+        """
+        Application logs to azure table storage configuration.
+        """
+        file_system: NotRequired[pulumi.Input['FileSystemApplicationLogsConfigArgsDict']]
+        """
+        Application logs to file system configuration.
+        """
+elif False:
+    ApplicationLogsConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApplicationLogsConfigArgs:
@@ -224,6 +361,18 @@ class ApplicationLogsConfigArgs:
     def file_system(self, value: Optional[pulumi.Input['FileSystemApplicationLogsConfigArgs']]):
         pulumi.set(self, "file_system", value)
 
+
+if not MYPY:
+    class ArcConfigurationArgsDict(TypedDict):
+        artifact_storage_access_mode: NotRequired[pulumi.Input[str]]
+        artifact_storage_class_name: NotRequired[pulumi.Input[str]]
+        artifact_storage_mount_path: NotRequired[pulumi.Input[str]]
+        artifact_storage_node_name: NotRequired[pulumi.Input[str]]
+        artifacts_storage_type: NotRequired[pulumi.Input['StorageType']]
+        front_end_service_configuration: NotRequired[pulumi.Input['FrontEndConfigurationArgsDict']]
+        kube_config: NotRequired[pulumi.Input[str]]
+elif False:
+    ArcConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ArcConfigurationArgs:
@@ -314,6 +463,34 @@ class ArcConfigurationArgs:
         pulumi.set(self, "kube_config", value)
 
 
+if not MYPY:
+    class AseV3NetworkingConfigurationArgsDict(TypedDict):
+        """
+        Full view of networking configuration for an ASE.
+        """
+        allow_new_private_endpoint_connections: NotRequired[pulumi.Input[bool]]
+        """
+        Property to enable and disable new private endpoint connection creation on ASE
+        """
+        ftp_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Property to enable and disable FTP on ASEV3
+        """
+        inbound_ip_address_override: NotRequired[pulumi.Input[str]]
+        """
+        Customer provided Inbound IP Address. Only able to be set on Ase create.
+        """
+        kind: NotRequired[pulumi.Input[str]]
+        """
+        Kind of resource.
+        """
+        remote_debug_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Property to enable and disable Remote Debug on ASEV3
+        """
+elif False:
+    AseV3NetworkingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AseV3NetworkingConfigurationArgs:
     def __init__(__self__, *,
@@ -402,6 +579,27 @@ class AseV3NetworkingConfigurationArgs:
         pulumi.set(self, "remote_debug_enabled", value)
 
 
+if not MYPY:
+    class AutoHealActionsArgsDict(TypedDict):
+        """
+        Actions which to take by the auto-heal module when a rule is triggered.
+        """
+        action_type: NotRequired[pulumi.Input['AutoHealActionType']]
+        """
+        Predefined action to be taken.
+        """
+        custom_action: NotRequired[pulumi.Input['AutoHealCustomActionArgsDict']]
+        """
+        Custom action to be taken.
+        """
+        min_process_execution_time: NotRequired[pulumi.Input[str]]
+        """
+        Minimum time the process must execute
+        before taking the action
+        """
+elif False:
+    AutoHealActionsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AutoHealActionsArgs:
     def __init__(__self__, *,
@@ -460,6 +658,23 @@ class AutoHealActionsArgs:
         pulumi.set(self, "min_process_execution_time", value)
 
 
+if not MYPY:
+    class AutoHealCustomActionArgsDict(TypedDict):
+        """
+        Custom action to be executed
+        when an auto heal rule is triggered.
+        """
+        exe: NotRequired[pulumi.Input[str]]
+        """
+        Executable to be run.
+        """
+        parameters: NotRequired[pulumi.Input[str]]
+        """
+        Parameters for the executable.
+        """
+elif False:
+    AutoHealCustomActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AutoHealCustomActionArgs:
     def __init__(__self__, *,
@@ -501,6 +716,22 @@ class AutoHealCustomActionArgs:
         pulumi.set(self, "parameters", value)
 
 
+if not MYPY:
+    class AutoHealRulesArgsDict(TypedDict):
+        """
+        Rules that can be defined for auto-heal.
+        """
+        actions: NotRequired[pulumi.Input['AutoHealActionsArgsDict']]
+        """
+        Actions to be executed when a rule is triggered.
+        """
+        triggers: NotRequired[pulumi.Input['AutoHealTriggersArgsDict']]
+        """
+        Conditions that describe when to execute the auto-heal actions.
+        """
+elif False:
+    AutoHealRulesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AutoHealRulesArgs:
     def __init__(__self__, *,
@@ -540,6 +771,38 @@ class AutoHealRulesArgs:
     def triggers(self, value: Optional[pulumi.Input['AutoHealTriggersArgs']]):
         pulumi.set(self, "triggers", value)
 
+
+if not MYPY:
+    class AutoHealTriggersArgsDict(TypedDict):
+        """
+        Triggers for auto-heal.
+        """
+        private_bytes_in_kb: NotRequired[pulumi.Input[int]]
+        """
+        A rule based on private bytes.
+        """
+        requests: NotRequired[pulumi.Input['RequestsBasedTriggerArgsDict']]
+        """
+        A rule based on total requests.
+        """
+        slow_requests: NotRequired[pulumi.Input['SlowRequestsBasedTriggerArgsDict']]
+        """
+        A rule based on request execution time.
+        """
+        slow_requests_with_path: NotRequired[pulumi.Input[Sequence[pulumi.Input['SlowRequestsBasedTriggerArgsDict']]]]
+        """
+        A rule based on multiple Slow Requests Rule with path
+        """
+        status_codes: NotRequired[pulumi.Input[Sequence[pulumi.Input['StatusCodesBasedTriggerArgsDict']]]]
+        """
+        A rule based on status codes.
+        """
+        status_codes_range: NotRequired[pulumi.Input[Sequence[pulumi.Input['StatusCodesRangeBasedTriggerArgsDict']]]]
+        """
+        A rule based on status codes ranges.
+        """
+elif False:
+    AutoHealTriggersArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AutoHealTriggersArgs:
@@ -645,6 +908,28 @@ class AutoHealTriggersArgs:
         pulumi.set(self, "status_codes_range", value)
 
 
+if not MYPY:
+    class AzureBlobStorageApplicationLogsConfigArgsDict(TypedDict):
+        """
+        Application logs azure blob storage configuration.
+        """
+        level: NotRequired[pulumi.Input['LogLevel']]
+        """
+        Log level.
+        """
+        retention_in_days: NotRequired[pulumi.Input[int]]
+        """
+        Retention in days.
+        Remove blobs older than X days.
+        0 or lower means no retention.
+        """
+        sas_url: NotRequired[pulumi.Input[str]]
+        """
+        SAS url to a azure blob container with read/write/list/delete permissions.
+        """
+elif False:
+    AzureBlobStorageApplicationLogsConfigArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AzureBlobStorageApplicationLogsConfigArgs:
     def __init__(__self__, *,
@@ -705,6 +990,28 @@ class AzureBlobStorageApplicationLogsConfigArgs:
         pulumi.set(self, "sas_url", value)
 
 
+if not MYPY:
+    class AzureBlobStorageHttpLogsConfigArgsDict(TypedDict):
+        """
+        Http logs to azure blob storage configuration.
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        True if configuration is enabled, false if it is disabled and null if configuration is not set.
+        """
+        retention_in_days: NotRequired[pulumi.Input[int]]
+        """
+        Retention in days.
+        Remove blobs older than X days.
+        0 or lower means no retention.
+        """
+        sas_url: NotRequired[pulumi.Input[str]]
+        """
+        SAS url to a azure blob container with read/write/list/delete permissions.
+        """
+elif False:
+    AzureBlobStorageHttpLogsConfigArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AzureBlobStorageHttpLogsConfigArgs:
     def __init__(__self__, *,
@@ -764,6 +1071,34 @@ class AzureBlobStorageHttpLogsConfigArgs:
     def sas_url(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "sas_url", value)
 
+
+if not MYPY:
+    class AzureStorageInfoValueArgsDict(TypedDict):
+        """
+        Azure Files or Blob Storage access information value for dictionary storage.
+        """
+        access_key: NotRequired[pulumi.Input[str]]
+        """
+        Access key for the storage account.
+        """
+        account_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the storage account.
+        """
+        mount_path: NotRequired[pulumi.Input[str]]
+        """
+        Path to mount the storage within the site's runtime environment.
+        """
+        share_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the file share (container name, for Blob storage).
+        """
+        type: NotRequired[pulumi.Input['AzureStorageType']]
+        """
+        Type of storage.
+        """
+elif False:
+    AzureStorageInfoValueArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AzureStorageInfoValueArgs:
@@ -853,6 +1188,22 @@ class AzureStorageInfoValueArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class AzureTableStorageApplicationLogsConfigArgsDict(TypedDict):
+        """
+        Application logs to Azure table storage configuration.
+        """
+        sas_url: pulumi.Input[str]
+        """
+        SAS URL to an Azure table with add/query/delete permissions.
+        """
+        level: NotRequired[pulumi.Input['LogLevel']]
+        """
+        Log level.
+        """
+elif False:
+    AzureTableStorageApplicationLogsConfigArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AzureTableStorageApplicationLogsConfigArgs:
     def __init__(__self__, *,
@@ -891,6 +1242,34 @@ class AzureTableStorageApplicationLogsConfigArgs:
     def level(self, value: Optional[pulumi.Input['LogLevel']]):
         pulumi.set(self, "level", value)
 
+
+if not MYPY:
+    class BackupScheduleDict(TypedDict):
+        """
+        Description of a backup schedule. Describes how often should be the backup performed and what should be the retention policy.
+        """
+        frequency_interval: int
+        """
+        How often the backup should be executed (e.g. for weekly backup, this should be set to 7 and FrequencyUnit should be set to Day)
+        """
+        frequency_unit: 'FrequencyUnit'
+        """
+        The unit of time for how often the backup should be executed (e.g. for weekly backup, this should be set to Day and FrequencyInterval should be set to 7)
+        """
+        keep_at_least_one_backup: bool
+        """
+        True if the retention policy should always keep at least one backup in the storage account, regardless how old it is; false otherwise.
+        """
+        retention_period_in_days: int
+        """
+        After how many days backups should be deleted.
+        """
+        start_time: NotRequired[str]
+        """
+        When the schedule should start working.
+        """
+elif False:
+    BackupScheduleDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class BackupSchedule:
@@ -984,6 +1363,34 @@ class BackupSchedule:
         pulumi.set(self, "start_time", value)
 
 
+if not MYPY:
+    class BackupScheduleArgsDict(TypedDict):
+        """
+        Description of a backup schedule. Describes how often should be the backup performed and what should be the retention policy.
+        """
+        frequency_interval: pulumi.Input[int]
+        """
+        How often the backup should be executed (e.g. for weekly backup, this should be set to 7 and FrequencyUnit should be set to Day)
+        """
+        frequency_unit: pulumi.Input['FrequencyUnit']
+        """
+        The unit of time for how often the backup should be executed (e.g. for weekly backup, this should be set to Day and FrequencyInterval should be set to 7)
+        """
+        keep_at_least_one_backup: pulumi.Input[bool]
+        """
+        True if the retention policy should always keep at least one backup in the storage account, regardless how old it is; false otherwise.
+        """
+        retention_period_in_days: pulumi.Input[int]
+        """
+        After how many days backups should be deleted.
+        """
+        start_time: NotRequired[pulumi.Input[str]]
+        """
+        When the schedule should start working.
+        """
+elif False:
+    BackupScheduleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class BackupScheduleArgs:
     def __init__(__self__, *,
@@ -1076,6 +1483,26 @@ class BackupScheduleArgs:
         pulumi.set(self, "start_time", value)
 
 
+if not MYPY:
+    class CapabilityArgsDict(TypedDict):
+        """
+        Describes the capabilities/features allowed for a specific SKU.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the SKU capability.
+        """
+        reason: NotRequired[pulumi.Input[str]]
+        """
+        Reason of the SKU capability.
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        Value of the SKU capability.
+        """
+elif False:
+    CapabilityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CapabilityArgs:
     def __init__(__self__, *,
@@ -1131,6 +1558,63 @@ class CapabilityArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class CloningInfoArgsDict(TypedDict):
+        """
+        Information needed for cloning operation.
+        """
+        source_web_app_id: pulumi.Input[str]
+        """
+        ARM resource ID of the source app. App resource ID is of the form 
+        /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName} for production slots and 
+        /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName}/slots/{slotName} for other slots.
+        """
+        app_settings_overrides: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Application setting overrides for cloned app. If specified, these settings override the settings cloned 
+        from source app. Otherwise, application settings from source app are retained.
+        """
+        clone_custom_host_names: NotRequired[pulumi.Input[bool]]
+        """
+        <code>true</code> to clone custom hostnames from source app; otherwise, <code>false</code>.
+        """
+        clone_source_control: NotRequired[pulumi.Input[bool]]
+        """
+        <code>true</code> to clone source control from source app; otherwise, <code>false</code>.
+        """
+        configure_load_balancing: NotRequired[pulumi.Input[bool]]
+        """
+        <code>true</code> to configure load balancing for source and destination app.
+        """
+        correlation_id: NotRequired[pulumi.Input[str]]
+        """
+        Correlation ID of cloning operation. This ID ties multiple cloning operations
+        together to use the same snapshot.
+        """
+        hosting_environment: NotRequired[pulumi.Input[str]]
+        """
+        App Service Environment.
+        """
+        overwrite: NotRequired[pulumi.Input[bool]]
+        """
+        <code>true</code> to overwrite destination app; otherwise, <code>false</code>.
+        """
+        source_web_app_location: NotRequired[pulumi.Input[str]]
+        """
+        Location of source app ex: West US or North Europe
+        """
+        traffic_manager_profile_id: NotRequired[pulumi.Input[str]]
+        """
+        ARM resource ID of the Traffic Manager profile to use, if it exists. Traffic Manager resource ID is of the form 
+        /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{profileName}.
+        """
+        traffic_manager_profile_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of Traffic Manager profile to create. This is only needed if Traffic Manager profile does not already exist.
+        """
+elif False:
+    CloningInfoArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CloningInfoArgs:
@@ -1325,6 +1809,31 @@ class CloningInfoArgs:
         pulumi.set(self, "traffic_manager_profile_name", value)
 
 
+if not MYPY:
+    class ConfigurationArgsDict(TypedDict):
+        """
+        Non versioned Container App configuration properties that define the mutable settings of a Container app
+        """
+        active_revisions_mode: NotRequired[pulumi.Input[Union[str, 'ActiveRevisionsMode']]]
+        """
+        ActiveRevisionsMode controls how active revisions are handled for the Container app:
+        <list><item>Multiple: multiple revisions can be active. If no value if provided, this is the default</item><item>Single: Only one revision can be active at a time. Revision weights can not be used in this mode</item></list>
+        """
+        ingress: NotRequired[pulumi.Input['IngressArgsDict']]
+        """
+        Ingress configurations.
+        """
+        registries: NotRequired[pulumi.Input[Sequence[pulumi.Input['RegistryCredentialsArgsDict']]]]
+        """
+        Collection of private container registry credentials for containers used by the Container app
+        """
+        secrets: NotRequired[pulumi.Input[Sequence[pulumi.Input['SecretArgsDict']]]]
+        """
+        Collection of secrets used by a Container app
+        """
+elif False:
+    ConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ConfigurationArgs:
     def __init__(__self__, *,
@@ -1399,6 +1908,26 @@ class ConfigurationArgs:
         pulumi.set(self, "secrets", value)
 
 
+if not MYPY:
+    class ConnStringInfoArgsDict(TypedDict):
+        """
+        Database connection string information.
+        """
+        connection_string: NotRequired[pulumi.Input[str]]
+        """
+        Connection string value.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of connection string.
+        """
+        type: NotRequired[pulumi.Input['ConnectionStringType']]
+        """
+        Type of database.
+        """
+elif False:
+    ConnStringInfoArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ConnStringInfoArgs:
     def __init__(__self__, *,
@@ -1455,6 +1984,22 @@ class ConnStringInfoArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class ConnStringValueTypePairArgsDict(TypedDict):
+        """
+        Database connection string value to type pair.
+        """
+        type: pulumi.Input['ConnectionStringType']
+        """
+        Type of database.
+        """
+        value: pulumi.Input[str]
+        """
+        Value of pair.
+        """
+elif False:
+    ConnStringValueTypePairArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ConnStringValueTypePairArgs:
     def __init__(__self__, *,
@@ -1492,6 +2037,35 @@ class ConnStringValueTypePairArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class ContainerAppsConfigurationArgsDict(TypedDict):
+        app_subnet_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID of a subnet for control plane infrastructure components. This subnet must be in the same VNET as the subnet defined in appSubnetResourceId. Must not overlap with the IP range defined in platformReservedCidr, if defined.
+        """
+        control_plane_subnet_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID of a subnet for control plane infrastructure components. This subnet must be in the same VNET as the subnet defined in appSubnetResourceId. Must not overlap with the IP range defined in platformReservedCidr, if defined.
+        """
+        dapr_ai_instrumentation_key: NotRequired[pulumi.Input[str]]
+        """
+        Azure Monitor instrumentation key used by Dapr to export Service to Service communication telemetry
+        """
+        docker_bridge_cidr: NotRequired[pulumi.Input[str]]
+        """
+        CIDR notation IP range assigned to the Docker bridge network. It must not overlap with any Subnet IP ranges or the IP range defined in platformReservedCidr, if defined.
+        """
+        platform_reserved_cidr: NotRequired[pulumi.Input[str]]
+        """
+        IP range in CIDR notation that can be reserved for environment infrastructure IP addresses. It must not overlap with any other Subnet IP ranges.
+        """
+        platform_reserved_dns_ip: NotRequired[pulumi.Input[str]]
+        """
+        An IP address from the IP range defined by platformReservedCidr that will be reserved for the internal DNS server
+        """
+elif False:
+    ContainerAppsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ContainerAppsConfigurationArgs:
@@ -1596,6 +2170,22 @@ class ContainerAppsConfigurationArgs:
         pulumi.set(self, "platform_reserved_dns_ip", value)
 
 
+if not MYPY:
+    class ContainerResourcesArgsDict(TypedDict):
+        """
+        Container App container resource requirements.
+        """
+        cpu: NotRequired[pulumi.Input[float]]
+        """
+        Required CPU in cores, e.g. 0.5
+        """
+        memory: NotRequired[pulumi.Input[str]]
+        """
+        Required memory, e.g. "250Mb"
+        """
+elif False:
+    ContainerResourcesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ContainerResourcesArgs:
     def __init__(__self__, *,
@@ -1635,6 +2225,38 @@ class ContainerResourcesArgs:
     def memory(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "memory", value)
 
+
+if not MYPY:
+    class ContainerArgsDict(TypedDict):
+        """
+        Container App container definition.
+        """
+        args: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Container start command arguments.
+        """
+        command: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Container start command.
+        """
+        env: NotRequired[pulumi.Input[Sequence[pulumi.Input['EnvironmentVarArgsDict']]]]
+        """
+        Container environment variables.
+        """
+        image: NotRequired[pulumi.Input[str]]
+        """
+        Container image tag.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Custom container name.
+        """
+        resources: NotRequired[pulumi.Input['ContainerResourcesArgsDict']]
+        """
+        Container resource requirements.
+        """
+elif False:
+    ContainerArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ContainerArgs:
@@ -1740,6 +2362,25 @@ class ContainerArgs:
         pulumi.set(self, "resources", value)
 
 
+if not MYPY:
+    class CorsSettingsArgsDict(TypedDict):
+        """
+        Cross-Origin Resource Sharing (CORS) settings for the app.
+        """
+        allowed_origins: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Gets or sets the list of origins that should be allowed to make cross-origin
+        calls (for example: http://example.com:12345). Use "*" to allow all.
+        """
+        support_credentials: NotRequired[pulumi.Input[bool]]
+        """
+        Gets or sets whether CORS requests with credentials are allowed. See 
+        https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS#Requests_with_credentials
+        for more details.
+        """
+elif False:
+    CorsSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CorsSettingsArgs:
     def __init__(__self__, *,
@@ -1785,6 +2426,30 @@ class CorsSettingsArgs:
     def support_credentials(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "support_credentials", value)
 
+
+if not MYPY:
+    class CustomDnsSuffixConfigurationArgsDict(TypedDict):
+        """
+        Full view of the custom domain suffix configuration for ASEv3.
+        """
+        certificate_url: NotRequired[pulumi.Input[str]]
+        """
+        The URL referencing the Azure Key Vault certificate secret that should be used as the default SSL/TLS certificate for sites with the custom domain suffix.
+        """
+        dns_suffix: NotRequired[pulumi.Input[str]]
+        """
+        The default custom domain suffix to use for all sites deployed on the ASE.
+        """
+        key_vault_reference_identity: NotRequired[pulumi.Input[str]]
+        """
+        The user-assigned identity to use for resolving the key vault certificate reference. If not specified, the system-assigned ASE identity will be used if available.
+        """
+        kind: NotRequired[pulumi.Input[str]]
+        """
+        Kind of resource.
+        """
+elif False:
+    CustomDnsSuffixConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CustomDnsSuffixConfigurationArgs:
@@ -1858,6 +2523,27 @@ class CustomDnsSuffixConfigurationArgs:
         pulumi.set(self, "kind", value)
 
 
+if not MYPY:
+    class CustomScaleRuleArgsDict(TypedDict):
+        """
+        Container App container Custom scaling rule.
+        """
+        auth: NotRequired[pulumi.Input[Sequence[pulumi.Input['ScaleRuleAuthArgsDict']]]]
+        """
+        Authentication secrets for the custom scale rule.
+        """
+        metadata: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Metadata properties to describe custom scale rule.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        Type of the custom scale rule
+        eg: azure-servicebus, redis etc.
+        """
+elif False:
+    CustomScaleRuleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CustomScaleRuleArgs:
     def __init__(__self__, *,
@@ -1915,6 +2601,30 @@ class CustomScaleRuleArgs:
     def type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class DaprComponentArgsDict(TypedDict):
+        """
+        Dapr component configuration
+        """
+        metadata: NotRequired[pulumi.Input[Sequence[pulumi.Input['DaprMetadataArgsDict']]]]
+        """
+        Component metadata
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Component name
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        Component type
+        """
+        version: NotRequired[pulumi.Input[str]]
+        """
+        Component version
+        """
+elif False:
+    DaprComponentArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DaprComponentArgs:
@@ -1987,6 +2697,42 @@ class DaprComponentArgs:
     def version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "version", value)
 
+
+if not MYPY:
+    class DaprConfigArgsDict(TypedDict):
+        """
+        App Dapr configuration.
+        """
+        app_id: NotRequired[pulumi.Input[str]]
+        """
+        Dapr application identifier
+        """
+        app_port: NotRequired[pulumi.Input[int]]
+        """
+        Tells Dapr which port your application is listening on
+        """
+        enable_api_logging: NotRequired[pulumi.Input[bool]]
+        """
+        Enables API logging for the Dapr sidecar
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Boolean indicating if the Dapr side car is enabled
+        """
+        http_max_request_size: NotRequired[pulumi.Input[int]]
+        """
+        Increasing max size of request body http servers parameter in MB to handle uploading of big files. Default is 4 MB.
+        """
+        http_read_buffer_size: NotRequired[pulumi.Input[int]]
+        """
+        Dapr max size of http header read buffer in KB to handle when sending multi-KB headers. Default is 65KB.
+        """
+        log_level: NotRequired[pulumi.Input[Union[str, 'DaprLogLevel']]]
+        """
+        Sets the log level for the Dapr sidecar. Allowed values are debug, info, warn, error. Default is info.
+        """
+elif False:
+    DaprConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DaprConfigArgs:
@@ -2110,6 +2856,26 @@ class DaprConfigArgs:
         pulumi.set(self, "log_level", value)
 
 
+if not MYPY:
+    class DaprMetadataArgsDict(TypedDict):
+        """
+        Container App Dapr component metadata.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Metadata property name.
+        """
+        secret_ref: NotRequired[pulumi.Input[str]]
+        """
+        Name of the Container App secret from which to pull the metadata property value.
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        Metadata property value.
+        """
+elif False:
+    DaprMetadataArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DaprMetadataArgs:
     def __init__(__self__, *,
@@ -2165,6 +2931,30 @@ class DaprMetadataArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class DaprArgsDict(TypedDict):
+        """
+        Container App Dapr configuration.
+        """
+        app_id: NotRequired[pulumi.Input[str]]
+        """
+        Dapr application identifier
+        """
+        app_port: NotRequired[pulumi.Input[int]]
+        """
+        Port on which the Dapr side car
+        """
+        components: NotRequired[pulumi.Input[Sequence[pulumi.Input['DaprComponentArgsDict']]]]
+        """
+        Collection of Dapr components
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Boolean indicating if the Dapr side car is enabled
+        """
+elif False:
+    DaprArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DaprArgs:
@@ -2238,6 +3028,28 @@ class DaprArgs:
         pulumi.set(self, "enabled", value)
 
 
+if not MYPY:
+    class DatabaseBackupSettingDict(TypedDict):
+        """
+        Database backup settings.
+        """
+        database_type: Union[str, 'DatabaseType']
+        """
+        Database type (e.g. SqlAzure / MySql).
+        """
+        connection_string: NotRequired[str]
+        """
+        Contains a connection string to a database which is being backed up or restored. If the restore should happen to a new database, the database name inside is the new one.
+        """
+        connection_string_name: NotRequired[str]
+        """
+        Contains a connection string name that is linked to the SiteConfig.ConnectionStrings.
+        This is used during restore with overwrite connection strings options.
+        """
+        name: NotRequired[str]
+elif False:
+    DatabaseBackupSettingDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DatabaseBackupSetting:
     def __init__(__self__, *,
@@ -2306,6 +3118,28 @@ class DatabaseBackupSetting:
     def name(self, value: Optional[str]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class DatabaseBackupSettingArgsDict(TypedDict):
+        """
+        Database backup settings.
+        """
+        database_type: pulumi.Input[Union[str, 'DatabaseType']]
+        """
+        Database type (e.g. SqlAzure / MySql).
+        """
+        connection_string: NotRequired[pulumi.Input[str]]
+        """
+        Contains a connection string to a database which is being backed up or restored. If the restore should happen to a new database, the database name inside is the new one.
+        """
+        connection_string_name: NotRequired[pulumi.Input[str]]
+        """
+        Contains a connection string name that is linked to the SiteConfig.ConnectionStrings.
+        This is used during restore with overwrite connection strings options.
+        """
+        name: NotRequired[pulumi.Input[str]]
+elif False:
+    DatabaseBackupSettingArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DatabaseBackupSettingArgs:
@@ -2376,6 +3210,18 @@ class DatabaseBackupSettingArgs:
         pulumi.set(self, "name", value)
 
 
+if not MYPY:
+    class EnabledConfigArgsDict(TypedDict):
+        """
+        Enabled configuration.
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        True if configuration is enabled, false if it is disabled and null if configuration is not set.
+        """
+elif False:
+    EnabledConfigArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EnabledConfigArgs:
     def __init__(__self__, *,
@@ -2399,6 +3245,26 @@ class EnabledConfigArgs:
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
 
+
+if not MYPY:
+    class EnvironmentVarArgsDict(TypedDict):
+        """
+        Container App container environment variable.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Environment variable name.
+        """
+        secret_ref: NotRequired[pulumi.Input[str]]
+        """
+        Name of the Container App secret from which to pull the environment variable value.
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        Non-secret environment variable value.
+        """
+elif False:
+    EnvironmentVarArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EnvironmentVarArgs:
@@ -2456,6 +3322,18 @@ class EnvironmentVarArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class ExperimentsArgsDict(TypedDict):
+        """
+        Routing rules in production experiments.
+        """
+        ramp_up_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['RampUpRuleArgsDict']]]]
+        """
+        List of ramp-up rules.
+        """
+elif False:
+    ExperimentsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ExperimentsArgs:
     def __init__(__self__, *,
@@ -2480,6 +3358,18 @@ class ExperimentsArgs:
         pulumi.set(self, "ramp_up_rules", value)
 
 
+if not MYPY:
+    class ExtendedLocationArgsDict(TypedDict):
+        """
+        Extended Location.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of extended location.
+        """
+elif False:
+    ExtendedLocationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ExtendedLocationArgs:
     def __init__(__self__, *,
@@ -2503,6 +3393,18 @@ class ExtendedLocationArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class FileSystemApplicationLogsConfigArgsDict(TypedDict):
+        """
+        Application logs to file system configuration.
+        """
+        level: NotRequired[pulumi.Input['LogLevel']]
+        """
+        Log level.
+        """
+elif False:
+    FileSystemApplicationLogsConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FileSystemApplicationLogsConfigArgs:
@@ -2529,6 +3431,30 @@ class FileSystemApplicationLogsConfigArgs:
     def level(self, value: Optional[pulumi.Input['LogLevel']]):
         pulumi.set(self, "level", value)
 
+
+if not MYPY:
+    class FileSystemHttpLogsConfigArgsDict(TypedDict):
+        """
+        Http logs to file system configuration.
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        True if configuration is enabled, false if it is disabled and null if configuration is not set.
+        """
+        retention_in_days: NotRequired[pulumi.Input[int]]
+        """
+        Retention in days.
+        Remove files older than X days.
+        0 or lower means no retention.
+        """
+        retention_in_mb: NotRequired[pulumi.Input[int]]
+        """
+        Maximum size in megabytes that http log files can use.
+        When reached old log files will be removed to make space for new ones.
+        Value can range between 25 and 100.
+        """
+elif False:
+    FileSystemHttpLogsConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FileSystemHttpLogsConfigArgs:
@@ -2594,6 +3520,12 @@ class FileSystemHttpLogsConfigArgs:
         pulumi.set(self, "retention_in_mb", value)
 
 
+if not MYPY:
+    class FrontEndConfigurationArgsDict(TypedDict):
+        kind: NotRequired[pulumi.Input['FrontEndServiceType']]
+elif False:
+    FrontEndConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FrontEndConfigurationArgs:
     def __init__(__self__, *,
@@ -2610,6 +3542,22 @@ class FrontEndConfigurationArgs:
     def kind(self, value: Optional[pulumi.Input['FrontEndServiceType']]):
         pulumi.set(self, "kind", value)
 
+
+if not MYPY:
+    class GitHubActionCodeConfigurationArgsDict(TypedDict):
+        """
+        The GitHub action code configuration.
+        """
+        runtime_stack: NotRequired[pulumi.Input[str]]
+        """
+        Runtime stack is used to determine the workflow file content for code base apps.
+        """
+        runtime_version: NotRequired[pulumi.Input[str]]
+        """
+        Runtime version is used to determine what build version to set in the workflow file.
+        """
+elif False:
+    GitHubActionCodeConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GitHubActionCodeConfigurationArgs:
@@ -2650,6 +3598,30 @@ class GitHubActionCodeConfigurationArgs:
     def runtime_version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "runtime_version", value)
 
+
+if not MYPY:
+    class GitHubActionConfigurationArgsDict(TypedDict):
+        """
+        The GitHub action configuration.
+        """
+        code_configuration: NotRequired[pulumi.Input['GitHubActionCodeConfigurationArgsDict']]
+        """
+        GitHub Action code configuration.
+        """
+        container_configuration: NotRequired[pulumi.Input['GitHubActionContainerConfigurationArgsDict']]
+        """
+        GitHub Action container configuration.
+        """
+        generate_workflow_file: NotRequired[pulumi.Input[bool]]
+        """
+        Workflow option to determine whether the workflow file should be generated and written to the repository.
+        """
+        is_linux: NotRequired[pulumi.Input[bool]]
+        """
+        This will help determine the workflow configuration to select.
+        """
+elif False:
+    GitHubActionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GitHubActionConfigurationArgs:
@@ -2723,6 +3695,30 @@ class GitHubActionConfigurationArgs:
         pulumi.set(self, "is_linux", value)
 
 
+if not MYPY:
+    class GitHubActionContainerConfigurationArgsDict(TypedDict):
+        """
+        The GitHub action container configuration.
+        """
+        image_name: NotRequired[pulumi.Input[str]]
+        """
+        The image name for the build.
+        """
+        password: NotRequired[pulumi.Input[str]]
+        """
+        The password used to upload the image to the container registry.
+        """
+        server_url: NotRequired[pulumi.Input[str]]
+        """
+        The server URL for the container registry where the build will be hosted.
+        """
+        username: NotRequired[pulumi.Input[str]]
+        """
+        The username used to upload the image to the container registry.
+        """
+elif False:
+    GitHubActionContainerConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GitHubActionContainerConfigurationArgs:
     def __init__(__self__, *,
@@ -2795,6 +3791,27 @@ class GitHubActionContainerConfigurationArgs:
         pulumi.set(self, "username", value)
 
 
+if not MYPY:
+    class HandlerMappingArgsDict(TypedDict):
+        """
+        The IIS handler mappings used to define which handler processes HTTP requests with certain extension. 
+        For example, it is used to configure php-cgi.exe process to handle all HTTP requests with *.php extension.
+        """
+        arguments: NotRequired[pulumi.Input[str]]
+        """
+        Command-line arguments to be passed to the script processor.
+        """
+        extension: NotRequired[pulumi.Input[str]]
+        """
+        Requests with this extension will be handled using the specified FastCGI application.
+        """
+        script_processor: NotRequired[pulumi.Input[str]]
+        """
+        The absolute path to the FastCGI application.
+        """
+elif False:
+    HandlerMappingArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class HandlerMappingArgs:
     def __init__(__self__, *,
@@ -2851,6 +3868,38 @@ class HandlerMappingArgs:
     def script_processor(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "script_processor", value)
 
+
+if not MYPY:
+    class HostNameSslStateArgsDict(TypedDict):
+        """
+        SSL-enabled hostname.
+        """
+        host_type: NotRequired[pulumi.Input['HostType']]
+        """
+        Indicates whether the hostname is a standard or repository hostname.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Hostname.
+        """
+        ssl_state: NotRequired[pulumi.Input['SslState']]
+        """
+        SSL type.
+        """
+        thumbprint: NotRequired[pulumi.Input[str]]
+        """
+        SSL certificate thumbprint.
+        """
+        to_update: NotRequired[pulumi.Input[bool]]
+        """
+        Set to <code>true</code> to update existing hostname.
+        """
+        virtual_ip: NotRequired[pulumi.Input[str]]
+        """
+        Virtual IP address assigned to the hostname if IP based SSL is enabled.
+        """
+elif False:
+    HostNameSslStateArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class HostNameSslStateArgs:
@@ -2956,6 +4005,18 @@ class HostNameSslStateArgs:
         pulumi.set(self, "virtual_ip", value)
 
 
+if not MYPY:
+    class HostingEnvironmentProfileArgsDict(TypedDict):
+        """
+        Specification for an App Service Environment to use for this resource.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID of the App Service Environment.
+        """
+elif False:
+    HostingEnvironmentProfileArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class HostingEnvironmentProfileArgs:
     def __init__(__self__, *,
@@ -2979,6 +4040,22 @@ class HostingEnvironmentProfileArgs:
     def id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class HttpLogsConfigArgsDict(TypedDict):
+        """
+        Http logs configuration.
+        """
+        azure_blob_storage: NotRequired[pulumi.Input['AzureBlobStorageHttpLogsConfigArgsDict']]
+        """
+        Http logs to azure blob storage configuration.
+        """
+        file_system: NotRequired[pulumi.Input['FileSystemHttpLogsConfigArgsDict']]
+        """
+        Http logs to file system configuration.
+        """
+elif False:
+    HttpLogsConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class HttpLogsConfigArgs:
@@ -3020,6 +4097,22 @@ class HttpLogsConfigArgs:
         pulumi.set(self, "file_system", value)
 
 
+if not MYPY:
+    class HttpScaleRuleArgsDict(TypedDict):
+        """
+        Container App container Custom scaling rule.
+        """
+        auth: NotRequired[pulumi.Input[Sequence[pulumi.Input['ScaleRuleAuthArgsDict']]]]
+        """
+        Authentication secrets for the custom scale rule.
+        """
+        metadata: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Metadata properties to describe http scale rule.
+        """
+elif False:
+    HttpScaleRuleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class HttpScaleRuleArgs:
     def __init__(__self__, *,
@@ -3059,6 +4152,31 @@ class HttpScaleRuleArgs:
     def metadata(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "metadata", value)
 
+
+if not MYPY:
+    class IngressArgsDict(TypedDict):
+        """
+        Container App Ingress configuration.
+        """
+        allow_insecure: NotRequired[pulumi.Input[bool]]
+        """
+        Bool indicating if HTTP connections to is allowed. If set to false HTTP connections are automatically redirected to HTTPS connections
+        """
+        external: NotRequired[pulumi.Input[bool]]
+        """
+        Bool indicating if app exposes an external http endpoint
+        """
+        target_port: NotRequired[pulumi.Input[int]]
+        """
+        Target Port in containers for traffic from ingress
+        """
+        traffic: NotRequired[pulumi.Input[Sequence[pulumi.Input['TrafficWeightArgsDict']]]]
+        transport: NotRequired[pulumi.Input[Union[str, 'IngressTransportMethod']]]
+        """
+        Ingress transport protocol
+        """
+elif False:
+    IngressArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IngressArgs:
@@ -3145,6 +4263,76 @@ class IngressArgs:
     def transport(self, value: Optional[pulumi.Input[Union[str, 'IngressTransportMethod']]]):
         pulumi.set(self, "transport", value)
 
+
+if not MYPY:
+    class IpSecurityRestrictionArgsDict(TypedDict):
+        """
+        IP security restriction on an app.
+        """
+        action: NotRequired[pulumi.Input[str]]
+        """
+        Allow or Deny access for this IP range.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        IP restriction rule description.
+        """
+        headers: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[str]]]]]]
+        """
+        IP restriction rule headers.
+        X-Forwarded-Host (https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Forwarded-Host#Examples). 
+        The matching logic is ..
+        - If the property is null or empty (default), all hosts(or lack of) are allowed.
+        - A value is compared using ordinal-ignore-case (excluding port number).
+        - Subdomain wildcards are permitted but don't match the root domain. For example, *.contoso.com matches the subdomain foo.contoso.com
+         but not the root domain contoso.com or multi-level foo.bar.contoso.com
+        - Unicode host names are allowed but are converted to Punycode for matching.
+
+        X-Forwarded-For (https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Forwarded-For#Examples).
+        The matching logic is ..
+        - If the property is null or empty (default), any forwarded-for chains (or lack of) are allowed.
+        - If any address (excluding port number) in the chain (comma separated) matches the CIDR defined by the property.
+
+        X-Azure-FDID and X-FD-HealthProbe.
+        The matching logic is exact match.
+        """
+        ip_address: NotRequired[pulumi.Input[str]]
+        """
+        IP address the security restriction is valid for.
+        It can be in form of pure ipv4 address (required SubnetMask property) or
+        CIDR notation such as ipv4/mask (leading bit match). For CIDR,
+        SubnetMask property must not be specified.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        IP restriction rule name.
+        """
+        priority: NotRequired[pulumi.Input[int]]
+        """
+        Priority of IP restriction rule.
+        """
+        subnet_mask: NotRequired[pulumi.Input[str]]
+        """
+        Subnet mask for the range of IP addresses the restriction is valid for.
+        """
+        subnet_traffic_tag: NotRequired[pulumi.Input[int]]
+        """
+        (internal) Subnet traffic tag
+        """
+        tag: NotRequired[pulumi.Input[Union[str, 'IpFilterTag']]]
+        """
+        Defines what this IP filter will be used for. This is to support IP filtering on proxies.
+        """
+        vnet_subnet_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        Virtual network resource id
+        """
+        vnet_traffic_tag: NotRequired[pulumi.Input[int]]
+        """
+        (internal) Vnet traffic tag
+        """
+elif False:
+    IpSecurityRestrictionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IpSecurityRestrictionArgs:
@@ -3366,6 +4554,18 @@ class IpSecurityRestrictionArgs:
         pulumi.set(self, "vnet_traffic_tag", value)
 
 
+if not MYPY:
+    class KubeEnvironmentProfileArgsDict(TypedDict):
+        """
+        Specification for a Kubernetes Environment to use for this resource.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID of the Kubernetes Environment.
+        """
+elif False:
+    KubeEnvironmentProfileArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class KubeEnvironmentProfileArgs:
     def __init__(__self__, *,
@@ -3389,6 +4589,13 @@ class KubeEnvironmentProfileArgs:
     def id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class LogAnalyticsConfigurationArgsDict(TypedDict):
+        customer_id: NotRequired[pulumi.Input[str]]
+        shared_key: NotRequired[pulumi.Input[str]]
+elif False:
+    LogAnalyticsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LogAnalyticsConfigurationArgs:
@@ -3418,6 +4625,22 @@ class LogAnalyticsConfigurationArgs:
     def shared_key(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "shared_key", value)
 
+
+if not MYPY:
+    class ManagedServiceIdentityArgsDict(TypedDict):
+        """
+        Managed service identity.
+        """
+        type: NotRequired[pulumi.Input['ManagedServiceIdentityType']]
+        """
+        Type of managed service identity.
+        """
+        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of user assigned identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}
+        """
+elif False:
+    ManagedServiceIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ManagedServiceIdentityArgs:
@@ -3459,6 +4682,22 @@ class ManagedServiceIdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
+if not MYPY:
+    class NameValuePairArgsDict(TypedDict):
+        """
+        Name value pair.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Pair name.
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        Pair value.
+        """
+elif False:
+    NameValuePairArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NameValuePairArgs:
     def __init__(__self__, *,
@@ -3498,6 +4737,26 @@ class NameValuePairArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class PrivateLinkConnectionStateArgsDict(TypedDict):
+        """
+        The state of a private link connection
+        """
+        actions_required: NotRequired[pulumi.Input[str]]
+        """
+        ActionsRequired for a private link connection
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Description of a private link connection
+        """
+        status: NotRequired[pulumi.Input[str]]
+        """
+        Status of a private link connection
+        """
+elif False:
+    PrivateLinkConnectionStateArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PrivateLinkConnectionStateArgs:
@@ -3554,6 +4813,37 @@ class PrivateLinkConnectionStateArgs:
     def status(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "status", value)
 
+
+if not MYPY:
+    class PushSettingsArgsDict(TypedDict):
+        """
+        Push settings for the App.
+        """
+        is_push_enabled: pulumi.Input[bool]
+        """
+        Gets or sets a flag indicating whether the Push endpoint is enabled.
+        """
+        dynamic_tags_json: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets a JSON string containing a list of dynamic tags that will be evaluated from user claims in the push registration endpoint.
+        """
+        kind: NotRequired[pulumi.Input[str]]
+        """
+        Kind of resource.
+        """
+        tag_whitelist_json: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets a JSON string containing a list of tags that are whitelisted for use by the push registration endpoint.
+        """
+        tags_requiring_auth: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets a JSON string containing a list of tags that require user authentication to be used in the push registration endpoint.
+        Tags can consist of alphanumeric characters and the following:
+        '_', '@', '#', '.', ':', '-'. 
+        Validation should be performed at the PushRequestHandler.
+        """
+elif False:
+    PushSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PushSettingsArgs:
@@ -3648,6 +4938,26 @@ class PushSettingsArgs:
         pulumi.set(self, "tags_requiring_auth", value)
 
 
+if not MYPY:
+    class QueueScaleRuleArgsDict(TypedDict):
+        """
+        Container App container Azure Queue based scaling rule.
+        """
+        auth: NotRequired[pulumi.Input[Sequence[pulumi.Input['ScaleRuleAuthArgsDict']]]]
+        """
+        Authentication secrets for the queue scale rule.
+        """
+        queue_length: NotRequired[pulumi.Input[int]]
+        """
+        Queue length.
+        """
+        queue_name: NotRequired[pulumi.Input[str]]
+        """
+        Queue name.
+        """
+elif False:
+    QueueScaleRuleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class QueueScaleRuleArgs:
     def __init__(__self__, *,
@@ -3703,6 +5013,49 @@ class QueueScaleRuleArgs:
     def queue_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "queue_name", value)
 
+
+if not MYPY:
+    class RampUpRuleArgsDict(TypedDict):
+        """
+        Routing rules for ramp up testing. This rule allows to redirect static traffic % to a slot or to gradually change routing % based on performance.
+        """
+        action_host_name: NotRequired[pulumi.Input[str]]
+        """
+        Hostname of a slot to which the traffic will be redirected if decided to. E.g. myapp-stage.azurewebsites.net.
+        """
+        change_decision_callback_url: NotRequired[pulumi.Input[str]]
+        """
+        Custom decision algorithm can be provided in TiPCallback site extension which URL can be specified. See TiPCallback site extension for the scaffold and contracts.
+        https://www.siteextensions.net/packages/TiPCallback/
+        """
+        change_interval_in_minutes: NotRequired[pulumi.Input[int]]
+        """
+        Specifies interval in minutes to reevaluate ReroutePercentage.
+        """
+        change_step: NotRequired[pulumi.Input[float]]
+        """
+        In auto ramp up scenario this is the step to add/remove from <code>ReroutePercentage</code> until it reaches \\n<code>MinReroutePercentage</code> or 
+        <code>MaxReroutePercentage</code>. Site metrics are checked every N minutes specified in <code>ChangeIntervalInMinutes</code>.\\nCustom decision algorithm 
+        can be provided in TiPCallback site extension which URL can be specified in <code>ChangeDecisionCallbackUrl</code>.
+        """
+        max_reroute_percentage: NotRequired[pulumi.Input[float]]
+        """
+        Specifies upper boundary below which ReroutePercentage will stay.
+        """
+        min_reroute_percentage: NotRequired[pulumi.Input[float]]
+        """
+        Specifies lower boundary above which ReroutePercentage will stay.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the routing rule. The recommended name would be to point to the slot which will receive the traffic in the experiment.
+        """
+        reroute_percentage: NotRequired[pulumi.Input[float]]
+        """
+        Percentage of the traffic which will be redirected to <code>ActionHostName</code>.
+        """
+elif False:
+    RampUpRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RampUpRuleArgs:
@@ -3846,6 +5199,26 @@ class RampUpRuleArgs:
         pulumi.set(self, "reroute_percentage", value)
 
 
+if not MYPY:
+    class RegistryCredentialsArgsDict(TypedDict):
+        """
+        Container App Private Registry
+        """
+        password_secret_ref: NotRequired[pulumi.Input[str]]
+        """
+        The name of the Secret that contains the registry login password
+        """
+        server: NotRequired[pulumi.Input[str]]
+        """
+        Container Registry Server
+        """
+        username: NotRequired[pulumi.Input[str]]
+        """
+        Container Registry Username
+        """
+elif False:
+    RegistryCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RegistryCredentialsArgs:
     def __init__(__self__, *,
@@ -3902,6 +5275,22 @@ class RegistryCredentialsArgs:
         pulumi.set(self, "username", value)
 
 
+if not MYPY:
+    class RequestsBasedTriggerArgsDict(TypedDict):
+        """
+        Trigger based on total requests.
+        """
+        count: NotRequired[pulumi.Input[int]]
+        """
+        Request Count.
+        """
+        time_interval: NotRequired[pulumi.Input[str]]
+        """
+        Time interval.
+        """
+elif False:
+    RequestsBasedTriggerArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RequestsBasedTriggerArgs:
     def __init__(__self__, *,
@@ -3941,6 +5330,22 @@ class RequestsBasedTriggerArgs:
     def time_interval(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "time_interval", value)
 
+
+if not MYPY:
+    class ResourceConfigArgsDict(TypedDict):
+        """
+        Function app resource requirements.
+        """
+        cpu: NotRequired[pulumi.Input[float]]
+        """
+        Required CPU in cores, e.g. 0.5
+        """
+        memory: NotRequired[pulumi.Input[str]]
+        """
+        Required memory, e.g. "1Gi"
+        """
+elif False:
+    ResourceConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ResourceConfigArgs:
@@ -3982,6 +5387,22 @@ class ResourceConfigArgs:
         pulumi.set(self, "memory", value)
 
 
+if not MYPY:
+    class ScaleRuleAuthArgsDict(TypedDict):
+        """
+        Auth Secrets for Container App Scale Rule
+        """
+        secret_ref: NotRequired[pulumi.Input[str]]
+        """
+        Name of the Container App secret from which to pull the auth params.
+        """
+        trigger_parameter: NotRequired[pulumi.Input[str]]
+        """
+        Trigger Parameter that uses the secret
+        """
+elif False:
+    ScaleRuleAuthArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ScaleRuleAuthArgs:
     def __init__(__self__, *,
@@ -4021,6 +5442,30 @@ class ScaleRuleAuthArgs:
     def trigger_parameter(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "trigger_parameter", value)
 
+
+if not MYPY:
+    class ScaleRuleArgsDict(TypedDict):
+        """
+        Container App container scaling rule.
+        """
+        azure_queue: NotRequired[pulumi.Input['QueueScaleRuleArgsDict']]
+        """
+        Azure Queue based scaling.
+        """
+        custom: NotRequired[pulumi.Input['CustomScaleRuleArgsDict']]
+        """
+        Custom scale rule.
+        """
+        http: NotRequired[pulumi.Input['HttpScaleRuleArgsDict']]
+        """
+        HTTP requests based scaling.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Scale Rule Name
+        """
+elif False:
+    ScaleRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ScaleRuleArgs:
@@ -4094,6 +5539,26 @@ class ScaleRuleArgs:
         pulumi.set(self, "name", value)
 
 
+if not MYPY:
+    class ScaleArgsDict(TypedDict):
+        """
+        Container App scaling configurations.
+        """
+        max_replicas: NotRequired[pulumi.Input[int]]
+        """
+        Optional. Maximum number of container replicas. Defaults to 10 if not set.
+        """
+        min_replicas: NotRequired[pulumi.Input[int]]
+        """
+        Optional. Minimum number of container replicas.
+        """
+        rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['ScaleRuleArgsDict']]]]
+        """
+        Scaling rules.
+        """
+elif False:
+    ScaleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ScaleArgs:
     def __init__(__self__, *,
@@ -4150,6 +5615,22 @@ class ScaleArgs:
         pulumi.set(self, "rules", value)
 
 
+if not MYPY:
+    class SecretArgsDict(TypedDict):
+        """
+        Container App Secret.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Secret Name.
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        Secret Value.
+        """
+elif False:
+    SecretArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SecretArgs:
     def __init__(__self__, *,
@@ -4189,6 +5670,304 @@ class SecretArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class SiteConfigArgsDict(TypedDict):
+        """
+        Configuration of an App Service app.
+        """
+        acr_use_managed_identity_creds: NotRequired[pulumi.Input[bool]]
+        """
+        Flag to use Managed Identity Creds for ACR pull
+        """
+        acr_user_managed_identity_id: NotRequired[pulumi.Input[str]]
+        """
+        If using user managed identity, the user managed identity ClientId
+        """
+        always_on: NotRequired[pulumi.Input[bool]]
+        """
+        <code>true</code> if Always On is enabled; otherwise, <code>false</code>.
+        """
+        api_definition: NotRequired[pulumi.Input['ApiDefinitionInfoArgsDict']]
+        """
+        Information about the formal API definition for the app.
+        """
+        api_management_config: NotRequired[pulumi.Input['ApiManagementConfigArgsDict']]
+        """
+        Azure API management settings linked to the app.
+        """
+        app_command_line: NotRequired[pulumi.Input[str]]
+        """
+        App command line to launch.
+        """
+        app_settings: NotRequired[pulumi.Input[Sequence[pulumi.Input['NameValuePairArgsDict']]]]
+        """
+        Application settings.
+        """
+        auto_heal_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        <code>true</code> if Auto Heal is enabled; otherwise, <code>false</code>.
+        """
+        auto_heal_rules: NotRequired[pulumi.Input['AutoHealRulesArgsDict']]
+        """
+        Auto Heal rules.
+        """
+        auto_swap_slot_name: NotRequired[pulumi.Input[str]]
+        """
+        Auto-swap slot name.
+        """
+        azure_storage_accounts: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['AzureStorageInfoValueArgsDict']]]]
+        """
+        List of Azure Storage Accounts.
+        """
+        connection_strings: NotRequired[pulumi.Input[Sequence[pulumi.Input['ConnStringInfoArgsDict']]]]
+        """
+        Connection strings.
+        """
+        cors: NotRequired[pulumi.Input['CorsSettingsArgsDict']]
+        """
+        Cross-Origin Resource Sharing (CORS) settings.
+        """
+        default_documents: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Default documents.
+        """
+        detailed_error_logging_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        <code>true</code> if detailed error logging is enabled; otherwise, <code>false</code>.
+        """
+        document_root: NotRequired[pulumi.Input[str]]
+        """
+        Document root.
+        """
+        elastic_web_app_scale_limit: NotRequired[pulumi.Input[int]]
+        """
+        Maximum number of workers that a site can scale out to.
+        This setting only applies to apps in plans where ElasticScaleEnabled is <code>true</code>
+        """
+        experiments: NotRequired[pulumi.Input['ExperimentsArgsDict']]
+        """
+        This is work around for polymorphic types.
+        """
+        ftps_state: NotRequired[pulumi.Input[Union[str, 'FtpsState']]]
+        """
+        State of FTP / FTPS service
+        """
+        function_app_scale_limit: NotRequired[pulumi.Input[int]]
+        """
+        Maximum number of workers that a site can scale out to.
+        This setting only applies to the Consumption and Elastic Premium Plans
+        """
+        functions_runtime_scale_monitoring_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Gets or sets a value indicating whether functions runtime scale monitoring is enabled. When enabled,
+        the ScaleController will not monitor event sources directly, but will instead call to the
+        runtime to get scale status.
+        """
+        handler_mappings: NotRequired[pulumi.Input[Sequence[pulumi.Input['HandlerMappingArgsDict']]]]
+        """
+        Handler mappings.
+        """
+        health_check_path: NotRequired[pulumi.Input[str]]
+        """
+        Health check path
+        """
+        http20_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Http20Enabled: configures a web site to allow clients to connect over http2.0
+        """
+        http_logging_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        <code>true</code> if HTTP logging is enabled; otherwise, <code>false</code>.
+        """
+        ip_security_restrictions: NotRequired[pulumi.Input[Sequence[pulumi.Input['IpSecurityRestrictionArgsDict']]]]
+        """
+        IP security restrictions for main.
+        """
+        ip_security_restrictions_default_action: NotRequired[pulumi.Input[Union[str, 'DefaultAction']]]
+        """
+        Default action for main access restriction if no rules are matched.
+        """
+        java_container: NotRequired[pulumi.Input[str]]
+        """
+        Java container.
+        """
+        java_container_version: NotRequired[pulumi.Input[str]]
+        """
+        Java container version.
+        """
+        java_version: NotRequired[pulumi.Input[str]]
+        """
+        Java version.
+        """
+        key_vault_reference_identity: NotRequired[pulumi.Input[str]]
+        """
+        Identity to use for Key Vault Reference authentication.
+        """
+        limits: NotRequired[pulumi.Input['SiteLimitsArgsDict']]
+        """
+        Site limits.
+        """
+        linux_fx_version: NotRequired[pulumi.Input[str]]
+        """
+        Linux App Framework and version
+        """
+        load_balancing: NotRequired[pulumi.Input['SiteLoadBalancing']]
+        """
+        Site load balancing.
+        """
+        local_my_sql_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        <code>true</code> to enable local MySQL; otherwise, <code>false</code>.
+        """
+        logs_directory_size_limit: NotRequired[pulumi.Input[int]]
+        """
+        HTTP logs directory size limit.
+        """
+        managed_pipeline_mode: NotRequired[pulumi.Input['ManagedPipelineMode']]
+        """
+        Managed pipeline mode.
+        """
+        managed_service_identity_id: NotRequired[pulumi.Input[int]]
+        """
+        Managed Service Identity Id
+        """
+        metadata: NotRequired[pulumi.Input[Sequence[pulumi.Input['NameValuePairArgsDict']]]]
+        """
+        Application metadata. This property cannot be retrieved, since it may contain secrets.
+        """
+        min_tls_cipher_suite: NotRequired[pulumi.Input[Union[str, 'TlsCipherSuites']]]
+        """
+        The minimum strength TLS cipher suite allowed for an application
+        """
+        min_tls_version: NotRequired[pulumi.Input[Union[str, 'SupportedTlsVersions']]]
+        """
+        MinTlsVersion: configures the minimum version of TLS required for SSL requests
+        """
+        minimum_elastic_instance_count: NotRequired[pulumi.Input[int]]
+        """
+        Number of minimum instance count for a site
+        This setting only applies to the Elastic Plans
+        """
+        net_framework_version: NotRequired[pulumi.Input[str]]
+        """
+        .NET Framework version.
+        """
+        node_version: NotRequired[pulumi.Input[str]]
+        """
+        Version of Node.js.
+        """
+        number_of_workers: NotRequired[pulumi.Input[int]]
+        """
+        Number of workers.
+        """
+        php_version: NotRequired[pulumi.Input[str]]
+        """
+        Version of PHP.
+        """
+        power_shell_version: NotRequired[pulumi.Input[str]]
+        """
+        Version of PowerShell.
+        """
+        pre_warmed_instance_count: NotRequired[pulumi.Input[int]]
+        """
+        Number of preWarmed instances.
+        This setting only applies to the Consumption and Elastic Plans
+        """
+        public_network_access: NotRequired[pulumi.Input[str]]
+        """
+        Property to allow or block all public traffic.
+        """
+        publishing_username: NotRequired[pulumi.Input[str]]
+        """
+        Publishing user name.
+        """
+        push: NotRequired[pulumi.Input['PushSettingsArgsDict']]
+        """
+        Push endpoint settings.
+        """
+        python_version: NotRequired[pulumi.Input[str]]
+        """
+        Version of Python.
+        """
+        remote_debugging_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        <code>true</code> if remote debugging is enabled; otherwise, <code>false</code>.
+        """
+        remote_debugging_version: NotRequired[pulumi.Input[str]]
+        """
+        Remote debugging version.
+        """
+        request_tracing_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        <code>true</code> if request tracing is enabled; otherwise, <code>false</code>.
+        """
+        request_tracing_expiration_time: NotRequired[pulumi.Input[str]]
+        """
+        Request tracing expiration time.
+        """
+        scm_ip_security_restrictions: NotRequired[pulumi.Input[Sequence[pulumi.Input['IpSecurityRestrictionArgsDict']]]]
+        """
+        IP security restrictions for scm.
+        """
+        scm_ip_security_restrictions_default_action: NotRequired[pulumi.Input[Union[str, 'DefaultAction']]]
+        """
+        Default action for scm access restriction if no rules are matched.
+        """
+        scm_ip_security_restrictions_use_main: NotRequired[pulumi.Input[bool]]
+        """
+        IP security restrictions for scm to use main.
+        """
+        scm_min_tls_version: NotRequired[pulumi.Input[Union[str, 'SupportedTlsVersions']]]
+        """
+        ScmMinTlsVersion: configures the minimum version of TLS required for SSL requests for SCM site
+        """
+        scm_type: NotRequired[pulumi.Input[Union[str, 'ScmType']]]
+        """
+        SCM type.
+        """
+        tracing_options: NotRequired[pulumi.Input[str]]
+        """
+        Tracing options.
+        """
+        use32_bit_worker_process: NotRequired[pulumi.Input[bool]]
+        """
+        <code>true</code> to use 32-bit worker process; otherwise, <code>false</code>.
+        """
+        virtual_applications: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualApplicationArgsDict']]]]
+        """
+        Virtual applications.
+        """
+        vnet_name: NotRequired[pulumi.Input[str]]
+        """
+        Virtual Network name.
+        """
+        vnet_private_ports_count: NotRequired[pulumi.Input[int]]
+        """
+        The number of private ports assigned to this app. These will be assigned dynamically on runtime.
+        """
+        vnet_route_all_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Virtual Network Route All enabled. This causes all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
+        """
+        web_sockets_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        <code>true</code> if WebSocket is enabled; otherwise, <code>false</code>.
+        """
+        website_time_zone: NotRequired[pulumi.Input[str]]
+        """
+        Sets the time zone a site uses for generating timestamps. Compatible with Linux and Windows App Service. Setting the WEBSITE_TIME_ZONE app setting takes precedence over this config. For Linux, expects tz database values https://www.iana.org/time-zones (for a quick reference see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones). For Windows, expects one of the time zones listed under HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Time Zones
+        """
+        windows_fx_version: NotRequired[pulumi.Input[str]]
+        """
+        Xenon App Framework and version
+        """
+        x_managed_service_identity_id: NotRequired[pulumi.Input[int]]
+        """
+        Explicit Managed Service Identity Id
+        """
+elif False:
+    SiteConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SiteConfigArgs:
@@ -5352,6 +7131,26 @@ class SiteConfigArgs:
         pulumi.set(self, "x_managed_service_identity_id", value)
 
 
+if not MYPY:
+    class SiteLimitsArgsDict(TypedDict):
+        """
+        Metric limits set on an app.
+        """
+        max_disk_size_in_mb: NotRequired[pulumi.Input[float]]
+        """
+        Maximum allowed disk size usage in MB.
+        """
+        max_memory_in_mb: NotRequired[pulumi.Input[float]]
+        """
+        Maximum allowed memory usage in MB.
+        """
+        max_percentage_cpu: NotRequired[pulumi.Input[float]]
+        """
+        Maximum allowed CPU usage percentage.
+        """
+elif False:
+    SiteLimitsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SiteLimitsArgs:
     def __init__(__self__, *,
@@ -5407,6 +7206,34 @@ class SiteLimitsArgs:
     def max_percentage_cpu(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "max_percentage_cpu", value)
 
+
+if not MYPY:
+    class SkuCapacityArgsDict(TypedDict):
+        """
+        Description of the App Service plan scale options.
+        """
+        default: NotRequired[pulumi.Input[int]]
+        """
+        Default number of workers for this App Service plan SKU.
+        """
+        elastic_maximum: NotRequired[pulumi.Input[int]]
+        """
+        Maximum number of Elastic workers for this App Service plan SKU.
+        """
+        maximum: NotRequired[pulumi.Input[int]]
+        """
+        Maximum number of workers for this App Service plan SKU.
+        """
+        minimum: NotRequired[pulumi.Input[int]]
+        """
+        Minimum number of workers for this App Service plan SKU.
+        """
+        scale_type: NotRequired[pulumi.Input[str]]
+        """
+        Available scale configurations for an App Service plan.
+        """
+elif False:
+    SkuCapacityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SkuCapacityArgs:
@@ -5495,6 +7322,46 @@ class SkuCapacityArgs:
     def scale_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "scale_type", value)
 
+
+if not MYPY:
+    class SkuDescriptionArgsDict(TypedDict):
+        """
+        Description of a SKU for a scalable resource.
+        """
+        capabilities: NotRequired[pulumi.Input[Sequence[pulumi.Input['CapabilityArgsDict']]]]
+        """
+        Capabilities of the SKU, e.g., is traffic manager enabled?
+        """
+        capacity: NotRequired[pulumi.Input[int]]
+        """
+        Current number of instances assigned to the resource.
+        """
+        family: NotRequired[pulumi.Input[str]]
+        """
+        Family code of the resource SKU.
+        """
+        locations: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Locations of the SKU.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the resource SKU.
+        """
+        size: NotRequired[pulumi.Input[str]]
+        """
+        Size specifier of the resource SKU.
+        """
+        sku_capacity: NotRequired[pulumi.Input['SkuCapacityArgsDict']]
+        """
+        Min, max, and default scale values of the SKU.
+        """
+        tier: NotRequired[pulumi.Input[str]]
+        """
+        Service tier of the resource SKU.
+        """
+elif False:
+    SkuDescriptionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SkuDescriptionArgs:
@@ -5632,6 +7499,30 @@ class SkuDescriptionArgs:
         pulumi.set(self, "tier", value)
 
 
+if not MYPY:
+    class SlowRequestsBasedTriggerArgsDict(TypedDict):
+        """
+        Trigger based on request execution time.
+        """
+        count: NotRequired[pulumi.Input[int]]
+        """
+        Request Count.
+        """
+        path: NotRequired[pulumi.Input[str]]
+        """
+        Request Path.
+        """
+        time_interval: NotRequired[pulumi.Input[str]]
+        """
+        Time interval.
+        """
+        time_taken: NotRequired[pulumi.Input[str]]
+        """
+        Time taken.
+        """
+elif False:
+    SlowRequestsBasedTriggerArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SlowRequestsBasedTriggerArgs:
     def __init__(__self__, *,
@@ -5703,6 +7594,46 @@ class SlowRequestsBasedTriggerArgs:
     def time_taken(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "time_taken", value)
 
+
+if not MYPY:
+    class StaticSiteBuildPropertiesArgsDict(TypedDict):
+        """
+        Build properties for the static site.
+        """
+        api_build_command: NotRequired[pulumi.Input[str]]
+        """
+        A custom command to run during deployment of the Azure Functions API application.
+        """
+        api_location: NotRequired[pulumi.Input[str]]
+        """
+        The path to the api code within the repository.
+        """
+        app_artifact_location: NotRequired[pulumi.Input[str]]
+        """
+        Deprecated: The path of the app artifacts after building (deprecated in favor of OutputLocation)
+        """
+        app_build_command: NotRequired[pulumi.Input[str]]
+        """
+        A custom command to run during deployment of the static content application.
+        """
+        app_location: NotRequired[pulumi.Input[str]]
+        """
+        The path to the app code within the repository.
+        """
+        github_action_secret_name_override: NotRequired[pulumi.Input[str]]
+        """
+        Github Action secret name override.
+        """
+        output_location: NotRequired[pulumi.Input[str]]
+        """
+        The output path of the app after building.
+        """
+        skip_github_action_workflow_generation: NotRequired[pulumi.Input[bool]]
+        """
+        Skip Github Action workflow generation.
+        """
+elif False:
+    StaticSiteBuildPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class StaticSiteBuildPropertiesArgs:
@@ -5840,6 +7771,34 @@ class StaticSiteBuildPropertiesArgs:
         pulumi.set(self, "skip_github_action_workflow_generation", value)
 
 
+if not MYPY:
+    class StaticSiteTemplateOptionsArgsDict(TypedDict):
+        """
+        Template Options for the static site.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Description of the newly generated repository.
+        """
+        is_private: NotRequired[pulumi.Input[bool]]
+        """
+        Whether or not the newly generated repository is a private repository. Defaults to false (i.e. public).
+        """
+        owner: NotRequired[pulumi.Input[str]]
+        """
+        Owner of the newly generated repository.
+        """
+        repository_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the newly generated repository.
+        """
+        template_repository_url: NotRequired[pulumi.Input[str]]
+        """
+        URL of the template repository. The newly generated repository will be based on this one.
+        """
+elif False:
+    StaticSiteTemplateOptionsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class StaticSiteTemplateOptionsArgs:
     def __init__(__self__, *,
@@ -5927,6 +7886,38 @@ class StaticSiteTemplateOptionsArgs:
     def template_repository_url(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "template_repository_url", value)
 
+
+if not MYPY:
+    class StatusCodesBasedTriggerArgsDict(TypedDict):
+        """
+        Trigger based on status code.
+        """
+        count: NotRequired[pulumi.Input[int]]
+        """
+        Request Count.
+        """
+        path: NotRequired[pulumi.Input[str]]
+        """
+        Request Path
+        """
+        status: NotRequired[pulumi.Input[int]]
+        """
+        HTTP status code.
+        """
+        sub_status: NotRequired[pulumi.Input[int]]
+        """
+        Request Sub Status.
+        """
+        time_interval: NotRequired[pulumi.Input[str]]
+        """
+        Time interval.
+        """
+        win32_status: NotRequired[pulumi.Input[int]]
+        """
+        Win32 error code.
+        """
+elif False:
+    StatusCodesBasedTriggerArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class StatusCodesBasedTriggerArgs:
@@ -6032,6 +8023,27 @@ class StatusCodesBasedTriggerArgs:
         pulumi.set(self, "win32_status", value)
 
 
+if not MYPY:
+    class StatusCodesRangeBasedTriggerArgsDict(TypedDict):
+        """
+        Trigger based on range of status codes.
+        """
+        count: NotRequired[pulumi.Input[int]]
+        """
+        Request Count.
+        """
+        path: NotRequired[pulumi.Input[str]]
+        status_codes: NotRequired[pulumi.Input[str]]
+        """
+        HTTP status code.
+        """
+        time_interval: NotRequired[pulumi.Input[str]]
+        """
+        Time interval.
+        """
+elif False:
+    StatusCodesRangeBasedTriggerArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class StatusCodesRangeBasedTriggerArgs:
     def __init__(__self__, *,
@@ -6099,6 +8111,32 @@ class StatusCodesRangeBasedTriggerArgs:
     def time_interval(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "time_interval", value)
 
+
+if not MYPY:
+    class TemplateArgsDict(TypedDict):
+        """
+        Container App versioned application definition.
+        Defines the desired state of an immutable revision.
+        Any changes to this section Will result in a new revision being created
+        """
+        containers: NotRequired[pulumi.Input[Sequence[pulumi.Input['ContainerArgsDict']]]]
+        """
+        List of container definitions for the Container App.
+        """
+        dapr: NotRequired[pulumi.Input['DaprArgsDict']]
+        """
+        Dapr configuration for the Container App.
+        """
+        revision_suffix: NotRequired[pulumi.Input[str]]
+        """
+        User friendly suffix that is appended to the revision name
+        """
+        scale: NotRequired[pulumi.Input['ScaleArgsDict']]
+        """
+        Scaling properties for the Container App.
+        """
+elif False:
+    TemplateArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TemplateArgs:
@@ -6174,6 +8212,26 @@ class TemplateArgs:
         pulumi.set(self, "scale", value)
 
 
+if not MYPY:
+    class TrafficWeightArgsDict(TypedDict):
+        """
+        Traffic weight assigned to a revision
+        """
+        latest_revision: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates that the traffic weight belongs to a latest stable revision
+        """
+        revision_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of a revision
+        """
+        weight: NotRequired[pulumi.Input[int]]
+        """
+        Traffic weight assigned to a revision
+        """
+elif False:
+    TrafficWeightArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TrafficWeightArgs:
     def __init__(__self__, *,
@@ -6231,6 +8289,30 @@ class TrafficWeightArgs:
     def weight(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "weight", value)
 
+
+if not MYPY:
+    class VirtualApplicationArgsDict(TypedDict):
+        """
+        Virtual application in an app.
+        """
+        physical_path: NotRequired[pulumi.Input[str]]
+        """
+        Physical path.
+        """
+        preload_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        <code>true</code> if preloading is enabled; otherwise, <code>false</code>.
+        """
+        virtual_directories: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualDirectoryArgsDict']]]]
+        """
+        Virtual directories for virtual application.
+        """
+        virtual_path: NotRequired[pulumi.Input[str]]
+        """
+        Virtual path.
+        """
+elif False:
+    VirtualApplicationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VirtualApplicationArgs:
@@ -6304,6 +8386,22 @@ class VirtualApplicationArgs:
         pulumi.set(self, "virtual_path", value)
 
 
+if not MYPY:
+    class VirtualDirectoryArgsDict(TypedDict):
+        """
+        Directory for virtual application.
+        """
+        physical_path: NotRequired[pulumi.Input[str]]
+        """
+        Physical path.
+        """
+        virtual_path: NotRequired[pulumi.Input[str]]
+        """
+        Path to virtual application.
+        """
+elif False:
+    VirtualDirectoryArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class VirtualDirectoryArgs:
     def __init__(__self__, *,
@@ -6343,6 +8441,22 @@ class VirtualDirectoryArgs:
     def virtual_path(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "virtual_path", value)
 
+
+if not MYPY:
+    class VirtualNetworkProfileArgsDict(TypedDict):
+        """
+        Specification for using a Virtual Network.
+        """
+        id: pulumi.Input[str]
+        """
+        Resource id of the Virtual Network.
+        """
+        subnet: NotRequired[pulumi.Input[str]]
+        """
+        Subnet within the Virtual Network.
+        """
+elif False:
+    VirtualNetworkProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VirtualNetworkProfileArgs:

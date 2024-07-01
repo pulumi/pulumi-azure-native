@@ -4,17 +4,44 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'BusinessProcessIdentifierArgs',
+    'BusinessProcessIdentifierArgsDict',
     'BusinessProcessMappingItemArgs',
+    'BusinessProcessMappingItemArgsDict',
     'BusinessProcessStageArgs',
+    'BusinessProcessStageArgsDict',
     'TrackingDataStoreArgs',
+    'TrackingDataStoreArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class BusinessProcessIdentifierArgsDict(TypedDict):
+        """
+        The properties of business process identifier.
+        """
+        property_name: NotRequired[pulumi.Input[str]]
+        """
+        The property name of the business process identifier.
+        """
+        property_type: NotRequired[pulumi.Input[str]]
+        """
+        The property type of the business process identifier.
+        """
+elif False:
+    BusinessProcessIdentifierArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class BusinessProcessIdentifierArgs:
@@ -55,6 +82,30 @@ class BusinessProcessIdentifierArgs:
     def property_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "property_type", value)
 
+
+if not MYPY:
+    class BusinessProcessMappingItemArgsDict(TypedDict):
+        """
+        The properties of business process mapping.
+        """
+        logic_app_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        The logic app resource id.
+        """
+        operation_name: NotRequired[pulumi.Input[str]]
+        """
+        The operation name.
+        """
+        operation_type: NotRequired[pulumi.Input[str]]
+        """
+        The mapping item operation type of the business process.
+        """
+        workflow_name: NotRequired[pulumi.Input[str]]
+        """
+        The workflow name within the logic app.
+        """
+elif False:
+    BusinessProcessMappingItemArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class BusinessProcessMappingItemArgs:
@@ -128,6 +179,26 @@ class BusinessProcessMappingItemArgs:
         pulumi.set(self, "workflow_name", value)
 
 
+if not MYPY:
+    class BusinessProcessStageArgsDict(TypedDict):
+        """
+        The properties of business process stage.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The description of the business stage.
+        """
+        properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        The properties within the properties of the business process stage.
+        """
+        stages_before: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The property to keep track of stages before current in the business process stage.
+        """
+elif False:
+    BusinessProcessStageArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class BusinessProcessStageArgs:
     def __init__(__self__, *,
@@ -183,6 +254,30 @@ class BusinessProcessStageArgs:
     def stages_before(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "stages_before", value)
 
+
+if not MYPY:
+    class TrackingDataStoreArgsDict(TypedDict):
+        """
+        The properties of tracking data store.
+        """
+        data_store_ingestion_uri: NotRequired[pulumi.Input[str]]
+        """
+        The data store ingestion URI.
+        """
+        data_store_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        The data store resource id.
+        """
+        data_store_uri: NotRequired[pulumi.Input[str]]
+        """
+        The data store URI.
+        """
+        database_name: NotRequired[pulumi.Input[str]]
+        """
+        The database name.
+        """
+elif False:
+    TrackingDataStoreArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TrackingDataStoreArgs:

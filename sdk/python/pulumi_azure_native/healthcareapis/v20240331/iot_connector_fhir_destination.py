@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -150,7 +155,7 @@ class IotConnectorFhirDestination(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  fhir_destination_name: Optional[pulumi.Input[str]] = None,
-                 fhir_mapping: Optional[pulumi.Input[pulumi.InputType['IotMappingPropertiesArgs']]] = None,
+                 fhir_mapping: Optional[pulumi.Input[Union['IotMappingPropertiesArgs', 'IotMappingPropertiesArgsDict']]] = None,
                  fhir_service_resource_id: Optional[pulumi.Input[str]] = None,
                  iot_connector_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -164,7 +169,7 @@ class IotConnectorFhirDestination(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] fhir_destination_name: The name of IoT Connector FHIR destination resource.
-        :param pulumi.Input[pulumi.InputType['IotMappingPropertiesArgs']] fhir_mapping: FHIR Mappings
+        :param pulumi.Input[Union['IotMappingPropertiesArgs', 'IotMappingPropertiesArgsDict']] fhir_mapping: FHIR Mappings
         :param pulumi.Input[str] fhir_service_resource_id: Fully qualified resource id of the FHIR service to connect to.
         :param pulumi.Input[str] iot_connector_name: The name of IoT Connector resource.
         :param pulumi.Input[str] location: The resource location.
@@ -197,7 +202,7 @@ class IotConnectorFhirDestination(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  fhir_destination_name: Optional[pulumi.Input[str]] = None,
-                 fhir_mapping: Optional[pulumi.Input[pulumi.InputType['IotMappingPropertiesArgs']]] = None,
+                 fhir_mapping: Optional[pulumi.Input[Union['IotMappingPropertiesArgs', 'IotMappingPropertiesArgsDict']]] = None,
                  fhir_service_resource_id: Optional[pulumi.Input[str]] = None,
                  iot_connector_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,

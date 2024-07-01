@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -58,7 +63,7 @@ class AwaitableListSpacecraftAvailableContactsResult(ListSpacecraftAvailableCont
             value=self.value)
 
 
-def list_spacecraft_available_contacts(contact_profile: Optional[pulumi.InputType['ContactParametersContactProfile']] = None,
+def list_spacecraft_available_contacts(contact_profile: Optional[Union['ContactParametersContactProfile', 'ContactParametersContactProfileDict']] = None,
                                        end_time: Optional[str] = None,
                                        ground_station_name: Optional[str] = None,
                                        resource_group_name: Optional[str] = None,
@@ -72,7 +77,7 @@ def list_spacecraft_available_contacts(contact_profile: Optional[pulumi.InputTyp
     Other available API versions: 2022-03-01.
 
 
-    :param pulumi.InputType['ContactParametersContactProfile'] contact_profile: The reference to the contact profile resource.
+    :param Union['ContactParametersContactProfile', 'ContactParametersContactProfileDict'] contact_profile: The reference to the contact profile resource.
     :param str end_time: End time of a contact (ISO 8601 UTC standard).
     :param str ground_station_name: Name of Azure Ground Station.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -95,7 +100,7 @@ def list_spacecraft_available_contacts(contact_profile: Optional[pulumi.InputTyp
 
 
 @_utilities.lift_output_func(list_spacecraft_available_contacts)
-def list_spacecraft_available_contacts_output(contact_profile: Optional[pulumi.Input[pulumi.InputType['ContactParametersContactProfile']]] = None,
+def list_spacecraft_available_contacts_output(contact_profile: Optional[pulumi.Input[Union['ContactParametersContactProfile', 'ContactParametersContactProfileDict']]] = None,
                                               end_time: Optional[pulumi.Input[str]] = None,
                                               ground_station_name: Optional[pulumi.Input[str]] = None,
                                               resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -109,7 +114,7 @@ def list_spacecraft_available_contacts_output(contact_profile: Optional[pulumi.I
     Other available API versions: 2022-03-01.
 
 
-    :param pulumi.InputType['ContactParametersContactProfile'] contact_profile: The reference to the contact profile resource.
+    :param Union['ContactParametersContactProfile', 'ContactParametersContactProfileDict'] contact_profile: The reference to the contact profile resource.
     :param str end_time: End time of a contact (ISO 8601 UTC standard).
     :param str ground_station_name: Name of Azure Ground Station.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

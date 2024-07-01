@@ -4,21 +4,60 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'MediaGraphAssetSinkArgs',
+    'MediaGraphAssetSinkArgsDict',
     'MediaGraphClearEndpointArgs',
+    'MediaGraphClearEndpointArgsDict',
     'MediaGraphPemCertificateListArgs',
+    'MediaGraphPemCertificateListArgsDict',
     'MediaGraphRtspSourceArgs',
+    'MediaGraphRtspSourceArgsDict',
     'MediaGraphTlsEndpointArgs',
+    'MediaGraphTlsEndpointArgsDict',
     'MediaGraphTlsValidationOptionsArgs',
+    'MediaGraphTlsValidationOptionsArgsDict',
     'MediaGraphUsernamePasswordCredentialsArgs',
+    'MediaGraphUsernamePasswordCredentialsArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class MediaGraphAssetSinkArgsDict(TypedDict):
+        """
+        Asset sink.
+        """
+        asset_name: pulumi.Input[str]
+        """
+        Asset name.
+        """
+        inputs: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Sink inputs.
+        """
+        name: pulumi.Input[str]
+        """
+        Sink name.
+        """
+        odata_type: pulumi.Input[str]
+        """
+        The discriminator for derived types.
+        Expected value is '#Microsoft.Media.MediaGraphAssetSink'.
+        """
+elif False:
+    MediaGraphAssetSinkArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MediaGraphAssetSinkArgs:
@@ -90,6 +129,27 @@ class MediaGraphAssetSinkArgs:
         pulumi.set(self, "odata_type", value)
 
 
+if not MYPY:
+    class MediaGraphClearEndpointArgsDict(TypedDict):
+        """
+        An endpoint to connect to with no encryption in transit.
+        """
+        odata_type: pulumi.Input[str]
+        """
+        The discriminator for derived types.
+        Expected value is '#Microsoft.Media.MediaGraphClearEndpoint'.
+        """
+        url: pulumi.Input[str]
+        """
+        Url for the endpoint.
+        """
+        credentials: NotRequired[pulumi.Input['MediaGraphUsernamePasswordCredentialsArgsDict']]
+        """
+        Polymorphic credentials to present to the endpoint.
+        """
+elif False:
+    MediaGraphClearEndpointArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MediaGraphClearEndpointArgs:
     def __init__(__self__, *,
@@ -146,6 +206,23 @@ class MediaGraphClearEndpointArgs:
         pulumi.set(self, "credentials", value)
 
 
+if not MYPY:
+    class MediaGraphPemCertificateListArgsDict(TypedDict):
+        """
+        A list of PEM formatted certificates.
+        """
+        certificates: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        PEM formatted public certificates, one per entry.
+        """
+        odata_type: pulumi.Input[str]
+        """
+        The discriminator for derived types.
+        Expected value is '#Microsoft.Media.MediaGraphPemCertificateList'.
+        """
+elif False:
+    MediaGraphPemCertificateListArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MediaGraphPemCertificateListArgs:
     def __init__(__self__, *,
@@ -185,6 +262,31 @@ class MediaGraphPemCertificateListArgs:
     def odata_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "odata_type", value)
 
+
+if not MYPY:
+    class MediaGraphRtspSourceArgsDict(TypedDict):
+        """
+        RTSP source.
+        """
+        endpoint: pulumi.Input[Union['MediaGraphClearEndpointArgsDict', 'MediaGraphTlsEndpointArgsDict']]
+        """
+        RTSP endpoint of the stream being connected to.
+        """
+        name: pulumi.Input[str]
+        """
+        Source name.
+        """
+        odata_type: pulumi.Input[str]
+        """
+        The discriminator for derived types.
+        Expected value is '#Microsoft.Media.MediaGraphRtspSource'.
+        """
+        transport: pulumi.Input[Union[str, 'MediaGraphRtspTransport']]
+        """
+        Underlying RTSP transport. This can be used to enable or disable HTTP tunneling.
+        """
+elif False:
+    MediaGraphRtspSourceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MediaGraphRtspSourceArgs:
@@ -255,6 +357,35 @@ class MediaGraphRtspSourceArgs:
     def transport(self, value: pulumi.Input[Union[str, 'MediaGraphRtspTransport']]):
         pulumi.set(self, "transport", value)
 
+
+if not MYPY:
+    class MediaGraphTlsEndpointArgsDict(TypedDict):
+        """
+        An endpoint which must be connected over TLS/SSL.
+        """
+        odata_type: pulumi.Input[str]
+        """
+        The discriminator for derived types.
+        Expected value is '#Microsoft.Media.MediaGraphTlsEndpoint'.
+        """
+        url: pulumi.Input[str]
+        """
+        Url for the endpoint.
+        """
+        credentials: NotRequired[pulumi.Input['MediaGraphUsernamePasswordCredentialsArgsDict']]
+        """
+        Polymorphic credentials to present to the endpoint.
+        """
+        trusted_certificates: NotRequired[pulumi.Input['MediaGraphPemCertificateListArgsDict']]
+        """
+        What certificates should be trusted when authenticating a TLS connection. Null designates that Azure Media's source of trust should be used.
+        """
+        validation_options: NotRequired[pulumi.Input['MediaGraphTlsValidationOptionsArgsDict']]
+        """
+        Validation options to use when authenticating a TLS connection. By default, strict validation is used.
+        """
+elif False:
+    MediaGraphTlsEndpointArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MediaGraphTlsEndpointArgs:
@@ -344,6 +475,22 @@ class MediaGraphTlsEndpointArgs:
         pulumi.set(self, "validation_options", value)
 
 
+if not MYPY:
+    class MediaGraphTlsValidationOptionsArgsDict(TypedDict):
+        """
+        Options for controlling the authentication of TLS endpoints.
+        """
+        ignore_hostname: pulumi.Input[bool]
+        """
+        Ignore the host name (common name) during validation.
+        """
+        ignore_signature: pulumi.Input[bool]
+        """
+        Ignore the integrity of the certificate chain at the current time.
+        """
+elif False:
+    MediaGraphTlsValidationOptionsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MediaGraphTlsValidationOptionsArgs:
     def __init__(__self__, *,
@@ -381,6 +528,27 @@ class MediaGraphTlsValidationOptionsArgs:
     def ignore_signature(self, value: pulumi.Input[bool]):
         pulumi.set(self, "ignore_signature", value)
 
+
+if not MYPY:
+    class MediaGraphUsernamePasswordCredentialsArgsDict(TypedDict):
+        """
+        Username/password credential pair.
+        """
+        odata_type: pulumi.Input[str]
+        """
+        The discriminator for derived types.
+        Expected value is '#Microsoft.Media.MediaGraphUsernamePasswordCredentials'.
+        """
+        password: pulumi.Input[str]
+        """
+        Password for a username/password pair.
+        """
+        username: pulumi.Input[str]
+        """
+        Username for a username/password pair.
+        """
+elif False:
+    MediaGraphUsernamePasswordCredentialsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MediaGraphUsernamePasswordCredentialsArgs:

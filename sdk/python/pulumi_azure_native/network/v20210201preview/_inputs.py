@@ -4,22 +4,53 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'AddressPrefixItemArgs',
+    'AddressPrefixItemArgsDict',
     'ConnectivityGroupItemArgs',
+    'ConnectivityGroupItemArgsDict',
     'GroupMembersItemArgs',
+    'GroupMembersItemArgsDict',
     'HubArgs',
+    'HubArgsDict',
     'NetworkManagerPropertiesNetworkManagerScopesArgs',
+    'NetworkManagerPropertiesNetworkManagerScopesArgsDict',
     'NetworkManagerSecurityGroupItemArgs',
+    'NetworkManagerSecurityGroupItemArgsDict',
     'SubResourceArgs',
+    'SubResourceArgsDict',
     'SubscriptionIdArgs',
+    'SubscriptionIdArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AddressPrefixItemArgsDict(TypedDict):
+        """
+        Address prefix item.
+        """
+        address_prefix: NotRequired[pulumi.Input[str]]
+        """
+        Address prefix.
+        """
+        address_prefix_type: NotRequired[pulumi.Input[Union[str, 'AddressPrefixType']]]
+        """
+        Address prefix type.
+        """
+elif False:
+    AddressPrefixItemArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AddressPrefixItemArgs:
@@ -60,6 +91,27 @@ class AddressPrefixItemArgs:
     def address_prefix_type(self, value: Optional[pulumi.Input[Union[str, 'AddressPrefixType']]]):
         pulumi.set(self, "address_prefix_type", value)
 
+
+if not MYPY:
+    class ConnectivityGroupItemArgsDict(TypedDict):
+        group_connectivity: NotRequired[pulumi.Input[Union[str, 'GroupConnectivity']]]
+        """
+        Group connectivity type.
+        """
+        is_global: NotRequired[pulumi.Input[Union[str, 'IsGlobal']]]
+        """
+        Flag if global is supported.
+        """
+        network_group_id: NotRequired[pulumi.Input[str]]
+        """
+        Network group Id.
+        """
+        use_hub_gateway: NotRequired[pulumi.Input[Union[str, 'UseHubGateway']]]
+        """
+        Flag if need to use hub gateway.
+        """
+elif False:
+    ConnectivityGroupItemArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ConnectivityGroupItemArgs:
@@ -132,6 +184,18 @@ class ConnectivityGroupItemArgs:
         pulumi.set(self, "use_hub_gateway", value)
 
 
+if not MYPY:
+    class GroupMembersItemArgsDict(TypedDict):
+        """
+        GroupMembers Item.
+        """
+        resource_id: NotRequired[pulumi.Input[str]]
+        """
+        Resource Id.
+        """
+elif False:
+    GroupMembersItemArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GroupMembersItemArgs:
     def __init__(__self__, *,
@@ -155,6 +219,22 @@ class GroupMembersItemArgs:
     def resource_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "resource_id", value)
 
+
+if not MYPY:
+    class HubArgsDict(TypedDict):
+        """
+        Hub Item.
+        """
+        resource_id: NotRequired[pulumi.Input[str]]
+        """
+        Resource Id.
+        """
+        resource_type: NotRequired[pulumi.Input[str]]
+        """
+        Resource Type.
+        """
+elif False:
+    HubArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class HubArgs:
@@ -196,6 +276,22 @@ class HubArgs:
         pulumi.set(self, "resource_type", value)
 
 
+if not MYPY:
+    class NetworkManagerPropertiesNetworkManagerScopesArgsDict(TypedDict):
+        """
+        Scope of Network Manager.
+        """
+        management_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of management groups.
+        """
+        subscriptions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of subscriptions.
+        """
+elif False:
+    NetworkManagerPropertiesNetworkManagerScopesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NetworkManagerPropertiesNetworkManagerScopesArgs:
     def __init__(__self__, *,
@@ -236,6 +332,18 @@ class NetworkManagerPropertiesNetworkManagerScopesArgs:
         pulumi.set(self, "subscriptions", value)
 
 
+if not MYPY:
+    class NetworkManagerSecurityGroupItemArgsDict(TypedDict):
+        """
+        Network manager security group item.
+        """
+        network_group_id: NotRequired[pulumi.Input[str]]
+        """
+        Network manager group Id.
+        """
+elif False:
+    NetworkManagerSecurityGroupItemArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NetworkManagerSecurityGroupItemArgs:
     def __init__(__self__, *,
@@ -259,6 +367,21 @@ class NetworkManagerSecurityGroupItemArgs:
     def network_group_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "network_group_id", value)
 
+
+if not MYPY:
+    class SubResourceArgsDict(TypedDict):
+        """
+        Reference to another subresource.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Sub-resource ID. Both absolute resource ID and a relative resource ID are accepted.
+        An absolute ID starts with /subscriptions/ and contains the entire ID of the parent resource and the ID of the sub-resource in the end.
+        A relative ID replaces the ID of the parent resource with a token '$self', followed by the sub-resource ID itself.
+        Example of a relative ID: $self/frontEndConfigurations/my-frontend.
+        """
+elif False:
+    SubResourceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SubResourceArgs:
@@ -289,6 +412,15 @@ class SubResourceArgs:
     def id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class SubscriptionIdArgsDict(TypedDict):
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Subscription id in the ARM id format.
+        """
+elif False:
+    SubscriptionIdArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SubscriptionIdArgs:

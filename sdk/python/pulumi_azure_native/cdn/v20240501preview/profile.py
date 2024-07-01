@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -153,13 +158,13 @@ class Profile(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 log_scrubbing: Optional[pulumi.Input[pulumi.InputType['ProfileLogScrubbingArgs']]] = None,
+                 log_scrubbing: Optional[pulumi.Input[Union['ProfileLogScrubbingArgs', 'ProfileLogScrubbingArgsDict']]] = None,
                  origin_response_timeout_seconds: Optional[pulumi.Input[int]] = None,
                  profile_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -167,13 +172,13 @@ class Profile(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']] identity: Managed service identity (system assigned and/or user assigned identities).
+        :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: Managed service identity (system assigned and/or user assigned identities).
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[pulumi.InputType['ProfileLogScrubbingArgs']] log_scrubbing: Defines rules that scrub sensitive fields in the Azure Front Door profile logs.
+        :param pulumi.Input[Union['ProfileLogScrubbingArgs', 'ProfileLogScrubbingArgsDict']] log_scrubbing: Defines rules that scrub sensitive fields in the Azure Front Door profile logs.
         :param pulumi.Input[int] origin_response_timeout_seconds: Send and receive timeout on forwarding request to the origin. When timeout is reached, the request fails and returns.
         :param pulumi.Input[str] profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
-        :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The pricing tier (defines Azure Front Door Standard or Premium or a CDN provider, feature list and rate) of the profile.
+        :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: The pricing tier (defines Azure Front Door Standard or Premium or a CDN provider, feature list and rate) of the profile.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         ...
@@ -200,13 +205,13 @@ class Profile(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 log_scrubbing: Optional[pulumi.Input[pulumi.InputType['ProfileLogScrubbingArgs']]] = None,
+                 log_scrubbing: Optional[pulumi.Input[Union['ProfileLogScrubbingArgs', 'ProfileLogScrubbingArgsDict']]] = None,
                  origin_response_timeout_seconds: Optional[pulumi.Input[int]] = None,
                  profile_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

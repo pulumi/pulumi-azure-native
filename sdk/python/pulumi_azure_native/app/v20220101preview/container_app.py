@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -154,28 +159,28 @@ class ContainerApp(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: Optional[pulumi.Input[pulumi.InputType['ConfigurationArgs']]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
+                 configuration: Optional[pulumi.Input[Union['ConfigurationArgs', 'ConfigurationArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  managed_environment_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 template: Optional[pulumi.Input[pulumi.InputType['TemplateArgs']]] = None,
+                 template: Optional[pulumi.Input[Union['TemplateArgs', 'TemplateArgsDict']]] = None,
                  __props__=None):
         """
         Container App.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ConfigurationArgs']] configuration: Non versioned Container App configuration properties.
-        :param pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']] identity: managed identities for the Container App to interact with other Azure services without maintaining any secrets or credentials in code.
+        :param pulumi.Input[Union['ConfigurationArgs', 'ConfigurationArgsDict']] configuration: Non versioned Container App configuration properties.
+        :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: managed identities for the Container App to interact with other Azure services without maintaining any secrets or credentials in code.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] managed_environment_id: Resource ID of the Container App's environment.
         :param pulumi.Input[str] name: Name of the Container App.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[pulumi.InputType['TemplateArgs']] template: Container App versioned application definition.
+        :param pulumi.Input[Union['TemplateArgs', 'TemplateArgsDict']] template: Container App versioned application definition.
         """
         ...
     @overload
@@ -201,14 +206,14 @@ class ContainerApp(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: Optional[pulumi.Input[pulumi.InputType['ConfigurationArgs']]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
+                 configuration: Optional[pulumi.Input[Union['ConfigurationArgs', 'ConfigurationArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  managed_environment_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 template: Optional[pulumi.Input[pulumi.InputType['TemplateArgs']]] = None,
+                 template: Optional[pulumi.Input[Union['TemplateArgs', 'TemplateArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

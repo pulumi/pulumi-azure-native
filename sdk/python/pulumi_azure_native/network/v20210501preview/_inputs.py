@@ -4,19 +4,47 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'AddressPrefixItemArgs',
+    'AddressPrefixItemArgsDict',
     'ConnectivityGroupItemArgs',
+    'ConnectivityGroupItemArgsDict',
     'HubArgs',
+    'HubArgsDict',
     'NetworkManagerPropertiesNetworkManagerScopesArgs',
+    'NetworkManagerPropertiesNetworkManagerScopesArgsDict',
     'NetworkManagerSecurityGroupItemArgs',
+    'NetworkManagerSecurityGroupItemArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AddressPrefixItemArgsDict(TypedDict):
+        """
+        Address prefix item.
+        """
+        address_prefix: NotRequired[pulumi.Input[str]]
+        """
+        Address prefix.
+        """
+        address_prefix_type: NotRequired[pulumi.Input[Union[str, 'AddressPrefixType']]]
+        """
+        Address prefix type.
+        """
+elif False:
+    AddressPrefixItemArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AddressPrefixItemArgs:
@@ -57,6 +85,30 @@ class AddressPrefixItemArgs:
     def address_prefix_type(self, value: Optional[pulumi.Input[Union[str, 'AddressPrefixType']]]):
         pulumi.set(self, "address_prefix_type", value)
 
+
+if not MYPY:
+    class ConnectivityGroupItemArgsDict(TypedDict):
+        """
+        Connectivity group item.
+        """
+        group_connectivity: pulumi.Input[Union[str, 'GroupConnectivity']]
+        """
+        Group connectivity type.
+        """
+        network_group_id: pulumi.Input[str]
+        """
+        Network group Id.
+        """
+        is_global: NotRequired[pulumi.Input[Union[str, 'IsGlobal']]]
+        """
+        Flag if global is supported.
+        """
+        use_hub_gateway: NotRequired[pulumi.Input[Union[str, 'UseHubGateway']]]
+        """
+        Flag if need to use hub gateway.
+        """
+elif False:
+    ConnectivityGroupItemArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ConnectivityGroupItemArgs:
@@ -128,6 +180,22 @@ class ConnectivityGroupItemArgs:
         pulumi.set(self, "use_hub_gateway", value)
 
 
+if not MYPY:
+    class HubArgsDict(TypedDict):
+        """
+        Hub Item.
+        """
+        resource_id: NotRequired[pulumi.Input[str]]
+        """
+        Resource Id.
+        """
+        resource_type: NotRequired[pulumi.Input[str]]
+        """
+        Resource Type.
+        """
+elif False:
+    HubArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class HubArgs:
     def __init__(__self__, *,
@@ -168,6 +236,22 @@ class HubArgs:
         pulumi.set(self, "resource_type", value)
 
 
+if not MYPY:
+    class NetworkManagerPropertiesNetworkManagerScopesArgsDict(TypedDict):
+        """
+        Scope of Network Manager.
+        """
+        management_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of management groups.
+        """
+        subscriptions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of subscriptions.
+        """
+elif False:
+    NetworkManagerPropertiesNetworkManagerScopesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NetworkManagerPropertiesNetworkManagerScopesArgs:
     def __init__(__self__, *,
@@ -207,6 +291,18 @@ class NetworkManagerPropertiesNetworkManagerScopesArgs:
     def subscriptions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "subscriptions", value)
 
+
+if not MYPY:
+    class NetworkManagerSecurityGroupItemArgsDict(TypedDict):
+        """
+        Network manager security group item.
+        """
+        network_group_id: pulumi.Input[str]
+        """
+        Network manager group Id.
+        """
+elif False:
+    NetworkManagerSecurityGroupItemArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NetworkManagerSecurityGroupItemArgs:

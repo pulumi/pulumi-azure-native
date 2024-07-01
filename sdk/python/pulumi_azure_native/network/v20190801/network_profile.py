@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -138,8 +143,8 @@ class NetworkProfile(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 container_network_interface_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContainerNetworkInterfaceConfigurationArgs']]]]] = None,
-                 container_network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContainerNetworkInterfaceArgs']]]]] = None,
+                 container_network_interface_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ContainerNetworkInterfaceConfigurationArgs', 'ContainerNetworkInterfaceConfigurationArgsDict']]]]] = None,
+                 container_network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ContainerNetworkInterfaceArgs', 'ContainerNetworkInterfaceArgsDict']]]]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  network_profile_name: Optional[pulumi.Input[str]] = None,
@@ -151,8 +156,8 @@ class NetworkProfile(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContainerNetworkInterfaceConfigurationArgs']]]] container_network_interface_configurations: List of chid container network interface configurations.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContainerNetworkInterfaceArgs']]]] container_network_interfaces: List of child container network interfaces.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ContainerNetworkInterfaceConfigurationArgs', 'ContainerNetworkInterfaceConfigurationArgsDict']]]] container_network_interface_configurations: List of chid container network interface configurations.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ContainerNetworkInterfaceArgs', 'ContainerNetworkInterfaceArgsDict']]]] container_network_interfaces: List of child container network interfaces.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] network_profile_name: The name of the network profile.
@@ -183,8 +188,8 @@ class NetworkProfile(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 container_network_interface_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContainerNetworkInterfaceConfigurationArgs']]]]] = None,
-                 container_network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContainerNetworkInterfaceArgs']]]]] = None,
+                 container_network_interface_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ContainerNetworkInterfaceConfigurationArgs', 'ContainerNetworkInterfaceConfigurationArgsDict']]]]] = None,
+                 container_network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ContainerNetworkInterfaceArgs', 'ContainerNetworkInterfaceArgsDict']]]]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  network_profile_name: Optional[pulumi.Input[str]] = None,

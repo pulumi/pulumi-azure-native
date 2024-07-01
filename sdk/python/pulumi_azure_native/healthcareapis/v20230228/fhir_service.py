@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -265,19 +270,19 @@ class FhirService(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FhirServiceAccessPolicyEntryArgs']]]]] = None,
-                 acr_configuration: Optional[pulumi.Input[pulumi.InputType['FhirServiceAcrConfigurationArgs']]] = None,
-                 authentication_configuration: Optional[pulumi.Input[pulumi.InputType['FhirServiceAuthenticationConfigurationArgs']]] = None,
-                 cors_configuration: Optional[pulumi.Input[pulumi.InputType['FhirServiceCorsConfigurationArgs']]] = None,
-                 export_configuration: Optional[pulumi.Input[pulumi.InputType['FhirServiceExportConfigurationArgs']]] = None,
+                 access_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FhirServiceAccessPolicyEntryArgs', 'FhirServiceAccessPolicyEntryArgsDict']]]]] = None,
+                 acr_configuration: Optional[pulumi.Input[Union['FhirServiceAcrConfigurationArgs', 'FhirServiceAcrConfigurationArgsDict']]] = None,
+                 authentication_configuration: Optional[pulumi.Input[Union['FhirServiceAuthenticationConfigurationArgs', 'FhirServiceAuthenticationConfigurationArgsDict']]] = None,
+                 cors_configuration: Optional[pulumi.Input[Union['FhirServiceCorsConfigurationArgs', 'FhirServiceCorsConfigurationArgsDict']]] = None,
+                 export_configuration: Optional[pulumi.Input[Union['FhirServiceExportConfigurationArgs', 'FhirServiceExportConfigurationArgsDict']]] = None,
                  fhir_service_name: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ServiceManagedIdentityIdentityArgs']]] = None,
-                 implementation_guides_configuration: Optional[pulumi.Input[pulumi.InputType['ImplementationGuidesConfigurationArgs']]] = None,
-                 import_configuration: Optional[pulumi.Input[pulumi.InputType['FhirServiceImportConfigurationArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['ServiceManagedIdentityIdentityArgs', 'ServiceManagedIdentityIdentityArgsDict']]] = None,
+                 implementation_guides_configuration: Optional[pulumi.Input[Union['ImplementationGuidesConfigurationArgs', 'ImplementationGuidesConfigurationArgsDict']]] = None,
+                 import_configuration: Optional[pulumi.Input[Union['FhirServiceImportConfigurationArgs', 'FhirServiceImportConfigurationArgsDict']]] = None,
                  kind: Optional[pulumi.Input[Union[str, 'FhirServiceKind']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 resource_version_policy_configuration: Optional[pulumi.Input[pulumi.InputType['ResourceVersionPolicyConfigurationArgs']]] = None,
+                 resource_version_policy_configuration: Optional[pulumi.Input[Union['ResourceVersionPolicyConfigurationArgs', 'ResourceVersionPolicyConfigurationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -286,19 +291,19 @@ class FhirService(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FhirServiceAccessPolicyEntryArgs']]]] access_policies: Fhir Service access policies.
-        :param pulumi.Input[pulumi.InputType['FhirServiceAcrConfigurationArgs']] acr_configuration: Fhir Service Azure container registry configuration.
-        :param pulumi.Input[pulumi.InputType['FhirServiceAuthenticationConfigurationArgs']] authentication_configuration: Fhir Service authentication configuration.
-        :param pulumi.Input[pulumi.InputType['FhirServiceCorsConfigurationArgs']] cors_configuration: Fhir Service Cors configuration.
-        :param pulumi.Input[pulumi.InputType['FhirServiceExportConfigurationArgs']] export_configuration: Fhir Service export configuration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FhirServiceAccessPolicyEntryArgs', 'FhirServiceAccessPolicyEntryArgsDict']]]] access_policies: Fhir Service access policies.
+        :param pulumi.Input[Union['FhirServiceAcrConfigurationArgs', 'FhirServiceAcrConfigurationArgsDict']] acr_configuration: Fhir Service Azure container registry configuration.
+        :param pulumi.Input[Union['FhirServiceAuthenticationConfigurationArgs', 'FhirServiceAuthenticationConfigurationArgsDict']] authentication_configuration: Fhir Service authentication configuration.
+        :param pulumi.Input[Union['FhirServiceCorsConfigurationArgs', 'FhirServiceCorsConfigurationArgsDict']] cors_configuration: Fhir Service Cors configuration.
+        :param pulumi.Input[Union['FhirServiceExportConfigurationArgs', 'FhirServiceExportConfigurationArgsDict']] export_configuration: Fhir Service export configuration.
         :param pulumi.Input[str] fhir_service_name: The name of FHIR Service resource.
-        :param pulumi.Input[pulumi.InputType['ServiceManagedIdentityIdentityArgs']] identity: Setting indicating whether the service has a managed identity associated with it.
-        :param pulumi.Input[pulumi.InputType['ImplementationGuidesConfigurationArgs']] implementation_guides_configuration: Implementation Guides configuration.
-        :param pulumi.Input[pulumi.InputType['FhirServiceImportConfigurationArgs']] import_configuration: Fhir Service import configuration.
+        :param pulumi.Input[Union['ServiceManagedIdentityIdentityArgs', 'ServiceManagedIdentityIdentityArgsDict']] identity: Setting indicating whether the service has a managed identity associated with it.
+        :param pulumi.Input[Union['ImplementationGuidesConfigurationArgs', 'ImplementationGuidesConfigurationArgsDict']] implementation_guides_configuration: Implementation Guides configuration.
+        :param pulumi.Input[Union['FhirServiceImportConfigurationArgs', 'FhirServiceImportConfigurationArgsDict']] import_configuration: Fhir Service import configuration.
         :param pulumi.Input[Union[str, 'FhirServiceKind']] kind: The kind of the service.
         :param pulumi.Input[str] location: The resource location.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the service instance.
-        :param pulumi.Input[pulumi.InputType['ResourceVersionPolicyConfigurationArgs']] resource_version_policy_configuration: Determines tracking of history for resources.
+        :param pulumi.Input[Union['ResourceVersionPolicyConfigurationArgs', 'ResourceVersionPolicyConfigurationArgsDict']] resource_version_policy_configuration: Determines tracking of history for resources.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] workspace_name: The name of workspace resource.
         """
@@ -326,19 +331,19 @@ class FhirService(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FhirServiceAccessPolicyEntryArgs']]]]] = None,
-                 acr_configuration: Optional[pulumi.Input[pulumi.InputType['FhirServiceAcrConfigurationArgs']]] = None,
-                 authentication_configuration: Optional[pulumi.Input[pulumi.InputType['FhirServiceAuthenticationConfigurationArgs']]] = None,
-                 cors_configuration: Optional[pulumi.Input[pulumi.InputType['FhirServiceCorsConfigurationArgs']]] = None,
-                 export_configuration: Optional[pulumi.Input[pulumi.InputType['FhirServiceExportConfigurationArgs']]] = None,
+                 access_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FhirServiceAccessPolicyEntryArgs', 'FhirServiceAccessPolicyEntryArgsDict']]]]] = None,
+                 acr_configuration: Optional[pulumi.Input[Union['FhirServiceAcrConfigurationArgs', 'FhirServiceAcrConfigurationArgsDict']]] = None,
+                 authentication_configuration: Optional[pulumi.Input[Union['FhirServiceAuthenticationConfigurationArgs', 'FhirServiceAuthenticationConfigurationArgsDict']]] = None,
+                 cors_configuration: Optional[pulumi.Input[Union['FhirServiceCorsConfigurationArgs', 'FhirServiceCorsConfigurationArgsDict']]] = None,
+                 export_configuration: Optional[pulumi.Input[Union['FhirServiceExportConfigurationArgs', 'FhirServiceExportConfigurationArgsDict']]] = None,
                  fhir_service_name: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ServiceManagedIdentityIdentityArgs']]] = None,
-                 implementation_guides_configuration: Optional[pulumi.Input[pulumi.InputType['ImplementationGuidesConfigurationArgs']]] = None,
-                 import_configuration: Optional[pulumi.Input[pulumi.InputType['FhirServiceImportConfigurationArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['ServiceManagedIdentityIdentityArgs', 'ServiceManagedIdentityIdentityArgsDict']]] = None,
+                 implementation_guides_configuration: Optional[pulumi.Input[Union['ImplementationGuidesConfigurationArgs', 'ImplementationGuidesConfigurationArgsDict']]] = None,
+                 import_configuration: Optional[pulumi.Input[Union['FhirServiceImportConfigurationArgs', 'FhirServiceImportConfigurationArgsDict']]] = None,
                  kind: Optional[pulumi.Input[Union[str, 'FhirServiceKind']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 resource_version_policy_configuration: Optional[pulumi.Input[pulumi.InputType['ResourceVersionPolicyConfigurationArgs']]] = None,
+                 resource_version_policy_configuration: Optional[pulumi.Input[Union['ResourceVersionPolicyConfigurationArgs', 'ResourceVersionPolicyConfigurationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):

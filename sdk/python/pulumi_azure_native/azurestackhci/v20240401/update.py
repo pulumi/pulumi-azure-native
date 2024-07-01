@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -374,7 +379,7 @@ class Update(pulumi.CustomResource):
                  package_path: Optional[pulumi.Input[str]] = None,
                  package_size_in_mb: Optional[pulumi.Input[float]] = None,
                  package_type: Optional[pulumi.Input[str]] = None,
-                 prerequisites: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UpdatePrerequisiteArgs']]]]] = None,
+                 prerequisites: Optional[pulumi.Input[Sequence[pulumi.Input[Union['UpdatePrerequisiteArgs', 'UpdatePrerequisiteArgsDict']]]]] = None,
                  progress_percentage: Optional[pulumi.Input[float]] = None,
                  publisher: Optional[pulumi.Input[str]] = None,
                  release_link: Optional[pulumi.Input[str]] = None,
@@ -401,7 +406,7 @@ class Update(pulumi.CustomResource):
         :param pulumi.Input[str] package_path: Path where the update package is available.
         :param pulumi.Input[float] package_size_in_mb: Size of the package. This value is a combination of the size from update metadata and size of the payload that results from the live scan operation for OS update content.
         :param pulumi.Input[str] package_type: Customer-visible type of the update.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UpdatePrerequisiteArgs']]]] prerequisites: If update State is HasPrerequisite, this property contains an array of objects describing prerequisite updates before installing this update. Otherwise, it is empty.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['UpdatePrerequisiteArgs', 'UpdatePrerequisiteArgsDict']]]] prerequisites: If update State is HasPrerequisite, this property contains an array of objects describing prerequisite updates before installing this update. Otherwise, it is empty.
         :param pulumi.Input[float] progress_percentage: Progress percentage of ongoing operation. Currently this property is only valid when the update is in the Downloading state, where it maps to how much of the update content has been downloaded.
         :param pulumi.Input[str] publisher: Publisher of the update package.
         :param pulumi.Input[str] release_link: Link to release notes for the update.
@@ -447,7 +452,7 @@ class Update(pulumi.CustomResource):
                  package_path: Optional[pulumi.Input[str]] = None,
                  package_size_in_mb: Optional[pulumi.Input[float]] = None,
                  package_type: Optional[pulumi.Input[str]] = None,
-                 prerequisites: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UpdatePrerequisiteArgs']]]]] = None,
+                 prerequisites: Optional[pulumi.Input[Sequence[pulumi.Input[Union['UpdatePrerequisiteArgs', 'UpdatePrerequisiteArgsDict']]]]] = None,
                  progress_percentage: Optional[pulumi.Input[float]] = None,
                  publisher: Optional[pulumi.Input[str]] = None,
                  release_link: Optional[pulumi.Input[str]] = None,

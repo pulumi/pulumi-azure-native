@@ -4,25 +4,54 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'AADAppArgs',
+    'AADAppArgsDict',
     'AdminCredentialsArgs',
+    'AdminCredentialsArgsDict',
     'BackupArgs',
+    'BackupArgsDict',
     'HighAvailabilityArgs',
+    'HighAvailabilityArgsDict',
     'IdentityArgs',
+    'IdentityArgsDict',
     'MaintenanceWindowArgs',
+    'MaintenanceWindowArgsDict',
     'MigrationResourceGroupArgs',
+    'MigrationResourceGroupArgsDict',
     'MigrationSecretParametersArgs',
+    'MigrationSecretParametersArgsDict',
     'NetworkArgs',
+    'NetworkArgsDict',
     'SkuArgs',
+    'SkuArgsDict',
     'StorageArgs',
+    'StorageArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AADAppArgsDict(TypedDict):
+        """
+        Azure active directory application.
+        """
+        aad_secret: pulumi.Input[str]
+        client_id: pulumi.Input[str]
+        tenant_id: pulumi.Input[str]
+elif False:
+    AADAppArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AADAppArgs:
@@ -65,6 +94,16 @@ class AADAppArgs:
         pulumi.set(self, "tenant_id", value)
 
 
+if not MYPY:
+    class AdminCredentialsArgsDict(TypedDict):
+        """
+        Server admin credentials.
+        """
+        source_server_password: pulumi.Input[str]
+        target_server_password: pulumi.Input[str]
+elif False:
+    AdminCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AdminCredentialsArgs:
     def __init__(__self__, *,
@@ -94,6 +133,22 @@ class AdminCredentialsArgs:
     def target_server_password(self, value: pulumi.Input[str]):
         pulumi.set(self, "target_server_password", value)
 
+
+if not MYPY:
+    class BackupArgsDict(TypedDict):
+        """
+        Backup properties of a server
+        """
+        backup_retention_days: NotRequired[pulumi.Input[int]]
+        """
+        Backup retention days for the server.
+        """
+        geo_redundant_backup: NotRequired[pulumi.Input[Union[str, 'GeoRedundantBackupEnum']]]
+        """
+        A value indicating whether Geo-Redundant backup is enabled on the server.
+        """
+elif False:
+    BackupArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class BackupArgs:
@@ -135,6 +190,22 @@ class BackupArgs:
         pulumi.set(self, "geo_redundant_backup", value)
 
 
+if not MYPY:
+    class HighAvailabilityArgsDict(TypedDict):
+        """
+        High availability properties of a server
+        """
+        mode: NotRequired[pulumi.Input[Union[str, 'HighAvailabilityMode']]]
+        """
+        The HA mode for the server.
+        """
+        standby_availability_zone: NotRequired[pulumi.Input[str]]
+        """
+        availability zone information of the standby.
+        """
+elif False:
+    HighAvailabilityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class HighAvailabilityArgs:
     def __init__(__self__, *,
@@ -175,6 +246,18 @@ class HighAvailabilityArgs:
         pulumi.set(self, "standby_availability_zone", value)
 
 
+if not MYPY:
+    class IdentityArgsDict(TypedDict):
+        """
+        Identity for the resource.
+        """
+        type: NotRequired[pulumi.Input['ResourceIdentityType']]
+        """
+        The identity type.
+        """
+elif False:
+    IdentityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IdentityArgs:
     def __init__(__self__, *,
@@ -198,6 +281,30 @@ class IdentityArgs:
     def type(self, value: Optional[pulumi.Input['ResourceIdentityType']]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class MaintenanceWindowArgsDict(TypedDict):
+        """
+        Maintenance window properties of a server.
+        """
+        custom_window: NotRequired[pulumi.Input[str]]
+        """
+        indicates whether custom window is enabled or disabled
+        """
+        day_of_week: NotRequired[pulumi.Input[int]]
+        """
+        day of week for maintenance window
+        """
+        start_hour: NotRequired[pulumi.Input[int]]
+        """
+        start hour for maintenance window
+        """
+        start_minute: NotRequired[pulumi.Input[int]]
+        """
+        start minute for maintenance window
+        """
+elif False:
+    MaintenanceWindowArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MaintenanceWindowArgs:
@@ -271,6 +378,16 @@ class MaintenanceWindowArgs:
         pulumi.set(self, "start_minute", value)
 
 
+if not MYPY:
+    class MigrationResourceGroupArgsDict(TypedDict):
+        """
+        Migration resource group.
+        """
+        resource_id: NotRequired[pulumi.Input[str]]
+        subnet_resource_id: NotRequired[pulumi.Input[str]]
+elif False:
+    MigrationResourceGroupArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MigrationResourceGroupArgs:
     def __init__(__self__, *,
@@ -302,6 +419,22 @@ class MigrationResourceGroupArgs:
     def subnet_resource_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "subnet_resource_id", value)
 
+
+if not MYPY:
+    class MigrationSecretParametersArgsDict(TypedDict):
+        """
+        Migration secret parameters.
+        """
+        aad_app: pulumi.Input['AADAppArgsDict']
+        """
+        Azure active directory application.
+        """
+        admin_credentials: pulumi.Input['AdminCredentialsArgsDict']
+        """
+        Server admin credentials.
+        """
+elif False:
+    MigrationSecretParametersArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MigrationSecretParametersArgs:
@@ -340,6 +473,22 @@ class MigrationSecretParametersArgs:
     def admin_credentials(self, value: pulumi.Input['AdminCredentialsArgs']):
         pulumi.set(self, "admin_credentials", value)
 
+
+if not MYPY:
+    class NetworkArgsDict(TypedDict):
+        """
+        Network properties of a server
+        """
+        delegated_subnet_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        delegated subnet arm resource id.
+        """
+        private_dns_zone_arm_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        private dns zone arm resource id.
+        """
+elif False:
+    NetworkArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NetworkArgs:
@@ -381,6 +530,22 @@ class NetworkArgs:
         pulumi.set(self, "private_dns_zone_arm_resource_id", value)
 
 
+if not MYPY:
+    class SkuArgsDict(TypedDict):
+        """
+        Sku information related properties of a server.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the sku, typically, tier + family + cores, e.g. Standard_D4s_v3.
+        """
+        tier: pulumi.Input[Union[str, 'SkuTier']]
+        """
+        The tier of the particular SKU, e.g. Burstable.
+        """
+elif False:
+    SkuArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SkuArgs:
     def __init__(__self__, *,
@@ -418,6 +583,18 @@ class SkuArgs:
     def tier(self, value: pulumi.Input[Union[str, 'SkuTier']]):
         pulumi.set(self, "tier", value)
 
+
+if not MYPY:
+    class StorageArgsDict(TypedDict):
+        """
+        Storage properties of a server
+        """
+        storage_size_gb: NotRequired[pulumi.Input[int]]
+        """
+        Max storage allowed for a server.
+        """
+elif False:
+    StorageArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class StorageArgs:

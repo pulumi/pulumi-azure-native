@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -300,22 +305,22 @@ class VirtualHub(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  address_prefix: Optional[pulumi.Input[str]] = None,
-                 azure_firewall: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
-                 express_route_gateway: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
+                 azure_firewall: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
+                 express_route_gateway: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 p2_s_vpn_gateway: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
+                 p2_s_vpn_gateway: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 route_table: Optional[pulumi.Input[pulumi.InputType['VirtualHubRouteTableArgs']]] = None,
-                 security_partner_provider: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
+                 route_table: Optional[pulumi.Input[Union['VirtualHubRouteTableArgs', 'VirtualHubRouteTableArgsDict']]] = None,
+                 security_partner_provider: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
                  security_provider_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_hub_name: Optional[pulumi.Input[str]] = None,
-                 virtual_hub_route_table_v2s: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualHubRouteTableV2Args']]]]] = None,
-                 virtual_network_connections: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HubVirtualNetworkConnectionArgs']]]]] = None,
-                 virtual_wan: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
-                 vpn_gateway: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
+                 virtual_hub_route_table_v2s: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VirtualHubRouteTableV2Args', 'VirtualHubRouteTableV2ArgsDict']]]]] = None,
+                 virtual_network_connections: Optional[pulumi.Input[Sequence[pulumi.Input[Union['HubVirtualNetworkConnectionArgs', 'HubVirtualNetworkConnectionArgsDict']]]]] = None,
+                 virtual_wan: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
+                 vpn_gateway: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
                  __props__=None):
         """
         VirtualHub Resource.
@@ -323,23 +328,23 @@ class VirtualHub(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] address_prefix: Address-prefix for this VirtualHub.
-        :param pulumi.Input[pulumi.InputType['SubResourceArgs']] azure_firewall: The azureFirewall associated with this VirtualHub.
-        :param pulumi.Input[pulumi.InputType['SubResourceArgs']] express_route_gateway: The expressRouteGateway associated with this VirtualHub.
+        :param pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']] azure_firewall: The azureFirewall associated with this VirtualHub.
+        :param pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']] express_route_gateway: The expressRouteGateway associated with this VirtualHub.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[pulumi.InputType['SubResourceArgs']] p2_s_vpn_gateway: The P2SVpnGateway associated with this VirtualHub.
+        :param pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']] p2_s_vpn_gateway: The P2SVpnGateway associated with this VirtualHub.
         :param pulumi.Input[str] resource_group_name: The resource group name of the VirtualHub.
-        :param pulumi.Input[pulumi.InputType['VirtualHubRouteTableArgs']] route_table: The routeTable associated with this virtual hub.
-        :param pulumi.Input[pulumi.InputType['SubResourceArgs']] security_partner_provider: The securityPartnerProvider associated with this VirtualHub.
+        :param pulumi.Input[Union['VirtualHubRouteTableArgs', 'VirtualHubRouteTableArgsDict']] route_table: The routeTable associated with this virtual hub.
+        :param pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']] security_partner_provider: The securityPartnerProvider associated with this VirtualHub.
         :param pulumi.Input[str] security_provider_name: The Security Provider name.
         :param pulumi.Input[str] sku: The sku of this VirtualHub.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] virtual_hub_name: The name of the VirtualHub.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualHubRouteTableV2Args']]]] virtual_hub_route_table_v2s: List of all virtual hub route table v2s associated with this VirtualHub.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['VirtualHubRouteTableV2Args', 'VirtualHubRouteTableV2ArgsDict']]]] virtual_hub_route_table_v2s: List of all virtual hub route table v2s associated with this VirtualHub.
                These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HubVirtualNetworkConnectionArgs']]]] virtual_network_connections: List of all vnet connections with this VirtualHub.
-        :param pulumi.Input[pulumi.InputType['SubResourceArgs']] virtual_wan: The VirtualWAN to which the VirtualHub belongs.
-        :param pulumi.Input[pulumi.InputType['SubResourceArgs']] vpn_gateway: The VpnGateway associated with this VirtualHub.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['HubVirtualNetworkConnectionArgs', 'HubVirtualNetworkConnectionArgsDict']]]] virtual_network_connections: List of all vnet connections with this VirtualHub.
+        :param pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']] virtual_wan: The VirtualWAN to which the VirtualHub belongs.
+        :param pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']] vpn_gateway: The VpnGateway associated with this VirtualHub.
         """
         ...
     @overload
@@ -366,22 +371,22 @@ class VirtualHub(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  address_prefix: Optional[pulumi.Input[str]] = None,
-                 azure_firewall: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
-                 express_route_gateway: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
+                 azure_firewall: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
+                 express_route_gateway: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 p2_s_vpn_gateway: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
+                 p2_s_vpn_gateway: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 route_table: Optional[pulumi.Input[pulumi.InputType['VirtualHubRouteTableArgs']]] = None,
-                 security_partner_provider: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
+                 route_table: Optional[pulumi.Input[Union['VirtualHubRouteTableArgs', 'VirtualHubRouteTableArgsDict']]] = None,
+                 security_partner_provider: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
                  security_provider_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_hub_name: Optional[pulumi.Input[str]] = None,
-                 virtual_hub_route_table_v2s: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualHubRouteTableV2Args']]]]] = None,
-                 virtual_network_connections: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HubVirtualNetworkConnectionArgs']]]]] = None,
-                 virtual_wan: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
-                 vpn_gateway: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
+                 virtual_hub_route_table_v2s: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VirtualHubRouteTableV2Args', 'VirtualHubRouteTableV2ArgsDict']]]]] = None,
+                 virtual_network_connections: Optional[pulumi.Input[Sequence[pulumi.Input[Union['HubVirtualNetworkConnectionArgs', 'HubVirtualNetworkConnectionArgsDict']]]]] = None,
+                 virtual_wan: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
+                 vpn_gateway: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -214,16 +219,16 @@ class VirtualmachineRetrieve(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
-                 hardware_profile: Optional[pulumi.Input[pulumi.InputType['VirtualmachinesPropertiesHardwareProfileArgs']]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 hardware_profile: Optional[pulumi.Input[Union['VirtualmachinesPropertiesHardwareProfileArgs', 'VirtualmachinesPropertiesHardwareProfileArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 network_profile: Optional[pulumi.Input[pulumi.InputType['VirtualmachinesPropertiesNetworkProfileArgs']]] = None,
-                 os_profile: Optional[pulumi.Input[pulumi.InputType['VirtualmachinesPropertiesOsProfileArgs']]] = None,
+                 network_profile: Optional[pulumi.Input[Union['VirtualmachinesPropertiesNetworkProfileArgs', 'VirtualmachinesPropertiesNetworkProfileArgsDict']]] = None,
+                 os_profile: Optional[pulumi.Input[Union['VirtualmachinesPropertiesOsProfileArgs', 'VirtualmachinesPropertiesOsProfileArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
-                 security_profile: Optional[pulumi.Input[pulumi.InputType['VirtualmachinesPropertiesSecurityProfileArgs']]] = None,
-                 storage_profile: Optional[pulumi.Input[pulumi.InputType['VirtualmachinesPropertiesStorageProfileArgs']]] = None,
+                 security_profile: Optional[pulumi.Input[Union['VirtualmachinesPropertiesSecurityProfileArgs', 'VirtualmachinesPropertiesSecurityProfileArgsDict']]] = None,
+                 storage_profile: Optional[pulumi.Input[Union['VirtualmachinesPropertiesStorageProfileArgs', 'VirtualmachinesPropertiesStorageProfileArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtualmachines_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -232,16 +237,16 @@ class VirtualmachineRetrieve(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: The extendedLocation of the resource.
-        :param pulumi.Input[pulumi.InputType['VirtualmachinesPropertiesHardwareProfileArgs']] hardware_profile: HardwareProfile - Specifies the hardware settings for the virtual machine.
-        :param pulumi.Input[pulumi.InputType['IdentityArgs']] identity: Identity for the resource.
+        :param pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']] extended_location: The extendedLocation of the resource.
+        :param pulumi.Input[Union['VirtualmachinesPropertiesHardwareProfileArgs', 'VirtualmachinesPropertiesHardwareProfileArgsDict']] hardware_profile: HardwareProfile - Specifies the hardware settings for the virtual machine.
+        :param pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']] identity: Identity for the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[pulumi.InputType['VirtualmachinesPropertiesNetworkProfileArgs']] network_profile: NetworkProfile - describes the network configuration the virtual machine
-        :param pulumi.Input[pulumi.InputType['VirtualmachinesPropertiesOsProfileArgs']] os_profile: OsProfile - describes the configuration of the operating system and sets login data
+        :param pulumi.Input[Union['VirtualmachinesPropertiesNetworkProfileArgs', 'VirtualmachinesPropertiesNetworkProfileArgsDict']] network_profile: NetworkProfile - describes the network configuration the virtual machine
+        :param pulumi.Input[Union['VirtualmachinesPropertiesOsProfileArgs', 'VirtualmachinesPropertiesOsProfileArgsDict']] os_profile: OsProfile - describes the configuration of the operating system and sets login data
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] resource_name_: name of the object to be used in moc
-        :param pulumi.Input[pulumi.InputType['VirtualmachinesPropertiesSecurityProfileArgs']] security_profile: SecurityProfile - Specifies the security settings for the virtual machine.
-        :param pulumi.Input[pulumi.InputType['VirtualmachinesPropertiesStorageProfileArgs']] storage_profile: StorageProfile - contains information about the disks and storage information for the virtual machine
+        :param pulumi.Input[Union['VirtualmachinesPropertiesSecurityProfileArgs', 'VirtualmachinesPropertiesSecurityProfileArgsDict']] security_profile: SecurityProfile - Specifies the security settings for the virtual machine.
+        :param pulumi.Input[Union['VirtualmachinesPropertiesStorageProfileArgs', 'VirtualmachinesPropertiesStorageProfileArgsDict']] storage_profile: StorageProfile - contains information about the disks and storage information for the virtual machine
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         ...
@@ -268,16 +273,16 @@ class VirtualmachineRetrieve(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
-                 hardware_profile: Optional[pulumi.Input[pulumi.InputType['VirtualmachinesPropertiesHardwareProfileArgs']]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 hardware_profile: Optional[pulumi.Input[Union['VirtualmachinesPropertiesHardwareProfileArgs', 'VirtualmachinesPropertiesHardwareProfileArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 network_profile: Optional[pulumi.Input[pulumi.InputType['VirtualmachinesPropertiesNetworkProfileArgs']]] = None,
-                 os_profile: Optional[pulumi.Input[pulumi.InputType['VirtualmachinesPropertiesOsProfileArgs']]] = None,
+                 network_profile: Optional[pulumi.Input[Union['VirtualmachinesPropertiesNetworkProfileArgs', 'VirtualmachinesPropertiesNetworkProfileArgsDict']]] = None,
+                 os_profile: Optional[pulumi.Input[Union['VirtualmachinesPropertiesOsProfileArgs', 'VirtualmachinesPropertiesOsProfileArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
-                 security_profile: Optional[pulumi.Input[pulumi.InputType['VirtualmachinesPropertiesSecurityProfileArgs']]] = None,
-                 storage_profile: Optional[pulumi.Input[pulumi.InputType['VirtualmachinesPropertiesStorageProfileArgs']]] = None,
+                 security_profile: Optional[pulumi.Input[Union['VirtualmachinesPropertiesSecurityProfileArgs', 'VirtualmachinesPropertiesSecurityProfileArgsDict']]] = None,
+                 storage_profile: Optional[pulumi.Input[Union['VirtualmachinesPropertiesStorageProfileArgs', 'VirtualmachinesPropertiesStorageProfileArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtualmachines_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):

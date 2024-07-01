@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -122,11 +127,11 @@ class JavaComponent(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  component_type: Optional[pulumi.Input[Union[str, 'JavaComponentType']]] = None,
-                 configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JavaComponentConfigurationPropertyArgs']]]]] = None,
+                 configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['JavaComponentConfigurationPropertyArgs', 'JavaComponentConfigurationPropertyArgsDict']]]]] = None,
                  environment_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 service_binds: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JavaComponentServiceBindArgs']]]]] = None,
+                 service_binds: Optional[pulumi.Input[Sequence[pulumi.Input[Union['JavaComponentServiceBindArgs', 'JavaComponentServiceBindArgsDict']]]]] = None,
                  __props__=None):
         """
         Java Component.
@@ -134,11 +139,11 @@ class JavaComponent(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[str, 'JavaComponentType']] component_type: Type of the Java Component.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JavaComponentConfigurationPropertyArgs']]]] configurations: List of Java Components configuration properties
+        :param pulumi.Input[Sequence[pulumi.Input[Union['JavaComponentConfigurationPropertyArgs', 'JavaComponentConfigurationPropertyArgsDict']]]] configurations: List of Java Components configuration properties
         :param pulumi.Input[str] environment_name: Name of the Managed Environment.
         :param pulumi.Input[str] name: Name of the Java Component.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JavaComponentServiceBindArgs']]]] service_binds: List of Java Components that are bound to the Java component
+        :param pulumi.Input[Sequence[pulumi.Input[Union['JavaComponentServiceBindArgs', 'JavaComponentServiceBindArgsDict']]]] service_binds: List of Java Components that are bound to the Java component
         """
         ...
     @overload
@@ -165,11 +170,11 @@ class JavaComponent(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  component_type: Optional[pulumi.Input[Union[str, 'JavaComponentType']]] = None,
-                 configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JavaComponentConfigurationPropertyArgs']]]]] = None,
+                 configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['JavaComponentConfigurationPropertyArgs', 'JavaComponentConfigurationPropertyArgsDict']]]]] = None,
                  environment_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 service_binds: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JavaComponentServiceBindArgs']]]]] = None,
+                 service_binds: Optional[pulumi.Input[Sequence[pulumi.Input[Union['JavaComponentServiceBindArgs', 'JavaComponentServiceBindArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

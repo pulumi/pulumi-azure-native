@@ -4,17 +4,43 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'ClusterSkuArgs',
+    'ClusterSkuArgsDict',
     'PrivateEndpointPropertiesArgs',
+    'PrivateEndpointPropertiesArgsDict',
     'PrivateLinkServiceConnectionArgs',
+    'PrivateLinkServiceConnectionArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ClusterSkuArgsDict(TypedDict):
+        """
+        The SKU of the cluster. This determines the size/capacity of the cluster. Required on PUT (CreateOrUpdate) requests.
+        """
+        capacity: NotRequired[pulumi.Input[int]]
+        """
+        Denotes the number of streaming units the cluster can support. Valid values for this property are multiples of 36 with a minimum value of 36 and maximum value of 216. Required on PUT (CreateOrUpdate) requests.
+        """
+        name: NotRequired[pulumi.Input[Union[str, 'ClusterSkuName']]]
+        """
+        Specifies the SKU name of the cluster. Required on PUT (CreateOrUpdate) requests.
+        """
+elif False:
+    ClusterSkuArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ClusterSkuArgs:
@@ -56,6 +82,18 @@ class ClusterSkuArgs:
         pulumi.set(self, "name", value)
 
 
+if not MYPY:
+    class PrivateEndpointPropertiesArgsDict(TypedDict):
+        """
+        The properties associated with a private endpoint.
+        """
+        manual_private_link_service_connections: NotRequired[pulumi.Input[Sequence[pulumi.Input['PrivateLinkServiceConnectionArgsDict']]]]
+        """
+        A list of connections to the remote resource. Immutable after it is set.
+        """
+elif False:
+    PrivateEndpointPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PrivateEndpointPropertiesArgs:
     def __init__(__self__, *,
@@ -79,6 +117,22 @@ class PrivateEndpointPropertiesArgs:
     def manual_private_link_service_connections(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateLinkServiceConnectionArgs']]]]):
         pulumi.set(self, "manual_private_link_service_connections", value)
 
+
+if not MYPY:
+    class PrivateLinkServiceConnectionArgsDict(TypedDict):
+        """
+        A grouping of information about the connection to the remote resource.
+        """
+        group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The ID(s) of the group(s) obtained from the remote resource that this private endpoint should connect to. Required on PUT (CreateOrUpdate) requests.
+        """
+        private_link_service_id: NotRequired[pulumi.Input[str]]
+        """
+        The resource id of the private link service. Required on PUT (CreateOrUpdate) requests.
+        """
+elif False:
+    PrivateLinkServiceConnectionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PrivateLinkServiceConnectionArgs:

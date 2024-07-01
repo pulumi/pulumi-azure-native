@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -155,7 +160,7 @@ class NetworkTap(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  annotation: Optional[pulumi.Input[str]] = None,
-                 destinations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkTapPropertiesDestinationsArgs']]]]] = None,
+                 destinations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkTapPropertiesDestinationsArgs', 'NetworkTapPropertiesDestinationsArgsDict']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  network_packet_broker_id: Optional[pulumi.Input[str]] = None,
                  network_tap_name: Optional[pulumi.Input[str]] = None,
@@ -169,7 +174,7 @@ class NetworkTap(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] annotation: Switch configuration description.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkTapPropertiesDestinationsArgs']]]] destinations: List of destinations to send the filter traffic.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkTapPropertiesDestinationsArgs', 'NetworkTapPropertiesDestinationsArgsDict']]]] destinations: List of destinations to send the filter traffic.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] network_packet_broker_id: ARM resource ID of the Network Packet Broker.
         :param pulumi.Input[str] network_tap_name: Name of the Network Tap.
@@ -202,7 +207,7 @@ class NetworkTap(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  annotation: Optional[pulumi.Input[str]] = None,
-                 destinations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkTapPropertiesDestinationsArgs']]]]] = None,
+                 destinations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkTapPropertiesDestinationsArgs', 'NetworkTapPropertiesDestinationsArgsDict']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  network_packet_broker_id: Optional[pulumi.Input[str]] = None,
                  network_tap_name: Optional[pulumi.Input[str]] = None,

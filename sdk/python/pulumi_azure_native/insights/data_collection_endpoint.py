@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -172,11 +177,11 @@ class DataCollectionEndpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_collection_endpoint_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['DataCollectionEndpointResourceIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['DataCollectionEndpointResourceIdentityArgs', 'DataCollectionEndpointResourceIdentityArgsDict']]] = None,
                  immutable_id: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[Union[str, 'KnownDataCollectionEndpointResourceKind']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 network_acls: Optional[pulumi.Input[pulumi.InputType['DataCollectionEndpointNetworkAclsArgs']]] = None,
+                 network_acls: Optional[pulumi.Input[Union['DataCollectionEndpointNetworkAclsArgs', 'DataCollectionEndpointNetworkAclsArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -190,11 +195,11 @@ class DataCollectionEndpoint(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] data_collection_endpoint_name: The name of the data collection endpoint. The name is case insensitive.
         :param pulumi.Input[str] description: Description of the data collection endpoint.
-        :param pulumi.Input[pulumi.InputType['DataCollectionEndpointResourceIdentityArgs']] identity: Managed service identity of the resource.
+        :param pulumi.Input[Union['DataCollectionEndpointResourceIdentityArgs', 'DataCollectionEndpointResourceIdentityArgsDict']] identity: Managed service identity of the resource.
         :param pulumi.Input[str] immutable_id: The immutable ID of this data collection endpoint resource. This property is READ-ONLY.
         :param pulumi.Input[Union[str, 'KnownDataCollectionEndpointResourceKind']] kind: The kind of the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives.
-        :param pulumi.Input[pulumi.InputType['DataCollectionEndpointNetworkAclsArgs']] network_acls: Network access control rules for the endpoints.
+        :param pulumi.Input[Union['DataCollectionEndpointNetworkAclsArgs', 'DataCollectionEndpointNetworkAclsArgsDict']] network_acls: Network access control rules for the endpoints.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -227,11 +232,11 @@ class DataCollectionEndpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_collection_endpoint_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['DataCollectionEndpointResourceIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['DataCollectionEndpointResourceIdentityArgs', 'DataCollectionEndpointResourceIdentityArgsDict']]] = None,
                  immutable_id: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[Union[str, 'KnownDataCollectionEndpointResourceKind']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 network_acls: Optional[pulumi.Input[pulumi.InputType['DataCollectionEndpointNetworkAclsArgs']]] = None,
+                 network_acls: Optional[pulumi.Input[Union['DataCollectionEndpointNetworkAclsArgs', 'DataCollectionEndpointNetworkAclsArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):

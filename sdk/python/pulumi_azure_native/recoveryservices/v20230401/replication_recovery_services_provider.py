@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -103,7 +108,7 @@ class ReplicationRecoveryServicesProvider(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  fabric_name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['AddRecoveryServicesProviderInputPropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['AddRecoveryServicesProviderInputPropertiesArgs', 'AddRecoveryServicesProviderInputPropertiesArgsDict']]] = None,
                  provider_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
@@ -114,7 +119,7 @@ class ReplicationRecoveryServicesProvider(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] fabric_name: Fabric name.
-        :param pulumi.Input[pulumi.InputType['AddRecoveryServicesProviderInputPropertiesArgs']] properties: The properties of an add provider request.
+        :param pulumi.Input[Union['AddRecoveryServicesProviderInputPropertiesArgs', 'AddRecoveryServicesProviderInputPropertiesArgsDict']] properties: The properties of an add provider request.
         :param pulumi.Input[str] provider_name: Recovery services provider name.
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the recovery services vault is present.
         :param pulumi.Input[str] resource_name_: The name of the recovery services vault.
@@ -144,7 +149,7 @@ class ReplicationRecoveryServicesProvider(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  fabric_name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['AddRecoveryServicesProviderInputPropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['AddRecoveryServicesProviderInputPropertiesArgs', 'AddRecoveryServicesProviderInputPropertiesArgsDict']]] = None,
                  provider_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,

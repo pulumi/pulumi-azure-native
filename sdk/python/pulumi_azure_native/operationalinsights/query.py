@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -172,7 +177,7 @@ class Query(pulumi.CustomResource):
                  id: Optional[pulumi.Input[str]] = None,
                  properties: Optional[Any] = None,
                  query_pack_name: Optional[pulumi.Input[str]] = None,
-                 related: Optional[pulumi.Input[pulumi.InputType['LogAnalyticsQueryPackQueryPropertiesRelatedArgs']]] = None,
+                 related: Optional[pulumi.Input[Union['LogAnalyticsQueryPackQueryPropertiesRelatedArgs', 'LogAnalyticsQueryPackQueryPropertiesRelatedArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[str]]]]]] = None,
                  __props__=None):
@@ -190,7 +195,7 @@ class Query(pulumi.CustomResource):
         :param pulumi.Input[str] id: The id of a specific query defined in the Log Analytics QueryPack
         :param Any properties: Additional properties that can be set for the query.
         :param pulumi.Input[str] query_pack_name: The name of the Log Analytics QueryPack resource.
-        :param pulumi.Input[pulumi.InputType['LogAnalyticsQueryPackQueryPropertiesRelatedArgs']] related: The related metadata items for the function.
+        :param pulumi.Input[Union['LogAnalyticsQueryPackQueryPropertiesRelatedArgs', 'LogAnalyticsQueryPackQueryPropertiesRelatedArgsDict']] related: The related metadata items for the function.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[str]]]]] tags: Tags associated with the query.
         """
@@ -227,7 +232,7 @@ class Query(pulumi.CustomResource):
                  id: Optional[pulumi.Input[str]] = None,
                  properties: Optional[Any] = None,
                  query_pack_name: Optional[pulumi.Input[str]] = None,
-                 related: Optional[pulumi.Input[pulumi.InputType['LogAnalyticsQueryPackQueryPropertiesRelatedArgs']]] = None,
+                 related: Optional[pulumi.Input[Union['LogAnalyticsQueryPackQueryPropertiesRelatedArgs', 'LogAnalyticsQueryPackQueryPropertiesRelatedArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[str]]]]]] = None,
                  __props__=None):

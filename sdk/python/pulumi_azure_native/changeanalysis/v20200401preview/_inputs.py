@@ -4,18 +4,49 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'AzureMonitorWorkspacePropertiesArgs',
+    'AzureMonitorWorkspacePropertiesArgsDict',
     'ConfigurationProfileResourcePropertiesArgs',
+    'ConfigurationProfileResourcePropertiesArgsDict',
     'NotificationSettingsArgs',
+    'NotificationSettingsArgsDict',
     'ResourceIdentityArgs',
+    'ResourceIdentityArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AzureMonitorWorkspacePropertiesArgsDict(TypedDict):
+        """
+        Configuration properties of an Azure Monitor workspace that receives change notifications.
+        """
+        include_change_details: NotRequired[pulumi.Input[Union[str, 'ChangeDetailsMode']]]
+        """
+        The mode of includeChangeDetails feature. The flag configures whether to include or exclude content of the change before and after values.
+        """
+        workspace_id: NotRequired[pulumi.Input[str]]
+        """
+        The Azure Monitor workspace ID - the unique identifier for the Log Analytics workspace.
+        """
+        workspace_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        The Azure Monitor workspace ARM Resource ID. The resource ID should be in the following format: /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}
+        """
+elif False:
+    AzureMonitorWorkspacePropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AzureMonitorWorkspacePropertiesArgs:
@@ -73,6 +104,18 @@ class AzureMonitorWorkspacePropertiesArgs:
         pulumi.set(self, "workspace_resource_id", value)
 
 
+if not MYPY:
+    class ConfigurationProfileResourcePropertiesArgsDict(TypedDict):
+        """
+        The properties of a configuration profile.
+        """
+        notifications: NotRequired[pulumi.Input['NotificationSettingsArgsDict']]
+        """
+        Settings of change notification configuration for a subscription.
+        """
+elif False:
+    ConfigurationProfileResourcePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ConfigurationProfileResourcePropertiesArgs:
     def __init__(__self__, *,
@@ -96,6 +139,22 @@ class ConfigurationProfileResourcePropertiesArgs:
     def notifications(self, value: Optional[pulumi.Input['NotificationSettingsArgs']]):
         pulumi.set(self, "notifications", value)
 
+
+if not MYPY:
+    class NotificationSettingsArgsDict(TypedDict):
+        """
+        Settings of change notification configuration for a subscription.
+        """
+        activation_state: NotRequired[pulumi.Input[Union[str, 'NotificationsState']]]
+        """
+        The state of notifications feature.
+        """
+        azure_monitor_workspace_properties: NotRequired[pulumi.Input['AzureMonitorWorkspacePropertiesArgsDict']]
+        """
+        Configuration properties of an Azure Monitor workspace that receives change notifications.
+        """
+elif False:
+    NotificationSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NotificationSettingsArgs:
@@ -136,6 +195,18 @@ class NotificationSettingsArgs:
     def azure_monitor_workspace_properties(self, value: Optional[pulumi.Input['AzureMonitorWorkspacePropertiesArgs']]):
         pulumi.set(self, "azure_monitor_workspace_properties", value)
 
+
+if not MYPY:
+    class ResourceIdentityArgsDict(TypedDict):
+        """
+        The identity block returned by ARM resource that supports managed identity.
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'ManagedIdentityTypes']]]
+        """
+        The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
+        """
+elif False:
+    ResourceIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ResourceIdentityArgs:

@@ -4,15 +4,44 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 
 __all__ = [
     'ConnectionMonitorDestinationArgs',
+    'ConnectionMonitorDestinationArgsDict',
     'ConnectionMonitorSourceArgs',
+    'ConnectionMonitorSourceArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ConnectionMonitorDestinationArgsDict(TypedDict):
+        """
+        Describes the destination of connection monitor.
+        """
+        address: NotRequired[pulumi.Input[str]]
+        """
+        Address of the connection monitor destination (IP or domain name).
+        """
+        port: NotRequired[pulumi.Input[int]]
+        """
+        The destination port used by connection monitor.
+        """
+        resource_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the resource used as the destination by connection monitor.
+        """
+elif False:
+    ConnectionMonitorDestinationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ConnectionMonitorDestinationArgs:
@@ -69,6 +98,22 @@ class ConnectionMonitorDestinationArgs:
     def resource_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "resource_id", value)
 
+
+if not MYPY:
+    class ConnectionMonitorSourceArgsDict(TypedDict):
+        """
+        Describes the source of connection monitor.
+        """
+        resource_id: pulumi.Input[str]
+        """
+        The ID of the resource used as the source by connection monitor.
+        """
+        port: NotRequired[pulumi.Input[int]]
+        """
+        The source port used by connection monitor.
+        """
+elif False:
+    ConnectionMonitorSourceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ConnectionMonitorSourceArgs:

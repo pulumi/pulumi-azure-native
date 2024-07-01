@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -144,7 +149,7 @@ class SqlVirtualMachineGroup(pulumi.CustomResource):
                  sql_image_sku: Optional[pulumi.Input[Union[str, 'SqlVmGroupImageSku']]] = None,
                  sql_virtual_machine_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 wsfc_domain_profile: Optional[pulumi.Input[pulumi.InputType['WsfcDomainProfileArgs']]] = None,
+                 wsfc_domain_profile: Optional[pulumi.Input[Union['WsfcDomainProfileArgs', 'WsfcDomainProfileArgsDict']]] = None,
                  __props__=None):
         """
         A SQL virtual machine group.
@@ -160,7 +165,7 @@ class SqlVirtualMachineGroup(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'SqlVmGroupImageSku']] sql_image_sku: SQL image sku.
         :param pulumi.Input[str] sql_virtual_machine_group_name: Name of the SQL virtual machine group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[pulumi.InputType['WsfcDomainProfileArgs']] wsfc_domain_profile: Cluster Active Directory domain profile.
+        :param pulumi.Input[Union['WsfcDomainProfileArgs', 'WsfcDomainProfileArgsDict']] wsfc_domain_profile: Cluster Active Directory domain profile.
         """
         ...
     @overload
@@ -195,7 +200,7 @@ class SqlVirtualMachineGroup(pulumi.CustomResource):
                  sql_image_sku: Optional[pulumi.Input[Union[str, 'SqlVmGroupImageSku']]] = None,
                  sql_virtual_machine_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 wsfc_domain_profile: Optional[pulumi.Input[pulumi.InputType['WsfcDomainProfileArgs']]] = None,
+                 wsfc_domain_profile: Optional[pulumi.Input[Union['WsfcDomainProfileArgs', 'WsfcDomainProfileArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

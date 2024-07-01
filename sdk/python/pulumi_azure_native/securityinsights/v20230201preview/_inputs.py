@@ -4,21 +4,47 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'IncidentLabelArgs',
+    'IncidentLabelArgsDict',
     'IncidentOwnerInfoArgs',
+    'IncidentOwnerInfoArgsDict',
     'MetadataAuthorArgs',
+    'MetadataAuthorArgsDict',
     'MetadataCategoriesArgs',
+    'MetadataCategoriesArgsDict',
     'MetadataDependenciesArgs',
+    'MetadataDependenciesArgsDict',
     'MetadataSourceArgs',
+    'MetadataSourceArgsDict',
     'MetadataSupportArgs',
+    'MetadataSupportArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class IncidentLabelArgsDict(TypedDict):
+        """
+        Represents an incident label
+        """
+        label_name: pulumi.Input[str]
+        """
+        The name of the label
+        """
+elif False:
+    IncidentLabelArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IncidentLabelArgs:
@@ -42,6 +68,34 @@ class IncidentLabelArgs:
     def label_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "label_name", value)
 
+
+if not MYPY:
+    class IncidentOwnerInfoArgsDict(TypedDict):
+        """
+        Information on the user an incident is assigned to
+        """
+        assigned_to: NotRequired[pulumi.Input[str]]
+        """
+        The name of the user the incident is assigned to.
+        """
+        email: NotRequired[pulumi.Input[str]]
+        """
+        The email of the user the incident is assigned to.
+        """
+        object_id: NotRequired[pulumi.Input[str]]
+        """
+        The object id of the user the incident is assigned to.
+        """
+        owner_type: NotRequired[pulumi.Input[Union[str, 'OwnerType']]]
+        """
+        The type of the owner the incident is assigned to.
+        """
+        user_principal_name: NotRequired[pulumi.Input[str]]
+        """
+        The user principal name of the user the incident is assigned to.
+        """
+elif False:
+    IncidentOwnerInfoArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IncidentOwnerInfoArgs:
@@ -131,6 +185,26 @@ class IncidentOwnerInfoArgs:
         pulumi.set(self, "user_principal_name", value)
 
 
+if not MYPY:
+    class MetadataAuthorArgsDict(TypedDict):
+        """
+        Publisher or creator of the content item.
+        """
+        email: NotRequired[pulumi.Input[str]]
+        """
+        Email of author contact
+        """
+        link: NotRequired[pulumi.Input[str]]
+        """
+        Link for author/vendor page
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the author. Company or person.
+        """
+elif False:
+    MetadataAuthorArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MetadataAuthorArgs:
     def __init__(__self__, *,
@@ -187,6 +261,22 @@ class MetadataAuthorArgs:
         pulumi.set(self, "name", value)
 
 
+if not MYPY:
+    class MetadataCategoriesArgsDict(TypedDict):
+        """
+        ies for the solution content item
+        """
+        domains: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        domain for the solution content item
+        """
+        verticals: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Industry verticals for the solution content item
+        """
+elif False:
+    MetadataCategoriesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MetadataCategoriesArgs:
     def __init__(__self__, *,
@@ -226,6 +316,38 @@ class MetadataCategoriesArgs:
     def verticals(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "verticals", value)
 
+
+if not MYPY:
+    class MetadataDependenciesArgsDict(TypedDict):
+        """
+        Dependencies for the content item, what other content items it requires to work.  Can describe more complex dependencies using a recursive/nested structure. For a single dependency an id/kind/version can be supplied or operator/criteria for complex dependencies.
+        """
+        content_id: NotRequired[pulumi.Input[str]]
+        """
+        Id of the content item we depend on
+        """
+        criteria: NotRequired[pulumi.Input[Sequence[pulumi.Input['MetadataDependenciesArgsDict']]]]
+        """
+        This is the list of dependencies we must fulfill, according to the AND/OR operator
+        """
+        kind: NotRequired[pulumi.Input[Union[str, 'Kind']]]
+        """
+        Type of the content item we depend on
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the content item
+        """
+        operator: NotRequired[pulumi.Input[Union[str, 'Operator']]]
+        """
+        Operator used for list of dependencies in criteria array.
+        """
+        version: NotRequired[pulumi.Input[str]]
+        """
+        Version of the the content item we depend on.  Can be blank, * or missing to indicate any version fulfills the dependency.  If version does not match our defined numeric format then an exact match is required.
+        """
+elif False:
+    MetadataDependenciesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MetadataDependenciesArgs:
@@ -331,6 +453,26 @@ class MetadataDependenciesArgs:
         pulumi.set(self, "version", value)
 
 
+if not MYPY:
+    class MetadataSourceArgsDict(TypedDict):
+        """
+        The original source of the content item, where it comes from.
+        """
+        kind: pulumi.Input[Union[str, 'SourceKind']]
+        """
+        Source type of the content
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the content source.  The repo name, solution name, LA workspace name etc.
+        """
+        source_id: NotRequired[pulumi.Input[str]]
+        """
+        ID of the content source.  The solution ID, workspace ID, etc
+        """
+elif False:
+    MetadataSourceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MetadataSourceArgs:
     def __init__(__self__, *,
@@ -385,6 +527,30 @@ class MetadataSourceArgs:
     def source_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "source_id", value)
 
+
+if not MYPY:
+    class MetadataSupportArgsDict(TypedDict):
+        """
+        Support information for the content item.
+        """
+        tier: pulumi.Input[Union[str, 'SupportTier']]
+        """
+        Type of support for content item
+        """
+        email: NotRequired[pulumi.Input[str]]
+        """
+        Email of support contact
+        """
+        link: NotRequired[pulumi.Input[str]]
+        """
+        Link for support help, like to support page to open a ticket etc.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the support contact. Company or person.
+        """
+elif False:
+    MetadataSupportArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MetadataSupportArgs:

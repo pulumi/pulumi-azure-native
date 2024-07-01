@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -361,7 +366,7 @@ class Endpoint(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  always_serve: Optional[pulumi.Input[Union[str, 'AlwaysServe']]] = None,
-                 custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointPropertiesCustomHeadersArgs']]]]] = None,
+                 custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EndpointPropertiesCustomHeadersArgs', 'EndpointPropertiesCustomHeadersArgsDict']]]]] = None,
                  endpoint_location: Optional[pulumi.Input[str]] = None,
                  endpoint_monitor_status: Optional[pulumi.Input[Union[str, 'EndpointMonitorStatus']]] = None,
                  endpoint_name: Optional[pulumi.Input[str]] = None,
@@ -376,7 +381,7 @@ class Endpoint(pulumi.CustomResource):
                  priority: Optional[pulumi.Input[float]] = None,
                  profile_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 subnets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointPropertiesSubnetsArgs']]]]] = None,
+                 subnets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EndpointPropertiesSubnetsArgs', 'EndpointPropertiesSubnetsArgsDict']]]]] = None,
                  target: Optional[pulumi.Input[str]] = None,
                  target_resource_id: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
@@ -388,7 +393,7 @@ class Endpoint(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[str, 'AlwaysServe']] always_serve: If Always Serve is enabled, probing for endpoint health will be disabled and endpoints will be included in the traffic routing method.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointPropertiesCustomHeadersArgs']]]] custom_headers: List of custom headers.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointPropertiesCustomHeadersArgs', 'EndpointPropertiesCustomHeadersArgsDict']]]] custom_headers: List of custom headers.
         :param pulumi.Input[str] endpoint_location: Specifies the location of the external or nested endpoints when using the 'Performance' traffic routing method.
         :param pulumi.Input[Union[str, 'EndpointMonitorStatus']] endpoint_monitor_status: The monitoring status of the endpoint.
         :param pulumi.Input[str] endpoint_name: The name of the Traffic Manager endpoint to be created or updated.
@@ -403,7 +408,7 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[float] priority: The priority of this endpoint when using the 'Priority' traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
         :param pulumi.Input[str] profile_name: The name of the Traffic Manager profile.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointPropertiesSubnetsArgs']]]] subnets: The list of subnets, IP addresses, and/or address ranges mapped to this endpoint when using the 'Subnet' traffic routing method. An empty list will match all ranges not covered by other endpoints.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointPropertiesSubnetsArgs', 'EndpointPropertiesSubnetsArgsDict']]]] subnets: The list of subnets, IP addresses, and/or address ranges mapped to this endpoint when using the 'Subnet' traffic routing method. An empty list will match all ranges not covered by other endpoints.
         :param pulumi.Input[str] target: The fully-qualified DNS name or IP address of the endpoint. Traffic Manager returns this value in DNS responses to direct traffic to this endpoint.
         :param pulumi.Input[str] target_resource_id: The Azure Resource URI of the of the endpoint. Not applicable to endpoints of type 'ExternalEndpoints'.
         :param pulumi.Input[str] type: The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
@@ -434,7 +439,7 @@ class Endpoint(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  always_serve: Optional[pulumi.Input[Union[str, 'AlwaysServe']]] = None,
-                 custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointPropertiesCustomHeadersArgs']]]]] = None,
+                 custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EndpointPropertiesCustomHeadersArgs', 'EndpointPropertiesCustomHeadersArgsDict']]]]] = None,
                  endpoint_location: Optional[pulumi.Input[str]] = None,
                  endpoint_monitor_status: Optional[pulumi.Input[Union[str, 'EndpointMonitorStatus']]] = None,
                  endpoint_name: Optional[pulumi.Input[str]] = None,
@@ -449,7 +454,7 @@ class Endpoint(pulumi.CustomResource):
                  priority: Optional[pulumi.Input[float]] = None,
                  profile_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 subnets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointPropertiesSubnetsArgs']]]]] = None,
+                 subnets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EndpointPropertiesSubnetsArgs', 'EndpointPropertiesSubnetsArgsDict']]]]] = None,
                  target: Optional[pulumi.Input[str]] = None,
                  target_resource_id: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,

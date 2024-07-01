@@ -4,18 +4,45 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'CredentialsArgs',
+    'CredentialsArgsDict',
     'IdentityArgs',
+    'IdentityArgsDict',
     'PrivateEndpointArgs',
+    'PrivateEndpointArgsDict',
     'PrivateLinkServiceConnectionStateArgs',
+    'PrivateLinkServiceConnectionStateArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class CredentialsArgsDict(TypedDict):
+        """
+        Credentials to access the event streaming service attached to the purview account.
+        """
+        identity_id: NotRequired[pulumi.Input[str]]
+        """
+        Identity identifier for UserAssign type.
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'CredentialsType']]]
+        """
+        Identity Type.
+        """
+elif False:
+    CredentialsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CredentialsArgs:
@@ -57,6 +84,22 @@ class CredentialsArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class IdentityArgsDict(TypedDict):
+        """
+        The Managed Identity of the resource
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'Type']]]
+        """
+        Identity Type
+        """
+        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        User Assigned Identities
+        """
+elif False:
+    IdentityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IdentityArgs:
     def __init__(__self__, *,
@@ -97,6 +140,18 @@ class IdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
+if not MYPY:
+    class PrivateEndpointArgsDict(TypedDict):
+        """
+        A private endpoint class.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The private endpoint identifier.
+        """
+elif False:
+    PrivateEndpointArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PrivateEndpointArgs:
     def __init__(__self__, *,
@@ -120,6 +175,26 @@ class PrivateEndpointArgs:
     def id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
+        """
+        The private link service connection state.
+        """
+        actions_required: NotRequired[pulumi.Input[str]]
+        """
+        The required actions.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The description.
+        """
+        status: NotRequired[pulumi.Input[Union[str, 'Status']]]
+        """
+        The status.
+        """
+elif False:
+    PrivateLinkServiceConnectionStateArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:

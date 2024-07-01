@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -103,7 +108,7 @@ class Secret(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['SecretPropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['SecretPropertiesArgs', 'SecretPropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  secret_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -117,7 +122,7 @@ class Secret(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['SecretPropertiesArgs']] properties: Properties of the secret
+        :param pulumi.Input[Union['SecretPropertiesArgs', 'SecretPropertiesArgsDict']] properties: Properties of the secret
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group to which the vault belongs.
         :param pulumi.Input[str] secret_name: Name of the secret. The value you provide may be copied globally for the purpose of running the service. The value provided should not include personally identifiable or sensitive information.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags that will be assigned to the secret. 
@@ -150,7 +155,7 @@ class Secret(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['SecretPropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['SecretPropertiesArgs', 'SecretPropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  secret_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,

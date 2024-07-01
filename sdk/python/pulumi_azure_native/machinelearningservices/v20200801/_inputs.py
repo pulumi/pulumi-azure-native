@@ -4,19 +4,44 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'EncryptionPropertyArgs',
+    'EncryptionPropertyArgsDict',
     'IdentityArgs',
+    'IdentityArgsDict',
     'KeyVaultPropertiesArgs',
+    'KeyVaultPropertiesArgsDict',
     'SharedPrivateLinkResourceArgs',
+    'SharedPrivateLinkResourceArgsDict',
     'SkuArgs',
+    'SkuArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class EncryptionPropertyArgsDict(TypedDict):
+        key_vault_properties: pulumi.Input['KeyVaultPropertiesArgsDict']
+        """
+        Customer Key vault properties.
+        """
+        status: pulumi.Input[Union[str, 'EncryptionStatus']]
+        """
+        Indicates whether or not the encryption is enabled for the workspace.
+        """
+elif False:
+    EncryptionPropertyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EncryptionPropertyArgs:
@@ -54,6 +79,22 @@ class EncryptionPropertyArgs:
     def status(self, value: pulumi.Input[Union[str, 'EncryptionStatus']]):
         pulumi.set(self, "status", value)
 
+
+if not MYPY:
+    class IdentityArgsDict(TypedDict):
+        """
+        Identity for the resource.
+        """
+        type: pulumi.Input['ResourceIdentityType']
+        """
+        The identity type.
+        """
+        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of user identities associated with resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+elif False:
+    IdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IdentityArgs:
@@ -93,6 +134,23 @@ class IdentityArgs:
     def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
+
+if not MYPY:
+    class KeyVaultPropertiesArgsDict(TypedDict):
+        key_identifier: pulumi.Input[str]
+        """
+        Key vault uri to access the encryption key.
+        """
+        key_vault_arm_id: pulumi.Input[str]
+        """
+        The ArmId of the keyVault where the customer owned encryption key is present.
+        """
+        identity_client_id: NotRequired[pulumi.Input[str]]
+        """
+        For future use - The client id of the identity which will be used to access key vault.
+        """
+elif False:
+    KeyVaultPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class KeyVaultPropertiesArgs:
@@ -146,6 +204,31 @@ class KeyVaultPropertiesArgs:
     def identity_client_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "identity_client_id", value)
 
+
+if not MYPY:
+    class SharedPrivateLinkResourceArgsDict(TypedDict):
+        group_id: NotRequired[pulumi.Input[str]]
+        """
+        The private link resource group id.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Unique name of the private link.
+        """
+        private_link_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        The resource id that private link links to.
+        """
+        request_message: NotRequired[pulumi.Input[str]]
+        """
+        Request message.
+        """
+        status: NotRequired[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]]
+        """
+        Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+        """
+elif False:
+    SharedPrivateLinkResourceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SharedPrivateLinkResourceArgs:
@@ -233,6 +316,22 @@ class SharedPrivateLinkResourceArgs:
     def status(self, value: Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]]):
         pulumi.set(self, "status", value)
 
+
+if not MYPY:
+    class SkuArgsDict(TypedDict):
+        """
+        Sku of the resource
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the sku
+        """
+        tier: NotRequired[pulumi.Input[str]]
+        """
+        Tier of the sku like Basic or Enterprise
+        """
+elif False:
+    SkuArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SkuArgs:

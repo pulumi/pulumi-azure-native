@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -239,10 +244,10 @@ class Cluster(pulumi.CustomResource):
                  aad_tenant_id: Optional[pulumi.Input[str]] = None,
                  cloud_management_endpoint: Optional[pulumi.Input[str]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
-                 desired_properties: Optional[pulumi.Input[pulumi.InputType['ClusterDesiredPropertiesArgs']]] = None,
+                 desired_properties: Optional[pulumi.Input[Union['ClusterDesiredPropertiesArgs', 'ClusterDesiredPropertiesArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 software_assurance_properties: Optional[pulumi.Input[pulumi.InputType['SoftwareAssurancePropertiesArgs']]] = None,
+                 software_assurance_properties: Optional[pulumi.Input[Union['SoftwareAssurancePropertiesArgs', 'SoftwareAssurancePropertiesArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[Union[str, 'ManagedServiceIdentityType']]] = None,
                  user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -258,10 +263,10 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] aad_tenant_id: Tenant id of cluster AAD identity.
         :param pulumi.Input[str] cloud_management_endpoint: Endpoint configured for management from the Azure portal.
         :param pulumi.Input[str] cluster_name: The name of the cluster.
-        :param pulumi.Input[pulumi.InputType['ClusterDesiredPropertiesArgs']] desired_properties: Desired properties of the cluster.
+        :param pulumi.Input[Union['ClusterDesiredPropertiesArgs', 'ClusterDesiredPropertiesArgsDict']] desired_properties: Desired properties of the cluster.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[pulumi.InputType['SoftwareAssurancePropertiesArgs']] software_assurance_properties: Software Assurance properties of the cluster.
+        :param pulumi.Input[Union['SoftwareAssurancePropertiesArgs', 'SoftwareAssurancePropertiesArgsDict']] software_assurance_properties: Software Assurance properties of the cluster.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[Union[str, 'ManagedServiceIdentityType']] type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
@@ -296,10 +301,10 @@ class Cluster(pulumi.CustomResource):
                  aad_tenant_id: Optional[pulumi.Input[str]] = None,
                  cloud_management_endpoint: Optional[pulumi.Input[str]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
-                 desired_properties: Optional[pulumi.Input[pulumi.InputType['ClusterDesiredPropertiesArgs']]] = None,
+                 desired_properties: Optional[pulumi.Input[Union['ClusterDesiredPropertiesArgs', 'ClusterDesiredPropertiesArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 software_assurance_properties: Optional[pulumi.Input[pulumi.InputType['SoftwareAssurancePropertiesArgs']]] = None,
+                 software_assurance_properties: Optional[pulumi.Input[Union['SoftwareAssurancePropertiesArgs', 'SoftwareAssurancePropertiesArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[Union[str, 'ManagedServiceIdentityType']]] = None,
                  user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,

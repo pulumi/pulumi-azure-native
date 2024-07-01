@@ -4,16 +4,41 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'ClusterDesiredPropertiesArgs',
+    'ClusterDesiredPropertiesArgsDict',
     'SoftwareAssurancePropertiesArgs',
+    'SoftwareAssurancePropertiesArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ClusterDesiredPropertiesArgsDict(TypedDict):
+        """
+        Desired properties of the cluster.
+        """
+        diagnostic_level: NotRequired[pulumi.Input[Union[str, 'DiagnosticLevel']]]
+        """
+        Desired level of diagnostic data emitted by the cluster.
+        """
+        windows_server_subscription: NotRequired[pulumi.Input[Union[str, 'WindowsServerSubscription']]]
+        """
+        Desired state of Windows Server Subscription.
+        """
+elif False:
+    ClusterDesiredPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ClusterDesiredPropertiesArgs:
@@ -54,6 +79,22 @@ class ClusterDesiredPropertiesArgs:
     def windows_server_subscription(self, value: Optional[pulumi.Input[Union[str, 'WindowsServerSubscription']]]):
         pulumi.set(self, "windows_server_subscription", value)
 
+
+if not MYPY:
+    class SoftwareAssurancePropertiesArgsDict(TypedDict):
+        """
+        Software Assurance properties of the cluster.
+        """
+        software_assurance_intent: NotRequired[pulumi.Input[Union[str, 'SoftwareAssuranceIntent']]]
+        """
+        Customer Intent for Software Assurance Benefit.
+        """
+        software_assurance_status: NotRequired[pulumi.Input[Union[str, 'SoftwareAssuranceStatus']]]
+        """
+        Status of the Software Assurance for the cluster.
+        """
+elif False:
+    SoftwareAssurancePropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SoftwareAssurancePropertiesArgs:

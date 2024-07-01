@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -213,14 +218,14 @@ class CommunityTraining(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  community_training_name: Optional[pulumi.Input[str]] = None,
                  disaster_recovery_enabled: Optional[pulumi.Input[bool]] = None,
-                 identity_configuration: Optional[pulumi.Input[pulumi.InputType['IdentityConfigurationPropertiesArgs']]] = None,
+                 identity_configuration: Optional[pulumi.Input[Union['IdentityConfigurationPropertiesArgs', 'IdentityConfigurationPropertiesArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  portal_admin_email_address: Optional[pulumi.Input[str]] = None,
                  portal_name: Optional[pulumi.Input[str]] = None,
                  portal_owner_email_address: Optional[pulumi.Input[str]] = None,
                  portal_owner_organization_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  zone_redundancy_enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
@@ -232,14 +237,14 @@ class CommunityTraining(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] community_training_name: The name of the Community Training Resource
         :param pulumi.Input[bool] disaster_recovery_enabled: To indicate whether the Community Training instance has Disaster Recovery enabled
-        :param pulumi.Input[pulumi.InputType['IdentityConfigurationPropertiesArgs']] identity_configuration: The identity configuration of the Community Training resource
+        :param pulumi.Input[Union['IdentityConfigurationPropertiesArgs', 'IdentityConfigurationPropertiesArgsDict']] identity_configuration: The identity configuration of the Community Training resource
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] portal_admin_email_address: The email address of the portal admin
         :param pulumi.Input[str] portal_name: The portal name (website name) of the Community Training instance
         :param pulumi.Input[str] portal_owner_email_address: The email address of the portal owner. Will be used as the primary contact
         :param pulumi.Input[str] portal_owner_organization_name: The organization name of the portal owner
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The SKU (Stock Keeping Unit) assigned to this resource.
+        :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: The SKU (Stock Keeping Unit) assigned to this resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[bool] zone_redundancy_enabled: To indicate whether the Community Training instance has Zone Redundancy enabled
         """
@@ -270,14 +275,14 @@ class CommunityTraining(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  community_training_name: Optional[pulumi.Input[str]] = None,
                  disaster_recovery_enabled: Optional[pulumi.Input[bool]] = None,
-                 identity_configuration: Optional[pulumi.Input[pulumi.InputType['IdentityConfigurationPropertiesArgs']]] = None,
+                 identity_configuration: Optional[pulumi.Input[Union['IdentityConfigurationPropertiesArgs', 'IdentityConfigurationPropertiesArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  portal_admin_email_address: Optional[pulumi.Input[str]] = None,
                  portal_name: Optional[pulumi.Input[str]] = None,
                  portal_owner_email_address: Optional[pulumi.Input[str]] = None,
                  portal_owner_organization_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  zone_redundancy_enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None):

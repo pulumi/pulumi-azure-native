@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -105,22 +110,22 @@ class Order(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 contact_information: Optional[pulumi.Input[pulumi.InputType['ContactDetailsArgs']]] = None,
+                 contact_information: Optional[pulumi.Input[Union['ContactDetailsArgs', 'ContactDetailsArgsDict']]] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  shipment_type: Optional[pulumi.Input[Union[str, 'ShipmentType']]] = None,
-                 shipping_address: Optional[pulumi.Input[pulumi.InputType['AddressArgs']]] = None,
+                 shipping_address: Optional[pulumi.Input[Union['AddressArgs', 'AddressArgsDict']]] = None,
                  __props__=None):
         """
         The order details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ContactDetailsArgs']] contact_information: The contact details.
+        :param pulumi.Input[Union['ContactDetailsArgs', 'ContactDetailsArgsDict']] contact_information: The contact details.
         :param pulumi.Input[str] device_name: The order details of a device.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[Union[str, 'ShipmentType']] shipment_type: ShipmentType of the order
-        :param pulumi.Input[pulumi.InputType['AddressArgs']] shipping_address: The shipping address.
+        :param pulumi.Input[Union['AddressArgs', 'AddressArgsDict']] shipping_address: The shipping address.
         """
         ...
     @overload
@@ -146,11 +151,11 @@ class Order(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 contact_information: Optional[pulumi.Input[pulumi.InputType['ContactDetailsArgs']]] = None,
+                 contact_information: Optional[pulumi.Input[Union['ContactDetailsArgs', 'ContactDetailsArgsDict']]] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  shipment_type: Optional[pulumi.Input[Union[str, 'ShipmentType']]] = None,
-                 shipping_address: Optional[pulumi.Input[pulumi.InputType['AddressArgs']]] = None,
+                 shipping_address: Optional[pulumi.Input[Union['AddressArgs', 'AddressArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

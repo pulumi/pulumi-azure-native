@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -662,19 +667,19 @@ class Volume(pulumi.CustomResource):
                  cool_access: Optional[pulumi.Input[bool]] = None,
                  coolness_period: Optional[pulumi.Input[int]] = None,
                  creation_token: Optional[pulumi.Input[str]] = None,
-                 data_protection: Optional[pulumi.Input[pulumi.InputType['VolumePropertiesDataProtectionArgs']]] = None,
+                 data_protection: Optional[pulumi.Input[Union['VolumePropertiesDataProtectionArgs', 'VolumePropertiesDataProtectionArgsDict']]] = None,
                  default_group_quota_in_ki_bs: Optional[pulumi.Input[float]] = None,
                  default_user_quota_in_ki_bs: Optional[pulumi.Input[float]] = None,
                  enable_subvolumes: Optional[pulumi.Input[Union[str, 'EnableSubvolumes']]] = None,
                  encryption_key_source: Optional[pulumi.Input[str]] = None,
-                 export_policy: Optional[pulumi.Input[pulumi.InputType['VolumePropertiesExportPolicyArgs']]] = None,
+                 export_policy: Optional[pulumi.Input[Union['VolumePropertiesExportPolicyArgs', 'VolumePropertiesExportPolicyArgsDict']]] = None,
                  is_default_quota_enabled: Optional[pulumi.Input[bool]] = None,
                  is_restoring: Optional[pulumi.Input[bool]] = None,
                  kerberos_enabled: Optional[pulumi.Input[bool]] = None,
                  ldap_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  network_features: Optional[pulumi.Input[Union[str, 'NetworkFeatures']]] = None,
-                 placement_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PlacementKeyValuePairsArgs']]]]] = None,
+                 placement_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PlacementKeyValuePairsArgs', 'PlacementKeyValuePairsArgsDict']]]]] = None,
                  pool_name: Optional[pulumi.Input[str]] = None,
                  protocol_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  proximity_placement_group: Optional[pulumi.Input[str]] = None,
@@ -706,19 +711,19 @@ class Volume(pulumi.CustomResource):
         :param pulumi.Input[bool] cool_access: Specifies whether Cool Access(tiering) is enabled for the volume.
         :param pulumi.Input[int] coolness_period: Specifies the number of days after which data that is not accessed by clients will be tiered.
         :param pulumi.Input[str] creation_token: A unique file path for the volume. Used when creating mount targets
-        :param pulumi.Input[pulumi.InputType['VolumePropertiesDataProtectionArgs']] data_protection: DataProtection type volumes include an object containing details of the replication
+        :param pulumi.Input[Union['VolumePropertiesDataProtectionArgs', 'VolumePropertiesDataProtectionArgsDict']] data_protection: DataProtection type volumes include an object containing details of the replication
         :param pulumi.Input[float] default_group_quota_in_ki_bs: Default group quota for volume in KiBs. If isDefaultQuotaEnabled is set, the minimum value of 4 KiBs applies.
         :param pulumi.Input[float] default_user_quota_in_ki_bs: Default user quota for volume in KiBs. If isDefaultQuotaEnabled is set, the minimum value of 4 KiBs applies .
         :param pulumi.Input[Union[str, 'EnableSubvolumes']] enable_subvolumes: Flag indicating whether subvolume operations are enabled on the volume
         :param pulumi.Input[str] encryption_key_source: Encryption Key Source. Possible values are: 'Microsoft.NetApp'
-        :param pulumi.Input[pulumi.InputType['VolumePropertiesExportPolicyArgs']] export_policy: Set of export policy rules
+        :param pulumi.Input[Union['VolumePropertiesExportPolicyArgs', 'VolumePropertiesExportPolicyArgsDict']] export_policy: Set of export policy rules
         :param pulumi.Input[bool] is_default_quota_enabled: Specifies if default quota is enabled for the volume.
         :param pulumi.Input[bool] is_restoring: Restoring
         :param pulumi.Input[bool] kerberos_enabled: Describe if a volume is KerberosEnabled. To be use with swagger version 2020-05-01 or later
         :param pulumi.Input[bool] ldap_enabled: Specifies whether LDAP is enabled or not for a given NFS volume.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Union[str, 'NetworkFeatures']] network_features: Basic network, or Standard features available to the volume.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PlacementKeyValuePairsArgs']]]] placement_rules: Application specific placement rules for the particular volume
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PlacementKeyValuePairsArgs', 'PlacementKeyValuePairsArgsDict']]]] placement_rules: Application specific placement rules for the particular volume
         :param pulumi.Input[str] pool_name: The name of the capacity pool
         :param pulumi.Input[Sequence[pulumi.Input[str]]] protocol_types: Set of protocol types, default NFSv3, CIFS for SMB protocol
         :param pulumi.Input[str] proximity_placement_group: Proximity placement group associated with the volume
@@ -768,19 +773,19 @@ class Volume(pulumi.CustomResource):
                  cool_access: Optional[pulumi.Input[bool]] = None,
                  coolness_period: Optional[pulumi.Input[int]] = None,
                  creation_token: Optional[pulumi.Input[str]] = None,
-                 data_protection: Optional[pulumi.Input[pulumi.InputType['VolumePropertiesDataProtectionArgs']]] = None,
+                 data_protection: Optional[pulumi.Input[Union['VolumePropertiesDataProtectionArgs', 'VolumePropertiesDataProtectionArgsDict']]] = None,
                  default_group_quota_in_ki_bs: Optional[pulumi.Input[float]] = None,
                  default_user_quota_in_ki_bs: Optional[pulumi.Input[float]] = None,
                  enable_subvolumes: Optional[pulumi.Input[Union[str, 'EnableSubvolumes']]] = None,
                  encryption_key_source: Optional[pulumi.Input[str]] = None,
-                 export_policy: Optional[pulumi.Input[pulumi.InputType['VolumePropertiesExportPolicyArgs']]] = None,
+                 export_policy: Optional[pulumi.Input[Union['VolumePropertiesExportPolicyArgs', 'VolumePropertiesExportPolicyArgsDict']]] = None,
                  is_default_quota_enabled: Optional[pulumi.Input[bool]] = None,
                  is_restoring: Optional[pulumi.Input[bool]] = None,
                  kerberos_enabled: Optional[pulumi.Input[bool]] = None,
                  ldap_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  network_features: Optional[pulumi.Input[Union[str, 'NetworkFeatures']]] = None,
-                 placement_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PlacementKeyValuePairsArgs']]]]] = None,
+                 placement_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PlacementKeyValuePairsArgs', 'PlacementKeyValuePairsArgsDict']]]]] = None,
                  pool_name: Optional[pulumi.Input[str]] = None,
                  protocol_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  proximity_placement_group: Optional[pulumi.Input[str]] = None,

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -281,18 +286,18 @@ class Service(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_name: Optional[pulumi.Input[str]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
-                 correlation_scheme: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceCorrelationDescriptionArgs']]]]] = None,
+                 correlation_scheme: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceCorrelationDescriptionArgs', 'ServiceCorrelationDescriptionArgsDict']]]]] = None,
                  default_move_cost: Optional[pulumi.Input[Union[str, 'MoveCost']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 partition_description: Optional[pulumi.Input[Union[pulumi.InputType['NamedPartitionSchemeDescriptionArgs'], pulumi.InputType['SingletonPartitionSchemeDescriptionArgs'], pulumi.InputType['UniformInt64RangePartitionSchemeDescriptionArgs']]]] = None,
+                 partition_description: Optional[pulumi.Input[Union[Union['NamedPartitionSchemeDescriptionArgs', 'NamedPartitionSchemeDescriptionArgsDict'], Union['SingletonPartitionSchemeDescriptionArgs', 'SingletonPartitionSchemeDescriptionArgsDict'], Union['UniformInt64RangePartitionSchemeDescriptionArgs', 'UniformInt64RangePartitionSchemeDescriptionArgsDict']]]] = None,
                  placement_constraints: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_dns_name: Optional[pulumi.Input[str]] = None,
                  service_kind: Optional[pulumi.Input[Union[str, 'ServiceKind']]] = None,
-                 service_load_metrics: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceLoadMetricDescriptionArgs']]]]] = None,
+                 service_load_metrics: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceLoadMetricDescriptionArgs', 'ServiceLoadMetricDescriptionArgsDict']]]]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  service_package_activation_mode: Optional[pulumi.Input[Union[str, 'ArmServicePackageActivationMode']]] = None,
-                 service_placement_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServicePlacementPolicyDescriptionArgs']]]]] = None,
+                 service_placement_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServicePlacementPolicyDescriptionArgs', 'ServicePlacementPolicyDescriptionArgsDict']]]]] = None,
                  service_type_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -303,18 +308,18 @@ class Service(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_name: The name of the application resource.
         :param pulumi.Input[str] cluster_name: The name of the cluster resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceCorrelationDescriptionArgs']]]] correlation_scheme: A list that describes the correlation of the service with other services.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceCorrelationDescriptionArgs', 'ServiceCorrelationDescriptionArgsDict']]]] correlation_scheme: A list that describes the correlation of the service with other services.
         :param pulumi.Input[Union[str, 'MoveCost']] default_move_cost: Specifies the move cost for the service.
         :param pulumi.Input[str] location: It will be deprecated in New API, resource location depends on the parent resource.
-        :param pulumi.Input[Union[pulumi.InputType['NamedPartitionSchemeDescriptionArgs'], pulumi.InputType['SingletonPartitionSchemeDescriptionArgs'], pulumi.InputType['UniformInt64RangePartitionSchemeDescriptionArgs']]] partition_description: Describes how the service is partitioned.
+        :param pulumi.Input[Union[Union['NamedPartitionSchemeDescriptionArgs', 'NamedPartitionSchemeDescriptionArgsDict'], Union['SingletonPartitionSchemeDescriptionArgs', 'SingletonPartitionSchemeDescriptionArgsDict'], Union['UniformInt64RangePartitionSchemeDescriptionArgs', 'UniformInt64RangePartitionSchemeDescriptionArgsDict']]] partition_description: Describes how the service is partitioned.
         :param pulumi.Input[str] placement_constraints: The placement constraints as a string. Placement constraints are boolean expressions on node properties and allow for restricting a service to particular nodes based on the service requirements. For example, to place a service on nodes where NodeType is blue specify the following: "NodeColor == blue)".
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] service_dns_name: Dns name used for the service. If this is specified, then the service can be accessed via its DNS name instead of service name.
         :param pulumi.Input[Union[str, 'ServiceKind']] service_kind: The kind of service (Stateless or Stateful).
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceLoadMetricDescriptionArgs']]]] service_load_metrics: The service load metrics is given as an array of ServiceLoadMetricDescription objects.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceLoadMetricDescriptionArgs', 'ServiceLoadMetricDescriptionArgsDict']]]] service_load_metrics: The service load metrics is given as an array of ServiceLoadMetricDescription objects.
         :param pulumi.Input[str] service_name: The name of the service resource in the format of {applicationName}~{serviceName}.
         :param pulumi.Input[Union[str, 'ArmServicePackageActivationMode']] service_package_activation_mode: The activation Mode of the service package
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServicePlacementPolicyDescriptionArgs']]]] service_placement_policies: A list that describes the correlation of the service with other services.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ServicePlacementPolicyDescriptionArgs', 'ServicePlacementPolicyDescriptionArgsDict']]]] service_placement_policies: A list that describes the correlation of the service with other services.
         :param pulumi.Input[str] service_type_name: The name of the service type
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Azure resource tags.
         """
@@ -344,18 +349,18 @@ class Service(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_name: Optional[pulumi.Input[str]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
-                 correlation_scheme: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceCorrelationDescriptionArgs']]]]] = None,
+                 correlation_scheme: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceCorrelationDescriptionArgs', 'ServiceCorrelationDescriptionArgsDict']]]]] = None,
                  default_move_cost: Optional[pulumi.Input[Union[str, 'MoveCost']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 partition_description: Optional[pulumi.Input[Union[pulumi.InputType['NamedPartitionSchemeDescriptionArgs'], pulumi.InputType['SingletonPartitionSchemeDescriptionArgs'], pulumi.InputType['UniformInt64RangePartitionSchemeDescriptionArgs']]]] = None,
+                 partition_description: Optional[pulumi.Input[Union[Union['NamedPartitionSchemeDescriptionArgs', 'NamedPartitionSchemeDescriptionArgsDict'], Union['SingletonPartitionSchemeDescriptionArgs', 'SingletonPartitionSchemeDescriptionArgsDict'], Union['UniformInt64RangePartitionSchemeDescriptionArgs', 'UniformInt64RangePartitionSchemeDescriptionArgsDict']]]] = None,
                  placement_constraints: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_dns_name: Optional[pulumi.Input[str]] = None,
                  service_kind: Optional[pulumi.Input[Union[str, 'ServiceKind']]] = None,
-                 service_load_metrics: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceLoadMetricDescriptionArgs']]]]] = None,
+                 service_load_metrics: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceLoadMetricDescriptionArgs', 'ServiceLoadMetricDescriptionArgsDict']]]]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  service_package_activation_mode: Optional[pulumi.Input[Union[str, 'ArmServicePackageActivationMode']]] = None,
-                 service_placement_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServicePlacementPolicyDescriptionArgs']]]]] = None,
+                 service_placement_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServicePlacementPolicyDescriptionArgs', 'ServicePlacementPolicyDescriptionArgsDict']]]]] = None,
                  service_type_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):

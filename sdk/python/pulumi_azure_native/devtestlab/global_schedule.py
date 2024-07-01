@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -220,18 +225,18 @@ class GlobalSchedule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 daily_recurrence: Optional[pulumi.Input[pulumi.InputType['DayDetailsArgs']]] = None,
-                 hourly_recurrence: Optional[pulumi.Input[pulumi.InputType['HourDetailsArgs']]] = None,
+                 daily_recurrence: Optional[pulumi.Input[Union['DayDetailsArgs', 'DayDetailsArgsDict']]] = None,
+                 hourly_recurrence: Optional[pulumi.Input[Union['HourDetailsArgs', 'HourDetailsArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 notification_settings: Optional[pulumi.Input[pulumi.InputType['NotificationSettingsArgs']]] = None,
+                 notification_settings: Optional[pulumi.Input[Union['NotificationSettingsArgs', 'NotificationSettingsArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[Union[str, 'EnableStatus']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_resource_id: Optional[pulumi.Input[str]] = None,
                  task_type: Optional[pulumi.Input[str]] = None,
                  time_zone_id: Optional[pulumi.Input[str]] = None,
-                 weekly_recurrence: Optional[pulumi.Input[pulumi.InputType['WeekDetailsArgs']]] = None,
+                 weekly_recurrence: Optional[pulumi.Input[Union['WeekDetailsArgs', 'WeekDetailsArgsDict']]] = None,
                  __props__=None):
         """
         A schedule.
@@ -241,18 +246,18 @@ class GlobalSchedule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['DayDetailsArgs']] daily_recurrence: If the schedule will occur once each day of the week, specify the daily recurrence.
-        :param pulumi.Input[pulumi.InputType['HourDetailsArgs']] hourly_recurrence: If the schedule will occur multiple times a day, specify the hourly recurrence.
+        :param pulumi.Input[Union['DayDetailsArgs', 'DayDetailsArgsDict']] daily_recurrence: If the schedule will occur once each day of the week, specify the daily recurrence.
+        :param pulumi.Input[Union['HourDetailsArgs', 'HourDetailsArgsDict']] hourly_recurrence: If the schedule will occur multiple times a day, specify the hourly recurrence.
         :param pulumi.Input[str] location: The location of the resource.
         :param pulumi.Input[str] name: The name of the schedule.
-        :param pulumi.Input[pulumi.InputType['NotificationSettingsArgs']] notification_settings: Notification settings.
+        :param pulumi.Input[Union['NotificationSettingsArgs', 'NotificationSettingsArgsDict']] notification_settings: Notification settings.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Union[str, 'EnableStatus']] status: The status of the schedule (i.e. Enabled, Disabled)
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
         :param pulumi.Input[str] target_resource_id: The resource ID to which the schedule belongs
         :param pulumi.Input[str] task_type: The task type of the schedule (e.g. LabVmsShutdownTask, LabVmAutoStart).
         :param pulumi.Input[str] time_zone_id: The time zone ID (e.g. China Standard Time, Greenland Standard Time, Pacific Standard time, etc.). The possible values for this property can be found in `IReadOnlyCollection<string> TimeZoneConverter.TZConvert.KnownWindowsTimeZoneIds` (https://github.com/mattjohnsonpint/TimeZoneConverter/blob/main/README.md)
-        :param pulumi.Input[pulumi.InputType['WeekDetailsArgs']] weekly_recurrence: If the schedule will occur only some days of the week, specify the weekly recurrence.
+        :param pulumi.Input[Union['WeekDetailsArgs', 'WeekDetailsArgsDict']] weekly_recurrence: If the schedule will occur only some days of the week, specify the weekly recurrence.
         """
         ...
     @overload
@@ -281,18 +286,18 @@ class GlobalSchedule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 daily_recurrence: Optional[pulumi.Input[pulumi.InputType['DayDetailsArgs']]] = None,
-                 hourly_recurrence: Optional[pulumi.Input[pulumi.InputType['HourDetailsArgs']]] = None,
+                 daily_recurrence: Optional[pulumi.Input[Union['DayDetailsArgs', 'DayDetailsArgsDict']]] = None,
+                 hourly_recurrence: Optional[pulumi.Input[Union['HourDetailsArgs', 'HourDetailsArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 notification_settings: Optional[pulumi.Input[pulumi.InputType['NotificationSettingsArgs']]] = None,
+                 notification_settings: Optional[pulumi.Input[Union['NotificationSettingsArgs', 'NotificationSettingsArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[Union[str, 'EnableStatus']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_resource_id: Optional[pulumi.Input[str]] = None,
                  task_type: Optional[pulumi.Input[str]] = None,
                  time_zone_id: Optional[pulumi.Input[str]] = None,
-                 weekly_recurrence: Optional[pulumi.Input[pulumi.InputType['WeekDetailsArgs']]] = None,
+                 weekly_recurrence: Optional[pulumi.Input[Union['WeekDetailsArgs', 'WeekDetailsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

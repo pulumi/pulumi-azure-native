@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -204,9 +209,9 @@ class DiagnosticSetting(pulumi.CustomResource):
                  event_hub_authorization_rule_id: Optional[pulumi.Input[str]] = None,
                  event_hub_name: Optional[pulumi.Input[str]] = None,
                  log_analytics_destination_type: Optional[pulumi.Input[str]] = None,
-                 logs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LogSettingsArgs']]]]] = None,
+                 logs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LogSettingsArgs', 'LogSettingsArgsDict']]]]] = None,
                  marketplace_partner_id: Optional[pulumi.Input[str]] = None,
-                 metrics: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricSettingsArgs']]]]] = None,
+                 metrics: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MetricSettingsArgs', 'MetricSettingsArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_uri: Optional[pulumi.Input[str]] = None,
                  service_bus_rule_id: Optional[pulumi.Input[str]] = None,
@@ -222,9 +227,9 @@ class DiagnosticSetting(pulumi.CustomResource):
         :param pulumi.Input[str] event_hub_authorization_rule_id: The resource Id for the event hub authorization rule.
         :param pulumi.Input[str] event_hub_name: The name of the event hub. If none is specified, the default event hub will be selected.
         :param pulumi.Input[str] log_analytics_destination_type: A string indicating whether the export to Log Analytics should use the default destination type, i.e. AzureDiagnostics, or use a destination type constructed as follows: <normalized service identity>_<normalized category name>. Possible values are: Dedicated and null (null is default.)
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LogSettingsArgs']]]] logs: The list of logs settings.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LogSettingsArgs', 'LogSettingsArgsDict']]]] logs: The list of logs settings.
         :param pulumi.Input[str] marketplace_partner_id: The full ARM resource ID of the Marketplace resource to which you would like to send Diagnostic Logs.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricSettingsArgs']]]] metrics: The list of metric settings.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MetricSettingsArgs', 'MetricSettingsArgsDict']]]] metrics: The list of metric settings.
         :param pulumi.Input[str] name: The name of the diagnostic setting.
         :param pulumi.Input[str] resource_uri: The identifier of the resource.
         :param pulumi.Input[str] service_bus_rule_id: The service bus rule Id of the diagnostic setting. This is here to maintain backwards compatibility.
@@ -259,9 +264,9 @@ class DiagnosticSetting(pulumi.CustomResource):
                  event_hub_authorization_rule_id: Optional[pulumi.Input[str]] = None,
                  event_hub_name: Optional[pulumi.Input[str]] = None,
                  log_analytics_destination_type: Optional[pulumi.Input[str]] = None,
-                 logs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LogSettingsArgs']]]]] = None,
+                 logs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LogSettingsArgs', 'LogSettingsArgsDict']]]]] = None,
                  marketplace_partner_id: Optional[pulumi.Input[str]] = None,
-                 metrics: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricSettingsArgs']]]]] = None,
+                 metrics: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MetricSettingsArgs', 'MetricSettingsArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_uri: Optional[pulumi.Input[str]] = None,
                  service_bus_rule_id: Optional[pulumi.Input[str]] = None,

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -105,7 +110,7 @@ class User(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
-                 encrypted_password: Optional[pulumi.Input[pulumi.InputType['AsymmetricEncryptedSecretArgs']]] = None,
+                 encrypted_password: Optional[pulumi.Input[Union['AsymmetricEncryptedSecretArgs', 'AsymmetricEncryptedSecretArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  user_type: Optional[pulumi.Input[Union[str, 'UserType']]] = None,
@@ -116,7 +121,7 @@ class User(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] device_name: The device name.
-        :param pulumi.Input[pulumi.InputType['AsymmetricEncryptedSecretArgs']] encrypted_password: The password details.
+        :param pulumi.Input[Union['AsymmetricEncryptedSecretArgs', 'AsymmetricEncryptedSecretArgsDict']] encrypted_password: The password details.
         :param pulumi.Input[str] name: The user name.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[Union[str, 'UserType']] user_type: Type of the user.
@@ -146,7 +151,7 @@ class User(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
-                 encrypted_password: Optional[pulumi.Input[pulumi.InputType['AsymmetricEncryptedSecretArgs']]] = None,
+                 encrypted_password: Optional[pulumi.Input[Union['AsymmetricEncryptedSecretArgs', 'AsymmetricEncryptedSecretArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  user_type: Optional[pulumi.Input[Union[str, 'UserType']]] = None,

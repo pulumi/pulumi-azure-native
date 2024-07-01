@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -155,10 +160,10 @@ class Flow(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  connection_name: Optional[pulumi.Input[str]] = None,
                  flow_name: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 plan: Optional[pulumi.Input[pulumi.InputType['PlanArgs']]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['FlowPropertiesArgs']]] = None,
+                 plan: Optional[pulumi.Input[Union['PlanArgs', 'PlanArgsDict']]] = None,
+                 properties: Optional[pulumi.Input[Union['FlowPropertiesArgs', 'FlowPropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -169,10 +174,10 @@ class Flow(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] connection_name: The name for the connection that is to be requested.
         :param pulumi.Input[str] flow_name: The name for the flow that is to be onboarded.
-        :param pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']] identity: The managed identity of the flow resource, if configured.
+        :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: The managed identity of the flow resource, if configured.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[pulumi.InputType['PlanArgs']] plan: Plan for the resource.
-        :param pulumi.Input[pulumi.InputType['FlowPropertiesArgs']] properties: Properties of flow
+        :param pulumi.Input[Union['PlanArgs', 'PlanArgsDict']] plan: Plan for the resource.
+        :param pulumi.Input[Union['FlowPropertiesArgs', 'FlowPropertiesArgsDict']] properties: Properties of flow
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -202,10 +207,10 @@ class Flow(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  connection_name: Optional[pulumi.Input[str]] = None,
                  flow_name: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 plan: Optional[pulumi.Input[pulumi.InputType['PlanArgs']]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['FlowPropertiesArgs']]] = None,
+                 plan: Optional[pulumi.Input[Union['PlanArgs', 'PlanArgsDict']]] = None,
+                 properties: Optional[pulumi.Input[Union['FlowPropertiesArgs', 'FlowPropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):

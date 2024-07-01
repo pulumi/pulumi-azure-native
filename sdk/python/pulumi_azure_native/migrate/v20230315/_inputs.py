@@ -4,22 +4,61 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'CollectorAgentPropertiesBaseArgs',
+    'CollectorAgentPropertiesBaseArgsDict',
     'CollectorAgentSpnPropertiesBaseArgs',
+    'CollectorAgentSpnPropertiesBaseArgsDict',
     'EntityUptimeArgs',
+    'EntityUptimeArgsDict',
     'PrivateLinkServiceConnectionStateArgs',
+    'PrivateLinkServiceConnectionStateArgsDict',
     'SqlDbSettingsArgs',
+    'SqlDbSettingsArgsDict',
     'SqlMiSettingsArgs',
+    'SqlMiSettingsArgsDict',
     'SqlVmSettingsArgs',
+    'SqlVmSettingsArgsDict',
     'VmUptimeArgs',
+    'VmUptimeArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class CollectorAgentPropertiesBaseArgsDict(TypedDict):
+        """
+        Collector agent property class.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Gets the collector agent id.
+        """
+        last_heartbeat_utc: NotRequired[pulumi.Input[str]]
+        """
+        Gets the collector last heartbeat time.
+        """
+        spn_details: NotRequired[pulumi.Input['CollectorAgentSpnPropertiesBaseArgsDict']]
+        """
+        Gets or sets the SPN details.
+        """
+        version: NotRequired[pulumi.Input[str]]
+        """
+        Gets the collector agent version.
+        """
+elif False:
+    CollectorAgentPropertiesBaseArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CollectorAgentPropertiesBaseArgs:
@@ -92,6 +131,34 @@ class CollectorAgentPropertiesBaseArgs:
     def version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "version", value)
 
+
+if not MYPY:
+    class CollectorAgentSpnPropertiesBaseArgsDict(TypedDict):
+        """
+        Collector agent SPN details class.
+        """
+        application_id: NotRequired[pulumi.Input[str]]
+        """
+        Gets the AAD application id.
+        """
+        audience: NotRequired[pulumi.Input[str]]
+        """
+        Gets the AAD audience url.
+        """
+        authority: NotRequired[pulumi.Input[str]]
+        """
+        Gets the AAD authority endpoint.
+        """
+        object_id: NotRequired[pulumi.Input[str]]
+        """
+        Gets the object id of the AAD application.
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        Gets the tenant id of the AAD application.
+        """
+elif False:
+    CollectorAgentSpnPropertiesBaseArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CollectorAgentSpnPropertiesBaseArgs:
@@ -181,6 +248,22 @@ class CollectorAgentSpnPropertiesBaseArgs:
         pulumi.set(self, "tenant_id", value)
 
 
+if not MYPY:
+    class EntityUptimeArgsDict(TypedDict):
+        """
+        Entity Uptime.
+        """
+        days_per_month: NotRequired[pulumi.Input[int]]
+        """
+        Gets the days per month.
+        """
+        hours_per_day: NotRequired[pulumi.Input[int]]
+        """
+        Gets the hours per day.
+        """
+elif False:
+    EntityUptimeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EntityUptimeArgs:
     def __init__(__self__, *,
@@ -220,6 +303,26 @@ class EntityUptimeArgs:
     def hours_per_day(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "hours_per_day", value)
 
+
+if not MYPY:
+    class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
+        """
+        A collection of information about the state of the connection between service consumer and provider.
+        """
+        actions_required: NotRequired[pulumi.Input[str]]
+        """
+        A message indicating if changes on the service provider require any updates on the consumer.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The reason for approval/rejection of the connection.
+        """
+        status: NotRequired[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]]
+        """
+        Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+        """
+elif False:
+    PrivateLinkServiceConnectionStateArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:
@@ -276,6 +379,30 @@ class PrivateLinkServiceConnectionStateArgs:
     def status(self, value: Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]]):
         pulumi.set(self, "status", value)
 
+
+if not MYPY:
+    class SqlDbSettingsArgsDict(TypedDict):
+        """
+        SQL database assessment settings.
+        """
+        azure_sql_compute_tier: NotRequired[pulumi.Input[Union[str, 'ComputeTier']]]
+        """
+        Gets or sets the azure SQL compute tier.
+        """
+        azure_sql_data_base_type: NotRequired[pulumi.Input[Union[str, 'AzureSqlDataBaseType']]]
+        """
+        Gets or sets the azure PAAS SQL instance type.
+        """
+        azure_sql_purchase_model: NotRequired[pulumi.Input[Union[str, 'AzureSqlPurchaseModel']]]
+        """
+        Gets or sets the azure SQL purchase model.
+        """
+        azure_sql_service_tier: NotRequired[pulumi.Input[Union[str, 'AzureSqlServiceTier']]]
+        """
+        Gets or sets the azure SQL service tier.
+        """
+elif False:
+    SqlDbSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SqlDbSettingsArgs:
@@ -349,6 +476,22 @@ class SqlDbSettingsArgs:
         pulumi.set(self, "azure_sql_service_tier", value)
 
 
+if not MYPY:
+    class SqlMiSettingsArgsDict(TypedDict):
+        """
+        SQL managed instance assessment settings.
+        """
+        azure_sql_instance_type: NotRequired[pulumi.Input[Union[str, 'AzureSqlInstanceType']]]
+        """
+        Gets or sets the azure PAAS SQL instance type.
+        """
+        azure_sql_service_tier: NotRequired[pulumi.Input[Union[str, 'AzureSqlServiceTier']]]
+        """
+        Gets or sets the azure SQL service tier.
+        """
+elif False:
+    SqlMiSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SqlMiSettingsArgs:
     def __init__(__self__, *,
@@ -389,6 +532,19 @@ class SqlMiSettingsArgs:
         pulumi.set(self, "azure_sql_service_tier", value)
 
 
+if not MYPY:
+    class SqlVmSettingsArgsDict(TypedDict):
+        """
+        SQL VM assessment settings.
+        """
+        instance_series: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AzureVmFamily']]]]]
+        """
+        Gets or sets the Azure VM families (calling instance series to keep it
+        consistent with other targets).
+        """
+elif False:
+    SqlVmSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SqlVmSettingsArgs:
     def __init__(__self__, *,
@@ -414,6 +570,22 @@ class SqlVmSettingsArgs:
     def instance_series(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AzureVmFamily']]]]]):
         pulumi.set(self, "instance_series", value)
 
+
+if not MYPY:
+    class VmUptimeArgsDict(TypedDict):
+        """
+        Details on the total up-time for the VM.
+        """
+        days_per_month: NotRequired[pulumi.Input[int]]
+        """
+        Number of days in a month for VM uptime.
+        """
+        hours_per_day: NotRequired[pulumi.Input[int]]
+        """
+        Number of hours per day for VM uptime.
+        """
+elif False:
+    VmUptimeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VmUptimeArgs:

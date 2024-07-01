@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -231,14 +236,14 @@ class WatchlistItem(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  created: Optional[pulumi.Input[str]] = None,
-                 created_by: Optional[pulumi.Input[pulumi.InputType['WatchlistUserInfoArgs']]] = None,
+                 created_by: Optional[pulumi.Input[Union['WatchlistUserInfoArgs', 'WatchlistUserInfoArgsDict']]] = None,
                  entity_mapping: Optional[Any] = None,
                  is_deleted: Optional[pulumi.Input[bool]] = None,
                  items_key_value: Optional[Any] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None,
                  updated: Optional[pulumi.Input[str]] = None,
-                 updated_by: Optional[pulumi.Input[pulumi.InputType['WatchlistUserInfoArgs']]] = None,
+                 updated_by: Optional[pulumi.Input[Union['WatchlistUserInfoArgs', 'WatchlistUserInfoArgsDict']]] = None,
                  watchlist_alias: Optional[pulumi.Input[str]] = None,
                  watchlist_item_id: Optional[pulumi.Input[str]] = None,
                  watchlist_item_type: Optional[pulumi.Input[str]] = None,
@@ -250,14 +255,14 @@ class WatchlistItem(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] created: The time the watchlist item was created
-        :param pulumi.Input[pulumi.InputType['WatchlistUserInfoArgs']] created_by: Describes a user that created the watchlist item
+        :param pulumi.Input[Union['WatchlistUserInfoArgs', 'WatchlistUserInfoArgsDict']] created_by: Describes a user that created the watchlist item
         :param Any entity_mapping: key-value pairs for a watchlist item entity mapping
         :param pulumi.Input[bool] is_deleted: A flag that indicates if the watchlist item is deleted or not
         :param Any items_key_value: key-value pairs for a watchlist item
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] tenant_id: The tenantId to which the watchlist item belongs to
         :param pulumi.Input[str] updated: The last time the watchlist item was updated
-        :param pulumi.Input[pulumi.InputType['WatchlistUserInfoArgs']] updated_by: Describes a user that updated the watchlist item
+        :param pulumi.Input[Union['WatchlistUserInfoArgs', 'WatchlistUserInfoArgsDict']] updated_by: Describes a user that updated the watchlist item
         :param pulumi.Input[str] watchlist_alias: The watchlist alias
         :param pulumi.Input[str] watchlist_item_id: The id (a Guid) of the watchlist item
         :param pulumi.Input[str] watchlist_item_type: The type of the watchlist item
@@ -288,14 +293,14 @@ class WatchlistItem(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  created: Optional[pulumi.Input[str]] = None,
-                 created_by: Optional[pulumi.Input[pulumi.InputType['WatchlistUserInfoArgs']]] = None,
+                 created_by: Optional[pulumi.Input[Union['WatchlistUserInfoArgs', 'WatchlistUserInfoArgsDict']]] = None,
                  entity_mapping: Optional[Any] = None,
                  is_deleted: Optional[pulumi.Input[bool]] = None,
                  items_key_value: Optional[Any] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None,
                  updated: Optional[pulumi.Input[str]] = None,
-                 updated_by: Optional[pulumi.Input[pulumi.InputType['WatchlistUserInfoArgs']]] = None,
+                 updated_by: Optional[pulumi.Input[Union['WatchlistUserInfoArgs', 'WatchlistUserInfoArgsDict']]] = None,
                  watchlist_alias: Optional[pulumi.Input[str]] = None,
                  watchlist_item_id: Optional[pulumi.Input[str]] = None,
                  watchlist_item_type: Optional[pulumi.Input[str]] = None,

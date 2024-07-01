@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -191,7 +196,7 @@ class VirtualWan(pulumi.CustomResource):
                  disable_vpn_encryption: Optional[pulumi.Input[bool]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 p2_s_vpn_server_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['P2SVpnServerConfigurationArgs']]]]] = None,
+                 p2_s_vpn_server_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['P2SVpnServerConfigurationArgs', 'P2SVpnServerConfigurationArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  security_provider_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -207,7 +212,7 @@ class VirtualWan(pulumi.CustomResource):
         :param pulumi.Input[bool] disable_vpn_encryption: Vpn encryption to be disabled or not.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['P2SVpnServerConfigurationArgs']]]] p2_s_vpn_server_configurations: List of all P2SVpnServerConfigurations associated with the virtual wan.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['P2SVpnServerConfigurationArgs', 'P2SVpnServerConfigurationArgsDict']]]] p2_s_vpn_server_configurations: List of all P2SVpnServerConfigurations associated with the virtual wan.
         :param pulumi.Input[str] resource_group_name: The resource group name of the VirtualWan.
         :param pulumi.Input[str] security_provider_name: The Security Provider name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -242,7 +247,7 @@ class VirtualWan(pulumi.CustomResource):
                  disable_vpn_encryption: Optional[pulumi.Input[bool]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 p2_s_vpn_server_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['P2SVpnServerConfigurationArgs']]]]] = None,
+                 p2_s_vpn_server_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['P2SVpnServerConfigurationArgs', 'P2SVpnServerConfigurationArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  security_provider_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,

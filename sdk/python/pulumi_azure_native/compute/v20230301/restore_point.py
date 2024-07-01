@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -154,12 +159,12 @@ class RestorePoint(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  consistency_mode: Optional[pulumi.Input[Union[str, 'ConsistencyModeTypes']]] = None,
-                 exclude_disks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApiEntityReferenceArgs']]]]] = None,
+                 exclude_disks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApiEntityReferenceArgs', 'ApiEntityReferenceArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  restore_point_collection_name: Optional[pulumi.Input[str]] = None,
                  restore_point_name: Optional[pulumi.Input[str]] = None,
-                 source_metadata: Optional[pulumi.Input[pulumi.InputType['RestorePointSourceMetadataArgs']]] = None,
-                 source_restore_point: Optional[pulumi.Input[pulumi.InputType['ApiEntityReferenceArgs']]] = None,
+                 source_metadata: Optional[pulumi.Input[Union['RestorePointSourceMetadataArgs', 'RestorePointSourceMetadataArgsDict']]] = None,
+                 source_restore_point: Optional[pulumi.Input[Union['ApiEntityReferenceArgs', 'ApiEntityReferenceArgsDict']]] = None,
                  time_created: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -168,12 +173,12 @@ class RestorePoint(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[str, 'ConsistencyModeTypes']] consistency_mode: ConsistencyMode of the RestorePoint. Can be specified in the input while creating a restore point. For now, only CrashConsistent is accepted as a valid input. Please refer to https://aka.ms/RestorePoints for more details.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApiEntityReferenceArgs']]]] exclude_disks: List of disk resource ids that the customer wishes to exclude from the restore point. If no disks are specified, all disks will be included.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ApiEntityReferenceArgs', 'ApiEntityReferenceArgsDict']]]] exclude_disks: List of disk resource ids that the customer wishes to exclude from the restore point. If no disks are specified, all disks will be included.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] restore_point_collection_name: The name of the restore point collection.
         :param pulumi.Input[str] restore_point_name: The name of the restore point.
-        :param pulumi.Input[pulumi.InputType['RestorePointSourceMetadataArgs']] source_metadata: Gets the details of the VM captured at the time of the restore point creation.
-        :param pulumi.Input[pulumi.InputType['ApiEntityReferenceArgs']] source_restore_point: Resource Id of the source restore point from which a copy needs to be created.
+        :param pulumi.Input[Union['RestorePointSourceMetadataArgs', 'RestorePointSourceMetadataArgsDict']] source_metadata: Gets the details of the VM captured at the time of the restore point creation.
+        :param pulumi.Input[Union['ApiEntityReferenceArgs', 'ApiEntityReferenceArgsDict']] source_restore_point: Resource Id of the source restore point from which a copy needs to be created.
         :param pulumi.Input[str] time_created: Gets the creation time of the restore point.
         """
         ...
@@ -201,12 +206,12 @@ class RestorePoint(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  consistency_mode: Optional[pulumi.Input[Union[str, 'ConsistencyModeTypes']]] = None,
-                 exclude_disks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApiEntityReferenceArgs']]]]] = None,
+                 exclude_disks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApiEntityReferenceArgs', 'ApiEntityReferenceArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  restore_point_collection_name: Optional[pulumi.Input[str]] = None,
                  restore_point_name: Optional[pulumi.Input[str]] = None,
-                 source_metadata: Optional[pulumi.Input[pulumi.InputType['RestorePointSourceMetadataArgs']]] = None,
-                 source_restore_point: Optional[pulumi.Input[pulumi.InputType['ApiEntityReferenceArgs']]] = None,
+                 source_metadata: Optional[pulumi.Input[Union['RestorePointSourceMetadataArgs', 'RestorePointSourceMetadataArgsDict']]] = None,
+                 source_restore_point: Optional[pulumi.Input[Union['ApiEntityReferenceArgs', 'ApiEntityReferenceArgsDict']]] = None,
                  time_created: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

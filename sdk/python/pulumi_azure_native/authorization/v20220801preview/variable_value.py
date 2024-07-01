@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -72,7 +77,7 @@ class VariableValue(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 values: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicyVariableValueColumnValueArgs']]]]] = None,
+                 values: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PolicyVariableValueColumnValueArgs', 'PolicyVariableValueColumnValueArgsDict']]]]] = None,
                  variable_name: Optional[pulumi.Input[str]] = None,
                  variable_value_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -81,7 +86,7 @@ class VariableValue(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicyVariableValueColumnValueArgs']]]] values: Variable value column value array.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PolicyVariableValueColumnValueArgs', 'PolicyVariableValueColumnValueArgsDict']]]] values: Variable value column value array.
         :param pulumi.Input[str] variable_name: The name of the variable to operate on.
         :param pulumi.Input[str] variable_value_name: The name of the variable value to operate on.
         """
@@ -109,7 +114,7 @@ class VariableValue(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 values: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicyVariableValueColumnValueArgs']]]]] = None,
+                 values: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PolicyVariableValueColumnValueArgs', 'PolicyVariableValueColumnValueArgsDict']]]]] = None,
                  variable_name: Optional[pulumi.Input[str]] = None,
                  variable_value_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):

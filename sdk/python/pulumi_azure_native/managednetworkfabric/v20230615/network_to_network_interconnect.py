@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -237,16 +242,16 @@ class NetworkToNetworkInterconnect(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  egress_acl_id: Optional[pulumi.Input[str]] = None,
-                 export_route_policy: Optional[pulumi.Input[pulumi.InputType['ExportRoutePolicyInformationArgs']]] = None,
-                 import_route_policy: Optional[pulumi.Input[pulumi.InputType['ImportRoutePolicyInformationArgs']]] = None,
+                 export_route_policy: Optional[pulumi.Input[Union['ExportRoutePolicyInformationArgs', 'ExportRoutePolicyInformationArgsDict']]] = None,
+                 import_route_policy: Optional[pulumi.Input[Union['ImportRoutePolicyInformationArgs', 'ImportRoutePolicyInformationArgsDict']]] = None,
                  ingress_acl_id: Optional[pulumi.Input[str]] = None,
                  is_management_type: Optional[pulumi.Input[Union[str, 'IsManagementType']]] = None,
-                 layer2_configuration: Optional[pulumi.Input[pulumi.InputType['Layer2ConfigurationArgs']]] = None,
+                 layer2_configuration: Optional[pulumi.Input[Union['Layer2ConfigurationArgs', 'Layer2ConfigurationArgsDict']]] = None,
                  network_fabric_name: Optional[pulumi.Input[str]] = None,
                  network_to_network_interconnect_name: Optional[pulumi.Input[str]] = None,
                  nni_type: Optional[pulumi.Input[Union[str, 'NniType']]] = None,
-                 npb_static_route_configuration: Optional[pulumi.Input[pulumi.InputType['NpbStaticRouteConfigurationArgs']]] = None,
-                 option_b_layer3_configuration: Optional[pulumi.Input[pulumi.InputType['NetworkToNetworkInterconnectPropertiesOptionBLayer3ConfigurationArgs']]] = None,
+                 npb_static_route_configuration: Optional[pulumi.Input[Union['NpbStaticRouteConfigurationArgs', 'NpbStaticRouteConfigurationArgsDict']]] = None,
+                 option_b_layer3_configuration: Optional[pulumi.Input[Union['NetworkToNetworkInterconnectPropertiesOptionBLayer3ConfigurationArgs', 'NetworkToNetworkInterconnectPropertiesOptionBLayer3ConfigurationArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  use_option_b: Optional[pulumi.Input[Union[str, 'BooleanEnumProperty']]] = None,
                  __props__=None):
@@ -256,16 +261,16 @@ class NetworkToNetworkInterconnect(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] egress_acl_id: Egress Acl. ARM resource ID of Access Control Lists.
-        :param pulumi.Input[pulumi.InputType['ExportRoutePolicyInformationArgs']] export_route_policy: Export Route Policy configuration.
-        :param pulumi.Input[pulumi.InputType['ImportRoutePolicyInformationArgs']] import_route_policy: Import Route Policy configuration.
+        :param pulumi.Input[Union['ExportRoutePolicyInformationArgs', 'ExportRoutePolicyInformationArgsDict']] export_route_policy: Export Route Policy configuration.
+        :param pulumi.Input[Union['ImportRoutePolicyInformationArgs', 'ImportRoutePolicyInformationArgsDict']] import_route_policy: Import Route Policy configuration.
         :param pulumi.Input[str] ingress_acl_id: Ingress Acl. ARM resource ID of Access Control Lists.
         :param pulumi.Input[Union[str, 'IsManagementType']] is_management_type: Configuration to use NNI for Infrastructure Management. Example: True/False.
-        :param pulumi.Input[pulumi.InputType['Layer2ConfigurationArgs']] layer2_configuration: Common properties for Layer2 Configuration.
+        :param pulumi.Input[Union['Layer2ConfigurationArgs', 'Layer2ConfigurationArgsDict']] layer2_configuration: Common properties for Layer2 Configuration.
         :param pulumi.Input[str] network_fabric_name: Name of the Network Fabric.
         :param pulumi.Input[str] network_to_network_interconnect_name: Name of the Network to Network Interconnect.
         :param pulumi.Input[Union[str, 'NniType']] nni_type: Type of NNI used. Example: CE | NPB
-        :param pulumi.Input[pulumi.InputType['NpbStaticRouteConfigurationArgs']] npb_static_route_configuration: NPB Static Route Configuration properties.
-        :param pulumi.Input[pulumi.InputType['NetworkToNetworkInterconnectPropertiesOptionBLayer3ConfigurationArgs']] option_b_layer3_configuration: Common properties for Layer3Configuration.
+        :param pulumi.Input[Union['NpbStaticRouteConfigurationArgs', 'NpbStaticRouteConfigurationArgsDict']] npb_static_route_configuration: NPB Static Route Configuration properties.
+        :param pulumi.Input[Union['NetworkToNetworkInterconnectPropertiesOptionBLayer3ConfigurationArgs', 'NetworkToNetworkInterconnectPropertiesOptionBLayer3ConfigurationArgsDict']] option_b_layer3_configuration: Common properties for Layer3Configuration.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union[str, 'BooleanEnumProperty']] use_option_b: Based on this option layer3 parameters are mandatory. Example: True/False
         """
@@ -294,16 +299,16 @@ class NetworkToNetworkInterconnect(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  egress_acl_id: Optional[pulumi.Input[str]] = None,
-                 export_route_policy: Optional[pulumi.Input[pulumi.InputType['ExportRoutePolicyInformationArgs']]] = None,
-                 import_route_policy: Optional[pulumi.Input[pulumi.InputType['ImportRoutePolicyInformationArgs']]] = None,
+                 export_route_policy: Optional[pulumi.Input[Union['ExportRoutePolicyInformationArgs', 'ExportRoutePolicyInformationArgsDict']]] = None,
+                 import_route_policy: Optional[pulumi.Input[Union['ImportRoutePolicyInformationArgs', 'ImportRoutePolicyInformationArgsDict']]] = None,
                  ingress_acl_id: Optional[pulumi.Input[str]] = None,
                  is_management_type: Optional[pulumi.Input[Union[str, 'IsManagementType']]] = None,
-                 layer2_configuration: Optional[pulumi.Input[pulumi.InputType['Layer2ConfigurationArgs']]] = None,
+                 layer2_configuration: Optional[pulumi.Input[Union['Layer2ConfigurationArgs', 'Layer2ConfigurationArgsDict']]] = None,
                  network_fabric_name: Optional[pulumi.Input[str]] = None,
                  network_to_network_interconnect_name: Optional[pulumi.Input[str]] = None,
                  nni_type: Optional[pulumi.Input[Union[str, 'NniType']]] = None,
-                 npb_static_route_configuration: Optional[pulumi.Input[pulumi.InputType['NpbStaticRouteConfigurationArgs']]] = None,
-                 option_b_layer3_configuration: Optional[pulumi.Input[pulumi.InputType['NetworkToNetworkInterconnectPropertiesOptionBLayer3ConfigurationArgs']]] = None,
+                 npb_static_route_configuration: Optional[pulumi.Input[Union['NpbStaticRouteConfigurationArgs', 'NpbStaticRouteConfigurationArgsDict']]] = None,
+                 option_b_layer3_configuration: Optional[pulumi.Input[Union['NetworkToNetworkInterconnectPropertiesOptionBLayer3ConfigurationArgs', 'NetworkToNetworkInterconnectPropertiesOptionBLayer3ConfigurationArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  use_option_b: Optional[pulumi.Input[Union[str, 'BooleanEnumProperty']]] = None,
                  __props__=None):

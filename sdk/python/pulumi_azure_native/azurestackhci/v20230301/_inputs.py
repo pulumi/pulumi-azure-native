@@ -4,19 +4,43 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'ArcConnectivityPropertiesArgs',
+    'ArcConnectivityPropertiesArgsDict',
     'ClusterDesiredPropertiesArgs',
+    'ClusterDesiredPropertiesArgsDict',
     'SoftwareAssurancePropertiesArgs',
+    'SoftwareAssurancePropertiesArgsDict',
     'StepArgs',
+    'StepArgsDict',
     'UpdatePrerequisiteArgs',
+    'UpdatePrerequisiteArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ArcConnectivityPropertiesArgsDict(TypedDict):
+        """
+        Connectivity related configuration required by arc server.
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        True indicates ARC connectivity is enabled
+        """
+elif False:
+    ArcConnectivityPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ArcConnectivityPropertiesArgs:
@@ -41,6 +65,22 @@ class ArcConnectivityPropertiesArgs:
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
 
+
+if not MYPY:
+    class ClusterDesiredPropertiesArgsDict(TypedDict):
+        """
+        Desired properties of the cluster.
+        """
+        diagnostic_level: NotRequired[pulumi.Input[Union[str, 'DiagnosticLevel']]]
+        """
+        Desired level of diagnostic data emitted by the cluster.
+        """
+        windows_server_subscription: NotRequired[pulumi.Input[Union[str, 'WindowsServerSubscription']]]
+        """
+        Desired state of Windows Server Subscription.
+        """
+elif False:
+    ClusterDesiredPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ClusterDesiredPropertiesArgs:
@@ -82,6 +122,22 @@ class ClusterDesiredPropertiesArgs:
         pulumi.set(self, "windows_server_subscription", value)
 
 
+if not MYPY:
+    class SoftwareAssurancePropertiesArgsDict(TypedDict):
+        """
+        Software Assurance properties of the cluster.
+        """
+        software_assurance_intent: NotRequired[pulumi.Input[Union[str, 'SoftwareAssuranceIntent']]]
+        """
+        Customer Intent for Software Assurance Benefit.
+        """
+        software_assurance_status: NotRequired[pulumi.Input[Union[str, 'SoftwareAssuranceStatus']]]
+        """
+        Status of the Software Assurance for the cluster.
+        """
+elif False:
+    SoftwareAssurancePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SoftwareAssurancePropertiesArgs:
     def __init__(__self__, *,
@@ -121,6 +177,46 @@ class SoftwareAssurancePropertiesArgs:
     def software_assurance_status(self, value: Optional[pulumi.Input[Union[str, 'SoftwareAssuranceStatus']]]):
         pulumi.set(self, "software_assurance_status", value)
 
+
+if not MYPY:
+    class StepArgsDict(TypedDict):
+        """
+        Progress representation of the update run steps.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        More detailed description of the step.
+        """
+        end_time_utc: NotRequired[pulumi.Input[str]]
+        """
+        When the step reached a terminal state.
+        """
+        error_message: NotRequired[pulumi.Input[str]]
+        """
+        Error message, specified if the step is in a failed state.
+        """
+        last_updated_time_utc: NotRequired[pulumi.Input[str]]
+        """
+        Completion time of this step or the last completed sub-step.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the step.
+        """
+        start_time_utc: NotRequired[pulumi.Input[str]]
+        """
+        When the step started, or empty if it has not started executing.
+        """
+        status: NotRequired[pulumi.Input[str]]
+        """
+        Status of the step, bubbled up from the ECE action plan for installation attempts. Values are: 'Success', 'Error', 'InProgress', and 'Unknown status'.
+        """
+        steps: NotRequired[pulumi.Input[Sequence[pulumi.Input['StepArgsDict']]]]
+        """
+        Recursive model for child steps of this step.
+        """
+elif False:
+    StepArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class StepArgs:
@@ -257,6 +353,26 @@ class StepArgs:
     def steps(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StepArgs']]]]):
         pulumi.set(self, "steps", value)
 
+
+if not MYPY:
+    class UpdatePrerequisiteArgsDict(TypedDict):
+        """
+        If update State is HasPrerequisite, this property contains an array of objects describing prerequisite updates before installing this update. Otherwise, it is empty.
+        """
+        package_name: NotRequired[pulumi.Input[str]]
+        """
+        Friendly name of the prerequisite.
+        """
+        update_type: NotRequired[pulumi.Input[str]]
+        """
+        Updatable component type.
+        """
+        version: NotRequired[pulumi.Input[str]]
+        """
+        Version of the prerequisite.
+        """
+elif False:
+    UpdatePrerequisiteArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UpdatePrerequisiteArgs:

@@ -4,17 +4,39 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'LinkOrganizationArgs',
+    'LinkOrganizationArgsDict',
     'OfferDetailArgs',
+    'OfferDetailArgsDict',
     'UserDetailArgs',
+    'UserDetailArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class LinkOrganizationArgsDict(TypedDict):
+        """
+        Link an existing Confluent organization
+        """
+        token: pulumi.Input[str]
+        """
+        User auth token
+        """
+elif False:
+    LinkOrganizationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LinkOrganizationArgs:
@@ -38,6 +60,50 @@ class LinkOrganizationArgs:
     def token(self, value: pulumi.Input[str]):
         pulumi.set(self, "token", value)
 
+
+if not MYPY:
+    class OfferDetailArgsDict(TypedDict):
+        """
+        Confluent Offer detail
+        """
+        id: pulumi.Input[str]
+        """
+        Offer Id
+        """
+        plan_id: pulumi.Input[str]
+        """
+        Offer Plan Id
+        """
+        plan_name: pulumi.Input[str]
+        """
+        Offer Plan Name
+        """
+        publisher_id: pulumi.Input[str]
+        """
+        Publisher Id
+        """
+        term_unit: pulumi.Input[str]
+        """
+        Offer Plan Term unit
+        """
+        private_offer_id: NotRequired[pulumi.Input[str]]
+        """
+        Private Offer Id
+        """
+        private_offer_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Array of Private Offer Ids
+        """
+        status: NotRequired[pulumi.Input[Union[str, 'SaaSOfferStatus']]]
+        """
+        SaaS Offer Status
+        """
+        term_id: NotRequired[pulumi.Input[str]]
+        """
+        Offer Plan Term Id
+        """
+elif False:
+    OfferDetailArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OfferDetailArgs:
@@ -185,6 +251,34 @@ class OfferDetailArgs:
     def term_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "term_id", value)
 
+
+if not MYPY:
+    class UserDetailArgsDict(TypedDict):
+        """
+        Subscriber detail
+        """
+        email_address: pulumi.Input[str]
+        """
+        Email address
+        """
+        aad_email: NotRequired[pulumi.Input[str]]
+        """
+        AAD email address
+        """
+        first_name: NotRequired[pulumi.Input[str]]
+        """
+        First name
+        """
+        last_name: NotRequired[pulumi.Input[str]]
+        """
+        Last name
+        """
+        user_principal_name: NotRequired[pulumi.Input[str]]
+        """
+        User principal name
+        """
+elif False:
+    UserDetailArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserDetailArgs:

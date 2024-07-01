@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -362,24 +367,24 @@ class ApplicationDefinition(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_definition_name: Optional[pulumi.Input[str]] = None,
-                 artifacts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationDefinitionArtifactArgs']]]]] = None,
-                 authorizations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationAuthorizationArgs']]]]] = None,
+                 artifacts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationDefinitionArtifactArgs', 'ApplicationDefinitionArtifactArgsDict']]]]] = None,
+                 authorizations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationAuthorizationArgs', 'ApplicationAuthorizationArgsDict']]]]] = None,
                  create_ui_definition: Optional[Any] = None,
-                 deployment_policy: Optional[pulumi.Input[pulumi.InputType['ApplicationDeploymentPolicyArgs']]] = None,
+                 deployment_policy: Optional[pulumi.Input[Union['ApplicationDeploymentPolicyArgs', 'ApplicationDeploymentPolicyArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  is_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  lock_level: Optional[pulumi.Input['ApplicationLockLevel']] = None,
-                 locking_policy: Optional[pulumi.Input[pulumi.InputType['ApplicationPackageLockingPolicyDefinitionArgs']]] = None,
+                 locking_policy: Optional[pulumi.Input[Union['ApplicationPackageLockingPolicyDefinitionArgs', 'ApplicationPackageLockingPolicyDefinitionArgsDict']]] = None,
                  main_template: Optional[Any] = None,
                  managed_by: Optional[pulumi.Input[str]] = None,
-                 management_policy: Optional[pulumi.Input[pulumi.InputType['ApplicationManagementPolicyArgs']]] = None,
-                 notification_policy: Optional[pulumi.Input[pulumi.InputType['ApplicationNotificationPolicyArgs']]] = None,
+                 management_policy: Optional[pulumi.Input[Union['ApplicationManagementPolicyArgs', 'ApplicationManagementPolicyArgsDict']]] = None,
+                 notification_policy: Optional[pulumi.Input[Union['ApplicationNotificationPolicyArgs', 'ApplicationNotificationPolicyArgsDict']]] = None,
                  package_file_uri: Optional[pulumi.Input[str]] = None,
-                 policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationPolicyArgs']]]]] = None,
+                 policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationPolicyArgs', 'ApplicationPolicyArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  storage_account_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -392,24 +397,24 @@ class ApplicationDefinition(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_definition_name: The name of the managed application definition.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationDefinitionArtifactArgs']]]] artifacts: The collection of managed application artifacts. The portal will use the files specified as artifacts to construct the user experience of creating a managed application from a managed application definition.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationAuthorizationArgs']]]] authorizations: The managed application provider authorizations.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationDefinitionArtifactArgs', 'ApplicationDefinitionArtifactArgsDict']]]] artifacts: The collection of managed application artifacts. The portal will use the files specified as artifacts to construct the user experience of creating a managed application from a managed application definition.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationAuthorizationArgs', 'ApplicationAuthorizationArgsDict']]]] authorizations: The managed application provider authorizations.
         :param Any create_ui_definition: The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string.
-        :param pulumi.Input[pulumi.InputType['ApplicationDeploymentPolicyArgs']] deployment_policy: The managed application deployment policy.
+        :param pulumi.Input[Union['ApplicationDeploymentPolicyArgs', 'ApplicationDeploymentPolicyArgsDict']] deployment_policy: The managed application deployment policy.
         :param pulumi.Input[str] description: The managed application definition description.
         :param pulumi.Input[str] display_name: The managed application definition display name.
         :param pulumi.Input[bool] is_enabled: A value indicating whether the package is enabled or not.
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input['ApplicationLockLevel'] lock_level: The managed application lock level.
-        :param pulumi.Input[pulumi.InputType['ApplicationPackageLockingPolicyDefinitionArgs']] locking_policy: The managed application locking policy.
+        :param pulumi.Input[Union['ApplicationPackageLockingPolicyDefinitionArgs', 'ApplicationPackageLockingPolicyDefinitionArgsDict']] locking_policy: The managed application locking policy.
         :param Any main_template: The inline main template json which has resources to be provisioned. It can be a JObject or well-formed JSON string.
         :param pulumi.Input[str] managed_by: ID of the resource that manages this resource.
-        :param pulumi.Input[pulumi.InputType['ApplicationManagementPolicyArgs']] management_policy: The managed application management policy that determines publisher's access to the managed resource group.
-        :param pulumi.Input[pulumi.InputType['ApplicationNotificationPolicyArgs']] notification_policy: The managed application notification policy.
+        :param pulumi.Input[Union['ApplicationManagementPolicyArgs', 'ApplicationManagementPolicyArgsDict']] management_policy: The managed application management policy that determines publisher's access to the managed resource group.
+        :param pulumi.Input[Union['ApplicationNotificationPolicyArgs', 'ApplicationNotificationPolicyArgsDict']] notification_policy: The managed application notification policy.
         :param pulumi.Input[str] package_file_uri: The managed application definition package file Uri. Use this element
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationPolicyArgs']]]] policies: The managed application provider policies.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationPolicyArgs', 'ApplicationPolicyArgsDict']]]] policies: The managed application provider policies.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The SKU of the resource.
+        :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: The SKU of the resource.
         :param pulumi.Input[str] storage_account_id: The storage account id for bring your own storage scenario.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
@@ -441,24 +446,24 @@ class ApplicationDefinition(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_definition_name: Optional[pulumi.Input[str]] = None,
-                 artifacts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationDefinitionArtifactArgs']]]]] = None,
-                 authorizations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationAuthorizationArgs']]]]] = None,
+                 artifacts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationDefinitionArtifactArgs', 'ApplicationDefinitionArtifactArgsDict']]]]] = None,
+                 authorizations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationAuthorizationArgs', 'ApplicationAuthorizationArgsDict']]]]] = None,
                  create_ui_definition: Optional[Any] = None,
-                 deployment_policy: Optional[pulumi.Input[pulumi.InputType['ApplicationDeploymentPolicyArgs']]] = None,
+                 deployment_policy: Optional[pulumi.Input[Union['ApplicationDeploymentPolicyArgs', 'ApplicationDeploymentPolicyArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  is_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  lock_level: Optional[pulumi.Input['ApplicationLockLevel']] = None,
-                 locking_policy: Optional[pulumi.Input[pulumi.InputType['ApplicationPackageLockingPolicyDefinitionArgs']]] = None,
+                 locking_policy: Optional[pulumi.Input[Union['ApplicationPackageLockingPolicyDefinitionArgs', 'ApplicationPackageLockingPolicyDefinitionArgsDict']]] = None,
                  main_template: Optional[Any] = None,
                  managed_by: Optional[pulumi.Input[str]] = None,
-                 management_policy: Optional[pulumi.Input[pulumi.InputType['ApplicationManagementPolicyArgs']]] = None,
-                 notification_policy: Optional[pulumi.Input[pulumi.InputType['ApplicationNotificationPolicyArgs']]] = None,
+                 management_policy: Optional[pulumi.Input[Union['ApplicationManagementPolicyArgs', 'ApplicationManagementPolicyArgsDict']]] = None,
+                 notification_policy: Optional[pulumi.Input[Union['ApplicationNotificationPolicyArgs', 'ApplicationNotificationPolicyArgsDict']]] = None,
                  package_file_uri: Optional[pulumi.Input[str]] = None,
-                 policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationPolicyArgs']]]]] = None,
+                 policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationPolicyArgs', 'ApplicationPolicyArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  storage_account_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):

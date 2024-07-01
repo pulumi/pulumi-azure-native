@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -106,8 +111,8 @@ class Build(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  build_name: Optional[pulumi.Input[str]] = None,
                  builder_name: Optional[pulumi.Input[str]] = None,
-                 configuration: Optional[pulumi.Input[pulumi.InputType['BuildConfigurationArgs']]] = None,
-                 destination_container_registry: Optional[pulumi.Input[pulumi.InputType['ContainerRegistryWithCustomImageArgs']]] = None,
+                 configuration: Optional[pulumi.Input[Union['BuildConfigurationArgs', 'BuildConfigurationArgsDict']]] = None,
+                 destination_container_registry: Optional[pulumi.Input[Union['ContainerRegistryWithCustomImageArgs', 'ContainerRegistryWithCustomImageArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -117,8 +122,8 @@ class Build(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] build_name: The name of a build.
         :param pulumi.Input[str] builder_name: The name of the builder.
-        :param pulumi.Input[pulumi.InputType['BuildConfigurationArgs']] configuration: Configuration of the build.
-        :param pulumi.Input[pulumi.InputType['ContainerRegistryWithCustomImageArgs']] destination_container_registry: Container registry that the final image will be uploaded to.
+        :param pulumi.Input[Union['BuildConfigurationArgs', 'BuildConfigurationArgsDict']] configuration: Configuration of the build.
+        :param pulumi.Input[Union['ContainerRegistryWithCustomImageArgs', 'ContainerRegistryWithCustomImageArgsDict']] destination_container_registry: Container registry that the final image will be uploaded to.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         """
         ...
@@ -147,8 +152,8 @@ class Build(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  build_name: Optional[pulumi.Input[str]] = None,
                  builder_name: Optional[pulumi.Input[str]] = None,
-                 configuration: Optional[pulumi.Input[pulumi.InputType['BuildConfigurationArgs']]] = None,
-                 destination_container_registry: Optional[pulumi.Input[pulumi.InputType['ContainerRegistryWithCustomImageArgs']]] = None,
+                 configuration: Optional[pulumi.Input[Union['BuildConfigurationArgs', 'BuildConfigurationArgsDict']]] = None,
+                 destination_container_registry: Optional[pulumi.Input[Union['ContainerRegistryWithCustomImageArgs', 'ContainerRegistryWithCustomImageArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

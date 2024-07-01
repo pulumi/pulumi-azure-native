@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -87,7 +92,7 @@ class RegistryEnvironmentContainer(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 environment_container_properties: Optional[pulumi.Input[pulumi.InputType['EnvironmentContainerArgs']]] = None,
+                 environment_container_properties: Optional[pulumi.Input[Union['EnvironmentContainerArgs', 'EnvironmentContainerArgsDict']]] = None,
                  environment_name: Optional[pulumi.Input[str]] = None,
                  registry_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -100,7 +105,7 @@ class RegistryEnvironmentContainer(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['EnvironmentContainerArgs']] environment_container_properties: [Required] Additional attributes of the entity.
+        :param pulumi.Input[Union['EnvironmentContainerArgs', 'EnvironmentContainerArgsDict']] environment_container_properties: [Required] Additional attributes of the entity.
         :param pulumi.Input[str] environment_name: Container name.
         :param pulumi.Input[str] registry_name: Name of Azure Machine Learning registry. This is case-insensitive
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -132,7 +137,7 @@ class RegistryEnvironmentContainer(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 environment_container_properties: Optional[pulumi.Input[pulumi.InputType['EnvironmentContainerArgs']]] = None,
+                 environment_container_properties: Optional[pulumi.Input[Union['EnvironmentContainerArgs', 'EnvironmentContainerArgsDict']]] = None,
                  environment_name: Optional[pulumi.Input[str]] = None,
                  registry_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,

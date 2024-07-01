@@ -4,17 +4,44 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'ClusterServiceAksClusterDataArgs',
+    'ClusterServiceAksClusterDataArgsDict',
     'ClusterServiceNexusAksClusterDataArgs',
+    'ClusterServiceNexusAksClusterDataArgsDict',
     'QualifiedComponentDeploymentParametersArgs',
+    'QualifiedComponentDeploymentParametersArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ClusterServiceAksClusterDataArgsDict(TypedDict):
+        """
+        AKS Cluster specific data.
+        """
+        custom_location_id: pulumi.Input[str]
+        """
+        Custom Location resource ID
+        """
+        type: pulumi.Input[str]
+        """
+        Cluster Type Definitions
+        Expected value is 'Aks'.
+        """
+elif False:
+    ClusterServiceAksClusterDataArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ClusterServiceAksClusterDataArgs:
@@ -56,6 +83,23 @@ class ClusterServiceAksClusterDataArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class ClusterServiceNexusAksClusterDataArgsDict(TypedDict):
+        """
+        Nexus AKS Cluster specific data.
+        """
+        custom_location_id: pulumi.Input[str]
+        """
+        Custom Location resource ID
+        """
+        type: pulumi.Input[str]
+        """
+        Cluster Type Definitions
+        Expected value is 'NexusAks'.
+        """
+elif False:
+    ClusterServiceNexusAksClusterDataArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ClusterServiceNexusAksClusterDataArgs:
     def __init__(__self__, *,
@@ -95,6 +139,26 @@ class ClusterServiceNexusAksClusterDataArgs:
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class QualifiedComponentDeploymentParametersArgsDict(TypedDict):
+        """
+        Containerized Network Function (CNF) Qualified Deployment Parameters
+        """
+        type: pulumi.Input[str]
+        """
+        Federation Type
+        """
+        parameters: NotRequired[pulumi.Input[str]]
+        """
+        Deployment Parameters
+        """
+        secrets: NotRequired[pulumi.Input[str]]
+        """
+        Deployment secrets
+        """
+elif False:
+    QualifiedComponentDeploymentParametersArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class QualifiedComponentDeploymentParametersArgs:

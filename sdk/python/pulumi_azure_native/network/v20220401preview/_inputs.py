@@ -4,23 +4,55 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'AddressPrefixItemArgs',
+    'AddressPrefixItemArgsDict',
     'DnsConfigArgs',
+    'DnsConfigArgsDict',
     'EndpointPropertiesCustomHeadersArgs',
+    'EndpointPropertiesCustomHeadersArgsDict',
     'EndpointPropertiesSubnetsArgs',
+    'EndpointPropertiesSubnetsArgsDict',
     'EndpointArgs',
+    'EndpointArgsDict',
     'MonitorConfigCustomHeadersArgs',
+    'MonitorConfigCustomHeadersArgsDict',
     'MonitorConfigExpectedStatusCodeRangesArgs',
+    'MonitorConfigExpectedStatusCodeRangesArgsDict',
     'MonitorConfigArgs',
+    'MonitorConfigArgsDict',
     'NetworkManagerSecurityGroupItemArgs',
+    'NetworkManagerSecurityGroupItemArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AddressPrefixItemArgsDict(TypedDict):
+        """
+        Address prefix item.
+        """
+        address_prefix: NotRequired[pulumi.Input[str]]
+        """
+        Address prefix.
+        """
+        address_prefix_type: NotRequired[pulumi.Input[Union[str, 'AddressPrefixType']]]
+        """
+        Address prefix type.
+        """
+elif False:
+    AddressPrefixItemArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AddressPrefixItemArgs:
@@ -62,6 +94,22 @@ class AddressPrefixItemArgs:
         pulumi.set(self, "address_prefix_type", value)
 
 
+if not MYPY:
+    class DnsConfigArgsDict(TypedDict):
+        """
+        Class containing DNS settings in a Traffic Manager profile.
+        """
+        relative_name: NotRequired[pulumi.Input[str]]
+        """
+        The relative DNS name provided by this Traffic Manager profile. This value is combined with the DNS domain name used by Azure Traffic Manager to form the fully-qualified domain name (FQDN) of the profile.
+        """
+        ttl: NotRequired[pulumi.Input[float]]
+        """
+        The DNS Time-To-Live (TTL), in seconds. This informs the local DNS resolvers and DNS clients how long to cache DNS responses provided by this Traffic Manager profile.
+        """
+elif False:
+    DnsConfigArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DnsConfigArgs:
     def __init__(__self__, *,
@@ -102,6 +150,22 @@ class DnsConfigArgs:
         pulumi.set(self, "ttl", value)
 
 
+if not MYPY:
+    class EndpointPropertiesCustomHeadersArgsDict(TypedDict):
+        """
+        Custom header name and value.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Header name.
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        Header value.
+        """
+elif False:
+    EndpointPropertiesCustomHeadersArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EndpointPropertiesCustomHeadersArgs:
     def __init__(__self__, *,
@@ -141,6 +205,26 @@ class EndpointPropertiesCustomHeadersArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class EndpointPropertiesSubnetsArgsDict(TypedDict):
+        """
+        Subnet first address, scope, and/or last address.
+        """
+        first: NotRequired[pulumi.Input[str]]
+        """
+        First address in the subnet.
+        """
+        last: NotRequired[pulumi.Input[str]]
+        """
+        Last address in the subnet.
+        """
+        scope: NotRequired[pulumi.Input[int]]
+        """
+        Block size (number of leading bits in the subnet mask).
+        """
+elif False:
+    EndpointPropertiesSubnetsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EndpointPropertiesSubnetsArgs:
@@ -197,6 +281,82 @@ class EndpointPropertiesSubnetsArgs:
     def scope(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "scope", value)
 
+
+if not MYPY:
+    class EndpointArgsDict(TypedDict):
+        """
+        Class representing a Traffic Manager endpoint.
+        """
+        always_serve: NotRequired[pulumi.Input[Union[str, 'AlwaysServe']]]
+        """
+        If Always Serve is enabled, probing for endpoint health will be disabled and endpoints will be included in the traffic routing method.
+        """
+        custom_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['EndpointPropertiesCustomHeadersArgsDict']]]]
+        """
+        List of custom headers.
+        """
+        endpoint_location: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the location of the external or nested endpoints when using the 'Performance' traffic routing method.
+        """
+        endpoint_monitor_status: NotRequired[pulumi.Input[Union[str, 'EndpointMonitorStatus']]]
+        """
+        The monitoring status of the endpoint.
+        """
+        endpoint_status: NotRequired[pulumi.Input[Union[str, 'EndpointStatus']]]
+        """
+        The status of the endpoint. If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.
+        """
+        geo_mapping: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of countries/regions mapped to this endpoint when using the 'Geographic' traffic routing method. Please consult Traffic Manager Geographic documentation for a full list of accepted values.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{resourceName}
+        """
+        min_child_endpoints: NotRequired[pulumi.Input[float]]
+        """
+        The minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
+        """
+        min_child_endpoints_i_pv4: NotRequired[pulumi.Input[float]]
+        """
+        The minimum number of IPv4 (DNS record type A) endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
+        """
+        min_child_endpoints_i_pv6: NotRequired[pulumi.Input[float]]
+        """
+        The minimum number of IPv6 (DNS record type AAAA) endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the resource
+        """
+        priority: NotRequired[pulumi.Input[float]]
+        """
+        The priority of this endpoint when using the 'Priority' traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
+        """
+        subnets: NotRequired[pulumi.Input[Sequence[pulumi.Input['EndpointPropertiesSubnetsArgsDict']]]]
+        """
+        The list of subnets, IP addresses, and/or address ranges mapped to this endpoint when using the 'Subnet' traffic routing method. An empty list will match all ranges not covered by other endpoints.
+        """
+        target: NotRequired[pulumi.Input[str]]
+        """
+        The fully-qualified DNS name or IP address of the endpoint. Traffic Manager returns this value in DNS responses to direct traffic to this endpoint.
+        """
+        target_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        The Azure Resource URI of the of the endpoint. Not applicable to endpoints of type 'ExternalEndpoints'.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
+        """
+        weight: NotRequired[pulumi.Input[float]]
+        """
+        The weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.
+        """
+elif False:
+    EndpointArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EndpointArgs:
@@ -478,6 +638,22 @@ class EndpointArgs:
         pulumi.set(self, "weight", value)
 
 
+if not MYPY:
+    class MonitorConfigCustomHeadersArgsDict(TypedDict):
+        """
+        Custom header name and value.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Header name.
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        Header value.
+        """
+elif False:
+    MonitorConfigCustomHeadersArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MonitorConfigCustomHeadersArgs:
     def __init__(__self__, *,
@@ -518,6 +694,22 @@ class MonitorConfigCustomHeadersArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class MonitorConfigExpectedStatusCodeRangesArgsDict(TypedDict):
+        """
+        Min and max value of a status code range.
+        """
+        max: NotRequired[pulumi.Input[int]]
+        """
+        Max status code.
+        """
+        min: NotRequired[pulumi.Input[int]]
+        """
+        Min status code.
+        """
+elif False:
+    MonitorConfigExpectedStatusCodeRangesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MonitorConfigExpectedStatusCodeRangesArgs:
     def __init__(__self__, *,
@@ -557,6 +749,50 @@ class MonitorConfigExpectedStatusCodeRangesArgs:
     def min(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "min", value)
 
+
+if not MYPY:
+    class MonitorConfigArgsDict(TypedDict):
+        """
+        Class containing endpoint monitoring settings in a Traffic Manager profile.
+        """
+        custom_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['MonitorConfigCustomHeadersArgsDict']]]]
+        """
+        List of custom headers.
+        """
+        expected_status_code_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input['MonitorConfigExpectedStatusCodeRangesArgsDict']]]]
+        """
+        List of expected status code ranges.
+        """
+        interval_in_seconds: NotRequired[pulumi.Input[float]]
+        """
+        The monitor interval for endpoints in this profile. This is the interval at which Traffic Manager will check the health of each endpoint in this profile.
+        """
+        path: NotRequired[pulumi.Input[str]]
+        """
+        The path relative to the endpoint domain name used to probe for endpoint health.
+        """
+        port: NotRequired[pulumi.Input[float]]
+        """
+        The TCP port used to probe for endpoint health.
+        """
+        profile_monitor_status: NotRequired[pulumi.Input[Union[str, 'ProfileMonitorStatus']]]
+        """
+        The profile-level monitoring status of the Traffic Manager profile.
+        """
+        protocol: NotRequired[pulumi.Input[Union[str, 'MonitorProtocol']]]
+        """
+        The protocol (HTTP, HTTPS or TCP) used to probe for endpoint health.
+        """
+        timeout_in_seconds: NotRequired[pulumi.Input[float]]
+        """
+        The monitor timeout for endpoints in this profile. This is the time that Traffic Manager allows endpoints in this profile to response to the health check.
+        """
+        tolerated_number_of_failures: NotRequired[pulumi.Input[float]]
+        """
+        The number of consecutive failed health check that Traffic Manager tolerates before declaring an endpoint in this profile Degraded after the next failed health check.
+        """
+elif False:
+    MonitorConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MonitorConfigArgs:
@@ -709,6 +945,18 @@ class MonitorConfigArgs:
     def tolerated_number_of_failures(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "tolerated_number_of_failures", value)
 
+
+if not MYPY:
+    class NetworkManagerSecurityGroupItemArgsDict(TypedDict):
+        """
+        Network manager security group item.
+        """
+        network_group_id: pulumi.Input[str]
+        """
+        Network manager group Id.
+        """
+elif False:
+    NetworkManagerSecurityGroupItemArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NetworkManagerSecurityGroupItemArgs:

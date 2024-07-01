@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -152,12 +157,12 @@ class DscNodeConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  automation_account_name: Optional[pulumi.Input[str]] = None,
-                 configuration: Optional[pulumi.Input[pulumi.InputType['DscConfigurationAssociationPropertyArgs']]] = None,
+                 configuration: Optional[pulumi.Input[Union['DscConfigurationAssociationPropertyArgs', 'DscConfigurationAssociationPropertyArgsDict']]] = None,
                  increment_node_configuration_build: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  node_configuration_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 source: Optional[pulumi.Input[pulumi.InputType['ContentSourceArgs']]] = None,
+                 source: Optional[pulumi.Input[Union['ContentSourceArgs', 'ContentSourceArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -166,12 +171,12 @@ class DscNodeConfiguration(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] automation_account_name: The name of the automation account.
-        :param pulumi.Input[pulumi.InputType['DscConfigurationAssociationPropertyArgs']] configuration: Gets or sets the configuration of the node.
+        :param pulumi.Input[Union['DscConfigurationAssociationPropertyArgs', 'DscConfigurationAssociationPropertyArgsDict']] configuration: Gets or sets the configuration of the node.
         :param pulumi.Input[bool] increment_node_configuration_build: If a new build version of NodeConfiguration is required.
         :param pulumi.Input[str] name: Name of the node configuration.
         :param pulumi.Input[str] node_configuration_name: The Dsc node configuration name.
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
-        :param pulumi.Input[pulumi.InputType['ContentSourceArgs']] source: Gets or sets the source.
+        :param pulumi.Input[Union['ContentSourceArgs', 'ContentSourceArgsDict']] source: Gets or sets the source.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Gets or sets the tags attached to the resource.
         """
         ...
@@ -199,12 +204,12 @@ class DscNodeConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  automation_account_name: Optional[pulumi.Input[str]] = None,
-                 configuration: Optional[pulumi.Input[pulumi.InputType['DscConfigurationAssociationPropertyArgs']]] = None,
+                 configuration: Optional[pulumi.Input[Union['DscConfigurationAssociationPropertyArgs', 'DscConfigurationAssociationPropertyArgsDict']]] = None,
                  increment_node_configuration_build: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  node_configuration_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 source: Optional[pulumi.Input[pulumi.InputType['ContentSourceArgs']]] = None,
+                 source: Optional[pulumi.Input[Union['ContentSourceArgs', 'ContentSourceArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

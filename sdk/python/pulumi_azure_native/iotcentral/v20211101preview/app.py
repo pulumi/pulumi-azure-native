@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -202,13 +207,13 @@ class App(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['SystemAssignedServiceIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['SystemAssignedServiceIdentityArgs', 'SystemAssignedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 network_rule_sets: Optional[pulumi.Input[pulumi.InputType['NetworkRuleSetsArgs']]] = None,
+                 network_rule_sets: Optional[pulumi.Input[Union['NetworkRuleSetsArgs', 'NetworkRuleSetsArgsDict']]] = None,
                  public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['AppSkuInfoArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['AppSkuInfoArgs', 'AppSkuInfoArgsDict']]] = None,
                  subdomain: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  template: Optional[pulumi.Input[str]] = None,
@@ -219,13 +224,13 @@ class App(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] display_name: The display name of the application.
-        :param pulumi.Input[pulumi.InputType['SystemAssignedServiceIdentityArgs']] identity: The managed identities for the IoT Central application.
+        :param pulumi.Input[Union['SystemAssignedServiceIdentityArgs', 'SystemAssignedServiceIdentityArgsDict']] identity: The managed identities for the IoT Central application.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[pulumi.InputType['NetworkRuleSetsArgs']] network_rule_sets: Network Rule Set Properties of this IoT Central application.
+        :param pulumi.Input[Union['NetworkRuleSetsArgs', 'NetworkRuleSetsArgsDict']] network_rule_sets: Network Rule Set Properties of this IoT Central application.
         :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: Whether requests from the public network are allowed.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the IoT Central application.
         :param pulumi.Input[str] resource_name_: The ARM resource name of the IoT Central application.
-        :param pulumi.Input[pulumi.InputType['AppSkuInfoArgs']] sku: A valid instance SKU.
+        :param pulumi.Input[Union['AppSkuInfoArgs', 'AppSkuInfoArgsDict']] sku: A valid instance SKU.
         :param pulumi.Input[str] subdomain: The subdomain of the application.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] template: The ID of the application template, which is a blueprint that defines the characteristics and behaviors of an application. Optional; if not specified, defaults to a blank blueprint and allows the application to be defined from scratch.
@@ -255,13 +260,13 @@ class App(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['SystemAssignedServiceIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['SystemAssignedServiceIdentityArgs', 'SystemAssignedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 network_rule_sets: Optional[pulumi.Input[pulumi.InputType['NetworkRuleSetsArgs']]] = None,
+                 network_rule_sets: Optional[pulumi.Input[Union['NetworkRuleSetsArgs', 'NetworkRuleSetsArgsDict']]] = None,
                  public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['AppSkuInfoArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['AppSkuInfoArgs', 'AppSkuInfoArgsDict']]] = None,
                  subdomain: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  template: Optional[pulumi.Input[str]] = None,

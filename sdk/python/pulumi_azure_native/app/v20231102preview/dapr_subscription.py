@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -184,14 +189,14 @@ class DaprSubscription(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bulk_subscribe: Optional[pulumi.Input[pulumi.InputType['DaprSubscriptionBulkSubscribeOptionsArgs']]] = None,
+                 bulk_subscribe: Optional[pulumi.Input[Union['DaprSubscriptionBulkSubscribeOptionsArgs', 'DaprSubscriptionBulkSubscribeOptionsArgsDict']]] = None,
                  dead_letter_topic: Optional[pulumi.Input[str]] = None,
                  environment_name: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  pubsub_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 routes: Optional[pulumi.Input[pulumi.InputType['DaprSubscriptionRoutesArgs']]] = None,
+                 routes: Optional[pulumi.Input[Union['DaprSubscriptionRoutesArgs', 'DaprSubscriptionRoutesArgsDict']]] = None,
                  scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  topic: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -200,14 +205,14 @@ class DaprSubscription(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['DaprSubscriptionBulkSubscribeOptionsArgs']] bulk_subscribe: Bulk subscription options
+        :param pulumi.Input[Union['DaprSubscriptionBulkSubscribeOptionsArgs', 'DaprSubscriptionBulkSubscribeOptionsArgsDict']] bulk_subscribe: Bulk subscription options
         :param pulumi.Input[str] dead_letter_topic: Deadletter topic name
         :param pulumi.Input[str] environment_name: Name of the Managed Environment.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: Subscription metadata
         :param pulumi.Input[str] name: Name of the Dapr subscription.
         :param pulumi.Input[str] pubsub_name: Dapr PubSub component name
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[pulumi.InputType['DaprSubscriptionRoutesArgs']] routes: Subscription routes
+        :param pulumi.Input[Union['DaprSubscriptionRoutesArgs', 'DaprSubscriptionRoutesArgsDict']] routes: Subscription routes
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: Application scopes to restrict the subscription to specific apps.
         :param pulumi.Input[str] topic: Topic name
         """
@@ -235,14 +240,14 @@ class DaprSubscription(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bulk_subscribe: Optional[pulumi.Input[pulumi.InputType['DaprSubscriptionBulkSubscribeOptionsArgs']]] = None,
+                 bulk_subscribe: Optional[pulumi.Input[Union['DaprSubscriptionBulkSubscribeOptionsArgs', 'DaprSubscriptionBulkSubscribeOptionsArgsDict']]] = None,
                  dead_letter_topic: Optional[pulumi.Input[str]] = None,
                  environment_name: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  pubsub_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 routes: Optional[pulumi.Input[pulumi.InputType['DaprSubscriptionRoutesArgs']]] = None,
+                 routes: Optional[pulumi.Input[Union['DaprSubscriptionRoutesArgs', 'DaprSubscriptionRoutesArgsDict']]] = None,
                  scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  topic: Optional[pulumi.Input[str]] = None,
                  __props__=None):

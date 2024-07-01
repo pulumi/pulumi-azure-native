@@ -4,21 +4,47 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'DatabaseInfoArgs',
+    'DatabaseInfoArgsDict',
     'MiSqlConnectionInfoArgs',
+    'MiSqlConnectionInfoArgsDict',
     'MongoDbConnectionInfoArgs',
+    'MongoDbConnectionInfoArgsDict',
     'MySqlConnectionInfoArgs',
+    'MySqlConnectionInfoArgsDict',
     'OracleConnectionInfoArgs',
+    'OracleConnectionInfoArgsDict',
     'PostgreSqlConnectionInfoArgs',
+    'PostgreSqlConnectionInfoArgsDict',
     'SqlConnectionInfoArgs',
+    'SqlConnectionInfoArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class DatabaseInfoArgsDict(TypedDict):
+        """
+        Project Database Details
+        """
+        source_database_name: pulumi.Input[str]
+        """
+        Name of the database
+        """
+elif False:
+    DatabaseInfoArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DatabaseInfoArgs:
@@ -42,6 +68,31 @@ class DatabaseInfoArgs:
     def source_database_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "source_database_name", value)
 
+
+if not MYPY:
+    class MiSqlConnectionInfoArgsDict(TypedDict):
+        """
+        Properties required to create a connection to Azure SQL database Managed instance
+        """
+        managed_instance_resource_id: pulumi.Input[str]
+        """
+        Resource id for Azure SQL database Managed instance
+        """
+        type: pulumi.Input[str]
+        """
+        Type of connection info
+        Expected value is 'MiSqlConnectionInfo'.
+        """
+        password: NotRequired[pulumi.Input[str]]
+        """
+        Password credential.
+        """
+        user_name: NotRequired[pulumi.Input[str]]
+        """
+        User name
+        """
+elif False:
+    MiSqlConnectionInfoArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MiSqlConnectionInfoArgs:
@@ -114,6 +165,52 @@ class MiSqlConnectionInfoArgs:
     def user_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "user_name", value)
 
+
+if not MYPY:
+    class MongoDbConnectionInfoArgsDict(TypedDict):
+        """
+        Describes a connection to a MongoDB data source
+        """
+        connection_string: pulumi.Input[str]
+        """
+        A MongoDB connection string or blob container URL. The user name and password can be specified here or in the userName and password properties
+        """
+        type: pulumi.Input[str]
+        """
+        Type of connection info
+        Expected value is 'MongoDbConnectionInfo'.
+        """
+        additional_settings: NotRequired[pulumi.Input[str]]
+        """
+        Additional connection settings
+        """
+        data_source: NotRequired[pulumi.Input[str]]
+        """
+        Data source 
+        """
+        encrypt_connection: NotRequired[pulumi.Input[bool]]
+        """
+        Whether to encrypt the connection
+        """
+        enforce_ssl: NotRequired[pulumi.Input[bool]]
+        password: NotRequired[pulumi.Input[str]]
+        """
+        Password credential.
+        """
+        port: NotRequired[pulumi.Input[int]]
+        """
+        port for server
+        """
+        server_brand_version: NotRequired[pulumi.Input[str]]
+        """
+        server brand version
+        """
+        user_name: NotRequired[pulumi.Input[str]]
+        """
+        User name
+        """
+elif False:
+    MongoDbConnectionInfoArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MongoDbConnectionInfoArgs:
@@ -279,6 +376,43 @@ class MongoDbConnectionInfoArgs:
         pulumi.set(self, "user_name", value)
 
 
+if not MYPY:
+    class MySqlConnectionInfoArgsDict(TypedDict):
+        """
+        Information for connecting to MySQL server
+        """
+        port: pulumi.Input[int]
+        """
+        Port for Server
+        """
+        server_name: pulumi.Input[str]
+        """
+        Name of the server
+        """
+        type: pulumi.Input[str]
+        """
+        Type of connection info
+        Expected value is 'MySqlConnectionInfo'.
+        """
+        data_source: NotRequired[pulumi.Input[str]]
+        """
+        Data source 
+        """
+        encrypt_connection: NotRequired[pulumi.Input[bool]]
+        """
+        Whether to encrypt the connection
+        """
+        password: NotRequired[pulumi.Input[str]]
+        """
+        Password credential.
+        """
+        user_name: NotRequired[pulumi.Input[str]]
+        """
+        User name
+        """
+elif False:
+    MySqlConnectionInfoArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MySqlConnectionInfoArgs:
     def __init__(__self__, *,
@@ -400,6 +534,31 @@ class MySqlConnectionInfoArgs:
         pulumi.set(self, "user_name", value)
 
 
+if not MYPY:
+    class OracleConnectionInfoArgsDict(TypedDict):
+        """
+        Information for connecting to Oracle server
+        """
+        data_source: pulumi.Input[str]
+        """
+        EZConnect or TNSName connection string.
+        """
+        type: pulumi.Input[str]
+        """
+        Type of connection info
+        Expected value is 'OracleConnectionInfo'.
+        """
+        password: NotRequired[pulumi.Input[str]]
+        """
+        Password credential.
+        """
+        user_name: NotRequired[pulumi.Input[str]]
+        """
+        User name
+        """
+elif False:
+    OracleConnectionInfoArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OracleConnectionInfoArgs:
     def __init__(__self__, *,
@@ -471,6 +630,55 @@ class OracleConnectionInfoArgs:
     def user_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "user_name", value)
 
+
+if not MYPY:
+    class PostgreSqlConnectionInfoArgsDict(TypedDict):
+        """
+        Information for connecting to PostgreSQL server
+        """
+        port: pulumi.Input[int]
+        """
+        Port for Server
+        """
+        server_name: pulumi.Input[str]
+        """
+        Name of the server
+        """
+        type: pulumi.Input[str]
+        """
+        Type of connection info
+        Expected value is 'PostgreSqlConnectionInfo'.
+        """
+        data_source: NotRequired[pulumi.Input[str]]
+        """
+        Data source 
+        """
+        database_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the database
+        """
+        encrypt_connection: NotRequired[pulumi.Input[bool]]
+        """
+        Whether to encrypt the connection
+        """
+        password: NotRequired[pulumi.Input[str]]
+        """
+        Password credential.
+        """
+        server_version: NotRequired[pulumi.Input[str]]
+        """
+        server version
+        """
+        trust_server_certificate: NotRequired[pulumi.Input[bool]]
+        """
+        Whether to trust the server certificate
+        """
+        user_name: NotRequired[pulumi.Input[str]]
+        """
+        User name
+        """
+elif False:
+    PostgreSqlConnectionInfoArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PostgreSqlConnectionInfoArgs:
@@ -642,6 +850,63 @@ class PostgreSqlConnectionInfoArgs:
     def user_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "user_name", value)
 
+
+if not MYPY:
+    class SqlConnectionInfoArgsDict(TypedDict):
+        """
+        Information for connecting to SQL database server
+        """
+        data_source: pulumi.Input[str]
+        """
+        Data source in the format Protocol:MachineName\\SQLServerInstanceName,PortNumber
+        """
+        type: pulumi.Input[str]
+        """
+        Type of connection info
+        Expected value is 'SqlConnectionInfo'.
+        """
+        additional_settings: NotRequired[pulumi.Input[str]]
+        """
+        Additional connection settings
+        """
+        authentication: NotRequired[pulumi.Input[Union[str, 'AuthenticationType']]]
+        """
+        Authentication type to use for connection
+        """
+        encrypt_connection: NotRequired[pulumi.Input[bool]]
+        """
+        Whether to encrypt the connection
+        """
+        password: NotRequired[pulumi.Input[str]]
+        """
+        Password credential.
+        """
+        platform: NotRequired[pulumi.Input[Union[str, 'SqlSourcePlatform']]]
+        """
+        Server platform type for connection
+        """
+        port: NotRequired[pulumi.Input[str]]
+        """
+        port for server
+        """
+        resource_id: NotRequired[pulumi.Input[str]]
+        """
+        Represents the ID of an HTTP resource represented by an Azure resource provider.
+        """
+        server_name: NotRequired[pulumi.Input[str]]
+        """
+        name of the server
+        """
+        trust_server_certificate: NotRequired[pulumi.Input[bool]]
+        """
+        Whether to trust the server certificate
+        """
+        user_name: NotRequired[pulumi.Input[str]]
+        """
+        User name
+        """
+elif False:
+    SqlConnectionInfoArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SqlConnectionInfoArgs:

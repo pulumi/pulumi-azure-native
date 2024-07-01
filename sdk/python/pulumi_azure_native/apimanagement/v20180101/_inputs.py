@@ -4,22 +4,53 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'BackendAuthorizationHeaderCredentialsArgs',
+    'BackendAuthorizationHeaderCredentialsArgsDict',
     'BackendCredentialsContractArgs',
+    'BackendCredentialsContractArgsDict',
     'BackendPropertiesArgs',
+    'BackendPropertiesArgsDict',
     'BackendProxyContractArgs',
+    'BackendProxyContractArgsDict',
     'BackendServiceFabricClusterPropertiesArgs',
+    'BackendServiceFabricClusterPropertiesArgsDict',
     'BackendTlsPropertiesArgs',
+    'BackendTlsPropertiesArgsDict',
     'UserIdentityContractArgs',
+    'UserIdentityContractArgsDict',
     'X509CertificateNameArgs',
+    'X509CertificateNameArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class BackendAuthorizationHeaderCredentialsArgsDict(TypedDict):
+        """
+        Authorization header information.
+        """
+        parameter: pulumi.Input[str]
+        """
+        Authentication Parameter value.
+        """
+        scheme: pulumi.Input[str]
+        """
+        Authentication Scheme name.
+        """
+elif False:
+    BackendAuthorizationHeaderCredentialsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class BackendAuthorizationHeaderCredentialsArgs:
@@ -58,6 +89,30 @@ class BackendAuthorizationHeaderCredentialsArgs:
     def scheme(self, value: pulumi.Input[str]):
         pulumi.set(self, "scheme", value)
 
+
+if not MYPY:
+    class BackendCredentialsContractArgsDict(TypedDict):
+        """
+        Details of the Credentials used to connect to Backend.
+        """
+        authorization: NotRequired[pulumi.Input['BackendAuthorizationHeaderCredentialsArgsDict']]
+        """
+        Authorization header authentication
+        """
+        certificate: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of Client Certificate Thumbprint.
+        """
+        header: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[str]]]]]]
+        """
+        Header Parameter description.
+        """
+        query: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[str]]]]]]
+        """
+        Query Parameter description.
+        """
+elif False:
+    BackendCredentialsContractArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class BackendCredentialsContractArgs:
@@ -131,6 +186,18 @@ class BackendCredentialsContractArgs:
         pulumi.set(self, "query", value)
 
 
+if not MYPY:
+    class BackendPropertiesArgsDict(TypedDict):
+        """
+        Properties specific to the Backend Type.
+        """
+        service_fabric_cluster: NotRequired[pulumi.Input['BackendServiceFabricClusterPropertiesArgsDict']]
+        """
+        Backend Service Fabric Cluster Properties
+        """
+elif False:
+    BackendPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class BackendPropertiesArgs:
     def __init__(__self__, *,
@@ -154,6 +221,26 @@ class BackendPropertiesArgs:
     def service_fabric_cluster(self, value: Optional[pulumi.Input['BackendServiceFabricClusterPropertiesArgs']]):
         pulumi.set(self, "service_fabric_cluster", value)
 
+
+if not MYPY:
+    class BackendProxyContractArgsDict(TypedDict):
+        """
+        Details of the Backend WebProxy Server to use in the Request to Backend.
+        """
+        url: pulumi.Input[str]
+        """
+        WebProxy Server AbsoluteUri property which includes the entire URI stored in the Uri instance, including all fragments and query strings.
+        """
+        password: NotRequired[pulumi.Input[str]]
+        """
+        Password to connect to the WebProxy Server
+        """
+        username: NotRequired[pulumi.Input[str]]
+        """
+        Username to connect to the WebProxy server
+        """
+elif False:
+    BackendProxyContractArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class BackendProxyContractArgs:
@@ -209,6 +296,34 @@ class BackendProxyContractArgs:
     def username(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "username", value)
 
+
+if not MYPY:
+    class BackendServiceFabricClusterPropertiesArgsDict(TypedDict):
+        """
+        Properties of the Service Fabric Type Backend.
+        """
+        client_certificatethumbprint: pulumi.Input[str]
+        """
+        The client certificate thumbprint for the management endpoint.
+        """
+        management_endpoints: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        The cluster management endpoint.
+        """
+        max_partition_resolution_retries: NotRequired[pulumi.Input[int]]
+        """
+        Maximum number of retries while attempting resolve the partition.
+        """
+        server_certificate_thumbprints: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Thumbprints of certificates cluster management service uses for tls communication
+        """
+        server_x509_names: NotRequired[pulumi.Input[Sequence[pulumi.Input['X509CertificateNameArgsDict']]]]
+        """
+        Server X509 Certificate Names Collection
+        """
+elif False:
+    BackendServiceFabricClusterPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class BackendServiceFabricClusterPropertiesArgs:
@@ -296,6 +411,22 @@ class BackendServiceFabricClusterPropertiesArgs:
         pulumi.set(self, "server_x509_names", value)
 
 
+if not MYPY:
+    class BackendTlsPropertiesArgsDict(TypedDict):
+        """
+        Properties controlling TLS Certificate Validation.
+        """
+        validate_certificate_chain: NotRequired[pulumi.Input[bool]]
+        """
+        Flag indicating whether SSL certificate chain validation should be done when using self-signed certificates for this backend host.
+        """
+        validate_certificate_name: NotRequired[pulumi.Input[bool]]
+        """
+        Flag indicating whether SSL certificate name validation should be done when using self-signed certificates for this backend host.
+        """
+elif False:
+    BackendTlsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class BackendTlsPropertiesArgs:
     def __init__(__self__, *,
@@ -340,6 +471,22 @@ class BackendTlsPropertiesArgs:
         pulumi.set(self, "validate_certificate_name", value)
 
 
+if not MYPY:
+    class UserIdentityContractArgsDict(TypedDict):
+        """
+        User identity details.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Identifier value within provider.
+        """
+        provider: NotRequired[pulumi.Input[str]]
+        """
+        Identity provider name.
+        """
+elif False:
+    UserIdentityContractArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class UserIdentityContractArgs:
     def __init__(__self__, *,
@@ -379,6 +526,22 @@ class UserIdentityContractArgs:
     def provider(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "provider", value)
 
+
+if not MYPY:
+    class X509CertificateNameArgsDict(TypedDict):
+        """
+        Properties of server X509Names.
+        """
+        issuer_certificate_thumbprint: NotRequired[pulumi.Input[str]]
+        """
+        Thumbprint for the Issuer of the Certificate.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Common Name of the Certificate.
+        """
+elif False:
+    X509CertificateNameArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class X509CertificateNameArgs:

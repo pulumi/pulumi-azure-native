@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -133,7 +138,7 @@ class SkusNestedResourceTypeThird(pulumi.CustomResource):
                  nested_resource_type_first: Optional[pulumi.Input[str]] = None,
                  nested_resource_type_second: Optional[pulumi.Input[str]] = None,
                  nested_resource_type_third: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['SkuResourcePropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['SkuResourcePropertiesArgs', 'SkuResourcePropertiesArgsDict']]] = None,
                  provider_namespace: Optional[pulumi.Input[str]] = None,
                  resource_type: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
@@ -175,7 +180,7 @@ class SkusNestedResourceTypeThird(pulumi.CustomResource):
                  nested_resource_type_first: Optional[pulumi.Input[str]] = None,
                  nested_resource_type_second: Optional[pulumi.Input[str]] = None,
                  nested_resource_type_third: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['SkuResourcePropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['SkuResourcePropertiesArgs', 'SkuResourcePropertiesArgsDict']]] = None,
                  provider_namespace: Optional[pulumi.Input[str]] = None,
                  resource_type: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[str]] = None,

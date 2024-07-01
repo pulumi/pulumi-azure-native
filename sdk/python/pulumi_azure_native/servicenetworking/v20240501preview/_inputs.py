@@ -4,18 +4,41 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'AssociationSubnetArgs',
+    'AssociationSubnetArgsDict',
     'SecurityPolicyConfigurationsArgs',
+    'SecurityPolicyConfigurationsArgsDict',
     'WafPolicyArgs',
+    'WafPolicyArgsDict',
     'WafSecurityPolicyArgs',
+    'WafSecurityPolicyArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AssociationSubnetArgsDict(TypedDict):
+        """
+        Association Subnet.
+        """
+        id: pulumi.Input[str]
+        """
+        Association ID.
+        """
+elif False:
+    AssociationSubnetArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AssociationSubnetArgs:
@@ -39,6 +62,18 @@ class AssociationSubnetArgs:
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class SecurityPolicyConfigurationsArgsDict(TypedDict):
+        """
+        SecurityPolicyConfigurations Subresource of Traffic Controller.
+        """
+        waf_security_policy: NotRequired[pulumi.Input['WafSecurityPolicyArgsDict']]
+        """
+        Contains reference to a WAF-type security policy that is applied at the Traffic Controller level.
+        """
+elif False:
+    SecurityPolicyConfigurationsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SecurityPolicyConfigurationsArgs:
@@ -64,6 +99,18 @@ class SecurityPolicyConfigurationsArgs:
         pulumi.set(self, "waf_security_policy", value)
 
 
+if not MYPY:
+    class WafPolicyArgsDict(TypedDict):
+        """
+        Web Application Firewall Policy
+        """
+        id: pulumi.Input[str]
+        """
+        Resource ID of the WAF
+        """
+elif False:
+    WafPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WafPolicyArgs:
     def __init__(__self__, *,
@@ -86,6 +133,18 @@ class WafPolicyArgs:
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class WafSecurityPolicyArgsDict(TypedDict):
+        """
+        Web Application Firewall Security Policy
+        """
+        id: pulumi.Input[str]
+        """
+        Resource ID of the Waf Security Policy
+        """
+elif False:
+    WafSecurityPolicyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WafSecurityPolicyArgs:

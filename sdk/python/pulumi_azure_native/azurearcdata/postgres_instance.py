@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -137,12 +142,12 @@ class PostgresInstance(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  postgres_instance_name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['PostgresInstancePropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['PostgresInstancePropertiesArgs', 'PostgresInstancePropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['PostgresInstanceSkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['PostgresInstanceSkuArgs', 'PostgresInstanceSkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -153,12 +158,12 @@ class PostgresInstance(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: The extendedLocation of the resource.
+        :param pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']] extended_location: The extendedLocation of the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] postgres_instance_name: Name of Postgres Instance
-        :param pulumi.Input[pulumi.InputType['PostgresInstancePropertiesArgs']] properties: null
+        :param pulumi.Input[Union['PostgresInstancePropertiesArgs', 'PostgresInstancePropertiesArgsDict']] properties: null
         :param pulumi.Input[str] resource_group_name: The name of the Azure resource group
-        :param pulumi.Input[pulumi.InputType['PostgresInstanceSkuArgs']] sku: Resource sku.
+        :param pulumi.Input[Union['PostgresInstanceSkuArgs', 'PostgresInstanceSkuArgsDict']] sku: Resource sku.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         ...
@@ -188,12 +193,12 @@ class PostgresInstance(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  postgres_instance_name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['PostgresInstancePropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['PostgresInstancePropertiesArgs', 'PostgresInstancePropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['PostgresInstanceSkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['PostgresInstanceSkuArgs', 'PostgresInstanceSkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

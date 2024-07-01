@@ -4,16 +4,73 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'RedisCommonPropertiesRedisConfigurationArgs',
+    'RedisCommonPropertiesRedisConfigurationArgsDict',
     'SkuArgs',
+    'SkuArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class RedisCommonPropertiesRedisConfigurationArgsDict(TypedDict):
+        """
+        All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
+        """
+        aof_storage_connection_string0: NotRequired[pulumi.Input[str]]
+        """
+        First storage account connection string
+        """
+        aof_storage_connection_string1: NotRequired[pulumi.Input[str]]
+        """
+        Second storage account connection string
+        """
+        maxfragmentationmemory_reserved: NotRequired[pulumi.Input[str]]
+        """
+        Value in megabytes reserved for fragmentation per shard
+        """
+        maxmemory_delta: NotRequired[pulumi.Input[str]]
+        """
+        Value in megabytes reserved for non-cache usage per shard e.g. failover.
+        """
+        maxmemory_policy: NotRequired[pulumi.Input[str]]
+        """
+        The eviction strategy used when your data won't fit within its memory limit.
+        """
+        maxmemory_reserved: NotRequired[pulumi.Input[str]]
+        """
+        Value in megabytes reserved for non-cache usage per shard e.g. failover.
+        """
+        rdb_backup_enabled: NotRequired[pulumi.Input[str]]
+        """
+        Specifies whether the rdb backup is enabled
+        """
+        rdb_backup_frequency: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the frequency for creating rdb backup
+        """
+        rdb_backup_max_snapshot_count: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the maximum number of snapshots for rdb backup
+        """
+        rdb_storage_connection_string: NotRequired[pulumi.Input[str]]
+        """
+        The storage account connection string for storing rdb file
+        """
+elif False:
+    RedisCommonPropertiesRedisConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RedisCommonPropertiesRedisConfigurationArgs:
@@ -182,6 +239,26 @@ class RedisCommonPropertiesRedisConfigurationArgs:
     def rdb_storage_connection_string(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "rdb_storage_connection_string", value)
 
+
+if not MYPY:
+    class SkuArgsDict(TypedDict):
+        """
+        SKU parameters supplied to the create Redis operation.
+        """
+        capacity: pulumi.Input[int]
+        """
+        The size of the Redis cache to deploy. Valid values: for C (Basic/Standard) family (0, 1, 2, 3, 4, 5, 6), for P (Premium) family (1, 2, 3, 4).
+        """
+        family: pulumi.Input[Union[str, 'SkuFamily']]
+        """
+        The SKU family to use. Valid values: (C, P). (C = Basic/Standard, P = Premium).
+        """
+        name: pulumi.Input[Union[str, 'SkuName']]
+        """
+        The type of Redis cache to deploy. Valid values: (Basic, Standard, Premium)
+        """
+elif False:
+    SkuArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SkuArgs:

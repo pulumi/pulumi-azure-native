@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -207,9 +212,9 @@ class AutoscaleSetting(pulumi.CustomResource):
                  enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 notifications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AutoscaleNotificationArgs']]]]] = None,
-                 predictive_autoscale_policy: Optional[pulumi.Input[pulumi.InputType['PredictiveAutoscalePolicyArgs']]] = None,
-                 profiles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AutoscaleProfileArgs']]]]] = None,
+                 notifications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AutoscaleNotificationArgs', 'AutoscaleNotificationArgsDict']]]]] = None,
+                 predictive_autoscale_policy: Optional[pulumi.Input[Union['PredictiveAutoscalePolicyArgs', 'PredictiveAutoscalePolicyArgsDict']]] = None,
+                 profiles: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AutoscaleProfileArgs', 'AutoscaleProfileArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_resource_location: Optional[pulumi.Input[str]] = None,
@@ -224,9 +229,9 @@ class AutoscaleSetting(pulumi.CustomResource):
         :param pulumi.Input[bool] enabled: the enabled flag. Specifies whether automatic scaling is enabled for the resource. The default value is 'false'.
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] name: the name of the autoscale setting.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AutoscaleNotificationArgs']]]] notifications: the collection of notifications.
-        :param pulumi.Input[pulumi.InputType['PredictiveAutoscalePolicyArgs']] predictive_autoscale_policy: the predictive autoscale policy mode.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AutoscaleProfileArgs']]]] profiles: the collection of automatic scaling profiles that specify different scaling parameters for different time periods. A maximum of 20 profiles can be specified.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AutoscaleNotificationArgs', 'AutoscaleNotificationArgsDict']]]] notifications: the collection of notifications.
+        :param pulumi.Input[Union['PredictiveAutoscalePolicyArgs', 'PredictiveAutoscalePolicyArgsDict']] predictive_autoscale_policy: the predictive autoscale policy mode.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AutoscaleProfileArgs', 'AutoscaleProfileArgsDict']]]] profiles: the collection of automatic scaling profiles that specify different scaling parameters for different time periods. A maximum of 20 profiles can be specified.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Gets or sets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater in length than 128 characters and a value no greater in length than 256 characters.
         :param pulumi.Input[str] target_resource_location: the location of the resource that the autoscale setting should be added to.
@@ -260,9 +265,9 @@ class AutoscaleSetting(pulumi.CustomResource):
                  enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 notifications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AutoscaleNotificationArgs']]]]] = None,
-                 predictive_autoscale_policy: Optional[pulumi.Input[pulumi.InputType['PredictiveAutoscalePolicyArgs']]] = None,
-                 profiles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AutoscaleProfileArgs']]]]] = None,
+                 notifications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AutoscaleNotificationArgs', 'AutoscaleNotificationArgsDict']]]]] = None,
+                 predictive_autoscale_policy: Optional[pulumi.Input[Union['PredictiveAutoscalePolicyArgs', 'PredictiveAutoscalePolicyArgsDict']]] = None,
+                 profiles: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AutoscaleProfileArgs', 'AutoscaleProfileArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_resource_location: Optional[pulumi.Input[str]] = None,

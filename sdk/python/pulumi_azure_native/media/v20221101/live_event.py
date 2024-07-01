@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -266,18 +271,18 @@ class LiveEvent(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  auto_start: Optional[pulumi.Input[bool]] = None,
-                 cross_site_access_policies: Optional[pulumi.Input[pulumi.InputType['CrossSiteAccessPoliciesArgs']]] = None,
+                 cross_site_access_policies: Optional[pulumi.Input[Union['CrossSiteAccessPoliciesArgs', 'CrossSiteAccessPoliciesArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 encoding: Optional[pulumi.Input[pulumi.InputType['LiveEventEncodingArgs']]] = None,
+                 encoding: Optional[pulumi.Input[Union['LiveEventEncodingArgs', 'LiveEventEncodingArgsDict']]] = None,
                  hostname_prefix: Optional[pulumi.Input[str]] = None,
-                 input: Optional[pulumi.Input[pulumi.InputType['LiveEventInputArgs']]] = None,
+                 input: Optional[pulumi.Input[Union['LiveEventInputArgs', 'LiveEventInputArgsDict']]] = None,
                  live_event_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 preview: Optional[pulumi.Input[pulumi.InputType['LiveEventPreviewArgs']]] = None,
+                 preview: Optional[pulumi.Input[Union['LiveEventPreviewArgs', 'LiveEventPreviewArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  stream_options: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'StreamOptionsFlag']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 transcriptions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LiveEventTranscriptionArgs']]]]] = None,
+                 transcriptions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LiveEventTranscriptionArgs', 'LiveEventTranscriptionArgsDict']]]]] = None,
                  use_static_hostname: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
@@ -287,18 +292,18 @@ class LiveEvent(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The Media Services account name.
         :param pulumi.Input[bool] auto_start: The flag indicates if the resource should be automatically started on creation.
-        :param pulumi.Input[pulumi.InputType['CrossSiteAccessPoliciesArgs']] cross_site_access_policies: Live event cross site access policies.
+        :param pulumi.Input[Union['CrossSiteAccessPoliciesArgs', 'CrossSiteAccessPoliciesArgsDict']] cross_site_access_policies: Live event cross site access policies.
         :param pulumi.Input[str] description: A description for the live event.
-        :param pulumi.Input[pulumi.InputType['LiveEventEncodingArgs']] encoding: Encoding settings for the live event. It configures whether a live encoder is used for the live event and settings for the live encoder if it is used.
+        :param pulumi.Input[Union['LiveEventEncodingArgs', 'LiveEventEncodingArgsDict']] encoding: Encoding settings for the live event. It configures whether a live encoder is used for the live event and settings for the live encoder if it is used.
         :param pulumi.Input[str] hostname_prefix: When useStaticHostname is set to true, the hostnamePrefix specifies the first part of the hostname assigned to the live event preview and ingest endpoints. The final hostname would be a combination of this prefix, the media service account name and a short code for the Azure Media Services data center.
-        :param pulumi.Input[pulumi.InputType['LiveEventInputArgs']] input: Live event input settings. It defines how the live event receives input from a contribution encoder.
+        :param pulumi.Input[Union['LiveEventInputArgs', 'LiveEventInputArgsDict']] input: Live event input settings. It defines how the live event receives input from a contribution encoder.
         :param pulumi.Input[str] live_event_name: The name of the live event, maximum length is 32.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[pulumi.InputType['LiveEventPreviewArgs']] preview: Live event preview settings. Preview allows live event producers to preview the live streaming content without creating any live output.
+        :param pulumi.Input[Union['LiveEventPreviewArgs', 'LiveEventPreviewArgsDict']] preview: Live event preview settings. Preview allows live event producers to preview the live streaming content without creating any live output.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the Azure subscription.
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'StreamOptionsFlag']]]] stream_options: The options to use for the LiveEvent. This value is specified at creation time and cannot be updated. The valid values for the array entry values are 'Default' and 'LowLatency'.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LiveEventTranscriptionArgs']]]] transcriptions: Live transcription settings for the live event. See https://go.microsoft.com/fwlink/?linkid=2133742 for more information about the live transcription feature.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LiveEventTranscriptionArgs', 'LiveEventTranscriptionArgsDict']]]] transcriptions: Live transcription settings for the live event. See https://go.microsoft.com/fwlink/?linkid=2133742 for more information about the live transcription feature.
         :param pulumi.Input[bool] use_static_hostname: Specifies whether a static hostname would be assigned to the live event preview and ingest endpoints. This value can only be updated if the live event is in Standby state
         """
         ...
@@ -327,18 +332,18 @@ class LiveEvent(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  auto_start: Optional[pulumi.Input[bool]] = None,
-                 cross_site_access_policies: Optional[pulumi.Input[pulumi.InputType['CrossSiteAccessPoliciesArgs']]] = None,
+                 cross_site_access_policies: Optional[pulumi.Input[Union['CrossSiteAccessPoliciesArgs', 'CrossSiteAccessPoliciesArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 encoding: Optional[pulumi.Input[pulumi.InputType['LiveEventEncodingArgs']]] = None,
+                 encoding: Optional[pulumi.Input[Union['LiveEventEncodingArgs', 'LiveEventEncodingArgsDict']]] = None,
                  hostname_prefix: Optional[pulumi.Input[str]] = None,
-                 input: Optional[pulumi.Input[pulumi.InputType['LiveEventInputArgs']]] = None,
+                 input: Optional[pulumi.Input[Union['LiveEventInputArgs', 'LiveEventInputArgsDict']]] = None,
                  live_event_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 preview: Optional[pulumi.Input[pulumi.InputType['LiveEventPreviewArgs']]] = None,
+                 preview: Optional[pulumi.Input[Union['LiveEventPreviewArgs', 'LiveEventPreviewArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  stream_options: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'StreamOptionsFlag']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 transcriptions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LiveEventTranscriptionArgs']]]]] = None,
+                 transcriptions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LiveEventTranscriptionArgs', 'LiveEventTranscriptionArgsDict']]]]] = None,
                  use_static_hostname: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

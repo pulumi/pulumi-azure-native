@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -262,10 +267,10 @@ class AssessmentMetadataInSubscription(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  implementation_effort: Optional[pulumi.Input[Union[str, 'ImplementationEffort']]] = None,
-                 partner_data: Optional[pulumi.Input[pulumi.InputType['SecurityAssessmentMetadataPartnerDataArgs']]] = None,
+                 partner_data: Optional[pulumi.Input[Union['SecurityAssessmentMetadataPartnerDataArgs', 'SecurityAssessmentMetadataPartnerDataArgsDict']]] = None,
                  planned_deprecation_date: Optional[pulumi.Input[str]] = None,
                  preview: Optional[pulumi.Input[bool]] = None,
-                 publish_dates: Optional[pulumi.Input[pulumi.InputType['SecurityAssessmentMetadataPropertiesResponsePublishDatesArgs']]] = None,
+                 publish_dates: Optional[pulumi.Input[Union['SecurityAssessmentMetadataPropertiesResponsePublishDatesArgs', 'SecurityAssessmentMetadataPropertiesResponsePublishDatesArgsDict']]] = None,
                  remediation_description: Optional[pulumi.Input[str]] = None,
                  severity: Optional[pulumi.Input[Union[str, 'Severity']]] = None,
                  tactics: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Tactics']]]]] = None,
@@ -284,7 +289,7 @@ class AssessmentMetadataInSubscription(pulumi.CustomResource):
         :param pulumi.Input[str] description: Human readable description of the assessment
         :param pulumi.Input[str] display_name: User friendly display name of the assessment
         :param pulumi.Input[Union[str, 'ImplementationEffort']] implementation_effort: The implementation effort required to remediate this assessment
-        :param pulumi.Input[pulumi.InputType['SecurityAssessmentMetadataPartnerDataArgs']] partner_data: Describes the partner that created the assessment
+        :param pulumi.Input[Union['SecurityAssessmentMetadataPartnerDataArgs', 'SecurityAssessmentMetadataPartnerDataArgsDict']] partner_data: Describes the partner that created the assessment
         :param pulumi.Input[bool] preview: True if this assessment is in preview release status
         :param pulumi.Input[str] remediation_description: Human readable description of what you should do to mitigate this security issue
         :param pulumi.Input[Union[str, 'Severity']] severity: The severity level of the assessment
@@ -321,10 +326,10 @@ class AssessmentMetadataInSubscription(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  implementation_effort: Optional[pulumi.Input[Union[str, 'ImplementationEffort']]] = None,
-                 partner_data: Optional[pulumi.Input[pulumi.InputType['SecurityAssessmentMetadataPartnerDataArgs']]] = None,
+                 partner_data: Optional[pulumi.Input[Union['SecurityAssessmentMetadataPartnerDataArgs', 'SecurityAssessmentMetadataPartnerDataArgsDict']]] = None,
                  planned_deprecation_date: Optional[pulumi.Input[str]] = None,
                  preview: Optional[pulumi.Input[bool]] = None,
-                 publish_dates: Optional[pulumi.Input[pulumi.InputType['SecurityAssessmentMetadataPropertiesResponsePublishDatesArgs']]] = None,
+                 publish_dates: Optional[pulumi.Input[Union['SecurityAssessmentMetadataPropertiesResponsePublishDatesArgs', 'SecurityAssessmentMetadataPropertiesResponsePublishDatesArgsDict']]] = None,
                  remediation_description: Optional[pulumi.Input[str]] = None,
                  severity: Optional[pulumi.Input[Union[str, 'Severity']]] = None,
                  tactics: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Tactics']]]]] = None,

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -122,11 +127,11 @@ class VolumeGroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
-                 group_meta_data: Optional[pulumi.Input[pulumi.InputType['VolumeGroupMetaDataArgs']]] = None,
+                 group_meta_data: Optional[pulumi.Input[Union['VolumeGroupMetaDataArgs', 'VolumeGroupMetaDataArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  volume_group_name: Optional[pulumi.Input[str]] = None,
-                 volumes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VolumeGroupVolumePropertiesArgs']]]]] = None,
+                 volumes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VolumeGroupVolumePropertiesArgs', 'VolumeGroupVolumePropertiesArgsDict']]]]] = None,
                  __props__=None):
         """
         Volume group resource for create
@@ -137,11 +142,11 @@ class VolumeGroup(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the NetApp account
-        :param pulumi.Input[pulumi.InputType['VolumeGroupMetaDataArgs']] group_meta_data: Volume group details
+        :param pulumi.Input[Union['VolumeGroupMetaDataArgs', 'VolumeGroupMetaDataArgsDict']] group_meta_data: Volume group details
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] volume_group_name: The name of the volumeGroup
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VolumeGroupVolumePropertiesArgs']]]] volumes: List of volumes from group
+        :param pulumi.Input[Sequence[pulumi.Input[Union['VolumeGroupVolumePropertiesArgs', 'VolumeGroupVolumePropertiesArgsDict']]]] volumes: List of volumes from group
         """
         ...
     @overload
@@ -171,11 +176,11 @@ class VolumeGroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
-                 group_meta_data: Optional[pulumi.Input[pulumi.InputType['VolumeGroupMetaDataArgs']]] = None,
+                 group_meta_data: Optional[pulumi.Input[Union['VolumeGroupMetaDataArgs', 'VolumeGroupMetaDataArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  volume_group_name: Optional[pulumi.Input[str]] = None,
-                 volumes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VolumeGroupVolumePropertiesArgs']]]]] = None,
+                 volumes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VolumeGroupVolumePropertiesArgs', 'VolumeGroupVolumePropertiesArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

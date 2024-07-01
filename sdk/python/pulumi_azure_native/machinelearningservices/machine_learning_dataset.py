@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -142,11 +147,11 @@ class MachineLearningDataset(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  dataset_name: Optional[pulumi.Input[str]] = None,
                  dataset_type: Optional[pulumi.Input[Union[str, 'DatasetType']]] = None,
-                 parameters: Optional[pulumi.Input[pulumi.InputType['DatasetCreateRequestParametersArgs']]] = None,
-                 registration: Optional[pulumi.Input[pulumi.InputType['DatasetCreateRequestRegistrationArgs']]] = None,
+                 parameters: Optional[pulumi.Input[Union['DatasetCreateRequestParametersArgs', 'DatasetCreateRequestParametersArgsDict']]] = None,
+                 registration: Optional[pulumi.Input[Union['DatasetCreateRequestRegistrationArgs', 'DatasetCreateRequestRegistrationArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  skip_validation: Optional[pulumi.Input[bool]] = None,
-                 time_series: Optional[pulumi.Input[pulumi.InputType['DatasetCreateRequestTimeSeriesArgs']]] = None,
+                 time_series: Optional[pulumi.Input[Union['DatasetCreateRequestTimeSeriesArgs', 'DatasetCreateRequestTimeSeriesArgsDict']]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -188,11 +193,11 @@ class MachineLearningDataset(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  dataset_name: Optional[pulumi.Input[str]] = None,
                  dataset_type: Optional[pulumi.Input[Union[str, 'DatasetType']]] = None,
-                 parameters: Optional[pulumi.Input[pulumi.InputType['DatasetCreateRequestParametersArgs']]] = None,
-                 registration: Optional[pulumi.Input[pulumi.InputType['DatasetCreateRequestRegistrationArgs']]] = None,
+                 parameters: Optional[pulumi.Input[Union['DatasetCreateRequestParametersArgs', 'DatasetCreateRequestParametersArgsDict']]] = None,
+                 registration: Optional[pulumi.Input[Union['DatasetCreateRequestRegistrationArgs', 'DatasetCreateRequestRegistrationArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  skip_validation: Optional[pulumi.Input[bool]] = None,
-                 time_series: Optional[pulumi.Input[pulumi.InputType['DatasetCreateRequestTimeSeriesArgs']]] = None,
+                 time_series: Optional[pulumi.Input[Union['DatasetCreateRequestTimeSeriesArgs', 'DatasetCreateRequestTimeSeriesArgsDict']]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

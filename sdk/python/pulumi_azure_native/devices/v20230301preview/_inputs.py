@@ -4,24 +4,57 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'CertificatePropertiesArgs',
+    'CertificatePropertiesArgsDict',
     'IotDpsPropertiesDescriptionArgs',
+    'IotDpsPropertiesDescriptionArgsDict',
     'IotDpsSkuInfoArgs',
+    'IotDpsSkuInfoArgsDict',
     'IotHubDefinitionDescriptionArgs',
+    'IotHubDefinitionDescriptionArgsDict',
     'ManagedServiceIdentityArgs',
+    'ManagedServiceIdentityArgsDict',
     'PrivateEndpointConnectionPropertiesArgs',
+    'PrivateEndpointConnectionPropertiesArgsDict',
     'PrivateEndpointConnectionArgs',
+    'PrivateEndpointConnectionArgsDict',
     'PrivateLinkServiceConnectionStateArgs',
+    'PrivateLinkServiceConnectionStateArgsDict',
     'SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArgs',
+    'SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArgsDict',
     'TargetIpFilterRuleArgs',
+    'TargetIpFilterRuleArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class CertificatePropertiesArgsDict(TypedDict):
+        """
+        The description of an X509 CA Certificate.
+        """
+        certificate: NotRequired[pulumi.Input[str]]
+        """
+        base-64 representation of X509 certificate .cer file or just .pem file content.
+        """
+        is_verified: NotRequired[pulumi.Input[bool]]
+        """
+        Determines whether certificate has been verified.
+        """
+elif False:
+    CertificatePropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CertificatePropertiesArgs:
@@ -62,6 +95,55 @@ class CertificatePropertiesArgs:
     def is_verified(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "is_verified", value)
 
+
+if not MYPY:
+    class IotDpsPropertiesDescriptionArgsDict(TypedDict):
+        """
+        the service specific properties of a provisioning service, including keys, linked iot hubs, current state, and system generated properties such as hostname and idScope
+        """
+        allocation_policy: NotRequired[pulumi.Input[Union[str, 'AllocationPolicy']]]
+        """
+        Allocation policy to be used by this provisioning service.
+        """
+        authorization_policies: NotRequired[pulumi.Input[Sequence[pulumi.Input['SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArgsDict']]]]
+        """
+        List of authorization keys for a provisioning service.
+        """
+        enable_data_residency: NotRequired[pulumi.Input[bool]]
+        """
+        Optional.
+        Indicates if the DPS instance has Data Residency enabled, removing the cross geo-pair disaster recovery.
+        """
+        iot_hubs: NotRequired[pulumi.Input[Sequence[pulumi.Input['IotHubDefinitionDescriptionArgsDict']]]]
+        """
+        List of IoT hubs associated with this provisioning service.
+        """
+        ip_filter_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['TargetIpFilterRuleArgsDict']]]]
+        """
+        The IP filter rules.
+        """
+        portal_operations_host_name: NotRequired[pulumi.Input[str]]
+        """
+        Portal endpoint to enable CORS for this provisioning service.
+        """
+        private_endpoint_connections: NotRequired[pulumi.Input[Sequence[pulumi.Input['PrivateEndpointConnectionArgsDict']]]]
+        """
+        Private endpoint connections created on this IotHub
+        """
+        provisioning_state: NotRequired[pulumi.Input[str]]
+        """
+        The ARM provisioning state of the provisioning service.
+        """
+        public_network_access: NotRequired[pulumi.Input[Union[str, 'PublicNetworkAccess']]]
+        """
+        Whether requests from Public Network are allowed
+        """
+        state: NotRequired[pulumi.Input[Union[str, 'State']]]
+        """
+        Current state of the provisioning service.
+        """
+elif False:
+    IotDpsPropertiesDescriptionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IotDpsPropertiesDescriptionArgs:
@@ -233,6 +315,22 @@ class IotDpsPropertiesDescriptionArgs:
         pulumi.set(self, "state", value)
 
 
+if not MYPY:
+    class IotDpsSkuInfoArgsDict(TypedDict):
+        """
+        List of possible provisioning service SKUs.
+        """
+        capacity: NotRequired[pulumi.Input[float]]
+        """
+        The number of units to provision
+        """
+        name: NotRequired[pulumi.Input[Union[str, 'IotDpsSku']]]
+        """
+        Sku name.
+        """
+elif False:
+    IotDpsSkuInfoArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IotDpsSkuInfoArgs:
     def __init__(__self__, *,
@@ -272,6 +370,30 @@ class IotDpsSkuInfoArgs:
     def name(self, value: Optional[pulumi.Input[Union[str, 'IotDpsSku']]]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class IotHubDefinitionDescriptionArgsDict(TypedDict):
+        """
+        Description of the IoT hub.
+        """
+        connection_string: pulumi.Input[str]
+        """
+        Connection string of the IoT hub.
+        """
+        location: pulumi.Input[str]
+        """
+        ARM region of the IoT hub.
+        """
+        allocation_weight: NotRequired[pulumi.Input[int]]
+        """
+        weight to apply for a given iot h.
+        """
+        apply_allocation_policy: NotRequired[pulumi.Input[bool]]
+        """
+        flag for applying allocationPolicy or not for a given iot hub.
+        """
+elif False:
+    IotHubDefinitionDescriptionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IotHubDefinitionDescriptionArgs:
@@ -343,6 +465,22 @@ class IotHubDefinitionDescriptionArgs:
         pulumi.set(self, "apply_allocation_policy", value)
 
 
+if not MYPY:
+    class ManagedServiceIdentityArgsDict(TypedDict):
+        """
+        Managed service identity (system assigned and/or user assigned identities)
+        """
+        type: pulumi.Input[Union[str, 'ManagedServiceIdentityType']]
+        """
+        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        """
+        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        """
+elif False:
+    ManagedServiceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ManagedServiceIdentityArgs:
     def __init__(__self__, *,
@@ -382,6 +520,18 @@ class ManagedServiceIdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
+if not MYPY:
+    class PrivateEndpointConnectionPropertiesArgsDict(TypedDict):
+        """
+        The properties of a private endpoint connection
+        """
+        private_link_service_connection_state: pulumi.Input['PrivateLinkServiceConnectionStateArgsDict']
+        """
+        The current state of a private endpoint connection
+        """
+elif False:
+    PrivateEndpointConnectionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PrivateEndpointConnectionPropertiesArgs:
     def __init__(__self__, *,
@@ -405,6 +555,18 @@ class PrivateEndpointConnectionPropertiesArgs:
         pulumi.set(self, "private_link_service_connection_state", value)
 
 
+if not MYPY:
+    class PrivateEndpointConnectionArgsDict(TypedDict):
+        """
+        The private endpoint connection of a provisioning service
+        """
+        properties: pulumi.Input['PrivateEndpointConnectionPropertiesArgsDict']
+        """
+        The properties of a private endpoint connection
+        """
+elif False:
+    PrivateEndpointConnectionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PrivateEndpointConnectionArgs:
     def __init__(__self__, *,
@@ -427,6 +589,26 @@ class PrivateEndpointConnectionArgs:
     def properties(self, value: pulumi.Input['PrivateEndpointConnectionPropertiesArgs']):
         pulumi.set(self, "properties", value)
 
+
+if not MYPY:
+    class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
+        """
+        The current state of a private endpoint connection
+        """
+        description: pulumi.Input[str]
+        """
+        The description for the current state of a private endpoint connection
+        """
+        status: pulumi.Input[Union[str, 'PrivateLinkServiceConnectionStatus']]
+        """
+        The status of a private endpoint connection
+        """
+        actions_required: NotRequired[pulumi.Input[str]]
+        """
+        Actions required for a private endpoint connection
+        """
+elif False:
+    PrivateLinkServiceConnectionStateArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:
@@ -481,6 +663,30 @@ class PrivateLinkServiceConnectionStateArgs:
     def actions_required(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "actions_required", value)
 
+
+if not MYPY:
+    class SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArgsDict(TypedDict):
+        """
+        Description of the shared access key.
+        """
+        key_name: pulumi.Input[str]
+        """
+        Name of the key.
+        """
+        rights: pulumi.Input[Union[str, 'AccessRightsDescription']]
+        """
+        Rights that this key has.
+        """
+        primary_key: NotRequired[pulumi.Input[str]]
+        """
+        Primary SAS key value.
+        """
+        secondary_key: NotRequired[pulumi.Input[str]]
+        """
+        Secondary SAS key value.
+        """
+elif False:
+    SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArgs:
@@ -551,6 +757,30 @@ class SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArgs:
     def secondary_key(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "secondary_key", value)
 
+
+if not MYPY:
+    class TargetIpFilterRuleArgsDict(TypedDict):
+        """
+        The IP filter rules for a provisioning Service.
+        """
+        action: pulumi.Input['IpFilterActionType']
+        """
+        The desired action for requests captured by this rule.
+        """
+        filter_name: pulumi.Input[str]
+        """
+        The name of the IP filter rule.
+        """
+        ip_mask: pulumi.Input[str]
+        """
+        A string that contains the IP address range in CIDR notation for the rule.
+        """
+        target: NotRequired[pulumi.Input['IpFilterTargetType']]
+        """
+        Target for requests captured by this rule.
+        """
+elif False:
+    TargetIpFilterRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TargetIpFilterRuleArgs:

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -71,7 +76,7 @@ class NotificationRegistration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  notification_registration_name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['NotificationRegistrationPropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['NotificationRegistrationPropertiesArgs', 'NotificationRegistrationPropertiesArgsDict']]] = None,
                  provider_namespace: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -109,7 +114,7 @@ class NotificationRegistration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  notification_registration_name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['NotificationRegistrationPropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['NotificationRegistrationPropertiesArgs', 'NotificationRegistrationPropertiesArgsDict']]] = None,
                  provider_namespace: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -88,7 +93,7 @@ class VariableValueAtManagementGroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  management_group_id: Optional[pulumi.Input[str]] = None,
-                 values: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicyVariableValueColumnValueArgs']]]]] = None,
+                 values: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PolicyVariableValueColumnValueArgs', 'PolicyVariableValueColumnValueArgsDict']]]]] = None,
                  variable_name: Optional[pulumi.Input[str]] = None,
                  variable_value_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -99,7 +104,7 @@ class VariableValueAtManagementGroup(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] management_group_id: The ID of the management group.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicyVariableValueColumnValueArgs']]]] values: Variable value column value array.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PolicyVariableValueColumnValueArgs', 'PolicyVariableValueColumnValueArgsDict']]]] values: Variable value column value array.
         :param pulumi.Input[str] variable_name: The name of the variable to operate on.
         :param pulumi.Input[str] variable_value_name: The name of the variable value to operate on.
         """
@@ -129,7 +134,7 @@ class VariableValueAtManagementGroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  management_group_id: Optional[pulumi.Input[str]] = None,
-                 values: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicyVariableValueColumnValueArgs']]]]] = None,
+                 values: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PolicyVariableValueColumnValueArgs', 'PolicyVariableValueColumnValueArgsDict']]]]] = None,
                  variable_name: Optional[pulumi.Input[str]] = None,
                  variable_value_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -59,7 +64,7 @@ class Console(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  console_name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['ConsoleCreatePropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['ConsoleCreatePropertiesArgs', 'ConsoleCreatePropertiesArgsDict']]] = None,
                  __props__=None):
         """
         Cloud shell console
@@ -68,7 +73,7 @@ class Console(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] console_name: The name of the console
-        :param pulumi.Input[pulumi.InputType['ConsoleCreatePropertiesArgs']] properties: Cloud shell properties for creating a console.
+        :param pulumi.Input[Union['ConsoleCreatePropertiesArgs', 'ConsoleCreatePropertiesArgsDict']] properties: Cloud shell properties for creating a console.
         """
         ...
     @overload
@@ -96,7 +101,7 @@ class Console(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  console_name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['ConsoleCreatePropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['ConsoleCreatePropertiesArgs', 'ConsoleCreatePropertiesArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -4,16 +4,45 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'LogSettingsArgs',
+    'LogSettingsArgsDict',
     'RetentionPolicyArgs',
+    'RetentionPolicyArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class LogSettingsArgsDict(TypedDict):
+        """
+        Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular log.
+        """
+        enabled: pulumi.Input[bool]
+        """
+        A value indicating whether this log is enabled.
+        """
+        category: NotRequired[pulumi.Input[Union[str, 'Category']]]
+        """
+        Name of a Diagnostic Log category for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
+        """
+        retention_policy: NotRequired[pulumi.Input['RetentionPolicyArgsDict']]
+        """
+        The retention policy for this log.
+        """
+elif False:
+    LogSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LogSettingsArgs:
@@ -69,6 +98,22 @@ class LogSettingsArgs:
     def retention_policy(self, value: Optional[pulumi.Input['RetentionPolicyArgs']]):
         pulumi.set(self, "retention_policy", value)
 
+
+if not MYPY:
+    class RetentionPolicyArgsDict(TypedDict):
+        """
+        Specifies the retention policy for the log.
+        """
+        days: pulumi.Input[int]
+        """
+        The number of days for the retention in days. A value of 0 will retain the events indefinitely.
+        """
+        enabled: pulumi.Input[bool]
+        """
+        A value indicating whether the retention policy is enabled.
+        """
+elif False:
+    RetentionPolicyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RetentionPolicyArgs:

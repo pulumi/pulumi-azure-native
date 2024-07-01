@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -223,7 +228,7 @@ class EnvironmentSetting(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 resource_settings: Optional[pulumi.Input[pulumi.InputType['ResourceSettingsArgs']]] = None,
+                 resource_settings: Optional[pulumi.Input[Union['ResourceSettingsArgs', 'ResourceSettingsArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  title: Optional[pulumi.Input[str]] = None,
                  unique_identifier: Optional[pulumi.Input[str]] = None,
@@ -241,7 +246,7 @@ class EnvironmentSetting(pulumi.CustomResource):
         :param pulumi.Input[str] location: The location of the resource.
         :param pulumi.Input[str] provisioning_state: The provisioning status of the resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[pulumi.InputType['ResourceSettingsArgs']] resource_settings: The resource specific settings
+        :param pulumi.Input[Union['ResourceSettingsArgs', 'ResourceSettingsArgsDict']] resource_settings: The resource specific settings
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
         :param pulumi.Input[str] title: Brief title describing the environment and its resource settings
         :param pulumi.Input[str] unique_identifier: The unique immutable identifier of a resource (Guid).
@@ -278,7 +283,7 @@ class EnvironmentSetting(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 resource_settings: Optional[pulumi.Input[pulumi.InputType['ResourceSettingsArgs']]] = None,
+                 resource_settings: Optional[pulumi.Input[Union['ResourceSettingsArgs', 'ResourceSettingsArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  title: Optional[pulumi.Input[str]] = None,
                  unique_identifier: Optional[pulumi.Input[str]] = None,

@@ -4,18 +4,49 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'CapabilityArgs',
+    'CapabilityArgsDict',
     'HostingEnvironmentProfileArgs',
+    'HostingEnvironmentProfileArgsDict',
     'SkuCapacityArgs',
+    'SkuCapacityArgsDict',
     'SkuDescriptionArgs',
+    'SkuDescriptionArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class CapabilityArgsDict(TypedDict):
+        """
+        Describes the capabilities/features allowed for a specific SKU.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the SKU capability.
+        """
+        reason: NotRequired[pulumi.Input[str]]
+        """
+        Reason of the SKU capability.
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        Value of the SKU capability.
+        """
+elif False:
+    CapabilityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CapabilityArgs:
@@ -73,6 +104,18 @@ class CapabilityArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class HostingEnvironmentProfileArgsDict(TypedDict):
+        """
+        Specification for an App Service Environment to use for this resource.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID of the App Service Environment.
+        """
+elif False:
+    HostingEnvironmentProfileArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class HostingEnvironmentProfileArgs:
     def __init__(__self__, *,
@@ -96,6 +139,30 @@ class HostingEnvironmentProfileArgs:
     def id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class SkuCapacityArgsDict(TypedDict):
+        """
+        Description of the App Service plan scale options.
+        """
+        default: NotRequired[pulumi.Input[int]]
+        """
+        Default number of workers for this App Service plan SKU.
+        """
+        maximum: NotRequired[pulumi.Input[int]]
+        """
+        Maximum number of workers for this App Service plan SKU.
+        """
+        minimum: NotRequired[pulumi.Input[int]]
+        """
+        Minimum number of workers for this App Service plan SKU.
+        """
+        scale_type: NotRequired[pulumi.Input[str]]
+        """
+        Available scale configurations for an App Service plan.
+        """
+elif False:
+    SkuCapacityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SkuCapacityArgs:
@@ -168,6 +235,46 @@ class SkuCapacityArgs:
     def scale_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "scale_type", value)
 
+
+if not MYPY:
+    class SkuDescriptionArgsDict(TypedDict):
+        """
+        Description of a SKU for a scalable resource.
+        """
+        capabilities: NotRequired[pulumi.Input[Sequence[pulumi.Input['CapabilityArgsDict']]]]
+        """
+        Capabilities of the SKU, e.g., is traffic manager enabled?
+        """
+        capacity: NotRequired[pulumi.Input[int]]
+        """
+        Current number of instances assigned to the resource.
+        """
+        family: NotRequired[pulumi.Input[str]]
+        """
+        Family code of the resource SKU.
+        """
+        locations: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Locations of the SKU.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the resource SKU.
+        """
+        size: NotRequired[pulumi.Input[str]]
+        """
+        Size specifier of the resource SKU.
+        """
+        sku_capacity: NotRequired[pulumi.Input['SkuCapacityArgsDict']]
+        """
+        Min, max, and default scale values of the SKU.
+        """
+        tier: NotRequired[pulumi.Input[str]]
+        """
+        Service tier of the resource SKU.
+        """
+elif False:
+    SkuDescriptionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SkuDescriptionArgs:

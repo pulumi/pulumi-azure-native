@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -72,7 +77,7 @@ class EdgeDevice(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 device_configuration: Optional[pulumi.Input[pulumi.InputType['DeviceConfigurationArgs']]] = None,
+                 device_configuration: Optional[pulumi.Input[Union['DeviceConfigurationArgs', 'DeviceConfigurationArgsDict']]] = None,
                  edge_device_name: Optional[pulumi.Input[str]] = None,
                  resource_uri: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -81,7 +86,7 @@ class EdgeDevice(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['DeviceConfigurationArgs']] device_configuration: Device Configuration
+        :param pulumi.Input[Union['DeviceConfigurationArgs', 'DeviceConfigurationArgsDict']] device_configuration: Device Configuration
         :param pulumi.Input[str] edge_device_name: Name of Device
         :param pulumi.Input[str] resource_uri: The fully qualified Azure Resource manager identifier of the resource.
         """
@@ -109,7 +114,7 @@ class EdgeDevice(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 device_configuration: Optional[pulumi.Input[pulumi.InputType['DeviceConfigurationArgs']]] = None,
+                 device_configuration: Optional[pulumi.Input[Union['DeviceConfigurationArgs', 'DeviceConfigurationArgsDict']]] = None,
                  edge_device_name: Optional[pulumi.Input[str]] = None,
                  resource_uri: Optional[pulumi.Input[str]] = None,
                  __props__=None):

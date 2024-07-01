@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -432,8 +437,8 @@ class WebAppAssessmentV2Operation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_svc_container_settings: Optional[pulumi.Input[pulumi.InputType['AppSvcContainerSettingsArgs']]] = None,
-                 app_svc_native_settings: Optional[pulumi.Input[pulumi.InputType['AppSvcNativeSettingsArgs']]] = None,
+                 app_svc_container_settings: Optional[pulumi.Input[Union['AppSvcContainerSettingsArgs', 'AppSvcContainerSettingsArgsDict']]] = None,
+                 app_svc_native_settings: Optional[pulumi.Input[Union['AppSvcNativeSettingsArgs', 'AppSvcNativeSettingsArgsDict']]] = None,
                  assessment_name: Optional[pulumi.Input[str]] = None,
                  assessment_type: Optional[pulumi.Input[Union[str, 'AssessmentType']]] = None,
                  azure_location: Optional[pulumi.Input[str]] = None,
@@ -442,9 +447,9 @@ class WebAppAssessmentV2Operation(pulumi.CustomResource):
                  confidence_rating_in_percentage: Optional[pulumi.Input[float]] = None,
                  currency: Optional[pulumi.Input[Union[str, 'AzureCurrency']]] = None,
                  discount_percentage: Optional[pulumi.Input[float]] = None,
-                 discovered_entity_light_summary: Optional[pulumi.Input[pulumi.InputType['DiscoveredEntityLightSummaryArgs']]] = None,
+                 discovered_entity_light_summary: Optional[pulumi.Input[Union['DiscoveredEntityLightSummaryArgs', 'DiscoveredEntityLightSummaryArgsDict']]] = None,
                  ea_subscription_id: Optional[pulumi.Input[str]] = None,
-                 entity_uptime: Optional[pulumi.Input[pulumi.InputType['EntityUptimeArgs']]] = None,
+                 entity_uptime: Optional[pulumi.Input[Union['EntityUptimeArgs', 'EntityUptimeArgsDict']]] = None,
                  environment_type: Optional[pulumi.Input[Union[str, 'EnvironmentType']]] = None,
                  group_name: Optional[pulumi.Input[str]] = None,
                  group_type: Optional[pulumi.Input[Union[str, 'GroupType']]] = None,
@@ -463,8 +468,8 @@ class WebAppAssessmentV2Operation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['AppSvcContainerSettingsArgs']] app_svc_container_settings: Gets or sets user configurable app service container database settings.
-        :param pulumi.Input[pulumi.InputType['AppSvcNativeSettingsArgs']] app_svc_native_settings: Gets or sets user configurable app service native settings.
+        :param pulumi.Input[Union['AppSvcContainerSettingsArgs', 'AppSvcContainerSettingsArgsDict']] app_svc_container_settings: Gets or sets user configurable app service container database settings.
+        :param pulumi.Input[Union['AppSvcNativeSettingsArgs', 'AppSvcNativeSettingsArgsDict']] app_svc_native_settings: Gets or sets user configurable app service native settings.
         :param pulumi.Input[str] assessment_name: Web app Assessment arm name.
         :param pulumi.Input[Union[str, 'AssessmentType']] assessment_type: Assessment type of the assessment.
         :param pulumi.Input[str] azure_location: Azure Location or Azure region where to which the machines will be migrated.
@@ -473,9 +478,9 @@ class WebAppAssessmentV2Operation(pulumi.CustomResource):
         :param pulumi.Input[float] confidence_rating_in_percentage: Confidence Rating in Percentage.
         :param pulumi.Input[Union[str, 'AzureCurrency']] currency: Currency in which prices should be reported.
         :param pulumi.Input[float] discount_percentage: Custom discount percentage.
-        :param pulumi.Input[pulumi.InputType['DiscoveredEntityLightSummaryArgs']] discovered_entity_light_summary: Gets or sets user configurable discovered entity settings.
+        :param pulumi.Input[Union['DiscoveredEntityLightSummaryArgs', 'DiscoveredEntityLightSummaryArgsDict']] discovered_entity_light_summary: Gets or sets user configurable discovered entity settings.
         :param pulumi.Input[str] ea_subscription_id: Gets or sets the Enterprise agreement subscription id.
-        :param pulumi.Input[pulumi.InputType['EntityUptimeArgs']] entity_uptime: Gets or sets the duration for which the entity (Web app, VMs) are up in the
+        :param pulumi.Input[Union['EntityUptimeArgs', 'EntityUptimeArgsDict']] entity_uptime: Gets or sets the duration for which the entity (Web app, VMs) are up in the
                on-premises environment.
         :param pulumi.Input[Union[str, 'EnvironmentType']] environment_type: Gets or sets user configurable setting to display the environment type.
         :param pulumi.Input[str] group_name: Group ARM name
@@ -517,8 +522,8 @@ class WebAppAssessmentV2Operation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_svc_container_settings: Optional[pulumi.Input[pulumi.InputType['AppSvcContainerSettingsArgs']]] = None,
-                 app_svc_native_settings: Optional[pulumi.Input[pulumi.InputType['AppSvcNativeSettingsArgs']]] = None,
+                 app_svc_container_settings: Optional[pulumi.Input[Union['AppSvcContainerSettingsArgs', 'AppSvcContainerSettingsArgsDict']]] = None,
+                 app_svc_native_settings: Optional[pulumi.Input[Union['AppSvcNativeSettingsArgs', 'AppSvcNativeSettingsArgsDict']]] = None,
                  assessment_name: Optional[pulumi.Input[str]] = None,
                  assessment_type: Optional[pulumi.Input[Union[str, 'AssessmentType']]] = None,
                  azure_location: Optional[pulumi.Input[str]] = None,
@@ -527,9 +532,9 @@ class WebAppAssessmentV2Operation(pulumi.CustomResource):
                  confidence_rating_in_percentage: Optional[pulumi.Input[float]] = None,
                  currency: Optional[pulumi.Input[Union[str, 'AzureCurrency']]] = None,
                  discount_percentage: Optional[pulumi.Input[float]] = None,
-                 discovered_entity_light_summary: Optional[pulumi.Input[pulumi.InputType['DiscoveredEntityLightSummaryArgs']]] = None,
+                 discovered_entity_light_summary: Optional[pulumi.Input[Union['DiscoveredEntityLightSummaryArgs', 'DiscoveredEntityLightSummaryArgsDict']]] = None,
                  ea_subscription_id: Optional[pulumi.Input[str]] = None,
-                 entity_uptime: Optional[pulumi.Input[pulumi.InputType['EntityUptimeArgs']]] = None,
+                 entity_uptime: Optional[pulumi.Input[Union['EntityUptimeArgs', 'EntityUptimeArgsDict']]] = None,
                  environment_type: Optional[pulumi.Input[Union[str, 'EnvironmentType']]] = None,
                  group_name: Optional[pulumi.Input[str]] = None,
                  group_type: Optional[pulumi.Input[Union[str, 'GroupType']]] = None,

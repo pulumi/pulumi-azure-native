@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -107,7 +112,7 @@ class AccessPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_policy_name: Optional[pulumi.Input[str]] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
-                 authentication: Optional[pulumi.Input[pulumi.InputType['JwtAuthenticationArgs']]] = None,
+                 authentication: Optional[pulumi.Input[Union['JwtAuthenticationArgs', 'JwtAuthenticationArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  role: Optional[pulumi.Input[Union[str, 'AccessPolicyRole']]] = None,
                  __props__=None):
@@ -118,7 +123,7 @@ class AccessPolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] access_policy_name: The Access Policy name.
         :param pulumi.Input[str] account_name: The Azure Video Analyzer account name.
-        :param pulumi.Input[pulumi.InputType['JwtAuthenticationArgs']] authentication: Authentication method to be used when validating client API access.
+        :param pulumi.Input[Union['JwtAuthenticationArgs', 'JwtAuthenticationArgsDict']] authentication: Authentication method to be used when validating client API access.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union[str, 'AccessPolicyRole']] role: Defines the access level granted by this policy.
         """
@@ -148,7 +153,7 @@ class AccessPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_policy_name: Optional[pulumi.Input[str]] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
-                 authentication: Optional[pulumi.Input[pulumi.InputType['JwtAuthenticationArgs']]] = None,
+                 authentication: Optional[pulumi.Input[Union['JwtAuthenticationArgs', 'JwtAuthenticationArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  role: Optional[pulumi.Input[Union[str, 'AccessPolicyRole']]] = None,
                  __props__=None):

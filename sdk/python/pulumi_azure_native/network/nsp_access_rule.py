@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -260,7 +265,7 @@ class NspAccessRule(pulumi.CustomResource):
                  phone_numbers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  profile_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 subscriptions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubscriptionIdArgs']]]]] = None,
+                 subscriptions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SubscriptionIdArgs', 'SubscriptionIdArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -283,7 +288,7 @@ class NspAccessRule(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] phone_numbers: Outbound rules phone number format.
         :param pulumi.Input[str] profile_name: The name of the NSP profile.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubscriptionIdArgs']]]] subscriptions: List of subscription ids
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SubscriptionIdArgs', 'SubscriptionIdArgsDict']]]] subscriptions: List of subscription ids
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         ...
@@ -325,7 +330,7 @@ class NspAccessRule(pulumi.CustomResource):
                  phone_numbers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  profile_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 subscriptions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubscriptionIdArgs']]]]] = None,
+                 subscriptions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SubscriptionIdArgs', 'SubscriptionIdArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

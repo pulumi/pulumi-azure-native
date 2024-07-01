@@ -4,16 +4,37 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'IdentityArgs',
+    'IdentityArgsDict',
     'TableLevelSharingPropertiesArgs',
+    'TableLevelSharingPropertiesArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class IdentityArgsDict(TypedDict):
+        """
+        Identity of resource
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'Type']]]
+        """
+        Identity Type
+        """
+elif False:
+    IdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IdentityArgs:
@@ -38,6 +59,38 @@ class IdentityArgs:
     def type(self, value: Optional[pulumi.Input[Union[str, 'Type']]]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class TableLevelSharingPropertiesArgsDict(TypedDict):
+        """
+        Table level sharing properties dto for kusto data set properties
+        """
+        external_tables_to_exclude: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        External tables to be excluded in the data set
+        """
+        external_tables_to_include: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        External tables to be included in the data set
+        """
+        materialized_views_to_exclude: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Materialized views to be excluded in the data set
+        """
+        materialized_views_to_include: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Materialized views to be included in the data set
+        """
+        tables_to_exclude: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Tables to be excluded in the data set
+        """
+        tables_to_include: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Tables to be included in the data set
+        """
+elif False:
+    TableLevelSharingPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TableLevelSharingPropertiesArgs:

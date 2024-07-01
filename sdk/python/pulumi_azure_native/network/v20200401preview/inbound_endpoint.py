@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -123,7 +128,7 @@ class InboundEndpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  dns_resolver_name: Optional[pulumi.Input[str]] = None,
                  inbound_endpoint_name: Optional[pulumi.Input[str]] = None,
-                 ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InboundEndpointIPConfigurationArgs']]]]] = None,
+                 ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InboundEndpointIPConfigurationArgs', 'InboundEndpointIPConfigurationArgsDict']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -135,7 +140,7 @@ class InboundEndpoint(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] dns_resolver_name: The name of the DNS resolver.
         :param pulumi.Input[str] inbound_endpoint_name: The name of the inbound endpoint for the DNS resolver.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InboundEndpointIPConfigurationArgs']]]] ip_configurations: IP configurations for the inbound endpoint.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['InboundEndpointIPConfigurationArgs', 'InboundEndpointIPConfigurationArgsDict']]]] ip_configurations: IP configurations for the inbound endpoint.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -166,7 +171,7 @@ class InboundEndpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  dns_resolver_name: Optional[pulumi.Input[str]] = None,
                  inbound_endpoint_name: Optional[pulumi.Input[str]] = None,
-                 ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InboundEndpointIPConfigurationArgs']]]]] = None,
+                 ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InboundEndpointIPConfigurationArgs', 'InboundEndpointIPConfigurationArgsDict']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,

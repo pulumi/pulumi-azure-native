@@ -4,17 +4,39 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'ConnectionStateRequestBodyPropertiesArgs',
+    'ConnectionStateRequestBodyPropertiesArgsDict',
     'MigrateProjectPropertiesArgs',
+    'MigrateProjectPropertiesArgsDict',
     'PrivateLinkServiceConnectionStateArgs',
+    'PrivateLinkServiceConnectionStateArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ConnectionStateRequestBodyPropertiesArgsDict(TypedDict):
+        """
+        Properties of Connection state request.
+        """
+        private_link_service_connection_state: NotRequired[pulumi.Input['PrivateLinkServiceConnectionStateArgsDict']]
+        """
+        Private endpoint connection state.
+        """
+elif False:
+    ConnectionStateRequestBodyPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ConnectionStateRequestBodyPropertiesArgs:
@@ -39,6 +61,26 @@ class ConnectionStateRequestBodyPropertiesArgs:
     def private_link_service_connection_state(self, value: Optional[pulumi.Input['PrivateLinkServiceConnectionStateArgs']]):
         pulumi.set(self, "private_link_service_connection_state", value)
 
+
+if not MYPY:
+    class MigrateProjectPropertiesArgsDict(TypedDict):
+        """
+        Properties of a migrate project.
+        """
+        public_network_access: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the state of public network access.
+        """
+        service_endpoint: NotRequired[pulumi.Input[str]]
+        """
+        Service endpoint.
+        """
+        utility_storage_account_id: NotRequired[pulumi.Input[str]]
+        """
+        Utility storage account id.
+        """
+elif False:
+    MigrateProjectPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MigrateProjectPropertiesArgs:
@@ -95,6 +137,26 @@ class MigrateProjectPropertiesArgs:
     def utility_storage_account_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "utility_storage_account_id", value)
 
+
+if not MYPY:
+    class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
+        """
+        Private endpoint connection state.
+        """
+        actions_required: NotRequired[pulumi.Input[str]]
+        """
+        Action required.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Description of the object.
+        """
+        status: NotRequired[pulumi.Input[Union[str, 'Status']]]
+        """
+        Private link connection state.
+        """
+elif False:
+    PrivateLinkServiceConnectionStateArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:

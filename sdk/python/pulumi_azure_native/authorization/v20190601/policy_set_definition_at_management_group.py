@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -158,7 +163,7 @@ class PolicySetDefinitionAtManagementGroup(pulumi.CustomResource):
                  management_group_id: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[Any] = None,
                  parameters: Optional[Any] = None,
-                 policy_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicyDefinitionReferenceArgs']]]]] = None,
+                 policy_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PolicyDefinitionReferenceArgs', 'PolicyDefinitionReferenceArgsDict']]]]] = None,
                  policy_set_definition_name: Optional[pulumi.Input[str]] = None,
                  policy_type: Optional[pulumi.Input[Union[str, 'PolicyType']]] = None,
                  __props__=None):
@@ -172,7 +177,7 @@ class PolicySetDefinitionAtManagementGroup(pulumi.CustomResource):
         :param pulumi.Input[str] management_group_id: The ID of the management group.
         :param Any metadata: The policy set definition metadata.
         :param Any parameters: The policy set definition parameters that can be used in policy definition references.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicyDefinitionReferenceArgs']]]] policy_definitions: An array of policy definition references.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PolicyDefinitionReferenceArgs', 'PolicyDefinitionReferenceArgsDict']]]] policy_definitions: An array of policy definition references.
         :param pulumi.Input[str] policy_set_definition_name: The name of the policy set definition to create.
         :param pulumi.Input[Union[str, 'PolicyType']] policy_type: The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
         """
@@ -205,7 +210,7 @@ class PolicySetDefinitionAtManagementGroup(pulumi.CustomResource):
                  management_group_id: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[Any] = None,
                  parameters: Optional[Any] = None,
-                 policy_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicyDefinitionReferenceArgs']]]]] = None,
+                 policy_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PolicyDefinitionReferenceArgs', 'PolicyDefinitionReferenceArgsDict']]]]] = None,
                  policy_set_definition_name: Optional[pulumi.Input[str]] = None,
                  policy_type: Optional[pulumi.Input[Union[str, 'PolicyType']]] = None,
                  __props__=None):

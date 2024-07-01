@@ -4,23 +4,56 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'ApiKeyAuthCredentialsArgs',
+    'ApiKeyAuthCredentialsArgsDict',
     'ApiPropertiesArgs',
+    'ApiPropertiesArgsDict',
     'DataConnectorPropertiesArgs',
+    'DataConnectorPropertiesArgsDict',
     'IdentityArgs',
+    'IdentityArgsDict',
     'KeyVaultPropertiesArgs',
+    'KeyVaultPropertiesArgsDict',
     'OAuthClientCredentialsArgs',
+    'OAuthClientCredentialsArgsDict',
     'PrivateLinkServiceConnectionStateArgs',
+    'PrivateLinkServiceConnectionStateArgsDict',
     'SensorIntegrationArgs',
+    'SensorIntegrationArgsDict',
     'SolutionPropertiesArgs',
+    'SolutionPropertiesArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ApiKeyAuthCredentialsArgsDict(TypedDict):
+        """
+        ApiKeyAuthCredentials class for ApiKey based Auth.
+        """
+        api_key: pulumi.Input['KeyVaultPropertiesArgsDict']
+        """
+        Properties of the key vault.
+        """
+        kind: pulumi.Input[str]
+        """
+        Enum for different types of AuthCredentials supported.
+        Expected value is 'ApiKeyAuthCredentials'.
+        """
+elif False:
+    ApiKeyAuthCredentialsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApiKeyAuthCredentialsArgs:
@@ -62,6 +95,18 @@ class ApiKeyAuthCredentialsArgs:
         pulumi.set(self, "kind", value)
 
 
+if not MYPY:
+    class ApiPropertiesArgsDict(TypedDict):
+        """
+        Api properties.
+        """
+        api_freshness_time_in_minutes: NotRequired[pulumi.Input[int]]
+        """
+        Interval in minutes for which the weather data for the api needs to be refreshed.
+        """
+elif False:
+    ApiPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ApiPropertiesArgs:
     def __init__(__self__, *,
@@ -86,6 +131,18 @@ class ApiPropertiesArgs:
         pulumi.set(self, "api_freshness_time_in_minutes", value)
 
 
+if not MYPY:
+    class DataConnectorPropertiesArgsDict(TypedDict):
+        """
+        DataConnector Properties.
+        """
+        credentials: pulumi.Input[Union['ApiKeyAuthCredentialsArgsDict', 'OAuthClientCredentialsArgsDict']]
+        """
+        AuthCredentials abstract base class for Auth Purpose.
+        """
+elif False:
+    DataConnectorPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DataConnectorPropertiesArgs:
     def __init__(__self__, *,
@@ -108,6 +165,18 @@ class DataConnectorPropertiesArgs:
     def credentials(self, value: pulumi.Input[Union['ApiKeyAuthCredentialsArgs', 'OAuthClientCredentialsArgs']]):
         pulumi.set(self, "credentials", value)
 
+
+if not MYPY:
+    class IdentityArgsDict(TypedDict):
+        """
+        Identity for the resource.
+        """
+        type: NotRequired[pulumi.Input['ResourceIdentityType']]
+        """
+        The identity type.
+        """
+elif False:
+    IdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IdentityArgs:
@@ -132,6 +201,26 @@ class IdentityArgs:
     def type(self, value: Optional[pulumi.Input['ResourceIdentityType']]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class KeyVaultPropertiesArgsDict(TypedDict):
+        """
+        Properties of the key vault.
+        """
+        key_name: pulumi.Input[str]
+        """
+        Name of Key Vault key.
+        """
+        key_vault_uri: pulumi.Input[str]
+        """
+        Uri of the key vault.
+        """
+        key_version: pulumi.Input[str]
+        """
+        Version of Key Vault key.
+        """
+elif False:
+    KeyVaultPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class KeyVaultPropertiesArgs:
@@ -185,6 +274,27 @@ class KeyVaultPropertiesArgs:
     def key_version(self, value: pulumi.Input[str]):
         pulumi.set(self, "key_version", value)
 
+
+if not MYPY:
+    class OAuthClientCredentialsArgsDict(TypedDict):
+        """
+        OAuthClientCredentials for clientId clientSecret auth.
+        """
+        client_id: pulumi.Input[str]
+        """
+        ClientId associated with the provider.
+        """
+        client_secret: pulumi.Input['KeyVaultPropertiesArgsDict']
+        """
+        Properties of the key vault.
+        """
+        kind: pulumi.Input[str]
+        """
+        Enum for different types of AuthCredentials supported.
+        Expected value is 'OAuthClientCredentials'.
+        """
+elif False:
+    OAuthClientCredentialsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OAuthClientCredentialsArgs:
@@ -240,6 +350,26 @@ class OAuthClientCredentialsArgs:
     def kind(self, value: pulumi.Input[str]):
         pulumi.set(self, "kind", value)
 
+
+if not MYPY:
+    class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
+        """
+        A collection of information about the state of the connection between service consumer and provider.
+        """
+        actions_required: NotRequired[pulumi.Input[str]]
+        """
+        A message indicating if changes on the service provider require any updates on the consumer.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The reason for approval/rejection of the connection.
+        """
+        status: NotRequired[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]]
+        """
+        Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+        """
+elif False:
+    PrivateLinkServiceConnectionStateArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:
@@ -297,6 +427,18 @@ class PrivateLinkServiceConnectionStateArgs:
         pulumi.set(self, "status", value)
 
 
+if not MYPY:
+    class SensorIntegrationArgsDict(TypedDict):
+        """
+        Sensor integration request model.
+        """
+        enabled: NotRequired[pulumi.Input[str]]
+        """
+        Sensor integration enable state.
+        """
+elif False:
+    SensorIntegrationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SensorIntegrationArgs:
     def __init__(__self__, *,
@@ -320,6 +462,42 @@ class SensorIntegrationArgs:
     def enabled(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "enabled", value)
 
+
+if not MYPY:
+    class SolutionPropertiesArgsDict(TypedDict):
+        """
+        Solution resource properties.
+        """
+        marketplace_publisher_id: pulumi.Input[str]
+        """
+        SaaS application Marketplace Publisher Id.
+        """
+        offer_id: pulumi.Input[str]
+        """
+        SaaS application Offer Id.
+        """
+        plan_id: pulumi.Input[str]
+        """
+        SaaS application Plan Id.
+        """
+        saas_subscription_id: pulumi.Input[str]
+        """
+        SaaS subscriptionId of the installed SaaS application.
+        """
+        saas_subscription_name: pulumi.Input[str]
+        """
+        SaaS subscription name of the installed SaaS application.
+        """
+        term_id: pulumi.Input[str]
+        """
+        SaaS application Term Id.
+        """
+        role_assignment_id: NotRequired[pulumi.Input[str]]
+        """
+        Role Assignment Id.
+        """
+elif False:
+    SolutionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SolutionPropertiesArgs:

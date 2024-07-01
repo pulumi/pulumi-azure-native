@@ -4,21 +4,56 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'SecretAuthInfoArgs',
+    'SecretAuthInfoArgsDict',
     'SecretStoreArgs',
+    'SecretStoreArgsDict',
     'ServicePrincipalCertificateAuthInfoArgs',
+    'ServicePrincipalCertificateAuthInfoArgsDict',
     'ServicePrincipalSecretAuthInfoArgs',
+    'ServicePrincipalSecretAuthInfoArgsDict',
     'SystemAssignedIdentityAuthInfoArgs',
+    'SystemAssignedIdentityAuthInfoArgsDict',
     'UserAssignedIdentityAuthInfoArgs',
+    'UserAssignedIdentityAuthInfoArgsDict',
     'VNetSolutionArgs',
+    'VNetSolutionArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class SecretAuthInfoArgsDict(TypedDict):
+        """
+        The authentication info when authType is secret
+        """
+        auth_type: pulumi.Input[str]
+        """
+        The authentication type.
+        Expected value is 'secret'.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Username or account name for secret auth.
+        """
+        secret: NotRequired[pulumi.Input[str]]
+        """
+        Password or account key for secret auth.
+        """
+elif False:
+    SecretAuthInfoArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SecretAuthInfoArgs:
@@ -77,6 +112,18 @@ class SecretAuthInfoArgs:
         pulumi.set(self, "secret", value)
 
 
+if not MYPY:
+    class SecretStoreArgsDict(TypedDict):
+        """
+        An option to store secret value in secure place
+        """
+        key_vault_id: NotRequired[pulumi.Input[str]]
+        """
+        The key vault id to store secret
+        """
+elif False:
+    SecretStoreArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SecretStoreArgs:
     def __init__(__self__, *,
@@ -100,6 +147,31 @@ class SecretStoreArgs:
     def key_vault_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "key_vault_id", value)
 
+
+if not MYPY:
+    class ServicePrincipalCertificateAuthInfoArgsDict(TypedDict):
+        """
+        The authentication info when authType is servicePrincipal certificate
+        """
+        auth_type: pulumi.Input[str]
+        """
+        The authentication type.
+        Expected value is 'servicePrincipalCertificate'.
+        """
+        certificate: pulumi.Input[str]
+        """
+        ServicePrincipal certificate for servicePrincipal auth.
+        """
+        client_id: pulumi.Input[str]
+        """
+        Application clientId for servicePrincipal auth.
+        """
+        principal_id: pulumi.Input[str]
+        """
+        Principal Id for servicePrincipal auth.
+        """
+elif False:
+    ServicePrincipalCertificateAuthInfoArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ServicePrincipalCertificateAuthInfoArgs:
@@ -171,6 +243,31 @@ class ServicePrincipalCertificateAuthInfoArgs:
         pulumi.set(self, "principal_id", value)
 
 
+if not MYPY:
+    class ServicePrincipalSecretAuthInfoArgsDict(TypedDict):
+        """
+        The authentication info when authType is servicePrincipal secret
+        """
+        auth_type: pulumi.Input[str]
+        """
+        The authentication type.
+        Expected value is 'servicePrincipalSecret'.
+        """
+        client_id: pulumi.Input[str]
+        """
+        ServicePrincipal application clientId for servicePrincipal auth.
+        """
+        principal_id: pulumi.Input[str]
+        """
+        Principal Id for servicePrincipal auth.
+        """
+        secret: pulumi.Input[str]
+        """
+        Secret for servicePrincipal auth.
+        """
+elif False:
+    ServicePrincipalSecretAuthInfoArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ServicePrincipalSecretAuthInfoArgs:
     def __init__(__self__, *,
@@ -241,6 +338,19 @@ class ServicePrincipalSecretAuthInfoArgs:
         pulumi.set(self, "secret", value)
 
 
+if not MYPY:
+    class SystemAssignedIdentityAuthInfoArgsDict(TypedDict):
+        """
+        The authentication info when authType is systemAssignedIdentity
+        """
+        auth_type: pulumi.Input[str]
+        """
+        The authentication type.
+        Expected value is 'systemAssignedIdentity'.
+        """
+elif False:
+    SystemAssignedIdentityAuthInfoArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SystemAssignedIdentityAuthInfoArgs:
     def __init__(__self__, *,
@@ -265,6 +375,27 @@ class SystemAssignedIdentityAuthInfoArgs:
     def auth_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "auth_type", value)
 
+
+if not MYPY:
+    class UserAssignedIdentityAuthInfoArgsDict(TypedDict):
+        """
+        The authentication info when authType is userAssignedIdentity
+        """
+        auth_type: pulumi.Input[str]
+        """
+        The authentication type.
+        Expected value is 'userAssignedIdentity'.
+        """
+        client_id: pulumi.Input[str]
+        """
+        Client Id for userAssignedIdentity.
+        """
+        subscription_id: pulumi.Input[str]
+        """
+        Subscription id for userAssignedIdentity.
+        """
+elif False:
+    UserAssignedIdentityAuthInfoArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserAssignedIdentityAuthInfoArgs:
@@ -320,6 +451,18 @@ class UserAssignedIdentityAuthInfoArgs:
     def subscription_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "subscription_id", value)
 
+
+if not MYPY:
+    class VNetSolutionArgsDict(TypedDict):
+        """
+        The VNet solution for linker
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'VNetSolutionType']]]
+        """
+        Type of VNet solution.
+        """
+elif False:
+    VNetSolutionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VNetSolutionArgs:

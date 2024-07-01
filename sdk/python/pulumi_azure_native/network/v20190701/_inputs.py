@@ -4,26 +4,57 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'AddressSpaceArgs',
+    'AddressSpaceArgsDict',
     'IpsecPolicyArgs',
+    'IpsecPolicyArgsDict',
     'MatchConditionArgs',
+    'MatchConditionArgsDict',
     'MatchVariableArgs',
+    'MatchVariableArgsDict',
     'P2SVpnServerConfigRadiusClientRootCertificateArgs',
+    'P2SVpnServerConfigRadiusClientRootCertificateArgsDict',
     'P2SVpnServerConfigRadiusServerRootCertificateArgs',
+    'P2SVpnServerConfigRadiusServerRootCertificateArgsDict',
     'P2SVpnServerConfigVpnClientRevokedCertificateArgs',
+    'P2SVpnServerConfigVpnClientRevokedCertificateArgsDict',
     'P2SVpnServerConfigVpnClientRootCertificateArgs',
+    'P2SVpnServerConfigVpnClientRootCertificateArgsDict',
     'P2SVpnServerConfigurationArgs',
+    'P2SVpnServerConfigurationArgsDict',
     'PolicySettingsArgs',
+    'PolicySettingsArgsDict',
     'SubResourceArgs',
+    'SubResourceArgsDict',
     'WebApplicationFirewallCustomRuleArgs',
+    'WebApplicationFirewallCustomRuleArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AddressSpaceArgsDict(TypedDict):
+        """
+        AddressSpace contains an array of IP address ranges that can be used by subnets of the virtual network.
+        """
+        address_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of address blocks reserved for this virtual network in CIDR notation.
+        """
+elif False:
+    AddressSpaceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AddressSpaceArgs:
@@ -48,6 +79,46 @@ class AddressSpaceArgs:
     def address_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "address_prefixes", value)
 
+
+if not MYPY:
+    class IpsecPolicyArgsDict(TypedDict):
+        """
+        An IPSec Policy configuration for a virtual network gateway connection.
+        """
+        dh_group: pulumi.Input[Union[str, 'DhGroup']]
+        """
+        The DH Group used in IKE Phase 1 for initial SA.
+        """
+        ike_encryption: pulumi.Input[Union[str, 'IkeEncryption']]
+        """
+        The IKE encryption algorithm (IKE phase 2).
+        """
+        ike_integrity: pulumi.Input[Union[str, 'IkeIntegrity']]
+        """
+        The IKE integrity algorithm (IKE phase 2).
+        """
+        ipsec_encryption: pulumi.Input[Union[str, 'IpsecEncryption']]
+        """
+        The IPSec encryption algorithm (IKE phase 1).
+        """
+        ipsec_integrity: pulumi.Input[Union[str, 'IpsecIntegrity']]
+        """
+        The IPSec integrity algorithm (IKE phase 1).
+        """
+        pfs_group: pulumi.Input[Union[str, 'PfsGroup']]
+        """
+        The Pfs Group used in IKE Phase 2 for new child SA.
+        """
+        sa_data_size_kilobytes: pulumi.Input[int]
+        """
+        The IPSec Security Association (also called Quick Mode or Phase 2 SA) payload size in KB for a site to site VPN tunnel.
+        """
+        sa_life_time_seconds: pulumi.Input[int]
+        """
+        The IPSec Security Association (also called Quick Mode or Phase 2 SA) lifetime in seconds for a site to site VPN tunnel.
+        """
+elif False:
+    IpsecPolicyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IpsecPolicyArgs:
@@ -177,6 +248,34 @@ class IpsecPolicyArgs:
         pulumi.set(self, "sa_life_time_seconds", value)
 
 
+if not MYPY:
+    class MatchConditionArgsDict(TypedDict):
+        """
+        Define match conditions.
+        """
+        match_values: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Match value.
+        """
+        match_variables: pulumi.Input[Sequence[pulumi.Input['MatchVariableArgsDict']]]
+        """
+        List of match variables.
+        """
+        operator: pulumi.Input[Union[str, 'WebApplicationFirewallOperator']]
+        """
+        Describes operator to be matched.
+        """
+        negation_conditon: NotRequired[pulumi.Input[bool]]
+        """
+        Describes if this is negate condition or not.
+        """
+        transforms: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'WebApplicationFirewallTransform']]]]]
+        """
+        List of transforms.
+        """
+elif False:
+    MatchConditionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MatchConditionArgs:
     def __init__(__self__, *,
@@ -262,6 +361,22 @@ class MatchConditionArgs:
         pulumi.set(self, "transforms", value)
 
 
+if not MYPY:
+    class MatchVariableArgsDict(TypedDict):
+        """
+        Define match variables.
+        """
+        variable_name: pulumi.Input[Union[str, 'WebApplicationFirewallMatchVariable']]
+        """
+        Match Variable.
+        """
+        selector: NotRequired[pulumi.Input[str]]
+        """
+        Describes field of the matchVariable collection.
+        """
+elif False:
+    MatchVariableArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MatchVariableArgs:
     def __init__(__self__, *,
@@ -300,6 +415,30 @@ class MatchVariableArgs:
     def selector(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "selector", value)
 
+
+if not MYPY:
+    class P2SVpnServerConfigRadiusClientRootCertificateArgsDict(TypedDict):
+        """
+        Radius client root certificate of P2SVpnServerConfiguration.
+        """
+        etag: NotRequired[pulumi.Input[str]]
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+        thumbprint: NotRequired[pulumi.Input[str]]
+        """
+        The Radius client root certificate thumbprint.
+        """
+elif False:
+    P2SVpnServerConfigRadiusClientRootCertificateArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class P2SVpnServerConfigRadiusClientRootCertificateArgs:
@@ -373,6 +512,30 @@ class P2SVpnServerConfigRadiusClientRootCertificateArgs:
         pulumi.set(self, "thumbprint", value)
 
 
+if not MYPY:
+    class P2SVpnServerConfigRadiusServerRootCertificateArgsDict(TypedDict):
+        """
+        Radius Server root certificate of P2SVpnServerConfiguration.
+        """
+        public_cert_data: pulumi.Input[str]
+        """
+        The certificate public data.
+        """
+        etag: NotRequired[pulumi.Input[str]]
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+elif False:
+    P2SVpnServerConfigRadiusServerRootCertificateArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class P2SVpnServerConfigRadiusServerRootCertificateArgs:
     def __init__(__self__, *,
@@ -443,6 +606,30 @@ class P2SVpnServerConfigRadiusServerRootCertificateArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class P2SVpnServerConfigVpnClientRevokedCertificateArgsDict(TypedDict):
+        """
+        VPN client revoked certificate of P2SVpnServerConfiguration.
+        """
+        etag: NotRequired[pulumi.Input[str]]
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+        thumbprint: NotRequired[pulumi.Input[str]]
+        """
+        The revoked VPN client certificate thumbprint.
+        """
+elif False:
+    P2SVpnServerConfigVpnClientRevokedCertificateArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class P2SVpnServerConfigVpnClientRevokedCertificateArgs:
@@ -516,6 +703,30 @@ class P2SVpnServerConfigVpnClientRevokedCertificateArgs:
         pulumi.set(self, "thumbprint", value)
 
 
+if not MYPY:
+    class P2SVpnServerConfigVpnClientRootCertificateArgsDict(TypedDict):
+        """
+        VPN client root certificate of P2SVpnServerConfiguration.
+        """
+        public_cert_data: pulumi.Input[str]
+        """
+        The certificate public data.
+        """
+        etag: NotRequired[pulumi.Input[str]]
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+elif False:
+    P2SVpnServerConfigVpnClientRootCertificateArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class P2SVpnServerConfigVpnClientRootCertificateArgs:
     def __init__(__self__, *,
@@ -586,6 +797,58 @@ class P2SVpnServerConfigVpnClientRootCertificateArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class P2SVpnServerConfigurationArgsDict(TypedDict):
+        """
+        P2SVpnServerConfiguration Resource.
+        """
+        etag: NotRequired[pulumi.Input[str]]
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the P2SVpnServerConfiguration that is unique within a VirtualWan in a resource group. This name can be used to access the resource along with Paren VirtualWan resource name.
+        """
+        p2_s_vpn_server_config_radius_client_root_certificates: NotRequired[pulumi.Input[Sequence[pulumi.Input['P2SVpnServerConfigRadiusClientRootCertificateArgsDict']]]]
+        """
+        Radius client root certificate of P2SVpnServerConfiguration.
+        """
+        p2_s_vpn_server_config_radius_server_root_certificates: NotRequired[pulumi.Input[Sequence[pulumi.Input['P2SVpnServerConfigRadiusServerRootCertificateArgsDict']]]]
+        """
+        Radius Server root certificate of P2SVpnServerConfiguration.
+        """
+        p2_s_vpn_server_config_vpn_client_revoked_certificates: NotRequired[pulumi.Input[Sequence[pulumi.Input['P2SVpnServerConfigVpnClientRevokedCertificateArgsDict']]]]
+        """
+        VPN client revoked certificate of P2SVpnServerConfiguration.
+        """
+        p2_s_vpn_server_config_vpn_client_root_certificates: NotRequired[pulumi.Input[Sequence[pulumi.Input['P2SVpnServerConfigVpnClientRootCertificateArgsDict']]]]
+        """
+        VPN client root certificate of P2SVpnServerConfiguration.
+        """
+        radius_server_address: NotRequired[pulumi.Input[str]]
+        """
+        The radius server address property of the P2SVpnServerConfiguration resource for point to site client connection.
+        """
+        radius_server_secret: NotRequired[pulumi.Input[str]]
+        """
+        The radius secret property of the P2SVpnServerConfiguration resource for point to site client connection.
+        """
+        vpn_client_ipsec_policies: NotRequired[pulumi.Input[Sequence[pulumi.Input['IpsecPolicyArgsDict']]]]
+        """
+        VpnClientIpsecPolicies for P2SVpnServerConfiguration.
+        """
+        vpn_protocols: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'VpnGatewayTunnelingProtocol']]]]]
+        """
+        VPN protocols for the P2SVpnServerConfiguration.
+        """
+elif False:
+    P2SVpnServerConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class P2SVpnServerConfigurationArgs:
@@ -771,6 +1034,22 @@ class P2SVpnServerConfigurationArgs:
         pulumi.set(self, "vpn_protocols", value)
 
 
+if not MYPY:
+    class PolicySettingsArgsDict(TypedDict):
+        """
+        Defines contents of a web application firewall global configuration.
+        """
+        enabled_state: NotRequired[pulumi.Input[Union[str, 'WebApplicationFirewallEnabledState']]]
+        """
+        Describes if the policy is in enabled state or disabled state.
+        """
+        mode: NotRequired[pulumi.Input[Union[str, 'WebApplicationFirewallMode']]]
+        """
+        Describes if it is in detection mode or prevention mode at policy level.
+        """
+elif False:
+    PolicySettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PolicySettingsArgs:
     def __init__(__self__, *,
@@ -811,6 +1090,21 @@ class PolicySettingsArgs:
         pulumi.set(self, "mode", value)
 
 
+if not MYPY:
+    class SubResourceArgsDict(TypedDict):
+        """
+        Reference to another subresource.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Sub-resource ID. Both absolute resource ID and a relative resource ID are accepted.
+        An absolute ID starts with /subscriptions/ and contains the entire ID of the parent resource and the ID of the sub-resource in the end.
+        A relative ID replaces the ID of the parent resource with a token '$self', followed by the sub-resource ID itself.
+        Example of a relative ID: $self/frontEndConfigurations/my-frontend.
+        """
+elif False:
+    SubResourceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SubResourceArgs:
     def __init__(__self__, *,
@@ -840,6 +1134,34 @@ class SubResourceArgs:
     def id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class WebApplicationFirewallCustomRuleArgsDict(TypedDict):
+        """
+        Defines contents of a web application rule.
+        """
+        action: pulumi.Input[Union[str, 'WebApplicationFirewallAction']]
+        """
+        Type of Actions.
+        """
+        match_conditions: pulumi.Input[Sequence[pulumi.Input['MatchConditionArgsDict']]]
+        """
+        List of match conditions.
+        """
+        priority: pulumi.Input[int]
+        """
+        Describes priority of the rule. Rules with a lower value will be evaluated before rules with a higher value.
+        """
+        rule_type: pulumi.Input[Union[str, 'WebApplicationFirewallRuleType']]
+        """
+        Describes type of rule.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the resource that is unique within a policy. This name can be used to access the resource.
+        """
+elif False:
+    WebApplicationFirewallCustomRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WebApplicationFirewallCustomRuleArgs:

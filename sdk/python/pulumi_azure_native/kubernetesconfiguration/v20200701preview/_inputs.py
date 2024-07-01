@@ -4,19 +4,43 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'ConfigurationIdentityArgs',
+    'ConfigurationIdentityArgsDict',
     'ExtensionStatusArgs',
+    'ExtensionStatusArgsDict',
     'ScopeClusterArgs',
+    'ScopeClusterArgsDict',
     'ScopeNamespaceArgs',
+    'ScopeNamespaceArgsDict',
     'ScopeArgs',
+    'ScopeArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ConfigurationIdentityArgsDict(TypedDict):
+        """
+        Identity for the managed cluster.
+        """
+        type: NotRequired[pulumi.Input['ResourceIdentityType']]
+        """
+        The type of identity used for the configuration. Type 'SystemAssigned' will use an implicitly created identity. Type 'None' will not use Managed Identity for the configuration.
+        """
+elif False:
+    ConfigurationIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ConfigurationIdentityArgs:
@@ -41,6 +65,34 @@ class ConfigurationIdentityArgs:
     def type(self, value: Optional[pulumi.Input['ResourceIdentityType']]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class ExtensionStatusArgsDict(TypedDict):
+        """
+        Status from this instance of the extension.
+        """
+        code: NotRequired[pulumi.Input[str]]
+        """
+        Status code provided by the Extension
+        """
+        display_status: NotRequired[pulumi.Input[str]]
+        """
+        Short description of status of this instance of the extension.
+        """
+        level: NotRequired[pulumi.Input[Union[str, 'LevelType']]]
+        """
+        Level of the status.
+        """
+        message: NotRequired[pulumi.Input[str]]
+        """
+        Detailed message of the status from the Extension instance.
+        """
+        time: NotRequired[pulumi.Input[str]]
+        """
+        DateLiteral (per ISO8601) noting the time of installation status.
+        """
+elif False:
+    ExtensionStatusArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ExtensionStatusArgs:
@@ -132,6 +184,18 @@ class ExtensionStatusArgs:
         pulumi.set(self, "time", value)
 
 
+if not MYPY:
+    class ScopeClusterArgsDict(TypedDict):
+        """
+        Specifies that the scope of the extensionInstance is Cluster
+        """
+        release_namespace: NotRequired[pulumi.Input[str]]
+        """
+        Namespace where the extension Release must be placed, for a Cluster scoped extensionInstance.  If this namespace does not exist, it will be created
+        """
+elif False:
+    ScopeClusterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ScopeClusterArgs:
     def __init__(__self__, *,
@@ -156,6 +220,18 @@ class ScopeClusterArgs:
         pulumi.set(self, "release_namespace", value)
 
 
+if not MYPY:
+    class ScopeNamespaceArgsDict(TypedDict):
+        """
+        Specifies that the scope of the extensionInstance is Namespace
+        """
+        target_namespace: NotRequired[pulumi.Input[str]]
+        """
+        Namespace where the extensionInstance will be created for an Namespace scoped extensionInstance.  If this namespace does not exist, it will be created
+        """
+elif False:
+    ScopeNamespaceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ScopeNamespaceArgs:
     def __init__(__self__, *,
@@ -179,6 +255,22 @@ class ScopeNamespaceArgs:
     def target_namespace(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "target_namespace", value)
 
+
+if not MYPY:
+    class ScopeArgsDict(TypedDict):
+        """
+        Scope of the extensionInstance. It can be either Cluster or Namespace; but not both.
+        """
+        cluster: NotRequired[pulumi.Input['ScopeClusterArgsDict']]
+        """
+        Specifies that the scope of the extensionInstance is Cluster
+        """
+        namespace: NotRequired[pulumi.Input['ScopeNamespaceArgsDict']]
+        """
+        Specifies that the scope of the extensionInstance is Namespace
+        """
+elif False:
+    ScopeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ScopeArgs:

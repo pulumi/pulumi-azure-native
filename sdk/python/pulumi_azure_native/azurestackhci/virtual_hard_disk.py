@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -227,7 +232,7 @@ class VirtualHardDisk(pulumi.CustomResource):
                  disk_file_format: Optional[pulumi.Input[Union[str, 'DiskFileFormat']]] = None,
                  disk_size_gb: Optional[pulumi.Input[float]] = None,
                  dynamic: Optional[pulumi.Input[bool]] = None,
-                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
                  hyper_v_generation: Optional[pulumi.Input[Union[str, 'HyperVGeneration']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  logical_sector_bytes: Optional[pulumi.Input[int]] = None,
@@ -248,7 +253,7 @@ class VirtualHardDisk(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'DiskFileFormat']] disk_file_format: The format of the actual VHD file [vhd, vhdx]
         :param pulumi.Input[float] disk_size_gb: Size of the disk in GB
         :param pulumi.Input[bool] dynamic: Boolean for enabling dynamic sizing on the virtual hard disk
-        :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: The extendedLocation of the resource.
+        :param pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']] extended_location: The extendedLocation of the resource.
         :param pulumi.Input[Union[str, 'HyperVGeneration']] hyper_v_generation: The hypervisor generation of the Virtual Machine [V1, V2]
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -287,7 +292,7 @@ class VirtualHardDisk(pulumi.CustomResource):
                  disk_file_format: Optional[pulumi.Input[Union[str, 'DiskFileFormat']]] = None,
                  disk_size_gb: Optional[pulumi.Input[float]] = None,
                  dynamic: Optional[pulumi.Input[bool]] = None,
-                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
                  hyper_v_generation: Optional[pulumi.Input[Union[str, 'HyperVGeneration']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  logical_sector_bytes: Optional[pulumi.Input[int]] = None,

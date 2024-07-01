@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -327,7 +332,7 @@ class Namespace(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  scale_unit: Optional[pulumi.Input[str]] = None,
                  service_bus_endpoint: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  subscription_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -351,7 +356,7 @@ class Namespace(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] scale_unit: ScaleUnit where the namespace gets created
         :param pulumi.Input[str] service_bus_endpoint: Endpoint you can use to perform NotificationHub operations.
-        :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The sku of the created namespace
+        :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: The sku of the created namespace
         :param pulumi.Input[str] status: Status of the namespace. It can be any of these values:1 = Created/Active2 = Creating3 = Suspended4 = Deleting
         :param pulumi.Input[str] subscription_id: The Id of the Azure subscription associated with the namespace.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
@@ -394,7 +399,7 @@ class Namespace(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  scale_unit: Optional[pulumi.Input[str]] = None,
                  service_bus_endpoint: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  subscription_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,

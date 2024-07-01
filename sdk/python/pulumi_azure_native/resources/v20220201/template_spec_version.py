@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -185,7 +190,7 @@ class TemplateSpecVersion(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 linked_templates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinkedTemplateArtifactArgs']]]]] = None,
+                 linked_templates: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LinkedTemplateArtifactArgs', 'LinkedTemplateArtifactArgsDict']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  main_template: Optional[Any] = None,
                  metadata: Optional[Any] = None,
@@ -201,7 +206,7 @@ class TemplateSpecVersion(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Template Spec version description.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinkedTemplateArtifactArgs']]]] linked_templates: An array of linked template artifacts.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LinkedTemplateArtifactArgs', 'LinkedTemplateArtifactArgsDict']]]] linked_templates: An array of linked template artifacts.
         :param pulumi.Input[str] location: The location of the Template Spec Version. It must match the location of the parent Template Spec.
         :param Any main_template: The main Azure Resource Manager template content.
         :param Any metadata: The version metadata. Metadata is an open-ended object and is typically a collection of key-value pairs.
@@ -236,7 +241,7 @@ class TemplateSpecVersion(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 linked_templates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinkedTemplateArtifactArgs']]]]] = None,
+                 linked_templates: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LinkedTemplateArtifactArgs', 'LinkedTemplateArtifactArgsDict']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  main_template: Optional[Any] = None,
                  metadata: Optional[Any] = None,

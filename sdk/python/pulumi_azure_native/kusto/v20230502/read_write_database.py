@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -173,7 +178,7 @@ class ReadWriteDatabase(pulumi.CustomResource):
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
                  hot_cache_period: Optional[pulumi.Input[str]] = None,
-                 key_vault_properties: Optional[pulumi.Input[pulumi.InputType['KeyVaultPropertiesArgs']]] = None,
+                 key_vault_properties: Optional[pulumi.Input[Union['KeyVaultPropertiesArgs', 'KeyVaultPropertiesArgsDict']]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -188,7 +193,7 @@ class ReadWriteDatabase(pulumi.CustomResource):
         :param pulumi.Input[str] cluster_name: The name of the Kusto cluster.
         :param pulumi.Input[str] database_name: The name of the database in the Kusto cluster.
         :param pulumi.Input[str] hot_cache_period: The time the data should be kept in cache for fast queries in TimeSpan.
-        :param pulumi.Input[pulumi.InputType['KeyVaultPropertiesArgs']] key_vault_properties: KeyVault properties for the database encryption.
+        :param pulumi.Input[Union['KeyVaultPropertiesArgs', 'KeyVaultPropertiesArgsDict']] key_vault_properties: KeyVault properties for the database encryption.
         :param pulumi.Input[str] kind: Kind of the database
                Expected value is 'ReadWrite'.
         :param pulumi.Input[str] location: Resource location.
@@ -223,7 +228,7 @@ class ReadWriteDatabase(pulumi.CustomResource):
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
                  hot_cache_period: Optional[pulumi.Input[str]] = None,
-                 key_vault_properties: Optional[pulumi.Input[pulumi.InputType['KeyVaultPropertiesArgs']]] = None,
+                 key_vault_properties: Optional[pulumi.Input[Union['KeyVaultPropertiesArgs', 'KeyVaultPropertiesArgsDict']]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,

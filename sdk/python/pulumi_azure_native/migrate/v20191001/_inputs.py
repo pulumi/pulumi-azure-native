@@ -4,24 +4,113 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'AssessmentPropertiesArgs',
+    'AssessmentPropertiesArgsDict',
     'CollectorAgentPropertiesArgs',
+    'CollectorAgentPropertiesArgsDict',
     'CollectorBodyAgentSpnPropertiesArgs',
+    'CollectorBodyAgentSpnPropertiesArgsDict',
     'CollectorPropertiesArgs',
+    'CollectorPropertiesArgsDict',
     'GroupPropertiesArgs',
+    'GroupPropertiesArgsDict',
     'ImportCollectorPropertiesArgs',
+    'ImportCollectorPropertiesArgsDict',
     'PrivateEndpointConnectionPropertiesArgs',
+    'PrivateEndpointConnectionPropertiesArgsDict',
     'PrivateLinkServiceConnectionStateArgs',
+    'PrivateLinkServiceConnectionStateArgsDict',
     'ProjectPropertiesArgs',
+    'ProjectPropertiesArgsDict',
     'VmUptimeArgs',
+    'VmUptimeArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AssessmentPropertiesArgsDict(TypedDict):
+        """
+        Properties of an assessment.
+        """
+        azure_disk_type: pulumi.Input[Union[str, 'AzureDiskType']]
+        """
+        Storage type selected for this disk.
+        """
+        azure_hybrid_use_benefit: pulumi.Input[Union[str, 'AzureHybridUseBenefit']]
+        """
+        AHUB discount on windows virtual machines.
+        """
+        azure_location: pulumi.Input[Union[str, 'AzureLocation']]
+        """
+        Target Azure location for which the machines should be assessed. These enums are the same as used by Compute API.
+        """
+        azure_offer_code: pulumi.Input[Union[str, 'AzureOfferCode']]
+        """
+        Offer code according to which cost estimation is done.
+        """
+        azure_pricing_tier: pulumi.Input[Union[str, 'AzurePricingTier']]
+        """
+        Pricing tier for Size evaluation.
+        """
+        azure_storage_redundancy: pulumi.Input[Union[str, 'AzureStorageRedundancy']]
+        """
+        Storage Redundancy type offered by Azure.
+        """
+        azure_vm_families: pulumi.Input[Sequence[pulumi.Input[Union[str, 'AzureVmFamily']]]]
+        """
+        List of azure VM families.
+        """
+        currency: pulumi.Input[Union[str, 'Currency']]
+        """
+        Currency to report prices in.
+        """
+        discount_percentage: pulumi.Input[float]
+        """
+        Custom discount percentage to be applied on final costs. Can be in the range [0, 100].
+        """
+        percentile: pulumi.Input[Union[str, 'Percentile']]
+        """
+        Percentile of performance data used to recommend Azure size.
+        """
+        reserved_instance: pulumi.Input[Union[str, 'ReservedInstance']]
+        """
+        Azure reserved instance.
+        """
+        scaling_factor: pulumi.Input[float]
+        """
+        Scaling factor used over utilization data to add a performance buffer for new machines to be created in Azure. Min Value = 1.0, Max value = 1.9, Default = 1.3.
+        """
+        sizing_criterion: pulumi.Input[Union[str, 'AssessmentSizingCriterion']]
+        """
+        Assessment sizing criterion.
+        """
+        stage: pulumi.Input[Union[str, 'AssessmentStage']]
+        """
+        User configurable setting that describes the status of the assessment.
+        """
+        time_range: pulumi.Input[Union[str, 'TimeRange']]
+        """
+        Time range of performance data used to recommend a size.
+        """
+        vm_uptime: pulumi.Input['VmUptimeArgsDict']
+        """
+        Specify the duration for which the VMs are up in the on-premises environment.
+        """
+elif False:
+    AssessmentPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AssessmentPropertiesArgs:
@@ -271,6 +360,12 @@ class AssessmentPropertiesArgs:
         pulumi.set(self, "vm_uptime", value)
 
 
+if not MYPY:
+    class CollectorAgentPropertiesArgsDict(TypedDict):
+        spn_details: NotRequired[pulumi.Input['CollectorBodyAgentSpnPropertiesArgsDict']]
+elif False:
+    CollectorAgentPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CollectorAgentPropertiesArgs:
     def __init__(__self__, *,
@@ -287,6 +382,31 @@ class CollectorAgentPropertiesArgs:
     def spn_details(self, value: Optional[pulumi.Input['CollectorBodyAgentSpnPropertiesArgs']]):
         pulumi.set(self, "spn_details", value)
 
+
+if not MYPY:
+    class CollectorBodyAgentSpnPropertiesArgsDict(TypedDict):
+        application_id: NotRequired[pulumi.Input[str]]
+        """
+        Application/client Id for the service principal with which the on-premise management/data plane components would communicate with our Azure services.
+        """
+        audience: NotRequired[pulumi.Input[str]]
+        """
+        Intended audience for the service principal.
+        """
+        authority: NotRequired[pulumi.Input[str]]
+        """
+        AAD Authority URL which was used to request the token for the service principal.
+        """
+        object_id: NotRequired[pulumi.Input[str]]
+        """
+        Object Id of the service principal with which the on-premise management/data plane components would communicate with our Azure services.
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        Tenant Id for the service principal with which the on-premise management/data plane components would communicate with our Azure services.
+        """
+elif False:
+    CollectorBodyAgentSpnPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CollectorBodyAgentSpnPropertiesArgs:
@@ -375,6 +495,16 @@ class CollectorBodyAgentSpnPropertiesArgs:
         pulumi.set(self, "tenant_id", value)
 
 
+if not MYPY:
+    class CollectorPropertiesArgsDict(TypedDict):
+        agent_properties: NotRequired[pulumi.Input['CollectorAgentPropertiesArgsDict']]
+        discovery_site_id: NotRequired[pulumi.Input[str]]
+        """
+        The ARM id of the discovery service site.
+        """
+elif False:
+    CollectorPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CollectorPropertiesArgs:
     def __init__(__self__, *,
@@ -410,6 +540,18 @@ class CollectorPropertiesArgs:
         pulumi.set(self, "discovery_site_id", value)
 
 
+if not MYPY:
+    class GroupPropertiesArgsDict(TypedDict):
+        """
+        Properties of group resource.
+        """
+        group_type: NotRequired[pulumi.Input[str]]
+        """
+        The type of group.
+        """
+elif False:
+    GroupPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GroupPropertiesArgs:
     def __init__(__self__, *,
@@ -434,6 +576,12 @@ class GroupPropertiesArgs:
         pulumi.set(self, "group_type", value)
 
 
+if not MYPY:
+    class ImportCollectorPropertiesArgsDict(TypedDict):
+        discovery_site_id: NotRequired[pulumi.Input[str]]
+elif False:
+    ImportCollectorPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ImportCollectorPropertiesArgs:
     def __init__(__self__, *,
@@ -450,6 +598,18 @@ class ImportCollectorPropertiesArgs:
     def discovery_site_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "discovery_site_id", value)
 
+
+if not MYPY:
+    class PrivateEndpointConnectionPropertiesArgsDict(TypedDict):
+        """
+        Private endpoint connection properties.
+        """
+        private_link_service_connection_state: NotRequired[pulumi.Input['PrivateLinkServiceConnectionStateArgsDict']]
+        """
+        State of the private endpoint connection.
+        """
+elif False:
+    PrivateEndpointConnectionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PrivateEndpointConnectionPropertiesArgs:
@@ -474,6 +634,26 @@ class PrivateEndpointConnectionPropertiesArgs:
     def private_link_service_connection_state(self, value: Optional[pulumi.Input['PrivateLinkServiceConnectionStateArgs']]):
         pulumi.set(self, "private_link_service_connection_state", value)
 
+
+if not MYPY:
+    class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
+        """
+        State of a private endpoint connection.
+        """
+        actions_required: NotRequired[pulumi.Input[str]]
+        """
+        Actions required on the private endpoint connection.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Description of the private endpoint connection.
+        """
+        status: NotRequired[pulumi.Input[str]]
+        """
+        Connection status of the private endpoint connection.
+        """
+elif False:
+    PrivateLinkServiceConnectionStateArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:
@@ -530,6 +710,38 @@ class PrivateLinkServiceConnectionStateArgs:
     def status(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "status", value)
 
+
+if not MYPY:
+    class ProjectPropertiesArgsDict(TypedDict):
+        """
+        Properties of a project.
+        """
+        assessment_solution_id: NotRequired[pulumi.Input[str]]
+        """
+        Assessment solution ARM id tracked by Microsoft.Migrate/migrateProjects.
+        """
+        customer_storage_account_arm_id: NotRequired[pulumi.Input[str]]
+        """
+        The ARM id of the storage account used for interactions when public access is disabled.
+        """
+        customer_workspace_id: NotRequired[pulumi.Input[str]]
+        """
+        The ARM id of service map workspace created by customer.
+        """
+        customer_workspace_location: NotRequired[pulumi.Input[str]]
+        """
+        Location of service map workspace created by customer.
+        """
+        project_status: NotRequired[pulumi.Input[Union[str, 'ProjectStatus']]]
+        """
+        Assessment project status.
+        """
+        public_network_access: NotRequired[pulumi.Input[str]]
+        """
+        This value can be set to 'enabled' to avoid breaking changes on existing customer resources and templates. If set to 'disabled', traffic over public interface is not allowed, and private endpoint connections would be the exclusive access method.
+        """
+elif False:
+    ProjectPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ProjectPropertiesArgs:
@@ -634,6 +846,19 @@ class ProjectPropertiesArgs:
     def public_network_access(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "public_network_access", value)
 
+
+if not MYPY:
+    class VmUptimeArgsDict(TypedDict):
+        days_per_month: NotRequired[pulumi.Input[float]]
+        """
+        Number of days in a month for VM uptime.
+        """
+        hours_per_day: NotRequired[pulumi.Input[float]]
+        """
+        Number of hours per day for VM uptime.
+        """
+elif False:
+    VmUptimeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VmUptimeArgs:

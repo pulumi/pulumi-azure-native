@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -92,7 +97,7 @@ class BusinessCaseOperation(pulumi.CustomResource):
                  business_case_name: Optional[pulumi.Input[str]] = None,
                  project_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 settings: Optional[pulumi.Input[pulumi.InputType['SettingsArgs']]] = None,
+                 settings: Optional[pulumi.Input[Union['SettingsArgs', 'SettingsArgsDict']]] = None,
                  __props__=None):
         """
         Business case resource.
@@ -103,7 +108,7 @@ class BusinessCaseOperation(pulumi.CustomResource):
         :param pulumi.Input[str] business_case_name: Business case ARM name
         :param pulumi.Input[str] project_name: Assessment Project Name
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[pulumi.InputType['SettingsArgs']] settings: Business case settings.
+        :param pulumi.Input[Union['SettingsArgs', 'SettingsArgsDict']] settings: Business case settings.
         """
         ...
     @overload
@@ -133,7 +138,7 @@ class BusinessCaseOperation(pulumi.CustomResource):
                  business_case_name: Optional[pulumi.Input[str]] = None,
                  project_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 settings: Optional[pulumi.Input[pulumi.InputType['SettingsArgs']]] = None,
+                 settings: Optional[pulumi.Input[Union['SettingsArgs', 'SettingsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -4,17 +4,39 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'IdentityArgs',
+    'IdentityArgsDict',
     'PolicyDefinitionReferenceArgs',
+    'PolicyDefinitionReferenceArgsDict',
     'PolicySkuArgs',
+    'PolicySkuArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class IdentityArgsDict(TypedDict):
+        """
+        Identity for the resource.
+        """
+        type: NotRequired[pulumi.Input['ResourceIdentityType']]
+        """
+        The identity type.
+        """
+elif False:
+    IdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IdentityArgs:
@@ -39,6 +61,22 @@ class IdentityArgs:
     def type(self, value: Optional[pulumi.Input['ResourceIdentityType']]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class PolicyDefinitionReferenceArgsDict(TypedDict):
+        """
+        The policy definition reference.
+        """
+        parameters: NotRequired[Any]
+        """
+        Required if a parameter is used in policy rule.
+        """
+        policy_definition_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the policy definition or policy set definition.
+        """
+elif False:
+    PolicyDefinitionReferenceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PolicyDefinitionReferenceArgs:
@@ -79,6 +117,22 @@ class PolicyDefinitionReferenceArgs:
     def policy_definition_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "policy_definition_id", value)
 
+
+if not MYPY:
+    class PolicySkuArgsDict(TypedDict):
+        """
+        The policy sku. This property is optional, obsolete, and will be ignored.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the policy sku. Possible values are A0 and A1.
+        """
+        tier: NotRequired[pulumi.Input[str]]
+        """
+        The policy sku tier. Possible values are Free and Standard.
+        """
+elif False:
+    PolicySkuArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PolicySkuArgs:

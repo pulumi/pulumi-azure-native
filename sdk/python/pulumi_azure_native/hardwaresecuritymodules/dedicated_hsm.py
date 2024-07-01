@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -170,11 +175,11 @@ class DedicatedHsm(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 management_network_profile: Optional[pulumi.Input[pulumi.InputType['NetworkProfileArgs']]] = None,
+                 management_network_profile: Optional[pulumi.Input[Union['NetworkProfileArgs', 'NetworkProfileArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 network_profile: Optional[pulumi.Input[pulumi.InputType['NetworkProfileArgs']]] = None,
+                 network_profile: Optional[pulumi.Input[Union['NetworkProfileArgs', 'NetworkProfileArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  stamp_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -186,11 +191,11 @@ class DedicatedHsm(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The supported Azure location where the dedicated HSM should be created.
-        :param pulumi.Input[pulumi.InputType['NetworkProfileArgs']] management_network_profile: Specifies the management network interfaces of the dedicated hsm.
+        :param pulumi.Input[Union['NetworkProfileArgs', 'NetworkProfileArgsDict']] management_network_profile: Specifies the management network interfaces of the dedicated hsm.
         :param pulumi.Input[str] name: Name of the dedicated Hsm
-        :param pulumi.Input[pulumi.InputType['NetworkProfileArgs']] network_profile: Specifies the network interfaces of the dedicated hsm.
+        :param pulumi.Input[Union['NetworkProfileArgs', 'NetworkProfileArgsDict']] network_profile: Specifies the network interfaces of the dedicated hsm.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group to which the resource belongs.
-        :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: SKU details
+        :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: SKU details
         :param pulumi.Input[str] stamp_id: This field will be used when RP does not support Availability zones.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: The Dedicated Hsm zones.
@@ -221,11 +226,11 @@ class DedicatedHsm(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 management_network_profile: Optional[pulumi.Input[pulumi.InputType['NetworkProfileArgs']]] = None,
+                 management_network_profile: Optional[pulumi.Input[Union['NetworkProfileArgs', 'NetworkProfileArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 network_profile: Optional[pulumi.Input[pulumi.InputType['NetworkProfileArgs']]] = None,
+                 network_profile: Optional[pulumi.Input[Union['NetworkProfileArgs', 'NetworkProfileArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  stamp_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,

@@ -4,60 +4,137 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'ActiveDirectoryConnectorDNSDetailsArgs',
+    'ActiveDirectoryConnectorDNSDetailsArgsDict',
     'ActiveDirectoryConnectorDomainDetailsArgs',
+    'ActiveDirectoryConnectorDomainDetailsArgsDict',
     'ActiveDirectoryConnectorPropertiesArgs',
+    'ActiveDirectoryConnectorPropertiesArgsDict',
     'ActiveDirectoryConnectorSpecArgs',
+    'ActiveDirectoryConnectorSpecArgsDict',
     'ActiveDirectoryConnectorStatusArgs',
+    'ActiveDirectoryConnectorStatusArgsDict',
     'ActiveDirectoryDomainControllersArgs',
+    'ActiveDirectoryDomainControllersArgsDict',
     'ActiveDirectoryDomainControllerArgs',
+    'ActiveDirectoryDomainControllerArgsDict',
     'ActiveDirectoryInformationArgs',
+    'ActiveDirectoryInformationArgsDict',
     'AvailabilityGroupConfigureArgs',
+    'AvailabilityGroupConfigureArgsDict',
     'AvailabilityGroupInfoArgs',
+    'AvailabilityGroupInfoArgsDict',
     'BackupPolicyArgs',
+    'BackupPolicyArgsDict',
     'BasicLoginInformationArgs',
+    'BasicLoginInformationArgsDict',
     'DataControllerPropertiesArgs',
+    'DataControllerPropertiesArgsDict',
     'ExtendedLocationArgs',
+    'ExtendedLocationArgsDict',
     'FailoverGroupPropertiesArgs',
+    'FailoverGroupPropertiesArgsDict',
     'FailoverGroupSpecArgs',
+    'FailoverGroupSpecArgsDict',
     'K8sActiveDirectoryConnectorArgs',
+    'K8sActiveDirectoryConnectorArgsDict',
     'K8sActiveDirectoryArgs',
+    'K8sActiveDirectoryArgsDict',
     'K8sNetworkSettingsArgs',
+    'K8sNetworkSettingsArgsDict',
     'K8sResourceRequirementsArgs',
+    'K8sResourceRequirementsArgsDict',
     'K8sSchedulingOptionsArgs',
+    'K8sSchedulingOptionsArgsDict',
     'K8sSchedulingArgs',
+    'K8sSchedulingArgsDict',
     'K8sSecurityArgs',
+    'K8sSecurityArgsDict',
     'K8sSettingsArgs',
+    'K8sSettingsArgsDict',
     'K8stransparentDataEncryptionArgs',
+    'K8stransparentDataEncryptionArgsDict',
     'KeytabInformationArgs',
+    'KeytabInformationArgsDict',
     'LogAnalyticsWorkspaceConfigArgs',
+    'LogAnalyticsWorkspaceConfigArgsDict',
     'MonitoringArgs',
+    'MonitoringArgsDict',
     'OnPremisePropertyArgs',
+    'OnPremisePropertyArgsDict',
     'PostgresInstancePropertiesArgs',
+    'PostgresInstancePropertiesArgsDict',
     'PostgresInstanceSkuArgs',
+    'PostgresInstanceSkuArgsDict',
     'SqlAvailabilityGroupDatabaseReplicaResourcePropertiesArgs',
+    'SqlAvailabilityGroupDatabaseReplicaResourcePropertiesArgsDict',
     'SqlAvailabilityGroupReplicaResourcePropertiesArgs',
+    'SqlAvailabilityGroupReplicaResourcePropertiesArgsDict',
     'SqlManagedInstanceK8sRawArgs',
+    'SqlManagedInstanceK8sRawArgsDict',
     'SqlManagedInstanceK8sSpecArgs',
+    'SqlManagedInstanceK8sSpecArgsDict',
     'SqlManagedInstancePropertiesArgs',
+    'SqlManagedInstancePropertiesArgsDict',
     'SqlManagedInstanceSkuArgs',
+    'SqlManagedInstanceSkuArgsDict',
     'SqlServerAvailabilityGroupResourcePropertiesDatabasesArgs',
+    'SqlServerAvailabilityGroupResourcePropertiesDatabasesArgsDict',
     'SqlServerAvailabilityGroupResourcePropertiesReplicasArgs',
+    'SqlServerAvailabilityGroupResourcePropertiesReplicasArgsDict',
     'SqlServerAvailabilityGroupResourcePropertiesArgs',
+    'SqlServerAvailabilityGroupResourcePropertiesArgsDict',
     'SqlServerDatabaseResourcePropertiesBackupInformationArgs',
+    'SqlServerDatabaseResourcePropertiesBackupInformationArgsDict',
     'SqlServerDatabaseResourcePropertiesDatabaseOptionsArgs',
+    'SqlServerDatabaseResourcePropertiesDatabaseOptionsArgsDict',
     'SqlServerDatabaseResourcePropertiesArgs',
+    'SqlServerDatabaseResourcePropertiesArgsDict',
     'SqlServerInstancePropertiesArgs',
+    'SqlServerInstancePropertiesArgsDict',
     'UploadServicePrincipalArgs',
+    'UploadServicePrincipalArgsDict',
     'UploadWatermarkArgs',
+    'UploadWatermarkArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ActiveDirectoryConnectorDNSDetailsArgsDict(TypedDict):
+        """
+        DNS server details
+        """
+        nameserver_ip_addresses: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        List of Active Directory DNS server IP addresses.
+        """
+        domain_name: NotRequired[pulumi.Input[str]]
+        """
+        DNS domain name for which DNS lookups should be forwarded to the Active Directory DNS servers.
+        """
+        prefer_k8s_dns_for_ptr_lookups: NotRequired[pulumi.Input[bool]]
+        """
+        Flag indicating whether to prefer Kubernetes DNS server response over AD DNS server response for IP address lookups.
+        """
+        replicas: NotRequired[pulumi.Input[float]]
+        """
+        Replica count for DNS proxy service. Default value is 1.
+        """
+elif False:
+    ActiveDirectoryConnectorDNSDetailsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ActiveDirectoryConnectorDNSDetailsArgs:
@@ -133,6 +210,34 @@ class ActiveDirectoryConnectorDNSDetailsArgs:
     def replicas(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "replicas", value)
 
+
+if not MYPY:
+    class ActiveDirectoryConnectorDomainDetailsArgsDict(TypedDict):
+        """
+        Active Directory domain details
+        """
+        realm: pulumi.Input[str]
+        """
+        Name (uppercase) of the Active Directory domain that this AD connector will be associated with.
+        """
+        domain_controllers: NotRequired[pulumi.Input['ActiveDirectoryDomainControllersArgsDict']]
+        """
+        null
+        """
+        netbios_domain_name: NotRequired[pulumi.Input[str]]
+        """
+        NETBIOS name of the Active Directory domain.
+        """
+        ou_distinguished_name: NotRequired[pulumi.Input[str]]
+        """
+        The distinguished name of the Active Directory Organizational Unit.
+        """
+        service_account_provisioning: NotRequired[pulumi.Input[Union[str, 'AccountProvisioningMode']]]
+        """
+        The service account provisioning mode for this Active Directory connector.
+        """
+elif False:
+    ActiveDirectoryConnectorDomainDetailsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ActiveDirectoryConnectorDomainDetailsArgs:
@@ -223,6 +328,26 @@ class ActiveDirectoryConnectorDomainDetailsArgs:
         pulumi.set(self, "service_account_provisioning", value)
 
 
+if not MYPY:
+    class ActiveDirectoryConnectorPropertiesArgsDict(TypedDict):
+        """
+        The properties of an Active Directory connector resource
+        """
+        spec: pulumi.Input['ActiveDirectoryConnectorSpecArgsDict']
+        """
+        null
+        """
+        domain_service_account_login_information: NotRequired[pulumi.Input['BasicLoginInformationArgsDict']]
+        """
+        Username and password for domain service account authentication.
+        """
+        status: NotRequired[pulumi.Input['ActiveDirectoryConnectorStatusArgsDict']]
+        """
+        null
+        """
+elif False:
+    ActiveDirectoryConnectorPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ActiveDirectoryConnectorPropertiesArgs:
     def __init__(__self__, *,
@@ -278,6 +403,22 @@ class ActiveDirectoryConnectorPropertiesArgs:
         pulumi.set(self, "status", value)
 
 
+if not MYPY:
+    class ActiveDirectoryConnectorSpecArgsDict(TypedDict):
+        """
+        The specifications of the AD Kubernetes resource.
+        """
+        active_directory: pulumi.Input['ActiveDirectoryConnectorDomainDetailsArgsDict']
+        """
+        null
+        """
+        dns: pulumi.Input['ActiveDirectoryConnectorDNSDetailsArgsDict']
+        """
+        null
+        """
+elif False:
+    ActiveDirectoryConnectorSpecArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ActiveDirectoryConnectorSpecArgs:
     def __init__(__self__, *,
@@ -315,6 +456,26 @@ class ActiveDirectoryConnectorSpecArgs:
     def dns(self, value: pulumi.Input['ActiveDirectoryConnectorDNSDetailsArgs']):
         pulumi.set(self, "dns", value)
 
+
+if not MYPY:
+    class ActiveDirectoryConnectorStatusArgsDict(TypedDict):
+        """
+        The status of the Kubernetes custom resource.
+        """
+        last_update_time: NotRequired[pulumi.Input[str]]
+        """
+        The time that the custom resource was last updated.
+        """
+        observed_generation: NotRequired[pulumi.Input[float]]
+        """
+        The version of the replicaSet associated with the AD connector custom resource.
+        """
+        state: NotRequired[pulumi.Input[str]]
+        """
+        The state of the AD connector custom resource.
+        """
+elif False:
+    ActiveDirectoryConnectorStatusArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ActiveDirectoryConnectorStatusArgs:
@@ -372,6 +533,22 @@ class ActiveDirectoryConnectorStatusArgs:
         pulumi.set(self, "state", value)
 
 
+if not MYPY:
+    class ActiveDirectoryDomainControllersArgsDict(TypedDict):
+        """
+        Details about the Active Directory domain controllers associated with this AD connector instance
+        """
+        primary_domain_controller: NotRequired[pulumi.Input['ActiveDirectoryDomainControllerArgsDict']]
+        """
+        Information about the Primary Domain Controller (PDC) in the AD domain.
+        """
+        secondary_domain_controllers: NotRequired[pulumi.Input[Sequence[pulumi.Input['ActiveDirectoryDomainControllerArgsDict']]]]
+        """
+        null
+        """
+elif False:
+    ActiveDirectoryDomainControllersArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ActiveDirectoryDomainControllersArgs:
     def __init__(__self__, *,
@@ -412,6 +589,18 @@ class ActiveDirectoryDomainControllersArgs:
         pulumi.set(self, "secondary_domain_controllers", value)
 
 
+if not MYPY:
+    class ActiveDirectoryDomainControllerArgsDict(TypedDict):
+        """
+        Information about a domain controller in the AD domain.
+        """
+        hostname: pulumi.Input[str]
+        """
+        Fully-qualified domain name of a domain controller in the AD domain.
+        """
+elif False:
+    ActiveDirectoryDomainControllerArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ActiveDirectoryDomainControllerArgs:
     def __init__(__self__, *,
@@ -434,6 +623,18 @@ class ActiveDirectoryDomainControllerArgs:
     def hostname(self, value: pulumi.Input[str]):
         pulumi.set(self, "hostname", value)
 
+
+if not MYPY:
+    class ActiveDirectoryInformationArgsDict(TypedDict):
+        """
+        Active Directory information that related to the resource.
+        """
+        keytab_information: NotRequired[pulumi.Input['KeytabInformationArgsDict']]
+        """
+        Keytab information that is used for the Sql Managed Instance when Active Directory authentication is used.
+        """
+elif False:
+    ActiveDirectoryInformationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ActiveDirectoryInformationArgs:
@@ -458,6 +659,34 @@ class ActiveDirectoryInformationArgs:
     def keytab_information(self, value: Optional[pulumi.Input['KeytabInformationArgs']]):
         pulumi.set(self, "keytab_information", value)
 
+
+if not MYPY:
+    class AvailabilityGroupConfigureArgsDict(TypedDict):
+        """
+        The specifications of the availability group replica configuration
+        """
+        backup_priority: NotRequired[pulumi.Input[int]]
+        """
+        Represents the user-specified priority for performing backups on this replica relative to the other replicas in the same availability group.
+        """
+        endpoint_url: NotRequired[pulumi.Input[str]]
+        """
+        Mirroring endpoint URL of availability group replica
+        """
+        read_only_routing_url: NotRequired[pulumi.Input[str]]
+        """
+        Connectivity endpoint (URL) of the read only availability replica.
+        """
+        read_write_routing_url: NotRequired[pulumi.Input[str]]
+        """
+        Connectivity endpoint (URL) of the read write availability replica.
+        """
+        session_timeout: NotRequired[pulumi.Input[int]]
+        """
+        The time-out period of availability group session replica, in seconds.
+        """
+elif False:
+    AvailabilityGroupConfigureArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AvailabilityGroupConfigureArgs:
@@ -546,6 +775,46 @@ class AvailabilityGroupConfigureArgs:
     def session_timeout(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "session_timeout", value)
 
+
+if not MYPY:
+    class AvailabilityGroupInfoArgsDict(TypedDict):
+        """
+        The specifications of the availability group state
+        """
+        basic_features: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies whether this is a basic availability group.
+        """
+        db_failover: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies whether the availability group supports failover for database health conditions.
+        """
+        dtc_support: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies whether DTC support has been enabled for this availability group.
+        """
+        failure_condition_level: NotRequired[pulumi.Input[int]]
+        """
+        User-defined failure condition level under which an automatic failover must be triggered.
+        """
+        health_check_timeout: NotRequired[pulumi.Input[int]]
+        """
+        Wait time (in milliseconds) for the sp_server_diagnostics system stored procedure to return server-health information, before the server instance is assumed to be slow or not responding.
+        """
+        is_contained: NotRequired[pulumi.Input[bool]]
+        """
+        SQL Server availability group contained system databases.
+        """
+        is_distributed: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies whether this is a distributed availability group.
+        """
+        required_synchronized_secondaries_to_commit: NotRequired[pulumi.Input[int]]
+        """
+        The number of secondary replicas that must be in a synchronized state for a commit to complete.
+        """
+elif False:
+    AvailabilityGroupInfoArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AvailabilityGroupInfoArgs:
@@ -683,6 +952,30 @@ class AvailabilityGroupInfoArgs:
         pulumi.set(self, "required_synchronized_secondaries_to_commit", value)
 
 
+if not MYPY:
+    class BackupPolicyArgsDict(TypedDict):
+        """
+        The backup profile for the SQL server.
+        """
+        differential_backup_hours: NotRequired[pulumi.Input[int]]
+        """
+        The differential backup interval in hours.
+        """
+        full_backup_days: NotRequired[pulumi.Input[int]]
+        """
+        The value indicating days between full backups.
+        """
+        retention_period_days: NotRequired[pulumi.Input[int]]
+        """
+        The retention period for all the databases in this managed instance.
+        """
+        transaction_log_backup_minutes: NotRequired[pulumi.Input[int]]
+        """
+        The value indicating minutes between transaction log backups.
+        """
+elif False:
+    BackupPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class BackupPolicyArgs:
     def __init__(__self__, *,
@@ -755,6 +1048,22 @@ class BackupPolicyArgs:
         pulumi.set(self, "transaction_log_backup_minutes", value)
 
 
+if not MYPY:
+    class BasicLoginInformationArgsDict(TypedDict):
+        """
+        Username and password for basic login authentication.
+        """
+        password: NotRequired[pulumi.Input[str]]
+        """
+        Login password.
+        """
+        username: NotRequired[pulumi.Input[str]]
+        """
+        Login username.
+        """
+elif False:
+    BasicLoginInformationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class BasicLoginInformationArgs:
     def __init__(__self__, *,
@@ -794,6 +1103,62 @@ class BasicLoginInformationArgs:
     def username(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "username", value)
 
+
+if not MYPY:
+    class DataControllerPropertiesArgsDict(TypedDict):
+        """
+        The data controller properties.
+        """
+        basic_login_information: NotRequired[pulumi.Input['BasicLoginInformationArgsDict']]
+        """
+        Deprecated. Azure Arc Data Services data controller no longer expose any endpoint. All traffic are exposed through Kubernetes native API.
+        """
+        cluster_id: NotRequired[pulumi.Input[str]]
+        """
+        If a CustomLocation is provided, this contains the ARM id of the connected cluster the custom location belongs to.
+        """
+        extension_id: NotRequired[pulumi.Input[str]]
+        """
+        If a CustomLocation is provided, this contains the ARM id of the extension the custom location belongs to.
+        """
+        infrastructure: NotRequired[pulumi.Input['Infrastructure']]
+        """
+        The infrastructure the data controller is running on.
+        """
+        k8s_raw: NotRequired[Any]
+        """
+        The raw kubernetes information
+        """
+        last_uploaded_date: NotRequired[pulumi.Input[str]]
+        """
+        Last uploaded date from Kubernetes cluster. Defaults to current date time
+        """
+        log_analytics_workspace_config: NotRequired[pulumi.Input['LogAnalyticsWorkspaceConfigArgsDict']]
+        """
+        Log analytics workspace id and primary key
+        """
+        logs_dashboard_credential: NotRequired[pulumi.Input['BasicLoginInformationArgsDict']]
+        """
+        Login credential for logs dashboard on the Kubernetes cluster.
+        """
+        metrics_dashboard_credential: NotRequired[pulumi.Input['BasicLoginInformationArgsDict']]
+        """
+        Login credential for metrics dashboard on the Kubernetes cluster.
+        """
+        on_premise_property: NotRequired[pulumi.Input['OnPremisePropertyArgsDict']]
+        """
+        Properties from the Kubernetes data controller
+        """
+        upload_service_principal: NotRequired[pulumi.Input['UploadServicePrincipalArgsDict']]
+        """
+        Deprecated. Service principal is deprecated in favor of Arc Kubernetes service extension managed identity.
+        """
+        upload_watermark: NotRequired[pulumi.Input['UploadWatermarkArgsDict']]
+        """
+        Properties on upload watermark.  Mostly timestamp for each upload data type
+        """
+elif False:
+    DataControllerPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataControllerPropertiesArgs:
@@ -997,6 +1362,22 @@ class DataControllerPropertiesArgs:
         pulumi.set(self, "upload_watermark", value)
 
 
+if not MYPY:
+    class ExtendedLocationArgsDict(TypedDict):
+        """
+        The complex type of the extended location.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the extended location.
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'ExtendedLocationTypes']]]
+        """
+        The type of the extended location.
+        """
+elif False:
+    ExtendedLocationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ExtendedLocationArgs:
     def __init__(__self__, *,
@@ -1036,6 +1417,26 @@ class ExtendedLocationArgs:
     def type(self, value: Optional[pulumi.Input[Union[str, 'ExtendedLocationTypes']]]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class FailoverGroupPropertiesArgsDict(TypedDict):
+        """
+        The properties of a failover group resource.
+        """
+        partner_managed_instance_id: pulumi.Input[str]
+        """
+        The resource ID of the partner SQL managed instance.
+        """
+        spec: pulumi.Input['FailoverGroupSpecArgsDict']
+        """
+        The specifications of the failover group resource.
+        """
+        status: NotRequired[Any]
+        """
+        The status of the failover group custom resource.
+        """
+elif False:
+    FailoverGroupPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FailoverGroupPropertiesArgs:
@@ -1090,6 +1491,42 @@ class FailoverGroupPropertiesArgs:
     def status(self, value: Optional[Any]):
         pulumi.set(self, "status", value)
 
+
+if not MYPY:
+    class FailoverGroupSpecArgsDict(TypedDict):
+        """
+        The specifications of the failover group resource.
+        """
+        role: pulumi.Input[Union[str, 'InstanceFailoverGroupRole']]
+        """
+        The role of the SQL managed instance in this failover group.
+        """
+        partner_mi: NotRequired[pulumi.Input[str]]
+        """
+        The name of the partner SQL managed instance.
+        """
+        partner_mirroring_cert: NotRequired[pulumi.Input[str]]
+        """
+        The mirroring endpoint public certificate for the partner SQL managed instance. Only PEM format is supported.
+        """
+        partner_mirroring_url: NotRequired[pulumi.Input[str]]
+        """
+        The mirroring endpoint URL of the partner SQL managed instance.
+        """
+        partner_sync_mode: NotRequired[pulumi.Input[Union[str, 'FailoverGroupPartnerSyncMode']]]
+        """
+        The partner sync mode of the SQL managed instance.
+        """
+        shared_name: NotRequired[pulumi.Input[str]]
+        """
+        The shared name of the failover group for this SQL managed instance. Both SQL managed instance and its partner have to use the same shared name.
+        """
+        source_mi: NotRequired[pulumi.Input[str]]
+        """
+        The name of the SQL managed instance with this failover group role.
+        """
+elif False:
+    FailoverGroupSpecArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FailoverGroupSpecArgs:
@@ -1214,6 +1651,19 @@ class FailoverGroupSpecArgs:
         pulumi.set(self, "source_mi", value)
 
 
+if not MYPY:
+    class K8sActiveDirectoryConnectorArgsDict(TypedDict):
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the connector
+        """
+        namespace: NotRequired[pulumi.Input[str]]
+        """
+        Name space of the connector
+        """
+elif False:
+    K8sActiveDirectoryConnectorArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class K8sActiveDirectoryConnectorArgs:
     def __init__(__self__, *,
@@ -1252,6 +1702,27 @@ class K8sActiveDirectoryConnectorArgs:
     def namespace(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "namespace", value)
 
+
+if not MYPY:
+    class K8sActiveDirectoryArgsDict(TypedDict):
+        """
+        The kubernetes active directory information.
+        """
+        account_name: NotRequired[pulumi.Input[str]]
+        """
+        Account name for AAD
+        """
+        connector: NotRequired[pulumi.Input['K8sActiveDirectoryConnectorArgsDict']]
+        encryption_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        An array of encryption types
+        """
+        keytab_secret: NotRequired[pulumi.Input[str]]
+        """
+        Keytab secret used to authenticate with Active Directory.
+        """
+elif False:
+    K8sActiveDirectoryArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class K8sActiveDirectoryArgs:
@@ -1321,6 +1792,26 @@ class K8sActiveDirectoryArgs:
         pulumi.set(self, "keytab_secret", value)
 
 
+if not MYPY:
+    class K8sNetworkSettingsArgsDict(TypedDict):
+        """
+        The kubernetes network settings information.
+        """
+        forceencryption: NotRequired[pulumi.Input[int]]
+        """
+        If 1, then SQL Server forces all connections to be encrypted. By default, this option is 0
+        """
+        tlsciphers: NotRequired[pulumi.Input[str]]
+        """
+        Specifies which ciphers are allowed by SQL Server for TLS
+        """
+        tlsprotocols: NotRequired[pulumi.Input[str]]
+        """
+        A comma-separated list of which TLS protocols are allowed by SQL Server
+        """
+elif False:
+    K8sNetworkSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class K8sNetworkSettingsArgs:
     def __init__(__self__, *,
@@ -1377,6 +1868,22 @@ class K8sNetworkSettingsArgs:
         pulumi.set(self, "tlsprotocols", value)
 
 
+if not MYPY:
+    class K8sResourceRequirementsArgsDict(TypedDict):
+        """
+        The kubernetes resource limits and requests used to restrict or reserve resource usage.
+        """
+        limits: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Limits for a kubernetes resource type (e.g 'cpu', 'memory'). The 'cpu' request must be less than or equal to 'cpu' limit. Default 'cpu' is 2, minimum is 1. Default 'memory' is '4Gi', minimum is '2Gi. If sku.tier is GeneralPurpose, maximum 'cpu' is 24 and maximum 'memory' is '128Gi'.
+        """
+        requests: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Requests for a kubernetes resource type (e.g 'cpu', 'memory'). The 'cpu' request must be less than or equal to 'cpu' limit. Default 'cpu' is 2, minimum is 1. Default 'memory' is '4Gi', minimum is '2Gi. If sku.tier is GeneralPurpose, maximum 'cpu' is 24 and maximum 'memory' is '128Gi'.
+        """
+elif False:
+    K8sResourceRequirementsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class K8sResourceRequirementsArgs:
     def __init__(__self__, *,
@@ -1417,6 +1924,18 @@ class K8sResourceRequirementsArgs:
         pulumi.set(self, "requests", value)
 
 
+if not MYPY:
+    class K8sSchedulingOptionsArgsDict(TypedDict):
+        """
+        The kubernetes scheduling options. It describes restrictions used to help Kubernetes select appropriate nodes to host the database service
+        """
+        resources: NotRequired[pulumi.Input['K8sResourceRequirementsArgsDict']]
+        """
+        The kubernetes resource limits and requests used to restrict or reserve resource usage.
+        """
+elif False:
+    K8sSchedulingOptionsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class K8sSchedulingOptionsArgs:
     def __init__(__self__, *,
@@ -1441,6 +1960,18 @@ class K8sSchedulingOptionsArgs:
         pulumi.set(self, "resources", value)
 
 
+if not MYPY:
+    class K8sSchedulingArgsDict(TypedDict):
+        """
+        The kubernetes scheduling information.
+        """
+        default: NotRequired[pulumi.Input['K8sSchedulingOptionsArgsDict']]
+        """
+        The kubernetes scheduling options. It describes restrictions used to help Kubernetes select appropriate nodes to host the database service
+        """
+elif False:
+    K8sSchedulingArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class K8sSchedulingArgs:
     def __init__(__self__, *,
@@ -1464,6 +1995,30 @@ class K8sSchedulingArgs:
     def default(self, value: Optional[pulumi.Input['K8sSchedulingOptionsArgs']]):
         pulumi.set(self, "default", value)
 
+
+if not MYPY:
+    class K8sSecurityArgsDict(TypedDict):
+        """
+        The kubernetes security information.
+        """
+        active_directory: NotRequired[pulumi.Input['K8sActiveDirectoryArgsDict']]
+        """
+        The kubernetes active directory information.
+        """
+        admin_login_secret: NotRequired[pulumi.Input[str]]
+        """
+        Admin login secret key
+        """
+        service_certificate_secret: NotRequired[pulumi.Input[str]]
+        """
+        Service certificate secret used
+        """
+        transparent_data_encryption: NotRequired[pulumi.Input['K8stransparentDataEncryptionArgsDict']]
+        """
+        Transparent data encryption information.
+        """
+elif False:
+    K8sSecurityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class K8sSecurityArgs:
@@ -1537,6 +2092,18 @@ class K8sSecurityArgs:
         pulumi.set(self, "transparent_data_encryption", value)
 
 
+if not MYPY:
+    class K8sSettingsArgsDict(TypedDict):
+        """
+        The kubernetes settings information.
+        """
+        network: NotRequired[pulumi.Input['K8sNetworkSettingsArgsDict']]
+        """
+        The kubernetes network settings information.
+        """
+elif False:
+    K8sSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class K8sSettingsArgs:
     def __init__(__self__, *,
@@ -1560,6 +2127,22 @@ class K8sSettingsArgs:
     def network(self, value: Optional[pulumi.Input['K8sNetworkSettingsArgs']]):
         pulumi.set(self, "network", value)
 
+
+if not MYPY:
+    class K8stransparentDataEncryptionArgsDict(TypedDict):
+        """
+        Transparent data encryption information.
+        """
+        mode: NotRequired[pulumi.Input[str]]
+        """
+        Transparent data encryption mode. Can be Service Managed, Customer managed or disabled
+        """
+        protector_secret: NotRequired[pulumi.Input[str]]
+        """
+        Protector secret for customer managed Transparent data encryption mode
+        """
+elif False:
+    K8stransparentDataEncryptionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class K8stransparentDataEncryptionArgs:
@@ -1601,6 +2184,18 @@ class K8stransparentDataEncryptionArgs:
         pulumi.set(self, "protector_secret", value)
 
 
+if not MYPY:
+    class KeytabInformationArgsDict(TypedDict):
+        """
+        Keytab used for authenticate with Active Directory.
+        """
+        keytab: NotRequired[pulumi.Input[str]]
+        """
+        A base64-encoded keytab.
+        """
+elif False:
+    KeytabInformationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class KeytabInformationArgs:
     def __init__(__self__, *,
@@ -1624,6 +2219,22 @@ class KeytabInformationArgs:
     def keytab(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "keytab", value)
 
+
+if not MYPY:
+    class LogAnalyticsWorkspaceConfigArgsDict(TypedDict):
+        """
+        Log analytics workspace id and primary key
+        """
+        primary_key: NotRequired[pulumi.Input[str]]
+        """
+        Primary key of the workspace
+        """
+        workspace_id: NotRequired[pulumi.Input[str]]
+        """
+        Azure Log Analytics workspace ID
+        """
+elif False:
+    LogAnalyticsWorkspaceConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LogAnalyticsWorkspaceConfigArgs:
@@ -1665,6 +2276,18 @@ class LogAnalyticsWorkspaceConfigArgs:
         pulumi.set(self, "workspace_id", value)
 
 
+if not MYPY:
+    class MonitoringArgsDict(TypedDict):
+        """
+        The monitoring configuration.
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates if monitoring is enabled for this SQL Server instance.
+        """
+elif False:
+    MonitoringArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MonitoringArgs:
     def __init__(__self__, *,
@@ -1688,6 +2311,26 @@ class MonitoringArgs:
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
 
+
+if not MYPY:
+    class OnPremisePropertyArgsDict(TypedDict):
+        """
+        Properties from the Kubernetes data controller
+        """
+        id: pulumi.Input[str]
+        """
+        A globally unique ID identifying the associated Kubernetes cluster
+        """
+        public_signing_key: pulumi.Input[str]
+        """
+        Certificate that contains the Kubernetes cluster public key used to verify signing
+        """
+        signing_certificate_thumbprint: NotRequired[pulumi.Input[str]]
+        """
+        Unique thumbprint returned to customer to verify the certificate being uploaded
+        """
+elif False:
+    OnPremisePropertyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OnPremisePropertyArgs:
@@ -1742,6 +2385,34 @@ class OnPremisePropertyArgs:
     def signing_certificate_thumbprint(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "signing_certificate_thumbprint", value)
 
+
+if not MYPY:
+    class PostgresInstancePropertiesArgsDict(TypedDict):
+        """
+        Postgres Instance properties.
+        """
+        admin: NotRequired[pulumi.Input[str]]
+        """
+        The instance admin
+        """
+        basic_login_information: NotRequired[pulumi.Input['BasicLoginInformationArgsDict']]
+        """
+        Username and password for basic authentication.
+        """
+        data_controller_id: NotRequired[pulumi.Input[str]]
+        """
+        The data controller id
+        """
+        k8s_raw: NotRequired[Any]
+        """
+        The raw kubernetes information
+        """
+        last_uploaded_date: NotRequired[pulumi.Input[str]]
+        """
+        Last uploaded date from Kubernetes cluster. Defaults to current date time
+        """
+elif False:
+    PostgresInstancePropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PostgresInstancePropertiesArgs:
@@ -1830,6 +2501,38 @@ class PostgresInstancePropertiesArgs:
     def last_uploaded_date(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "last_uploaded_date", value)
 
+
+if not MYPY:
+    class PostgresInstanceSkuArgsDict(TypedDict):
+        """
+        The resource model definition representing SKU for Azure Database for PostgresSQL - Azure Arc
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the SKU.  It is typically a letter+number code
+        """
+        capacity: NotRequired[pulumi.Input[int]]
+        """
+        If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
+        """
+        dev: NotRequired[pulumi.Input[bool]]
+        """
+        Whether dev/test is enabled. When the dev field is set to true, the resource is used for dev/test purpose. 
+        """
+        family: NotRequired[pulumi.Input[str]]
+        """
+        If the service has different generations of hardware, for the same SKU, then that can be captured here.
+        """
+        size: NotRequired[pulumi.Input[str]]
+        """
+        The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+        """
+        tier: NotRequired[pulumi.Input['PostgresInstanceSkuTier']]
+        """
+        This field is required to be implemented by the Resource Provider if the service has more than one tier.
+        """
+elif False:
+    PostgresInstanceSkuArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PostgresInstanceSkuArgs:
@@ -1938,6 +2641,18 @@ class PostgresInstanceSkuArgs:
         pulumi.set(self, "tier", value)
 
 
+if not MYPY:
+    class SqlAvailabilityGroupDatabaseReplicaResourcePropertiesArgsDict(TypedDict):
+        """
+        The properties of Arc Sql availability group database replica resource
+        """
+        database_name: NotRequired[pulumi.Input[str]]
+        """
+        the database name.
+        """
+elif False:
+    SqlAvailabilityGroupDatabaseReplicaResourcePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SqlAvailabilityGroupDatabaseReplicaResourcePropertiesArgs:
     def __init__(__self__, *,
@@ -1961,6 +2676,22 @@ class SqlAvailabilityGroupDatabaseReplicaResourcePropertiesArgs:
     def database_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "database_name", value)
 
+
+if not MYPY:
+    class SqlAvailabilityGroupReplicaResourcePropertiesArgsDict(TypedDict):
+        """
+        The properties of Arc Sql availability group replica resource
+        """
+        configure: NotRequired[pulumi.Input['AvailabilityGroupConfigureArgsDict']]
+        """
+        null
+        """
+        replica_name: NotRequired[pulumi.Input[str]]
+        """
+        the replica name.
+        """
+elif False:
+    SqlAvailabilityGroupReplicaResourcePropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SqlAvailabilityGroupReplicaResourcePropertiesArgs:
@@ -2002,6 +2733,18 @@ class SqlAvailabilityGroupReplicaResourcePropertiesArgs:
         pulumi.set(self, "replica_name", value)
 
 
+if not MYPY:
+    class SqlManagedInstanceK8sRawArgsDict(TypedDict):
+        """
+        The raw kubernetes information.
+        """
+        spec: NotRequired[pulumi.Input['SqlManagedInstanceK8sSpecArgsDict']]
+        """
+        The kubernetes spec information.
+        """
+elif False:
+    SqlManagedInstanceK8sRawArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SqlManagedInstanceK8sRawArgs:
     def __init__(__self__, *,
@@ -2025,6 +2768,30 @@ class SqlManagedInstanceK8sRawArgs:
     def spec(self, value: Optional[pulumi.Input['SqlManagedInstanceK8sSpecArgs']]):
         pulumi.set(self, "spec", value)
 
+
+if not MYPY:
+    class SqlManagedInstanceK8sSpecArgsDict(TypedDict):
+        """
+        The kubernetes spec information.
+        """
+        replicas: NotRequired[pulumi.Input[int]]
+        """
+        This option specifies the number of SQL Managed Instance replicas that will be deployed in your Kubernetes cluster for high availability purposes. If sku.tier is BusinessCritical, allowed values are '2' or '3' with default of '3'. If sku.tier is GeneralPurpose, replicas must be '1'.
+        """
+        scheduling: NotRequired[pulumi.Input['K8sSchedulingArgsDict']]
+        """
+        The kubernetes scheduling information.
+        """
+        security: NotRequired[pulumi.Input['K8sSecurityArgsDict']]
+        """
+        The kubernetes security information.
+        """
+        settings: NotRequired[pulumi.Input['K8sSettingsArgsDict']]
+        """
+        The kubernetes settings information.
+        """
+elif False:
+    SqlManagedInstanceK8sSpecArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SqlManagedInstanceK8sSpecArgs:
@@ -2097,6 +2864,58 @@ class SqlManagedInstanceK8sSpecArgs:
     def settings(self, value: Optional[pulumi.Input['K8sSettingsArgs']]):
         pulumi.set(self, "settings", value)
 
+
+if not MYPY:
+    class SqlManagedInstancePropertiesArgsDict(TypedDict):
+        """
+        Properties of sqlManagedInstance.
+        """
+        active_directory_information: NotRequired[pulumi.Input['ActiveDirectoryInformationArgsDict']]
+        """
+        Active Directory information related to this SQL Managed Instance.
+        """
+        admin: NotRequired[pulumi.Input[str]]
+        """
+        The instance admin user
+        """
+        basic_login_information: NotRequired[pulumi.Input['BasicLoginInformationArgsDict']]
+        """
+        Username and password for basic authentication.
+        """
+        cluster_id: NotRequired[pulumi.Input[str]]
+        """
+        If a CustomLocation is provided, this contains the ARM id of the connected cluster the custom location belongs to.
+        """
+        data_controller_id: NotRequired[pulumi.Input[str]]
+        """
+        null
+        """
+        end_time: NotRequired[pulumi.Input[str]]
+        """
+        The instance end time
+        """
+        extension_id: NotRequired[pulumi.Input[str]]
+        """
+        If a CustomLocation is provided, this contains the ARM id of the extension the custom location belongs to.
+        """
+        k8s_raw: NotRequired[pulumi.Input['SqlManagedInstanceK8sRawArgsDict']]
+        """
+        The raw kubernetes information
+        """
+        last_uploaded_date: NotRequired[pulumi.Input[str]]
+        """
+        Last uploaded date from Kubernetes cluster. Defaults to current date time
+        """
+        license_type: NotRequired[pulumi.Input[Union[str, 'ArcSqlManagedInstanceLicenseType']]]
+        """
+        The license type to apply for this managed instance.
+        """
+        start_time: NotRequired[pulumi.Input[str]]
+        """
+        The instance start time
+        """
+elif False:
+    SqlManagedInstancePropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SqlManagedInstancePropertiesArgs:
@@ -2284,6 +3103,38 @@ class SqlManagedInstancePropertiesArgs:
         pulumi.set(self, "start_time", value)
 
 
+if not MYPY:
+    class SqlManagedInstanceSkuArgsDict(TypedDict):
+        """
+        The resource model definition representing SKU for Azure Managed Instance - Azure Arc
+        """
+        name: pulumi.Input['SqlManagedInstanceSkuName']
+        """
+        The name of the SKU.
+        """
+        capacity: NotRequired[pulumi.Input[int]]
+        """
+        The SKU capacity
+        """
+        dev: NotRequired[pulumi.Input[bool]]
+        """
+        Whether dev/test is enabled. When the dev field is set to true, the resource is used for dev/test purpose. 
+        """
+        family: NotRequired[pulumi.Input[str]]
+        """
+        The SKU family
+        """
+        size: NotRequired[pulumi.Input[str]]
+        """
+        The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+        """
+        tier: NotRequired[pulumi.Input['SqlManagedInstanceSkuTier']]
+        """
+        The pricing tier for the instance.
+        """
+elif False:
+    SqlManagedInstanceSkuArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SqlManagedInstanceSkuArgs:
     def __init__(__self__, *,
@@ -2391,6 +3242,18 @@ class SqlManagedInstanceSkuArgs:
         pulumi.set(self, "tier", value)
 
 
+if not MYPY:
+    class SqlServerAvailabilityGroupResourcePropertiesDatabasesArgsDict(TypedDict):
+        """
+        A list of Availability Group Database Replicas.
+        """
+        value: NotRequired[pulumi.Input[Sequence[pulumi.Input['SqlAvailabilityGroupDatabaseReplicaResourcePropertiesArgsDict']]]]
+        """
+        Array of Availability Group Database Replicas.
+        """
+elif False:
+    SqlServerAvailabilityGroupResourcePropertiesDatabasesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SqlServerAvailabilityGroupResourcePropertiesDatabasesArgs:
     def __init__(__self__, *,
@@ -2415,6 +3278,18 @@ class SqlServerAvailabilityGroupResourcePropertiesDatabasesArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class SqlServerAvailabilityGroupResourcePropertiesReplicasArgsDict(TypedDict):
+        """
+        A list of Availability Group Replicas.
+        """
+        value: NotRequired[pulumi.Input[Sequence[pulumi.Input['SqlAvailabilityGroupReplicaResourcePropertiesArgsDict']]]]
+        """
+        Array of Availability Group Replicas.
+        """
+elif False:
+    SqlServerAvailabilityGroupResourcePropertiesReplicasArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SqlServerAvailabilityGroupResourcePropertiesReplicasArgs:
     def __init__(__self__, *,
@@ -2438,6 +3313,26 @@ class SqlServerAvailabilityGroupResourcePropertiesReplicasArgs:
     def value(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SqlAvailabilityGroupReplicaResourcePropertiesArgs']]]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class SqlServerAvailabilityGroupResourcePropertiesArgsDict(TypedDict):
+        """
+        The properties of Arc Sql Server availability group resource
+        """
+        databases: NotRequired[pulumi.Input['SqlServerAvailabilityGroupResourcePropertiesDatabasesArgsDict']]
+        """
+        A list of Availability Group Database Replicas.
+        """
+        info: NotRequired[pulumi.Input['AvailabilityGroupInfoArgsDict']]
+        """
+        Availability Group Info
+        """
+        replicas: NotRequired[pulumi.Input['SqlServerAvailabilityGroupResourcePropertiesReplicasArgsDict']]
+        """
+        A list of Availability Group Replicas.
+        """
+elif False:
+    SqlServerAvailabilityGroupResourcePropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SqlServerAvailabilityGroupResourcePropertiesArgs:
@@ -2495,6 +3390,19 @@ class SqlServerAvailabilityGroupResourcePropertiesArgs:
         pulumi.set(self, "replicas", value)
 
 
+if not MYPY:
+    class SqlServerDatabaseResourcePropertiesBackupInformationArgsDict(TypedDict):
+        last_full_backup: NotRequired[pulumi.Input[str]]
+        """
+        Date time of last full backup.
+        """
+        last_log_backup: NotRequired[pulumi.Input[str]]
+        """
+        Date time of last log backup.
+        """
+elif False:
+    SqlServerDatabaseResourcePropertiesBackupInformationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SqlServerDatabaseResourcePropertiesBackupInformationArgs:
     def __init__(__self__, *,
@@ -2533,6 +3441,22 @@ class SqlServerDatabaseResourcePropertiesBackupInformationArgs:
     def last_log_backup(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "last_log_backup", value)
 
+
+if not MYPY:
+    class SqlServerDatabaseResourcePropertiesDatabaseOptionsArgsDict(TypedDict):
+        """
+        List of features that are enabled for the database
+        """
+        is_auto_close_on: NotRequired[pulumi.Input[bool]]
+        is_auto_create_stats_on: NotRequired[pulumi.Input[bool]]
+        is_auto_shrink_on: NotRequired[pulumi.Input[bool]]
+        is_auto_update_stats_on: NotRequired[pulumi.Input[bool]]
+        is_encrypted: NotRequired[pulumi.Input[bool]]
+        is_memory_optimization_enabled: NotRequired[pulumi.Input[bool]]
+        is_remote_data_archive_enabled: NotRequired[pulumi.Input[bool]]
+        is_trustworthy_on: NotRequired[pulumi.Input[bool]]
+elif False:
+    SqlServerDatabaseResourcePropertiesDatabaseOptionsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SqlServerDatabaseResourcePropertiesDatabaseOptionsArgs:
@@ -2637,6 +3561,67 @@ class SqlServerDatabaseResourcePropertiesDatabaseOptionsArgs:
     def is_trustworthy_on(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "is_trustworthy_on", value)
 
+
+if not MYPY:
+    class SqlServerDatabaseResourcePropertiesArgsDict(TypedDict):
+        """
+        The properties of Arc Sql Server database resource
+        """
+        backup_information: NotRequired[pulumi.Input['SqlServerDatabaseResourcePropertiesBackupInformationArgsDict']]
+        backup_policy: NotRequired[pulumi.Input['BackupPolicyArgsDict']]
+        """
+        The backup profile for the SQL server.
+        """
+        collation_name: NotRequired[pulumi.Input[str]]
+        """
+        Collation of the database.
+        """
+        compatibility_level: NotRequired[pulumi.Input[int]]
+        """
+        Compatibility level of the database
+        """
+        create_mode: NotRequired[pulumi.Input[Union[str, 'DatabaseCreateMode']]]
+        """
+        Database create mode. PointInTimeRestore: Create a database by restoring a point in time backup of an existing database. sourceDatabaseId and restorePointInTime must be specified.
+        """
+        database_creation_date: NotRequired[pulumi.Input[str]]
+        """
+        Creation date of the database.
+        """
+        database_options: NotRequired[pulumi.Input['SqlServerDatabaseResourcePropertiesDatabaseOptionsArgsDict']]
+        """
+        List of features that are enabled for the database
+        """
+        is_read_only: NotRequired[pulumi.Input[bool]]
+        """
+        Whether the database is read only or not.
+        """
+        recovery_mode: NotRequired[pulumi.Input[Union[str, 'RecoveryMode']]]
+        """
+        Status of the database.
+        """
+        restore_point_in_time: NotRequired[pulumi.Input[str]]
+        """
+        Conditional. If createMode is PointInTimeRestore, this value is required. Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database.
+        """
+        size_mb: NotRequired[pulumi.Input[float]]
+        """
+        Size of the database.
+        """
+        source_database_id: NotRequired[pulumi.Input[str]]
+        """
+        The resource identifier of the source database associated with create operation of this database.
+        """
+        space_available_mb: NotRequired[pulumi.Input[float]]
+        """
+        Space left of the database.
+        """
+        state: NotRequired[pulumi.Input[Union[str, 'DatabaseState']]]
+        """
+        State of the database.
+        """
+elif False:
+    SqlServerDatabaseResourcePropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SqlServerDatabaseResourcePropertiesArgs:
@@ -2866,6 +3851,46 @@ class SqlServerDatabaseResourcePropertiesArgs:
         pulumi.set(self, "state", value)
 
 
+if not MYPY:
+    class SqlServerInstancePropertiesArgsDict(TypedDict):
+        """
+        Properties of SqlServerInstance.
+        """
+        backup_policy: NotRequired[pulumi.Input['BackupPolicyArgsDict']]
+        """
+        The backup profile for the SQL server.
+        """
+        cores: NotRequired[pulumi.Input[str]]
+        """
+        The number of total cores of the Operating System Environment (OSE) hosting the SQL Server instance.
+        """
+        edition: NotRequired[pulumi.Input[Union[str, 'EditionType']]]
+        """
+        SQL Server edition.
+        """
+        host_type: NotRequired[pulumi.Input[Union[str, 'HostType']]]
+        """
+        Type of host for Azure Arc SQL Server
+        """
+        instance_name: NotRequired[pulumi.Input[str]]
+        """
+        SQL Server instance name.
+        """
+        monitoring: NotRequired[pulumi.Input['MonitoringArgsDict']]
+        """
+        The monitoring configuration.
+        """
+        upgrade_locked_until: NotRequired[pulumi.Input[str]]
+        """
+        Upgrade Action for this resource is locked until it expires. The Expiration time indicated by this value. It is not locked when it is empty.
+        """
+        version: NotRequired[pulumi.Input[Union[str, 'SqlVersion']]]
+        """
+        SQL Server version.
+        """
+elif False:
+    SqlServerInstancePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SqlServerInstancePropertiesArgs:
     def __init__(__self__, *,
@@ -3002,6 +4027,30 @@ class SqlServerInstancePropertiesArgs:
         pulumi.set(self, "version", value)
 
 
+if not MYPY:
+    class UploadServicePrincipalArgsDict(TypedDict):
+        """
+        Service principal for uploading billing, metrics and logs.
+        """
+        authority: NotRequired[pulumi.Input[str]]
+        """
+        Authority for the service principal. Example: https://login.microsoftonline.com/
+        """
+        client_id: NotRequired[pulumi.Input[str]]
+        """
+        Client ID of the service principal for uploading data.
+        """
+        client_secret: NotRequired[pulumi.Input[str]]
+        """
+        Secret of the service principal
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        Tenant ID of the service principal.
+        """
+elif False:
+    UploadServicePrincipalArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class UploadServicePrincipalArgs:
     def __init__(__self__, *,
@@ -3073,6 +4122,26 @@ class UploadServicePrincipalArgs:
     def tenant_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tenant_id", value)
 
+
+if not MYPY:
+    class UploadWatermarkArgsDict(TypedDict):
+        """
+        Properties on upload watermark.  Mostly timestamp for each upload data type
+        """
+        logs: NotRequired[pulumi.Input[str]]
+        """
+        Last uploaded date for logs from kubernetes cluster. Defaults to current date time
+        """
+        metrics: NotRequired[pulumi.Input[str]]
+        """
+        Last uploaded date for metrics from kubernetes cluster. Defaults to current date time
+        """
+        usages: NotRequired[pulumi.Input[str]]
+        """
+        Last uploaded date for usages from kubernetes cluster. Defaults to current date time
+        """
+elif False:
+    UploadWatermarkArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UploadWatermarkArgs:

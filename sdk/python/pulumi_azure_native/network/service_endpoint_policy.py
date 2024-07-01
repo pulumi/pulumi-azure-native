@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -160,7 +165,7 @@ class ServiceEndpointPolicy(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_alias: Optional[pulumi.Input[str]] = None,
-                 service_endpoint_policy_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceEndpointPolicyDefinitionArgs']]]]] = None,
+                 service_endpoint_policy_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceEndpointPolicyDefinitionArgs', 'ServiceEndpointPolicyDefinitionArgsDict']]]]] = None,
                  service_endpoint_policy_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -177,7 +182,7 @@ class ServiceEndpointPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] service_alias: The alias indicating if the policy belongs to a service
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceEndpointPolicyDefinitionArgs']]]] service_endpoint_policy_definitions: A collection of service endpoint policy definitions of the service endpoint policy.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceEndpointPolicyDefinitionArgs', 'ServiceEndpointPolicyDefinitionArgsDict']]]] service_endpoint_policy_definitions: A collection of service endpoint policy definitions of the service endpoint policy.
                These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
         :param pulumi.Input[str] service_endpoint_policy_name: The name of the service endpoint policy.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -214,7 +219,7 @@ class ServiceEndpointPolicy(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_alias: Optional[pulumi.Input[str]] = None,
-                 service_endpoint_policy_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceEndpointPolicyDefinitionArgs']]]]] = None,
+                 service_endpoint_policy_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceEndpointPolicyDefinitionArgs', 'ServiceEndpointPolicyDefinitionArgsDict']]]]] = None,
                  service_endpoint_policy_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):

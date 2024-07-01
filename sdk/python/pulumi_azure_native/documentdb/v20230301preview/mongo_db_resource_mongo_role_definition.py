@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -155,10 +160,10 @@ class MongoDBResourceMongoRoleDefinition(pulumi.CustomResource):
                  account_name: Optional[pulumi.Input[str]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
                  mongo_role_definition_id: Optional[pulumi.Input[str]] = None,
-                 privileges: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrivilegeArgs']]]]] = None,
+                 privileges: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PrivilegeArgs', 'PrivilegeArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  role_name: Optional[pulumi.Input[str]] = None,
-                 roles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RoleArgs']]]]] = None,
+                 roles: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RoleArgs', 'RoleArgsDict']]]]] = None,
                  type: Optional[pulumi.Input[float]] = None,
                  __props__=None):
         """
@@ -169,10 +174,10 @@ class MongoDBResourceMongoRoleDefinition(pulumi.CustomResource):
         :param pulumi.Input[str] account_name: Cosmos DB database account name.
         :param pulumi.Input[str] database_name: The database name for which access is being granted for this Role Definition.
         :param pulumi.Input[str] mongo_role_definition_id: The ID for the Role Definition {dbName.roleName}.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrivilegeArgs']]]] privileges: A set of privileges contained by the Role Definition. This will allow application of this Role Definition on the entire database account or any underlying Database / Collection. Scopes higher than Database are not enforceable as privilege.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PrivilegeArgs', 'PrivilegeArgsDict']]]] privileges: A set of privileges contained by the Role Definition. This will allow application of this Role Definition on the entire database account or any underlying Database / Collection. Scopes higher than Database are not enforceable as privilege.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] role_name: A user-friendly name for the Role Definition. Must be unique for the database account.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RoleArgs']]]] roles: The set of roles inherited by this Role Definition.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RoleArgs', 'RoleArgsDict']]]] roles: The set of roles inherited by this Role Definition.
         :param pulumi.Input[float] type: Indicates whether the Role Definition was built-in or user created.
         """
         ...
@@ -202,10 +207,10 @@ class MongoDBResourceMongoRoleDefinition(pulumi.CustomResource):
                  account_name: Optional[pulumi.Input[str]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
                  mongo_role_definition_id: Optional[pulumi.Input[str]] = None,
-                 privileges: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrivilegeArgs']]]]] = None,
+                 privileges: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PrivilegeArgs', 'PrivilegeArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  role_name: Optional[pulumi.Input[str]] = None,
-                 roles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RoleArgs']]]]] = None,
+                 roles: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RoleArgs', 'RoleArgsDict']]]]] = None,
                  type: Optional[pulumi.Input[float]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

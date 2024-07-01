@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -323,16 +328,16 @@ class Workspace(pulumi.CustomResource):
                  container_registry: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  discovery_url: Optional[pulumi.Input[str]] = None,
-                 encryption: Optional[pulumi.Input[pulumi.InputType['EncryptionPropertyArgs']]] = None,
+                 encryption: Optional[pulumi.Input[Union['EncryptionPropertyArgs', 'EncryptionPropertyArgsDict']]] = None,
                  friendly_name: Optional[pulumi.Input[str]] = None,
                  hbi_workspace: Optional[pulumi.Input[bool]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']]] = None,
                  image_build_compute: Optional[pulumi.Input[str]] = None,
                  key_vault: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 shared_private_link_resources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SharedPrivateLinkResourceArgs']]]]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 shared_private_link_resources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SharedPrivateLinkResourceArgs', 'SharedPrivateLinkResourceArgsDict']]]]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  storage_account: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
@@ -347,16 +352,16 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[str] container_registry: ARM id of the container registry associated with this workspace. This cannot be changed once the workspace has been created
         :param pulumi.Input[str] description: The description of this workspace.
         :param pulumi.Input[str] discovery_url: Url for the discovery service to identify regional endpoints for machine learning experimentation services
-        :param pulumi.Input[pulumi.InputType['EncryptionPropertyArgs']] encryption: The encryption settings of Azure ML workspace.
+        :param pulumi.Input[Union['EncryptionPropertyArgs', 'EncryptionPropertyArgsDict']] encryption: The encryption settings of Azure ML workspace.
         :param pulumi.Input[str] friendly_name: The friendly name for this workspace. This name in mutable
         :param pulumi.Input[bool] hbi_workspace: The flag to signal HBI data in the workspace and reduce diagnostic data collected by the service
-        :param pulumi.Input[pulumi.InputType['IdentityArgs']] identity: The identity of the resource.
+        :param pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']] identity: The identity of the resource.
         :param pulumi.Input[str] image_build_compute: The compute name for image build
         :param pulumi.Input[str] key_vault: ARM id of the key vault associated with this workspace. This cannot be changed once the workspace has been created
         :param pulumi.Input[str] location: Specifies the location of the resource.
         :param pulumi.Input[str] resource_group_name: Name of the resource group in which workspace is located.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SharedPrivateLinkResourceArgs']]]] shared_private_link_resources: The list of shared private link resources in this workspace.
-        :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The sku of the workspace.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SharedPrivateLinkResourceArgs', 'SharedPrivateLinkResourceArgsDict']]]] shared_private_link_resources: The list of shared private link resources in this workspace.
+        :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: The sku of the workspace.
         :param pulumi.Input[str] storage_account: ARM id of the storage account associated with this workspace. This cannot be changed once the workspace has been created
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Contains resource tags defined as key/value pairs.
         :param pulumi.Input[str] workspace_name: Name of Azure Machine Learning workspace.
@@ -390,16 +395,16 @@ class Workspace(pulumi.CustomResource):
                  container_registry: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  discovery_url: Optional[pulumi.Input[str]] = None,
-                 encryption: Optional[pulumi.Input[pulumi.InputType['EncryptionPropertyArgs']]] = None,
+                 encryption: Optional[pulumi.Input[Union['EncryptionPropertyArgs', 'EncryptionPropertyArgsDict']]] = None,
                  friendly_name: Optional[pulumi.Input[str]] = None,
                  hbi_workspace: Optional[pulumi.Input[bool]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']]] = None,
                  image_build_compute: Optional[pulumi.Input[str]] = None,
                  key_vault: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 shared_private_link_resources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SharedPrivateLinkResourceArgs']]]]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 shared_private_link_resources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SharedPrivateLinkResourceArgs', 'SharedPrivateLinkResourceArgsDict']]]]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  storage_account: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,

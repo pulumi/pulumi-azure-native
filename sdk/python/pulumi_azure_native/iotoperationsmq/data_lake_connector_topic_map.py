@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -167,9 +172,9 @@ class DataLakeConnectorTopicMap(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_lake_connector_name: Optional[pulumi.Input[str]] = None,
                  data_lake_connector_ref: Optional[pulumi.Input[str]] = None,
-                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationPropertyArgs']]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationPropertyArgs', 'ExtendedLocationPropertyArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 mapping: Optional[pulumi.Input[pulumi.InputType['DataLakeConnectorMapArgs']]] = None,
+                 mapping: Optional[pulumi.Input[Union['DataLakeConnectorMapArgs', 'DataLakeConnectorMapArgsDict']]] = None,
                  mq_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -183,9 +188,9 @@ class DataLakeConnectorTopicMap(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] data_lake_connector_name: Name of MQ dataLakeConnector resource
         :param pulumi.Input[str] data_lake_connector_ref: DataLake Connector CRD to use.
-        :param pulumi.Input[pulumi.InputType['ExtendedLocationPropertyArgs']] extended_location: Extended Location
+        :param pulumi.Input[Union['ExtendedLocationPropertyArgs', 'ExtendedLocationPropertyArgsDict']] extended_location: Extended Location
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[pulumi.InputType['DataLakeConnectorMapArgs']] mapping: TopicMap for DataLake connector.
+        :param pulumi.Input[Union['DataLakeConnectorMapArgs', 'DataLakeConnectorMapArgsDict']] mapping: TopicMap for DataLake connector.
         :param pulumi.Input[str] mq_name: Name of MQ resource
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -218,9 +223,9 @@ class DataLakeConnectorTopicMap(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_lake_connector_name: Optional[pulumi.Input[str]] = None,
                  data_lake_connector_ref: Optional[pulumi.Input[str]] = None,
-                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationPropertyArgs']]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationPropertyArgs', 'ExtendedLocationPropertyArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 mapping: Optional[pulumi.Input[pulumi.InputType['DataLakeConnectorMapArgs']]] = None,
+                 mapping: Optional[pulumi.Input[Union['DataLakeConnectorMapArgs', 'DataLakeConnectorMapArgsDict']]] = None,
                  mq_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -250,10 +255,10 @@ class Migration(pulumi.CustomResource):
                  d_bs_to_migrate: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  migration_name: Optional[pulumi.Input[str]] = None,
-                 migration_resource_group: Optional[pulumi.Input[pulumi.InputType['MigrationResourceGroupArgs']]] = None,
+                 migration_resource_group: Optional[pulumi.Input[Union['MigrationResourceGroupArgs', 'MigrationResourceGroupArgsDict']]] = None,
                  migration_window_start_time_in_utc: Optional[pulumi.Input[str]] = None,
                  overwrite_dbs_in_target: Optional[pulumi.Input[bool]] = None,
-                 secret_parameters: Optional[pulumi.Input[pulumi.InputType['MigrationSecretParametersArgs']]] = None,
+                 secret_parameters: Optional[pulumi.Input[Union['MigrationSecretParametersArgs', 'MigrationSecretParametersArgsDict']]] = None,
                  setup_logical_replication_on_source_db_if_needed: Optional[pulumi.Input[bool]] = None,
                  source_db_server_resource_id: Optional[pulumi.Input[str]] = None,
                  start_data_migration: Optional[pulumi.Input[bool]] = None,
@@ -271,8 +276,8 @@ class Migration(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] migration_name: The name of the migration.
-        :param pulumi.Input[pulumi.InputType['MigrationResourceGroupArgs']] migration_resource_group: Migration resource group.
-        :param pulumi.Input[pulumi.InputType['MigrationSecretParametersArgs']] secret_parameters: Migration secret parameters.
+        :param pulumi.Input[Union['MigrationResourceGroupArgs', 'MigrationResourceGroupArgsDict']] migration_resource_group: Migration resource group.
+        :param pulumi.Input[Union['MigrationSecretParametersArgs', 'MigrationSecretParametersArgsDict']] secret_parameters: Migration secret parameters.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] target_db_server_name: The name of the target database server.
         :param pulumi.Input[str] target_db_server_resource_group_name: The resource group name of the target database server.
@@ -305,10 +310,10 @@ class Migration(pulumi.CustomResource):
                  d_bs_to_migrate: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  migration_name: Optional[pulumi.Input[str]] = None,
-                 migration_resource_group: Optional[pulumi.Input[pulumi.InputType['MigrationResourceGroupArgs']]] = None,
+                 migration_resource_group: Optional[pulumi.Input[Union['MigrationResourceGroupArgs', 'MigrationResourceGroupArgsDict']]] = None,
                  migration_window_start_time_in_utc: Optional[pulumi.Input[str]] = None,
                  overwrite_dbs_in_target: Optional[pulumi.Input[bool]] = None,
-                 secret_parameters: Optional[pulumi.Input[pulumi.InputType['MigrationSecretParametersArgs']]] = None,
+                 secret_parameters: Optional[pulumi.Input[Union['MigrationSecretParametersArgs', 'MigrationSecretParametersArgsDict']]] = None,
                  setup_logical_replication_on_source_db_if_needed: Optional[pulumi.Input[bool]] = None,
                  source_db_server_resource_id: Optional[pulumi.Input[str]] = None,
                  start_data_migration: Optional[pulumi.Input[bool]] = None,

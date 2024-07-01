@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -123,8 +128,8 @@ class MediaGraph(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  media_graph_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sinks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MediaGraphAssetSinkArgs']]]]] = None,
-                 sources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MediaGraphRtspSourceArgs']]]]] = None,
+                 sinks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MediaGraphAssetSinkArgs', 'MediaGraphAssetSinkArgsDict']]]]] = None,
+                 sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MediaGraphRtspSourceArgs', 'MediaGraphRtspSourceArgsDict']]]]] = None,
                  __props__=None):
         """
         The Media Graph.
@@ -136,8 +141,8 @@ class MediaGraph(pulumi.CustomResource):
         :param pulumi.Input[str] description: Media Graph description.
         :param pulumi.Input[str] media_graph_name: The Media Graph name.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the Azure subscription.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MediaGraphAssetSinkArgs']]]] sinks: Media Graph sinks.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MediaGraphRtspSourceArgs']]]] sources: Media Graph sources.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MediaGraphAssetSinkArgs', 'MediaGraphAssetSinkArgsDict']]]] sinks: Media Graph sinks.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MediaGraphRtspSourceArgs', 'MediaGraphRtspSourceArgsDict']]]] sources: Media Graph sources.
         """
         ...
     @overload
@@ -168,8 +173,8 @@ class MediaGraph(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  media_graph_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sinks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MediaGraphAssetSinkArgs']]]]] = None,
-                 sources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MediaGraphRtspSourceArgs']]]]] = None,
+                 sinks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MediaGraphAssetSinkArgs', 'MediaGraphAssetSinkArgsDict']]]]] = None,
+                 sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MediaGraphRtspSourceArgs', 'MediaGraphRtspSourceArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

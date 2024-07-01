@@ -4,18 +4,53 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'ACRArgs',
+    'ACRArgsDict',
     'DeploymentPropertiesArgs',
+    'DeploymentPropertiesArgsDict',
     'GitHubWorkflowProfileOidcCredentialsArgs',
+    'GitHubWorkflowProfileOidcCredentialsArgsDict',
     'WorkflowRunArgs',
+    'WorkflowRunArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ACRArgsDict(TypedDict):
+        """
+        Information on the azure container registry
+        """
+        acr_registry_name: NotRequired[pulumi.Input[str]]
+        """
+        ACR registry
+        """
+        acr_repository_name: NotRequired[pulumi.Input[str]]
+        """
+        ACR repository
+        """
+        acr_resource_group: NotRequired[pulumi.Input[str]]
+        """
+        ACR resource group
+        """
+        acr_subscription_id: NotRequired[pulumi.Input[str]]
+        """
+        ACR subscription id
+        """
+elif False:
+    ACRArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ACRArgs:
@@ -88,6 +123,28 @@ class ACRArgs:
     def acr_subscription_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "acr_subscription_id", value)
 
+
+if not MYPY:
+    class DeploymentPropertiesArgsDict(TypedDict):
+        helm_chart_path: NotRequired[pulumi.Input[str]]
+        """
+        Helm chart directory path in repository.
+        """
+        helm_values: NotRequired[pulumi.Input[str]]
+        """
+        Helm Values.yaml file location in repository.
+        """
+        kube_manifest_locations: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        manifest_type: NotRequired[pulumi.Input[Union[str, 'ManifestType']]]
+        """
+        Determines the type of manifests within the repository.
+        """
+        overrides: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Manifest override values.
+        """
+elif False:
+    DeploymentPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DeploymentPropertiesArgs:
@@ -172,6 +229,22 @@ class DeploymentPropertiesArgs:
         pulumi.set(self, "overrides", value)
 
 
+if not MYPY:
+    class GitHubWorkflowProfileOidcCredentialsArgsDict(TypedDict):
+        """
+        The fields needed for OIDC with GitHub.
+        """
+        azure_client_id: NotRequired[pulumi.Input[str]]
+        """
+        Azure Application Client ID
+        """
+        azure_tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        Azure Directory (tenant) ID
+        """
+elif False:
+    GitHubWorkflowProfileOidcCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GitHubWorkflowProfileOidcCredentialsArgs:
     def __init__(__self__, *,
@@ -211,6 +284,15 @@ class GitHubWorkflowProfileOidcCredentialsArgs:
     def azure_tenant_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "azure_tenant_id", value)
 
+
+if not MYPY:
+    class WorkflowRunArgsDict(TypedDict):
+        workflow_run_status: NotRequired[pulumi.Input[Union[str, 'WorkflowRunStatus']]]
+        """
+        Describes the status of the workflow run
+        """
+elif False:
+    WorkflowRunArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WorkflowRunArgs:

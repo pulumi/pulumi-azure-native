@@ -4,18 +4,45 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'NameValuePairArgs',
+    'NameValuePairArgsDict',
     'NetworkAccessControlEntryArgs',
+    'NetworkAccessControlEntryArgsDict',
     'VirtualNetworkProfileArgs',
+    'VirtualNetworkProfileArgsDict',
     'WorkerPoolArgs',
+    'WorkerPoolArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class NameValuePairArgsDict(TypedDict):
+        """
+        Name value pair.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Pair name.
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        Pair value.
+        """
+elif False:
+    NameValuePairArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NameValuePairArgs:
@@ -56,6 +83,30 @@ class NameValuePairArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class NetworkAccessControlEntryArgsDict(TypedDict):
+        """
+        Network access control entry.
+        """
+        action: NotRequired[pulumi.Input['AccessControlEntryAction']]
+        """
+        Action object.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Description of network access control entry.
+        """
+        order: NotRequired[pulumi.Input[int]]
+        """
+        Order of precedence.
+        """
+        remote_subnet: NotRequired[pulumi.Input[str]]
+        """
+        Remote subnet.
+        """
+elif False:
+    NetworkAccessControlEntryArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NetworkAccessControlEntryArgs:
@@ -129,6 +180,22 @@ class NetworkAccessControlEntryArgs:
         pulumi.set(self, "remote_subnet", value)
 
 
+if not MYPY:
+    class VirtualNetworkProfileArgsDict(TypedDict):
+        """
+        Specification for using a Virtual Network.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource id of the Virtual Network.
+        """
+        subnet: NotRequired[pulumi.Input[str]]
+        """
+        Subnet within the Virtual Network.
+        """
+elif False:
+    VirtualNetworkProfileArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class VirtualNetworkProfileArgs:
     def __init__(__self__, *,
@@ -168,6 +235,30 @@ class VirtualNetworkProfileArgs:
     def subnet(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "subnet", value)
 
+
+if not MYPY:
+    class WorkerPoolArgsDict(TypedDict):
+        """
+        Worker pool of an App Service Environment.
+        """
+        compute_mode: NotRequired[pulumi.Input['ComputeModeOptions']]
+        """
+        Shared or dedicated app hosting.
+        """
+        worker_count: NotRequired[pulumi.Input[int]]
+        """
+        Number of instances in the worker pool.
+        """
+        worker_size: NotRequired[pulumi.Input[str]]
+        """
+        VM size of the worker pool instances.
+        """
+        worker_size_id: NotRequired[pulumi.Input[int]]
+        """
+        Worker size ID for referencing this worker pool.
+        """
+elif False:
+    WorkerPoolArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WorkerPoolArgs:

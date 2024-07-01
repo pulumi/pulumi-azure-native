@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -257,7 +262,7 @@ class ActivityCustomEntityQuery(pulumi.CustomResource):
                  input_entity_type: Optional[pulumi.Input[Union[str, 'EntityType']]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  operational_insights_resource_provider: Optional[pulumi.Input[str]] = None,
-                 query_definitions: Optional[pulumi.Input[pulumi.InputType['ActivityEntityQueriesPropertiesQueryDefinitionsArgs']]] = None,
+                 query_definitions: Optional[pulumi.Input[Union['ActivityEntityQueriesPropertiesQueryDefinitionsArgs', 'ActivityEntityQueriesPropertiesQueryDefinitionsArgsDict']]] = None,
                  required_input_fields_sets: Optional[pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[str]]]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  template_name: Optional[pulumi.Input[str]] = None,
@@ -278,7 +283,7 @@ class ActivityCustomEntityQuery(pulumi.CustomResource):
         :param pulumi.Input[str] kind: The kind of the entity query that supports put request.
                Expected value is 'Activity'.
         :param pulumi.Input[str] operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-        :param pulumi.Input[pulumi.InputType['ActivityEntityQueriesPropertiesQueryDefinitionsArgs']] query_definitions: The Activity query definitions
+        :param pulumi.Input[Union['ActivityEntityQueriesPropertiesQueryDefinitionsArgs', 'ActivityEntityQueriesPropertiesQueryDefinitionsArgsDict']] query_definitions: The Activity query definitions
         :param pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[str]]]]] required_input_fields_sets: List of the fields of the source entity that are required to run the query
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] template_name: The template id this activity was created from
@@ -317,7 +322,7 @@ class ActivityCustomEntityQuery(pulumi.CustomResource):
                  input_entity_type: Optional[pulumi.Input[Union[str, 'EntityType']]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  operational_insights_resource_provider: Optional[pulumi.Input[str]] = None,
-                 query_definitions: Optional[pulumi.Input[pulumi.InputType['ActivityEntityQueriesPropertiesQueryDefinitionsArgs']]] = None,
+                 query_definitions: Optional[pulumi.Input[Union['ActivityEntityQueriesPropertiesQueryDefinitionsArgs', 'ActivityEntityQueriesPropertiesQueryDefinitionsArgsDict']]] = None,
                  required_input_fields_sets: Optional[pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[str]]]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  template_name: Optional[pulumi.Input[str]] = None,

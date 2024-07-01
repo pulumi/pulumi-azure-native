@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -141,7 +146,7 @@ class VirtualNetworkLink(pulumi.CustomResource):
                  registration_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 virtual_network: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
+                 virtual_network: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
                  virtual_network_link_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -155,7 +160,7 @@ class VirtualNetworkLink(pulumi.CustomResource):
         :param pulumi.Input[bool] registration_enabled: Is auto-registration of virtual machine records in the virtual network in the Private DNS zone enabled?
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[pulumi.InputType['SubResourceArgs']] virtual_network: The reference of the virtual network.
+        :param pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']] virtual_network: The reference of the virtual network.
         :param pulumi.Input[str] virtual_network_link_name: The name of the virtual network link.
         """
         ...
@@ -188,7 +193,7 @@ class VirtualNetworkLink(pulumi.CustomResource):
                  registration_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 virtual_network: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
+                 virtual_network: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
                  virtual_network_link_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

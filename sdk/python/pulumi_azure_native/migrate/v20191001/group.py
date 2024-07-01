@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -106,7 +111,7 @@ class Group(pulumi.CustomResource):
                  e_tag: Optional[pulumi.Input[str]] = None,
                  group_name: Optional[pulumi.Input[str]] = None,
                  project_name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['GroupPropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['GroupPropertiesArgs', 'GroupPropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -117,7 +122,7 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[str] e_tag: For optimistic concurrency control.
         :param pulumi.Input[str] group_name: Unique name of a group within a project.
         :param pulumi.Input[str] project_name: Name of the Azure Migrate project.
-        :param pulumi.Input[pulumi.InputType['GroupPropertiesArgs']] properties: Properties of the group.
+        :param pulumi.Input[Union['GroupPropertiesArgs', 'GroupPropertiesArgsDict']] properties: Properties of the group.
         :param pulumi.Input[str] resource_group_name: Name of the Azure Resource Group that project is part of.
         """
         ...
@@ -147,7 +152,7 @@ class Group(pulumi.CustomResource):
                  e_tag: Optional[pulumi.Input[str]] = None,
                  group_name: Optional[pulumi.Input[str]] = None,
                  project_name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['GroupPropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['GroupPropertiesArgs', 'GroupPropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

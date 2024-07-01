@@ -4,65 +4,143 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'ApplicationServerConfigurationArgs',
+    'ApplicationServerConfigurationArgsDict',
     'ApplicationServerFullResourceNamesArgs',
+    'ApplicationServerFullResourceNamesArgsDict',
     'CentralServerConfigurationArgs',
+    'CentralServerConfigurationArgsDict',
     'CentralServerFullResourceNamesArgs',
+    'CentralServerFullResourceNamesArgsDict',
     'CreateAndMountFileShareConfigurationArgs',
+    'CreateAndMountFileShareConfigurationArgsDict',
     'DB2ProviderInstancePropertiesArgs',
+    'DB2ProviderInstancePropertiesArgsDict',
     'DatabaseConfigurationArgs',
+    'DatabaseConfigurationArgsDict',
     'DatabaseServerFullResourceNamesArgs',
+    'DatabaseServerFullResourceNamesArgsDict',
     'DeployerVmPackagesArgs',
+    'DeployerVmPackagesArgsDict',
     'DeploymentConfigurationArgs',
+    'DeploymentConfigurationArgsDict',
     'DeploymentWithOSConfigurationArgs',
+    'DeploymentWithOSConfigurationArgsDict',
     'DiscoveryConfigurationArgs',
+    'DiscoveryConfigurationArgsDict',
     'DiskConfigurationArgs',
+    'DiskConfigurationArgsDict',
     'DiskSkuArgs',
+    'DiskSkuArgsDict',
     'DiskVolumeConfigurationArgs',
+    'DiskVolumeConfigurationArgsDict',
     'ExternalInstallationSoftwareConfigurationArgs',
+    'ExternalInstallationSoftwareConfigurationArgsDict',
     'HanaDbProviderInstancePropertiesArgs',
+    'HanaDbProviderInstancePropertiesArgsDict',
     'HighAvailabilityConfigurationArgs',
+    'HighAvailabilityConfigurationArgsDict',
     'HighAvailabilitySoftwareConfigurationArgs',
+    'HighAvailabilitySoftwareConfigurationArgsDict',
     'ImageReferenceArgs',
+    'ImageReferenceArgsDict',
     'LinuxConfigurationArgs',
+    'LinuxConfigurationArgsDict',
     'LoadBalancerResourceNamesArgs',
+    'LoadBalancerResourceNamesArgsDict',
     'ManagedRGConfigurationArgs',
+    'ManagedRGConfigurationArgsDict',
     'MountFileShareConfigurationArgs',
+    'MountFileShareConfigurationArgsDict',
     'MsSqlServerProviderInstancePropertiesArgs',
+    'MsSqlServerProviderInstancePropertiesArgsDict',
     'NetworkConfigurationArgs',
+    'NetworkConfigurationArgsDict',
     'NetworkInterfaceResourceNamesArgs',
+    'NetworkInterfaceResourceNamesArgsDict',
     'OSProfileArgs',
+    'OSProfileArgsDict',
     'OsSapConfigurationArgs',
+    'OsSapConfigurationArgsDict',
     'PrometheusHaClusterProviderInstancePropertiesArgs',
+    'PrometheusHaClusterProviderInstancePropertiesArgsDict',
     'PrometheusOSProviderInstancePropertiesArgs',
+    'PrometheusOSProviderInstancePropertiesArgsDict',
     'SAPInstallWithoutOSConfigSoftwareConfigurationArgs',
+    'SAPInstallWithoutOSConfigSoftwareConfigurationArgsDict',
     'SapLandscapeMonitorMetricThresholdsArgs',
+    'SapLandscapeMonitorMetricThresholdsArgsDict',
     'SapLandscapeMonitorPropertiesGroupingArgs',
+    'SapLandscapeMonitorPropertiesGroupingArgsDict',
     'SapLandscapeMonitorSidMappingArgs',
+    'SapLandscapeMonitorSidMappingArgsDict',
     'SapNetWeaverProviderInstancePropertiesArgs',
+    'SapNetWeaverProviderInstancePropertiesArgsDict',
     'ServiceInitiatedSoftwareConfigurationArgs',
+    'ServiceInitiatedSoftwareConfigurationArgsDict',
     'SharedStorageResourceNamesArgs',
+    'SharedStorageResourceNamesArgsDict',
     'SingleServerConfigurationArgs',
+    'SingleServerConfigurationArgsDict',
     'SingleServerFullResourceNamesArgs',
+    'SingleServerFullResourceNamesArgsDict',
     'SkipFileShareConfigurationArgs',
+    'SkipFileShareConfigurationArgsDict',
     'SshConfigurationArgs',
+    'SshConfigurationArgsDict',
     'SshKeyPairArgs',
+    'SshKeyPairArgsDict',
     'SshPublicKeyArgs',
+    'SshPublicKeyArgsDict',
     'StorageConfigurationArgs',
+    'StorageConfigurationArgsDict',
     'ThreeTierConfigurationArgs',
+    'ThreeTierConfigurationArgsDict',
     'ThreeTierFullResourceNamesArgs',
+    'ThreeTierFullResourceNamesArgsDict',
     'UserAssignedServiceIdentityArgs',
+    'UserAssignedServiceIdentityArgsDict',
     'VirtualMachineConfigurationArgs',
+    'VirtualMachineConfigurationArgsDict',
     'VirtualMachineResourceNamesArgs',
+    'VirtualMachineResourceNamesArgsDict',
     'WindowsConfigurationArgs',
+    'WindowsConfigurationArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ApplicationServerConfigurationArgsDict(TypedDict):
+        """
+        Gets or sets the application server configuration.
+        """
+        instance_count: pulumi.Input[float]
+        """
+        The number of app server instances.
+        """
+        subnet_id: pulumi.Input[str]
+        """
+        The subnet id.
+        """
+        virtual_machine_configuration: pulumi.Input['VirtualMachineConfigurationArgsDict']
+        """
+        Gets or sets the virtual machine configuration.
+        """
+elif False:
+    ApplicationServerConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApplicationServerConfigurationArgs:
@@ -117,6 +195,22 @@ class ApplicationServerConfigurationArgs:
         pulumi.set(self, "virtual_machine_configuration", value)
 
 
+if not MYPY:
+    class ApplicationServerFullResourceNamesArgsDict(TypedDict):
+        """
+        The full resource names object for application layer resources. The number of entries in this list should be equal to the number VMs to be created for application layer.
+        """
+        availability_set_name: NotRequired[pulumi.Input[str]]
+        """
+        The full name for availability set. In case name is not provided, it will be defaulted to {SID}-App-AvSet.
+        """
+        virtual_machines: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualMachineResourceNamesArgsDict']]]]
+        """
+        The list of virtual machine naming details.
+        """
+elif False:
+    ApplicationServerFullResourceNamesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ApplicationServerFullResourceNamesArgs:
     def __init__(__self__, *,
@@ -156,6 +250,26 @@ class ApplicationServerFullResourceNamesArgs:
     def virtual_machines(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineResourceNamesArgs']]]]):
         pulumi.set(self, "virtual_machines", value)
 
+
+if not MYPY:
+    class CentralServerConfigurationArgsDict(TypedDict):
+        """
+        Gets or sets the central server configuration.
+        """
+        instance_count: pulumi.Input[float]
+        """
+        The number of central server VMs.
+        """
+        subnet_id: pulumi.Input[str]
+        """
+        The subnet id.
+        """
+        virtual_machine_configuration: pulumi.Input['VirtualMachineConfigurationArgsDict']
+        """
+        Gets or sets the virtual machine configuration.
+        """
+elif False:
+    CentralServerConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CentralServerConfigurationArgs:
@@ -209,6 +323,26 @@ class CentralServerConfigurationArgs:
     def virtual_machine_configuration(self, value: pulumi.Input['VirtualMachineConfigurationArgs']):
         pulumi.set(self, "virtual_machine_configuration", value)
 
+
+if not MYPY:
+    class CentralServerFullResourceNamesArgsDict(TypedDict):
+        """
+        The full resource names object for central server layer resources.
+        """
+        availability_set_name: NotRequired[pulumi.Input[str]]
+        """
+        The full name for availability set. In case name is not provided, it will be defaulted to {SID}-ASCS-AvSet.
+        """
+        load_balancer: NotRequired[pulumi.Input['LoadBalancerResourceNamesArgsDict']]
+        """
+        The resource names object for load balancer and related resources.
+        """
+        virtual_machines: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualMachineResourceNamesArgsDict']]]]
+        """
+        The list of names for all ASCS virtual machines to be deployed. The number of entries in this list should be equal to the number VMs to be created for ASCS layer. At maximum, there can be two virtual machines at this layer: ASCS and ERS.
+        """
+elif False:
+    CentralServerFullResourceNamesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CentralServerFullResourceNamesArgs:
@@ -266,6 +400,27 @@ class CentralServerFullResourceNamesArgs:
         pulumi.set(self, "virtual_machines", value)
 
 
+if not MYPY:
+    class CreateAndMountFileShareConfigurationArgsDict(TypedDict):
+        """
+        Gets or sets the file share configuration where the transport directory fileshare is created and mounted as a part of the create infra flow. Please pre-create the resource group you intend to place the transport directory in. The storage account and fileshare will be auto-created by the ACSS and doesn’t need to pre-created.
+        """
+        configuration_type: pulumi.Input[str]
+        """
+        The type of file share config.
+        Expected value is 'CreateAndMount'.
+        """
+        resource_group: NotRequired[pulumi.Input[str]]
+        """
+        The name of transport file share resource group. This should be pre created by the customer. The app rg is used in case of missing input.
+        """
+        storage_account_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of file share storage account name . A custom name is used in case of missing input.
+        """
+elif False:
+    CreateAndMountFileShareConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CreateAndMountFileShareConfigurationArgs:
     def __init__(__self__, *,
@@ -322,6 +477,55 @@ class CreateAndMountFileShareConfigurationArgs:
     def storage_account_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "storage_account_name", value)
 
+
+if not MYPY:
+    class DB2ProviderInstancePropertiesArgsDict(TypedDict):
+        """
+        Gets or sets the DB2 provider properties.
+        """
+        provider_type: pulumi.Input[str]
+        """
+        The provider type. For example, the value can be SapHana.
+        Expected value is 'Db2'.
+        """
+        db_name: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the db2 database name.
+        """
+        db_password: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the db2 database password.
+        """
+        db_password_uri: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the key vault URI to secret with the database password.
+        """
+        db_port: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the db2 database sql port.
+        """
+        db_username: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the db2 database user name.
+        """
+        hostname: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the target virtual machine name.
+        """
+        sap_sid: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the SAP System Identifier
+        """
+        ssl_certificate_uri: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the blob URI to SSL certificate for the DB2 Database.
+        """
+        ssl_preference: NotRequired[pulumi.Input[Union[str, 'SslPreference']]]
+        """
+        Gets or sets certificate preference if secure communication is enabled.
+        """
+elif False:
+    DB2ProviderInstancePropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DB2ProviderInstancePropertiesArgs:
@@ -492,6 +696,34 @@ class DB2ProviderInstancePropertiesArgs:
         pulumi.set(self, "ssl_preference", value)
 
 
+if not MYPY:
+    class DatabaseConfigurationArgsDict(TypedDict):
+        """
+        Gets or sets the database configuration.
+        """
+        instance_count: pulumi.Input[float]
+        """
+        The number of database VMs.
+        """
+        subnet_id: pulumi.Input[str]
+        """
+        The subnet id.
+        """
+        virtual_machine_configuration: pulumi.Input['VirtualMachineConfigurationArgsDict']
+        """
+        Gets or sets the virtual machine configuration.
+        """
+        database_type: NotRequired[pulumi.Input[Union[str, 'SAPDatabaseType']]]
+        """
+        The database type.
+        """
+        disk_configuration: NotRequired[pulumi.Input['DiskConfigurationArgsDict']]
+        """
+        Gets or sets the disk configuration.
+        """
+elif False:
+    DatabaseConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DatabaseConfigurationArgs:
     def __init__(__self__, *,
@@ -577,6 +809,26 @@ class DatabaseConfigurationArgs:
         pulumi.set(self, "disk_configuration", value)
 
 
+if not MYPY:
+    class DatabaseServerFullResourceNamesArgsDict(TypedDict):
+        """
+        The full resource names object for database layer resources. The number of entries in this list should be equal to the number VMs to be created for database layer.
+        """
+        availability_set_name: NotRequired[pulumi.Input[str]]
+        """
+        The full name for availability set. In case name is not provided, it will be defaulted to {SID}-DB-AvSet.
+        """
+        load_balancer: NotRequired[pulumi.Input['LoadBalancerResourceNamesArgsDict']]
+        """
+        The resource names object for load balancer and related resources.
+        """
+        virtual_machines: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualMachineResourceNamesArgsDict']]]]
+        """
+        The list of virtual machine naming details.
+        """
+elif False:
+    DatabaseServerFullResourceNamesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DatabaseServerFullResourceNamesArgs:
     def __init__(__self__, *,
@@ -633,6 +885,22 @@ class DatabaseServerFullResourceNamesArgs:
         pulumi.set(self, "virtual_machines", value)
 
 
+if not MYPY:
+    class DeployerVmPackagesArgsDict(TypedDict):
+        """
+        Defines the url and storage account ID where deployer VM packages are uploaded
+        """
+        storage_account_id: NotRequired[pulumi.Input[str]]
+        """
+        The deployer VM packages storage account id
+        """
+        url: NotRequired[pulumi.Input[str]]
+        """
+        The URL to the deployer VM packages file.
+        """
+elif False:
+    DeployerVmPackagesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DeployerVmPackagesArgs:
     def __init__(__self__, *,
@@ -672,6 +940,31 @@ class DeployerVmPackagesArgs:
     def url(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "url", value)
 
+
+if not MYPY:
+    class DeploymentConfigurationArgsDict(TypedDict):
+        """
+        Deployment Configuration.
+        """
+        configuration_type: pulumi.Input[str]
+        """
+        The configuration Type.
+        Expected value is 'Deployment'.
+        """
+        app_location: NotRequired[pulumi.Input[str]]
+        """
+        The geo-location where the SAP system is to be created.
+        """
+        infrastructure_configuration: NotRequired[pulumi.Input[Union['SingleServerConfigurationArgsDict', 'ThreeTierConfigurationArgsDict']]]
+        """
+        The infrastructure configuration.
+        """
+        software_configuration: NotRequired[pulumi.Input[Union['ExternalInstallationSoftwareConfigurationArgsDict', 'SAPInstallWithoutOSConfigSoftwareConfigurationArgsDict', 'ServiceInitiatedSoftwareConfigurationArgsDict']]]
+        """
+        The software configuration.
+        """
+elif False:
+    DeploymentConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DeploymentConfigurationArgs:
@@ -745,6 +1038,35 @@ class DeploymentConfigurationArgs:
     def software_configuration(self, value: Optional[pulumi.Input[Union['ExternalInstallationSoftwareConfigurationArgs', 'SAPInstallWithoutOSConfigSoftwareConfigurationArgs', 'ServiceInitiatedSoftwareConfigurationArgs']]]):
         pulumi.set(self, "software_configuration", value)
 
+
+if not MYPY:
+    class DeploymentWithOSConfigurationArgsDict(TypedDict):
+        """
+        Deployment along with OS Configuration.
+        """
+        configuration_type: pulumi.Input[str]
+        """
+        The configuration Type.
+        Expected value is 'DeploymentWithOSConfig'.
+        """
+        app_location: NotRequired[pulumi.Input[str]]
+        """
+        The geo-location where the SAP system is to be created.
+        """
+        infrastructure_configuration: NotRequired[pulumi.Input[Union['SingleServerConfigurationArgsDict', 'ThreeTierConfigurationArgsDict']]]
+        """
+        The infrastructure configuration.
+        """
+        os_sap_configuration: NotRequired[pulumi.Input['OsSapConfigurationArgsDict']]
+        """
+        The OS and SAP configuration.
+        """
+        software_configuration: NotRequired[pulumi.Input[Union['ExternalInstallationSoftwareConfigurationArgsDict', 'SAPInstallWithoutOSConfigSoftwareConfigurationArgsDict', 'ServiceInitiatedSoftwareConfigurationArgsDict']]]
+        """
+        The software configuration.
+        """
+elif False:
+    DeploymentWithOSConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DeploymentWithOSConfigurationArgs:
@@ -835,6 +1157,27 @@ class DeploymentWithOSConfigurationArgs:
         pulumi.set(self, "software_configuration", value)
 
 
+if not MYPY:
+    class DiscoveryConfigurationArgsDict(TypedDict):
+        """
+        Discovery Details.
+        """
+        configuration_type: pulumi.Input[str]
+        """
+        The configuration Type.
+        Expected value is 'Discovery'.
+        """
+        central_server_vm_id: NotRequired[pulumi.Input[str]]
+        """
+        The virtual machine ID of the Central Server.
+        """
+        managed_rg_storage_account_name: NotRequired[pulumi.Input[str]]
+        """
+        The custom storage account name for the storage account created by the service in the managed resource group created as part of VIS deployment.<br><br>Refer to the storage account naming rules [here](https://learn.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftstorage).<br><br>If not provided, the service will create the storage account with a random name.
+        """
+elif False:
+    DiscoveryConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DiscoveryConfigurationArgs:
     def __init__(__self__, *,
@@ -892,6 +1235,18 @@ class DiscoveryConfigurationArgs:
         pulumi.set(self, "managed_rg_storage_account_name", value)
 
 
+if not MYPY:
+    class DiskConfigurationArgsDict(TypedDict):
+        """
+        The Disk Configuration Details.
+        """
+        disk_volume_configurations: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['DiskVolumeConfigurationArgsDict']]]]
+        """
+        The disk configuration for the db volume. For HANA, Required volumes are: ['hana/data', 'hana/log', hana/shared', 'usr/sap', 'os'], Optional volume : ['backup'].
+        """
+elif False:
+    DiskConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DiskConfigurationArgs:
     def __init__(__self__, *,
@@ -916,6 +1271,18 @@ class DiskConfigurationArgs:
         pulumi.set(self, "disk_volume_configurations", value)
 
 
+if not MYPY:
+    class DiskSkuArgsDict(TypedDict):
+        """
+        The type of disk sku. For example, Standard_LRS, Standard_ZRS, Premium_LRS, Premium_ZRS.
+        """
+        name: NotRequired[pulumi.Input[Union[str, 'DiskSkuName']]]
+        """
+        Defines the disk sku name.
+        """
+elif False:
+    DiskSkuArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DiskSkuArgs:
     def __init__(__self__, *,
@@ -939,6 +1306,26 @@ class DiskSkuArgs:
     def name(self, value: Optional[pulumi.Input[Union[str, 'DiskSkuName']]]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class DiskVolumeConfigurationArgsDict(TypedDict):
+        """
+        The disk configuration required for the selected volume.
+        """
+        count: NotRequired[pulumi.Input[float]]
+        """
+        The total number of disks required for the concerned volume.
+        """
+        size_gb: NotRequired[pulumi.Input[float]]
+        """
+        The disk size in GB.
+        """
+        sku: NotRequired[pulumi.Input['DiskSkuArgsDict']]
+        """
+        The disk SKU details.
+        """
+elif False:
+    DiskVolumeConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DiskVolumeConfigurationArgs:
@@ -996,6 +1383,23 @@ class DiskVolumeConfigurationArgs:
         pulumi.set(self, "sku", value)
 
 
+if not MYPY:
+    class ExternalInstallationSoftwareConfigurationArgsDict(TypedDict):
+        """
+        The SAP Software configuration Input when the software is installed externally outside the service.
+        """
+        software_installation_type: pulumi.Input[str]
+        """
+        The SAP software installation Type.
+        Expected value is 'External'.
+        """
+        central_server_vm_id: NotRequired[pulumi.Input[str]]
+        """
+        The resource ID of the virtual machine containing the central server instance.
+        """
+elif False:
+    ExternalInstallationSoftwareConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ExternalInstallationSoftwareConfigurationArgs:
     def __init__(__self__, *,
@@ -1036,6 +1440,63 @@ class ExternalInstallationSoftwareConfigurationArgs:
     def central_server_vm_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "central_server_vm_id", value)
 
+
+if not MYPY:
+    class HanaDbProviderInstancePropertiesArgsDict(TypedDict):
+        """
+        Gets or sets the provider properties.
+        """
+        provider_type: pulumi.Input[str]
+        """
+        The provider type. For example, the value can be SapHana.
+        Expected value is 'SapHana'.
+        """
+        db_name: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the hana database name.
+        """
+        db_password: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the database password.
+        """
+        db_password_uri: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the key vault URI to secret with the database password.
+        """
+        db_username: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the database user name.
+        """
+        hostname: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the target virtual machine size.
+        """
+        instance_number: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the database instance number.
+        """
+        sap_sid: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the SAP System Identifier.
+        """
+        sql_port: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the database sql port.
+        """
+        ssl_certificate_uri: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the blob URI to SSL certificate for the DB.
+        """
+        ssl_host_name_in_certificate: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the hostname(s) in the SSL certificate.
+        """
+        ssl_preference: NotRequired[pulumi.Input[Union[str, 'SslPreference']]]
+        """
+        Gets or sets certificate preference if secure communication is enabled.
+        """
+elif False:
+    HanaDbProviderInstancePropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class HanaDbProviderInstancePropertiesArgs:
@@ -1238,6 +1699,18 @@ class HanaDbProviderInstancePropertiesArgs:
         pulumi.set(self, "ssl_preference", value)
 
 
+if not MYPY:
+    class HighAvailabilityConfigurationArgsDict(TypedDict):
+        """
+        Gets or sets the high availability configuration.
+        """
+        high_availability_type: pulumi.Input[Union[str, 'SAPHighAvailabilityType']]
+        """
+        The high availability type.
+        """
+elif False:
+    HighAvailabilityConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class HighAvailabilityConfigurationArgs:
     def __init__(__self__, *,
@@ -1260,6 +1733,22 @@ class HighAvailabilityConfigurationArgs:
     def high_availability_type(self, value: pulumi.Input[Union[str, 'SAPHighAvailabilityType']]):
         pulumi.set(self, "high_availability_type", value)
 
+
+if not MYPY:
+    class HighAvailabilitySoftwareConfigurationArgsDict(TypedDict):
+        """
+        Gets or sets the HA software configuration.
+        """
+        fencing_client_id: pulumi.Input[str]
+        """
+        The fencing client id.
+        """
+        fencing_client_password: pulumi.Input[str]
+        """
+        The fencing client id secret/password. The secret should never expire. This will be used pacemaker to start/stop the cluster VMs.
+        """
+elif False:
+    HighAvailabilitySoftwareConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class HighAvailabilitySoftwareConfigurationArgs:
@@ -1298,6 +1787,30 @@ class HighAvailabilitySoftwareConfigurationArgs:
     def fencing_client_password(self, value: pulumi.Input[str]):
         pulumi.set(self, "fencing_client_password", value)
 
+
+if not MYPY:
+    class ImageReferenceArgsDict(TypedDict):
+        """
+        Specifies information about the image to use. You can specify information about platform images, marketplace images, or virtual machine images. This element is required when you want to use a platform image, marketplace image, or virtual machine image, but is not used in other creation operations. NOTE: Image reference publisher and offer can only be set when you create the scale set.
+        """
+        offer: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the offer of the platform image or marketplace image used to create the virtual machine.
+        """
+        publisher: NotRequired[pulumi.Input[str]]
+        """
+        The image publisher.
+        """
+        sku: NotRequired[pulumi.Input[str]]
+        """
+        The image SKU.
+        """
+        version: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the version of the platform image or marketplace image used to create the virtual machine. The allowed formats are Major.Minor.Build or 'latest'. Major, Minor, and Build are decimal numbers. Specify 'latest' to use the latest version of an image available at deploy time. Even if you use 'latest', the VM image will not automatically update after deploy time even if a new version becomes available.
+        """
+elif False:
+    ImageReferenceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ImageReferenceArgs:
@@ -1370,6 +1883,31 @@ class ImageReferenceArgs:
     def version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "version", value)
 
+
+if not MYPY:
+    class LinuxConfigurationArgsDict(TypedDict):
+        """
+        Specifies the Linux operating system settings on the virtual machine. <br><br>For a list of supported Linux distributions, see [Linux on Azure-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
+        """
+        os_type: pulumi.Input[str]
+        """
+        The OS Type
+        Expected value is 'Linux'.
+        """
+        disable_password_authentication: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies whether password authentication should be disabled.
+        """
+        ssh: NotRequired[pulumi.Input['SshConfigurationArgsDict']]
+        """
+        Specifies the ssh key configuration for a Linux OS. (This property is deprecated, please use 'sshKeyPair' instead)
+        """
+        ssh_key_pair: NotRequired[pulumi.Input['SshKeyPairArgsDict']]
+        """
+        The SSH Key-pair used to authenticate with the VM's.
+        """
+elif False:
+    LinuxConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LinuxConfigurationArgs:
@@ -1444,6 +1982,30 @@ class LinuxConfigurationArgs:
         pulumi.set(self, "ssh_key_pair", value)
 
 
+if not MYPY:
+    class LoadBalancerResourceNamesArgsDict(TypedDict):
+        """
+        The resource names object for load balancer and related resources.
+        """
+        backend_pool_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of backend pool names. Currently, ACSS deploys only one backend pool and hence, size of this list should be 1
+        """
+        frontend_ip_configuration_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of frontend IP configuration names. If provided as input, size of this list should be 2 for cs layer and should be 1 for database layer.
+        """
+        health_probe_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of health probe names. If provided as input, size of this list should be 2 for cs layer and should be 1 for database layer.
+        """
+        load_balancer_name: NotRequired[pulumi.Input[str]]
+        """
+        The full resource name for load balancer. If this value is not provided, load balancer will be name as {ASCS/DB}-loadBalancer.
+        """
+elif False:
+    LoadBalancerResourceNamesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LoadBalancerResourceNamesArgs:
     def __init__(__self__, *,
@@ -1516,6 +2078,18 @@ class LoadBalancerResourceNamesArgs:
         pulumi.set(self, "load_balancer_name", value)
 
 
+if not MYPY:
+    class ManagedRGConfigurationArgsDict(TypedDict):
+        """
+        Managed resource group configuration
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Managed resource group name
+        """
+elif False:
+    ManagedRGConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ManagedRGConfigurationArgs:
     def __init__(__self__, *,
@@ -1539,6 +2113,27 @@ class ManagedRGConfigurationArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class MountFileShareConfigurationArgsDict(TypedDict):
+        """
+        Gets or sets the file share configuration where the transport directory fileshare already exists, and user wishes to mount the fileshare as a part of the create infra flow.
+        """
+        configuration_type: pulumi.Input[str]
+        """
+        The type of file share config.
+        Expected value is 'Mount'.
+        """
+        id: pulumi.Input[str]
+        """
+        The fileshare resource ID
+        """
+        private_endpoint_id: pulumi.Input[str]
+        """
+        The private endpoint resource ID
+        """
+elif False:
+    MountFileShareConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MountFileShareConfigurationArgs:
@@ -1594,6 +2189,51 @@ class MountFileShareConfigurationArgs:
     def private_endpoint_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "private_endpoint_id", value)
 
+
+if not MYPY:
+    class MsSqlServerProviderInstancePropertiesArgsDict(TypedDict):
+        """
+        Gets or sets the SQL server provider properties.
+        """
+        provider_type: pulumi.Input[str]
+        """
+        The provider type. For example, the value can be SapHana.
+        Expected value is 'MsSqlServer'.
+        """
+        db_password: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the database password.
+        """
+        db_password_uri: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the key vault URI to secret with the database password.
+        """
+        db_port: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the database sql port.
+        """
+        db_username: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the database user name.
+        """
+        hostname: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the SQL server host name.
+        """
+        sap_sid: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the SAP System Identifier
+        """
+        ssl_certificate_uri: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the blob URI to SSL certificate for the SQL Database.
+        """
+        ssl_preference: NotRequired[pulumi.Input[Union[str, 'SslPreference']]]
+        """
+        Gets or sets certificate preference if secure communication is enabled.
+        """
+elif False:
+    MsSqlServerProviderInstancePropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MsSqlServerProviderInstancePropertiesArgs:
@@ -1748,6 +2388,18 @@ class MsSqlServerProviderInstancePropertiesArgs:
         pulumi.set(self, "ssl_preference", value)
 
 
+if not MYPY:
+    class NetworkConfigurationArgsDict(TypedDict):
+        """
+        Defines the network configuration type for SAP system infrastructure that is being deployed 
+        """
+        is_secondary_ip_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies whether a secondary IP address should be added to the network interface on all VMs of the SAP system being deployed
+        """
+elif False:
+    NetworkConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NetworkConfigurationArgs:
     def __init__(__self__, *,
@@ -1774,6 +2426,18 @@ class NetworkConfigurationArgs:
         pulumi.set(self, "is_secondary_ip_enabled", value)
 
 
+if not MYPY:
+    class NetworkInterfaceResourceNamesArgsDict(TypedDict):
+        """
+        The resource names object for network interface and related resources.
+        """
+        network_interface_name: NotRequired[pulumi.Input[str]]
+        """
+        The full name for network interface. If name is not provided, service uses a default name based on the deployment type. For SingleServer, default name is {SID}-Nic. In case of HA-AvZone systems, default name will be {SID}-{App/ASCS/DB}-Zone{A/B}-Nic with an incrementor at the end in case of more than 1 instance per layer. For distributed and HA-AvSet systems, default name will be {SID}-{App/ASCS/DB}-Nic with an incrementor at the end in case of more than 1 instance per layer.
+        """
+elif False:
+    NetworkInterfaceResourceNamesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NetworkInterfaceResourceNamesArgs:
     def __init__(__self__, *,
@@ -1797,6 +2461,26 @@ class NetworkInterfaceResourceNamesArgs:
     def network_interface_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "network_interface_name", value)
 
+
+if not MYPY:
+    class OSProfileArgsDict(TypedDict):
+        """
+        Specifies the operating system settings for the virtual machine. Some of the settings cannot be changed once VM is provisioned.
+        """
+        admin_password: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the password of the administrator account. <br><br> **Minimum-length (Windows):** 8 characters <br><br> **Minimum-length (Linux):** 6 characters <br><br> **Max-length (Windows):** 123 characters <br><br> **Max-length (Linux):** 72 characters <br><br> **Complexity requirements:** 3 out of 4 conditions below need to be fulfilled <br> Has lower characters <br>Has upper characters <br> Has a digit <br> Has a special character (Regex match [\\W_]) <br><br> **Disallowed values:** "abc@123", "P@$$w0rd", "P@ssw0rd", "P@ssword123", "Pa$$word", "pass@word1", "Password!", "Password1", "Password22", "iloveyou!" <br><br> For resetting the password, see [How to reset the Remote Desktop service or its login password in a Windows VM](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/reset-rdp) <br><br> For resetting root password, see [Manage users, SSH, and check or repair disks on Azure Linux VMs using the VMAccess Extension](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection)
+        """
+        admin_username: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the name of the administrator account. <br><br> This property cannot be updated after the VM is created. <br><br> **Windows-only restriction:** Cannot end in "." <br><br> **Disallowed values:** "administrator", "admin", "user", "user1", "test", "user2", "test1", "user3", "admin1", "1", "123", "a", "actuser", "adm", "admin2", "aspnet", "backup", "console", "david", "guest", "john", "owner", "root", "server", "sql", "support", "support_388945a0", "sys", "test2", "test3", "user4", "user5". <br><br> **Minimum-length (Linux):** 1  character <br><br> **Max-length (Linux):** 64 characters <br><br> **Max-length (Windows):** 20 characters.
+        """
+        os_configuration: NotRequired[pulumi.Input[Union['LinuxConfigurationArgsDict', 'WindowsConfigurationArgsDict']]]
+        """
+        Specifies Windows operating system settings on the virtual machine.
+        """
+elif False:
+    OSProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OSProfileArgs:
@@ -1854,6 +2538,22 @@ class OSProfileArgs:
         pulumi.set(self, "os_configuration", value)
 
 
+if not MYPY:
+    class OsSapConfigurationArgsDict(TypedDict):
+        """
+        Defines the OS and SAP Configurations for Deployment
+        """
+        deployer_vm_packages: NotRequired[pulumi.Input['DeployerVmPackagesArgsDict']]
+        """
+        The url and storage account ID where deployer VM packages are uploaded
+        """
+        sap_fqdn: NotRequired[pulumi.Input[str]]
+        """
+        The FQDN to set for the SAP system
+        """
+elif False:
+    OsSapConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OsSapConfigurationArgs:
     def __init__(__self__, *,
@@ -1893,6 +2593,43 @@ class OsSapConfigurationArgs:
     def sap_fqdn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "sap_fqdn", value)
 
+
+if not MYPY:
+    class PrometheusHaClusterProviderInstancePropertiesArgsDict(TypedDict):
+        """
+        Gets or sets the PrometheusHaCluster provider properties.
+        """
+        provider_type: pulumi.Input[str]
+        """
+        The provider type. For example, the value can be SapHana.
+        Expected value is 'PrometheusHaCluster'.
+        """
+        cluster_name: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the clusterName.
+        """
+        hostname: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the target machine name.
+        """
+        prometheus_url: NotRequired[pulumi.Input[str]]
+        """
+        URL of the Node Exporter endpoint.
+        """
+        sid: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the cluster sid.
+        """
+        ssl_certificate_uri: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the blob URI to SSL certificate for the HA cluster exporter.
+        """
+        ssl_preference: NotRequired[pulumi.Input[Union[str, 'SslPreference']]]
+        """
+        Gets or sets certificate preference if secure communication is enabled.
+        """
+elif False:
+    PrometheusHaClusterProviderInstancePropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PrometheusHaClusterProviderInstancePropertiesArgs:
@@ -2015,6 +2752,35 @@ class PrometheusHaClusterProviderInstancePropertiesArgs:
         pulumi.set(self, "ssl_preference", value)
 
 
+if not MYPY:
+    class PrometheusOSProviderInstancePropertiesArgsDict(TypedDict):
+        """
+        Gets or sets the PrometheusOS provider properties.
+        """
+        provider_type: pulumi.Input[str]
+        """
+        The provider type. For example, the value can be SapHana.
+        Expected value is 'PrometheusOS'.
+        """
+        prometheus_url: NotRequired[pulumi.Input[str]]
+        """
+        URL of the Node Exporter endpoint
+        """
+        sap_sid: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the SAP System Identifier
+        """
+        ssl_certificate_uri: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the blob URI to SSL certificate for the prometheus node exporter.
+        """
+        ssl_preference: NotRequired[pulumi.Input[Union[str, 'SslPreference']]]
+        """
+        Gets or sets certificate preference if secure communication is enabled.
+        """
+elif False:
+    PrometheusOSProviderInstancePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PrometheusOSProviderInstancePropertiesArgs:
     def __init__(__self__, *,
@@ -2104,6 +2870,35 @@ class PrometheusOSProviderInstancePropertiesArgs:
         pulumi.set(self, "ssl_preference", value)
 
 
+if not MYPY:
+    class SAPInstallWithoutOSConfigSoftwareConfigurationArgsDict(TypedDict):
+        """
+        The SAP Software configuration Input when the software is to be installed by service without OS Configurations
+        """
+        bom_url: pulumi.Input[str]
+        """
+        The URL to the SAP Build of Materials(BOM) file.
+        """
+        sap_bits_storage_account_id: pulumi.Input[str]
+        """
+        The SAP bits storage account id.
+        """
+        software_installation_type: pulumi.Input[str]
+        """
+        The SAP software installation Type.
+        Expected value is 'SAPInstallWithoutOSConfig'.
+        """
+        software_version: pulumi.Input[str]
+        """
+        The software version to install.
+        """
+        high_availability_software_configuration: NotRequired[pulumi.Input['HighAvailabilitySoftwareConfigurationArgsDict']]
+        """
+        Gets or sets the HA software configuration.
+        """
+elif False:
+    SAPInstallWithoutOSConfigSoftwareConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SAPInstallWithoutOSConfigSoftwareConfigurationArgs:
     def __init__(__self__, *,
@@ -2190,6 +2985,30 @@ class SAPInstallWithoutOSConfigSoftwareConfigurationArgs:
         pulumi.set(self, "high_availability_software_configuration", value)
 
 
+if not MYPY:
+    class SapLandscapeMonitorMetricThresholdsArgsDict(TypedDict):
+        """
+        Gets or sets the Threshold Values for Top Metrics Health.
+        """
+        green: NotRequired[pulumi.Input[float]]
+        """
+        Gets or sets the threshold value for Green.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the name of the threshold.
+        """
+        red: NotRequired[pulumi.Input[float]]
+        """
+        Gets or sets the threshold value for Red.
+        """
+        yellow: NotRequired[pulumi.Input[float]]
+        """
+        Gets or sets the threshold value for Yellow.
+        """
+elif False:
+    SapLandscapeMonitorMetricThresholdsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SapLandscapeMonitorMetricThresholdsArgs:
     def __init__(__self__, *,
@@ -2262,6 +3081,22 @@ class SapLandscapeMonitorMetricThresholdsArgs:
         pulumi.set(self, "yellow", value)
 
 
+if not MYPY:
+    class SapLandscapeMonitorPropertiesGroupingArgsDict(TypedDict):
+        """
+        Gets or sets the SID groupings by landscape and Environment.
+        """
+        landscape: NotRequired[pulumi.Input[Sequence[pulumi.Input['SapLandscapeMonitorSidMappingArgsDict']]]]
+        """
+        Gets or sets the list of landscape to SID mappings.
+        """
+        sap_application: NotRequired[pulumi.Input[Sequence[pulumi.Input['SapLandscapeMonitorSidMappingArgsDict']]]]
+        """
+        Gets or sets the list of Sap Applications to SID mappings.
+        """
+elif False:
+    SapLandscapeMonitorPropertiesGroupingArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SapLandscapeMonitorPropertiesGroupingArgs:
     def __init__(__self__, *,
@@ -2302,6 +3137,22 @@ class SapLandscapeMonitorPropertiesGroupingArgs:
         pulumi.set(self, "sap_application", value)
 
 
+if not MYPY:
+    class SapLandscapeMonitorSidMappingArgsDict(TypedDict):
+        """
+        Gets or sets the mapping for SID to Environment/Applications.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the name of the grouping.
+        """
+        top_sid: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Gets or sets the list of SID's.
+        """
+elif False:
+    SapLandscapeMonitorSidMappingArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SapLandscapeMonitorSidMappingArgs:
     def __init__(__self__, *,
@@ -2341,6 +3192,63 @@ class SapLandscapeMonitorSidMappingArgs:
     def top_sid(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "top_sid", value)
 
+
+if not MYPY:
+    class SapNetWeaverProviderInstancePropertiesArgsDict(TypedDict):
+        """
+        Gets or sets the provider properties.
+        """
+        provider_type: pulumi.Input[str]
+        """
+        The provider type. For example, the value can be SapHana.
+        Expected value is 'SapNetWeaver'.
+        """
+        sap_client_id: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the SAP Client ID.
+        """
+        sap_host_file_entries: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Gets or sets the list of HostFile Entries
+        """
+        sap_hostname: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the target virtual machine IP Address/FQDN.
+        """
+        sap_instance_nr: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the instance number of SAP NetWeaver.
+        """
+        sap_password: NotRequired[pulumi.Input[str]]
+        """
+        Sets the SAP password.
+        """
+        sap_password_uri: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the key vault URI to secret with the SAP password.
+        """
+        sap_port_number: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the SAP HTTP port number.
+        """
+        sap_sid: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the SAP System Identifier
+        """
+        sap_username: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the SAP user name.
+        """
+        ssl_certificate_uri: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the blob URI to SSL certificate for the SAP system.
+        """
+        ssl_preference: NotRequired[pulumi.Input[Union[str, 'SslPreference']]]
+        """
+        Gets or sets certificate preference if secure communication is enabled.
+        """
+elif False:
+    SapNetWeaverProviderInstancePropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SapNetWeaverProviderInstancePropertiesArgs:
@@ -2543,6 +3451,43 @@ class SapNetWeaverProviderInstancePropertiesArgs:
         pulumi.set(self, "ssl_preference", value)
 
 
+if not MYPY:
+    class ServiceInitiatedSoftwareConfigurationArgsDict(TypedDict):
+        """
+        The SAP Software configuration Input when the software is to be installed by service.
+        """
+        bom_url: pulumi.Input[str]
+        """
+        The URL to the SAP Build of Materials(BOM) file.
+        """
+        sap_bits_storage_account_id: pulumi.Input[str]
+        """
+        The SAP bits storage account id.
+        """
+        sap_fqdn: pulumi.Input[str]
+        """
+        The FQDN to set for the SAP system during install.
+        """
+        software_installation_type: pulumi.Input[str]
+        """
+        The SAP software installation Type.
+        Expected value is 'ServiceInitiated'.
+        """
+        software_version: pulumi.Input[str]
+        """
+        The software version to install.
+        """
+        ssh_private_key: pulumi.Input[str]
+        """
+        The SSH private key.
+        """
+        high_availability_software_configuration: NotRequired[pulumi.Input['HighAvailabilitySoftwareConfigurationArgsDict']]
+        """
+        Gets or sets the HA software configuration.
+        """
+elif False:
+    ServiceInitiatedSoftwareConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ServiceInitiatedSoftwareConfigurationArgs:
     def __init__(__self__, *,
@@ -2659,6 +3604,22 @@ class ServiceInitiatedSoftwareConfigurationArgs:
         pulumi.set(self, "high_availability_software_configuration", value)
 
 
+if not MYPY:
+    class SharedStorageResourceNamesArgsDict(TypedDict):
+        """
+        The resource names object for shared storage.
+        """
+        shared_storage_account_name: NotRequired[pulumi.Input[str]]
+        """
+        The full name of the shared storage account. If it is not provided, it will be defaulted to {SID}nfs{guid of 15 chars}.
+        """
+        shared_storage_account_private_end_point_name: NotRequired[pulumi.Input[str]]
+        """
+        The full name of private end point for the shared storage account. If it is not provided, it will be defaulted to {storageAccountName}_pe
+        """
+elif False:
+    SharedStorageResourceNamesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SharedStorageResourceNamesArgs:
     def __init__(__self__, *,
@@ -2698,6 +3659,47 @@ class SharedStorageResourceNamesArgs:
     def shared_storage_account_private_end_point_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "shared_storage_account_private_end_point_name", value)
 
+
+if not MYPY:
+    class SingleServerConfigurationArgsDict(TypedDict):
+        """
+        Gets or sets the single server configuration. For prerequisites for creating the infrastructure, please see [here](https://go.microsoft.com/fwlink/?linkid=2212611&clcid=0x409)
+        """
+        app_resource_group: pulumi.Input[str]
+        """
+        The application resource group where SAP system resources will be deployed.
+        """
+        deployment_type: pulumi.Input[str]
+        """
+        The type of SAP deployment, single server or Three tier.
+        Expected value is 'SingleServer'.
+        """
+        subnet_id: pulumi.Input[str]
+        """
+        The subnet id.
+        """
+        virtual_machine_configuration: pulumi.Input['VirtualMachineConfigurationArgsDict']
+        """
+        Gets or sets the virtual machine configuration.
+        """
+        custom_resource_names: NotRequired[pulumi.Input['SingleServerFullResourceNamesArgsDict']]
+        """
+        The set of custom names to be used for underlying azure resources that are part of the SAP system.
+        """
+        database_type: NotRequired[pulumi.Input[Union[str, 'SAPDatabaseType']]]
+        """
+        The database type.
+        """
+        db_disk_configuration: NotRequired[pulumi.Input['DiskConfigurationArgsDict']]
+        """
+        Gets or sets the disk configuration.
+        """
+        network_configuration: NotRequired[pulumi.Input['NetworkConfigurationArgsDict']]
+        """
+        Network configuration for the server
+        """
+elif False:
+    SingleServerConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SingleServerConfigurationArgs:
@@ -2833,6 +3835,23 @@ class SingleServerConfigurationArgs:
         pulumi.set(self, "network_configuration", value)
 
 
+if not MYPY:
+    class SingleServerFullResourceNamesArgsDict(TypedDict):
+        """
+        The resource name object where the specified values will be full resource names of the corresponding resources in a single server SAP system.
+        """
+        naming_pattern_type: pulumi.Input[str]
+        """
+        The pattern type to be used for resource naming.
+        Expected value is 'FullResourceName'.
+        """
+        virtual_machine: NotRequired[pulumi.Input['VirtualMachineResourceNamesArgsDict']]
+        """
+        The resource names object for virtual machine and related resources.
+        """
+elif False:
+    SingleServerFullResourceNamesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SingleServerFullResourceNamesArgs:
     def __init__(__self__, *,
@@ -2874,6 +3893,19 @@ class SingleServerFullResourceNamesArgs:
         pulumi.set(self, "virtual_machine", value)
 
 
+if not MYPY:
+    class SkipFileShareConfigurationArgsDict(TypedDict):
+        """
+        Gets or sets the file share configuration for scenarios where transport directory fileshare is not created or required.
+        """
+        configuration_type: pulumi.Input[str]
+        """
+        The type of file share config.
+        Expected value is 'Skip'.
+        """
+elif False:
+    SkipFileShareConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SkipFileShareConfigurationArgs:
     def __init__(__self__, *,
@@ -2899,6 +3931,18 @@ class SkipFileShareConfigurationArgs:
         pulumi.set(self, "configuration_type", value)
 
 
+if not MYPY:
+    class SshConfigurationArgsDict(TypedDict):
+        """
+        SSH configuration for Linux based VMs running on Azure
+        """
+        public_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input['SshPublicKeyArgsDict']]]]
+        """
+        The list of SSH public keys used to authenticate with linux based VMs.
+        """
+elif False:
+    SshConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SshConfigurationArgs:
     def __init__(__self__, *,
@@ -2922,6 +3966,22 @@ class SshConfigurationArgs:
     def public_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SshPublicKeyArgs']]]]):
         pulumi.set(self, "public_keys", value)
 
+
+if not MYPY:
+    class SshKeyPairArgsDict(TypedDict):
+        """
+        The SSH Key-pair used to authenticate with the VM. The key needs to be at least 2048-bit and in ssh-rsa format. <br><br> For creating ssh keys, see [Create SSH keys on Linux and Mac for Linux VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed).
+        """
+        private_key: NotRequired[pulumi.Input[str]]
+        """
+        SSH private key.
+        """
+        public_key: NotRequired[pulumi.Input[str]]
+        """
+        SSH public key
+        """
+elif False:
+    SshKeyPairArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SshKeyPairArgs:
@@ -2963,6 +4023,18 @@ class SshKeyPairArgs:
         pulumi.set(self, "public_key", value)
 
 
+if not MYPY:
+    class SshPublicKeyArgsDict(TypedDict):
+        """
+        Contains information about SSH certificate public key and the path on the Linux VM where the public key is placed.
+        """
+        key_data: NotRequired[pulumi.Input[str]]
+        """
+        SSH public key certificate used to authenticate with the VM through ssh. The key needs to be at least 2048-bit and in ssh-rsa format. <br><br> For creating ssh keys, see [Create SSH keys on Linux and Mac for Linux VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed).
+        """
+elif False:
+    SshPublicKeyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SshPublicKeyArgs:
     def __init__(__self__, *,
@@ -2987,6 +4059,18 @@ class SshPublicKeyArgs:
         pulumi.set(self, "key_data", value)
 
 
+if not MYPY:
+    class StorageConfigurationArgsDict(TypedDict):
+        """
+        Gets or sets the storage configuration.
+        """
+        transport_file_share_configuration: NotRequired[pulumi.Input[Union['CreateAndMountFileShareConfigurationArgsDict', 'MountFileShareConfigurationArgsDict', 'SkipFileShareConfigurationArgsDict']]]
+        """
+        The properties of the transport directory attached to the VIS. The default for transportFileShareConfiguration is the createAndMount flow if storage configuration is missing.
+        """
+elif False:
+    StorageConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class StorageConfigurationArgs:
     def __init__(__self__, *,
@@ -3010,6 +4094,51 @@ class StorageConfigurationArgs:
     def transport_file_share_configuration(self, value: Optional[pulumi.Input[Union['CreateAndMountFileShareConfigurationArgs', 'MountFileShareConfigurationArgs', 'SkipFileShareConfigurationArgs']]]):
         pulumi.set(self, "transport_file_share_configuration", value)
 
+
+if not MYPY:
+    class ThreeTierConfigurationArgsDict(TypedDict):
+        """
+        Gets or sets the three tier SAP configuration. For prerequisites for creating the infrastructure, please see [here](https://go.microsoft.com/fwlink/?linkid=2212611&clcid=0x409)
+        """
+        app_resource_group: pulumi.Input[str]
+        """
+        The application resource group where SAP system resources will be deployed.
+        """
+        application_server: pulumi.Input['ApplicationServerConfigurationArgsDict']
+        """
+        The application server configuration.
+        """
+        central_server: pulumi.Input['CentralServerConfigurationArgsDict']
+        """
+        The central server configuration.
+        """
+        database_server: pulumi.Input['DatabaseConfigurationArgsDict']
+        """
+        The database configuration.
+        """
+        deployment_type: pulumi.Input[str]
+        """
+        The type of SAP deployment, single server or Three tier.
+        Expected value is 'ThreeTier'.
+        """
+        custom_resource_names: NotRequired[pulumi.Input['ThreeTierFullResourceNamesArgsDict']]
+        """
+        The set of custom names to be used for underlying azure resources that are part of the SAP system.
+        """
+        high_availability_config: NotRequired[pulumi.Input['HighAvailabilityConfigurationArgsDict']]
+        """
+        The high availability configuration.
+        """
+        network_configuration: NotRequired[pulumi.Input['NetworkConfigurationArgsDict']]
+        """
+        Network configuration common to all servers
+        """
+        storage_configuration: NotRequired[pulumi.Input['StorageConfigurationArgsDict']]
+        """
+        The storage configuration.
+        """
+elif False:
+    ThreeTierConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ThreeTierConfigurationArgs:
@@ -3160,6 +4289,35 @@ class ThreeTierConfigurationArgs:
         pulumi.set(self, "storage_configuration", value)
 
 
+if not MYPY:
+    class ThreeTierFullResourceNamesArgsDict(TypedDict):
+        """
+        The resource name object where the specified values will be full resource names of the corresponding resources in a three tier SAP system.
+        """
+        naming_pattern_type: pulumi.Input[str]
+        """
+        The pattern type to be used for resource naming.
+        Expected value is 'FullResourceName'.
+        """
+        application_server: NotRequired[pulumi.Input['ApplicationServerFullResourceNamesArgsDict']]
+        """
+        The full resource names object for application layer resources. The number of entries in this list should be equal to the number VMs to be created for application layer.
+        """
+        central_server: NotRequired[pulumi.Input['CentralServerFullResourceNamesArgsDict']]
+        """
+        The full resource names object for central server layer resources.
+        """
+        database_server: NotRequired[pulumi.Input['DatabaseServerFullResourceNamesArgsDict']]
+        """
+        The full resource names object for database layer resources. The number of entries in this list should be equal to the number VMs to be created for database layer.
+        """
+        shared_storage: NotRequired[pulumi.Input['SharedStorageResourceNamesArgsDict']]
+        """
+        The resource names object for shared storage.
+        """
+elif False:
+    ThreeTierFullResourceNamesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ThreeTierFullResourceNamesArgs:
     def __init__(__self__, *,
@@ -3249,6 +4407,22 @@ class ThreeTierFullResourceNamesArgs:
         pulumi.set(self, "shared_storage", value)
 
 
+if not MYPY:
+    class UserAssignedServiceIdentityArgsDict(TypedDict):
+        """
+        A pre-created user assigned identity with appropriate roles assigned. To learn more on identity and roles required, visit the ACSS how-to-guide.
+        """
+        type: pulumi.Input[Union[str, 'ManagedServiceIdentityType']]
+        """
+        Type of manage identity
+        """
+        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        User assigned identities dictionary
+        """
+elif False:
+    UserAssignedServiceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class UserAssignedServiceIdentityArgs:
     def __init__(__self__, *,
@@ -3287,6 +4461,26 @@ class UserAssignedServiceIdentityArgs:
     def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
+
+if not MYPY:
+    class VirtualMachineConfigurationArgsDict(TypedDict):
+        """
+        Defines the virtual machine configuration.
+        """
+        image_reference: pulumi.Input['ImageReferenceArgsDict']
+        """
+        The image reference.
+        """
+        os_profile: pulumi.Input['OSProfileArgsDict']
+        """
+        The OS profile.
+        """
+        vm_size: pulumi.Input[str]
+        """
+        The virtual machine size.
+        """
+elif False:
+    VirtualMachineConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VirtualMachineConfigurationArgs:
@@ -3340,6 +4534,34 @@ class VirtualMachineConfigurationArgs:
     def vm_size(self, value: pulumi.Input[str]):
         pulumi.set(self, "vm_size", value)
 
+
+if not MYPY:
+    class VirtualMachineResourceNamesArgsDict(TypedDict):
+        """
+        The resource names object for virtual machine and related resources.
+        """
+        data_disk_names: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[str]]]]]]
+        """
+        The full resource names for virtual machine data disks. This is a dictionary containing list of names of data disks per volume. Currently supported volumes for database layer are ['hana/data', 'hana/log', hana/shared', 'usr/sap', 'os', 'backup']. For application and cs layers, only 'default' volume is supported
+        """
+        host_name: NotRequired[pulumi.Input[str]]
+        """
+        The full name for virtual-machine's host (computer name). Currently, ACSS only supports host names which are less than or equal to 13 characters long. If this value is not provided, vmName will be used as host name.
+        """
+        network_interfaces: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceResourceNamesArgsDict']]]]
+        """
+        The list of network interface name objects for the selected virtual machine. Currently, only one network interface is supported per virtual machine.
+        """
+        os_disk_name: NotRequired[pulumi.Input[str]]
+        """
+        The full name for OS disk attached to the VM. If this value is not provided, it will be named by ARM as per its default naming standards (prefixed with vm name). There is only one OS disk attached per Virtual Machine.
+        """
+        vm_name: NotRequired[pulumi.Input[str]]
+        """
+        The full name for virtual machine. The length of this field can be upto 64 characters. If name is not provided, service uses a default name based on the deployment type. For SingleServer, default name is {SID}vm. In case of HA-AvZone systems, default name will be {SID}{app/ascs/db}z{a/b}vm with an incrementor at the end in case of more than 1 vm per layer. For distributed and HA-AvSet systems, default name will be {SID}{app/ascs/db}vm with an incrementor at the end in case of more than 1 vm per layer.
+        """
+elif False:
+    VirtualMachineResourceNamesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VirtualMachineResourceNamesArgs:
@@ -3428,6 +4650,19 @@ class VirtualMachineResourceNamesArgs:
     def vm_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "vm_name", value)
 
+
+if not MYPY:
+    class WindowsConfigurationArgsDict(TypedDict):
+        """
+        Specifies Windows operating system settings on the virtual machine.
+        """
+        os_type: pulumi.Input[str]
+        """
+        The OS Type
+        Expected value is 'Windows'.
+        """
+elif False:
+    WindowsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WindowsConfigurationArgs:

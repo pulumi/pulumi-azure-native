@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -152,12 +157,12 @@ class OriginGroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  endpoint_name: Optional[pulumi.Input[str]] = None,
-                 health_probe_settings: Optional[pulumi.Input[pulumi.InputType['HealthProbeParametersArgs']]] = None,
+                 health_probe_settings: Optional[pulumi.Input[Union['HealthProbeParametersArgs', 'HealthProbeParametersArgsDict']]] = None,
                  origin_group_name: Optional[pulumi.Input[str]] = None,
-                 origins: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceReferenceArgs']]]]] = None,
+                 origins: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResourceReferenceArgs', 'ResourceReferenceArgsDict']]]]] = None,
                  profile_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 response_based_origin_error_detection_settings: Optional[pulumi.Input[pulumi.InputType['ResponseBasedOriginErrorDetectionParametersArgs']]] = None,
+                 response_based_origin_error_detection_settings: Optional[pulumi.Input[Union['ResponseBasedOriginErrorDetectionParametersArgs', 'ResponseBasedOriginErrorDetectionParametersArgsDict']]] = None,
                  traffic_restoration_time_to_healed_or_new_endpoints_in_minutes: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         """
@@ -169,12 +174,12 @@ class OriginGroup(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] endpoint_name: Name of the endpoint under the profile which is unique globally.
-        :param pulumi.Input[pulumi.InputType['HealthProbeParametersArgs']] health_probe_settings: Health probe settings to the origin that is used to determine the health of the origin.
+        :param pulumi.Input[Union['HealthProbeParametersArgs', 'HealthProbeParametersArgsDict']] health_probe_settings: Health probe settings to the origin that is used to determine the health of the origin.
         :param pulumi.Input[str] origin_group_name: Name of the origin group which is unique within the endpoint.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceReferenceArgs']]]] origins: The source of the content being delivered via CDN within given origin group.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ResourceReferenceArgs', 'ResourceReferenceArgsDict']]]] origins: The source of the content being delivered via CDN within given origin group.
         :param pulumi.Input[str] profile_name: Name of the CDN profile which is unique within the resource group.
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
-        :param pulumi.Input[pulumi.InputType['ResponseBasedOriginErrorDetectionParametersArgs']] response_based_origin_error_detection_settings: The JSON object that contains the properties to determine origin health using real requests/responses. This property is currently not supported.
+        :param pulumi.Input[Union['ResponseBasedOriginErrorDetectionParametersArgs', 'ResponseBasedOriginErrorDetectionParametersArgsDict']] response_based_origin_error_detection_settings: The JSON object that contains the properties to determine origin health using real requests/responses. This property is currently not supported.
         :param pulumi.Input[int] traffic_restoration_time_to_healed_or_new_endpoints_in_minutes: Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
         """
         ...
@@ -205,12 +210,12 @@ class OriginGroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  endpoint_name: Optional[pulumi.Input[str]] = None,
-                 health_probe_settings: Optional[pulumi.Input[pulumi.InputType['HealthProbeParametersArgs']]] = None,
+                 health_probe_settings: Optional[pulumi.Input[Union['HealthProbeParametersArgs', 'HealthProbeParametersArgsDict']]] = None,
                  origin_group_name: Optional[pulumi.Input[str]] = None,
-                 origins: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceReferenceArgs']]]]] = None,
+                 origins: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResourceReferenceArgs', 'ResourceReferenceArgsDict']]]]] = None,
                  profile_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 response_based_origin_error_detection_settings: Optional[pulumi.Input[pulumi.InputType['ResponseBasedOriginErrorDetectionParametersArgs']]] = None,
+                 response_based_origin_error_detection_settings: Optional[pulumi.Input[Union['ResponseBasedOriginErrorDetectionParametersArgs', 'ResponseBasedOriginErrorDetectionParametersArgsDict']]] = None,
                  traffic_restoration_time_to_healed_or_new_endpoints_in_minutes: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

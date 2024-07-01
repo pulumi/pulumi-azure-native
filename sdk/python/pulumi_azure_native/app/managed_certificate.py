@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -124,7 +129,7 @@ class ManagedCertificate(pulumi.CustomResource):
                  environment_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  managed_certificate_name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['ManagedCertificatePropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['ManagedCertificatePropertiesArgs', 'ManagedCertificatePropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -139,7 +144,7 @@ class ManagedCertificate(pulumi.CustomResource):
         :param pulumi.Input[str] environment_name: Name of the Managed Environment.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] managed_certificate_name: Name of the Managed Certificate.
-        :param pulumi.Input[pulumi.InputType['ManagedCertificatePropertiesArgs']] properties: Certificate resource specific properties
+        :param pulumi.Input[Union['ManagedCertificatePropertiesArgs', 'ManagedCertificatePropertiesArgsDict']] properties: Certificate resource specific properties
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -173,7 +178,7 @@ class ManagedCertificate(pulumi.CustomResource):
                  environment_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  managed_certificate_name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['ManagedCertificatePropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['ManagedCertificatePropertiesArgs', 'ManagedCertificatePropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):

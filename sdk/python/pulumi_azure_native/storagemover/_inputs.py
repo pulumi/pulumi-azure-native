@@ -4,16 +4,47 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'AzureStorageBlobContainerEndpointPropertiesArgs',
+    'AzureStorageBlobContainerEndpointPropertiesArgsDict',
     'NfsMountEndpointPropertiesArgs',
+    'NfsMountEndpointPropertiesArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AzureStorageBlobContainerEndpointPropertiesArgsDict(TypedDict):
+        blob_container_name: pulumi.Input[str]
+        """
+        The name of the Storage blob container that is the target destination.
+        """
+        endpoint_type: pulumi.Input[str]
+        """
+        The Endpoint resource type.
+        Expected value is 'AzureStorageBlobContainer'.
+        """
+        storage_account_resource_id: pulumi.Input[str]
+        """
+        The Azure Resource ID of the storage account that is the target destination.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        A description for the Endpoint.
+        """
+elif False:
+    AzureStorageBlobContainerEndpointPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AzureStorageBlobContainerEndpointPropertiesArgs:
@@ -84,6 +115,32 @@ class AzureStorageBlobContainerEndpointPropertiesArgs:
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
 
+
+if not MYPY:
+    class NfsMountEndpointPropertiesArgsDict(TypedDict):
+        endpoint_type: pulumi.Input[str]
+        """
+        The Endpoint resource type.
+        Expected value is 'NfsMount'.
+        """
+        export: pulumi.Input[str]
+        """
+        The directory being exported from the server.
+        """
+        host: pulumi.Input[str]
+        """
+        The host name or IP address of the server exporting the file system.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        A description for the Endpoint.
+        """
+        nfs_version: NotRequired[pulumi.Input[Union[str, 'NfsVersion']]]
+        """
+        The NFS protocol version.
+        """
+elif False:
+    NfsMountEndpointPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NfsMountEndpointPropertiesArgs:

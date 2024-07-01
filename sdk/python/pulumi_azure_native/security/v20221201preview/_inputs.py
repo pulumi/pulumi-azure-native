@@ -4,15 +4,44 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 
 __all__ = [
     'MalwareScanningPropertiesArgs',
+    'MalwareScanningPropertiesArgsDict',
     'SensitiveDataDiscoveryPropertiesArgs',
+    'SensitiveDataDiscoveryPropertiesArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class MalwareScanningPropertiesArgsDict(TypedDict):
+        """
+        Properties of Malware Scanning.
+        """
+        cap_gb_per_month: NotRequired[pulumi.Input[int]]
+        """
+        Defines the max GB to be scanned per Month. Set to -1 if no capping is needed.
+        """
+        is_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether On Upload malware scanning should be enabled.
+        """
+        scan_results_event_grid_topic_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        Optional. Resource id of an Event Grid Topic to send scan results to.
+        """
+elif False:
+    MalwareScanningPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MalwareScanningPropertiesArgs:
@@ -69,6 +98,18 @@ class MalwareScanningPropertiesArgs:
     def scan_results_event_grid_topic_resource_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "scan_results_event_grid_topic_resource_id", value)
 
+
+if not MYPY:
+    class SensitiveDataDiscoveryPropertiesArgsDict(TypedDict):
+        """
+        Properties of Sensitive Data Discovery.
+        """
+        is_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether Sensitive Data Discovery should be enabled.
+        """
+elif False:
+    SensitiveDataDiscoveryPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SensitiveDataDiscoveryPropertiesArgs:

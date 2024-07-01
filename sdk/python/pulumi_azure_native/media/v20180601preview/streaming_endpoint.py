@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -280,14 +285,14 @@ class StreamingEndpoint(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_control: Optional[pulumi.Input[pulumi.InputType['StreamingEndpointAccessControlArgs']]] = None,
+                 access_control: Optional[pulumi.Input[Union['StreamingEndpointAccessControlArgs', 'StreamingEndpointAccessControlArgsDict']]] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  auto_start: Optional[pulumi.Input[bool]] = None,
                  availability_set_name: Optional[pulumi.Input[str]] = None,
                  cdn_enabled: Optional[pulumi.Input[bool]] = None,
                  cdn_profile: Optional[pulumi.Input[str]] = None,
                  cdn_provider: Optional[pulumi.Input[str]] = None,
-                 cross_site_access_policies: Optional[pulumi.Input[pulumi.InputType['CrossSiteAccessPoliciesArgs']]] = None,
+                 cross_site_access_policies: Optional[pulumi.Input[Union['CrossSiteAccessPoliciesArgs', 'CrossSiteAccessPoliciesArgsDict']]] = None,
                  custom_host_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -302,14 +307,14 @@ class StreamingEndpoint(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['StreamingEndpointAccessControlArgs']] access_control: The access control definition of the StreamingEndpoint.
+        :param pulumi.Input[Union['StreamingEndpointAccessControlArgs', 'StreamingEndpointAccessControlArgsDict']] access_control: The access control definition of the StreamingEndpoint.
         :param pulumi.Input[str] account_name: The Media Services account name.
         :param pulumi.Input[bool] auto_start: The flag indicates if auto start the Live Event.
         :param pulumi.Input[str] availability_set_name: AvailabilitySet name
         :param pulumi.Input[bool] cdn_enabled: The CDN enabled flag.
         :param pulumi.Input[str] cdn_profile: The CDN profile name.
         :param pulumi.Input[str] cdn_provider: The CDN provider name.
-        :param pulumi.Input[pulumi.InputType['CrossSiteAccessPoliciesArgs']] cross_site_access_policies: The StreamingEndpoint access policies.
+        :param pulumi.Input[Union['CrossSiteAccessPoliciesArgs', 'CrossSiteAccessPoliciesArgsDict']] cross_site_access_policies: The StreamingEndpoint access policies.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_host_names: The custom host names of the StreamingEndpoint
         :param pulumi.Input[str] description: The StreamingEndpoint description.
         :param pulumi.Input[str] location: The Azure Region of the resource.
@@ -343,14 +348,14 @@ class StreamingEndpoint(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_control: Optional[pulumi.Input[pulumi.InputType['StreamingEndpointAccessControlArgs']]] = None,
+                 access_control: Optional[pulumi.Input[Union['StreamingEndpointAccessControlArgs', 'StreamingEndpointAccessControlArgsDict']]] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  auto_start: Optional[pulumi.Input[bool]] = None,
                  availability_set_name: Optional[pulumi.Input[str]] = None,
                  cdn_enabled: Optional[pulumi.Input[bool]] = None,
                  cdn_profile: Optional[pulumi.Input[str]] = None,
                  cdn_provider: Optional[pulumi.Input[str]] = None,
-                 cross_site_access_policies: Optional[pulumi.Input[pulumi.InputType['CrossSiteAccessPoliciesArgs']]] = None,
+                 cross_site_access_policies: Optional[pulumi.Input[Union['CrossSiteAccessPoliciesArgs', 'CrossSiteAccessPoliciesArgsDict']]] = None,
                  custom_host_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,

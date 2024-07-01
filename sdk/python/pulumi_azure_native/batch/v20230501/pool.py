@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -349,23 +354,23 @@ class Pool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  application_licenses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 application_packages: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationPackageReferenceArgs']]]]] = None,
-                 certificates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertificateReferenceArgs']]]]] = None,
-                 deployment_configuration: Optional[pulumi.Input[pulumi.InputType['DeploymentConfigurationArgs']]] = None,
+                 application_packages: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationPackageReferenceArgs', 'ApplicationPackageReferenceArgsDict']]]]] = None,
+                 certificates: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CertificateReferenceArgs', 'CertificateReferenceArgsDict']]]]] = None,
+                 deployment_configuration: Optional[pulumi.Input[Union['DeploymentConfigurationArgs', 'DeploymentConfigurationArgsDict']]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['BatchPoolIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['BatchPoolIdentityArgs', 'BatchPoolIdentityArgsDict']]] = None,
                  inter_node_communication: Optional[pulumi.Input['InterNodeCommunicationState']] = None,
-                 metadata: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetadataItemArgs']]]]] = None,
-                 mount_configuration: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MountConfigurationArgs']]]]] = None,
-                 network_configuration: Optional[pulumi.Input[pulumi.InputType['NetworkConfigurationArgs']]] = None,
+                 metadata: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MetadataItemArgs', 'MetadataItemArgsDict']]]]] = None,
+                 mount_configuration: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MountConfigurationArgs', 'MountConfigurationArgsDict']]]]] = None,
+                 network_configuration: Optional[pulumi.Input[Union['NetworkConfigurationArgs', 'NetworkConfigurationArgsDict']]] = None,
                  pool_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 scale_settings: Optional[pulumi.Input[pulumi.InputType['ScaleSettingsArgs']]] = None,
-                 start_task: Optional[pulumi.Input[pulumi.InputType['StartTaskArgs']]] = None,
+                 scale_settings: Optional[pulumi.Input[Union['ScaleSettingsArgs', 'ScaleSettingsArgsDict']]] = None,
+                 start_task: Optional[pulumi.Input[Union['StartTaskArgs', 'StartTaskArgsDict']]] = None,
                  target_node_communication_mode: Optional[pulumi.Input['NodeCommunicationMode']] = None,
-                 task_scheduling_policy: Optional[pulumi.Input[pulumi.InputType['TaskSchedulingPolicyArgs']]] = None,
+                 task_scheduling_policy: Optional[pulumi.Input[Union['TaskSchedulingPolicyArgs', 'TaskSchedulingPolicyArgsDict']]] = None,
                  task_slots_per_node: Optional[pulumi.Input[int]] = None,
-                 user_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserAccountArgs']]]]] = None,
+                 user_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['UserAccountArgs', 'UserAccountArgsDict']]]]] = None,
                  vm_size: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -375,23 +380,23 @@ class Pool(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the Batch account.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] application_licenses: The list of application licenses must be a subset of available Batch service application licenses. If a license is requested which is not supported, pool creation will fail.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationPackageReferenceArgs']]]] application_packages: Changes to application package references affect all new compute nodes joining the pool, but do not affect compute nodes that are already in the pool until they are rebooted or reimaged. There is a maximum of 10 application package references on any given pool.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertificateReferenceArgs']]]] certificates: For Windows compute nodes, the Batch service installs the certificates to the specified certificate store and location. For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable AZ_BATCH_CERTIFICATES_DIR is supplied to the task to query for this location. For certificates with visibility of 'remoteUser', a 'certs' directory is created in the user's home directory (e.g., /home/{user-name}/certs) and certificates are placed in that directory.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationPackageReferenceArgs', 'ApplicationPackageReferenceArgsDict']]]] application_packages: Changes to application package references affect all new compute nodes joining the pool, but do not affect compute nodes that are already in the pool until they are rebooted or reimaged. There is a maximum of 10 application package references on any given pool.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CertificateReferenceArgs', 'CertificateReferenceArgsDict']]]] certificates: For Windows compute nodes, the Batch service installs the certificates to the specified certificate store and location. For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable AZ_BATCH_CERTIFICATES_DIR is supplied to the task to query for this location. For certificates with visibility of 'remoteUser', a 'certs' directory is created in the user's home directory (e.g., /home/{user-name}/certs) and certificates are placed in that directory.
                
                Warning: This property is deprecated and will be removed after February, 2024. Please use the [Azure KeyVault Extension](https://learn.microsoft.com/azure/batch/batch-certificate-migration-guide) instead.
-        :param pulumi.Input[pulumi.InputType['DeploymentConfigurationArgs']] deployment_configuration: Using CloudServiceConfiguration specifies that the nodes should be creating using Azure Cloud Services (PaaS), while VirtualMachineConfiguration uses Azure Virtual Machines (IaaS).
+        :param pulumi.Input[Union['DeploymentConfigurationArgs', 'DeploymentConfigurationArgsDict']] deployment_configuration: Using CloudServiceConfiguration specifies that the nodes should be creating using Azure Cloud Services (PaaS), while VirtualMachineConfiguration uses Azure Virtual Machines (IaaS).
         :param pulumi.Input[str] display_name: The display name need not be unique and can contain any Unicode characters up to a maximum length of 1024.
-        :param pulumi.Input[pulumi.InputType['BatchPoolIdentityArgs']] identity: The type of identity used for the Batch Pool.
+        :param pulumi.Input[Union['BatchPoolIdentityArgs', 'BatchPoolIdentityArgsDict']] identity: The type of identity used for the Batch Pool.
         :param pulumi.Input['InterNodeCommunicationState'] inter_node_communication: This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. If not specified, this value defaults to 'Disabled'.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetadataItemArgs']]]] metadata: The Batch service does not assign any meaning to metadata; it is solely for the use of user code.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MountConfigurationArgs']]]] mount_configuration: This supports Azure Files, NFS, CIFS/SMB, and Blobfuse.
-        :param pulumi.Input[pulumi.InputType['NetworkConfigurationArgs']] network_configuration: The network configuration for a pool.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MetadataItemArgs', 'MetadataItemArgsDict']]]] metadata: The Batch service does not assign any meaning to metadata; it is solely for the use of user code.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MountConfigurationArgs', 'MountConfigurationArgsDict']]]] mount_configuration: This supports Azure Files, NFS, CIFS/SMB, and Blobfuse.
+        :param pulumi.Input[Union['NetworkConfigurationArgs', 'NetworkConfigurationArgsDict']] network_configuration: The network configuration for a pool.
         :param pulumi.Input[str] pool_name: The pool name. This must be unique within the account.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the Batch account.
-        :param pulumi.Input[pulumi.InputType['ScaleSettingsArgs']] scale_settings: Defines the desired size of the pool. This can either be 'fixedScale' where the requested targetDedicatedNodes is specified, or 'autoScale' which defines a formula which is periodically reevaluated. If this property is not specified, the pool will have a fixed scale with 0 targetDedicatedNodes.
-        :param pulumi.Input[pulumi.InputType['StartTaskArgs']] start_task: In an PATCH (update) operation, this property can be set to an empty object to remove the start task from the pool.
+        :param pulumi.Input[Union['ScaleSettingsArgs', 'ScaleSettingsArgsDict']] scale_settings: Defines the desired size of the pool. This can either be 'fixedScale' where the requested targetDedicatedNodes is specified, or 'autoScale' which defines a formula which is periodically reevaluated. If this property is not specified, the pool will have a fixed scale with 0 targetDedicatedNodes.
+        :param pulumi.Input[Union['StartTaskArgs', 'StartTaskArgsDict']] start_task: In an PATCH (update) operation, this property can be set to an empty object to remove the start task from the pool.
         :param pulumi.Input['NodeCommunicationMode'] target_node_communication_mode: If omitted, the default value is Default.
-        :param pulumi.Input[pulumi.InputType['TaskSchedulingPolicyArgs']] task_scheduling_policy: If not specified, the default is spread.
+        :param pulumi.Input[Union['TaskSchedulingPolicyArgs', 'TaskSchedulingPolicyArgsDict']] task_scheduling_policy: If not specified, the default is spread.
         :param pulumi.Input[int] task_slots_per_node: The default value is 1. The maximum value is the smaller of 4 times the number of cores of the vmSize of the pool or 256.
         :param pulumi.Input[str] vm_size: For information about available sizes of virtual machines for Cloud Services pools (pools created with cloudServiceConfiguration), see Sizes for Cloud Services (https://azure.microsoft.com/documentation/articles/cloud-services-sizes-specs/). Batch supports all Cloud Services VM sizes except ExtraSmall. For information about available VM sizes for pools using images from the Virtual Machines Marketplace (pools created with virtualMachineConfiguration) see Sizes for Virtual Machines (Linux) (https://azure.microsoft.com/documentation/articles/virtual-machines-linux-sizes/) or Sizes for Virtual Machines (Windows) (https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/). Batch supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).
         """
@@ -421,23 +426,23 @@ class Pool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  application_licenses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 application_packages: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationPackageReferenceArgs']]]]] = None,
-                 certificates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertificateReferenceArgs']]]]] = None,
-                 deployment_configuration: Optional[pulumi.Input[pulumi.InputType['DeploymentConfigurationArgs']]] = None,
+                 application_packages: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationPackageReferenceArgs', 'ApplicationPackageReferenceArgsDict']]]]] = None,
+                 certificates: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CertificateReferenceArgs', 'CertificateReferenceArgsDict']]]]] = None,
+                 deployment_configuration: Optional[pulumi.Input[Union['DeploymentConfigurationArgs', 'DeploymentConfigurationArgsDict']]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['BatchPoolIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['BatchPoolIdentityArgs', 'BatchPoolIdentityArgsDict']]] = None,
                  inter_node_communication: Optional[pulumi.Input['InterNodeCommunicationState']] = None,
-                 metadata: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetadataItemArgs']]]]] = None,
-                 mount_configuration: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MountConfigurationArgs']]]]] = None,
-                 network_configuration: Optional[pulumi.Input[pulumi.InputType['NetworkConfigurationArgs']]] = None,
+                 metadata: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MetadataItemArgs', 'MetadataItemArgsDict']]]]] = None,
+                 mount_configuration: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MountConfigurationArgs', 'MountConfigurationArgsDict']]]]] = None,
+                 network_configuration: Optional[pulumi.Input[Union['NetworkConfigurationArgs', 'NetworkConfigurationArgsDict']]] = None,
                  pool_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 scale_settings: Optional[pulumi.Input[pulumi.InputType['ScaleSettingsArgs']]] = None,
-                 start_task: Optional[pulumi.Input[pulumi.InputType['StartTaskArgs']]] = None,
+                 scale_settings: Optional[pulumi.Input[Union['ScaleSettingsArgs', 'ScaleSettingsArgsDict']]] = None,
+                 start_task: Optional[pulumi.Input[Union['StartTaskArgs', 'StartTaskArgsDict']]] = None,
                  target_node_communication_mode: Optional[pulumi.Input['NodeCommunicationMode']] = None,
-                 task_scheduling_policy: Optional[pulumi.Input[pulumi.InputType['TaskSchedulingPolicyArgs']]] = None,
+                 task_scheduling_policy: Optional[pulumi.Input[Union['TaskSchedulingPolicyArgs', 'TaskSchedulingPolicyArgsDict']]] = None,
                  task_slots_per_node: Optional[pulumi.Input[int]] = None,
-                 user_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserAccountArgs']]]]] = None,
+                 user_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['UserAccountArgs', 'UserAccountArgsDict']]]]] = None,
                  vm_size: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

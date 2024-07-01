@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -152,7 +157,7 @@ class DedicatedHostGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_capabilities: Optional[pulumi.Input[pulumi.InputType['DedicatedHostGroupPropertiesAdditionalCapabilitiesArgs']]] = None,
+                 additional_capabilities: Optional[pulumi.Input[Union['DedicatedHostGroupPropertiesAdditionalCapabilitiesArgs', 'DedicatedHostGroupPropertiesAdditionalCapabilitiesArgsDict']]] = None,
                  host_group_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  platform_fault_domain_count: Optional[pulumi.Input[int]] = None,
@@ -166,7 +171,7 @@ class DedicatedHostGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['DedicatedHostGroupPropertiesAdditionalCapabilitiesArgs']] additional_capabilities: Enables or disables a capability on the dedicated host group. Minimum api-version: 2022-03-01.
+        :param pulumi.Input[Union['DedicatedHostGroupPropertiesAdditionalCapabilitiesArgs', 'DedicatedHostGroupPropertiesAdditionalCapabilitiesArgsDict']] additional_capabilities: Enables or disables a capability on the dedicated host group. Minimum api-version: 2022-03-01.
         :param pulumi.Input[str] host_group_name: The name of the dedicated host group.
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[int] platform_fault_domain_count: Number of fault domains that the host group can span.
@@ -199,7 +204,7 @@ class DedicatedHostGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_capabilities: Optional[pulumi.Input[pulumi.InputType['DedicatedHostGroupPropertiesAdditionalCapabilitiesArgs']]] = None,
+                 additional_capabilities: Optional[pulumi.Input[Union['DedicatedHostGroupPropertiesAdditionalCapabilitiesArgs', 'DedicatedHostGroupPropertiesAdditionalCapabilitiesArgsDict']]] = None,
                  host_group_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  platform_fault_domain_count: Optional[pulumi.Input[int]] = None,

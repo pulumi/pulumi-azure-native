@@ -4,18 +4,50 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 
 __all__ = [
     'ActionGroupArgs',
+    'ActionGroupArgsDict',
     'ActionListArgs',
+    'ActionListArgsDict',
     'AlertRuleAllOfConditionArgs',
+    'AlertRuleAllOfConditionArgsDict',
     'AlertRuleAnyOfOrLeafConditionArgs',
+    'AlertRuleAnyOfOrLeafConditionArgsDict',
     'AlertRuleLeafConditionArgs',
+    'AlertRuleLeafConditionArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ActionGroupArgsDict(TypedDict):
+        """
+        A pointer to an Azure Action Group.
+        """
+        action_group_id: pulumi.Input[str]
+        """
+        The resource ID of the Action Group. This cannot be null or empty.
+        """
+        action_properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Predefined list of properties and configuration items for the action group.
+        """
+        webhook_properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        the dictionary of custom properties to include with the post operation. These data are appended to the webhook payload.
+        """
+elif False:
+    ActionGroupArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ActionGroupArgs:
@@ -72,6 +104,18 @@ class ActionGroupArgs:
         pulumi.set(self, "webhook_properties", value)
 
 
+if not MYPY:
+    class ActionListArgsDict(TypedDict):
+        """
+        A list of Activity Log Alert rule actions.
+        """
+        action_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input['ActionGroupArgsDict']]]]
+        """
+        The list of the Action Groups.
+        """
+elif False:
+    ActionListArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ActionListArgs:
     def __init__(__self__, *,
@@ -96,6 +140,18 @@ class ActionListArgs:
         pulumi.set(self, "action_groups", value)
 
 
+if not MYPY:
+    class AlertRuleAllOfConditionArgsDict(TypedDict):
+        """
+        An Activity Log Alert rule condition that is met when all its member conditions are met.
+        """
+        all_of: pulumi.Input[Sequence[pulumi.Input['AlertRuleAnyOfOrLeafConditionArgsDict']]]
+        """
+        The list of Activity Log Alert rule conditions.
+        """
+elif False:
+    AlertRuleAllOfConditionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AlertRuleAllOfConditionArgs:
     def __init__(__self__, *,
@@ -118,6 +174,37 @@ class AlertRuleAllOfConditionArgs:
     def all_of(self, value: pulumi.Input[Sequence[pulumi.Input['AlertRuleAnyOfOrLeafConditionArgs']]]):
         pulumi.set(self, "all_of", value)
 
+
+if not MYPY:
+    class AlertRuleAnyOfOrLeafConditionArgsDict(TypedDict):
+        """
+        An Activity Log Alert rule condition that is met when all its member conditions are met.
+        Each condition can be of one of the following types:
+        __Important__: Each type has its unique subset of properties. Properties from different types CANNOT exist in one condition.
+           * __Leaf Condition -__ must contain 'field' and either 'equals' or 'containsAny'.
+          _Please note, 'anyOf' should __not__ be set in a Leaf Condition._
+          * __AnyOf Condition -__ must contain __only__ 'anyOf' (which is an array of Leaf Conditions).
+          _Please note, 'field', 'equals' and 'containsAny' should __not__ be set in an AnyOf Condition._
+        """
+        any_of: NotRequired[pulumi.Input[Sequence[pulumi.Input['AlertRuleLeafConditionArgsDict']]]]
+        """
+        An Activity Log Alert rule condition that is met when at least one of its member leaf conditions are met.
+        """
+        contains_any: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The value of the event's field will be compared to the values in this array (case-insensitive) to determine if the condition is met.
+        """
+        equals: NotRequired[pulumi.Input[str]]
+        """
+        The value of the event's field will be compared to this value (case-insensitive) to determine if the condition is met.
+        """
+        field: NotRequired[pulumi.Input[str]]
+        """
+        The name of the Activity Log event's field that this condition will examine.
+        The possible values for this field are (case-insensitive): 'resourceId', 'category', 'caller', 'level', 'operationName', 'resourceGroup', 'resourceProvider', 'status', 'subStatus', 'resourceType', or anything beginning with 'properties'.
+        """
+elif False:
+    AlertRuleAnyOfOrLeafConditionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AlertRuleAnyOfOrLeafConditionArgs:
@@ -199,6 +286,28 @@ class AlertRuleAnyOfOrLeafConditionArgs:
     def field(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "field", value)
 
+
+if not MYPY:
+    class AlertRuleLeafConditionArgsDict(TypedDict):
+        """
+        An Activity Log Alert rule condition that is met by comparing the field and value of an Activity Log event.
+        This condition must contain 'field' and either 'equals' or 'containsAny'.
+        """
+        contains_any: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The value of the event's field will be compared to the values in this array (case-insensitive) to determine if the condition is met.
+        """
+        equals: NotRequired[pulumi.Input[str]]
+        """
+        The value of the event's field will be compared to this value (case-insensitive) to determine if the condition is met.
+        """
+        field: NotRequired[pulumi.Input[str]]
+        """
+        The name of the Activity Log event's field that this condition will examine.
+        The possible values for this field are (case-insensitive): 'resourceId', 'category', 'caller', 'level', 'operationName', 'resourceGroup', 'resourceProvider', 'status', 'subStatus', 'resourceType', or anything beginning with 'properties'.
+        """
+elif False:
+    AlertRuleLeafConditionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AlertRuleLeafConditionArgs:

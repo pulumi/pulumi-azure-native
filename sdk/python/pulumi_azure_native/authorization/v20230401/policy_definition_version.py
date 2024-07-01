@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -192,7 +197,7 @@ class PolicyDefinitionVersion(pulumi.CustomResource):
                  display_name: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[Any] = None,
                  mode: Optional[pulumi.Input[str]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ParameterDefinitionsValueArgs']]]]] = None,
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['ParameterDefinitionsValueArgs', 'ParameterDefinitionsValueArgsDict']]]]] = None,
                  policy_definition_name: Optional[pulumi.Input[str]] = None,
                  policy_definition_version: Optional[pulumi.Input[str]] = None,
                  policy_rule: Optional[Any] = None,
@@ -208,7 +213,7 @@ class PolicyDefinitionVersion(pulumi.CustomResource):
         :param pulumi.Input[str] display_name: The display name of the policy definition.
         :param Any metadata: The policy definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
         :param pulumi.Input[str] mode: The policy definition mode. Some examples are All, Indexed, Microsoft.KeyVault.Data.
-        :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ParameterDefinitionsValueArgs']]]] parameters: The parameter definitions for parameters used in the policy rule. The keys are the parameter names.
+        :param pulumi.Input[Mapping[str, pulumi.Input[Union['ParameterDefinitionsValueArgs', 'ParameterDefinitionsValueArgsDict']]]] parameters: The parameter definitions for parameters used in the policy rule. The keys are the parameter names.
         :param pulumi.Input[str] policy_definition_name: The name of the policy definition.
         :param pulumi.Input[str] policy_definition_version: The policy definition version.  The format is x.y.z where x is the major version number, y is the minor version number, and z is the patch number
         :param Any policy_rule: The policy rule.
@@ -243,7 +248,7 @@ class PolicyDefinitionVersion(pulumi.CustomResource):
                  display_name: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[Any] = None,
                  mode: Optional[pulumi.Input[str]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ParameterDefinitionsValueArgs']]]]] = None,
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['ParameterDefinitionsValueArgs', 'ParameterDefinitionsValueArgsDict']]]]] = None,
                  policy_definition_name: Optional[pulumi.Input[str]] = None,
                  policy_definition_version: Optional[pulumi.Input[str]] = None,
                  policy_rule: Optional[Any] = None,

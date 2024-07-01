@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -224,12 +229,12 @@ class AgentPool(pulumi.CustomResource):
                  availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  connected_cluster_resource_uri: Optional[pulumi.Input[str]] = None,
                  count: Optional[pulumi.Input[int]] = None,
-                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  node_image_version: Optional[pulumi.Input[str]] = None,
                  os_sku: Optional[pulumi.Input[Union[str, 'OSSKU']]] = None,
                  os_type: Optional[pulumi.Input[Union[str, 'OsType']]] = None,
-                 status: Optional[pulumi.Input[pulumi.InputType['AgentPoolProvisioningStatusStatusArgs']]] = None,
+                 status: Optional[pulumi.Input[Union['AgentPoolProvisioningStatusStatusArgs', 'AgentPoolProvisioningStatusStatusArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vm_size: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -242,12 +247,12 @@ class AgentPool(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: AvailabilityZones - The list of Availability zones to use for nodes. Datacenter racks modelled as zones
         :param pulumi.Input[str] connected_cluster_resource_uri: The fully qualified Azure Resource manager identifier of the connected cluster resource.
         :param pulumi.Input[int] count: Count - Number of agents to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
-        :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: Extended Location definition
+        :param pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']] extended_location: Extended Location definition
         :param pulumi.Input[str] location: The resource location
         :param pulumi.Input[str] node_image_version: The version of node image
         :param pulumi.Input[Union[str, 'OSSKU']] os_sku: Specifies the OS SKU used by the agent pool. The default is CBLMariner if OSType is Linux. The default is Windows2019 when OSType is Windows.
         :param pulumi.Input[Union[str, 'OsType']] os_type: OsType - OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux. Possible values include: 'Linux', 'Windows'
-        :param pulumi.Input[pulumi.InputType['AgentPoolProvisioningStatusStatusArgs']] status: Defines the observed state of the agent pool
+        :param pulumi.Input[Union['AgentPoolProvisioningStatusStatusArgs', 'AgentPoolProvisioningStatusStatusArgsDict']] status: Defines the observed state of the agent pool
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[str] vm_size: VmSize - The size of the agent pool VMs.
         """
@@ -279,12 +284,12 @@ class AgentPool(pulumi.CustomResource):
                  availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  connected_cluster_resource_uri: Optional[pulumi.Input[str]] = None,
                  count: Optional[pulumi.Input[int]] = None,
-                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  node_image_version: Optional[pulumi.Input[str]] = None,
                  os_sku: Optional[pulumi.Input[Union[str, 'OSSKU']]] = None,
                  os_type: Optional[pulumi.Input[Union[str, 'OsType']]] = None,
-                 status: Optional[pulumi.Input[pulumi.InputType['AgentPoolProvisioningStatusStatusArgs']]] = None,
+                 status: Optional[pulumi.Input[Union['AgentPoolProvisioningStatusStatusArgs', 'AgentPoolProvisioningStatusStatusArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vm_size: Optional[pulumi.Input[str]] = None,
                  __props__=None):

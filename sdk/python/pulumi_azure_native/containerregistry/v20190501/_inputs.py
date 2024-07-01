@@ -4,23 +4,55 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'IPRuleArgs',
+    'IPRuleArgsDict',
     'NetworkRuleSetArgs',
+    'NetworkRuleSetArgsDict',
     'PoliciesArgs',
+    'PoliciesArgsDict',
     'QuarantinePolicyArgs',
+    'QuarantinePolicyArgsDict',
     'RetentionPolicyArgs',
+    'RetentionPolicyArgsDict',
     'SkuArgs',
+    'SkuArgsDict',
     'StorageAccountPropertiesArgs',
+    'StorageAccountPropertiesArgsDict',
     'TrustPolicyArgs',
+    'TrustPolicyArgsDict',
     'VirtualNetworkRuleArgs',
+    'VirtualNetworkRuleArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class IPRuleArgsDict(TypedDict):
+        """
+        IP rule with specific IP or IP range in CIDR format.
+        """
+        i_p_address_or_range: pulumi.Input[str]
+        """
+        Specifies the IP or IP range in CIDR format. Only IPV4 address is allowed.
+        """
+        action: NotRequired[pulumi.Input[Union[str, 'Action']]]
+        """
+        The action of IP ACL rule.
+        """
+elif False:
+    IPRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IPRuleArgs:
@@ -62,6 +94,26 @@ class IPRuleArgs:
     def action(self, value: Optional[pulumi.Input[Union[str, 'Action']]]):
         pulumi.set(self, "action", value)
 
+
+if not MYPY:
+    class NetworkRuleSetArgsDict(TypedDict):
+        """
+        The network rule set for a container registry.
+        """
+        default_action: pulumi.Input[Union[str, 'DefaultAction']]
+        """
+        The default action of allow or deny when no other rules match.
+        """
+        ip_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['IPRuleArgsDict']]]]
+        """
+        The IP ACL rules.
+        """
+        virtual_network_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgsDict']]]]
+        """
+        The virtual network rules.
+        """
+elif False:
+    NetworkRuleSetArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NetworkRuleSetArgs:
@@ -120,6 +172,26 @@ class NetworkRuleSetArgs:
         pulumi.set(self, "virtual_network_rules", value)
 
 
+if not MYPY:
+    class PoliciesArgsDict(TypedDict):
+        """
+        The policies for a container registry.
+        """
+        quarantine_policy: NotRequired[pulumi.Input['QuarantinePolicyArgsDict']]
+        """
+        The quarantine policy for a container registry.
+        """
+        retention_policy: NotRequired[pulumi.Input['RetentionPolicyArgsDict']]
+        """
+        The retention policy for a container registry.
+        """
+        trust_policy: NotRequired[pulumi.Input['TrustPolicyArgsDict']]
+        """
+        The content trust policy for a container registry.
+        """
+elif False:
+    PoliciesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PoliciesArgs:
     def __init__(__self__, *,
@@ -176,6 +248,18 @@ class PoliciesArgs:
         pulumi.set(self, "trust_policy", value)
 
 
+if not MYPY:
+    class QuarantinePolicyArgsDict(TypedDict):
+        """
+        The quarantine policy for a container registry.
+        """
+        status: NotRequired[pulumi.Input[Union[str, 'PolicyStatus']]]
+        """
+        The value that indicates whether the policy is enabled or not.
+        """
+elif False:
+    QuarantinePolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class QuarantinePolicyArgs:
     def __init__(__self__, *,
@@ -201,6 +285,22 @@ class QuarantinePolicyArgs:
     def status(self, value: Optional[pulumi.Input[Union[str, 'PolicyStatus']]]):
         pulumi.set(self, "status", value)
 
+
+if not MYPY:
+    class RetentionPolicyArgsDict(TypedDict):
+        """
+        The retention policy for a container registry.
+        """
+        days: NotRequired[pulumi.Input[int]]
+        """
+        The number of days to retain an untagged manifest after which it gets purged.
+        """
+        status: NotRequired[pulumi.Input[Union[str, 'PolicyStatus']]]
+        """
+        The value that indicates whether the policy is enabled or not.
+        """
+elif False:
+    RetentionPolicyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RetentionPolicyArgs:
@@ -246,6 +346,18 @@ class RetentionPolicyArgs:
         pulumi.set(self, "status", value)
 
 
+if not MYPY:
+    class SkuArgsDict(TypedDict):
+        """
+        The SKU of a container registry.
+        """
+        name: pulumi.Input[Union[str, 'SkuName']]
+        """
+        The SKU name of the container registry. Required for registry creation.
+        """
+elif False:
+    SkuArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SkuArgs:
     def __init__(__self__, *,
@@ -269,6 +381,18 @@ class SkuArgs:
         pulumi.set(self, "name", value)
 
 
+if not MYPY:
+    class StorageAccountPropertiesArgsDict(TypedDict):
+        """
+        The properties of a storage account for a container registry. Only applicable to Classic SKU.
+        """
+        id: pulumi.Input[str]
+        """
+        The resource ID of the storage account.
+        """
+elif False:
+    StorageAccountPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class StorageAccountPropertiesArgs:
     def __init__(__self__, *,
@@ -291,6 +415,22 @@ class StorageAccountPropertiesArgs:
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class TrustPolicyArgsDict(TypedDict):
+        """
+        The content trust policy for a container registry.
+        """
+        status: NotRequired[pulumi.Input[Union[str, 'PolicyStatus']]]
+        """
+        The value that indicates whether the policy is enabled or not.
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'TrustPolicyType']]]
+        """
+        The type of trust policy.
+        """
+elif False:
+    TrustPolicyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TrustPolicyArgs:
@@ -335,6 +475,22 @@ class TrustPolicyArgs:
     def type(self, value: Optional[pulumi.Input[Union[str, 'TrustPolicyType']]]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class VirtualNetworkRuleArgsDict(TypedDict):
+        """
+        Virtual network rule.
+        """
+        virtual_network_resource_id: pulumi.Input[str]
+        """
+        Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}.
+        """
+        action: NotRequired[pulumi.Input[Union[str, 'Action']]]
+        """
+        The action of virtual network rule.
+        """
+elif False:
+    VirtualNetworkRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VirtualNetworkRuleArgs:

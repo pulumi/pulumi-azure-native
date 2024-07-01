@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -122,7 +127,7 @@ class Creator(pulumi.CustomResource):
                  account_name: Optional[pulumi.Input[str]] = None,
                  creator_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['CreatorPropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['CreatorPropertiesArgs', 'CreatorPropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -137,7 +142,7 @@ class Creator(pulumi.CustomResource):
         :param pulumi.Input[str] account_name: The name of the Maps Account.
         :param pulumi.Input[str] creator_name: The name of the Maps Creator instance.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[pulumi.InputType['CreatorPropertiesArgs']] properties: The Creator resource properties.
+        :param pulumi.Input[Union['CreatorPropertiesArgs', 'CreatorPropertiesArgsDict']] properties: The Creator resource properties.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -171,7 +176,7 @@ class Creator(pulumi.CustomResource):
                  account_name: Optional[pulumi.Input[str]] = None,
                  creator_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['CreatorPropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['CreatorPropertiesArgs', 'CreatorPropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):

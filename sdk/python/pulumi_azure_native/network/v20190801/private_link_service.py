@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -202,34 +207,34 @@ class PrivateLinkService(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_approval: Optional[pulumi.Input[pulumi.InputType['PrivateLinkServicePropertiesAutoApprovalArgs']]] = None,
+                 auto_approval: Optional[pulumi.Input[Union['PrivateLinkServicePropertiesAutoApprovalArgs', 'PrivateLinkServicePropertiesAutoApprovalArgsDict']]] = None,
                  fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  id: Optional[pulumi.Input[str]] = None,
-                 ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrivateLinkServiceIpConfigurationArgs']]]]] = None,
-                 load_balancer_frontend_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrontendIPConfigurationArgs']]]]] = None,
+                 ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PrivateLinkServiceIpConfigurationArgs', 'PrivateLinkServiceIpConfigurationArgsDict']]]]] = None,
+                 load_balancer_frontend_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FrontendIPConfigurationArgs', 'FrontendIPConfigurationArgsDict']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 private_endpoint_connections: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrivateEndpointConnectionArgs']]]]] = None,
+                 private_endpoint_connections: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PrivateEndpointConnectionArgs', 'PrivateEndpointConnectionArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 visibility: Optional[pulumi.Input[pulumi.InputType['PrivateLinkServicePropertiesVisibilityArgs']]] = None,
+                 visibility: Optional[pulumi.Input[Union['PrivateLinkServicePropertiesVisibilityArgs', 'PrivateLinkServicePropertiesVisibilityArgsDict']]] = None,
                  __props__=None):
         """
         Private link service resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['PrivateLinkServicePropertiesAutoApprovalArgs']] auto_approval: The auto-approval list of the private link service.
+        :param pulumi.Input[Union['PrivateLinkServicePropertiesAutoApprovalArgs', 'PrivateLinkServicePropertiesAutoApprovalArgsDict']] auto_approval: The auto-approval list of the private link service.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] fqdns: The list of Fqdn.
         :param pulumi.Input[str] id: Resource ID.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrivateLinkServiceIpConfigurationArgs']]]] ip_configurations: An array of private link service IP configurations.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrontendIPConfigurationArgs']]]] load_balancer_frontend_ip_configurations: An array of references to the load balancer IP configurations.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PrivateLinkServiceIpConfigurationArgs', 'PrivateLinkServiceIpConfigurationArgsDict']]]] ip_configurations: An array of private link service IP configurations.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FrontendIPConfigurationArgs', 'FrontendIPConfigurationArgsDict']]]] load_balancer_frontend_ip_configurations: An array of references to the load balancer IP configurations.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrivateEndpointConnectionArgs']]]] private_endpoint_connections: An array of list about connections to the private endpoint.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PrivateEndpointConnectionArgs', 'PrivateEndpointConnectionArgsDict']]]] private_endpoint_connections: An array of list about connections to the private endpoint.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] service_name: The name of the private link service.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[pulumi.InputType['PrivateLinkServicePropertiesVisibilityArgs']] visibility: The visibility list of the private link service.
+        :param pulumi.Input[Union['PrivateLinkServicePropertiesVisibilityArgs', 'PrivateLinkServicePropertiesVisibilityArgsDict']] visibility: The visibility list of the private link service.
         """
         ...
     @overload
@@ -255,17 +260,17 @@ class PrivateLinkService(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_approval: Optional[pulumi.Input[pulumi.InputType['PrivateLinkServicePropertiesAutoApprovalArgs']]] = None,
+                 auto_approval: Optional[pulumi.Input[Union['PrivateLinkServicePropertiesAutoApprovalArgs', 'PrivateLinkServicePropertiesAutoApprovalArgsDict']]] = None,
                  fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  id: Optional[pulumi.Input[str]] = None,
-                 ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrivateLinkServiceIpConfigurationArgs']]]]] = None,
-                 load_balancer_frontend_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrontendIPConfigurationArgs']]]]] = None,
+                 ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PrivateLinkServiceIpConfigurationArgs', 'PrivateLinkServiceIpConfigurationArgsDict']]]]] = None,
+                 load_balancer_frontend_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FrontendIPConfigurationArgs', 'FrontendIPConfigurationArgsDict']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 private_endpoint_connections: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrivateEndpointConnectionArgs']]]]] = None,
+                 private_endpoint_connections: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PrivateEndpointConnectionArgs', 'PrivateEndpointConnectionArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 visibility: Optional[pulumi.Input[pulumi.InputType['PrivateLinkServicePropertiesVisibilityArgs']]] = None,
+                 visibility: Optional[pulumi.Input[Union['PrivateLinkServicePropertiesVisibilityArgs', 'PrivateLinkServicePropertiesVisibilityArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

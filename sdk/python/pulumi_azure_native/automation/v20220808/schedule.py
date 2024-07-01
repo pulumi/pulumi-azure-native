@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -198,7 +203,7 @@ class Schedule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 advanced_schedule: Optional[pulumi.Input[pulumi.InputType['AdvancedScheduleArgs']]] = None,
+                 advanced_schedule: Optional[pulumi.Input[Union['AdvancedScheduleArgs', 'AdvancedScheduleArgsDict']]] = None,
                  automation_account_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  expiry_time: Optional[pulumi.Input[str]] = None,
@@ -215,7 +220,7 @@ class Schedule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['AdvancedScheduleArgs']] advanced_schedule: Gets or sets the AdvancedSchedule.
+        :param pulumi.Input[Union['AdvancedScheduleArgs', 'AdvancedScheduleArgsDict']] advanced_schedule: Gets or sets the AdvancedSchedule.
         :param pulumi.Input[str] automation_account_name: The name of the automation account.
         :param pulumi.Input[str] description: Gets or sets the description of the schedule.
         :param pulumi.Input[str] expiry_time: Gets or sets the end time of the schedule.
@@ -251,7 +256,7 @@ class Schedule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 advanced_schedule: Optional[pulumi.Input[pulumi.InputType['AdvancedScheduleArgs']]] = None,
+                 advanced_schedule: Optional[pulumi.Input[Union['AdvancedScheduleArgs', 'AdvancedScheduleArgsDict']]] = None,
                  automation_account_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  expiry_time: Optional[pulumi.Input[str]] = None,

@@ -4,15 +4,49 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 
 __all__ = [
     'ReportPropertiesArgs',
+    'ReportPropertiesArgsDict',
     'ResourceMetadataArgs',
+    'ResourceMetadataArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ReportPropertiesArgsDict(TypedDict):
+        """
+        Report's properties.
+        """
+        resources: pulumi.Input[Sequence[pulumi.Input['ResourceMetadataArgsDict']]]
+        """
+        List of resource data.
+        """
+        time_zone: pulumi.Input[str]
+        """
+        Report collection trigger time's time zone, the available list can be obtained by executing "Get-TimeZone -ListAvailable" in PowerShell.
+        An example of valid timezone id is "Pacific Standard Time".
+        """
+        trigger_time: pulumi.Input[str]
+        """
+        Report collection trigger time.
+        """
+        offer_guid: NotRequired[pulumi.Input[str]]
+        """
+        Report offer Guid.
+        """
+elif False:
+    ReportPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ReportPropertiesArgs:
@@ -84,6 +118,34 @@ class ReportPropertiesArgs:
     def offer_guid(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "offer_guid", value)
 
+
+if not MYPY:
+    class ResourceMetadataArgsDict(TypedDict):
+        """
+        Single resource Id's metadata.
+        """
+        resource_id: pulumi.Input[str]
+        """
+        Resource Id - e.g. "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachines/vm1".
+        """
+        resource_kind: NotRequired[pulumi.Input[str]]
+        """
+        Resource kind.
+        """
+        resource_name: NotRequired[pulumi.Input[str]]
+        """
+        Resource name.
+        """
+        resource_type: NotRequired[pulumi.Input[str]]
+        """
+        Resource type.
+        """
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Resource's tag type.
+        """
+elif False:
+    ResourceMetadataArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ResourceMetadataArgs:

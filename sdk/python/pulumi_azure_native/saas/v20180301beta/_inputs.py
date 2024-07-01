@@ -4,15 +4,79 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'SaasCreationPropertiesArgs',
+    'SaasCreationPropertiesArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class SaasCreationPropertiesArgsDict(TypedDict):
+        """
+        properties for creation saas
+        """
+        auto_renew: NotRequired[pulumi.Input[bool]]
+        """
+        Whether the SaaS subscription will auto renew upon term end.
+        """
+        offer_id: NotRequired[pulumi.Input[str]]
+        """
+        The offer id.
+        """
+        payment_channel_metadata: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        The metadata about the SaaS subscription such as the AzureSubscriptionId and ResourceUri.
+        """
+        payment_channel_type: NotRequired[pulumi.Input[Union[str, 'PaymentChannelType']]]
+        """
+        The Payment channel for the SaasSubscription.
+        """
+        publisher_id: NotRequired[pulumi.Input[str]]
+        """
+        The publisher id.
+        """
+        publisher_test_environment: NotRequired[pulumi.Input[str]]
+        """
+        The environment in the publisher side for this resource.
+        """
+        quantity: NotRequired[pulumi.Input[float]]
+        """
+        The seat count.
+        """
+        saas_resource_name: NotRequired[pulumi.Input[str]]
+        """
+        The SaaS resource name.
+        """
+        saas_session_id: NotRequired[pulumi.Input[str]]
+        """
+        The saas session id used for dev service migration request.
+        """
+        saas_subscription_id: NotRequired[pulumi.Input[str]]
+        """
+        The saas subscription id used for tenant to subscription level migration request.
+        """
+        sku_id: NotRequired[pulumi.Input[str]]
+        """
+        The plan id.
+        """
+        term_id: NotRequired[pulumi.Input[str]]
+        """
+        The current Term id.
+        """
+elif False:
+    SaasCreationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SaasCreationPropertiesArgs:

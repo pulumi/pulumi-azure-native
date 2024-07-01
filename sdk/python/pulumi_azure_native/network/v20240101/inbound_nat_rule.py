@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -265,11 +270,11 @@ class InboundNatRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 backend_address_pool: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
+                 backend_address_pool: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
                  backend_port: Optional[pulumi.Input[int]] = None,
                  enable_floating_ip: Optional[pulumi.Input[bool]] = None,
                  enable_tcp_reset: Optional[pulumi.Input[bool]] = None,
-                 frontend_ip_configuration: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
+                 frontend_ip_configuration: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
                  frontend_port: Optional[pulumi.Input[int]] = None,
                  frontend_port_range_end: Optional[pulumi.Input[int]] = None,
                  frontend_port_range_start: Optional[pulumi.Input[int]] = None,
@@ -286,11 +291,11 @@ class InboundNatRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['SubResourceArgs']] backend_address_pool: A reference to backendAddressPool resource.
+        :param pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']] backend_address_pool: A reference to backendAddressPool resource.
         :param pulumi.Input[int] backend_port: The port used for the internal endpoint. Acceptable values range from 1 to 65535.
         :param pulumi.Input[bool] enable_floating_ip: Configures a virtual machine's endpoint for the floating IP capability required to configure a SQL AlwaysOn Availability Group. This setting is required when using the SQL AlwaysOn Availability Groups in SQL server. This setting can't be changed after you create the endpoint.
         :param pulumi.Input[bool] enable_tcp_reset: Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
-        :param pulumi.Input[pulumi.InputType['SubResourceArgs']] frontend_ip_configuration: A reference to frontend IP addresses.
+        :param pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']] frontend_ip_configuration: A reference to frontend IP addresses.
         :param pulumi.Input[int] frontend_port: The port for the external endpoint. Port numbers for each rule must be unique within the Load Balancer. Acceptable values range from 1 to 65534.
         :param pulumi.Input[int] frontend_port_range_end: The port range end for the external endpoint. This property is used together with BackendAddressPool and FrontendPortRangeStart. Individual inbound NAT rule port mappings will be created for each backend address from BackendAddressPool. Acceptable values range from 1 to 65534.
         :param pulumi.Input[int] frontend_port_range_start: The port range start for the external endpoint. This property is used together with BackendAddressPool and FrontendPortRangeEnd. Individual inbound NAT rule port mappings will be created for each backend address from BackendAddressPool. Acceptable values range from 1 to 65534.
@@ -326,11 +331,11 @@ class InboundNatRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 backend_address_pool: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
+                 backend_address_pool: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
                  backend_port: Optional[pulumi.Input[int]] = None,
                  enable_floating_ip: Optional[pulumi.Input[bool]] = None,
                  enable_tcp_reset: Optional[pulumi.Input[bool]] = None,
-                 frontend_ip_configuration: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
+                 frontend_ip_configuration: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
                  frontend_port: Optional[pulumi.Input[int]] = None,
                  frontend_port_range_end: Optional[pulumi.Input[int]] = None,
                  frontend_port_range_start: Optional[pulumi.Input[int]] = None,

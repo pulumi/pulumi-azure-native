@@ -4,15 +4,43 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'ImageArgs',
+    'ImageArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ImageArgsDict(TypedDict):
+        """
+        An image resource belonging to a catalog resource.
+        """
+        image: NotRequired[pulumi.Input[str]]
+        """
+        Image as a UTF-8 encoded base 64 string on image create. This field contains the image URI on image reads.
+        """
+        image_id: NotRequired[pulumi.Input[str]]
+        """
+        Image ID
+        """
+        regional_data_boundary: NotRequired[pulumi.Input[Union[str, 'RegionalDataBoundary']]]
+        """
+        Regional data boundary for an image
+        """
+elif False:
+    ImageArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ImageArgs:

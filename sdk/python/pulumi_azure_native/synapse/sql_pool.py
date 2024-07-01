@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -293,7 +298,7 @@ class SqlPool(pulumi.CustomResource):
                  recoverable_database_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  restore_point_in_time: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  source_database_deletion_date: Optional[pulumi.Input[str]] = None,
                  source_database_id: Optional[pulumi.Input[str]] = None,
                  sql_pool_name: Optional[pulumi.Input[str]] = None,
@@ -325,7 +330,7 @@ class SqlPool(pulumi.CustomResource):
         :param pulumi.Input[str] recoverable_database_id: Backup database to restore from
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] restore_point_in_time: Snapshot time to restore
-        :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: SQL pool SKU
+        :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: SQL pool SKU
         :param pulumi.Input[str] source_database_deletion_date: Specifies the time that the sql pool was deleted
         :param pulumi.Input[str] source_database_id: Source database to create from
         :param pulumi.Input[str] sql_pool_name: SQL pool name
@@ -368,7 +373,7 @@ class SqlPool(pulumi.CustomResource):
                  recoverable_database_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  restore_point_in_time: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  source_database_deletion_date: Optional[pulumi.Input[str]] = None,
                  source_database_id: Optional[pulumi.Input[str]] = None,
                  sql_pool_name: Optional[pulumi.Input[str]] = None,

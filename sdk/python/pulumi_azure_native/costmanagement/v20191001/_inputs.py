@@ -4,27 +4,67 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'ExportDeliveryDestinationArgs',
+    'ExportDeliveryDestinationArgsDict',
     'ExportDeliveryInfoArgs',
+    'ExportDeliveryInfoArgsDict',
     'ExportRecurrencePeriodArgs',
+    'ExportRecurrencePeriodArgsDict',
     'ExportScheduleArgs',
+    'ExportScheduleArgsDict',
     'QueryAggregationArgs',
+    'QueryAggregationArgsDict',
     'QueryComparisonExpressionArgs',
+    'QueryComparisonExpressionArgsDict',
     'QueryDatasetConfigurationArgs',
+    'QueryDatasetConfigurationArgsDict',
     'QueryDatasetArgs',
+    'QueryDatasetArgsDict',
     'QueryDefinitionArgs',
+    'QueryDefinitionArgsDict',
     'QueryFilterArgs',
+    'QueryFilterArgsDict',
     'QueryGroupingArgs',
+    'QueryGroupingArgsDict',
     'QuerySortingConfigurationArgs',
+    'QuerySortingConfigurationArgsDict',
     'QueryTimePeriodArgs',
+    'QueryTimePeriodArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ExportDeliveryDestinationArgsDict(TypedDict):
+        """
+        The destination information for the delivery of the export.
+        """
+        container: pulumi.Input[str]
+        """
+        The name of the container where exports will be uploaded.
+        """
+        resource_id: pulumi.Input[str]
+        """
+        The resource id of the storage account where exports will be delivered.
+        """
+        root_folder_path: NotRequired[pulumi.Input[str]]
+        """
+        The name of the directory where exports will be uploaded.
+        """
+elif False:
+    ExportDeliveryDestinationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ExportDeliveryDestinationArgs:
@@ -80,6 +120,18 @@ class ExportDeliveryDestinationArgs:
         pulumi.set(self, "root_folder_path", value)
 
 
+if not MYPY:
+    class ExportDeliveryInfoArgsDict(TypedDict):
+        """
+        The delivery information associated with a export.
+        """
+        destination: pulumi.Input['ExportDeliveryDestinationArgsDict']
+        """
+        Has destination for the export being delivered.
+        """
+elif False:
+    ExportDeliveryInfoArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ExportDeliveryInfoArgs:
     def __init__(__self__, *,
@@ -102,6 +154,22 @@ class ExportDeliveryInfoArgs:
     def destination(self, value: pulumi.Input['ExportDeliveryDestinationArgs']):
         pulumi.set(self, "destination", value)
 
+
+if not MYPY:
+    class ExportRecurrencePeriodArgsDict(TypedDict):
+        """
+        The start and end date for recurrence schedule.
+        """
+        from_: pulumi.Input[str]
+        """
+        The start date of recurrence.
+        """
+        to: NotRequired[pulumi.Input[str]]
+        """
+        The end date of recurrence.
+        """
+elif False:
+    ExportRecurrencePeriodArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ExportRecurrencePeriodArgs:
@@ -141,6 +209,26 @@ class ExportRecurrencePeriodArgs:
     def to(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "to", value)
 
+
+if not MYPY:
+    class ExportScheduleArgsDict(TypedDict):
+        """
+        The schedule associated with a export.
+        """
+        recurrence: pulumi.Input[Union[str, 'RecurrenceType']]
+        """
+        The schedule recurrence.
+        """
+        recurrence_period: NotRequired[pulumi.Input['ExportRecurrencePeriodArgsDict']]
+        """
+        Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
+        """
+        status: NotRequired[pulumi.Input[Union[str, 'StatusType']]]
+        """
+        The status of the schedule. Whether active or not. If inactive, the export's scheduled execution is paused.
+        """
+elif False:
+    ExportScheduleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ExportScheduleArgs:
@@ -197,6 +285,22 @@ class ExportScheduleArgs:
         pulumi.set(self, "status", value)
 
 
+if not MYPY:
+    class QueryAggregationArgsDict(TypedDict):
+        """
+        The aggregation expression to be used in the query.
+        """
+        function: pulumi.Input[Union[str, 'FunctionType']]
+        """
+        The name of the aggregation function to use.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the column to aggregate.
+        """
+elif False:
+    QueryAggregationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class QueryAggregationArgs:
     def __init__(__self__, *,
@@ -234,6 +338,26 @@ class QueryAggregationArgs:
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class QueryComparisonExpressionArgsDict(TypedDict):
+        """
+        The comparison expression to be used in the query.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the column to use in comparison.
+        """
+        operator: pulumi.Input[Union[str, 'OperatorType']]
+        """
+        The operator to use for comparison.
+        """
+        values: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Array of values to use for comparison
+        """
+elif False:
+    QueryComparisonExpressionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class QueryComparisonExpressionArgs:
@@ -288,6 +412,18 @@ class QueryComparisonExpressionArgs:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class QueryDatasetConfigurationArgsDict(TypedDict):
+        """
+        The configuration of dataset in the query.
+        """
+        columns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Array of column names to be included in the query. Any valid query column name is allowed. If not provided, then query includes all columns.
+        """
+elif False:
+    QueryDatasetConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class QueryDatasetConfigurationArgs:
     def __init__(__self__, *,
@@ -311,6 +447,38 @@ class QueryDatasetConfigurationArgs:
     def columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "columns", value)
 
+
+if not MYPY:
+    class QueryDatasetArgsDict(TypedDict):
+        """
+        The definition of data present in the query.
+        """
+        aggregation: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['QueryAggregationArgsDict']]]]
+        """
+        Dictionary of aggregation expression to use in the query. The key of each item in the dictionary is the alias for the aggregated column. Query can have up to 2 aggregation clauses.
+        """
+        configuration: NotRequired[pulumi.Input['QueryDatasetConfigurationArgsDict']]
+        """
+        Has configuration information for the data in the export. The configuration will be ignored if aggregation and grouping are provided.
+        """
+        filter: NotRequired[pulumi.Input['QueryFilterArgsDict']]
+        """
+        The filter expression to use in the query. Please reference our Query API REST documentation for how to properly format the filter.
+        """
+        granularity: NotRequired[pulumi.Input[Union[str, 'GranularityType']]]
+        """
+        The granularity of rows in the query.
+        """
+        grouping: NotRequired[pulumi.Input[Sequence[pulumi.Input['QueryGroupingArgsDict']]]]
+        """
+        Array of group by expression to use in the query. Query can have up to 2 group by clauses.
+        """
+        sorting: NotRequired[pulumi.Input[Sequence[pulumi.Input['QuerySortingConfigurationArgsDict']]]]
+        """
+        Array of sorting by columns in query.
+        """
+elif False:
+    QueryDatasetArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class QueryDatasetArgs:
@@ -416,6 +584,30 @@ class QueryDatasetArgs:
         pulumi.set(self, "sorting", value)
 
 
+if not MYPY:
+    class QueryDefinitionArgsDict(TypedDict):
+        """
+        The definition of a query.
+        """
+        timeframe: pulumi.Input[Union[str, 'TimeframeType']]
+        """
+        The time frame for pulling data for the query. If custom, then a specific time period must be provided.
+        """
+        type: pulumi.Input[Union[str, 'ExportType']]
+        """
+        The type of the query.
+        """
+        dataset: NotRequired[pulumi.Input['QueryDatasetArgsDict']]
+        """
+        Has definition for data in this query.
+        """
+        time_period: NotRequired[pulumi.Input['QueryTimePeriodArgsDict']]
+        """
+        Has time period for pulling data for the query.
+        """
+elif False:
+    QueryDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class QueryDefinitionArgs:
     def __init__(__self__, *,
@@ -485,6 +677,34 @@ class QueryDefinitionArgs:
     def time_period(self, value: Optional[pulumi.Input['QueryTimePeriodArgs']]):
         pulumi.set(self, "time_period", value)
 
+
+if not MYPY:
+    class QueryFilterArgsDict(TypedDict):
+        """
+        The filter expression to be used in the export.
+        """
+        and_: NotRequired[pulumi.Input[Sequence[pulumi.Input['QueryFilterArgsDict']]]]
+        """
+        The logical "AND" expression. Must have at least 2 items.
+        """
+        dimension: NotRequired[pulumi.Input['QueryComparisonExpressionArgsDict']]
+        """
+        Has comparison expression for a dimension
+        """
+        not_: NotRequired[pulumi.Input['QueryFilterArgsDict']]
+        """
+        The logical "NOT" expression.
+        """
+        or_: NotRequired[pulumi.Input[Sequence[pulumi.Input['QueryFilterArgsDict']]]]
+        """
+        The logical "OR" expression. Must have at least 2 items.
+        """
+        tag: NotRequired[pulumi.Input['QueryComparisonExpressionArgsDict']]
+        """
+        Has comparison expression for a tag
+        """
+elif False:
+    QueryFilterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class QueryFilterArgs:
@@ -574,6 +794,22 @@ class QueryFilterArgs:
         pulumi.set(self, "tag", value)
 
 
+if not MYPY:
+    class QueryGroupingArgsDict(TypedDict):
+        """
+        The group by expression to be used in the query.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the column to group.
+        """
+        type: pulumi.Input[Union[str, 'QueryColumnType']]
+        """
+        Has type of the column to group.
+        """
+elif False:
+    QueryGroupingArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class QueryGroupingArgs:
     def __init__(__self__, *,
@@ -611,6 +847,22 @@ class QueryGroupingArgs:
     def type(self, value: pulumi.Input[Union[str, 'QueryColumnType']]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class QuerySortingConfigurationArgsDict(TypedDict):
+        """
+        The configuration for sorting in the query.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the column to use in sorting.
+        """
+        query_sorting_direction: NotRequired[pulumi.Input[Union[str, 'SortDirection']]]
+        """
+        The sorting direction
+        """
+elif False:
+    QuerySortingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class QuerySortingConfigurationArgs:
@@ -651,6 +903,22 @@ class QuerySortingConfigurationArgs:
     def query_sorting_direction(self, value: Optional[pulumi.Input[Union[str, 'SortDirection']]]):
         pulumi.set(self, "query_sorting_direction", value)
 
+
+if not MYPY:
+    class QueryTimePeriodArgsDict(TypedDict):
+        """
+        The start and end date for pulling data for the query.
+        """
+        from_: pulumi.Input[str]
+        """
+        The start date to pull data from.
+        """
+        to: pulumi.Input[str]
+        """
+        The end date to pull data to.
+        """
+elif False:
+    QueryTimePeriodArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class QueryTimePeriodArgs:

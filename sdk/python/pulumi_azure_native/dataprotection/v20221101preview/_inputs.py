@@ -4,15 +4,36 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 
 __all__ = [
     'DppIdentityDetailsArgs',
+    'DppIdentityDetailsArgsDict',
     'ResourceGuardArgs',
+    'ResourceGuardArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class DppIdentityDetailsArgsDict(TypedDict):
+        """
+        Identity details
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        The identityType which can be either SystemAssigned or None
+        """
+elif False:
+    DppIdentityDetailsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DppIdentityDetailsArgs:
@@ -37,6 +58,15 @@ class DppIdentityDetailsArgs:
     def type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class ResourceGuardArgsDict(TypedDict):
+        vault_critical_operation_exclusion_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of critical operations which are not protected by this resourceGuard
+        """
+elif False:
+    ResourceGuardArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ResourceGuardArgs:

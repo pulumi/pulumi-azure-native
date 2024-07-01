@@ -4,14 +4,42 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 
 __all__ = [
     'StreamingLocatorUserDefinedContentKeyArgs',
+    'StreamingLocatorUserDefinedContentKeyArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class StreamingLocatorUserDefinedContentKeyArgsDict(TypedDict):
+        """
+        Describes the properties of a user-defined content key in the Streaming Locator
+        """
+        id: pulumi.Input[str]
+        """
+        ID of Content Key
+        """
+        label: NotRequired[pulumi.Input[str]]
+        """
+        The Content Key description
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        The Content Key secret
+        """
+elif False:
+    StreamingLocatorUserDefinedContentKeyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class StreamingLocatorUserDefinedContentKeyArgs:

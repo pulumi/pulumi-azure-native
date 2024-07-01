@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -90,7 +95,7 @@ class Service(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[Union[pulumi.InputType['DataTransferServiceResourceCreateUpdatePropertiesArgs'], pulumi.InputType['GraphAPIComputeServiceResourceCreateUpdatePropertiesArgs'], pulumi.InputType['MaterializedViewsBuilderServiceResourceCreateUpdatePropertiesArgs'], pulumi.InputType['SqlDedicatedGatewayServiceResourceCreateUpdatePropertiesArgs']]]] = None,
+                 properties: Optional[pulumi.Input[Union[Union['DataTransferServiceResourceCreateUpdatePropertiesArgs', 'DataTransferServiceResourceCreateUpdatePropertiesArgsDict'], Union['GraphAPIComputeServiceResourceCreateUpdatePropertiesArgs', 'GraphAPIComputeServiceResourceCreateUpdatePropertiesArgsDict'], Union['MaterializedViewsBuilderServiceResourceCreateUpdatePropertiesArgs', 'MaterializedViewsBuilderServiceResourceCreateUpdatePropertiesArgsDict'], Union['SqlDedicatedGatewayServiceResourceCreateUpdatePropertiesArgs', 'SqlDedicatedGatewayServiceResourceCreateUpdatePropertiesArgsDict']]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -100,7 +105,7 @@ class Service(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: Cosmos DB database account name.
-        :param pulumi.Input[Union[pulumi.InputType['DataTransferServiceResourceCreateUpdatePropertiesArgs'], pulumi.InputType['GraphAPIComputeServiceResourceCreateUpdatePropertiesArgs'], pulumi.InputType['MaterializedViewsBuilderServiceResourceCreateUpdatePropertiesArgs'], pulumi.InputType['SqlDedicatedGatewayServiceResourceCreateUpdatePropertiesArgs']]] properties: Properties in ServiceResourceCreateUpdateParameters.
+        :param pulumi.Input[Union[Union['DataTransferServiceResourceCreateUpdatePropertiesArgs', 'DataTransferServiceResourceCreateUpdatePropertiesArgsDict'], Union['GraphAPIComputeServiceResourceCreateUpdatePropertiesArgs', 'GraphAPIComputeServiceResourceCreateUpdatePropertiesArgsDict'], Union['MaterializedViewsBuilderServiceResourceCreateUpdatePropertiesArgs', 'MaterializedViewsBuilderServiceResourceCreateUpdatePropertiesArgsDict'], Union['SqlDedicatedGatewayServiceResourceCreateUpdatePropertiesArgs', 'SqlDedicatedGatewayServiceResourceCreateUpdatePropertiesArgsDict']]] properties: Properties in ServiceResourceCreateUpdateParameters.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] service_name: Cosmos DB service name.
         """
@@ -129,7 +134,7 @@ class Service(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[Union[pulumi.InputType['DataTransferServiceResourceCreateUpdatePropertiesArgs'], pulumi.InputType['GraphAPIComputeServiceResourceCreateUpdatePropertiesArgs'], pulumi.InputType['MaterializedViewsBuilderServiceResourceCreateUpdatePropertiesArgs'], pulumi.InputType['SqlDedicatedGatewayServiceResourceCreateUpdatePropertiesArgs']]]] = None,
+                 properties: Optional[pulumi.Input[Union[Union['DataTransferServiceResourceCreateUpdatePropertiesArgs', 'DataTransferServiceResourceCreateUpdatePropertiesArgsDict'], Union['GraphAPIComputeServiceResourceCreateUpdatePropertiesArgs', 'GraphAPIComputeServiceResourceCreateUpdatePropertiesArgsDict'], Union['MaterializedViewsBuilderServiceResourceCreateUpdatePropertiesArgs', 'MaterializedViewsBuilderServiceResourceCreateUpdatePropertiesArgsDict'], Union['SqlDedicatedGatewayServiceResourceCreateUpdatePropertiesArgs', 'SqlDedicatedGatewayServiceResourceCreateUpdatePropertiesArgsDict']]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):

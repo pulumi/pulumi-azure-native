@@ -4,44 +4,93 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'ApiDefinitionInfoArgs',
+    'ApiDefinitionInfoArgsDict',
     'AutoHealActionsArgs',
+    'AutoHealActionsArgsDict',
     'AutoHealCustomActionArgs',
+    'AutoHealCustomActionArgsDict',
     'AutoHealRulesArgs',
+    'AutoHealRulesArgsDict',
     'AutoHealTriggersArgs',
+    'AutoHealTriggersArgsDict',
     'BackupSchedule',
+    'BackupScheduleDict',
     'BackupScheduleArgs',
+    'BackupScheduleArgsDict',
     'CloningInfoArgs',
+    'CloningInfoArgsDict',
     'ConnStringInfoArgs',
+    'ConnStringInfoArgsDict',
     'CorsSettingsArgs',
+    'CorsSettingsArgsDict',
     'DatabaseBackupSetting',
+    'DatabaseBackupSettingDict',
     'DatabaseBackupSettingArgs',
+    'DatabaseBackupSettingArgsDict',
     'ExperimentsArgs',
+    'ExperimentsArgsDict',
     'HandlerMappingArgs',
+    'HandlerMappingArgsDict',
     'HostNameSslStateArgs',
+    'HostNameSslStateArgsDict',
     'HostingEnvironmentProfileArgs',
+    'HostingEnvironmentProfileArgsDict',
     'IpSecurityRestrictionArgs',
+    'IpSecurityRestrictionArgsDict',
     'ManagedServiceIdentityArgs',
+    'ManagedServiceIdentityArgsDict',
     'NameValuePairArgs',
+    'NameValuePairArgsDict',
     'PushSettingsArgs',
+    'PushSettingsArgsDict',
     'RampUpRuleArgs',
+    'RampUpRuleArgsDict',
     'RequestsBasedTriggerArgs',
+    'RequestsBasedTriggerArgsDict',
     'SiteConfigArgs',
+    'SiteConfigArgsDict',
     'SiteLimitsArgs',
+    'SiteLimitsArgsDict',
     'SlowRequestsBasedTriggerArgs',
+    'SlowRequestsBasedTriggerArgsDict',
     'SnapshotRecoveryRequestArgs',
+    'SnapshotRecoveryRequestArgsDict',
     'SnapshotRecoveryTargetArgs',
+    'SnapshotRecoveryTargetArgsDict',
     'StatusCodesBasedTriggerArgs',
+    'StatusCodesBasedTriggerArgsDict',
     'VirtualApplicationArgs',
+    'VirtualApplicationArgsDict',
     'VirtualDirectoryArgs',
+    'VirtualDirectoryArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ApiDefinitionInfoArgsDict(TypedDict):
+        """
+        Information about the formal API definition for the app.
+        """
+        url: NotRequired[pulumi.Input[str]]
+        """
+        The URL of the API definition.
+        """
+elif False:
+    ApiDefinitionInfoArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApiDefinitionInfoArgs:
@@ -66,6 +115,27 @@ class ApiDefinitionInfoArgs:
     def url(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "url", value)
 
+
+if not MYPY:
+    class AutoHealActionsArgsDict(TypedDict):
+        """
+        Actions which to take by the auto-heal module when a rule is triggered.
+        """
+        action_type: NotRequired[pulumi.Input['AutoHealActionType']]
+        """
+        Predefined action to be taken.
+        """
+        custom_action: NotRequired[pulumi.Input['AutoHealCustomActionArgsDict']]
+        """
+        Custom action to be taken.
+        """
+        min_process_execution_time: NotRequired[pulumi.Input[str]]
+        """
+        Minimum time the process must execute
+        before taking the action
+        """
+elif False:
+    AutoHealActionsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AutoHealActionsArgs:
@@ -125,6 +195,23 @@ class AutoHealActionsArgs:
         pulumi.set(self, "min_process_execution_time", value)
 
 
+if not MYPY:
+    class AutoHealCustomActionArgsDict(TypedDict):
+        """
+        Custom action to be executed
+        when an auto heal rule is triggered.
+        """
+        exe: NotRequired[pulumi.Input[str]]
+        """
+        Executable to be run.
+        """
+        parameters: NotRequired[pulumi.Input[str]]
+        """
+        Parameters for the executable.
+        """
+elif False:
+    AutoHealCustomActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AutoHealCustomActionArgs:
     def __init__(__self__, *,
@@ -166,6 +253,22 @@ class AutoHealCustomActionArgs:
         pulumi.set(self, "parameters", value)
 
 
+if not MYPY:
+    class AutoHealRulesArgsDict(TypedDict):
+        """
+        Rules that can be defined for auto-heal.
+        """
+        actions: NotRequired[pulumi.Input['AutoHealActionsArgsDict']]
+        """
+        Actions to be executed when a rule is triggered.
+        """
+        triggers: NotRequired[pulumi.Input['AutoHealTriggersArgsDict']]
+        """
+        Conditions that describe when to execute the auto-heal actions.
+        """
+elif False:
+    AutoHealRulesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AutoHealRulesArgs:
     def __init__(__self__, *,
@@ -205,6 +308,30 @@ class AutoHealRulesArgs:
     def triggers(self, value: Optional[pulumi.Input['AutoHealTriggersArgs']]):
         pulumi.set(self, "triggers", value)
 
+
+if not MYPY:
+    class AutoHealTriggersArgsDict(TypedDict):
+        """
+        Triggers for auto-heal.
+        """
+        private_bytes_in_kb: NotRequired[pulumi.Input[int]]
+        """
+        A rule based on private bytes.
+        """
+        requests: NotRequired[pulumi.Input['RequestsBasedTriggerArgsDict']]
+        """
+        A rule based on total requests.
+        """
+        slow_requests: NotRequired[pulumi.Input['SlowRequestsBasedTriggerArgsDict']]
+        """
+        A rule based on request execution time.
+        """
+        status_codes: NotRequired[pulumi.Input[Sequence[pulumi.Input['StatusCodesBasedTriggerArgsDict']]]]
+        """
+        A rule based on status codes.
+        """
+elif False:
+    AutoHealTriggersArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AutoHealTriggersArgs:
@@ -277,6 +404,34 @@ class AutoHealTriggersArgs:
     def status_codes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StatusCodesBasedTriggerArgs']]]]):
         pulumi.set(self, "status_codes", value)
 
+
+if not MYPY:
+    class BackupScheduleDict(TypedDict):
+        """
+        Description of a backup schedule. Describes how often should be the backup performed and what should be the retention policy.
+        """
+        frequency_interval: int
+        """
+        How often the backup should be executed (e.g. for weekly backup, this should be set to 7 and FrequencyUnit should be set to Day)
+        """
+        frequency_unit: 'FrequencyUnit'
+        """
+        The unit of time for how often the backup should be executed (e.g. for weekly backup, this should be set to Day and FrequencyInterval should be set to 7)
+        """
+        keep_at_least_one_backup: bool
+        """
+        True if the retention policy should always keep at least one backup in the storage account, regardless how old it is; false otherwise.
+        """
+        retention_period_in_days: int
+        """
+        After how many days backups should be deleted.
+        """
+        start_time: NotRequired[str]
+        """
+        When the schedule should start working.
+        """
+elif False:
+    BackupScheduleDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class BackupSchedule:
@@ -370,6 +525,34 @@ class BackupSchedule:
         pulumi.set(self, "start_time", value)
 
 
+if not MYPY:
+    class BackupScheduleArgsDict(TypedDict):
+        """
+        Description of a backup schedule. Describes how often should be the backup performed and what should be the retention policy.
+        """
+        frequency_interval: pulumi.Input[int]
+        """
+        How often the backup should be executed (e.g. for weekly backup, this should be set to 7 and FrequencyUnit should be set to Day)
+        """
+        frequency_unit: pulumi.Input['FrequencyUnit']
+        """
+        The unit of time for how often the backup should be executed (e.g. for weekly backup, this should be set to Day and FrequencyInterval should be set to 7)
+        """
+        keep_at_least_one_backup: pulumi.Input[bool]
+        """
+        True if the retention policy should always keep at least one backup in the storage account, regardless how old it is; false otherwise.
+        """
+        retention_period_in_days: pulumi.Input[int]
+        """
+        After how many days backups should be deleted.
+        """
+        start_time: NotRequired[pulumi.Input[str]]
+        """
+        When the schedule should start working.
+        """
+elif False:
+    BackupScheduleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class BackupScheduleArgs:
     def __init__(__self__, *,
@@ -461,6 +644,63 @@ class BackupScheduleArgs:
     def start_time(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "start_time", value)
 
+
+if not MYPY:
+    class CloningInfoArgsDict(TypedDict):
+        """
+        Information needed for cloning operation.
+        """
+        source_web_app_id: pulumi.Input[str]
+        """
+        ARM resource ID of the source app. App resource ID is of the form 
+        /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName} for production slots and 
+        /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName}/slots/{slotName} for other slots.
+        """
+        app_settings_overrides: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Application setting overrides for cloned app. If specified, these settings override the settings cloned 
+        from source app. Otherwise, application settings from source app are retained.
+        """
+        clone_custom_host_names: NotRequired[pulumi.Input[bool]]
+        """
+        <code>true</code> to clone custom hostnames from source app; otherwise, <code>false</code>.
+        """
+        clone_source_control: NotRequired[pulumi.Input[bool]]
+        """
+        <code>true</code> to clone source control from source app; otherwise, <code>false</code>.
+        """
+        configure_load_balancing: NotRequired[pulumi.Input[bool]]
+        """
+        <code>true</code> to configure load balancing for source and destination app.
+        """
+        correlation_id: NotRequired[pulumi.Input[str]]
+        """
+        Correlation ID of cloning operation. This ID ties multiple cloning operations
+        together to use the same snapshot.
+        """
+        hosting_environment: NotRequired[pulumi.Input[str]]
+        """
+        App Service Environment.
+        """
+        ignore_quotas: NotRequired[pulumi.Input[bool]]
+        """
+        <code>true</code> if quotas should be ignored; otherwise, <code>false</code>.
+        """
+        overwrite: NotRequired[pulumi.Input[bool]]
+        """
+        <code>true</code> to overwrite destination app; otherwise, <code>false</code>.
+        """
+        traffic_manager_profile_id: NotRequired[pulumi.Input[str]]
+        """
+        ARM resource ID of the Traffic Manager profile to use, if it exists. Traffic Manager resource ID is of the form 
+        /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{profileName}.
+        """
+        traffic_manager_profile_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of Traffic Manager profile to create. This is only needed if Traffic Manager profile does not already exist.
+        """
+elif False:
+    CloningInfoArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CloningInfoArgs:
@@ -655,6 +895,26 @@ class CloningInfoArgs:
         pulumi.set(self, "traffic_manager_profile_name", value)
 
 
+if not MYPY:
+    class ConnStringInfoArgsDict(TypedDict):
+        """
+        Database connection string information.
+        """
+        connection_string: NotRequired[pulumi.Input[str]]
+        """
+        Connection string value.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of connection string.
+        """
+        type: NotRequired[pulumi.Input['ConnectionStringType']]
+        """
+        Type of database.
+        """
+elif False:
+    ConnStringInfoArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ConnStringInfoArgs:
     def __init__(__self__, *,
@@ -711,6 +971,19 @@ class ConnStringInfoArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class CorsSettingsArgsDict(TypedDict):
+        """
+        Cross-Origin Resource Sharing (CORS) settings for the app.
+        """
+        allowed_origins: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Gets or sets the list of origins that should be allowed to make cross-origin
+        calls (for example: http://example.com:12345). Use "*" to allow all.
+        """
+elif False:
+    CorsSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CorsSettingsArgs:
     def __init__(__self__, *,
@@ -736,6 +1009,28 @@ class CorsSettingsArgs:
     def allowed_origins(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "allowed_origins", value)
 
+
+if not MYPY:
+    class DatabaseBackupSettingDict(TypedDict):
+        """
+        Database backup settings.
+        """
+        database_type: Union[str, 'DatabaseType']
+        """
+        Database type (e.g. SqlAzure / MySql).
+        """
+        connection_string: NotRequired[str]
+        """
+        Contains a connection string to a database which is being backed up or restored. If the restore should happen to a new database, the database name inside is the new one.
+        """
+        connection_string_name: NotRequired[str]
+        """
+        Contains a connection string name that is linked to the SiteConfig.ConnectionStrings.
+        This is used during restore with overwrite connection strings options.
+        """
+        name: NotRequired[str]
+elif False:
+    DatabaseBackupSettingDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DatabaseBackupSetting:
@@ -806,6 +1101,28 @@ class DatabaseBackupSetting:
         pulumi.set(self, "name", value)
 
 
+if not MYPY:
+    class DatabaseBackupSettingArgsDict(TypedDict):
+        """
+        Database backup settings.
+        """
+        database_type: pulumi.Input[Union[str, 'DatabaseType']]
+        """
+        Database type (e.g. SqlAzure / MySql).
+        """
+        connection_string: NotRequired[pulumi.Input[str]]
+        """
+        Contains a connection string to a database which is being backed up or restored. If the restore should happen to a new database, the database name inside is the new one.
+        """
+        connection_string_name: NotRequired[pulumi.Input[str]]
+        """
+        Contains a connection string name that is linked to the SiteConfig.ConnectionStrings.
+        This is used during restore with overwrite connection strings options.
+        """
+        name: NotRequired[pulumi.Input[str]]
+elif False:
+    DatabaseBackupSettingArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DatabaseBackupSettingArgs:
     def __init__(__self__, *,
@@ -875,6 +1192,18 @@ class DatabaseBackupSettingArgs:
         pulumi.set(self, "name", value)
 
 
+if not MYPY:
+    class ExperimentsArgsDict(TypedDict):
+        """
+        Routing rules in production experiments.
+        """
+        ramp_up_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['RampUpRuleArgsDict']]]]
+        """
+        List of ramp-up rules.
+        """
+elif False:
+    ExperimentsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ExperimentsArgs:
     def __init__(__self__, *,
@@ -898,6 +1227,27 @@ class ExperimentsArgs:
     def ramp_up_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RampUpRuleArgs']]]]):
         pulumi.set(self, "ramp_up_rules", value)
 
+
+if not MYPY:
+    class HandlerMappingArgsDict(TypedDict):
+        """
+        The IIS handler mappings used to define which handler processes HTTP requests with certain extension. 
+        For example, it is used to configure php-cgi.exe process to handle all HTTP requests with *.php extension.
+        """
+        arguments: NotRequired[pulumi.Input[str]]
+        """
+        Command-line arguments to be passed to the script processor.
+        """
+        extension: NotRequired[pulumi.Input[str]]
+        """
+        Requests with this extension will be handled using the specified FastCGI application.
+        """
+        script_processor: NotRequired[pulumi.Input[str]]
+        """
+        The absolute path to the FastCGI application.
+        """
+elif False:
+    HandlerMappingArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class HandlerMappingArgs:
@@ -955,6 +1305,38 @@ class HandlerMappingArgs:
     def script_processor(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "script_processor", value)
 
+
+if not MYPY:
+    class HostNameSslStateArgsDict(TypedDict):
+        """
+        SSL-enabled hostname.
+        """
+        host_type: NotRequired[pulumi.Input['HostType']]
+        """
+        Indicates whether the hostname is a standard or repository hostname.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Hostname.
+        """
+        ssl_state: NotRequired[pulumi.Input['SslState']]
+        """
+        SSL type.
+        """
+        thumbprint: NotRequired[pulumi.Input[str]]
+        """
+        SSL certificate thumbprint.
+        """
+        to_update: NotRequired[pulumi.Input[bool]]
+        """
+        Set to <code>true</code> to update existing hostname.
+        """
+        virtual_ip: NotRequired[pulumi.Input[str]]
+        """
+        Virtual IP address assigned to the hostname if IP based SSL is enabled.
+        """
+elif False:
+    HostNameSslStateArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class HostNameSslStateArgs:
@@ -1060,6 +1442,18 @@ class HostNameSslStateArgs:
         pulumi.set(self, "virtual_ip", value)
 
 
+if not MYPY:
+    class HostingEnvironmentProfileArgsDict(TypedDict):
+        """
+        Specification for an App Service Environment to use for this resource.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID of the App Service Environment.
+        """
+elif False:
+    HostingEnvironmentProfileArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class HostingEnvironmentProfileArgs:
     def __init__(__self__, *,
@@ -1083,6 +1477,22 @@ class HostingEnvironmentProfileArgs:
     def id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class IpSecurityRestrictionArgsDict(TypedDict):
+        """
+        IP security restriction on an app.
+        """
+        ip_address: pulumi.Input[str]
+        """
+        IP address the security restriction is valid for.
+        """
+        subnet_mask: NotRequired[pulumi.Input[str]]
+        """
+        Subnet mask for the range of IP addresses the restriction is valid for.
+        """
+elif False:
+    IpSecurityRestrictionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IpSecurityRestrictionArgs:
@@ -1123,6 +1533,18 @@ class IpSecurityRestrictionArgs:
         pulumi.set(self, "subnet_mask", value)
 
 
+if not MYPY:
+    class ManagedServiceIdentityArgsDict(TypedDict):
+        """
+        Managed service identity.
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'ManagedServiceIdentityType']]]
+        """
+        Type of managed service identity.
+        """
+elif False:
+    ManagedServiceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ManagedServiceIdentityArgs:
     def __init__(__self__, *,
@@ -1146,6 +1568,22 @@ class ManagedServiceIdentityArgs:
     def type(self, value: Optional[pulumi.Input[Union[str, 'ManagedServiceIdentityType']]]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class NameValuePairArgsDict(TypedDict):
+        """
+        Name value pair.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Pair name.
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        Pair value.
+        """
+elif False:
+    NameValuePairArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NameValuePairArgs:
@@ -1186,6 +1624,37 @@ class NameValuePairArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class PushSettingsArgsDict(TypedDict):
+        """
+        Push settings for the App.
+        """
+        is_push_enabled: pulumi.Input[bool]
+        """
+        Gets or sets a flag indicating whether the Push endpoint is enabled.
+        """
+        dynamic_tags_json: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets a JSON string containing a list of dynamic tags that will be evaluated from user claims in the push registration endpoint.
+        """
+        kind: NotRequired[pulumi.Input[str]]
+        """
+        Kind of resource.
+        """
+        tag_whitelist_json: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets a JSON string containing a list of tags that are in the allowed list for use by the push registration endpoint.
+        """
+        tags_requiring_auth: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets a JSON string containing a list of tags that require user authentication to be used in the push registration endpoint.
+        Tags can consist of alphanumeric characters and the following:
+        '_', '@', '#', '.', ':', '-'. 
+        Validation should be performed at the PushRequestHandler.
+        """
+elif False:
+    PushSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PushSettingsArgs:
@@ -1279,6 +1748,49 @@ class PushSettingsArgs:
     def tags_requiring_auth(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tags_requiring_auth", value)
 
+
+if not MYPY:
+    class RampUpRuleArgsDict(TypedDict):
+        """
+        Routing rules for ramp up testing. This rule allows to redirect static traffic % to a slot or to gradually change routing % based on performance.
+        """
+        action_host_name: NotRequired[pulumi.Input[str]]
+        """
+        Hostname of a slot to which the traffic will be redirected if decided to. E.g. myapp-stage.azurewebsites.net.
+        """
+        change_decision_callback_url: NotRequired[pulumi.Input[str]]
+        """
+        Custom decision algorithm can be provided in TiPCallback site extension which URL can be specified. See TiPCallback site extension for the scaffold and contracts.
+        https://www.siteextensions.net/packages/TiPCallback/
+        """
+        change_interval_in_minutes: NotRequired[pulumi.Input[int]]
+        """
+        Specifies interval in minutes to reevaluate ReroutePercentage.
+        """
+        change_step: NotRequired[pulumi.Input[float]]
+        """
+        In auto ramp up scenario this is the step to add/remove from <code>ReroutePercentage</code> until it reaches 
+        <code>MinReroutePercentage</code> or <code>MaxReroutePercentage</code>. Site metrics are checked every N minutes specified in <code>ChangeIntervalInMinutes</code>.
+        Custom decision algorithm can be provided in TiPCallback site extension which URL can be specified in <code>ChangeDecisionCallbackUrl</code>.
+        """
+        max_reroute_percentage: NotRequired[pulumi.Input[float]]
+        """
+        Specifies upper boundary below which ReroutePercentage will stay.
+        """
+        min_reroute_percentage: NotRequired[pulumi.Input[float]]
+        """
+        Specifies lower boundary above which ReroutePercentage will stay.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the routing rule. The recommended name would be to point to the slot which will receive the traffic in the experiment.
+        """
+        reroute_percentage: NotRequired[pulumi.Input[float]]
+        """
+        Percentage of the traffic which will be redirected to <code>ActionHostName</code>.
+        """
+elif False:
+    RampUpRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RampUpRuleArgs:
@@ -1422,6 +1934,22 @@ class RampUpRuleArgs:
         pulumi.set(self, "reroute_percentage", value)
 
 
+if not MYPY:
+    class RequestsBasedTriggerArgsDict(TypedDict):
+        """
+        Trigger based on total requests.
+        """
+        count: NotRequired[pulumi.Input[int]]
+        """
+        Request Count.
+        """
+        time_interval: NotRequired[pulumi.Input[str]]
+        """
+        Time interval.
+        """
+elif False:
+    RequestsBasedTriggerArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RequestsBasedTriggerArgs:
     def __init__(__self__, *,
@@ -1461,6 +1989,190 @@ class RequestsBasedTriggerArgs:
     def time_interval(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "time_interval", value)
 
+
+if not MYPY:
+    class SiteConfigArgsDict(TypedDict):
+        """
+        Configuration of an App Service app.
+        """
+        always_on: NotRequired[pulumi.Input[bool]]
+        """
+        <code>true</code> if Always On is enabled; otherwise, <code>false</code>.
+        """
+        api_definition: NotRequired[pulumi.Input['ApiDefinitionInfoArgsDict']]
+        """
+        Information about the formal API definition for the app.
+        """
+        app_command_line: NotRequired[pulumi.Input[str]]
+        """
+        App command line to launch.
+        """
+        app_settings: NotRequired[pulumi.Input[Sequence[pulumi.Input['NameValuePairArgsDict']]]]
+        """
+        Application settings.
+        """
+        auto_heal_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        <code>true</code> if Auto Heal is enabled; otherwise, <code>false</code>.
+        """
+        auto_heal_rules: NotRequired[pulumi.Input['AutoHealRulesArgsDict']]
+        """
+        Auto Heal rules.
+        """
+        auto_swap_slot_name: NotRequired[pulumi.Input[str]]
+        """
+        Auto-swap slot name.
+        """
+        connection_strings: NotRequired[pulumi.Input[Sequence[pulumi.Input['ConnStringInfoArgsDict']]]]
+        """
+        Connection strings.
+        """
+        cors: NotRequired[pulumi.Input['CorsSettingsArgsDict']]
+        """
+        Cross-Origin Resource Sharing (CORS) settings.
+        """
+        default_documents: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Default documents.
+        """
+        detailed_error_logging_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        <code>true</code> if detailed error logging is enabled; otherwise, <code>false</code>.
+        """
+        document_root: NotRequired[pulumi.Input[str]]
+        """
+        Document root.
+        """
+        experiments: NotRequired[pulumi.Input['ExperimentsArgsDict']]
+        """
+        This is work around for polymorphic types.
+        """
+        handler_mappings: NotRequired[pulumi.Input[Sequence[pulumi.Input['HandlerMappingArgsDict']]]]
+        """
+        Handler mappings.
+        """
+        http20_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Http20Enabled: configures a web site to allow clients to connect over http2.0
+        """
+        http_logging_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        <code>true</code> if HTTP logging is enabled; otherwise, <code>false</code>.
+        """
+        ip_security_restrictions: NotRequired[pulumi.Input[Sequence[pulumi.Input['IpSecurityRestrictionArgsDict']]]]
+        """
+        IP security restrictions.
+        """
+        java_container: NotRequired[pulumi.Input[str]]
+        """
+        Java container.
+        """
+        java_container_version: NotRequired[pulumi.Input[str]]
+        """
+        Java container version.
+        """
+        java_version: NotRequired[pulumi.Input[str]]
+        """
+        Java version.
+        """
+        limits: NotRequired[pulumi.Input['SiteLimitsArgsDict']]
+        """
+        Site limits.
+        """
+        linux_fx_version: NotRequired[pulumi.Input[str]]
+        """
+        Linux App Framework and version
+        """
+        load_balancing: NotRequired[pulumi.Input['SiteLoadBalancing']]
+        """
+        Site load balancing.
+        """
+        local_my_sql_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        <code>true</code> to enable local MySQL; otherwise, <code>false</code>.
+        """
+        logs_directory_size_limit: NotRequired[pulumi.Input[int]]
+        """
+        HTTP logs directory size limit.
+        """
+        managed_pipeline_mode: NotRequired[pulumi.Input['ManagedPipelineMode']]
+        """
+        Managed pipeline mode.
+        """
+        min_tls_version: NotRequired[pulumi.Input[Union[str, 'SupportedTlsVersions']]]
+        """
+        MinTlsVersion: configures the minimum version of TLS required for SSL requests
+        """
+        net_framework_version: NotRequired[pulumi.Input[str]]
+        """
+        .NET Framework version.
+        """
+        node_version: NotRequired[pulumi.Input[str]]
+        """
+        Version of Node.js.
+        """
+        number_of_workers: NotRequired[pulumi.Input[int]]
+        """
+        Number of workers.
+        """
+        php_version: NotRequired[pulumi.Input[str]]
+        """
+        Version of PHP.
+        """
+        publishing_username: NotRequired[pulumi.Input[str]]
+        """
+        Publishing user name.
+        """
+        push: NotRequired[pulumi.Input['PushSettingsArgsDict']]
+        """
+        Push endpoint settings.
+        """
+        python_version: NotRequired[pulumi.Input[str]]
+        """
+        Version of Python.
+        """
+        remote_debugging_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        <code>true</code> if remote debugging is enabled; otherwise, <code>false</code>.
+        """
+        remote_debugging_version: NotRequired[pulumi.Input[str]]
+        """
+        Remote debugging version.
+        """
+        request_tracing_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        <code>true</code> if request tracing is enabled; otherwise, <code>false</code>.
+        """
+        request_tracing_expiration_time: NotRequired[pulumi.Input[str]]
+        """
+        Request tracing expiration time.
+        """
+        scm_type: NotRequired[pulumi.Input[Union[str, 'ScmType']]]
+        """
+        SCM type.
+        """
+        tracing_options: NotRequired[pulumi.Input[str]]
+        """
+        Tracing options.
+        """
+        use32_bit_worker_process: NotRequired[pulumi.Input[bool]]
+        """
+        <code>true</code> to use 32-bit worker process; otherwise, <code>false</code>.
+        """
+        virtual_applications: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualApplicationArgsDict']]]]
+        """
+        Virtual applications.
+        """
+        vnet_name: NotRequired[pulumi.Input[str]]
+        """
+        Virtual Network name.
+        """
+        web_sockets_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        <code>true</code> if WebSocket is enabled; otherwise, <code>false</code>.
+        """
+elif False:
+    SiteConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SiteConfigArgs:
@@ -2180,6 +2892,26 @@ class SiteConfigArgs:
         pulumi.set(self, "web_sockets_enabled", value)
 
 
+if not MYPY:
+    class SiteLimitsArgsDict(TypedDict):
+        """
+        Metric limits set on an app.
+        """
+        max_disk_size_in_mb: NotRequired[pulumi.Input[float]]
+        """
+        Maximum allowed disk size usage in MB.
+        """
+        max_memory_in_mb: NotRequired[pulumi.Input[float]]
+        """
+        Maximum allowed memory usage in MB.
+        """
+        max_percentage_cpu: NotRequired[pulumi.Input[float]]
+        """
+        Maximum allowed CPU usage percentage.
+        """
+elif False:
+    SiteLimitsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SiteLimitsArgs:
     def __init__(__self__, *,
@@ -2236,6 +2968,26 @@ class SiteLimitsArgs:
         pulumi.set(self, "max_percentage_cpu", value)
 
 
+if not MYPY:
+    class SlowRequestsBasedTriggerArgsDict(TypedDict):
+        """
+        Trigger based on request execution time.
+        """
+        count: NotRequired[pulumi.Input[int]]
+        """
+        Request Count.
+        """
+        time_interval: NotRequired[pulumi.Input[str]]
+        """
+        Time interval.
+        """
+        time_taken: NotRequired[pulumi.Input[str]]
+        """
+        Time taken.
+        """
+elif False:
+    SlowRequestsBasedTriggerArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SlowRequestsBasedTriggerArgs:
     def __init__(__self__, *,
@@ -2291,6 +3043,39 @@ class SlowRequestsBasedTriggerArgs:
     def time_taken(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "time_taken", value)
 
+
+if not MYPY:
+    class SnapshotRecoveryRequestArgsDict(TypedDict):
+        """
+        Details about app recovery operation.
+        """
+        overwrite: pulumi.Input[bool]
+        """
+        If <code>true</code> the recovery operation can overwrite source app; otherwise, <code>false</code>.
+        """
+        ignore_conflicting_host_names: NotRequired[pulumi.Input[bool]]
+        """
+        If true, custom hostname conflicts will be ignored when recovering to a target web app.
+        This setting is only necessary when RecoverConfiguration is enabled.
+        """
+        kind: NotRequired[pulumi.Input[str]]
+        """
+        Kind of resource.
+        """
+        recover_configuration: NotRequired[pulumi.Input[bool]]
+        """
+        If true, site configuration, in addition to content, will be reverted.
+        """
+        recovery_target: NotRequired[pulumi.Input['SnapshotRecoveryTargetArgsDict']]
+        """
+        Specifies the web app that snapshot contents will be written to.
+        """
+        snapshot_time: NotRequired[pulumi.Input[str]]
+        """
+        Point in time in which the app recovery should be attempted, formatted as a DateTime string.
+        """
+elif False:
+    SnapshotRecoveryRequestArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SnapshotRecoveryRequestArgs:
@@ -2397,6 +3182,24 @@ class SnapshotRecoveryRequestArgs:
         pulumi.set(self, "snapshot_time", value)
 
 
+if not MYPY:
+    class SnapshotRecoveryTargetArgsDict(TypedDict):
+        """
+        Specifies the web app that snapshot contents will be written to.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        ARM resource ID of the target app. 
+        /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName} for production slots and 
+        /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName}/slots/{slotName} for other slots.
+        """
+        location: NotRequired[pulumi.Input[str]]
+        """
+        Geographical location of the target web app, e.g. SouthEastAsia, SouthCentralUS
+        """
+elif False:
+    SnapshotRecoveryTargetArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SnapshotRecoveryTargetArgs:
     def __init__(__self__, *,
@@ -2440,6 +3243,34 @@ class SnapshotRecoveryTargetArgs:
     def location(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "location", value)
 
+
+if not MYPY:
+    class StatusCodesBasedTriggerArgsDict(TypedDict):
+        """
+        Trigger based on status code.
+        """
+        count: NotRequired[pulumi.Input[int]]
+        """
+        Request Count.
+        """
+        status: NotRequired[pulumi.Input[int]]
+        """
+        HTTP status code.
+        """
+        sub_status: NotRequired[pulumi.Input[int]]
+        """
+        Request Sub Status.
+        """
+        time_interval: NotRequired[pulumi.Input[str]]
+        """
+        Time interval.
+        """
+        win32_status: NotRequired[pulumi.Input[int]]
+        """
+        Win32 error code.
+        """
+elif False:
+    StatusCodesBasedTriggerArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class StatusCodesBasedTriggerArgs:
@@ -2529,6 +3360,30 @@ class StatusCodesBasedTriggerArgs:
         pulumi.set(self, "win32_status", value)
 
 
+if not MYPY:
+    class VirtualApplicationArgsDict(TypedDict):
+        """
+        Virtual application in an app.
+        """
+        physical_path: NotRequired[pulumi.Input[str]]
+        """
+        Physical path.
+        """
+        preload_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        <code>true</code> if preloading is enabled; otherwise, <code>false</code>.
+        """
+        virtual_directories: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualDirectoryArgsDict']]]]
+        """
+        Virtual directories for virtual application.
+        """
+        virtual_path: NotRequired[pulumi.Input[str]]
+        """
+        Virtual path.
+        """
+elif False:
+    VirtualApplicationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class VirtualApplicationArgs:
     def __init__(__self__, *,
@@ -2600,6 +3455,22 @@ class VirtualApplicationArgs:
     def virtual_path(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "virtual_path", value)
 
+
+if not MYPY:
+    class VirtualDirectoryArgsDict(TypedDict):
+        """
+        Directory for virtual application.
+        """
+        physical_path: NotRequired[pulumi.Input[str]]
+        """
+        Physical path.
+        """
+        virtual_path: NotRequired[pulumi.Input[str]]
+        """
+        Path to virtual application.
+        """
+elif False:
+    VirtualDirectoryArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VirtualDirectoryArgs:

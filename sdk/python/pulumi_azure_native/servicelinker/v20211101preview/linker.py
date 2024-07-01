@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -138,26 +143,26 @@ class Linker(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auth_info: Optional[pulumi.Input[Union[pulumi.InputType['SecretAuthInfoArgs'], pulumi.InputType['ServicePrincipalCertificateAuthInfoArgs'], pulumi.InputType['ServicePrincipalSecretAuthInfoArgs'], pulumi.InputType['SystemAssignedIdentityAuthInfoArgs'], pulumi.InputType['UserAssignedIdentityAuthInfoArgs']]]] = None,
+                 auth_info: Optional[pulumi.Input[Union[Union['SecretAuthInfoArgs', 'SecretAuthInfoArgsDict'], Union['ServicePrincipalCertificateAuthInfoArgs', 'ServicePrincipalCertificateAuthInfoArgsDict'], Union['ServicePrincipalSecretAuthInfoArgs', 'ServicePrincipalSecretAuthInfoArgsDict'], Union['SystemAssignedIdentityAuthInfoArgs', 'SystemAssignedIdentityAuthInfoArgsDict'], Union['UserAssignedIdentityAuthInfoArgs', 'UserAssignedIdentityAuthInfoArgsDict']]]] = None,
                  client_type: Optional[pulumi.Input[Union[str, 'ClientType']]] = None,
                  linker_name: Optional[pulumi.Input[str]] = None,
                  resource_uri: Optional[pulumi.Input[str]] = None,
-                 secret_store: Optional[pulumi.Input[pulumi.InputType['SecretStoreArgs']]] = None,
+                 secret_store: Optional[pulumi.Input[Union['SecretStoreArgs', 'SecretStoreArgsDict']]] = None,
                  target_id: Optional[pulumi.Input[str]] = None,
-                 v_net_solution: Optional[pulumi.Input[pulumi.InputType['VNetSolutionArgs']]] = None,
+                 v_net_solution: Optional[pulumi.Input[Union['VNetSolutionArgs', 'VNetSolutionArgsDict']]] = None,
                  __props__=None):
         """
         Linker of source and target resource
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union[pulumi.InputType['SecretAuthInfoArgs'], pulumi.InputType['ServicePrincipalCertificateAuthInfoArgs'], pulumi.InputType['ServicePrincipalSecretAuthInfoArgs'], pulumi.InputType['SystemAssignedIdentityAuthInfoArgs'], pulumi.InputType['UserAssignedIdentityAuthInfoArgs']]] auth_info: The authentication type.
+        :param pulumi.Input[Union[Union['SecretAuthInfoArgs', 'SecretAuthInfoArgsDict'], Union['ServicePrincipalCertificateAuthInfoArgs', 'ServicePrincipalCertificateAuthInfoArgsDict'], Union['ServicePrincipalSecretAuthInfoArgs', 'ServicePrincipalSecretAuthInfoArgsDict'], Union['SystemAssignedIdentityAuthInfoArgs', 'SystemAssignedIdentityAuthInfoArgsDict'], Union['UserAssignedIdentityAuthInfoArgs', 'UserAssignedIdentityAuthInfoArgsDict']]] auth_info: The authentication type.
         :param pulumi.Input[Union[str, 'ClientType']] client_type: The application client type
         :param pulumi.Input[str] linker_name: The name Linker resource.
         :param pulumi.Input[str] resource_uri: The fully qualified Azure Resource manager identifier of the resource to be connected.
-        :param pulumi.Input[pulumi.InputType['SecretStoreArgs']] secret_store: An option to store secret value in secure place
+        :param pulumi.Input[Union['SecretStoreArgs', 'SecretStoreArgsDict']] secret_store: An option to store secret value in secure place
         :param pulumi.Input[str] target_id: The resource Id of target service.
-        :param pulumi.Input[pulumi.InputType['VNetSolutionArgs']] v_net_solution: The VNet solution.
+        :param pulumi.Input[Union['VNetSolutionArgs', 'VNetSolutionArgsDict']] v_net_solution: The VNet solution.
         """
         ...
     @overload
@@ -183,13 +188,13 @@ class Linker(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auth_info: Optional[pulumi.Input[Union[pulumi.InputType['SecretAuthInfoArgs'], pulumi.InputType['ServicePrincipalCertificateAuthInfoArgs'], pulumi.InputType['ServicePrincipalSecretAuthInfoArgs'], pulumi.InputType['SystemAssignedIdentityAuthInfoArgs'], pulumi.InputType['UserAssignedIdentityAuthInfoArgs']]]] = None,
+                 auth_info: Optional[pulumi.Input[Union[Union['SecretAuthInfoArgs', 'SecretAuthInfoArgsDict'], Union['ServicePrincipalCertificateAuthInfoArgs', 'ServicePrincipalCertificateAuthInfoArgsDict'], Union['ServicePrincipalSecretAuthInfoArgs', 'ServicePrincipalSecretAuthInfoArgsDict'], Union['SystemAssignedIdentityAuthInfoArgs', 'SystemAssignedIdentityAuthInfoArgsDict'], Union['UserAssignedIdentityAuthInfoArgs', 'UserAssignedIdentityAuthInfoArgsDict']]]] = None,
                  client_type: Optional[pulumi.Input[Union[str, 'ClientType']]] = None,
                  linker_name: Optional[pulumi.Input[str]] = None,
                  resource_uri: Optional[pulumi.Input[str]] = None,
-                 secret_store: Optional[pulumi.Input[pulumi.InputType['SecretStoreArgs']]] = None,
+                 secret_store: Optional[pulumi.Input[Union['SecretStoreArgs', 'SecretStoreArgsDict']]] = None,
                  target_id: Optional[pulumi.Input[str]] = None,
-                 v_net_solution: Optional[pulumi.Input[pulumi.InputType['VNetSolutionArgs']]] = None,
+                 v_net_solution: Optional[pulumi.Input[Union['VNetSolutionArgs', 'VNetSolutionArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

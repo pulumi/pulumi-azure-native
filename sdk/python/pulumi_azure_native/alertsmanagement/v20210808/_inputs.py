@@ -4,22 +4,54 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'AddActionGroupsArgs',
+    'AddActionGroupsArgsDict',
     'AlertProcessingRulePropertiesArgs',
+    'AlertProcessingRulePropertiesArgsDict',
     'ConditionArgs',
+    'ConditionArgsDict',
     'DailyRecurrenceArgs',
+    'DailyRecurrenceArgsDict',
     'MonthlyRecurrenceArgs',
+    'MonthlyRecurrenceArgsDict',
     'RemoveAllActionGroupsArgs',
+    'RemoveAllActionGroupsArgsDict',
     'ScheduleArgs',
+    'ScheduleArgsDict',
     'WeeklyRecurrenceArgs',
+    'WeeklyRecurrenceArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AddActionGroupsArgsDict(TypedDict):
+        """
+        Add action groups to alert processing rule.
+        """
+        action_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        List of action group Ids to add to alert processing rule.
+        """
+        action_type: pulumi.Input[str]
+        """
+        Action that should be applied.
+        Expected value is 'AddActionGroups'.
+        """
+elif False:
+    AddActionGroupsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AddActionGroupsArgs:
@@ -60,6 +92,38 @@ class AddActionGroupsArgs:
     def action_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "action_type", value)
 
+
+if not MYPY:
+    class AlertProcessingRulePropertiesArgsDict(TypedDict):
+        """
+        Alert processing rule properties defining scopes, conditions and scheduling logic for alert processing rule.
+        """
+        actions: pulumi.Input[Sequence[pulumi.Input[Union['AddActionGroupsArgsDict', 'RemoveAllActionGroupsArgsDict']]]]
+        """
+        Actions to be applied.
+        """
+        scopes: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Scopes on which alert processing rule will apply.
+        """
+        conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['ConditionArgsDict']]]]
+        """
+        Conditions on which alerts will be filtered.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Description of alert processing rule.
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates if the given alert processing rule is enabled or disabled.
+        """
+        schedule: NotRequired[pulumi.Input['ScheduleArgsDict']]
+        """
+        Scheduling for alert processing rule.
+        """
+elif False:
+    AlertProcessingRulePropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AlertProcessingRulePropertiesArgs:
@@ -165,6 +229,26 @@ class AlertProcessingRulePropertiesArgs:
         pulumi.set(self, "schedule", value)
 
 
+if not MYPY:
+    class ConditionArgsDict(TypedDict):
+        """
+        Condition to trigger an alert processing rule.
+        """
+        field: NotRequired[pulumi.Input[Union[str, 'Field']]]
+        """
+        Field for a given condition.
+        """
+        operator: NotRequired[pulumi.Input[Union[str, 'Operator']]]
+        """
+        Operator for a given condition.
+        """
+        values: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of values to match for a given condition.
+        """
+elif False:
+    ConditionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ConditionArgs:
     def __init__(__self__, *,
@@ -221,6 +305,27 @@ class ConditionArgs:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class DailyRecurrenceArgsDict(TypedDict):
+        """
+        Daily recurrence object.
+        """
+        end_time: pulumi.Input[str]
+        """
+        End time for recurrence.
+        """
+        recurrence_type: pulumi.Input[str]
+        """
+        Specifies when the recurrence should be applied.
+        Expected value is 'Daily'.
+        """
+        start_time: pulumi.Input[str]
+        """
+        Start time for recurrence.
+        """
+elif False:
+    DailyRecurrenceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DailyRecurrenceArgs:
     def __init__(__self__, *,
@@ -275,6 +380,31 @@ class DailyRecurrenceArgs:
     def start_time(self, value: pulumi.Input[str]):
         pulumi.set(self, "start_time", value)
 
+
+if not MYPY:
+    class MonthlyRecurrenceArgsDict(TypedDict):
+        """
+        Monthly recurrence object.
+        """
+        days_of_month: pulumi.Input[Sequence[pulumi.Input[int]]]
+        """
+        Specifies the values for monthly recurrence pattern.
+        """
+        recurrence_type: pulumi.Input[str]
+        """
+        Specifies when the recurrence should be applied.
+        Expected value is 'Monthly'.
+        """
+        end_time: NotRequired[pulumi.Input[str]]
+        """
+        End time for recurrence.
+        """
+        start_time: NotRequired[pulumi.Input[str]]
+        """
+        Start time for recurrence.
+        """
+elif False:
+    MonthlyRecurrenceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MonthlyRecurrenceArgs:
@@ -348,6 +478,19 @@ class MonthlyRecurrenceArgs:
         pulumi.set(self, "start_time", value)
 
 
+if not MYPY:
+    class RemoveAllActionGroupsArgsDict(TypedDict):
+        """
+        Indicates if all action groups should be removed.
+        """
+        action_type: pulumi.Input[str]
+        """
+        Action that should be applied.
+        Expected value is 'RemoveAllActionGroups'.
+        """
+elif False:
+    RemoveAllActionGroupsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RemoveAllActionGroupsArgs:
     def __init__(__self__, *,
@@ -372,6 +515,30 @@ class RemoveAllActionGroupsArgs:
     def action_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "action_type", value)
 
+
+if not MYPY:
+    class ScheduleArgsDict(TypedDict):
+        """
+        Scheduling configuration for a given alert processing rule.
+        """
+        effective_from: NotRequired[pulumi.Input[str]]
+        """
+        Scheduling effective from time. Date-Time in ISO-8601 format without timezone suffix.
+        """
+        effective_until: NotRequired[pulumi.Input[str]]
+        """
+        Scheduling effective until time. Date-Time in ISO-8601 format without timezone suffix.
+        """
+        recurrences: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union['DailyRecurrenceArgsDict', 'MonthlyRecurrenceArgsDict', 'WeeklyRecurrenceArgsDict']]]]]
+        """
+        List of recurrences.
+        """
+        time_zone: NotRequired[pulumi.Input[str]]
+        """
+        Scheduling time zone.
+        """
+elif False:
+    ScheduleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ScheduleArgs:
@@ -444,6 +611,31 @@ class ScheduleArgs:
     def time_zone(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "time_zone", value)
 
+
+if not MYPY:
+    class WeeklyRecurrenceArgsDict(TypedDict):
+        """
+        Weekly recurrence object.
+        """
+        days_of_week: pulumi.Input[Sequence[pulumi.Input[Union[str, 'DaysOfWeek']]]]
+        """
+        Specifies the values for weekly recurrence pattern.
+        """
+        recurrence_type: pulumi.Input[str]
+        """
+        Specifies when the recurrence should be applied.
+        Expected value is 'Weekly'.
+        """
+        end_time: NotRequired[pulumi.Input[str]]
+        """
+        End time for recurrence.
+        """
+        start_time: NotRequired[pulumi.Input[str]]
+        """
+        Start time for recurrence.
+        """
+elif False:
+    WeeklyRecurrenceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WeeklyRecurrenceArgs:

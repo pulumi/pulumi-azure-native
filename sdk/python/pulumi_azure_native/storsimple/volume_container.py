@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -170,7 +175,7 @@ class VolumeContainer(pulumi.CustomResource):
                  band_width_rate_in_mbps: Optional[pulumi.Input[int]] = None,
                  bandwidth_setting_id: Optional[pulumi.Input[str]] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
-                 encryption_key: Optional[pulumi.Input[pulumi.InputType['AsymmetricEncryptedSecretArgs']]] = None,
+                 encryption_key: Optional[pulumi.Input[Union['AsymmetricEncryptedSecretArgs', 'AsymmetricEncryptedSecretArgsDict']]] = None,
                  kind: Optional[pulumi.Input['Kind']] = None,
                  manager_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -186,7 +191,7 @@ class VolumeContainer(pulumi.CustomResource):
         :param pulumi.Input[int] band_width_rate_in_mbps: The bandwidth-rate set on the volume container.
         :param pulumi.Input[str] bandwidth_setting_id: The ID of the bandwidth setting associated with the volume container.
         :param pulumi.Input[str] device_name: The device name
-        :param pulumi.Input[pulumi.InputType['AsymmetricEncryptedSecretArgs']] encryption_key: The key used to encrypt data in the volume container. It is required when property 'EncryptionStatus' is "Enabled".
+        :param pulumi.Input[Union['AsymmetricEncryptedSecretArgs', 'AsymmetricEncryptedSecretArgsDict']] encryption_key: The key used to encrypt data in the volume container. It is required when property 'EncryptionStatus' is "Enabled".
         :param pulumi.Input['Kind'] kind: The Kind of the object. Currently only Series8000 is supported
         :param pulumi.Input[str] manager_name: The manager name
         :param pulumi.Input[str] resource_group_name: The resource group name
@@ -221,7 +226,7 @@ class VolumeContainer(pulumi.CustomResource):
                  band_width_rate_in_mbps: Optional[pulumi.Input[int]] = None,
                  bandwidth_setting_id: Optional[pulumi.Input[str]] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
-                 encryption_key: Optional[pulumi.Input[pulumi.InputType['AsymmetricEncryptedSecretArgs']]] = None,
+                 encryption_key: Optional[pulumi.Input[Union['AsymmetricEncryptedSecretArgs', 'AsymmetricEncryptedSecretArgsDict']]] = None,
                  kind: Optional[pulumi.Input['Kind']] = None,
                  manager_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,

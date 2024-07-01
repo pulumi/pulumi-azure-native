@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -235,16 +240,16 @@ class Application(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_definition_id: Optional[pulumi.Input[str]] = None,
                  application_name: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
-                 jit_access_policy: Optional[pulumi.Input[pulumi.InputType['ApplicationJitAccessPolicyArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']]] = None,
+                 jit_access_policy: Optional[pulumi.Input[Union['ApplicationJitAccessPolicyArgs', 'ApplicationJitAccessPolicyArgsDict']]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  managed_by: Optional[pulumi.Input[str]] = None,
                  managed_resource_group_id: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[Any] = None,
-                 plan: Optional[pulumi.Input[pulumi.InputType['PlanArgs']]] = None,
+                 plan: Optional[pulumi.Input[Union['PlanArgs', 'PlanArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -257,16 +262,16 @@ class Application(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_definition_id: The fully qualified path of managed application definition Id.
         :param pulumi.Input[str] application_name: The name of the managed application.
-        :param pulumi.Input[pulumi.InputType['IdentityArgs']] identity: The identity of the resource.
-        :param pulumi.Input[pulumi.InputType['ApplicationJitAccessPolicyArgs']] jit_access_policy: The managed application Jit access policy.
+        :param pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']] identity: The identity of the resource.
+        :param pulumi.Input[Union['ApplicationJitAccessPolicyArgs', 'ApplicationJitAccessPolicyArgsDict']] jit_access_policy: The managed application Jit access policy.
         :param pulumi.Input[str] kind: The kind of the managed application. Allowed values are MarketPlace and ServiceCatalog.
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] managed_by: ID of the resource that manages this resource.
         :param pulumi.Input[str] managed_resource_group_id: The managed resource group Id.
         :param Any parameters: Name and value pairs that define the managed application parameters. It can be a JObject or a well formed JSON string.
-        :param pulumi.Input[pulumi.InputType['PlanArgs']] plan: The plan information.
+        :param pulumi.Input[Union['PlanArgs', 'PlanArgsDict']] plan: The plan information.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The SKU of the resource.
+        :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: The SKU of the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
         ...
@@ -298,16 +303,16 @@ class Application(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_definition_id: Optional[pulumi.Input[str]] = None,
                  application_name: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
-                 jit_access_policy: Optional[pulumi.Input[pulumi.InputType['ApplicationJitAccessPolicyArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']]] = None,
+                 jit_access_policy: Optional[pulumi.Input[Union['ApplicationJitAccessPolicyArgs', 'ApplicationJitAccessPolicyArgsDict']]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  managed_by: Optional[pulumi.Input[str]] = None,
                  managed_resource_group_id: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[Any] = None,
-                 plan: Optional[pulumi.Input[pulumi.InputType['PlanArgs']]] = None,
+                 plan: Optional[pulumi.Input[Union['PlanArgs', 'PlanArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

@@ -4,31 +4,135 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'ApiEntityArgs',
+    'ApiEntityArgsDict',
     'ApiOAuthSettingsParameterArgs',
+    'ApiOAuthSettingsParameterArgsDict',
     'ApiOAuthSettingsArgs',
+    'ApiOAuthSettingsArgsDict',
     'ApiPoliciesArgs',
+    'ApiPoliciesArgsDict',
     'ArmPlanArgs',
+    'ArmPlanArgsDict',
     'BackendServiceDefinitionArgs',
+    'BackendServiceDefinitionArgsDict',
     'ConnectionErrorArgs',
+    'ConnectionErrorArgsDict',
     'ConnectionParameterArgs',
+    'ConnectionParameterArgsDict',
     'ConnectionStatusArgs',
+    'ConnectionStatusArgsDict',
     'ConsentLinkInputParameter',
+    'ConsentLinkInputParameterDict',
     'CustomLoginSettingValueArgs',
+    'CustomLoginSettingValueArgsDict',
     'ExpandedParentApiEntityArgs',
+    'ExpandedParentApiEntityArgsDict',
     'GeneralApiInformationArgs',
+    'GeneralApiInformationArgsDict',
     'HostingEnvironmentServiceDescriptionsArgs',
+    'HostingEnvironmentServiceDescriptionsArgsDict',
     'ParameterCustomLoginSettingValuesArgs',
+    'ParameterCustomLoginSettingValuesArgsDict',
     'ResponseMessageEnvelopeApiEntityArgs',
+    'ResponseMessageEnvelopeApiEntityArgsDict',
     'SkuDescriptionArgs',
+    'SkuDescriptionArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ApiEntityArgsDict(TypedDict):
+        """
+        API Management
+        """
+        location: pulumi.Input[str]
+        """
+        Resource Location
+        """
+        api_definition_url: NotRequired[pulumi.Input[str]]
+        """
+        API definition Url - url where the swagger can be downloaded from
+        """
+        backend_service: NotRequired[pulumi.Input['BackendServiceDefinitionArgsDict']]
+        """
+        Backend service definition
+        """
+        capabilities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Capabilities
+        """
+        changed_time: NotRequired[pulumi.Input[str]]
+        """
+        Timestamp of last connection change.
+        """
+        connection_parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['ConnectionParameterArgsDict']]]]
+        """
+        Connection parameters
+        """
+        created_time: NotRequired[pulumi.Input[str]]
+        """
+        Timestamp of the connection creation
+        """
+        general_information: NotRequired[pulumi.Input['GeneralApiInformationArgsDict']]
+        """
+        the URL path of this API when exposed via APIM
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource Id
+        """
+        kind: NotRequired[pulumi.Input[str]]
+        """
+        Kind of resource
+        """
+        metadata: NotRequired[Any]
+        """
+        Free form object for the data caller wants to store
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Resource Name
+        """
+        path: NotRequired[pulumi.Input[str]]
+        """
+        the URL path of this API when exposed via APIM
+        """
+        policies: NotRequired[pulumi.Input['ApiPoliciesArgsDict']]
+        """
+        API policies
+        """
+        protocols: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Protocols supported by the front end - http/https
+        """
+        runtime_urls: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Read only property returning the runtime endpoints where the API can be called
+        """
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Resource tags
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        Resource type
+        """
+elif False:
+    ApiEntityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApiEntityArgs:
@@ -325,6 +429,26 @@ class ApiEntityArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class ApiOAuthSettingsParameterArgsDict(TypedDict):
+        """
+        OAuth Settings Parameter
+        """
+        options: NotRequired[Any]
+        """
+        Read only: Options available to this parameter
+        """
+        ui_definition: NotRequired[Any]
+        """
+        UI definitions per culture as caller can specify the culture
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        Value
+        """
+elif False:
+    ApiOAuthSettingsParameterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ApiOAuthSettingsParameterArgs:
     def __init__(__self__, *,
@@ -380,6 +504,42 @@ class ApiOAuthSettingsParameterArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class ApiOAuthSettingsArgsDict(TypedDict):
+        """
+        OAuth settings for the connection provider
+        """
+        client_id: NotRequired[pulumi.Input[str]]
+        """
+        Resource provider client id
+        """
+        client_secret: NotRequired[pulumi.Input[str]]
+        """
+        Client Secret needed for OAuth
+        """
+        custom_parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['ApiOAuthSettingsParameterArgsDict']]]]
+        """
+        OAuth parameters key is the name of parameter
+        """
+        identity_provider: NotRequired[pulumi.Input[str]]
+        """
+        Identity provider
+        """
+        properties: NotRequired[Any]
+        """
+        Read only properties for this oauth setting.
+        """
+        redirect_url: NotRequired[pulumi.Input[str]]
+        """
+        Url
+        """
+        scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        OAuth scopes
+        """
+elif False:
+    ApiOAuthSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApiOAuthSettingsArgs:
@@ -501,6 +661,42 @@ class ApiOAuthSettingsArgs:
         pulumi.set(self, "scopes", value)
 
 
+if not MYPY:
+    class ApiPoliciesArgsDict(TypedDict):
+        """
+        API policies
+        """
+        location: pulumi.Input[str]
+        """
+        Resource Location
+        """
+        content: NotRequired[pulumi.Input[str]]
+        """
+        Content of xml policy
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource Id
+        """
+        kind: NotRequired[pulumi.Input[str]]
+        """
+        Kind of resource
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Resource Name
+        """
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Resource tags
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        Resource type
+        """
+elif False:
+    ApiPoliciesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ApiPoliciesArgs:
     def __init__(__self__, *,
@@ -620,6 +816,34 @@ class ApiPoliciesArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class ArmPlanArgsDict(TypedDict):
+        """
+        The plan object in an ARM, represents a marketplace plan
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name
+        """
+        product: NotRequired[pulumi.Input[str]]
+        """
+        The product
+        """
+        promotion_code: NotRequired[pulumi.Input[str]]
+        """
+        The promotion code
+        """
+        publisher: NotRequired[pulumi.Input[str]]
+        """
+        The publisher
+        """
+        version: NotRequired[pulumi.Input[str]]
+        """
+        Version of product
+        """
+elif False:
+    ArmPlanArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ArmPlanArgs:
     def __init__(__self__, *,
@@ -707,6 +931,46 @@ class ArmPlanArgs:
     def version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "version", value)
 
+
+if not MYPY:
+    class BackendServiceDefinitionArgsDict(TypedDict):
+        """
+        API definitions with backend urls
+        """
+        location: pulumi.Input[str]
+        """
+        Resource Location
+        """
+        hosting_environment_service_urls: NotRequired[pulumi.Input[Sequence[pulumi.Input['HostingEnvironmentServiceDescriptionsArgsDict']]]]
+        """
+        Service Urls per Hosting environment
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource Id
+        """
+        kind: NotRequired[pulumi.Input[str]]
+        """
+        Kind of resource
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Resource Name
+        """
+        service_url: NotRequired[pulumi.Input[str]]
+        """
+        Url from which the swagger payload will be fetched
+        """
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Resource tags
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        Resource type
+        """
+elif False:
+    BackendServiceDefinitionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class BackendServiceDefinitionArgs:
@@ -843,6 +1107,46 @@ class BackendServiceDefinitionArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class ConnectionErrorArgsDict(TypedDict):
+        """
+        Connection error
+        """
+        location: pulumi.Input[str]
+        """
+        Resource Location
+        """
+        code: NotRequired[pulumi.Input[str]]
+        """
+        code of the status
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource Id
+        """
+        kind: NotRequired[pulumi.Input[str]]
+        """
+        Kind of resource
+        """
+        message: NotRequired[pulumi.Input[str]]
+        """
+        Description of the status
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Resource Name
+        """
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Resource tags
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        Resource type
+        """
+elif False:
+    ConnectionErrorArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ConnectionErrorArgs:
     def __init__(__self__, *,
@@ -978,6 +1282,30 @@ class ConnectionErrorArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class ConnectionParameterArgsDict(TypedDict):
+        """
+        connection provider parameters
+        """
+        default_value: NotRequired[Any]
+        """
+        Default parameter value
+        """
+        o_auth_settings: NotRequired[pulumi.Input['ApiOAuthSettingsArgsDict']]
+        """
+        Settings defining OAuth flow for the back end provider
+        """
+        type: NotRequired[pulumi.Input['ConnectionParameterType']]
+        """
+        Type of the parameter
+        """
+        ui_definition: NotRequired[Any]
+        """
+        UI definitions
+        """
+elif False:
+    ConnectionParameterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ConnectionParameterArgs:
     def __init__(__self__, *,
@@ -1049,6 +1377,50 @@ class ConnectionParameterArgs:
     def ui_definition(self, value: Optional[Any]):
         pulumi.set(self, "ui_definition", value)
 
+
+if not MYPY:
+    class ConnectionStatusArgsDict(TypedDict):
+        """
+        Connection status
+        """
+        location: pulumi.Input[str]
+        """
+        Resource Location
+        """
+        error: NotRequired[pulumi.Input['ConnectionErrorArgsDict']]
+        """
+        Error details
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource Id
+        """
+        kind: NotRequired[pulumi.Input[str]]
+        """
+        Kind of resource
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Resource Name
+        """
+        status: NotRequired[pulumi.Input[str]]
+        """
+        Status
+        """
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Resource tags
+        """
+        target: NotRequired[pulumi.Input[str]]
+        """
+        Target of the error
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        Resource type
+        """
+elif False:
+    ConnectionStatusArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ConnectionStatusArgs:
@@ -1201,6 +1573,32 @@ class ConnectionStatusArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class ConsentLinkInputParameterDict(TypedDict):
+        object_id: NotRequired[str]
+        """
+        AAD OID (user or group) if the principal type is ActiveDirectory.
+                    MSA PUID if the principal type is MicrosoftAccount.
+        """
+        parameter_name: NotRequired[str]
+        """
+        Name of the parameter in the connection provider's oauthSettings
+        """
+        principal_type: NotRequired['PrincipalType']
+        """
+        Principal type
+        """
+        redirect_url: NotRequired[str]
+        """
+        Name of the parameter in the connection provider's oauthSettings
+        """
+        tenant_id: NotRequired[str]
+        """
+        Tenant Id
+        """
+elif False:
+    ConsentLinkInputParameterDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ConsentLinkInputParameter:
     def __init__(__self__, *,
@@ -1289,6 +1687,42 @@ class ConsentLinkInputParameter:
     def tenant_id(self, value: Optional[str]):
         pulumi.set(self, "tenant_id", value)
 
+
+if not MYPY:
+    class CustomLoginSettingValueArgsDict(TypedDict):
+        """
+        Custom logging setting value
+        """
+        location: pulumi.Input[str]
+        """
+        Resource Location
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource Id
+        """
+        kind: NotRequired[pulumi.Input[str]]
+        """
+        Kind of resource
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Resource Name
+        """
+        option: NotRequired[pulumi.Input[str]]
+        """
+        Option selected for this custom login setting value
+        """
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Resource tags
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        Resource type
+        """
+elif False:
+    CustomLoginSettingValueArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CustomLoginSettingValueArgs:
@@ -1409,6 +1843,42 @@ class CustomLoginSettingValueArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class ExpandedParentApiEntityArgsDict(TypedDict):
+        """
+        expanded parent object for expansion
+        """
+        location: pulumi.Input[str]
+        """
+        Resource Location
+        """
+        entity: NotRequired[pulumi.Input['ResponseMessageEnvelopeApiEntityArgsDict']]
+        """
+        Id of connection provider
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource Id
+        """
+        kind: NotRequired[pulumi.Input[str]]
+        """
+        Kind of resource
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Resource Name
+        """
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Resource tags
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        Resource type
+        """
+elif False:
+    ExpandedParentApiEntityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ExpandedParentApiEntityArgs:
     def __init__(__self__, *,
@@ -1527,6 +1997,62 @@ class ExpandedParentApiEntityArgs:
     def type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class GeneralApiInformationArgsDict(TypedDict):
+        """
+        General API information
+        """
+        location: pulumi.Input[str]
+        """
+        Resource Location
+        """
+        connection_display_name: NotRequired[pulumi.Input[str]]
+        """
+        DefaultConnectionNameTemplate
+        """
+        connection_portal_url: NotRequired[Any]
+        """
+        ConnectionPortalUrl
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Description
+        """
+        display_name: NotRequired[pulumi.Input[str]]
+        """
+        Display Name
+        """
+        icon_url: NotRequired[pulumi.Input[str]]
+        """
+        Icon Url
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource Id
+        """
+        kind: NotRequired[pulumi.Input[str]]
+        """
+        Kind of resource
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Resource Name
+        """
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Resource tags
+        """
+        terms_of_use_url: NotRequired[pulumi.Input[str]]
+        """
+        a public accessible url of the Terms Of Use Url of this API
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        Resource type
+        """
+elif False:
+    GeneralApiInformationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GeneralApiInformationArgs:
@@ -1727,6 +2253,33 @@ class GeneralApiInformationArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class HostingEnvironmentServiceDescriptionsArgsDict(TypedDict):
+        """
+        Back end service per ASE
+        """
+        host_id: NotRequired[pulumi.Input[str]]
+        """
+        Host Id
+        """
+        hosting_environment_id: NotRequired[pulumi.Input[str]]
+        """
+        Hosting environment Id
+        """
+        service_url: NotRequired[pulumi.Input[str]]
+        """
+        service url to use
+        """
+        use_internal_routing: NotRequired[pulumi.Input[bool]]
+        """
+        When the backend url is in same ASE, for performance reason this flag can be set to true
+                    If WebApp.DisableHostNames is also set it improves the security by making the back end accessible only 
+                    via API calls
+                    Note: calls will fail if this option is used but back end is not on the same ASE
+        """
+elif False:
+    HostingEnvironmentServiceDescriptionsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class HostingEnvironmentServiceDescriptionsArgs:
     def __init__(__self__, *,
@@ -1804,6 +2357,42 @@ class HostingEnvironmentServiceDescriptionsArgs:
     def use_internal_routing(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "use_internal_routing", value)
 
+
+if not MYPY:
+    class ParameterCustomLoginSettingValuesArgsDict(TypedDict):
+        """
+        Custom logging setting values
+        """
+        location: pulumi.Input[str]
+        """
+        Resource Location
+        """
+        custom_parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['CustomLoginSettingValueArgsDict']]]]
+        """
+        Custom parameters.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource Id
+        """
+        kind: NotRequired[pulumi.Input[str]]
+        """
+        Kind of resource
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Resource Name
+        """
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Resource tags
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        Resource type
+        """
+elif False:
+    ParameterCustomLoginSettingValuesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ParameterCustomLoginSettingValuesArgs:
@@ -1923,6 +2512,48 @@ class ParameterCustomLoginSettingValuesArgs:
     def type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class ResponseMessageEnvelopeApiEntityArgsDict(TypedDict):
+        """
+        Message envelope that contains the common Azure resource manager properties and the resource provider specific content
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource Id. Typically id is populated only for responses to GET requests. Caller is responsible for passing in this
+                    value for GET requests only.
+                    For example: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupId}/providers/Microsoft.Web/sites/{sitename}
+        """
+        location: NotRequired[pulumi.Input[str]]
+        """
+        Geo region resource belongs to e.g. SouthCentralUS, SouthEastAsia
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of resource
+        """
+        plan: NotRequired[pulumi.Input['ArmPlanArgsDict']]
+        """
+        Azure resource manager plan
+        """
+        properties: NotRequired[pulumi.Input['ApiEntityArgsDict']]
+        """
+        Resource specific properties
+        """
+        sku: NotRequired[pulumi.Input['SkuDescriptionArgsDict']]
+        """
+        Sku description of the resource
+        """
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Tags associated with resource
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        Type of resource e.g Microsoft.Web/sites
+        """
+elif False:
+    ResponseMessageEnvelopeApiEntityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ResponseMessageEnvelopeApiEntityArgs:
@@ -2063,6 +2694,34 @@ class ResponseMessageEnvelopeApiEntityArgs:
     def type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class SkuDescriptionArgsDict(TypedDict):
+        """
+        Describes a sku for a scalable resource
+        """
+        capacity: NotRequired[pulumi.Input[int]]
+        """
+        Current number of instances assigned to the resource
+        """
+        family: NotRequired[pulumi.Input[str]]
+        """
+        Family code of the resource sku
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the resource sku
+        """
+        size: NotRequired[pulumi.Input[str]]
+        """
+        Size specifier of the resource sku
+        """
+        tier: NotRequired[pulumi.Input[str]]
+        """
+        Service Tier of the resource sku
+        """
+elif False:
+    SkuDescriptionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SkuDescriptionArgs:

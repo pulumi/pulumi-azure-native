@@ -4,15 +4,36 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'CreateManagementGroupDetailsArgs',
+    'CreateManagementGroupDetailsArgsDict',
     'CreateParentGroupInfoArgs',
+    'CreateParentGroupInfoArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class CreateManagementGroupDetailsArgsDict(TypedDict):
+        """
+        The details of a management group used during creation.
+        """
+        parent: NotRequired[pulumi.Input['CreateParentGroupInfoArgsDict']]
+        """
+        (Optional) The ID of the parent management group used during creation.
+        """
+elif False:
+    CreateManagementGroupDetailsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CreateManagementGroupDetailsArgs:
@@ -37,6 +58,18 @@ class CreateManagementGroupDetailsArgs:
     def parent(self, value: Optional[pulumi.Input['CreateParentGroupInfoArgs']]):
         pulumi.set(self, "parent", value)
 
+
+if not MYPY:
+    class CreateParentGroupInfoArgsDict(TypedDict):
+        """
+        (Optional) The ID of the parent management group used during creation.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The fully qualified ID for the parent management group.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
+        """
+elif False:
+    CreateParentGroupInfoArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CreateParentGroupInfoArgs:

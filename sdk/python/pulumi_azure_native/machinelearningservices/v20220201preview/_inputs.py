@@ -4,149 +4,308 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'AccountKeyDatastoreCredentialsArgs',
+    'AccountKeyDatastoreCredentialsArgsDict',
     'AccountKeyDatastoreSecretsArgs',
+    'AccountKeyDatastoreSecretsArgsDict',
     'AmlTokenArgs',
+    'AmlTokenArgsDict',
     'AutoForecastHorizonArgs',
+    'AutoForecastHorizonArgsDict',
     'AutoMLJobArgs',
+    'AutoMLJobArgsDict',
     'AutoNCrossValidationsArgs',
+    'AutoNCrossValidationsArgsDict',
     'AutoSeasonalityArgs',
+    'AutoSeasonalityArgsDict',
     'AutoTargetLagsArgs',
+    'AutoTargetLagsArgsDict',
     'AutoTargetRollingWindowSizeArgs',
+    'AutoTargetRollingWindowSizeArgsDict',
     'AzureBlobDatastoreArgs',
+    'AzureBlobDatastoreArgsDict',
     'AzureDataLakeGen1DatastoreArgs',
+    'AzureDataLakeGen1DatastoreArgsDict',
     'AzureDataLakeGen2DatastoreArgs',
+    'AzureDataLakeGen2DatastoreArgsDict',
     'AzureFileDatastoreArgs',
+    'AzureFileDatastoreArgsDict',
     'BanditPolicyArgs',
+    'BanditPolicyArgsDict',
     'BatchDeploymentArgs',
+    'BatchDeploymentArgsDict',
     'BatchEndpointDefaultsArgs',
+    'BatchEndpointDefaultsArgsDict',
     'BatchEndpointArgs',
+    'BatchEndpointArgsDict',
     'BatchRetrySettingsArgs',
+    'BatchRetrySettingsArgsDict',
     'BayesianSamplingAlgorithmArgs',
+    'BayesianSamplingAlgorithmArgsDict',
     'BuildContextArgs',
+    'BuildContextArgsDict',
     'CertificateDatastoreCredentialsArgs',
+    'CertificateDatastoreCredentialsArgsDict',
     'CertificateDatastoreSecretsArgs',
+    'CertificateDatastoreSecretsArgsDict',
     'ClassificationArgs',
+    'ClassificationArgsDict',
     'CodeConfigurationArgs',
+    'CodeConfigurationArgsDict',
     'CodeContainerArgs',
+    'CodeContainerArgsDict',
     'CodeVersionArgs',
+    'CodeVersionArgsDict',
     'ColumnTransformerArgs',
+    'ColumnTransformerArgsDict',
     'CommandJobLimitsArgs',
+    'CommandJobLimitsArgsDict',
     'CommandJobArgs',
+    'CommandJobArgsDict',
     'ComponentContainerArgs',
+    'ComponentContainerArgsDict',
     'ComponentVersionArgs',
+    'ComponentVersionArgsDict',
     'ContainerResourceRequirementsArgs',
+    'ContainerResourceRequirementsArgsDict',
     'ContainerResourceSettingsArgs',
+    'ContainerResourceSettingsArgsDict',
     'CronScheduleArgs',
+    'CronScheduleArgsDict',
     'CustomForecastHorizonArgs',
+    'CustomForecastHorizonArgsDict',
     'CustomModelJobInputArgs',
+    'CustomModelJobInputArgsDict',
     'CustomModelJobOutputArgs',
+    'CustomModelJobOutputArgsDict',
     'CustomNCrossValidationsArgs',
+    'CustomNCrossValidationsArgsDict',
     'CustomSeasonalityArgs',
+    'CustomSeasonalityArgsDict',
     'CustomTargetLagsArgs',
+    'CustomTargetLagsArgsDict',
     'CustomTargetRollingWindowSizeArgs',
+    'CustomTargetRollingWindowSizeArgsDict',
     'DataContainerArgs',
+    'DataContainerArgsDict',
     'DataPathAssetReferenceArgs',
+    'DataPathAssetReferenceArgsDict',
     'DefaultScaleSettingsArgs',
+    'DefaultScaleSettingsArgsDict',
     'EndpointAuthKeysArgs',
+    'EndpointAuthKeysArgsDict',
     'EnvironmentContainerArgs',
+    'EnvironmentContainerArgsDict',
     'EnvironmentVersionArgs',
+    'EnvironmentVersionArgsDict',
     'FlavorDataArgs',
+    'FlavorDataArgsDict',
     'ForecastingSettingsArgs',
+    'ForecastingSettingsArgsDict',
     'ForecastingArgs',
+    'ForecastingArgsDict',
     'GridSamplingAlgorithmArgs',
+    'GridSamplingAlgorithmArgsDict',
     'HdfsDatastoreArgs',
+    'HdfsDatastoreArgsDict',
     'IdAssetReferenceArgs',
+    'IdAssetReferenceArgsDict',
     'ImageClassificationMultilabelArgs',
+    'ImageClassificationMultilabelArgsDict',
     'ImageClassificationArgs',
+    'ImageClassificationArgsDict',
     'ImageInstanceSegmentationArgs',
+    'ImageInstanceSegmentationArgsDict',
     'ImageLimitSettingsArgs',
+    'ImageLimitSettingsArgsDict',
     'ImageModelDistributionSettingsClassificationArgs',
+    'ImageModelDistributionSettingsClassificationArgsDict',
     'ImageModelDistributionSettingsObjectDetectionArgs',
+    'ImageModelDistributionSettingsObjectDetectionArgsDict',
     'ImageModelSettingsClassificationArgs',
+    'ImageModelSettingsClassificationArgsDict',
     'ImageModelSettingsObjectDetectionArgs',
+    'ImageModelSettingsObjectDetectionArgsDict',
     'ImageObjectDetectionArgs',
+    'ImageObjectDetectionArgsDict',
     'ImageSweepLimitSettingsArgs',
+    'ImageSweepLimitSettingsArgsDict',
     'ImageSweepSettingsArgs',
+    'ImageSweepSettingsArgsDict',
     'ImageVerticalDataSettingsArgs',
+    'ImageVerticalDataSettingsArgsDict',
     'ImageVerticalValidationDataSettingsArgs',
+    'ImageVerticalValidationDataSettingsArgsDict',
     'InferenceContainerPropertiesArgs',
+    'InferenceContainerPropertiesArgsDict',
     'JobServiceArgs',
+    'JobServiceArgsDict',
     'KerberosKeytabCredentialsArgs',
+    'KerberosKeytabCredentialsArgsDict',
     'KerberosKeytabSecretsArgs',
+    'KerberosKeytabSecretsArgsDict',
     'KerberosPasswordCredentialsArgs',
+    'KerberosPasswordCredentialsArgsDict',
     'KerberosPasswordSecretsArgs',
+    'KerberosPasswordSecretsArgsDict',
     'KubernetesOnlineDeploymentArgs',
+    'KubernetesOnlineDeploymentArgsDict',
     'LiteralJobInputArgs',
+    'LiteralJobInputArgsDict',
     'MLFlowModelJobInputArgs',
+    'MLFlowModelJobInputArgsDict',
     'MLFlowModelJobOutputArgs',
+    'MLFlowModelJobOutputArgsDict',
     'MLTableDataArgs',
+    'MLTableDataArgsDict',
     'MLTableJobInputArgs',
+    'MLTableJobInputArgsDict',
     'MLTableJobOutputArgs',
+    'MLTableJobOutputArgsDict',
     'ManagedIdentityArgs',
+    'ManagedIdentityArgsDict',
     'ManagedOnlineDeploymentArgs',
+    'ManagedOnlineDeploymentArgsDict',
     'ManagedServiceIdentityArgs',
+    'ManagedServiceIdentityArgsDict',
     'MedianStoppingPolicyArgs',
+    'MedianStoppingPolicyArgsDict',
     'ModelContainerArgs',
+    'ModelContainerArgsDict',
     'ModelVersionArgs',
+    'ModelVersionArgsDict',
     'MpiArgs',
+    'MpiArgsDict',
     'NlpVerticalDataSettingsArgs',
+    'NlpVerticalDataSettingsArgsDict',
     'NlpVerticalFeaturizationSettingsArgs',
+    'NlpVerticalFeaturizationSettingsArgsDict',
     'NlpVerticalLimitSettingsArgs',
+    'NlpVerticalLimitSettingsArgsDict',
     'NlpVerticalValidationDataSettingsArgs',
+    'NlpVerticalValidationDataSettingsArgsDict',
     'NoneDatastoreCredentialsArgs',
+    'NoneDatastoreCredentialsArgsDict',
     'ObjectiveArgs',
+    'ObjectiveArgsDict',
     'OnlineEndpointArgs',
+    'OnlineEndpointArgsDict',
     'OnlineRequestSettingsArgs',
+    'OnlineRequestSettingsArgsDict',
     'OutputPathAssetReferenceArgs',
+    'OutputPathAssetReferenceArgsDict',
     'PipelineJobArgs',
+    'PipelineJobArgsDict',
     'ProbeSettingsArgs',
+    'ProbeSettingsArgsDict',
     'PyTorchArgs',
+    'PyTorchArgsDict',
     'RandomSamplingAlgorithmArgs',
+    'RandomSamplingAlgorithmArgsDict',
     'RecurrencePatternArgs',
+    'RecurrencePatternArgsDict',
     'RecurrenceScheduleArgs',
+    'RecurrenceScheduleArgsDict',
     'RegressionArgs',
+    'RegressionArgsDict',
     'ResourceConfigurationArgs',
+    'ResourceConfigurationArgsDict',
     'RouteArgs',
+    'RouteArgsDict',
     'SasDatastoreCredentialsArgs',
+    'SasDatastoreCredentialsArgsDict',
     'SasDatastoreSecretsArgs',
+    'SasDatastoreSecretsArgsDict',
     'ServicePrincipalDatastoreCredentialsArgs',
+    'ServicePrincipalDatastoreCredentialsArgsDict',
     'ServicePrincipalDatastoreSecretsArgs',
+    'ServicePrincipalDatastoreSecretsArgsDict',
     'SkuArgs',
+    'SkuArgsDict',
     'StackEnsembleSettingsArgs',
+    'StackEnsembleSettingsArgsDict',
     'SweepJobLimitsArgs',
+    'SweepJobLimitsArgsDict',
     'SweepJobArgs',
+    'SweepJobArgsDict',
     'TableVerticalDataSettingsArgs',
+    'TableVerticalDataSettingsArgsDict',
     'TableVerticalFeaturizationSettingsArgs',
+    'TableVerticalFeaturizationSettingsArgsDict',
     'TableVerticalLimitSettingsArgs',
+    'TableVerticalLimitSettingsArgsDict',
     'TableVerticalValidationDataSettingsArgs',
+    'TableVerticalValidationDataSettingsArgsDict',
     'TargetUtilizationScaleSettingsArgs',
+    'TargetUtilizationScaleSettingsArgsDict',
     'TensorFlowArgs',
+    'TensorFlowArgsDict',
     'TestDataSettingsArgs',
+    'TestDataSettingsArgsDict',
     'TextClassificationMultilabelArgs',
+    'TextClassificationMultilabelArgsDict',
     'TextClassificationArgs',
+    'TextClassificationArgsDict',
     'TextNerArgs',
+    'TextNerArgsDict',
     'TrainingDataSettingsArgs',
+    'TrainingDataSettingsArgsDict',
     'TrainingSettingsArgs',
+    'TrainingSettingsArgsDict',
     'TrialComponentArgs',
+    'TrialComponentArgsDict',
     'TritonModelJobInputArgs',
+    'TritonModelJobInputArgsDict',
     'TritonModelJobOutputArgs',
+    'TritonModelJobOutputArgsDict',
     'TruncationSelectionPolicyArgs',
+    'TruncationSelectionPolicyArgsDict',
     'UriFileDataVersionArgs',
+    'UriFileDataVersionArgsDict',
     'UriFileJobInputArgs',
+    'UriFileJobInputArgsDict',
     'UriFileJobOutputArgs',
+    'UriFileJobOutputArgsDict',
     'UriFolderDataVersionArgs',
+    'UriFolderDataVersionArgsDict',
     'UriFolderJobInputArgs',
+    'UriFolderJobInputArgsDict',
     'UriFolderJobOutputArgs',
+    'UriFolderJobOutputArgsDict',
     'UserIdentityArgs',
+    'UserIdentityArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AccountKeyDatastoreCredentialsArgsDict(TypedDict):
+        """
+        Account key datastore credentials configuration.
+        """
+        credentials_type: pulumi.Input[str]
+        """
+        Enum to determine the datastore credentials type.
+        Expected value is 'AccountKey'.
+        """
+        secrets: pulumi.Input['AccountKeyDatastoreSecretsArgsDict']
+        """
+        [Required] Storage account secrets.
+        """
+elif False:
+    AccountKeyDatastoreCredentialsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AccountKeyDatastoreCredentialsArgs:
@@ -187,6 +346,23 @@ class AccountKeyDatastoreCredentialsArgs:
     def secrets(self, value: pulumi.Input['AccountKeyDatastoreSecretsArgs']):
         pulumi.set(self, "secrets", value)
 
+
+if not MYPY:
+    class AccountKeyDatastoreSecretsArgsDict(TypedDict):
+        """
+        Datastore account key secrets.
+        """
+        secrets_type: pulumi.Input[str]
+        """
+        Enum to determine the datastore secrets type.
+        Expected value is 'AccountKey'.
+        """
+        key: NotRequired[pulumi.Input[str]]
+        """
+        Storage account key.
+        """
+elif False:
+    AccountKeyDatastoreSecretsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AccountKeyDatastoreSecretsArgs:
@@ -229,6 +405,19 @@ class AccountKeyDatastoreSecretsArgs:
         pulumi.set(self, "key", value)
 
 
+if not MYPY:
+    class AmlTokenArgsDict(TypedDict):
+        """
+        AML Token identity configuration.
+        """
+        identity_type: pulumi.Input[str]
+        """
+        Enum to determine identity framework.
+        Expected value is 'AMLToken'.
+        """
+elif False:
+    AmlTokenArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AmlTokenArgs:
     def __init__(__self__, *,
@@ -254,6 +443,19 @@ class AmlTokenArgs:
         pulumi.set(self, "identity_type", value)
 
 
+if not MYPY:
+    class AutoForecastHorizonArgsDict(TypedDict):
+        """
+        Forecast horizon determined automatically by system.
+        """
+        mode: pulumi.Input[str]
+        """
+        Enum to determine forecast horizon selection mode.
+        Expected value is 'Auto'.
+        """
+elif False:
+    AutoForecastHorizonArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AutoForecastHorizonArgs:
     def __init__(__self__, *,
@@ -278,6 +480,85 @@ class AutoForecastHorizonArgs:
     def mode(self, value: pulumi.Input[str]):
         pulumi.set(self, "mode", value)
 
+
+if not MYPY:
+    class AutoMLJobArgsDict(TypedDict):
+        """
+        AutoMLJob class.
+        Use this class for executing AutoML tasks like Classification/Regression etc.
+        See TaskType enum for all the tasks supported.
+        """
+        job_type: pulumi.Input[str]
+        """
+        Enum to determine the type of job.
+        Expected value is 'AutoML'.
+        """
+        task_details: pulumi.Input[Union['ClassificationArgsDict', 'ForecastingArgsDict', 'ImageClassificationArgsDict', 'ImageClassificationMultilabelArgsDict', 'ImageInstanceSegmentationArgsDict', 'ImageObjectDetectionArgsDict', 'RegressionArgsDict', 'TextClassificationArgsDict', 'TextClassificationMultilabelArgsDict', 'TextNerArgsDict']]
+        """
+        [Required] This represents scenario which can be one of Tables/NLP/Image
+        """
+        compute_id: NotRequired[pulumi.Input[str]]
+        """
+        ARM resource ID of the compute resource.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The asset description text.
+        """
+        display_name: NotRequired[pulumi.Input[str]]
+        """
+        Display name of job.
+        """
+        environment_id: NotRequired[pulumi.Input[str]]
+        """
+        The ARM resource ID of the Environment specification for the job.
+        This is optional value to provide, if not provided, AutoML will default this to Production AutoML curated environment version when running the job.
+        """
+        environment_variables: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Environment variables included in the job.
+        """
+        experiment_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the experiment the job belongs to. If not set, the job is placed in the "Default" experiment.
+        """
+        identity: NotRequired[pulumi.Input[Union['AmlTokenArgsDict', 'ManagedIdentityArgsDict', 'UserIdentityArgsDict']]]
+        """
+        Identity configuration. If set, this should be one of AmlToken, ManagedIdentity, UserIdentity or null.
+        Defaults to AmlToken if null.
+        """
+        is_archived: NotRequired[pulumi.Input[bool]]
+        """
+        Is the asset archived?
+        """
+        outputs: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[Union['CustomModelJobOutputArgsDict', 'MLFlowModelJobOutputArgsDict', 'MLTableJobOutputArgsDict', 'TritonModelJobOutputArgsDict', 'UriFileJobOutputArgsDict', 'UriFolderJobOutputArgsDict']]]]]
+        """
+        Mapping of output data bindings used in the job.
+        """
+        properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        The asset property dictionary.
+        """
+        resources: NotRequired[pulumi.Input['ResourceConfigurationArgsDict']]
+        """
+        Compute Resource configuration for the job.
+        """
+        schedule: NotRequired[pulumi.Input[Union['CronScheduleArgsDict', 'RecurrenceScheduleArgsDict']]]
+        """
+        Schedule definition of job.
+        If no schedule is provided, the job is run once and immediately after submission.
+        """
+        services: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['JobServiceArgsDict']]]]
+        """
+        List of JobEndpoints.
+        For local jobs, a job endpoint will have an endpoint value of FileStreamObject.
+        """
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Tag dictionary. Tags can be added, removed, and updated.
+        """
+elif False:
+    AutoMLJobArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AutoMLJobArgs:
@@ -557,6 +838,19 @@ class AutoMLJobArgs:
         pulumi.set(self, "tags", value)
 
 
+if not MYPY:
+    class AutoNCrossValidationsArgsDict(TypedDict):
+        """
+        N-Cross validations determined automatically.
+        """
+        mode: pulumi.Input[str]
+        """
+        Determines how N-Cross validations value is determined.
+        Expected value is 'Auto'.
+        """
+elif False:
+    AutoNCrossValidationsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AutoNCrossValidationsArgs:
     def __init__(__self__, *,
@@ -582,6 +876,16 @@ class AutoNCrossValidationsArgs:
         pulumi.set(self, "mode", value)
 
 
+if not MYPY:
+    class AutoSeasonalityArgsDict(TypedDict):
+        mode: pulumi.Input[str]
+        """
+        Forecasting seasonality mode.
+        Expected value is 'Auto'.
+        """
+elif False:
+    AutoSeasonalityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AutoSeasonalityArgs:
     def __init__(__self__, *,
@@ -605,6 +909,16 @@ class AutoSeasonalityArgs:
     def mode(self, value: pulumi.Input[str]):
         pulumi.set(self, "mode", value)
 
+
+if not MYPY:
+    class AutoTargetLagsArgsDict(TypedDict):
+        mode: pulumi.Input[str]
+        """
+        Target lags selection modes.
+        Expected value is 'Auto'.
+        """
+elif False:
+    AutoTargetLagsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AutoTargetLagsArgs:
@@ -630,6 +944,19 @@ class AutoTargetLagsArgs:
         pulumi.set(self, "mode", value)
 
 
+if not MYPY:
+    class AutoTargetRollingWindowSizeArgsDict(TypedDict):
+        """
+        Target lags rolling window determined automatically.
+        """
+        mode: pulumi.Input[str]
+        """
+        Target rolling windows size mode.
+        Expected value is 'Auto'.
+        """
+elif False:
+    AutoTargetRollingWindowSizeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AutoTargetRollingWindowSizeArgs:
     def __init__(__self__, *,
@@ -654,6 +981,55 @@ class AutoTargetRollingWindowSizeArgs:
     def mode(self, value: pulumi.Input[str]):
         pulumi.set(self, "mode", value)
 
+
+if not MYPY:
+    class AzureBlobDatastoreArgsDict(TypedDict):
+        """
+        Azure Blob datastore configuration.
+        """
+        credentials: pulumi.Input[Union['AccountKeyDatastoreCredentialsArgsDict', 'CertificateDatastoreCredentialsArgsDict', 'KerberosKeytabCredentialsArgsDict', 'KerberosPasswordCredentialsArgsDict', 'NoneDatastoreCredentialsArgsDict', 'SasDatastoreCredentialsArgsDict', 'ServicePrincipalDatastoreCredentialsArgsDict']]
+        """
+        [Required] Account credentials.
+        """
+        datastore_type: pulumi.Input[str]
+        """
+        Enum to determine the datastore contents type.
+        Expected value is 'AzureBlob'.
+        """
+        account_name: NotRequired[pulumi.Input[str]]
+        """
+        Storage account name.
+        """
+        container_name: NotRequired[pulumi.Input[str]]
+        """
+        Storage account container name.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The asset description text.
+        """
+        endpoint: NotRequired[pulumi.Input[str]]
+        """
+        Azure cloud endpoint for the storage account.
+        """
+        properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        The asset property dictionary.
+        """
+        protocol: NotRequired[pulumi.Input[str]]
+        """
+        Protocol used to communicate with the storage account.
+        """
+        service_data_access_auth_identity: NotRequired[pulumi.Input[Union[str, 'ServiceDataAccessAuthIdentity']]]
+        """
+        Indicates which identity to use to authenticate service data access to customer's storage.
+        """
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Tag dictionary. Tags can be added, removed, and updated.
+        """
+elif False:
+    AzureBlobDatastoreArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AzureBlobDatastoreArgs:
@@ -825,6 +1201,43 @@ class AzureBlobDatastoreArgs:
         pulumi.set(self, "tags", value)
 
 
+if not MYPY:
+    class AzureDataLakeGen1DatastoreArgsDict(TypedDict):
+        """
+        Azure Data Lake Gen1 datastore configuration.
+        """
+        credentials: pulumi.Input[Union['AccountKeyDatastoreCredentialsArgsDict', 'CertificateDatastoreCredentialsArgsDict', 'KerberosKeytabCredentialsArgsDict', 'KerberosPasswordCredentialsArgsDict', 'NoneDatastoreCredentialsArgsDict', 'SasDatastoreCredentialsArgsDict', 'ServicePrincipalDatastoreCredentialsArgsDict']]
+        """
+        [Required] Account credentials.
+        """
+        datastore_type: pulumi.Input[str]
+        """
+        Enum to determine the datastore contents type.
+        Expected value is 'AzureDataLakeGen1'.
+        """
+        store_name: pulumi.Input[str]
+        """
+        [Required] Azure Data Lake store name.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The asset description text.
+        """
+        properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        The asset property dictionary.
+        """
+        service_data_access_auth_identity: NotRequired[pulumi.Input[Union[str, 'ServiceDataAccessAuthIdentity']]]
+        """
+        Indicates which identity to use to authenticate service data access to customer's storage.
+        """
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Tag dictionary. Tags can be added, removed, and updated.
+        """
+elif False:
+    AzureDataLakeGen1DatastoreArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AzureDataLakeGen1DatastoreArgs:
     def __init__(__self__, *,
@@ -945,6 +1358,55 @@ class AzureDataLakeGen1DatastoreArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+
+if not MYPY:
+    class AzureDataLakeGen2DatastoreArgsDict(TypedDict):
+        """
+        Azure Data Lake Gen2 datastore configuration.
+        """
+        account_name: pulumi.Input[str]
+        """
+        [Required] Storage account name.
+        """
+        credentials: pulumi.Input[Union['AccountKeyDatastoreCredentialsArgsDict', 'CertificateDatastoreCredentialsArgsDict', 'KerberosKeytabCredentialsArgsDict', 'KerberosPasswordCredentialsArgsDict', 'NoneDatastoreCredentialsArgsDict', 'SasDatastoreCredentialsArgsDict', 'ServicePrincipalDatastoreCredentialsArgsDict']]
+        """
+        [Required] Account credentials.
+        """
+        datastore_type: pulumi.Input[str]
+        """
+        Enum to determine the datastore contents type.
+        Expected value is 'AzureDataLakeGen2'.
+        """
+        filesystem: pulumi.Input[str]
+        """
+        [Required] The name of the Data Lake Gen2 filesystem.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The asset description text.
+        """
+        endpoint: NotRequired[pulumi.Input[str]]
+        """
+        Azure cloud endpoint for the storage account.
+        """
+        properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        The asset property dictionary.
+        """
+        protocol: NotRequired[pulumi.Input[str]]
+        """
+        Protocol used to communicate with the storage account.
+        """
+        service_data_access_auth_identity: NotRequired[pulumi.Input[Union[str, 'ServiceDataAccessAuthIdentity']]]
+        """
+        Indicates which identity to use to authenticate service data access to customer's storage.
+        """
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Tag dictionary. Tags can be added, removed, and updated.
+        """
+elif False:
+    AzureDataLakeGen2DatastoreArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AzureDataLakeGen2DatastoreArgs:
@@ -1114,6 +1576,55 @@ class AzureDataLakeGen2DatastoreArgs:
         pulumi.set(self, "tags", value)
 
 
+if not MYPY:
+    class AzureFileDatastoreArgsDict(TypedDict):
+        """
+        Azure File datastore configuration.
+        """
+        account_name: pulumi.Input[str]
+        """
+        [Required] Storage account name.
+        """
+        credentials: pulumi.Input[Union['AccountKeyDatastoreCredentialsArgsDict', 'CertificateDatastoreCredentialsArgsDict', 'KerberosKeytabCredentialsArgsDict', 'KerberosPasswordCredentialsArgsDict', 'NoneDatastoreCredentialsArgsDict', 'SasDatastoreCredentialsArgsDict', 'ServicePrincipalDatastoreCredentialsArgsDict']]
+        """
+        [Required] Account credentials.
+        """
+        datastore_type: pulumi.Input[str]
+        """
+        Enum to determine the datastore contents type.
+        Expected value is 'AzureFile'.
+        """
+        file_share_name: pulumi.Input[str]
+        """
+        [Required] The name of the Azure file share that the datastore points to.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The asset description text.
+        """
+        endpoint: NotRequired[pulumi.Input[str]]
+        """
+        Azure cloud endpoint for the storage account.
+        """
+        properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        The asset property dictionary.
+        """
+        protocol: NotRequired[pulumi.Input[str]]
+        """
+        Protocol used to communicate with the storage account.
+        """
+        service_data_access_auth_identity: NotRequired[pulumi.Input[Union[str, 'ServiceDataAccessAuthIdentity']]]
+        """
+        Indicates which identity to use to authenticate service data access to customer's storage.
+        """
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Tag dictionary. Tags can be added, removed, and updated.
+        """
+elif False:
+    AzureFileDatastoreArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AzureFileDatastoreArgs:
     def __init__(__self__, *,
@@ -1282,6 +1793,35 @@ class AzureFileDatastoreArgs:
         pulumi.set(self, "tags", value)
 
 
+if not MYPY:
+    class BanditPolicyArgsDict(TypedDict):
+        """
+        Defines an early termination policy based on slack criteria, and a frequency and delay interval for evaluation
+        """
+        policy_type: pulumi.Input[str]
+        """
+
+        Expected value is 'Bandit'.
+        """
+        delay_evaluation: NotRequired[pulumi.Input[int]]
+        """
+        Number of intervals by which to delay the first evaluation.
+        """
+        evaluation_interval: NotRequired[pulumi.Input[int]]
+        """
+        Interval (number of runs) between policy evaluations.
+        """
+        slack_amount: NotRequired[pulumi.Input[float]]
+        """
+        Absolute distance allowed from the best performing run.
+        """
+        slack_factor: NotRequired[pulumi.Input[float]]
+        """
+        Ratio of the allowed distance from the best performing run.
+        """
+elif False:
+    BanditPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class BanditPolicyArgs:
     def __init__(__self__, *,
@@ -1378,6 +1918,82 @@ class BanditPolicyArgs:
     def slack_factor(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "slack_factor", value)
 
+
+if not MYPY:
+    class BatchDeploymentArgsDict(TypedDict):
+        """
+        Batch inference settings per deployment.
+        """
+        code_configuration: NotRequired[pulumi.Input['CodeConfigurationArgsDict']]
+        """
+        Code configuration for the endpoint deployment.
+        """
+        compute: NotRequired[pulumi.Input[str]]
+        """
+        Compute target for batch inference operation.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Description of the endpoint deployment.
+        """
+        environment_id: NotRequired[pulumi.Input[str]]
+        """
+        ARM resource ID of the environment specification for the endpoint deployment.
+        """
+        environment_variables: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Environment variables configuration for the deployment.
+        """
+        error_threshold: NotRequired[pulumi.Input[int]]
+        """
+        Error threshold, if the error count for the entire input goes above this value,
+        the batch inference will be aborted. Range is [-1, int.MaxValue].
+        For FileDataset, this value is the count of file failures.
+        For TabularDataset, this value is the count of record failures.
+        If set to -1 (the lower bound), all failures during batch inference will be ignored.
+        """
+        logging_level: NotRequired[pulumi.Input[Union[str, 'BatchLoggingLevel']]]
+        """
+        Logging level for batch inference operation.
+        """
+        max_concurrency_per_instance: NotRequired[pulumi.Input[int]]
+        """
+        Indicates maximum number of parallelism per instance.
+        """
+        mini_batch_size: NotRequired[pulumi.Input[float]]
+        """
+        Size of the mini-batch passed to each batch invocation.
+        For FileDataset, this is the number of files per mini-batch.
+        For TabularDataset, this is the size of the records in bytes, per mini-batch.
+        """
+        model: NotRequired[pulumi.Input[Union['DataPathAssetReferenceArgsDict', 'IdAssetReferenceArgsDict', 'OutputPathAssetReferenceArgsDict']]]
+        """
+        Reference to the model asset for the endpoint deployment.
+        """
+        output_action: NotRequired[pulumi.Input[Union[str, 'BatchOutputAction']]]
+        """
+        Indicates how the output will be organized.
+        """
+        output_file_name: NotRequired[pulumi.Input[str]]
+        """
+        Customized output file name for append_row output action.
+        """
+        properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Property dictionary. Properties can be added, but not removed or altered.
+        """
+        resources: NotRequired[pulumi.Input['ResourceConfigurationArgsDict']]
+        """
+        Indicates compute configuration for the job.
+        If not provided, will default to the defaults defined in ResourceConfiguration.
+        """
+        retry_settings: NotRequired[pulumi.Input['BatchRetrySettingsArgsDict']]
+        """
+        Retry Settings for the batch inference operation.
+        If not provided, will default to the defaults defined in BatchRetrySettings.
+        """
+elif False:
+    BatchDeploymentArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class BatchDeploymentArgs:
@@ -1655,6 +2271,19 @@ class BatchDeploymentArgs:
         pulumi.set(self, "retry_settings", value)
 
 
+if not MYPY:
+    class BatchEndpointDefaultsArgsDict(TypedDict):
+        """
+        Batch endpoint default values
+        """
+        deployment_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the deployment that will be default for the endpoint.
+        This deployment will end up getting 100% traffic when the endpoint scoring URL is invoked.
+        """
+elif False:
+    BatchEndpointDefaultsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class BatchEndpointDefaultsArgs:
     def __init__(__self__, *,
@@ -1680,6 +2309,35 @@ class BatchEndpointDefaultsArgs:
     def deployment_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "deployment_name", value)
 
+
+if not MYPY:
+    class BatchEndpointArgsDict(TypedDict):
+        """
+        Batch endpoint configuration.
+        """
+        auth_mode: pulumi.Input[Union[str, 'EndpointAuthMode']]
+        """
+        [Required] Use 'Key' for key based authentication and 'AMLToken' for Azure Machine Learning token-based authentication. 'Key' doesn't expire but 'AMLToken' does.
+        """
+        defaults: NotRequired[pulumi.Input['BatchEndpointDefaultsArgsDict']]
+        """
+        Default values for Batch Endpoint
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Description of the inference endpoint.
+        """
+        keys: NotRequired[pulumi.Input['EndpointAuthKeysArgsDict']]
+        """
+        EndpointAuthKeys to set initially on an Endpoint.
+        This property will always be returned as null. AuthKey values must be retrieved using the ListKeys API.
+        """
+        properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Property dictionary. Properties can be added, but not removed or altered.
+        """
+elif False:
+    BatchEndpointArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class BatchEndpointArgs:
@@ -1770,6 +2428,22 @@ class BatchEndpointArgs:
         pulumi.set(self, "properties", value)
 
 
+if not MYPY:
+    class BatchRetrySettingsArgsDict(TypedDict):
+        """
+        Retry settings for a batch inference operation.
+        """
+        max_retries: NotRequired[pulumi.Input[int]]
+        """
+        Maximum retry count for a mini-batch
+        """
+        timeout: NotRequired[pulumi.Input[str]]
+        """
+        Invocation timeout for a mini-batch, in ISO 8601 format.
+        """
+elif False:
+    BatchRetrySettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class BatchRetrySettingsArgs:
     def __init__(__self__, *,
@@ -1814,6 +2488,19 @@ class BatchRetrySettingsArgs:
         pulumi.set(self, "timeout", value)
 
 
+if not MYPY:
+    class BayesianSamplingAlgorithmArgsDict(TypedDict):
+        """
+        Defines a Sampling Algorithm that generates values based on previous values
+        """
+        sampling_algorithm_type: pulumi.Input[str]
+        """
+
+        Expected value is 'Bayesian'.
+        """
+elif False:
+    BayesianSamplingAlgorithmArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class BayesianSamplingAlgorithmArgs:
     def __init__(__self__, *,
@@ -1838,6 +2525,24 @@ class BayesianSamplingAlgorithmArgs:
     def sampling_algorithm_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "sampling_algorithm_type", value)
 
+
+if not MYPY:
+    class BuildContextArgsDict(TypedDict):
+        """
+        Configuration settings for Docker build context
+        """
+        context_uri: pulumi.Input[str]
+        """
+        [Required] URI of the Docker build context used to build the image. Supports blob URIs on environment creation and may return blob or Git URIs.
+        <seealso href="https://docs.docker.com/engine/reference/commandline/build/#extended-description" />
+        """
+        dockerfile_path: NotRequired[pulumi.Input[str]]
+        """
+        Path to the Dockerfile in the build context.
+        <seealso href="https://docs.docker.com/engine/reference/builder/" />
+        """
+elif False:
+    BuildContextArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class BuildContextArgs:
@@ -1883,6 +2588,43 @@ class BuildContextArgs:
     def dockerfile_path(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "dockerfile_path", value)
 
+
+if not MYPY:
+    class CertificateDatastoreCredentialsArgsDict(TypedDict):
+        """
+        Certificate datastore credentials configuration.
+        """
+        client_id: pulumi.Input[str]
+        """
+        [Required] Service principal client ID.
+        """
+        credentials_type: pulumi.Input[str]
+        """
+        Enum to determine the datastore credentials type.
+        Expected value is 'Certificate'.
+        """
+        secrets: pulumi.Input['CertificateDatastoreSecretsArgsDict']
+        """
+        [Required] Service principal secrets.
+        """
+        tenant_id: pulumi.Input[str]
+        """
+        [Required] ID of the tenant to which the service principal belongs.
+        """
+        thumbprint: pulumi.Input[str]
+        """
+        [Required] Thumbprint of the certificate used for authentication.
+        """
+        authority_url: NotRequired[pulumi.Input[str]]
+        """
+        Authority URL used for authentication.
+        """
+        resource_url: NotRequired[pulumi.Input[str]]
+        """
+        Resource the service principal has access to.
+        """
+elif False:
+    CertificateDatastoreCredentialsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CertificateDatastoreCredentialsArgs:
@@ -2001,6 +2743,23 @@ class CertificateDatastoreCredentialsArgs:
         pulumi.set(self, "resource_url", value)
 
 
+if not MYPY:
+    class CertificateDatastoreSecretsArgsDict(TypedDict):
+        """
+        Datastore certificate secrets.
+        """
+        secrets_type: pulumi.Input[str]
+        """
+        Enum to determine the datastore secrets type.
+        Expected value is 'Certificate'.
+        """
+        certificate: NotRequired[pulumi.Input[str]]
+        """
+        Service principal certificate.
+        """
+elif False:
+    CertificateDatastoreSecretsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CertificateDatastoreSecretsArgs:
     def __init__(__self__, *,
@@ -2041,6 +2800,51 @@ class CertificateDatastoreSecretsArgs:
     def certificate(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "certificate", value)
 
+
+if not MYPY:
+    class ClassificationArgsDict(TypedDict):
+        """
+        Classification task in AutoML Table vertical.
+        """
+        task_type: pulumi.Input[str]
+        """
+        AutoMLJob Task type.
+        Expected value is 'Classification'.
+        """
+        allowed_models: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'ClassificationModels']]]]]
+        """
+        Allowed models for classification task.
+        """
+        blocked_models: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'ClassificationModels']]]]]
+        """
+        Blocked models for classification task.
+        """
+        data_settings: NotRequired[pulumi.Input['TableVerticalDataSettingsArgsDict']]
+        """
+        Data inputs for AutoMLJob.
+        """
+        featurization_settings: NotRequired[pulumi.Input['TableVerticalFeaturizationSettingsArgsDict']]
+        """
+        Featurization inputs needed for AutoML job.
+        """
+        limit_settings: NotRequired[pulumi.Input['TableVerticalLimitSettingsArgsDict']]
+        """
+        Execution constraints for AutoMLJob.
+        """
+        log_verbosity: NotRequired[pulumi.Input[Union[str, 'LogVerbosity']]]
+        """
+        Log verbosity for the job.
+        """
+        primary_metric: NotRequired[pulumi.Input[Union[str, 'ClassificationPrimaryMetrics']]]
+        """
+        Primary metric for the task.
+        """
+        training_settings: NotRequired[pulumi.Input['TrainingSettingsArgsDict']]
+        """
+        Inputs for training phase for an AutoML Job.
+        """
+elif False:
+    ClassificationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ClassificationArgs:
@@ -2199,6 +3003,22 @@ class ClassificationArgs:
         pulumi.set(self, "training_settings", value)
 
 
+if not MYPY:
+    class CodeConfigurationArgsDict(TypedDict):
+        """
+        Configuration for a scoring code asset.
+        """
+        scoring_script: pulumi.Input[str]
+        """
+        [Required] The script to execute on startup. eg. "score.py"
+        """
+        code_id: NotRequired[pulumi.Input[str]]
+        """
+        ARM resource ID of the code asset.
+        """
+elif False:
+    CodeConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CodeConfigurationArgs:
     def __init__(__self__, *,
@@ -2237,6 +3057,30 @@ class CodeConfigurationArgs:
     def code_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "code_id", value)
 
+
+if not MYPY:
+    class CodeContainerArgsDict(TypedDict):
+        """
+        Container for code asset versions.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The asset description text.
+        """
+        is_archived: NotRequired[pulumi.Input[bool]]
+        """
+        Is the asset archived?
+        """
+        properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        The asset property dictionary.
+        """
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Tag dictionary. Tags can be added, removed, and updated.
+        """
+elif False:
+    CodeContainerArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CodeContainerArgs:
@@ -2311,6 +3155,38 @@ class CodeContainerArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+
+if not MYPY:
+    class CodeVersionArgsDict(TypedDict):
+        """
+        Code asset version details.
+        """
+        code_uri: NotRequired[pulumi.Input[str]]
+        """
+        Uri where code is located
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The asset description text.
+        """
+        is_anonymous: NotRequired[pulumi.Input[bool]]
+        """
+        If the name version are system generated (anonymous registration).
+        """
+        is_archived: NotRequired[pulumi.Input[bool]]
+        """
+        Is the asset archived?
+        """
+        properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        The asset property dictionary.
+        """
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Tag dictionary. Tags can be added, removed, and updated.
+        """
+elif False:
+    CodeVersionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CodeVersionArgs:
@@ -2420,6 +3296,23 @@ class CodeVersionArgs:
         pulumi.set(self, "tags", value)
 
 
+if not MYPY:
+    class ColumnTransformerArgsDict(TypedDict):
+        """
+        Column transformer parameters.
+        """
+        fields: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Fields to apply transformer logic on.
+        """
+        parameters: NotRequired[Any]
+        """
+        Different properties to be passed to transformer.
+        Input expected is dictionary of key,value pairs in JSON format.
+        """
+elif False:
+    ColumnTransformerArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ColumnTransformerArgs:
     def __init__(__self__, *,
@@ -2462,6 +3355,23 @@ class ColumnTransformerArgs:
         pulumi.set(self, "parameters", value)
 
 
+if not MYPY:
+    class CommandJobLimitsArgsDict(TypedDict):
+        """
+        Command Job limit class.
+        """
+        job_limits_type: pulumi.Input[str]
+        """
+
+        Expected value is 'Command'.
+        """
+        timeout: NotRequired[pulumi.Input[str]]
+        """
+        The max run duration in ISO 8601 format, after which the job will be cancelled. Only supports duration with precision as low as Seconds.
+        """
+elif False:
+    CommandJobLimitsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CommandJobLimitsArgs:
     def __init__(__self__, *,
@@ -2502,6 +3412,98 @@ class CommandJobLimitsArgs:
     def timeout(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "timeout", value)
 
+
+if not MYPY:
+    class CommandJobArgsDict(TypedDict):
+        """
+        Command job definition.
+        """
+        command: pulumi.Input[str]
+        """
+        [Required] The command to execute on startup of the job. eg. "python train.py"
+        """
+        environment_id: pulumi.Input[str]
+        """
+        [Required] The ARM resource ID of the Environment specification for the job.
+        """
+        job_type: pulumi.Input[str]
+        """
+        Enum to determine the type of job.
+        Expected value is 'Command'.
+        """
+        code_id: NotRequired[pulumi.Input[str]]
+        """
+        ARM resource ID of the code asset.
+        """
+        compute_id: NotRequired[pulumi.Input[str]]
+        """
+        ARM resource ID of the compute resource.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The asset description text.
+        """
+        display_name: NotRequired[pulumi.Input[str]]
+        """
+        Display name of job.
+        """
+        distribution: NotRequired[pulumi.Input[Union['MpiArgsDict', 'PyTorchArgsDict', 'TensorFlowArgsDict']]]
+        """
+        Distribution configuration of the job. If set, this should be one of Mpi, Tensorflow, PyTorch, or null.
+        """
+        environment_variables: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Environment variables included in the job.
+        """
+        experiment_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the experiment the job belongs to. If not set, the job is placed in the "Default" experiment.
+        """
+        identity: NotRequired[pulumi.Input[Union['AmlTokenArgsDict', 'ManagedIdentityArgsDict', 'UserIdentityArgsDict']]]
+        """
+        Identity configuration. If set, this should be one of AmlToken, ManagedIdentity, UserIdentity or null.
+        Defaults to AmlToken if null.
+        """
+        inputs: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[Union['CustomModelJobInputArgsDict', 'LiteralJobInputArgsDict', 'MLFlowModelJobInputArgsDict', 'MLTableJobInputArgsDict', 'TritonModelJobInputArgsDict', 'UriFileJobInputArgsDict', 'UriFolderJobInputArgsDict']]]]]
+        """
+        Mapping of input data bindings used in the job.
+        """
+        is_archived: NotRequired[pulumi.Input[bool]]
+        """
+        Is the asset archived?
+        """
+        limits: NotRequired[pulumi.Input['CommandJobLimitsArgsDict']]
+        """
+        Command Job limit.
+        """
+        outputs: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[Union['CustomModelJobOutputArgsDict', 'MLFlowModelJobOutputArgsDict', 'MLTableJobOutputArgsDict', 'TritonModelJobOutputArgsDict', 'UriFileJobOutputArgsDict', 'UriFolderJobOutputArgsDict']]]]]
+        """
+        Mapping of output data bindings used in the job.
+        """
+        properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        The asset property dictionary.
+        """
+        resources: NotRequired[pulumi.Input['ResourceConfigurationArgsDict']]
+        """
+        Compute Resource configuration for the job.
+        """
+        schedule: NotRequired[pulumi.Input[Union['CronScheduleArgsDict', 'RecurrenceScheduleArgsDict']]]
+        """
+        Schedule definition of job.
+        If no schedule is provided, the job is run once and immediately after submission.
+        """
+        services: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['JobServiceArgsDict']]]]
+        """
+        List of JobEndpoints.
+        For local jobs, a job endpoint will have an endpoint value of FileStreamObject.
+        """
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Tag dictionary. Tags can be added, removed, and updated.
+        """
+elif False:
+    CommandJobArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CommandJobArgs:
@@ -2840,6 +3842,31 @@ class CommandJobArgs:
         pulumi.set(self, "tags", value)
 
 
+if not MYPY:
+    class ComponentContainerArgsDict(TypedDict):
+        """
+        Component container definition.
+        <see href="https://docs.microsoft.com/en-us/azure/machine-learning/reference-yaml-component-command" />
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The asset description text.
+        """
+        is_archived: NotRequired[pulumi.Input[bool]]
+        """
+        Is the asset archived?
+        """
+        properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        The asset property dictionary.
+        """
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Tag dictionary. Tags can be added, removed, and updated.
+        """
+elif False:
+    ComponentContainerArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ComponentContainerArgs:
     def __init__(__self__, *,
@@ -2914,6 +3941,39 @@ class ComponentContainerArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+
+if not MYPY:
+    class ComponentVersionArgsDict(TypedDict):
+        """
+        Definition of a component version: defines resources that span component types.
+        """
+        component_spec: NotRequired[Any]
+        """
+        Defines Component definition details.
+        <see href="https://docs.microsoft.com/en-us/azure/machine-learning/reference-yaml-component-command" />
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The asset description text.
+        """
+        is_anonymous: NotRequired[pulumi.Input[bool]]
+        """
+        If the name version are system generated (anonymous registration).
+        """
+        is_archived: NotRequired[pulumi.Input[bool]]
+        """
+        Is the asset archived?
+        """
+        properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        The asset property dictionary.
+        """
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Tag dictionary. Tags can be added, removed, and updated.
+        """
+elif False:
+    ComponentVersionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ComponentVersionArgs:
@@ -3025,6 +4085,22 @@ class ComponentVersionArgs:
         pulumi.set(self, "tags", value)
 
 
+if not MYPY:
+    class ContainerResourceRequirementsArgsDict(TypedDict):
+        """
+        Resource requirements for each container instance within an online deployment.
+        """
+        container_resource_limits: NotRequired[pulumi.Input['ContainerResourceSettingsArgsDict']]
+        """
+        Container resource limit info:
+        """
+        container_resource_requests: NotRequired[pulumi.Input['ContainerResourceSettingsArgsDict']]
+        """
+        Container resource request info:
+        """
+elif False:
+    ContainerResourceRequirementsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ContainerResourceRequirementsArgs:
     def __init__(__self__, *,
@@ -3064,6 +4140,26 @@ class ContainerResourceRequirementsArgs:
     def container_resource_requests(self, value: Optional[pulumi.Input['ContainerResourceSettingsArgs']]):
         pulumi.set(self, "container_resource_requests", value)
 
+
+if not MYPY:
+    class ContainerResourceSettingsArgsDict(TypedDict):
+        cpu: NotRequired[pulumi.Input[str]]
+        """
+        Number of vCPUs request/limit for container. More info:
+        https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
+        """
+        gpu: NotRequired[pulumi.Input[str]]
+        """
+        Number of Nvidia GPU cards request/limit for container. More info:
+        https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
+        """
+        memory: NotRequired[pulumi.Input[str]]
+        """
+        Memory size request/limit for container. More info:
+        https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
+        """
+elif False:
+    ContainerResourceSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ContainerResourceSettingsArgs:
@@ -3125,6 +4221,42 @@ class ContainerResourceSettingsArgs:
     def memory(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "memory", value)
 
+
+if not MYPY:
+    class CronScheduleArgsDict(TypedDict):
+        """
+        Cron schedule definition
+        """
+        expression: pulumi.Input[str]
+        """
+        [Required] Specifies cron expression of schedule.
+        The expression should follow NCronTab format.
+        """
+        schedule_type: pulumi.Input[str]
+        """
+        Enum to describe type of schedule
+        Expected value is 'Cron'.
+        """
+        end_time: NotRequired[pulumi.Input[str]]
+        """
+        Specifies end time of schedule in ISO 8601 format.
+        If not present, the schedule will run indefinitely
+        """
+        schedule_status: NotRequired[pulumi.Input[Union[str, 'ScheduleStatus']]]
+        """
+        Specifies the schedule's status
+        """
+        start_time: NotRequired[pulumi.Input[str]]
+        """
+        Specifies start time of schedule in ISO 8601 format.
+        """
+        time_zone: NotRequired[pulumi.Input[str]]
+        """
+        Specifies time zone in which the schedule runs.
+        TimeZone should follow Windows time zone format.
+        """
+elif False:
+    CronScheduleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CronScheduleArgs:
@@ -3240,6 +4372,23 @@ class CronScheduleArgs:
         pulumi.set(self, "time_zone", value)
 
 
+if not MYPY:
+    class CustomForecastHorizonArgsDict(TypedDict):
+        """
+        The desired maximum forecast horizon in units of time-series frequency.
+        """
+        mode: pulumi.Input[str]
+        """
+        Enum to determine forecast horizon selection mode.
+        Expected value is 'Custom'.
+        """
+        value: pulumi.Input[int]
+        """
+        [Required] Forecast horizon value.
+        """
+elif False:
+    CustomForecastHorizonArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CustomForecastHorizonArgs:
     def __init__(__self__, *,
@@ -3279,6 +4428,28 @@ class CustomForecastHorizonArgs:
     def value(self, value: pulumi.Input[int]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class CustomModelJobInputArgsDict(TypedDict):
+        job_input_type: pulumi.Input[str]
+        """
+        Enum to determine the Job Input Type.
+        Expected value is 'CustomModel'.
+        """
+        uri: pulumi.Input[str]
+        """
+        [Required] Input Asset URI.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Description for the input.
+        """
+        mode: NotRequired[pulumi.Input[Union[str, 'InputDeliveryMode']]]
+        """
+        Input Asset Delivery Mode.
+        """
+elif False:
+    CustomModelJobInputArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CustomModelJobInputArgs:
@@ -3352,6 +4523,28 @@ class CustomModelJobInputArgs:
     def mode(self, value: Optional[pulumi.Input[Union[str, 'InputDeliveryMode']]]):
         pulumi.set(self, "mode", value)
 
+
+if not MYPY:
+    class CustomModelJobOutputArgsDict(TypedDict):
+        job_output_type: pulumi.Input[str]
+        """
+        Enum to determine the Job Output Type.
+        Expected value is 'CustomModel'.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Description for the output.
+        """
+        mode: NotRequired[pulumi.Input[Union[str, 'OutputDeliveryMode']]]
+        """
+        Output Asset Delivery Mode.
+        """
+        uri: NotRequired[pulumi.Input[str]]
+        """
+        Output Asset URI.
+        """
+elif False:
+    CustomModelJobOutputArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CustomModelJobOutputArgs:
@@ -3427,6 +4620,23 @@ class CustomModelJobOutputArgs:
         pulumi.set(self, "uri", value)
 
 
+if not MYPY:
+    class CustomNCrossValidationsArgsDict(TypedDict):
+        """
+        N-Cross validations are specified by user.
+        """
+        mode: pulumi.Input[str]
+        """
+        Determines how N-Cross validations value is determined.
+        Expected value is 'Custom'.
+        """
+        value: pulumi.Input[int]
+        """
+        [Required] N-Cross validations value.
+        """
+elif False:
+    CustomNCrossValidationsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CustomNCrossValidationsArgs:
     def __init__(__self__, *,
@@ -3467,6 +4677,20 @@ class CustomNCrossValidationsArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class CustomSeasonalityArgsDict(TypedDict):
+        mode: pulumi.Input[str]
+        """
+        Forecasting seasonality mode.
+        Expected value is 'Custom'.
+        """
+        value: pulumi.Input[int]
+        """
+        [Required] Seasonality value.
+        """
+elif False:
+    CustomSeasonalityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CustomSeasonalityArgs:
     def __init__(__self__, *,
@@ -3505,6 +4729,20 @@ class CustomSeasonalityArgs:
     def value(self, value: pulumi.Input[int]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class CustomTargetLagsArgsDict(TypedDict):
+        mode: pulumi.Input[str]
+        """
+        Target lags selection modes.
+        Expected value is 'Custom'.
+        """
+        values: pulumi.Input[Sequence[pulumi.Input[int]]]
+        """
+        [Required] Set target lags values.
+        """
+elif False:
+    CustomTargetLagsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CustomTargetLagsArgs:
@@ -3545,6 +4783,20 @@ class CustomTargetLagsArgs:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class CustomTargetRollingWindowSizeArgsDict(TypedDict):
+        mode: pulumi.Input[str]
+        """
+        Target rolling windows size mode.
+        Expected value is 'Custom'.
+        """
+        value: pulumi.Input[int]
+        """
+        [Required] TargetRollingWindowSize value.
+        """
+elif False:
+    CustomTargetRollingWindowSizeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CustomTargetRollingWindowSizeArgs:
     def __init__(__self__, *,
@@ -3583,6 +4835,34 @@ class CustomTargetRollingWindowSizeArgs:
     def value(self, value: pulumi.Input[int]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class DataContainerArgsDict(TypedDict):
+        """
+        Container for data asset versions.
+        """
+        data_type: pulumi.Input[Union[str, 'DataType']]
+        """
+        [Required] Specifies the type of data.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The asset description text.
+        """
+        is_archived: NotRequired[pulumi.Input[bool]]
+        """
+        Is the asset archived?
+        """
+        properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        The asset property dictionary.
+        """
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Tag dictionary. Tags can be added, removed, and updated.
+        """
+elif False:
+    DataContainerArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataContainerArgs:
@@ -3673,6 +4953,27 @@ class DataContainerArgs:
         pulumi.set(self, "tags", value)
 
 
+if not MYPY:
+    class DataPathAssetReferenceArgsDict(TypedDict):
+        """
+        Reference to an asset via its path in a datastore.
+        """
+        reference_type: pulumi.Input[str]
+        """
+        Enum to determine which reference method to use for an asset.
+        Expected value is 'DataPath'.
+        """
+        datastore_id: NotRequired[pulumi.Input[str]]
+        """
+        ARM resource ID of the datastore where the asset is located.
+        """
+        path: NotRequired[pulumi.Input[str]]
+        """
+        The path of the file/directory in the datastore.
+        """
+elif False:
+    DataPathAssetReferenceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DataPathAssetReferenceArgs:
     def __init__(__self__, *,
@@ -3730,6 +5031,16 @@ class DataPathAssetReferenceArgs:
         pulumi.set(self, "path", value)
 
 
+if not MYPY:
+    class DefaultScaleSettingsArgsDict(TypedDict):
+        scale_type: pulumi.Input[str]
+        """
+
+        Expected value is 'Default'.
+        """
+elif False:
+    DefaultScaleSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DefaultScaleSettingsArgs:
     def __init__(__self__, *,
@@ -3753,6 +5064,22 @@ class DefaultScaleSettingsArgs:
     def scale_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "scale_type", value)
 
+
+if not MYPY:
+    class EndpointAuthKeysArgsDict(TypedDict):
+        """
+        Keys for endpoint authentication.
+        """
+        primary_key: NotRequired[pulumi.Input[str]]
+        """
+        The primary key.
+        """
+        secondary_key: NotRequired[pulumi.Input[str]]
+        """
+        The secondary key.
+        """
+elif False:
+    EndpointAuthKeysArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EndpointAuthKeysArgs:
@@ -3793,6 +5120,30 @@ class EndpointAuthKeysArgs:
     def secondary_key(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "secondary_key", value)
 
+
+if not MYPY:
+    class EnvironmentContainerArgsDict(TypedDict):
+        """
+        Container for environment specification versions.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The asset description text.
+        """
+        is_archived: NotRequired[pulumi.Input[bool]]
+        """
+        Is the asset archived?
+        """
+        properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        The asset property dictionary.
+        """
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Tag dictionary. Tags can be added, removed, and updated.
+        """
+elif False:
+    EnvironmentContainerArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EnvironmentContainerArgs:
@@ -3867,6 +5218,56 @@ class EnvironmentContainerArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+
+if not MYPY:
+    class EnvironmentVersionArgsDict(TypedDict):
+        """
+        Environment version details.
+        """
+        build: NotRequired[pulumi.Input['BuildContextArgsDict']]
+        """
+        Configuration settings for Docker build context.
+        """
+        conda_file: NotRequired[pulumi.Input[str]]
+        """
+        Standard configuration file used by Conda that lets you install any kind of package, including Python, R, and C/C++ packages.
+        <see href="https://repo2docker.readthedocs.io/en/latest/config_files.html#environment-yml-install-a-conda-environment" />
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The asset description text.
+        """
+        image: NotRequired[pulumi.Input[str]]
+        """
+        Name of the image that will be used for the environment.
+        <seealso href="https://docs.microsoft.com/en-us/azure/machine-learning/how-to-deploy-custom-docker-image#use-a-custom-base-image" />
+        """
+        inference_config: NotRequired[pulumi.Input['InferenceContainerPropertiesArgsDict']]
+        """
+        Defines configuration specific to inference.
+        """
+        is_anonymous: NotRequired[pulumi.Input[bool]]
+        """
+        If the name version are system generated (anonymous registration).
+        """
+        is_archived: NotRequired[pulumi.Input[bool]]
+        """
+        Is the asset archived?
+        """
+        os_type: NotRequired[pulumi.Input[Union[str, 'OperatingSystemType']]]
+        """
+        The OS type of the environment.
+        """
+        properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        The asset property dictionary.
+        """
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Tag dictionary. Tags can be added, removed, and updated.
+        """
+elif False:
+    EnvironmentVersionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EnvironmentVersionArgs:
@@ -4046,6 +5447,15 @@ class EnvironmentVersionArgs:
         pulumi.set(self, "tags", value)
 
 
+if not MYPY:
+    class FlavorDataArgsDict(TypedDict):
+        data: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Model flavor-specific data.
+        """
+elif False:
+    FlavorDataArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FlavorDataArgs:
     def __init__(__self__, *,
@@ -4068,6 +5478,72 @@ class FlavorDataArgs:
     def data(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "data", value)
 
+
+if not MYPY:
+    class ForecastingSettingsArgsDict(TypedDict):
+        """
+        Forecasting specific parameters.
+        """
+        country_or_region_for_holidays: NotRequired[pulumi.Input[str]]
+        """
+        Country or region for holidays for forecasting tasks.
+        These should be ISO 3166 two-letter country/region codes, for example 'US' or 'GB'.
+        """
+        cv_step_size: NotRequired[pulumi.Input[int]]
+        """
+        Number of periods between the origin time of one CV fold and the next fold. For
+        example, if `CVStepSize` = 3 for daily data, the origin time for each fold will be
+        three days apart.
+        """
+        feature_lags: NotRequired[pulumi.Input[Union[str, 'FeatureLags']]]
+        """
+        Flag for generating lags for the numeric features with 'auto' or null.
+        """
+        forecast_horizon: NotRequired[pulumi.Input[Union['AutoForecastHorizonArgsDict', 'CustomForecastHorizonArgsDict']]]
+        """
+        The desired maximum forecast horizon in units of time-series frequency.
+        """
+        frequency: NotRequired[pulumi.Input[str]]
+        """
+        When forecasting, this parameter represents the period with which the forecast is desired, for example daily, weekly, yearly, etc. The forecast frequency is dataset frequency by default.
+        """
+        seasonality: NotRequired[pulumi.Input[Union['AutoSeasonalityArgsDict', 'CustomSeasonalityArgsDict']]]
+        """
+        Set time series seasonality as an integer multiple of the series frequency.
+        If seasonality is set to 'auto', it will be inferred.
+        """
+        short_series_handling_config: NotRequired[pulumi.Input[Union[str, 'ShortSeriesHandlingConfiguration']]]
+        """
+        The parameter defining how if AutoML should handle short time series.
+        """
+        target_aggregate_function: NotRequired[pulumi.Input[Union[str, 'TargetAggregationFunction']]]
+        """
+        The function to be used to aggregate the time series target column to conform to a user specified frequency.
+        If the TargetAggregateFunction is set i.e. not 'None', but the freq parameter is not set, the error is raised. The possible target aggregation functions are: "sum", "max", "min" and "mean".
+        """
+        target_lags: NotRequired[pulumi.Input[Union['AutoTargetLagsArgsDict', 'CustomTargetLagsArgsDict']]]
+        """
+        The number of past periods to lag from the target column.
+        """
+        target_rolling_window_size: NotRequired[pulumi.Input[Union['AutoTargetRollingWindowSizeArgsDict', 'CustomTargetRollingWindowSizeArgsDict']]]
+        """
+        The number of past periods used to create a rolling window average of the target column.
+        """
+        time_column_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the time column. This parameter is required when forecasting to specify the datetime column in the input data used for building the time series and inferring its frequency.
+        """
+        time_series_id_column_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The names of columns used to group a timeseries. It can be used to create multiple series.
+        If grain is not defined, the data set is assumed to be one time-series. This parameter is used with task type forecasting.
+        """
+        use_stl: NotRequired[pulumi.Input[Union[str, 'UseStl']]]
+        """
+        Configure STL Decomposition of the time-series target column.
+        """
+elif False:
+    ForecastingSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ForecastingSettingsArgs:
@@ -4305,6 +5781,55 @@ class ForecastingSettingsArgs:
         pulumi.set(self, "use_stl", value)
 
 
+if not MYPY:
+    class ForecastingArgsDict(TypedDict):
+        """
+        Forecasting task in AutoML Table vertical.
+        """
+        task_type: pulumi.Input[str]
+        """
+        AutoMLJob Task type.
+        Expected value is 'Forecasting'.
+        """
+        allowed_models: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'ForecastingModels']]]]]
+        """
+        Allowed models for forecasting task.
+        """
+        blocked_models: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'ForecastingModels']]]]]
+        """
+        Blocked models for forecasting task.
+        """
+        data_settings: NotRequired[pulumi.Input['TableVerticalDataSettingsArgsDict']]
+        """
+        Data inputs for AutoMLJob.
+        """
+        featurization_settings: NotRequired[pulumi.Input['TableVerticalFeaturizationSettingsArgsDict']]
+        """
+        Featurization inputs needed for AutoML job.
+        """
+        forecasting_settings: NotRequired[pulumi.Input['ForecastingSettingsArgsDict']]
+        """
+        Forecasting task specific inputs.
+        """
+        limit_settings: NotRequired[pulumi.Input['TableVerticalLimitSettingsArgsDict']]
+        """
+        Execution constraints for AutoMLJob.
+        """
+        log_verbosity: NotRequired[pulumi.Input[Union[str, 'LogVerbosity']]]
+        """
+        Log verbosity for the job.
+        """
+        primary_metric: NotRequired[pulumi.Input[Union[str, 'ForecastingPrimaryMetrics']]]
+        """
+        Primary metric for forecasting task.
+        """
+        training_settings: NotRequired[pulumi.Input['TrainingSettingsArgsDict']]
+        """
+        Inputs for training phase for an AutoML Job.
+        """
+elif False:
+    ForecastingArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ForecastingArgs:
     def __init__(__self__, *,
@@ -4478,6 +6003,19 @@ class ForecastingArgs:
         pulumi.set(self, "training_settings", value)
 
 
+if not MYPY:
+    class GridSamplingAlgorithmArgsDict(TypedDict):
+        """
+        Defines a Sampling Algorithm that exhaustively generates every value combination in the space
+        """
+        sampling_algorithm_type: pulumi.Input[str]
+        """
+
+        Expected value is 'Grid'.
+        """
+elif False:
+    GridSamplingAlgorithmArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GridSamplingAlgorithmArgs:
     def __init__(__self__, *,
@@ -4502,6 +6040,44 @@ class GridSamplingAlgorithmArgs:
     def sampling_algorithm_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "sampling_algorithm_type", value)
 
+
+if not MYPY:
+    class HdfsDatastoreArgsDict(TypedDict):
+        credentials: pulumi.Input[Union['AccountKeyDatastoreCredentialsArgsDict', 'CertificateDatastoreCredentialsArgsDict', 'KerberosKeytabCredentialsArgsDict', 'KerberosPasswordCredentialsArgsDict', 'NoneDatastoreCredentialsArgsDict', 'SasDatastoreCredentialsArgsDict', 'ServicePrincipalDatastoreCredentialsArgsDict']]
+        """
+        [Required] Account credentials.
+        """
+        datastore_type: pulumi.Input[str]
+        """
+        Enum to determine the datastore contents type.
+        Expected value is 'Hdfs'.
+        """
+        name_node_address: pulumi.Input[str]
+        """
+        [Required] IP Address or DNS HostName.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The asset description text.
+        """
+        hdfs_server_certificate: NotRequired[pulumi.Input[str]]
+        """
+        The TLS cert of the HDFS server. Needs to be a base64 encoded string. Required if "Https" protocol is selected.
+        """
+        properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        The asset property dictionary.
+        """
+        protocol: NotRequired[pulumi.Input[str]]
+        """
+        Protocol used to communicate with the storage account (Https/Http).
+        """
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Tag dictionary. Tags can be added, removed, and updated.
+        """
+elif False:
+    HdfsDatastoreArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class HdfsDatastoreArgs:
@@ -4639,6 +6215,23 @@ class HdfsDatastoreArgs:
         pulumi.set(self, "tags", value)
 
 
+if not MYPY:
+    class IdAssetReferenceArgsDict(TypedDict):
+        """
+        Reference to an asset via its ARM resource ID.
+        """
+        asset_id: pulumi.Input[str]
+        """
+        [Required] ARM resource ID of the asset.
+        """
+        reference_type: pulumi.Input[str]
+        """
+        Enum to determine which reference method to use for an asset.
+        Expected value is 'Id'.
+        """
+elif False:
+    IdAssetReferenceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IdAssetReferenceArgs:
     def __init__(__self__, *,
@@ -4678,6 +6271,48 @@ class IdAssetReferenceArgs:
     def reference_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "reference_type", value)
 
+
+if not MYPY:
+    class ImageClassificationMultilabelArgsDict(TypedDict):
+        """
+        Image Classification Multilabel. Multi-label image classification is used when an image could have one or more labels
+        from a set of labels - e.g. an image could be labeled with both 'cat' and 'dog'.
+        """
+        data_settings: pulumi.Input['ImageVerticalDataSettingsArgsDict']
+        """
+        [Required] Collection of registered Tabular Dataset Ids and other data settings required for training and validating models.
+        """
+        limit_settings: pulumi.Input['ImageLimitSettingsArgsDict']
+        """
+        [Required] Limit settings for the AutoML job.
+        """
+        task_type: pulumi.Input[str]
+        """
+        AutoMLJob Task type.
+        Expected value is 'ImageClassificationMultilabel'.
+        """
+        log_verbosity: NotRequired[pulumi.Input[Union[str, 'LogVerbosity']]]
+        """
+        Log verbosity for the job.
+        """
+        model_settings: NotRequired[pulumi.Input['ImageModelSettingsClassificationArgsDict']]
+        """
+        Settings used for training the model.
+        """
+        primary_metric: NotRequired[pulumi.Input[Union[str, 'ClassificationMultilabelPrimaryMetrics']]]
+        """
+        Primary metric to optimize for this task.
+        """
+        search_space: NotRequired[pulumi.Input[Sequence[pulumi.Input['ImageModelDistributionSettingsClassificationArgsDict']]]]
+        """
+        Search space for sampling different combinations of models and their hyperparameters.
+        """
+        sweep_settings: NotRequired[pulumi.Input['ImageSweepSettingsArgsDict']]
+        """
+        Model sweeping and hyperparameter sweeping related settings.
+        """
+elif False:
+    ImageClassificationMultilabelArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ImageClassificationMultilabelArgs:
@@ -4819,6 +6454,48 @@ class ImageClassificationMultilabelArgs:
         pulumi.set(self, "sweep_settings", value)
 
 
+if not MYPY:
+    class ImageClassificationArgsDict(TypedDict):
+        """
+        Image Classification. Multi-class image classification is used when an image is classified with only a single label
+        from a set of classes - e.g. each image is classified as either an image of a 'cat' or a 'dog' or a 'duck'.
+        """
+        data_settings: pulumi.Input['ImageVerticalDataSettingsArgsDict']
+        """
+        [Required] Collection of registered Tabular Dataset Ids and other data settings required for training and validating models.
+        """
+        limit_settings: pulumi.Input['ImageLimitSettingsArgsDict']
+        """
+        [Required] Limit settings for the AutoML job.
+        """
+        task_type: pulumi.Input[str]
+        """
+        AutoMLJob Task type.
+        Expected value is 'ImageClassification'.
+        """
+        log_verbosity: NotRequired[pulumi.Input[Union[str, 'LogVerbosity']]]
+        """
+        Log verbosity for the job.
+        """
+        model_settings: NotRequired[pulumi.Input['ImageModelSettingsClassificationArgsDict']]
+        """
+        Settings used for training the model.
+        """
+        primary_metric: NotRequired[pulumi.Input[Union[str, 'ClassificationPrimaryMetrics']]]
+        """
+        Primary metric to optimize for this task.
+        """
+        search_space: NotRequired[pulumi.Input[Sequence[pulumi.Input['ImageModelDistributionSettingsClassificationArgsDict']]]]
+        """
+        Search space for sampling different combinations of models and their hyperparameters.
+        """
+        sweep_settings: NotRequired[pulumi.Input['ImageSweepSettingsArgsDict']]
+        """
+        Model sweeping and hyperparameter sweeping related settings.
+        """
+elif False:
+    ImageClassificationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ImageClassificationArgs:
     def __init__(__self__, *,
@@ -4958,6 +6635,48 @@ class ImageClassificationArgs:
     def sweep_settings(self, value: Optional[pulumi.Input['ImageSweepSettingsArgs']]):
         pulumi.set(self, "sweep_settings", value)
 
+
+if not MYPY:
+    class ImageInstanceSegmentationArgsDict(TypedDict):
+        """
+        Image Instance Segmentation. Instance segmentation is used to identify objects in an image at the pixel level,
+        drawing a polygon around each object in the image.
+        """
+        data_settings: pulumi.Input['ImageVerticalDataSettingsArgsDict']
+        """
+        [Required] Collection of registered Tabular Dataset Ids and other data settings required for training and validating models.
+        """
+        limit_settings: pulumi.Input['ImageLimitSettingsArgsDict']
+        """
+        [Required] Limit settings for the AutoML job.
+        """
+        task_type: pulumi.Input[str]
+        """
+        AutoMLJob Task type.
+        Expected value is 'ImageInstanceSegmentation'.
+        """
+        log_verbosity: NotRequired[pulumi.Input[Union[str, 'LogVerbosity']]]
+        """
+        Log verbosity for the job.
+        """
+        model_settings: NotRequired[pulumi.Input['ImageModelSettingsObjectDetectionArgsDict']]
+        """
+        Settings used for training the model.
+        """
+        primary_metric: NotRequired[pulumi.Input[Union[str, 'InstanceSegmentationPrimaryMetrics']]]
+        """
+        Primary metric to optimize for this task.
+        """
+        search_space: NotRequired[pulumi.Input[Sequence[pulumi.Input['ImageModelDistributionSettingsObjectDetectionArgsDict']]]]
+        """
+        Search space for sampling different combinations of models and their hyperparameters.
+        """
+        sweep_settings: NotRequired[pulumi.Input['ImageSweepSettingsArgsDict']]
+        """
+        Model sweeping and hyperparameter sweeping related settings.
+        """
+elif False:
+    ImageInstanceSegmentationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ImageInstanceSegmentationArgs:
@@ -5099,6 +6818,26 @@ class ImageInstanceSegmentationArgs:
         pulumi.set(self, "sweep_settings", value)
 
 
+if not MYPY:
+    class ImageLimitSettingsArgsDict(TypedDict):
+        """
+        Limit settings for the AutoML job.
+        """
+        max_concurrent_trials: NotRequired[pulumi.Input[int]]
+        """
+        Maximum number of concurrent AutoML iterations.
+        """
+        max_trials: NotRequired[pulumi.Input[int]]
+        """
+        Maximum number of AutoML iterations.
+        """
+        timeout: NotRequired[pulumi.Input[str]]
+        """
+        AutoML job timeout.
+        """
+elif False:
+    ImageLimitSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ImageLimitSettingsArgs:
     def __init__(__self__, *,
@@ -5158,6 +6897,168 @@ class ImageLimitSettingsArgs:
     def timeout(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "timeout", value)
 
+
+if not MYPY:
+    class ImageModelDistributionSettingsClassificationArgsDict(TypedDict):
+        """
+        Distribution expressions to sweep over values of model settings.
+        <example>
+        Some examples are:
+        <code>
+        ModelName = "choice('seresnext', 'resnest50')";
+        LearningRate = "uniform(0.001, 0.01)";
+        LayersToFreeze = "choice(0, 2)";
+        </code></example>
+        For more details on how to compose distribution expressions please check the documentation:
+        https://docs.microsoft.com/en-us/azure/machine-learning/how-to-tune-hyperparameters
+        For more information on the available settings please visit the official documentation:
+        https://docs.microsoft.com/en-us/azure/machine-learning/how-to-auto-train-image-models.
+        """
+        ams_gradient: NotRequired[pulumi.Input[str]]
+        """
+        Enable AMSGrad when optimizer is 'adam' or 'adamw'.
+        """
+        augmentations: NotRequired[pulumi.Input[str]]
+        """
+        Settings for using Augmentations.
+        """
+        beta1: NotRequired[pulumi.Input[str]]
+        """
+        Value of 'beta1' when optimizer is 'adam' or 'adamw'. Must be a float in the range [0, 1].
+        """
+        beta2: NotRequired[pulumi.Input[str]]
+        """
+        Value of 'beta2' when optimizer is 'adam' or 'adamw'. Must be a float in the range [0, 1].
+        """
+        distributed: NotRequired[pulumi.Input[str]]
+        """
+        Whether to use distributer training.
+        """
+        early_stopping: NotRequired[pulumi.Input[str]]
+        """
+        Enable early stopping logic during training.
+        """
+        early_stopping_delay: NotRequired[pulumi.Input[str]]
+        """
+        Minimum number of epochs or validation evaluations to wait before primary metric improvement
+        is tracked for early stopping. Must be a positive integer.
+        """
+        early_stopping_patience: NotRequired[pulumi.Input[str]]
+        """
+        Minimum number of epochs or validation evaluations with no primary metric improvement before
+        the run is stopped. Must be a positive integer.
+        """
+        enable_onnx_normalization: NotRequired[pulumi.Input[str]]
+        """
+        Enable normalization when exporting ONNX model.
+        """
+        evaluation_frequency: NotRequired[pulumi.Input[str]]
+        """
+        Frequency to evaluate validation dataset to get metric scores. Must be a positive integer.
+        """
+        gradient_accumulation_step: NotRequired[pulumi.Input[str]]
+        """
+        Gradient accumulation means running a configured number of "GradAccumulationStep" steps without
+        updating the model weights while accumulating the gradients of those steps, and then using
+        the accumulated gradients to compute the weight updates. Must be a positive integer.
+        """
+        layers_to_freeze: NotRequired[pulumi.Input[str]]
+        """
+        Number of layers to freeze for the model. Must be a positive integer.
+        For instance, passing 2 as value for 'seresnext' means
+        freezing layer0 and layer1. For a full list of models supported and details on layer freeze, please
+        see: https://docs.microsoft.com/en-us/azure/machine-learning/how-to-auto-train-image-models.
+        """
+        learning_rate: NotRequired[pulumi.Input[str]]
+        """
+        Initial learning rate. Must be a float in the range [0, 1].
+        """
+        learning_rate_scheduler: NotRequired[pulumi.Input[str]]
+        """
+        Type of learning rate scheduler. Must be 'warmup_cosine' or 'step'.
+        """
+        model_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the model to use for training.
+        For more information on the available models please visit the official documentation:
+        https://docs.microsoft.com/en-us/azure/machine-learning/how-to-auto-train-image-models.
+        """
+        momentum: NotRequired[pulumi.Input[str]]
+        """
+        Value of momentum when optimizer is 'sgd'. Must be a float in the range [0, 1].
+        """
+        nesterov: NotRequired[pulumi.Input[str]]
+        """
+        Enable nesterov when optimizer is 'sgd'.
+        """
+        number_of_epochs: NotRequired[pulumi.Input[str]]
+        """
+        Number of training epochs. Must be a positive integer.
+        """
+        number_of_workers: NotRequired[pulumi.Input[str]]
+        """
+        Number of data loader workers. Must be a non-negative integer.
+        """
+        optimizer: NotRequired[pulumi.Input[str]]
+        """
+        Type of optimizer. Must be either 'sgd', 'adam', or 'adamw'.
+        """
+        random_seed: NotRequired[pulumi.Input[str]]
+        """
+        Random seed to be used when using deterministic training.
+        """
+        split_ratio: NotRequired[pulumi.Input[str]]
+        """
+        If validation data is not defined, this specifies the split ratio for splitting
+        train data into random train and validation subsets. Must be a float in the range [0, 1].
+        """
+        step_lr_gamma: NotRequired[pulumi.Input[str]]
+        """
+        Value of gamma when learning rate scheduler is 'step'. Must be a float in the range [0, 1].
+        """
+        step_lr_step_size: NotRequired[pulumi.Input[str]]
+        """
+        Value of step size when learning rate scheduler is 'step'. Must be a positive integer.
+        """
+        training_batch_size: NotRequired[pulumi.Input[str]]
+        """
+        Training batch size. Must be a positive integer.
+        """
+        training_crop_size: NotRequired[pulumi.Input[str]]
+        """
+        Image crop size that is input to the neural network for the training dataset. Must be a positive integer.
+        """
+        validation_batch_size: NotRequired[pulumi.Input[str]]
+        """
+        Validation batch size. Must be a positive integer.
+        """
+        validation_crop_size: NotRequired[pulumi.Input[str]]
+        """
+        Image crop size that is input to the neural network for the validation dataset. Must be a positive integer.
+        """
+        validation_resize_size: NotRequired[pulumi.Input[str]]
+        """
+        Image size to which to resize before cropping for validation dataset. Must be a positive integer.
+        """
+        warmup_cosine_lr_cycles: NotRequired[pulumi.Input[str]]
+        """
+        Value of cosine cycle when learning rate scheduler is 'warmup_cosine'. Must be a float in the range [0, 1].
+        """
+        warmup_cosine_lr_warmup_epochs: NotRequired[pulumi.Input[str]]
+        """
+        Value of warmup epochs when learning rate scheduler is 'warmup_cosine'. Must be a positive integer.
+        """
+        weight_decay: NotRequired[pulumi.Input[str]]
+        """
+        Value of weight decay when optimizer is 'sgd', 'adam', or 'adamw'. Must be a float in the range[0, 1].
+        """
+        weighted_loss: NotRequired[pulumi.Input[str]]
+        """
+        Weighted loss. The accepted values are 0 for no weighted loss.
+        1 for weighted loss with sqrt.(class_weights). 2 for weighted loss with class_weights. Must be 0 or 1 or 2.
+        """
+elif False:
+    ImageModelDistributionSettingsClassificationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ImageModelDistributionSettingsClassificationArgs:
@@ -5727,6 +7628,221 @@ class ImageModelDistributionSettingsClassificationArgs:
     def weighted_loss(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "weighted_loss", value)
 
+
+if not MYPY:
+    class ImageModelDistributionSettingsObjectDetectionArgsDict(TypedDict):
+        """
+        Distribution expressions to sweep over values of model settings.
+        <example>
+        Some examples are:
+        <code>
+        ModelName = "choice('seresnext', 'resnest50')";
+        LearningRate = "uniform(0.001, 0.01)";
+        LayersToFreeze = "choice(0, 2)";
+        </code></example>
+        For more details on how to compose distribution expressions please check the documentation:
+        https://docs.microsoft.com/en-us/azure/machine-learning/how-to-tune-hyperparameters
+        For more information on the available settings please visit the official documentation:
+        https://docs.microsoft.com/en-us/azure/machine-learning/how-to-auto-train-image-models.
+        """
+        ams_gradient: NotRequired[pulumi.Input[str]]
+        """
+        Enable AMSGrad when optimizer is 'adam' or 'adamw'.
+        """
+        augmentations: NotRequired[pulumi.Input[str]]
+        """
+        Settings for using Augmentations.
+        """
+        beta1: NotRequired[pulumi.Input[str]]
+        """
+        Value of 'beta1' when optimizer is 'adam' or 'adamw'. Must be a float in the range [0, 1].
+        """
+        beta2: NotRequired[pulumi.Input[str]]
+        """
+        Value of 'beta2' when optimizer is 'adam' or 'adamw'. Must be a float in the range [0, 1].
+        """
+        box_detections_per_image: NotRequired[pulumi.Input[str]]
+        """
+        Maximum number of detections per image, for all classes. Must be a positive integer.
+        Note: This settings is not supported for the 'yolov5' algorithm.
+        """
+        box_score_threshold: NotRequired[pulumi.Input[str]]
+        """
+        During inference, only return proposals with a classification score greater than
+        BoxScoreThreshold. Must be a float in the range[0, 1].
+        """
+        distributed: NotRequired[pulumi.Input[str]]
+        """
+        Whether to use distributer training.
+        """
+        early_stopping: NotRequired[pulumi.Input[str]]
+        """
+        Enable early stopping logic during training.
+        """
+        early_stopping_delay: NotRequired[pulumi.Input[str]]
+        """
+        Minimum number of epochs or validation evaluations to wait before primary metric improvement
+        is tracked for early stopping. Must be a positive integer.
+        """
+        early_stopping_patience: NotRequired[pulumi.Input[str]]
+        """
+        Minimum number of epochs or validation evaluations with no primary metric improvement before
+        the run is stopped. Must be a positive integer.
+        """
+        enable_onnx_normalization: NotRequired[pulumi.Input[str]]
+        """
+        Enable normalization when exporting ONNX model.
+        """
+        evaluation_frequency: NotRequired[pulumi.Input[str]]
+        """
+        Frequency to evaluate validation dataset to get metric scores. Must be a positive integer.
+        """
+        gradient_accumulation_step: NotRequired[pulumi.Input[str]]
+        """
+        Gradient accumulation means running a configured number of "GradAccumulationStep" steps without
+        updating the model weights while accumulating the gradients of those steps, and then using
+        the accumulated gradients to compute the weight updates. Must be a positive integer.
+        """
+        image_size: NotRequired[pulumi.Input[str]]
+        """
+        Image size for train and validation. Must be a positive integer.
+        Note: The training run may get into CUDA OOM if the size is too big.
+        Note: This settings is only supported for the 'yolov5' algorithm.
+        """
+        layers_to_freeze: NotRequired[pulumi.Input[str]]
+        """
+        Number of layers to freeze for the model. Must be a positive integer.
+        For instance, passing 2 as value for 'seresnext' means
+        freezing layer0 and layer1. For a full list of models supported and details on layer freeze, please
+        see: https://docs.microsoft.com/en-us/azure/machine-learning/how-to-auto-train-image-models.
+        """
+        learning_rate: NotRequired[pulumi.Input[str]]
+        """
+        Initial learning rate. Must be a float in the range [0, 1].
+        """
+        learning_rate_scheduler: NotRequired[pulumi.Input[str]]
+        """
+        Type of learning rate scheduler. Must be 'warmup_cosine' or 'step'.
+        """
+        max_size: NotRequired[pulumi.Input[str]]
+        """
+        Maximum size of the image to be rescaled before feeding it to the backbone.
+        Must be a positive integer. Note: training run may get into CUDA OOM if the size is too big.
+        Note: This settings is not supported for the 'yolov5' algorithm.
+        """
+        min_size: NotRequired[pulumi.Input[str]]
+        """
+        Minimum size of the image to be rescaled before feeding it to the backbone.
+        Must be a positive integer. Note: training run may get into CUDA OOM if the size is too big.
+        Note: This settings is not supported for the 'yolov5' algorithm.
+        """
+        model_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the model to use for training.
+        For more information on the available models please visit the official documentation:
+        https://docs.microsoft.com/en-us/azure/machine-learning/how-to-auto-train-image-models.
+        """
+        model_size: NotRequired[pulumi.Input[str]]
+        """
+        Model size. Must be 'small', 'medium', 'large', or 'xlarge'.
+        Note: training run may get into CUDA OOM if the model size is too big.
+        Note: This settings is only supported for the 'yolov5' algorithm.
+        """
+        momentum: NotRequired[pulumi.Input[str]]
+        """
+        Value of momentum when optimizer is 'sgd'. Must be a float in the range [0, 1].
+        """
+        multi_scale: NotRequired[pulumi.Input[str]]
+        """
+        Enable multi-scale image by varying image size by +/- 50%.
+        Note: training run may get into CUDA OOM if no sufficient GPU memory.
+        Note: This settings is only supported for the 'yolov5' algorithm.
+        """
+        nesterov: NotRequired[pulumi.Input[str]]
+        """
+        Enable nesterov when optimizer is 'sgd'.
+        """
+        nms_iou_threshold: NotRequired[pulumi.Input[str]]
+        """
+        IOU threshold used during inference in NMS post processing. Must be float in the range [0, 1].
+        """
+        number_of_epochs: NotRequired[pulumi.Input[str]]
+        """
+        Number of training epochs. Must be a positive integer.
+        """
+        number_of_workers: NotRequired[pulumi.Input[str]]
+        """
+        Number of data loader workers. Must be a non-negative integer.
+        """
+        optimizer: NotRequired[pulumi.Input[str]]
+        """
+        Type of optimizer. Must be either 'sgd', 'adam', or 'adamw'.
+        """
+        random_seed: NotRequired[pulumi.Input[str]]
+        """
+        Random seed to be used when using deterministic training.
+        """
+        split_ratio: NotRequired[pulumi.Input[str]]
+        """
+        If validation data is not defined, this specifies the split ratio for splitting
+        train data into random train and validation subsets. Must be a float in the range [0, 1].
+        """
+        step_lr_gamma: NotRequired[pulumi.Input[str]]
+        """
+        Value of gamma when learning rate scheduler is 'step'. Must be a float in the range [0, 1].
+        """
+        step_lr_step_size: NotRequired[pulumi.Input[str]]
+        """
+        Value of step size when learning rate scheduler is 'step'. Must be a positive integer.
+        """
+        tile_grid_size: NotRequired[pulumi.Input[str]]
+        """
+        The grid size to use for tiling each image. Note: TileGridSize must not be
+        None to enable small object detection logic. A string containing two integers in mxn format.
+        Note: This settings is not supported for the 'yolov5' algorithm.
+        """
+        tile_overlap_ratio: NotRequired[pulumi.Input[str]]
+        """
+        Overlap ratio between adjacent tiles in each dimension. Must be float in the range [0, 1).
+        Note: This settings is not supported for the 'yolov5' algorithm.
+        """
+        tile_predictions_nms_threshold: NotRequired[pulumi.Input[str]]
+        """
+        The IOU threshold to use to perform NMS while merging predictions from tiles and image.
+        Used in validation/ inference. Must be float in the range [0, 1].
+        Note: This settings is not supported for the 'yolov5' algorithm.
+        NMS: Non-maximum suppression
+        """
+        training_batch_size: NotRequired[pulumi.Input[str]]
+        """
+        Training batch size. Must be a positive integer.
+        """
+        validation_batch_size: NotRequired[pulumi.Input[str]]
+        """
+        Validation batch size. Must be a positive integer.
+        """
+        validation_iou_threshold: NotRequired[pulumi.Input[str]]
+        """
+        IOU threshold to use when computing validation metric. Must be float in the range [0, 1].
+        """
+        validation_metric_type: NotRequired[pulumi.Input[str]]
+        """
+        Metric computation method to use for validation metrics. Must be 'none', 'coco', 'voc', or 'coco_voc'.
+        """
+        warmup_cosine_lr_cycles: NotRequired[pulumi.Input[str]]
+        """
+        Value of cosine cycle when learning rate scheduler is 'warmup_cosine'. Must be a float in the range [0, 1].
+        """
+        warmup_cosine_lr_warmup_epochs: NotRequired[pulumi.Input[str]]
+        """
+        Value of warmup epochs when learning rate scheduler is 'warmup_cosine'. Must be a positive integer.
+        """
+        weight_decay: NotRequired[pulumi.Input[str]]
+        """
+        Value of weight decay when optimizer is 'sgd', 'adam', or 'adamw'. Must be a float in the range[0, 1].
+        """
+elif False:
+    ImageModelDistributionSettingsObjectDetectionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ImageModelDistributionSettingsObjectDetectionArgs:
@@ -6475,6 +8591,181 @@ class ImageModelDistributionSettingsObjectDetectionArgs:
         pulumi.set(self, "weight_decay", value)
 
 
+if not MYPY:
+    class ImageModelSettingsClassificationArgsDict(TypedDict):
+        """
+        Settings used for training the model.
+        For more information on the available settings please visit the official documentation:
+        https://docs.microsoft.com/en-us/azure/machine-learning/how-to-auto-train-image-models.
+        """
+        advanced_settings: NotRequired[pulumi.Input[str]]
+        """
+        Settings for advanced scenarios.
+        """
+        ams_gradient: NotRequired[pulumi.Input[bool]]
+        """
+        Enable AMSGrad when optimizer is 'adam' or 'adamw'.
+        """
+        augmentations: NotRequired[pulumi.Input[str]]
+        """
+        Settings for using Augmentations.
+        """
+        beta1: NotRequired[pulumi.Input[float]]
+        """
+        Value of 'beta1' when optimizer is 'adam' or 'adamw'. Must be a float in the range [0, 1].
+        """
+        beta2: NotRequired[pulumi.Input[float]]
+        """
+        Value of 'beta2' when optimizer is 'adam' or 'adamw'. Must be a float in the range [0, 1].
+        """
+        checkpoint_dataset_id: NotRequired[pulumi.Input[str]]
+        """
+        FileDataset id for pretrained checkpoint(s) for incremental training.
+        Make sure to pass CheckpointFilename along with CheckpointDatasetId.
+        """
+        checkpoint_filename: NotRequired[pulumi.Input[str]]
+        """
+        The pretrained checkpoint filename in FileDataset for incremental training.
+        Make sure to pass CheckpointDatasetId along with CheckpointFilename.
+        """
+        checkpoint_frequency: NotRequired[pulumi.Input[int]]
+        """
+        Frequency to store model checkpoints. Must be a positive integer.
+        """
+        checkpoint_run_id: NotRequired[pulumi.Input[str]]
+        """
+        The id of a previous run that has a pretrained checkpoint for incremental training.
+        """
+        distributed: NotRequired[pulumi.Input[bool]]
+        """
+        Whether to use distributed training.
+        """
+        early_stopping: NotRequired[pulumi.Input[bool]]
+        """
+        Enable early stopping logic during training.
+        """
+        early_stopping_delay: NotRequired[pulumi.Input[int]]
+        """
+        Minimum number of epochs or validation evaluations to wait before primary metric improvement
+        is tracked for early stopping. Must be a positive integer.
+        """
+        early_stopping_patience: NotRequired[pulumi.Input[int]]
+        """
+        Minimum number of epochs or validation evaluations with no primary metric improvement before
+        the run is stopped. Must be a positive integer.
+        """
+        enable_onnx_normalization: NotRequired[pulumi.Input[bool]]
+        """
+        Enable normalization when exporting ONNX model.
+        """
+        evaluation_frequency: NotRequired[pulumi.Input[int]]
+        """
+        Frequency to evaluate validation dataset to get metric scores. Must be a positive integer.
+        """
+        gradient_accumulation_step: NotRequired[pulumi.Input[int]]
+        """
+        Gradient accumulation means running a configured number of "GradAccumulationStep" steps without
+        updating the model weights while accumulating the gradients of those steps, and then using
+        the accumulated gradients to compute the weight updates. Must be a positive integer.
+        """
+        layers_to_freeze: NotRequired[pulumi.Input[int]]
+        """
+        Number of layers to freeze for the model. Must be a positive integer.
+        For instance, passing 2 as value for 'seresnext' means
+        freezing layer0 and layer1. For a full list of models supported and details on layer freeze, please
+        see: https://docs.microsoft.com/en-us/azure/machine-learning/how-to-auto-train-image-models.
+        """
+        learning_rate: NotRequired[pulumi.Input[float]]
+        """
+        Initial learning rate. Must be a float in the range [0, 1].
+        """
+        learning_rate_scheduler: NotRequired[pulumi.Input[Union[str, 'LearningRateScheduler']]]
+        """
+        Type of learning rate scheduler. Must be 'warmup_cosine' or 'step'.
+        """
+        model_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the model to use for training.
+        For more information on the available models please visit the official documentation:
+        https://docs.microsoft.com/en-us/azure/machine-learning/how-to-auto-train-image-models.
+        """
+        momentum: NotRequired[pulumi.Input[float]]
+        """
+        Value of momentum when optimizer is 'sgd'. Must be a float in the range [0, 1].
+        """
+        nesterov: NotRequired[pulumi.Input[bool]]
+        """
+        Enable nesterov when optimizer is 'sgd'.
+        """
+        number_of_epochs: NotRequired[pulumi.Input[int]]
+        """
+        Number of training epochs. Must be a positive integer.
+        """
+        number_of_workers: NotRequired[pulumi.Input[int]]
+        """
+        Number of data loader workers. Must be a non-negative integer.
+        """
+        optimizer: NotRequired[pulumi.Input[Union[str, 'StochasticOptimizer']]]
+        """
+        Type of optimizer.
+        """
+        random_seed: NotRequired[pulumi.Input[int]]
+        """
+        Random seed to be used when using deterministic training.
+        """
+        split_ratio: NotRequired[pulumi.Input[float]]
+        """
+        If validation data is not defined, this specifies the split ratio for splitting
+        train data into random train and validation subsets. Must be a float in the range [0, 1].
+        """
+        step_lr_gamma: NotRequired[pulumi.Input[float]]
+        """
+        Value of gamma when learning rate scheduler is 'step'. Must be a float in the range [0, 1].
+        """
+        step_lr_step_size: NotRequired[pulumi.Input[int]]
+        """
+        Value of step size when learning rate scheduler is 'step'. Must be a positive integer.
+        """
+        training_batch_size: NotRequired[pulumi.Input[int]]
+        """
+        Training batch size. Must be a positive integer.
+        """
+        training_crop_size: NotRequired[pulumi.Input[int]]
+        """
+        Image crop size that is input to the neural network for the training dataset. Must be a positive integer.
+        """
+        validation_batch_size: NotRequired[pulumi.Input[int]]
+        """
+        Validation batch size. Must be a positive integer.
+        """
+        validation_crop_size: NotRequired[pulumi.Input[int]]
+        """
+        Image crop size that is input to the neural network for the validation dataset. Must be a positive integer.
+        """
+        validation_resize_size: NotRequired[pulumi.Input[int]]
+        """
+        Image size to which to resize before cropping for validation dataset. Must be a positive integer.
+        """
+        warmup_cosine_lr_cycles: NotRequired[pulumi.Input[float]]
+        """
+        Value of cosine cycle when learning rate scheduler is 'warmup_cosine'. Must be a float in the range [0, 1].
+        """
+        warmup_cosine_lr_warmup_epochs: NotRequired[pulumi.Input[int]]
+        """
+        Value of warmup epochs when learning rate scheduler is 'warmup_cosine'. Must be a positive integer.
+        """
+        weight_decay: NotRequired[pulumi.Input[float]]
+        """
+        Value of weight decay when optimizer is 'sgd', 'adam', or 'adamw'. Must be a float in the range[0, 1].
+        """
+        weighted_loss: NotRequired[pulumi.Input[int]]
+        """
+        Weighted loss. The accepted values are 0 for no weighted loss.
+        1 for weighted loss with sqrt.(class_weights). 2 for weighted loss with class_weights. Must be 0 or 1 or 2.
+        """
+elif False:
+    ImageModelSettingsClassificationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ImageModelSettingsClassificationArgs:
     def __init__(__self__, *,
@@ -7122,6 +9413,233 @@ class ImageModelSettingsClassificationArgs:
     def weighted_loss(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "weighted_loss", value)
 
+
+if not MYPY:
+    class ImageModelSettingsObjectDetectionArgsDict(TypedDict):
+        """
+        Settings used for training the model.
+        For more information on the available settings please visit the official documentation:
+        https://docs.microsoft.com/en-us/azure/machine-learning/how-to-auto-train-image-models.
+        """
+        advanced_settings: NotRequired[pulumi.Input[str]]
+        """
+        Settings for advanced scenarios.
+        """
+        ams_gradient: NotRequired[pulumi.Input[bool]]
+        """
+        Enable AMSGrad when optimizer is 'adam' or 'adamw'.
+        """
+        augmentations: NotRequired[pulumi.Input[str]]
+        """
+        Settings for using Augmentations.
+        """
+        beta1: NotRequired[pulumi.Input[float]]
+        """
+        Value of 'beta1' when optimizer is 'adam' or 'adamw'. Must be a float in the range [0, 1].
+        """
+        beta2: NotRequired[pulumi.Input[float]]
+        """
+        Value of 'beta2' when optimizer is 'adam' or 'adamw'. Must be a float in the range [0, 1].
+        """
+        box_detections_per_image: NotRequired[pulumi.Input[int]]
+        """
+        Maximum number of detections per image, for all classes. Must be a positive integer.
+        Note: This settings is not supported for the 'yolov5' algorithm.
+        """
+        box_score_threshold: NotRequired[pulumi.Input[float]]
+        """
+        During inference, only return proposals with a classification score greater than
+        BoxScoreThreshold. Must be a float in the range[0, 1].
+        """
+        checkpoint_dataset_id: NotRequired[pulumi.Input[str]]
+        """
+        FileDataset id for pretrained checkpoint(s) for incremental training.
+        Make sure to pass CheckpointFilename along with CheckpointDatasetId.
+        """
+        checkpoint_filename: NotRequired[pulumi.Input[str]]
+        """
+        The pretrained checkpoint filename in FileDataset for incremental training.
+        Make sure to pass CheckpointDatasetId along with CheckpointFilename.
+        """
+        checkpoint_frequency: NotRequired[pulumi.Input[int]]
+        """
+        Frequency to store model checkpoints. Must be a positive integer.
+        """
+        checkpoint_run_id: NotRequired[pulumi.Input[str]]
+        """
+        The id of a previous run that has a pretrained checkpoint for incremental training.
+        """
+        distributed: NotRequired[pulumi.Input[bool]]
+        """
+        Whether to use distributed training.
+        """
+        early_stopping: NotRequired[pulumi.Input[bool]]
+        """
+        Enable early stopping logic during training.
+        """
+        early_stopping_delay: NotRequired[pulumi.Input[int]]
+        """
+        Minimum number of epochs or validation evaluations to wait before primary metric improvement
+        is tracked for early stopping. Must be a positive integer.
+        """
+        early_stopping_patience: NotRequired[pulumi.Input[int]]
+        """
+        Minimum number of epochs or validation evaluations with no primary metric improvement before
+        the run is stopped. Must be a positive integer.
+        """
+        enable_onnx_normalization: NotRequired[pulumi.Input[bool]]
+        """
+        Enable normalization when exporting ONNX model.
+        """
+        evaluation_frequency: NotRequired[pulumi.Input[int]]
+        """
+        Frequency to evaluate validation dataset to get metric scores. Must be a positive integer.
+        """
+        gradient_accumulation_step: NotRequired[pulumi.Input[int]]
+        """
+        Gradient accumulation means running a configured number of "GradAccumulationStep" steps without
+        updating the model weights while accumulating the gradients of those steps, and then using
+        the accumulated gradients to compute the weight updates. Must be a positive integer.
+        """
+        image_size: NotRequired[pulumi.Input[int]]
+        """
+        Image size for train and validation. Must be a positive integer.
+        Note: The training run may get into CUDA OOM if the size is too big.
+        Note: This settings is only supported for the 'yolov5' algorithm.
+        """
+        layers_to_freeze: NotRequired[pulumi.Input[int]]
+        """
+        Number of layers to freeze for the model. Must be a positive integer.
+        For instance, passing 2 as value for 'seresnext' means
+        freezing layer0 and layer1. For a full list of models supported and details on layer freeze, please
+        see: https://docs.microsoft.com/en-us/azure/machine-learning/how-to-auto-train-image-models.
+        """
+        learning_rate: NotRequired[pulumi.Input[float]]
+        """
+        Initial learning rate. Must be a float in the range [0, 1].
+        """
+        learning_rate_scheduler: NotRequired[pulumi.Input[Union[str, 'LearningRateScheduler']]]
+        """
+        Type of learning rate scheduler. Must be 'warmup_cosine' or 'step'.
+        """
+        max_size: NotRequired[pulumi.Input[int]]
+        """
+        Maximum size of the image to be rescaled before feeding it to the backbone.
+        Must be a positive integer. Note: training run may get into CUDA OOM if the size is too big.
+        Note: This settings is not supported for the 'yolov5' algorithm.
+        """
+        min_size: NotRequired[pulumi.Input[int]]
+        """
+        Minimum size of the image to be rescaled before feeding it to the backbone.
+        Must be a positive integer. Note: training run may get into CUDA OOM if the size is too big.
+        Note: This settings is not supported for the 'yolov5' algorithm.
+        """
+        model_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the model to use for training.
+        For more information on the available models please visit the official documentation:
+        https://docs.microsoft.com/en-us/azure/machine-learning/how-to-auto-train-image-models.
+        """
+        model_size: NotRequired[pulumi.Input[Union[str, 'ModelSize']]]
+        """
+        Model size. Must be 'small', 'medium', 'large', or 'xlarge'.
+        Note: training run may get into CUDA OOM if the model size is too big.
+        Note: This settings is only supported for the 'yolov5' algorithm.
+        """
+        momentum: NotRequired[pulumi.Input[float]]
+        """
+        Value of momentum when optimizer is 'sgd'. Must be a float in the range [0, 1].
+        """
+        multi_scale: NotRequired[pulumi.Input[bool]]
+        """
+        Enable multi-scale image by varying image size by +/- 50%.
+        Note: training run may get into CUDA OOM if no sufficient GPU memory.
+        Note: This settings is only supported for the 'yolov5' algorithm.
+        """
+        nesterov: NotRequired[pulumi.Input[bool]]
+        """
+        Enable nesterov when optimizer is 'sgd'.
+        """
+        nms_iou_threshold: NotRequired[pulumi.Input[float]]
+        """
+        IOU threshold used during inference in NMS post processing. Must be a float in the range [0, 1].
+        """
+        number_of_epochs: NotRequired[pulumi.Input[int]]
+        """
+        Number of training epochs. Must be a positive integer.
+        """
+        number_of_workers: NotRequired[pulumi.Input[int]]
+        """
+        Number of data loader workers. Must be a non-negative integer.
+        """
+        optimizer: NotRequired[pulumi.Input[Union[str, 'StochasticOptimizer']]]
+        """
+        Type of optimizer.
+        """
+        random_seed: NotRequired[pulumi.Input[int]]
+        """
+        Random seed to be used when using deterministic training.
+        """
+        split_ratio: NotRequired[pulumi.Input[float]]
+        """
+        If validation data is not defined, this specifies the split ratio for splitting
+        train data into random train and validation subsets. Must be a float in the range [0, 1].
+        """
+        step_lr_gamma: NotRequired[pulumi.Input[float]]
+        """
+        Value of gamma when learning rate scheduler is 'step'. Must be a float in the range [0, 1].
+        """
+        step_lr_step_size: NotRequired[pulumi.Input[int]]
+        """
+        Value of step size when learning rate scheduler is 'step'. Must be a positive integer.
+        """
+        tile_grid_size: NotRequired[pulumi.Input[str]]
+        """
+        The grid size to use for tiling each image. Note: TileGridSize must not be
+        None to enable small object detection logic. A string containing two integers in mxn format.
+        Note: This settings is not supported for the 'yolov5' algorithm.
+        """
+        tile_overlap_ratio: NotRequired[pulumi.Input[float]]
+        """
+        Overlap ratio between adjacent tiles in each dimension. Must be float in the range [0, 1).
+        Note: This settings is not supported for the 'yolov5' algorithm.
+        """
+        tile_predictions_nms_threshold: NotRequired[pulumi.Input[float]]
+        """
+        The IOU threshold to use to perform NMS while merging predictions from tiles and image.
+        Used in validation/ inference. Must be float in the range [0, 1].
+        Note: This settings is not supported for the 'yolov5' algorithm.
+        """
+        training_batch_size: NotRequired[pulumi.Input[int]]
+        """
+        Training batch size. Must be a positive integer.
+        """
+        validation_batch_size: NotRequired[pulumi.Input[int]]
+        """
+        Validation batch size. Must be a positive integer.
+        """
+        validation_iou_threshold: NotRequired[pulumi.Input[float]]
+        """
+        IOU threshold to use when computing validation metric. Must be float in the range [0, 1].
+        """
+        validation_metric_type: NotRequired[pulumi.Input[Union[str, 'ValidationMetricType']]]
+        """
+        Metric computation method to use for validation metrics.
+        """
+        warmup_cosine_lr_cycles: NotRequired[pulumi.Input[float]]
+        """
+        Value of cosine cycle when learning rate scheduler is 'warmup_cosine'. Must be a float in the range [0, 1].
+        """
+        warmup_cosine_lr_warmup_epochs: NotRequired[pulumi.Input[int]]
+        """
+        Value of warmup epochs when learning rate scheduler is 'warmup_cosine'. Must be a positive integer.
+        """
+        weight_decay: NotRequired[pulumi.Input[float]]
+        """
+        Value of weight decay when optimizer is 'sgd', 'adam', or 'adamw'. Must be a float in the range[0, 1].
+        """
+elif False:
+    ImageModelSettingsObjectDetectionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ImageModelSettingsObjectDetectionArgs:
@@ -7951,6 +10469,48 @@ class ImageModelSettingsObjectDetectionArgs:
         pulumi.set(self, "weight_decay", value)
 
 
+if not MYPY:
+    class ImageObjectDetectionArgsDict(TypedDict):
+        """
+        Image Object Detection. Object detection is used to identify objects in an image and locate each object with a
+        bounding box e.g. locate all dogs and cats in an image and draw a bounding box around each.
+        """
+        data_settings: pulumi.Input['ImageVerticalDataSettingsArgsDict']
+        """
+        [Required] Collection of registered Tabular Dataset Ids and other data settings required for training and validating models.
+        """
+        limit_settings: pulumi.Input['ImageLimitSettingsArgsDict']
+        """
+        [Required] Limit settings for the AutoML job.
+        """
+        task_type: pulumi.Input[str]
+        """
+        AutoMLJob Task type.
+        Expected value is 'ImageObjectDetection'.
+        """
+        log_verbosity: NotRequired[pulumi.Input[Union[str, 'LogVerbosity']]]
+        """
+        Log verbosity for the job.
+        """
+        model_settings: NotRequired[pulumi.Input['ImageModelSettingsObjectDetectionArgsDict']]
+        """
+        Settings used for training the model.
+        """
+        primary_metric: NotRequired[pulumi.Input[Union[str, 'ObjectDetectionPrimaryMetrics']]]
+        """
+        Primary metric to optimize for this task.
+        """
+        search_space: NotRequired[pulumi.Input[Sequence[pulumi.Input['ImageModelDistributionSettingsObjectDetectionArgsDict']]]]
+        """
+        Search space for sampling different combinations of models and their hyperparameters.
+        """
+        sweep_settings: NotRequired[pulumi.Input['ImageSweepSettingsArgsDict']]
+        """
+        Model sweeping and hyperparameter sweeping related settings.
+        """
+elif False:
+    ImageObjectDetectionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ImageObjectDetectionArgs:
     def __init__(__self__, *,
@@ -8091,6 +10651,22 @@ class ImageObjectDetectionArgs:
         pulumi.set(self, "sweep_settings", value)
 
 
+if not MYPY:
+    class ImageSweepLimitSettingsArgsDict(TypedDict):
+        """
+        Limit settings for model sweeping and hyperparameter sweeping.
+        """
+        max_concurrent_trials: NotRequired[pulumi.Input[int]]
+        """
+        Maximum number of concurrent iterations for the underlying Sweep job.
+        """
+        max_trials: NotRequired[pulumi.Input[int]]
+        """
+        Maximum number of iterations for the underlying Sweep job.
+        """
+elif False:
+    ImageSweepLimitSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ImageSweepLimitSettingsArgs:
     def __init__(__self__, *,
@@ -8130,6 +10706,26 @@ class ImageSweepLimitSettingsArgs:
     def max_trials(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max_trials", value)
 
+
+if not MYPY:
+    class ImageSweepSettingsArgsDict(TypedDict):
+        """
+        Model sweeping and hyperparameter sweeping related settings.
+        """
+        limits: pulumi.Input['ImageSweepLimitSettingsArgsDict']
+        """
+        [Required] Limit settings for model sweeping and hyperparameter sweeping.
+        """
+        sampling_algorithm: pulumi.Input[Union[str, 'SamplingAlgorithmType']]
+        """
+        [Required] Type of the hyperparameter sampling algorithms.
+        """
+        early_termination: NotRequired[pulumi.Input[Union['BanditPolicyArgsDict', 'MedianStoppingPolicyArgsDict', 'TruncationSelectionPolicyArgsDict']]]
+        """
+        Type of early termination policy.
+        """
+elif False:
+    ImageSweepSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ImageSweepSettingsArgs:
@@ -8184,6 +10780,31 @@ class ImageSweepSettingsArgs:
     def early_termination(self, value: Optional[pulumi.Input[Union['BanditPolicyArgs', 'MedianStoppingPolicyArgs', 'TruncationSelectionPolicyArgs']]]):
         pulumi.set(self, "early_termination", value)
 
+
+if not MYPY:
+    class ImageVerticalDataSettingsArgsDict(TypedDict):
+        """
+        Collection of registered Tabular Dataset Ids and other data settings required for training and validating models.
+        """
+        target_column_name: pulumi.Input[str]
+        """
+        [Required] Target column name: This is prediction values column.
+        Also known as label column name in context of classification tasks.
+        """
+        training_data: pulumi.Input['TrainingDataSettingsArgsDict']
+        """
+        [Required] Training data input.
+        """
+        test_data: NotRequired[pulumi.Input['TestDataSettingsArgsDict']]
+        """
+        Test data input.
+        """
+        validation_data: NotRequired[pulumi.Input['ImageVerticalValidationDataSettingsArgsDict']]
+        """
+        Settings for the validation dataset.
+        """
+elif False:
+    ImageVerticalDataSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ImageVerticalDataSettingsArgs:
@@ -8257,6 +10878,21 @@ class ImageVerticalDataSettingsArgs:
         pulumi.set(self, "validation_data", value)
 
 
+if not MYPY:
+    class ImageVerticalValidationDataSettingsArgsDict(TypedDict):
+        data: NotRequired[pulumi.Input['MLTableJobInputArgsDict']]
+        """
+        Validation data MLTable.
+        """
+        validation_data_size: NotRequired[pulumi.Input[float]]
+        """
+        The fraction of training dataset that needs to be set aside for validation purpose.
+        Values between (0.0 , 1.0)
+        Applied when validation dataset is not provided.
+        """
+elif False:
+    ImageVerticalValidationDataSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ImageVerticalValidationDataSettingsArgs:
     def __init__(__self__, *,
@@ -8299,6 +10935,23 @@ class ImageVerticalValidationDataSettingsArgs:
     def validation_data_size(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "validation_data_size", value)
 
+
+if not MYPY:
+    class InferenceContainerPropertiesArgsDict(TypedDict):
+        liveness_route: NotRequired[pulumi.Input['RouteArgsDict']]
+        """
+        The route to check the liveness of the inference server container.
+        """
+        readiness_route: NotRequired[pulumi.Input['RouteArgsDict']]
+        """
+        The route to check the readiness of the inference server container.
+        """
+        scoring_route: NotRequired[pulumi.Input['RouteArgsDict']]
+        """
+        The port to send the scoring requests to, within the inference server container.
+        """
+elif False:
+    InferenceContainerPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InferenceContainerPropertiesArgs:
@@ -8354,6 +11007,30 @@ class InferenceContainerPropertiesArgs:
     def scoring_route(self, value: Optional[pulumi.Input['RouteArgs']]):
         pulumi.set(self, "scoring_route", value)
 
+
+if not MYPY:
+    class JobServiceArgsDict(TypedDict):
+        """
+        Job endpoint definition
+        """
+        endpoint: NotRequired[pulumi.Input[str]]
+        """
+        Url for endpoint.
+        """
+        job_service_type: NotRequired[pulumi.Input[str]]
+        """
+        Endpoint type.
+        """
+        port: NotRequired[pulumi.Input[int]]
+        """
+        Port for endpoint.
+        """
+        properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Additional properties to set on the endpoint.
+        """
+elif False:
+    JobServiceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class JobServiceArgs:
@@ -8426,6 +11103,32 @@ class JobServiceArgs:
     def properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "properties", value)
 
+
+if not MYPY:
+    class KerberosKeytabCredentialsArgsDict(TypedDict):
+        credentials_type: pulumi.Input[str]
+        """
+        Enum to determine the datastore credentials type.
+        Expected value is 'KerberosKeytab'.
+        """
+        kerberos_kdc_address: pulumi.Input[str]
+        """
+        [Required] IP Address or DNS HostName.
+        """
+        kerberos_principal: pulumi.Input[str]
+        """
+        [Required] Kerberos Username
+        """
+        kerberos_realm: pulumi.Input[str]
+        """
+        [Required] Domain over which a Kerberos authentication server has the authority to authenticate a user, host or service.
+        """
+        secrets: pulumi.Input['KerberosKeytabSecretsArgsDict']
+        """
+        [Required] Keytab secrets.
+        """
+elif False:
+    KerberosKeytabCredentialsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class KerberosKeytabCredentialsArgs:
@@ -8511,6 +11214,20 @@ class KerberosKeytabCredentialsArgs:
         pulumi.set(self, "secrets", value)
 
 
+if not MYPY:
+    class KerberosKeytabSecretsArgsDict(TypedDict):
+        secrets_type: pulumi.Input[str]
+        """
+        Enum to determine the datastore secrets type.
+        Expected value is 'KerberosKeytab'.
+        """
+        kerberos_keytab: NotRequired[pulumi.Input[str]]
+        """
+        Kerberos keytab secret.
+        """
+elif False:
+    KerberosKeytabSecretsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class KerberosKeytabSecretsArgs:
     def __init__(__self__, *,
@@ -8550,6 +11267,32 @@ class KerberosKeytabSecretsArgs:
     def kerberos_keytab(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "kerberos_keytab", value)
 
+
+if not MYPY:
+    class KerberosPasswordCredentialsArgsDict(TypedDict):
+        credentials_type: pulumi.Input[str]
+        """
+        Enum to determine the datastore credentials type.
+        Expected value is 'KerberosPassword'.
+        """
+        kerberos_kdc_address: pulumi.Input[str]
+        """
+        [Required] IP Address or DNS HostName.
+        """
+        kerberos_principal: pulumi.Input[str]
+        """
+        [Required] Kerberos Username
+        """
+        kerberos_realm: pulumi.Input[str]
+        """
+        [Required] Domain over which a Kerberos authentication server has the authority to authenticate a user, host or service.
+        """
+        secrets: pulumi.Input['KerberosPasswordSecretsArgsDict']
+        """
+        [Required] Kerberos password secrets.
+        """
+elif False:
+    KerberosPasswordCredentialsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class KerberosPasswordCredentialsArgs:
@@ -8635,6 +11378,20 @@ class KerberosPasswordCredentialsArgs:
         pulumi.set(self, "secrets", value)
 
 
+if not MYPY:
+    class KerberosPasswordSecretsArgsDict(TypedDict):
+        secrets_type: pulumi.Input[str]
+        """
+        Enum to determine the datastore secrets type.
+        Expected value is 'KerberosPassword'.
+        """
+        kerberos_password: NotRequired[pulumi.Input[str]]
+        """
+        Kerberos password secret.
+        """
+elif False:
+    KerberosPasswordSecretsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class KerberosPasswordSecretsArgs:
     def __init__(__self__, *,
@@ -8674,6 +11431,87 @@ class KerberosPasswordSecretsArgs:
     def kerberos_password(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "kerberos_password", value)
 
+
+if not MYPY:
+    class KubernetesOnlineDeploymentArgsDict(TypedDict):
+        """
+        Properties specific to a KubernetesOnlineDeployment.
+        """
+        endpoint_compute_type: pulumi.Input[str]
+        """
+        Enum to determine endpoint compute type.
+        Expected value is 'Kubernetes'.
+        """
+        app_insights_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If true, enables Application Insights logging.
+        """
+        code_configuration: NotRequired[pulumi.Input['CodeConfigurationArgsDict']]
+        """
+        Code configuration for the endpoint deployment.
+        """
+        container_resource_requirements: NotRequired[pulumi.Input['ContainerResourceRequirementsArgsDict']]
+        """
+        The resource requirements for the container (cpu and memory).
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Description of the endpoint deployment.
+        """
+        egress_public_network_access: NotRequired[pulumi.Input[Union[str, 'EgressPublicNetworkAccessType']]]
+        """
+        If Enabled, allow egress public network access. If Disabled, this will create secure egress. Default: Enabled.
+        """
+        environment_id: NotRequired[pulumi.Input[str]]
+        """
+        ARM resource ID of the environment specification for the endpoint deployment.
+        """
+        environment_variables: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Environment variables configuration for the deployment.
+        """
+        instance_type: NotRequired[pulumi.Input[str]]
+        """
+        Compute instance type.
+        """
+        liveness_probe: NotRequired[pulumi.Input['ProbeSettingsArgsDict']]
+        """
+        Liveness probe monitors the health of the container regularly.
+        """
+        model: NotRequired[pulumi.Input[str]]
+        """
+        The URI path to the model.
+        """
+        model_mount_path: NotRequired[pulumi.Input[str]]
+        """
+        The path to mount the model in custom container.
+        """
+        private_network_connection: NotRequired[pulumi.Input[bool]]
+        """
+        If true, enable private network connection.
+        DEPRECATED for future API versions. Use EgressPublicNetworkAccess.
+        """
+        properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Property dictionary. Properties can be added, but not removed or altered.
+        """
+        readiness_probe: NotRequired[pulumi.Input['ProbeSettingsArgsDict']]
+        """
+        Readiness probe validates if the container is ready to serve traffic. The properties and defaults are the same as liveness probe.
+        """
+        request_settings: NotRequired[pulumi.Input['OnlineRequestSettingsArgsDict']]
+        """
+        Request settings for the deployment.
+        """
+        scale_settings: NotRequired[pulumi.Input[Union['DefaultScaleSettingsArgsDict', 'TargetUtilizationScaleSettingsArgsDict']]]
+        """
+        Scale settings for the deployment.
+        If it is null or not provided,
+        it defaults to TargetUtilizationScaleSettings for KubernetesOnlineDeployment
+        and to DefaultScaleSettings for ManagedOnlineDeployment.
+        """
+elif False:
+    KubernetesOnlineDeploymentArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class KubernetesOnlineDeploymentArgs:
@@ -8970,6 +11808,27 @@ class KubernetesOnlineDeploymentArgs:
         pulumi.set(self, "scale_settings", value)
 
 
+if not MYPY:
+    class LiteralJobInputArgsDict(TypedDict):
+        """
+        Literal input type.
+        """
+        job_input_type: pulumi.Input[str]
+        """
+        Enum to determine the Job Input Type.
+        Expected value is 'Literal'.
+        """
+        value: pulumi.Input[str]
+        """
+        [Required] Literal value for the input.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Description for the input.
+        """
+elif False:
+    LiteralJobInputArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LiteralJobInputArgs:
     def __init__(__self__, *,
@@ -9025,6 +11884,28 @@ class LiteralJobInputArgs:
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
 
+
+if not MYPY:
+    class MLFlowModelJobInputArgsDict(TypedDict):
+        job_input_type: pulumi.Input[str]
+        """
+        Enum to determine the Job Input Type.
+        Expected value is 'MLFlowModel'.
+        """
+        uri: pulumi.Input[str]
+        """
+        [Required] Input Asset URI.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Description for the input.
+        """
+        mode: NotRequired[pulumi.Input[Union[str, 'InputDeliveryMode']]]
+        """
+        Input Asset Delivery Mode.
+        """
+elif False:
+    MLFlowModelJobInputArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MLFlowModelJobInputArgs:
@@ -9099,6 +11980,28 @@ class MLFlowModelJobInputArgs:
         pulumi.set(self, "mode", value)
 
 
+if not MYPY:
+    class MLFlowModelJobOutputArgsDict(TypedDict):
+        job_output_type: pulumi.Input[str]
+        """
+        Enum to determine the Job Output Type.
+        Expected value is 'MLFlowModel'.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Description for the output.
+        """
+        mode: NotRequired[pulumi.Input[Union[str, 'OutputDeliveryMode']]]
+        """
+        Output Asset Delivery Mode.
+        """
+        uri: NotRequired[pulumi.Input[str]]
+        """
+        Output Asset URI.
+        """
+elif False:
+    MLFlowModelJobOutputArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MLFlowModelJobOutputArgs:
     def __init__(__self__, *,
@@ -9172,6 +12075,47 @@ class MLFlowModelJobOutputArgs:
     def uri(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "uri", value)
 
+
+if not MYPY:
+    class MLTableDataArgsDict(TypedDict):
+        """
+        MLTable data definition
+        """
+        data_type: pulumi.Input[str]
+        """
+        Enum to determine the type of data.
+        Expected value is 'MLTable'.
+        """
+        data_uri: pulumi.Input[str]
+        """
+        [Required] Uri of the data. Usage/meaning depends on Microsoft.MachineLearning.ManagementFrontEnd.Contracts.V20220201Preview.Assets.DataVersionBase.DataType
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The asset description text.
+        """
+        is_anonymous: NotRequired[pulumi.Input[bool]]
+        """
+        If the name version are system generated (anonymous registration).
+        """
+        is_archived: NotRequired[pulumi.Input[bool]]
+        """
+        Is the asset archived?
+        """
+        properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        The asset property dictionary.
+        """
+        referenced_uris: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Uris referenced in the MLTable definition (required for lineage)
+        """
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Tag dictionary. Tags can be added, removed, and updated.
+        """
+elif False:
+    MLTableDataArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MLTableDataArgs:
@@ -9313,6 +12257,28 @@ class MLTableDataArgs:
         pulumi.set(self, "tags", value)
 
 
+if not MYPY:
+    class MLTableJobInputArgsDict(TypedDict):
+        job_input_type: pulumi.Input[str]
+        """
+        Enum to determine the Job Input Type.
+        Expected value is 'MLTable'.
+        """
+        uri: pulumi.Input[str]
+        """
+        [Required] Input Asset URI.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Description for the input.
+        """
+        mode: NotRequired[pulumi.Input[Union[str, 'InputDeliveryMode']]]
+        """
+        Input Asset Delivery Mode.
+        """
+elif False:
+    MLTableJobInputArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MLTableJobInputArgs:
     def __init__(__self__, *,
@@ -9385,6 +12351,28 @@ class MLTableJobInputArgs:
     def mode(self, value: Optional[pulumi.Input[Union[str, 'InputDeliveryMode']]]):
         pulumi.set(self, "mode", value)
 
+
+if not MYPY:
+    class MLTableJobOutputArgsDict(TypedDict):
+        job_output_type: pulumi.Input[str]
+        """
+        Enum to determine the Job Output Type.
+        Expected value is 'MLTable'.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Description for the output.
+        """
+        mode: NotRequired[pulumi.Input[Union[str, 'OutputDeliveryMode']]]
+        """
+        Output Asset Delivery Mode.
+        """
+        uri: NotRequired[pulumi.Input[str]]
+        """
+        Output Asset URI.
+        """
+elif False:
+    MLTableJobOutputArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MLTableJobOutputArgs:
@@ -9460,6 +12448,31 @@ class MLTableJobOutputArgs:
         pulumi.set(self, "uri", value)
 
 
+if not MYPY:
+    class ManagedIdentityArgsDict(TypedDict):
+        """
+        Managed identity configuration.
+        """
+        identity_type: pulumi.Input[str]
+        """
+        Enum to determine identity framework.
+        Expected value is 'Managed'.
+        """
+        client_id: NotRequired[pulumi.Input[str]]
+        """
+        Specifies a user-assigned identity by client ID. For system-assigned, do not set this field.
+        """
+        object_id: NotRequired[pulumi.Input[str]]
+        """
+        Specifies a user-assigned identity by object ID. For system-assigned, do not set this field.
+        """
+        resource_id: NotRequired[pulumi.Input[str]]
+        """
+        Specifies a user-assigned identity by ARM resource ID. For system-assigned, do not set this field.
+        """
+elif False:
+    ManagedIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ManagedIdentityArgs:
     def __init__(__self__, *,
@@ -9532,6 +12545,83 @@ class ManagedIdentityArgs:
     def resource_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "resource_id", value)
 
+
+if not MYPY:
+    class ManagedOnlineDeploymentArgsDict(TypedDict):
+        """
+        Properties specific to a ManagedOnlineDeployment.
+        """
+        endpoint_compute_type: pulumi.Input[str]
+        """
+        Enum to determine endpoint compute type.
+        Expected value is 'Managed'.
+        """
+        app_insights_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If true, enables Application Insights logging.
+        """
+        code_configuration: NotRequired[pulumi.Input['CodeConfigurationArgsDict']]
+        """
+        Code configuration for the endpoint deployment.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Description of the endpoint deployment.
+        """
+        egress_public_network_access: NotRequired[pulumi.Input[Union[str, 'EgressPublicNetworkAccessType']]]
+        """
+        If Enabled, allow egress public network access. If Disabled, this will create secure egress. Default: Enabled.
+        """
+        environment_id: NotRequired[pulumi.Input[str]]
+        """
+        ARM resource ID of the environment specification for the endpoint deployment.
+        """
+        environment_variables: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Environment variables configuration for the deployment.
+        """
+        instance_type: NotRequired[pulumi.Input[str]]
+        """
+        Compute instance type.
+        """
+        liveness_probe: NotRequired[pulumi.Input['ProbeSettingsArgsDict']]
+        """
+        Liveness probe monitors the health of the container regularly.
+        """
+        model: NotRequired[pulumi.Input[str]]
+        """
+        The URI path to the model.
+        """
+        model_mount_path: NotRequired[pulumi.Input[str]]
+        """
+        The path to mount the model in custom container.
+        """
+        private_network_connection: NotRequired[pulumi.Input[bool]]
+        """
+        If true, enable private network connection.
+        DEPRECATED for future API versions. Use EgressPublicNetworkAccess.
+        """
+        properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Property dictionary. Properties can be added, but not removed or altered.
+        """
+        readiness_probe: NotRequired[pulumi.Input['ProbeSettingsArgsDict']]
+        """
+        Readiness probe validates if the container is ready to serve traffic. The properties and defaults are the same as liveness probe.
+        """
+        request_settings: NotRequired[pulumi.Input['OnlineRequestSettingsArgsDict']]
+        """
+        Request settings for the deployment.
+        """
+        scale_settings: NotRequired[pulumi.Input[Union['DefaultScaleSettingsArgsDict', 'TargetUtilizationScaleSettingsArgsDict']]]
+        """
+        Scale settings for the deployment.
+        If it is null or not provided,
+        it defaults to TargetUtilizationScaleSettings for KubernetesOnlineDeployment
+        and to DefaultScaleSettings for ManagedOnlineDeployment.
+        """
+elif False:
+    ManagedOnlineDeploymentArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ManagedOnlineDeploymentArgs:
@@ -9812,6 +12902,22 @@ class ManagedOnlineDeploymentArgs:
         pulumi.set(self, "scale_settings", value)
 
 
+if not MYPY:
+    class ManagedServiceIdentityArgsDict(TypedDict):
+        """
+        Managed service identity (system assigned and/or user assigned identities)
+        """
+        type: pulumi.Input[Union[str, 'ManagedServiceIdentityType']]
+        """
+        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        """
+        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        """
+elif False:
+    ManagedServiceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ManagedServiceIdentityArgs:
     def __init__(__self__, *,
@@ -9850,6 +12956,27 @@ class ManagedServiceIdentityArgs:
     def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
+
+if not MYPY:
+    class MedianStoppingPolicyArgsDict(TypedDict):
+        """
+        Defines an early termination policy based on running averages of the primary metric of all runs
+        """
+        policy_type: pulumi.Input[str]
+        """
+
+        Expected value is 'MedianStopping'.
+        """
+        delay_evaluation: NotRequired[pulumi.Input[int]]
+        """
+        Number of intervals by which to delay the first evaluation.
+        """
+        evaluation_interval: NotRequired[pulumi.Input[int]]
+        """
+        Interval (number of runs) between policy evaluations.
+        """
+elif False:
+    MedianStoppingPolicyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MedianStoppingPolicyArgs:
@@ -9911,6 +13038,27 @@ class MedianStoppingPolicyArgs:
     def evaluation_interval(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "evaluation_interval", value)
 
+
+if not MYPY:
+    class ModelContainerArgsDict(TypedDict):
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The asset description text.
+        """
+        is_archived: NotRequired[pulumi.Input[bool]]
+        """
+        Is the asset archived?
+        """
+        properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        The asset property dictionary.
+        """
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Tag dictionary. Tags can be added, removed, and updated.
+        """
+elif False:
+    ModelContainerArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ModelContainerArgs:
@@ -9984,6 +13132,50 @@ class ModelContainerArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+
+if not MYPY:
+    class ModelVersionArgsDict(TypedDict):
+        """
+        Model asset version details.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The asset description text.
+        """
+        flavors: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['FlavorDataArgsDict']]]]
+        """
+        Mapping of model flavors to their properties.
+        """
+        is_anonymous: NotRequired[pulumi.Input[bool]]
+        """
+        If the name version are system generated (anonymous registration).
+        """
+        is_archived: NotRequired[pulumi.Input[bool]]
+        """
+        Is the asset archived?
+        """
+        job_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the training job which produced this model
+        """
+        model_type: NotRequired[pulumi.Input[Union[str, 'ModelType']]]
+        """
+        The storage format for this entity. Used for NCD.
+        """
+        model_uri: NotRequired[pulumi.Input[str]]
+        """
+        The URI path to the model contents.
+        """
+        properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        The asset property dictionary.
+        """
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Tag dictionary. Tags can be added, removed, and updated.
+        """
+elif False:
+    ModelVersionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ModelVersionArgs:
@@ -10143,6 +13335,23 @@ class ModelVersionArgs:
         pulumi.set(self, "tags", value)
 
 
+if not MYPY:
+    class MpiArgsDict(TypedDict):
+        """
+        MPI distribution configuration.
+        """
+        distribution_type: pulumi.Input[str]
+        """
+        Enum to determine the job distribution type.
+        Expected value is 'Mpi'.
+        """
+        process_count_per_instance: NotRequired[pulumi.Input[int]]
+        """
+        Number of processes per MPI node.
+        """
+elif False:
+    MpiArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MpiArgs:
     def __init__(__self__, *,
@@ -10183,6 +13392,32 @@ class MpiArgs:
     def process_count_per_instance(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "process_count_per_instance", value)
 
+
+if not MYPY:
+    class NlpVerticalDataSettingsArgsDict(TypedDict):
+        """
+        Class for data inputs.
+        NLP - Natural Language Processing.
+        """
+        target_column_name: pulumi.Input[str]
+        """
+        [Required] Target column name: This is prediction values column.
+        Also known as label column name in context of classification tasks.
+        """
+        training_data: pulumi.Input['TrainingDataSettingsArgsDict']
+        """
+        [Required] Training data input.
+        """
+        test_data: NotRequired[pulumi.Input['TestDataSettingsArgsDict']]
+        """
+        Test data input.
+        """
+        validation_data: NotRequired[pulumi.Input['NlpVerticalValidationDataSettingsArgsDict']]
+        """
+        Validation data inputs.
+        """
+elif False:
+    NlpVerticalDataSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NlpVerticalDataSettingsArgs:
@@ -10257,6 +13492,15 @@ class NlpVerticalDataSettingsArgs:
         pulumi.set(self, "validation_data", value)
 
 
+if not MYPY:
+    class NlpVerticalFeaturizationSettingsArgsDict(TypedDict):
+        dataset_language: NotRequired[pulumi.Input[str]]
+        """
+        Dataset language, useful for the text data.
+        """
+elif False:
+    NlpVerticalFeaturizationSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NlpVerticalFeaturizationSettingsArgs:
     def __init__(__self__, *,
@@ -10279,6 +13523,26 @@ class NlpVerticalFeaturizationSettingsArgs:
     def dataset_language(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "dataset_language", value)
 
+
+if not MYPY:
+    class NlpVerticalLimitSettingsArgsDict(TypedDict):
+        """
+        Job execution constraints.
+        """
+        max_concurrent_trials: NotRequired[pulumi.Input[int]]
+        """
+        Maximum Concurrent AutoML iterations.
+        """
+        max_trials: NotRequired[pulumi.Input[int]]
+        """
+        Number of AutoML iterations.
+        """
+        timeout: NotRequired[pulumi.Input[str]]
+        """
+        AutoML job timeout.
+        """
+elif False:
+    NlpVerticalLimitSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NlpVerticalLimitSettingsArgs:
@@ -10340,6 +13604,21 @@ class NlpVerticalLimitSettingsArgs:
         pulumi.set(self, "timeout", value)
 
 
+if not MYPY:
+    class NlpVerticalValidationDataSettingsArgsDict(TypedDict):
+        data: NotRequired[pulumi.Input['MLTableJobInputArgsDict']]
+        """
+        Validation data MLTable.
+        """
+        validation_data_size: NotRequired[pulumi.Input[float]]
+        """
+        The fraction of training dataset that needs to be set aside for validation purpose.
+        Values between (0.0 , 1.0)
+        Applied when validation dataset is not provided.
+        """
+elif False:
+    NlpVerticalValidationDataSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NlpVerticalValidationDataSettingsArgs:
     def __init__(__self__, *,
@@ -10383,6 +13662,19 @@ class NlpVerticalValidationDataSettingsArgs:
         pulumi.set(self, "validation_data_size", value)
 
 
+if not MYPY:
+    class NoneDatastoreCredentialsArgsDict(TypedDict):
+        """
+        Empty/none datastore credentials.
+        """
+        credentials_type: pulumi.Input[str]
+        """
+        Enum to determine the datastore credentials type.
+        Expected value is 'None'.
+        """
+elif False:
+    NoneDatastoreCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NoneDatastoreCredentialsArgs:
     def __init__(__self__, *,
@@ -10407,6 +13699,22 @@ class NoneDatastoreCredentialsArgs:
     def credentials_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "credentials_type", value)
 
+
+if not MYPY:
+    class ObjectiveArgsDict(TypedDict):
+        """
+        Optimization objective.
+        """
+        goal: pulumi.Input[Union[str, 'Goal']]
+        """
+        [Required] Defines supported metric goals for hyperparameter tuning
+        """
+        primary_metric: pulumi.Input[str]
+        """
+        [Required] Name of the metric to optimize.
+        """
+elif False:
+    ObjectiveArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ObjectiveArgs:
@@ -10445,6 +13753,48 @@ class ObjectiveArgs:
     def primary_metric(self, value: pulumi.Input[str]):
         pulumi.set(self, "primary_metric", value)
 
+
+if not MYPY:
+    class OnlineEndpointArgsDict(TypedDict):
+        """
+        Online endpoint configuration
+        """
+        auth_mode: pulumi.Input[Union[str, 'EndpointAuthMode']]
+        """
+        [Required] Use 'Key' for key based authentication and 'AMLToken' for Azure Machine Learning token-based authentication. 'Key' doesn't expire but 'AMLToken' does.
+        """
+        compute: NotRequired[pulumi.Input[str]]
+        """
+        ARM resource ID of the compute if it exists.
+        optional
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Description of the inference endpoint.
+        """
+        keys: NotRequired[pulumi.Input['EndpointAuthKeysArgsDict']]
+        """
+        EndpointAuthKeys to set initially on an Endpoint.
+        This property will always be returned as null. AuthKey values must be retrieved using the ListKeys API.
+        """
+        mirror_traffic: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[int]]]]
+        """
+        Percentage of traffic to be mirrored to each deployment without using returned scoring. Traffic values need to sum to utmost 50.
+        """
+        properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Property dictionary. Properties can be added, but not removed or altered.
+        """
+        public_network_access: NotRequired[pulumi.Input[Union[str, 'PublicNetworkAccessType']]]
+        """
+        Set to "Enabled" for endpoints that should allow public access when Private Link is enabled.
+        """
+        traffic: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[int]]]]
+        """
+        Percentage of traffic from endpoint to divert to each deployment. Traffic values need to sum to 100.
+        """
+elif False:
+    OnlineEndpointArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OnlineEndpointArgs:
@@ -10587,6 +13937,28 @@ class OnlineEndpointArgs:
         pulumi.set(self, "traffic", value)
 
 
+if not MYPY:
+    class OnlineRequestSettingsArgsDict(TypedDict):
+        """
+        Online deployment scoring requests configuration.
+        """
+        max_concurrent_requests_per_instance: NotRequired[pulumi.Input[int]]
+        """
+        The number of maximum concurrent requests per node allowed per deployment. Defaults to 1.
+        """
+        max_queue_wait: NotRequired[pulumi.Input[str]]
+        """
+        The maximum amount of time a request will stay in the queue in ISO 8601 format.
+        Defaults to 500ms.
+        """
+        request_timeout: NotRequired[pulumi.Input[str]]
+        """
+        The scoring timeout in ISO 8601 format.
+        Defaults to 5000ms.
+        """
+elif False:
+    OnlineRequestSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OnlineRequestSettingsArgs:
     def __init__(__self__, *,
@@ -10653,6 +14025,27 @@ class OnlineRequestSettingsArgs:
         pulumi.set(self, "request_timeout", value)
 
 
+if not MYPY:
+    class OutputPathAssetReferenceArgsDict(TypedDict):
+        """
+        Reference to an asset via its path in a job output.
+        """
+        reference_type: pulumi.Input[str]
+        """
+        Enum to determine which reference method to use for an asset.
+        Expected value is 'OutputPath'.
+        """
+        job_id: NotRequired[pulumi.Input[str]]
+        """
+        ARM resource ID of the job.
+        """
+        path: NotRequired[pulumi.Input[str]]
+        """
+        The path of the file/directory in the job output.
+        """
+elif False:
+    OutputPathAssetReferenceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OutputPathAssetReferenceArgs:
     def __init__(__self__, *,
@@ -10709,6 +14102,78 @@ class OutputPathAssetReferenceArgs:
     def path(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "path", value)
 
+
+if not MYPY:
+    class PipelineJobArgsDict(TypedDict):
+        """
+        Pipeline Job definition: defines generic to MFE attributes.
+        """
+        job_type: pulumi.Input[str]
+        """
+        Enum to determine the type of job.
+        Expected value is 'Pipeline'.
+        """
+        compute_id: NotRequired[pulumi.Input[str]]
+        """
+        ARM resource ID of the compute resource.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The asset description text.
+        """
+        display_name: NotRequired[pulumi.Input[str]]
+        """
+        Display name of job.
+        """
+        experiment_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the experiment the job belongs to. If not set, the job is placed in the "Default" experiment.
+        """
+        identity: NotRequired[pulumi.Input[Union['AmlTokenArgsDict', 'ManagedIdentityArgsDict', 'UserIdentityArgsDict']]]
+        """
+        Identity configuration. If set, this should be one of AmlToken, ManagedIdentity, UserIdentity or null.
+        Defaults to AmlToken if null.
+        """
+        inputs: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[Union['CustomModelJobInputArgsDict', 'LiteralJobInputArgsDict', 'MLFlowModelJobInputArgsDict', 'MLTableJobInputArgsDict', 'TritonModelJobInputArgsDict', 'UriFileJobInputArgsDict', 'UriFolderJobInputArgsDict']]]]]
+        """
+        Inputs for the pipeline job.
+        """
+        is_archived: NotRequired[pulumi.Input[bool]]
+        """
+        Is the asset archived?
+        """
+        jobs: NotRequired[pulumi.Input[Mapping[str, Any]]]
+        """
+        Jobs construct the Pipeline Job.
+        """
+        outputs: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[Union['CustomModelJobOutputArgsDict', 'MLFlowModelJobOutputArgsDict', 'MLTableJobOutputArgsDict', 'TritonModelJobOutputArgsDict', 'UriFileJobOutputArgsDict', 'UriFolderJobOutputArgsDict']]]]]
+        """
+        Outputs for the pipeline job
+        """
+        properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        The asset property dictionary.
+        """
+        schedule: NotRequired[pulumi.Input[Union['CronScheduleArgsDict', 'RecurrenceScheduleArgsDict']]]
+        """
+        Schedule definition of job.
+        If no schedule is provided, the job is run once and immediately after submission.
+        """
+        services: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['JobServiceArgsDict']]]]
+        """
+        List of JobEndpoints.
+        For local jobs, a job endpoint will have an endpoint value of FileStreamObject.
+        """
+        settings: NotRequired[Any]
+        """
+        Pipeline settings, for things like ContinueRunOnStepFailure etc.
+        """
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Tag dictionary. Tags can be added, removed, and updated.
+        """
+elif False:
+    PipelineJobArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PipelineJobArgs:
@@ -10969,6 +14434,34 @@ class PipelineJobArgs:
         pulumi.set(self, "tags", value)
 
 
+if not MYPY:
+    class ProbeSettingsArgsDict(TypedDict):
+        """
+        Deployment container liveness/readiness probe configuration.
+        """
+        failure_threshold: NotRequired[pulumi.Input[int]]
+        """
+        The number of failures to allow before returning an unhealthy status.
+        """
+        initial_delay: NotRequired[pulumi.Input[str]]
+        """
+        The delay before the first probe in ISO 8601 format.
+        """
+        period: NotRequired[pulumi.Input[str]]
+        """
+        The length of time between probes in ISO 8601 format.
+        """
+        success_threshold: NotRequired[pulumi.Input[int]]
+        """
+        The number of successful probes before returning a healthy status.
+        """
+        timeout: NotRequired[pulumi.Input[str]]
+        """
+        The probe timeout in ISO 8601 format.
+        """
+elif False:
+    ProbeSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ProbeSettingsArgs:
     def __init__(__self__, *,
@@ -11065,6 +14558,23 @@ class ProbeSettingsArgs:
         pulumi.set(self, "timeout", value)
 
 
+if not MYPY:
+    class PyTorchArgsDict(TypedDict):
+        """
+        PyTorch distribution configuration.
+        """
+        distribution_type: pulumi.Input[str]
+        """
+        Enum to determine the job distribution type.
+        Expected value is 'PyTorch'.
+        """
+        process_count_per_instance: NotRequired[pulumi.Input[int]]
+        """
+        Number of processes per node.
+        """
+elif False:
+    PyTorchArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PyTorchArgs:
     def __init__(__self__, *,
@@ -11105,6 +14615,27 @@ class PyTorchArgs:
     def process_count_per_instance(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "process_count_per_instance", value)
 
+
+if not MYPY:
+    class RandomSamplingAlgorithmArgsDict(TypedDict):
+        """
+        Defines a Sampling Algorithm that generates values randomly
+        """
+        sampling_algorithm_type: pulumi.Input[str]
+        """
+
+        Expected value is 'Random'.
+        """
+        rule: NotRequired[pulumi.Input[Union[str, 'RandomSamplingAlgorithmRule']]]
+        """
+        The specific type of random algorithm
+        """
+        seed: NotRequired[pulumi.Input[int]]
+        """
+        An optional integer to use as the seed for random number generation
+        """
+elif False:
+    RandomSamplingAlgorithmArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RandomSamplingAlgorithmArgs:
@@ -11165,6 +14696,26 @@ class RandomSamplingAlgorithmArgs:
         pulumi.set(self, "seed", value)
 
 
+if not MYPY:
+    class RecurrencePatternArgsDict(TypedDict):
+        """
+        Recurrence schedule pattern definition
+        """
+        hours: pulumi.Input[Sequence[pulumi.Input[int]]]
+        """
+        [Required] List of hours for recurrence schedule pattern
+        """
+        minutes: pulumi.Input[Sequence[pulumi.Input[int]]]
+        """
+        [Required] List of minutes for recurrence schedule pattern
+        """
+        weekdays: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Weekday']]]]]
+        """
+        List of weekdays for recurrence schedule pattern
+        """
+elif False:
+    RecurrencePatternArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RecurrencePatternArgs:
     def __init__(__self__, *,
@@ -11218,6 +14769,49 @@ class RecurrencePatternArgs:
     def weekdays(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Weekday']]]]]):
         pulumi.set(self, "weekdays", value)
 
+
+if not MYPY:
+    class RecurrenceScheduleArgsDict(TypedDict):
+        """
+        Recurrence schedule definition
+        """
+        frequency: pulumi.Input[Union[str, 'RecurrenceFrequency']]
+        """
+        [Required] Specifies frequency with with which to trigger schedule
+        """
+        interval: pulumi.Input[int]
+        """
+        [Required] Specifies schedule interval in conjunction with frequency
+        """
+        schedule_type: pulumi.Input[str]
+        """
+        Enum to describe type of schedule
+        Expected value is 'Recurrence'.
+        """
+        end_time: NotRequired[pulumi.Input[str]]
+        """
+        Specifies end time of schedule in ISO 8601 format.
+        If not present, the schedule will run indefinitely
+        """
+        pattern: NotRequired[pulumi.Input['RecurrencePatternArgsDict']]
+        """
+        Specifies the recurrence schedule pattern
+        """
+        schedule_status: NotRequired[pulumi.Input[Union[str, 'ScheduleStatus']]]
+        """
+        Specifies the schedule's status
+        """
+        start_time: NotRequired[pulumi.Input[str]]
+        """
+        Specifies start time of schedule in ISO 8601 format.
+        """
+        time_zone: NotRequired[pulumi.Input[str]]
+        """
+        Specifies time zone in which the schedule runs.
+        TimeZone should follow Windows time zone format.
+        """
+elif False:
+    RecurrenceScheduleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RecurrenceScheduleArgs:
@@ -11361,6 +14955,51 @@ class RecurrenceScheduleArgs:
     def time_zone(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "time_zone", value)
 
+
+if not MYPY:
+    class RegressionArgsDict(TypedDict):
+        """
+        Regression task in AutoML Table vertical.
+        """
+        task_type: pulumi.Input[str]
+        """
+        AutoMLJob Task type.
+        Expected value is 'Regression'.
+        """
+        allowed_models: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'RegressionModels']]]]]
+        """
+        Allowed models for regression task.
+        """
+        blocked_models: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'RegressionModels']]]]]
+        """
+        Blocked models for regression task.
+        """
+        data_settings: NotRequired[pulumi.Input['TableVerticalDataSettingsArgsDict']]
+        """
+        Data inputs for AutoMLJob.
+        """
+        featurization_settings: NotRequired[pulumi.Input['TableVerticalFeaturizationSettingsArgsDict']]
+        """
+        Featurization inputs needed for AutoML job.
+        """
+        limit_settings: NotRequired[pulumi.Input['TableVerticalLimitSettingsArgsDict']]
+        """
+        Execution constraints for AutoMLJob.
+        """
+        log_verbosity: NotRequired[pulumi.Input[Union[str, 'LogVerbosity']]]
+        """
+        Log verbosity for the job.
+        """
+        primary_metric: NotRequired[pulumi.Input[Union[str, 'RegressionPrimaryMetrics']]]
+        """
+        Primary metric for regression task.
+        """
+        training_settings: NotRequired[pulumi.Input['TrainingSettingsArgsDict']]
+        """
+        Inputs for training phase for an AutoML Job.
+        """
+elif False:
+    RegressionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RegressionArgs:
@@ -11519,6 +15158,23 @@ class RegressionArgs:
         pulumi.set(self, "training_settings", value)
 
 
+if not MYPY:
+    class ResourceConfigurationArgsDict(TypedDict):
+        instance_count: NotRequired[pulumi.Input[int]]
+        """
+        Optional number of instances or nodes used by the compute target.
+        """
+        instance_type: NotRequired[pulumi.Input[str]]
+        """
+        Optional type of VM used as supported by the compute target.
+        """
+        properties: NotRequired[pulumi.Input[Mapping[str, Any]]]
+        """
+        Additional properties bag.
+        """
+elif False:
+    ResourceConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ResourceConfigurationArgs:
     def __init__(__self__, *,
@@ -11576,6 +15232,19 @@ class ResourceConfigurationArgs:
         pulumi.set(self, "properties", value)
 
 
+if not MYPY:
+    class RouteArgsDict(TypedDict):
+        path: pulumi.Input[str]
+        """
+        [Required] The path for the route.
+        """
+        port: pulumi.Input[int]
+        """
+        [Required] The port for the route.
+        """
+elif False:
+    RouteArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RouteArgs:
     def __init__(__self__, *,
@@ -11612,6 +15281,23 @@ class RouteArgs:
     def port(self, value: pulumi.Input[int]):
         pulumi.set(self, "port", value)
 
+
+if not MYPY:
+    class SasDatastoreCredentialsArgsDict(TypedDict):
+        """
+        SAS datastore credentials configuration.
+        """
+        credentials_type: pulumi.Input[str]
+        """
+        Enum to determine the datastore credentials type.
+        Expected value is 'Sas'.
+        """
+        secrets: pulumi.Input['SasDatastoreSecretsArgsDict']
+        """
+        [Required] Storage container secrets.
+        """
+elif False:
+    SasDatastoreCredentialsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SasDatastoreCredentialsArgs:
@@ -11653,6 +15339,23 @@ class SasDatastoreCredentialsArgs:
         pulumi.set(self, "secrets", value)
 
 
+if not MYPY:
+    class SasDatastoreSecretsArgsDict(TypedDict):
+        """
+        Datastore SAS secrets.
+        """
+        secrets_type: pulumi.Input[str]
+        """
+        Enum to determine the datastore secrets type.
+        Expected value is 'Sas'.
+        """
+        sas_token: NotRequired[pulumi.Input[str]]
+        """
+        Storage container SAS token.
+        """
+elif False:
+    SasDatastoreSecretsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SasDatastoreSecretsArgs:
     def __init__(__self__, *,
@@ -11693,6 +15396,39 @@ class SasDatastoreSecretsArgs:
     def sas_token(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "sas_token", value)
 
+
+if not MYPY:
+    class ServicePrincipalDatastoreCredentialsArgsDict(TypedDict):
+        """
+        Service Principal datastore credentials configuration.
+        """
+        client_id: pulumi.Input[str]
+        """
+        [Required] Service principal client ID.
+        """
+        credentials_type: pulumi.Input[str]
+        """
+        Enum to determine the datastore credentials type.
+        Expected value is 'ServicePrincipal'.
+        """
+        secrets: pulumi.Input['ServicePrincipalDatastoreSecretsArgsDict']
+        """
+        [Required] Service principal secrets.
+        """
+        tenant_id: pulumi.Input[str]
+        """
+        [Required] ID of the tenant to which the service principal belongs.
+        """
+        authority_url: NotRequired[pulumi.Input[str]]
+        """
+        Authority URL used for authentication.
+        """
+        resource_url: NotRequired[pulumi.Input[str]]
+        """
+        Resource the service principal has access to.
+        """
+elif False:
+    ServicePrincipalDatastoreCredentialsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ServicePrincipalDatastoreCredentialsArgs:
@@ -11796,6 +15532,23 @@ class ServicePrincipalDatastoreCredentialsArgs:
         pulumi.set(self, "resource_url", value)
 
 
+if not MYPY:
+    class ServicePrincipalDatastoreSecretsArgsDict(TypedDict):
+        """
+        Datastore Service Principal secrets.
+        """
+        secrets_type: pulumi.Input[str]
+        """
+        Enum to determine the datastore secrets type.
+        Expected value is 'ServicePrincipal'.
+        """
+        client_secret: NotRequired[pulumi.Input[str]]
+        """
+        Service principal secret.
+        """
+elif False:
+    ServicePrincipalDatastoreSecretsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ServicePrincipalDatastoreSecretsArgs:
     def __init__(__self__, *,
@@ -11836,6 +15589,34 @@ class ServicePrincipalDatastoreSecretsArgs:
     def client_secret(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "client_secret", value)
 
+
+if not MYPY:
+    class SkuArgsDict(TypedDict):
+        """
+        The resource model definition representing SKU
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the SKU. Ex - P3. It is typically a letter+number code
+        """
+        capacity: NotRequired[pulumi.Input[int]]
+        """
+        If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
+        """
+        family: NotRequired[pulumi.Input[str]]
+        """
+        If the service has different generations of hardware, for the same SKU, then that can be captured here.
+        """
+        size: NotRequired[pulumi.Input[str]]
+        """
+        The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+        """
+        tier: NotRequired[pulumi.Input['SkuTier']]
+        """
+        This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+        """
+elif False:
+    SkuArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SkuArgs:
@@ -11924,6 +15705,26 @@ class SkuArgs:
         pulumi.set(self, "tier", value)
 
 
+if not MYPY:
+    class StackEnsembleSettingsArgsDict(TypedDict):
+        """
+        Advances setting to customize StackEnsemble run.
+        """
+        stack_meta_learner_k_wargs: NotRequired[Any]
+        """
+        Optional parameters to pass to the initializer of the meta-learner.
+        """
+        stack_meta_learner_train_percentage: NotRequired[pulumi.Input[float]]
+        """
+        Specifies the proportion of the training set (when choosing train and validation type of training) to be reserved for training the meta-learner. Default value is 0.2.
+        """
+        stack_meta_learner_type: NotRequired[pulumi.Input[Union[str, 'StackMetaLearnerType']]]
+        """
+        The meta-learner is a model trained on the output of the individual heterogeneous models.
+        """
+elif False:
+    StackEnsembleSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class StackEnsembleSettingsArgs:
     def __init__(__self__, *,
@@ -11983,6 +15784,35 @@ class StackEnsembleSettingsArgs:
     def stack_meta_learner_type(self, value: Optional[pulumi.Input[Union[str, 'StackMetaLearnerType']]]):
         pulumi.set(self, "stack_meta_learner_type", value)
 
+
+if not MYPY:
+    class SweepJobLimitsArgsDict(TypedDict):
+        """
+        Sweep Job limit class.
+        """
+        job_limits_type: pulumi.Input[str]
+        """
+
+        Expected value is 'Sweep'.
+        """
+        max_concurrent_trials: NotRequired[pulumi.Input[int]]
+        """
+        Sweep Job max concurrent trials.
+        """
+        max_total_trials: NotRequired[pulumi.Input[int]]
+        """
+        Sweep Job max total trials.
+        """
+        timeout: NotRequired[pulumi.Input[str]]
+        """
+        The max run duration in ISO 8601 format, after which the job will be cancelled. Only supports duration with precision as low as Seconds.
+        """
+        trial_timeout: NotRequired[pulumi.Input[str]]
+        """
+        Sweep Job Trial timeout value.
+        """
+elif False:
+    SweepJobLimitsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SweepJobLimitsArgs:
@@ -12072,6 +15902,94 @@ class SweepJobLimitsArgs:
     def trial_timeout(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "trial_timeout", value)
 
+
+if not MYPY:
+    class SweepJobArgsDict(TypedDict):
+        """
+        Sweep job definition.
+        """
+        job_type: pulumi.Input[str]
+        """
+        Enum to determine the type of job.
+        Expected value is 'Sweep'.
+        """
+        objective: pulumi.Input['ObjectiveArgsDict']
+        """
+        [Required] Optimization objective.
+        """
+        sampling_algorithm: pulumi.Input[Union['BayesianSamplingAlgorithmArgsDict', 'GridSamplingAlgorithmArgsDict', 'RandomSamplingAlgorithmArgsDict']]
+        """
+        [Required] The hyperparameter sampling algorithm
+        """
+        search_space: Any
+        """
+        [Required] A dictionary containing each parameter and its distribution. The dictionary key is the name of the parameter
+        """
+        trial: pulumi.Input['TrialComponentArgsDict']
+        """
+        [Required] Trial component definition.
+        """
+        compute_id: NotRequired[pulumi.Input[str]]
+        """
+        ARM resource ID of the compute resource.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The asset description text.
+        """
+        display_name: NotRequired[pulumi.Input[str]]
+        """
+        Display name of job.
+        """
+        early_termination: NotRequired[pulumi.Input[Union['BanditPolicyArgsDict', 'MedianStoppingPolicyArgsDict', 'TruncationSelectionPolicyArgsDict']]]
+        """
+        Early termination policies enable canceling poor-performing runs before they complete
+        """
+        experiment_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the experiment the job belongs to. If not set, the job is placed in the "Default" experiment.
+        """
+        identity: NotRequired[pulumi.Input[Union['AmlTokenArgsDict', 'ManagedIdentityArgsDict', 'UserIdentityArgsDict']]]
+        """
+        Identity configuration. If set, this should be one of AmlToken, ManagedIdentity, UserIdentity or null.
+        Defaults to AmlToken if null.
+        """
+        inputs: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[Union['CustomModelJobInputArgsDict', 'LiteralJobInputArgsDict', 'MLFlowModelJobInputArgsDict', 'MLTableJobInputArgsDict', 'TritonModelJobInputArgsDict', 'UriFileJobInputArgsDict', 'UriFolderJobInputArgsDict']]]]]
+        """
+        Mapping of input data bindings used in the job.
+        """
+        is_archived: NotRequired[pulumi.Input[bool]]
+        """
+        Is the asset archived?
+        """
+        limits: NotRequired[pulumi.Input['SweepJobLimitsArgsDict']]
+        """
+        Sweep Job limit.
+        """
+        outputs: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[Union['CustomModelJobOutputArgsDict', 'MLFlowModelJobOutputArgsDict', 'MLTableJobOutputArgsDict', 'TritonModelJobOutputArgsDict', 'UriFileJobOutputArgsDict', 'UriFolderJobOutputArgsDict']]]]]
+        """
+        Mapping of output data bindings used in the job.
+        """
+        properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        The asset property dictionary.
+        """
+        schedule: NotRequired[pulumi.Input[Union['CronScheduleArgsDict', 'RecurrenceScheduleArgsDict']]]
+        """
+        Schedule definition of job.
+        If no schedule is provided, the job is run once and immediately after submission.
+        """
+        services: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['JobServiceArgsDict']]]]
+        """
+        List of JobEndpoints.
+        For local jobs, a job endpoint will have an endpoint value of FileStreamObject.
+        """
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Tag dictionary. Tags can be added, removed, and updated.
+        """
+elif False:
+    SweepJobArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SweepJobArgs:
@@ -12392,6 +16310,35 @@ class SweepJobArgs:
         pulumi.set(self, "tags", value)
 
 
+if not MYPY:
+    class TableVerticalDataSettingsArgsDict(TypedDict):
+        """
+        Class for data inputs.
+        """
+        target_column_name: pulumi.Input[str]
+        """
+        [Required] Target column name: This is prediction values column.
+        Also known as label column name in context of classification tasks.
+        """
+        training_data: pulumi.Input['TrainingDataSettingsArgsDict']
+        """
+        [Required] Training data input.
+        """
+        test_data: NotRequired[pulumi.Input['TestDataSettingsArgsDict']]
+        """
+        Test data input.
+        """
+        validation_data: NotRequired[pulumi.Input['TableVerticalValidationDataSettingsArgsDict']]
+        """
+        Validation data inputs.
+        """
+        weight_column_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the sample weight column. Automated ML supports a weighted column as an input, causing rows in the data to be weighted up or down.
+        """
+elif False:
+    TableVerticalDataSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TableVerticalDataSettingsArgs:
     def __init__(__self__, *,
@@ -12479,6 +16426,44 @@ class TableVerticalDataSettingsArgs:
     def weight_column_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "weight_column_name", value)
 
+
+if not MYPY:
+    class TableVerticalFeaturizationSettingsArgsDict(TypedDict):
+        """
+        Featurization Configuration.
+        """
+        blocked_transformers: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        These transformers shall not be used in featurization.
+        """
+        column_name_and_types: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Dictionary of column name and its type (int, float, string, datetime etc).
+        """
+        dataset_language: NotRequired[pulumi.Input[str]]
+        """
+        Dataset language, useful for the text data.
+        """
+        drop_columns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Columns to be dropped from data during featurization.
+        """
+        enable_dnn_featurization: NotRequired[pulumi.Input[bool]]
+        """
+        Determines whether to use Dnn based featurizers for data featurization.
+        """
+        mode: NotRequired[pulumi.Input[Union[str, 'FeaturizationMode']]]
+        """
+        Featurization mode - User can keep the default 'Auto' mode and AutoML will take care of necessary transformation of the data in featurization phase.
+        If 'Off' is selected then no featurization is done.
+        If 'Custom' is selected then user can specify additional inputs to customize how featurization is done.
+        """
+        transformer_params: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input['ColumnTransformerArgsDict']]]]]]
+        """
+        User can specify additional transformers to be used along with the columns to which it would be applied and parameters for the transformer constructor.
+        """
+elif False:
+    TableVerticalFeaturizationSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TableVerticalFeaturizationSettingsArgs:
@@ -12607,6 +16592,42 @@ class TableVerticalFeaturizationSettingsArgs:
     def transformer_params(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input['ColumnTransformerArgs']]]]]]):
         pulumi.set(self, "transformer_params", value)
 
+
+if not MYPY:
+    class TableVerticalLimitSettingsArgsDict(TypedDict):
+        """
+        Job execution constraints.
+        """
+        enable_early_termination: NotRequired[pulumi.Input[bool]]
+        """
+        Enable early termination, determines whether or not if AutoMLJob will terminate early if there is no score improvement in last 20 iterations.
+        """
+        exit_score: NotRequired[pulumi.Input[float]]
+        """
+        Exit score for the AutoML job.
+        """
+        max_concurrent_trials: NotRequired[pulumi.Input[int]]
+        """
+        Maximum Concurrent iterations.
+        """
+        max_cores_per_trial: NotRequired[pulumi.Input[int]]
+        """
+        Max cores per iteration.
+        """
+        max_trials: NotRequired[pulumi.Input[int]]
+        """
+        Number of iterations.
+        """
+        timeout: NotRequired[pulumi.Input[str]]
+        """
+        AutoML job timeout.
+        """
+        trial_timeout: NotRequired[pulumi.Input[str]]
+        """
+        Iteration timeout.
+        """
+elif False:
+    TableVerticalLimitSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TableVerticalLimitSettingsArgs:
@@ -12740,6 +16761,33 @@ class TableVerticalLimitSettingsArgs:
         pulumi.set(self, "trial_timeout", value)
 
 
+if not MYPY:
+    class TableVerticalValidationDataSettingsArgsDict(TypedDict):
+        """
+        Validation settings for AutoML Table vertical tasks - Classification/Regression/Forecasting.
+        """
+        cv_split_column_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Columns to use for CVSplit data.
+        """
+        data: NotRequired[pulumi.Input['MLTableJobInputArgsDict']]
+        """
+        Validation data MLTable.
+        """
+        n_cross_validations: NotRequired[pulumi.Input[Union['AutoNCrossValidationsArgsDict', 'CustomNCrossValidationsArgsDict']]]
+        """
+        Number of cross validation folds to be applied on training dataset
+        when validation dataset is not provided.
+        """
+        validation_data_size: NotRequired[pulumi.Input[float]]
+        """
+        The fraction of training dataset that needs to be set aside for validation purpose.
+        Values between (0.0 , 1.0)
+        Applied when validation dataset is not provided.
+        """
+elif False:
+    TableVerticalValidationDataSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TableVerticalValidationDataSettingsArgs:
     def __init__(__self__, *,
@@ -12817,6 +16865,32 @@ class TableVerticalValidationDataSettingsArgs:
     def validation_data_size(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "validation_data_size", value)
 
+
+if not MYPY:
+    class TargetUtilizationScaleSettingsArgsDict(TypedDict):
+        scale_type: pulumi.Input[str]
+        """
+
+        Expected value is 'TargetUtilization'.
+        """
+        max_instances: NotRequired[pulumi.Input[int]]
+        """
+        The maximum number of instances that the deployment can scale to. The quota will be reserved for max_instances.
+        """
+        min_instances: NotRequired[pulumi.Input[int]]
+        """
+        The minimum number of instances to always be present.
+        """
+        polling_interval: NotRequired[pulumi.Input[str]]
+        """
+        The polling interval in ISO 8691 format. Only supports duration with precision as low as Seconds.
+        """
+        target_utilization_percentage: NotRequired[pulumi.Input[int]]
+        """
+        Target CPU usage for the autoscaler.
+        """
+elif False:
+    TargetUtilizationScaleSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TargetUtilizationScaleSettingsArgs:
@@ -12914,6 +16988,27 @@ class TargetUtilizationScaleSettingsArgs:
         pulumi.set(self, "target_utilization_percentage", value)
 
 
+if not MYPY:
+    class TensorFlowArgsDict(TypedDict):
+        """
+        TensorFlow distribution configuration.
+        """
+        distribution_type: pulumi.Input[str]
+        """
+        Enum to determine the job distribution type.
+        Expected value is 'TensorFlow'.
+        """
+        parameter_server_count: NotRequired[pulumi.Input[int]]
+        """
+        Number of parameter server tasks.
+        """
+        worker_count: NotRequired[pulumi.Input[int]]
+        """
+        Number of workers. If not specified, will default to the instance count.
+        """
+elif False:
+    TensorFlowArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TensorFlowArgs:
     def __init__(__self__, *,
@@ -12973,6 +17068,24 @@ class TensorFlowArgs:
         pulumi.set(self, "worker_count", value)
 
 
+if not MYPY:
+    class TestDataSettingsArgsDict(TypedDict):
+        """
+        Test data inputs.
+        """
+        data: NotRequired[pulumi.Input['MLTableJobInputArgsDict']]
+        """
+        Test data MLTable.
+        """
+        test_data_size: NotRequired[pulumi.Input[float]]
+        """
+        The fraction of test dataset that needs to be set aside for validation purpose.
+        Values between (0.0 , 1.0)
+        Applied when validation dataset is not provided.
+        """
+elif False:
+    TestDataSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TestDataSettingsArgs:
     def __init__(__self__, *,
@@ -13016,6 +17129,36 @@ class TestDataSettingsArgs:
     def test_data_size(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "test_data_size", value)
 
+
+if not MYPY:
+    class TextClassificationMultilabelArgsDict(TypedDict):
+        """
+        Text Classification Multilabel task in AutoML NLP vertical.
+        NLP - Natural Language Processing.
+        """
+        task_type: pulumi.Input[str]
+        """
+        AutoMLJob Task type.
+        Expected value is 'TextClassificationMultilabel'.
+        """
+        data_settings: NotRequired[pulumi.Input['NlpVerticalDataSettingsArgsDict']]
+        """
+        Data inputs for AutoMLJob.
+        """
+        featurization_settings: NotRequired[pulumi.Input['NlpVerticalFeaturizationSettingsArgsDict']]
+        """
+        Featurization inputs needed for AutoML job.
+        """
+        limit_settings: NotRequired[pulumi.Input['NlpVerticalLimitSettingsArgsDict']]
+        """
+        Execution constraints for AutoMLJob.
+        """
+        log_verbosity: NotRequired[pulumi.Input[Union[str, 'LogVerbosity']]]
+        """
+        Log verbosity for the job.
+        """
+elif False:
+    TextClassificationMultilabelArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TextClassificationMultilabelArgs:
@@ -13108,6 +17251,40 @@ class TextClassificationMultilabelArgs:
     def log_verbosity(self, value: Optional[pulumi.Input[Union[str, 'LogVerbosity']]]):
         pulumi.set(self, "log_verbosity", value)
 
+
+if not MYPY:
+    class TextClassificationArgsDict(TypedDict):
+        """
+        Text Classification task in AutoML NLP vertical.
+        NLP - Natural Language Processing.
+        """
+        task_type: pulumi.Input[str]
+        """
+        AutoMLJob Task type.
+        Expected value is 'TextClassification'.
+        """
+        data_settings: NotRequired[pulumi.Input['NlpVerticalDataSettingsArgsDict']]
+        """
+        Data inputs for AutoMLJob.
+        """
+        featurization_settings: NotRequired[pulumi.Input['NlpVerticalFeaturizationSettingsArgsDict']]
+        """
+        Featurization inputs needed for AutoML job.
+        """
+        limit_settings: NotRequired[pulumi.Input['NlpVerticalLimitSettingsArgsDict']]
+        """
+        Execution constraints for AutoMLJob.
+        """
+        log_verbosity: NotRequired[pulumi.Input[Union[str, 'LogVerbosity']]]
+        """
+        Log verbosity for the job.
+        """
+        primary_metric: NotRequired[pulumi.Input[Union[str, 'ClassificationPrimaryMetrics']]]
+        """
+        Primary metric for Text-Classification task.
+        """
+elif False:
+    TextClassificationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TextClassificationArgs:
@@ -13219,6 +17396,37 @@ class TextClassificationArgs:
         pulumi.set(self, "primary_metric", value)
 
 
+if not MYPY:
+    class TextNerArgsDict(TypedDict):
+        """
+        Text-NER task in AutoML NLP vertical.
+        NER - Named Entity Recognition.
+        NLP - Natural Language Processing.
+        """
+        task_type: pulumi.Input[str]
+        """
+        AutoMLJob Task type.
+        Expected value is 'TextNER'.
+        """
+        data_settings: NotRequired[pulumi.Input['NlpVerticalDataSettingsArgsDict']]
+        """
+        Data inputs for AutoMLJob.
+        """
+        featurization_settings: NotRequired[pulumi.Input['NlpVerticalFeaturizationSettingsArgsDict']]
+        """
+        Featurization inputs needed for AutoML job.
+        """
+        limit_settings: NotRequired[pulumi.Input['NlpVerticalLimitSettingsArgsDict']]
+        """
+        Execution constraints for AutoMLJob.
+        """
+        log_verbosity: NotRequired[pulumi.Input[Union[str, 'LogVerbosity']]]
+        """
+        Log verbosity for the job.
+        """
+elif False:
+    TextNerArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TextNerArgs:
     def __init__(__self__, *,
@@ -13312,6 +17520,18 @@ class TextNerArgs:
         pulumi.set(self, "log_verbosity", value)
 
 
+if not MYPY:
+    class TrainingDataSettingsArgsDict(TypedDict):
+        """
+        Training data input.
+        """
+        data: pulumi.Input['MLTableJobInputArgsDict']
+        """
+        [Required] Training data MLTable.
+        """
+elif False:
+    TrainingDataSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TrainingDataSettingsArgs:
     def __init__(__self__, *,
@@ -13334,6 +17554,43 @@ class TrainingDataSettingsArgs:
     def data(self, value: pulumi.Input['MLTableJobInputArgs']):
         pulumi.set(self, "data", value)
 
+
+if not MYPY:
+    class TrainingSettingsArgsDict(TypedDict):
+        """
+        Training related configuration.
+        """
+        enable_dnn_training: NotRequired[pulumi.Input[bool]]
+        """
+        Enable recommendation of DNN models.
+        """
+        enable_model_explainability: NotRequired[pulumi.Input[bool]]
+        """
+        Flag to turn on explainability on best model.
+        """
+        enable_onnx_compatible_models: NotRequired[pulumi.Input[bool]]
+        """
+        Flag for enabling onnx compatible models.
+        """
+        enable_stack_ensemble: NotRequired[pulumi.Input[bool]]
+        """
+        Enable stack ensemble run.
+        """
+        enable_vote_ensemble: NotRequired[pulumi.Input[bool]]
+        """
+        Enable voting ensemble run.
+        """
+        ensemble_model_download_timeout: NotRequired[pulumi.Input[str]]
+        """
+        During VotingEnsemble and StackEnsemble model generation, multiple fitted models from the previous child runs are downloaded.
+        Configure this parameter with a higher value than 300 secs, if more time is needed.
+        """
+        stack_ensemble_settings: NotRequired[pulumi.Input['StackEnsembleSettingsArgsDict']]
+        """
+        Stack ensemble settings for stack ensemble run.
+        """
+elif False:
+    TrainingSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TrainingSettingsArgs:
@@ -13469,6 +17726,38 @@ class TrainingSettingsArgs:
         pulumi.set(self, "stack_ensemble_settings", value)
 
 
+if not MYPY:
+    class TrialComponentArgsDict(TypedDict):
+        """
+        Trial component definition.
+        """
+        command: pulumi.Input[str]
+        """
+        [Required] The command to execute on startup of the job. eg. "python train.py"
+        """
+        environment_id: pulumi.Input[str]
+        """
+        [Required] The ARM resource ID of the Environment specification for the job.
+        """
+        code_id: NotRequired[pulumi.Input[str]]
+        """
+        ARM resource ID of the code asset.
+        """
+        distribution: NotRequired[pulumi.Input[Union['MpiArgsDict', 'PyTorchArgsDict', 'TensorFlowArgsDict']]]
+        """
+        Distribution configuration of the job. If set, this should be one of Mpi, Tensorflow, PyTorch, or null.
+        """
+        environment_variables: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Environment variables included in the job.
+        """
+        resources: NotRequired[pulumi.Input['ResourceConfigurationArgsDict']]
+        """
+        Compute Resource configuration for the job.
+        """
+elif False:
+    TrialComponentArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TrialComponentArgs:
     def __init__(__self__, *,
@@ -13571,6 +17860,28 @@ class TrialComponentArgs:
         pulumi.set(self, "resources", value)
 
 
+if not MYPY:
+    class TritonModelJobInputArgsDict(TypedDict):
+        job_input_type: pulumi.Input[str]
+        """
+        Enum to determine the Job Input Type.
+        Expected value is 'TritonModel'.
+        """
+        uri: pulumi.Input[str]
+        """
+        [Required] Input Asset URI.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Description for the input.
+        """
+        mode: NotRequired[pulumi.Input[Union[str, 'InputDeliveryMode']]]
+        """
+        Input Asset Delivery Mode.
+        """
+elif False:
+    TritonModelJobInputArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TritonModelJobInputArgs:
     def __init__(__self__, *,
@@ -13643,6 +17954,28 @@ class TritonModelJobInputArgs:
     def mode(self, value: Optional[pulumi.Input[Union[str, 'InputDeliveryMode']]]):
         pulumi.set(self, "mode", value)
 
+
+if not MYPY:
+    class TritonModelJobOutputArgsDict(TypedDict):
+        job_output_type: pulumi.Input[str]
+        """
+        Enum to determine the Job Output Type.
+        Expected value is 'TritonModel'.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Description for the output.
+        """
+        mode: NotRequired[pulumi.Input[Union[str, 'OutputDeliveryMode']]]
+        """
+        Output Asset Delivery Mode.
+        """
+        uri: NotRequired[pulumi.Input[str]]
+        """
+        Output Asset URI.
+        """
+elif False:
+    TritonModelJobOutputArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TritonModelJobOutputArgs:
@@ -13717,6 +18050,31 @@ class TritonModelJobOutputArgs:
     def uri(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "uri", value)
 
+
+if not MYPY:
+    class TruncationSelectionPolicyArgsDict(TypedDict):
+        """
+        Defines an early termination policy that cancels a given percentage of runs at each evaluation interval.
+        """
+        policy_type: pulumi.Input[str]
+        """
+
+        Expected value is 'TruncationSelection'.
+        """
+        delay_evaluation: NotRequired[pulumi.Input[int]]
+        """
+        Number of intervals by which to delay the first evaluation.
+        """
+        evaluation_interval: NotRequired[pulumi.Input[int]]
+        """
+        Interval (number of runs) between policy evaluations.
+        """
+        truncation_percentage: NotRequired[pulumi.Input[int]]
+        """
+        The percentage of runs to cancel at each evaluation interval.
+        """
+elif False:
+    TruncationSelectionPolicyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TruncationSelectionPolicyArgs:
@@ -13796,6 +18154,43 @@ class TruncationSelectionPolicyArgs:
     def truncation_percentage(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "truncation_percentage", value)
 
+
+if not MYPY:
+    class UriFileDataVersionArgsDict(TypedDict):
+        """
+        uri-file data version entity
+        """
+        data_type: pulumi.Input[str]
+        """
+        Enum to determine the type of data.
+        Expected value is 'UriFile'.
+        """
+        data_uri: pulumi.Input[str]
+        """
+        [Required] Uri of the data. Usage/meaning depends on Microsoft.MachineLearning.ManagementFrontEnd.Contracts.V20220201Preview.Assets.DataVersionBase.DataType
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The asset description text.
+        """
+        is_anonymous: NotRequired[pulumi.Input[bool]]
+        """
+        If the name version are system generated (anonymous registration).
+        """
+        is_archived: NotRequired[pulumi.Input[bool]]
+        """
+        Is the asset archived?
+        """
+        properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        The asset property dictionary.
+        """
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Tag dictionary. Tags can be added, removed, and updated.
+        """
+elif False:
+    UriFileDataVersionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UriFileDataVersionArgs:
@@ -13921,6 +18316,28 @@ class UriFileDataVersionArgs:
         pulumi.set(self, "tags", value)
 
 
+if not MYPY:
+    class UriFileJobInputArgsDict(TypedDict):
+        job_input_type: pulumi.Input[str]
+        """
+        Enum to determine the Job Input Type.
+        Expected value is 'UriFile'.
+        """
+        uri: pulumi.Input[str]
+        """
+        [Required] Input Asset URI.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Description for the input.
+        """
+        mode: NotRequired[pulumi.Input[Union[str, 'InputDeliveryMode']]]
+        """
+        Input Asset Delivery Mode.
+        """
+elif False:
+    UriFileJobInputArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class UriFileJobInputArgs:
     def __init__(__self__, *,
@@ -13993,6 +18410,28 @@ class UriFileJobInputArgs:
     def mode(self, value: Optional[pulumi.Input[Union[str, 'InputDeliveryMode']]]):
         pulumi.set(self, "mode", value)
 
+
+if not MYPY:
+    class UriFileJobOutputArgsDict(TypedDict):
+        job_output_type: pulumi.Input[str]
+        """
+        Enum to determine the Job Output Type.
+        Expected value is 'UriFile'.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Description for the output.
+        """
+        mode: NotRequired[pulumi.Input[Union[str, 'OutputDeliveryMode']]]
+        """
+        Output Asset Delivery Mode.
+        """
+        uri: NotRequired[pulumi.Input[str]]
+        """
+        Output Asset URI.
+        """
+elif False:
+    UriFileJobOutputArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UriFileJobOutputArgs:
@@ -14067,6 +18506,43 @@ class UriFileJobOutputArgs:
     def uri(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "uri", value)
 
+
+if not MYPY:
+    class UriFolderDataVersionArgsDict(TypedDict):
+        """
+        uri-folder data version entity
+        """
+        data_type: pulumi.Input[str]
+        """
+        Enum to determine the type of data.
+        Expected value is 'UriFolder'.
+        """
+        data_uri: pulumi.Input[str]
+        """
+        [Required] Uri of the data. Usage/meaning depends on Microsoft.MachineLearning.ManagementFrontEnd.Contracts.V20220201Preview.Assets.DataVersionBase.DataType
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The asset description text.
+        """
+        is_anonymous: NotRequired[pulumi.Input[bool]]
+        """
+        If the name version are system generated (anonymous registration).
+        """
+        is_archived: NotRequired[pulumi.Input[bool]]
+        """
+        Is the asset archived?
+        """
+        properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        The asset property dictionary.
+        """
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Tag dictionary. Tags can be added, removed, and updated.
+        """
+elif False:
+    UriFolderDataVersionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UriFolderDataVersionArgs:
@@ -14192,6 +18668,28 @@ class UriFolderDataVersionArgs:
         pulumi.set(self, "tags", value)
 
 
+if not MYPY:
+    class UriFolderJobInputArgsDict(TypedDict):
+        job_input_type: pulumi.Input[str]
+        """
+        Enum to determine the Job Input Type.
+        Expected value is 'UriFolder'.
+        """
+        uri: pulumi.Input[str]
+        """
+        [Required] Input Asset URI.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Description for the input.
+        """
+        mode: NotRequired[pulumi.Input[Union[str, 'InputDeliveryMode']]]
+        """
+        Input Asset Delivery Mode.
+        """
+elif False:
+    UriFolderJobInputArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class UriFolderJobInputArgs:
     def __init__(__self__, *,
@@ -14264,6 +18762,28 @@ class UriFolderJobInputArgs:
     def mode(self, value: Optional[pulumi.Input[Union[str, 'InputDeliveryMode']]]):
         pulumi.set(self, "mode", value)
 
+
+if not MYPY:
+    class UriFolderJobOutputArgsDict(TypedDict):
+        job_output_type: pulumi.Input[str]
+        """
+        Enum to determine the Job Output Type.
+        Expected value is 'UriFolder'.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Description for the output.
+        """
+        mode: NotRequired[pulumi.Input[Union[str, 'OutputDeliveryMode']]]
+        """
+        Output Asset Delivery Mode.
+        """
+        uri: NotRequired[pulumi.Input[str]]
+        """
+        Output Asset URI.
+        """
+elif False:
+    UriFolderJobOutputArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UriFolderJobOutputArgs:
@@ -14338,6 +18858,19 @@ class UriFolderJobOutputArgs:
     def uri(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "uri", value)
 
+
+if not MYPY:
+    class UserIdentityArgsDict(TypedDict):
+        """
+        User identity configuration.
+        """
+        identity_type: pulumi.Input[str]
+        """
+        Enum to determine identity framework.
+        Expected value is 'UserIdentity'.
+        """
+elif False:
+    UserIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserIdentityArgs:

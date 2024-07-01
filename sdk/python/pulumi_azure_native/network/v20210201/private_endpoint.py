@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -202,16 +207,16 @@ class PrivateEndpoint(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 custom_dns_configs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomDnsConfigPropertiesFormatArgs']]]]] = None,
-                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
+                 custom_dns_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CustomDnsConfigPropertiesFormatArgs', 'CustomDnsConfigPropertiesFormatArgsDict']]]]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 manual_private_link_service_connections: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrivateLinkServiceConnectionArgs']]]]] = None,
+                 manual_private_link_service_connections: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PrivateLinkServiceConnectionArgs', 'PrivateLinkServiceConnectionArgsDict']]]]] = None,
                  private_endpoint_name: Optional[pulumi.Input[str]] = None,
-                 private_link_service_connections: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrivateLinkServiceConnectionArgs']]]]] = None,
+                 private_link_service_connections: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PrivateLinkServiceConnectionArgs', 'PrivateLinkServiceConnectionArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_guid: Optional[pulumi.Input[str]] = None,
-                 subnet: Optional[pulumi.Input[pulumi.InputType['SubnetArgs']]] = None,
+                 subnet: Optional[pulumi.Input[Union['SubnetArgs', 'SubnetArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -219,16 +224,16 @@ class PrivateEndpoint(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomDnsConfigPropertiesFormatArgs']]]] custom_dns_configs: An array of custom dns configurations.
-        :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: The extended location of the load balancer.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CustomDnsConfigPropertiesFormatArgs', 'CustomDnsConfigPropertiesFormatArgsDict']]]] custom_dns_configs: An array of custom dns configurations.
+        :param pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']] extended_location: The extended location of the load balancer.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrivateLinkServiceConnectionArgs']]]] manual_private_link_service_connections: A grouping of information about the connection to the remote resource. Used when the network admin does not have access to approve connections to the remote resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PrivateLinkServiceConnectionArgs', 'PrivateLinkServiceConnectionArgsDict']]]] manual_private_link_service_connections: A grouping of information about the connection to the remote resource. Used when the network admin does not have access to approve connections to the remote resource.
         :param pulumi.Input[str] private_endpoint_name: The name of the private endpoint.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrivateLinkServiceConnectionArgs']]]] private_link_service_connections: A grouping of information about the connection to the remote resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PrivateLinkServiceConnectionArgs', 'PrivateLinkServiceConnectionArgsDict']]]] private_link_service_connections: A grouping of information about the connection to the remote resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] resource_guid: The resource id of private endpoint.
-        :param pulumi.Input[pulumi.InputType['SubnetArgs']] subnet: The ID of the subnet from which the private IP will be allocated.
+        :param pulumi.Input[Union['SubnetArgs', 'SubnetArgsDict']] subnet: The ID of the subnet from which the private IP will be allocated.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         ...
@@ -255,16 +260,16 @@ class PrivateEndpoint(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 custom_dns_configs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomDnsConfigPropertiesFormatArgs']]]]] = None,
-                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
+                 custom_dns_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CustomDnsConfigPropertiesFormatArgs', 'CustomDnsConfigPropertiesFormatArgsDict']]]]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 manual_private_link_service_connections: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrivateLinkServiceConnectionArgs']]]]] = None,
+                 manual_private_link_service_connections: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PrivateLinkServiceConnectionArgs', 'PrivateLinkServiceConnectionArgsDict']]]]] = None,
                  private_endpoint_name: Optional[pulumi.Input[str]] = None,
-                 private_link_service_connections: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrivateLinkServiceConnectionArgs']]]]] = None,
+                 private_link_service_connections: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PrivateLinkServiceConnectionArgs', 'PrivateLinkServiceConnectionArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_guid: Optional[pulumi.Input[str]] = None,
-                 subnet: Optional[pulumi.Input[pulumi.InputType['SubnetArgs']]] = None,
+                 subnet: Optional[pulumi.Input[Union['SubnetArgs', 'SubnetArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

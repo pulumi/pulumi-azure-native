@@ -4,19 +4,47 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'CostAllocationProportionArgs',
+    'CostAllocationProportionArgsDict',
     'CostAllocationRuleDetailsArgs',
+    'CostAllocationRuleDetailsArgsDict',
     'CostAllocationRulePropertiesArgs',
+    'CostAllocationRulePropertiesArgsDict',
     'SourceCostAllocationResourceArgs',
+    'SourceCostAllocationResourceArgsDict',
     'TargetCostAllocationResourceArgs',
+    'TargetCostAllocationResourceArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class CostAllocationProportionArgsDict(TypedDict):
+        """
+        Target resources and allocation
+        """
+        name: pulumi.Input[str]
+        """
+        Target resource for cost allocation
+        """
+        percentage: pulumi.Input[float]
+        """
+        Percentage of source cost to allocate to this resource. This value can be specified to two decimal places and the total percentage of all resources in this rule must sum to 100.00.
+        """
+elif False:
+    CostAllocationProportionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CostAllocationProportionArgs:
@@ -55,6 +83,22 @@ class CostAllocationProportionArgs:
     def percentage(self, value: pulumi.Input[float]):
         pulumi.set(self, "percentage", value)
 
+
+if not MYPY:
+    class CostAllocationRuleDetailsArgsDict(TypedDict):
+        """
+        Resource details of the cost allocation rule
+        """
+        source_resources: NotRequired[pulumi.Input[Sequence[pulumi.Input['SourceCostAllocationResourceArgsDict']]]]
+        """
+        Source resources for cost allocation. At this time, this list can contain no more than one element.
+        """
+        target_resources: NotRequired[pulumi.Input[Sequence[pulumi.Input['TargetCostAllocationResourceArgsDict']]]]
+        """
+        Target resources for cost allocation. At this time, this list can contain no more than one element.
+        """
+elif False:
+    CostAllocationRuleDetailsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CostAllocationRuleDetailsArgs:
@@ -95,6 +139,26 @@ class CostAllocationRuleDetailsArgs:
     def target_resources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TargetCostAllocationResourceArgs']]]]):
         pulumi.set(self, "target_resources", value)
 
+
+if not MYPY:
+    class CostAllocationRulePropertiesArgsDict(TypedDict):
+        """
+        The properties of a cost allocation rule
+        """
+        details: pulumi.Input['CostAllocationRuleDetailsArgsDict']
+        """
+        Resource information for the cost allocation rule
+        """
+        status: pulumi.Input[Union[str, 'RuleStatus']]
+        """
+        Status of the rule
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Description of a cost allocation rule.
+        """
+elif False:
+    CostAllocationRulePropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CostAllocationRulePropertiesArgs:
@@ -150,6 +214,26 @@ class CostAllocationRulePropertiesArgs:
         pulumi.set(self, "description", value)
 
 
+if not MYPY:
+    class SourceCostAllocationResourceArgsDict(TypedDict):
+        """
+        Source resources for cost allocation
+        """
+        name: pulumi.Input[str]
+        """
+        If resource type is dimension, this must be either ResourceGroupName or SubscriptionId. If resource type is tag, this must be a valid Azure tag
+        """
+        resource_type: pulumi.Input[Union[str, 'CostAllocationResourceType']]
+        """
+        Type of resources contained in this cost allocation rule
+        """
+        values: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Source Resources for cost allocation. This list cannot contain more than 25 values.
+        """
+elif False:
+    SourceCostAllocationResourceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SourceCostAllocationResourceArgs:
     def __init__(__self__, *,
@@ -202,6 +286,30 @@ class SourceCostAllocationResourceArgs:
     def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "values", value)
 
+
+if not MYPY:
+    class TargetCostAllocationResourceArgsDict(TypedDict):
+        """
+        Target resources for cost allocation.
+        """
+        name: pulumi.Input[str]
+        """
+        If resource type is dimension, this must be either ResourceGroupName or SubscriptionId. If resource type is tag, this must be a valid Azure tag
+        """
+        policy_type: pulumi.Input[Union[str, 'CostAllocationPolicyType']]
+        """
+        Method of cost allocation for the rule
+        """
+        resource_type: pulumi.Input[Union[str, 'CostAllocationResourceType']]
+        """
+        Type of resources contained in this cost allocation rule
+        """
+        values: pulumi.Input[Sequence[pulumi.Input['CostAllocationProportionArgsDict']]]
+        """
+        Target resources for cost allocation. This list cannot contain more than 25 values.
+        """
+elif False:
+    TargetCostAllocationResourceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TargetCostAllocationResourceArgs:

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -107,7 +112,7 @@ class ContentKeyPolicy(pulumi.CustomResource):
                  account_name: Optional[pulumi.Input[str]] = None,
                  content_key_policy_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 options: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContentKeyPolicyOptionArgs']]]]] = None,
+                 options: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ContentKeyPolicyOptionArgs', 'ContentKeyPolicyOptionArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -119,7 +124,7 @@ class ContentKeyPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] account_name: The Media Services account name.
         :param pulumi.Input[str] content_key_policy_name: The Content Key Policy name.
         :param pulumi.Input[str] description: A description for the Policy.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContentKeyPolicyOptionArgs']]]] options: The Key Policy options.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ContentKeyPolicyOptionArgs', 'ContentKeyPolicyOptionArgsDict']]]] options: The Key Policy options.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the Azure subscription.
         """
         ...
@@ -150,7 +155,7 @@ class ContentKeyPolicy(pulumi.CustomResource):
                  account_name: Optional[pulumi.Input[str]] = None,
                  content_key_policy_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 options: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContentKeyPolicyOptionArgs']]]]] = None,
+                 options: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ContentKeyPolicyOptionArgs', 'ContentKeyPolicyOptionArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

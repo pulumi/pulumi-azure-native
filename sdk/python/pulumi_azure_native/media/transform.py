@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -106,7 +111,7 @@ class Transform(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 outputs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TransformOutputArgs']]]]] = None,
+                 outputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TransformOutputArgs', 'TransformOutputArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  transform_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -118,7 +123,7 @@ class Transform(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The Media Services account name.
         :param pulumi.Input[str] description: An optional verbose description of the Transform.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TransformOutputArgs']]]] outputs: An array of one or more TransformOutputs that the Transform should generate.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TransformOutputArgs', 'TransformOutputArgsDict']]]] outputs: An array of one or more TransformOutputs that the Transform should generate.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the Azure subscription.
         :param pulumi.Input[str] transform_name: The Transform name.
         """
@@ -149,7 +154,7 @@ class Transform(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 outputs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TransformOutputArgs']]]]] = None,
+                 outputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TransformOutputArgs', 'TransformOutputArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  transform_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):

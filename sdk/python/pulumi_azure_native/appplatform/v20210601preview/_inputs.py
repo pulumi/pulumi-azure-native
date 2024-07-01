@@ -4,14 +4,42 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 
 __all__ = [
     'CertificatePropertiesArgs',
+    'CertificatePropertiesArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class CertificatePropertiesArgsDict(TypedDict):
+        """
+        Certificate resource payload.
+        """
+        key_vault_cert_name: pulumi.Input[str]
+        """
+        The certificate name of key vault.
+        """
+        vault_uri: pulumi.Input[str]
+        """
+        The vault uri of user key vault.
+        """
+        cert_version: NotRequired[pulumi.Input[str]]
+        """
+        The certificate version of key vault.
+        """
+elif False:
+    CertificatePropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CertificatePropertiesArgs:

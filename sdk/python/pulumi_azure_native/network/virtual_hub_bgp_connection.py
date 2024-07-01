@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -153,7 +158,7 @@ class VirtualHubBgpConnection(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  connection_name: Optional[pulumi.Input[str]] = None,
-                 hub_virtual_network_connection: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
+                 hub_virtual_network_connection: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  peer_asn: Optional[pulumi.Input[float]] = None,
@@ -170,7 +175,7 @@ class VirtualHubBgpConnection(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] connection_name: The name of the connection.
-        :param pulumi.Input[pulumi.InputType['SubResourceArgs']] hub_virtual_network_connection: The reference to the HubVirtualNetworkConnection resource.
+        :param pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']] hub_virtual_network_connection: The reference to the HubVirtualNetworkConnection resource.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] name: Name of the connection.
         :param pulumi.Input[float] peer_asn: Peer ASN.
@@ -206,7 +211,7 @@ class VirtualHubBgpConnection(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  connection_name: Optional[pulumi.Input[str]] = None,
-                 hub_virtual_network_connection: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
+                 hub_virtual_network_connection: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  peer_asn: Optional[pulumi.Input[float]] = None,

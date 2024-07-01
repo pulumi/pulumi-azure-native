@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -249,10 +254,10 @@ class KafkaConnectorTopicMap(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 batching: Optional[pulumi.Input[pulumi.InputType['KafkaTopicMapBatchingArgs']]] = None,
+                 batching: Optional[pulumi.Input[Union['KafkaTopicMapBatchingArgs', 'KafkaTopicMapBatchingArgsDict']]] = None,
                  compression: Optional[pulumi.Input[Union[str, 'KafkaMessageCompressionType']]] = None,
                  copy_mqtt_properties: Optional[pulumi.Input[str]] = None,
-                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationPropertyArgs']]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationPropertyArgs', 'ExtendedLocationPropertyArgsDict']]] = None,
                  kafka_connector_name: Optional[pulumi.Input[str]] = None,
                  kafka_connector_ref: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -260,7 +265,7 @@ class KafkaConnectorTopicMap(pulumi.CustomResource):
                  partition_key_property: Optional[pulumi.Input[str]] = None,
                  partition_strategy: Optional[pulumi.Input[Union[str, 'KafkaPartitionStrategy']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 routes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KafkaRoutesArgs']]]]] = None,
+                 routes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['KafkaRoutesArgs', 'KafkaRoutesArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  topic_map_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -269,10 +274,10 @@ class KafkaConnectorTopicMap(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['KafkaTopicMapBatchingArgs']] batching: The batching settings for kafka messages.
+        :param pulumi.Input[Union['KafkaTopicMapBatchingArgs', 'KafkaTopicMapBatchingArgsDict']] batching: The batching settings for kafka messages.
         :param pulumi.Input[Union[str, 'KafkaMessageCompressionType']] compression: The compression to use for kafka messages.
         :param pulumi.Input[str] copy_mqtt_properties: The flag to copy Mqtt properties.
-        :param pulumi.Input[pulumi.InputType['ExtendedLocationPropertyArgs']] extended_location: Extended Location
+        :param pulumi.Input[Union['ExtendedLocationPropertyArgs', 'ExtendedLocationPropertyArgsDict']] extended_location: Extended Location
         :param pulumi.Input[str] kafka_connector_name: Name of MQ kafkaConnector resource
         :param pulumi.Input[str] kafka_connector_ref: The kafkaConnector CRD it refers to.
         :param pulumi.Input[str] location: The geo-location where the resource lives
@@ -280,7 +285,7 @@ class KafkaConnectorTopicMap(pulumi.CustomResource):
         :param pulumi.Input[str] partition_key_property: The partition to use for Kafka.
         :param pulumi.Input[Union[str, 'KafkaPartitionStrategy']] partition_strategy: The partition strategy to use for Kafka.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KafkaRoutesArgs']]]] routes: The route details for Kafka connector.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['KafkaRoutesArgs', 'KafkaRoutesArgsDict']]]] routes: The route details for Kafka connector.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] topic_map_name: Name of MQ kafka/topicMap resource
         """
@@ -308,10 +313,10 @@ class KafkaConnectorTopicMap(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 batching: Optional[pulumi.Input[pulumi.InputType['KafkaTopicMapBatchingArgs']]] = None,
+                 batching: Optional[pulumi.Input[Union['KafkaTopicMapBatchingArgs', 'KafkaTopicMapBatchingArgsDict']]] = None,
                  compression: Optional[pulumi.Input[Union[str, 'KafkaMessageCompressionType']]] = None,
                  copy_mqtt_properties: Optional[pulumi.Input[str]] = None,
-                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationPropertyArgs']]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationPropertyArgs', 'ExtendedLocationPropertyArgsDict']]] = None,
                  kafka_connector_name: Optional[pulumi.Input[str]] = None,
                  kafka_connector_ref: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -319,7 +324,7 @@ class KafkaConnectorTopicMap(pulumi.CustomResource):
                  partition_key_property: Optional[pulumi.Input[str]] = None,
                  partition_strategy: Optional[pulumi.Input[Union[str, 'KafkaPartitionStrategy']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 routes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KafkaRoutesArgs']]]]] = None,
+                 routes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['KafkaRoutesArgs', 'KafkaRoutesArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  topic_map_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):

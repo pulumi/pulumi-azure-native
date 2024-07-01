@@ -4,15 +4,51 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'SkuArgs',
+    'SkuArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class SkuArgsDict(TypedDict):
+        """
+        An ARM Resource SKU.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the SKU, typically, a letter + Number code, e.g. P3.
+        """
+        capacity: NotRequired[pulumi.Input[int]]
+        """
+        Capacity of the particular SKU.
+        """
+        family: NotRequired[pulumi.Input[str]]
+        """
+        If the service has different generations of hardware, for the same SKU, then that can be captured here.
+        """
+        size: NotRequired[pulumi.Input[str]]
+        """
+        Size of the particular SKU
+        """
+        tier: NotRequired[pulumi.Input[str]]
+        """
+        The tier or edition of the particular SKU, e.g. Basic, Premium.
+        """
+elif False:
+    SkuArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SkuArgs:

@@ -4,18 +4,45 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'MigrateProjectPropertiesArgs',
+    'MigrateProjectPropertiesArgsDict',
     'MigrateProjectTagsArgs',
+    'MigrateProjectTagsArgsDict',
     'SolutionDetailsArgs',
+    'SolutionDetailsArgsDict',
     'SolutionPropertiesArgs',
+    'SolutionPropertiesArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class MigrateProjectPropertiesArgsDict(TypedDict):
+        """
+        Class for migrate project properties.
+        """
+        provisioning_state: NotRequired[pulumi.Input[Union[str, 'ProvisioningState']]]
+        """
+        Provisioning state of the migrate project.
+        """
+        registered_tools: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Gets or sets the list of tools registered with the migrate project.
+        """
+elif False:
+    MigrateProjectPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MigrateProjectPropertiesArgs:
@@ -57,6 +84,15 @@ class MigrateProjectPropertiesArgs:
         pulumi.set(self, "registered_tools", value)
 
 
+if not MYPY:
+    class MigrateProjectTagsArgsDict(TypedDict):
+        """
+        Gets or sets the tags.
+        """
+        additional_properties: NotRequired[pulumi.Input[str]]
+elif False:
+    MigrateProjectTagsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MigrateProjectTagsArgs:
     def __init__(__self__, *,
@@ -76,6 +112,26 @@ class MigrateProjectTagsArgs:
     def additional_properties(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "additional_properties", value)
 
+
+if not MYPY:
+    class SolutionDetailsArgsDict(TypedDict):
+        """
+        Class representing the details of the solution.
+        """
+        assessment_count: NotRequired[pulumi.Input[int]]
+        """
+        Gets or sets the count of assessments reported by the solution.
+        """
+        extended_details: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Gets or sets the extended details reported by the solution.
+        """
+        group_count: NotRequired[pulumi.Input[int]]
+        """
+        Gets or sets the count of groups reported by the solution.
+        """
+elif False:
+    SolutionDetailsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SolutionDetailsArgs:
@@ -132,6 +188,38 @@ class SolutionDetailsArgs:
     def group_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "group_count", value)
 
+
+if not MYPY:
+    class SolutionPropertiesArgsDict(TypedDict):
+        """
+        Class for solution properties.
+        """
+        cleanup_state: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the cleanup state of the solution.
+        """
+        details: NotRequired[pulumi.Input['SolutionDetailsArgsDict']]
+        """
+        Gets or sets the details of the solution.
+        """
+        goal: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the goal of the solution.
+        """
+        purpose: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the purpose of the solution.
+        """
+        status: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the current status of the solution.
+        """
+        tool: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the tool being used in the solution.
+        """
+elif False:
+    SolutionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SolutionPropertiesArgs:

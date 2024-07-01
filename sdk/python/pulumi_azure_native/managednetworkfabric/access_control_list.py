@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -139,7 +144,7 @@ class AccessControlList(pulumi.CustomResource):
                  access_control_list_name: Optional[pulumi.Input[str]] = None,
                  address_family: Optional[pulumi.Input[Union[str, 'AddressFamily']]] = None,
                  annotation: Optional[pulumi.Input[str]] = None,
-                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccessControlListConditionPropertiesArgs']]]]] = None,
+                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AccessControlListConditionPropertiesArgs', 'AccessControlListConditionPropertiesArgsDict']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -155,7 +160,7 @@ class AccessControlList(pulumi.CustomResource):
         :param pulumi.Input[str] access_control_list_name: Name of the Access Control List
         :param pulumi.Input[Union[str, 'AddressFamily']] address_family: IP address family. Example: ipv4 | ipv6.
         :param pulumi.Input[str] annotation: Switch configuration description.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccessControlListConditionPropertiesArgs']]]] conditions: Access Control List conditions.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AccessControlListConditionPropertiesArgs', 'AccessControlListConditionPropertiesArgsDict']]]] conditions: Access Control List conditions.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -190,7 +195,7 @@ class AccessControlList(pulumi.CustomResource):
                  access_control_list_name: Optional[pulumi.Input[str]] = None,
                  address_family: Optional[pulumi.Input[Union[str, 'AddressFamily']]] = None,
                  annotation: Optional[pulumi.Input[str]] = None,
-                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccessControlListConditionPropertiesArgs']]]]] = None,
+                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AccessControlListConditionPropertiesArgs', 'AccessControlListConditionPropertiesArgsDict']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,

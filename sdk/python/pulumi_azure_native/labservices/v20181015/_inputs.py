@@ -4,17 +4,43 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'ReferenceVmArgs',
+    'ReferenceVmArgsDict',
     'ResourceSettingsArgs',
+    'ResourceSettingsArgsDict',
     'ResourceSetArgs',
+    'ResourceSetArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ReferenceVmArgsDict(TypedDict):
+        """
+        Details of a Reference Vm
+        """
+        user_name: pulumi.Input[str]
+        """
+        The username of the virtual machine
+        """
+        password: NotRequired[pulumi.Input[str]]
+        """
+        The password of the virtual machine. This will be set to null in GET resource API
+        """
+elif False:
+    ReferenceVmArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ReferenceVmArgs:
@@ -54,6 +80,26 @@ class ReferenceVmArgs:
     def password(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "password", value)
 
+
+if not MYPY:
+    class ResourceSettingsArgsDict(TypedDict):
+        """
+        Represents resource specific settings
+        """
+        reference_vm: pulumi.Input['ReferenceVmArgsDict']
+        """
+        Details specific to Reference Vm
+        """
+        gallery_image_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        The resource id of the gallery image used for creating the virtual machine
+        """
+        size: NotRequired[pulumi.Input[Union[str, 'ManagedLabVmSize']]]
+        """
+        The size of the virtual machine
+        """
+elif False:
+    ResourceSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ResourceSettingsArgs:
@@ -109,6 +155,22 @@ class ResourceSettingsArgs:
     def size(self, value: Optional[pulumi.Input[Union[str, 'ManagedLabVmSize']]]):
         pulumi.set(self, "size", value)
 
+
+if not MYPY:
+    class ResourceSetArgsDict(TypedDict):
+        """
+        Represents a VM and the setting Id it was created for.
+        """
+        resource_setting_id: NotRequired[pulumi.Input[str]]
+        """
+        resourceSettingId for the environment
+        """
+        vm_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        VM resource Id for the environment
+        """
+elif False:
+    ResourceSetArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ResourceSetArgs:

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -285,21 +290,21 @@ class Route(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 compression_settings: Optional[pulumi.Input[pulumi.InputType['CompressionSettingsArgs']]] = None,
-                 custom_domains: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceReferenceArgs']]]]] = None,
+                 compression_settings: Optional[pulumi.Input[Union['CompressionSettingsArgs', 'CompressionSettingsArgsDict']]] = None,
+                 custom_domains: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResourceReferenceArgs', 'ResourceReferenceArgsDict']]]]] = None,
                  enabled_state: Optional[pulumi.Input[Union[str, 'EnabledState']]] = None,
                  endpoint_name: Optional[pulumi.Input[str]] = None,
                  forwarding_protocol: Optional[pulumi.Input[Union[str, 'ForwardingProtocol']]] = None,
                  https_redirect: Optional[pulumi.Input[Union[str, 'HttpsRedirect']]] = None,
                  link_to_default_domain: Optional[pulumi.Input[Union[str, 'LinkToDefaultDomain']]] = None,
-                 origin_group: Optional[pulumi.Input[pulumi.InputType['ResourceReferenceArgs']]] = None,
+                 origin_group: Optional[pulumi.Input[Union['ResourceReferenceArgs', 'ResourceReferenceArgsDict']]] = None,
                  origin_path: Optional[pulumi.Input[str]] = None,
                  patterns_to_match: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  profile_name: Optional[pulumi.Input[str]] = None,
                  query_string_caching_behavior: Optional[pulumi.Input['AfdQueryStringCachingBehavior']] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  route_name: Optional[pulumi.Input[str]] = None,
-                 rule_sets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceReferenceArgs']]]]] = None,
+                 rule_sets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResourceReferenceArgs', 'ResourceReferenceArgsDict']]]]] = None,
                  supported_protocols: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AFDEndpointProtocols']]]]] = None,
                  __props__=None):
         """
@@ -307,21 +312,21 @@ class Route(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['CompressionSettingsArgs']] compression_settings: compression settings.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceReferenceArgs']]]] custom_domains: Domains referenced by this endpoint.
+        :param pulumi.Input[Union['CompressionSettingsArgs', 'CompressionSettingsArgsDict']] compression_settings: compression settings.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ResourceReferenceArgs', 'ResourceReferenceArgsDict']]]] custom_domains: Domains referenced by this endpoint.
         :param pulumi.Input[Union[str, 'EnabledState']] enabled_state: Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
         :param pulumi.Input[str] endpoint_name: Name of the endpoint under the profile which is unique globally.
         :param pulumi.Input[Union[str, 'ForwardingProtocol']] forwarding_protocol: Protocol this rule will use when forwarding traffic to backends.
         :param pulumi.Input[Union[str, 'HttpsRedirect']] https_redirect: Whether to automatically redirect HTTP traffic to HTTPS traffic. Note that this is a easy way to set up this rule and it will be the first rule that gets executed.
         :param pulumi.Input[Union[str, 'LinkToDefaultDomain']] link_to_default_domain: whether this route will be linked to the default endpoint domain.
-        :param pulumi.Input[pulumi.InputType['ResourceReferenceArgs']] origin_group: A reference to the origin group.
+        :param pulumi.Input[Union['ResourceReferenceArgs', 'ResourceReferenceArgsDict']] origin_group: A reference to the origin group.
         :param pulumi.Input[str] origin_path: A directory path on the origin that AzureFrontDoor can use to retrieve content from, e.g. contoso.cloudapp.net/originpath.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] patterns_to_match: The route patterns of the rule.
         :param pulumi.Input[str] profile_name: Name of the CDN profile which is unique within the resource group.
         :param pulumi.Input['AfdQueryStringCachingBehavior'] query_string_caching_behavior: Defines how CDN caches requests that include query strings. You can ignore any query strings when caching, bypass caching to prevent requests that contain query strings from being cached, or cache every request with a unique URL.
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
         :param pulumi.Input[str] route_name: Name of the routing rule.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceReferenceArgs']]]] rule_sets: rule sets referenced by this endpoint.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ResourceReferenceArgs', 'ResourceReferenceArgsDict']]]] rule_sets: rule sets referenced by this endpoint.
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'AFDEndpointProtocols']]]] supported_protocols: List of supported protocols for this route.
         """
         ...
@@ -348,21 +353,21 @@ class Route(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 compression_settings: Optional[pulumi.Input[pulumi.InputType['CompressionSettingsArgs']]] = None,
-                 custom_domains: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceReferenceArgs']]]]] = None,
+                 compression_settings: Optional[pulumi.Input[Union['CompressionSettingsArgs', 'CompressionSettingsArgsDict']]] = None,
+                 custom_domains: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResourceReferenceArgs', 'ResourceReferenceArgsDict']]]]] = None,
                  enabled_state: Optional[pulumi.Input[Union[str, 'EnabledState']]] = None,
                  endpoint_name: Optional[pulumi.Input[str]] = None,
                  forwarding_protocol: Optional[pulumi.Input[Union[str, 'ForwardingProtocol']]] = None,
                  https_redirect: Optional[pulumi.Input[Union[str, 'HttpsRedirect']]] = None,
                  link_to_default_domain: Optional[pulumi.Input[Union[str, 'LinkToDefaultDomain']]] = None,
-                 origin_group: Optional[pulumi.Input[pulumi.InputType['ResourceReferenceArgs']]] = None,
+                 origin_group: Optional[pulumi.Input[Union['ResourceReferenceArgs', 'ResourceReferenceArgsDict']]] = None,
                  origin_path: Optional[pulumi.Input[str]] = None,
                  patterns_to_match: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  profile_name: Optional[pulumi.Input[str]] = None,
                  query_string_caching_behavior: Optional[pulumi.Input['AfdQueryStringCachingBehavior']] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  route_name: Optional[pulumi.Input[str]] = None,
-                 rule_sets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceReferenceArgs']]]]] = None,
+                 rule_sets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResourceReferenceArgs', 'ResourceReferenceArgsDict']]]]] = None,
                  supported_protocols: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AFDEndpointProtocols']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

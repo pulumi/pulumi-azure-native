@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -198,16 +203,16 @@ class PipelineGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 exporters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExporterArgs']]]]] = None,
-                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
+                 exporters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ExporterArgs', 'ExporterArgsDict']]]]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 networking_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkingConfigurationArgs']]]]] = None,
+                 networking_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkingConfigurationArgs', 'NetworkingConfigurationArgsDict']]]]] = None,
                  pipeline_group_name: Optional[pulumi.Input[str]] = None,
-                 processors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProcessorArgs']]]]] = None,
-                 receivers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReceiverArgs']]]]] = None,
+                 processors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProcessorArgs', 'ProcessorArgsDict']]]]] = None,
+                 receivers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReceiverArgs', 'ReceiverArgsDict']]]]] = None,
                  replicas: Optional[pulumi.Input[int]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 service: Optional[pulumi.Input[pulumi.InputType['ServiceArgs']]] = None,
+                 service: Optional[pulumi.Input[Union['ServiceArgs', 'ServiceArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -215,16 +220,16 @@ class PipelineGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExporterArgs']]]] exporters: The exporters specified for a pipeline group instance.
-        :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: The extended location for given pipeline group.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ExporterArgs', 'ExporterArgsDict']]]] exporters: The exporters specified for a pipeline group instance.
+        :param pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']] extended_location: The extended location for given pipeline group.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkingConfigurationArgs']]]] networking_configurations: Networking configurations for the pipeline group instance.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkingConfigurationArgs', 'NetworkingConfigurationArgsDict']]]] networking_configurations: Networking configurations for the pipeline group instance.
         :param pulumi.Input[str] pipeline_group_name: The name of pipeline group. The name is case insensitive.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProcessorArgs']]]] processors: The processors specified for a pipeline group instance.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReceiverArgs']]]] receivers: The receivers specified for a pipeline group instance.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ProcessorArgs', 'ProcessorArgsDict']]]] processors: The processors specified for a pipeline group instance.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ReceiverArgs', 'ReceiverArgsDict']]]] receivers: The receivers specified for a pipeline group instance.
         :param pulumi.Input[int] replicas: Defines the amount of replicas of the pipeline group instance.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[pulumi.InputType['ServiceArgs']] service: The service section for a given pipeline group instance.
+        :param pulumi.Input[Union['ServiceArgs', 'ServiceArgsDict']] service: The service section for a given pipeline group instance.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         ...
@@ -251,16 +256,16 @@ class PipelineGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 exporters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExporterArgs']]]]] = None,
-                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
+                 exporters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ExporterArgs', 'ExporterArgsDict']]]]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 networking_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkingConfigurationArgs']]]]] = None,
+                 networking_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkingConfigurationArgs', 'NetworkingConfigurationArgsDict']]]]] = None,
                  pipeline_group_name: Optional[pulumi.Input[str]] = None,
-                 processors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProcessorArgs']]]]] = None,
-                 receivers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReceiverArgs']]]]] = None,
+                 processors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProcessorArgs', 'ProcessorArgsDict']]]]] = None,
+                 receivers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReceiverArgs', 'ReceiverArgsDict']]]]] = None,
                  replicas: Optional[pulumi.Input[int]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 service: Optional[pulumi.Input[pulumi.InputType['ServiceArgs']]] = None,
+                 service: Optional[pulumi.Input[Union['ServiceArgs', 'ServiceArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

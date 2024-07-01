@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -224,7 +229,7 @@ class BackupPolicy(pulumi.CustomResource):
                  monthly_backups_to_keep: Optional[pulumi.Input[int]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 volume_backups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VolumeBackupsArgs']]]]] = None,
+                 volume_backups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VolumeBackupsArgs', 'VolumeBackupsArgsDict']]]]] = None,
                  volumes_assigned: Optional[pulumi.Input[int]] = None,
                  weekly_backups_to_keep: Optional[pulumi.Input[int]] = None,
                  yearly_backups_to_keep: Optional[pulumi.Input[int]] = None,
@@ -242,7 +247,7 @@ class BackupPolicy(pulumi.CustomResource):
         :param pulumi.Input[int] monthly_backups_to_keep: Monthly backups count to keep
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VolumeBackupsArgs']]]] volume_backups: A list of volumes assigned to this policy
+        :param pulumi.Input[Sequence[pulumi.Input[Union['VolumeBackupsArgs', 'VolumeBackupsArgsDict']]]] volume_backups: A list of volumes assigned to this policy
         :param pulumi.Input[int] volumes_assigned: Volumes using current backup policy
         :param pulumi.Input[int] weekly_backups_to_keep: Weekly backups count to keep
         :param pulumi.Input[int] yearly_backups_to_keep: Yearly backups count to keep
@@ -279,7 +284,7 @@ class BackupPolicy(pulumi.CustomResource):
                  monthly_backups_to_keep: Optional[pulumi.Input[int]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 volume_backups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VolumeBackupsArgs']]]]] = None,
+                 volume_backups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VolumeBackupsArgs', 'VolumeBackupsArgsDict']]]]] = None,
                  volumes_assigned: Optional[pulumi.Input[int]] = None,
                  weekly_backups_to_keep: Optional[pulumi.Input[int]] = None,
                  yearly_backups_to_keep: Optional[pulumi.Input[int]] = None,

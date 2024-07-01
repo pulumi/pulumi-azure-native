@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -137,7 +142,7 @@ class BlobStorageAccountDataSet(pulumi.CustomResource):
                  account_name: Optional[pulumi.Input[str]] = None,
                  data_set_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
-                 paths: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BlobStorageAccountPathArgs']]]]] = None,
+                 paths: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BlobStorageAccountPathArgs', 'BlobStorageAccountPathArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  share_name: Optional[pulumi.Input[str]] = None,
                  storage_account_resource_id: Optional[pulumi.Input[str]] = None,
@@ -151,7 +156,7 @@ class BlobStorageAccountDataSet(pulumi.CustomResource):
         :param pulumi.Input[str] data_set_name: The name of the dataSet.
         :param pulumi.Input[str] kind: Kind of data set.
                Expected value is 'BlobStorageAccount'.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BlobStorageAccountPathArgs']]]] paths: A list of storage account paths.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BlobStorageAccountPathArgs', 'BlobStorageAccountPathArgsDict']]]] paths: A list of storage account paths.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[str] share_name: The name of the share to add the data set to.
         :param pulumi.Input[str] storage_account_resource_id: Resource id of the storage account.
@@ -183,7 +188,7 @@ class BlobStorageAccountDataSet(pulumi.CustomResource):
                  account_name: Optional[pulumi.Input[str]] = None,
                  data_set_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
-                 paths: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BlobStorageAccountPathArgs']]]]] = None,
+                 paths: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BlobStorageAccountPathArgs', 'BlobStorageAccountPathArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  share_name: Optional[pulumi.Input[str]] = None,
                  storage_account_resource_id: Optional[pulumi.Input[str]] = None,

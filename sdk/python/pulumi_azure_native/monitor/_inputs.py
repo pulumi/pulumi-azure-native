@@ -4,36 +4,89 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'AzureMonitorWorkspaceLogsApiConfigArgs',
+    'AzureMonitorWorkspaceLogsApiConfigArgsDict',
     'AzureMonitorWorkspaceLogsExporterArgs',
+    'AzureMonitorWorkspaceLogsExporterArgsDict',
     'BatchProcessorArgs',
+    'BatchProcessorArgsDict',
     'CacheConfigurationArgs',
+    'CacheConfigurationArgsDict',
     'ConcurrencyConfigurationArgs',
+    'ConcurrencyConfigurationArgsDict',
     'ExporterArgs',
+    'ExporterArgsDict',
     'ExtendedLocationArgs',
+    'ExtendedLocationArgsDict',
     'NetworkingConfigurationArgs',
+    'NetworkingConfigurationArgsDict',
     'NetworkingRouteArgs',
+    'NetworkingRouteArgsDict',
     'OtlpReceiverArgs',
+    'OtlpReceiverArgsDict',
     'PersistenceConfigurationsArgs',
+    'PersistenceConfigurationsArgsDict',
     'PipelineArgs',
+    'PipelineArgsDict',
     'ProcessorArgs',
+    'ProcessorArgsDict',
     'ReceiverArgs',
+    'ReceiverArgsDict',
     'RecordMapArgs',
+    'RecordMapArgsDict',
     'ResourceMapArgs',
+    'ResourceMapArgsDict',
     'SchemaMapArgs',
+    'SchemaMapArgsDict',
     'ScopeMapArgs',
+    'ScopeMapArgsDict',
     'ServiceArgs',
+    'ServiceArgsDict',
     'SyslogReceiverArgs',
+    'SyslogReceiverArgsDict',
     'TcpExporterArgs',
+    'TcpExporterArgsDict',
     'UdpReceiverArgs',
+    'UdpReceiverArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AzureMonitorWorkspaceLogsApiConfigArgsDict(TypedDict):
+        """
+        Azure Monitor Workspace Logs Api configurations.
+        """
+        data_collection_endpoint_url: pulumi.Input[str]
+        """
+        Data collection endpoint ingestion url.
+        """
+        data_collection_rule: pulumi.Input[str]
+        """
+        Data Collection Rule (DCR) immutable id.
+        """
+        schema: pulumi.Input['SchemaMapArgsDict']
+        """
+        The schema mapping for incoming data.
+        """
+        stream: pulumi.Input[str]
+        """
+        Stream name in destination. Azure Monitor stream is related to the destination table.
+        """
+elif False:
+    AzureMonitorWorkspaceLogsApiConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AzureMonitorWorkspaceLogsApiConfigArgs:
@@ -103,6 +156,26 @@ class AzureMonitorWorkspaceLogsApiConfigArgs:
         pulumi.set(self, "stream", value)
 
 
+if not MYPY:
+    class AzureMonitorWorkspaceLogsExporterArgsDict(TypedDict):
+        """
+        Azure Monitor Workspace Logs specific configurations.
+        """
+        api: pulumi.Input['AzureMonitorWorkspaceLogsApiConfigArgsDict']
+        """
+        API configurations for Azure Monitor workspace exporter.
+        """
+        cache: NotRequired[pulumi.Input['CacheConfigurationArgsDict']]
+        """
+        Cache configurations.
+        """
+        concurrency: NotRequired[pulumi.Input['ConcurrencyConfigurationArgsDict']]
+        """
+        Concurrency configuration for the exporter.
+        """
+elif False:
+    AzureMonitorWorkspaceLogsExporterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AzureMonitorWorkspaceLogsExporterArgs:
     def __init__(__self__, *,
@@ -158,6 +231,22 @@ class AzureMonitorWorkspaceLogsExporterArgs:
         pulumi.set(self, "concurrency", value)
 
 
+if not MYPY:
+    class BatchProcessorArgsDict(TypedDict):
+        """
+        Batch processor.
+        """
+        batch_size: NotRequired[pulumi.Input[int]]
+        """
+        Size of the batch.
+        """
+        timeout: NotRequired[pulumi.Input[int]]
+        """
+        Timeout in milliseconds.
+        """
+elif False:
+    BatchProcessorArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class BatchProcessorArgs:
     def __init__(__self__, *,
@@ -202,6 +291,22 @@ class BatchProcessorArgs:
         pulumi.set(self, "timeout", value)
 
 
+if not MYPY:
+    class CacheConfigurationArgsDict(TypedDict):
+        """
+        Cache configurations.
+        """
+        max_storage_usage: NotRequired[pulumi.Input[int]]
+        """
+        Max storage usage in megabytes.
+        """
+        retention_period: NotRequired[pulumi.Input[int]]
+        """
+        Retention period in minutes.
+        """
+elif False:
+    CacheConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CacheConfigurationArgs:
     def __init__(__self__, *,
@@ -241,6 +346,22 @@ class CacheConfigurationArgs:
     def retention_period(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "retention_period", value)
 
+
+if not MYPY:
+    class ConcurrencyConfigurationArgsDict(TypedDict):
+        """
+        Concurrent publishing configuration.
+        """
+        batch_queue_size: NotRequired[pulumi.Input[int]]
+        """
+        Size of the queue for log batches.
+        """
+        worker_count: NotRequired[pulumi.Input[int]]
+        """
+        Number of parallel workers processing the log queues.
+        """
+elif False:
+    ConcurrencyConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ConcurrencyConfigurationArgs:
@@ -285,6 +406,30 @@ class ConcurrencyConfigurationArgs:
     def worker_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "worker_count", value)
 
+
+if not MYPY:
+    class ExporterArgsDict(TypedDict):
+        """
+        Exporter Info.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of exporter.
+        """
+        type: pulumi.Input[Union[str, 'ExporterType']]
+        """
+        The type of exporter.
+        """
+        azure_monitor_workspace_logs: NotRequired[pulumi.Input['AzureMonitorWorkspaceLogsExporterArgsDict']]
+        """
+        Azure Monitor Workspace Logs specific configurations.
+        """
+        tcp: NotRequired[pulumi.Input['TcpExporterArgsDict']]
+        """
+        TCP based exporter. Used for pipelineGroup exporter.
+        """
+elif False:
+    ExporterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ExporterArgs:
@@ -356,6 +501,22 @@ class ExporterArgs:
         pulumi.set(self, "tcp", value)
 
 
+if not MYPY:
+    class ExtendedLocationArgsDict(TypedDict):
+        """
+        The extended location info.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of extended location.
+        """
+        type: pulumi.Input[Union[str, 'ExtendedLocationType']]
+        """
+        The type of extended location.
+        """
+elif False:
+    ExtendedLocationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ExtendedLocationArgs:
     def __init__(__self__, *,
@@ -393,6 +554,26 @@ class ExtendedLocationArgs:
     def type(self, value: pulumi.Input[Union[str, 'ExtendedLocationType']]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class NetworkingConfigurationArgsDict(TypedDict):
+        """
+        Networking configuration for the pipeline group instance.
+        """
+        external_networking_mode: pulumi.Input[Union[str, 'ExternalNetworkingMode']]
+        """
+        External networking mode.
+        """
+        routes: pulumi.Input[Sequence[pulumi.Input['NetworkingRouteArgsDict']]]
+        """
+        Networking routes configuration.
+        """
+        host: NotRequired[pulumi.Input[str]]
+        """
+        The address exposed on the cluster. Example: azuremonitorpipeline.contoso.com.
+        """
+elif False:
+    NetworkingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NetworkingConfigurationArgs:
@@ -447,6 +628,30 @@ class NetworkingConfigurationArgs:
     def host(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "host", value)
 
+
+if not MYPY:
+    class NetworkingRouteArgsDict(TypedDict):
+        """
+        Networking route configuration.
+        """
+        receiver: pulumi.Input[str]
+        """
+        The name of the previously defined receiver.
+        """
+        path: NotRequired[pulumi.Input[str]]
+        """
+        Route path.
+        """
+        port: NotRequired[pulumi.Input[int]]
+        """
+        The port that will be configured externally. If not specified, it will use the port from the receiver definition.
+        """
+        subdomain: NotRequired[pulumi.Input[str]]
+        """
+        Route subdomain.
+        """
+elif False:
+    NetworkingRouteArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NetworkingRouteArgs:
@@ -519,6 +724,18 @@ class NetworkingRouteArgs:
         pulumi.set(self, "subdomain", value)
 
 
+if not MYPY:
+    class OtlpReceiverArgsDict(TypedDict):
+        """
+        OTLP Receiver.
+        """
+        endpoint: pulumi.Input[str]
+        """
+        OTLP GRPC endpoint definition. Example: 0.0.0.0:<port>.
+        """
+elif False:
+    OtlpReceiverArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OtlpReceiverArgs:
     def __init__(__self__, *,
@@ -542,6 +759,18 @@ class OtlpReceiverArgs:
         pulumi.set(self, "endpoint", value)
 
 
+if not MYPY:
+    class PersistenceConfigurationsArgsDict(TypedDict):
+        """
+        Persistence options to all pipelines in the instance.
+        """
+        persistent_volume_name: pulumi.Input[str]
+        """
+        The name of the mounted persistent volume.
+        """
+elif False:
+    PersistenceConfigurationsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PersistenceConfigurationsArgs:
     def __init__(__self__, *,
@@ -564,6 +793,34 @@ class PersistenceConfigurationsArgs:
     def persistent_volume_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "persistent_volume_name", value)
 
+
+if not MYPY:
+    class PipelineArgsDict(TypedDict):
+        """
+        Pipeline Info.
+        """
+        exporters: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Reference to exporters configured for the pipeline.
+        """
+        name: pulumi.Input[str]
+        """
+        Name of the pipeline.
+        """
+        receivers: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Reference to receivers configured for the pipeline.
+        """
+        type: pulumi.Input[Union[str, 'PipelineType']]
+        """
+        The type of pipeline
+        """
+        processors: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Reference to processors configured for the pipeline.
+        """
+elif False:
+    PipelineArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PipelineArgs:
@@ -649,6 +906,26 @@ class PipelineArgs:
         pulumi.set(self, "processors", value)
 
 
+if not MYPY:
+    class ProcessorArgsDict(TypedDict):
+        """
+        Processor Info.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of processor.
+        """
+        type: pulumi.Input[Union[str, 'ProcessorType']]
+        """
+        The type of processor.
+        """
+        batch: NotRequired[pulumi.Input['BatchProcessorArgsDict']]
+        """
+        Batch processor configurations.
+        """
+elif False:
+    ProcessorArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ProcessorArgs:
     def __init__(__self__, *,
@@ -702,6 +979,34 @@ class ProcessorArgs:
     def batch(self, value: Optional[pulumi.Input['BatchProcessorArgs']]):
         pulumi.set(self, "batch", value)
 
+
+if not MYPY:
+    class ReceiverArgsDict(TypedDict):
+        """
+        Receiver Info.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of receiver.
+        """
+        type: pulumi.Input[Union[str, 'ReceiverType']]
+        """
+        The type of receiver.
+        """
+        otlp: NotRequired[pulumi.Input['OtlpReceiverArgsDict']]
+        """
+        OTLP receiver configurations. This field is mandatory for OTLP and pipelineGroup receivers.
+        """
+        syslog: NotRequired[pulumi.Input['SyslogReceiverArgsDict']]
+        """
+        Syslog configurations. This field is mandatory for syslog type receivers.
+        """
+        udp: NotRequired[pulumi.Input['UdpReceiverArgsDict']]
+        """
+        UDP receiver configurations. This field is mandatory for UDP receivers.
+        """
+elif False:
+    ReceiverArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ReceiverArgs:
@@ -789,6 +1094,22 @@ class ReceiverArgs:
         pulumi.set(self, "udp", value)
 
 
+if not MYPY:
+    class RecordMapArgsDict(TypedDict):
+        """
+        Record map for schema in azure monitor.
+        """
+        from_: pulumi.Input[str]
+        """
+        Record Map Key.
+        """
+        to: pulumi.Input[str]
+        """
+        Record Map Value.
+        """
+elif False:
+    RecordMapArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RecordMapArgs:
     def __init__(__self__, *,
@@ -827,6 +1148,22 @@ class RecordMapArgs:
         pulumi.set(self, "to", value)
 
 
+if not MYPY:
+    class ResourceMapArgsDict(TypedDict):
+        """
+        Resource map for schema in azure monitor.
+        """
+        from_: pulumi.Input[str]
+        """
+        Resource Map Key.
+        """
+        to: pulumi.Input[str]
+        """
+        Resource Map Value.
+        """
+elif False:
+    ResourceMapArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ResourceMapArgs:
     def __init__(__self__, *,
@@ -864,6 +1201,26 @@ class ResourceMapArgs:
     def to(self, value: pulumi.Input[str]):
         pulumi.set(self, "to", value)
 
+
+if not MYPY:
+    class SchemaMapArgsDict(TypedDict):
+        """
+        Schema map for azure monitor for logs.
+        """
+        record_map: pulumi.Input[Sequence[pulumi.Input['RecordMapArgsDict']]]
+        """
+        Record Map.
+        """
+        resource_map: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceMapArgsDict']]]]
+        """
+        Resource Map captures information about the entity for which telemetry is recorded. For example, metrics exposed by a Kubernetes container can be linked to a resource that specifies the cluster, namespace, pod, and container name.Resource may capture an entire hierarchy of entity identification. It may describe the host in the cloud and specific container or an application running in the process.
+        """
+        scope_map: NotRequired[pulumi.Input[Sequence[pulumi.Input['ScopeMapArgsDict']]]]
+        """
+        A scope map is a logical unit of the application code with which the emitted telemetry can be associated.
+        """
+elif False:
+    SchemaMapArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SchemaMapArgs:
@@ -920,6 +1277,22 @@ class SchemaMapArgs:
         pulumi.set(self, "scope_map", value)
 
 
+if not MYPY:
+    class ScopeMapArgsDict(TypedDict):
+        """
+        Scope map for schema in azure monitor.
+        """
+        from_: pulumi.Input[str]
+        """
+        Scope Map Key.
+        """
+        to: pulumi.Input[str]
+        """
+        Scope Map Value.
+        """
+elif False:
+    ScopeMapArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ScopeMapArgs:
     def __init__(__self__, *,
@@ -957,6 +1330,22 @@ class ScopeMapArgs:
     def to(self, value: pulumi.Input[str]):
         pulumi.set(self, "to", value)
 
+
+if not MYPY:
+    class ServiceArgsDict(TypedDict):
+        """
+        Service Info.
+        """
+        pipelines: pulumi.Input[Sequence[pulumi.Input['PipelineArgsDict']]]
+        """
+        Pipelines belonging to a given pipeline group.
+        """
+        persistence: NotRequired[pulumi.Input['PersistenceConfigurationsArgsDict']]
+        """
+        Persistence options to all pipelines in the instance.
+        """
+elif False:
+    ServiceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ServiceArgs:
@@ -996,6 +1385,22 @@ class ServiceArgs:
     def persistence(self, value: Optional[pulumi.Input['PersistenceConfigurationsArgs']]):
         pulumi.set(self, "persistence", value)
 
+
+if not MYPY:
+    class SyslogReceiverArgsDict(TypedDict):
+        """
+        Base receiver using TCP as transport protocol.
+        """
+        endpoint: pulumi.Input[str]
+        """
+        Syslog receiver endpoint definition. Example: 0.0.0.0:<port>.
+        """
+        protocol: NotRequired[pulumi.Input[Union[str, 'SyslogProtocol']]]
+        """
+        Protocol to parse syslog messages. Default rfc3164
+        """
+elif False:
+    SyslogReceiverArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SyslogReceiverArgs:
@@ -1038,6 +1443,18 @@ class SyslogReceiverArgs:
         pulumi.set(self, "protocol", value)
 
 
+if not MYPY:
+    class TcpExporterArgsDict(TypedDict):
+        """
+        Base exporter using TCP as transport protocol.
+        """
+        url: pulumi.Input[str]
+        """
+        TCP url to export.
+        """
+elif False:
+    TcpExporterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TcpExporterArgs:
     def __init__(__self__, *,
@@ -1060,6 +1477,26 @@ class TcpExporterArgs:
     def url(self, value: pulumi.Input[str]):
         pulumi.set(self, "url", value)
 
+
+if not MYPY:
+    class UdpReceiverArgsDict(TypedDict):
+        """
+        Receiver using UDP as transport protocol.
+        """
+        endpoint: pulumi.Input[str]
+        """
+        TCP endpoint definition. Example: 0.0.0.0:<port>.
+        """
+        encoding: NotRequired[pulumi.Input[Union[str, 'StreamEncodingType']]]
+        """
+        The encoding of the stream being received.
+        """
+        read_queue_length: NotRequired[pulumi.Input[int]]
+        """
+        Max read queue length.
+        """
+elif False:
+    UdpReceiverArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UdpReceiverArgs:

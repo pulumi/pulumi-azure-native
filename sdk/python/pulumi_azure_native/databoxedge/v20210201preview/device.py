@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -140,10 +145,10 @@ class Device(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_box_edge_device_status: Optional[pulumi.Input[Union[str, 'DataBoxEdgeDeviceStatus']]] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ResourceIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['ResourceIdentityArgs', 'ResourceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -153,10 +158,10 @@ class Device(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[str, 'DataBoxEdgeDeviceStatus']] data_box_edge_device_status: The status of the Data Box Edge/Gateway device.
         :param pulumi.Input[str] device_name: The device name.
-        :param pulumi.Input[pulumi.InputType['ResourceIdentityArgs']] identity: Msi identity of the resource
+        :param pulumi.Input[Union['ResourceIdentityArgs', 'ResourceIdentityArgsDict']] identity: Msi identity of the resource
         :param pulumi.Input[str] location: The location of the device. This is a supported and registered Azure geographical region (for example, West US, East US, or Southeast Asia). The geographical region of a device cannot be changed once it is created, but if an identical geographical region is specified on update, the request will succeed.
         :param pulumi.Input[str] resource_group_name: The resource group name.
-        :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The SKU type.
+        :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: The SKU type.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The list of tags that describe the device. These tags can be used to view and group this device (across resource groups).
         """
         ...
@@ -185,10 +190,10 @@ class Device(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_box_edge_device_status: Optional[pulumi.Input[Union[str, 'DataBoxEdgeDeviceStatus']]] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ResourceIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['ResourceIdentityArgs', 'ResourceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

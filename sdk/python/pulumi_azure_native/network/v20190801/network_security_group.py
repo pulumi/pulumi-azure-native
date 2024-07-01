@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -158,13 +163,13 @@ class NetworkSecurityGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 default_security_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityRuleArgs']]]]] = None,
+                 default_security_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecurityRuleArgs', 'SecurityRuleArgsDict']]]]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  network_security_group_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_guid: Optional[pulumi.Input[str]] = None,
-                 security_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityRuleArgs']]]]] = None,
+                 security_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecurityRuleArgs', 'SecurityRuleArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -172,14 +177,14 @@ class NetworkSecurityGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityRuleArgs']]]] default_security_rules: The default security rules of network security group.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SecurityRuleArgs', 'SecurityRuleArgsDict']]]] default_security_rules: The default security rules of network security group.
                These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] network_security_group_name: The name of the network security group.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] resource_guid: The resource GUID property of the network security group resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityRuleArgs']]]] security_rules: A collection of security rules of the network security group.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SecurityRuleArgs', 'SecurityRuleArgsDict']]]] security_rules: A collection of security rules of the network security group.
                These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -207,13 +212,13 @@ class NetworkSecurityGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 default_security_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityRuleArgs']]]]] = None,
+                 default_security_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecurityRuleArgs', 'SecurityRuleArgsDict']]]]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  network_security_group_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_guid: Optional[pulumi.Input[str]] = None,
-                 security_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityRuleArgs']]]]] = None,
+                 security_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecurityRuleArgs', 'SecurityRuleArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

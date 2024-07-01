@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -104,7 +109,7 @@ class MetadataSchema(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 assigned_to: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetadataAssignmentArgs']]]]] = None,
+                 assigned_to: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MetadataAssignmentArgs', 'MetadataAssignmentArgsDict']]]]] = None,
                  metadata_schema_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  schema: Optional[pulumi.Input[str]] = None,
@@ -115,7 +120,7 @@ class MetadataSchema(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetadataAssignmentArgs']]]] assigned_to: The assignees
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MetadataAssignmentArgs', 'MetadataAssignmentArgsDict']]]] assigned_to: The assignees
         :param pulumi.Input[str] metadata_schema_name: The name of the metadata schema.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] schema: The schema defining the type.
@@ -145,7 +150,7 @@ class MetadataSchema(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 assigned_to: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetadataAssignmentArgs']]]]] = None,
+                 assigned_to: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MetadataAssignmentArgs', 'MetadataAssignmentArgsDict']]]]] = None,
                  metadata_schema_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  schema: Optional[pulumi.Input[str]] = None,

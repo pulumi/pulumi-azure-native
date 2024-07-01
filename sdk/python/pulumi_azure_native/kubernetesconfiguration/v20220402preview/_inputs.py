@@ -4,23 +4,51 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'ExtensionAksAssignedIdentityArgs',
+    'ExtensionAksAssignedIdentityArgsDict',
     'ExtensionStatusArgs',
+    'ExtensionStatusArgsDict',
     'IdentityArgs',
+    'IdentityArgsDict',
     'KubernetesConfigurationPrivateLinkScopePropertiesArgs',
+    'KubernetesConfigurationPrivateLinkScopePropertiesArgsDict',
     'PlanArgs',
+    'PlanArgsDict',
     'PrivateLinkServiceConnectionStateArgs',
+    'PrivateLinkServiceConnectionStateArgsDict',
     'ScopeClusterArgs',
+    'ScopeClusterArgsDict',
     'ScopeNamespaceArgs',
+    'ScopeNamespaceArgsDict',
     'ScopeArgs',
+    'ScopeArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ExtensionAksAssignedIdentityArgsDict(TypedDict):
+        """
+        Identity of the Extension resource in an AKS cluster
+        """
+        type: NotRequired[pulumi.Input['AKSIdentityType']]
+        """
+        The identity type.
+        """
+elif False:
+    ExtensionAksAssignedIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ExtensionAksAssignedIdentityArgs:
@@ -45,6 +73,34 @@ class ExtensionAksAssignedIdentityArgs:
     def type(self, value: Optional[pulumi.Input['AKSIdentityType']]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class ExtensionStatusArgsDict(TypedDict):
+        """
+        Status from the extension.
+        """
+        code: NotRequired[pulumi.Input[str]]
+        """
+        Status code provided by the Extension
+        """
+        display_status: NotRequired[pulumi.Input[str]]
+        """
+        Short description of status of the extension.
+        """
+        level: NotRequired[pulumi.Input[Union[str, 'LevelType']]]
+        """
+        Level of the status.
+        """
+        message: NotRequired[pulumi.Input[str]]
+        """
+        Detailed message of the status from the Extension.
+        """
+        time: NotRequired[pulumi.Input[str]]
+        """
+        DateLiteral (per ISO8601) noting the time of installation status.
+        """
+elif False:
+    ExtensionStatusArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ExtensionStatusArgs:
@@ -136,6 +192,18 @@ class ExtensionStatusArgs:
         pulumi.set(self, "time", value)
 
 
+if not MYPY:
+    class IdentityArgsDict(TypedDict):
+        """
+        Identity for the resource.
+        """
+        type: NotRequired[pulumi.Input['ResourceIdentityType']]
+        """
+        The identity type.
+        """
+elif False:
+    IdentityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IdentityArgs:
     def __init__(__self__, *,
@@ -159,6 +227,22 @@ class IdentityArgs:
     def type(self, value: Optional[pulumi.Input['ResourceIdentityType']]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class KubernetesConfigurationPrivateLinkScopePropertiesArgsDict(TypedDict):
+        """
+        Properties that define a Azure Arc PrivateLinkScope resource.
+        """
+        cluster_resource_id: pulumi.Input[str]
+        """
+        Managed Cluster ARM ID for the private link scope  (Required)
+        """
+        public_network_access: NotRequired[pulumi.Input[Union[str, 'PublicNetworkAccessType']]]
+        """
+        Indicates whether machines associated with the private link scope can also use public Azure Arc service endpoints.
+        """
+elif False:
+    KubernetesConfigurationPrivateLinkScopePropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class KubernetesConfigurationPrivateLinkScopePropertiesArgs:
@@ -198,6 +282,34 @@ class KubernetesConfigurationPrivateLinkScopePropertiesArgs:
     def public_network_access(self, value: Optional[pulumi.Input[Union[str, 'PublicNetworkAccessType']]]):
         pulumi.set(self, "public_network_access", value)
 
+
+if not MYPY:
+    class PlanArgsDict(TypedDict):
+        """
+        Plan for the resource.
+        """
+        name: pulumi.Input[str]
+        """
+        A user defined name of the 3rd Party Artifact that is being procured.
+        """
+        product: pulumi.Input[str]
+        """
+        The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. 
+        """
+        publisher: pulumi.Input[str]
+        """
+        The publisher of the 3rd Party Artifact that is being bought. E.g. NewRelic
+        """
+        promotion_code: NotRequired[pulumi.Input[str]]
+        """
+        A publisher provided promotion code as provisioned in Data Market for the said product/artifact.
+        """
+        version: NotRequired[pulumi.Input[str]]
+        """
+        The version of the desired product/artifact.
+        """
+elif False:
+    PlanArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PlanArgs:
@@ -284,6 +396,26 @@ class PlanArgs:
         pulumi.set(self, "version", value)
 
 
+if not MYPY:
+    class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
+        """
+        A collection of information about the state of the connection between service consumer and provider.
+        """
+        actions_required: NotRequired[pulumi.Input[str]]
+        """
+        A message indicating if changes on the service provider require any updates on the consumer.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The reason for approval/rejection of the connection.
+        """
+        status: NotRequired[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]]
+        """
+        Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+        """
+elif False:
+    PrivateLinkServiceConnectionStateArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:
     def __init__(__self__, *,
@@ -340,6 +472,18 @@ class PrivateLinkServiceConnectionStateArgs:
         pulumi.set(self, "status", value)
 
 
+if not MYPY:
+    class ScopeClusterArgsDict(TypedDict):
+        """
+        Specifies that the scope of the extension is Cluster
+        """
+        release_namespace: NotRequired[pulumi.Input[str]]
+        """
+        Namespace where the extension Release must be placed, for a Cluster scoped extension.  If this namespace does not exist, it will be created
+        """
+elif False:
+    ScopeClusterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ScopeClusterArgs:
     def __init__(__self__, *,
@@ -364,6 +508,18 @@ class ScopeClusterArgs:
         pulumi.set(self, "release_namespace", value)
 
 
+if not MYPY:
+    class ScopeNamespaceArgsDict(TypedDict):
+        """
+        Specifies that the scope of the extension is Namespace
+        """
+        target_namespace: NotRequired[pulumi.Input[str]]
+        """
+        Namespace where the extension will be created for an Namespace scoped extension.  If this namespace does not exist, it will be created
+        """
+elif False:
+    ScopeNamespaceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ScopeNamespaceArgs:
     def __init__(__self__, *,
@@ -387,6 +543,22 @@ class ScopeNamespaceArgs:
     def target_namespace(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "target_namespace", value)
 
+
+if not MYPY:
+    class ScopeArgsDict(TypedDict):
+        """
+        Scope of the extension. It can be either Cluster or Namespace; but not both.
+        """
+        cluster: NotRequired[pulumi.Input['ScopeClusterArgsDict']]
+        """
+        Specifies that the scope of the extension is Cluster
+        """
+        namespace: NotRequired[pulumi.Input['ScopeNamespaceArgsDict']]
+        """
+        Specifies that the scope of the extension is Namespace
+        """
+elif False:
+    ScopeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ScopeArgs:

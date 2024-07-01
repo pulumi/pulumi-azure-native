@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -321,10 +326,10 @@ class VirtualNetworkPeering(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  peering_state: Optional[pulumi.Input[Union[str, 'VirtualNetworkPeeringState']]] = None,
                  peering_sync_level: Optional[pulumi.Input[Union[str, 'VirtualNetworkPeeringLevel']]] = None,
-                 remote_address_space: Optional[pulumi.Input[pulumi.InputType['AddressSpaceArgs']]] = None,
-                 remote_bgp_communities: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkBgpCommunitiesArgs']]] = None,
-                 remote_virtual_network: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
-                 remote_virtual_network_address_space: Optional[pulumi.Input[pulumi.InputType['AddressSpaceArgs']]] = None,
+                 remote_address_space: Optional[pulumi.Input[Union['AddressSpaceArgs', 'AddressSpaceArgsDict']]] = None,
+                 remote_bgp_communities: Optional[pulumi.Input[Union['VirtualNetworkBgpCommunitiesArgs', 'VirtualNetworkBgpCommunitiesArgsDict']]] = None,
+                 remote_virtual_network: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
+                 remote_virtual_network_address_space: Optional[pulumi.Input[Union['AddressSpaceArgs', 'AddressSpaceArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sync_remote_address_space: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
@@ -345,10 +350,10 @@ class VirtualNetworkPeering(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param pulumi.Input[Union[str, 'VirtualNetworkPeeringState']] peering_state: The status of the virtual network peering.
         :param pulumi.Input[Union[str, 'VirtualNetworkPeeringLevel']] peering_sync_level: The peering sync status of the virtual network peering.
-        :param pulumi.Input[pulumi.InputType['AddressSpaceArgs']] remote_address_space: The reference to the address space peered with the remote virtual network.
-        :param pulumi.Input[pulumi.InputType['VirtualNetworkBgpCommunitiesArgs']] remote_bgp_communities: The reference to the remote virtual network's Bgp Communities.
-        :param pulumi.Input[pulumi.InputType['SubResourceArgs']] remote_virtual_network: The reference to the remote virtual network. The remote virtual network can be in the same or different region (preview). See here to register for the preview and learn more (https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-create-peering).
-        :param pulumi.Input[pulumi.InputType['AddressSpaceArgs']] remote_virtual_network_address_space: The reference to the current address space of the remote virtual network.
+        :param pulumi.Input[Union['AddressSpaceArgs', 'AddressSpaceArgsDict']] remote_address_space: The reference to the address space peered with the remote virtual network.
+        :param pulumi.Input[Union['VirtualNetworkBgpCommunitiesArgs', 'VirtualNetworkBgpCommunitiesArgsDict']] remote_bgp_communities: The reference to the remote virtual network's Bgp Communities.
+        :param pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']] remote_virtual_network: The reference to the remote virtual network. The remote virtual network can be in the same or different region (preview). See here to register for the preview and learn more (https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-create-peering).
+        :param pulumi.Input[Union['AddressSpaceArgs', 'AddressSpaceArgsDict']] remote_virtual_network_address_space: The reference to the current address space of the remote virtual network.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] sync_remote_address_space: Parameter indicates the intention to sync the peering with the current address space on the remote vNet after it's updated.
         :param pulumi.Input[str] type: Resource type.
@@ -388,10 +393,10 @@ class VirtualNetworkPeering(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  peering_state: Optional[pulumi.Input[Union[str, 'VirtualNetworkPeeringState']]] = None,
                  peering_sync_level: Optional[pulumi.Input[Union[str, 'VirtualNetworkPeeringLevel']]] = None,
-                 remote_address_space: Optional[pulumi.Input[pulumi.InputType['AddressSpaceArgs']]] = None,
-                 remote_bgp_communities: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkBgpCommunitiesArgs']]] = None,
-                 remote_virtual_network: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
-                 remote_virtual_network_address_space: Optional[pulumi.Input[pulumi.InputType['AddressSpaceArgs']]] = None,
+                 remote_address_space: Optional[pulumi.Input[Union['AddressSpaceArgs', 'AddressSpaceArgsDict']]] = None,
+                 remote_bgp_communities: Optional[pulumi.Input[Union['VirtualNetworkBgpCommunitiesArgs', 'VirtualNetworkBgpCommunitiesArgsDict']]] = None,
+                 remote_virtual_network: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
+                 remote_virtual_network_address_space: Optional[pulumi.Input[Union['AddressSpaceArgs', 'AddressSpaceArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sync_remote_address_space: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,

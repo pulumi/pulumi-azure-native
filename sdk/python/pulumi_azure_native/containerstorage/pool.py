@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -169,13 +174,13 @@ class Pool(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 assignments: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssignmentArgs']]]]] = None,
+                 assignments: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AssignmentArgs', 'AssignmentArgsDict']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  pool_name: Optional[pulumi.Input[str]] = None,
-                 pool_type: Optional[pulumi.Input[pulumi.InputType['PoolTypeArgs']]] = None,
+                 pool_type: Optional[pulumi.Input[Union['PoolTypeArgs', 'PoolTypeArgsDict']]] = None,
                  reclaim_policy: Optional[pulumi.Input[Union[str, 'ReclaimPolicy']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 resources: Optional[pulumi.Input[pulumi.InputType['ResourcesArgs']]] = None,
+                 resources: Optional[pulumi.Input[Union['ResourcesArgs', 'ResourcesArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Zone']]]]] = None,
                  __props__=None):
@@ -185,13 +190,13 @@ class Pool(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssignmentArgs']]]] assignments: List of resources that should have access to the pool. Typically ARM references to AKS clusters or ACI Container Groups. For local and standard this must be a single reference. For ElasticSAN there can be many.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AssignmentArgs', 'AssignmentArgsDict']]]] assignments: List of resources that should have access to the pool. Typically ARM references to AKS clusters or ACI Container Groups. For local and standard this must be a single reference. For ElasticSAN there can be many.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] pool_name: Pool Object
-        :param pulumi.Input[pulumi.InputType['PoolTypeArgs']] pool_type: Type of the Pool: ephemeralDisk, azureDisk, or elasticsan.
+        :param pulumi.Input[Union['PoolTypeArgs', 'PoolTypeArgsDict']] pool_type: Type of the Pool: ephemeralDisk, azureDisk, or elasticsan.
         :param pulumi.Input[Union[str, 'ReclaimPolicy']] reclaim_policy: ReclaimPolicy defines what happens to the backend storage when StoragePool is deleted
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[pulumi.InputType['ResourcesArgs']] resources: Resources represent the resources the pool should have.
+        :param pulumi.Input[Union['ResourcesArgs', 'ResourcesArgsDict']] resources: Resources represent the resources the pool should have.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'Zone']]]] zones: List of availability zones that resources can be created in.
         """
@@ -220,13 +225,13 @@ class Pool(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 assignments: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssignmentArgs']]]]] = None,
+                 assignments: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AssignmentArgs', 'AssignmentArgsDict']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  pool_name: Optional[pulumi.Input[str]] = None,
-                 pool_type: Optional[pulumi.Input[pulumi.InputType['PoolTypeArgs']]] = None,
+                 pool_type: Optional[pulumi.Input[Union['PoolTypeArgs', 'PoolTypeArgsDict']]] = None,
                  reclaim_policy: Optional[pulumi.Input[Union[str, 'ReclaimPolicy']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 resources: Optional[pulumi.Input[pulumi.InputType['ResourcesArgs']]] = None,
+                 resources: Optional[pulumi.Input[Union['ResourcesArgs', 'ResourcesArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Zone']]]]] = None,
                  __props__=None):

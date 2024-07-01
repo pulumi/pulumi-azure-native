@@ -4,16 +4,45 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'EnterpriseKnowledgeGraphPropertiesArgs',
+    'EnterpriseKnowledgeGraphPropertiesArgsDict',
     'SkuArgs',
+    'SkuArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class EnterpriseKnowledgeGraphPropertiesArgsDict(TypedDict):
+        """
+        The parameters to provide for the EnterpriseKnowledgeGraph.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The description of the EnterpriseKnowledgeGraph
+        """
+        metadata: NotRequired[Any]
+        """
+        Specifies the metadata  of the resource.
+        """
+        provisioning_state: NotRequired[pulumi.Input[str]]
+        """
+        The state of EnterpriseKnowledgeGraph provisioning
+        """
+elif False:
+    EnterpriseKnowledgeGraphPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EnterpriseKnowledgeGraphPropertiesArgs:
@@ -70,6 +99,18 @@ class EnterpriseKnowledgeGraphPropertiesArgs:
     def provisioning_state(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "provisioning_state", value)
 
+
+if not MYPY:
+    class SkuArgsDict(TypedDict):
+        """
+        The SKU of the EnterpriseKnowledgeGraph service account.
+        """
+        name: pulumi.Input[Union[str, 'SkuName']]
+        """
+        The sku name
+        """
+elif False:
+    SkuArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SkuArgs:

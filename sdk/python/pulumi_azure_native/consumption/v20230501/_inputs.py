@@ -4,19 +4,51 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'BudgetComparisonExpressionArgs',
+    'BudgetComparisonExpressionArgsDict',
     'BudgetFilterPropertiesArgs',
+    'BudgetFilterPropertiesArgsDict',
     'BudgetFilterArgs',
+    'BudgetFilterArgsDict',
     'BudgetTimePeriodArgs',
+    'BudgetTimePeriodArgsDict',
     'NotificationArgs',
+    'NotificationArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class BudgetComparisonExpressionArgsDict(TypedDict):
+        """
+        The comparison expression to be used in the budgets.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the column to use in comparison.
+        """
+        operator: pulumi.Input[Union[str, 'BudgetOperatorType']]
+        """
+        The operator to use for comparison.
+        """
+        values: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Array of values to use for comparison
+        """
+elif False:
+    BudgetComparisonExpressionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class BudgetComparisonExpressionArgs:
@@ -71,6 +103,22 @@ class BudgetComparisonExpressionArgs:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class BudgetFilterPropertiesArgsDict(TypedDict):
+        """
+        The Dimensions or Tags to filter a budget by.
+        """
+        dimensions: NotRequired[pulumi.Input['BudgetComparisonExpressionArgsDict']]
+        """
+        Has comparison expression for a dimension
+        """
+        tags: NotRequired[pulumi.Input['BudgetComparisonExpressionArgsDict']]
+        """
+        Has comparison expression for a tag
+        """
+elif False:
+    BudgetFilterPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class BudgetFilterPropertiesArgs:
     def __init__(__self__, *,
@@ -110,6 +158,26 @@ class BudgetFilterPropertiesArgs:
     def tags(self, value: Optional[pulumi.Input['BudgetComparisonExpressionArgs']]):
         pulumi.set(self, "tags", value)
 
+
+if not MYPY:
+    class BudgetFilterArgsDict(TypedDict):
+        """
+        May be used to filter budgets by resource group, resource, or meter.
+        """
+        and_: NotRequired[pulumi.Input[Sequence[pulumi.Input['BudgetFilterPropertiesArgsDict']]]]
+        """
+        The logical "AND" expression. Must have at least 2 items.
+        """
+        dimensions: NotRequired[pulumi.Input['BudgetComparisonExpressionArgsDict']]
+        """
+        Has comparison expression for a dimension
+        """
+        tags: NotRequired[pulumi.Input['BudgetComparisonExpressionArgsDict']]
+        """
+        Has comparison expression for a tag
+        """
+elif False:
+    BudgetFilterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class BudgetFilterArgs:
@@ -167,6 +235,22 @@ class BudgetFilterArgs:
         pulumi.set(self, "tags", value)
 
 
+if not MYPY:
+    class BudgetTimePeriodArgsDict(TypedDict):
+        """
+        The start and end date for a budget.
+        """
+        start_date: pulumi.Input[str]
+        """
+        The start date for the budget.
+        """
+        end_date: NotRequired[pulumi.Input[str]]
+        """
+        The end date for the budget. If not provided, we default this to 10 years from the start date.
+        """
+elif False:
+    BudgetTimePeriodArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class BudgetTimePeriodArgs:
     def __init__(__self__, *,
@@ -205,6 +289,46 @@ class BudgetTimePeriodArgs:
     def end_date(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "end_date", value)
 
+
+if not MYPY:
+    class NotificationArgsDict(TypedDict):
+        """
+        The notification associated with a budget.
+        """
+        contact_emails: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Email addresses to send the budget notification to when the threshold is exceeded. Must have at least one contact email or contact group specified at the Subscription or Resource Group scopes. All other scopes must have at least one contact email specified.
+        """
+        enabled: pulumi.Input[bool]
+        """
+        The notification is enabled or not.
+        """
+        operator: pulumi.Input[Union[str, 'OperatorType']]
+        """
+        The comparison operator.
+        """
+        threshold: pulumi.Input[float]
+        """
+        Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000.
+        """
+        contact_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Action groups to send the budget notification to when the threshold is exceeded. Must be provided as a fully qualified Azure resource id. Only supported at Subscription or Resource Group scopes.
+        """
+        contact_roles: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Contact roles to send the budget notification to when the threshold is exceeded.
+        """
+        locale: NotRequired[pulumi.Input[Union[str, 'CultureCode']]]
+        """
+        Language in which the recipient will receive the notification
+        """
+        threshold_type: NotRequired[pulumi.Input[Union[str, 'ThresholdType']]]
+        """
+        The type of threshold
+        """
+elif False:
+    NotificationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NotificationArgs:

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -203,11 +208,11 @@ class Assignment(pulumi.CustomResource):
                  blueprint_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 locks: Optional[pulumi.Input[pulumi.InputType['AssignmentLockSettingsArgs']]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ParameterValueArgs']]]]] = None,
-                 resource_groups: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ResourceGroupValueArgs']]]]] = None,
+                 locks: Optional[pulumi.Input[Union['AssignmentLockSettingsArgs', 'AssignmentLockSettingsArgsDict']]] = None,
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['ParameterValueArgs', 'ParameterValueArgsDict']]]]] = None,
+                 resource_groups: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['ResourceGroupValueArgs', 'ResourceGroupValueArgsDict']]]]] = None,
                  resource_scope: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -223,11 +228,11 @@ class Assignment(pulumi.CustomResource):
         :param pulumi.Input[str] blueprint_id: ID of the published version of a blueprint definition.
         :param pulumi.Input[str] description: Multi-line explain this resource.
         :param pulumi.Input[str] display_name: One-liner string explain this resource.
-        :param pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']] identity: Managed identity for this blueprint assignment.
+        :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: Managed identity for this blueprint assignment.
         :param pulumi.Input[str] location: The location of this blueprint assignment.
-        :param pulumi.Input[pulumi.InputType['AssignmentLockSettingsArgs']] locks: Defines how resources deployed by a blueprint assignment are locked.
-        :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ParameterValueArgs']]]] parameters: Blueprint assignment parameter values.
-        :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ResourceGroupValueArgs']]]] resource_groups: Names and locations of resource group placeholders.
+        :param pulumi.Input[Union['AssignmentLockSettingsArgs', 'AssignmentLockSettingsArgsDict']] locks: Defines how resources deployed by a blueprint assignment are locked.
+        :param pulumi.Input[Mapping[str, pulumi.Input[Union['ParameterValueArgs', 'ParameterValueArgsDict']]]] parameters: Blueprint assignment parameter values.
+        :param pulumi.Input[Mapping[str, pulumi.Input[Union['ResourceGroupValueArgs', 'ResourceGroupValueArgsDict']]]] resource_groups: Names and locations of resource group placeholders.
         :param pulumi.Input[str] resource_scope: The scope of the resource. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}').
         :param pulumi.Input[str] scope: The target subscription scope of the blueprint assignment (format: '/subscriptions/{subscriptionId}'). For management group level assignments, the property is required.
         """
@@ -262,11 +267,11 @@ class Assignment(pulumi.CustomResource):
                  blueprint_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 locks: Optional[pulumi.Input[pulumi.InputType['AssignmentLockSettingsArgs']]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ParameterValueArgs']]]]] = None,
-                 resource_groups: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ResourceGroupValueArgs']]]]] = None,
+                 locks: Optional[pulumi.Input[Union['AssignmentLockSettingsArgs', 'AssignmentLockSettingsArgsDict']]] = None,
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['ParameterValueArgs', 'ParameterValueArgsDict']]]]] = None,
+                 resource_groups: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['ResourceGroupValueArgs', 'ResourceGroupValueArgsDict']]]]] = None,
                  resource_scope: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  __props__=None):

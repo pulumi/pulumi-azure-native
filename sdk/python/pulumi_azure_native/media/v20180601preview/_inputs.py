@@ -4,25 +4,55 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'AkamaiAccessControlArgs',
+    'AkamaiAccessControlArgsDict',
     'AkamaiSignatureHeaderAuthenticationKeyArgs',
+    'AkamaiSignatureHeaderAuthenticationKeyArgsDict',
     'CrossSiteAccessPoliciesArgs',
+    'CrossSiteAccessPoliciesArgsDict',
     'IPAccessControlArgs',
+    'IPAccessControlArgsDict',
     'IPRangeArgs',
+    'IPRangeArgsDict',
     'LiveEventEncodingArgs',
+    'LiveEventEncodingArgsDict',
     'LiveEventEndpointArgs',
+    'LiveEventEndpointArgsDict',
     'LiveEventInputArgs',
+    'LiveEventInputArgsDict',
     'LiveEventPreviewAccessControlArgs',
+    'LiveEventPreviewAccessControlArgsDict',
     'LiveEventPreviewArgs',
+    'LiveEventPreviewArgsDict',
     'StreamingEndpointAccessControlArgs',
+    'StreamingEndpointAccessControlArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AkamaiAccessControlArgsDict(TypedDict):
+        """
+        Akamai access control
+        """
+        akamai_signature_header_authentication_key_list: NotRequired[pulumi.Input[Sequence[pulumi.Input['AkamaiSignatureHeaderAuthenticationKeyArgsDict']]]]
+        """
+        authentication key list
+        """
+elif False:
+    AkamaiAccessControlArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AkamaiAccessControlArgs:
@@ -47,6 +77,26 @@ class AkamaiAccessControlArgs:
     def akamai_signature_header_authentication_key_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AkamaiSignatureHeaderAuthenticationKeyArgs']]]]):
         pulumi.set(self, "akamai_signature_header_authentication_key_list", value)
 
+
+if not MYPY:
+    class AkamaiSignatureHeaderAuthenticationKeyArgsDict(TypedDict):
+        """
+        Akamai Signature Header authentication key.
+        """
+        base64_key: NotRequired[pulumi.Input[str]]
+        """
+        authentication key
+        """
+        expiration: NotRequired[pulumi.Input[str]]
+        """
+        The exact time the authentication key.
+        """
+        identifier: NotRequired[pulumi.Input[str]]
+        """
+        identifier of the key
+        """
+elif False:
+    AkamaiSignatureHeaderAuthenticationKeyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AkamaiSignatureHeaderAuthenticationKeyArgs:
@@ -104,6 +154,22 @@ class AkamaiSignatureHeaderAuthenticationKeyArgs:
         pulumi.set(self, "identifier", value)
 
 
+if not MYPY:
+    class CrossSiteAccessPoliciesArgsDict(TypedDict):
+        """
+        The client access policy.
+        """
+        client_access_policy: NotRequired[pulumi.Input[str]]
+        """
+        The content of clientaccesspolicy.xml used by Silverlight.
+        """
+        cross_domain_policy: NotRequired[pulumi.Input[str]]
+        """
+        The content of crossdomain.xml used by Silverlight.
+        """
+elif False:
+    CrossSiteAccessPoliciesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CrossSiteAccessPoliciesArgs:
     def __init__(__self__, *,
@@ -144,6 +210,18 @@ class CrossSiteAccessPoliciesArgs:
         pulumi.set(self, "cross_domain_policy", value)
 
 
+if not MYPY:
+    class IPAccessControlArgsDict(TypedDict):
+        """
+        The IP access control.
+        """
+        allow: NotRequired[pulumi.Input[Sequence[pulumi.Input['IPRangeArgsDict']]]]
+        """
+        The IP allow list.
+        """
+elif False:
+    IPAccessControlArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IPAccessControlArgs:
     def __init__(__self__, *,
@@ -167,6 +245,26 @@ class IPAccessControlArgs:
     def allow(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IPRangeArgs']]]]):
         pulumi.set(self, "allow", value)
 
+
+if not MYPY:
+    class IPRangeArgsDict(TypedDict):
+        """
+        The IP address range in the CIDR scheme.
+        """
+        address: NotRequired[pulumi.Input[str]]
+        """
+        The IP address.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The friendly name for the IP address range.
+        """
+        subnet_prefix_length: NotRequired[pulumi.Input[int]]
+        """
+        The subnet mask prefix length (see CIDR notation).
+        """
+elif False:
+    IPRangeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IPRangeArgs:
@@ -224,6 +322,22 @@ class IPRangeArgs:
         pulumi.set(self, "subnet_prefix_length", value)
 
 
+if not MYPY:
+    class LiveEventEncodingArgsDict(TypedDict):
+        """
+        The Live Event encoding.
+        """
+        encoding_type: NotRequired[pulumi.Input['LiveEventEncodingType']]
+        """
+        The encoding type for Live Event.
+        """
+        preset_name: NotRequired[pulumi.Input[str]]
+        """
+        The encoding preset name.
+        """
+elif False:
+    LiveEventEncodingArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LiveEventEncodingArgs:
     def __init__(__self__, *,
@@ -264,6 +378,22 @@ class LiveEventEncodingArgs:
         pulumi.set(self, "preset_name", value)
 
 
+if not MYPY:
+    class LiveEventEndpointArgsDict(TypedDict):
+        """
+        The Live Event endpoint.
+        """
+        protocol: NotRequired[pulumi.Input[str]]
+        """
+        The endpoint protocol.
+        """
+        url: NotRequired[pulumi.Input[str]]
+        """
+        The endpoint URL.
+        """
+elif False:
+    LiveEventEndpointArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LiveEventEndpointArgs:
     def __init__(__self__, *,
@@ -303,6 +433,30 @@ class LiveEventEndpointArgs:
     def url(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "url", value)
 
+
+if not MYPY:
+    class LiveEventInputArgsDict(TypedDict):
+        """
+        The Live Event input.
+        """
+        streaming_protocol: pulumi.Input['LiveEventInputProtocol']
+        """
+        The streaming protocol for the Live Event.
+        """
+        access_token: NotRequired[pulumi.Input[str]]
+        """
+        The access token.
+        """
+        endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input['LiveEventEndpointArgsDict']]]]
+        """
+        The input endpoints for the Live Event.
+        """
+        key_frame_interval_duration: NotRequired[pulumi.Input[str]]
+        """
+        ISO 8601 timespan duration of the key frame interval duration.
+        """
+elif False:
+    LiveEventInputArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LiveEventInputArgs:
@@ -375,6 +529,18 @@ class LiveEventInputArgs:
         pulumi.set(self, "key_frame_interval_duration", value)
 
 
+if not MYPY:
+    class LiveEventPreviewAccessControlArgsDict(TypedDict):
+        """
+        The IP access control for Live Event preview.
+        """
+        ip: NotRequired[pulumi.Input['IPAccessControlArgsDict']]
+        """
+        The IP access control properties.
+        """
+elif False:
+    LiveEventPreviewAccessControlArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LiveEventPreviewAccessControlArgs:
     def __init__(__self__, *,
@@ -398,6 +564,34 @@ class LiveEventPreviewAccessControlArgs:
     def ip(self, value: Optional[pulumi.Input['IPAccessControlArgs']]):
         pulumi.set(self, "ip", value)
 
+
+if not MYPY:
+    class LiveEventPreviewArgsDict(TypedDict):
+        """
+        The Live Event preview.
+        """
+        access_control: NotRequired[pulumi.Input['LiveEventPreviewAccessControlArgsDict']]
+        """
+        The access control for LiveEvent preview.
+        """
+        alternative_media_id: NotRequired[pulumi.Input[str]]
+        """
+        An Alternative Media Identifier associated with the preview url.  This identifier can be used to distinguish the preview of different live events for authorization purposes in the CustomLicenseAcquisitionUrlTemplate or the CustomKeyAcquisitionUrlTemplate of the StreamingPolicy specified in the StreamingPolicyName field.
+        """
+        endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input['LiveEventEndpointArgsDict']]]]
+        """
+        The endpoints for preview.
+        """
+        preview_locator: NotRequired[pulumi.Input[str]]
+        """
+        The preview locator Guid.
+        """
+        streaming_policy_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of streaming policy used for LiveEvent preview
+        """
+elif False:
+    LiveEventPreviewArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LiveEventPreviewArgs:
@@ -486,6 +680,22 @@ class LiveEventPreviewArgs:
     def streaming_policy_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "streaming_policy_name", value)
 
+
+if not MYPY:
+    class StreamingEndpointAccessControlArgsDict(TypedDict):
+        """
+        StreamingEndpoint access control definition.
+        """
+        akamai: NotRequired[pulumi.Input['AkamaiAccessControlArgsDict']]
+        """
+        The access control of Akamai
+        """
+        ip: NotRequired[pulumi.Input['IPAccessControlArgsDict']]
+        """
+        The IP access control of the StreamingEndpoint.
+        """
+elif False:
+    StreamingEndpointAccessControlArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class StreamingEndpointAccessControlArgs:

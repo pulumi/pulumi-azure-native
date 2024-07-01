@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -171,8 +176,8 @@ class Experiment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled_state: Optional[pulumi.Input[Union[str, 'State']]] = None,
-                 endpoint_a: Optional[pulumi.Input[pulumi.InputType['ExperimentEndpointArgs']]] = None,
-                 endpoint_b: Optional[pulumi.Input[pulumi.InputType['ExperimentEndpointArgs']]] = None,
+                 endpoint_a: Optional[pulumi.Input[Union['ExperimentEndpointArgs', 'ExperimentEndpointArgsDict']]] = None,
+                 endpoint_b: Optional[pulumi.Input[Union['ExperimentEndpointArgs', 'ExperimentEndpointArgsDict']]] = None,
                  experiment_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  profile_name: Optional[pulumi.Input[str]] = None,
@@ -187,8 +192,8 @@ class Experiment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the details or intents of the Experiment
         :param pulumi.Input[Union[str, 'State']] enabled_state: The state of the Experiment
-        :param pulumi.Input[pulumi.InputType['ExperimentEndpointArgs']] endpoint_a: The endpoint A of an experiment
-        :param pulumi.Input[pulumi.InputType['ExperimentEndpointArgs']] endpoint_b: The endpoint B of an experiment
+        :param pulumi.Input[Union['ExperimentEndpointArgs', 'ExperimentEndpointArgsDict']] endpoint_a: The endpoint A of an experiment
+        :param pulumi.Input[Union['ExperimentEndpointArgs', 'ExperimentEndpointArgsDict']] endpoint_b: The endpoint B of an experiment
         :param pulumi.Input[str] experiment_name: The Experiment identifier associated with the Experiment
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] profile_name: The Profile identifier associated with the Tenant and Partner
@@ -222,8 +227,8 @@ class Experiment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled_state: Optional[pulumi.Input[Union[str, 'State']]] = None,
-                 endpoint_a: Optional[pulumi.Input[pulumi.InputType['ExperimentEndpointArgs']]] = None,
-                 endpoint_b: Optional[pulumi.Input[pulumi.InputType['ExperimentEndpointArgs']]] = None,
+                 endpoint_a: Optional[pulumi.Input[Union['ExperimentEndpointArgs', 'ExperimentEndpointArgsDict']]] = None,
+                 endpoint_b: Optional[pulumi.Input[Union['ExperimentEndpointArgs', 'ExperimentEndpointArgsDict']]] = None,
                  experiment_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  profile_name: Optional[pulumi.Input[str]] = None,

@@ -4,15 +4,36 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 
 __all__ = [
     'OperationsDefinitionDisplayArgs',
+    'OperationsDefinitionDisplayArgsDict',
     'OperationsDefinitionArgs',
+    'OperationsDefinitionArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class OperationsDefinitionDisplayArgsDict(TypedDict):
+        """
+        Display information of the operation.
+        """
+        description: pulumi.Input[str]
+        operation: pulumi.Input[str]
+        provider: pulumi.Input[str]
+        resource: pulumi.Input[str]
+elif False:
+    OperationsDefinitionDisplayArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OperationsDefinitionDisplayArgs:
@@ -65,6 +86,29 @@ class OperationsDefinitionDisplayArgs:
     def resource(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource", value)
 
+
+if not MYPY:
+    class OperationsDefinitionArgsDict(TypedDict):
+        """
+        Properties of an Operation.
+        """
+        display: pulumi.Input['OperationsDefinitionDisplayArgsDict']
+        """
+        Display information of the operation.
+        """
+        name: pulumi.Input[str]
+        """
+        Name of the operation.
+        """
+        action_type: NotRequired[pulumi.Input[str]]
+        is_data_action: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether the operation applies to data-plane.
+        """
+        origin: NotRequired[pulumi.Input[str]]
+        properties: NotRequired[Any]
+elif False:
+    OperationsDefinitionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OperationsDefinitionArgs:

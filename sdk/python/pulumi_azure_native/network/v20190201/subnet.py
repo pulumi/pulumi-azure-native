@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -283,18 +288,18 @@ class Subnet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  address_prefix: Optional[pulumi.Input[str]] = None,
                  address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 delegations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DelegationArgs']]]]] = None,
+                 delegations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DelegationArgs', 'DelegationArgsDict']]]]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 nat_gateway: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
-                 network_security_group: Optional[pulumi.Input[pulumi.InputType['NetworkSecurityGroupArgs']]] = None,
+                 nat_gateway: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
+                 network_security_group: Optional[pulumi.Input[Union['NetworkSecurityGroupArgs', 'NetworkSecurityGroupArgsDict']]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 resource_navigation_links: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceNavigationLinkArgs']]]]] = None,
-                 route_table: Optional[pulumi.Input[pulumi.InputType['RouteTableArgs']]] = None,
-                 service_association_links: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceAssociationLinkArgs']]]]] = None,
-                 service_endpoint_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceEndpointPolicyArgs']]]]] = None,
-                 service_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceEndpointPropertiesFormatArgs']]]]] = None,
+                 resource_navigation_links: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResourceNavigationLinkArgs', 'ResourceNavigationLinkArgsDict']]]]] = None,
+                 route_table: Optional[pulumi.Input[Union['RouteTableArgs', 'RouteTableArgsDict']]] = None,
+                 service_association_links: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceAssociationLinkArgs', 'ServiceAssociationLinkArgsDict']]]]] = None,
+                 service_endpoint_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceEndpointPolicyArgs', 'ServiceEndpointPolicyArgsDict']]]]] = None,
+                 service_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceEndpointPropertiesFormatArgs', 'ServiceEndpointPropertiesFormatArgsDict']]]]] = None,
                  subnet_name: Optional[pulumi.Input[str]] = None,
                  virtual_network_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -305,18 +310,18 @@ class Subnet(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] address_prefix: The address prefix for the subnet.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] address_prefixes: List of  address prefixes for the subnet.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DelegationArgs']]]] delegations: Gets an array of references to the delegations on the subnet.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DelegationArgs', 'DelegationArgsDict']]]] delegations: Gets an array of references to the delegations on the subnet.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
-        :param pulumi.Input[pulumi.InputType['SubResourceArgs']] nat_gateway: Nat gateway associated with this subnet.
-        :param pulumi.Input[pulumi.InputType['NetworkSecurityGroupArgs']] network_security_group: The reference of the NetworkSecurityGroup resource.
+        :param pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']] nat_gateway: Nat gateway associated with this subnet.
+        :param pulumi.Input[Union['NetworkSecurityGroupArgs', 'NetworkSecurityGroupArgsDict']] network_security_group: The reference of the NetworkSecurityGroup resource.
         :param pulumi.Input[str] provisioning_state: The provisioning state of the resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceNavigationLinkArgs']]]] resource_navigation_links: Gets an array of references to the external resources using subnet.
-        :param pulumi.Input[pulumi.InputType['RouteTableArgs']] route_table: The reference of the RouteTable resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceAssociationLinkArgs']]]] service_association_links: Gets an array of references to services injecting into this subnet.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceEndpointPolicyArgs']]]] service_endpoint_policies: An array of service endpoint policies.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceEndpointPropertiesFormatArgs']]]] service_endpoints: An array of service endpoints.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ResourceNavigationLinkArgs', 'ResourceNavigationLinkArgsDict']]]] resource_navigation_links: Gets an array of references to the external resources using subnet.
+        :param pulumi.Input[Union['RouteTableArgs', 'RouteTableArgsDict']] route_table: The reference of the RouteTable resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceAssociationLinkArgs', 'ServiceAssociationLinkArgsDict']]]] service_association_links: Gets an array of references to services injecting into this subnet.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceEndpointPolicyArgs', 'ServiceEndpointPolicyArgsDict']]]] service_endpoint_policies: An array of service endpoint policies.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceEndpointPropertiesFormatArgs', 'ServiceEndpointPropertiesFormatArgsDict']]]] service_endpoints: An array of service endpoints.
         :param pulumi.Input[str] subnet_name: The name of the subnet.
         :param pulumi.Input[str] virtual_network_name: The name of the virtual network.
         """
@@ -346,18 +351,18 @@ class Subnet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  address_prefix: Optional[pulumi.Input[str]] = None,
                  address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 delegations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DelegationArgs']]]]] = None,
+                 delegations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DelegationArgs', 'DelegationArgsDict']]]]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 nat_gateway: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
-                 network_security_group: Optional[pulumi.Input[pulumi.InputType['NetworkSecurityGroupArgs']]] = None,
+                 nat_gateway: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
+                 network_security_group: Optional[pulumi.Input[Union['NetworkSecurityGroupArgs', 'NetworkSecurityGroupArgsDict']]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 resource_navigation_links: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceNavigationLinkArgs']]]]] = None,
-                 route_table: Optional[pulumi.Input[pulumi.InputType['RouteTableArgs']]] = None,
-                 service_association_links: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceAssociationLinkArgs']]]]] = None,
-                 service_endpoint_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceEndpointPolicyArgs']]]]] = None,
-                 service_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceEndpointPropertiesFormatArgs']]]]] = None,
+                 resource_navigation_links: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResourceNavigationLinkArgs', 'ResourceNavigationLinkArgsDict']]]]] = None,
+                 route_table: Optional[pulumi.Input[Union['RouteTableArgs', 'RouteTableArgsDict']]] = None,
+                 service_association_links: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceAssociationLinkArgs', 'ServiceAssociationLinkArgsDict']]]]] = None,
+                 service_endpoint_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceEndpointPolicyArgs', 'ServiceEndpointPolicyArgsDict']]]]] = None,
+                 service_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceEndpointPropertiesFormatArgs', 'ServiceEndpointPropertiesFormatArgsDict']]]]] = None,
                  subnet_name: Optional[pulumi.Input[str]] = None,
                  virtual_network_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):

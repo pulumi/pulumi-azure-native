@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -136,7 +141,7 @@ class ManagementAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  management_association_name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['ManagementAssociationPropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['ManagementAssociationPropertiesArgs', 'ManagementAssociationPropertiesArgsDict']]] = None,
                  provider_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
@@ -149,7 +154,7 @@ class ManagementAssociation(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] management_association_name: User ManagementAssociation Name.
-        :param pulumi.Input[pulumi.InputType['ManagementAssociationPropertiesArgs']] properties: Properties for ManagementAssociation object supported by the OperationsManagement resource provider.
+        :param pulumi.Input[Union['ManagementAssociationPropertiesArgs', 'ManagementAssociationPropertiesArgsDict']] properties: Properties for ManagementAssociation object supported by the OperationsManagement resource provider.
         :param pulumi.Input[str] provider_name: Provider name for the parent resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group to get. The name is case insensitive.
         :param pulumi.Input[str] resource_name_: Parent resource name.
@@ -181,7 +186,7 @@ class ManagementAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  management_association_name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['ManagementAssociationPropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['ManagementAssociationPropertiesArgs', 'ManagementAssociationPropertiesArgsDict']]] = None,
                  provider_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,

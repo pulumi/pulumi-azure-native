@@ -4,22 +4,58 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'AzureKeyVaultSmbCredentialsArgs',
+    'AzureKeyVaultSmbCredentialsArgsDict',
     'AzureStorageBlobContainerEndpointPropertiesArgs',
+    'AzureStorageBlobContainerEndpointPropertiesArgsDict',
     'AzureStorageSmbFileShareEndpointPropertiesArgs',
+    'AzureStorageSmbFileShareEndpointPropertiesArgsDict',
     'NfsMountEndpointPropertiesArgs',
+    'NfsMountEndpointPropertiesArgsDict',
     'SmbMountEndpointPropertiesArgs',
+    'SmbMountEndpointPropertiesArgsDict',
     'TimeArgs',
+    'TimeArgsDict',
     'UploadLimitScheduleArgs',
+    'UploadLimitScheduleArgsDict',
     'UploadLimitWeeklyRecurrenceArgs',
+    'UploadLimitWeeklyRecurrenceArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AzureKeyVaultSmbCredentialsArgsDict(TypedDict):
+        """
+        The Azure Key Vault secret URIs which store the credentials.
+        """
+        type: pulumi.Input[str]
+        """
+        The Credentials type.
+        Expected value is 'AzureKeyVaultSmb'.
+        """
+        password_uri: NotRequired[pulumi.Input[str]]
+        """
+        The Azure Key Vault secret URI which stores the password. Use empty string to clean-up existing value.
+        """
+        username_uri: NotRequired[pulumi.Input[str]]
+        """
+        The Azure Key Vault secret URI which stores the username. Use empty string to clean-up existing value.
+        """
+elif False:
+    AzureKeyVaultSmbCredentialsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AzureKeyVaultSmbCredentialsArgs:
@@ -77,6 +113,31 @@ class AzureKeyVaultSmbCredentialsArgs:
     def username_uri(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "username_uri", value)
 
+
+if not MYPY:
+    class AzureStorageBlobContainerEndpointPropertiesArgsDict(TypedDict):
+        """
+        The properties of Azure Storage blob container endpoint.
+        """
+        blob_container_name: pulumi.Input[str]
+        """
+        The name of the Storage blob container that is the target destination.
+        """
+        endpoint_type: pulumi.Input[str]
+        """
+        The Endpoint resource type.
+        Expected value is 'AzureStorageBlobContainer'.
+        """
+        storage_account_resource_id: pulumi.Input[str]
+        """
+        The Azure Resource ID of the storage account that is the target destination.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        A description for the Endpoint.
+        """
+elif False:
+    AzureStorageBlobContainerEndpointPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AzureStorageBlobContainerEndpointPropertiesArgs:
@@ -149,6 +210,31 @@ class AzureStorageBlobContainerEndpointPropertiesArgs:
         pulumi.set(self, "description", value)
 
 
+if not MYPY:
+    class AzureStorageSmbFileShareEndpointPropertiesArgsDict(TypedDict):
+        """
+        The properties of Azure Storage SMB file share endpoint.
+        """
+        endpoint_type: pulumi.Input[str]
+        """
+        The Endpoint resource type.
+        Expected value is 'AzureStorageSmbFileShare'.
+        """
+        file_share_name: pulumi.Input[str]
+        """
+        The name of the Azure Storage file share.
+        """
+        storage_account_resource_id: pulumi.Input[str]
+        """
+        The Azure Resource ID of the storage account.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        A description for the Endpoint.
+        """
+elif False:
+    AzureStorageSmbFileShareEndpointPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AzureStorageSmbFileShareEndpointPropertiesArgs:
     def __init__(__self__, *,
@@ -219,6 +305,35 @@ class AzureStorageSmbFileShareEndpointPropertiesArgs:
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
 
+
+if not MYPY:
+    class NfsMountEndpointPropertiesArgsDict(TypedDict):
+        """
+        The properties of NFS share endpoint.
+        """
+        endpoint_type: pulumi.Input[str]
+        """
+        The Endpoint resource type.
+        Expected value is 'NfsMount'.
+        """
+        export: pulumi.Input[str]
+        """
+        The directory being exported from the server.
+        """
+        host: pulumi.Input[str]
+        """
+        The host name or IP address of the server exporting the file system.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        A description for the Endpoint.
+        """
+        nfs_version: NotRequired[pulumi.Input[Union[str, 'NfsVersion']]]
+        """
+        The NFS protocol version.
+        """
+elif False:
+    NfsMountEndpointPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NfsMountEndpointPropertiesArgs:
@@ -307,6 +422,35 @@ class NfsMountEndpointPropertiesArgs:
         pulumi.set(self, "nfs_version", value)
 
 
+if not MYPY:
+    class SmbMountEndpointPropertiesArgsDict(TypedDict):
+        """
+        The properties of SMB share endpoint.
+        """
+        endpoint_type: pulumi.Input[str]
+        """
+        The Endpoint resource type.
+        Expected value is 'SmbMount'.
+        """
+        host: pulumi.Input[str]
+        """
+        The host name or IP address of the server exporting the file system.
+        """
+        share_name: pulumi.Input[str]
+        """
+        The name of the SMB share being exported from the server.
+        """
+        credentials: NotRequired[pulumi.Input['AzureKeyVaultSmbCredentialsArgsDict']]
+        """
+        The Azure Key Vault secret URIs which store the required credentials to access the SMB share.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        A description for the Endpoint.
+        """
+elif False:
+    SmbMountEndpointPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SmbMountEndpointPropertiesArgs:
     def __init__(__self__, *,
@@ -394,6 +538,22 @@ class SmbMountEndpointPropertiesArgs:
         pulumi.set(self, "description", value)
 
 
+if not MYPY:
+    class TimeArgsDict(TypedDict):
+        """
+        The time of day.
+        """
+        hour: pulumi.Input[int]
+        """
+        The hour element of the time. Allowed values range from 0 (start of the selected day) to 24 (end of the selected day). Hour value 24 cannot be combined with any other minute value but 0.
+        """
+        minute: NotRequired[pulumi.Input[int]]
+        """
+        The minute element of the time. Allowed values are 0 and 30. If not specified, its value defaults to 0.
+        """
+elif False:
+    TimeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TimeArgs:
     def __init__(__self__, *,
@@ -435,6 +595,18 @@ class TimeArgs:
         pulumi.set(self, "minute", value)
 
 
+if not MYPY:
+    class UploadLimitScheduleArgsDict(TypedDict):
+        """
+        The WAN-link upload limit schedule. Overlapping recurrences are not allowed.
+        """
+        weekly_recurrences: NotRequired[pulumi.Input[Sequence[pulumi.Input['UploadLimitWeeklyRecurrenceArgsDict']]]]
+        """
+        The set of weekly repeating recurrences of the WAN-link upload limit schedule.
+        """
+elif False:
+    UploadLimitScheduleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class UploadLimitScheduleArgs:
     def __init__(__self__, *,
@@ -458,6 +630,30 @@ class UploadLimitScheduleArgs:
     def weekly_recurrences(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UploadLimitWeeklyRecurrenceArgs']]]]):
         pulumi.set(self, "weekly_recurrences", value)
 
+
+if not MYPY:
+    class UploadLimitWeeklyRecurrenceArgsDict(TypedDict):
+        """
+        The weekly recurrence of the WAN-link upload limit schedule. The start time must be earlier in the day than the end time. The recurrence must not span across multiple days.
+        """
+        days: pulumi.Input[Sequence[pulumi.Input['DayOfWeek']]]
+        """
+        The set of days of week for the schedule recurrence. A day must not be specified more than once in a recurrence.
+        """
+        end_time: pulumi.Input['TimeArgsDict']
+        """
+        The end time of the schedule recurrence. Full hour and 30-minute intervals are supported.
+        """
+        limit_in_mbps: pulumi.Input[int]
+        """
+        The WAN-link upload bandwidth (maximum data transfer rate) in megabits per second. Value of 0 indicates no throughput is allowed and any running migration job is effectively paused for the duration of this recurrence. Only data plane operations are governed by this limit. Control plane operations ensure seamless functionality. The agent may exceed this limit with control messages, if necessary.
+        """
+        start_time: pulumi.Input['TimeArgsDict']
+        """
+        The start time of the schedule recurrence. Full hour and 30-minute intervals are supported.
+        """
+elif False:
+    UploadLimitWeeklyRecurrenceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UploadLimitWeeklyRecurrenceArgs:

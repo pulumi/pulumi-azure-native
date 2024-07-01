@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -218,12 +223,12 @@ class CustomLocation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authentication: Optional[pulumi.Input[pulumi.InputType['CustomLocationPropertiesAuthenticationArgs']]] = None,
+                 authentication: Optional[pulumi.Input[Union['CustomLocationPropertiesAuthenticationArgs', 'CustomLocationPropertiesAuthenticationArgsDict']]] = None,
                  cluster_extension_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  host_resource_id: Optional[pulumi.Input[str]] = None,
                  host_type: Optional[pulumi.Input[Union[str, 'HostType']]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  namespace: Optional[pulumi.Input[str]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
@@ -239,12 +244,12 @@ class CustomLocation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['CustomLocationPropertiesAuthenticationArgs']] authentication: This is optional input that contains the authentication that should be used to generate the namespace.
+        :param pulumi.Input[Union['CustomLocationPropertiesAuthenticationArgs', 'CustomLocationPropertiesAuthenticationArgsDict']] authentication: This is optional input that contains the authentication that should be used to generate the namespace.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cluster_extension_ids: Contains the reference to the add-on that contains charts to deploy CRDs and operators.
         :param pulumi.Input[str] display_name: Display name for the Custom Locations location.
         :param pulumi.Input[str] host_resource_id: Connected Cluster or AKS Cluster. The Custom Locations RP will perform a checkAccess API for listAdminCredentials permissions.
         :param pulumi.Input[Union[str, 'HostType']] host_type: Type of host the Custom Locations is referencing (Kubernetes, etc...).
-        :param pulumi.Input[pulumi.InputType['IdentityArgs']] identity: Identity for the resource.
+        :param pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']] identity: Identity for the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] namespace: Kubernetes namespace that will be created on the specified cluster.
         :param pulumi.Input[str] provisioning_state: Provisioning State for the Custom Location.
@@ -279,12 +284,12 @@ class CustomLocation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authentication: Optional[pulumi.Input[pulumi.InputType['CustomLocationPropertiesAuthenticationArgs']]] = None,
+                 authentication: Optional[pulumi.Input[Union['CustomLocationPropertiesAuthenticationArgs', 'CustomLocationPropertiesAuthenticationArgsDict']]] = None,
                  cluster_extension_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  host_resource_id: Optional[pulumi.Input[str]] = None,
                  host_type: Optional[pulumi.Input[Union[str, 'HostType']]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  namespace: Optional[pulumi.Input[str]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,

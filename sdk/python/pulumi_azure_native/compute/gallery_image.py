@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -328,20 +333,20 @@ class GalleryImage(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  architecture: Optional[pulumi.Input[Union[str, 'Architecture']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 disallowed: Optional[pulumi.Input[pulumi.InputType['DisallowedArgs']]] = None,
+                 disallowed: Optional[pulumi.Input[Union['DisallowedArgs', 'DisallowedArgsDict']]] = None,
                  end_of_life_date: Optional[pulumi.Input[str]] = None,
                  eula: Optional[pulumi.Input[str]] = None,
-                 features: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GalleryImageFeatureArgs']]]]] = None,
+                 features: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GalleryImageFeatureArgs', 'GalleryImageFeatureArgsDict']]]]] = None,
                  gallery_image_name: Optional[pulumi.Input[str]] = None,
                  gallery_name: Optional[pulumi.Input[str]] = None,
                  hyper_v_generation: Optional[pulumi.Input[Union[str, 'HyperVGeneration']]] = None,
-                 identifier: Optional[pulumi.Input[pulumi.InputType['GalleryImageIdentifierArgs']]] = None,
+                 identifier: Optional[pulumi.Input[Union['GalleryImageIdentifierArgs', 'GalleryImageIdentifierArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  os_state: Optional[pulumi.Input['OperatingSystemStateTypes']] = None,
                  os_type: Optional[pulumi.Input['OperatingSystemTypes']] = None,
                  privacy_statement_uri: Optional[pulumi.Input[str]] = None,
-                 purchase_plan: Optional[pulumi.Input[pulumi.InputType['ImagePurchasePlanArgs']]] = None,
-                 recommended: Optional[pulumi.Input[pulumi.InputType['RecommendedMachineConfigurationArgs']]] = None,
+                 purchase_plan: Optional[pulumi.Input[Union['ImagePurchasePlanArgs', 'ImagePurchasePlanArgsDict']]] = None,
+                 recommended: Optional[pulumi.Input[Union['RecommendedMachineConfigurationArgs', 'RecommendedMachineConfigurationArgsDict']]] = None,
                  release_note_uri: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -356,20 +361,20 @@ class GalleryImage(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[str, 'Architecture']] architecture: The architecture of the image. Applicable to OS disks only.
         :param pulumi.Input[str] description: The description of this gallery image definition resource. This property is updatable.
-        :param pulumi.Input[pulumi.InputType['DisallowedArgs']] disallowed: Describes the disallowed disk types.
+        :param pulumi.Input[Union['DisallowedArgs', 'DisallowedArgsDict']] disallowed: Describes the disallowed disk types.
         :param pulumi.Input[str] end_of_life_date: The end of life date of the gallery image definition. This property can be used for decommissioning purposes. This property is updatable.
         :param pulumi.Input[str] eula: The Eula agreement for the gallery image definition.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GalleryImageFeatureArgs']]]] features: A list of gallery image features.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['GalleryImageFeatureArgs', 'GalleryImageFeatureArgsDict']]]] features: A list of gallery image features.
         :param pulumi.Input[str] gallery_image_name: The name of the gallery image definition to be created or updated. The allowed characters are alphabets and numbers with dots, dashes, and periods allowed in the middle. The maximum length is 80 characters.
         :param pulumi.Input[str] gallery_name: The name of the Shared Image Gallery in which the Image Definition is to be created.
         :param pulumi.Input[Union[str, 'HyperVGeneration']] hyper_v_generation: The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
-        :param pulumi.Input[pulumi.InputType['GalleryImageIdentifierArgs']] identifier: This is the gallery image definition identifier.
+        :param pulumi.Input[Union['GalleryImageIdentifierArgs', 'GalleryImageIdentifierArgsDict']] identifier: This is the gallery image definition identifier.
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input['OperatingSystemStateTypes'] os_state: This property allows the user to specify whether the virtual machines created under this image are 'Generalized' or 'Specialized'.
         :param pulumi.Input['OperatingSystemTypes'] os_type: This property allows you to specify the type of the OS that is included in the disk when creating a VM from a managed image. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
         :param pulumi.Input[str] privacy_statement_uri: The privacy statement uri.
-        :param pulumi.Input[pulumi.InputType['ImagePurchasePlanArgs']] purchase_plan: Describes the gallery image definition purchase plan. This is used by marketplace images.
-        :param pulumi.Input[pulumi.InputType['RecommendedMachineConfigurationArgs']] recommended: The properties describe the recommended machine configuration for this Image Definition. These properties are updatable.
+        :param pulumi.Input[Union['ImagePurchasePlanArgs', 'ImagePurchasePlanArgsDict']] purchase_plan: Describes the gallery image definition purchase plan. This is used by marketplace images.
+        :param pulumi.Input[Union['RecommendedMachineConfigurationArgs', 'RecommendedMachineConfigurationArgsDict']] recommended: The properties describe the recommended machine configuration for this Image Definition. These properties are updatable.
         :param pulumi.Input[str] release_note_uri: The release note uri.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
@@ -403,20 +408,20 @@ class GalleryImage(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  architecture: Optional[pulumi.Input[Union[str, 'Architecture']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 disallowed: Optional[pulumi.Input[pulumi.InputType['DisallowedArgs']]] = None,
+                 disallowed: Optional[pulumi.Input[Union['DisallowedArgs', 'DisallowedArgsDict']]] = None,
                  end_of_life_date: Optional[pulumi.Input[str]] = None,
                  eula: Optional[pulumi.Input[str]] = None,
-                 features: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GalleryImageFeatureArgs']]]]] = None,
+                 features: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GalleryImageFeatureArgs', 'GalleryImageFeatureArgsDict']]]]] = None,
                  gallery_image_name: Optional[pulumi.Input[str]] = None,
                  gallery_name: Optional[pulumi.Input[str]] = None,
                  hyper_v_generation: Optional[pulumi.Input[Union[str, 'HyperVGeneration']]] = None,
-                 identifier: Optional[pulumi.Input[pulumi.InputType['GalleryImageIdentifierArgs']]] = None,
+                 identifier: Optional[pulumi.Input[Union['GalleryImageIdentifierArgs', 'GalleryImageIdentifierArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  os_state: Optional[pulumi.Input['OperatingSystemStateTypes']] = None,
                  os_type: Optional[pulumi.Input['OperatingSystemTypes']] = None,
                  privacy_statement_uri: Optional[pulumi.Input[str]] = None,
-                 purchase_plan: Optional[pulumi.Input[pulumi.InputType['ImagePurchasePlanArgs']]] = None,
-                 recommended: Optional[pulumi.Input[pulumi.InputType['RecommendedMachineConfigurationArgs']]] = None,
+                 purchase_plan: Optional[pulumi.Input[Union['ImagePurchasePlanArgs', 'ImagePurchasePlanArgsDict']]] = None,
+                 recommended: Optional[pulumi.Input[Union['RecommendedMachineConfigurationArgs', 'RecommendedMachineConfigurationArgsDict']]] = None,
                  release_note_uri: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,

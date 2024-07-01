@@ -4,67 +4,140 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'AccessControlArgs',
+    'AccessControlArgsDict',
     'AccountEncryptionArgs',
+    'AccountEncryptionArgsDict',
     'AudioTrackArgs',
+    'AudioTrackArgsDict',
     'CbcsDrmConfigurationArgs',
+    'CbcsDrmConfigurationArgsDict',
     'CencDrmConfigurationArgs',
+    'CencDrmConfigurationArgsDict',
     'ClearKeyEncryptionConfigurationArgs',
+    'ClearKeyEncryptionConfigurationArgsDict',
     'CommonEncryptionCbcsArgs',
+    'CommonEncryptionCbcsArgsDict',
     'CommonEncryptionCencArgs',
+    'CommonEncryptionCencArgsDict',
     'ContentKeyPolicyClearKeyConfigurationArgs',
+    'ContentKeyPolicyClearKeyConfigurationArgsDict',
     'ContentKeyPolicyFairPlayConfigurationArgs',
+    'ContentKeyPolicyFairPlayConfigurationArgsDict',
     'ContentKeyPolicyFairPlayOfflineRentalConfigurationArgs',
+    'ContentKeyPolicyFairPlayOfflineRentalConfigurationArgsDict',
     'ContentKeyPolicyOpenRestrictionArgs',
+    'ContentKeyPolicyOpenRestrictionArgsDict',
     'ContentKeyPolicyOptionArgs',
+    'ContentKeyPolicyOptionArgsDict',
     'ContentKeyPolicyPlayReadyConfigurationArgs',
+    'ContentKeyPolicyPlayReadyConfigurationArgsDict',
     'ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderArgs',
+    'ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderArgsDict',
     'ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierArgs',
+    'ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierArgsDict',
     'ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionArgs',
+    'ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionArgsDict',
     'ContentKeyPolicyPlayReadyLicenseArgs',
+    'ContentKeyPolicyPlayReadyLicenseArgsDict',
     'ContentKeyPolicyPlayReadyPlayRightArgs',
+    'ContentKeyPolicyPlayReadyPlayRightArgsDict',
     'ContentKeyPolicyRsaTokenKeyArgs',
+    'ContentKeyPolicyRsaTokenKeyArgsDict',
     'ContentKeyPolicySymmetricTokenKeyArgs',
+    'ContentKeyPolicySymmetricTokenKeyArgsDict',
     'ContentKeyPolicyTokenClaimArgs',
+    'ContentKeyPolicyTokenClaimArgsDict',
     'ContentKeyPolicyTokenRestrictionArgs',
+    'ContentKeyPolicyTokenRestrictionArgsDict',
     'ContentKeyPolicyUnknownConfigurationArgs',
+    'ContentKeyPolicyUnknownConfigurationArgsDict',
     'ContentKeyPolicyUnknownRestrictionArgs',
+    'ContentKeyPolicyUnknownRestrictionArgsDict',
     'ContentKeyPolicyWidevineConfigurationArgs',
+    'ContentKeyPolicyWidevineConfigurationArgsDict',
     'ContentKeyPolicyX509CertificateTokenKeyArgs',
+    'ContentKeyPolicyX509CertificateTokenKeyArgsDict',
     'DashSettingsArgs',
+    'DashSettingsArgsDict',
     'DefaultKeyArgs',
+    'DefaultKeyArgsDict',
     'EnabledProtocolsArgs',
+    'EnabledProtocolsArgsDict',
     'EnvelopeEncryptionArgs',
+    'EnvelopeEncryptionArgsDict',
     'FilterTrackPropertyConditionArgs',
+    'FilterTrackPropertyConditionArgsDict',
     'FilterTrackSelectionArgs',
+    'FilterTrackSelectionArgsDict',
     'FirstQualityArgs',
+    'FirstQualityArgsDict',
     'HlsSettingsArgs',
+    'HlsSettingsArgsDict',
     'KeyDeliveryArgs',
+    'KeyDeliveryArgsDict',
     'KeyVaultPropertiesArgs',
+    'KeyVaultPropertiesArgsDict',
     'MediaServiceIdentityArgs',
+    'MediaServiceIdentityArgsDict',
     'NoEncryptionArgs',
+    'NoEncryptionArgsDict',
     'PresentationTimeRangeArgs',
+    'PresentationTimeRangeArgsDict',
     'PrivateLinkServiceConnectionStateArgs',
+    'PrivateLinkServiceConnectionStateArgsDict',
     'ResourceIdentityArgs',
+    'ResourceIdentityArgsDict',
     'StorageAccountArgs',
+    'StorageAccountArgsDict',
     'StreamingLocatorContentKeyArgs',
+    'StreamingLocatorContentKeyArgsDict',
     'StreamingPolicyContentKeysArgs',
+    'StreamingPolicyContentKeysArgsDict',
     'StreamingPolicyContentKeyArgs',
+    'StreamingPolicyContentKeyArgsDict',
     'StreamingPolicyFairPlayConfigurationArgs',
+    'StreamingPolicyFairPlayConfigurationArgsDict',
     'StreamingPolicyPlayReadyConfigurationArgs',
+    'StreamingPolicyPlayReadyConfigurationArgsDict',
     'StreamingPolicyWidevineConfigurationArgs',
+    'StreamingPolicyWidevineConfigurationArgsDict',
     'TextTrackArgs',
+    'TextTrackArgsDict',
     'TrackPropertyConditionArgs',
+    'TrackPropertyConditionArgsDict',
     'TrackSelectionArgs',
+    'TrackSelectionArgsDict',
     'VideoTrackArgs',
+    'VideoTrackArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AccessControlArgsDict(TypedDict):
+        default_action: NotRequired[pulumi.Input[Union[str, 'DefaultAction']]]
+        """
+        The behavior for IP access control in Key Delivery.
+        """
+        ip_allow_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The IP allow list for access control in Key Delivery. If the default action is set to 'Allow', the IP allow list must be empty.
+        """
+elif False:
+    AccessControlArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AccessControlArgs:
@@ -104,6 +177,23 @@ class AccessControlArgs:
     def ip_allow_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "ip_allow_list", value)
 
+
+if not MYPY:
+    class AccountEncryptionArgsDict(TypedDict):
+        type: pulumi.Input[Union[str, 'AccountEncryptionKeyType']]
+        """
+        The type of key used to encrypt the Account Key.
+        """
+        identity: NotRequired[pulumi.Input['ResourceIdentityArgsDict']]
+        """
+        The Key Vault identity.
+        """
+        key_vault_properties: NotRequired[pulumi.Input['KeyVaultPropertiesArgsDict']]
+        """
+        The properties of the key used to encrypt the account.
+        """
+elif False:
+    AccountEncryptionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AccountEncryptionArgs:
@@ -158,6 +248,43 @@ class AccountEncryptionArgs:
     def key_vault_properties(self, value: Optional[pulumi.Input['KeyVaultPropertiesArgs']]):
         pulumi.set(self, "key_vault_properties", value)
 
+
+if not MYPY:
+    class AudioTrackArgsDict(TypedDict):
+        """
+        Represents an audio track in the asset.
+        """
+        odata_type: pulumi.Input[str]
+        """
+        The discriminator for derived types.
+        Expected value is '#Microsoft.Media.AudioTrack'.
+        """
+        dash_settings: NotRequired[pulumi.Input['DashSettingsArgsDict']]
+        """
+        The DASH specific setting for the audio track.
+        """
+        display_name: NotRequired[pulumi.Input[str]]
+        """
+        The display name of the audio track on a video player. In HLS, this maps to the NAME attribute of EXT-X-MEDIA.
+        """
+        file_name: NotRequired[pulumi.Input[str]]
+        """
+        The file name to the source file. This file is located in the storage container of the asset.
+        """
+        hls_settings: NotRequired[pulumi.Input['HlsSettingsArgsDict']]
+        """
+        The HLS specific setting for the audio track.
+        """
+        language_code: NotRequired[pulumi.Input[str]]
+        """
+        The RFC5646 language code for the audio track.
+        """
+        mpeg4_track_id: NotRequired[pulumi.Input[int]]
+        """
+        The MPEG-4 audio track ID for the audio track.
+        """
+elif False:
+    AudioTrackArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AudioTrackArgs:
@@ -280,6 +407,26 @@ class AudioTrackArgs:
         pulumi.set(self, "mpeg4_track_id", value)
 
 
+if not MYPY:
+    class CbcsDrmConfigurationArgsDict(TypedDict):
+        """
+        Class to specify DRM configurations of CommonEncryptionCbcs scheme in Streaming Policy
+        """
+        fair_play: NotRequired[pulumi.Input['StreamingPolicyFairPlayConfigurationArgsDict']]
+        """
+        FairPlay configurations
+        """
+        play_ready: NotRequired[pulumi.Input['StreamingPolicyPlayReadyConfigurationArgsDict']]
+        """
+        PlayReady configurations
+        """
+        widevine: NotRequired[pulumi.Input['StreamingPolicyWidevineConfigurationArgsDict']]
+        """
+        Widevine configurations
+        """
+elif False:
+    CbcsDrmConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CbcsDrmConfigurationArgs:
     def __init__(__self__, *,
@@ -336,6 +483,22 @@ class CbcsDrmConfigurationArgs:
         pulumi.set(self, "widevine", value)
 
 
+if not MYPY:
+    class CencDrmConfigurationArgsDict(TypedDict):
+        """
+        Class to specify DRM configurations of CommonEncryptionCenc scheme in Streaming Policy
+        """
+        play_ready: NotRequired[pulumi.Input['StreamingPolicyPlayReadyConfigurationArgsDict']]
+        """
+        PlayReady configurations
+        """
+        widevine: NotRequired[pulumi.Input['StreamingPolicyWidevineConfigurationArgsDict']]
+        """
+        Widevine configurations
+        """
+elif False:
+    CencDrmConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CencDrmConfigurationArgs:
     def __init__(__self__, *,
@@ -376,6 +539,18 @@ class CencDrmConfigurationArgs:
         pulumi.set(self, "widevine", value)
 
 
+if not MYPY:
+    class ClearKeyEncryptionConfigurationArgsDict(TypedDict):
+        """
+        Class to specify ClearKey configuration of common encryption schemes in Streaming Policy
+        """
+        custom_keys_acquisition_url_template: NotRequired[pulumi.Input[str]]
+        """
+        Template for the URL of the custom service delivering content keys to end user players. Not required when using Azure Media Services for issuing licenses. The template supports replaceable tokens that the service will update at runtime with the value specific to the request.  The currently supported token value is {AlternativeMediaId}, which is replaced with the value of StreamingLocatorId.AlternativeMediaId.
+        """
+elif False:
+    ClearKeyEncryptionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ClearKeyEncryptionConfigurationArgs:
     def __init__(__self__, *,
@@ -399,6 +574,34 @@ class ClearKeyEncryptionConfigurationArgs:
     def custom_keys_acquisition_url_template(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "custom_keys_acquisition_url_template", value)
 
+
+if not MYPY:
+    class CommonEncryptionCbcsArgsDict(TypedDict):
+        """
+        Class for CommonEncryptionCbcs encryption scheme
+        """
+        clear_key_encryption_configuration: NotRequired[pulumi.Input['ClearKeyEncryptionConfigurationArgsDict']]
+        """
+        Optional configuration supporting ClearKey in CommonEncryptionCbcs encryption scheme.
+        """
+        clear_tracks: NotRequired[pulumi.Input[Sequence[pulumi.Input['TrackSelectionArgsDict']]]]
+        """
+        Representing which tracks should not be encrypted
+        """
+        content_keys: NotRequired[pulumi.Input['StreamingPolicyContentKeysArgsDict']]
+        """
+        Representing default content key for each encryption scheme and separate content keys for specific tracks
+        """
+        drm: NotRequired[pulumi.Input['CbcsDrmConfigurationArgsDict']]
+        """
+        Configuration of DRMs for current encryption scheme
+        """
+        enabled_protocols: NotRequired[pulumi.Input['EnabledProtocolsArgsDict']]
+        """
+        Representing supported protocols
+        """
+elif False:
+    CommonEncryptionCbcsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CommonEncryptionCbcsArgs:
@@ -488,6 +691,34 @@ class CommonEncryptionCbcsArgs:
         pulumi.set(self, "enabled_protocols", value)
 
 
+if not MYPY:
+    class CommonEncryptionCencArgsDict(TypedDict):
+        """
+        Class for envelope encryption scheme
+        """
+        clear_key_encryption_configuration: NotRequired[pulumi.Input['ClearKeyEncryptionConfigurationArgsDict']]
+        """
+        Optional configuration supporting ClearKey in CommonEncryptionCenc encryption scheme.
+        """
+        clear_tracks: NotRequired[pulumi.Input[Sequence[pulumi.Input['TrackSelectionArgsDict']]]]
+        """
+        Representing which tracks should not be encrypted
+        """
+        content_keys: NotRequired[pulumi.Input['StreamingPolicyContentKeysArgsDict']]
+        """
+        Representing default content key for each encryption scheme and separate content keys for specific tracks
+        """
+        drm: NotRequired[pulumi.Input['CencDrmConfigurationArgsDict']]
+        """
+        Configuration of DRMs for CommonEncryptionCenc encryption scheme
+        """
+        enabled_protocols: NotRequired[pulumi.Input['EnabledProtocolsArgsDict']]
+        """
+        Representing supported protocols
+        """
+elif False:
+    CommonEncryptionCencArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CommonEncryptionCencArgs:
     def __init__(__self__, *,
@@ -576,6 +807,19 @@ class CommonEncryptionCencArgs:
         pulumi.set(self, "enabled_protocols", value)
 
 
+if not MYPY:
+    class ContentKeyPolicyClearKeyConfigurationArgsDict(TypedDict):
+        """
+        Represents a configuration for non-DRM keys.
+        """
+        odata_type: pulumi.Input[str]
+        """
+        The discriminator for derived types.
+        Expected value is '#Microsoft.Media.ContentKeyPolicyClearKeyConfiguration'.
+        """
+elif False:
+    ContentKeyPolicyClearKeyConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ContentKeyPolicyClearKeyConfigurationArgs:
     def __init__(__self__, *,
@@ -600,6 +844,43 @@ class ContentKeyPolicyClearKeyConfigurationArgs:
     def odata_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "odata_type", value)
 
+
+if not MYPY:
+    class ContentKeyPolicyFairPlayConfigurationArgsDict(TypedDict):
+        """
+        Specifies a configuration for FairPlay licenses.
+        """
+        ask: pulumi.Input[str]
+        """
+        The key that must be used as FairPlay Application Secret key. This needs to be base64 encoded.
+        """
+        fair_play_pfx: pulumi.Input[str]
+        """
+        The Base64 representation of FairPlay certificate in PKCS 12 (pfx) format (including private key).
+        """
+        fair_play_pfx_password: pulumi.Input[str]
+        """
+        The password encrypting FairPlay certificate in PKCS 12 (pfx) format.
+        """
+        odata_type: pulumi.Input[str]
+        """
+        The discriminator for derived types.
+        Expected value is '#Microsoft.Media.ContentKeyPolicyFairPlayConfiguration'.
+        """
+        rental_and_lease_key_type: pulumi.Input[Union[str, 'ContentKeyPolicyFairPlayRentalAndLeaseKeyType']]
+        """
+        The rental and lease key type.
+        """
+        rental_duration: pulumi.Input[float]
+        """
+        The rental duration. Must be greater than or equal to 0.
+        """
+        offline_rental_configuration: NotRequired[pulumi.Input['ContentKeyPolicyFairPlayOfflineRentalConfigurationArgsDict']]
+        """
+        Offline rental policy
+        """
+elif False:
+    ContentKeyPolicyFairPlayConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ContentKeyPolicyFairPlayConfigurationArgs:
@@ -717,6 +998,19 @@ class ContentKeyPolicyFairPlayConfigurationArgs:
         pulumi.set(self, "offline_rental_configuration", value)
 
 
+if not MYPY:
+    class ContentKeyPolicyFairPlayOfflineRentalConfigurationArgsDict(TypedDict):
+        playback_duration_seconds: pulumi.Input[float]
+        """
+        Playback duration
+        """
+        storage_duration_seconds: pulumi.Input[float]
+        """
+        Storage duration
+        """
+elif False:
+    ContentKeyPolicyFairPlayOfflineRentalConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ContentKeyPolicyFairPlayOfflineRentalConfigurationArgs:
     def __init__(__self__, *,
@@ -754,6 +1048,19 @@ class ContentKeyPolicyFairPlayOfflineRentalConfigurationArgs:
         pulumi.set(self, "storage_duration_seconds", value)
 
 
+if not MYPY:
+    class ContentKeyPolicyOpenRestrictionArgsDict(TypedDict):
+        """
+        Represents an open restriction. License or key will be delivered on every request.
+        """
+        odata_type: pulumi.Input[str]
+        """
+        The discriminator for derived types.
+        Expected value is '#Microsoft.Media.ContentKeyPolicyOpenRestriction'.
+        """
+elif False:
+    ContentKeyPolicyOpenRestrictionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ContentKeyPolicyOpenRestrictionArgs:
     def __init__(__self__, *,
@@ -778,6 +1085,26 @@ class ContentKeyPolicyOpenRestrictionArgs:
     def odata_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "odata_type", value)
 
+
+if not MYPY:
+    class ContentKeyPolicyOptionArgsDict(TypedDict):
+        """
+        Represents a policy option.
+        """
+        configuration: pulumi.Input[Union['ContentKeyPolicyClearKeyConfigurationArgsDict', 'ContentKeyPolicyFairPlayConfigurationArgsDict', 'ContentKeyPolicyPlayReadyConfigurationArgsDict', 'ContentKeyPolicyUnknownConfigurationArgsDict', 'ContentKeyPolicyWidevineConfigurationArgsDict']]
+        """
+        The key delivery configuration.
+        """
+        restriction: pulumi.Input[Union['ContentKeyPolicyOpenRestrictionArgsDict', 'ContentKeyPolicyTokenRestrictionArgsDict', 'ContentKeyPolicyUnknownRestrictionArgsDict']]
+        """
+        The requirements that must be met to deliver keys with this configuration
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The Policy Option description.
+        """
+elif False:
+    ContentKeyPolicyOptionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ContentKeyPolicyOptionArgs:
@@ -832,6 +1159,27 @@ class ContentKeyPolicyOptionArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class ContentKeyPolicyPlayReadyConfigurationArgsDict(TypedDict):
+        """
+        Specifies a configuration for PlayReady licenses.
+        """
+        licenses: pulumi.Input[Sequence[pulumi.Input['ContentKeyPolicyPlayReadyLicenseArgsDict']]]
+        """
+        The PlayReady licenses.
+        """
+        odata_type: pulumi.Input[str]
+        """
+        The discriminator for derived types.
+        Expected value is '#Microsoft.Media.ContentKeyPolicyPlayReadyConfiguration'.
+        """
+        response_custom_data: NotRequired[pulumi.Input[str]]
+        """
+        The custom response data.
+        """
+elif False:
+    ContentKeyPolicyPlayReadyConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ContentKeyPolicyPlayReadyConfigurationArgs:
@@ -889,6 +1237,19 @@ class ContentKeyPolicyPlayReadyConfigurationArgs:
         pulumi.set(self, "response_custom_data", value)
 
 
+if not MYPY:
+    class ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderArgsDict(TypedDict):
+        """
+        Specifies that the content key ID is in the PlayReady header.
+        """
+        odata_type: pulumi.Input[str]
+        """
+        The discriminator for derived types.
+        Expected value is '#Microsoft.Media.ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeader'.
+        """
+elif False:
+    ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderArgs:
     def __init__(__self__, *,
@@ -913,6 +1274,23 @@ class ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderArgs:
     def odata_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "odata_type", value)
 
+
+if not MYPY:
+    class ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierArgsDict(TypedDict):
+        """
+        Specifies that the content key ID is specified in the PlayReady configuration.
+        """
+        key_id: pulumi.Input[str]
+        """
+        The content key ID.
+        """
+        odata_type: pulumi.Input[str]
+        """
+        The discriminator for derived types.
+        Expected value is '#Microsoft.Media.ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifier'.
+        """
+elif False:
+    ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierArgs:
@@ -954,6 +1332,22 @@ class ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierArgs:
         pulumi.set(self, "odata_type", value)
 
 
+if not MYPY:
+    class ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionArgsDict(TypedDict):
+        """
+        Configures the Explicit Analog Television Output Restriction control bits. For further details see the PlayReady Compliance Rules.
+        """
+        best_effort: pulumi.Input[bool]
+        """
+        Indicates whether this restriction is enforced on a Best Effort basis.
+        """
+        configuration_data: pulumi.Input[int]
+        """
+        Configures the restriction control bits. Must be between 0 and 3 inclusive.
+        """
+elif False:
+    ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionArgs:
     def __init__(__self__, *,
@@ -991,6 +1385,58 @@ class ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionArgs:
     def configuration_data(self, value: pulumi.Input[int]):
         pulumi.set(self, "configuration_data", value)
 
+
+if not MYPY:
+    class ContentKeyPolicyPlayReadyLicenseArgsDict(TypedDict):
+        """
+        The PlayReady license
+        """
+        allow_test_devices: pulumi.Input[bool]
+        """
+        A flag indicating whether test devices can use the license.
+        """
+        content_key_location: pulumi.Input[Union['ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderArgsDict', 'ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierArgsDict']]
+        """
+        The content key location.
+        """
+        content_type: pulumi.Input[Union[str, 'ContentKeyPolicyPlayReadyContentType']]
+        """
+        The PlayReady content type.
+        """
+        license_type: pulumi.Input[Union[str, 'ContentKeyPolicyPlayReadyLicenseType']]
+        """
+        The license type.
+        """
+        begin_date: NotRequired[pulumi.Input[str]]
+        """
+        The begin date of license
+        """
+        expiration_date: NotRequired[pulumi.Input[str]]
+        """
+        The expiration date of license.
+        """
+        grace_period: NotRequired[pulumi.Input[str]]
+        """
+        The grace period of license.
+        """
+        play_right: NotRequired[pulumi.Input['ContentKeyPolicyPlayReadyPlayRightArgsDict']]
+        """
+        The license PlayRight
+        """
+        relative_begin_date: NotRequired[pulumi.Input[str]]
+        """
+        The relative begin date of license.
+        """
+        relative_expiration_date: NotRequired[pulumi.Input[str]]
+        """
+        The relative expiration date of license.
+        """
+        security_level: NotRequired[pulumi.Input[Union[str, 'SecurityLevel']]]
+        """
+        The security level.
+        """
+elif False:
+    ContentKeyPolicyPlayReadyLicenseArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ContentKeyPolicyPlayReadyLicenseArgs:
@@ -1171,6 +1617,66 @@ class ContentKeyPolicyPlayReadyLicenseArgs:
     def security_level(self, value: Optional[pulumi.Input[Union[str, 'SecurityLevel']]]):
         pulumi.set(self, "security_level", value)
 
+
+if not MYPY:
+    class ContentKeyPolicyPlayReadyPlayRightArgsDict(TypedDict):
+        """
+        Configures the Play Right in the PlayReady license.
+        """
+        allow_passing_video_content_to_unknown_output: pulumi.Input[Union[str, 'ContentKeyPolicyPlayReadyUnknownOutputPassingOption']]
+        """
+        Configures Unknown output handling settings of the license.
+        """
+        digital_video_only_content_restriction: pulumi.Input[bool]
+        """
+        Enables the Image Constraint For Analog Component Video Restriction in the license.
+        """
+        image_constraint_for_analog_component_video_restriction: pulumi.Input[bool]
+        """
+        Enables the Image Constraint For Analog Component Video Restriction in the license.
+        """
+        image_constraint_for_analog_computer_monitor_restriction: pulumi.Input[bool]
+        """
+        Enables the Image Constraint For Analog Component Video Restriction in the license.
+        """
+        agc_and_color_stripe_restriction: NotRequired[pulumi.Input[int]]
+        """
+        Configures Automatic Gain Control (AGC) and Color Stripe in the license. Must be between 0 and 3 inclusive.
+        """
+        analog_video_opl: NotRequired[pulumi.Input[int]]
+        """
+        Specifies the output protection level for compressed digital audio.
+        """
+        compressed_digital_audio_opl: NotRequired[pulumi.Input[int]]
+        """
+        Specifies the output protection level for compressed digital audio.
+        """
+        compressed_digital_video_opl: NotRequired[pulumi.Input[int]]
+        """
+        Specifies the output protection level for compressed digital video.
+        """
+        explicit_analog_television_output_restriction: NotRequired[pulumi.Input['ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionArgsDict']]
+        """
+        Configures the Explicit Analog Television Output Restriction in the license. Configuration data must be between 0 and 3 inclusive.
+        """
+        first_play_expiration: NotRequired[pulumi.Input[str]]
+        """
+        The amount of time that the license is valid after the license is first used to play content.
+        """
+        scms_restriction: NotRequired[pulumi.Input[int]]
+        """
+        Configures the Serial Copy Management System (SCMS) in the license. Must be between 0 and 3 inclusive.
+        """
+        uncompressed_digital_audio_opl: NotRequired[pulumi.Input[int]]
+        """
+        Specifies the output protection level for uncompressed digital audio.
+        """
+        uncompressed_digital_video_opl: NotRequired[pulumi.Input[int]]
+        """
+        Specifies the output protection level for uncompressed digital video.
+        """
+elif False:
+    ContentKeyPolicyPlayReadyPlayRightArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ContentKeyPolicyPlayReadyPlayRightArgs:
@@ -1384,6 +1890,27 @@ class ContentKeyPolicyPlayReadyPlayRightArgs:
         pulumi.set(self, "uncompressed_digital_video_opl", value)
 
 
+if not MYPY:
+    class ContentKeyPolicyRsaTokenKeyArgsDict(TypedDict):
+        """
+        Specifies a RSA key for token validation
+        """
+        exponent: pulumi.Input[str]
+        """
+        The RSA Parameter exponent
+        """
+        modulus: pulumi.Input[str]
+        """
+        The RSA Parameter modulus
+        """
+        odata_type: pulumi.Input[str]
+        """
+        The discriminator for derived types.
+        Expected value is '#Microsoft.Media.ContentKeyPolicyRsaTokenKey'.
+        """
+elif False:
+    ContentKeyPolicyRsaTokenKeyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ContentKeyPolicyRsaTokenKeyArgs:
     def __init__(__self__, *,
@@ -1439,6 +1966,23 @@ class ContentKeyPolicyRsaTokenKeyArgs:
         pulumi.set(self, "odata_type", value)
 
 
+if not MYPY:
+    class ContentKeyPolicySymmetricTokenKeyArgsDict(TypedDict):
+        """
+        Specifies a symmetric key for token validation.
+        """
+        key_value: pulumi.Input[str]
+        """
+        The key value of the key
+        """
+        odata_type: pulumi.Input[str]
+        """
+        The discriminator for derived types.
+        Expected value is '#Microsoft.Media.ContentKeyPolicySymmetricTokenKey'.
+        """
+elif False:
+    ContentKeyPolicySymmetricTokenKeyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ContentKeyPolicySymmetricTokenKeyArgs:
     def __init__(__self__, *,
@@ -1479,6 +2023,22 @@ class ContentKeyPolicySymmetricTokenKeyArgs:
         pulumi.set(self, "odata_type", value)
 
 
+if not MYPY:
+    class ContentKeyPolicyTokenClaimArgsDict(TypedDict):
+        """
+        Represents a token claim.
+        """
+        claim_type: NotRequired[pulumi.Input[str]]
+        """
+        Token claim type.
+        """
+        claim_value: NotRequired[pulumi.Input[str]]
+        """
+        Token claim value.
+        """
+elif False:
+    ContentKeyPolicyTokenClaimArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ContentKeyPolicyTokenClaimArgs:
     def __init__(__self__, *,
@@ -1518,6 +2078,47 @@ class ContentKeyPolicyTokenClaimArgs:
     def claim_value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "claim_value", value)
 
+
+if not MYPY:
+    class ContentKeyPolicyTokenRestrictionArgsDict(TypedDict):
+        """
+        Represents a token restriction. Provided token must match these requirements for successful license or key delivery.
+        """
+        audience: pulumi.Input[str]
+        """
+        The audience for the token.
+        """
+        issuer: pulumi.Input[str]
+        """
+        The token issuer.
+        """
+        odata_type: pulumi.Input[str]
+        """
+        The discriminator for derived types.
+        Expected value is '#Microsoft.Media.ContentKeyPolicyTokenRestriction'.
+        """
+        primary_verification_key: pulumi.Input[Union['ContentKeyPolicyRsaTokenKeyArgsDict', 'ContentKeyPolicySymmetricTokenKeyArgsDict', 'ContentKeyPolicyX509CertificateTokenKeyArgsDict']]
+        """
+        The primary verification key.
+        """
+        restriction_token_type: pulumi.Input[Union[str, 'ContentKeyPolicyRestrictionTokenType']]
+        """
+        The type of token.
+        """
+        alternate_verification_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union['ContentKeyPolicyRsaTokenKeyArgsDict', 'ContentKeyPolicySymmetricTokenKeyArgsDict', 'ContentKeyPolicyX509CertificateTokenKeyArgsDict']]]]]
+        """
+        A list of alternative verification keys.
+        """
+        open_id_connect_discovery_document: NotRequired[pulumi.Input[str]]
+        """
+        The OpenID connect discovery document.
+        """
+        required_claims: NotRequired[pulumi.Input[Sequence[pulumi.Input['ContentKeyPolicyTokenClaimArgsDict']]]]
+        """
+        A list of required token claims.
+        """
+elif False:
+    ContentKeyPolicyTokenRestrictionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ContentKeyPolicyTokenRestrictionArgs:
@@ -1652,6 +2253,19 @@ class ContentKeyPolicyTokenRestrictionArgs:
         pulumi.set(self, "required_claims", value)
 
 
+if not MYPY:
+    class ContentKeyPolicyUnknownConfigurationArgsDict(TypedDict):
+        """
+        Represents a ContentKeyPolicyConfiguration that is unavailable in the current API version.
+        """
+        odata_type: pulumi.Input[str]
+        """
+        The discriminator for derived types.
+        Expected value is '#Microsoft.Media.ContentKeyPolicyUnknownConfiguration'.
+        """
+elif False:
+    ContentKeyPolicyUnknownConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ContentKeyPolicyUnknownConfigurationArgs:
     def __init__(__self__, *,
@@ -1677,6 +2291,19 @@ class ContentKeyPolicyUnknownConfigurationArgs:
         pulumi.set(self, "odata_type", value)
 
 
+if not MYPY:
+    class ContentKeyPolicyUnknownRestrictionArgsDict(TypedDict):
+        """
+        Represents a ContentKeyPolicyRestriction that is unavailable in the current API version.
+        """
+        odata_type: pulumi.Input[str]
+        """
+        The discriminator for derived types.
+        Expected value is '#Microsoft.Media.ContentKeyPolicyUnknownRestriction'.
+        """
+elif False:
+    ContentKeyPolicyUnknownRestrictionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ContentKeyPolicyUnknownRestrictionArgs:
     def __init__(__self__, *,
@@ -1701,6 +2328,23 @@ class ContentKeyPolicyUnknownRestrictionArgs:
     def odata_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "odata_type", value)
 
+
+if not MYPY:
+    class ContentKeyPolicyWidevineConfigurationArgsDict(TypedDict):
+        """
+        Specifies a configuration for Widevine licenses.
+        """
+        odata_type: pulumi.Input[str]
+        """
+        The discriminator for derived types.
+        Expected value is '#Microsoft.Media.ContentKeyPolicyWidevineConfiguration'.
+        """
+        widevine_template: pulumi.Input[str]
+        """
+        The Widevine template.
+        """
+elif False:
+    ContentKeyPolicyWidevineConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ContentKeyPolicyWidevineConfigurationArgs:
@@ -1742,6 +2386,23 @@ class ContentKeyPolicyWidevineConfigurationArgs:
         pulumi.set(self, "widevine_template", value)
 
 
+if not MYPY:
+    class ContentKeyPolicyX509CertificateTokenKeyArgsDict(TypedDict):
+        """
+        Specifies a certificate for token validation.
+        """
+        odata_type: pulumi.Input[str]
+        """
+        The discriminator for derived types.
+        Expected value is '#Microsoft.Media.ContentKeyPolicyX509CertificateTokenKey'.
+        """
+        raw_body: pulumi.Input[str]
+        """
+        The raw data field of a certificate in PKCS 12 format (X509Certificate2 in .NET)
+        """
+elif False:
+    ContentKeyPolicyX509CertificateTokenKeyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ContentKeyPolicyX509CertificateTokenKeyArgs:
     def __init__(__self__, *,
@@ -1782,6 +2443,18 @@ class ContentKeyPolicyX509CertificateTokenKeyArgs:
         pulumi.set(self, "raw_body", value)
 
 
+if not MYPY:
+    class DashSettingsArgsDict(TypedDict):
+        """
+        The DASH setting for a track.
+        """
+        role: NotRequired[pulumi.Input[str]]
+        """
+        The role for the DASH setting.
+        """
+elif False:
+    DashSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DashSettingsArgs:
     def __init__(__self__, *,
@@ -1805,6 +2478,22 @@ class DashSettingsArgs:
     def role(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "role", value)
 
+
+if not MYPY:
+    class DefaultKeyArgsDict(TypedDict):
+        """
+        Class to specify properties of default content key for each encryption scheme
+        """
+        label: NotRequired[pulumi.Input[str]]
+        """
+        Label can be used to specify Content Key when creating a Streaming Locator
+        """
+        policy_name: NotRequired[pulumi.Input[str]]
+        """
+        Policy used by Default Key
+        """
+elif False:
+    DefaultKeyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DefaultKeyArgs:
@@ -1845,6 +2534,30 @@ class DefaultKeyArgs:
     def policy_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "policy_name", value)
 
+
+if not MYPY:
+    class EnabledProtocolsArgsDict(TypedDict):
+        """
+        Class to specify which protocols are enabled
+        """
+        dash: pulumi.Input[bool]
+        """
+        Enable DASH protocol or not
+        """
+        download: pulumi.Input[bool]
+        """
+        Enable Download protocol or not
+        """
+        hls: pulumi.Input[bool]
+        """
+        Enable HLS protocol or not
+        """
+        smooth_streaming: pulumi.Input[bool]
+        """
+        Enable SmoothStreaming protocol or not
+        """
+elif False:
+    EnabledProtocolsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EnabledProtocolsArgs:
@@ -1913,6 +2626,30 @@ class EnabledProtocolsArgs:
     def smooth_streaming(self, value: pulumi.Input[bool]):
         pulumi.set(self, "smooth_streaming", value)
 
+
+if not MYPY:
+    class EnvelopeEncryptionArgsDict(TypedDict):
+        """
+        Class for EnvelopeEncryption encryption scheme
+        """
+        clear_tracks: NotRequired[pulumi.Input[Sequence[pulumi.Input['TrackSelectionArgsDict']]]]
+        """
+        Representing which tracks should not be encrypted
+        """
+        content_keys: NotRequired[pulumi.Input['StreamingPolicyContentKeysArgsDict']]
+        """
+        Representing default content key for each encryption scheme and separate content keys for specific tracks
+        """
+        custom_key_acquisition_url_template: NotRequired[pulumi.Input[str]]
+        """
+        Template for the URL of the custom service delivering keys to end user players.  Not required when using Azure Media Services for issuing keys.  The template supports replaceable tokens that the service will update at runtime with the value specific to the request.  The currently supported token values are {AlternativeMediaId}, which is replaced with the value of StreamingLocatorId.AlternativeMediaId, and {ContentKeyId}, which is replaced with the value of identifier of the key being requested.
+        """
+        enabled_protocols: NotRequired[pulumi.Input['EnabledProtocolsArgsDict']]
+        """
+        Representing supported protocols
+        """
+elif False:
+    EnvelopeEncryptionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EnvelopeEncryptionArgs:
@@ -1986,6 +2723,26 @@ class EnvelopeEncryptionArgs:
         pulumi.set(self, "enabled_protocols", value)
 
 
+if not MYPY:
+    class FilterTrackPropertyConditionArgsDict(TypedDict):
+        """
+        The class to specify one track property condition.
+        """
+        operation: pulumi.Input[Union[str, 'FilterTrackPropertyCompareOperation']]
+        """
+        The track property condition operation.
+        """
+        property: pulumi.Input[Union[str, 'FilterTrackPropertyType']]
+        """
+        The track property type.
+        """
+        value: pulumi.Input[str]
+        """
+        The track property value.
+        """
+elif False:
+    FilterTrackPropertyConditionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FilterTrackPropertyConditionArgs:
     def __init__(__self__, *,
@@ -2039,6 +2796,18 @@ class FilterTrackPropertyConditionArgs:
         pulumi.set(self, "property", value)
 
 
+if not MYPY:
+    class FilterTrackSelectionArgsDict(TypedDict):
+        """
+        Representing a list of FilterTrackPropertyConditions to select a track.  The filters are combined using a logical AND operation.
+        """
+        track_selections: pulumi.Input[Sequence[pulumi.Input['FilterTrackPropertyConditionArgsDict']]]
+        """
+        The track selections.
+        """
+elif False:
+    FilterTrackSelectionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FilterTrackSelectionArgs:
     def __init__(__self__, *,
@@ -2062,6 +2831,18 @@ class FilterTrackSelectionArgs:
         pulumi.set(self, "track_selections", value)
 
 
+if not MYPY:
+    class FirstQualityArgsDict(TypedDict):
+        """
+        Filter First Quality
+        """
+        bitrate: pulumi.Input[int]
+        """
+        The first quality bitrate.
+        """
+elif False:
+    FirstQualityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FirstQualityArgs:
     def __init__(__self__, *,
@@ -2084,6 +2865,26 @@ class FirstQualityArgs:
     def bitrate(self, value: pulumi.Input[int]):
         pulumi.set(self, "bitrate", value)
 
+
+if not MYPY:
+    class HlsSettingsArgsDict(TypedDict):
+        """
+        The HLS setting for a track.
+        """
+        characteristics: NotRequired[pulumi.Input[str]]
+        """
+        The characteristics for the HLS setting.
+        """
+        default: NotRequired[pulumi.Input[bool]]
+        """
+        The default for the HLS setting.
+        """
+        forced: NotRequired[pulumi.Input[bool]]
+        """
+        The forced for the HLS setting.
+        """
+elif False:
+    HlsSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class HlsSettingsArgs:
@@ -2141,6 +2942,15 @@ class HlsSettingsArgs:
         pulumi.set(self, "forced", value)
 
 
+if not MYPY:
+    class KeyDeliveryArgsDict(TypedDict):
+        access_control: NotRequired[pulumi.Input['AccessControlArgsDict']]
+        """
+        The access control properties for Key Delivery.
+        """
+elif False:
+    KeyDeliveryArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class KeyDeliveryArgs:
     def __init__(__self__, *,
@@ -2164,6 +2974,15 @@ class KeyDeliveryArgs:
         pulumi.set(self, "access_control", value)
 
 
+if not MYPY:
+    class KeyVaultPropertiesArgsDict(TypedDict):
+        key_identifier: NotRequired[pulumi.Input[str]]
+        """
+        The URL of the Key Vault key used to encrypt the account. The key may either be versioned (for example https://vault/keys/mykey/version1) or reference a key without a version (for example https://vault/keys/mykey).
+        """
+elif False:
+    KeyVaultPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class KeyVaultPropertiesArgs:
     def __init__(__self__, *,
@@ -2186,6 +3005,19 @@ class KeyVaultPropertiesArgs:
     def key_identifier(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "key_identifier", value)
 
+
+if not MYPY:
+    class MediaServiceIdentityArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        The identity type.
+        """
+        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The user assigned managed identities.
+        """
+elif False:
+    MediaServiceIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MediaServiceIdentityArgs:
@@ -2225,6 +3057,18 @@ class MediaServiceIdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
+if not MYPY:
+    class NoEncryptionArgsDict(TypedDict):
+        """
+        Class for NoEncryption scheme
+        """
+        enabled_protocols: NotRequired[pulumi.Input['EnabledProtocolsArgsDict']]
+        """
+        Representing supported protocols
+        """
+elif False:
+    NoEncryptionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NoEncryptionArgs:
     def __init__(__self__, *,
@@ -2248,6 +3092,38 @@ class NoEncryptionArgs:
     def enabled_protocols(self, value: Optional[pulumi.Input['EnabledProtocolsArgs']]):
         pulumi.set(self, "enabled_protocols", value)
 
+
+if not MYPY:
+    class PresentationTimeRangeArgsDict(TypedDict):
+        """
+        The presentation time range, this is asset related and not recommended for Account Filter.
+        """
+        end_timestamp: NotRequired[pulumi.Input[float]]
+        """
+        The absolute end time boundary.
+        """
+        force_end_timestamp: NotRequired[pulumi.Input[bool]]
+        """
+        The indicator of forcing existing of end time stamp.
+        """
+        live_backoff_duration: NotRequired[pulumi.Input[float]]
+        """
+        The relative to end right edge.
+        """
+        presentation_window_duration: NotRequired[pulumi.Input[float]]
+        """
+        The relative to end sliding window.
+        """
+        start_timestamp: NotRequired[pulumi.Input[float]]
+        """
+        The absolute start time boundary.
+        """
+        timescale: NotRequired[pulumi.Input[float]]
+        """
+        The time scale of time stamps.
+        """
+elif False:
+    PresentationTimeRangeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PresentationTimeRangeArgs:
@@ -2353,6 +3229,26 @@ class PresentationTimeRangeArgs:
         pulumi.set(self, "timescale", value)
 
 
+if not MYPY:
+    class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
+        """
+        A collection of information about the state of the connection between service consumer and provider.
+        """
+        actions_required: NotRequired[pulumi.Input[str]]
+        """
+        A message indicating if changes on the service provider require any updates on the consumer.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The reason for approval/rejection of the connection.
+        """
+        status: NotRequired[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]]
+        """
+        Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+        """
+elif False:
+    PrivateLinkServiceConnectionStateArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:
     def __init__(__self__, *,
@@ -2409,6 +3305,19 @@ class PrivateLinkServiceConnectionStateArgs:
         pulumi.set(self, "status", value)
 
 
+if not MYPY:
+    class ResourceIdentityArgsDict(TypedDict):
+        use_system_assigned_identity: pulumi.Input[bool]
+        """
+        Indicates whether to use System Assigned Managed Identity. Mutual exclusive with User Assigned Managed Identity.
+        """
+        user_assigned_identity: NotRequired[pulumi.Input[str]]
+        """
+        The user assigned managed identity's ARM ID to use when accessing a resource.
+        """
+elif False:
+    ResourceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ResourceIdentityArgs:
     def __init__(__self__, *,
@@ -2446,6 +3355,26 @@ class ResourceIdentityArgs:
     def user_assigned_identity(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "user_assigned_identity", value)
 
+
+if not MYPY:
+    class StorageAccountArgsDict(TypedDict):
+        """
+        The storage account details.
+        """
+        type: pulumi.Input[Union[str, 'StorageAccountType']]
+        """
+        The type of the storage account.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the storage account resource. Media Services relies on tables and queues as well as blobs, so the primary storage account must be a Standard Storage account (either Microsoft.ClassicStorage or Microsoft.Storage). Blob only storage accounts can be added as secondary storage accounts.
+        """
+        identity: NotRequired[pulumi.Input['ResourceIdentityArgsDict']]
+        """
+        The storage account identity.
+        """
+elif False:
+    StorageAccountArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class StorageAccountArgs:
@@ -2502,6 +3431,26 @@ class StorageAccountArgs:
         pulumi.set(self, "identity", value)
 
 
+if not MYPY:
+    class StreamingLocatorContentKeyArgsDict(TypedDict):
+        """
+        Class for content key in Streaming Locator
+        """
+        id: pulumi.Input[str]
+        """
+        ID of Content Key
+        """
+        label_reference_in_streaming_policy: NotRequired[pulumi.Input[str]]
+        """
+        Label of Content Key as specified in the Streaming Policy
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        Value of Content Key
+        """
+elif False:
+    StreamingLocatorContentKeyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class StreamingLocatorContentKeyArgs:
     def __init__(__self__, *,
@@ -2557,6 +3506,22 @@ class StreamingLocatorContentKeyArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class StreamingPolicyContentKeysArgsDict(TypedDict):
+        """
+        Class to specify properties of all content keys in Streaming Policy
+        """
+        default_key: NotRequired[pulumi.Input['DefaultKeyArgsDict']]
+        """
+        Default content key for an encryption scheme
+        """
+        key_to_track_mappings: NotRequired[pulumi.Input[Sequence[pulumi.Input['StreamingPolicyContentKeyArgsDict']]]]
+        """
+        Representing tracks needs separate content key
+        """
+elif False:
+    StreamingPolicyContentKeysArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class StreamingPolicyContentKeysArgs:
     def __init__(__self__, *,
@@ -2596,6 +3561,26 @@ class StreamingPolicyContentKeysArgs:
     def key_to_track_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StreamingPolicyContentKeyArgs']]]]):
         pulumi.set(self, "key_to_track_mappings", value)
 
+
+if not MYPY:
+    class StreamingPolicyContentKeyArgsDict(TypedDict):
+        """
+        Class to specify properties of content key
+        """
+        label: NotRequired[pulumi.Input[str]]
+        """
+        Label can be used to specify Content Key when creating a Streaming Locator
+        """
+        policy_name: NotRequired[pulumi.Input[str]]
+        """
+        Policy used by Content Key
+        """
+        tracks: NotRequired[pulumi.Input[Sequence[pulumi.Input['TrackSelectionArgsDict']]]]
+        """
+        Tracks which use this content key
+        """
+elif False:
+    StreamingPolicyContentKeyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class StreamingPolicyContentKeyArgs:
@@ -2653,6 +3638,22 @@ class StreamingPolicyContentKeyArgs:
         pulumi.set(self, "tracks", value)
 
 
+if not MYPY:
+    class StreamingPolicyFairPlayConfigurationArgsDict(TypedDict):
+        """
+        Class to specify configurations of FairPlay in Streaming Policy
+        """
+        allow_persistent_license: pulumi.Input[bool]
+        """
+        All license to be persistent or not
+        """
+        custom_license_acquisition_url_template: NotRequired[pulumi.Input[str]]
+        """
+        Template for the URL of the custom service delivering licenses to end user players.  Not required when using Azure Media Services for issuing licenses.  The template supports replaceable tokens that the service will update at runtime with the value specific to the request.  The currently supported token values are {AlternativeMediaId}, which is replaced with the value of StreamingLocatorId.AlternativeMediaId, and {ContentKeyId}, which is replaced with the value of identifier of the key being requested.
+        """
+elif False:
+    StreamingPolicyFairPlayConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class StreamingPolicyFairPlayConfigurationArgs:
     def __init__(__self__, *,
@@ -2691,6 +3692,22 @@ class StreamingPolicyFairPlayConfigurationArgs:
     def custom_license_acquisition_url_template(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "custom_license_acquisition_url_template", value)
 
+
+if not MYPY:
+    class StreamingPolicyPlayReadyConfigurationArgsDict(TypedDict):
+        """
+        Class to specify configurations of PlayReady in Streaming Policy
+        """
+        custom_license_acquisition_url_template: NotRequired[pulumi.Input[str]]
+        """
+        Template for the URL of the custom service delivering licenses to end user players.  Not required when using Azure Media Services for issuing licenses.  The template supports replaceable tokens that the service will update at runtime with the value specific to the request.  The currently supported token values are {AlternativeMediaId}, which is replaced with the value of StreamingLocatorId.AlternativeMediaId, and {ContentKeyId}, which is replaced with the value of identifier of the key being requested.
+        """
+        play_ready_custom_attributes: NotRequired[pulumi.Input[str]]
+        """
+        Custom attributes for PlayReady
+        """
+elif False:
+    StreamingPolicyPlayReadyConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class StreamingPolicyPlayReadyConfigurationArgs:
@@ -2732,6 +3749,18 @@ class StreamingPolicyPlayReadyConfigurationArgs:
         pulumi.set(self, "play_ready_custom_attributes", value)
 
 
+if not MYPY:
+    class StreamingPolicyWidevineConfigurationArgsDict(TypedDict):
+        """
+        Class to specify configurations of Widevine in Streaming Policy
+        """
+        custom_license_acquisition_url_template: NotRequired[pulumi.Input[str]]
+        """
+        Template for the URL of the custom service delivering licenses to end user players.  Not required when using Azure Media Services for issuing licenses.  The template supports replaceable tokens that the service will update at runtime with the value specific to the request.  The currently supported token values are {AlternativeMediaId}, which is replaced with the value of StreamingLocatorId.AlternativeMediaId, and {ContentKeyId}, which is replaced with the value of identifier of the key being requested.
+        """
+elif False:
+    StreamingPolicyWidevineConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class StreamingPolicyWidevineConfigurationArgs:
     def __init__(__self__, *,
@@ -2755,6 +3784,35 @@ class StreamingPolicyWidevineConfigurationArgs:
     def custom_license_acquisition_url_template(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "custom_license_acquisition_url_template", value)
 
+
+if not MYPY:
+    class TextTrackArgsDict(TypedDict):
+        """
+        Represents a text track in an asset. A text track is usually used for sparse data related to the audio or video tracks.
+        """
+        odata_type: pulumi.Input[str]
+        """
+        The discriminator for derived types.
+        Expected value is '#Microsoft.Media.TextTrack'.
+        """
+        display_name: NotRequired[pulumi.Input[str]]
+        """
+        The display name of the text track on a video player. In HLS, this maps to the NAME attribute of EXT-X-MEDIA.
+        """
+        file_name: NotRequired[pulumi.Input[str]]
+        """
+        The file name to the source file. This file is located in the storage container of the asset.
+        """
+        hls_settings: NotRequired[pulumi.Input['HlsSettingsArgsDict']]
+        """
+        The HLS specific setting for the text track.
+        """
+        player_visibility: NotRequired[pulumi.Input[Union[str, 'Visibility']]]
+        """
+        When PlayerVisibility is set to "Visible", the text track will be present in the DASH manifest or HLS playlist when requested by a client. When the PlayerVisibility is set to "Hidden", the text will not be available to the client. The default value is "Visible".
+        """
+elif False:
+    TextTrackArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TextTrackArgs:
@@ -2845,6 +3903,26 @@ class TextTrackArgs:
         pulumi.set(self, "player_visibility", value)
 
 
+if not MYPY:
+    class TrackPropertyConditionArgsDict(TypedDict):
+        """
+        Class to specify one track property condition
+        """
+        operation: pulumi.Input[Union[str, 'TrackPropertyCompareOperation']]
+        """
+        Track property condition operation
+        """
+        property: pulumi.Input[Union[str, 'TrackPropertyType']]
+        """
+        Track property type
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        Track property value
+        """
+elif False:
+    TrackPropertyConditionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TrackPropertyConditionArgs:
     def __init__(__self__, *,
@@ -2899,6 +3977,18 @@ class TrackPropertyConditionArgs:
         pulumi.set(self, "property", value)
 
 
+if not MYPY:
+    class TrackSelectionArgsDict(TypedDict):
+        """
+        Class to select a track
+        """
+        track_selections: NotRequired[pulumi.Input[Sequence[pulumi.Input['TrackPropertyConditionArgsDict']]]]
+        """
+        TrackSelections is a track property condition list which can specify track(s)
+        """
+elif False:
+    TrackSelectionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TrackSelectionArgs:
     def __init__(__self__, *,
@@ -2922,6 +4012,19 @@ class TrackSelectionArgs:
     def track_selections(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TrackPropertyConditionArgs']]]]):
         pulumi.set(self, "track_selections", value)
 
+
+if not MYPY:
+    class VideoTrackArgsDict(TypedDict):
+        """
+        Represents a video track in the asset.
+        """
+        odata_type: pulumi.Input[str]
+        """
+        The discriminator for derived types.
+        Expected value is '#Microsoft.Media.VideoTrack'.
+        """
+elif False:
+    VideoTrackArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VideoTrackArgs:

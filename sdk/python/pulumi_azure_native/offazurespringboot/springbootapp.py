@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -88,7 +93,7 @@ class Springbootapp(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['SpringbootappsPropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['SpringbootappsPropertiesArgs', 'SpringbootappsPropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  site_name: Optional[pulumi.Input[str]] = None,
                  springbootapps_name: Optional[pulumi.Input[str]] = None,
@@ -99,7 +104,7 @@ class Springbootapp(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['SpringbootappsPropertiesArgs']] properties: The springbootapps resource definition.
+        :param pulumi.Input[Union['SpringbootappsPropertiesArgs', 'SpringbootappsPropertiesArgsDict']] properties: The springbootapps resource definition.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] site_name: The springbootsites name.
         :param pulumi.Input[str] springbootapps_name: The springbootapps name.
@@ -129,7 +134,7 @@ class Springbootapp(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['SpringbootappsPropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['SpringbootappsPropertiesArgs', 'SpringbootappsPropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  site_name: Optional[pulumi.Input[str]] = None,
                  springbootapps_name: Optional[pulumi.Input[str]] = None,

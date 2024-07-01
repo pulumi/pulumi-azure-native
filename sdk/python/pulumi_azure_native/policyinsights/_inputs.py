@@ -4,17 +4,43 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'AttestationEvidenceArgs',
+    'AttestationEvidenceArgsDict',
     'RemediationFiltersArgs',
+    'RemediationFiltersArgsDict',
     'RemediationPropertiesFailureThresholdArgs',
+    'RemediationPropertiesFailureThresholdArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AttestationEvidenceArgsDict(TypedDict):
+        """
+        A piece of evidence supporting the compliance state set in the attestation.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The description for this piece of evidence.
+        """
+        source_uri: NotRequired[pulumi.Input[str]]
+        """
+        The URI location of the evidence.
+        """
+elif False:
+    AttestationEvidenceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AttestationEvidenceArgs:
@@ -56,6 +82,18 @@ class AttestationEvidenceArgs:
         pulumi.set(self, "source_uri", value)
 
 
+if not MYPY:
+    class RemediationFiltersArgsDict(TypedDict):
+        """
+        The filters that will be applied to determine which resources to remediate.
+        """
+        locations: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The resource locations that will be remediated.
+        """
+elif False:
+    RemediationFiltersArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RemediationFiltersArgs:
     def __init__(__self__, *,
@@ -79,6 +117,18 @@ class RemediationFiltersArgs:
     def locations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "locations", value)
 
+
+if not MYPY:
+    class RemediationPropertiesFailureThresholdArgsDict(TypedDict):
+        """
+        The remediation failure threshold settings
+        """
+        percentage: NotRequired[pulumi.Input[float]]
+        """
+        A number between 0.0 to 1.0 representing the percentage failure threshold. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
+        """
+elif False:
+    RemediationPropertiesFailureThresholdArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RemediationPropertiesFailureThresholdArgs:

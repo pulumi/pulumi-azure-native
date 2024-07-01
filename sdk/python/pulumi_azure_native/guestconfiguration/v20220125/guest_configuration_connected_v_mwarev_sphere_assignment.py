@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -124,7 +129,7 @@ class GuestConfigurationConnectedVMwarevSphereAssignment(pulumi.CustomResource):
                  guest_configuration_assignment_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['GuestConfigurationAssignmentPropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['GuestConfigurationAssignmentPropertiesArgs', 'GuestConfigurationAssignmentPropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  vm_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -136,7 +141,7 @@ class GuestConfigurationConnectedVMwarevSphereAssignment(pulumi.CustomResource):
         :param pulumi.Input[str] guest_configuration_assignment_name: Name of the guest configuration assignment.
         :param pulumi.Input[str] location: Region where the VM is located.
         :param pulumi.Input[str] name: Name of the guest configuration assignment.
-        :param pulumi.Input[pulumi.InputType['GuestConfigurationAssignmentPropertiesArgs']] properties: Properties of the Guest configuration assignment.
+        :param pulumi.Input[Union['GuestConfigurationAssignmentPropertiesArgs', 'GuestConfigurationAssignmentPropertiesArgsDict']] properties: Properties of the Guest configuration assignment.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[str] vm_name: The name of the virtual machine.
         """
@@ -167,7 +172,7 @@ class GuestConfigurationConnectedVMwarevSphereAssignment(pulumi.CustomResource):
                  guest_configuration_assignment_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['GuestConfigurationAssignmentPropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['GuestConfigurationAssignmentPropertiesArgs', 'GuestConfigurationAssignmentPropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  vm_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):

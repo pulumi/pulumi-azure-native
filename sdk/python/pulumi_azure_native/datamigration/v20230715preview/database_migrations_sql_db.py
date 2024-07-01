@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -84,7 +89,7 @@ class DatabaseMigrationsSqlDb(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['DatabaseMigrationPropertiesSqlDbArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['DatabaseMigrationPropertiesSqlDbArgs', 'DatabaseMigrationPropertiesSqlDbArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sql_db_instance_name: Optional[pulumi.Input[str]] = None,
                  target_db_name: Optional[pulumi.Input[str]] = None,
@@ -94,7 +99,7 @@ class DatabaseMigrationsSqlDb(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['DatabaseMigrationPropertiesSqlDbArgs']] properties: Database Migration Resource properties for SQL database.
+        :param pulumi.Input[Union['DatabaseMigrationPropertiesSqlDbArgs', 'DatabaseMigrationPropertiesSqlDbArgsDict']] properties: Database Migration Resource properties for SQL database.
         :param pulumi.Input[str] resource_group_name: Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] target_db_name: The name of the target database.
         """
@@ -122,7 +127,7 @@ class DatabaseMigrationsSqlDb(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['DatabaseMigrationPropertiesSqlDbArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['DatabaseMigrationPropertiesSqlDbArgs', 'DatabaseMigrationPropertiesSqlDbArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sql_db_instance_name: Optional[pulumi.Input[str]] = None,
                  target_db_name: Optional[pulumi.Input[str]] = None,

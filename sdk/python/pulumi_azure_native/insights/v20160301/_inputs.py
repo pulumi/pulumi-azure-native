@@ -4,24 +4,66 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'LocationThresholdRuleConditionArgs',
+    'LocationThresholdRuleConditionArgsDict',
     'ManagementEventAggregationConditionArgs',
+    'ManagementEventAggregationConditionArgsDict',
     'ManagementEventRuleConditionArgs',
+    'ManagementEventRuleConditionArgsDict',
     'RetentionPolicyArgs',
+    'RetentionPolicyArgsDict',
     'RuleEmailActionArgs',
+    'RuleEmailActionArgsDict',
     'RuleManagementEventClaimsDataSourceArgs',
+    'RuleManagementEventClaimsDataSourceArgsDict',
     'RuleManagementEventDataSourceArgs',
+    'RuleManagementEventDataSourceArgsDict',
     'RuleMetricDataSourceArgs',
+    'RuleMetricDataSourceArgsDict',
     'RuleWebhookActionArgs',
+    'RuleWebhookActionArgsDict',
     'ThresholdRuleConditionArgs',
+    'ThresholdRuleConditionArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class LocationThresholdRuleConditionArgsDict(TypedDict):
+        """
+        A rule condition based on a certain number of locations failing.
+        """
+        failed_location_count: pulumi.Input[int]
+        """
+        the number of locations that must fail to activate the alert.
+        """
+        odata_type: pulumi.Input[str]
+        """
+        specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
+        Expected value is 'Microsoft.Azure.Management.Insights.Models.LocationThresholdRuleCondition'.
+        """
+        data_source: NotRequired[pulumi.Input[Union['RuleManagementEventDataSourceArgsDict', 'RuleMetricDataSourceArgsDict']]]
+        """
+        the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
+        """
+        window_size: NotRequired[pulumi.Input[str]]
+        """
+        the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.
+        """
+elif False:
+    LocationThresholdRuleConditionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LocationThresholdRuleConditionArgs:
@@ -95,6 +137,26 @@ class LocationThresholdRuleConditionArgs:
         pulumi.set(self, "window_size", value)
 
 
+if not MYPY:
+    class ManagementEventAggregationConditionArgsDict(TypedDict):
+        """
+        How the data that is collected should be combined over time.
+        """
+        operator: NotRequired[pulumi.Input['ConditionOperator']]
+        """
+        the condition operator.
+        """
+        threshold: NotRequired[pulumi.Input[float]]
+        """
+        The threshold value that activates the alert.
+        """
+        window_size: NotRequired[pulumi.Input[str]]
+        """
+        the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.
+        """
+elif False:
+    ManagementEventAggregationConditionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ManagementEventAggregationConditionArgs:
     def __init__(__self__, *,
@@ -150,6 +212,27 @@ class ManagementEventAggregationConditionArgs:
     def window_size(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "window_size", value)
 
+
+if not MYPY:
+    class ManagementEventRuleConditionArgsDict(TypedDict):
+        """
+        A management event rule condition.
+        """
+        odata_type: pulumi.Input[str]
+        """
+        specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
+        Expected value is 'Microsoft.Azure.Management.Insights.Models.ManagementEventRuleCondition'.
+        """
+        aggregation: NotRequired[pulumi.Input['ManagementEventAggregationConditionArgsDict']]
+        """
+        How the data that is collected should be combined over time and when the alert is activated. Note that for management event alerts aggregation is optional – if it is not provided then any event will cause the alert to activate.
+        """
+        data_source: NotRequired[pulumi.Input[Union['RuleManagementEventDataSourceArgsDict', 'RuleMetricDataSourceArgsDict']]]
+        """
+        the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
+        """
+elif False:
+    ManagementEventRuleConditionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ManagementEventRuleConditionArgs:
@@ -208,6 +291,22 @@ class ManagementEventRuleConditionArgs:
         pulumi.set(self, "data_source", value)
 
 
+if not MYPY:
+    class RetentionPolicyArgsDict(TypedDict):
+        """
+        Specifies the retention policy for the log.
+        """
+        days: pulumi.Input[int]
+        """
+        the number of days for the retention in days. A value of 0 will retain the events indefinitely.
+        """
+        enabled: pulumi.Input[bool]
+        """
+        a value indicating whether the retention policy is enabled.
+        """
+elif False:
+    RetentionPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RetentionPolicyArgs:
     def __init__(__self__, *,
@@ -245,6 +344,27 @@ class RetentionPolicyArgs:
     def enabled(self, value: pulumi.Input[bool]):
         pulumi.set(self, "enabled", value)
 
+
+if not MYPY:
+    class RuleEmailActionArgsDict(TypedDict):
+        """
+        Specifies the action to send email when the rule condition is evaluated. The discriminator is always RuleEmailAction in this case.
+        """
+        odata_type: pulumi.Input[str]
+        """
+        specifies the type of the action. There are two types of actions: RuleEmailAction and RuleWebhookAction.
+        Expected value is 'Microsoft.Azure.Management.Insights.Models.RuleEmailAction'.
+        """
+        custom_emails: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        the list of administrator's custom email addresses to notify of the activation of the alert.
+        """
+        send_to_service_owners: NotRequired[pulumi.Input[bool]]
+        """
+        Whether the administrators (service and co-administrators) of the service should be notified when the alert is activated.
+        """
+elif False:
+    RuleEmailActionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RuleEmailActionArgs:
@@ -303,6 +423,18 @@ class RuleEmailActionArgs:
         pulumi.set(self, "send_to_service_owners", value)
 
 
+if not MYPY:
+    class RuleManagementEventClaimsDataSourceArgsDict(TypedDict):
+        """
+        The claims for a rule management event data source.
+        """
+        email_address: NotRequired[pulumi.Input[str]]
+        """
+        the email address.
+        """
+elif False:
+    RuleManagementEventClaimsDataSourceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RuleManagementEventClaimsDataSourceArgs:
     def __init__(__self__, *,
@@ -326,6 +458,71 @@ class RuleManagementEventClaimsDataSourceArgs:
     def email_address(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "email_address", value)
 
+
+if not MYPY:
+    class RuleManagementEventDataSourceArgsDict(TypedDict):
+        """
+        A rule management event data source. The discriminator fields is always RuleManagementEventDataSource in this case.
+        """
+        odata_type: pulumi.Input[str]
+        """
+        specifies the type of data source. There are two types of rule data sources: RuleMetricDataSource and RuleManagementEventDataSource
+        Expected value is 'Microsoft.Azure.Management.Insights.Models.RuleManagementEventDataSource'.
+        """
+        claims: NotRequired[pulumi.Input['RuleManagementEventClaimsDataSourceArgsDict']]
+        """
+        the claims.
+        """
+        event_name: NotRequired[pulumi.Input[str]]
+        """
+        the event name.
+        """
+        event_source: NotRequired[pulumi.Input[str]]
+        """
+        the event source.
+        """
+        legacy_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        the legacy resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
+        """
+        level: NotRequired[pulumi.Input[str]]
+        """
+        the level.
+        """
+        metric_namespace: NotRequired[pulumi.Input[str]]
+        """
+        the namespace of the metric.
+        """
+        operation_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the operation that should be checked for. If no name is provided, any operation will match.
+        """
+        resource_group_name: NotRequired[pulumi.Input[str]]
+        """
+        the resource group name.
+        """
+        resource_location: NotRequired[pulumi.Input[str]]
+        """
+        the location of the resource.
+        """
+        resource_provider_name: NotRequired[pulumi.Input[str]]
+        """
+        the resource provider name.
+        """
+        resource_uri: NotRequired[pulumi.Input[str]]
+        """
+        the resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
+        """
+        status: NotRequired[pulumi.Input[str]]
+        """
+        The status of the operation that should be checked for. If no status is provided, any status will match.
+        """
+        sub_status: NotRequired[pulumi.Input[str]]
+        """
+        the substatus.
+        """
+elif False:
+    RuleManagementEventDataSourceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RuleManagementEventDataSourceArgs:
@@ -560,6 +757,39 @@ class RuleManagementEventDataSourceArgs:
         pulumi.set(self, "sub_status", value)
 
 
+if not MYPY:
+    class RuleMetricDataSourceArgsDict(TypedDict):
+        """
+        A rule metric data source. The discriminator value is always RuleMetricDataSource in this case.
+        """
+        odata_type: pulumi.Input[str]
+        """
+        specifies the type of data source. There are two types of rule data sources: RuleMetricDataSource and RuleManagementEventDataSource
+        Expected value is 'Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource'.
+        """
+        legacy_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        the legacy resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
+        """
+        metric_name: NotRequired[pulumi.Input[str]]
+        """
+        the name of the metric that defines what the rule monitors.
+        """
+        metric_namespace: NotRequired[pulumi.Input[str]]
+        """
+        the namespace of the metric.
+        """
+        resource_location: NotRequired[pulumi.Input[str]]
+        """
+        the location of the resource.
+        """
+        resource_uri: NotRequired[pulumi.Input[str]]
+        """
+        the resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
+        """
+elif False:
+    RuleMetricDataSourceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RuleMetricDataSourceArgs:
     def __init__(__self__, *,
@@ -665,6 +895,27 @@ class RuleMetricDataSourceArgs:
         pulumi.set(self, "resource_uri", value)
 
 
+if not MYPY:
+    class RuleWebhookActionArgsDict(TypedDict):
+        """
+        Specifies the action to post to service when the rule condition is evaluated. The discriminator is always RuleWebhookAction in this case.
+        """
+        odata_type: pulumi.Input[str]
+        """
+        specifies the type of the action. There are two types of actions: RuleEmailAction and RuleWebhookAction.
+        Expected value is 'Microsoft.Azure.Management.Insights.Models.RuleWebhookAction'.
+        """
+        properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        the dictionary of custom properties to include with the post operation. These data are appended to the webhook payload.
+        """
+        service_uri: NotRequired[pulumi.Input[str]]
+        """
+        the service uri to Post the notification when the alert activates or resolves.
+        """
+elif False:
+    RuleWebhookActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RuleWebhookActionArgs:
     def __init__(__self__, *,
@@ -721,6 +972,39 @@ class RuleWebhookActionArgs:
     def service_uri(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "service_uri", value)
 
+
+if not MYPY:
+    class ThresholdRuleConditionArgsDict(TypedDict):
+        """
+        A rule condition based on a metric crossing a threshold.
+        """
+        odata_type: pulumi.Input[str]
+        """
+        specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
+        Expected value is 'Microsoft.Azure.Management.Insights.Models.ThresholdRuleCondition'.
+        """
+        operator: pulumi.Input['ConditionOperator']
+        """
+        the operator used to compare the data and the threshold.
+        """
+        threshold: pulumi.Input[float]
+        """
+        the threshold value that activates the alert.
+        """
+        data_source: NotRequired[pulumi.Input[Union['RuleManagementEventDataSourceArgsDict', 'RuleMetricDataSourceArgsDict']]]
+        """
+        the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
+        """
+        time_aggregation: NotRequired[pulumi.Input['TimeAggregationOperator']]
+        """
+        the time aggregation operator. How the data that are collected should be combined over time. The default value is the PrimaryAggregationType of the Metric.
+        """
+        window_size: NotRequired[pulumi.Input[str]]
+        """
+        the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.
+        """
+elif False:
+    ThresholdRuleConditionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ThresholdRuleConditionArgs:

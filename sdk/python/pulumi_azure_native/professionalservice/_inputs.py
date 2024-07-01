@@ -4,14 +4,62 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'ProfessionalServiceCreationPropertiesArgs',
+    'ProfessionalServiceCreationPropertiesArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ProfessionalServiceCreationPropertiesArgsDict(TypedDict):
+        """
+        properties for creation professionalService
+        """
+        auto_renew: NotRequired[pulumi.Input[bool]]
+        """
+        Whether the ProfessionalService subscription will auto renew upon term end.
+        """
+        billing_period: NotRequired[pulumi.Input[str]]
+        """
+        The billing period eg P1M,P1Y for monthly,yearly respectively
+        """
+        offer_id: NotRequired[pulumi.Input[str]]
+        """
+        The offer id.
+        """
+        publisher_id: NotRequired[pulumi.Input[str]]
+        """
+        The publisher id.
+        """
+        quote_id: NotRequired[pulumi.Input[str]]
+        """
+        The quote id which the ProfessionalService will be purchase with.
+        """
+        sku_id: NotRequired[pulumi.Input[str]]
+        """
+        The plan id.
+        """
+        store_front: NotRequired[pulumi.Input[str]]
+        """
+        The store front which initiates the purchase.
+        """
+        term_unit: NotRequired[pulumi.Input[str]]
+        """
+        The unit term eg P1M,P1Y,P2Y,P3Y meaning month,1year,2year,3year respectively
+        """
+elif False:
+    ProfessionalServiceCreationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ProfessionalServiceCreationPropertiesArgs:

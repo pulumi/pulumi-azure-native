@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -75,8 +80,8 @@ class ProvisionedClusterInstance(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  connected_cluster_resource_uri: Optional[pulumi.Input[str]] = None,
-                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['ProvisionedClusterPropertiesArgs']]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 properties: Optional[pulumi.Input[Union['ProvisionedClusterPropertiesArgs', 'ProvisionedClusterPropertiesArgsDict']]] = None,
                  __props__=None):
         """
         The provisionedClusterInstances resource definition.
@@ -84,8 +89,8 @@ class ProvisionedClusterInstance(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] connected_cluster_resource_uri: The fully qualified Azure Resource manager identifier of the connected cluster resource.
-        :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: Extended Location definition
-        :param pulumi.Input[pulumi.InputType['ProvisionedClusterPropertiesArgs']] properties: All properties of the provisioned cluster
+        :param pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']] extended_location: Extended Location definition
+        :param pulumi.Input[Union['ProvisionedClusterPropertiesArgs', 'ProvisionedClusterPropertiesArgsDict']] properties: All properties of the provisioned cluster
         """
         ...
     @overload
@@ -112,8 +117,8 @@ class ProvisionedClusterInstance(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  connected_cluster_resource_uri: Optional[pulumi.Input[str]] = None,
-                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['ProvisionedClusterPropertiesArgs']]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 properties: Optional[pulumi.Input[Union['ProvisionedClusterPropertiesArgs', 'ProvisionedClusterPropertiesArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

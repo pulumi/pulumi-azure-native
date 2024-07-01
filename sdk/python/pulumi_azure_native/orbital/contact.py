@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -133,7 +138,7 @@ class Contact(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  contact_name: Optional[pulumi.Input[str]] = None,
-                 contact_profile: Optional[pulumi.Input[pulumi.InputType['ContactsPropertiesContactProfileArgs']]] = None,
+                 contact_profile: Optional[pulumi.Input[Union['ContactsPropertiesContactProfileArgs', 'ContactsPropertiesContactProfileArgsDict']]] = None,
                  ground_station_name: Optional[pulumi.Input[str]] = None,
                  reservation_end_time: Optional[pulumi.Input[str]] = None,
                  reservation_start_time: Optional[pulumi.Input[str]] = None,
@@ -149,7 +154,7 @@ class Contact(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] contact_name: Contact name.
-        :param pulumi.Input[pulumi.InputType['ContactsPropertiesContactProfileArgs']] contact_profile: The reference to the contact profile resource.
+        :param pulumi.Input[Union['ContactsPropertiesContactProfileArgs', 'ContactsPropertiesContactProfileArgsDict']] contact_profile: The reference to the contact profile resource.
         :param pulumi.Input[str] ground_station_name: Azure Ground Station name.
         :param pulumi.Input[str] reservation_end_time: Reservation end time of a contact (ISO 8601 UTC standard).
         :param pulumi.Input[str] reservation_start_time: Reservation start time of a contact (ISO 8601 UTC standard).
@@ -184,7 +189,7 @@ class Contact(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  contact_name: Optional[pulumi.Input[str]] = None,
-                 contact_profile: Optional[pulumi.Input[pulumi.InputType['ContactsPropertiesContactProfileArgs']]] = None,
+                 contact_profile: Optional[pulumi.Input[Union['ContactsPropertiesContactProfileArgs', 'ContactsPropertiesContactProfileArgsDict']]] = None,
                  ground_station_name: Optional[pulumi.Input[str]] = None,
                  reservation_end_time: Optional[pulumi.Input[str]] = None,
                  reservation_start_time: Optional[pulumi.Input[str]] = None,

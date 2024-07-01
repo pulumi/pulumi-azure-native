@@ -4,21 +4,47 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'ContactParametersContactProfile',
+    'ContactParametersContactProfileDict',
     'ContactProfileLinkChannelArgs',
+    'ContactProfileLinkChannelArgsDict',
     'ContactProfileLinkArgs',
+    'ContactProfileLinkArgsDict',
     'ContactProfilesPropertiesNetworkConfigurationArgs',
+    'ContactProfilesPropertiesNetworkConfigurationArgsDict',
     'ContactsPropertiesContactProfileArgs',
+    'ContactsPropertiesContactProfileArgsDict',
     'EndPointArgs',
+    'EndPointArgsDict',
     'SpacecraftLinkArgs',
+    'SpacecraftLinkArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ContactParametersContactProfileDict(TypedDict):
+        """
+        The reference to the contact profile resource.
+        """
+        id: NotRequired[str]
+        """
+        Resource ID.
+        """
+elif False:
+    ContactParametersContactProfileDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ContactParametersContactProfile:
@@ -43,6 +69,46 @@ class ContactParametersContactProfile:
     def id(self, value: Optional[str]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class ContactProfileLinkChannelArgsDict(TypedDict):
+        """
+        Contact Profile Link Channel.
+        """
+        bandwidth_m_hz: pulumi.Input[float]
+        """
+        Bandwidth in MHz.
+        """
+        center_frequency_m_hz: pulumi.Input[float]
+        """
+        Center Frequency in MHz.
+        """
+        end_point: pulumi.Input['EndPointArgsDict']
+        """
+        Customer End point to store/retrieve data during a contact.
+        """
+        name: pulumi.Input[str]
+        """
+        Channel name.
+        """
+        decoding_configuration: NotRequired[pulumi.Input[str]]
+        """
+        Currently unused.
+        """
+        demodulation_configuration: NotRequired[pulumi.Input[str]]
+        """
+        Copy of the modem configuration file such as Kratos QRadio or Kratos QuantumRx. Only valid for downlink directions. If provided, the modem connects to the customer endpoint and sends demodulated data instead of a VITA.49 stream.
+        """
+        encoding_configuration: NotRequired[pulumi.Input[str]]
+        """
+        Currently unused.
+        """
+        modulation_configuration: NotRequired[pulumi.Input[str]]
+        """
+        Copy of the modem configuration file such as Kratos QRadio. Only valid for uplink directions. If provided, the modem connects to the customer endpoint and accepts commands from the customer instead of a VITA.49 stream.
+        """
+elif False:
+    ContactProfileLinkChannelArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ContactProfileLinkChannelArgs:
@@ -176,6 +242,38 @@ class ContactProfileLinkChannelArgs:
         pulumi.set(self, "modulation_configuration", value)
 
 
+if not MYPY:
+    class ContactProfileLinkArgsDict(TypedDict):
+        """
+        Contact Profile Link.
+        """
+        channels: pulumi.Input[Sequence[pulumi.Input['ContactProfileLinkChannelArgsDict']]]
+        """
+        Contact Profile Link Channel.
+        """
+        direction: pulumi.Input[Union[str, 'Direction']]
+        """
+        Direction (uplink or downlink).
+        """
+        name: pulumi.Input[str]
+        """
+        Link name.
+        """
+        polarization: pulumi.Input[Union[str, 'Polarization']]
+        """
+        Polarization. e.g. (RHCP, LHCP).
+        """
+        eirpd_bw: NotRequired[pulumi.Input[float]]
+        """
+        Effective Isotropic Radiated Power (EIRP) in dBW. It is the required EIRP by the customer. Not used yet.
+        """
+        gain_over_temperature: NotRequired[pulumi.Input[float]]
+        """
+        Gain To Noise Temperature in db/K. It is the required G/T by the customer. Not used yet.
+        """
+elif False:
+    ContactProfileLinkArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ContactProfileLinkArgs:
     def __init__(__self__, *,
@@ -276,6 +374,18 @@ class ContactProfileLinkArgs:
         pulumi.set(self, "gain_over_temperature", value)
 
 
+if not MYPY:
+    class ContactProfilesPropertiesNetworkConfigurationArgsDict(TypedDict):
+        """
+        Network configuration of customer virtual network.
+        """
+        subnet_id: pulumi.Input[str]
+        """
+        ARM resource identifier of the subnet delegated to the Microsoft.Orbital/orbitalGateways. Needs to be at least a class C subnet, and should not have any IP created in it.
+        """
+elif False:
+    ContactProfilesPropertiesNetworkConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ContactProfilesPropertiesNetworkConfigurationArgs:
     def __init__(__self__, *,
@@ -298,6 +408,18 @@ class ContactProfilesPropertiesNetworkConfigurationArgs:
     def subnet_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "subnet_id", value)
 
+
+if not MYPY:
+    class ContactsPropertiesContactProfileArgsDict(TypedDict):
+        """
+        The reference to the contact profile resource.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+elif False:
+    ContactsPropertiesContactProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ContactsPropertiesContactProfileArgs:
@@ -322,6 +444,30 @@ class ContactsPropertiesContactProfileArgs:
     def id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class EndPointArgsDict(TypedDict):
+        """
+        Customer End point to store/retrieve data during a contact.
+        """
+        end_point_name: pulumi.Input[str]
+        """
+        Name of an end point.
+        """
+        ip_address: pulumi.Input[str]
+        """
+        IP Address.
+        """
+        port: pulumi.Input[str]
+        """
+        TCP port to listen on to receive data.
+        """
+        protocol: pulumi.Input[Union[str, 'Protocol']]
+        """
+        Protocol either UDP or TCP.
+        """
+elif False:
+    EndPointArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EndPointArgs:
@@ -390,6 +536,34 @@ class EndPointArgs:
     def protocol(self, value: pulumi.Input[Union[str, 'Protocol']]):
         pulumi.set(self, "protocol", value)
 
+
+if not MYPY:
+    class SpacecraftLinkArgsDict(TypedDict):
+        """
+        List of authorized spacecraft links per ground station and the expiration date of the authorization.
+        """
+        bandwidth_m_hz: pulumi.Input[float]
+        """
+        Bandwidth in MHz.
+        """
+        center_frequency_m_hz: pulumi.Input[float]
+        """
+        Center Frequency in MHz.
+        """
+        direction: pulumi.Input[Union[str, 'Direction']]
+        """
+        Direction (uplink or downlink).
+        """
+        name: pulumi.Input[str]
+        """
+        Link name.
+        """
+        polarization: pulumi.Input[Union[str, 'Polarization']]
+        """
+        Polarization. e.g. (RHCP, LHCP).
+        """
+elif False:
+    SpacecraftLinkArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SpacecraftLinkArgs:

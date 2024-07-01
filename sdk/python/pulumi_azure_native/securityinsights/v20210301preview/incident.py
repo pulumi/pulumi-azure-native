@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -299,10 +304,10 @@ class Incident(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  first_activity_time_utc: Optional[pulumi.Input[str]] = None,
                  incident_id: Optional[pulumi.Input[str]] = None,
-                 labels: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IncidentLabelArgs']]]]] = None,
+                 labels: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IncidentLabelArgs', 'IncidentLabelArgsDict']]]]] = None,
                  last_activity_time_utc: Optional[pulumi.Input[str]] = None,
                  operational_insights_resource_provider: Optional[pulumi.Input[str]] = None,
-                 owner: Optional[pulumi.Input[pulumi.InputType['IncidentOwnerInfoArgs']]] = None,
+                 owner: Optional[pulumi.Input[Union['IncidentOwnerInfoArgs', 'IncidentOwnerInfoArgsDict']]] = None,
                  provider_incident_id: Optional[pulumi.Input[str]] = None,
                  provider_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -322,10 +327,10 @@ class Incident(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description of the incident
         :param pulumi.Input[str] first_activity_time_utc: The time of the first activity in the incident
         :param pulumi.Input[str] incident_id: Incident ID
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IncidentLabelArgs']]]] labels: List of labels relevant to this incident
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IncidentLabelArgs', 'IncidentLabelArgsDict']]]] labels: List of labels relevant to this incident
         :param pulumi.Input[str] last_activity_time_utc: The time of the last activity in the incident
         :param pulumi.Input[str] operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-        :param pulumi.Input[pulumi.InputType['IncidentOwnerInfoArgs']] owner: Describes a user that the incident is assigned to
+        :param pulumi.Input[Union['IncidentOwnerInfoArgs', 'IncidentOwnerInfoArgsDict']] owner: Describes a user that the incident is assigned to
         :param pulumi.Input[str] provider_incident_id: The incident ID assigned by the incident provider
         :param pulumi.Input[str] provider_name: The name of the source provider that generated the incident
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -364,10 +369,10 @@ class Incident(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  first_activity_time_utc: Optional[pulumi.Input[str]] = None,
                  incident_id: Optional[pulumi.Input[str]] = None,
-                 labels: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IncidentLabelArgs']]]]] = None,
+                 labels: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IncidentLabelArgs', 'IncidentLabelArgsDict']]]]] = None,
                  last_activity_time_utc: Optional[pulumi.Input[str]] = None,
                  operational_insights_resource_provider: Optional[pulumi.Input[str]] = None,
-                 owner: Optional[pulumi.Input[pulumi.InputType['IncidentOwnerInfoArgs']]] = None,
+                 owner: Optional[pulumi.Input[Union['IncidentOwnerInfoArgs', 'IncidentOwnerInfoArgsDict']]] = None,
                  provider_incident_id: Optional[pulumi.Input[str]] = None,
                  provider_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -150,9 +155,9 @@ class Machine(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  client_public_key: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['MachineIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['MachineIdentityArgs', 'MachineIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 location_data: Optional[pulumi.Input[pulumi.InputType['LocationDataArgs']]] = None,
+                 location_data: Optional[pulumi.Input[Union['LocationDataArgs', 'LocationDataArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -165,7 +170,7 @@ class Machine(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] client_public_key: Public Key that the client provides to be used during initial resource onboarding
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[pulumi.InputType['LocationDataArgs']] location_data: Metadata pertaining to the geographic location of the resource.
+        :param pulumi.Input[Union['LocationDataArgs', 'LocationDataArgsDict']] location_data: Metadata pertaining to the geographic location of the resource.
         :param pulumi.Input[str] name: The name of the hybrid machine.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -196,9 +201,9 @@ class Machine(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  client_public_key: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['MachineIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['MachineIdentityArgs', 'MachineIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 location_data: Optional[pulumi.Input[pulumi.InputType['LocationDataArgs']]] = None,
+                 location_data: Optional[pulumi.Input[Union['LocationDataArgs', 'LocationDataArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,

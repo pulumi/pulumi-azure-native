@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -173,7 +178,7 @@ class Service(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  public_key: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['ServiceSkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['ServiceSkuArgs', 'ServiceSkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_nic_id: Optional[pulumi.Input[str]] = None,
                  virtual_subnet_id: Optional[pulumi.Input[str]] = None,
@@ -191,7 +196,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] public_key: The public key of the service, used to encrypt secrets sent to the service
         :param pulumi.Input[str] service_name: Name of the service
-        :param pulumi.Input[pulumi.InputType['ServiceSkuArgs']] sku: Service SKU
+        :param pulumi.Input[Union['ServiceSkuArgs', 'ServiceSkuArgsDict']] sku: Service SKU
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] virtual_nic_id: The ID of the Microsoft.Network/networkInterfaces resource which the service have
         :param pulumi.Input[str] virtual_subnet_id: The ID of the Microsoft.Network/virtualNetworks/subnets resource to which the service should be joined
@@ -228,7 +233,7 @@ class Service(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  public_key: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['ServiceSkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['ServiceSkuArgs', 'ServiceSkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_nic_id: Optional[pulumi.Input[str]] = None,
                  virtual_subnet_id: Optional[pulumi.Input[str]] = None,

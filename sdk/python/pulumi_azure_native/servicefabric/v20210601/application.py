@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -269,11 +274,11 @@ class Application(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_name: Optional[pulumi.Input[str]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedIdentityArgs', 'ManagedIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 managed_identities: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationUserAssignedIdentityArgs']]]]] = None,
+                 managed_identities: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationUserAssignedIdentityArgs', 'ApplicationUserAssignedIdentityArgsDict']]]]] = None,
                  maximum_nodes: Optional[pulumi.Input[float]] = None,
-                 metrics: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationMetricDescriptionArgs']]]]] = None,
+                 metrics: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationMetricDescriptionArgs', 'ApplicationMetricDescriptionArgsDict']]]]] = None,
                  minimum_nodes: Optional[pulumi.Input[float]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  remove_application_capacity: Optional[pulumi.Input[bool]] = None,
@@ -281,7 +286,7 @@ class Application(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type_name: Optional[pulumi.Input[str]] = None,
                  type_version: Optional[pulumi.Input[str]] = None,
-                 upgrade_policy: Optional[pulumi.Input[pulumi.InputType['ApplicationUpgradePolicyArgs']]] = None,
+                 upgrade_policy: Optional[pulumi.Input[Union['ApplicationUpgradePolicyArgs', 'ApplicationUpgradePolicyArgsDict']]] = None,
                  __props__=None):
         """
         The application resource.
@@ -290,11 +295,11 @@ class Application(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_name: The name of the application resource.
         :param pulumi.Input[str] cluster_name: The name of the cluster resource.
-        :param pulumi.Input[pulumi.InputType['ManagedIdentityArgs']] identity: Describes the managed identities for an Azure resource.
+        :param pulumi.Input[Union['ManagedIdentityArgs', 'ManagedIdentityArgsDict']] identity: Describes the managed identities for an Azure resource.
         :param pulumi.Input[str] location: It will be deprecated in New API, resource location depends on the parent resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationUserAssignedIdentityArgs']]]] managed_identities: List of user assigned identities for the application, each mapped to a friendly name.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationUserAssignedIdentityArgs', 'ApplicationUserAssignedIdentityArgsDict']]]] managed_identities: List of user assigned identities for the application, each mapped to a friendly name.
         :param pulumi.Input[float] maximum_nodes: The maximum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. By default, the value of this property is zero and it means that the services can be placed on any node.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationMetricDescriptionArgs']]]] metrics: List of application capacity metric description.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationMetricDescriptionArgs', 'ApplicationMetricDescriptionArgsDict']]]] metrics: List of application capacity metric description.
         :param pulumi.Input[float] minimum_nodes: The minimum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. If this property is set to zero, no capacity will be reserved. The value of this property cannot be more than the value of the MaximumNodes property.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: List of application parameters with overridden values from their default values specified in the application manifest.
         :param pulumi.Input[bool] remove_application_capacity: Remove the current application capacity settings.
@@ -302,7 +307,7 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Azure resource tags.
         :param pulumi.Input[str] type_name: The application type name as defined in the application manifest.
         :param pulumi.Input[str] type_version: The version of the application type as defined in the application manifest.
-        :param pulumi.Input[pulumi.InputType['ApplicationUpgradePolicyArgs']] upgrade_policy: Describes the policy for a monitored application upgrade.
+        :param pulumi.Input[Union['ApplicationUpgradePolicyArgs', 'ApplicationUpgradePolicyArgsDict']] upgrade_policy: Describes the policy for a monitored application upgrade.
         """
         ...
     @overload
@@ -330,11 +335,11 @@ class Application(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_name: Optional[pulumi.Input[str]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedIdentityArgs', 'ManagedIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 managed_identities: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationUserAssignedIdentityArgs']]]]] = None,
+                 managed_identities: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationUserAssignedIdentityArgs', 'ApplicationUserAssignedIdentityArgsDict']]]]] = None,
                  maximum_nodes: Optional[pulumi.Input[float]] = None,
-                 metrics: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationMetricDescriptionArgs']]]]] = None,
+                 metrics: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationMetricDescriptionArgs', 'ApplicationMetricDescriptionArgsDict']]]]] = None,
                  minimum_nodes: Optional[pulumi.Input[float]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  remove_application_capacity: Optional[pulumi.Input[bool]] = None,
@@ -342,7 +347,7 @@ class Application(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type_name: Optional[pulumi.Input[str]] = None,
                  type_version: Optional[pulumi.Input[str]] = None,
-                 upgrade_policy: Optional[pulumi.Input[pulumi.InputType['ApplicationUpgradePolicyArgs']]] = None,
+                 upgrade_policy: Optional[pulumi.Input[Union['ApplicationUpgradePolicyArgs', 'ApplicationUpgradePolicyArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

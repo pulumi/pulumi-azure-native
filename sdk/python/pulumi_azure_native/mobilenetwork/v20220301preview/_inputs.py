@@ -4,22 +4,49 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'AttachedDataNetworkResourceIdArgs',
+    'AttachedDataNetworkResourceIdArgsDict',
     'CustomLocationResourceIdArgs',
+    'CustomLocationResourceIdArgsDict',
     'InterfacePropertiesArgs',
+    'InterfacePropertiesArgsDict',
     'MobileNetworkResourceIdArgs',
+    'MobileNetworkResourceIdArgsDict',
     'SimPolicyResourceIdArgs',
+    'SimPolicyResourceIdArgsDict',
     'SimStaticIpPropertiesStaticIpArgs',
+    'SimStaticIpPropertiesStaticIpArgsDict',
     'SimStaticIpPropertiesArgs',
+    'SimStaticIpPropertiesArgsDict',
     'SliceResourceIdArgs',
+    'SliceResourceIdArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AttachedDataNetworkResourceIdArgsDict(TypedDict):
+        """
+        Reference to an Attached Data Network resource.
+        """
+        id: pulumi.Input[str]
+        """
+        Attached Data Network resource ID.
+        """
+elif False:
+    AttachedDataNetworkResourceIdArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AttachedDataNetworkResourceIdArgs:
@@ -44,6 +71,18 @@ class AttachedDataNetworkResourceIdArgs:
         pulumi.set(self, "id", value)
 
 
+if not MYPY:
+    class CustomLocationResourceIdArgsDict(TypedDict):
+        """
+        Reference to an Azure ARC custom location resource.
+        """
+        id: pulumi.Input[str]
+        """
+        Azure ARC custom location resource ID.
+        """
+elif False:
+    CustomLocationResourceIdArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CustomLocationResourceIdArgs:
     def __init__(__self__, *,
@@ -66,6 +105,30 @@ class CustomLocationResourceIdArgs:
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class InterfacePropertiesArgsDict(TypedDict):
+        """
+        Interface properties
+        """
+        name: pulumi.Input[str]
+        """
+        The logical name for this interface. This should match one of the interfaces configured on your Azure Stack Edge machine.
+        """
+        ipv4_address: NotRequired[pulumi.Input[str]]
+        """
+        The IPv4 address.
+        """
+        ipv4_gateway: NotRequired[pulumi.Input[str]]
+        """
+        The default IPv4 gateway (router).
+        """
+        ipv4_subnet: NotRequired[pulumi.Input[str]]
+        """
+        The IPv4 subnet.
+        """
+elif False:
+    InterfacePropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InterfacePropertiesArgs:
@@ -138,6 +201,18 @@ class InterfacePropertiesArgs:
         pulumi.set(self, "ipv4_subnet", value)
 
 
+if not MYPY:
+    class MobileNetworkResourceIdArgsDict(TypedDict):
+        """
+        Reference to a Mobile Network resource.
+        """
+        id: pulumi.Input[str]
+        """
+        Mobile Network resource ID.
+        """
+elif False:
+    MobileNetworkResourceIdArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MobileNetworkResourceIdArgs:
     def __init__(__self__, *,
@@ -160,6 +235,18 @@ class MobileNetworkResourceIdArgs:
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class SimPolicyResourceIdArgsDict(TypedDict):
+        """
+        Reference to a SIM Policy resource.
+        """
+        id: pulumi.Input[str]
+        """
+        SIM Policy resource ID.
+        """
+elif False:
+    SimPolicyResourceIdArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SimPolicyResourceIdArgs:
@@ -184,6 +271,18 @@ class SimPolicyResourceIdArgs:
         pulumi.set(self, "id", value)
 
 
+if not MYPY:
+    class SimStaticIpPropertiesStaticIpArgsDict(TypedDict):
+        """
+        The static IP configuration for the sim to use at the defined network scope.
+        """
+        ipv4_address: NotRequired[pulumi.Input[str]]
+        """
+        The IPv4 address assigned to the sim at this network scope. This address must be in the userEquipmentStaticAddressPoolPrefix defined in the attachedDataNetwork.
+        """
+elif False:
+    SimStaticIpPropertiesStaticIpArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SimStaticIpPropertiesStaticIpArgs:
     def __init__(__self__, *,
@@ -207,6 +306,26 @@ class SimStaticIpPropertiesStaticIpArgs:
     def ipv4_address(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "ipv4_address", value)
 
+
+if not MYPY:
+    class SimStaticIpPropertiesArgsDict(TypedDict):
+        """
+        Static IP configuration for a sim, scoped to a particular attached data network and slice.
+        """
+        attached_data_network: NotRequired[pulumi.Input['AttachedDataNetworkResourceIdArgsDict']]
+        """
+        The attached data network on which the static IP address will be used. The combination of attachedDataNetwork and slice defines the network scope of the IP address.
+        """
+        slice: NotRequired[pulumi.Input['SliceResourceIdArgsDict']]
+        """
+        The network slice on which the static IP address will be used. The combination of attachedDataNetwork and slice defines the network scope of the IP address.
+        """
+        static_ip: NotRequired[pulumi.Input['SimStaticIpPropertiesStaticIpArgsDict']]
+        """
+        The static IP configuration for the sim to use at the defined network scope.
+        """
+elif False:
+    SimStaticIpPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SimStaticIpPropertiesArgs:
@@ -263,6 +382,18 @@ class SimStaticIpPropertiesArgs:
     def static_ip(self, value: Optional[pulumi.Input['SimStaticIpPropertiesStaticIpArgs']]):
         pulumi.set(self, "static_ip", value)
 
+
+if not MYPY:
+    class SliceResourceIdArgsDict(TypedDict):
+        """
+        Reference to a Slice resource.
+        """
+        id: pulumi.Input[str]
+        """
+        Slice resource ID.
+        """
+elif False:
+    SliceResourceIdArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SliceResourceIdArgs:

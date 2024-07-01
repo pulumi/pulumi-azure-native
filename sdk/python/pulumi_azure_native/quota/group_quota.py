@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -76,7 +81,7 @@ class GroupQuota(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  group_quota_name: Optional[pulumi.Input[str]] = None,
                  management_group_id: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['GroupQuotasEntityBaseArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['GroupQuotasEntityBaseArgs', 'GroupQuotasEntityBaseArgsDict']]] = None,
                  __props__=None):
         """
         Properties and filters for ShareQuota. The request parameter is optional, if there are no filters specified.
@@ -86,7 +91,7 @@ class GroupQuota(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] group_quota_name: The GroupQuota name. The name should be unique for the provided context tenantId/MgId.
         :param pulumi.Input[str] management_group_id: Management Group Id.
-        :param pulumi.Input[pulumi.InputType['GroupQuotasEntityBaseArgs']] properties: Properties and filters for ShareQuota. The request parameter is optional, if there are no filters specified.
+        :param pulumi.Input[Union['GroupQuotasEntityBaseArgs', 'GroupQuotasEntityBaseArgsDict']] properties: Properties and filters for ShareQuota. The request parameter is optional, if there are no filters specified.
         """
         ...
     @overload
@@ -115,7 +120,7 @@ class GroupQuota(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  group_quota_name: Optional[pulumi.Input[str]] = None,
                  management_group_id: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['GroupQuotasEntityBaseArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['GroupQuotasEntityBaseArgs', 'GroupQuotasEntityBaseArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

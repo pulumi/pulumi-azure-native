@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -184,32 +189,32 @@ class SimPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 default_slice: Optional[pulumi.Input[pulumi.InputType['SliceResourceIdArgs']]] = None,
+                 default_slice: Optional[pulumi.Input[Union['SliceResourceIdArgs', 'SliceResourceIdArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  mobile_network_name: Optional[pulumi.Input[str]] = None,
                  registration_timer: Optional[pulumi.Input[int]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  rfsp_index: Optional[pulumi.Input[int]] = None,
                  sim_policy_name: Optional[pulumi.Input[str]] = None,
-                 slice_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SliceConfigurationArgs']]]]] = None,
+                 slice_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SliceConfigurationArgs', 'SliceConfigurationArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 ue_ambr: Optional[pulumi.Input[pulumi.InputType['AmbrArgs']]] = None,
+                 ue_ambr: Optional[pulumi.Input[Union['AmbrArgs', 'AmbrArgsDict']]] = None,
                  __props__=None):
         """
         SIM policy resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['SliceResourceIdArgs']] default_slice: The default slice to use if the UE does not explicitly specify it. This slice must exist in the `sliceConfigurations` map. The slice must be in the same location as the SIM policy.
+        :param pulumi.Input[Union['SliceResourceIdArgs', 'SliceResourceIdArgsDict']] default_slice: The default slice to use if the UE does not explicitly specify it. This slice must exist in the `sliceConfigurations` map. The slice must be in the same location as the SIM policy.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] mobile_network_name: The name of the mobile network.
         :param pulumi.Input[int] registration_timer: UE periodic registration update timer (5G) or UE periodic tracking area update timer (4G), in seconds.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[int] rfsp_index: RAT/Frequency Selection Priority Index, defined in 3GPP TS 36.413. This is an optional setting and by default is unspecified.
         :param pulumi.Input[str] sim_policy_name: The name of the SIM policy.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SliceConfigurationArgs']]]] slice_configurations: The allowed slices and the settings to use for them. The list must not contain duplicate items and must contain at least one item.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SliceConfigurationArgs', 'SliceConfigurationArgsDict']]]] slice_configurations: The allowed slices and the settings to use for them. The list must not contain duplicate items and must contain at least one item.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[pulumi.InputType['AmbrArgs']] ue_ambr: Aggregate maximum bit rate across all non-GBR QoS flows of all PDU sessions of a given UE. See 3GPP TS23.501 section 5.7.2.6 for a full description of the UE-AMBR.
+        :param pulumi.Input[Union['AmbrArgs', 'AmbrArgsDict']] ue_ambr: Aggregate maximum bit rate across all non-GBR QoS flows of all PDU sessions of a given UE. See 3GPP TS23.501 section 5.7.2.6 for a full description of the UE-AMBR.
         """
         ...
     @overload
@@ -235,16 +240,16 @@ class SimPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 default_slice: Optional[pulumi.Input[pulumi.InputType['SliceResourceIdArgs']]] = None,
+                 default_slice: Optional[pulumi.Input[Union['SliceResourceIdArgs', 'SliceResourceIdArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  mobile_network_name: Optional[pulumi.Input[str]] = None,
                  registration_timer: Optional[pulumi.Input[int]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  rfsp_index: Optional[pulumi.Input[int]] = None,
                  sim_policy_name: Optional[pulumi.Input[str]] = None,
-                 slice_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SliceConfigurationArgs']]]]] = None,
+                 slice_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SliceConfigurationArgs', 'SliceConfigurationArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 ue_ambr: Optional[pulumi.Input[pulumi.InputType['AmbrArgs']]] = None,
+                 ue_ambr: Optional[pulumi.Input[Union['AmbrArgs', 'AmbrArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -190,7 +195,7 @@ class PrometheusRuleGroup(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  rule_group_name: Optional[pulumi.Input[str]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrometheusRuleArgs']]]]] = None,
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PrometheusRuleArgs', 'PrometheusRuleArgsDict']]]]] = None,
                  scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -206,7 +211,7 @@ class PrometheusRuleGroup(pulumi.CustomResource):
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] rule_group_name: The name of the rule group.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrometheusRuleArgs']]]] rules: Defines the rules in the Prometheus rule group.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PrometheusRuleArgs', 'PrometheusRuleArgsDict']]]] rules: Defines the rules in the Prometheus rule group.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: Target Azure Monitor workspaces resource ids. This api-version is currently limited to creating with one scope. This may change in future.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -241,7 +246,7 @@ class PrometheusRuleGroup(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  rule_group_name: Optional[pulumi.Input[str]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrometheusRuleArgs']]]]] = None,
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PrometheusRuleArgs', 'PrometheusRuleArgsDict']]]]] = None,
                  scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):

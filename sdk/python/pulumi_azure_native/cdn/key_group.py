@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -89,7 +94,7 @@ class KeyGroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  key_group_name: Optional[pulumi.Input[str]] = None,
-                 key_references: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceReferenceArgs']]]]] = None,
+                 key_references: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResourceReferenceArgs', 'ResourceReferenceArgsDict']]]]] = None,
                  profile_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -102,7 +107,7 @@ class KeyGroup(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] key_group_name: Name of the KeyGroup under the profile.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceReferenceArgs']]]] key_references: Names of UrlSigningKey type secret objects
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ResourceReferenceArgs', 'ResourceReferenceArgsDict']]]] key_references: Names of UrlSigningKey type secret objects
         :param pulumi.Input[str] profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium which is unique within the resource group.
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
         """
@@ -134,7 +139,7 @@ class KeyGroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  key_group_name: Optional[pulumi.Input[str]] = None,
-                 key_references: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceReferenceArgs']]]]] = None,
+                 key_references: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResourceReferenceArgs', 'ResourceReferenceArgsDict']]]]] = None,
                  profile_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -201,7 +206,7 @@ class DatabaseMigrationsMongoToCosmosDbRUMongo(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 collection_list: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MongoMigrationCollectionArgs']]]]] = None,
+                 collection_list: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MongoMigrationCollectionArgs', 'MongoMigrationCollectionArgsDict']]]]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  migration_name: Optional[pulumi.Input[str]] = None,
                  migration_operation_id: Optional[pulumi.Input[str]] = None,
@@ -209,8 +214,8 @@ class DatabaseMigrationsMongoToCosmosDbRUMongo(pulumi.CustomResource):
                  provisioning_error: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
-                 source_mongo_connection: Optional[pulumi.Input[pulumi.InputType['MongoConnectionInformationArgs']]] = None,
-                 target_mongo_connection: Optional[pulumi.Input[pulumi.InputType['MongoConnectionInformationArgs']]] = None,
+                 source_mongo_connection: Optional[pulumi.Input[Union['MongoConnectionInformationArgs', 'MongoConnectionInformationArgsDict']]] = None,
+                 target_mongo_connection: Optional[pulumi.Input[Union['MongoConnectionInformationArgs', 'MongoConnectionInformationArgsDict']]] = None,
                  target_resource_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -219,7 +224,7 @@ class DatabaseMigrationsMongoToCosmosDbRUMongo(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MongoMigrationCollectionArgs']]]] collection_list: List of Mongo Collections to be migrated.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MongoMigrationCollectionArgs', 'MongoMigrationCollectionArgsDict']]]] collection_list: List of Mongo Collections to be migrated.
         :param pulumi.Input[str] kind: 
                Expected value is 'MongoToCosmosDbMongo'.
         :param pulumi.Input[str] migration_name: Name of the migration.
@@ -228,8 +233,8 @@ class DatabaseMigrationsMongoToCosmosDbRUMongo(pulumi.CustomResource):
         :param pulumi.Input[str] provisioning_error: Error message for migration provisioning failure, if any.
         :param pulumi.Input[str] resource_group_name: Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] scope: Resource Id of the target resource.
-        :param pulumi.Input[pulumi.InputType['MongoConnectionInformationArgs']] source_mongo_connection: Source Mongo connection details.
-        :param pulumi.Input[pulumi.InputType['MongoConnectionInformationArgs']] target_mongo_connection: Target Cosmos DB Mongo connection details.
+        :param pulumi.Input[Union['MongoConnectionInformationArgs', 'MongoConnectionInformationArgsDict']] source_mongo_connection: Source Mongo connection details.
+        :param pulumi.Input[Union['MongoConnectionInformationArgs', 'MongoConnectionInformationArgsDict']] target_mongo_connection: Target Cosmos DB Mongo connection details.
         :param pulumi.Input[str] target_resource_name: The name of the target resource/account.
         """
         ...
@@ -257,7 +262,7 @@ class DatabaseMigrationsMongoToCosmosDbRUMongo(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 collection_list: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MongoMigrationCollectionArgs']]]]] = None,
+                 collection_list: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MongoMigrationCollectionArgs', 'MongoMigrationCollectionArgsDict']]]]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  migration_name: Optional[pulumi.Input[str]] = None,
                  migration_operation_id: Optional[pulumi.Input[str]] = None,
@@ -265,8 +270,8 @@ class DatabaseMigrationsMongoToCosmosDbRUMongo(pulumi.CustomResource):
                  provisioning_error: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
-                 source_mongo_connection: Optional[pulumi.Input[pulumi.InputType['MongoConnectionInformationArgs']]] = None,
-                 target_mongo_connection: Optional[pulumi.Input[pulumi.InputType['MongoConnectionInformationArgs']]] = None,
+                 source_mongo_connection: Optional[pulumi.Input[Union['MongoConnectionInformationArgs', 'MongoConnectionInformationArgsDict']]] = None,
+                 target_mongo_connection: Optional[pulumi.Input[Union['MongoConnectionInformationArgs', 'MongoConnectionInformationArgsDict']]] = None,
                  target_resource_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

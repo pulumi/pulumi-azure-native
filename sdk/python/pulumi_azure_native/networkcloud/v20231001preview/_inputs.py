@@ -4,50 +4,102 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'AadConfigurationArgs',
+    'AadConfigurationArgsDict',
     'AdministrativeCredentialsArgs',
+    'AdministrativeCredentialsArgsDict',
     'AdministratorConfigurationArgs',
+    'AdministratorConfigurationArgsDict',
     'AgentOptionsArgs',
+    'AgentOptionsArgsDict',
     'AgentPoolUpgradeSettingsArgs',
+    'AgentPoolUpgradeSettingsArgsDict',
     'AttachedNetworkConfigurationArgs',
+    'AttachedNetworkConfigurationArgsDict',
     'BareMetalMachineConfigurationDataArgs',
+    'BareMetalMachineConfigurationDataArgsDict',
     'BgpAdvertisementArgs',
+    'BgpAdvertisementArgsDict',
     'BgpServiceLoadBalancerConfigurationArgs',
+    'BgpServiceLoadBalancerConfigurationArgsDict',
     'ClusterSecretArchiveArgs',
+    'ClusterSecretArchiveArgsDict',
     'ClusterUpdateStrategyArgs',
+    'ClusterUpdateStrategyArgsDict',
     'ControlPlaneNodeConfigurationArgs',
+    'ControlPlaneNodeConfigurationArgsDict',
     'EgressEndpointArgs',
+    'EgressEndpointArgsDict',
     'EndpointDependencyArgs',
+    'EndpointDependencyArgsDict',
     'ExtendedLocationArgs',
+    'ExtendedLocationArgsDict',
     'ImageRepositoryCredentialsArgs',
+    'ImageRepositoryCredentialsArgsDict',
     'InitialAgentPoolConfigurationArgs',
+    'InitialAgentPoolConfigurationArgsDict',
     'IpAddressPoolArgs',
+    'IpAddressPoolArgsDict',
     'KeySetUserArgs',
+    'KeySetUserArgsDict',
     'KubernetesLabelArgs',
+    'KubernetesLabelArgsDict',
     'L2NetworkAttachmentConfigurationArgs',
+    'L2NetworkAttachmentConfigurationArgsDict',
     'L3NetworkAttachmentConfigurationArgs',
+    'L3NetworkAttachmentConfigurationArgsDict',
     'ManagedResourceGroupConfigurationArgs',
+    'ManagedResourceGroupConfigurationArgsDict',
     'NetworkAttachmentArgs',
+    'NetworkAttachmentArgsDict',
     'NetworkConfigurationArgs',
+    'NetworkConfigurationArgsDict',
     'OsDiskArgs',
+    'OsDiskArgsDict',
     'RackDefinitionArgs',
+    'RackDefinitionArgsDict',
     'RuntimeProtectionConfigurationArgs',
+    'RuntimeProtectionConfigurationArgsDict',
     'ServiceLoadBalancerBgpPeerArgs',
+    'ServiceLoadBalancerBgpPeerArgsDict',
     'ServicePrincipalInformationArgs',
+    'ServicePrincipalInformationArgsDict',
     'SshPublicKeyArgs',
+    'SshPublicKeyArgsDict',
     'StorageApplianceConfigurationDataArgs',
+    'StorageApplianceConfigurationDataArgsDict',
     'StorageProfileArgs',
+    'StorageProfileArgsDict',
     'TrunkedNetworkAttachmentConfigurationArgs',
+    'TrunkedNetworkAttachmentConfigurationArgsDict',
     'ValidationThresholdArgs',
+    'ValidationThresholdArgsDict',
     'VirtualMachinePlacementHintArgs',
+    'VirtualMachinePlacementHintArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AadConfigurationArgsDict(TypedDict):
+        admin_group_object_ids: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        The list of Azure Active Directory group object IDs that will have an administrative role on the Kubernetes cluster.
+        """
+elif False:
+    AadConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AadConfigurationArgs:
@@ -70,6 +122,19 @@ class AadConfigurationArgs:
     def admin_group_object_ids(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "admin_group_object_ids", value)
 
+
+if not MYPY:
+    class AdministrativeCredentialsArgsDict(TypedDict):
+        password: pulumi.Input[str]
+        """
+        The password of the administrator of the device used during initialization.
+        """
+        username: pulumi.Input[str]
+        """
+        The username of the administrator of the device used during initialization.
+        """
+elif False:
+    AdministrativeCredentialsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AdministrativeCredentialsArgs:
@@ -107,6 +172,19 @@ class AdministrativeCredentialsArgs:
     def username(self, value: pulumi.Input[str]):
         pulumi.set(self, "username", value)
 
+
+if not MYPY:
+    class AdministratorConfigurationArgsDict(TypedDict):
+        admin_username: NotRequired[pulumi.Input[str]]
+        """
+        The user name for the administrator that will be applied to the operating systems that run Kubernetes nodes. If not supplied, a user name will be chosen by the service.
+        """
+        ssh_public_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input['SshPublicKeyArgsDict']]]]
+        """
+        The SSH configuration for the operating systems that run the nodes in the Kubernetes cluster. In some cases, specification of public keys may be required to produce a working environment.
+        """
+elif False:
+    AdministratorConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AdministratorConfigurationArgs:
@@ -146,6 +224,19 @@ class AdministratorConfigurationArgs:
     def ssh_public_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SshPublicKeyArgs']]]]):
         pulumi.set(self, "ssh_public_keys", value)
 
+
+if not MYPY:
+    class AgentOptionsArgsDict(TypedDict):
+        hugepages_count: pulumi.Input[float]
+        """
+        The number of hugepages to allocate.
+        """
+        hugepages_size: NotRequired[pulumi.Input[Union[str, 'HugepagesSize']]]
+        """
+        The size of the hugepages to allocate.
+        """
+elif False:
+    AgentOptionsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AgentOptionsArgs:
@@ -187,6 +278,15 @@ class AgentOptionsArgs:
         pulumi.set(self, "hugepages_size", value)
 
 
+if not MYPY:
+    class AgentPoolUpgradeSettingsArgsDict(TypedDict):
+        max_surge: NotRequired[pulumi.Input[str]]
+        """
+        The maximum number or percentage of nodes that are surged during upgrade. This can either be set to an integer (e.g. '5') or a percentage (e.g. '50%'). If a percentage is specified, it is the percentage of the total agent pool size at the time of the upgrade. For percentages, fractional nodes are rounded up. If not specified, the default is 1.
+        """
+elif False:
+    AgentPoolUpgradeSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AgentPoolUpgradeSettingsArgs:
     def __init__(__self__, *,
@@ -211,6 +311,23 @@ class AgentPoolUpgradeSettingsArgs:
     def max_surge(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "max_surge", value)
 
+
+if not MYPY:
+    class AttachedNetworkConfigurationArgsDict(TypedDict):
+        l2_networks: NotRequired[pulumi.Input[Sequence[pulumi.Input['L2NetworkAttachmentConfigurationArgsDict']]]]
+        """
+        The list of Layer 2 Networks and related configuration for attachment.
+        """
+        l3_networks: NotRequired[pulumi.Input[Sequence[pulumi.Input['L3NetworkAttachmentConfigurationArgsDict']]]]
+        """
+        The list of Layer 3 Networks and related configuration for attachment.
+        """
+        trunked_networks: NotRequired[pulumi.Input[Sequence[pulumi.Input['TrunkedNetworkAttachmentConfigurationArgsDict']]]]
+        """
+        The list of Trunked Networks and related configuration for attachment.
+        """
+elif False:
+    AttachedNetworkConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AttachedNetworkConfigurationArgs:
@@ -266,6 +383,40 @@ class AttachedNetworkConfigurationArgs:
     def trunked_networks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TrunkedNetworkAttachmentConfigurationArgs']]]]):
         pulumi.set(self, "trunked_networks", value)
 
+
+if not MYPY:
+    class BareMetalMachineConfigurationDataArgsDict(TypedDict):
+        bmc_credentials: pulumi.Input['AdministrativeCredentialsArgsDict']
+        """
+        The credentials of the baseboard management controller on this bare metal machine.
+        """
+        bmc_mac_address: pulumi.Input[str]
+        """
+        The MAC address of the BMC for this machine.
+        """
+        boot_mac_address: pulumi.Input[str]
+        """
+        The MAC address associated with the PXE NIC card.
+        """
+        rack_slot: pulumi.Input[float]
+        """
+        The slot the physical machine is in the rack based on the BOM configuration.
+        """
+        serial_number: pulumi.Input[str]
+        """
+        The serial number of the machine. Hardware suppliers may use an alternate value. For example, service tag.
+        """
+        machine_details: NotRequired[pulumi.Input[str]]
+        """
+        The free-form additional information about the machine, e.g. an asset tag.
+        """
+        machine_name: NotRequired[pulumi.Input[str]]
+        """
+        The user-provided name for the bare metal machine created from this specification.
+        If not provided, the machine name will be generated programmatically.
+        """
+elif False:
+    BareMetalMachineConfigurationDataArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class BareMetalMachineConfigurationDataArgs:
@@ -383,6 +534,27 @@ class BareMetalMachineConfigurationDataArgs:
         pulumi.set(self, "machine_name", value)
 
 
+if not MYPY:
+    class BgpAdvertisementArgsDict(TypedDict):
+        ip_address_pools: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        The names of the IP address pools associated with this announcement.
+        """
+        advertise_to_fabric: NotRequired[pulumi.Input[Union[str, 'AdvertiseToFabric']]]
+        """
+        The indicator of if this advertisement is also made to the network fabric associated with the Network Cloud Cluster. This field is ignored if fabricPeeringEnabled is set to False.
+        """
+        communities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The names of the BGP communities to be associated with the announcement, utilizing a BGP community string in 1234:1234 format.
+        """
+        peers: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The names of the BGP peers to limit this advertisement to. If no values are specified, all BGP peers will receive this advertisement.
+        """
+elif False:
+    BgpAdvertisementArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class BgpAdvertisementArgs:
     def __init__(__self__, *,
@@ -454,6 +626,27 @@ class BgpAdvertisementArgs:
     def peers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "peers", value)
 
+
+if not MYPY:
+    class BgpServiceLoadBalancerConfigurationArgsDict(TypedDict):
+        bgp_advertisements: NotRequired[pulumi.Input[Sequence[pulumi.Input['BgpAdvertisementArgsDict']]]]
+        """
+        The association of IP address pools to the communities and peers, allowing for announcement of IPs.
+        """
+        bgp_peers: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceLoadBalancerBgpPeerArgsDict']]]]
+        """
+        The list of additional BgpPeer entities that the Kubernetes cluster will peer with. All peering must be explicitly defined.
+        """
+        fabric_peering_enabled: NotRequired[pulumi.Input[Union[str, 'FabricPeeringEnabled']]]
+        """
+        The indicator to specify if the load balancer peers with the network fabric.
+        """
+        ip_address_pools: NotRequired[pulumi.Input[Sequence[pulumi.Input['IpAddressPoolArgsDict']]]]
+        """
+        The list of pools of IP addresses that can be allocated to Load Balancer services.
+        """
+elif False:
+    BgpServiceLoadBalancerConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class BgpServiceLoadBalancerConfigurationArgs:
@@ -528,6 +721,19 @@ class BgpServiceLoadBalancerConfigurationArgs:
         pulumi.set(self, "ip_address_pools", value)
 
 
+if not MYPY:
+    class ClusterSecretArchiveArgsDict(TypedDict):
+        key_vault_id: pulumi.Input[str]
+        """
+        The resource ID of the key vault to archive the secrets of the cluster.
+        """
+        use_key_vault: NotRequired[pulumi.Input[Union[str, 'ClusterSecretArchiveEnabled']]]
+        """
+        The indicator if the specified key vault should be used to archive the secrets of the cluster.
+        """
+elif False:
+    ClusterSecretArchiveArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ClusterSecretArchiveArgs:
     def __init__(__self__, *,
@@ -567,6 +773,32 @@ class ClusterSecretArchiveArgs:
     def use_key_vault(self, value: Optional[pulumi.Input[Union[str, 'ClusterSecretArchiveEnabled']]]):
         pulumi.set(self, "use_key_vault", value)
 
+
+if not MYPY:
+    class ClusterUpdateStrategyArgsDict(TypedDict):
+        strategy_type: pulumi.Input[Union[str, 'ClusterUpdateStrategyType']]
+        """
+        The mode of operation for runtime protection.
+        """
+        threshold_type: pulumi.Input[Union[str, 'ValidationThresholdType']]
+        """
+        Selection of how the threshold should be evaluated.
+        """
+        threshold_value: pulumi.Input[float]
+        """
+        The numeric threshold value.
+        """
+        max_unavailable: NotRequired[pulumi.Input[float]]
+        """
+        The maximum number of worker nodes that can be offline within the increment of update, e.g., rack-by-rack.
+        Limited by the maximum number of machines in the increment. Defaults to the whole increment size.
+        """
+        wait_time_minutes: NotRequired[pulumi.Input[float]]
+        """
+        The time to wait between the increments of update defined by the strategy.
+        """
+elif False:
+    ClusterUpdateStrategyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ClusterUpdateStrategyArgs:
@@ -656,6 +888,27 @@ class ClusterUpdateStrategyArgs:
         pulumi.set(self, "wait_time_minutes", value)
 
 
+if not MYPY:
+    class ControlPlaneNodeConfigurationArgsDict(TypedDict):
+        count: pulumi.Input[float]
+        """
+        The number of virtual machines that use this configuration.
+        """
+        vm_sku_name: pulumi.Input[str]
+        """
+        The name of the VM SKU supplied during creation.
+        """
+        administrator_configuration: NotRequired[pulumi.Input['AdministratorConfigurationArgsDict']]
+        """
+        The administrator credentials to be used for the nodes in the control plane.
+        """
+        availability_zones: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of availability zones of the Network Cloud cluster to be used for the provisioning of nodes in the control plane. If not specified, all availability zones will be used.
+        """
+elif False:
+    ControlPlaneNodeConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ControlPlaneNodeConfigurationArgs:
     def __init__(__self__, *,
@@ -725,6 +978,19 @@ class ControlPlaneNodeConfigurationArgs:
         pulumi.set(self, "availability_zones", value)
 
 
+if not MYPY:
+    class EgressEndpointArgsDict(TypedDict):
+        category: pulumi.Input[str]
+        """
+        The descriptive category name of endpoints accessible by the AKS agent node. For example, azure-resource-management, API server, etc. The platform egress endpoints provided by default will use the category 'default'.
+        """
+        endpoints: pulumi.Input[Sequence[pulumi.Input['EndpointDependencyArgsDict']]]
+        """
+        The list of endpoint dependencies.
+        """
+elif False:
+    EgressEndpointArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EgressEndpointArgs:
     def __init__(__self__, *,
@@ -761,6 +1027,19 @@ class EgressEndpointArgs:
     def endpoints(self, value: pulumi.Input[Sequence[pulumi.Input['EndpointDependencyArgs']]]):
         pulumi.set(self, "endpoints", value)
 
+
+if not MYPY:
+    class EndpointDependencyArgsDict(TypedDict):
+        domain_name: pulumi.Input[str]
+        """
+        The domain name of the dependency.
+        """
+        port: NotRequired[pulumi.Input[float]]
+        """
+        The port of this endpoint.
+        """
+elif False:
+    EndpointDependencyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EndpointDependencyArgs:
@@ -800,6 +1079,19 @@ class EndpointDependencyArgs:
         pulumi.set(self, "port", value)
 
 
+if not MYPY:
+    class ExtendedLocationArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The resource ID of the extended location on which the resource will be created.
+        """
+        type: pulumi.Input[str]
+        """
+        The extended location type, for example, CustomLocation.
+        """
+elif False:
+    ExtendedLocationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ExtendedLocationArgs:
     def __init__(__self__, *,
@@ -836,6 +1128,23 @@ class ExtendedLocationArgs:
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class ImageRepositoryCredentialsArgsDict(TypedDict):
+        password: pulumi.Input[str]
+        """
+        The password or token used to access an image in the target repository.
+        """
+        registry_url: pulumi.Input[str]
+        """
+        The URL of the authentication server used to validate the repository credentials.
+        """
+        username: pulumi.Input[str]
+        """
+        The username used to access an image in the target repository.
+        """
+elif False:
+    ImageRepositoryCredentialsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ImageRepositoryCredentialsArgs:
@@ -888,6 +1197,55 @@ class ImageRepositoryCredentialsArgs:
     def username(self, value: pulumi.Input[str]):
         pulumi.set(self, "username", value)
 
+
+if not MYPY:
+    class InitialAgentPoolConfigurationArgsDict(TypedDict):
+        count: pulumi.Input[float]
+        """
+        The number of virtual machines that use this configuration.
+        """
+        mode: pulumi.Input[Union[str, 'AgentPoolMode']]
+        """
+        The selection of how this agent pool is utilized, either as a system pool or a user pool. System pools run the features and critical services for the Kubernetes Cluster, while user pools are dedicated to user workloads. Every Kubernetes cluster must contain at least one system node pool with at least one node.
+        """
+        name: pulumi.Input[str]
+        """
+        The name that will be used for the agent pool resource representing this agent pool.
+        """
+        vm_sku_name: pulumi.Input[str]
+        """
+        The name of the VM SKU that determines the size of resources allocated for node VMs.
+        """
+        administrator_configuration: NotRequired[pulumi.Input['AdministratorConfigurationArgsDict']]
+        """
+        The administrator credentials to be used for the nodes in this agent pool.
+        """
+        agent_options: NotRequired[pulumi.Input['AgentOptionsArgsDict']]
+        """
+        The configurations that will be applied to each agent in this agent pool.
+        """
+        attached_network_configuration: NotRequired[pulumi.Input['AttachedNetworkConfigurationArgsDict']]
+        """
+        The configuration of networks being attached to the agent pool for use by the workloads that run on this Kubernetes cluster.
+        """
+        availability_zones: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of availability zones of the Network Cloud cluster used for the provisioning of nodes in this agent pool. If not specified, all availability zones will be used.
+        """
+        labels: NotRequired[pulumi.Input[Sequence[pulumi.Input['KubernetesLabelArgsDict']]]]
+        """
+        The labels applied to the nodes in this agent pool.
+        """
+        taints: NotRequired[pulumi.Input[Sequence[pulumi.Input['KubernetesLabelArgsDict']]]]
+        """
+        The taints applied to the nodes in this agent pool.
+        """
+        upgrade_settings: NotRequired[pulumi.Input['AgentPoolUpgradeSettingsArgsDict']]
+        """
+        The configuration of the agent pool.
+        """
+elif False:
+    InitialAgentPoolConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InitialAgentPoolConfigurationArgs:
@@ -1068,6 +1426,27 @@ class InitialAgentPoolConfigurationArgs:
         pulumi.set(self, "upgrade_settings", value)
 
 
+if not MYPY:
+    class IpAddressPoolArgsDict(TypedDict):
+        addresses: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        The list of IP address ranges. Each range can be a either a subnet in CIDR format or an explicit start-end range of IP addresses.
+        """
+        name: pulumi.Input[str]
+        """
+        The name used to identify this IP address pool for association with a BGP advertisement.
+        """
+        auto_assign: NotRequired[pulumi.Input[Union[str, 'BfdEnabled']]]
+        """
+        The indicator to determine if automatic allocation from the pool should occur.
+        """
+        only_use_host_ips: NotRequired[pulumi.Input[Union[str, 'BfdEnabled']]]
+        """
+        The indicator to prevent the use of IP addresses ending with .0 and .255 for this pool. Enabling this option will only use IP addresses between .1 and .254 inclusive.
+        """
+elif False:
+    IpAddressPoolArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IpAddressPoolArgs:
     def __init__(__self__, *,
@@ -1141,6 +1520,27 @@ class IpAddressPoolArgs:
         pulumi.set(self, "only_use_host_ips", value)
 
 
+if not MYPY:
+    class KeySetUserArgsDict(TypedDict):
+        azure_user_name: pulumi.Input[str]
+        """
+        The user name that will be used for access.
+        """
+        ssh_public_key: pulumi.Input['SshPublicKeyArgsDict']
+        """
+        The SSH public key that will be provisioned for user access. The user is expected to have the corresponding SSH private key for logging in.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The free-form description for this user.
+        """
+        user_principal_name: NotRequired[pulumi.Input[str]]
+        """
+        The user principal name (email format) used to validate this user's group membership.
+        """
+elif False:
+    KeySetUserArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class KeySetUserArgs:
     def __init__(__self__, *,
@@ -1210,6 +1610,19 @@ class KeySetUserArgs:
         pulumi.set(self, "user_principal_name", value)
 
 
+if not MYPY:
+    class KubernetesLabelArgsDict(TypedDict):
+        key: pulumi.Input[str]
+        """
+        The name of the label or taint.
+        """
+        value: pulumi.Input[str]
+        """
+        The value of the label or taint.
+        """
+elif False:
+    KubernetesLabelArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class KubernetesLabelArgs:
     def __init__(__self__, *,
@@ -1246,6 +1659,19 @@ class KubernetesLabelArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class L2NetworkAttachmentConfigurationArgsDict(TypedDict):
+        network_id: pulumi.Input[str]
+        """
+        The resource ID of the network that is being configured for attachment.
+        """
+        plugin_type: NotRequired[pulumi.Input[Union[str, 'KubernetesPluginType']]]
+        """
+        The indicator of how this network will be utilized by the Kubernetes cluster.
+        """
+elif False:
+    L2NetworkAttachmentConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class L2NetworkAttachmentConfigurationArgs:
@@ -1286,6 +1712,23 @@ class L2NetworkAttachmentConfigurationArgs:
     def plugin_type(self, value: Optional[pulumi.Input[Union[str, 'KubernetesPluginType']]]):
         pulumi.set(self, "plugin_type", value)
 
+
+if not MYPY:
+    class L3NetworkAttachmentConfigurationArgsDict(TypedDict):
+        network_id: pulumi.Input[str]
+        """
+        The resource ID of the network that is being configured for attachment.
+        """
+        ipam_enabled: NotRequired[pulumi.Input[Union[str, 'L3NetworkConfigurationIpamEnabled']]]
+        """
+        The indication of whether this network will or will not perform IP address management and allocate IP addresses when attached.
+        """
+        plugin_type: NotRequired[pulumi.Input[Union[str, 'KubernetesPluginType']]]
+        """
+        The indicator of how this network will be utilized by the Kubernetes cluster.
+        """
+elif False:
+    L3NetworkAttachmentConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class L3NetworkAttachmentConfigurationArgs:
@@ -1345,6 +1788,19 @@ class L3NetworkAttachmentConfigurationArgs:
         pulumi.set(self, "plugin_type", value)
 
 
+if not MYPY:
+    class ManagedResourceGroupConfigurationArgsDict(TypedDict):
+        location: NotRequired[pulumi.Input[str]]
+        """
+        The location of the managed resource group. If not specified, the location of the parent resource is chosen.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name for the managed resource group. If not specified, the unique name is automatically generated.
+        """
+elif False:
+    ManagedResourceGroupConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ManagedResourceGroupConfigurationArgs:
     def __init__(__self__, *,
@@ -1383,6 +1839,56 @@ class ManagedResourceGroupConfigurationArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class NetworkAttachmentArgsDict(TypedDict):
+        attached_network_id: pulumi.Input[str]
+        """
+        The resource ID of the associated network attached to the virtual machine.
+        It can be one of cloudServicesNetwork, l3Network, l2Network or trunkedNetwork resources.
+        """
+        ip_allocation_method: pulumi.Input[Union[str, 'VirtualMachineIPAllocationMethod']]
+        """
+        The IP allocation mechanism for the virtual machine.
+        Dynamic and Static are only valid for l3Network which may also specify Disabled.
+        Otherwise, Disabled is the only permitted value.
+        """
+        default_gateway: NotRequired[pulumi.Input[Union[str, 'DefaultGateway']]]
+        """
+        The indicator of whether this is the default gateway.
+        Only one of the attached networks (including the CloudServicesNetwork attachment) for a single machine may be specified as True.
+        """
+        ipv4_address: NotRequired[pulumi.Input[str]]
+        """
+        The IPv4 address of the virtual machine.
+
+        This field is used only if the attached network has IPAllocationType of IPV4 or DualStack.
+
+        If IPAllocationMethod is:
+        Static - this field must contain a user specified IPv4 address from within the subnet specified in the attached network.
+        Dynamic - this field is read-only, but will be populated with an address from within the subnet specified in the attached network.
+        Disabled - this field will be empty.
+        """
+        ipv6_address: NotRequired[pulumi.Input[str]]
+        """
+        The IPv6 address of the virtual machine.
+
+        This field is used only if the attached network has IPAllocationType of IPV6 or DualStack.
+
+        If IPAllocationMethod is:
+        Static - this field must contain an IPv6 address range from within the range specified in the attached network.
+        Dynamic - this field is read-only, but will be populated with an range from within the subnet specified in the attached network.
+        Disabled - this field will be empty.
+        """
+        network_attachment_name: NotRequired[pulumi.Input[str]]
+        """
+        The associated network's interface name.
+        If specified, the network attachment name has a maximum length of 15 characters and must be unique to this virtual machine.
+        If the user doesn’t specify this value, the default interface name of the network resource will be used.
+        For a CloudServicesNetwork resource, this name will be ignored.
+        """
+elif False:
+    NetworkAttachmentArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NetworkAttachmentArgs:
@@ -1527,6 +2033,39 @@ class NetworkAttachmentArgs:
         pulumi.set(self, "network_attachment_name", value)
 
 
+if not MYPY:
+    class NetworkConfigurationArgsDict(TypedDict):
+        cloud_services_network_id: pulumi.Input[str]
+        """
+        The resource ID of the associated Cloud Services network.
+        """
+        cni_network_id: pulumi.Input[str]
+        """
+        The resource ID of the Layer 3 network that is used for creation of the Container Networking Interface network.
+        """
+        attached_network_configuration: NotRequired[pulumi.Input['AttachedNetworkConfigurationArgsDict']]
+        """
+        The configuration of networks being attached to the cluster for use by the workloads that run on this Kubernetes cluster.
+        """
+        bgp_service_load_balancer_configuration: NotRequired[pulumi.Input['BgpServiceLoadBalancerConfigurationArgsDict']]
+        """
+        The configuration of the BGP service load balancer for this Kubernetes cluster.
+        """
+        dns_service_ip: NotRequired[pulumi.Input[str]]
+        """
+        The IP address assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range specified in service CIDR.
+        """
+        pod_cidrs: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The CIDR notation IP ranges from which to assign pod IPs. One IPv4 CIDR is expected for single-stack networking. Two CIDRs, one for each IP family (IPv4/IPv6), is expected for dual-stack networking.
+        """
+        service_cidrs: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The CIDR notation IP ranges from which to assign service IPs. One IPv4 CIDR is expected for single-stack networking. Two CIDRs, one for each IP family (IPv4/IPv6), is expected for dual-stack networking.
+        """
+elif False:
+    NetworkConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NetworkConfigurationArgs:
     def __init__(__self__, *,
@@ -1644,6 +2183,23 @@ class NetworkConfigurationArgs:
         pulumi.set(self, "service_cidrs", value)
 
 
+if not MYPY:
+    class OsDiskArgsDict(TypedDict):
+        disk_size_gb: pulumi.Input[float]
+        """
+        The size of the disk in gigabytes. Required if the createOption is Ephemeral.
+        """
+        create_option: NotRequired[pulumi.Input[Union[str, 'OsDiskCreateOption']]]
+        """
+        The strategy for creating the OS disk.
+        """
+        delete_option: NotRequired[pulumi.Input[Union[str, 'OsDiskDeleteOption']]]
+        """
+        The strategy for deleting the OS disk.
+        """
+elif False:
+    OsDiskArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OsDiskArgs:
     def __init__(__self__, *,
@@ -1701,6 +2257,39 @@ class OsDiskArgs:
     def delete_option(self, value: Optional[pulumi.Input[Union[str, 'OsDiskDeleteOption']]]):
         pulumi.set(self, "delete_option", value)
 
+
+if not MYPY:
+    class RackDefinitionArgsDict(TypedDict):
+        network_rack_id: pulumi.Input[str]
+        """
+        The resource ID of the network rack that matches this rack definition.
+        """
+        rack_serial_number: pulumi.Input[str]
+        """
+        The unique identifier for the rack within Network Cloud cluster. An alternate unique alphanumeric value other than a serial number may be provided if desired.
+        """
+        rack_sku_id: pulumi.Input[str]
+        """
+        The resource ID of the sku for the rack being added.
+        """
+        availability_zone: NotRequired[pulumi.Input[str]]
+        """
+        The zone name used for this rack when created. Availability zones are used for workload placement.
+        """
+        bare_metal_machine_configuration_data: NotRequired[pulumi.Input[Sequence[pulumi.Input['BareMetalMachineConfigurationDataArgsDict']]]]
+        """
+        The unordered list of bare metal machine configuration.
+        """
+        rack_location: NotRequired[pulumi.Input[str]]
+        """
+        The free-form description of the rack's location.
+        """
+        storage_appliance_configuration_data: NotRequired[pulumi.Input[Sequence[pulumi.Input['StorageApplianceConfigurationDataArgsDict']]]]
+        """
+        The list of storage appliance configuration data for this rack.
+        """
+elif False:
+    RackDefinitionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RackDefinitionArgs:
@@ -1818,6 +2407,15 @@ class RackDefinitionArgs:
         pulumi.set(self, "storage_appliance_configuration_data", value)
 
 
+if not MYPY:
+    class RuntimeProtectionConfigurationArgsDict(TypedDict):
+        enforcement_level: NotRequired[pulumi.Input[Union[str, 'RuntimeProtectionEnforcementLevel']]]
+        """
+        The mode of operation for runtime protection.
+        """
+elif False:
+    RuntimeProtectionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RuntimeProtectionConfigurationArgs:
     def __init__(__self__, *,
@@ -1842,6 +2440,51 @@ class RuntimeProtectionConfigurationArgs:
     def enforcement_level(self, value: Optional[pulumi.Input[Union[str, 'RuntimeProtectionEnforcementLevel']]]):
         pulumi.set(self, "enforcement_level", value)
 
+
+if not MYPY:
+    class ServiceLoadBalancerBgpPeerArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name used to identify this BGP peer for association with a BGP advertisement.
+        """
+        peer_address: pulumi.Input[str]
+        """
+        The IPv4 or IPv6 address used to connect this BGP session.
+        """
+        peer_asn: pulumi.Input[float]
+        """
+        The autonomous system number expected from the remote end of the BGP session.
+        """
+        bfd_enabled: NotRequired[pulumi.Input[Union[str, 'BfdEnabled']]]
+        """
+        The indicator of BFD enablement for this BgpPeer.
+        """
+        bgp_multi_hop: NotRequired[pulumi.Input[Union[str, 'BgpMultiHop']]]
+        """
+        The indicator to enable multi-hop peering support.
+        """
+        hold_time: NotRequired[pulumi.Input[str]]
+        """
+        The requested BGP hold time value. This field uses ISO 8601 duration format, for example P1H.
+        """
+        keep_alive_time: NotRequired[pulumi.Input[str]]
+        """
+        The requested BGP keepalive time value. This field uses ISO 8601 duration format, for example P1H.
+        """
+        my_asn: NotRequired[pulumi.Input[float]]
+        """
+        The autonomous system number used for the local end of the BGP session.
+        """
+        password: NotRequired[pulumi.Input[str]]
+        """
+        The authentication password for routers enforcing TCP MD5 authenticated sessions.
+        """
+        peer_port: NotRequired[pulumi.Input[float]]
+        """
+        The port used to connect this BGP session.
+        """
+elif False:
+    ServiceLoadBalancerBgpPeerArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ServiceLoadBalancerBgpPeerArgs:
@@ -2013,6 +2656,27 @@ class ServiceLoadBalancerBgpPeerArgs:
         pulumi.set(self, "peer_port", value)
 
 
+if not MYPY:
+    class ServicePrincipalInformationArgsDict(TypedDict):
+        application_id: pulumi.Input[str]
+        """
+        The application ID, also known as client ID, of the service principal.
+        """
+        password: pulumi.Input[str]
+        """
+        The password of the service principal.
+        """
+        principal_id: pulumi.Input[str]
+        """
+        The principal ID, also known as the object ID, of the service principal.
+        """
+        tenant_id: pulumi.Input[str]
+        """
+        The tenant ID, also known as the directory ID, of the tenant in which the service principal is created.
+        """
+elif False:
+    ServicePrincipalInformationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ServicePrincipalInformationArgs:
     def __init__(__self__, *,
@@ -2080,6 +2744,15 @@ class ServicePrincipalInformationArgs:
         pulumi.set(self, "tenant_id", value)
 
 
+if not MYPY:
+    class SshPublicKeyArgsDict(TypedDict):
+        key_data: pulumi.Input[str]
+        """
+        The SSH public key data.
+        """
+elif False:
+    SshPublicKeyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SshPublicKeyArgs:
     def __init__(__self__, *,
@@ -2101,6 +2774,27 @@ class SshPublicKeyArgs:
     def key_data(self, value: pulumi.Input[str]):
         pulumi.set(self, "key_data", value)
 
+
+if not MYPY:
+    class StorageApplianceConfigurationDataArgsDict(TypedDict):
+        admin_credentials: pulumi.Input['AdministrativeCredentialsArgsDict']
+        """
+        The credentials of the administrative interface on this storage appliance.
+        """
+        rack_slot: pulumi.Input[float]
+        """
+        The slot that storage appliance is in the rack based on the BOM configuration.
+        """
+        serial_number: pulumi.Input[str]
+        """
+        The serial number of the appliance.
+        """
+        storage_appliance_name: NotRequired[pulumi.Input[str]]
+        """
+        The user-provided name for the storage appliance that will be created from this specification.
+        """
+elif False:
+    StorageApplianceConfigurationDataArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class StorageApplianceConfigurationDataArgs:
@@ -2170,6 +2864,19 @@ class StorageApplianceConfigurationDataArgs:
         pulumi.set(self, "storage_appliance_name", value)
 
 
+if not MYPY:
+    class StorageProfileArgsDict(TypedDict):
+        os_disk: pulumi.Input['OsDiskArgsDict']
+        """
+        The disk to use with this virtual machine.
+        """
+        volume_attachments: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The resource IDs of volumes that are requested to be attached to the virtual machine.
+        """
+elif False:
+    StorageProfileArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class StorageProfileArgs:
     def __init__(__self__, *,
@@ -2207,6 +2914,19 @@ class StorageProfileArgs:
     def volume_attachments(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "volume_attachments", value)
 
+
+if not MYPY:
+    class TrunkedNetworkAttachmentConfigurationArgsDict(TypedDict):
+        network_id: pulumi.Input[str]
+        """
+        The resource ID of the network that is being configured for attachment.
+        """
+        plugin_type: NotRequired[pulumi.Input[Union[str, 'KubernetesPluginType']]]
+        """
+        The indicator of how this network will be utilized by the Kubernetes cluster.
+        """
+elif False:
+    TrunkedNetworkAttachmentConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TrunkedNetworkAttachmentConfigurationArgs:
@@ -2247,6 +2967,23 @@ class TrunkedNetworkAttachmentConfigurationArgs:
     def plugin_type(self, value: Optional[pulumi.Input[Union[str, 'KubernetesPluginType']]]):
         pulumi.set(self, "plugin_type", value)
 
+
+if not MYPY:
+    class ValidationThresholdArgsDict(TypedDict):
+        grouping: pulumi.Input[Union[str, 'ValidationThresholdGrouping']]
+        """
+        Selection of how the type evaluation is applied to the cluster calculation.
+        """
+        type: pulumi.Input[Union[str, 'ValidationThresholdType']]
+        """
+        Selection of how the threshold should be evaluated.
+        """
+        value: pulumi.Input[float]
+        """
+        The numeric threshold value.
+        """
+elif False:
+    ValidationThresholdArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ValidationThresholdArgs:
@@ -2299,6 +3036,27 @@ class ValidationThresholdArgs:
     def value(self, value: pulumi.Input[float]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class VirtualMachinePlacementHintArgsDict(TypedDict):
+        hint_type: pulumi.Input[Union[str, 'VirtualMachinePlacementHintType']]
+        """
+        The specification of whether this hint supports affinity or anti-affinity with the referenced resources.
+        """
+        resource_id: pulumi.Input[str]
+        """
+        The resource ID of the target object that the placement hints will be checked against, e.g., the bare metal node to host the virtual machine.
+        """
+        scheduling_execution: pulumi.Input[Union[str, 'VirtualMachineSchedulingExecution']]
+        """
+        The indicator of whether the hint is a hard or soft requirement during scheduling.
+        """
+        scope: pulumi.Input[Union[str, 'VirtualMachinePlacementHintPodAffinityScope']]
+        """
+        The scope for the virtual machine affinity or anti-affinity placement hint. It should always be "Machine" in the case of node affinity.
+        """
+elif False:
+    VirtualMachinePlacementHintArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VirtualMachinePlacementHintArgs:

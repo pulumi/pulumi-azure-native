@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -269,12 +274,12 @@ class Profile(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allowed_endpoint_record_types: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AllowedEndpointRecordType']]]]] = None,
-                 dns_config: Optional[pulumi.Input[pulumi.InputType['DnsConfigArgs']]] = None,
-                 endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointArgs']]]]] = None,
+                 dns_config: Optional[pulumi.Input[Union['DnsConfigArgs', 'DnsConfigArgsDict']]] = None,
+                 endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EndpointArgs', 'EndpointArgsDict']]]]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  max_return: Optional[pulumi.Input[float]] = None,
-                 monitor_config: Optional[pulumi.Input[pulumi.InputType['MonitorConfigArgs']]] = None,
+                 monitor_config: Optional[pulumi.Input[Union['MonitorConfigArgs', 'MonitorConfigArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  profile_name: Optional[pulumi.Input[str]] = None,
                  profile_status: Optional[pulumi.Input[Union[str, 'ProfileStatus']]] = None,
@@ -293,13 +298,13 @@ class Profile(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'AllowedEndpointRecordType']]]] allowed_endpoint_record_types: The list of allowed endpoint record types.
-        :param pulumi.Input[pulumi.InputType['DnsConfigArgs']] dns_config: The DNS settings of the Traffic Manager profile.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointArgs']]]] endpoints: The list of endpoints in the Traffic Manager profile.
+        :param pulumi.Input[Union['DnsConfigArgs', 'DnsConfigArgsDict']] dns_config: The DNS settings of the Traffic Manager profile.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointArgs', 'EndpointArgsDict']]]] endpoints: The list of endpoints in the Traffic Manager profile.
                These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
         :param pulumi.Input[str] id: Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{resourceName}
         :param pulumi.Input[str] location: The Azure Region where the resource lives
         :param pulumi.Input[float] max_return: Maximum number of endpoints to be returned for MultiValue routing type.
-        :param pulumi.Input[pulumi.InputType['MonitorConfigArgs']] monitor_config: The endpoint monitoring settings of the Traffic Manager profile.
+        :param pulumi.Input[Union['MonitorConfigArgs', 'MonitorConfigArgsDict']] monitor_config: The endpoint monitoring settings of the Traffic Manager profile.
         :param pulumi.Input[str] name: The name of the resource
         :param pulumi.Input[str] profile_name: The name of the Traffic Manager profile.
         :param pulumi.Input[Union[str, 'ProfileStatus']] profile_status: The status of the Traffic Manager profile.
@@ -337,12 +342,12 @@ class Profile(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allowed_endpoint_record_types: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AllowedEndpointRecordType']]]]] = None,
-                 dns_config: Optional[pulumi.Input[pulumi.InputType['DnsConfigArgs']]] = None,
-                 endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointArgs']]]]] = None,
+                 dns_config: Optional[pulumi.Input[Union['DnsConfigArgs', 'DnsConfigArgsDict']]] = None,
+                 endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EndpointArgs', 'EndpointArgsDict']]]]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  max_return: Optional[pulumi.Input[float]] = None,
-                 monitor_config: Optional[pulumi.Input[pulumi.InputType['MonitorConfigArgs']]] = None,
+                 monitor_config: Optional[pulumi.Input[Union['MonitorConfigArgs', 'MonitorConfigArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  profile_name: Optional[pulumi.Input[str]] = None,
                  profile_status: Optional[pulumi.Input[Union[str, 'ProfileStatus']]] = None,

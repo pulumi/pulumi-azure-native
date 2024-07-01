@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -121,7 +126,7 @@ class PipelineJob(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ParameterDefinitionArgs']]]]] = None,
+                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ParameterDefinitionArgs', 'ParameterDefinitionArgsDict']]]]] = None,
                  pipeline_job_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  topology_name: Optional[pulumi.Input[str]] = None,
@@ -133,7 +138,7 @@ class PipelineJob(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The Azure Video Analyzer account name.
         :param pulumi.Input[str] description: An optional description for the pipeline.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ParameterDefinitionArgs']]]] parameters: List of the instance level parameter values for the user-defined topology parameters. A pipeline can only define or override parameters values for parameters which have been declared in the referenced topology. Topology parameters without a default value must be defined. Topology parameters with a default value can be optionally be overridden.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ParameterDefinitionArgs', 'ParameterDefinitionArgsDict']]]] parameters: List of the instance level parameter values for the user-defined topology parameters. A pipeline can only define or override parameters values for parameters which have been declared in the referenced topology. Topology parameters without a default value must be defined. Topology parameters with a default value can be optionally be overridden.
         :param pulumi.Input[str] pipeline_job_name: The pipeline job name.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] topology_name: Reference to an existing pipeline topology. When activated, this pipeline job will process content according to the pipeline topology definition.
@@ -164,7 +169,7 @@ class PipelineJob(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ParameterDefinitionArgs']]]]] = None,
+                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ParameterDefinitionArgs', 'ParameterDefinitionArgsDict']]]]] = None,
                  pipeline_job_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  topology_name: Optional[pulumi.Input[str]] = None,

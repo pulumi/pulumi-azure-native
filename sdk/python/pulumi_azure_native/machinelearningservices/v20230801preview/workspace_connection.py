@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -85,7 +90,7 @@ class WorkspaceConnection(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  connection_name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[Union[pulumi.InputType['AccessKeyAuthTypeWorkspaceConnectionPropertiesArgs'], pulumi.InputType['ApiKeyAuthWorkspaceConnectionPropertiesArgs'], pulumi.InputType['CustomKeysWorkspaceConnectionPropertiesArgs'], pulumi.InputType['ManagedIdentityAuthTypeWorkspaceConnectionPropertiesArgs'], pulumi.InputType['NoneAuthTypeWorkspaceConnectionPropertiesArgs'], pulumi.InputType['PATAuthTypeWorkspaceConnectionPropertiesArgs'], pulumi.InputType['SASAuthTypeWorkspaceConnectionPropertiesArgs'], pulumi.InputType['ServicePrincipalAuthTypeWorkspaceConnectionPropertiesArgs'], pulumi.InputType['UsernamePasswordAuthTypeWorkspaceConnectionPropertiesArgs']]]] = None,
+                 properties: Optional[pulumi.Input[Union[Union['AccessKeyAuthTypeWorkspaceConnectionPropertiesArgs', 'AccessKeyAuthTypeWorkspaceConnectionPropertiesArgsDict'], Union['ApiKeyAuthWorkspaceConnectionPropertiesArgs', 'ApiKeyAuthWorkspaceConnectionPropertiesArgsDict'], Union['CustomKeysWorkspaceConnectionPropertiesArgs', 'CustomKeysWorkspaceConnectionPropertiesArgsDict'], Union['ManagedIdentityAuthTypeWorkspaceConnectionPropertiesArgs', 'ManagedIdentityAuthTypeWorkspaceConnectionPropertiesArgsDict'], Union['NoneAuthTypeWorkspaceConnectionPropertiesArgs', 'NoneAuthTypeWorkspaceConnectionPropertiesArgsDict'], Union['PATAuthTypeWorkspaceConnectionPropertiesArgs', 'PATAuthTypeWorkspaceConnectionPropertiesArgsDict'], Union['SASAuthTypeWorkspaceConnectionPropertiesArgs', 'SASAuthTypeWorkspaceConnectionPropertiesArgsDict'], Union['ServicePrincipalAuthTypeWorkspaceConnectionPropertiesArgs', 'ServicePrincipalAuthTypeWorkspaceConnectionPropertiesArgsDict'], Union['UsernamePasswordAuthTypeWorkspaceConnectionPropertiesArgs', 'UsernamePasswordAuthTypeWorkspaceConnectionPropertiesArgsDict']]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -121,7 +126,7 @@ class WorkspaceConnection(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  connection_name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[Union[pulumi.InputType['AccessKeyAuthTypeWorkspaceConnectionPropertiesArgs'], pulumi.InputType['ApiKeyAuthWorkspaceConnectionPropertiesArgs'], pulumi.InputType['CustomKeysWorkspaceConnectionPropertiesArgs'], pulumi.InputType['ManagedIdentityAuthTypeWorkspaceConnectionPropertiesArgs'], pulumi.InputType['NoneAuthTypeWorkspaceConnectionPropertiesArgs'], pulumi.InputType['PATAuthTypeWorkspaceConnectionPropertiesArgs'], pulumi.InputType['SASAuthTypeWorkspaceConnectionPropertiesArgs'], pulumi.InputType['ServicePrincipalAuthTypeWorkspaceConnectionPropertiesArgs'], pulumi.InputType['UsernamePasswordAuthTypeWorkspaceConnectionPropertiesArgs']]]] = None,
+                 properties: Optional[pulumi.Input[Union[Union['AccessKeyAuthTypeWorkspaceConnectionPropertiesArgs', 'AccessKeyAuthTypeWorkspaceConnectionPropertiesArgsDict'], Union['ApiKeyAuthWorkspaceConnectionPropertiesArgs', 'ApiKeyAuthWorkspaceConnectionPropertiesArgsDict'], Union['CustomKeysWorkspaceConnectionPropertiesArgs', 'CustomKeysWorkspaceConnectionPropertiesArgsDict'], Union['ManagedIdentityAuthTypeWorkspaceConnectionPropertiesArgs', 'ManagedIdentityAuthTypeWorkspaceConnectionPropertiesArgsDict'], Union['NoneAuthTypeWorkspaceConnectionPropertiesArgs', 'NoneAuthTypeWorkspaceConnectionPropertiesArgsDict'], Union['PATAuthTypeWorkspaceConnectionPropertiesArgs', 'PATAuthTypeWorkspaceConnectionPropertiesArgsDict'], Union['SASAuthTypeWorkspaceConnectionPropertiesArgs', 'SASAuthTypeWorkspaceConnectionPropertiesArgsDict'], Union['ServicePrincipalAuthTypeWorkspaceConnectionPropertiesArgs', 'ServicePrincipalAuthTypeWorkspaceConnectionPropertiesArgsDict'], Union['UsernamePasswordAuthTypeWorkspaceConnectionPropertiesArgs', 'UsernamePasswordAuthTypeWorkspaceConnectionPropertiesArgsDict']]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):

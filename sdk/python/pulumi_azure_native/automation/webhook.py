@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -190,7 +195,7 @@ class Webhook(pulumi.CustomResource):
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  run_on: Optional[pulumi.Input[str]] = None,
-                 runbook: Optional[pulumi.Input[pulumi.InputType['RunbookAssociationPropertyArgs']]] = None,
+                 runbook: Optional[pulumi.Input[Union['RunbookAssociationPropertyArgs', 'RunbookAssociationPropertyArgsDict']]] = None,
                  uri: Optional[pulumi.Input[str]] = None,
                  webhook_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -209,7 +214,7 @@ class Webhook(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: Gets or sets the parameters of the job.
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
         :param pulumi.Input[str] run_on: Gets or sets the name of the hybrid worker group the webhook job will run on.
-        :param pulumi.Input[pulumi.InputType['RunbookAssociationPropertyArgs']] runbook: Gets or sets the runbook.
+        :param pulumi.Input[Union['RunbookAssociationPropertyArgs', 'RunbookAssociationPropertyArgsDict']] runbook: Gets or sets the runbook.
         :param pulumi.Input[str] uri: Gets or sets the uri.
         :param pulumi.Input[str] webhook_name: The webhook name.
         """
@@ -247,7 +252,7 @@ class Webhook(pulumi.CustomResource):
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  run_on: Optional[pulumi.Input[str]] = None,
-                 runbook: Optional[pulumi.Input[pulumi.InputType['RunbookAssociationPropertyArgs']]] = None,
+                 runbook: Optional[pulumi.Input[Union['RunbookAssociationPropertyArgs', 'RunbookAssociationPropertyArgsDict']]] = None,
                  uri: Optional[pulumi.Input[str]] = None,
                  webhook_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -187,7 +192,7 @@ class KafkaConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  consumer_group: Optional[pulumi.Input[str]] = None,
-                 credentials: Optional[pulumi.Input[pulumi.InputType['CredentialsArgs']]] = None,
+                 credentials: Optional[pulumi.Input[Union['CredentialsArgs', 'CredentialsArgsDict']]] = None,
                  event_hub_partition_id: Optional[pulumi.Input[str]] = None,
                  event_hub_resource_id: Optional[pulumi.Input[str]] = None,
                  event_hub_type: Optional[pulumi.Input[Union[str, 'EventHubType']]] = None,
@@ -203,7 +208,7 @@ class KafkaConfiguration(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the account.
         :param pulumi.Input[str] consumer_group: Consumer group for hook event hub.
-        :param pulumi.Input[pulumi.InputType['CredentialsArgs']] credentials: Credentials to access event hub.
+        :param pulumi.Input[Union['CredentialsArgs', 'CredentialsArgsDict']] credentials: Credentials to access event hub.
         :param pulumi.Input[str] event_hub_partition_id: Optional partition Id for notification event hub. If not set, all partitions will be leveraged.
         :param pulumi.Input[Union[str, 'EventHubType']] event_hub_type: The event hub type.
         :param pulumi.Input[Union[str, 'EventStreamingState']] event_streaming_state: The state of the event streaming service
@@ -237,7 +242,7 @@ class KafkaConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  consumer_group: Optional[pulumi.Input[str]] = None,
-                 credentials: Optional[pulumi.Input[pulumi.InputType['CredentialsArgs']]] = None,
+                 credentials: Optional[pulumi.Input[Union['CredentialsArgs', 'CredentialsArgsDict']]] = None,
                  event_hub_partition_id: Optional[pulumi.Input[str]] = None,
                  event_hub_resource_id: Optional[pulumi.Input[str]] = None,
                  event_hub_type: Optional[pulumi.Input[Union[str, 'EventHubType']]] = None,

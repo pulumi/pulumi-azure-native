@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -325,16 +330,16 @@ class Domain(pulumi.CustomResource):
                  data_residency_boundary: Optional[pulumi.Input[Union[str, 'DataResidencyBoundary']]] = None,
                  disable_local_auth: Optional[pulumi.Input[bool]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
-                 event_type_info: Optional[pulumi.Input[pulumi.InputType['EventTypeInfoArgs']]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['IdentityInfoArgs']]] = None,
-                 inbound_ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InboundIpRuleArgs']]]]] = None,
+                 event_type_info: Optional[pulumi.Input[Union['EventTypeInfoArgs', 'EventTypeInfoArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['IdentityInfoArgs', 'IdentityInfoArgsDict']]] = None,
+                 inbound_ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InboundIpRuleArgs', 'InboundIpRuleArgsDict']]]]] = None,
                  input_schema: Optional[pulumi.Input[Union[str, 'InputSchema']]] = None,
-                 input_schema_mapping: Optional[pulumi.Input[pulumi.InputType['JsonInputSchemaMappingArgs']]] = None,
+                 input_schema_mapping: Optional[pulumi.Input[Union['JsonInputSchemaMappingArgs', 'JsonInputSchemaMappingArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  minimum_tls_version_allowed: Optional[pulumi.Input[Union[str, 'TlsVersion']]] = None,
                  public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['ResourceSkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['ResourceSkuArgs', 'ResourceSkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -359,18 +364,18 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'DataResidencyBoundary']] data_residency_boundary: Data Residency Boundary of the resource.
         :param pulumi.Input[bool] disable_local_auth: This boolean is used to enable or disable local auth. Default value is false. When the property is set to true, only AAD token will be used to authenticate if user is allowed to publish to the domain.
         :param pulumi.Input[str] domain_name: Name of the domain.
-        :param pulumi.Input[pulumi.InputType['EventTypeInfoArgs']] event_type_info: Event Type Information for the domain. This information is provided by the publisher and can be used by the 
+        :param pulumi.Input[Union['EventTypeInfoArgs', 'EventTypeInfoArgsDict']] event_type_info: Event Type Information for the domain. This information is provided by the publisher and can be used by the 
                subscriber to view different types of events that are published.
-        :param pulumi.Input[pulumi.InputType['IdentityInfoArgs']] identity: Identity information for the Event Grid Domain resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InboundIpRuleArgs']]]] inbound_ip_rules: This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
+        :param pulumi.Input[Union['IdentityInfoArgs', 'IdentityInfoArgsDict']] identity: Identity information for the Event Grid Domain resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['InboundIpRuleArgs', 'InboundIpRuleArgsDict']]]] inbound_ip_rules: This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
         :param pulumi.Input[Union[str, 'InputSchema']] input_schema: This determines the format that Event Grid should expect for incoming events published to the Event Grid Domain Resource.
-        :param pulumi.Input[pulumi.InputType['JsonInputSchemaMappingArgs']] input_schema_mapping: Information about the InputSchemaMapping which specified the info about mapping event payload.
+        :param pulumi.Input[Union['JsonInputSchemaMappingArgs', 'JsonInputSchemaMappingArgsDict']] input_schema_mapping: Information about the InputSchemaMapping which specified the info about mapping event payload.
         :param pulumi.Input[str] location: Location of the resource.
         :param pulumi.Input[Union[str, 'TlsVersion']] minimum_tls_version_allowed: Minimum TLS version of the publisher allowed to publish to this domain
         :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: This determines if traffic is allowed over public network. By default it is enabled.
                You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.DomainProperties.InboundIpRules" />
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription.
-        :param pulumi.Input[pulumi.InputType['ResourceSkuArgs']] sku: The Sku pricing tier for the Event Grid Domain resource.
+        :param pulumi.Input[Union['ResourceSkuArgs', 'ResourceSkuArgsDict']] sku: The Sku pricing tier for the Event Grid Domain resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags of the resource.
         """
         ...
@@ -402,16 +407,16 @@ class Domain(pulumi.CustomResource):
                  data_residency_boundary: Optional[pulumi.Input[Union[str, 'DataResidencyBoundary']]] = None,
                  disable_local_auth: Optional[pulumi.Input[bool]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
-                 event_type_info: Optional[pulumi.Input[pulumi.InputType['EventTypeInfoArgs']]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['IdentityInfoArgs']]] = None,
-                 inbound_ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InboundIpRuleArgs']]]]] = None,
+                 event_type_info: Optional[pulumi.Input[Union['EventTypeInfoArgs', 'EventTypeInfoArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['IdentityInfoArgs', 'IdentityInfoArgsDict']]] = None,
+                 inbound_ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InboundIpRuleArgs', 'InboundIpRuleArgsDict']]]]] = None,
                  input_schema: Optional[pulumi.Input[Union[str, 'InputSchema']]] = None,
-                 input_schema_mapping: Optional[pulumi.Input[pulumi.InputType['JsonInputSchemaMappingArgs']]] = None,
+                 input_schema_mapping: Optional[pulumi.Input[Union['JsonInputSchemaMappingArgs', 'JsonInputSchemaMappingArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  minimum_tls_version_allowed: Optional[pulumi.Input[Union[str, 'TlsVersion']]] = None,
                  public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['ResourceSkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['ResourceSkuArgs', 'ResourceSkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

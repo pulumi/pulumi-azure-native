@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -121,9 +126,9 @@ class DaprComponentResiliencyPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  component_name: Optional[pulumi.Input[str]] = None,
                  environment_name: Optional[pulumi.Input[str]] = None,
-                 inbound_policy: Optional[pulumi.Input[pulumi.InputType['DaprComponentResiliencyPolicyConfigurationArgs']]] = None,
+                 inbound_policy: Optional[pulumi.Input[Union['DaprComponentResiliencyPolicyConfigurationArgs', 'DaprComponentResiliencyPolicyConfigurationArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 outbound_policy: Optional[pulumi.Input[pulumi.InputType['DaprComponentResiliencyPolicyConfigurationArgs']]] = None,
+                 outbound_policy: Optional[pulumi.Input[Union['DaprComponentResiliencyPolicyConfigurationArgs', 'DaprComponentResiliencyPolicyConfigurationArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -133,9 +138,9 @@ class DaprComponentResiliencyPolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] component_name: Name of the Dapr Component.
         :param pulumi.Input[str] environment_name: Name of the Managed Environment.
-        :param pulumi.Input[pulumi.InputType['DaprComponentResiliencyPolicyConfigurationArgs']] inbound_policy: The optional inbound component resiliency policy configuration
+        :param pulumi.Input[Union['DaprComponentResiliencyPolicyConfigurationArgs', 'DaprComponentResiliencyPolicyConfigurationArgsDict']] inbound_policy: The optional inbound component resiliency policy configuration
         :param pulumi.Input[str] name: Name of the Dapr Component Resiliency Policy.
-        :param pulumi.Input[pulumi.InputType['DaprComponentResiliencyPolicyConfigurationArgs']] outbound_policy: The optional outbound component resiliency policy configuration
+        :param pulumi.Input[Union['DaprComponentResiliencyPolicyConfigurationArgs', 'DaprComponentResiliencyPolicyConfigurationArgsDict']] outbound_policy: The optional outbound component resiliency policy configuration
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         """
         ...
@@ -164,9 +169,9 @@ class DaprComponentResiliencyPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  component_name: Optional[pulumi.Input[str]] = None,
                  environment_name: Optional[pulumi.Input[str]] = None,
-                 inbound_policy: Optional[pulumi.Input[pulumi.InputType['DaprComponentResiliencyPolicyConfigurationArgs']]] = None,
+                 inbound_policy: Optional[pulumi.Input[Union['DaprComponentResiliencyPolicyConfigurationArgs', 'DaprComponentResiliencyPolicyConfigurationArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 outbound_policy: Optional[pulumi.Input[pulumi.InputType['DaprComponentResiliencyPolicyConfigurationArgs']]] = None,
+                 outbound_policy: Optional[pulumi.Input[Union['DaprComponentResiliencyPolicyConfigurationArgs', 'DaprComponentResiliencyPolicyConfigurationArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

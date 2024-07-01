@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -191,8 +196,8 @@ class Sim(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sim_group_name: Optional[pulumi.Input[str]] = None,
                  sim_name: Optional[pulumi.Input[str]] = None,
-                 sim_policy: Optional[pulumi.Input[pulumi.InputType['SimPolicyResourceIdArgs']]] = None,
-                 static_ip_configuration: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SimStaticIpPropertiesArgs']]]]] = None,
+                 sim_policy: Optional[pulumi.Input[Union['SimPolicyResourceIdArgs', 'SimPolicyResourceIdArgsDict']]] = None,
+                 static_ip_configuration: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SimStaticIpPropertiesArgs', 'SimStaticIpPropertiesArgsDict']]]]] = None,
                  __props__=None):
         """
         SIM resource.
@@ -207,8 +212,8 @@ class Sim(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] sim_group_name: The name of the SIM Group.
         :param pulumi.Input[str] sim_name: The name of the SIM.
-        :param pulumi.Input[pulumi.InputType['SimPolicyResourceIdArgs']] sim_policy: The SIM policy used by this SIM. The SIM policy must be in the same location as the SIM.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SimStaticIpPropertiesArgs']]]] static_ip_configuration: A list of static IP addresses assigned to this SIM. Each address is assigned at a defined network scope, made up of {attached data network, slice}.
+        :param pulumi.Input[Union['SimPolicyResourceIdArgs', 'SimPolicyResourceIdArgsDict']] sim_policy: The SIM policy used by this SIM. The SIM policy must be in the same location as the SIM.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SimStaticIpPropertiesArgs', 'SimStaticIpPropertiesArgsDict']]]] static_ip_configuration: A list of static IP addresses assigned to this SIM. Each address is assigned at a defined network scope, made up of {attached data network, slice}.
         """
         ...
     @overload
@@ -242,8 +247,8 @@ class Sim(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sim_group_name: Optional[pulumi.Input[str]] = None,
                  sim_name: Optional[pulumi.Input[str]] = None,
-                 sim_policy: Optional[pulumi.Input[pulumi.InputType['SimPolicyResourceIdArgs']]] = None,
-                 static_ip_configuration: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SimStaticIpPropertiesArgs']]]]] = None,
+                 sim_policy: Optional[pulumi.Input[Union['SimPolicyResourceIdArgs', 'SimPolicyResourceIdArgsDict']]] = None,
+                 static_ip_configuration: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SimStaticIpPropertiesArgs', 'SimStaticIpPropertiesArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

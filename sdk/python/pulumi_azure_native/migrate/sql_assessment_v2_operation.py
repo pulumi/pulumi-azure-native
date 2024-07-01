@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -617,16 +622,16 @@ class SqlAssessmentV2Operation(pulumi.CustomResource):
                  azure_offer_code: Optional[pulumi.Input[Union[str, 'AzureOfferCode']]] = None,
                  azure_offer_code_for_vm: Optional[pulumi.Input[Union[str, 'AzureOfferCode']]] = None,
                  azure_security_offering_type: Optional[pulumi.Input[Union[str, 'AzureSecurityOfferingType']]] = None,
-                 azure_sql_database_settings: Optional[pulumi.Input[pulumi.InputType['SqlDbSettingsArgs']]] = None,
-                 azure_sql_managed_instance_settings: Optional[pulumi.Input[pulumi.InputType['SqlMiSettingsArgs']]] = None,
-                 azure_sql_vm_settings: Optional[pulumi.Input[pulumi.InputType['SqlVmSettingsArgs']]] = None,
+                 azure_sql_database_settings: Optional[pulumi.Input[Union['SqlDbSettingsArgs', 'SqlDbSettingsArgsDict']]] = None,
+                 azure_sql_managed_instance_settings: Optional[pulumi.Input[Union['SqlMiSettingsArgs', 'SqlMiSettingsArgsDict']]] = None,
+                 azure_sql_vm_settings: Optional[pulumi.Input[Union['SqlVmSettingsArgs', 'SqlVmSettingsArgsDict']]] = None,
                  confidence_rating_in_percentage: Optional[pulumi.Input[float]] = None,
                  currency: Optional[pulumi.Input[Union[str, 'AzureCurrency']]] = None,
                  disaster_recovery_location: Optional[pulumi.Input[Union[str, 'AzureLocation']]] = None,
                  discount_percentage: Optional[pulumi.Input[float]] = None,
                  ea_subscription_id: Optional[pulumi.Input[str]] = None,
                  enable_hadr_assessment: Optional[pulumi.Input[bool]] = None,
-                 entity_uptime: Optional[pulumi.Input[pulumi.InputType['EntityUptimeArgs']]] = None,
+                 entity_uptime: Optional[pulumi.Input[Union['EntityUptimeArgs', 'EntityUptimeArgsDict']]] = None,
                  environment_type: Optional[pulumi.Input[Union[str, 'EnvironmentType']]] = None,
                  group_name: Optional[pulumi.Input[str]] = None,
                  group_type: Optional[pulumi.Input[Union[str, 'GroupType']]] = None,
@@ -662,9 +667,9 @@ class SqlAssessmentV2Operation(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'AzureOfferCode']] azure_offer_code: Azure Offer Code.
         :param pulumi.Input[Union[str, 'AzureOfferCode']] azure_offer_code_for_vm: Gets or sets Azure Offer Code for VM.
         :param pulumi.Input[Union[str, 'AzureSecurityOfferingType']] azure_security_offering_type: Gets or sets a value indicating azure security offering type.
-        :param pulumi.Input[pulumi.InputType['SqlDbSettingsArgs']] azure_sql_database_settings: Gets or sets user configurable SQL database settings.
-        :param pulumi.Input[pulumi.InputType['SqlMiSettingsArgs']] azure_sql_managed_instance_settings: Gets or sets user configurable SQL managed instance settings.
-        :param pulumi.Input[pulumi.InputType['SqlVmSettingsArgs']] azure_sql_vm_settings: Gets or sets user configurable SQL VM settings.
+        :param pulumi.Input[Union['SqlDbSettingsArgs', 'SqlDbSettingsArgsDict']] azure_sql_database_settings: Gets or sets user configurable SQL database settings.
+        :param pulumi.Input[Union['SqlMiSettingsArgs', 'SqlMiSettingsArgsDict']] azure_sql_managed_instance_settings: Gets or sets user configurable SQL managed instance settings.
+        :param pulumi.Input[Union['SqlVmSettingsArgs', 'SqlVmSettingsArgsDict']] azure_sql_vm_settings: Gets or sets user configurable SQL VM settings.
         :param pulumi.Input[float] confidence_rating_in_percentage: Confidence Rating in Percentage.
         :param pulumi.Input[Union[str, 'AzureCurrency']] currency: Currency in which prices should be reported.
         :param pulumi.Input[Union[str, 'AzureLocation']] disaster_recovery_location: Gets or sets the Azure Location or Azure region where to which the machines
@@ -672,7 +677,7 @@ class SqlAssessmentV2Operation(pulumi.CustomResource):
         :param pulumi.Input[float] discount_percentage: Custom discount percentage.
         :param pulumi.Input[str] ea_subscription_id: Gets or sets the Enterprise agreement subscription id.
         :param pulumi.Input[bool] enable_hadr_assessment: Gets or sets a value indicating whether HADR assessments needs to be created.
-        :param pulumi.Input[pulumi.InputType['EntityUptimeArgs']] entity_uptime: Gets or sets the duration for which the entity (SQL, VMs) are up in the
+        :param pulumi.Input[Union['EntityUptimeArgs', 'EntityUptimeArgsDict']] entity_uptime: Gets or sets the duration for which the entity (SQL, VMs) are up in the
                on-premises environment.
         :param pulumi.Input[Union[str, 'EnvironmentType']] environment_type: Gets or sets user configurable setting to display the environment type.
         :param pulumi.Input[str] group_name: Group ARM name
@@ -731,16 +736,16 @@ class SqlAssessmentV2Operation(pulumi.CustomResource):
                  azure_offer_code: Optional[pulumi.Input[Union[str, 'AzureOfferCode']]] = None,
                  azure_offer_code_for_vm: Optional[pulumi.Input[Union[str, 'AzureOfferCode']]] = None,
                  azure_security_offering_type: Optional[pulumi.Input[Union[str, 'AzureSecurityOfferingType']]] = None,
-                 azure_sql_database_settings: Optional[pulumi.Input[pulumi.InputType['SqlDbSettingsArgs']]] = None,
-                 azure_sql_managed_instance_settings: Optional[pulumi.Input[pulumi.InputType['SqlMiSettingsArgs']]] = None,
-                 azure_sql_vm_settings: Optional[pulumi.Input[pulumi.InputType['SqlVmSettingsArgs']]] = None,
+                 azure_sql_database_settings: Optional[pulumi.Input[Union['SqlDbSettingsArgs', 'SqlDbSettingsArgsDict']]] = None,
+                 azure_sql_managed_instance_settings: Optional[pulumi.Input[Union['SqlMiSettingsArgs', 'SqlMiSettingsArgsDict']]] = None,
+                 azure_sql_vm_settings: Optional[pulumi.Input[Union['SqlVmSettingsArgs', 'SqlVmSettingsArgsDict']]] = None,
                  confidence_rating_in_percentage: Optional[pulumi.Input[float]] = None,
                  currency: Optional[pulumi.Input[Union[str, 'AzureCurrency']]] = None,
                  disaster_recovery_location: Optional[pulumi.Input[Union[str, 'AzureLocation']]] = None,
                  discount_percentage: Optional[pulumi.Input[float]] = None,
                  ea_subscription_id: Optional[pulumi.Input[str]] = None,
                  enable_hadr_assessment: Optional[pulumi.Input[bool]] = None,
-                 entity_uptime: Optional[pulumi.Input[pulumi.InputType['EntityUptimeArgs']]] = None,
+                 entity_uptime: Optional[pulumi.Input[Union['EntityUptimeArgs', 'EntityUptimeArgsDict']]] = None,
                  environment_type: Optional[pulumi.Input[Union[str, 'EnvironmentType']]] = None,
                  group_name: Optional[pulumi.Input[str]] = None,
                  group_type: Optional[pulumi.Input[Union[str, 'GroupType']]] = None,

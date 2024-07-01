@@ -4,20 +4,53 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'AutoStorageBasePropertiesArgs',
+    'AutoStorageBasePropertiesArgsDict',
     'BatchAccountIdentityArgs',
+    'BatchAccountIdentityArgsDict',
     'ComputeNodeIdentityReferenceArgs',
+    'ComputeNodeIdentityReferenceArgsDict',
     'EncryptionPropertiesArgs',
+    'EncryptionPropertiesArgsDict',
     'KeyVaultPropertiesArgs',
+    'KeyVaultPropertiesArgsDict',
     'KeyVaultReferenceArgs',
+    'KeyVaultReferenceArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AutoStorageBasePropertiesArgsDict(TypedDict):
+        """
+        The properties related to the auto-storage account.
+        """
+        storage_account_id: pulumi.Input[str]
+        """
+        The resource ID of the storage account to be used for auto-storage account.
+        """
+        authentication_mode: NotRequired[pulumi.Input['AutoStorageAuthenticationMode']]
+        """
+        The authentication mode which the Batch service will use to manage the auto-storage account.
+        """
+        node_identity_reference: NotRequired[pulumi.Input['ComputeNodeIdentityReferenceArgsDict']]
+        """
+        The identity referenced here must be assigned to pools which have compute nodes that need access to auto-storage.
+        """
+elif False:
+    AutoStorageBasePropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AutoStorageBasePropertiesArgs:
@@ -76,6 +109,22 @@ class AutoStorageBasePropertiesArgs:
         pulumi.set(self, "node_identity_reference", value)
 
 
+if not MYPY:
+    class BatchAccountIdentityArgsDict(TypedDict):
+        """
+        The identity of the Batch account, if configured. This is used when the user specifies 'Microsoft.KeyVault' as their Batch account encryption configuration or when `ManagedIdentity` is selected as the auto-storage authentication mode.
+        """
+        type: pulumi.Input['ResourceIdentityType']
+        """
+        The type of identity used for the Batch account.
+        """
+        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of user identities associated with the Batch account.
+        """
+elif False:
+    BatchAccountIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class BatchAccountIdentityArgs:
     def __init__(__self__, *,
@@ -115,6 +164,18 @@ class BatchAccountIdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
+if not MYPY:
+    class ComputeNodeIdentityReferenceArgsDict(TypedDict):
+        """
+        The reference to a user assigned identity associated with the Batch pool which a compute node will use.
+        """
+        resource_id: NotRequired[pulumi.Input[str]]
+        """
+        The ARM resource id of the user assigned identity.
+        """
+elif False:
+    ComputeNodeIdentityReferenceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ComputeNodeIdentityReferenceArgs:
     def __init__(__self__, *,
@@ -138,6 +199,22 @@ class ComputeNodeIdentityReferenceArgs:
     def resource_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "resource_id", value)
 
+
+if not MYPY:
+    class EncryptionPropertiesArgsDict(TypedDict):
+        """
+        Configures how customer data is encrypted inside the Batch account. By default, accounts are encrypted using a Microsoft managed key. For additional control, a customer-managed key can be used instead.
+        """
+        key_source: NotRequired[pulumi.Input['KeySource']]
+        """
+        Type of the key source.
+        """
+        key_vault_properties: NotRequired[pulumi.Input['KeyVaultPropertiesArgsDict']]
+        """
+        Additional details when using Microsoft.KeyVault
+        """
+elif False:
+    EncryptionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EncryptionPropertiesArgs:
@@ -179,6 +256,22 @@ class EncryptionPropertiesArgs:
         pulumi.set(self, "key_vault_properties", value)
 
 
+if not MYPY:
+    class KeyVaultPropertiesArgsDict(TypedDict):
+        """
+        KeyVault configuration when using an encryption KeySource of Microsoft.KeyVault.
+        """
+        key_identifier: NotRequired[pulumi.Input[str]]
+        """
+        Full path to the versioned secret. Example https://mykeyvault.vault.azure.net/keys/testkey/6e34a81fef704045975661e297a4c053. To be usable the following prerequisites must be met:
+
+         The Batch Account has a System Assigned identity
+         The account identity has been granted Key/Get, Key/Unwrap and Key/Wrap permissions
+         The KeyVault has soft-delete and purge protection enabled
+        """
+elif False:
+    KeyVaultPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class KeyVaultPropertiesArgs:
     def __init__(__self__, *,
@@ -210,6 +303,22 @@ class KeyVaultPropertiesArgs:
     def key_identifier(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "key_identifier", value)
 
+
+if not MYPY:
+    class KeyVaultReferenceArgsDict(TypedDict):
+        """
+        Identifies the Azure key vault associated with a Batch account.
+        """
+        id: pulumi.Input[str]
+        """
+        The resource ID of the Azure key vault associated with the Batch account.
+        """
+        url: pulumi.Input[str]
+        """
+        The URL of the Azure key vault associated with the Batch account.
+        """
+elif False:
+    KeyVaultReferenceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class KeyVaultReferenceArgs:

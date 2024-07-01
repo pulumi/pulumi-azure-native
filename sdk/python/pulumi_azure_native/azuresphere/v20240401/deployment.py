@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -136,7 +141,7 @@ class Deployment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  catalog_name: Optional[pulumi.Input[str]] = None,
-                 deployed_images: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ImageArgs']]]]] = None,
+                 deployed_images: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ImageArgs', 'ImageArgsDict']]]]] = None,
                  deployment_id: Optional[pulumi.Input[str]] = None,
                  deployment_name: Optional[pulumi.Input[str]] = None,
                  device_group_name: Optional[pulumi.Input[str]] = None,
@@ -149,7 +154,7 @@ class Deployment(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] catalog_name: Name of catalog
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ImageArgs']]]] deployed_images: Images deployed
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ImageArgs', 'ImageArgsDict']]]] deployed_images: Images deployed
         :param pulumi.Input[str] deployment_id: Deployment ID
         :param pulumi.Input[str] deployment_name: Deployment name. Use .default for deployment creation and to get the current deployment for the associated device group.
         :param pulumi.Input[str] device_group_name: Name of device group.
@@ -181,7 +186,7 @@ class Deployment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  catalog_name: Optional[pulumi.Input[str]] = None,
-                 deployed_images: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ImageArgs']]]]] = None,
+                 deployed_images: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ImageArgs', 'ImageArgsDict']]]]] = None,
                  deployment_id: Optional[pulumi.Input[str]] = None,
                  deployment_name: Optional[pulumi.Input[str]] = None,
                  device_group_name: Optional[pulumi.Input[str]] = None,

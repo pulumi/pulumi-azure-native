@@ -4,39 +4,91 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'AdapterPropertyOverridesArgs',
+    'AdapterPropertyOverridesArgsDict',
     'ArcConnectivityPropertiesArgs',
+    'ArcConnectivityPropertiesArgsDict',
     'ClusterDesiredPropertiesArgs',
+    'ClusterDesiredPropertiesArgsDict',
     'ClusterArgs',
+    'ClusterArgsDict',
     'DeploymentConfigurationArgs',
+    'DeploymentConfigurationArgsDict',
     'DeploymentDataArgs',
+    'DeploymentDataArgsDict',
     'DeviceConfigurationArgs',
+    'DeviceConfigurationArgsDict',
     'HostNetworkArgs',
+    'HostNetworkArgsDict',
     'InfrastructureNetworkArgs',
+    'InfrastructureNetworkArgsDict',
     'IntentsArgs',
+    'IntentsArgsDict',
     'IpPoolsArgs',
+    'IpPoolsArgsDict',
     'NicDetailArgs',
+    'NicDetailArgsDict',
     'ObservabilityArgs',
+    'ObservabilityArgsDict',
     'OptionalServicesArgs',
+    'OptionalServicesArgsDict',
     'PhysicalNodesArgs',
+    'PhysicalNodesArgsDict',
     'QosPolicyOverridesArgs',
+    'QosPolicyOverridesArgsDict',
     'ScaleUnitsArgs',
+    'ScaleUnitsArgsDict',
     'SecuritySettingsArgs',
+    'SecuritySettingsArgsDict',
     'ServiceConfigurationArgs',
+    'ServiceConfigurationArgsDict',
     'SoftwareAssurancePropertiesArgs',
+    'SoftwareAssurancePropertiesArgsDict',
     'StepArgs',
+    'StepArgsDict',
     'StorageNetworksArgs',
+    'StorageNetworksArgsDict',
     'StorageArgs',
+    'StorageArgsDict',
     'UpdatePrerequisiteArgs',
+    'UpdatePrerequisiteArgsDict',
     'VirtualSwitchConfigurationOverridesArgs',
+    'VirtualSwitchConfigurationOverridesArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AdapterPropertyOverridesArgsDict(TypedDict):
+        """
+        The AdapterPropertyOverrides of a cluster.
+        """
+        jumbo_packet: NotRequired[pulumi.Input[str]]
+        """
+        This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation.
+        """
+        network_direct: NotRequired[pulumi.Input[str]]
+        """
+        This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation.
+        """
+        network_direct_technology: NotRequired[pulumi.Input[str]]
+        """
+        This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation. Expected values are 'iWARP', 'RoCEv2', 'RoCE'
+        """
+elif False:
+    AdapterPropertyOverridesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AdapterPropertyOverridesArgs:
@@ -94,6 +146,22 @@ class AdapterPropertyOverridesArgs:
         pulumi.set(self, "network_direct_technology", value)
 
 
+if not MYPY:
+    class ArcConnectivityPropertiesArgsDict(TypedDict):
+        """
+        Connectivity related configuration required by arc server.
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        True indicates ARC connectivity is enabled
+        """
+        service_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceConfigurationArgsDict']]]]
+        """
+        Service configurations associated with the connectivity resource. They are only processed by the server if 'enabled' property is set to 'true'.
+        """
+elif False:
+    ArcConnectivityPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ArcConnectivityPropertiesArgs:
     def __init__(__self__, *,
@@ -134,6 +202,22 @@ class ArcConnectivityPropertiesArgs:
         pulumi.set(self, "service_configurations", value)
 
 
+if not MYPY:
+    class ClusterDesiredPropertiesArgsDict(TypedDict):
+        """
+        Desired properties of the cluster.
+        """
+        diagnostic_level: NotRequired[pulumi.Input[Union[str, 'DiagnosticLevel']]]
+        """
+        Desired level of diagnostic data emitted by the cluster.
+        """
+        windows_server_subscription: NotRequired[pulumi.Input[Union[str, 'WindowsServerSubscription']]]
+        """
+        Desired state of Windows Server Subscription.
+        """
+elif False:
+    ClusterDesiredPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ClusterDesiredPropertiesArgs:
     def __init__(__self__, *,
@@ -173,6 +257,34 @@ class ClusterDesiredPropertiesArgs:
     def windows_server_subscription(self, value: Optional[pulumi.Input[Union[str, 'WindowsServerSubscription']]]):
         pulumi.set(self, "windows_server_subscription", value)
 
+
+if not MYPY:
+    class ClusterArgsDict(TypedDict):
+        """
+        AzureStackHCI Cluster deployment properties.
+        """
+        azure_service_endpoint: NotRequired[pulumi.Input[str]]
+        """
+        For Azure blob service endpoint type, select either Default or Custom domain. If you selected **Custom domain, enter the domain for the blob service in this format core.windows.net.
+        """
+        cloud_account_name: NotRequired[pulumi.Input[str]]
+        """
+        Specify the Azure Storage account name for cloud witness for your Azure Stack HCI cluster.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The cluster name provided when preparing Active Directory.
+        """
+        witness_path: NotRequired[pulumi.Input[str]]
+        """
+        Specify the fileshare path for the local witness for your Azure Stack HCI cluster.
+        """
+        witness_type: NotRequired[pulumi.Input[str]]
+        """
+        Use a cloud witness if you have internet access and if you use an Azure Storage account to provide a vote on cluster quorum. A cloud witness uses Azure Blob Storage to read or write a blob file and then uses it to arbitrate in split-brain resolution. Only allowed values are 'Cloud', 'FileShare'. 
+        """
+elif False:
+    ClusterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ClusterArgs:
@@ -262,6 +374,22 @@ class ClusterArgs:
         pulumi.set(self, "witness_type", value)
 
 
+if not MYPY:
+    class DeploymentConfigurationArgsDict(TypedDict):
+        """
+        Deployment Configuration
+        """
+        scale_units: pulumi.Input[Sequence[pulumi.Input['ScaleUnitsArgsDict']]]
+        """
+        Scale units will contains list of deployment data
+        """
+        version: NotRequired[pulumi.Input[str]]
+        """
+        deployment template version 
+        """
+elif False:
+    DeploymentConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DeploymentConfigurationArgs:
     def __init__(__self__, *,
@@ -300,6 +428,62 @@ class DeploymentConfigurationArgs:
     def version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "version", value)
 
+
+if not MYPY:
+    class DeploymentDataArgsDict(TypedDict):
+        """
+        The Deployment data of AzureStackHCI Cluster.
+        """
+        adou_path: NotRequired[pulumi.Input[str]]
+        """
+        The path to the Active Directory Organizational Unit container object prepared for the deployment. 
+        """
+        cluster: NotRequired[pulumi.Input['ClusterArgsDict']]
+        """
+        Observability config to deploy AzureStackHCI Cluster.
+        """
+        domain_fqdn: NotRequired[pulumi.Input[str]]
+        """
+        FQDN to deploy cluster
+        """
+        host_network: NotRequired[pulumi.Input['HostNetworkArgsDict']]
+        """
+        HostNetwork config to deploy AzureStackHCI Cluster.
+        """
+        infrastructure_network: NotRequired[pulumi.Input[Sequence[pulumi.Input['InfrastructureNetworkArgsDict']]]]
+        """
+        InfrastructureNetwork config to deploy AzureStackHCI Cluster.
+        """
+        naming_prefix: NotRequired[pulumi.Input[str]]
+        """
+        naming prefix to deploy cluster.
+        """
+        observability: NotRequired[pulumi.Input['ObservabilityArgsDict']]
+        """
+        Observability config to deploy AzureStackHCI Cluster.
+        """
+        optional_services: NotRequired[pulumi.Input['OptionalServicesArgsDict']]
+        """
+        OptionalServices config to deploy AzureStackHCI Cluster.
+        """
+        physical_nodes: NotRequired[pulumi.Input[Sequence[pulumi.Input['PhysicalNodesArgsDict']]]]
+        """
+        list of physical nodes config to deploy AzureStackHCI Cluster.
+        """
+        secrets_location: NotRequired[pulumi.Input[str]]
+        """
+        The URI to the keyvault / secret store.
+        """
+        security_settings: NotRequired[pulumi.Input['SecuritySettingsArgsDict']]
+        """
+        SecuritySettings to deploy AzureStackHCI Cluster.
+        """
+        storage: NotRequired[pulumi.Input['StorageArgsDict']]
+        """
+        Storage config to deploy AzureStackHCI Cluster.
+        """
+elif False:
+    DeploymentDataArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DeploymentDataArgs:
@@ -501,6 +685,22 @@ class DeploymentDataArgs:
         pulumi.set(self, "storage", value)
 
 
+if not MYPY:
+    class DeviceConfigurationArgsDict(TypedDict):
+        """
+        The device Configuration of a device.
+        """
+        nic_details: pulumi.Input[Sequence[pulumi.Input['NicDetailArgsDict']]]
+        """
+        NIC Details of device
+        """
+        device_metadata: NotRequired[pulumi.Input[str]]
+        """
+        device metadata details.
+        """
+elif False:
+    DeviceConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DeviceConfigurationArgs:
     def __init__(__self__, *,
@@ -539,6 +739,30 @@ class DeviceConfigurationArgs:
     def device_metadata(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "device_metadata", value)
 
+
+if not MYPY:
+    class HostNetworkArgsDict(TypedDict):
+        """
+        The HostNetwork of a cluster.
+        """
+        enable_storage_auto_ip: NotRequired[pulumi.Input[bool]]
+        """
+        Optional parameter required only for 3 Nodes Switchless deployments. This allows users to specify IPs and Mask for Storage NICs when Network ATC is not assigning the IPs for storage automatically.
+        """
+        intents: NotRequired[pulumi.Input[Sequence[pulumi.Input['IntentsArgsDict']]]]
+        """
+        The network intents assigned to the network reference pattern used for the deployment. Each intent will define its own name, traffic type, adapter names, and overrides as recommended by your OEM.
+        """
+        storage_connectivity_switchless: NotRequired[pulumi.Input[bool]]
+        """
+        Defines how the storage adapters between nodes are connected either switch or switch less..
+        """
+        storage_networks: NotRequired[pulumi.Input[Sequence[pulumi.Input['StorageNetworksArgsDict']]]]
+        """
+        List of StorageNetworks config to deploy AzureStackHCI Cluster.
+        """
+elif False:
+    HostNetworkArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class HostNetworkArgs:
@@ -615,6 +839,34 @@ class HostNetworkArgs:
     def storage_networks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StorageNetworksArgs']]]]):
         pulumi.set(self, "storage_networks", value)
 
+
+if not MYPY:
+    class InfrastructureNetworkArgsDict(TypedDict):
+        """
+        The InfrastructureNetwork of a AzureStackHCI Cluster.
+        """
+        dns_servers: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        IPv4 address of the DNS servers in your environment.
+        """
+        gateway: NotRequired[pulumi.Input[str]]
+        """
+        Default gateway that should be used for the provided IP address space.
+        """
+        ip_pools: NotRequired[pulumi.Input[Sequence[pulumi.Input['IpPoolsArgsDict']]]]
+        """
+        Range of IP addresses from which addresses are allocated for nodes within a subnet.
+        """
+        subnet_mask: NotRequired[pulumi.Input[str]]
+        """
+        Subnet mask that matches the provided IP address space.
+        """
+        use_dhcp: NotRequired[pulumi.Input[bool]]
+        """
+        Allows customers to use DHCP for Hosts and Cluster IPs. If not declared, the deployment will default to static IPs. When true, GW and DNS servers are not required
+        """
+elif False:
+    InfrastructureNetworkArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InfrastructureNetworkArgs:
@@ -703,6 +955,50 @@ class InfrastructureNetworkArgs:
     def use_dhcp(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "use_dhcp", value)
 
+
+if not MYPY:
+    class IntentsArgsDict(TypedDict):
+        """
+        The Intents of a cluster.
+        """
+        adapter: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Array of network interfaces used for the network intent.
+        """
+        adapter_property_overrides: NotRequired[pulumi.Input['AdapterPropertyOverridesArgsDict']]
+        """
+        Set Adapter PropertyOverrides for cluster.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the network intent you wish to create.
+        """
+        override_adapter_property: NotRequired[pulumi.Input[bool]]
+        """
+        This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation.
+        """
+        override_qos_policy: NotRequired[pulumi.Input[bool]]
+        """
+        This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation.
+        """
+        override_virtual_switch_configuration: NotRequired[pulumi.Input[bool]]
+        """
+        This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation.
+        """
+        qos_policy_overrides: NotRequired[pulumi.Input['QosPolicyOverridesArgsDict']]
+        """
+        Set QoS PolicyOverrides for cluster.
+        """
+        traffic_type: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of network traffic types. Only allowed values are 'Compute', 'Storage', 'Management'.
+        """
+        virtual_switch_configuration_overrides: NotRequired[pulumi.Input['VirtualSwitchConfigurationOverridesArgsDict']]
+        """
+        Set virtualSwitch ConfigurationOverrides for cluster.
+        """
+elif False:
+    IntentsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IntentsArgs:
@@ -862,6 +1158,22 @@ class IntentsArgs:
         pulumi.set(self, "virtual_switch_configuration_overrides", value)
 
 
+if not MYPY:
+    class IpPoolsArgsDict(TypedDict):
+        """
+        The dnsServers of a device.
+        """
+        ending_address: NotRequired[pulumi.Input[str]]
+        """
+        Ending IP address for the management network. A minimum of six free, contiguous IPv4 addresses (excluding your host IPs) are needed for infrastructure services such as clustering.
+        """
+        starting_address: NotRequired[pulumi.Input[str]]
+        """
+        Starting IP address for the management network. A minimum of six free, contiguous IPv4 addresses (excluding your host IPs) are needed for infrastructure services such as clustering.
+        """
+elif False:
+    IpPoolsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IpPoolsArgs:
     def __init__(__self__, *,
@@ -901,6 +1213,50 @@ class IpPoolsArgs:
     def starting_address(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "starting_address", value)
 
+
+if not MYPY:
+    class NicDetailArgsDict(TypedDict):
+        """
+        The NIC Detail of a device.
+        """
+        adapter_name: pulumi.Input[str]
+        """
+        Adapter Name of NIC
+        """
+        component_id: NotRequired[pulumi.Input[str]]
+        """
+        Component Id of NIC
+        """
+        default_gateway: NotRequired[pulumi.Input[str]]
+        """
+        Default Gateway of NIC
+        """
+        default_isolation_id: NotRequired[pulumi.Input[str]]
+        """
+        Default Isolation of Management NIC
+        """
+        dns_servers: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        DNS Servers for NIC
+        """
+        driver_version: NotRequired[pulumi.Input[str]]
+        """
+        Driver Version of NIC
+        """
+        interface_description: NotRequired[pulumi.Input[str]]
+        """
+        Interface Description of NIC
+        """
+        ip4_address: NotRequired[pulumi.Input[str]]
+        """
+        Subnet Mask of NIC
+        """
+        subnet_mask: NotRequired[pulumi.Input[str]]
+        """
+        Subnet Mask of NIC
+        """
+elif False:
+    NicDetailArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NicDetailArgs:
@@ -1053,6 +1409,26 @@ class NicDetailArgs:
         pulumi.set(self, "subnet_mask", value)
 
 
+if not MYPY:
+    class ObservabilityArgsDict(TypedDict):
+        """
+        The Observability of AzureStackHCI Cluster.
+        """
+        episodic_data_upload: NotRequired[pulumi.Input[bool]]
+        """
+        When set to true, collects log data to facilitate quicker issue resolution.
+        """
+        eu_location: NotRequired[pulumi.Input[bool]]
+        """
+        Location of your cluster. The log and diagnostic data is sent to the appropriate diagnostics servers depending upon where your cluster resides. Setting this to false results in all data sent to Microsoft to be stored outside of the EU.
+        """
+        streaming_data_client: NotRequired[pulumi.Input[bool]]
+        """
+        Enables telemetry data to be sent to Microsoft
+        """
+elif False:
+    ObservabilityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ObservabilityArgs:
     def __init__(__self__, *,
@@ -1115,6 +1491,18 @@ class ObservabilityArgs:
         pulumi.set(self, "streaming_data_client", value)
 
 
+if not MYPY:
+    class OptionalServicesArgsDict(TypedDict):
+        """
+        The OptionalServices of AzureStackHCI Cluster.
+        """
+        custom_location: NotRequired[pulumi.Input[str]]
+        """
+        The name of custom location.
+        """
+elif False:
+    OptionalServicesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OptionalServicesArgs:
     def __init__(__self__, *,
@@ -1138,6 +1526,22 @@ class OptionalServicesArgs:
     def custom_location(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "custom_location", value)
 
+
+if not MYPY:
+    class PhysicalNodesArgsDict(TypedDict):
+        """
+        The PhysicalNodes of a cluster.
+        """
+        ipv4_address: NotRequired[pulumi.Input[str]]
+        """
+        The IPv4 address assigned to each physical server on your Azure Stack HCI cluster.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        NETBIOS name of each physical server on your Azure Stack HCI cluster.
+        """
+elif False:
+    PhysicalNodesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PhysicalNodesArgs:
@@ -1178,6 +1582,26 @@ class PhysicalNodesArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class QosPolicyOverridesArgsDict(TypedDict):
+        """
+        The QoSPolicyOverrides of a cluster.
+        """
+        bandwidth_percentage_smb: NotRequired[pulumi.Input[str]]
+        """
+        This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation.
+        """
+        priority_value8021_action_cluster: NotRequired[pulumi.Input[str]]
+        """
+        This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation.
+        """
+        priority_value8021_action_smb: NotRequired[pulumi.Input[str]]
+        """
+        This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation.
+        """
+elif False:
+    QosPolicyOverridesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class QosPolicyOverridesArgs:
@@ -1235,6 +1659,18 @@ class QosPolicyOverridesArgs:
         pulumi.set(self, "priority_value8021_action_smb", value)
 
 
+if not MYPY:
+    class ScaleUnitsArgsDict(TypedDict):
+        """
+        Scale units will contains list of deployment data
+        """
+        deployment_data: pulumi.Input['DeploymentDataArgsDict']
+        """
+        Deployment Data to deploy AzureStackHCI Cluster.
+        """
+elif False:
+    ScaleUnitsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ScaleUnitsArgs:
     def __init__(__self__, *,
@@ -1257,6 +1693,54 @@ class ScaleUnitsArgs:
     def deployment_data(self, value: pulumi.Input['DeploymentDataArgs']):
         pulumi.set(self, "deployment_data", value)
 
+
+if not MYPY:
+    class SecuritySettingsArgsDict(TypedDict):
+        """
+        The SecuritySettings of AzureStackHCI Cluster.
+        """
+        bitlocker_boot_volume: NotRequired[pulumi.Input[bool]]
+        """
+        When set to true, BitLocker XTS_AES 256-bit encryption is enabled for all data-at-rest on the OS volume of your Azure Stack HCI cluster. This setting is TPM-hardware dependent. 
+        """
+        bitlocker_data_volumes: NotRequired[pulumi.Input[bool]]
+        """
+        When set to true, BitLocker XTS-AES 256-bit encryption is enabled for all data-at-rest on your Azure Stack HCI cluster shared volumes.
+        """
+        credential_guard_enforced: NotRequired[pulumi.Input[bool]]
+        """
+        When set to true, Credential Guard is enabled.
+        """
+        drift_control_enforced: NotRequired[pulumi.Input[bool]]
+        """
+        When set to true, the security baseline is re-applied regularly.
+        """
+        drtm_protection: NotRequired[pulumi.Input[bool]]
+        """
+        By default, Secure Boot is enabled on your Azure HCI cluster. This setting is hardware dependent.
+        """
+        hvci_protection: NotRequired[pulumi.Input[bool]]
+        """
+        By default, Hypervisor-protected Code Integrity is enabled on your Azure HCI cluster.
+        """
+        side_channel_mitigation_enforced: NotRequired[pulumi.Input[bool]]
+        """
+        When set to true, all the side channel mitigations are enabled
+        """
+        smb_cluster_encryption: NotRequired[pulumi.Input[bool]]
+        """
+        When set to true, cluster east-west traffic is encrypted.
+        """
+        smb_signing_enforced: NotRequired[pulumi.Input[bool]]
+        """
+        When set to true, the SMB default instance requires sign in for the client and server services.
+        """
+        wdac_enforced: NotRequired[pulumi.Input[bool]]
+        """
+        WDAC is enabled by default and limits the applications and the code that you can run on your Azure Stack HCI cluster.
+        """
+elif False:
+    SecuritySettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SecuritySettingsArgs:
@@ -1446,6 +1930,22 @@ class SecuritySettingsArgs:
         pulumi.set(self, "wdac_enforced", value)
 
 
+if not MYPY:
+    class ServiceConfigurationArgsDict(TypedDict):
+        """
+        Service configuration details
+        """
+        port: pulumi.Input[float]
+        """
+        The port on which service is enabled.
+        """
+        service_name: pulumi.Input[Union[str, 'ServiceName']]
+        """
+        Name of the service.
+        """
+elif False:
+    ServiceConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ServiceConfigurationArgs:
     def __init__(__self__, *,
@@ -1484,6 +1984,18 @@ class ServiceConfigurationArgs:
         pulumi.set(self, "service_name", value)
 
 
+if not MYPY:
+    class SoftwareAssurancePropertiesArgsDict(TypedDict):
+        """
+        Software Assurance properties of the cluster.
+        """
+        software_assurance_intent: NotRequired[pulumi.Input[Union[str, 'SoftwareAssuranceIntent']]]
+        """
+        Customer Intent for Software Assurance Benefit.
+        """
+elif False:
+    SoftwareAssurancePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SoftwareAssurancePropertiesArgs:
     def __init__(__self__, *,
@@ -1507,6 +2019,46 @@ class SoftwareAssurancePropertiesArgs:
     def software_assurance_intent(self, value: Optional[pulumi.Input[Union[str, 'SoftwareAssuranceIntent']]]):
         pulumi.set(self, "software_assurance_intent", value)
 
+
+if not MYPY:
+    class StepArgsDict(TypedDict):
+        """
+        Progress representation of the update run steps.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        More detailed description of the step.
+        """
+        end_time_utc: NotRequired[pulumi.Input[str]]
+        """
+        When the step reached a terminal state.
+        """
+        error_message: NotRequired[pulumi.Input[str]]
+        """
+        Error message, specified if the step is in a failed state.
+        """
+        last_updated_time_utc: NotRequired[pulumi.Input[str]]
+        """
+        Completion time of this step or the last completed sub-step.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the step.
+        """
+        start_time_utc: NotRequired[pulumi.Input[str]]
+        """
+        When the step started, or empty if it has not started executing.
+        """
+        status: NotRequired[pulumi.Input[str]]
+        """
+        Status of the step, bubbled up from the ECE action plan for installation attempts. Values are: 'Success', 'Error', 'InProgress', and 'Unknown status'.
+        """
+        steps: NotRequired[pulumi.Input[Sequence[pulumi.Input['StepArgsDict']]]]
+        """
+        Recursive model for child steps of this step.
+        """
+elif False:
+    StepArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class StepArgs:
@@ -1644,6 +2196,26 @@ class StepArgs:
         pulumi.set(self, "steps", value)
 
 
+if not MYPY:
+    class StorageNetworksArgsDict(TypedDict):
+        """
+        The StorageNetworks of a cluster.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the storage network.
+        """
+        network_adapter_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the storage network adapter.
+        """
+        vlan_id: NotRequired[pulumi.Input[str]]
+        """
+        ID specified for the VLAN storage network. This setting is applied to the network interfaces that route the storage and VM migration traffic. 
+        """
+elif False:
+    StorageNetworksArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class StorageNetworksArgs:
     def __init__(__self__, *,
@@ -1700,6 +2272,18 @@ class StorageNetworksArgs:
         pulumi.set(self, "vlan_id", value)
 
 
+if not MYPY:
+    class StorageArgsDict(TypedDict):
+        """
+        The Storage config of AzureStackHCI Cluster.
+        """
+        configuration_mode: NotRequired[pulumi.Input[str]]
+        """
+        By default, this mode is set to Express and your storage is configured as per best practices based on the number of nodes in the cluster. Allowed values are 'Express','InfraOnly', 'KeepStorage'
+        """
+elif False:
+    StorageArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class StorageArgs:
     def __init__(__self__, *,
@@ -1725,6 +2309,26 @@ class StorageArgs:
     def configuration_mode(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "configuration_mode", value)
 
+
+if not MYPY:
+    class UpdatePrerequisiteArgsDict(TypedDict):
+        """
+        If update State is HasPrerequisite, this property contains an array of objects describing prerequisite updates before installing this update. Otherwise, it is empty.
+        """
+        package_name: NotRequired[pulumi.Input[str]]
+        """
+        Friendly name of the prerequisite.
+        """
+        update_type: NotRequired[pulumi.Input[str]]
+        """
+        Updatable component type.
+        """
+        version: NotRequired[pulumi.Input[str]]
+        """
+        Version of the prerequisite.
+        """
+elif False:
+    UpdatePrerequisiteArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UpdatePrerequisiteArgs:
@@ -1781,6 +2385,22 @@ class UpdatePrerequisiteArgs:
     def version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "version", value)
 
+
+if not MYPY:
+    class VirtualSwitchConfigurationOverridesArgsDict(TypedDict):
+        """
+        The VirtualSwitchConfigurationOverrides of a cluster.
+        """
+        enable_iov: NotRequired[pulumi.Input[str]]
+        """
+        Enable IoV for Virtual Switch
+        """
+        load_balancing_algorithm: NotRequired[pulumi.Input[str]]
+        """
+        Load Balancing Algorithm for Virtual Switch
+        """
+elif False:
+    VirtualSwitchConfigurationOverridesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VirtualSwitchConfigurationOverridesArgs:

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -93,7 +98,7 @@ class PeerAsn(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  peer_asn: Optional[pulumi.Input[int]] = None,
                  peer_asn_name: Optional[pulumi.Input[str]] = None,
-                 peer_contact_detail: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContactDetailArgs']]]]] = None,
+                 peer_contact_detail: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ContactDetailArgs', 'ContactDetailArgsDict']]]]] = None,
                  peer_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -106,7 +111,7 @@ class PeerAsn(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] peer_asn: The Autonomous System Number (ASN) of the peer.
         :param pulumi.Input[str] peer_asn_name: The peer ASN name.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContactDetailArgs']]]] peer_contact_detail: The contact details of the peer.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ContactDetailArgs', 'ContactDetailArgsDict']]]] peer_contact_detail: The contact details of the peer.
         :param pulumi.Input[str] peer_name: The name of the peer.
         """
         ...
@@ -138,7 +143,7 @@ class PeerAsn(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  peer_asn: Optional[pulumi.Input[int]] = None,
                  peer_asn_name: Optional[pulumi.Input[str]] = None,
-                 peer_contact_detail: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContactDetailArgs']]]]] = None,
+                 peer_contact_detail: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ContactDetailArgs', 'ContactDetailArgsDict']]]]] = None,
                  peer_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

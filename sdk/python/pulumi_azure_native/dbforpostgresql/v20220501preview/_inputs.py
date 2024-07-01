@@ -4,16 +4,35 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'AdminCredentialsArgs',
+    'AdminCredentialsArgsDict',
     'MigrationSecretParametersArgs',
+    'MigrationSecretParametersArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AdminCredentialsArgsDict(TypedDict):
+        """
+        Server admin credentials.
+        """
+        source_server_password: pulumi.Input[str]
+        target_server_password: pulumi.Input[str]
+elif False:
+    AdminCredentialsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AdminCredentialsArgs:
@@ -44,6 +63,18 @@ class AdminCredentialsArgs:
     def target_server_password(self, value: pulumi.Input[str]):
         pulumi.set(self, "target_server_password", value)
 
+
+if not MYPY:
+    class MigrationSecretParametersArgsDict(TypedDict):
+        """
+        Migration secret parameters.
+        """
+        admin_credentials: pulumi.Input['AdminCredentialsArgsDict']
+        """
+        Server admin credentials.
+        """
+elif False:
+    MigrationSecretParametersArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MigrationSecretParametersArgs:

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -157,10 +162,10 @@ class Application(pulumi.CustomResource):
                  application_resource_name: Optional[pulumi.Input[str]] = None,
                  debug_params: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 diagnostics: Optional[pulumi.Input[pulumi.InputType['DiagnosticsDescriptionArgs']]] = None,
+                 diagnostics: Optional[pulumi.Input[Union['DiagnosticsDescriptionArgs', 'DiagnosticsDescriptionArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 services: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceResourceDescriptionArgs']]]]] = None,
+                 services: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceResourceDescriptionArgs', 'ServiceResourceDescriptionArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -171,10 +176,10 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[str] application_resource_name: The identity of the application.
         :param pulumi.Input[str] debug_params: Internal - used by Visual Studio to setup the debugging session on the local development environment.
         :param pulumi.Input[str] description: User readable description of the application.
-        :param pulumi.Input[pulumi.InputType['DiagnosticsDescriptionArgs']] diagnostics: Describes the diagnostics definition and usage for an application resource.
+        :param pulumi.Input[Union['DiagnosticsDescriptionArgs', 'DiagnosticsDescriptionArgsDict']] diagnostics: Describes the diagnostics definition and usage for an application resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] resource_group_name: Azure resource group name
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceResourceDescriptionArgs']]]] services: Describes the services in the application. This property is used to create or modify services of the application. On get only the name of the service is returned. The service description can be obtained by querying for the service resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceResourceDescriptionArgs', 'ServiceResourceDescriptionArgsDict']]]] services: Describes the services in the application. This property is used to create or modify services of the application. On get only the name of the service is returned. The service description can be obtained by querying for the service resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         ...
@@ -204,10 +209,10 @@ class Application(pulumi.CustomResource):
                  application_resource_name: Optional[pulumi.Input[str]] = None,
                  debug_params: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 diagnostics: Optional[pulumi.Input[pulumi.InputType['DiagnosticsDescriptionArgs']]] = None,
+                 diagnostics: Optional[pulumi.Input[Union['DiagnosticsDescriptionArgs', 'DiagnosticsDescriptionArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 services: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceResourceDescriptionArgs']]]]] = None,
+                 services: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceResourceDescriptionArgs', 'ServiceResourceDescriptionArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

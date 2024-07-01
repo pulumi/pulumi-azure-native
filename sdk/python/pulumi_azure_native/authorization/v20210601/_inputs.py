@@ -4,19 +4,55 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'ParameterDefinitionsValueMetadataArgs',
+    'ParameterDefinitionsValueMetadataArgsDict',
     'ParameterDefinitionsValueArgs',
+    'ParameterDefinitionsValueArgsDict',
     'ParameterValuesValueArgs',
+    'ParameterValuesValueArgsDict',
     'PolicyDefinitionGroupArgs',
+    'PolicyDefinitionGroupArgsDict',
     'PolicyDefinitionReferenceArgs',
+    'PolicyDefinitionReferenceArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ParameterDefinitionsValueMetadataArgsDict(TypedDict):
+        """
+        General metadata for the parameter.
+        """
+        assign_permissions: NotRequired[pulumi.Input[bool]]
+        """
+        Set to true to have Azure portal create role assignments on the resource ID or resource scope value of this parameter during policy assignment. This property is useful in case you wish to assign permissions outside the assignment scope.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The description of the parameter.
+        """
+        display_name: NotRequired[pulumi.Input[str]]
+        """
+        The display name for the parameter.
+        """
+        strong_type: NotRequired[pulumi.Input[str]]
+        """
+        Used when assigning the policy definition through the portal. Provides a context aware list of values for the user to choose from.
+        """
+elif False:
+    ParameterDefinitionsValueMetadataArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ParameterDefinitionsValueMetadataArgs:
@@ -90,6 +126,30 @@ class ParameterDefinitionsValueMetadataArgs:
         pulumi.set(self, "strong_type", value)
 
 
+if not MYPY:
+    class ParameterDefinitionsValueArgsDict(TypedDict):
+        """
+        The definition of a parameter that can be provided to the policy.
+        """
+        allowed_values: NotRequired[pulumi.Input[Sequence[Any]]]
+        """
+        The allowed values for the parameter.
+        """
+        default_value: NotRequired[Any]
+        """
+        The default value for the parameter if no value is provided.
+        """
+        metadata: NotRequired[pulumi.Input['ParameterDefinitionsValueMetadataArgsDict']]
+        """
+        General metadata for the parameter.
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'ParameterType']]]
+        """
+        The data type of the parameter.
+        """
+elif False:
+    ParameterDefinitionsValueArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ParameterDefinitionsValueArgs:
     def __init__(__self__, *,
@@ -162,6 +222,18 @@ class ParameterDefinitionsValueArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class ParameterValuesValueArgsDict(TypedDict):
+        """
+        The value of a parameter.
+        """
+        value: NotRequired[Any]
+        """
+        The value of the parameter.
+        """
+elif False:
+    ParameterValuesValueArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ParameterValuesValueArgs:
     def __init__(__self__, *,
@@ -185,6 +257,34 @@ class ParameterValuesValueArgs:
     def value(self, value: Optional[Any]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class PolicyDefinitionGroupArgsDict(TypedDict):
+        """
+        The policy definition group.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the group.
+        """
+        additional_metadata_id: NotRequired[pulumi.Input[str]]
+        """
+        A resource ID of a resource that contains additional metadata about the group.
+        """
+        category: NotRequired[pulumi.Input[str]]
+        """
+        The group's category.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The group's description.
+        """
+        display_name: NotRequired[pulumi.Input[str]]
+        """
+        The group's display name.
+        """
+elif False:
+    PolicyDefinitionGroupArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PolicyDefinitionGroupArgs:
@@ -272,6 +372,30 @@ class PolicyDefinitionGroupArgs:
     def display_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "display_name", value)
 
+
+if not MYPY:
+    class PolicyDefinitionReferenceArgsDict(TypedDict):
+        """
+        The policy definition reference.
+        """
+        policy_definition_id: pulumi.Input[str]
+        """
+        The ID of the policy definition or policy set definition.
+        """
+        group_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The name of the groups that this policy definition reference belongs to.
+        """
+        parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['ParameterValuesValueArgsDict']]]]
+        """
+        The parameter values for the referenced policy rule. The keys are the parameter names.
+        """
+        policy_definition_reference_id: NotRequired[pulumi.Input[str]]
+        """
+        A unique id (within the policy set definition) for this policy definition reference.
+        """
+elif False:
+    PolicyDefinitionReferenceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PolicyDefinitionReferenceArgs:

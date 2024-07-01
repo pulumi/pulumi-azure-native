@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -138,7 +143,7 @@ class License(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 license_details: Optional[pulumi.Input[pulumi.InputType['LicenseDetailsArgs']]] = None,
+                 license_details: Optional[pulumi.Input[Union['LicenseDetailsArgs', 'LicenseDetailsArgsDict']]] = None,
                  license_name: Optional[pulumi.Input[str]] = None,
                  license_type: Optional[pulumi.Input[Union[str, 'LicenseType']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -151,7 +156,7 @@ class License(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['LicenseDetailsArgs']] license_details: Describes the properties of a License.
+        :param pulumi.Input[Union['LicenseDetailsArgs', 'LicenseDetailsArgsDict']] license_details: Describes the properties of a License.
         :param pulumi.Input[str] license_name: The name of the license.
         :param pulumi.Input[Union[str, 'LicenseType']] license_type: The type of the license resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
@@ -183,7 +188,7 @@ class License(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 license_details: Optional[pulumi.Input[pulumi.InputType['LicenseDetailsArgs']]] = None,
+                 license_details: Optional[pulumi.Input[Union['LicenseDetailsArgs', 'LicenseDetailsArgsDict']]] = None,
                  license_name: Optional[pulumi.Input[str]] = None,
                  license_type: Optional[pulumi.Input[Union[str, 'LicenseType']]] = None,
                  location: Optional[pulumi.Input[str]] = None,

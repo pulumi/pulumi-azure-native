@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -224,7 +229,7 @@ class Lab(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 announcement: Optional[pulumi.Input[pulumi.InputType['LabAnnouncementPropertiesArgs']]] = None,
+                 announcement: Optional[pulumi.Input[Union['LabAnnouncementPropertiesArgs', 'LabAnnouncementPropertiesArgsDict']]] = None,
                  environment_permission: Optional[pulumi.Input[Union[str, 'EnvironmentPermission']]] = None,
                  extended_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  lab_storage_type: Optional[pulumi.Input[Union[str, 'StorageType']]] = None,
@@ -234,7 +239,7 @@ class Lab(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  premium_data_disks: Optional[pulumi.Input[Union[str, 'PremiumDataDisk']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 support: Optional[pulumi.Input[pulumi.InputType['LabSupportPropertiesArgs']]] = None,
+                 support: Optional[pulumi.Input[Union['LabSupportPropertiesArgs', 'LabSupportPropertiesArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -242,7 +247,7 @@ class Lab(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['LabAnnouncementPropertiesArgs']] announcement: The properties of any lab announcement associated with this lab
+        :param pulumi.Input[Union['LabAnnouncementPropertiesArgs', 'LabAnnouncementPropertiesArgsDict']] announcement: The properties of any lab announcement associated with this lab
         :param pulumi.Input[Union[str, 'EnvironmentPermission']] environment_permission: The access rights to be granted to the user when provisioning an environment
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] extended_properties: Extended properties of the lab used for experimental features
         :param pulumi.Input[Union[str, 'StorageType']] lab_storage_type: Type of storage used by the lab. It can be either Premium or Standard. Default is Premium.
@@ -254,7 +259,7 @@ class Lab(pulumi.CustomResource):
                When its value is 'Enabled', creation of standard or premium data disks is allowed.
                When its value is 'Disabled', only creation of standard data disks is allowed.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[pulumi.InputType['LabSupportPropertiesArgs']] support: The properties of any lab support message associated with this lab
+        :param pulumi.Input[Union['LabSupportPropertiesArgs', 'LabSupportPropertiesArgsDict']] support: The properties of any lab support message associated with this lab
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
         """
         ...
@@ -281,7 +286,7 @@ class Lab(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 announcement: Optional[pulumi.Input[pulumi.InputType['LabAnnouncementPropertiesArgs']]] = None,
+                 announcement: Optional[pulumi.Input[Union['LabAnnouncementPropertiesArgs', 'LabAnnouncementPropertiesArgsDict']]] = None,
                  environment_permission: Optional[pulumi.Input[Union[str, 'EnvironmentPermission']]] = None,
                  extended_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  lab_storage_type: Optional[pulumi.Input[Union[str, 'StorageType']]] = None,
@@ -291,7 +296,7 @@ class Lab(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  premium_data_disks: Optional[pulumi.Input[Union[str, 'PremiumDataDisk']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 support: Optional[pulumi.Input[pulumi.InputType['LabSupportPropertiesArgs']]] = None,
+                 support: Optional[pulumi.Input[Union['LabSupportPropertiesArgs', 'LabSupportPropertiesArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

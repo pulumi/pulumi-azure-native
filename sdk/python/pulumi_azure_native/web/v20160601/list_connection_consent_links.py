@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -47,7 +52,7 @@ class AwaitableListConnectionConsentLinksResult(ListConnectionConsentLinksResult
 
 
 def list_connection_consent_links(connection_name: Optional[str] = None,
-                                  parameters: Optional[Sequence[pulumi.InputType['ConsentLinkParameterDefinition']]] = None,
+                                  parameters: Optional[Sequence[Union['ConsentLinkParameterDefinition', 'ConsentLinkParameterDefinitionDict']]] = None,
                                   resource_group_name: Optional[str] = None,
                                   subscription_id: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListConnectionConsentLinksResult:
@@ -56,7 +61,7 @@ def list_connection_consent_links(connection_name: Optional[str] = None,
 
 
     :param str connection_name: Connection name
-    :param Sequence[pulumi.InputType['ConsentLinkParameterDefinition']] parameters: Collection of resources
+    :param Sequence[Union['ConsentLinkParameterDefinition', 'ConsentLinkParameterDefinitionDict']] parameters: Collection of resources
     :param str resource_group_name: The resource group
     :param str subscription_id: Subscription Id
     """
@@ -74,7 +79,7 @@ def list_connection_consent_links(connection_name: Optional[str] = None,
 
 @_utilities.lift_output_func(list_connection_consent_links)
 def list_connection_consent_links_output(connection_name: Optional[pulumi.Input[str]] = None,
-                                         parameters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['ConsentLinkParameterDefinition']]]]] = None,
+                                         parameters: Optional[pulumi.Input[Optional[Sequence[Union['ConsentLinkParameterDefinition', 'ConsentLinkParameterDefinitionDict']]]]] = None,
                                          resource_group_name: Optional[pulumi.Input[str]] = None,
                                          subscription_id: Optional[pulumi.Input[Optional[str]]] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListConnectionConsentLinksResult]:
@@ -83,7 +88,7 @@ def list_connection_consent_links_output(connection_name: Optional[pulumi.Input[
 
 
     :param str connection_name: Connection name
-    :param Sequence[pulumi.InputType['ConsentLinkParameterDefinition']] parameters: Collection of resources
+    :param Sequence[Union['ConsentLinkParameterDefinition', 'ConsentLinkParameterDefinitionDict']] parameters: Collection of resources
     :param str resource_group_name: The resource group
     :param str subscription_id: Subscription Id
     """

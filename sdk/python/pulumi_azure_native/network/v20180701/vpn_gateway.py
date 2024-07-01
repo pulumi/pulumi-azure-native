@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -172,31 +177,31 @@ class VpnGateway(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bgp_settings: Optional[pulumi.Input[pulumi.InputType['BgpSettingsArgs']]] = None,
-                 connections: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnConnectionArgs']]]]] = None,
+                 bgp_settings: Optional[pulumi.Input[Union['BgpSettingsArgs', 'BgpSettingsArgsDict']]] = None,
+                 connections: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VpnConnectionArgs', 'VpnConnectionArgsDict']]]]] = None,
                  gateway_name: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 policies: Optional[pulumi.Input[pulumi.InputType['PoliciesArgs']]] = None,
+                 policies: Optional[pulumi.Input[Union['PoliciesArgs', 'PoliciesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 virtual_hub: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
+                 virtual_hub: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
                  __props__=None):
         """
         VpnGateway Resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['BgpSettingsArgs']] bgp_settings: Local network gateway's BGP speaker settings.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnConnectionArgs']]]] connections: list of all vpn connections to the gateway.
+        :param pulumi.Input[Union['BgpSettingsArgs', 'BgpSettingsArgsDict']] bgp_settings: Local network gateway's BGP speaker settings.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['VpnConnectionArgs', 'VpnConnectionArgsDict']]]] connections: list of all vpn connections to the gateway.
                These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
         :param pulumi.Input[str] gateway_name: The name of the gateway.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[pulumi.InputType['PoliciesArgs']] policies: The policies applied to this vpn gateway.
+        :param pulumi.Input[Union['PoliciesArgs', 'PoliciesArgsDict']] policies: The policies applied to this vpn gateway.
         :param pulumi.Input[str] resource_group_name: The resource group name of the VpnGateway.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[pulumi.InputType['SubResourceArgs']] virtual_hub: The VirtualHub to which the gateway belongs
+        :param pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']] virtual_hub: The VirtualHub to which the gateway belongs
         """
         ...
     @overload
@@ -222,15 +227,15 @@ class VpnGateway(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bgp_settings: Optional[pulumi.Input[pulumi.InputType['BgpSettingsArgs']]] = None,
-                 connections: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnConnectionArgs']]]]] = None,
+                 bgp_settings: Optional[pulumi.Input[Union['BgpSettingsArgs', 'BgpSettingsArgsDict']]] = None,
+                 connections: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VpnConnectionArgs', 'VpnConnectionArgsDict']]]]] = None,
                  gateway_name: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 policies: Optional[pulumi.Input[pulumi.InputType['PoliciesArgs']]] = None,
+                 policies: Optional[pulumi.Input[Union['PoliciesArgs', 'PoliciesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 virtual_hub: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
+                 virtual_hub: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -107,7 +112,7 @@ class BillingRoleAssignmentByEnrollmentAccount(pulumi.CustomResource):
                  billing_account_name: Optional[pulumi.Input[str]] = None,
                  billing_role_assignment_name: Optional[pulumi.Input[str]] = None,
                  enrollment_account_name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['BillingRoleAssignmentPropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['BillingRoleAssignmentPropertiesArgs', 'BillingRoleAssignmentPropertiesArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -118,7 +123,7 @@ class BillingRoleAssignmentByEnrollmentAccount(pulumi.CustomResource):
         :param pulumi.Input[str] billing_account_name: The ID that uniquely identifies a billing account.
         :param pulumi.Input[str] billing_role_assignment_name: The ID that uniquely identifies a role assignment.
         :param pulumi.Input[str] enrollment_account_name: The name of the enrollment account.
-        :param pulumi.Input[pulumi.InputType['BillingRoleAssignmentPropertiesArgs']] properties: The properties of the billing role assignment.
+        :param pulumi.Input[Union['BillingRoleAssignmentPropertiesArgs', 'BillingRoleAssignmentPropertiesArgsDict']] properties: The properties of the billing role assignment.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Dictionary of metadata associated with the resource. It may not be populated for all resource types. Maximum key/value length supported of 256 characters. Keys/value should not empty value nor null. Keys can not contain < > % & \\ ? /
         """
         ...
@@ -148,7 +153,7 @@ class BillingRoleAssignmentByEnrollmentAccount(pulumi.CustomResource):
                  billing_account_name: Optional[pulumi.Input[str]] = None,
                  billing_role_assignment_name: Optional[pulumi.Input[str]] = None,
                  enrollment_account_name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['BillingRoleAssignmentPropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['BillingRoleAssignmentPropertiesArgs', 'BillingRoleAssignmentPropertiesArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

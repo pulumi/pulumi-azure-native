@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -138,11 +143,11 @@ class WebApplicationFirewallPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 custom_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebApplicationFirewallCustomRuleArgs']]]]] = None,
+                 custom_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WebApplicationFirewallCustomRuleArgs', 'WebApplicationFirewallCustomRuleArgsDict']]]]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  policy_name: Optional[pulumi.Input[str]] = None,
-                 policy_settings: Optional[pulumi.Input[pulumi.InputType['PolicySettingsArgs']]] = None,
+                 policy_settings: Optional[pulumi.Input[Union['PolicySettingsArgs', 'PolicySettingsArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -151,11 +156,11 @@ class WebApplicationFirewallPolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebApplicationFirewallCustomRuleArgs']]]] custom_rules: Describes custom rules inside the policy.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WebApplicationFirewallCustomRuleArgs', 'WebApplicationFirewallCustomRuleArgsDict']]]] custom_rules: Describes custom rules inside the policy.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] policy_name: The name of the policy.
-        :param pulumi.Input[pulumi.InputType['PolicySettingsArgs']] policy_settings: Describes policySettings for policy.
+        :param pulumi.Input[Union['PolicySettingsArgs', 'PolicySettingsArgsDict']] policy_settings: Describes policySettings for policy.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -183,11 +188,11 @@ class WebApplicationFirewallPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 custom_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebApplicationFirewallCustomRuleArgs']]]]] = None,
+                 custom_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WebApplicationFirewallCustomRuleArgs', 'WebApplicationFirewallCustomRuleArgsDict']]]]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  policy_name: Optional[pulumi.Input[str]] = None,
-                 policy_settings: Optional[pulumi.Input[pulumi.InputType['PolicySettingsArgs']]] = None,
+                 policy_settings: Optional[pulumi.Input[Union['PolicySettingsArgs', 'PolicySettingsArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):

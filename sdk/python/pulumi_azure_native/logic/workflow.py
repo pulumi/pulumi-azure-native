@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -218,14 +223,14 @@ class Workflow(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_control: Optional[pulumi.Input[pulumi.InputType['FlowAccessControlConfigurationArgs']]] = None,
+                 access_control: Optional[pulumi.Input[Union['FlowAccessControlConfigurationArgs', 'FlowAccessControlConfigurationArgsDict']]] = None,
                  definition: Optional[Any] = None,
-                 endpoints_configuration: Optional[pulumi.Input[pulumi.InputType['FlowEndpointsConfigurationArgs']]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
-                 integration_account: Optional[pulumi.Input[pulumi.InputType['ResourceReferenceArgs']]] = None,
-                 integration_service_environment: Optional[pulumi.Input[pulumi.InputType['ResourceReferenceArgs']]] = None,
+                 endpoints_configuration: Optional[pulumi.Input[Union['FlowEndpointsConfigurationArgs', 'FlowEndpointsConfigurationArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 integration_account: Optional[pulumi.Input[Union['ResourceReferenceArgs', 'ResourceReferenceArgsDict']]] = None,
+                 integration_service_environment: Optional[pulumi.Input[Union['ResourceReferenceArgs', 'ResourceReferenceArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['WorkflowParameterArgs']]]]] = None,
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['WorkflowParameterArgs', 'WorkflowParameterArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input[Union[str, 'WorkflowState']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -239,14 +244,14 @@ class Workflow(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['FlowAccessControlConfigurationArgs']] access_control: The access control configuration.
+        :param pulumi.Input[Union['FlowAccessControlConfigurationArgs', 'FlowAccessControlConfigurationArgsDict']] access_control: The access control configuration.
         :param Any definition: The definition.
-        :param pulumi.Input[pulumi.InputType['FlowEndpointsConfigurationArgs']] endpoints_configuration: The endpoints configuration.
-        :param pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']] identity: Managed service identity properties.
-        :param pulumi.Input[pulumi.InputType['ResourceReferenceArgs']] integration_account: The integration account.
-        :param pulumi.Input[pulumi.InputType['ResourceReferenceArgs']] integration_service_environment: The integration service environment.
+        :param pulumi.Input[Union['FlowEndpointsConfigurationArgs', 'FlowEndpointsConfigurationArgsDict']] endpoints_configuration: The endpoints configuration.
+        :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: Managed service identity properties.
+        :param pulumi.Input[Union['ResourceReferenceArgs', 'ResourceReferenceArgsDict']] integration_account: The integration account.
+        :param pulumi.Input[Union['ResourceReferenceArgs', 'ResourceReferenceArgsDict']] integration_service_environment: The integration service environment.
         :param pulumi.Input[str] location: The resource location.
-        :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['WorkflowParameterArgs']]]] parameters: The parameters.
+        :param pulumi.Input[Mapping[str, pulumi.Input[Union['WorkflowParameterArgs', 'WorkflowParameterArgsDict']]]] parameters: The parameters.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[Union[str, 'WorkflowState']] state: The state.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
@@ -279,14 +284,14 @@ class Workflow(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_control: Optional[pulumi.Input[pulumi.InputType['FlowAccessControlConfigurationArgs']]] = None,
+                 access_control: Optional[pulumi.Input[Union['FlowAccessControlConfigurationArgs', 'FlowAccessControlConfigurationArgsDict']]] = None,
                  definition: Optional[Any] = None,
-                 endpoints_configuration: Optional[pulumi.Input[pulumi.InputType['FlowEndpointsConfigurationArgs']]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
-                 integration_account: Optional[pulumi.Input[pulumi.InputType['ResourceReferenceArgs']]] = None,
-                 integration_service_environment: Optional[pulumi.Input[pulumi.InputType['ResourceReferenceArgs']]] = None,
+                 endpoints_configuration: Optional[pulumi.Input[Union['FlowEndpointsConfigurationArgs', 'FlowEndpointsConfigurationArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 integration_account: Optional[pulumi.Input[Union['ResourceReferenceArgs', 'ResourceReferenceArgsDict']]] = None,
+                 integration_service_environment: Optional[pulumi.Input[Union['ResourceReferenceArgs', 'ResourceReferenceArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['WorkflowParameterArgs']]]]] = None,
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['WorkflowParameterArgs', 'WorkflowParameterArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input[Union[str, 'WorkflowState']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,

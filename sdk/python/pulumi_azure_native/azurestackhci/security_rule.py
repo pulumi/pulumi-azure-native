@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -234,7 +239,7 @@ class SecurityRule(pulumi.CustomResource):
                  destination_address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  destination_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  direction: Optional[pulumi.Input[Union[str, 'SecurityRuleDirection']]] = None,
-                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
                  network_security_group_name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
                  protocol: Optional[pulumi.Input[Union[str, 'SecurityRuleProtocol']]] = None,
@@ -254,7 +259,7 @@ class SecurityRule(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] destination_address_prefixes: The destination address prefixes. CIDR or destination IP ranges.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] destination_port_ranges: The destination port ranges. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
         :param pulumi.Input[Union[str, 'SecurityRuleDirection']] direction: The direction of the rule. The direction specifies if rule will be evaluated on incoming or outgoing traffic.
-        :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: The extendedLocation of the resource.
+        :param pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']] extended_location: The extendedLocation of the resource.
         :param pulumi.Input[str] network_security_group_name: Name of the network security group
         :param pulumi.Input[int] priority: The priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
         :param pulumi.Input[Union[str, 'SecurityRuleProtocol']] protocol: Network protocol this rule applies to.
@@ -293,7 +298,7 @@ class SecurityRule(pulumi.CustomResource):
                  destination_address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  destination_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  direction: Optional[pulumi.Input[Union[str, 'SecurityRuleDirection']]] = None,
-                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
                  network_security_group_name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
                  protocol: Optional[pulumi.Input[Union[str, 'SecurityRuleProtocol']]] = None,

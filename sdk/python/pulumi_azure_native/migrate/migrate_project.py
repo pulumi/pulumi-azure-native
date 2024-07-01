@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -125,9 +130,9 @@ class MigrateProject(pulumi.CustomResource):
                  e_tag: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  migrate_project_name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['MigrateProjectPropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['MigrateProjectPropertiesArgs', 'MigrateProjectPropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[pulumi.InputType['MigrateProjectTagsArgs']]] = None,
+                 tags: Optional[pulumi.Input[Union['MigrateProjectTagsArgs', 'MigrateProjectTagsArgsDict']]] = None,
                  __props__=None):
         """
         Migrate Project REST Resource.
@@ -138,9 +143,9 @@ class MigrateProject(pulumi.CustomResource):
         :param pulumi.Input[str] e_tag: Gets or sets the eTag for concurrency control.
         :param pulumi.Input[str] location: Gets or sets the Azure location in which migrate project is created.
         :param pulumi.Input[str] migrate_project_name: Name of the Azure Migrate project.
-        :param pulumi.Input[pulumi.InputType['MigrateProjectPropertiesArgs']] properties: Gets or sets the nested properties.
+        :param pulumi.Input[Union['MigrateProjectPropertiesArgs', 'MigrateProjectPropertiesArgsDict']] properties: Gets or sets the nested properties.
         :param pulumi.Input[str] resource_group_name: Name of the Azure Resource Group that migrate project is part of.
-        :param pulumi.Input[pulumi.InputType['MigrateProjectTagsArgs']] tags: Gets or sets the tags.
+        :param pulumi.Input[Union['MigrateProjectTagsArgs', 'MigrateProjectTagsArgsDict']] tags: Gets or sets the tags.
         """
         ...
     @overload
@@ -170,9 +175,9 @@ class MigrateProject(pulumi.CustomResource):
                  e_tag: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  migrate_project_name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['MigrateProjectPropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['MigrateProjectPropertiesArgs', 'MigrateProjectPropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[pulumi.InputType['MigrateProjectTagsArgs']]] = None,
+                 tags: Optional[pulumi.Input[Union['MigrateProjectTagsArgs', 'MigrateProjectTagsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

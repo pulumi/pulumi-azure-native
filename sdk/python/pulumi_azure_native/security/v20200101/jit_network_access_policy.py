@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -119,9 +124,9 @@ class JitNetworkAccessPolicy(pulumi.CustomResource):
                  asc_location: Optional[pulumi.Input[str]] = None,
                  jit_network_access_policy_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
-                 requests: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JitNetworkAccessRequestArgs']]]]] = None,
+                 requests: Optional[pulumi.Input[Sequence[pulumi.Input[Union['JitNetworkAccessRequestArgs', 'JitNetworkAccessRequestArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 virtual_machines: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JitNetworkAccessPolicyVirtualMachineArgs']]]]] = None,
+                 virtual_machines: Optional[pulumi.Input[Sequence[pulumi.Input[Union['JitNetworkAccessPolicyVirtualMachineArgs', 'JitNetworkAccessPolicyVirtualMachineArgsDict']]]]] = None,
                  __props__=None):
         """
         Create a JitNetworkAccessPolicy resource with the given unique name, props, and options.
@@ -131,7 +136,7 @@ class JitNetworkAccessPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] jit_network_access_policy_name: Name of a Just-in-Time access configuration policy.
         :param pulumi.Input[str] kind: Kind of the resource
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JitNetworkAccessPolicyVirtualMachineArgs']]]] virtual_machines: Configurations for Microsoft.Compute/virtualMachines resource type.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['JitNetworkAccessPolicyVirtualMachineArgs', 'JitNetworkAccessPolicyVirtualMachineArgsDict']]]] virtual_machines: Configurations for Microsoft.Compute/virtualMachines resource type.
         """
         ...
     @overload
@@ -159,9 +164,9 @@ class JitNetworkAccessPolicy(pulumi.CustomResource):
                  asc_location: Optional[pulumi.Input[str]] = None,
                  jit_network_access_policy_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
-                 requests: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JitNetworkAccessRequestArgs']]]]] = None,
+                 requests: Optional[pulumi.Input[Sequence[pulumi.Input[Union['JitNetworkAccessRequestArgs', 'JitNetworkAccessRequestArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 virtual_machines: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JitNetworkAccessPolicyVirtualMachineArgs']]]]] = None,
+                 virtual_machines: Optional[pulumi.Input[Sequence[pulumi.Input[Union['JitNetworkAccessPolicyVirtualMachineArgs', 'JitNetworkAccessPolicyVirtualMachineArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

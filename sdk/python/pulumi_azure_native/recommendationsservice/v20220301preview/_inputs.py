@@ -4,21 +4,59 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'AccountResourcePropertiesArgs',
+    'AccountResourcePropertiesArgsDict',
     'CorsRuleArgs',
+    'CorsRuleArgsDict',
     'EndpointAuthenticationArgs',
+    'EndpointAuthenticationArgsDict',
     'ManagedServiceIdentityArgs',
+    'ManagedServiceIdentityArgsDict',
     'ModelingInputDataArgs',
+    'ModelingInputDataArgsDict',
     'ModelingResourcePropertiesArgs',
+    'ModelingResourcePropertiesArgsDict',
     'ServiceEndpointResourcePropertiesArgs',
+    'ServiceEndpointResourcePropertiesArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AccountResourcePropertiesArgsDict(TypedDict):
+        """
+        Account resource properties.
+        """
+        configuration: NotRequired[pulumi.Input[Union[str, 'AccountConfiguration']]]
+        """
+        Account configuration. This can only be set at RecommendationsService Account creation.
+        """
+        cors: NotRequired[pulumi.Input[Sequence[pulumi.Input['CorsRuleArgsDict']]]]
+        """
+        The list of CORS details.
+        """
+        endpoint_authentications: NotRequired[pulumi.Input[Sequence[pulumi.Input['EndpointAuthenticationArgsDict']]]]
+        """
+        The list of service endpoints authentication details.
+        """
+        reports_connection_string: NotRequired[pulumi.Input[str]]
+        """
+        Connection string to write Accounts reports to.
+        """
+elif False:
+    AccountResourcePropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AccountResourcePropertiesArgs:
@@ -91,6 +129,34 @@ class AccountResourcePropertiesArgs:
     def reports_connection_string(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "reports_connection_string", value)
 
+
+if not MYPY:
+    class CorsRuleArgsDict(TypedDict):
+        """
+        CORS details.
+        """
+        allowed_origins: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        The origin domains that are permitted to make a request against the service via CORS.
+        """
+        allowed_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The request headers that the origin domain may specify on the CORS request.
+        """
+        allowed_methods: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The methods (HTTP request verbs) that the origin domain may use for a CORS request.
+        """
+        exposed_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The response headers to expose to CORS clients.
+        """
+        max_age_in_seconds: NotRequired[pulumi.Input[int]]
+        """
+        The number of seconds that the client/browser should cache a preflight response.
+        """
+elif False:
+    CorsRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CorsRuleArgs:
@@ -179,6 +245,26 @@ class CorsRuleArgs:
         pulumi.set(self, "max_age_in_seconds", value)
 
 
+if not MYPY:
+    class EndpointAuthenticationArgsDict(TypedDict):
+        """
+        Service endpoints authentication details.
+        """
+        aad_tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        AAD tenant ID.
+        """
+        principal_id: NotRequired[pulumi.Input[str]]
+        """
+        AAD principal ID.
+        """
+        principal_type: NotRequired[pulumi.Input[Union[str, 'PrincipalType']]]
+        """
+        AAD principal type.
+        """
+elif False:
+    EndpointAuthenticationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EndpointAuthenticationArgs:
     def __init__(__self__, *,
@@ -235,6 +321,22 @@ class EndpointAuthenticationArgs:
         pulumi.set(self, "principal_type", value)
 
 
+if not MYPY:
+    class ManagedServiceIdentityArgsDict(TypedDict):
+        """
+        Managed service identity (system assigned and/or user assigned identities)
+        """
+        type: pulumi.Input[Union[str, 'ManagedServiceIdentityType']]
+        """
+        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        """
+        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        """
+elif False:
+    ManagedServiceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ManagedServiceIdentityArgs:
     def __init__(__self__, *,
@@ -274,6 +376,18 @@ class ManagedServiceIdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
+if not MYPY:
+    class ModelingInputDataArgsDict(TypedDict):
+        """
+        The configuration to raw CDM data to be used as Modeling resource input.
+        """
+        connection_string: NotRequired[pulumi.Input[str]]
+        """
+        Connection string to raw input data.
+        """
+elif False:
+    ModelingInputDataArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ModelingInputDataArgs:
     def __init__(__self__, *,
@@ -297,6 +411,30 @@ class ModelingInputDataArgs:
     def connection_string(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "connection_string", value)
 
+
+if not MYPY:
+    class ModelingResourcePropertiesArgsDict(TypedDict):
+        """
+        Modeling resource properties.
+        """
+        features: NotRequired[pulumi.Input[Union[str, 'ModelingFeatures']]]
+        """
+        Modeling features controls the set of supported scenarios\\models being computed. This can only be set at Modeling creation.
+        """
+        frequency: NotRequired[pulumi.Input[Union[str, 'ModelingFrequency']]]
+        """
+        Modeling frequency controls the modeling compute frequency.
+        """
+        input_data: NotRequired[pulumi.Input['ModelingInputDataArgsDict']]
+        """
+        The configuration to raw CDM data to be used as Modeling resource input.
+        """
+        size: NotRequired[pulumi.Input[Union[str, 'ModelingSize']]]
+        """
+        Modeling size controls the maximum supported input data size.
+        """
+elif False:
+    ModelingResourcePropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ModelingResourcePropertiesArgs:
@@ -369,6 +507,18 @@ class ModelingResourcePropertiesArgs:
     def size(self, value: Optional[pulumi.Input[Union[str, 'ModelingSize']]]):
         pulumi.set(self, "size", value)
 
+
+if not MYPY:
+    class ServiceEndpointResourcePropertiesArgsDict(TypedDict):
+        """
+        ServiceEndpoint resource properties.
+        """
+        pre_allocated_capacity: NotRequired[pulumi.Input[int]]
+        """
+        ServiceEndpoint pre-allocated capacity controls the maximum requests-per-second allowed for that endpoint. Only applicable when Account configuration is Capacity.
+        """
+elif False:
+    ServiceEndpointResourcePropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ServiceEndpointResourcePropertiesArgs:

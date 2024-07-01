@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -189,9 +194,9 @@ class L3IsolationDomain(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aggregate_route_configuration: Optional[pulumi.Input[pulumi.InputType['AggregateRouteConfigurationArgs']]] = None,
+                 aggregate_route_configuration: Optional[pulumi.Input[Union['AggregateRouteConfigurationArgs', 'AggregateRouteConfigurationArgsDict']]] = None,
                  annotation: Optional[pulumi.Input[str]] = None,
-                 connected_subnet_route_policy: Optional[pulumi.Input[pulumi.InputType['ConnectedSubnetRoutePolicyArgs']]] = None,
+                 connected_subnet_route_policy: Optional[pulumi.Input[Union['ConnectedSubnetRoutePolicyArgs', 'ConnectedSubnetRoutePolicyArgsDict']]] = None,
                  l3_isolation_domain_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  network_fabric_id: Optional[pulumi.Input[str]] = None,
@@ -205,9 +210,9 @@ class L3IsolationDomain(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['AggregateRouteConfigurationArgs']] aggregate_route_configuration: Aggregate route configurations.
+        :param pulumi.Input[Union['AggregateRouteConfigurationArgs', 'AggregateRouteConfigurationArgsDict']] aggregate_route_configuration: Aggregate route configurations.
         :param pulumi.Input[str] annotation: Switch configuration description.
-        :param pulumi.Input[pulumi.InputType['ConnectedSubnetRoutePolicyArgs']] connected_subnet_route_policy: Connected Subnet RoutePolicy
+        :param pulumi.Input[Union['ConnectedSubnetRoutePolicyArgs', 'ConnectedSubnetRoutePolicyArgsDict']] connected_subnet_route_policy: Connected Subnet RoutePolicy
         :param pulumi.Input[str] l3_isolation_domain_name: Name of the L3 Isolation Domain.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] network_fabric_id: ARM Resource ID of the Network Fabric.
@@ -240,9 +245,9 @@ class L3IsolationDomain(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aggregate_route_configuration: Optional[pulumi.Input[pulumi.InputType['AggregateRouteConfigurationArgs']]] = None,
+                 aggregate_route_configuration: Optional[pulumi.Input[Union['AggregateRouteConfigurationArgs', 'AggregateRouteConfigurationArgsDict']]] = None,
                  annotation: Optional[pulumi.Input[str]] = None,
-                 connected_subnet_route_policy: Optional[pulumi.Input[pulumi.InputType['ConnectedSubnetRoutePolicyArgs']]] = None,
+                 connected_subnet_route_policy: Optional[pulumi.Input[Union['ConnectedSubnetRoutePolicyArgs', 'ConnectedSubnetRoutePolicyArgsDict']]] = None,
                  l3_isolation_domain_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  network_fabric_id: Optional[pulumi.Input[str]] = None,

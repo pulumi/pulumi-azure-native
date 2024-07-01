@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -179,8 +184,8 @@ class StorageAppliance(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 administrator_credentials: Optional[pulumi.Input[pulumi.InputType['AdministrativeCredentialsArgs']]] = None,
-                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
+                 administrator_credentials: Optional[pulumi.Input[Union['AdministrativeCredentialsArgs', 'AdministrativeCredentialsArgsDict']]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  rack_id: Optional[pulumi.Input[str]] = None,
                  rack_slot: Optional[pulumi.Input[float]] = None,
@@ -194,8 +199,8 @@ class StorageAppliance(pulumi.CustomResource):
         Create a StorageAppliance resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['AdministrativeCredentialsArgs']] administrator_credentials: The credentials of the administrative interface on this storage appliance.
-        :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: The extended location of the cluster associated with the resource.
+        :param pulumi.Input[Union['AdministrativeCredentialsArgs', 'AdministrativeCredentialsArgsDict']] administrator_credentials: The credentials of the administrative interface on this storage appliance.
+        :param pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']] extended_location: The extended location of the cluster associated with the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] rack_id: The resource ID of the rack where this storage appliance resides.
         :param pulumi.Input[float] rack_slot: The slot the storage appliance is in the rack based on the BOM configuration.
@@ -228,8 +233,8 @@ class StorageAppliance(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 administrator_credentials: Optional[pulumi.Input[pulumi.InputType['AdministrativeCredentialsArgs']]] = None,
-                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
+                 administrator_credentials: Optional[pulumi.Input[Union['AdministrativeCredentialsArgs', 'AdministrativeCredentialsArgsDict']]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  rack_id: Optional[pulumi.Input[str]] = None,
                  rack_slot: Optional[pulumi.Input[float]] = None,

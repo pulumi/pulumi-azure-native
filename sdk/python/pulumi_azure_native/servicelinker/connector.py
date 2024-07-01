@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -217,18 +222,18 @@ class Connector(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auth_info: Optional[pulumi.Input[Union[pulumi.InputType['AccessKeyInfoBaseArgs'], pulumi.InputType['SecretAuthInfoArgs'], pulumi.InputType['ServicePrincipalCertificateAuthInfoArgs'], pulumi.InputType['ServicePrincipalSecretAuthInfoArgs'], pulumi.InputType['SystemAssignedIdentityAuthInfoArgs'], pulumi.InputType['UserAccountAuthInfoArgs'], pulumi.InputType['UserAssignedIdentityAuthInfoArgs']]]] = None,
+                 auth_info: Optional[pulumi.Input[Union[Union['AccessKeyInfoBaseArgs', 'AccessKeyInfoBaseArgsDict'], Union['SecretAuthInfoArgs', 'SecretAuthInfoArgsDict'], Union['ServicePrincipalCertificateAuthInfoArgs', 'ServicePrincipalCertificateAuthInfoArgsDict'], Union['ServicePrincipalSecretAuthInfoArgs', 'ServicePrincipalSecretAuthInfoArgsDict'], Union['SystemAssignedIdentityAuthInfoArgs', 'SystemAssignedIdentityAuthInfoArgsDict'], Union['UserAccountAuthInfoArgs', 'UserAccountAuthInfoArgsDict'], Union['UserAssignedIdentityAuthInfoArgs', 'UserAssignedIdentityAuthInfoArgsDict']]]] = None,
                  client_type: Optional[pulumi.Input[Union[str, 'ClientType']]] = None,
-                 configuration_info: Optional[pulumi.Input[pulumi.InputType['ConfigurationInfoArgs']]] = None,
+                 configuration_info: Optional[pulumi.Input[Union['ConfigurationInfoArgs', 'ConfigurationInfoArgsDict']]] = None,
                  connector_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 public_network_solution: Optional[pulumi.Input[pulumi.InputType['PublicNetworkSolutionArgs']]] = None,
+                 public_network_solution: Optional[pulumi.Input[Union['PublicNetworkSolutionArgs', 'PublicNetworkSolutionArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
-                 secret_store: Optional[pulumi.Input[pulumi.InputType['SecretStoreArgs']]] = None,
+                 secret_store: Optional[pulumi.Input[Union['SecretStoreArgs', 'SecretStoreArgsDict']]] = None,
                  subscription_id: Optional[pulumi.Input[str]] = None,
-                 target_service: Optional[pulumi.Input[Union[pulumi.InputType['AzureResourceArgs'], pulumi.InputType['ConfluentBootstrapServerArgs'], pulumi.InputType['ConfluentSchemaRegistryArgs'], pulumi.InputType['SelfHostedServerArgs']]]] = None,
-                 v_net_solution: Optional[pulumi.Input[pulumi.InputType['VNetSolutionArgs']]] = None,
+                 target_service: Optional[pulumi.Input[Union[Union['AzureResourceArgs', 'AzureResourceArgsDict'], Union['ConfluentBootstrapServerArgs', 'ConfluentBootstrapServerArgsDict'], Union['ConfluentSchemaRegistryArgs', 'ConfluentSchemaRegistryArgsDict'], Union['SelfHostedServerArgs', 'SelfHostedServerArgsDict']]]] = None,
+                 v_net_solution: Optional[pulumi.Input[Union['VNetSolutionArgs', 'VNetSolutionArgsDict']]] = None,
                  __props__=None):
         """
         Linker of source and target resource
@@ -238,18 +243,18 @@ class Connector(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union[pulumi.InputType['AccessKeyInfoBaseArgs'], pulumi.InputType['SecretAuthInfoArgs'], pulumi.InputType['ServicePrincipalCertificateAuthInfoArgs'], pulumi.InputType['ServicePrincipalSecretAuthInfoArgs'], pulumi.InputType['SystemAssignedIdentityAuthInfoArgs'], pulumi.InputType['UserAccountAuthInfoArgs'], pulumi.InputType['UserAssignedIdentityAuthInfoArgs']]] auth_info: The authentication type.
+        :param pulumi.Input[Union[Union['AccessKeyInfoBaseArgs', 'AccessKeyInfoBaseArgsDict'], Union['SecretAuthInfoArgs', 'SecretAuthInfoArgsDict'], Union['ServicePrincipalCertificateAuthInfoArgs', 'ServicePrincipalCertificateAuthInfoArgsDict'], Union['ServicePrincipalSecretAuthInfoArgs', 'ServicePrincipalSecretAuthInfoArgsDict'], Union['SystemAssignedIdentityAuthInfoArgs', 'SystemAssignedIdentityAuthInfoArgsDict'], Union['UserAccountAuthInfoArgs', 'UserAccountAuthInfoArgsDict'], Union['UserAssignedIdentityAuthInfoArgs', 'UserAssignedIdentityAuthInfoArgsDict']]] auth_info: The authentication type.
         :param pulumi.Input[Union[str, 'ClientType']] client_type: The application client type
-        :param pulumi.Input[pulumi.InputType['ConfigurationInfoArgs']] configuration_info: The connection information consumed by applications, including secrets, connection strings.
+        :param pulumi.Input[Union['ConfigurationInfoArgs', 'ConfigurationInfoArgsDict']] configuration_info: The connection information consumed by applications, including secrets, connection strings.
         :param pulumi.Input[str] connector_name: The name of resource.
         :param pulumi.Input[str] location: The name of Azure region.
-        :param pulumi.Input[pulumi.InputType['PublicNetworkSolutionArgs']] public_network_solution: The network solution.
+        :param pulumi.Input[Union['PublicNetworkSolutionArgs', 'PublicNetworkSolutionArgsDict']] public_network_solution: The network solution.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] scope: connection scope in source service.
-        :param pulumi.Input[pulumi.InputType['SecretStoreArgs']] secret_store: An option to store secret value in secure place
+        :param pulumi.Input[Union['SecretStoreArgs', 'SecretStoreArgsDict']] secret_store: An option to store secret value in secure place
         :param pulumi.Input[str] subscription_id: The ID of the target subscription.
-        :param pulumi.Input[Union[pulumi.InputType['AzureResourceArgs'], pulumi.InputType['ConfluentBootstrapServerArgs'], pulumi.InputType['ConfluentSchemaRegistryArgs'], pulumi.InputType['SelfHostedServerArgs']]] target_service: The target service properties
-        :param pulumi.Input[pulumi.InputType['VNetSolutionArgs']] v_net_solution: The VNet solution.
+        :param pulumi.Input[Union[Union['AzureResourceArgs', 'AzureResourceArgsDict'], Union['ConfluentBootstrapServerArgs', 'ConfluentBootstrapServerArgsDict'], Union['ConfluentSchemaRegistryArgs', 'ConfluentSchemaRegistryArgsDict'], Union['SelfHostedServerArgs', 'SelfHostedServerArgsDict']]] target_service: The target service properties
+        :param pulumi.Input[Union['VNetSolutionArgs', 'VNetSolutionArgsDict']] v_net_solution: The VNet solution.
         """
         ...
     @overload
@@ -278,18 +283,18 @@ class Connector(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auth_info: Optional[pulumi.Input[Union[pulumi.InputType['AccessKeyInfoBaseArgs'], pulumi.InputType['SecretAuthInfoArgs'], pulumi.InputType['ServicePrincipalCertificateAuthInfoArgs'], pulumi.InputType['ServicePrincipalSecretAuthInfoArgs'], pulumi.InputType['SystemAssignedIdentityAuthInfoArgs'], pulumi.InputType['UserAccountAuthInfoArgs'], pulumi.InputType['UserAssignedIdentityAuthInfoArgs']]]] = None,
+                 auth_info: Optional[pulumi.Input[Union[Union['AccessKeyInfoBaseArgs', 'AccessKeyInfoBaseArgsDict'], Union['SecretAuthInfoArgs', 'SecretAuthInfoArgsDict'], Union['ServicePrincipalCertificateAuthInfoArgs', 'ServicePrincipalCertificateAuthInfoArgsDict'], Union['ServicePrincipalSecretAuthInfoArgs', 'ServicePrincipalSecretAuthInfoArgsDict'], Union['SystemAssignedIdentityAuthInfoArgs', 'SystemAssignedIdentityAuthInfoArgsDict'], Union['UserAccountAuthInfoArgs', 'UserAccountAuthInfoArgsDict'], Union['UserAssignedIdentityAuthInfoArgs', 'UserAssignedIdentityAuthInfoArgsDict']]]] = None,
                  client_type: Optional[pulumi.Input[Union[str, 'ClientType']]] = None,
-                 configuration_info: Optional[pulumi.Input[pulumi.InputType['ConfigurationInfoArgs']]] = None,
+                 configuration_info: Optional[pulumi.Input[Union['ConfigurationInfoArgs', 'ConfigurationInfoArgsDict']]] = None,
                  connector_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 public_network_solution: Optional[pulumi.Input[pulumi.InputType['PublicNetworkSolutionArgs']]] = None,
+                 public_network_solution: Optional[pulumi.Input[Union['PublicNetworkSolutionArgs', 'PublicNetworkSolutionArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
-                 secret_store: Optional[pulumi.Input[pulumi.InputType['SecretStoreArgs']]] = None,
+                 secret_store: Optional[pulumi.Input[Union['SecretStoreArgs', 'SecretStoreArgsDict']]] = None,
                  subscription_id: Optional[pulumi.Input[str]] = None,
-                 target_service: Optional[pulumi.Input[Union[pulumi.InputType['AzureResourceArgs'], pulumi.InputType['ConfluentBootstrapServerArgs'], pulumi.InputType['ConfluentSchemaRegistryArgs'], pulumi.InputType['SelfHostedServerArgs']]]] = None,
-                 v_net_solution: Optional[pulumi.Input[pulumi.InputType['VNetSolutionArgs']]] = None,
+                 target_service: Optional[pulumi.Input[Union[Union['AzureResourceArgs', 'AzureResourceArgsDict'], Union['ConfluentBootstrapServerArgs', 'ConfluentBootstrapServerArgsDict'], Union['ConfluentSchemaRegistryArgs', 'ConfluentSchemaRegistryArgsDict'], Union['SelfHostedServerArgs', 'SelfHostedServerArgsDict']]]] = None,
+                 v_net_solution: Optional[pulumi.Input[Union['VNetSolutionArgs', 'VNetSolutionArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

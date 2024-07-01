@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -138,9 +143,9 @@ class ResourceGuard(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  e_tag: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['DppIdentityDetailsArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['DppIdentityDetailsArgs', 'DppIdentityDetailsArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['ResourceGuardArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['ResourceGuardArgs', 'ResourceGuardArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_guards_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -150,9 +155,9 @@ class ResourceGuard(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] e_tag: Optional ETag.
-        :param pulumi.Input[pulumi.InputType['DppIdentityDetailsArgs']] identity: Input Managed Identity Details
+        :param pulumi.Input[Union['DppIdentityDetailsArgs', 'DppIdentityDetailsArgsDict']] identity: Input Managed Identity Details
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[pulumi.InputType['ResourceGuardArgs']] properties: ResourceGuardResource properties
+        :param pulumi.Input[Union['ResourceGuardArgs', 'ResourceGuardArgsDict']] properties: ResourceGuardResource properties
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the backup vault is present.
         :param pulumi.Input[str] resource_guards_name: The name of ResourceGuard
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -181,9 +186,9 @@ class ResourceGuard(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  e_tag: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['DppIdentityDetailsArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['DppIdentityDetailsArgs', 'DppIdentityDetailsArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['ResourceGuardArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['ResourceGuardArgs', 'ResourceGuardArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_guards_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -186,9 +191,9 @@ class Environment(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  environment_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[Union[str, 'EnvironmentKind']]] = None,
-                 onboarding: Optional[pulumi.Input[pulumi.InputType['OnboardingArgs']]] = None,
+                 onboarding: Optional[pulumi.Input[Union['OnboardingArgs', 'OnboardingArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 server: Optional[pulumi.Input[pulumi.InputType['EnvironmentServerArgs']]] = None,
+                 server: Optional[pulumi.Input[Union['EnvironmentServerArgs', 'EnvironmentServerArgsDict']]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  title: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
@@ -202,9 +207,9 @@ class Environment(pulumi.CustomResource):
         :param pulumi.Input[str] description: The environment description.
         :param pulumi.Input[str] environment_name: The name of the environment.
         :param pulumi.Input[Union[str, 'EnvironmentKind']] kind: Environment kind.
-        :param pulumi.Input[pulumi.InputType['OnboardingArgs']] onboarding: Environment onboarding information
+        :param pulumi.Input[Union['OnboardingArgs', 'OnboardingArgsDict']] onboarding: Environment onboarding information
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[pulumi.InputType['EnvironmentServerArgs']] server: Server information of the environment.
+        :param pulumi.Input[Union['EnvironmentServerArgs', 'EnvironmentServerArgsDict']] server: Server information of the environment.
         :param pulumi.Input[str] service_name: The name of Azure API Center service.
         :param pulumi.Input[str] title: Environment title.
         :param pulumi.Input[str] workspace_name: The name of the workspace.
@@ -237,9 +242,9 @@ class Environment(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  environment_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[Union[str, 'EnvironmentKind']]] = None,
-                 onboarding: Optional[pulumi.Input[pulumi.InputType['OnboardingArgs']]] = None,
+                 onboarding: Optional[pulumi.Input[Union['OnboardingArgs', 'OnboardingArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 server: Optional[pulumi.Input[pulumi.InputType['EnvironmentServerArgs']]] = None,
+                 server: Optional[pulumi.Input[Union['EnvironmentServerArgs', 'EnvironmentServerArgsDict']]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  title: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,

@@ -4,16 +4,37 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'IncidentLabelArgs',
+    'IncidentLabelArgsDict',
     'IncidentOwnerInfoArgs',
+    'IncidentOwnerInfoArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class IncidentLabelArgsDict(TypedDict):
+        """
+        Represents an incident label
+        """
+        label_name: pulumi.Input[str]
+        """
+        The name of the label
+        """
+elif False:
+    IncidentLabelArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IncidentLabelArgs:
@@ -37,6 +58,34 @@ class IncidentLabelArgs:
     def label_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "label_name", value)
 
+
+if not MYPY:
+    class IncidentOwnerInfoArgsDict(TypedDict):
+        """
+        Information on the user an incident is assigned to
+        """
+        assigned_to: NotRequired[pulumi.Input[str]]
+        """
+        The name of the user the incident is assigned to.
+        """
+        email: NotRequired[pulumi.Input[str]]
+        """
+        The email of the user the incident is assigned to.
+        """
+        object_id: NotRequired[pulumi.Input[str]]
+        """
+        The object id of the user the incident is assigned to.
+        """
+        owner_type: NotRequired[pulumi.Input[Union[str, 'OwnerType']]]
+        """
+        The type of the owner the incident is assigned to.
+        """
+        user_principal_name: NotRequired[pulumi.Input[str]]
+        """
+        The user principal name of the user the incident is assigned to.
+        """
+elif False:
+    IncidentOwnerInfoArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IncidentOwnerInfoArgs:

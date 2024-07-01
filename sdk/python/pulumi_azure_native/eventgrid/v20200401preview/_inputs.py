@@ -4,24 +4,61 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'ConnectionStateArgs',
+    'ConnectionStateArgsDict',
     'IdentityInfoArgs',
+    'IdentityInfoArgsDict',
     'InboundIpRuleArgs',
+    'InboundIpRuleArgsDict',
     'JsonFieldWithDefaultArgs',
+    'JsonFieldWithDefaultArgsDict',
     'JsonFieldArgs',
+    'JsonFieldArgsDict',
     'JsonInputSchemaMappingArgs',
+    'JsonInputSchemaMappingArgsDict',
     'PrivateEndpointConnectionArgs',
+    'PrivateEndpointConnectionArgsDict',
     'PrivateEndpointArgs',
+    'PrivateEndpointArgsDict',
     'ResourceSkuArgs',
+    'ResourceSkuArgsDict',
     'UserIdentityPropertiesArgs',
+    'UserIdentityPropertiesArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ConnectionStateArgsDict(TypedDict):
+        """
+        ConnectionState information.
+        """
+        actions_required: NotRequired[pulumi.Input[str]]
+        """
+        Actions required (if any).
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Description of the connection state.
+        """
+        status: NotRequired[pulumi.Input[Union[str, 'PersistedConnectionStatus']]]
+        """
+        Status of the connection.
+        """
+elif False:
+    ConnectionStateArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ConnectionStateArgs:
@@ -78,6 +115,32 @@ class ConnectionStateArgs:
     def status(self, value: Optional[pulumi.Input[Union[str, 'PersistedConnectionStatus']]]):
         pulumi.set(self, "status", value)
 
+
+if not MYPY:
+    class IdentityInfoArgsDict(TypedDict):
+        """
+        The identity information for the resource.
+        """
+        principal_id: NotRequired[pulumi.Input[str]]
+        """
+        The principal ID of resource identity.
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        The tenant ID of resource.
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'IdentityType']]]
+        """
+        The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identity.
+        """
+        user_assigned_identities: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['UserIdentityPropertiesArgsDict']]]]
+        """
+        The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form:
+        '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        This property is currently not used and reserved for future usage.
+        """
+elif False:
+    IdentityInfoArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IdentityInfoArgs:
@@ -155,6 +218,19 @@ class IdentityInfoArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
+if not MYPY:
+    class InboundIpRuleArgsDict(TypedDict):
+        action: NotRequired[pulumi.Input[Union[str, 'IpActionType']]]
+        """
+        Action to perform based on the match or no match of the IpMask.
+        """
+        ip_mask: NotRequired[pulumi.Input[str]]
+        """
+        IP Address in CIDR notation e.g., 10.0.0.0/8.
+        """
+elif False:
+    InboundIpRuleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InboundIpRuleArgs:
     def __init__(__self__, *,
@@ -193,6 +269,25 @@ class InboundIpRuleArgs:
     def ip_mask(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "ip_mask", value)
 
+
+if not MYPY:
+    class JsonFieldWithDefaultArgsDict(TypedDict):
+        """
+        This is used to express the source of an input schema mapping for a single target field
+        in the Event Grid Event schema. This is currently used in the mappings for the 'subject',
+        'eventtype' and 'dataversion' properties. This represents a field in the input event schema
+        along with a default value to be used, and at least one of these two properties should be provided.
+        """
+        default_value: NotRequired[pulumi.Input[str]]
+        """
+        The default value to be used for mapping when a SourceField is not provided or if there's no property with the specified name in the published JSON event payload.
+        """
+        source_field: NotRequired[pulumi.Input[str]]
+        """
+        Name of a field in the input event schema that's to be used as the source of a mapping.
+        """
+elif False:
+    JsonFieldWithDefaultArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class JsonFieldWithDefaultArgs:
@@ -237,6 +332,18 @@ class JsonFieldWithDefaultArgs:
         pulumi.set(self, "source_field", value)
 
 
+if not MYPY:
+    class JsonFieldArgsDict(TypedDict):
+        """
+        This is used to express the source of an input schema mapping for a single target field in the Event Grid Event schema. This is currently used in the mappings for the 'id', 'topic' and 'eventtime' properties. This represents a field in the input event schema.
+        """
+        source_field: NotRequired[pulumi.Input[str]]
+        """
+        Name of a field in the input event schema that's to be used as the source of a mapping.
+        """
+elif False:
+    JsonFieldArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class JsonFieldArgs:
     def __init__(__self__, *,
@@ -260,6 +367,43 @@ class JsonFieldArgs:
     def source_field(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "source_field", value)
 
+
+if not MYPY:
+    class JsonInputSchemaMappingArgsDict(TypedDict):
+        """
+        This enables publishing to Event Grid using a custom input schema. This can be used to map properties from a custom input JSON schema to the Event Grid event schema.
+        """
+        input_schema_mapping_type: pulumi.Input[str]
+        """
+        Type of the custom mapping
+        Expected value is 'Json'.
+        """
+        data_version: NotRequired[pulumi.Input['JsonFieldWithDefaultArgsDict']]
+        """
+        The mapping information for the DataVersion property of the Event Grid Event.
+        """
+        event_time: NotRequired[pulumi.Input['JsonFieldArgsDict']]
+        """
+        The mapping information for the EventTime property of the Event Grid Event.
+        """
+        event_type: NotRequired[pulumi.Input['JsonFieldWithDefaultArgsDict']]
+        """
+        The mapping information for the EventType property of the Event Grid Event.
+        """
+        id: NotRequired[pulumi.Input['JsonFieldArgsDict']]
+        """
+        The mapping information for the Id property of the Event Grid Event.
+        """
+        subject: NotRequired[pulumi.Input['JsonFieldWithDefaultArgsDict']]
+        """
+        The mapping information for the Subject property of the Event Grid Event.
+        """
+        topic: NotRequired[pulumi.Input['JsonFieldArgsDict']]
+        """
+        The mapping information for the Topic property of the Event Grid Event.
+        """
+elif False:
+    JsonInputSchemaMappingArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class JsonInputSchemaMappingArgs:
@@ -382,6 +526,27 @@ class JsonInputSchemaMappingArgs:
         pulumi.set(self, "topic", value)
 
 
+if not MYPY:
+    class PrivateEndpointConnectionArgsDict(TypedDict):
+        group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        GroupIds from the private link service resource.
+        """
+        private_endpoint: NotRequired[pulumi.Input['PrivateEndpointArgsDict']]
+        """
+        The Private Endpoint resource for this Connection.
+        """
+        private_link_service_connection_state: NotRequired[pulumi.Input['ConnectionStateArgsDict']]
+        """
+        Details about the state of the connection.
+        """
+        provisioning_state: NotRequired[pulumi.Input[Union[str, 'ResourceProvisioningState']]]
+        """
+        Provisioning state of the Private Endpoint Connection.
+        """
+elif False:
+    PrivateEndpointConnectionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PrivateEndpointConnectionArgs:
     def __init__(__self__, *,
@@ -453,6 +618,18 @@ class PrivateEndpointConnectionArgs:
         pulumi.set(self, "provisioning_state", value)
 
 
+if not MYPY:
+    class PrivateEndpointArgsDict(TypedDict):
+        """
+        PrivateEndpoint information.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The ARM identifier for Private Endpoint.
+        """
+elif False:
+    PrivateEndpointArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PrivateEndpointArgs:
     def __init__(__self__, *,
@@ -477,6 +654,18 @@ class PrivateEndpointArgs:
         pulumi.set(self, "id", value)
 
 
+if not MYPY:
+    class ResourceSkuArgsDict(TypedDict):
+        """
+        Describes an EventGrid Resource Sku.
+        """
+        name: NotRequired[pulumi.Input[Union[str, 'Sku']]]
+        """
+        The Sku name of the resource. The possible values are: Basic or Premium.
+        """
+elif False:
+    ResourceSkuArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ResourceSkuArgs:
     def __init__(__self__, *,
@@ -500,6 +689,22 @@ class ResourceSkuArgs:
     def name(self, value: Optional[pulumi.Input[Union[str, 'Sku']]]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class UserIdentityPropertiesArgsDict(TypedDict):
+        """
+        The information about the user identity.
+        """
+        client_id: NotRequired[pulumi.Input[str]]
+        """
+        The client id of user assigned identity.
+        """
+        principal_id: NotRequired[pulumi.Input[str]]
+        """
+        The principal id of user assigned identity.
+        """
+elif False:
+    UserIdentityPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserIdentityPropertiesArgs:

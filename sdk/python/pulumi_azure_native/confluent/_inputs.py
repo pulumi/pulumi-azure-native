@@ -4,15 +4,52 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'OfferDetailArgs',
+    'OfferDetailArgsDict',
     'UserDetailArgs',
+    'UserDetailArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class OfferDetailArgsDict(TypedDict):
+        """
+        Confluent Offer detail
+        """
+        id: pulumi.Input[str]
+        """
+        Offer Id
+        """
+        plan_id: pulumi.Input[str]
+        """
+        Offer Plan Id
+        """
+        plan_name: pulumi.Input[str]
+        """
+        Offer Plan Name
+        """
+        publisher_id: pulumi.Input[str]
+        """
+        Publisher Id
+        """
+        term_unit: pulumi.Input[str]
+        """
+        Offer Plan Term unit
+        """
+elif False:
+    OfferDetailArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OfferDetailArgs:
@@ -96,6 +133,26 @@ class OfferDetailArgs:
     def term_unit(self, value: pulumi.Input[str]):
         pulumi.set(self, "term_unit", value)
 
+
+if not MYPY:
+    class UserDetailArgsDict(TypedDict):
+        """
+        Subscriber detail
+        """
+        email_address: pulumi.Input[str]
+        """
+        Email address
+        """
+        first_name: NotRequired[pulumi.Input[str]]
+        """
+        First name
+        """
+        last_name: NotRequired[pulumi.Input[str]]
+        """
+        Last name
+        """
+elif False:
+    UserDetailArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserDetailArgs:

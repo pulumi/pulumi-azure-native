@@ -4,23 +4,91 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'ConnectionPropertiesArgs',
+    'ConnectionPropertiesArgsDict',
     'FlowPropertiesArgs',
+    'FlowPropertiesArgsDict',
     'ManagedServiceIdentityArgs',
+    'ManagedServiceIdentityArgsDict',
     'MessagingOptionsArgs',
+    'MessagingOptionsArgsDict',
     'PipelinePropertiesArgs',
+    'PipelinePropertiesArgsDict',
     'PlanArgs',
+    'PlanArgsDict',
     'SchemaArgs',
+    'SchemaArgsDict',
     'SelectedResourceArgs',
+    'SelectedResourceArgsDict',
     'SubscriberArgs',
+    'SubscriberArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ConnectionPropertiesArgsDict(TypedDict):
+        """
+        Properties of connection
+        """
+        pipeline: pulumi.Input[str]
+        """
+        Pipeline to use to transfer data
+        """
+        direction: NotRequired[pulumi.Input[Union[str, 'Direction']]]
+        """
+        Direction of data movement
+        """
+        flow_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'FlowType']]]]]
+        """
+        The flow types being requested for this connection
+        """
+        justification: NotRequired[pulumi.Input[str]]
+        """
+        Justification for the connection request
+        """
+        pin: NotRequired[pulumi.Input[str]]
+        """
+        PIN to link requests together
+        """
+        policies: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The policies for this connection
+        """
+        primary_contact: NotRequired[pulumi.Input[str]]
+        """
+        The primary contact for this connection request
+        """
+        remote_subscription_id: NotRequired[pulumi.Input[str]]
+        """
+        Subscription ID to link cloud subscriptions together
+        """
+        requirement_id: NotRequired[pulumi.Input[str]]
+        """
+        Requirement ID of the connection
+        """
+        schemas: NotRequired[pulumi.Input[Sequence[pulumi.Input['SchemaArgsDict']]]]
+        """
+        The schemas for this connection
+        """
+        secondary_contacts: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The secondary contacts for this connection request
+        """
+elif False:
+    ConnectionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ConnectionPropertiesArgs:
@@ -204,6 +272,62 @@ class ConnectionPropertiesArgs:
     def secondary_contacts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "secondary_contacts", value)
 
+
+if not MYPY:
+    class FlowPropertiesArgsDict(TypedDict):
+        """
+        Properties of flow
+        """
+        connection: NotRequired[pulumi.Input['SelectedResourceArgsDict']]
+        """
+        The connection associated with this flow
+        """
+        data_type: NotRequired[pulumi.Input[Union[str, 'DataType']]]
+        """
+        Transfer Storage Blobs or Tables
+        """
+        flow_type: NotRequired[pulumi.Input[Union[str, 'FlowType']]]
+        """
+        The flow type for this flow
+        """
+        key_vault_uri: NotRequired[pulumi.Input[str]]
+        """
+        AME, PME, or TORUS only! AKV Chain Containing SAS Token
+        """
+        messaging_options: NotRequired[pulumi.Input['MessagingOptionsArgsDict']]
+        """
+        The messaging options for this flow
+        """
+        policies: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The policies for this flow
+        """
+        schema: NotRequired[pulumi.Input['SchemaArgsDict']]
+        """
+        The selected schema for this flow
+        """
+        service_bus_queue_id: NotRequired[pulumi.Input[str]]
+        """
+        Service Bus Queue ID
+        """
+        status: NotRequired[pulumi.Input[Union[str, 'FlowStatus']]]
+        """
+        Status of the current flow
+        """
+        storage_account_id: NotRequired[pulumi.Input[str]]
+        """
+        Storage Account ID
+        """
+        storage_account_name: NotRequired[pulumi.Input[str]]
+        """
+        Storage Account
+        """
+        storage_container_name: NotRequired[pulumi.Input[str]]
+        """
+        Storage Container Name
+        """
+elif False:
+    FlowPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FlowPropertiesArgs:
@@ -405,6 +529,22 @@ class FlowPropertiesArgs:
         pulumi.set(self, "storage_container_name", value)
 
 
+if not MYPY:
+    class ManagedServiceIdentityArgsDict(TypedDict):
+        """
+        Managed service identity (system assigned and/or user assigned identities)
+        """
+        type: pulumi.Input[Union[str, 'ManagedServiceIdentityType']]
+        """
+        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        """
+        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        """
+elif False:
+    ManagedServiceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ManagedServiceIdentityArgs:
     def __init__(__self__, *,
@@ -444,6 +584,18 @@ class ManagedServiceIdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
+if not MYPY:
+    class MessagingOptionsArgsDict(TypedDict):
+        """
+        The option associated with messaging flows.
+        """
+        billing_tier: NotRequired[pulumi.Input[Union[str, 'FlowBillingTier']]]
+        """
+        Billing tier for this messaging flow
+        """
+elif False:
+    MessagingOptionsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MessagingOptionsArgs:
     def __init__(__self__, *,
@@ -467,6 +619,34 @@ class MessagingOptionsArgs:
     def billing_tier(self, value: Optional[pulumi.Input[Union[str, 'FlowBillingTier']]]):
         pulumi.set(self, "billing_tier", value)
 
+
+if not MYPY:
+    class PipelinePropertiesArgsDict(TypedDict):
+        """
+        Properties of pipeline
+        """
+        remote_cloud: pulumi.Input[str]
+        """
+        Remote cloud of the data to be transferred or received
+        """
+        display_name: NotRequired[pulumi.Input[str]]
+        """
+        Display name of this pipeline
+        """
+        flow_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'FlowType']]]]]
+        """
+        The flow types allowed for this pipeline
+        """
+        policies: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The policies for this pipeline
+        """
+        subscribers: NotRequired[pulumi.Input[Sequence[pulumi.Input['SubscriberArgsDict']]]]
+        """
+        Subscribers of this resource
+        """
+elif False:
+    PipelinePropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PipelinePropertiesArgs:
@@ -555,6 +735,34 @@ class PipelinePropertiesArgs:
         pulumi.set(self, "subscribers", value)
 
 
+if not MYPY:
+    class PlanArgsDict(TypedDict):
+        """
+        Plan for the resource.
+        """
+        name: pulumi.Input[str]
+        """
+        A user defined name of the 3rd Party Artifact that is being procured.
+        """
+        product: pulumi.Input[str]
+        """
+        The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. 
+        """
+        publisher: pulumi.Input[str]
+        """
+        The publisher of the 3rd Party Artifact that is being bought. E.g. NewRelic
+        """
+        promotion_code: NotRequired[pulumi.Input[str]]
+        """
+        A publisher provided promotion code as provisioned in Data Market for the said product/artifact.
+        """
+        version: NotRequired[pulumi.Input[str]]
+        """
+        The version of the desired product/artifact.
+        """
+elif False:
+    PlanArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PlanArgs:
     def __init__(__self__, *,
@@ -639,6 +847,38 @@ class PlanArgs:
     def version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "version", value)
 
+
+if not MYPY:
+    class SchemaArgsDict(TypedDict):
+        """
+        The schema object.
+        """
+        connection_id: NotRequired[pulumi.Input[str]]
+        """
+        Connection ID associated with this schema
+        """
+        content: NotRequired[pulumi.Input[str]]
+        """
+        Content of the schema
+        """
+        direction: NotRequired[pulumi.Input[Union[str, 'SchemaDirection']]]
+        """
+        The direction of the schema.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        ID associated with this schema
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the schema
+        """
+        status: NotRequired[pulumi.Input[Union[str, 'SchemaStatus']]]
+        """
+        Status of the schema
+        """
+elif False:
+    SchemaArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SchemaArgs:
@@ -744,6 +984,30 @@ class SchemaArgs:
         pulumi.set(self, "status", value)
 
 
+if not MYPY:
+    class SelectedResourceArgsDict(TypedDict):
+        """
+        A resource selected from ARM
+        """
+        id: pulumi.Input[str]
+        """
+        Id of the connection
+        """
+        location: NotRequired[pulumi.Input[str]]
+        """
+        Location of the connection
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the connection
+        """
+        subscription_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the subscription with the connection
+        """
+elif False:
+    SelectedResourceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SelectedResourceArgs:
     def __init__(__self__, *,
@@ -814,6 +1078,19 @@ class SelectedResourceArgs:
     def subscription_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "subscription_name", value)
 
+
+if not MYPY:
+    class SubscriberArgsDict(TypedDict):
+        email: NotRequired[pulumi.Input[str]]
+        """
+        Email of the subscriber
+        """
+        notifications: NotRequired[pulumi.Input[float]]
+        """
+        Number specifying what notifications to receive
+        """
+elif False:
+    SubscriberArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SubscriberArgs:

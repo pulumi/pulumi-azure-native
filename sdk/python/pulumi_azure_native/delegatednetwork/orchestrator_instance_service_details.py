@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -218,8 +223,8 @@ class OrchestratorInstanceServiceDetails(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_server_endpoint: Optional[pulumi.Input[str]] = None,
                  cluster_root_ca: Optional[pulumi.Input[str]] = None,
-                 controller_details: Optional[pulumi.Input[pulumi.InputType['ControllerDetailsArgs']]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['OrchestratorIdentityArgs']]] = None,
+                 controller_details: Optional[pulumi.Input[Union['ControllerDetailsArgs', 'ControllerDetailsArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['OrchestratorIdentityArgs', 'OrchestratorIdentityArgsDict']]] = None,
                  kind: Optional[pulumi.Input[Union[str, 'OrchestratorKind']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  orchestrator_app_id: Optional[pulumi.Input[str]] = None,
@@ -239,8 +244,8 @@ class OrchestratorInstanceServiceDetails(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_server_endpoint: K8s APIServer url. Either one of apiServerEndpoint or privateLinkResourceId can be specified
         :param pulumi.Input[str] cluster_root_ca: RootCA certificate of kubernetes cluster base64 encoded
-        :param pulumi.Input[pulumi.InputType['ControllerDetailsArgs']] controller_details: Properties of the controller.
-        :param pulumi.Input[pulumi.InputType['OrchestratorIdentityArgs']] identity: The identity of the orchestrator
+        :param pulumi.Input[Union['ControllerDetailsArgs', 'ControllerDetailsArgsDict']] controller_details: Properties of the controller.
+        :param pulumi.Input[Union['OrchestratorIdentityArgs', 'OrchestratorIdentityArgsDict']] identity: The identity of the orchestrator
         :param pulumi.Input[Union[str, 'OrchestratorKind']] kind: The kind of workbook. Choices are user and shared.
         :param pulumi.Input[str] location: Location of the resource.
         :param pulumi.Input[str] orchestrator_app_id: AAD ID used with apiserver
@@ -279,8 +284,8 @@ class OrchestratorInstanceServiceDetails(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_server_endpoint: Optional[pulumi.Input[str]] = None,
                  cluster_root_ca: Optional[pulumi.Input[str]] = None,
-                 controller_details: Optional[pulumi.Input[pulumi.InputType['ControllerDetailsArgs']]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['OrchestratorIdentityArgs']]] = None,
+                 controller_details: Optional[pulumi.Input[Union['ControllerDetailsArgs', 'ControllerDetailsArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['OrchestratorIdentityArgs', 'OrchestratorIdentityArgsDict']]] = None,
                  kind: Optional[pulumi.Input[Union[str, 'OrchestratorKind']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  orchestrator_app_id: Optional[pulumi.Input[str]] = None,

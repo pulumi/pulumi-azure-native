@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -217,14 +222,14 @@ class ApiDiagnostic(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  always_log: Optional[pulumi.Input[Union[str, 'AlwaysLog']]] = None,
                  api_id: Optional[pulumi.Input[str]] = None,
-                 backend: Optional[pulumi.Input[pulumi.InputType['PipelineDiagnosticSettingsArgs']]] = None,
+                 backend: Optional[pulumi.Input[Union['PipelineDiagnosticSettingsArgs', 'PipelineDiagnosticSettingsArgsDict']]] = None,
                  diagnostic_id: Optional[pulumi.Input[str]] = None,
                  enable_http_correlation_headers: Optional[pulumi.Input[bool]] = None,
-                 frontend: Optional[pulumi.Input[pulumi.InputType['PipelineDiagnosticSettingsArgs']]] = None,
+                 frontend: Optional[pulumi.Input[Union['PipelineDiagnosticSettingsArgs', 'PipelineDiagnosticSettingsArgsDict']]] = None,
                  http_correlation_protocol: Optional[pulumi.Input[Union[str, 'HttpCorrelationProtocol']]] = None,
                  logger_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sampling: Optional[pulumi.Input[pulumi.InputType['SamplingSettingsArgs']]] = None,
+                 sampling: Optional[pulumi.Input[Union['SamplingSettingsArgs', 'SamplingSettingsArgsDict']]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  verbosity: Optional[pulumi.Input[Union[str, 'Verbosity']]] = None,
                  __props__=None):
@@ -235,14 +240,14 @@ class ApiDiagnostic(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[str, 'AlwaysLog']] always_log: Specifies for what type of messages sampling settings should not apply.
         :param pulumi.Input[str] api_id: API identifier. Must be unique in the current API Management service instance.
-        :param pulumi.Input[pulumi.InputType['PipelineDiagnosticSettingsArgs']] backend: Diagnostic settings for incoming/outgoing HTTP messages to the Backend
+        :param pulumi.Input[Union['PipelineDiagnosticSettingsArgs', 'PipelineDiagnosticSettingsArgsDict']] backend: Diagnostic settings for incoming/outgoing HTTP messages to the Backend
         :param pulumi.Input[str] diagnostic_id: Diagnostic identifier. Must be unique in the current API Management service instance.
         :param pulumi.Input[bool] enable_http_correlation_headers: Whether to process Correlation Headers coming to Api Management Service. Only applicable to Application Insights diagnostics. Default is true.
-        :param pulumi.Input[pulumi.InputType['PipelineDiagnosticSettingsArgs']] frontend: Diagnostic settings for incoming/outgoing HTTP messages to the Gateway.
+        :param pulumi.Input[Union['PipelineDiagnosticSettingsArgs', 'PipelineDiagnosticSettingsArgsDict']] frontend: Diagnostic settings for incoming/outgoing HTTP messages to the Gateway.
         :param pulumi.Input[Union[str, 'HttpCorrelationProtocol']] http_correlation_protocol: Sets correlation protocol to use for Application Insights diagnostics.
         :param pulumi.Input[str] logger_id: Resource Id of a target logger.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[pulumi.InputType['SamplingSettingsArgs']] sampling: Sampling settings for Diagnostic.
+        :param pulumi.Input[Union['SamplingSettingsArgs', 'SamplingSettingsArgsDict']] sampling: Sampling settings for Diagnostic.
         :param pulumi.Input[str] service_name: The name of the API Management service.
         :param pulumi.Input[Union[str, 'Verbosity']] verbosity: The verbosity level applied to traces emitted by trace policies.
         """
@@ -272,14 +277,14 @@ class ApiDiagnostic(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  always_log: Optional[pulumi.Input[Union[str, 'AlwaysLog']]] = None,
                  api_id: Optional[pulumi.Input[str]] = None,
-                 backend: Optional[pulumi.Input[pulumi.InputType['PipelineDiagnosticSettingsArgs']]] = None,
+                 backend: Optional[pulumi.Input[Union['PipelineDiagnosticSettingsArgs', 'PipelineDiagnosticSettingsArgsDict']]] = None,
                  diagnostic_id: Optional[pulumi.Input[str]] = None,
                  enable_http_correlation_headers: Optional[pulumi.Input[bool]] = None,
-                 frontend: Optional[pulumi.Input[pulumi.InputType['PipelineDiagnosticSettingsArgs']]] = None,
+                 frontend: Optional[pulumi.Input[Union['PipelineDiagnosticSettingsArgs', 'PipelineDiagnosticSettingsArgsDict']]] = None,
                  http_correlation_protocol: Optional[pulumi.Input[Union[str, 'HttpCorrelationProtocol']]] = None,
                  logger_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sampling: Optional[pulumi.Input[pulumi.InputType['SamplingSettingsArgs']]] = None,
+                 sampling: Optional[pulumi.Input[Union['SamplingSettingsArgs', 'SamplingSettingsArgsDict']]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  verbosity: Optional[pulumi.Input[Union[str, 'Verbosity']]] = None,
                  __props__=None):

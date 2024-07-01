@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -120,7 +125,7 @@ class ReplicationNetworkMapping(pulumi.CustomResource):
                  fabric_name: Optional[pulumi.Input[str]] = None,
                  network_mapping_name: Optional[pulumi.Input[str]] = None,
                  network_name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['CreateNetworkMappingInputPropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['CreateNetworkMappingInputPropertiesArgs', 'CreateNetworkMappingInputPropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -132,7 +137,7 @@ class ReplicationNetworkMapping(pulumi.CustomResource):
         :param pulumi.Input[str] fabric_name: Primary fabric name.
         :param pulumi.Input[str] network_mapping_name: Network mapping name.
         :param pulumi.Input[str] network_name: Primary network name.
-        :param pulumi.Input[pulumi.InputType['CreateNetworkMappingInputPropertiesArgs']] properties: Input properties for creating network mapping.
+        :param pulumi.Input[Union['CreateNetworkMappingInputPropertiesArgs', 'CreateNetworkMappingInputPropertiesArgsDict']] properties: Input properties for creating network mapping.
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the recovery services vault is present.
         :param pulumi.Input[str] resource_name_: The name of the recovery services vault.
         """
@@ -163,7 +168,7 @@ class ReplicationNetworkMapping(pulumi.CustomResource):
                  fabric_name: Optional[pulumi.Input[str]] = None,
                  network_mapping_name: Optional[pulumi.Input[str]] = None,
                  network_name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['CreateNetworkMappingInputPropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['CreateNetworkMappingInputPropertiesArgs', 'CreateNetworkMappingInputPropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
                  __props__=None):

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -88,7 +93,7 @@ class Secret(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 parameters: Optional[pulumi.Input[Union[pulumi.InputType['AzureFirstPartyManagedCertificateParametersArgs'], pulumi.InputType['CustomerCertificateParametersArgs'], pulumi.InputType['ManagedCertificateParametersArgs'], pulumi.InputType['UrlSigningKeyParametersArgs']]]] = None,
+                 parameters: Optional[pulumi.Input[Union[Union['AzureFirstPartyManagedCertificateParametersArgs', 'AzureFirstPartyManagedCertificateParametersArgsDict'], Union['CustomerCertificateParametersArgs', 'CustomerCertificateParametersArgsDict'], Union['ManagedCertificateParametersArgs', 'ManagedCertificateParametersArgsDict'], Union['UrlSigningKeyParametersArgs', 'UrlSigningKeyParametersArgsDict']]]] = None,
                  profile_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  secret_name: Optional[pulumi.Input[str]] = None,
@@ -101,7 +106,7 @@ class Secret(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union[pulumi.InputType['AzureFirstPartyManagedCertificateParametersArgs'], pulumi.InputType['CustomerCertificateParametersArgs'], pulumi.InputType['ManagedCertificateParametersArgs'], pulumi.InputType['UrlSigningKeyParametersArgs']]] parameters: object which contains secret parameters
+        :param pulumi.Input[Union[Union['AzureFirstPartyManagedCertificateParametersArgs', 'AzureFirstPartyManagedCertificateParametersArgsDict'], Union['CustomerCertificateParametersArgs', 'CustomerCertificateParametersArgsDict'], Union['ManagedCertificateParametersArgs', 'ManagedCertificateParametersArgsDict'], Union['UrlSigningKeyParametersArgs', 'UrlSigningKeyParametersArgsDict']]] parameters: object which contains secret parameters
         :param pulumi.Input[str] profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
         :param pulumi.Input[str] secret_name: Name of the Secret under the profile.
@@ -133,7 +138,7 @@ class Secret(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 parameters: Optional[pulumi.Input[Union[pulumi.InputType['AzureFirstPartyManagedCertificateParametersArgs'], pulumi.InputType['CustomerCertificateParametersArgs'], pulumi.InputType['ManagedCertificateParametersArgs'], pulumi.InputType['UrlSigningKeyParametersArgs']]]] = None,
+                 parameters: Optional[pulumi.Input[Union[Union['AzureFirstPartyManagedCertificateParametersArgs', 'AzureFirstPartyManagedCertificateParametersArgsDict'], Union['CustomerCertificateParametersArgs', 'CustomerCertificateParametersArgsDict'], Union['ManagedCertificateParametersArgs', 'ManagedCertificateParametersArgsDict'], Union['UrlSigningKeyParametersArgs', 'UrlSigningKeyParametersArgsDict']]]] = None,
                  profile_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  secret_name: Optional[pulumi.Input[str]] = None,

@@ -4,17 +4,43 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'CustomLocationPropertiesAuthenticationArgs',
+    'CustomLocationPropertiesAuthenticationArgsDict',
     'IdentityArgs',
+    'IdentityArgsDict',
     'ResourceSyncRulePropertiesSelectorArgs',
+    'ResourceSyncRulePropertiesSelectorArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class CustomLocationPropertiesAuthenticationArgsDict(TypedDict):
+        """
+        This is optional input that contains the authentication that should be used to generate the namespace.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        The type of the Custom Locations authentication
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        The kubeconfig value.
+        """
+elif False:
+    CustomLocationPropertiesAuthenticationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CustomLocationPropertiesAuthenticationArgs:
@@ -56,6 +82,18 @@ class CustomLocationPropertiesAuthenticationArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class IdentityArgsDict(TypedDict):
+        """
+        Identity for the resource.
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'ResourceIdentityType']]]
+        """
+        The identity type.
+        """
+elif False:
+    IdentityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IdentityArgs:
     def __init__(__self__, *,
@@ -79,6 +117,18 @@ class IdentityArgs:
     def type(self, value: Optional[pulumi.Input[Union[str, 'ResourceIdentityType']]]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class ResourceSyncRulePropertiesSelectorArgsDict(TypedDict):
+        """
+        A label selector is composed of two parts, matchLabels and matchExpressions. The first part, matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is 'key', the operator is 'In', and the values array contains only 'value'. The second part, matchExpressions is a list of resource selector requirements. Valid operators include In, NotIn, Exists, and DoesNotExist. The values set must be non-empty in the case of In and NotIn. The values set must be empty in the case of Exists and DoesNotExist. All of the requirements, from both matchLabels and matchExpressions must all be satisfied in order to match.
+        """
+        match_labels: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        MatchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is 'key', the operator is 'In', and the values array contains only 'value'.
+        """
+elif False:
+    ResourceSyncRulePropertiesSelectorArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ResourceSyncRulePropertiesSelectorArgs:

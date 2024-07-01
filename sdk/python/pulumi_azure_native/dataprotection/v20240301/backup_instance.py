@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -106,7 +111,7 @@ class BackupInstance(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  backup_instance_name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['BackupInstanceArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['BackupInstanceArgs', 'BackupInstanceArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vault_name: Optional[pulumi.Input[str]] = None,
@@ -117,7 +122,7 @@ class BackupInstance(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] backup_instance_name: The name of the backup instance.
-        :param pulumi.Input[pulumi.InputType['BackupInstanceArgs']] properties: BackupInstanceResource properties
+        :param pulumi.Input[Union['BackupInstanceArgs', 'BackupInstanceArgsDict']] properties: BackupInstanceResource properties
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Proxy Resource tags.
         :param pulumi.Input[str] vault_name: The name of the backup vault.
@@ -147,7 +152,7 @@ class BackupInstance(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  backup_instance_name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['BackupInstanceArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['BackupInstanceArgs', 'BackupInstanceArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vault_name: Optional[pulumi.Input[str]] = None,

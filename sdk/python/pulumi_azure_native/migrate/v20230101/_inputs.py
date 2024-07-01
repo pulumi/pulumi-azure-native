@@ -4,19 +4,51 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'MigrateProjectPropertiesArgs',
+    'MigrateProjectPropertiesArgsDict',
     'PrivateEndpointConnectionPropertiesArgs',
+    'PrivateEndpointConnectionPropertiesArgsDict',
     'PrivateLinkServiceConnectionStateArgs',
+    'PrivateLinkServiceConnectionStateArgsDict',
     'SolutionDetailsArgs',
+    'SolutionDetailsArgsDict',
     'SolutionPropertiesArgs',
+    'SolutionPropertiesArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class MigrateProjectPropertiesArgsDict(TypedDict):
+        """
+        Properties of a migrate project.
+        """
+        public_network_access: NotRequired[pulumi.Input[Union[str, 'PublicNetworkAccess']]]
+        """
+        Gets or sets the state of public network access.
+        """
+        service_endpoint: NotRequired[pulumi.Input[str]]
+        """
+        Service endpoint.
+        """
+        utility_storage_account_id: NotRequired[pulumi.Input[str]]
+        """
+        Utility storage account id.
+        """
+elif False:
+    MigrateProjectPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MigrateProjectPropertiesArgs:
@@ -74,6 +106,18 @@ class MigrateProjectPropertiesArgs:
         pulumi.set(self, "utility_storage_account_id", value)
 
 
+if not MYPY:
+    class PrivateEndpointConnectionPropertiesArgsDict(TypedDict):
+        """
+        Properties of a private endpoint connection.
+        """
+        private_link_service_connection_state: NotRequired[pulumi.Input['PrivateLinkServiceConnectionStateArgsDict']]
+        """
+        Gets the properties of the object.
+        """
+elif False:
+    PrivateEndpointConnectionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PrivateEndpointConnectionPropertiesArgs:
     def __init__(__self__, *,
@@ -97,6 +141,26 @@ class PrivateEndpointConnectionPropertiesArgs:
     def private_link_service_connection_state(self, value: Optional[pulumi.Input['PrivateLinkServiceConnectionStateArgs']]):
         pulumi.set(self, "private_link_service_connection_state", value)
 
+
+if not MYPY:
+    class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
+        """
+        Private endpoint connection state.
+        """
+        actions_required: NotRequired[pulumi.Input[str]]
+        """
+        Action required.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Description of the object.
+        """
+        status: NotRequired[pulumi.Input[Union[str, 'PrivateLinkServiceConnectionStateStatus']]]
+        """
+        Private link connection state.
+        """
+elif False:
+    PrivateLinkServiceConnectionStateArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:
@@ -154,6 +218,26 @@ class PrivateLinkServiceConnectionStateArgs:
         pulumi.set(self, "status", value)
 
 
+if not MYPY:
+    class SolutionDetailsArgsDict(TypedDict):
+        """
+        Class representing the details of the solution.
+        """
+        assessment_count: NotRequired[pulumi.Input[int]]
+        """
+        Gets or sets the count of assessments reported by the solution.
+        """
+        extended_details: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Gets or sets the extended details reported by the solution.
+        """
+        group_count: NotRequired[pulumi.Input[int]]
+        """
+        Gets or sets the count of groups reported by the solution.
+        """
+elif False:
+    SolutionDetailsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SolutionDetailsArgs:
     def __init__(__self__, *,
@@ -209,6 +293,38 @@ class SolutionDetailsArgs:
     def group_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "group_count", value)
 
+
+if not MYPY:
+    class SolutionPropertiesArgsDict(TypedDict):
+        """
+        Class for solution properties.
+        """
+        cleanup_state: NotRequired[pulumi.Input[Union[str, 'CleanupState']]]
+        """
+        Gets or sets the cleanup state of the solution.
+        """
+        details: NotRequired[pulumi.Input['SolutionDetailsArgsDict']]
+        """
+        Gets or sets the details of the solution.
+        """
+        goal: NotRequired[pulumi.Input[Union[str, 'Goal']]]
+        """
+        Gets or sets the goal of the solution.
+        """
+        purpose: NotRequired[pulumi.Input[Union[str, 'Purpose']]]
+        """
+        Gets or sets the purpose of the solution.
+        """
+        status: NotRequired[pulumi.Input[Union[str, 'Status']]]
+        """
+        Gets or sets the current status of the solution.
+        """
+        tool: NotRequired[pulumi.Input[Union[str, 'Tool']]]
+        """
+        Gets or sets the tool being used in the solution.
+        """
+elif False:
+    SolutionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SolutionPropertiesArgs:

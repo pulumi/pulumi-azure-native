@@ -4,22 +4,58 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'AwAssumeRoleAuthenticationDetailsPropertiesArgs',
+    'AwAssumeRoleAuthenticationDetailsPropertiesArgsDict',
     'AwsCredsAuthenticationDetailsPropertiesArgs',
+    'AwsCredsAuthenticationDetailsPropertiesArgsDict',
     'GcpCredentialsDetailsPropertiesArgs',
+    'GcpCredentialsDetailsPropertiesArgsDict',
     'HybridComputeSettingsPropertiesArgs',
+    'HybridComputeSettingsPropertiesArgsDict',
     'ProxyServerPropertiesArgs',
+    'ProxyServerPropertiesArgsDict',
     'SecurityContactPropertiesAlertNotificationsArgs',
+    'SecurityContactPropertiesAlertNotificationsArgsDict',
     'SecurityContactPropertiesNotificationsByRoleArgs',
+    'SecurityContactPropertiesNotificationsByRoleArgsDict',
     'ServicePrincipalPropertiesArgs',
+    'ServicePrincipalPropertiesArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AwAssumeRoleAuthenticationDetailsPropertiesArgsDict(TypedDict):
+        """
+        AWS cloud account connector based assume role, the role enables delegating access to your AWS resources. The role is composed of role Amazon Resource Name (ARN) and external ID. For more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html">Creating a Role to Delegate Permissions to an IAM User (write only)</a>
+        """
+        authentication_type: pulumi.Input[str]
+        """
+        Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
+        Expected value is 'awsAssumeRole'.
+        """
+        aws_assume_role_arn: pulumi.Input[str]
+        """
+        Assumed role ID is an identifier that you can use to create temporary security credentials.
+        """
+        aws_external_id: pulumi.Input[str]
+        """
+        A unique identifier that is required when you assume a role in another account.
+        """
+elif False:
+    AwAssumeRoleAuthenticationDetailsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AwAssumeRoleAuthenticationDetailsPropertiesArgs:
@@ -76,6 +112,27 @@ class AwAssumeRoleAuthenticationDetailsPropertiesArgs:
         pulumi.set(self, "aws_external_id", value)
 
 
+if not MYPY:
+    class AwsCredsAuthenticationDetailsPropertiesArgsDict(TypedDict):
+        """
+        AWS cloud account connector based credentials, the credentials is composed of access key ID and secret key, for more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html">Creating an IAM User in Your AWS Account (write only)</a>
+        """
+        authentication_type: pulumi.Input[str]
+        """
+        Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
+        Expected value is 'awsCreds'.
+        """
+        aws_access_key_id: pulumi.Input[str]
+        """
+        Public key element of the AWS credential object (write only)
+        """
+        aws_secret_access_key: pulumi.Input[str]
+        """
+        Secret key element of the AWS credential object (write only)
+        """
+elif False:
+    AwsCredsAuthenticationDetailsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AwsCredsAuthenticationDetailsPropertiesArgs:
     def __init__(__self__, *,
@@ -130,6 +187,63 @@ class AwsCredsAuthenticationDetailsPropertiesArgs:
     def aws_secret_access_key(self, value: pulumi.Input[str]):
         pulumi.set(self, "aws_secret_access_key", value)
 
+
+if not MYPY:
+    class GcpCredentialsDetailsPropertiesArgsDict(TypedDict):
+        """
+        GCP cloud account connector based service to service credentials, the credentials are composed of the organization ID and a JSON API key (write only)
+        """
+        auth_provider_x509_cert_url: pulumi.Input[str]
+        """
+        Auth provider x509 certificate URL field of the API key (write only)
+        """
+        auth_uri: pulumi.Input[str]
+        """
+        Auth URI field of the API key (write only)
+        """
+        authentication_type: pulumi.Input[str]
+        """
+        Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
+        Expected value is 'gcpCredentials'.
+        """
+        client_email: pulumi.Input[str]
+        """
+        Client email field of the API key (write only)
+        """
+        client_id: pulumi.Input[str]
+        """
+        Client ID field of the API key (write only)
+        """
+        client_x509_cert_url: pulumi.Input[str]
+        """
+        Client x509 certificate URL field of the API key (write only)
+        """
+        organization_id: pulumi.Input[str]
+        """
+        The organization ID of the GCP cloud account
+        """
+        private_key: pulumi.Input[str]
+        """
+        Private key field of the API key (write only)
+        """
+        private_key_id: pulumi.Input[str]
+        """
+        Private key ID field of the API key (write only)
+        """
+        project_id: pulumi.Input[str]
+        """
+        Project ID field of the API key (write only)
+        """
+        token_uri: pulumi.Input[str]
+        """
+        Token URI field of the API key (write only)
+        """
+        type: pulumi.Input[str]
+        """
+        Type field of the API key (write only)
+        """
+elif False:
+    GcpCredentialsDetailsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GcpCredentialsDetailsPropertiesArgs:
@@ -321,6 +435,34 @@ class GcpCredentialsDetailsPropertiesArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class HybridComputeSettingsPropertiesArgsDict(TypedDict):
+        """
+        Settings for hybrid compute management
+        """
+        auto_provision: pulumi.Input[Union[str, 'AutoProvision']]
+        """
+        Whether or not to automatically install Azure Arc (hybrid compute) agents on machines
+        """
+        proxy_server: NotRequired[pulumi.Input['ProxyServerPropertiesArgsDict']]
+        """
+        For a non-Azure machine that is not connected directly to the internet, specify a proxy server that the non-Azure machine can use.
+        """
+        region: NotRequired[pulumi.Input[str]]
+        """
+        The location where the metadata of machines will be stored
+        """
+        resource_group_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the resource group where Arc (Hybrid Compute) connectors are connected.
+        """
+        service_principal: NotRequired[pulumi.Input['ServicePrincipalPropertiesArgsDict']]
+        """
+        An object to access resources that are secured by an Azure AD tenant.
+        """
+elif False:
+    HybridComputeSettingsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class HybridComputeSettingsPropertiesArgs:
     def __init__(__self__, *,
@@ -408,6 +550,22 @@ class HybridComputeSettingsPropertiesArgs:
         pulumi.set(self, "service_principal", value)
 
 
+if not MYPY:
+    class ProxyServerPropertiesArgsDict(TypedDict):
+        """
+        For a non-Azure machine that is not connected directly to the internet, specify a proxy server that the non-Azure machine can use.
+        """
+        ip: NotRequired[pulumi.Input[str]]
+        """
+        Proxy server IP
+        """
+        port: NotRequired[pulumi.Input[str]]
+        """
+        Proxy server port
+        """
+elif False:
+    ProxyServerPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ProxyServerPropertiesArgs:
     def __init__(__self__, *,
@@ -447,6 +605,22 @@ class ProxyServerPropertiesArgs:
     def port(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "port", value)
 
+
+if not MYPY:
+    class SecurityContactPropertiesAlertNotificationsArgsDict(TypedDict):
+        """
+        Defines whether to send email notifications about new security alerts
+        """
+        minimal_severity: NotRequired[pulumi.Input[Union[str, 'MinimalSeverity']]]
+        """
+        Defines the minimal alert severity which will be sent as email notifications
+        """
+        state: NotRequired[pulumi.Input[Union[str, 'State']]]
+        """
+        Defines if email notifications will be sent about new security alerts
+        """
+elif False:
+    SecurityContactPropertiesAlertNotificationsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SecurityContactPropertiesAlertNotificationsArgs:
@@ -488,6 +662,22 @@ class SecurityContactPropertiesAlertNotificationsArgs:
         pulumi.set(self, "state", value)
 
 
+if not MYPY:
+    class SecurityContactPropertiesNotificationsByRoleArgsDict(TypedDict):
+        """
+        Defines whether to send email notifications from Microsoft Defender for Cloud to persons with specific RBAC roles on the subscription.
+        """
+        roles: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Roles']]]]]
+        """
+        Defines which RBAC roles will get email notifications from Microsoft Defender for Cloud. List of allowed RBAC roles: 
+        """
+        state: NotRequired[pulumi.Input[Union[str, 'State']]]
+        """
+        Defines whether to send email notifications from AMicrosoft Defender for Cloud to persons with specific RBAC roles on the subscription.
+        """
+elif False:
+    SecurityContactPropertiesNotificationsByRoleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SecurityContactPropertiesNotificationsByRoleArgs:
     def __init__(__self__, *,
@@ -527,6 +717,22 @@ class SecurityContactPropertiesNotificationsByRoleArgs:
     def state(self, value: Optional[pulumi.Input[Union[str, 'State']]]):
         pulumi.set(self, "state", value)
 
+
+if not MYPY:
+    class ServicePrincipalPropertiesArgsDict(TypedDict):
+        """
+        Details of the service principal.
+        """
+        application_id: NotRequired[pulumi.Input[str]]
+        """
+        Application ID of service principal.
+        """
+        secret: NotRequired[pulumi.Input[str]]
+        """
+        A secret string that the application uses to prove its identity, also can be referred to as application password (write only).
+        """
+elif False:
+    ServicePrincipalPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ServicePrincipalPropertiesArgs:

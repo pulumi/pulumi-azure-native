@@ -4,22 +4,53 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'BackupArgs',
+    'BackupArgsDict',
     'DataEncryptionArgs',
+    'DataEncryptionArgsDict',
     'HighAvailabilityArgs',
+    'HighAvailabilityArgsDict',
     'IdentityArgs',
+    'IdentityArgsDict',
     'MaintenanceWindowArgs',
+    'MaintenanceWindowArgsDict',
     'NetworkArgs',
+    'NetworkArgsDict',
     'SkuArgs',
+    'SkuArgsDict',
     'StorageArgs',
+    'StorageArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class BackupArgsDict(TypedDict):
+        """
+        Storage Profile properties of a server
+        """
+        backup_retention_days: NotRequired[pulumi.Input[int]]
+        """
+        Backup retention days for the server.
+        """
+        geo_redundant_backup: NotRequired[pulumi.Input[Union[str, 'EnableStatusEnum']]]
+        """
+        Whether or not geo redundant backup is enabled.
+        """
+elif False:
+    BackupArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class BackupArgs:
@@ -62,6 +93,34 @@ class BackupArgs:
     def geo_redundant_backup(self, value: Optional[pulumi.Input[Union[str, 'EnableStatusEnum']]]):
         pulumi.set(self, "geo_redundant_backup", value)
 
+
+if not MYPY:
+    class DataEncryptionArgsDict(TypedDict):
+        """
+        The date encryption for cmk.
+        """
+        geo_backup_key_uri: NotRequired[pulumi.Input[str]]
+        """
+        Geo backup key uri as key vault can't cross region, need cmk in same region as geo backup
+        """
+        geo_backup_user_assigned_identity_id: NotRequired[pulumi.Input[str]]
+        """
+        Geo backup user identity resource id as identity can't cross region, need identity in same region as geo backup
+        """
+        primary_key_uri: NotRequired[pulumi.Input[str]]
+        """
+        Primary key uri
+        """
+        primary_user_assigned_identity_id: NotRequired[pulumi.Input[str]]
+        """
+        Primary user identity resource id
+        """
+        type: NotRequired[pulumi.Input['DataEncryptionType']]
+        """
+        The key type, AzureKeyVault for enable cmk, SystemManaged for disable cmk.
+        """
+elif False:
+    DataEncryptionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataEncryptionArgs:
@@ -151,6 +210,22 @@ class DataEncryptionArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class HighAvailabilityArgsDict(TypedDict):
+        """
+        Network related properties of a server
+        """
+        mode: NotRequired[pulumi.Input[Union[str, 'HighAvailabilityMode']]]
+        """
+        High availability mode for a server.
+        """
+        standby_availability_zone: NotRequired[pulumi.Input[str]]
+        """
+        Availability zone of the standby server.
+        """
+elif False:
+    HighAvailabilityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class HighAvailabilityArgs:
     def __init__(__self__, *,
@@ -191,6 +266,22 @@ class HighAvailabilityArgs:
         pulumi.set(self, "standby_availability_zone", value)
 
 
+if not MYPY:
+    class IdentityArgsDict(TypedDict):
+        """
+        Properties to configure Identity for Bring your Own Keys
+        """
+        type: NotRequired[pulumi.Input['ManagedServiceIdentityType']]
+        """
+        Type of managed service identity.
+        """
+        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Metadata of user assigned identity.
+        """
+elif False:
+    IdentityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IdentityArgs:
     def __init__(__self__, *,
@@ -230,6 +321,30 @@ class IdentityArgs:
     def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
+
+if not MYPY:
+    class MaintenanceWindowArgsDict(TypedDict):
+        """
+        Maintenance window of a server.
+        """
+        custom_window: NotRequired[pulumi.Input[str]]
+        """
+        indicates whether custom window is enabled or disabled
+        """
+        day_of_week: NotRequired[pulumi.Input[int]]
+        """
+        day of week for maintenance window
+        """
+        start_hour: NotRequired[pulumi.Input[int]]
+        """
+        start hour for maintenance window
+        """
+        start_minute: NotRequired[pulumi.Input[int]]
+        """
+        start minute for maintenance window
+        """
+elif False:
+    MaintenanceWindowArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MaintenanceWindowArgs:
@@ -303,6 +418,22 @@ class MaintenanceWindowArgs:
         pulumi.set(self, "start_minute", value)
 
 
+if not MYPY:
+    class NetworkArgsDict(TypedDict):
+        """
+        Network related properties of a server
+        """
+        delegated_subnet_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        Delegated subnet resource id used to setup vnet for a server.
+        """
+        private_dns_zone_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        Private DNS zone resource id.
+        """
+elif False:
+    NetworkArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NetworkArgs:
     def __init__(__self__, *,
@@ -343,6 +474,22 @@ class NetworkArgs:
         pulumi.set(self, "private_dns_zone_resource_id", value)
 
 
+if not MYPY:
+    class SkuArgsDict(TypedDict):
+        """
+        Billing information related properties of a server.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the sku, e.g. Standard_D32s_v3.
+        """
+        tier: pulumi.Input[Union[str, 'SkuTier']]
+        """
+        The tier of the particular SKU, e.g. GeneralPurpose.
+        """
+elif False:
+    SkuArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SkuArgs:
     def __init__(__self__, *,
@@ -380,6 +527,34 @@ class SkuArgs:
     def tier(self, value: pulumi.Input[Union[str, 'SkuTier']]):
         pulumi.set(self, "tier", value)
 
+
+if not MYPY:
+    class StorageArgsDict(TypedDict):
+        """
+        Storage Profile properties of a server
+        """
+        auto_grow: NotRequired[pulumi.Input[Union[str, 'EnableStatusEnum']]]
+        """
+        Enable Storage Auto Grow or not.
+        """
+        auto_io_scaling: NotRequired[pulumi.Input[Union[str, 'EnableStatusEnum']]]
+        """
+        Enable IO Auto Scaling or not.
+        """
+        iops: NotRequired[pulumi.Input[int]]
+        """
+        Storage IOPS for a server.
+        """
+        log_on_disk: NotRequired[pulumi.Input[Union[str, 'EnableStatusEnum']]]
+        """
+        Enable Log On Disk or not.
+        """
+        storage_size_gb: NotRequired[pulumi.Input[int]]
+        """
+        Max storage size allowed for a server.
+        """
+elif False:
+    StorageArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class StorageArgs:

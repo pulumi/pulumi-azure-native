@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -154,11 +159,11 @@ class StreamingPolicy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
-                 common_encryption_cbcs: Optional[pulumi.Input[pulumi.InputType['CommonEncryptionCbcsArgs']]] = None,
-                 common_encryption_cenc: Optional[pulumi.Input[pulumi.InputType['CommonEncryptionCencArgs']]] = None,
+                 common_encryption_cbcs: Optional[pulumi.Input[Union['CommonEncryptionCbcsArgs', 'CommonEncryptionCbcsArgsDict']]] = None,
+                 common_encryption_cenc: Optional[pulumi.Input[Union['CommonEncryptionCencArgs', 'CommonEncryptionCencArgsDict']]] = None,
                  default_content_key_policy_name: Optional[pulumi.Input[str]] = None,
-                 envelope_encryption: Optional[pulumi.Input[pulumi.InputType['EnvelopeEncryptionArgs']]] = None,
-                 no_encryption: Optional[pulumi.Input[pulumi.InputType['NoEncryptionArgs']]] = None,
+                 envelope_encryption: Optional[pulumi.Input[Union['EnvelopeEncryptionArgs', 'EnvelopeEncryptionArgsDict']]] = None,
+                 no_encryption: Optional[pulumi.Input[Union['NoEncryptionArgs', 'NoEncryptionArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  streaming_policy_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -169,11 +174,11 @@ class StreamingPolicy(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The Media Services account name.
-        :param pulumi.Input[pulumi.InputType['CommonEncryptionCbcsArgs']] common_encryption_cbcs: Configuration of CommonEncryptionCbcs
-        :param pulumi.Input[pulumi.InputType['CommonEncryptionCencArgs']] common_encryption_cenc: Configuration of CommonEncryptionCenc
+        :param pulumi.Input[Union['CommonEncryptionCbcsArgs', 'CommonEncryptionCbcsArgsDict']] common_encryption_cbcs: Configuration of CommonEncryptionCbcs
+        :param pulumi.Input[Union['CommonEncryptionCencArgs', 'CommonEncryptionCencArgsDict']] common_encryption_cenc: Configuration of CommonEncryptionCenc
         :param pulumi.Input[str] default_content_key_policy_name: Default ContentKey used by current Streaming Policy
-        :param pulumi.Input[pulumi.InputType['EnvelopeEncryptionArgs']] envelope_encryption: Configuration of EnvelopeEncryption
-        :param pulumi.Input[pulumi.InputType['NoEncryptionArgs']] no_encryption: Configurations of NoEncryption
+        :param pulumi.Input[Union['EnvelopeEncryptionArgs', 'EnvelopeEncryptionArgsDict']] envelope_encryption: Configuration of EnvelopeEncryption
+        :param pulumi.Input[Union['NoEncryptionArgs', 'NoEncryptionArgsDict']] no_encryption: Configurations of NoEncryption
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the Azure subscription.
         :param pulumi.Input[str] streaming_policy_name: The Streaming Policy name.
         """
@@ -203,11 +208,11 @@ class StreamingPolicy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
-                 common_encryption_cbcs: Optional[pulumi.Input[pulumi.InputType['CommonEncryptionCbcsArgs']]] = None,
-                 common_encryption_cenc: Optional[pulumi.Input[pulumi.InputType['CommonEncryptionCencArgs']]] = None,
+                 common_encryption_cbcs: Optional[pulumi.Input[Union['CommonEncryptionCbcsArgs', 'CommonEncryptionCbcsArgsDict']]] = None,
+                 common_encryption_cenc: Optional[pulumi.Input[Union['CommonEncryptionCencArgs', 'CommonEncryptionCencArgsDict']]] = None,
                  default_content_key_policy_name: Optional[pulumi.Input[str]] = None,
-                 envelope_encryption: Optional[pulumi.Input[pulumi.InputType['EnvelopeEncryptionArgs']]] = None,
-                 no_encryption: Optional[pulumi.Input[pulumi.InputType['NoEncryptionArgs']]] = None,
+                 envelope_encryption: Optional[pulumi.Input[Union['EnvelopeEncryptionArgs', 'EnvelopeEncryptionArgsDict']]] = None,
+                 no_encryption: Optional[pulumi.Input[Union['NoEncryptionArgs', 'NoEncryptionArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  streaming_policy_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):

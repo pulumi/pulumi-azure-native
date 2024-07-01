@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -90,7 +95,7 @@ class TableServiceProperties(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
-                 cors: Optional[pulumi.Input[pulumi.InputType['CorsRulesArgs']]] = None,
+                 cors: Optional[pulumi.Input[Union['CorsRulesArgs', 'CorsRulesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  table_service_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -100,7 +105,7 @@ class TableServiceProperties(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
-        :param pulumi.Input[pulumi.InputType['CorsRulesArgs']] cors: Specifies CORS rules for the Table service. You can include up to five CorsRule elements in the request. If no CorsRule elements are included in the request body, all CORS rules will be deleted, and CORS will be disabled for the Table service.
+        :param pulumi.Input[Union['CorsRulesArgs', 'CorsRulesArgsDict']] cors: Specifies CORS rules for the Table service. You can include up to five CorsRule elements in the request. If no CorsRule elements are included in the request body, all CORS rules will be deleted, and CORS will be disabled for the Table service.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         :param pulumi.Input[str] table_service_name: The name of the Table Service within the specified storage account. Table Service Name must be 'default'
         """
@@ -129,7 +134,7 @@ class TableServiceProperties(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
-                 cors: Optional[pulumi.Input[pulumi.InputType['CorsRulesArgs']]] = None,
+                 cors: Optional[pulumi.Input[Union['CorsRulesArgs', 'CorsRulesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  table_service_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):

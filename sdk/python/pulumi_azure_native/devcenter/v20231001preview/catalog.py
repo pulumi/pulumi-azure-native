@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -121,10 +126,10 @@ class Catalog(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 ado_git: Optional[pulumi.Input[pulumi.InputType['GitCatalogArgs']]] = None,
+                 ado_git: Optional[pulumi.Input[Union['GitCatalogArgs', 'GitCatalogArgsDict']]] = None,
                  catalog_name: Optional[pulumi.Input[str]] = None,
                  dev_center_name: Optional[pulumi.Input[str]] = None,
-                 git_hub: Optional[pulumi.Input[pulumi.InputType['GitCatalogArgs']]] = None,
+                 git_hub: Optional[pulumi.Input[Union['GitCatalogArgs', 'GitCatalogArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sync_type: Optional[pulumi.Input[Union[str, 'CatalogSyncType']]] = None,
                  __props__=None):
@@ -133,10 +138,10 @@ class Catalog(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['GitCatalogArgs']] ado_git: Properties for an Azure DevOps catalog type.
+        :param pulumi.Input[Union['GitCatalogArgs', 'GitCatalogArgsDict']] ado_git: Properties for an Azure DevOps catalog type.
         :param pulumi.Input[str] catalog_name: The name of the Catalog.
         :param pulumi.Input[str] dev_center_name: The name of the devcenter.
-        :param pulumi.Input[pulumi.InputType['GitCatalogArgs']] git_hub: Properties for a GitHub catalog type.
+        :param pulumi.Input[Union['GitCatalogArgs', 'GitCatalogArgsDict']] git_hub: Properties for a GitHub catalog type.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union[str, 'CatalogSyncType']] sync_type: Indicates the type of sync that is configured for the catalog.
         """
@@ -164,10 +169,10 @@ class Catalog(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 ado_git: Optional[pulumi.Input[pulumi.InputType['GitCatalogArgs']]] = None,
+                 ado_git: Optional[pulumi.Input[Union['GitCatalogArgs', 'GitCatalogArgsDict']]] = None,
                  catalog_name: Optional[pulumi.Input[str]] = None,
                  dev_center_name: Optional[pulumi.Input[str]] = None,
-                 git_hub: Optional[pulumi.Input[pulumi.InputType['GitCatalogArgs']]] = None,
+                 git_hub: Optional[pulumi.Input[Union['GitCatalogArgs', 'GitCatalogArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sync_type: Optional[pulumi.Input[Union[str, 'CatalogSyncType']]] = None,
                  __props__=None):

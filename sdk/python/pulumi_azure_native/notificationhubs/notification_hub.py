@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -140,9 +145,9 @@ class NotificationHub(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
                  notification_hub_name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['NotificationHubPropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['NotificationHubPropertiesArgs', 'NotificationHubPropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -156,9 +161,9 @@ class NotificationHub(pulumi.CustomResource):
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] namespace_name: Namespace name
         :param pulumi.Input[str] notification_hub_name: Notification Hub name
-        :param pulumi.Input[pulumi.InputType['NotificationHubPropertiesArgs']] properties: NotificationHub properties.
+        :param pulumi.Input[Union['NotificationHubPropertiesArgs', 'NotificationHubPropertiesArgsDict']] properties: NotificationHub properties.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The Sku description for a namespace
+        :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: The Sku description for a namespace
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         ...
@@ -191,9 +196,9 @@ class NotificationHub(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
                  notification_hub_name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['NotificationHubPropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['NotificationHubPropertiesArgs', 'NotificationHubPropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

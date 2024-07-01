@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -107,9 +112,9 @@ class SecurityContact(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 alert_notifications: Optional[pulumi.Input[pulumi.InputType['SecurityContactPropertiesAlertNotificationsArgs']]] = None,
+                 alert_notifications: Optional[pulumi.Input[Union['SecurityContactPropertiesAlertNotificationsArgs', 'SecurityContactPropertiesAlertNotificationsArgsDict']]] = None,
                  emails: Optional[pulumi.Input[str]] = None,
-                 notifications_by_role: Optional[pulumi.Input[pulumi.InputType['SecurityContactPropertiesNotificationsByRoleArgs']]] = None,
+                 notifications_by_role: Optional[pulumi.Input[Union['SecurityContactPropertiesNotificationsByRoleArgs', 'SecurityContactPropertiesNotificationsByRoleArgsDict']]] = None,
                  phone: Optional[pulumi.Input[str]] = None,
                  security_contact_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -121,9 +126,9 @@ class SecurityContact(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['SecurityContactPropertiesAlertNotificationsArgs']] alert_notifications: Defines whether to send email notifications about new security alerts
+        :param pulumi.Input[Union['SecurityContactPropertiesAlertNotificationsArgs', 'SecurityContactPropertiesAlertNotificationsArgsDict']] alert_notifications: Defines whether to send email notifications about new security alerts
         :param pulumi.Input[str] emails: List of email addresses which will get notifications from Microsoft Defender for Cloud by the configurations defined in this security contact.
-        :param pulumi.Input[pulumi.InputType['SecurityContactPropertiesNotificationsByRoleArgs']] notifications_by_role: Defines whether to send email notifications from Microsoft Defender for Cloud to persons with specific RBAC roles on the subscription.
+        :param pulumi.Input[Union['SecurityContactPropertiesNotificationsByRoleArgs', 'SecurityContactPropertiesNotificationsByRoleArgsDict']] notifications_by_role: Defines whether to send email notifications from Microsoft Defender for Cloud to persons with specific RBAC roles on the subscription.
         :param pulumi.Input[str] phone: The security contact's phone number
         :param pulumi.Input[str] security_contact_name: Name of the security contact object
         """
@@ -154,9 +159,9 @@ class SecurityContact(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 alert_notifications: Optional[pulumi.Input[pulumi.InputType['SecurityContactPropertiesAlertNotificationsArgs']]] = None,
+                 alert_notifications: Optional[pulumi.Input[Union['SecurityContactPropertiesAlertNotificationsArgs', 'SecurityContactPropertiesAlertNotificationsArgsDict']]] = None,
                  emails: Optional[pulumi.Input[str]] = None,
-                 notifications_by_role: Optional[pulumi.Input[pulumi.InputType['SecurityContactPropertiesNotificationsByRoleArgs']]] = None,
+                 notifications_by_role: Optional[pulumi.Input[Union['SecurityContactPropertiesNotificationsByRoleArgs', 'SecurityContactPropertiesNotificationsByRoleArgsDict']]] = None,
                  phone: Optional[pulumi.Input[str]] = None,
                  security_contact_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):

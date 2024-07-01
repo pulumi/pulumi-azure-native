@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -156,7 +161,7 @@ class EncryptionSet(pulumi.CustomResource):
                  dev_center_name: Optional[pulumi.Input[str]] = None,
                  devbox_disks_encryption_enable_status: Optional[pulumi.Input[Union[str, 'DevboxDisksEncryptionEnableStatus']]] = None,
                  encryption_set_name: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  key_encryption_key_url: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -173,7 +178,7 @@ class EncryptionSet(pulumi.CustomResource):
         :param pulumi.Input[str] dev_center_name: The name of the devcenter.
         :param pulumi.Input[Union[str, 'DevboxDisksEncryptionEnableStatus']] devbox_disks_encryption_enable_status: Devbox disk encryption enable or disable status. Indicates if Devbox disks encryption using DevCenter CMK is enabled or not.
         :param pulumi.Input[str] encryption_set_name: The name of the devcenter encryption set.
-        :param pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']] identity: Managed identity properties
+        :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: Managed identity properties
         :param pulumi.Input[str] key_encryption_key_url: Key encryption key Url, versioned or non-versioned. Ex: https://contosovault.vault.azure.net/keys/contosokek/562a4bb76b524a1493a6afe8e536ee78 or https://contosovault.vault.azure.net/keys/contosokek.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -209,7 +214,7 @@ class EncryptionSet(pulumi.CustomResource):
                  dev_center_name: Optional[pulumi.Input[str]] = None,
                  devbox_disks_encryption_enable_status: Optional[pulumi.Input[Union[str, 'DevboxDisksEncryptionEnableStatus']]] = None,
                  encryption_set_name: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  key_encryption_key_url: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -235,7 +240,7 @@ class Workspace(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  e_tag: Optional[pulumi.Input[str]] = None,
-                 features: Optional[pulumi.Input[pulumi.InputType['WorkspaceFeaturesArgs']]] = None,
+                 features: Optional[pulumi.Input[Union['WorkspaceFeaturesArgs', 'WorkspaceFeaturesArgsDict']]] = None,
                  force_cmk_for_query: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  provisioning_state: Optional[pulumi.Input[Union[str, 'WorkspaceEntityStatus']]] = None,
@@ -243,9 +248,9 @@ class Workspace(pulumi.CustomResource):
                  public_network_access_for_query: Optional[pulumi.Input[Union[str, 'PublicNetworkAccessType']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  retention_in_days: Optional[pulumi.Input[int]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['WorkspaceSkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['WorkspaceSkuArgs', 'WorkspaceSkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 workspace_capping: Optional[pulumi.Input[pulumi.InputType['WorkspaceCappingArgs']]] = None,
+                 workspace_capping: Optional[pulumi.Input[Union['WorkspaceCappingArgs', 'WorkspaceCappingArgsDict']]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -254,7 +259,7 @@ class Workspace(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] e_tag: The ETag of the workspace.
-        :param pulumi.Input[pulumi.InputType['WorkspaceFeaturesArgs']] features: Workspace features.
+        :param pulumi.Input[Union['WorkspaceFeaturesArgs', 'WorkspaceFeaturesArgsDict']] features: Workspace features.
         :param pulumi.Input[bool] force_cmk_for_query: Indicates whether customer managed storage is mandatory for query management.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Union[str, 'WorkspaceEntityStatus']] provisioning_state: The provisioning state of the workspace.
@@ -262,9 +267,9 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'PublicNetworkAccessType']] public_network_access_for_query: The network access type for accessing Log Analytics query.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[int] retention_in_days: The workspace data retention in days. Allowed values are per pricing plan. See pricing tiers documentation for details.
-        :param pulumi.Input[pulumi.InputType['WorkspaceSkuArgs']] sku: The SKU of the workspace.
+        :param pulumi.Input[Union['WorkspaceSkuArgs', 'WorkspaceSkuArgsDict']] sku: The SKU of the workspace.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[pulumi.InputType['WorkspaceCappingArgs']] workspace_capping: The daily volume cap for ingestion.
+        :param pulumi.Input[Union['WorkspaceCappingArgs', 'WorkspaceCappingArgsDict']] workspace_capping: The daily volume cap for ingestion.
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         """
         ...
@@ -292,7 +297,7 @@ class Workspace(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  e_tag: Optional[pulumi.Input[str]] = None,
-                 features: Optional[pulumi.Input[pulumi.InputType['WorkspaceFeaturesArgs']]] = None,
+                 features: Optional[pulumi.Input[Union['WorkspaceFeaturesArgs', 'WorkspaceFeaturesArgsDict']]] = None,
                  force_cmk_for_query: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  provisioning_state: Optional[pulumi.Input[Union[str, 'WorkspaceEntityStatus']]] = None,
@@ -300,9 +305,9 @@ class Workspace(pulumi.CustomResource):
                  public_network_access_for_query: Optional[pulumi.Input[Union[str, 'PublicNetworkAccessType']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  retention_in_days: Optional[pulumi.Input[int]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['WorkspaceSkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['WorkspaceSkuArgs', 'WorkspaceSkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 workspace_capping: Optional[pulumi.Input[pulumi.InputType['WorkspaceCappingArgs']]] = None,
+                 workspace_capping: Optional[pulumi.Input[Union['WorkspaceCappingArgs', 'WorkspaceCappingArgsDict']]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

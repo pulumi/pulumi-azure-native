@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -136,11 +141,11 @@ class CIAMTenant(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 create_tenant_properties: Optional[pulumi.Input[pulumi.InputType['CreateCIAMTenantPropertiesArgs']]] = None,
+                 create_tenant_properties: Optional[pulumi.Input[Union['CreateCIAMTenantPropertiesArgs', 'CreateCIAMTenantPropertiesArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['CIAMResourceSKUArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['CIAMResourceSKUArgs', 'CIAMResourceSKUArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -150,11 +155,11 @@ class CIAMTenant(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['CreateCIAMTenantPropertiesArgs']] create_tenant_properties: These properties are used to create the Azure AD for customers tenant. These properties are not part of the Azure resource.
+        :param pulumi.Input[Union['CreateCIAMTenantPropertiesArgs', 'CreateCIAMTenantPropertiesArgsDict']] create_tenant_properties: These properties are used to create the Azure AD for customers tenant. These properties are not part of the Azure resource.
         :param pulumi.Input[str] location: The location in which the resource is hosted and data resides. Can be one of 'United States', 'Europe', 'Asia Pacific', or 'Australia'. Refer to [this documentation](https://aka.ms/ciam-data-location) for more information.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] resource_name_: The initial sub domain of the tenant.
-        :param pulumi.Input[pulumi.InputType['CIAMResourceSKUArgs']] sku: SKU properties of the Azure AD for customers tenant. Learn more about Azure AD for customers billing at [https://aka.ms/ciambilling](https://aka.ms/ciambilling).
+        :param pulumi.Input[Union['CIAMResourceSKUArgs', 'CIAMResourceSKUArgsDict']] sku: SKU properties of the Azure AD for customers tenant. Learn more about Azure AD for customers billing at [https://aka.ms/ciambilling](https://aka.ms/ciambilling).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource Tags
         :param pulumi.Input[str] tenant_id: An identifier of the Azure AD for customers tenant.
         """
@@ -183,11 +188,11 @@ class CIAMTenant(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 create_tenant_properties: Optional[pulumi.Input[pulumi.InputType['CreateCIAMTenantPropertiesArgs']]] = None,
+                 create_tenant_properties: Optional[pulumi.Input[Union['CreateCIAMTenantPropertiesArgs', 'CreateCIAMTenantPropertiesArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['CIAMResourceSKUArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['CIAMResourceSKUArgs', 'CIAMResourceSKUArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):

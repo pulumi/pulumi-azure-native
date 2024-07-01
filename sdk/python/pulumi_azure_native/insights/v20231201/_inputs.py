@@ -4,21 +4,55 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'ActionsArgs',
+    'ActionsArgsDict',
     'ConditionFailingPeriodsArgs',
+    'ConditionFailingPeriodsArgsDict',
     'ConditionArgs',
+    'ConditionArgsDict',
     'DimensionArgs',
+    'DimensionArgsDict',
     'IdentityArgs',
+    'IdentityArgsDict',
     'RuleResolveConfigurationArgs',
+    'RuleResolveConfigurationArgsDict',
     'ScheduledQueryRuleCriteriaArgs',
+    'ScheduledQueryRuleCriteriaArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ActionsArgsDict(TypedDict):
+        """
+        Actions to invoke when the alert fires.
+        """
+        action_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Action Group resource Ids to invoke when the alert fires.
+        """
+        action_properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        The properties of an action properties.
+        """
+        custom_properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        The properties of an alert payload.
+        """
+elif False:
+    ActionsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ActionsArgs:
@@ -76,6 +110,22 @@ class ActionsArgs:
         pulumi.set(self, "custom_properties", value)
 
 
+if not MYPY:
+    class ConditionFailingPeriodsArgsDict(TypedDict):
+        """
+        The minimum number of violations required within the selected lookback time window required to raise an alert. Relevant only for rules of the kind LogAlert.
+        """
+        min_failing_periods_to_alert: NotRequired[pulumi.Input[float]]
+        """
+        The number of violations to trigger an alert. Should be smaller or equal to numberOfEvaluationPeriods. Default value is 1
+        """
+        number_of_evaluation_periods: NotRequired[pulumi.Input[float]]
+        """
+        The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (windowSize) and the selected number of aggregated points. Default value is 1
+        """
+elif False:
+    ConditionFailingPeriodsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ConditionFailingPeriodsArgs:
     def __init__(__self__, *,
@@ -119,6 +169,50 @@ class ConditionFailingPeriodsArgs:
     def number_of_evaluation_periods(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "number_of_evaluation_periods", value)
 
+
+if not MYPY:
+    class ConditionArgsDict(TypedDict):
+        """
+        A condition of the scheduled query rule.
+        """
+        dimensions: NotRequired[pulumi.Input[Sequence[pulumi.Input['DimensionArgsDict']]]]
+        """
+        List of Dimensions conditions
+        """
+        failing_periods: NotRequired[pulumi.Input['ConditionFailingPeriodsArgsDict']]
+        """
+        The minimum number of violations required within the selected lookback time window required to raise an alert. Relevant only for rules of the kind LogAlert.
+        """
+        metric_measure_column: NotRequired[pulumi.Input[str]]
+        """
+        The column containing the metric measure number. Relevant only for rules of the kind LogAlert.
+        """
+        metric_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the metric to be sent. Relevant and required only for rules of the kind LogToMetric.
+        """
+        operator: NotRequired[pulumi.Input[Union[str, 'ConditionOperator']]]
+        """
+        The criteria operator. Relevant and required only for rules of the kind LogAlert.
+        """
+        query: NotRequired[pulumi.Input[str]]
+        """
+        Log query alert
+        """
+        resource_id_column: NotRequired[pulumi.Input[str]]
+        """
+        The column containing the resource id. The content of the column must be a uri formatted as resource id. Relevant only for rules of the kind LogAlert.
+        """
+        threshold: NotRequired[pulumi.Input[float]]
+        """
+        the criteria threshold value that activates the alert. Relevant and required only for rules of the kind LogAlert.
+        """
+        time_aggregation: NotRequired[pulumi.Input[Union[str, 'TimeAggregation']]]
+        """
+        Aggregation type. Relevant and required only for rules of the kind LogAlert.
+        """
+elif False:
+    ConditionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ConditionArgs:
@@ -272,6 +366,26 @@ class ConditionArgs:
         pulumi.set(self, "time_aggregation", value)
 
 
+if not MYPY:
+    class DimensionArgsDict(TypedDict):
+        """
+        Dimension splitting and filtering definition
+        """
+        name: pulumi.Input[str]
+        """
+        Name of the dimension
+        """
+        operator: pulumi.Input[Union[str, 'DimensionOperator']]
+        """
+        Operator for dimension values
+        """
+        values: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        List of dimension values
+        """
+elif False:
+    DimensionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DimensionArgs:
     def __init__(__self__, *,
@@ -325,6 +439,22 @@ class DimensionArgs:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class IdentityArgsDict(TypedDict):
+        """
+        Identity for the resource.
+        """
+        type: pulumi.Input['IdentityType']
+        """
+        Type of managed service identity.
+        """
+        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+elif False:
+    IdentityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IdentityArgs:
     def __init__(__self__, *,
@@ -363,6 +493,22 @@ class IdentityArgs:
     def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
+
+if not MYPY:
+    class RuleResolveConfigurationArgsDict(TypedDict):
+        """
+        TBD. Relevant only for rules of the kind LogAlert.
+        """
+        auto_resolved: NotRequired[pulumi.Input[bool]]
+        """
+        The flag that indicates whether or not to auto resolve a fired alert.
+        """
+        time_to_resolve: NotRequired[pulumi.Input[str]]
+        """
+        The duration a rule must evaluate as healthy before the fired alert is automatically resolved represented in ISO 8601 duration format.
+        """
+elif False:
+    RuleResolveConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RuleResolveConfigurationArgs:
@@ -403,6 +549,18 @@ class RuleResolveConfigurationArgs:
     def time_to_resolve(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "time_to_resolve", value)
 
+
+if not MYPY:
+    class ScheduledQueryRuleCriteriaArgsDict(TypedDict):
+        """
+        The rule criteria that defines the conditions of the scheduled query rule.
+        """
+        all_of: NotRequired[pulumi.Input[Sequence[pulumi.Input['ConditionArgsDict']]]]
+        """
+        A list of conditions to evaluate against the specified scopes
+        """
+elif False:
+    ScheduledQueryRuleCriteriaArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ScheduledQueryRuleCriteriaArgs:

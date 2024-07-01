@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -185,32 +190,32 @@ class ProjectEnvironmentType(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 creator_role_assignment: Optional[pulumi.Input[pulumi.InputType['ProjectEnvironmentTypeUpdatePropertiesCreatorRoleAssignmentArgs']]] = None,
+                 creator_role_assignment: Optional[pulumi.Input[Union['ProjectEnvironmentTypeUpdatePropertiesCreatorRoleAssignmentArgs', 'ProjectEnvironmentTypeUpdatePropertiesCreatorRoleAssignmentArgsDict']]] = None,
                  deployment_target_id: Optional[pulumi.Input[str]] = None,
                  environment_type_name: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  project_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[Union[str, 'EnvironmentTypeEnableStatus']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 user_role_assignments: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['UserRoleAssignmentArgs']]]]] = None,
+                 user_role_assignments: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['UserRoleAssignmentArgs', 'UserRoleAssignmentArgsDict']]]]] = None,
                  __props__=None):
         """
         Represents an environment type.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ProjectEnvironmentTypeUpdatePropertiesCreatorRoleAssignmentArgs']] creator_role_assignment: The role definition assigned to the environment creator on backing resources.
+        :param pulumi.Input[Union['ProjectEnvironmentTypeUpdatePropertiesCreatorRoleAssignmentArgs', 'ProjectEnvironmentTypeUpdatePropertiesCreatorRoleAssignmentArgsDict']] creator_role_assignment: The role definition assigned to the environment creator on backing resources.
         :param pulumi.Input[str] deployment_target_id: Id of a subscription that the environment type will be mapped to. The environment's resources will be deployed into this subscription.
         :param pulumi.Input[str] environment_type_name: The name of the environment type.
-        :param pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']] identity: Managed identity properties
+        :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: Managed identity properties
         :param pulumi.Input[str] location: The geo-location for the environment type
         :param pulumi.Input[str] project_name: The name of the project.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union[str, 'EnvironmentTypeEnableStatus']] status: Defines whether this Environment Type can be used in this Project.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['UserRoleAssignmentArgs']]]] user_role_assignments: Role Assignments created on environment backing resources. This is a mapping from a user object ID to an object of role definition IDs.
+        :param pulumi.Input[Mapping[str, pulumi.Input[Union['UserRoleAssignmentArgs', 'UserRoleAssignmentArgsDict']]]] user_role_assignments: Role Assignments created on environment backing resources. This is a mapping from a user object ID to an object of role definition IDs.
         """
         ...
     @overload
@@ -236,16 +241,16 @@ class ProjectEnvironmentType(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 creator_role_assignment: Optional[pulumi.Input[pulumi.InputType['ProjectEnvironmentTypeUpdatePropertiesCreatorRoleAssignmentArgs']]] = None,
+                 creator_role_assignment: Optional[pulumi.Input[Union['ProjectEnvironmentTypeUpdatePropertiesCreatorRoleAssignmentArgs', 'ProjectEnvironmentTypeUpdatePropertiesCreatorRoleAssignmentArgsDict']]] = None,
                  deployment_target_id: Optional[pulumi.Input[str]] = None,
                  environment_type_name: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  project_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[Union[str, 'EnvironmentTypeEnableStatus']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 user_role_assignments: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['UserRoleAssignmentArgs']]]]] = None,
+                 user_role_assignments: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['UserRoleAssignmentArgs', 'UserRoleAssignmentArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

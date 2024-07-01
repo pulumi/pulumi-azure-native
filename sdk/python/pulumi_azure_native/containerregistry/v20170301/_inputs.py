@@ -4,15 +4,36 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 
 __all__ = [
     'SkuArgs',
+    'SkuArgsDict',
     'StorageAccountParametersArgs',
+    'StorageAccountParametersArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class SkuArgsDict(TypedDict):
+        """
+        The SKU of a container registry.
+        """
+        name: pulumi.Input[str]
+        """
+        The SKU name of the container registry. Required for registry creation. Allowed value: Basic.
+        """
+elif False:
+    SkuArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SkuArgs:
@@ -36,6 +57,22 @@ class SkuArgs:
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class StorageAccountParametersArgsDict(TypedDict):
+        """
+        The parameters of a storage account for a container registry.
+        """
+        access_key: pulumi.Input[str]
+        """
+        The access key to the storage account.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the storage account.
+        """
+elif False:
+    StorageAccountParametersArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class StorageAccountParametersArgs:

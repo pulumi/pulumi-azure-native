@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -121,11 +126,11 @@ class ReportByBillingAccount(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  billing_account_id: Optional[pulumi.Input[str]] = None,
-                 definition: Optional[pulumi.Input[pulumi.InputType['ReportDefinitionArgs']]] = None,
-                 delivery_info: Optional[pulumi.Input[pulumi.InputType['ReportDeliveryInfoArgs']]] = None,
+                 definition: Optional[pulumi.Input[Union['ReportDefinitionArgs', 'ReportDefinitionArgsDict']]] = None,
+                 delivery_info: Optional[pulumi.Input[Union['ReportDeliveryInfoArgs', 'ReportDeliveryInfoArgsDict']]] = None,
                  format: Optional[pulumi.Input[Union[str, 'FormatType']]] = None,
                  report_name: Optional[pulumi.Input[str]] = None,
-                 schedule: Optional[pulumi.Input[pulumi.InputType['ReportScheduleArgs']]] = None,
+                 schedule: Optional[pulumi.Input[Union['ReportScheduleArgs', 'ReportScheduleArgsDict']]] = None,
                  __props__=None):
         """
         A report resource.
@@ -133,11 +138,11 @@ class ReportByBillingAccount(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] billing_account_id: BillingAccount ID
-        :param pulumi.Input[pulumi.InputType['ReportDefinitionArgs']] definition: Has definition for the report.
-        :param pulumi.Input[pulumi.InputType['ReportDeliveryInfoArgs']] delivery_info: Has delivery information for the report.
+        :param pulumi.Input[Union['ReportDefinitionArgs', 'ReportDefinitionArgsDict']] definition: Has definition for the report.
+        :param pulumi.Input[Union['ReportDeliveryInfoArgs', 'ReportDeliveryInfoArgsDict']] delivery_info: Has delivery information for the report.
         :param pulumi.Input[Union[str, 'FormatType']] format: The format of the report being delivered.
         :param pulumi.Input[str] report_name: Report Name.
-        :param pulumi.Input[pulumi.InputType['ReportScheduleArgs']] schedule: Has schedule information for the report.
+        :param pulumi.Input[Union['ReportScheduleArgs', 'ReportScheduleArgsDict']] schedule: Has schedule information for the report.
         """
         ...
     @overload
@@ -164,11 +169,11 @@ class ReportByBillingAccount(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  billing_account_id: Optional[pulumi.Input[str]] = None,
-                 definition: Optional[pulumi.Input[pulumi.InputType['ReportDefinitionArgs']]] = None,
-                 delivery_info: Optional[pulumi.Input[pulumi.InputType['ReportDeliveryInfoArgs']]] = None,
+                 definition: Optional[pulumi.Input[Union['ReportDefinitionArgs', 'ReportDefinitionArgsDict']]] = None,
+                 delivery_info: Optional[pulumi.Input[Union['ReportDeliveryInfoArgs', 'ReportDeliveryInfoArgsDict']]] = None,
                  format: Optional[pulumi.Input[Union[str, 'FormatType']]] = None,
                  report_name: Optional[pulumi.Input[str]] = None,
-                 schedule: Optional[pulumi.Input[pulumi.InputType['ReportScheduleArgs']]] = None,
+                 schedule: Optional[pulumi.Input[Union['ReportScheduleArgs', 'ReportScheduleArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

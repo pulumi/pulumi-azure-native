@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -153,11 +158,11 @@ class Service(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  mobile_network_name: Optional[pulumi.Input[str]] = None,
-                 pcc_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PccRuleConfigurationArgs']]]]] = None,
+                 pcc_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PccRuleConfigurationArgs', 'PccRuleConfigurationArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  service_precedence: Optional[pulumi.Input[int]] = None,
-                 service_qos_policy: Optional[pulumi.Input[pulumi.InputType['QosPolicyArgs']]] = None,
+                 service_qos_policy: Optional[pulumi.Input[Union['QosPolicyArgs', 'QosPolicyArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -167,11 +172,11 @@ class Service(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] mobile_network_name: The name of the mobile network.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PccRuleConfigurationArgs']]]] pcc_rules: The set of data flow policy rules that make up this service.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PccRuleConfigurationArgs', 'PccRuleConfigurationArgsDict']]]] pcc_rules: The set of data flow policy rules that make up this service.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] service_name: The name of the service. You must not use any of the following reserved strings - `default`, `requested` or `service`
         :param pulumi.Input[int] service_precedence: A precedence value that is used to decide between services when identifying the QoS values to use for a particular SIM. A lower value means a higher priority. This value should be unique among all services configured in the mobile network.
-        :param pulumi.Input[pulumi.InputType['QosPolicyArgs']] service_qos_policy: The QoS policy to use for packets matching this service. This can be overridden for particular flows using the ruleQosPolicy field in a PccRuleConfiguration. If this field is null then the UE's SIM policy will define the QoS settings.
+        :param pulumi.Input[Union['QosPolicyArgs', 'QosPolicyArgsDict']] service_qos_policy: The QoS policy to use for packets matching this service. This can be overridden for particular flows using the ruleQosPolicy field in a PccRuleConfiguration. If this field is null then the UE's SIM policy will define the QoS settings.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         ...
@@ -200,11 +205,11 @@ class Service(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  mobile_network_name: Optional[pulumi.Input[str]] = None,
-                 pcc_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PccRuleConfigurationArgs']]]]] = None,
+                 pcc_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PccRuleConfigurationArgs', 'PccRuleConfigurationArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  service_precedence: Optional[pulumi.Input[int]] = None,
-                 service_qos_policy: Optional[pulumi.Input[pulumi.InputType['QosPolicyArgs']]] = None,
+                 service_qos_policy: Optional[pulumi.Input[Union['QosPolicyArgs', 'QosPolicyArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

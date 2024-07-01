@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -120,7 +125,7 @@ class ConnectionType(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  automation_account_name: Optional[pulumi.Input[str]] = None,
                  connection_type_name: Optional[pulumi.Input[str]] = None,
-                 field_definitions: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['FieldDefinitionArgs']]]]] = None,
+                 field_definitions: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['FieldDefinitionArgs', 'FieldDefinitionArgsDict']]]]] = None,
                  is_global: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -135,7 +140,7 @@ class ConnectionType(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] automation_account_name: The name of the automation account.
         :param pulumi.Input[str] connection_type_name: The parameters supplied to the create or update connection type operation.
-        :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['FieldDefinitionArgs']]]] field_definitions: Gets or sets the field definitions of the connection type.
+        :param pulumi.Input[Mapping[str, pulumi.Input[Union['FieldDefinitionArgs', 'FieldDefinitionArgsDict']]]] field_definitions: Gets or sets the field definitions of the connection type.
         :param pulumi.Input[bool] is_global: Gets or sets a Boolean value to indicate if the connection type is global.
         :param pulumi.Input[str] name: Gets or sets the name of the connection type.
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
@@ -169,7 +174,7 @@ class ConnectionType(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  automation_account_name: Optional[pulumi.Input[str]] = None,
                  connection_type_name: Optional[pulumi.Input[str]] = None,
-                 field_definitions: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['FieldDefinitionArgs']]]]] = None,
+                 field_definitions: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['FieldDefinitionArgs', 'FieldDefinitionArgsDict']]]]] = None,
                  is_global: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,

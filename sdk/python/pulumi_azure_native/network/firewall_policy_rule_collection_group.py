@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -143,7 +148,7 @@ class FirewallPolicyRuleCollectionGroup(pulumi.CustomResource):
                  priority: Optional[pulumi.Input[int]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  rule_collection_group_name: Optional[pulumi.Input[str]] = None,
-                 rule_collections: Optional[pulumi.Input[Sequence[pulumi.Input[Union[pulumi.InputType['FirewallPolicyFilterRuleCollectionArgs'], pulumi.InputType['FirewallPolicyNatRuleCollectionArgs']]]]]] = None,
+                 rule_collections: Optional[pulumi.Input[Sequence[pulumi.Input[Union[Union['FirewallPolicyFilterRuleCollectionArgs', 'FirewallPolicyFilterRuleCollectionArgsDict'], Union['FirewallPolicyNatRuleCollectionArgs', 'FirewallPolicyNatRuleCollectionArgsDict']]]]]] = None,
                  __props__=None):
         """
         Rule Collection Group resource.
@@ -159,7 +164,7 @@ class FirewallPolicyRuleCollectionGroup(pulumi.CustomResource):
         :param pulumi.Input[int] priority: Priority of the Firewall Policy Rule Collection Group resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] rule_collection_group_name: The name of the FirewallPolicyRuleCollectionGroup.
-        :param pulumi.Input[Sequence[pulumi.Input[Union[pulumi.InputType['FirewallPolicyFilterRuleCollectionArgs'], pulumi.InputType['FirewallPolicyNatRuleCollectionArgs']]]]] rule_collections: Group of Firewall Policy rule collections.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[Union['FirewallPolicyFilterRuleCollectionArgs', 'FirewallPolicyFilterRuleCollectionArgsDict'], Union['FirewallPolicyNatRuleCollectionArgs', 'FirewallPolicyNatRuleCollectionArgsDict']]]]] rule_collections: Group of Firewall Policy rule collections.
         """
         ...
     @overload
@@ -194,7 +199,7 @@ class FirewallPolicyRuleCollectionGroup(pulumi.CustomResource):
                  priority: Optional[pulumi.Input[int]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  rule_collection_group_name: Optional[pulumi.Input[str]] = None,
-                 rule_collections: Optional[pulumi.Input[Sequence[pulumi.Input[Union[pulumi.InputType['FirewallPolicyFilterRuleCollectionArgs'], pulumi.InputType['FirewallPolicyNatRuleCollectionArgs']]]]]] = None,
+                 rule_collections: Optional[pulumi.Input[Sequence[pulumi.Input[Union[Union['FirewallPolicyFilterRuleCollectionArgs', 'FirewallPolicyFilterRuleCollectionArgsDict'], Union['FirewallPolicyNatRuleCollectionArgs', 'FirewallPolicyNatRuleCollectionArgsDict']]]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

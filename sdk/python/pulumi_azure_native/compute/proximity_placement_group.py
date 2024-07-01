@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -154,8 +159,8 @@ class ProximityPlacementGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 colocation_status: Optional[pulumi.Input[pulumi.InputType['InstanceViewStatusArgs']]] = None,
-                 intent: Optional[pulumi.Input[pulumi.InputType['ProximityPlacementGroupPropertiesIntentArgs']]] = None,
+                 colocation_status: Optional[pulumi.Input[Union['InstanceViewStatusArgs', 'InstanceViewStatusArgsDict']]] = None,
+                 intent: Optional[pulumi.Input[Union['ProximityPlacementGroupPropertiesIntentArgs', 'ProximityPlacementGroupPropertiesIntentArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  proximity_placement_group_name: Optional[pulumi.Input[str]] = None,
                  proximity_placement_group_type: Optional[pulumi.Input[Union[str, 'ProximityPlacementGroupType']]] = None,
@@ -171,8 +176,8 @@ class ProximityPlacementGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['InstanceViewStatusArgs']] colocation_status: Describes colocation status of the Proximity Placement Group.
-        :param pulumi.Input[pulumi.InputType['ProximityPlacementGroupPropertiesIntentArgs']] intent: Specifies the user intent of the proximity placement group.
+        :param pulumi.Input[Union['InstanceViewStatusArgs', 'InstanceViewStatusArgsDict']] colocation_status: Describes colocation status of the Proximity Placement Group.
+        :param pulumi.Input[Union['ProximityPlacementGroupPropertiesIntentArgs', 'ProximityPlacementGroupPropertiesIntentArgsDict']] intent: Specifies the user intent of the proximity placement group.
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] proximity_placement_group_name: The name of the proximity placement group.
         :param pulumi.Input[Union[str, 'ProximityPlacementGroupType']] proximity_placement_group_type: Specifies the type of the proximity placement group. Possible values are: **Standard** : Co-locate resources within an Azure region or Availability Zone. **Ultra** : For future use.
@@ -207,8 +212,8 @@ class ProximityPlacementGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 colocation_status: Optional[pulumi.Input[pulumi.InputType['InstanceViewStatusArgs']]] = None,
-                 intent: Optional[pulumi.Input[pulumi.InputType['ProximityPlacementGroupPropertiesIntentArgs']]] = None,
+                 colocation_status: Optional[pulumi.Input[Union['InstanceViewStatusArgs', 'InstanceViewStatusArgsDict']]] = None,
+                 intent: Optional[pulumi.Input[Union['ProximityPlacementGroupPropertiesIntentArgs', 'ProximityPlacementGroupPropertiesIntentArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  proximity_placement_group_name: Optional[pulumi.Input[str]] = None,
                  proximity_placement_group_type: Optional[pulumi.Input[Union[str, 'ProximityPlacementGroupType']]] = None,

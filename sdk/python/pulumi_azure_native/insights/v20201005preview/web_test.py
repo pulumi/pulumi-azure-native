@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -287,20 +292,20 @@ class WebTest(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: Optional[pulumi.Input[pulumi.InputType['WebTestPropertiesConfigurationArgs']]] = None,
+                 configuration: Optional[pulumi.Input[Union['WebTestPropertiesConfigurationArgs', 'WebTestPropertiesConfigurationArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  frequency: Optional[pulumi.Input[int]] = None,
                  kind: Optional[pulumi.Input['WebTestKind']] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 locations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebTestGeolocationArgs']]]]] = None,
-                 request: Optional[pulumi.Input[pulumi.InputType['WebTestPropertiesRequestArgs']]] = None,
+                 locations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WebTestGeolocationArgs', 'WebTestGeolocationArgsDict']]]]] = None,
+                 request: Optional[pulumi.Input[Union['WebTestPropertiesRequestArgs', 'WebTestPropertiesRequestArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  retry_enabled: Optional[pulumi.Input[bool]] = None,
                  synthetic_monitor_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timeout: Optional[pulumi.Input[int]] = None,
-                 validation_rules: Optional[pulumi.Input[pulumi.InputType['WebTestPropertiesValidationRulesArgs']]] = None,
+                 validation_rules: Optional[pulumi.Input[Union['WebTestPropertiesValidationRulesArgs', 'WebTestPropertiesValidationRulesArgsDict']]] = None,
                  web_test_kind: Optional[pulumi.Input['WebTestKindEnum']] = None,
                  web_test_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -309,20 +314,20 @@ class WebTest(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['WebTestPropertiesConfigurationArgs']] configuration: An XML configuration specification for a WebTest.
+        :param pulumi.Input[Union['WebTestPropertiesConfigurationArgs', 'WebTestPropertiesConfigurationArgsDict']] configuration: An XML configuration specification for a WebTest.
         :param pulumi.Input[str] description: User defined description for this WebTest.
         :param pulumi.Input[bool] enabled: Is the test actively being monitored.
         :param pulumi.Input[int] frequency: Interval in seconds between test runs for this WebTest. Default value is 300.
         :param pulumi.Input['WebTestKind'] kind: The kind of WebTest that this web test watches. Choices are ping and multistep.
         :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebTestGeolocationArgs']]]] locations: A list of where to physically run the tests from to give global coverage for accessibility of your application.
-        :param pulumi.Input[pulumi.InputType['WebTestPropertiesRequestArgs']] request: The collection of request properties
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WebTestGeolocationArgs', 'WebTestGeolocationArgsDict']]]] locations: A list of where to physically run the tests from to give global coverage for accessibility of your application.
+        :param pulumi.Input[Union['WebTestPropertiesRequestArgs', 'WebTestPropertiesRequestArgsDict']] request: The collection of request properties
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[bool] retry_enabled: Allow for retries should this WebTest fail.
         :param pulumi.Input[str] synthetic_monitor_id: Unique ID of this WebTest. This is typically the same value as the Name field.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[int] timeout: Seconds until this WebTest will timeout and fail. Default value is 30.
-        :param pulumi.Input[pulumi.InputType['WebTestPropertiesValidationRulesArgs']] validation_rules: The collection of validation rule properties
+        :param pulumi.Input[Union['WebTestPropertiesValidationRulesArgs', 'WebTestPropertiesValidationRulesArgsDict']] validation_rules: The collection of validation rule properties
         :param pulumi.Input['WebTestKindEnum'] web_test_kind: The kind of web test this is, valid choices are ping, multistep, basic, and standard.
         :param pulumi.Input[str] web_test_name: User defined name if this WebTest.
         """
@@ -350,20 +355,20 @@ class WebTest(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: Optional[pulumi.Input[pulumi.InputType['WebTestPropertiesConfigurationArgs']]] = None,
+                 configuration: Optional[pulumi.Input[Union['WebTestPropertiesConfigurationArgs', 'WebTestPropertiesConfigurationArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  frequency: Optional[pulumi.Input[int]] = None,
                  kind: Optional[pulumi.Input['WebTestKind']] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 locations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebTestGeolocationArgs']]]]] = None,
-                 request: Optional[pulumi.Input[pulumi.InputType['WebTestPropertiesRequestArgs']]] = None,
+                 locations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WebTestGeolocationArgs', 'WebTestGeolocationArgsDict']]]]] = None,
+                 request: Optional[pulumi.Input[Union['WebTestPropertiesRequestArgs', 'WebTestPropertiesRequestArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  retry_enabled: Optional[pulumi.Input[bool]] = None,
                  synthetic_monitor_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timeout: Optional[pulumi.Input[int]] = None,
-                 validation_rules: Optional[pulumi.Input[pulumi.InputType['WebTestPropertiesValidationRulesArgs']]] = None,
+                 validation_rules: Optional[pulumi.Input[Union['WebTestPropertiesValidationRulesArgs', 'WebTestPropertiesValidationRulesArgsDict']]] = None,
                  web_test_kind: Optional[pulumi.Input['WebTestKindEnum']] = None,
                  web_test_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):

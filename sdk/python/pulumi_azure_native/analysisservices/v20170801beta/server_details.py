@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -223,17 +228,17 @@ class ServerDetails(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 as_administrators: Optional[pulumi.Input[pulumi.InputType['ServerAdministratorsArgs']]] = None,
+                 as_administrators: Optional[pulumi.Input[Union['ServerAdministratorsArgs', 'ServerAdministratorsArgsDict']]] = None,
                  backup_blob_container_uri: Optional[pulumi.Input[str]] = None,
-                 gateway_details: Optional[pulumi.Input[pulumi.InputType['GatewayDetailsArgs']]] = None,
-                 ip_v4_firewall_settings: Optional[pulumi.Input[pulumi.InputType['IPv4FirewallSettingsArgs']]] = None,
+                 gateway_details: Optional[pulumi.Input[Union['GatewayDetailsArgs', 'GatewayDetailsArgsDict']]] = None,
+                 ip_v4_firewall_settings: Optional[pulumi.Input[Union['IPv4FirewallSettingsArgs', 'IPv4FirewallSettingsArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  managed_mode: Optional[pulumi.Input[int]] = None,
                  querypool_connection_mode: Optional[pulumi.Input['ConnectionMode']] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  server_monitor_mode: Optional[pulumi.Input[int]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['ResourceSkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['ResourceSkuArgs', 'ResourceSkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -241,17 +246,17 @@ class ServerDetails(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ServerAdministratorsArgs']] as_administrators: A collection of AS server administrators
+        :param pulumi.Input[Union['ServerAdministratorsArgs', 'ServerAdministratorsArgsDict']] as_administrators: A collection of AS server administrators
         :param pulumi.Input[str] backup_blob_container_uri: The SAS container URI to the backup container.
-        :param pulumi.Input[pulumi.InputType['GatewayDetailsArgs']] gateway_details: The gateway details configured for the AS server.
-        :param pulumi.Input[pulumi.InputType['IPv4FirewallSettingsArgs']] ip_v4_firewall_settings: The firewall settings for the AS server.
+        :param pulumi.Input[Union['GatewayDetailsArgs', 'GatewayDetailsArgsDict']] gateway_details: The gateway details configured for the AS server.
+        :param pulumi.Input[Union['IPv4FirewallSettingsArgs', 'IPv4FirewallSettingsArgsDict']] ip_v4_firewall_settings: The firewall settings for the AS server.
         :param pulumi.Input[str] location: Location of the Analysis Services resource.
         :param pulumi.Input[int] managed_mode: The managed mode of the server (0 = not managed, 1 = managed).
         :param pulumi.Input['ConnectionMode'] querypool_connection_mode: How the read-write server's participation in the query pool is controlled.<br/>It can have the following values: <ul><li>readOnly - indicates that the read-write server is intended not to participate in query operations</li><li>all - indicates that the read-write server can participate in query operations</li></ul>Specifying readOnly when capacity is 1 results in error.
         :param pulumi.Input[str] resource_group_name: The name of the Azure Resource group of which a given Analysis Services server is part. This name must be at least 1 character in length, and no more than 90.
         :param pulumi.Input[int] server_monitor_mode: The server monitor mode for AS server
         :param pulumi.Input[str] server_name: The name of the Analysis Services server. It must be a minimum of 3 characters, and a maximum of 63.
-        :param pulumi.Input[pulumi.InputType['ResourceSkuArgs']] sku: The SKU of the Analysis Services resource.
+        :param pulumi.Input[Union['ResourceSkuArgs', 'ResourceSkuArgsDict']] sku: The SKU of the Analysis Services resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pairs of additional resource provisioning properties.
         """
         ...
@@ -278,17 +283,17 @@ class ServerDetails(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 as_administrators: Optional[pulumi.Input[pulumi.InputType['ServerAdministratorsArgs']]] = None,
+                 as_administrators: Optional[pulumi.Input[Union['ServerAdministratorsArgs', 'ServerAdministratorsArgsDict']]] = None,
                  backup_blob_container_uri: Optional[pulumi.Input[str]] = None,
-                 gateway_details: Optional[pulumi.Input[pulumi.InputType['GatewayDetailsArgs']]] = None,
-                 ip_v4_firewall_settings: Optional[pulumi.Input[pulumi.InputType['IPv4FirewallSettingsArgs']]] = None,
+                 gateway_details: Optional[pulumi.Input[Union['GatewayDetailsArgs', 'GatewayDetailsArgsDict']]] = None,
+                 ip_v4_firewall_settings: Optional[pulumi.Input[Union['IPv4FirewallSettingsArgs', 'IPv4FirewallSettingsArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  managed_mode: Optional[pulumi.Input[int]] = None,
                  querypool_connection_mode: Optional[pulumi.Input['ConnectionMode']] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  server_monitor_mode: Optional[pulumi.Input[int]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['ResourceSkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['ResourceSkuArgs', 'ResourceSkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

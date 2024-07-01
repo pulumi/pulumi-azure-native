@@ -4,16 +4,41 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'NameValuePairArgs',
+    'NameValuePairArgsDict',
     'VirtualNetworkProfileArgs',
+    'VirtualNetworkProfileArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class NameValuePairArgsDict(TypedDict):
+        """
+        Name value pair.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Pair name.
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        Pair value.
+        """
+elif False:
+    NameValuePairArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NameValuePairArgs:
@@ -54,6 +79,22 @@ class NameValuePairArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class VirtualNetworkProfileArgsDict(TypedDict):
+        """
+        Specification for using a Virtual Network.
+        """
+        id: pulumi.Input[str]
+        """
+        Resource id of the Virtual Network.
+        """
+        subnet: NotRequired[pulumi.Input[str]]
+        """
+        Subnet within the Virtual Network.
+        """
+elif False:
+    VirtualNetworkProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VirtualNetworkProfileArgs:

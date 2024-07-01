@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -87,7 +92,7 @@ class MonitoringConfig(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
-                 metric_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricConfigurationArgs']]]]] = None,
+                 metric_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MetricConfigurationArgs', 'MetricConfigurationArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  role_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -97,7 +102,7 @@ class MonitoringConfig(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] device_name: The device name.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricConfigurationArgs']]]] metric_configurations: The metrics configuration details
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MetricConfigurationArgs', 'MetricConfigurationArgsDict']]]] metric_configurations: The metrics configuration details
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[str] role_name: The role name.
         """
@@ -126,7 +131,7 @@ class MonitoringConfig(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
-                 metric_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricConfigurationArgs']]]]] = None,
+                 metric_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MetricConfigurationArgs', 'MetricConfigurationArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  role_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):

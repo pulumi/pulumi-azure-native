@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -233,7 +238,7 @@ class AppServiceEnvironment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NameValuePairArgs']]]]] = None,
+                 cluster_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NameValuePairArgs', 'NameValuePairArgsDict']]]]] = None,
                  dns_suffix: Optional[pulumi.Input[str]] = None,
                  front_end_scale_factor: Optional[pulumi.Input[int]] = None,
                  internal_load_balancing_mode: Optional[pulumi.Input[Union[str, 'LoadBalancingMode']]] = None,
@@ -245,14 +250,14 @@ class AppServiceEnvironment(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  user_whitelisted_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 virtual_network: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkProfileArgs']]] = None,
+                 virtual_network: Optional[pulumi.Input[Union['VirtualNetworkProfileArgs', 'VirtualNetworkProfileArgsDict']]] = None,
                  __props__=None):
         """
         App Service Environment ARM resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NameValuePairArgs']]]] cluster_settings: Custom settings for changing the behavior of the App Service Environment.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NameValuePairArgs', 'NameValuePairArgsDict']]]] cluster_settings: Custom settings for changing the behavior of the App Service Environment.
         :param pulumi.Input[str] dns_suffix: DNS suffix of the App Service Environment.
         :param pulumi.Input[int] front_end_scale_factor: Scale factor for front-ends.
         :param pulumi.Input[Union[str, 'LoadBalancingMode']] internal_load_balancing_mode: Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment.
@@ -264,7 +269,7 @@ class AppServiceEnvironment(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_whitelisted_ip_ranges: User added list of IP Ranges allowed on ASE db
-        :param pulumi.Input[pulumi.InputType['VirtualNetworkProfileArgs']] virtual_network: Description of the Virtual Network.
+        :param pulumi.Input[Union['VirtualNetworkProfileArgs', 'VirtualNetworkProfileArgsDict']] virtual_network: Description of the Virtual Network.
         """
         ...
     @overload
@@ -290,7 +295,7 @@ class AppServiceEnvironment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NameValuePairArgs']]]]] = None,
+                 cluster_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NameValuePairArgs', 'NameValuePairArgsDict']]]]] = None,
                  dns_suffix: Optional[pulumi.Input[str]] = None,
                  front_end_scale_factor: Optional[pulumi.Input[int]] = None,
                  internal_load_balancing_mode: Optional[pulumi.Input[Union[str, 'LoadBalancingMode']]] = None,
@@ -302,7 +307,7 @@ class AppServiceEnvironment(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  user_whitelisted_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 virtual_network: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkProfileArgs']]] = None,
+                 virtual_network: Optional[pulumi.Input[Union['VirtualNetworkProfileArgs', 'VirtualNetworkProfileArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

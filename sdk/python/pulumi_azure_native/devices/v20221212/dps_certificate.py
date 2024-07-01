@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -89,7 +94,7 @@ class DpsCertificate(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  certificate_name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['CertificatePropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['CertificatePropertiesArgs', 'CertificatePropertiesArgsDict']]] = None,
                  provisioning_service_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -99,7 +104,7 @@ class DpsCertificate(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] certificate_name: The name of the certificate create or update.
-        :param pulumi.Input[pulumi.InputType['CertificatePropertiesArgs']] properties: properties of a certificate
+        :param pulumi.Input[Union['CertificatePropertiesArgs', 'CertificatePropertiesArgsDict']] properties: properties of a certificate
         :param pulumi.Input[str] provisioning_service_name: The name of the provisioning service.
         :param pulumi.Input[str] resource_group_name: Resource group identifier.
         """
@@ -128,7 +133,7 @@ class DpsCertificate(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  certificate_name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['CertificatePropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['CertificatePropertiesArgs', 'CertificatePropertiesArgsDict']]] = None,
                  provisioning_service_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):

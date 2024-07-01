@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -546,10 +551,10 @@ class ThreatIntelligenceIndicator(pulumi.CustomResource):
                  extensions: Optional[Any] = None,
                  external_id: Optional[pulumi.Input[str]] = None,
                  external_last_updated_time_utc: Optional[pulumi.Input[str]] = None,
-                 external_references: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThreatIntelligenceExternalReferenceArgs']]]]] = None,
-                 granular_markings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThreatIntelligenceGranularMarkingModelArgs']]]]] = None,
+                 external_references: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ThreatIntelligenceExternalReferenceArgs', 'ThreatIntelligenceExternalReferenceArgsDict']]]]] = None,
+                 granular_markings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ThreatIntelligenceGranularMarkingModelArgs', 'ThreatIntelligenceGranularMarkingModelArgsDict']]]]] = None,
                  indicator_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 kill_chain_phases: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThreatIntelligenceKillChainPhaseArgs']]]]] = None,
+                 kill_chain_phases: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ThreatIntelligenceKillChainPhaseArgs', 'ThreatIntelligenceKillChainPhaseArgsDict']]]]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  labels: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  language: Optional[pulumi.Input[str]] = None,
@@ -557,7 +562,7 @@ class ThreatIntelligenceIndicator(pulumi.CustomResource):
                  modified: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  object_marking_refs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 parsed_pattern: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThreatIntelligenceParsedPatternArgs']]]]] = None,
+                 parsed_pattern: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ThreatIntelligenceParsedPatternArgs', 'ThreatIntelligenceParsedPatternArgsDict']]]]] = None,
                  pattern: Optional[pulumi.Input[str]] = None,
                  pattern_type: Optional[pulumi.Input[str]] = None,
                  pattern_version: Optional[pulumi.Input[str]] = None,
@@ -587,10 +592,10 @@ class ThreatIntelligenceIndicator(pulumi.CustomResource):
         :param Any extensions: Extensions map
         :param pulumi.Input[str] external_id: External ID of threat intelligence entity
         :param pulumi.Input[str] external_last_updated_time_utc: External last updated time in UTC
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThreatIntelligenceExternalReferenceArgs']]]] external_references: External References
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThreatIntelligenceGranularMarkingModelArgs']]]] granular_markings: Granular Markings
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ThreatIntelligenceExternalReferenceArgs', 'ThreatIntelligenceExternalReferenceArgsDict']]]] external_references: External References
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ThreatIntelligenceGranularMarkingModelArgs', 'ThreatIntelligenceGranularMarkingModelArgsDict']]]] granular_markings: Granular Markings
         :param pulumi.Input[Sequence[pulumi.Input[str]]] indicator_types: Indicator types of threat intelligence entities
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThreatIntelligenceKillChainPhaseArgs']]]] kill_chain_phases: Kill chain phases
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ThreatIntelligenceKillChainPhaseArgs', 'ThreatIntelligenceKillChainPhaseArgsDict']]]] kill_chain_phases: Kill chain phases
         :param pulumi.Input[str] kind: The kind of the threat intelligence entity
                Expected value is 'indicator'.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] labels: Labels  of threat intelligence entity
@@ -599,7 +604,7 @@ class ThreatIntelligenceIndicator(pulumi.CustomResource):
         :param pulumi.Input[str] modified: Modified by
         :param pulumi.Input[str] name: Threat intelligence indicator name field.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] object_marking_refs: Threat intelligence entity object marking references
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThreatIntelligenceParsedPatternArgs']]]] parsed_pattern: Parsed patterns
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ThreatIntelligenceParsedPatternArgs', 'ThreatIntelligenceParsedPatternArgsDict']]]] parsed_pattern: Parsed patterns
         :param pulumi.Input[str] pattern: Pattern of a threat intelligence entity
         :param pulumi.Input[str] pattern_type: Pattern type of a threat intelligence entity
         :param pulumi.Input[str] pattern_version: Pattern version of a threat intelligence entity
@@ -648,10 +653,10 @@ class ThreatIntelligenceIndicator(pulumi.CustomResource):
                  extensions: Optional[Any] = None,
                  external_id: Optional[pulumi.Input[str]] = None,
                  external_last_updated_time_utc: Optional[pulumi.Input[str]] = None,
-                 external_references: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThreatIntelligenceExternalReferenceArgs']]]]] = None,
-                 granular_markings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThreatIntelligenceGranularMarkingModelArgs']]]]] = None,
+                 external_references: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ThreatIntelligenceExternalReferenceArgs', 'ThreatIntelligenceExternalReferenceArgsDict']]]]] = None,
+                 granular_markings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ThreatIntelligenceGranularMarkingModelArgs', 'ThreatIntelligenceGranularMarkingModelArgsDict']]]]] = None,
                  indicator_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 kill_chain_phases: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThreatIntelligenceKillChainPhaseArgs']]]]] = None,
+                 kill_chain_phases: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ThreatIntelligenceKillChainPhaseArgs', 'ThreatIntelligenceKillChainPhaseArgsDict']]]]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  labels: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  language: Optional[pulumi.Input[str]] = None,
@@ -659,7 +664,7 @@ class ThreatIntelligenceIndicator(pulumi.CustomResource):
                  modified: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  object_marking_refs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 parsed_pattern: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThreatIntelligenceParsedPatternArgs']]]]] = None,
+                 parsed_pattern: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ThreatIntelligenceParsedPatternArgs', 'ThreatIntelligenceParsedPatternArgsDict']]]]] = None,
                  pattern: Optional[pulumi.Input[str]] = None,
                  pattern_type: Optional[pulumi.Input[str]] = None,
                  pattern_version: Optional[pulumi.Input[str]] = None,

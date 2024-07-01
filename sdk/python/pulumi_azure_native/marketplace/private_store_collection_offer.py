@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -157,7 +162,7 @@ class PrivateStoreCollectionOffer(pulumi.CustomResource):
                  e_tag: Optional[pulumi.Input[str]] = None,
                  icon_file_uris: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  offer_id: Optional[pulumi.Input[str]] = None,
-                 plans: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PlanArgs']]]]] = None,
+                 plans: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PlanArgs', 'PlanArgsDict']]]]] = None,
                  private_store_id: Optional[pulumi.Input[str]] = None,
                  specific_plan_ids_limitation: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  update_suppressed_due_idempotence: Optional[pulumi.Input[bool]] = None,
@@ -172,7 +177,7 @@ class PrivateStoreCollectionOffer(pulumi.CustomResource):
         :param pulumi.Input[str] e_tag: Identifier for purposes of race condition
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] icon_file_uris: Icon File Uris
         :param pulumi.Input[str] offer_id: The offer ID to update or delete
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PlanArgs']]]] plans: Offer plans
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PlanArgs', 'PlanArgsDict']]]] plans: Offer plans
         :param pulumi.Input[str] private_store_id: The store ID - must use the tenant ID
         :param pulumi.Input[Sequence[pulumi.Input[str]]] specific_plan_ids_limitation: Plan ids limitation for this offer
         :param pulumi.Input[bool] update_suppressed_due_idempotence: Indicating whether the offer was not updated to db (true = not updated). If the allow list is identical to the existed one in db, the offer would not be updated.
@@ -206,7 +211,7 @@ class PrivateStoreCollectionOffer(pulumi.CustomResource):
                  e_tag: Optional[pulumi.Input[str]] = None,
                  icon_file_uris: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  offer_id: Optional[pulumi.Input[str]] = None,
-                 plans: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PlanArgs']]]]] = None,
+                 plans: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PlanArgs', 'PlanArgsDict']]]]] = None,
                  private_store_id: Optional[pulumi.Input[str]] = None,
                  specific_plan_ids_limitation: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  update_suppressed_due_idempotence: Optional[pulumi.Input[bool]] = None,

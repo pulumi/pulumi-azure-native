@@ -4,70 +4,149 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'ACIServiceCreateRequestDataCollectionArgs',
+    'ACIServiceCreateRequestDataCollectionArgsDict',
     'ACIServiceCreateRequestEncryptionPropertiesArgs',
+    'ACIServiceCreateRequestEncryptionPropertiesArgsDict',
     'ACIServiceCreateRequestVnetConfigurationArgs',
+    'ACIServiceCreateRequestVnetConfigurationArgsDict',
     'AKSPropertiesArgs',
+    'AKSPropertiesArgsDict',
     'AKSServiceCreateRequestAutoScalerArgs',
+    'AKSServiceCreateRequestAutoScalerArgsDict',
     'AKSServiceCreateRequestDataCollectionArgs',
+    'AKSServiceCreateRequestDataCollectionArgsDict',
     'AKSServiceCreateRequestLivenessProbeRequirementsArgs',
+    'AKSServiceCreateRequestLivenessProbeRequirementsArgsDict',
     'AKSArgs',
+    'AKSArgsDict',
     'AksNetworkingConfigurationArgs',
+    'AksNetworkingConfigurationArgsDict',
     'AmlComputePropertiesArgs',
+    'AmlComputePropertiesArgsDict',
     'AmlComputeArgs',
+    'AmlComputeArgsDict',
     'AssignedUserArgs',
+    'AssignedUserArgsDict',
     'AutoPausePropertiesArgs',
+    'AutoPausePropertiesArgsDict',
     'AutoScalePropertiesArgs',
+    'AutoScalePropertiesArgsDict',
     'ComputeInstancePropertiesArgs',
+    'ComputeInstancePropertiesArgsDict',
     'ComputeInstanceSshSettingsArgs',
+    'ComputeInstanceSshSettingsArgsDict',
     'ComputeInstanceArgs',
+    'ComputeInstanceArgsDict',
     'ContainerResourceRequirementsArgs',
+    'ContainerResourceRequirementsArgsDict',
     'CreateServiceRequestEnvironmentImageRequestArgs',
+    'CreateServiceRequestEnvironmentImageRequestArgsDict',
     'CreateServiceRequestKeysArgs',
+    'CreateServiceRequestKeysArgsDict',
     'DataFactoryArgs',
+    'DataFactoryArgsDict',
     'DataLakeAnalyticsPropertiesArgs',
+    'DataLakeAnalyticsPropertiesArgsDict',
     'DataLakeAnalyticsArgs',
+    'DataLakeAnalyticsArgsDict',
     'DatabricksPropertiesArgs',
+    'DatabricksPropertiesArgsDict',
     'DatabricksArgs',
+    'DatabricksArgsDict',
     'DatasetReferenceArgs',
+    'DatasetReferenceArgsDict',
     'EnvironmentImageRequestEnvironmentReferenceArgs',
+    'EnvironmentImageRequestEnvironmentReferenceArgsDict',
     'EnvironmentImageRequestEnvironmentArgs',
+    'EnvironmentImageRequestEnvironmentArgsDict',
     'HDInsightPropertiesArgs',
+    'HDInsightPropertiesArgsDict',
     'HDInsightArgs',
+    'HDInsightArgsDict',
     'IdentityArgs',
+    'IdentityArgsDict',
     'ImageAssetArgs',
+    'ImageAssetArgsDict',
     'ModelDockerSectionBaseImageRegistryArgs',
+    'ModelDockerSectionBaseImageRegistryArgsDict',
     'ModelEnvironmentDefinitionDockerArgs',
+    'ModelEnvironmentDefinitionDockerArgsDict',
     'ModelEnvironmentDefinitionPythonArgs',
+    'ModelEnvironmentDefinitionPythonArgsDict',
     'ModelEnvironmentDefinitionRArgs',
+    'ModelEnvironmentDefinitionRArgsDict',
     'ModelEnvironmentDefinitionSparkArgs',
+    'ModelEnvironmentDefinitionSparkArgsDict',
     'ModelArgs',
+    'ModelArgsDict',
     'PersonalComputeInstanceSettingsArgs',
+    'PersonalComputeInstanceSettingsArgsDict',
     'RCranPackageArgs',
+    'RCranPackageArgsDict',
     'RGitHubPackageArgs',
+    'RGitHubPackageArgsDict',
     'ResourceIdArgs',
+    'ResourceIdArgsDict',
     'ScaleSettingsArgs',
+    'ScaleSettingsArgsDict',
     'ScriptReferenceArgs',
+    'ScriptReferenceArgsDict',
     'ScriptsToExecuteArgs',
+    'ScriptsToExecuteArgsDict',
     'SetupScriptsArgs',
+    'SetupScriptsArgsDict',
     'SkuArgs',
+    'SkuArgsDict',
     'SparkMavenPackageArgs',
+    'SparkMavenPackageArgsDict',
     'SslConfigurationArgs',
+    'SslConfigurationArgsDict',
     'SynapseSparkPoolPropertiesPropertiesArgs',
+    'SynapseSparkPoolPropertiesPropertiesArgsDict',
     'SynapseSparkArgs',
+    'SynapseSparkArgsDict',
     'UserAccountCredentialsArgs',
+    'UserAccountCredentialsArgsDict',
     'VirtualMachineImageArgs',
+    'VirtualMachineImageArgsDict',
     'VirtualMachinePropertiesArgs',
+    'VirtualMachinePropertiesArgsDict',
     'VirtualMachineSshCredentialsArgs',
+    'VirtualMachineSshCredentialsArgsDict',
     'VirtualMachineArgs',
+    'VirtualMachineArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ACIServiceCreateRequestDataCollectionArgsDict(TypedDict):
+        """
+        Details of the data collection options specified.
+        """
+        event_hub_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Option for enabling/disabling Event Hub.
+        """
+        storage_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Option for enabling/disabling storage.
+        """
+elif False:
+    ACIServiceCreateRequestDataCollectionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ACIServiceCreateRequestDataCollectionArgs:
@@ -108,6 +187,26 @@ class ACIServiceCreateRequestDataCollectionArgs:
     def storage_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "storage_enabled", value)
 
+
+if not MYPY:
+    class ACIServiceCreateRequestEncryptionPropertiesArgsDict(TypedDict):
+        """
+        The encryption properties.
+        """
+        key_name: pulumi.Input[str]
+        """
+        Encryption Key name
+        """
+        key_version: pulumi.Input[str]
+        """
+        Encryption Key Version
+        """
+        vault_base_url: pulumi.Input[str]
+        """
+        vault base Url
+        """
+elif False:
+    ACIServiceCreateRequestEncryptionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ACIServiceCreateRequestEncryptionPropertiesArgs:
@@ -162,6 +261,22 @@ class ACIServiceCreateRequestEncryptionPropertiesArgs:
         pulumi.set(self, "vault_base_url", value)
 
 
+if not MYPY:
+    class ACIServiceCreateRequestVnetConfigurationArgsDict(TypedDict):
+        """
+        The virtual network configuration.
+        """
+        subnet_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the virtual network subnet.
+        """
+        vnet_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the virtual network.
+        """
+elif False:
+    ACIServiceCreateRequestVnetConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ACIServiceCreateRequestVnetConfigurationArgs:
     def __init__(__self__, *,
@@ -201,6 +316,46 @@ class ACIServiceCreateRequestVnetConfigurationArgs:
     def vnet_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "vnet_name", value)
 
+
+if not MYPY:
+    class AKSPropertiesArgsDict(TypedDict):
+        """
+        AKS properties
+        """
+        agent_count: NotRequired[pulumi.Input[int]]
+        """
+        Number of agents
+        """
+        agent_vm_size: NotRequired[pulumi.Input[str]]
+        """
+        Agent virtual machine size
+        """
+        aks_networking_configuration: NotRequired[pulumi.Input['AksNetworkingConfigurationArgsDict']]
+        """
+        AKS networking configuration for vnet
+        """
+        cluster_fqdn: NotRequired[pulumi.Input[str]]
+        """
+        Cluster full qualified domain name
+        """
+        cluster_purpose: NotRequired[pulumi.Input[Union[str, 'ClusterPurpose']]]
+        """
+        Intended usage of the cluster
+        """
+        load_balancer_subnet: NotRequired[pulumi.Input[str]]
+        """
+        Load Balancer Subnet
+        """
+        load_balancer_type: NotRequired[pulumi.Input[Union[str, 'LoadBalancerType']]]
+        """
+        Load Balancer Type
+        """
+        ssl_configuration: NotRequired[pulumi.Input['SslConfigurationArgsDict']]
+        """
+        SSL configuration
+        """
+elif False:
+    AKSPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AKSPropertiesArgs:
@@ -342,6 +497,34 @@ class AKSPropertiesArgs:
         pulumi.set(self, "ssl_configuration", value)
 
 
+if not MYPY:
+    class AKSServiceCreateRequestAutoScalerArgsDict(TypedDict):
+        """
+        The auto scaler properties.
+        """
+        autoscale_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Option to enable/disable auto scaling.
+        """
+        max_replicas: NotRequired[pulumi.Input[int]]
+        """
+        The maximum number of replicas in the cluster.
+        """
+        min_replicas: NotRequired[pulumi.Input[int]]
+        """
+        The minimum number of replicas to scale down to.
+        """
+        refresh_period_in_seconds: NotRequired[pulumi.Input[int]]
+        """
+        The amount of seconds to wait between auto scale updates.
+        """
+        target_utilization: NotRequired[pulumi.Input[int]]
+        """
+        The target utilization percentage to use for determining whether to scale the cluster.
+        """
+elif False:
+    AKSServiceCreateRequestAutoScalerArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AKSServiceCreateRequestAutoScalerArgs:
     def __init__(__self__, *,
@@ -430,6 +613,22 @@ class AKSServiceCreateRequestAutoScalerArgs:
         pulumi.set(self, "target_utilization", value)
 
 
+if not MYPY:
+    class AKSServiceCreateRequestDataCollectionArgsDict(TypedDict):
+        """
+        Details of the data collection options specified.
+        """
+        event_hub_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Option for enabling/disabling Event Hub.
+        """
+        storage_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Option for enabling/disabling storage.
+        """
+elif False:
+    AKSServiceCreateRequestDataCollectionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AKSServiceCreateRequestDataCollectionArgs:
     def __init__(__self__, *,
@@ -469,6 +668,34 @@ class AKSServiceCreateRequestDataCollectionArgs:
     def storage_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "storage_enabled", value)
 
+
+if not MYPY:
+    class AKSServiceCreateRequestLivenessProbeRequirementsArgsDict(TypedDict):
+        """
+        The liveness probe requirements.
+        """
+        failure_threshold: NotRequired[pulumi.Input[int]]
+        """
+        The number of failures to allow before returning an unhealthy status.
+        """
+        initial_delay_seconds: NotRequired[pulumi.Input[int]]
+        """
+        The delay before the first probe in seconds.
+        """
+        period_seconds: NotRequired[pulumi.Input[int]]
+        """
+        The length of time between probes in seconds.
+        """
+        success_threshold: NotRequired[pulumi.Input[int]]
+        """
+        The number of successful probes before returning a healthy status.
+        """
+        timeout_seconds: NotRequired[pulumi.Input[int]]
+        """
+        The probe timeout in seconds.
+        """
+elif False:
+    AKSServiceCreateRequestLivenessProbeRequirementsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AKSServiceCreateRequestLivenessProbeRequirementsArgs:
@@ -557,6 +784,39 @@ class AKSServiceCreateRequestLivenessProbeRequirementsArgs:
     def timeout_seconds(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "timeout_seconds", value)
 
+
+if not MYPY:
+    class AKSArgsDict(TypedDict):
+        """
+        A Machine Learning compute based on AKS.
+        """
+        compute_type: pulumi.Input[str]
+        """
+        The type of compute
+        Expected value is 'AKS'.
+        """
+        compute_location: NotRequired[pulumi.Input[str]]
+        """
+        Location for the underlying compute
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The description of the Machine Learning compute.
+        """
+        disable_local_auth: NotRequired[pulumi.Input[bool]]
+        """
+        Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
+        """
+        properties: NotRequired[pulumi.Input['AKSPropertiesArgsDict']]
+        """
+        AKS properties
+        """
+        resource_id: NotRequired[pulumi.Input[str]]
+        """
+        ARM resource id of the underlying compute
+        """
+elif False:
+    AKSArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AKSArgs:
@@ -663,6 +923,30 @@ class AKSArgs:
         pulumi.set(self, "resource_id", value)
 
 
+if not MYPY:
+    class AksNetworkingConfigurationArgsDict(TypedDict):
+        """
+        Advance configuration for AKS networking
+        """
+        dns_service_ip: NotRequired[pulumi.Input[str]]
+        """
+        An IP address assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range specified in serviceCidr.
+        """
+        docker_bridge_cidr: NotRequired[pulumi.Input[str]]
+        """
+        A CIDR notation IP range assigned to the Docker bridge network. It must not overlap with any Subnet IP ranges or the Kubernetes service address range.
+        """
+        service_cidr: NotRequired[pulumi.Input[str]]
+        """
+        A CIDR notation IP range from which to assign service cluster IPs. It must not overlap with any Subnet IP ranges.
+        """
+        subnet_id: NotRequired[pulumi.Input[str]]
+        """
+        Virtual network subnet resource ID the compute nodes belong to
+        """
+elif False:
+    AksNetworkingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AksNetworkingConfigurationArgs:
     def __init__(__self__, *,
@@ -734,6 +1018,54 @@ class AksNetworkingConfigurationArgs:
     def subnet_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "subnet_id", value)
 
+
+if not MYPY:
+    class AmlComputePropertiesArgsDict(TypedDict):
+        """
+        AML Compute properties
+        """
+        enable_node_public_ip: NotRequired[pulumi.Input[bool]]
+        """
+        Enable or disable node public IP address provisioning. Possible values are: Possible values are: true - Indicates that the compute nodes will have public IPs provisioned. false - Indicates that the compute nodes will have a private endpoint and no public IPs.
+        """
+        isolated_network: NotRequired[pulumi.Input[bool]]
+        """
+        Network is isolated or not
+        """
+        os_type: NotRequired[pulumi.Input[Union[str, 'OsType']]]
+        """
+        Compute OS Type
+        """
+        remote_login_port_public_access: NotRequired[pulumi.Input[Union[str, 'RemoteLoginPortPublicAccess']]]
+        """
+        State of the public SSH port. Possible values are: Disabled - Indicates that the public ssh port is closed on all nodes of the cluster. Enabled - Indicates that the public ssh port is open on all nodes of the cluster. NotSpecified - Indicates that the public ssh port is closed on all nodes of the cluster if VNet is defined, else is open all public nodes. It can be default only during cluster creation time, after creation it will be either enabled or disabled.
+        """
+        scale_settings: NotRequired[pulumi.Input['ScaleSettingsArgsDict']]
+        """
+        Scale settings for AML Compute
+        """
+        subnet: NotRequired[pulumi.Input['ResourceIdArgsDict']]
+        """
+        Virtual network subnet resource ID the compute nodes belong to.
+        """
+        user_account_credentials: NotRequired[pulumi.Input['UserAccountCredentialsArgsDict']]
+        """
+        Credentials for an administrator user account that will be created on each compute node.
+        """
+        virtual_machine_image: NotRequired[pulumi.Input['VirtualMachineImageArgsDict']]
+        """
+        Virtual Machine image for AML Compute - windows only
+        """
+        vm_priority: NotRequired[pulumi.Input[Union[str, 'VmPriority']]]
+        """
+        Virtual Machine priority
+        """
+        vm_size: NotRequired[pulumi.Input[str]]
+        """
+        Virtual Machine Size
+        """
+elif False:
+    AmlComputePropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AmlComputePropertiesArgs:
@@ -909,6 +1241,39 @@ class AmlComputePropertiesArgs:
         pulumi.set(self, "vm_size", value)
 
 
+if not MYPY:
+    class AmlComputeArgsDict(TypedDict):
+        """
+        An Azure Machine Learning compute.
+        """
+        compute_type: pulumi.Input[str]
+        """
+        The type of compute
+        Expected value is 'AmlCompute'.
+        """
+        compute_location: NotRequired[pulumi.Input[str]]
+        """
+        Location for the underlying compute
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The description of the Machine Learning compute.
+        """
+        disable_local_auth: NotRequired[pulumi.Input[bool]]
+        """
+        Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
+        """
+        properties: NotRequired[pulumi.Input['AmlComputePropertiesArgsDict']]
+        """
+        AML Compute properties
+        """
+        resource_id: NotRequired[pulumi.Input[str]]
+        """
+        ARM resource id of the underlying compute
+        """
+elif False:
+    AmlComputeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AmlComputeArgs:
     def __init__(__self__, *,
@@ -1014,6 +1379,22 @@ class AmlComputeArgs:
         pulumi.set(self, "resource_id", value)
 
 
+if not MYPY:
+    class AssignedUserArgsDict(TypedDict):
+        """
+        A user that can be assigned to a compute instance.
+        """
+        object_id: pulumi.Input[str]
+        """
+        User’s AAD Object Id.
+        """
+        tenant_id: pulumi.Input[str]
+        """
+        User’s AAD Tenant Id.
+        """
+elif False:
+    AssignedUserArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AssignedUserArgs:
     def __init__(__self__, *,
@@ -1052,6 +1433,16 @@ class AssignedUserArgs:
         pulumi.set(self, "tenant_id", value)
 
 
+if not MYPY:
+    class AutoPausePropertiesArgsDict(TypedDict):
+        """
+        Auto pause properties
+        """
+        delay_in_minutes: NotRequired[pulumi.Input[int]]
+        enabled: NotRequired[pulumi.Input[bool]]
+elif False:
+    AutoPausePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AutoPausePropertiesArgs:
     def __init__(__self__, *,
@@ -1083,6 +1474,17 @@ class AutoPausePropertiesArgs:
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
 
+
+if not MYPY:
+    class AutoScalePropertiesArgsDict(TypedDict):
+        """
+        Auto scale properties
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        max_node_count: NotRequired[pulumi.Input[int]]
+        min_node_count: NotRequired[pulumi.Input[int]]
+elif False:
+    AutoScalePropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AutoScalePropertiesArgs:
@@ -1127,6 +1529,42 @@ class AutoScalePropertiesArgs:
     def min_node_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "min_node_count", value)
 
+
+if not MYPY:
+    class ComputeInstancePropertiesArgsDict(TypedDict):
+        """
+        Compute Instance properties
+        """
+        application_sharing_policy: NotRequired[pulumi.Input[Union[str, 'ApplicationSharingPolicy']]]
+        """
+        Policy for sharing applications on this compute instance among users of parent workspace. If Personal, only the creator can access applications on this compute instance. When Shared, any workspace user can access applications on this instance depending on his/her assigned role.
+        """
+        compute_instance_authorization_type: NotRequired[pulumi.Input[Union[str, 'ComputeInstanceAuthorizationType']]]
+        """
+        The Compute Instance Authorization type. Available values are personal (default).
+        """
+        personal_compute_instance_settings: NotRequired[pulumi.Input['PersonalComputeInstanceSettingsArgsDict']]
+        """
+        Settings for a personal compute instance.
+        """
+        setup_scripts: NotRequired[pulumi.Input['SetupScriptsArgsDict']]
+        """
+        Details of customized scripts to execute for setting up the cluster.
+        """
+        ssh_settings: NotRequired[pulumi.Input['ComputeInstanceSshSettingsArgsDict']]
+        """
+        Specifies policy and settings for SSH access.
+        """
+        subnet: NotRequired[pulumi.Input['ResourceIdArgsDict']]
+        """
+        Virtual network subnet resource ID the compute nodes belong to.
+        """
+        vm_size: NotRequired[pulumi.Input[str]]
+        """
+        Virtual Machine Size
+        """
+elif False:
+    ComputeInstancePropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ComputeInstancePropertiesArgs:
@@ -1252,6 +1690,22 @@ class ComputeInstancePropertiesArgs:
         pulumi.set(self, "vm_size", value)
 
 
+if not MYPY:
+    class ComputeInstanceSshSettingsArgsDict(TypedDict):
+        """
+        Specifies policy and settings for SSH access.
+        """
+        admin_public_key: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the SSH rsa public key file as a string. Use "ssh-keygen -t rsa -b 2048" to generate your SSH key pairs.
+        """
+        ssh_public_access: NotRequired[pulumi.Input[Union[str, 'SshPublicAccess']]]
+        """
+        State of the public SSH port. Possible values are: Disabled - Indicates that the public ssh port is closed on this instance. Enabled - Indicates that the public ssh port is open and accessible according to the VNet/subnet policy if applicable.
+        """
+elif False:
+    ComputeInstanceSshSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ComputeInstanceSshSettingsArgs:
     def __init__(__self__, *,
@@ -1293,6 +1747,39 @@ class ComputeInstanceSshSettingsArgs:
     def ssh_public_access(self, value: Optional[pulumi.Input[Union[str, 'SshPublicAccess']]]):
         pulumi.set(self, "ssh_public_access", value)
 
+
+if not MYPY:
+    class ComputeInstanceArgsDict(TypedDict):
+        """
+        An Azure Machine Learning compute instance.
+        """
+        compute_type: pulumi.Input[str]
+        """
+        The type of compute
+        Expected value is 'ComputeInstance'.
+        """
+        compute_location: NotRequired[pulumi.Input[str]]
+        """
+        Location for the underlying compute
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The description of the Machine Learning compute.
+        """
+        disable_local_auth: NotRequired[pulumi.Input[bool]]
+        """
+        Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
+        """
+        properties: NotRequired[pulumi.Input['ComputeInstancePropertiesArgsDict']]
+        """
+        Compute Instance properties
+        """
+        resource_id: NotRequired[pulumi.Input[str]]
+        """
+        ARM resource id of the underlying compute
+        """
+elif False:
+    ComputeInstanceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ComputeInstanceArgs:
@@ -1398,6 +1885,42 @@ class ComputeInstanceArgs:
     def resource_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "resource_id", value)
 
+
+if not MYPY:
+    class ContainerResourceRequirementsArgsDict(TypedDict):
+        """
+        The resource requirements for the container (cpu and memory).
+        """
+        cpu: NotRequired[pulumi.Input[float]]
+        """
+        The minimum amount of CPU cores to be used by the container. More info:
+        https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
+        """
+        cpu_limit: NotRequired[pulumi.Input[float]]
+        """
+        The maximum amount of CPU cores allowed to be used by the container. More info:
+        https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
+        """
+        fpga: NotRequired[pulumi.Input[int]]
+        """
+        The number of FPGA PCIE devices exposed to the container. Must be multiple of 2.
+        """
+        gpu: NotRequired[pulumi.Input[int]]
+        """
+        The number of GPU cores in the container.
+        """
+        memory_in_gb: NotRequired[pulumi.Input[float]]
+        """
+        The minimum amount of memory (in GB) to be used by the container. More info:
+        https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
+        """
+        memory_in_gb_limit: NotRequired[pulumi.Input[float]]
+        """
+        The maximum amount of memory (in GB) allowed to be used by the container. More info:
+        https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
+        """
+elif False:
+    ContainerResourceRequirementsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ContainerResourceRequirementsArgs:
@@ -1511,6 +2034,38 @@ class ContainerResourceRequirementsArgs:
         pulumi.set(self, "memory_in_gb_limit", value)
 
 
+if not MYPY:
+    class CreateServiceRequestEnvironmentImageRequestArgsDict(TypedDict):
+        """
+        The Environment, models and assets needed for inferencing.
+        """
+        assets: NotRequired[pulumi.Input[Sequence[pulumi.Input['ImageAssetArgsDict']]]]
+        """
+        The list of assets.
+        """
+        driver_program: NotRequired[pulumi.Input[str]]
+        """
+        The name of the driver file.
+        """
+        environment: NotRequired[pulumi.Input['EnvironmentImageRequestEnvironmentArgsDict']]
+        """
+        The details of the AZURE ML environment.
+        """
+        environment_reference: NotRequired[pulumi.Input['EnvironmentImageRequestEnvironmentReferenceArgsDict']]
+        """
+        The unique identifying details of the AZURE ML environment.
+        """
+        model_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of model Ids.
+        """
+        models: NotRequired[pulumi.Input[Sequence[pulumi.Input['ModelArgsDict']]]]
+        """
+        The list of models.
+        """
+elif False:
+    CreateServiceRequestEnvironmentImageRequestArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CreateServiceRequestEnvironmentImageRequestArgs:
     def __init__(__self__, *,
@@ -1615,6 +2170,22 @@ class CreateServiceRequestEnvironmentImageRequestArgs:
         pulumi.set(self, "models", value)
 
 
+if not MYPY:
+    class CreateServiceRequestKeysArgsDict(TypedDict):
+        """
+        The authentication keys.
+        """
+        primary_key: NotRequired[pulumi.Input[str]]
+        """
+        The primary key.
+        """
+        secondary_key: NotRequired[pulumi.Input[str]]
+        """
+        The secondary key.
+        """
+elif False:
+    CreateServiceRequestKeysArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CreateServiceRequestKeysArgs:
     def __init__(__self__, *,
@@ -1654,6 +2225,35 @@ class CreateServiceRequestKeysArgs:
     def secondary_key(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "secondary_key", value)
 
+
+if not MYPY:
+    class DataFactoryArgsDict(TypedDict):
+        """
+        A DataFactory compute.
+        """
+        compute_type: pulumi.Input[str]
+        """
+        The type of compute
+        Expected value is 'DataFactory'.
+        """
+        compute_location: NotRequired[pulumi.Input[str]]
+        """
+        Location for the underlying compute
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The description of the Machine Learning compute.
+        """
+        disable_local_auth: NotRequired[pulumi.Input[bool]]
+        """
+        Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
+        """
+        resource_id: NotRequired[pulumi.Input[str]]
+        """
+        ARM resource id of the underlying compute
+        """
+elif False:
+    DataFactoryArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataFactoryArgs:
@@ -1744,6 +2344,15 @@ class DataFactoryArgs:
         pulumi.set(self, "resource_id", value)
 
 
+if not MYPY:
+    class DataLakeAnalyticsPropertiesArgsDict(TypedDict):
+        data_lake_store_account_name: NotRequired[pulumi.Input[str]]
+        """
+        DataLake Store Account Name
+        """
+elif False:
+    DataLakeAnalyticsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DataLakeAnalyticsPropertiesArgs:
     def __init__(__self__, *,
@@ -1766,6 +2375,36 @@ class DataLakeAnalyticsPropertiesArgs:
     def data_lake_store_account_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "data_lake_store_account_name", value)
 
+
+if not MYPY:
+    class DataLakeAnalyticsArgsDict(TypedDict):
+        """
+        A DataLakeAnalytics compute.
+        """
+        compute_type: pulumi.Input[str]
+        """
+        The type of compute
+        Expected value is 'DataLakeAnalytics'.
+        """
+        compute_location: NotRequired[pulumi.Input[str]]
+        """
+        Location for the underlying compute
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The description of the Machine Learning compute.
+        """
+        disable_local_auth: NotRequired[pulumi.Input[bool]]
+        """
+        Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
+        """
+        properties: NotRequired[pulumi.Input['DataLakeAnalyticsPropertiesArgsDict']]
+        resource_id: NotRequired[pulumi.Input[str]]
+        """
+        ARM resource id of the underlying compute
+        """
+elif False:
+    DataLakeAnalyticsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataLakeAnalyticsArgs:
@@ -1868,6 +2507,19 @@ class DataLakeAnalyticsArgs:
         pulumi.set(self, "resource_id", value)
 
 
+if not MYPY:
+    class DatabricksPropertiesArgsDict(TypedDict):
+        databricks_access_token: NotRequired[pulumi.Input[str]]
+        """
+        Databricks access token
+        """
+        workspace_url: NotRequired[pulumi.Input[str]]
+        """
+        Workspace Url
+        """
+elif False:
+    DatabricksPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DatabricksPropertiesArgs:
     def __init__(__self__, *,
@@ -1906,6 +2558,36 @@ class DatabricksPropertiesArgs:
     def workspace_url(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "workspace_url", value)
 
+
+if not MYPY:
+    class DatabricksArgsDict(TypedDict):
+        """
+        A DataFactory compute.
+        """
+        compute_type: pulumi.Input[str]
+        """
+        The type of compute
+        Expected value is 'Databricks'.
+        """
+        compute_location: NotRequired[pulumi.Input[str]]
+        """
+        Location for the underlying compute
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The description of the Machine Learning compute.
+        """
+        disable_local_auth: NotRequired[pulumi.Input[bool]]
+        """
+        Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
+        """
+        properties: NotRequired[pulumi.Input['DatabricksPropertiesArgsDict']]
+        resource_id: NotRequired[pulumi.Input[str]]
+        """
+        ARM resource id of the underlying compute
+        """
+elif False:
+    DatabricksArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DatabricksArgs:
@@ -2008,6 +2690,22 @@ class DatabricksArgs:
         pulumi.set(self, "resource_id", value)
 
 
+if not MYPY:
+    class DatasetReferenceArgsDict(TypedDict):
+        """
+        The dataset reference object.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The id of the dataset reference.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the dataset reference.
+        """
+elif False:
+    DatasetReferenceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DatasetReferenceArgs:
     def __init__(__self__, *,
@@ -2048,6 +2746,22 @@ class DatasetReferenceArgs:
         pulumi.set(self, "name", value)
 
 
+if not MYPY:
+    class EnvironmentImageRequestEnvironmentReferenceArgsDict(TypedDict):
+        """
+        The unique identifying details of the AZURE ML environment.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the environment.
+        """
+        version: NotRequired[pulumi.Input[str]]
+        """
+        Version of the environment.
+        """
+elif False:
+    EnvironmentImageRequestEnvironmentReferenceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EnvironmentImageRequestEnvironmentReferenceArgs:
     def __init__(__self__, *,
@@ -2087,6 +2801,46 @@ class EnvironmentImageRequestEnvironmentReferenceArgs:
     def version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "version", value)
 
+
+if not MYPY:
+    class EnvironmentImageRequestEnvironmentArgsDict(TypedDict):
+        """
+        The details of the AZURE ML environment.
+        """
+        docker: NotRequired[pulumi.Input['ModelEnvironmentDefinitionDockerArgsDict']]
+        """
+        The definition of a Docker container.
+        """
+        environment_variables: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Definition of environment variables to be defined in the environment.
+        """
+        inferencing_stack_version: NotRequired[pulumi.Input[str]]
+        """
+        The inferencing stack version added to the image. To avoid adding an inferencing stack, do not set this value. Valid values: "latest".
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the environment.
+        """
+        python: NotRequired[pulumi.Input['ModelEnvironmentDefinitionPythonArgsDict']]
+        """
+        Settings for a Python environment.
+        """
+        r: NotRequired[pulumi.Input['ModelEnvironmentDefinitionRArgsDict']]
+        """
+        Settings for a R environment.
+        """
+        spark: NotRequired[pulumi.Input['ModelEnvironmentDefinitionSparkArgsDict']]
+        """
+        The configuration for a Spark environment.
+        """
+        version: NotRequired[pulumi.Input[str]]
+        """
+        The environment version.
+        """
+elif False:
+    EnvironmentImageRequestEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EnvironmentImageRequestEnvironmentArgs:
@@ -2224,6 +2978,23 @@ class EnvironmentImageRequestEnvironmentArgs:
         pulumi.set(self, "version", value)
 
 
+if not MYPY:
+    class HDInsightPropertiesArgsDict(TypedDict):
+        address: NotRequired[pulumi.Input[str]]
+        """
+        Public IP address of the master node of the cluster.
+        """
+        administrator_account: NotRequired[pulumi.Input['VirtualMachineSshCredentialsArgsDict']]
+        """
+        Admin credentials for master node of the cluster
+        """
+        ssh_port: NotRequired[pulumi.Input[int]]
+        """
+        Port open for ssh connections on the master node of the cluster.
+        """
+elif False:
+    HDInsightPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class HDInsightPropertiesArgs:
     def __init__(__self__, *,
@@ -2278,6 +3049,36 @@ class HDInsightPropertiesArgs:
     def ssh_port(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "ssh_port", value)
 
+
+if not MYPY:
+    class HDInsightArgsDict(TypedDict):
+        """
+        A HDInsight compute.
+        """
+        compute_type: pulumi.Input[str]
+        """
+        The type of compute
+        Expected value is 'HDInsight'.
+        """
+        compute_location: NotRequired[pulumi.Input[str]]
+        """
+        Location for the underlying compute
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The description of the Machine Learning compute.
+        """
+        disable_local_auth: NotRequired[pulumi.Input[bool]]
+        """
+        Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
+        """
+        properties: NotRequired[pulumi.Input['HDInsightPropertiesArgsDict']]
+        resource_id: NotRequired[pulumi.Input[str]]
+        """
+        ARM resource id of the underlying compute
+        """
+elif False:
+    HDInsightArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class HDInsightArgs:
@@ -2380,6 +3181,22 @@ class HDInsightArgs:
         pulumi.set(self, "resource_id", value)
 
 
+if not MYPY:
+    class IdentityArgsDict(TypedDict):
+        """
+        Identity for the resource.
+        """
+        type: NotRequired[pulumi.Input['ResourceIdentityType']]
+        """
+        The identity type.
+        """
+        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The user assigned identities associated with the resource.
+        """
+elif False:
+    IdentityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IdentityArgs:
     def __init__(__self__, *,
@@ -2419,6 +3236,30 @@ class IdentityArgs:
     def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
+
+if not MYPY:
+    class ImageAssetArgsDict(TypedDict):
+        """
+        An Image asset.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The Asset Id.
+        """
+        mime_type: NotRequired[pulumi.Input[str]]
+        """
+        The mime type.
+        """
+        unpack: NotRequired[pulumi.Input[bool]]
+        """
+        Whether the Asset is unpacked.
+        """
+        url: NotRequired[pulumi.Input[str]]
+        """
+        The Url of the Asset.
+        """
+elif False:
+    ImageAssetArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ImageAssetArgs:
@@ -2492,6 +3333,17 @@ class ImageAssetArgs:
         pulumi.set(self, "url", value)
 
 
+if not MYPY:
+    class ModelDockerSectionBaseImageRegistryArgsDict(TypedDict):
+        """
+        Image registry that contains the base image.
+        """
+        address: NotRequired[pulumi.Input[str]]
+        password: NotRequired[pulumi.Input[str]]
+        username: NotRequired[pulumi.Input[str]]
+elif False:
+    ModelDockerSectionBaseImageRegistryArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ModelDockerSectionBaseImageRegistryArgs:
     def __init__(__self__, *,
@@ -2535,6 +3387,26 @@ class ModelDockerSectionBaseImageRegistryArgs:
     def username(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "username", value)
 
+
+if not MYPY:
+    class ModelEnvironmentDefinitionDockerArgsDict(TypedDict):
+        """
+        The definition of a Docker container.
+        """
+        base_dockerfile: NotRequired[pulumi.Input[str]]
+        """
+        Base Dockerfile used for Docker-based runs. Mutually exclusive with BaseImage.
+        """
+        base_image: NotRequired[pulumi.Input[str]]
+        """
+        Base image used for Docker-based runs. Mutually exclusive with BaseDockerfile.
+        """
+        base_image_registry: NotRequired[pulumi.Input['ModelDockerSectionBaseImageRegistryArgsDict']]
+        """
+        Image registry that contains the base image.
+        """
+elif False:
+    ModelEnvironmentDefinitionDockerArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ModelEnvironmentDefinitionDockerArgs:
@@ -2591,6 +3463,27 @@ class ModelEnvironmentDefinitionDockerArgs:
     def base_image_registry(self, value: Optional[pulumi.Input['ModelDockerSectionBaseImageRegistryArgs']]):
         pulumi.set(self, "base_image_registry", value)
 
+
+if not MYPY:
+    class ModelEnvironmentDefinitionPythonArgsDict(TypedDict):
+        """
+        Settings for a Python environment.
+        """
+        base_conda_environment: NotRequired[pulumi.Input[str]]
+        conda_dependencies: NotRequired[Any]
+        """
+        A JObject containing Conda dependencies.
+        """
+        interpreter_path: NotRequired[pulumi.Input[str]]
+        """
+        The python interpreter path to use if an environment build is not required. The path specified gets used to call the user script.
+        """
+        user_managed_dependencies: NotRequired[pulumi.Input[bool]]
+        """
+        True means that AzureML reuses an existing python environment; False means that AzureML will create a python environment based on the Conda dependencies specification.
+        """
+elif False:
+    ModelEnvironmentDefinitionPythonArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ModelEnvironmentDefinitionPythonArgs:
@@ -2659,6 +3552,47 @@ class ModelEnvironmentDefinitionPythonArgs:
     def user_managed_dependencies(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "user_managed_dependencies", value)
 
+
+if not MYPY:
+    class ModelEnvironmentDefinitionRArgsDict(TypedDict):
+        """
+        Settings for a R environment.
+        """
+        bio_conductor_packages: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The packages from Bioconductor.
+        """
+        cran_packages: NotRequired[pulumi.Input[Sequence[pulumi.Input['RCranPackageArgsDict']]]]
+        """
+        The CRAN packages to use.
+        """
+        custom_url_packages: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The packages from custom urls.
+        """
+        git_hub_packages: NotRequired[pulumi.Input[Sequence[pulumi.Input['RGitHubPackageArgsDict']]]]
+        """
+        The packages directly from GitHub.
+        """
+        r_version: NotRequired[pulumi.Input[str]]
+        """
+        The version of R to be installed
+        """
+        rscript_path: NotRequired[pulumi.Input[str]]
+        """
+        The Rscript path to use if an environment build is not required.
+        The path specified gets used to call the user script.
+        """
+        snapshot_date: NotRequired[pulumi.Input[str]]
+        """
+        Date of MRAN snapshot to use in YYYY-MM-DD format, e.g. "2019-04-17"
+        """
+        user_managed: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether the environment is managed by user or by AzureML.
+        """
+elif False:
+    ModelEnvironmentDefinitionRArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ModelEnvironmentDefinitionRArgs:
@@ -2798,6 +3732,26 @@ class ModelEnvironmentDefinitionRArgs:
         pulumi.set(self, "user_managed", value)
 
 
+if not MYPY:
+    class ModelEnvironmentDefinitionSparkArgsDict(TypedDict):
+        """
+        The configuration for a Spark environment.
+        """
+        packages: NotRequired[pulumi.Input[Sequence[pulumi.Input['SparkMavenPackageArgsDict']]]]
+        """
+        The Spark packages to use.
+        """
+        precache_packages: NotRequired[pulumi.Input[bool]]
+        """
+        Whether to precache the packages.
+        """
+        repositories: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of spark repositories.
+        """
+elif False:
+    ModelEnvironmentDefinitionSparkArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ModelEnvironmentDefinitionSparkArgs:
     def __init__(__self__, *,
@@ -2853,6 +3807,98 @@ class ModelEnvironmentDefinitionSparkArgs:
     def repositories(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "repositories", value)
 
+
+if not MYPY:
+    class ModelArgsDict(TypedDict):
+        """
+        An Azure Machine Learning Model.
+        """
+        mime_type: pulumi.Input[str]
+        """
+        The MIME type of Model content. For more details about MIME type, please open https://www.iana.org/assignments/media-types/media-types.xhtml
+        """
+        name: pulumi.Input[str]
+        """
+        The Model name.
+        """
+        url: pulumi.Input[str]
+        """
+        The URL of the Model. Usually a SAS URL.
+        """
+        created_time: NotRequired[pulumi.Input[str]]
+        """
+        The Model creation time (UTC).
+        """
+        datasets: NotRequired[pulumi.Input[Sequence[pulumi.Input['DatasetReferenceArgsDict']]]]
+        """
+        The list of datasets associated with the model.
+        """
+        derived_model_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Models derived from this model
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The Model description text.
+        """
+        experiment_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the experiment where this model was created.
+        """
+        framework: NotRequired[pulumi.Input[str]]
+        """
+        The Model framework.
+        """
+        framework_version: NotRequired[pulumi.Input[str]]
+        """
+        The Model framework version.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The Model Id.
+        """
+        kv_tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        The Model tag dictionary. Items are mutable.
+        """
+        modified_time: NotRequired[pulumi.Input[str]]
+        """
+        The Model last modified time (UTC).
+        """
+        parent_model_id: NotRequired[pulumi.Input[str]]
+        """
+        The Parent Model Id.
+        """
+        properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        The Model property dictionary. Properties are immutable.
+        """
+        resource_requirements: NotRequired[pulumi.Input['ContainerResourceRequirementsArgsDict']]
+        """
+        Resource requirements for the model
+        """
+        run_id: NotRequired[pulumi.Input[str]]
+        """
+        The RunId that created this model.
+        """
+        sample_input_data: NotRequired[pulumi.Input[str]]
+        """
+        Sample Input Data for the Model. A reference to a dataset in the workspace in the format aml://dataset/{datasetId}
+        """
+        sample_output_data: NotRequired[pulumi.Input[str]]
+        """
+        Sample Output Data for the Model. A reference to a dataset in the workspace in the format aml://dataset/{datasetId}
+        """
+        unpack: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether we need to unpack the Model during docker Image creation.
+        """
+        version: NotRequired[pulumi.Input[float]]
+        """
+        The Model version assigned by Model Management Service.
+        """
+elif False:
+    ModelArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ModelArgs:
@@ -3195,6 +4241,18 @@ class ModelArgs:
         pulumi.set(self, "version", value)
 
 
+if not MYPY:
+    class PersonalComputeInstanceSettingsArgsDict(TypedDict):
+        """
+        Settings for a personal compute instance.
+        """
+        assigned_user: NotRequired[pulumi.Input['AssignedUserArgsDict']]
+        """
+        A user explicitly assigned to a personal compute instance.
+        """
+elif False:
+    PersonalComputeInstanceSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PersonalComputeInstanceSettingsArgs:
     def __init__(__self__, *,
@@ -3218,6 +4276,19 @@ class PersonalComputeInstanceSettingsArgs:
     def assigned_user(self, value: Optional[pulumi.Input['AssignedUserArgs']]):
         pulumi.set(self, "assigned_user", value)
 
+
+if not MYPY:
+    class RCranPackageArgsDict(TypedDict):
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The package name.
+        """
+        repository: NotRequired[pulumi.Input[str]]
+        """
+        The repository name.
+        """
+elif False:
+    RCranPackageArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RCranPackageArgs:
@@ -3258,6 +4329,19 @@ class RCranPackageArgs:
         pulumi.set(self, "repository", value)
 
 
+if not MYPY:
+    class RGitHubPackageArgsDict(TypedDict):
+        auth_token: NotRequired[pulumi.Input[str]]
+        """
+        Personal access token to install from a private repo
+        """
+        repository: NotRequired[pulumi.Input[str]]
+        """
+        Repository address in the format username/repo[/subdir][@ref|#pull].
+        """
+elif False:
+    RGitHubPackageArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RGitHubPackageArgs:
     def __init__(__self__, *,
@@ -3297,6 +4381,18 @@ class RGitHubPackageArgs:
         pulumi.set(self, "repository", value)
 
 
+if not MYPY:
+    class ResourceIdArgsDict(TypedDict):
+        """
+        Represents a resource ID. For example, for a subnet, it is the resource URL for the subnet.
+        """
+        id: pulumi.Input[str]
+        """
+        The ID of the resource
+        """
+elif False:
+    ResourceIdArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ResourceIdArgs:
     def __init__(__self__, *,
@@ -3319,6 +4415,26 @@ class ResourceIdArgs:
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class ScaleSettingsArgsDict(TypedDict):
+        """
+        scale settings for AML Compute
+        """
+        max_node_count: pulumi.Input[int]
+        """
+        Max number of nodes to use
+        """
+        min_node_count: NotRequired[pulumi.Input[int]]
+        """
+        Min number of nodes to use
+        """
+        node_idle_time_before_scale_down: NotRequired[pulumi.Input[str]]
+        """
+        Node Idle Time before scaling down amlCompute. This string needs to be in the RFC Format.
+        """
+elif False:
+    ScaleSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ScaleSettingsArgs:
@@ -3376,6 +4492,30 @@ class ScaleSettingsArgs:
     def node_idle_time_before_scale_down(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "node_idle_time_before_scale_down", value)
 
+
+if not MYPY:
+    class ScriptReferenceArgsDict(TypedDict):
+        """
+        Script reference
+        """
+        script_arguments: NotRequired[pulumi.Input[str]]
+        """
+        Optional command line arguments passed to the script to run.
+        """
+        script_data: NotRequired[pulumi.Input[str]]
+        """
+        The location of scripts in the mounted volume.
+        """
+        script_source: NotRequired[pulumi.Input[str]]
+        """
+        The storage source of the script: inline, workspace.
+        """
+        timeout: NotRequired[pulumi.Input[str]]
+        """
+        Optional time period passed to timeout command.
+        """
+elif False:
+    ScriptReferenceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ScriptReferenceArgs:
@@ -3449,6 +4589,22 @@ class ScriptReferenceArgs:
         pulumi.set(self, "timeout", value)
 
 
+if not MYPY:
+    class ScriptsToExecuteArgsDict(TypedDict):
+        """
+        Customized setup scripts
+        """
+        creation_script: NotRequired[pulumi.Input['ScriptReferenceArgsDict']]
+        """
+        Script that's run only once during provision of the compute.
+        """
+        startup_script: NotRequired[pulumi.Input['ScriptReferenceArgsDict']]
+        """
+        Script that's run every time the machine starts.
+        """
+elif False:
+    ScriptsToExecuteArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ScriptsToExecuteArgs:
     def __init__(__self__, *,
@@ -3489,6 +4645,18 @@ class ScriptsToExecuteArgs:
         pulumi.set(self, "startup_script", value)
 
 
+if not MYPY:
+    class SetupScriptsArgsDict(TypedDict):
+        """
+        Details of customized scripts to execute for setting up the cluster.
+        """
+        scripts: NotRequired[pulumi.Input['ScriptsToExecuteArgsDict']]
+        """
+        Customized setup scripts
+        """
+elif False:
+    SetupScriptsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SetupScriptsArgs:
     def __init__(__self__, *,
@@ -3512,6 +4680,22 @@ class SetupScriptsArgs:
     def scripts(self, value: Optional[pulumi.Input['ScriptsToExecuteArgs']]):
         pulumi.set(self, "scripts", value)
 
+
+if not MYPY:
+    class SkuArgsDict(TypedDict):
+        """
+        Sku of the resource
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the sku
+        """
+        tier: NotRequired[pulumi.Input[str]]
+        """
+        Tier of the sku like Basic or Enterprise
+        """
+elif False:
+    SkuArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SkuArgs:
@@ -3553,6 +4737,14 @@ class SkuArgs:
         pulumi.set(self, "tier", value)
 
 
+if not MYPY:
+    class SparkMavenPackageArgsDict(TypedDict):
+        artifact: NotRequired[pulumi.Input[str]]
+        group: NotRequired[pulumi.Input[str]]
+        version: NotRequired[pulumi.Input[str]]
+elif False:
+    SparkMavenPackageArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SparkMavenPackageArgs:
     def __init__(__self__, *,
@@ -3593,6 +4785,38 @@ class SparkMavenPackageArgs:
     def version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "version", value)
 
+
+if not MYPY:
+    class SslConfigurationArgsDict(TypedDict):
+        """
+        The ssl configuration for scoring
+        """
+        cert: NotRequired[pulumi.Input[str]]
+        """
+        Cert data
+        """
+        cname: NotRequired[pulumi.Input[str]]
+        """
+        CNAME of the cert
+        """
+        key: NotRequired[pulumi.Input[str]]
+        """
+        Key data
+        """
+        leaf_domain_label: NotRequired[pulumi.Input[str]]
+        """
+        Leaf domain label of public endpoint
+        """
+        overwrite_existing_domain: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether to overwrite existing domain label.
+        """
+        status: NotRequired[pulumi.Input[str]]
+        """
+        Enable or disable ssl for scoring
+        """
+elif False:
+    SslConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SslConfigurationArgs:
@@ -3697,6 +4921,54 @@ class SslConfigurationArgs:
     def status(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "status", value)
 
+
+if not MYPY:
+    class SynapseSparkPoolPropertiesPropertiesArgsDict(TypedDict):
+        """
+        AKS properties
+        """
+        auto_pause_properties: NotRequired[pulumi.Input['AutoPausePropertiesArgsDict']]
+        """
+        Auto pause properties.
+        """
+        auto_scale_properties: NotRequired[pulumi.Input['AutoScalePropertiesArgsDict']]
+        """
+        Auto scale properties.
+        """
+        node_count: NotRequired[pulumi.Input[int]]
+        """
+        The number of compute nodes currently assigned to the compute.
+        """
+        node_size: NotRequired[pulumi.Input[str]]
+        """
+        Node size.
+        """
+        node_size_family: NotRequired[pulumi.Input[str]]
+        """
+        Node size family.
+        """
+        pool_name: NotRequired[pulumi.Input[str]]
+        """
+        Pool name.
+        """
+        resource_group: NotRequired[pulumi.Input[str]]
+        """
+        Name of the resource group in which workspace is located.
+        """
+        spark_version: NotRequired[pulumi.Input[str]]
+        """
+        Spark version.
+        """
+        subscription_id: NotRequired[pulumi.Input[str]]
+        """
+        Azure subscription identifier.
+        """
+        workspace_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of Azure Machine Learning workspace.
+        """
+elif False:
+    SynapseSparkPoolPropertiesPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SynapseSparkPoolPropertiesPropertiesArgs:
@@ -3866,6 +5138,39 @@ class SynapseSparkPoolPropertiesPropertiesArgs:
         pulumi.set(self, "workspace_name", value)
 
 
+if not MYPY:
+    class SynapseSparkArgsDict(TypedDict):
+        """
+        A SynapseSpark compute.
+        """
+        compute_type: pulumi.Input[str]
+        """
+        The type of compute
+        Expected value is 'SynapseSpark'.
+        """
+        compute_location: NotRequired[pulumi.Input[str]]
+        """
+        Location for the underlying compute
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The description of the Machine Learning compute.
+        """
+        disable_local_auth: NotRequired[pulumi.Input[bool]]
+        """
+        Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
+        """
+        properties: NotRequired[pulumi.Input['SynapseSparkPoolPropertiesPropertiesArgsDict']]
+        """
+        AKS properties
+        """
+        resource_id: NotRequired[pulumi.Input[str]]
+        """
+        ARM resource id of the underlying compute
+        """
+elif False:
+    SynapseSparkArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SynapseSparkArgs:
     def __init__(__self__, *,
@@ -3971,6 +5276,26 @@ class SynapseSparkArgs:
         pulumi.set(self, "resource_id", value)
 
 
+if not MYPY:
+    class UserAccountCredentialsArgsDict(TypedDict):
+        """
+        Settings for user account that gets created on each on the nodes of a compute.
+        """
+        admin_user_name: pulumi.Input[str]
+        """
+        Name of the administrator user account which can be used to SSH to nodes.
+        """
+        admin_user_password: NotRequired[pulumi.Input[str]]
+        """
+        Password of the administrator user account.
+        """
+        admin_user_ssh_public_key: NotRequired[pulumi.Input[str]]
+        """
+        SSH public key of the administrator user account.
+        """
+elif False:
+    UserAccountCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class UserAccountCredentialsArgs:
     def __init__(__self__, *,
@@ -4026,6 +5351,18 @@ class UserAccountCredentialsArgs:
         pulumi.set(self, "admin_user_ssh_public_key", value)
 
 
+if not MYPY:
+    class VirtualMachineImageArgsDict(TypedDict):
+        """
+        Virtual Machine image for Windows AML Compute
+        """
+        id: pulumi.Input[str]
+        """
+        Virtual Machine image path
+        """
+elif False:
+    VirtualMachineImageArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class VirtualMachineImageArgs:
     def __init__(__self__, *,
@@ -4048,6 +5385,31 @@ class VirtualMachineImageArgs:
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class VirtualMachinePropertiesArgsDict(TypedDict):
+        address: NotRequired[pulumi.Input[str]]
+        """
+        Public IP address of the virtual machine.
+        """
+        administrator_account: NotRequired[pulumi.Input['VirtualMachineSshCredentialsArgsDict']]
+        """
+        Admin credentials for virtual machine
+        """
+        is_notebook_instance_compute: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether this compute will be used for running notebooks.
+        """
+        ssh_port: NotRequired[pulumi.Input[int]]
+        """
+        Port open for ssh connections.
+        """
+        virtual_machine_size: NotRequired[pulumi.Input[str]]
+        """
+        Virtual Machine size
+        """
+elif False:
+    VirtualMachinePropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VirtualMachinePropertiesArgs:
@@ -4136,6 +5498,30 @@ class VirtualMachinePropertiesArgs:
         pulumi.set(self, "virtual_machine_size", value)
 
 
+if not MYPY:
+    class VirtualMachineSshCredentialsArgsDict(TypedDict):
+        """
+        Admin credentials for virtual machine
+        """
+        password: NotRequired[pulumi.Input[str]]
+        """
+        Password of admin account
+        """
+        private_key_data: NotRequired[pulumi.Input[str]]
+        """
+        Private key data
+        """
+        public_key_data: NotRequired[pulumi.Input[str]]
+        """
+        Public key data
+        """
+        username: NotRequired[pulumi.Input[str]]
+        """
+        Username of admin account
+        """
+elif False:
+    VirtualMachineSshCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class VirtualMachineSshCredentialsArgs:
     def __init__(__self__, *,
@@ -4207,6 +5593,36 @@ class VirtualMachineSshCredentialsArgs:
     def username(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "username", value)
 
+
+if not MYPY:
+    class VirtualMachineArgsDict(TypedDict):
+        """
+        A Machine Learning compute based on Azure Virtual Machines.
+        """
+        compute_type: pulumi.Input[str]
+        """
+        The type of compute
+        Expected value is 'VirtualMachine'.
+        """
+        compute_location: NotRequired[pulumi.Input[str]]
+        """
+        Location for the underlying compute
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The description of the Machine Learning compute.
+        """
+        disable_local_auth: NotRequired[pulumi.Input[bool]]
+        """
+        Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
+        """
+        properties: NotRequired[pulumi.Input['VirtualMachinePropertiesArgsDict']]
+        resource_id: NotRequired[pulumi.Input[str]]
+        """
+        ARM resource id of the underlying compute
+        """
+elif False:
+    VirtualMachineArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VirtualMachineArgs:

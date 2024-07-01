@@ -4,20 +4,51 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 
 __all__ = [
     'DataSourceConfigurationArgs',
+    'DataSourceConfigurationArgsDict',
     'DataSourceArgs',
+    'DataSourceArgsDict',
     'EtwEventConfigurationArgs',
+    'EtwEventConfigurationArgsDict',
     'EtwProviderConfigurationArgs',
+    'EtwProviderConfigurationArgsDict',
     'EventLogConfigurationArgs',
+    'EventLogConfigurationArgsDict',
     'PerformanceCounterConfigurationArgs',
+    'PerformanceCounterConfigurationArgsDict',
     'SinkConfigurationArgs',
+    'SinkConfigurationArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class DataSourceConfigurationArgsDict(TypedDict):
+        event_logs: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventLogConfigurationArgsDict']]]]
+        """
+        Windows event logs configuration.
+        """
+        perf_counters: NotRequired[pulumi.Input[Sequence[pulumi.Input['PerformanceCounterConfigurationArgsDict']]]]
+        """
+        Performance counter configuration
+        """
+        providers: NotRequired[pulumi.Input[Sequence[pulumi.Input['EtwProviderConfigurationArgsDict']]]]
+        """
+        ETW providers configuration
+        """
+elif False:
+    DataSourceConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataSourceConfigurationArgs:
@@ -74,6 +105,20 @@ class DataSourceConfigurationArgs:
         pulumi.set(self, "providers", value)
 
 
+if not MYPY:
+    class DataSourceArgsDict(TypedDict):
+        """
+        Data source object contains configuration to collect telemetry and one or more sinks to send that telemetry data to
+        """
+        configuration: pulumi.Input['DataSourceConfigurationArgsDict']
+        kind: pulumi.Input[str]
+        """
+        Datasource kind
+        """
+        sinks: pulumi.Input[Sequence[pulumi.Input['SinkConfigurationArgsDict']]]
+elif False:
+    DataSourceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DataSourceArgs:
     def __init__(__self__, *,
@@ -119,6 +164,14 @@ class DataSourceArgs:
         pulumi.set(self, "sinks", value)
 
 
+if not MYPY:
+    class EtwEventConfigurationArgsDict(TypedDict):
+        id: pulumi.Input[int]
+        name: pulumi.Input[str]
+        filter: NotRequired[pulumi.Input[str]]
+elif False:
+    EtwEventConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EtwEventConfigurationArgs:
     def __init__(__self__, *,
@@ -158,6 +211,13 @@ class EtwEventConfigurationArgs:
         pulumi.set(self, "filter", value)
 
 
+if not MYPY:
+    class EtwProviderConfigurationArgsDict(TypedDict):
+        events: pulumi.Input[Sequence[pulumi.Input['EtwEventConfigurationArgsDict']]]
+        id: pulumi.Input[str]
+elif False:
+    EtwProviderConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EtwProviderConfigurationArgs:
     def __init__(__self__, *,
@@ -184,6 +244,13 @@ class EtwProviderConfigurationArgs:
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class EventLogConfigurationArgsDict(TypedDict):
+        log_name: pulumi.Input[str]
+        filter: NotRequired[pulumi.Input[str]]
+elif False:
+    EventLogConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EventLogConfigurationArgs:
@@ -212,6 +279,14 @@ class EventLogConfigurationArgs:
     def filter(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "filter", value)
 
+
+if not MYPY:
+    class PerformanceCounterConfigurationArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        sampling_period: pulumi.Input[str]
+        instance: NotRequired[pulumi.Input[str]]
+elif False:
+    PerformanceCounterConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PerformanceCounterConfigurationArgs:
@@ -251,6 +326,12 @@ class PerformanceCounterConfigurationArgs:
     def instance(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "instance", value)
 
+
+if not MYPY:
+    class SinkConfigurationArgsDict(TypedDict):
+        kind: pulumi.Input[str]
+elif False:
+    SinkConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SinkConfigurationArgs:

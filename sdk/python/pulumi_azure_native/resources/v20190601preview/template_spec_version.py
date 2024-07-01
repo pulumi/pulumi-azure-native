@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -152,7 +157,7 @@ class TemplateSpecVersion(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 artifacts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TemplateSpecTemplateArtifactArgs']]]]] = None,
+                 artifacts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TemplateSpecTemplateArtifactArgs', 'TemplateSpecTemplateArtifactArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -166,7 +171,7 @@ class TemplateSpecVersion(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TemplateSpecTemplateArtifactArgs']]]] artifacts: An array of Template Spec artifacts.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TemplateSpecTemplateArtifactArgs', 'TemplateSpecTemplateArtifactArgsDict']]]] artifacts: An array of Template Spec artifacts.
         :param pulumi.Input[str] description: Template Spec version description.
         :param pulumi.Input[str] location: The location of the Template Spec Version. It must match the location of the parent Template Spec.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -199,7 +204,7 @@ class TemplateSpecVersion(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 artifacts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TemplateSpecTemplateArtifactArgs']]]]] = None,
+                 artifacts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TemplateSpecTemplateArtifactArgs', 'TemplateSpecTemplateArtifactArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,

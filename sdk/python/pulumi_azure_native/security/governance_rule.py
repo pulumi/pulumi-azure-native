@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -248,11 +253,11 @@ class GovernanceRule(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  excluded_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 governance_email_notification: Optional[pulumi.Input[pulumi.InputType['GovernanceRuleEmailNotificationArgs']]] = None,
+                 governance_email_notification: Optional[pulumi.Input[Union['GovernanceRuleEmailNotificationArgs', 'GovernanceRuleEmailNotificationArgsDict']]] = None,
                  include_member_scopes: Optional[pulumi.Input[bool]] = None,
                  is_disabled: Optional[pulumi.Input[bool]] = None,
                  is_grace_period: Optional[pulumi.Input[bool]] = None,
-                 owner_source: Optional[pulumi.Input[pulumi.InputType['GovernanceRuleOwnerSourceArgs']]] = None,
+                 owner_source: Optional[pulumi.Input[Union['GovernanceRuleOwnerSourceArgs', 'GovernanceRuleOwnerSourceArgsDict']]] = None,
                  remediation_timeframe: Optional[pulumi.Input[str]] = None,
                  rule_id: Optional[pulumi.Input[str]] = None,
                  rule_priority: Optional[pulumi.Input[int]] = None,
@@ -269,11 +274,11 @@ class GovernanceRule(pulumi.CustomResource):
         :param pulumi.Input[str] description: Description of the governance rule
         :param pulumi.Input[str] display_name: Display name of the governance rule
         :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_scopes: Excluded scopes, filter out the descendants of the scope (on management scopes)
-        :param pulumi.Input[pulumi.InputType['GovernanceRuleEmailNotificationArgs']] governance_email_notification: The email notifications settings for the governance rule, states whether to disable notifications for mangers and owners
+        :param pulumi.Input[Union['GovernanceRuleEmailNotificationArgs', 'GovernanceRuleEmailNotificationArgsDict']] governance_email_notification: The email notifications settings for the governance rule, states whether to disable notifications for mangers and owners
         :param pulumi.Input[bool] include_member_scopes: Defines whether the rule is management scope rule (master connector as a single scope or management scope)
         :param pulumi.Input[bool] is_disabled: Defines whether the rule is active/inactive
         :param pulumi.Input[bool] is_grace_period: Defines whether there is a grace period on the governance rule
-        :param pulumi.Input[pulumi.InputType['GovernanceRuleOwnerSourceArgs']] owner_source: The owner source for the governance rule - e.g. Manually by user@contoso.com - see example
+        :param pulumi.Input[Union['GovernanceRuleOwnerSourceArgs', 'GovernanceRuleOwnerSourceArgsDict']] owner_source: The owner source for the governance rule - e.g. Manually by user@contoso.com - see example
         :param pulumi.Input[str] remediation_timeframe: Governance rule remediation timeframe - this is the time that will affect on the grace-period duration e.g. 7.00:00:00 - means 7 days
         :param pulumi.Input[str] rule_id: The governance rule key - unique key for the standard governance rule (GUID)
         :param pulumi.Input[int] rule_priority: The governance rule priority, priority to the lower number. Rules with the same priority on the same scope will not be allowed
@@ -309,11 +314,11 @@ class GovernanceRule(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  excluded_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 governance_email_notification: Optional[pulumi.Input[pulumi.InputType['GovernanceRuleEmailNotificationArgs']]] = None,
+                 governance_email_notification: Optional[pulumi.Input[Union['GovernanceRuleEmailNotificationArgs', 'GovernanceRuleEmailNotificationArgsDict']]] = None,
                  include_member_scopes: Optional[pulumi.Input[bool]] = None,
                  is_disabled: Optional[pulumi.Input[bool]] = None,
                  is_grace_period: Optional[pulumi.Input[bool]] = None,
-                 owner_source: Optional[pulumi.Input[pulumi.InputType['GovernanceRuleOwnerSourceArgs']]] = None,
+                 owner_source: Optional[pulumi.Input[Union['GovernanceRuleOwnerSourceArgs', 'GovernanceRuleOwnerSourceArgsDict']]] = None,
                  remediation_timeframe: Optional[pulumi.Input[str]] = None,
                  rule_id: Optional[pulumi.Input[str]] = None,
                  rule_priority: Optional[pulumi.Input[int]] = None,

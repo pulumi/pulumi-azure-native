@@ -4,16 +4,41 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'RecommendationConfigurationPropertiesArgs',
+    'RecommendationConfigurationPropertiesArgsDict',
     'UserDefinedResourcesPropertiesArgs',
+    'UserDefinedResourcesPropertiesArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class RecommendationConfigurationPropertiesArgsDict(TypedDict):
+        """
+        Recommendation configuration
+        """
+        recommendation_type: pulumi.Input[Union[str, 'RecommendationType']]
+        """
+        The recommendation type.
+        """
+        status: pulumi.Input[Union[str, 'RecommendationConfigStatus']]
+        """
+        Recommendation status. The recommendation is not generated when the status is disabled
+        """
+elif False:
+    RecommendationConfigurationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RecommendationConfigurationPropertiesArgs:
@@ -54,6 +79,22 @@ class RecommendationConfigurationPropertiesArgs:
     def status(self, value: pulumi.Input[Union[str, 'RecommendationConfigStatus']]):
         pulumi.set(self, "status", value)
 
+
+if not MYPY:
+    class UserDefinedResourcesPropertiesArgsDict(TypedDict):
+        """
+        Properties of the solution's user defined resources.
+        """
+        query: pulumi.Input[str]
+        """
+        Azure Resource Graph query which represents the security solution's user defined resources. Required to start with "where type != "Microsoft.Devices/IotHubs""
+        """
+        query_subscriptions: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        List of Azure subscription ids on which the user defined resources query should be executed.
+        """
+elif False:
+    UserDefinedResourcesPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserDefinedResourcesPropertiesArgs:

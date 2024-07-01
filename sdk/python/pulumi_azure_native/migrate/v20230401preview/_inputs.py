@@ -4,49 +4,147 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'AKSAssessmentSettingsArgs',
+    'AKSAssessmentSettingsArgsDict',
     'AppSvcContainerSettingsArgs',
+    'AppSvcContainerSettingsArgsDict',
     'AppSvcNativeSettingsArgs',
+    'AppSvcNativeSettingsArgsDict',
     'AssessmentScopeParametersArgs',
+    'AssessmentScopeParametersArgsDict',
     'AzureSettingsArgs',
+    'AzureSettingsArgsDict',
     'CollectorAgentPropertiesBaseArgs',
+    'CollectorAgentPropertiesBaseArgsDict',
     'CollectorAgentSpnPropertiesBaseArgs',
+    'CollectorAgentSpnPropertiesBaseArgsDict',
     'ComputeSettingsArgs',
+    'ComputeSettingsArgsDict',
     'DiscoveredEntityLightSummaryArgs',
+    'DiscoveredEntityLightSummaryArgsDict',
     'EntityUptimeArgs',
+    'EntityUptimeArgsDict',
     'FacilitySettingsArgs',
+    'FacilitySettingsArgsDict',
     'HypervLicenseArgs',
+    'HypervLicenseArgsDict',
     'HypervVirtualizationManagementSettingsArgs',
+    'HypervVirtualizationManagementSettingsArgsDict',
     'LaborSettingsArgs',
+    'LaborSettingsArgsDict',
     'LinuxServerLicensingSettingsArgs',
+    'LinuxServerLicensingSettingsArgsDict',
     'ManagementSettingsArgs',
+    'ManagementSettingsArgsDict',
     'NetworkSettingsArgs',
+    'NetworkSettingsArgsDict',
     'OnPremiseSettingsArgs',
+    'OnPremiseSettingsArgsDict',
     'OtherManagementCostsSettingsArgs',
+    'OtherManagementCostsSettingsArgsDict',
     'PerfDataSettingsArgs',
+    'PerfDataSettingsArgsDict',
     'PrivateLinkServiceConnectionStateArgs',
+    'PrivateLinkServiceConnectionStateArgsDict',
     'SecuritySettingsArgs',
+    'SecuritySettingsArgsDict',
     'SettingsArgs',
+    'SettingsArgsDict',
     'SqlDbSettingsArgs',
+    'SqlDbSettingsArgsDict',
     'SqlMiSettingsArgs',
+    'SqlMiSettingsArgsDict',
     'SqlServerLicensingSettingsArgs',
+    'SqlServerLicensingSettingsArgsDict',
     'SqlVmSettingsArgs',
+    'SqlVmSettingsArgsDict',
     'StorageSettingsArgs',
+    'StorageSettingsArgsDict',
     'ThirdPartyManagementSettingsArgs',
+    'ThirdPartyManagementSettingsArgsDict',
     'VirtualizationSoftwareSettingsArgs',
+    'VirtualizationSoftwareSettingsArgsDict',
     'VmUptimeArgs',
+    'VmUptimeArgsDict',
     'VsphereLicenseArgs',
+    'VsphereLicenseArgsDict',
     'VsphereManagementLicenseArgs',
+    'VsphereManagementLicenseArgsDict',
     'VsphereManagementSettingsArgs',
+    'VsphereManagementSettingsArgsDict',
     'WindowsServerLicensingSettingsArgs',
+    'WindowsServerLicensingSettingsArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AKSAssessmentSettingsArgsDict(TypedDict):
+        """
+        Data model of AKS Assessment Settings.
+        """
+        azure_location: pulumi.Input[str]
+        """
+        Gets or sets azure location.
+        """
+        category: pulumi.Input[Union[str, 'AzureVmCategory']]
+        """
+        Gets or sets azure VM category.
+        """
+        consolidation: pulumi.Input[Union[str, 'ConsolidationType']]
+        """
+        Gets or sets consolidation type.
+        """
+        currency: pulumi.Input[Union[str, 'AzureCurrency']]
+        """
+        Gets or sets currency.
+        """
+        environment_type: pulumi.Input[Union[str, 'AzureEnvironmentType']]
+        """
+        Gets or sets environment type.
+        """
+        licensing_program: pulumi.Input[Union[str, 'LicensingProgram']]
+        """
+        Gets or sets licensing program.
+        """
+        pricing_tier: pulumi.Input[Union[str, 'PricingTier']]
+        """
+        Gets or sets pricing tier.
+        """
+        savings_options: pulumi.Input[Union[str, 'SavingsOptions']]
+        """
+        Gets or sets savings options.
+        """
+        sizing_criteria: pulumi.Input[Union[str, 'AssessmentSizingCriterion']]
+        """
+        Gets or sets sizing criteria.
+        """
+        discount_percentage: NotRequired[pulumi.Input[float]]
+        """
+        Gets or sets discount percentage.
+        """
+        performance_data: NotRequired[pulumi.Input['PerfDataSettingsArgsDict']]
+        """
+        Gets or sets performance data settings.
+        """
+        scaling_factor: NotRequired[pulumi.Input[float]]
+        """
+        Gets or sets scaling factor.
+        """
+elif False:
+    AKSAssessmentSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AKSAssessmentSettingsArgs:
@@ -239,6 +337,18 @@ class AKSAssessmentSettingsArgs:
         pulumi.set(self, "scaling_factor", value)
 
 
+if not MYPY:
+    class AppSvcContainerSettingsArgsDict(TypedDict):
+        """
+        App service container settings.
+        """
+        isolation_required: pulumi.Input[bool]
+        """
+        Gets or sets the isolation required.
+        """
+elif False:
+    AppSvcContainerSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AppSvcContainerSettingsArgs:
     def __init__(__self__, *,
@@ -261,6 +371,18 @@ class AppSvcContainerSettingsArgs:
     def isolation_required(self, value: pulumi.Input[bool]):
         pulumi.set(self, "isolation_required", value)
 
+
+if not MYPY:
+    class AppSvcNativeSettingsArgsDict(TypedDict):
+        """
+        App service native settings.
+        """
+        isolation_required: pulumi.Input[bool]
+        """
+        Gets or sets the isolation required.
+        """
+elif False:
+    AppSvcNativeSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AppSvcNativeSettingsArgs:
@@ -285,6 +407,18 @@ class AppSvcNativeSettingsArgs:
         pulumi.set(self, "isolation_required", value)
 
 
+if not MYPY:
+    class AssessmentScopeParametersArgsDict(TypedDict):
+        """
+        Data model of Assessment Scope Parameters.
+        """
+        server_group_id: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the server group id.
+        """
+elif False:
+    AssessmentScopeParametersArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AssessmentScopeParametersArgs:
     def __init__(__self__, *,
@@ -308,6 +442,82 @@ class AssessmentScopeParametersArgs:
     def server_group_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "server_group_id", value)
 
+
+if not MYPY:
+    class AzureSettingsArgsDict(TypedDict):
+        """
+        Azure settings for a business case.
+        """
+        currency: pulumi.Input[Union[str, 'BusinessCaseCurrency']]
+        """
+        Business case Currency.
+        """
+        target_location: pulumi.Input[str]
+        """
+        Gets or sets azure location.
+        """
+        avs_labor_cost_percentage: NotRequired[pulumi.Input[float]]
+        """
+        Gets Avs labour cost percentage.
+        """
+        business_case_type: NotRequired[pulumi.Input[Union[str, 'MigrationStrategy']]]
+        """
+        Migration Strategy.
+        """
+        comfort_factor: NotRequired[pulumi.Input[float]]
+        """
+        Gets comfort factor.
+        """
+        discount_percentage: NotRequired[pulumi.Input[float]]
+        """
+        Gets azure Discount percentage.
+        """
+        iaas_labor_cost_percentage: NotRequired[pulumi.Input[float]]
+        """
+        Gets IaaS labour cost percentage.
+        """
+        infrastructure_growth_rate: NotRequired[pulumi.Input[float]]
+        """
+        Gets infrastructure growth rate.
+        """
+        network_cost_percentage: NotRequired[pulumi.Input[float]]
+        """
+        Gets network cost percentage.
+        """
+        paas_labor_cost_percentage: NotRequired[pulumi.Input[float]]
+        """
+        Gets PaaS labour cost percentage.
+        """
+        per_year_migration_completion_percentage: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[float]]]]
+        """
+        Gets migration completion percentage per year.
+        """
+        performance_data_end_time: NotRequired[pulumi.Input[str]]
+        """
+        Gets end time to use for performance.
+        """
+        performance_data_start_time: NotRequired[pulumi.Input[str]]
+        """
+        Gets start time to use for performance.
+        """
+        performance_utilization_percentile: NotRequired[pulumi.Input[float]]
+        """
+        Gets utilization percentile for performance.
+        """
+        savings_option: NotRequired[pulumi.Input[Union[str, 'SavingsOption']]]
+        """
+        Gets the business case savings option type.
+        """
+        wacc: NotRequired[pulumi.Input[float]]
+        """
+        Gets wACC percentage.
+        """
+        workload_discovery_source: NotRequired[pulumi.Input[Union[str, 'DiscoverySource']]]
+        """
+        Workload discovery source.
+        """
+elif False:
+    AzureSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AzureSettingsArgs:
@@ -609,6 +819,30 @@ class AzureSettingsArgs:
         pulumi.set(self, "workload_discovery_source", value)
 
 
+if not MYPY:
+    class CollectorAgentPropertiesBaseArgsDict(TypedDict):
+        """
+        Collector agent property class.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Gets the collector agent id.
+        """
+        last_heartbeat_utc: NotRequired[pulumi.Input[str]]
+        """
+        Gets the collector last heartbeat time.
+        """
+        spn_details: NotRequired[pulumi.Input['CollectorAgentSpnPropertiesBaseArgsDict']]
+        """
+        Gets or sets the SPN details.
+        """
+        version: NotRequired[pulumi.Input[str]]
+        """
+        Gets the collector agent version.
+        """
+elif False:
+    CollectorAgentPropertiesBaseArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CollectorAgentPropertiesBaseArgs:
     def __init__(__self__, *,
@@ -680,6 +914,34 @@ class CollectorAgentPropertiesBaseArgs:
     def version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "version", value)
 
+
+if not MYPY:
+    class CollectorAgentSpnPropertiesBaseArgsDict(TypedDict):
+        """
+        Collector agent SPN details class.
+        """
+        application_id: NotRequired[pulumi.Input[str]]
+        """
+        Gets the AAD application id.
+        """
+        audience: NotRequired[pulumi.Input[str]]
+        """
+        Gets the AAD audience url.
+        """
+        authority: NotRequired[pulumi.Input[str]]
+        """
+        Gets the AAD authority endpoint.
+        """
+        object_id: NotRequired[pulumi.Input[str]]
+        """
+        Gets the object id of the AAD application.
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        Gets the tenant id of the AAD application.
+        """
+elif False:
+    CollectorAgentSpnPropertiesBaseArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CollectorAgentSpnPropertiesBaseArgs:
@@ -768,6 +1030,42 @@ class CollectorAgentSpnPropertiesBaseArgs:
     def tenant_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tenant_id", value)
 
+
+if not MYPY:
+    class ComputeSettingsArgsDict(TypedDict):
+        """
+        Compute settings.
+        """
+        hyperthread_core_to_memory_ratio: pulumi.Input[float]
+        """
+        Hyperthread core to memory ratio.
+        """
+        price: pulumi.Input[float]
+        """
+        Compute Price.
+        """
+        rhel_linux_server_licensing: pulumi.Input['LinuxServerLicensingSettingsArgsDict']
+        """
+        Linux Rhel Server licensing settings.
+        """
+        sql_server_licensing: pulumi.Input[Sequence[pulumi.Input['SqlServerLicensingSettingsArgsDict']]]
+        """
+        SQL Server licensing settings.
+        """
+        suse_linux_server_licensing: pulumi.Input['LinuxServerLicensingSettingsArgsDict']
+        """
+        Linux Suse Server licensing settings.
+        """
+        virtualization_software_settings: pulumi.Input['VirtualizationSoftwareSettingsArgsDict']
+        """
+        Virtualization software settings.
+        """
+        windows_server_licensing: pulumi.Input['WindowsServerLicensingSettingsArgsDict']
+        """
+        Windows Server licensing settings.
+        """
+elif False:
+    ComputeSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ComputeSettingsArgs:
@@ -882,6 +1180,26 @@ class ComputeSettingsArgs:
         pulumi.set(self, "windows_server_licensing", value)
 
 
+if not MYPY:
+    class DiscoveredEntityLightSummaryArgsDict(TypedDict):
+        """
+        Discovered entity light summary.
+        """
+        number_of_machines: pulumi.Input[int]
+        """
+        Gets or sets the number of machines.
+        """
+        number_of_servers: pulumi.Input[int]
+        """
+        Gets or sets the number of servers.
+        """
+        number_of_web_apps: pulumi.Input[int]
+        """
+        Gets or sets the number of web apps.
+        """
+elif False:
+    DiscoveredEntityLightSummaryArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DiscoveredEntityLightSummaryArgs:
     def __init__(__self__, *,
@@ -935,6 +1253,22 @@ class DiscoveredEntityLightSummaryArgs:
         pulumi.set(self, "number_of_web_apps", value)
 
 
+if not MYPY:
+    class EntityUptimeArgsDict(TypedDict):
+        """
+        Entity Uptime.
+        """
+        days_per_month: NotRequired[pulumi.Input[int]]
+        """
+        Gets the days per month.
+        """
+        hours_per_day: NotRequired[pulumi.Input[int]]
+        """
+        Gets the hours per day.
+        """
+elif False:
+    EntityUptimeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EntityUptimeArgs:
     def __init__(__self__, *,
@@ -975,6 +1309,18 @@ class EntityUptimeArgs:
         pulumi.set(self, "hours_per_day", value)
 
 
+if not MYPY:
+    class FacilitySettingsArgsDict(TypedDict):
+        """
+        Facility settings.
+        """
+        facilities_cost: pulumi.Input[float]
+        """
+        The facilities cost.
+        """
+elif False:
+    FacilitySettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FacilitySettingsArgs:
     def __init__(__self__, *,
@@ -997,6 +1343,22 @@ class FacilitySettingsArgs:
     def facilities_cost(self, value: pulumi.Input[float]):
         pulumi.set(self, "facilities_cost", value)
 
+
+if not MYPY:
+    class HypervLicenseArgsDict(TypedDict):
+        """
+        Representation of a licence.
+        """
+        license_cost: pulumi.Input[float]
+        """
+        Cost of a licence.
+        """
+        license_type: pulumi.Input[Union[str, 'HyperVLicenseType']]
+        """
+        HyperV licence type.
+        """
+elif False:
+    HypervLicenseArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class HypervLicenseArgs:
@@ -1035,6 +1397,26 @@ class HypervLicenseArgs:
     def license_type(self, value: pulumi.Input[Union[str, 'HyperVLicenseType']]):
         pulumi.set(self, "license_type", value)
 
+
+if not MYPY:
+    class HypervVirtualizationManagementSettingsArgsDict(TypedDict):
+        """
+        HyperV Virtualization Management Settings.
+        """
+        license_and_support_list: pulumi.Input[Sequence[pulumi.Input['HypervLicenseArgsDict']]]
+        """
+        Licence and support list.
+        """
+        number_of_physical_cores_per_license: pulumi.Input[int]
+        """
+        Number of physical cores per licence.
+        """
+        software_assurance_cost: pulumi.Input[float]
+        """
+        Software Assurance Cost.
+        """
+elif False:
+    HypervVirtualizationManagementSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class HypervVirtualizationManagementSettingsArgs:
@@ -1089,6 +1471,26 @@ class HypervVirtualizationManagementSettingsArgs:
         pulumi.set(self, "software_assurance_cost", value)
 
 
+if not MYPY:
+    class LaborSettingsArgsDict(TypedDict):
+        """
+        Labour settings.
+        """
+        hourly_admin_cost: pulumi.Input[float]
+        """
+        Hourly administrator cost.
+        """
+        physical_servers_per_admin: pulumi.Input[int]
+        """
+        Physical servers per administrator.
+        """
+        virtual_machines_per_admin: pulumi.Input[int]
+        """
+        Virtual machines per administrator.
+        """
+elif False:
+    LaborSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LaborSettingsArgs:
     def __init__(__self__, *,
@@ -1142,6 +1544,18 @@ class LaborSettingsArgs:
         pulumi.set(self, "virtual_machines_per_admin", value)
 
 
+if not MYPY:
+    class LinuxServerLicensingSettingsArgsDict(TypedDict):
+        """
+        Linux Server licensing settings.
+        """
+        license_cost: pulumi.Input[float]
+        """
+        Licence Cost.
+        """
+elif False:
+    LinuxServerLicensingSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinuxServerLicensingSettingsArgs:
     def __init__(__self__, *,
@@ -1164,6 +1578,30 @@ class LinuxServerLicensingSettingsArgs:
     def license_cost(self, value: pulumi.Input[float]):
         pulumi.set(self, "license_cost", value)
 
+
+if not MYPY:
+    class ManagementSettingsArgsDict(TypedDict):
+        """
+        Management settings.
+        """
+        hyperv_virtualization_management_settings: pulumi.Input['HypervVirtualizationManagementSettingsArgsDict']
+        """
+        HyperV Virtualization Management Settings.
+        """
+        other_management_costs_settings: pulumi.Input['OtherManagementCostsSettingsArgsDict']
+        """
+        Other Management Costs Settings.
+        """
+        third_party_management_settings: pulumi.Input['ThirdPartyManagementSettingsArgsDict']
+        """
+        Third Party Management Settings.
+        """
+        vsphere_management_settings: pulumi.Input['VsphereManagementSettingsArgsDict']
+        """
+        vSphere Management Settings.
+        """
+elif False:
+    ManagementSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ManagementSettingsArgs:
@@ -1233,6 +1671,22 @@ class ManagementSettingsArgs:
         pulumi.set(self, "vsphere_management_settings", value)
 
 
+if not MYPY:
+    class NetworkSettingsArgsDict(TypedDict):
+        """
+        Network settings.
+        """
+        hardware_software_cost_percentage: pulumi.Input[float]
+        """
+        Network hardware and software cost percentage.
+        """
+        maintenance_cost_percentage: pulumi.Input[float]
+        """
+        Network maintenance cost percentage.
+        """
+elif False:
+    NetworkSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NetworkSettingsArgs:
     def __init__(__self__, *,
@@ -1270,6 +1724,42 @@ class NetworkSettingsArgs:
     def maintenance_cost_percentage(self, value: pulumi.Input[float]):
         pulumi.set(self, "maintenance_cost_percentage", value)
 
+
+if not MYPY:
+    class OnPremiseSettingsArgsDict(TypedDict):
+        """
+        On-premise settings.
+        """
+        compute_settings: pulumi.Input['ComputeSettingsArgsDict']
+        """
+        Compute settings.
+        """
+        facility_settings: pulumi.Input['FacilitySettingsArgsDict']
+        """
+        Facility settings.
+        """
+        labor_settings: pulumi.Input['LaborSettingsArgsDict']
+        """
+        Labour settings.
+        """
+        network_settings: pulumi.Input['NetworkSettingsArgsDict']
+        """
+        Network settings.
+        """
+        security_settings: pulumi.Input['SecuritySettingsArgsDict']
+        """
+        Security settings.
+        """
+        storage_settings: pulumi.Input['StorageSettingsArgsDict']
+        """
+        Storage settings.
+        """
+        management_settings: NotRequired[pulumi.Input['ManagementSettingsArgsDict']]
+        """
+        Management settings.
+        """
+elif False:
+    OnPremiseSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OnPremiseSettingsArgs:
@@ -1385,6 +1875,26 @@ class OnPremiseSettingsArgs:
         pulumi.set(self, "management_settings", value)
 
 
+if not MYPY:
+    class OtherManagementCostsSettingsArgsDict(TypedDict):
+        """
+        Other Management Costs Settings.
+        """
+        data_protection_cost_per_server_per_year: pulumi.Input[float]
+        """
+        Data Protection Cost Per Server Per Year.
+        """
+        monitoring_cost_per_server_per_year: pulumi.Input[float]
+        """
+        Monitoring Cost Per Server Per Year.
+        """
+        patching_cost_per_server_per_year: pulumi.Input[float]
+        """
+        Patching Cost Per Server Per Year.
+        """
+elif False:
+    OtherManagementCostsSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OtherManagementCostsSettingsArgs:
     def __init__(__self__, *,
@@ -1437,6 +1947,30 @@ class OtherManagementCostsSettingsArgs:
     def patching_cost_per_server_per_year(self, value: pulumi.Input[float]):
         pulumi.set(self, "patching_cost_per_server_per_year", value)
 
+
+if not MYPY:
+    class PerfDataSettingsArgsDict(TypedDict):
+        """
+        Data model of Performance Data Settings.
+        """
+        percentile: pulumi.Input[Union[str, 'Percentile']]
+        """
+        Gets percentile utilization for performance data.
+        """
+        time_range: pulumi.Input[Union[str, 'TimeRange']]
+        """
+        Gets perf data time range.
+        """
+        perf_data_end_time: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets perf data end time.
+        """
+        perf_data_start_time: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets perf data start time.
+        """
+elif False:
+    PerfDataSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PerfDataSettingsArgs:
@@ -1508,6 +2042,26 @@ class PerfDataSettingsArgs:
         pulumi.set(self, "perf_data_start_time", value)
 
 
+if not MYPY:
+    class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
+        """
+        A collection of information about the state of the connection between service consumer and provider.
+        """
+        actions_required: NotRequired[pulumi.Input[str]]
+        """
+        A message indicating if changes on the service provider require any updates on the consumer.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The reason for approval/rejection of the connection.
+        """
+        status: NotRequired[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]]
+        """
+        Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+        """
+elif False:
+    PrivateLinkServiceConnectionStateArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:
     def __init__(__self__, *,
@@ -1564,6 +2118,22 @@ class PrivateLinkServiceConnectionStateArgs:
         pulumi.set(self, "status", value)
 
 
+if not MYPY:
+    class SecuritySettingsArgsDict(TypedDict):
+        """
+        Security settings.
+        """
+        server_security_cost_per_server_per_year: pulumi.Input[float]
+        """
+        Physical servers per administrator.
+        """
+        sql_server_security_cost_per_server_per_year: pulumi.Input[float]
+        """
+        Virtual machines per administrator.
+        """
+elif False:
+    SecuritySettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SecuritySettingsArgs:
     def __init__(__self__, *,
@@ -1601,6 +2171,22 @@ class SecuritySettingsArgs:
     def sql_server_security_cost_per_server_per_year(self, value: pulumi.Input[float]):
         pulumi.set(self, "sql_server_security_cost_per_server_per_year", value)
 
+
+if not MYPY:
+    class SettingsArgsDict(TypedDict):
+        """
+        Business case settings.
+        """
+        azure_settings: pulumi.Input['AzureSettingsArgsDict']
+        """
+        Azure settings for a business case.
+        """
+        on_premise_settings: NotRequired[pulumi.Input['OnPremiseSettingsArgsDict']]
+        """
+        On-premise settings.
+        """
+elif False:
+    SettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SettingsArgs:
@@ -1640,6 +2226,30 @@ class SettingsArgs:
     def on_premise_settings(self, value: Optional[pulumi.Input['OnPremiseSettingsArgs']]):
         pulumi.set(self, "on_premise_settings", value)
 
+
+if not MYPY:
+    class SqlDbSettingsArgsDict(TypedDict):
+        """
+        SQL database assessment settings.
+        """
+        azure_sql_compute_tier: NotRequired[pulumi.Input[Union[str, 'ComputeTier']]]
+        """
+        Gets or sets the azure SQL compute tier.
+        """
+        azure_sql_data_base_type: NotRequired[pulumi.Input[Union[str, 'AzureSqlDataBaseType']]]
+        """
+        Gets or sets the azure PAAS SQL instance type.
+        """
+        azure_sql_purchase_model: NotRequired[pulumi.Input[Union[str, 'AzureSqlPurchaseModel']]]
+        """
+        Gets or sets the azure SQL purchase model.
+        """
+        azure_sql_service_tier: NotRequired[pulumi.Input[Union[str, 'AzureSqlServiceTier']]]
+        """
+        Gets or sets the azure SQL service tier.
+        """
+elif False:
+    SqlDbSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SqlDbSettingsArgs:
@@ -1713,6 +2323,22 @@ class SqlDbSettingsArgs:
         pulumi.set(self, "azure_sql_service_tier", value)
 
 
+if not MYPY:
+    class SqlMiSettingsArgsDict(TypedDict):
+        """
+        SQL managed instance assessment settings.
+        """
+        azure_sql_instance_type: NotRequired[pulumi.Input[Union[str, 'AzureSqlInstanceType']]]
+        """
+        Gets or sets the azure PAAS SQL instance type.
+        """
+        azure_sql_service_tier: NotRequired[pulumi.Input[Union[str, 'AzureSqlServiceTier']]]
+        """
+        Gets or sets the azure SQL service tier.
+        """
+elif False:
+    SqlMiSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SqlMiSettingsArgs:
     def __init__(__self__, *,
@@ -1752,6 +2378,26 @@ class SqlMiSettingsArgs:
     def azure_sql_service_tier(self, value: Optional[pulumi.Input[Union[str, 'AzureSqlServiceTier']]]):
         pulumi.set(self, "azure_sql_service_tier", value)
 
+
+if not MYPY:
+    class SqlServerLicensingSettingsArgsDict(TypedDict):
+        """
+        SQL Server licensing settings.
+        """
+        license_cost: pulumi.Input[float]
+        """
+        Licence cost.
+        """
+        software_assurance_cost: pulumi.Input[float]
+        """
+        Software assurance (SA) cost.
+        """
+        version: pulumi.Input[Union[str, 'SqlServerLicenseType']]
+        """
+        SQL Server version.
+        """
+elif False:
+    SqlServerLicensingSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SqlServerLicensingSettingsArgs:
@@ -1806,6 +2452,19 @@ class SqlServerLicensingSettingsArgs:
         pulumi.set(self, "version", value)
 
 
+if not MYPY:
+    class SqlVmSettingsArgsDict(TypedDict):
+        """
+        SQL VM assessment settings.
+        """
+        instance_series: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AzureVmFamily']]]]]
+        """
+        Gets or sets the Azure VM families (calling instance series to keep it
+        consistent with other targets).
+        """
+elif False:
+    SqlVmSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SqlVmSettingsArgs:
     def __init__(__self__, *,
@@ -1831,6 +2490,22 @@ class SqlVmSettingsArgs:
     def instance_series(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AzureVmFamily']]]]]):
         pulumi.set(self, "instance_series", value)
 
+
+if not MYPY:
+    class StorageSettingsArgsDict(TypedDict):
+        """
+        Storage settings.
+        """
+        cost_per_gb_per_month: pulumi.Input[float]
+        """
+        Cost per gigabyte per month.
+        """
+        maintainance_cost_percentage_to_acquisition_cost: pulumi.Input[float]
+        """
+        Maintenance cost percentage.
+        """
+elif False:
+    StorageSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class StorageSettingsArgs:
@@ -1870,6 +2545,22 @@ class StorageSettingsArgs:
         pulumi.set(self, "maintainance_cost_percentage_to_acquisition_cost", value)
 
 
+if not MYPY:
+    class ThirdPartyManagementSettingsArgsDict(TypedDict):
+        """
+        Third Party Management settings.
+        """
+        license_cost: pulumi.Input[float]
+        """
+        License Cost.
+        """
+        support_cost: pulumi.Input[float]
+        """
+        Support Cost.
+        """
+elif False:
+    ThirdPartyManagementSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ThirdPartyManagementSettingsArgs:
     def __init__(__self__, *,
@@ -1907,6 +2598,26 @@ class ThirdPartyManagementSettingsArgs:
     def support_cost(self, value: pulumi.Input[float]):
         pulumi.set(self, "support_cost", value)
 
+
+if not MYPY:
+    class VirtualizationSoftwareSettingsArgsDict(TypedDict):
+        """
+        Virtualization software settings.
+        """
+        license_and_support_list: pulumi.Input[Sequence[pulumi.Input['VsphereLicenseArgsDict']]]
+        """
+        Licence and support list.
+        """
+        number_of_physical_cores_per_license: pulumi.Input[int]
+        """
+        Number of physical cores per licence.
+        """
+        software_assurance_cost: pulumi.Input[float]
+        """
+        Software Assurance cost.
+        """
+elif False:
+    VirtualizationSoftwareSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VirtualizationSoftwareSettingsArgs:
@@ -1961,6 +2672,22 @@ class VirtualizationSoftwareSettingsArgs:
         pulumi.set(self, "software_assurance_cost", value)
 
 
+if not MYPY:
+    class VmUptimeArgsDict(TypedDict):
+        """
+        Details on the total up-time for the VM.
+        """
+        days_per_month: NotRequired[pulumi.Input[int]]
+        """
+        Number of days in a month for VM uptime.
+        """
+        hours_per_day: NotRequired[pulumi.Input[int]]
+        """
+        Number of hours per day for VM uptime.
+        """
+elif False:
+    VmUptimeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class VmUptimeArgs:
     def __init__(__self__, *,
@@ -2000,6 +2727,30 @@ class VmUptimeArgs:
     def hours_per_day(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "hours_per_day", value)
 
+
+if not MYPY:
+    class VsphereLicenseArgsDict(TypedDict):
+        """
+        Representation of a vsphere licence.
+        """
+        basic_support_cost: pulumi.Input[float]
+        """
+        Basic support cost.
+        """
+        license_cost: pulumi.Input[float]
+        """
+        Cost of a licence.
+        """
+        license_type: pulumi.Input[Union[str, 'LicenseType']]
+        """
+        VSphere licence type.
+        """
+        production_support_cost: pulumi.Input[float]
+        """
+        Production support cost.
+        """
+elif False:
+    VsphereLicenseArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VsphereLicenseArgs:
@@ -2069,6 +2820,30 @@ class VsphereLicenseArgs:
         pulumi.set(self, "production_support_cost", value)
 
 
+if not MYPY:
+    class VsphereManagementLicenseArgsDict(TypedDict):
+        """
+        Representation of a vsphere management licence.
+        """
+        basic_support_cost: pulumi.Input[float]
+        """
+        Basic support cost.
+        """
+        license_cost: pulumi.Input[float]
+        """
+        Cost of a licence.
+        """
+        license_type: pulumi.Input[Union[str, 'VsphereManagementLicenseType']]
+        """
+        VSphere licence type.
+        """
+        production_support_cost: pulumi.Input[float]
+        """
+        Production support cost.
+        """
+elif False:
+    VsphereManagementLicenseArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class VsphereManagementLicenseArgs:
     def __init__(__self__, *,
@@ -2137,6 +2912,18 @@ class VsphereManagementLicenseArgs:
         pulumi.set(self, "production_support_cost", value)
 
 
+if not MYPY:
+    class VsphereManagementSettingsArgsDict(TypedDict):
+        """
+        Vsphere management settings.
+        """
+        license_and_support_list: pulumi.Input[Sequence[pulumi.Input['VsphereManagementLicenseArgsDict']]]
+        """
+        Licence and support list.
+        """
+elif False:
+    VsphereManagementSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class VsphereManagementSettingsArgs:
     def __init__(__self__, *,
@@ -2159,6 +2946,26 @@ class VsphereManagementSettingsArgs:
     def license_and_support_list(self, value: pulumi.Input[Sequence[pulumi.Input['VsphereManagementLicenseArgs']]]):
         pulumi.set(self, "license_and_support_list", value)
 
+
+if not MYPY:
+    class WindowsServerLicensingSettingsArgsDict(TypedDict):
+        """
+        Windows Server licensing settings.
+        """
+        license_cost: pulumi.Input[float]
+        """
+        Licence Cost.
+        """
+        licenses_per_core: pulumi.Input[int]
+        """
+        Licenses per core.
+        """
+        software_assurance_cost: pulumi.Input[float]
+        """
+        Software assurance (SA) cost.
+        """
+elif False:
+    WindowsServerLicensingSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WindowsServerLicensingSettingsArgs:

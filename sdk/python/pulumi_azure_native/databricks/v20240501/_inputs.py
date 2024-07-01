@@ -4,40 +4,85 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'AddressSpaceArgs',
+    'AddressSpaceArgsDict',
     'AutomaticClusterUpdateDefinitionArgs',
+    'AutomaticClusterUpdateDefinitionArgsDict',
     'ComplianceSecurityProfileDefinitionArgs',
+    'ComplianceSecurityProfileDefinitionArgsDict',
     'DefaultCatalogPropertiesArgs',
+    'DefaultCatalogPropertiesArgsDict',
     'EncryptionEntitiesDefinitionArgs',
+    'EncryptionEntitiesDefinitionArgsDict',
     'EncryptionV2KeyVaultPropertiesArgs',
+    'EncryptionV2KeyVaultPropertiesArgsDict',
     'EncryptionV2Args',
+    'EncryptionV2ArgsDict',
     'EncryptionArgs',
+    'EncryptionArgsDict',
     'EnhancedSecurityComplianceDefinitionArgs',
+    'EnhancedSecurityComplianceDefinitionArgsDict',
     'EnhancedSecurityMonitoringDefinitionArgs',
+    'EnhancedSecurityMonitoringDefinitionArgsDict',
     'ManagedDiskEncryptionKeyVaultPropertiesArgs',
+    'ManagedDiskEncryptionKeyVaultPropertiesArgsDict',
     'ManagedDiskEncryptionArgs',
+    'ManagedDiskEncryptionArgsDict',
     'ManagedServiceIdentityArgs',
+    'ManagedServiceIdentityArgsDict',
     'PrivateEndpointConnectionPropertiesArgs',
+    'PrivateEndpointConnectionPropertiesArgsDict',
     'PrivateLinkServiceConnectionStateArgs',
+    'PrivateLinkServiceConnectionStateArgsDict',
     'SkuArgs',
+    'SkuArgsDict',
     'VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkArgs',
+    'VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkArgsDict',
     'VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkArgs',
+    'VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkArgsDict',
     'WorkspaceCustomBooleanParameterArgs',
+    'WorkspaceCustomBooleanParameterArgsDict',
     'WorkspaceCustomParametersArgs',
+    'WorkspaceCustomParametersArgsDict',
     'WorkspaceCustomStringParameterArgs',
+    'WorkspaceCustomStringParameterArgsDict',
     'WorkspaceEncryptionParameterArgs',
+    'WorkspaceEncryptionParameterArgsDict',
     'WorkspaceNoPublicIPBooleanParameterArgs',
+    'WorkspaceNoPublicIPBooleanParameterArgsDict',
     'WorkspacePropertiesAccessConnectorArgs',
+    'WorkspacePropertiesAccessConnectorArgsDict',
     'WorkspacePropertiesEncryptionArgs',
+    'WorkspacePropertiesEncryptionArgsDict',
     'WorkspaceProviderAuthorizationArgs',
+    'WorkspaceProviderAuthorizationArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AddressSpaceArgsDict(TypedDict):
+        """
+        AddressSpace contains an array of IP address ranges that can be used by subnets of the virtual network.
+        """
+        address_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of address blocks reserved for this virtual network in CIDR notation.
+        """
+elif False:
+    AddressSpaceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AddressSpaceArgs:
@@ -63,6 +108,15 @@ class AddressSpaceArgs:
         pulumi.set(self, "address_prefixes", value)
 
 
+if not MYPY:
+    class AutomaticClusterUpdateDefinitionArgsDict(TypedDict):
+        """
+        Status of automated cluster updates feature.
+        """
+        value: NotRequired[pulumi.Input[Union[str, 'AutomaticClusterUpdateValue']]]
+elif False:
+    AutomaticClusterUpdateDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AutomaticClusterUpdateDefinitionArgs:
     def __init__(__self__, *,
@@ -82,6 +136,19 @@ class AutomaticClusterUpdateDefinitionArgs:
     def value(self, value: Optional[pulumi.Input[Union[str, 'AutomaticClusterUpdateValue']]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class ComplianceSecurityProfileDefinitionArgsDict(TypedDict):
+        """
+        Status of Compliance Security Profile feature.
+        """
+        compliance_standards: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'ComplianceStandard']]]]]
+        """
+        Compliance standards associated with the workspace.
+        """
+        value: NotRequired[pulumi.Input[Union[str, 'ComplianceSecurityProfileValue']]]
+elif False:
+    ComplianceSecurityProfileDefinitionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ComplianceSecurityProfileDefinitionArgs:
@@ -118,6 +185,22 @@ class ComplianceSecurityProfileDefinitionArgs:
     def value(self, value: Optional[pulumi.Input[Union[str, 'ComplianceSecurityProfileValue']]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class DefaultCatalogPropertiesArgsDict(TypedDict):
+        """
+        These properties lets user specify default catalog properties during workspace creation.
+        """
+        initial_name: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the initial Name of default catalog. If not specified, the name of the workspace will be used.
+        """
+        initial_type: NotRequired[pulumi.Input[Union[str, 'InitialType']]]
+        """
+        Defines the initial type of the default catalog. Possible values (case-insensitive):  HiveMetastore, UnityCatalog
+        """
+elif False:
+    DefaultCatalogPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DefaultCatalogPropertiesArgs:
@@ -161,6 +244,22 @@ class DefaultCatalogPropertiesArgs:
         pulumi.set(self, "initial_type", value)
 
 
+if not MYPY:
+    class EncryptionEntitiesDefinitionArgsDict(TypedDict):
+        """
+        Encryption entities for databricks workspace resource.
+        """
+        managed_disk: NotRequired[pulumi.Input['ManagedDiskEncryptionArgsDict']]
+        """
+        Encryption properties for the databricks managed disks.
+        """
+        managed_services: NotRequired[pulumi.Input['EncryptionV2ArgsDict']]
+        """
+        Encryption properties for the databricks managed services.
+        """
+elif False:
+    EncryptionEntitiesDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EncryptionEntitiesDefinitionArgs:
     def __init__(__self__, *,
@@ -200,6 +299,26 @@ class EncryptionEntitiesDefinitionArgs:
     def managed_services(self, value: Optional[pulumi.Input['EncryptionV2Args']]):
         pulumi.set(self, "managed_services", value)
 
+
+if not MYPY:
+    class EncryptionV2KeyVaultPropertiesArgsDict(TypedDict):
+        """
+        Key Vault input properties for encryption.
+        """
+        key_name: pulumi.Input[str]
+        """
+        The name of KeyVault key.
+        """
+        key_vault_uri: pulumi.Input[str]
+        """
+        The Uri of KeyVault.
+        """
+        key_version: pulumi.Input[str]
+        """
+        The version of KeyVault key.
+        """
+elif False:
+    EncryptionV2KeyVaultPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EncryptionV2KeyVaultPropertiesArgs:
@@ -254,6 +373,22 @@ class EncryptionV2KeyVaultPropertiesArgs:
         pulumi.set(self, "key_version", value)
 
 
+if not MYPY:
+    class EncryptionV2ArgsDict(TypedDict):
+        """
+        The object that contains details of encryption used on the workspace.
+        """
+        key_source: pulumi.Input[Union[str, 'EncryptionKeySource']]
+        """
+        The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Keyvault
+        """
+        key_vault_properties: NotRequired[pulumi.Input['EncryptionV2KeyVaultPropertiesArgsDict']]
+        """
+        Key Vault input properties for encryption.
+        """
+elif False:
+    EncryptionV2ArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EncryptionV2Args:
     def __init__(__self__, *,
@@ -292,6 +427,30 @@ class EncryptionV2Args:
     def key_vault_properties(self, value: Optional[pulumi.Input['EncryptionV2KeyVaultPropertiesArgs']]):
         pulumi.set(self, "key_vault_properties", value)
 
+
+if not MYPY:
+    class EncryptionArgsDict(TypedDict):
+        """
+        The object that contains details of encryption used on the workspace.
+        """
+        key_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of KeyVault key.
+        """
+        key_source: NotRequired[pulumi.Input[Union[str, 'KeySource']]]
+        """
+        The encryption keySource (provider). Possible values (case-insensitive):  Default, Microsoft.Keyvault
+        """
+        key_vault_uri: NotRequired[pulumi.Input[str]]
+        """
+        The Uri of KeyVault.
+        """
+        key_version: NotRequired[pulumi.Input[str]]
+        """
+        The version of KeyVault key.
+        """
+elif False:
+    EncryptionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EncryptionArgs:
@@ -367,6 +526,26 @@ class EncryptionArgs:
         pulumi.set(self, "key_version", value)
 
 
+if not MYPY:
+    class EnhancedSecurityComplianceDefinitionArgsDict(TypedDict):
+        """
+        Status of settings related to the Enhanced Security and Compliance Add-On.
+        """
+        automatic_cluster_update: NotRequired[pulumi.Input['AutomaticClusterUpdateDefinitionArgsDict']]
+        """
+        Status of automated cluster updates feature.
+        """
+        compliance_security_profile: NotRequired[pulumi.Input['ComplianceSecurityProfileDefinitionArgsDict']]
+        """
+        Status of Compliance Security Profile feature.
+        """
+        enhanced_security_monitoring: NotRequired[pulumi.Input['EnhancedSecurityMonitoringDefinitionArgsDict']]
+        """
+        Status of Enhanced Security Monitoring feature.
+        """
+elif False:
+    EnhancedSecurityComplianceDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EnhancedSecurityComplianceDefinitionArgs:
     def __init__(__self__, *,
@@ -423,6 +602,15 @@ class EnhancedSecurityComplianceDefinitionArgs:
         pulumi.set(self, "enhanced_security_monitoring", value)
 
 
+if not MYPY:
+    class EnhancedSecurityMonitoringDefinitionArgsDict(TypedDict):
+        """
+        Status of Enhanced Security Monitoring feature.
+        """
+        value: NotRequired[pulumi.Input[Union[str, 'EnhancedSecurityMonitoringValue']]]
+elif False:
+    EnhancedSecurityMonitoringDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EnhancedSecurityMonitoringDefinitionArgs:
     def __init__(__self__, *,
@@ -442,6 +630,26 @@ class EnhancedSecurityMonitoringDefinitionArgs:
     def value(self, value: Optional[pulumi.Input[Union[str, 'EnhancedSecurityMonitoringValue']]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class ManagedDiskEncryptionKeyVaultPropertiesArgsDict(TypedDict):
+        """
+        Key Vault input properties for encryption.
+        """
+        key_name: pulumi.Input[str]
+        """
+        The name of KeyVault key.
+        """
+        key_vault_uri: pulumi.Input[str]
+        """
+        The URI of KeyVault.
+        """
+        key_version: pulumi.Input[str]
+        """
+        The version of KeyVault key.
+        """
+elif False:
+    ManagedDiskEncryptionKeyVaultPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ManagedDiskEncryptionKeyVaultPropertiesArgs:
@@ -495,6 +703,26 @@ class ManagedDiskEncryptionKeyVaultPropertiesArgs:
     def key_version(self, value: pulumi.Input[str]):
         pulumi.set(self, "key_version", value)
 
+
+if not MYPY:
+    class ManagedDiskEncryptionArgsDict(TypedDict):
+        """
+        The object that contains details of encryption used on the workspace.
+        """
+        key_source: pulumi.Input[Union[str, 'EncryptionKeySource']]
+        """
+        The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Keyvault
+        """
+        key_vault_properties: pulumi.Input['ManagedDiskEncryptionKeyVaultPropertiesArgsDict']
+        """
+        Key Vault input properties for encryption.
+        """
+        rotation_to_latest_key_version_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Indicate whether the latest key version should be automatically used for Managed Disk Encryption.
+        """
+elif False:
+    ManagedDiskEncryptionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ManagedDiskEncryptionArgs:
@@ -550,6 +778,22 @@ class ManagedDiskEncryptionArgs:
         pulumi.set(self, "rotation_to_latest_key_version_enabled", value)
 
 
+if not MYPY:
+    class ManagedServiceIdentityArgsDict(TypedDict):
+        """
+        Managed service identity (system assigned and/or user assigned identities)
+        """
+        type: pulumi.Input[Union[str, 'ManagedServiceIdentityType']]
+        """
+        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        """
+        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        """
+elif False:
+    ManagedServiceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ManagedServiceIdentityArgs:
     def __init__(__self__, *,
@@ -589,6 +833,22 @@ class ManagedServiceIdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
+if not MYPY:
+    class PrivateEndpointConnectionPropertiesArgsDict(TypedDict):
+        """
+        The properties of a private endpoint connection
+        """
+        private_link_service_connection_state: pulumi.Input['PrivateLinkServiceConnectionStateArgsDict']
+        """
+        Private endpoint connection state
+        """
+        group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        GroupIds from the private link service resource.
+        """
+elif False:
+    PrivateEndpointConnectionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PrivateEndpointConnectionPropertiesArgs:
     def __init__(__self__, *,
@@ -627,6 +887,26 @@ class PrivateEndpointConnectionPropertiesArgs:
     def group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "group_ids", value)
 
+
+if not MYPY:
+    class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
+        """
+        The current state of a private endpoint connection
+        """
+        status: pulumi.Input[Union[str, 'PrivateLinkServiceConnectionStatus']]
+        """
+        The status of a private endpoint connection
+        """
+        actions_required: NotRequired[pulumi.Input[str]]
+        """
+        Actions required for a private endpoint connection
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The description for the current state of a private endpoint connection
+        """
+elif False:
+    PrivateLinkServiceConnectionStateArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:
@@ -683,6 +963,22 @@ class PrivateLinkServiceConnectionStateArgs:
         pulumi.set(self, "description", value)
 
 
+if not MYPY:
+    class SkuArgsDict(TypedDict):
+        """
+        SKU for the resource.
+        """
+        name: pulumi.Input[str]
+        """
+        The SKU name.
+        """
+        tier: NotRequired[pulumi.Input[str]]
+        """
+        The SKU tier.
+        """
+elif False:
+    SkuArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SkuArgs:
     def __init__(__self__, *,
@@ -722,6 +1018,18 @@ class SkuArgs:
         pulumi.set(self, "tier", value)
 
 
+if not MYPY:
+    class VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkArgsDict(TypedDict):
+        """
+         The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The Id of the databricks virtual network.
+        """
+elif False:
+    VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkArgs:
     def __init__(__self__, *,
@@ -745,6 +1053,18 @@ class VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkArgs:
     def id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkArgsDict(TypedDict):
+        """
+         The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The Id of the remote virtual network.
+        """
+elif False:
+    VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkArgs:
@@ -770,6 +1090,18 @@ class VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkArgs:
         pulumi.set(self, "id", value)
 
 
+if not MYPY:
+    class WorkspaceCustomBooleanParameterArgsDict(TypedDict):
+        """
+        The value which should be used for this field.
+        """
+        value: pulumi.Input[bool]
+        """
+        The value which should be used for this field.
+        """
+elif False:
+    WorkspaceCustomBooleanParameterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WorkspaceCustomBooleanParameterArgs:
     def __init__(__self__, *,
@@ -792,6 +1124,74 @@ class WorkspaceCustomBooleanParameterArgs:
     def value(self, value: pulumi.Input[bool]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class WorkspaceCustomParametersArgsDict(TypedDict):
+        """
+        Custom Parameters used for Cluster Creation.
+        """
+        aml_workspace_id: NotRequired[pulumi.Input['WorkspaceCustomStringParameterArgsDict']]
+        """
+        The ID of a Azure Machine Learning workspace to link with Databricks workspace
+        """
+        custom_private_subnet_name: NotRequired[pulumi.Input['WorkspaceCustomStringParameterArgsDict']]
+        """
+        The name of the Private Subnet within the Virtual Network
+        """
+        custom_public_subnet_name: NotRequired[pulumi.Input['WorkspaceCustomStringParameterArgsDict']]
+        """
+        The name of a Public Subnet within the Virtual Network
+        """
+        custom_virtual_network_id: NotRequired[pulumi.Input['WorkspaceCustomStringParameterArgsDict']]
+        """
+        The ID of a Virtual Network where this Databricks Cluster should be created
+        """
+        enable_no_public_ip: NotRequired[pulumi.Input['WorkspaceNoPublicIPBooleanParameterArgsDict']]
+        """
+        Boolean indicating whether the public IP should be disabled. Default value is true
+        """
+        encryption: NotRequired[pulumi.Input['WorkspaceEncryptionParameterArgsDict']]
+        """
+        Contains the encryption details for Customer-Managed Key (CMK) enabled workspace.
+        """
+        load_balancer_backend_pool_name: NotRequired[pulumi.Input['WorkspaceCustomStringParameterArgsDict']]
+        """
+        Name of the outbound Load Balancer Backend Pool for Secure Cluster Connectivity (No Public IP).
+        """
+        load_balancer_id: NotRequired[pulumi.Input['WorkspaceCustomStringParameterArgsDict']]
+        """
+        Resource URI of Outbound Load balancer for Secure Cluster Connectivity (No Public IP) workspace.
+        """
+        nat_gateway_name: NotRequired[pulumi.Input['WorkspaceCustomStringParameterArgsDict']]
+        """
+        Name of the NAT gateway for Secure Cluster Connectivity (No Public IP) workspace subnets.
+        """
+        prepare_encryption: NotRequired[pulumi.Input['WorkspaceCustomBooleanParameterArgsDict']]
+        """
+        Prepare the workspace for encryption. Enables the Managed Identity for managed storage account.
+        """
+        public_ip_name: NotRequired[pulumi.Input['WorkspaceCustomStringParameterArgsDict']]
+        """
+        Name of the Public IP for No Public IP workspace with managed vNet.
+        """
+        require_infrastructure_encryption: NotRequired[pulumi.Input['WorkspaceCustomBooleanParameterArgsDict']]
+        """
+        A boolean indicating whether or not the DBFS root file system will be enabled with secondary layer of encryption with platform managed keys for data at rest.
+        """
+        storage_account_name: NotRequired[pulumi.Input['WorkspaceCustomStringParameterArgsDict']]
+        """
+        Default DBFS storage account name.
+        """
+        storage_account_sku_name: NotRequired[pulumi.Input['WorkspaceCustomStringParameterArgsDict']]
+        """
+        Storage account SKU name, ex: Standard_GRS, Standard_LRS. Refer https://aka.ms/storageskus for valid inputs.
+        """
+        vnet_address_prefix: NotRequired[pulumi.Input['WorkspaceCustomStringParameterArgsDict']]
+        """
+        Address prefix for Managed virtual network. Default value for this input is 10.139.
+        """
+elif False:
+    WorkspaceCustomParametersArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WorkspaceCustomParametersArgs:
@@ -1041,6 +1441,18 @@ class WorkspaceCustomParametersArgs:
         pulumi.set(self, "vnet_address_prefix", value)
 
 
+if not MYPY:
+    class WorkspaceCustomStringParameterArgsDict(TypedDict):
+        """
+        The Value.
+        """
+        value: pulumi.Input[str]
+        """
+        The value which should be used for this field.
+        """
+elif False:
+    WorkspaceCustomStringParameterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WorkspaceCustomStringParameterArgs:
     def __init__(__self__, *,
@@ -1063,6 +1475,18 @@ class WorkspaceCustomStringParameterArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class WorkspaceEncryptionParameterArgsDict(TypedDict):
+        """
+        The object that contains details of encryption used on the workspace.
+        """
+        value: NotRequired[pulumi.Input['EncryptionArgsDict']]
+        """
+        The value which should be used for this field.
+        """
+elif False:
+    WorkspaceEncryptionParameterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WorkspaceEncryptionParameterArgs:
@@ -1088,6 +1512,18 @@ class WorkspaceEncryptionParameterArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class WorkspaceNoPublicIPBooleanParameterArgsDict(TypedDict):
+        """
+        The value which should be used for this field.
+        """
+        value: pulumi.Input[bool]
+        """
+        The value which should be used for this field.
+        """
+elif False:
+    WorkspaceNoPublicIPBooleanParameterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WorkspaceNoPublicIPBooleanParameterArgs:
     def __init__(__self__, *,
@@ -1110,6 +1546,26 @@ class WorkspaceNoPublicIPBooleanParameterArgs:
     def value(self, value: pulumi.Input[bool]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class WorkspacePropertiesAccessConnectorArgsDict(TypedDict):
+        """
+        Access Connector Resource that is going to be associated with Databricks Workspace
+        """
+        id: pulumi.Input[str]
+        """
+        The resource ID of Azure Databricks Access Connector Resource.
+        """
+        identity_type: pulumi.Input[Union[str, 'IdentityType']]
+        """
+        The identity type of the Access Connector Resource.
+        """
+        user_assigned_identity_id: NotRequired[pulumi.Input[str]]
+        """
+        The resource ID of the User Assigned Identity associated with the Access Connector Resource. This is required for type 'UserAssigned' and not valid for type 'SystemAssigned'.
+        """
+elif False:
+    WorkspacePropertiesAccessConnectorArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WorkspacePropertiesAccessConnectorArgs:
@@ -1165,6 +1621,18 @@ class WorkspacePropertiesAccessConnectorArgs:
         pulumi.set(self, "user_assigned_identity_id", value)
 
 
+if not MYPY:
+    class WorkspacePropertiesEncryptionArgsDict(TypedDict):
+        """
+        Encryption properties for databricks workspace
+        """
+        entities: pulumi.Input['EncryptionEntitiesDefinitionArgsDict']
+        """
+        Encryption entities definition for the workspace.
+        """
+elif False:
+    WorkspacePropertiesEncryptionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WorkspacePropertiesEncryptionArgs:
     def __init__(__self__, *,
@@ -1187,6 +1655,22 @@ class WorkspacePropertiesEncryptionArgs:
     def entities(self, value: pulumi.Input['EncryptionEntitiesDefinitionArgs']):
         pulumi.set(self, "entities", value)
 
+
+if not MYPY:
+    class WorkspaceProviderAuthorizationArgsDict(TypedDict):
+        """
+        The workspace provider authorization.
+        """
+        principal_id: pulumi.Input[str]
+        """
+        The provider's principal identifier. This is the identity that the provider will use to call ARM to manage the workspace resources.
+        """
+        role_definition_id: pulumi.Input[str]
+        """
+        The provider's role definition identifier. This role will define all the permissions that the provider must have on the workspace's container resource group. This role definition cannot have permission to delete the resource group.
+        """
+elif False:
+    WorkspaceProviderAuthorizationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WorkspaceProviderAuthorizationArgs:

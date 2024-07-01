@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -139,7 +144,7 @@ class Target(pulumi.CustomResource):
                  target_authentication_type: Optional[pulumi.Input[Union[str, 'TargetAuthenticationType']]] = None,
                  target_name: Optional[pulumi.Input[str]] = None,
                  target_type: Optional[pulumi.Input[str]] = None,
-                 target_vault: Optional[pulumi.Input[pulumi.InputType['VaultSecretArgs']]] = None,
+                 target_vault: Optional[pulumi.Input[Union['VaultSecretArgs', 'VaultSecretArgsDict']]] = None,
                  watcher_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -153,7 +158,7 @@ class Target(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'TargetAuthenticationType']] target_authentication_type: The type of authentication to use when connecting to a target.
         :param pulumi.Input[str] target_name: The target resource name.
         :param pulumi.Input[str] target_type: Discriminator property for TargetProperties.
-        :param pulumi.Input[pulumi.InputType['VaultSecretArgs']] target_vault: To use SQL authentication when connecting to targets, specify the vault where the login name and password secrets are stored.
+        :param pulumi.Input[Union['VaultSecretArgs', 'VaultSecretArgsDict']] target_vault: To use SQL authentication when connecting to targets, specify the vault where the login name and password secrets are stored.
         :param pulumi.Input[str] watcher_name: The database watcher name.
         """
         ...
@@ -186,7 +191,7 @@ class Target(pulumi.CustomResource):
                  target_authentication_type: Optional[pulumi.Input[Union[str, 'TargetAuthenticationType']]] = None,
                  target_name: Optional[pulumi.Input[str]] = None,
                  target_type: Optional[pulumi.Input[str]] = None,
-                 target_vault: Optional[pulumi.Input[pulumi.InputType['VaultSecretArgs']]] = None,
+                 target_vault: Optional[pulumi.Input[Union['VaultSecretArgs', 'VaultSecretArgsDict']]] = None,
                  watcher_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

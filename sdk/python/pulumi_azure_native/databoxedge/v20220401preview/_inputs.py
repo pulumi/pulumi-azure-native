@@ -4,18 +4,65 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'AddressArgs',
+    'AddressArgsDict',
     'ContactDetailsArgs',
+    'ContactDetailsArgsDict',
     'DataResidencyArgs',
+    'DataResidencyArgsDict',
     'SkuArgs',
+    'SkuArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AddressArgsDict(TypedDict):
+        """
+        The shipping address of the customer.
+        """
+        country: pulumi.Input[str]
+        """
+        The country name.
+        """
+        address_line1: NotRequired[pulumi.Input[str]]
+        """
+        The address line1.
+        """
+        address_line2: NotRequired[pulumi.Input[str]]
+        """
+        The address line2.
+        """
+        address_line3: NotRequired[pulumi.Input[str]]
+        """
+        The address line3.
+        """
+        city: NotRequired[pulumi.Input[str]]
+        """
+        The city name.
+        """
+        postal_code: NotRequired[pulumi.Input[str]]
+        """
+        The postal code.
+        """
+        state: NotRequired[pulumi.Input[str]]
+        """
+        The state name.
+        """
+elif False:
+    AddressArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AddressArgs:
@@ -136,6 +183,30 @@ class AddressArgs:
         pulumi.set(self, "state", value)
 
 
+if not MYPY:
+    class ContactDetailsArgsDict(TypedDict):
+        """
+        Contains all the contact details of the customer.
+        """
+        company_name: pulumi.Input[str]
+        """
+        The name of the company.
+        """
+        contact_person: pulumi.Input[str]
+        """
+        The contact person name.
+        """
+        email_list: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        The email list.
+        """
+        phone: pulumi.Input[str]
+        """
+        The phone number.
+        """
+elif False:
+    ContactDetailsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ContactDetailsArgs:
     def __init__(__self__, *,
@@ -204,6 +275,18 @@ class ContactDetailsArgs:
         pulumi.set(self, "phone", value)
 
 
+if not MYPY:
+    class DataResidencyArgsDict(TypedDict):
+        """
+        Wraps data-residency related information for edge-resource and this should be used with ARM layer.
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'DataResidencyType']]]
+        """
+        DataResidencyType enum
+        """
+elif False:
+    DataResidencyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DataResidencyArgs:
     def __init__(__self__, *,
@@ -227,6 +310,22 @@ class DataResidencyArgs:
     def type(self, value: Optional[pulumi.Input[Union[str, 'DataResidencyType']]]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class SkuArgsDict(TypedDict):
+        """
+        The SKU type.
+        """
+        name: NotRequired[pulumi.Input[Union[str, 'SkuName']]]
+        """
+        SKU name.
+        """
+        tier: NotRequired[pulumi.Input[Union[str, 'SkuTier']]]
+        """
+        The SKU tier. This is based on the SKU name.
+        """
+elif False:
+    SkuArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SkuArgs:

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -107,7 +112,7 @@ class Account(pulumi.CustomResource):
                  account_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SKUArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['SKUArgs', 'SKUArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -118,7 +123,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] account_name: Account Name
         :param pulumi.Input[str] location: The location of the resource
         :param pulumi.Input[str] resource_group_name: Resource Group Name
-        :param pulumi.Input[pulumi.InputType['SKUArgs']] sku: The SKU of the resource
+        :param pulumi.Input[Union['SKUArgs', 'SKUArgsDict']] sku: The SKU of the resource
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource
         """
         ...
@@ -148,7 +153,7 @@ class Account(pulumi.CustomResource):
                  account_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SKUArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['SKUArgs', 'SKUArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

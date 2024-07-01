@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -256,9 +261,9 @@ class SyncGroup(pulumi.CustomResource):
                  hub_database_user_name: Optional[pulumi.Input[str]] = None,
                  interval: Optional[pulumi.Input[int]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 schema: Optional[pulumi.Input[pulumi.InputType['SyncGroupSchemaArgs']]] = None,
+                 schema: Optional[pulumi.Input[Union['SyncGroupSchemaArgs', 'SyncGroupSchemaArgsDict']]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  sync_database_id: Optional[pulumi.Input[str]] = None,
                  sync_group_name: Optional[pulumi.Input[str]] = None,
                  use_private_link_connection: Optional[pulumi.Input[bool]] = None,
@@ -276,9 +281,9 @@ class SyncGroup(pulumi.CustomResource):
         :param pulumi.Input[str] hub_database_user_name: User name for the sync group hub database credential.
         :param pulumi.Input[int] interval: Sync interval of the sync group.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-        :param pulumi.Input[pulumi.InputType['SyncGroupSchemaArgs']] schema: Sync schema of the sync group.
+        :param pulumi.Input[Union['SyncGroupSchemaArgs', 'SyncGroupSchemaArgsDict']] schema: Sync schema of the sync group.
         :param pulumi.Input[str] server_name: The name of the server.
-        :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The name and capacity of the SKU.
+        :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: The name and capacity of the SKU.
         :param pulumi.Input[str] sync_database_id: ARM resource id of the sync database in the sync group.
         :param pulumi.Input[str] sync_group_name: The name of the sync group.
         :param pulumi.Input[bool] use_private_link_connection: If use private link connection is enabled.
@@ -315,9 +320,9 @@ class SyncGroup(pulumi.CustomResource):
                  hub_database_user_name: Optional[pulumi.Input[str]] = None,
                  interval: Optional[pulumi.Input[int]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 schema: Optional[pulumi.Input[pulumi.InputType['SyncGroupSchemaArgs']]] = None,
+                 schema: Optional[pulumi.Input[Union['SyncGroupSchemaArgs', 'SyncGroupSchemaArgsDict']]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  sync_database_id: Optional[pulumi.Input[str]] = None,
                  sync_group_name: Optional[pulumi.Input[str]] = None,
                  use_private_link_connection: Optional[pulumi.Input[bool]] = None,

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -137,11 +142,11 @@ class LinkedService(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']]] = None,
                  link_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['LinkedServicePropsArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['LinkedServicePropsArgs', 'LinkedServicePropsArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -151,11 +156,11 @@ class LinkedService(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['IdentityArgs']] identity: Identity for the resource.
+        :param pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']] identity: Identity for the resource.
         :param pulumi.Input[str] link_name: Friendly name of the linked workspace
         :param pulumi.Input[str] location: location of the linked service.
         :param pulumi.Input[str] name: Friendly name of the linked service
-        :param pulumi.Input[pulumi.InputType['LinkedServicePropsArgs']] properties: LinkedService specific properties.
+        :param pulumi.Input[Union['LinkedServicePropsArgs', 'LinkedServicePropsArgsDict']] properties: LinkedService specific properties.
         :param pulumi.Input[str] resource_group_name: Name of the resource group in which workspace is located.
         :param pulumi.Input[str] workspace_name: Name of Azure Machine Learning workspace.
         """
@@ -184,11 +189,11 @@ class LinkedService(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']]] = None,
                  link_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['LinkedServicePropsArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['LinkedServicePropsArgs', 'LinkedServicePropsArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):

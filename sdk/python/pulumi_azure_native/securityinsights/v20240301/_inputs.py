@@ -4,66 +4,141 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'AddIncidentTaskActionPropertiesArgs',
+    'AddIncidentTaskActionPropertiesArgsDict',
     'AlertDetailsOverrideArgs',
+    'AlertDetailsOverrideArgsDict',
     'AlertPropertyMappingArgs',
+    'AlertPropertyMappingArgsDict',
     'AlertsDataTypeOfDataConnectorArgs',
+    'AlertsDataTypeOfDataConnectorArgsDict',
     'AutomationRuleAddIncidentTaskActionArgs',
+    'AutomationRuleAddIncidentTaskActionArgsDict',
     'AutomationRuleBooleanConditionArgs',
+    'AutomationRuleBooleanConditionArgsDict',
     'AutomationRuleModifyPropertiesActionArgs',
+    'AutomationRuleModifyPropertiesActionArgsDict',
     'AutomationRulePropertyArrayChangedValuesConditionArgs',
+    'AutomationRulePropertyArrayChangedValuesConditionArgsDict',
     'AutomationRulePropertyArrayValuesConditionArgs',
+    'AutomationRulePropertyArrayValuesConditionArgsDict',
     'AutomationRulePropertyValuesChangedConditionArgs',
+    'AutomationRulePropertyValuesChangedConditionArgsDict',
     'AutomationRulePropertyValuesConditionArgs',
+    'AutomationRulePropertyValuesConditionArgsDict',
     'AutomationRuleRunPlaybookActionArgs',
+    'AutomationRuleRunPlaybookActionArgsDict',
     'AutomationRuleTriggeringLogicArgs',
+    'AutomationRuleTriggeringLogicArgsDict',
     'AwsCloudTrailDataConnectorDataTypesLogsArgs',
+    'AwsCloudTrailDataConnectorDataTypesLogsArgsDict',
     'AwsCloudTrailDataConnectorDataTypesArgs',
+    'AwsCloudTrailDataConnectorDataTypesArgsDict',
     'BooleanConditionPropertiesArgs',
+    'BooleanConditionPropertiesArgsDict',
     'ClientInfoArgs',
+    'ClientInfoArgsDict',
     'DataConnectorDataTypeCommonArgs',
+    'DataConnectorDataTypeCommonArgsDict',
     'EntityMappingArgs',
+    'EntityMappingArgsDict',
     'EventGroupingSettingsArgs',
+    'EventGroupingSettingsArgsDict',
     'FieldMappingArgs',
+    'FieldMappingArgsDict',
     'GroupingConfigurationArgs',
+    'GroupingConfigurationArgsDict',
     'IncidentConfigurationArgs',
+    'IncidentConfigurationArgsDict',
     'IncidentInfoArgs',
+    'IncidentInfoArgsDict',
     'IncidentLabelArgs',
+    'IncidentLabelArgsDict',
     'IncidentOwnerInfoArgs',
+    'IncidentOwnerInfoArgsDict',
     'IncidentPropertiesActionArgs',
+    'IncidentPropertiesActionArgsDict',
     'MCASDataConnectorDataTypesArgs',
+    'MCASDataConnectorDataTypesArgsDict',
     'MetadataAuthorArgs',
+    'MetadataAuthorArgsDict',
     'MetadataCategoriesArgs',
+    'MetadataCategoriesArgsDict',
     'MetadataDependenciesArgs',
+    'MetadataDependenciesArgsDict',
     'MetadataSourceArgs',
+    'MetadataSourceArgsDict',
     'MetadataSupportArgs',
+    'MetadataSupportArgsDict',
     'OfficeDataConnectorDataTypesExchangeArgs',
+    'OfficeDataConnectorDataTypesExchangeArgsDict',
     'OfficeDataConnectorDataTypesSharePointArgs',
+    'OfficeDataConnectorDataTypesSharePointArgsDict',
     'OfficeDataConnectorDataTypesTeamsArgs',
+    'OfficeDataConnectorDataTypesTeamsArgsDict',
     'OfficeDataConnectorDataTypesArgs',
+    'OfficeDataConnectorDataTypesArgsDict',
     'PlaybookActionPropertiesArgs',
+    'PlaybookActionPropertiesArgsDict',
     'PropertyArrayChangedConditionPropertiesArgs',
+    'PropertyArrayChangedConditionPropertiesArgsDict',
     'PropertyArrayConditionPropertiesArgs',
+    'PropertyArrayConditionPropertiesArgsDict',
     'PropertyChangedConditionPropertiesArgs',
+    'PropertyChangedConditionPropertiesArgsDict',
     'PropertyConditionPropertiesArgs',
+    'PropertyConditionPropertiesArgsDict',
     'SecurityMLAnalyticsSettingsDataSourceArgs',
+    'SecurityMLAnalyticsSettingsDataSourceArgsDict',
     'TIDataConnectorDataTypesIndicatorsArgs',
+    'TIDataConnectorDataTypesIndicatorsArgsDict',
     'TIDataConnectorDataTypesArgs',
+    'TIDataConnectorDataTypesArgsDict',
     'ThreatIntelligenceExternalReferenceArgs',
+    'ThreatIntelligenceExternalReferenceArgsDict',
     'ThreatIntelligenceGranularMarkingModelArgs',
+    'ThreatIntelligenceGranularMarkingModelArgsDict',
     'ThreatIntelligenceKillChainPhaseArgs',
+    'ThreatIntelligenceKillChainPhaseArgsDict',
     'ThreatIntelligenceParsedPatternTypeValueArgs',
+    'ThreatIntelligenceParsedPatternTypeValueArgsDict',
     'ThreatIntelligenceParsedPatternArgs',
+    'ThreatIntelligenceParsedPatternArgsDict',
     'UserInfoArgs',
+    'UserInfoArgsDict',
     'WatchlistUserInfoArgs',
+    'WatchlistUserInfoArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AddIncidentTaskActionPropertiesArgsDict(TypedDict):
+        """
+        Describes an automation rule action to add a task to an incident.
+        """
+        title: pulumi.Input[str]
+        """
+        The title of the task.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The description of the task.
+        """
+elif False:
+    AddIncidentTaskActionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AddIncidentTaskActionPropertiesArgs:
@@ -103,6 +178,34 @@ class AddIncidentTaskActionPropertiesArgs:
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
 
+
+if not MYPY:
+    class AlertDetailsOverrideArgsDict(TypedDict):
+        """
+        Settings for how to dynamically override alert static details
+        """
+        alert_description_format: NotRequired[pulumi.Input[str]]
+        """
+        the format containing columns name(s) to override the alert description
+        """
+        alert_display_name_format: NotRequired[pulumi.Input[str]]
+        """
+        the format containing columns name(s) to override the alert name
+        """
+        alert_dynamic_properties: NotRequired[pulumi.Input[Sequence[pulumi.Input['AlertPropertyMappingArgsDict']]]]
+        """
+        List of additional dynamic properties to override
+        """
+        alert_severity_column_name: NotRequired[pulumi.Input[str]]
+        """
+        the column name to take the alert severity from
+        """
+        alert_tactics_column_name: NotRequired[pulumi.Input[str]]
+        """
+        the column name to take the alert tactics from
+        """
+elif False:
+    AlertDetailsOverrideArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AlertDetailsOverrideArgs:
@@ -192,6 +295,22 @@ class AlertDetailsOverrideArgs:
         pulumi.set(self, "alert_tactics_column_name", value)
 
 
+if not MYPY:
+    class AlertPropertyMappingArgsDict(TypedDict):
+        """
+        A single alert property mapping to override
+        """
+        alert_property: NotRequired[pulumi.Input[Union[str, 'AlertProperty']]]
+        """
+        The V3 alert property
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        the column name to use to override this property
+        """
+elif False:
+    AlertPropertyMappingArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AlertPropertyMappingArgs:
     def __init__(__self__, *,
@@ -232,6 +351,18 @@ class AlertPropertyMappingArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class AlertsDataTypeOfDataConnectorArgsDict(TypedDict):
+        """
+        Alerts data type for data connectors.
+        """
+        alerts: NotRequired[pulumi.Input['DataConnectorDataTypeCommonArgsDict']]
+        """
+        Alerts data type connection.
+        """
+elif False:
+    AlertsDataTypeOfDataConnectorArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AlertsDataTypeOfDataConnectorArgs:
     def __init__(__self__, *,
@@ -255,6 +386,24 @@ class AlertsDataTypeOfDataConnectorArgs:
     def alerts(self, value: Optional[pulumi.Input['DataConnectorDataTypeCommonArgs']]):
         pulumi.set(self, "alerts", value)
 
+
+if not MYPY:
+    class AutomationRuleAddIncidentTaskActionArgsDict(TypedDict):
+        """
+        Describes an automation rule action to add a task to an incident
+        """
+        action_type: pulumi.Input[str]
+        """
+        The type of the automation rule action.
+        Expected value is 'AddIncidentTask'.
+        """
+        order: pulumi.Input[int]
+        action_configuration: NotRequired[pulumi.Input['AddIncidentTaskActionPropertiesArgsDict']]
+        """
+        Describes an automation rule action to add a task to an incident.
+        """
+elif False:
+    AutomationRuleAddIncidentTaskActionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AutomationRuleAddIncidentTaskActionArgs:
@@ -308,6 +457,19 @@ class AutomationRuleAddIncidentTaskActionArgs:
         pulumi.set(self, "action_configuration", value)
 
 
+if not MYPY:
+    class AutomationRuleBooleanConditionArgsDict(TypedDict):
+        """
+        Describes an automation rule condition with boolean operators.
+        """
+        inner_conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union['BooleanConditionPropertiesArgsDict', 'PropertyArrayChangedConditionPropertiesArgsDict', 'PropertyArrayConditionPropertiesArgsDict', 'PropertyChangedConditionPropertiesArgsDict', 'PropertyConditionPropertiesArgsDict']]]]]
+        operator: NotRequired[pulumi.Input[Union[str, 'AutomationRuleBooleanConditionSupportedOperator']]]
+        """
+        Describes a boolean condition operator.
+        """
+elif False:
+    AutomationRuleBooleanConditionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AutomationRuleBooleanConditionArgs:
     def __init__(__self__, *,
@@ -343,6 +505,21 @@ class AutomationRuleBooleanConditionArgs:
     def operator(self, value: Optional[pulumi.Input[Union[str, 'AutomationRuleBooleanConditionSupportedOperator']]]):
         pulumi.set(self, "operator", value)
 
+
+if not MYPY:
+    class AutomationRuleModifyPropertiesActionArgsDict(TypedDict):
+        """
+        Describes an automation rule action to modify an object's properties
+        """
+        action_type: pulumi.Input[str]
+        """
+        The type of the automation rule action.
+        Expected value is 'ModifyProperties'.
+        """
+        order: pulumi.Input[int]
+        action_configuration: NotRequired[pulumi.Input['IncidentPropertiesActionArgsDict']]
+elif False:
+    AutomationRuleModifyPropertiesActionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AutomationRuleModifyPropertiesActionArgs:
@@ -392,6 +569,13 @@ class AutomationRuleModifyPropertiesActionArgs:
         pulumi.set(self, "action_configuration", value)
 
 
+if not MYPY:
+    class AutomationRulePropertyArrayChangedValuesConditionArgsDict(TypedDict):
+        array_type: NotRequired[pulumi.Input[Union[str, 'AutomationRulePropertyArrayChangedConditionSupportedArrayType']]]
+        change_type: NotRequired[pulumi.Input[Union[str, 'AutomationRulePropertyArrayChangedConditionSupportedChangeType']]]
+elif False:
+    AutomationRulePropertyArrayChangedValuesConditionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AutomationRulePropertyArrayChangedValuesConditionArgs:
     def __init__(__self__, *,
@@ -420,6 +604,23 @@ class AutomationRulePropertyArrayChangedValuesConditionArgs:
     def change_type(self, value: Optional[pulumi.Input[Union[str, 'AutomationRulePropertyArrayChangedConditionSupportedChangeType']]]):
         pulumi.set(self, "change_type", value)
 
+
+if not MYPY:
+    class AutomationRulePropertyArrayValuesConditionArgsDict(TypedDict):
+        """
+        Describes an automation rule condition on array properties.
+        """
+        array_condition_type: NotRequired[pulumi.Input[Union[str, 'AutomationRulePropertyArrayConditionSupportedArrayConditionType']]]
+        """
+        Describes an array condition evaluation type.
+        """
+        array_type: NotRequired[pulumi.Input[Union[str, 'AutomationRulePropertyArrayConditionSupportedArrayType']]]
+        """
+        Describes an array condition evaluated array type.
+        """
+        item_conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union['BooleanConditionPropertiesArgsDict', 'PropertyArrayChangedConditionPropertiesArgsDict', 'PropertyArrayConditionPropertiesArgsDict', 'PropertyChangedConditionPropertiesArgsDict', 'PropertyConditionPropertiesArgsDict']]]]]
+elif False:
+    AutomationRulePropertyArrayValuesConditionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AutomationRulePropertyArrayValuesConditionArgs:
@@ -472,6 +673,15 @@ class AutomationRulePropertyArrayValuesConditionArgs:
     def item_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BooleanConditionPropertiesArgs', 'PropertyArrayChangedConditionPropertiesArgs', 'PropertyArrayConditionPropertiesArgs', 'PropertyChangedConditionPropertiesArgs', 'PropertyConditionPropertiesArgs']]]]]):
         pulumi.set(self, "item_conditions", value)
 
+
+if not MYPY:
+    class AutomationRulePropertyValuesChangedConditionArgsDict(TypedDict):
+        change_type: NotRequired[pulumi.Input[Union[str, 'AutomationRulePropertyChangedConditionSupportedChangedType']]]
+        operator: NotRequired[pulumi.Input[Union[str, 'AutomationRulePropertyConditionSupportedOperator']]]
+        property_name: NotRequired[pulumi.Input[Union[str, 'AutomationRulePropertyChangedConditionSupportedPropertyType']]]
+        property_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+elif False:
+    AutomationRulePropertyValuesChangedConditionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AutomationRulePropertyValuesChangedConditionArgs:
@@ -526,6 +736,17 @@ class AutomationRulePropertyValuesChangedConditionArgs:
         pulumi.set(self, "property_values", value)
 
 
+if not MYPY:
+    class AutomationRulePropertyValuesConditionArgsDict(TypedDict):
+        operator: NotRequired[pulumi.Input[Union[str, 'AutomationRulePropertyConditionSupportedOperator']]]
+        property_name: NotRequired[pulumi.Input[Union[str, 'AutomationRulePropertyConditionSupportedProperty']]]
+        """
+        The property to evaluate in an automation rule property condition.
+        """
+        property_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+elif False:
+    AutomationRulePropertyValuesConditionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AutomationRulePropertyValuesConditionArgs:
     def __init__(__self__, *,
@@ -572,6 +793,21 @@ class AutomationRulePropertyValuesConditionArgs:
     def property_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "property_values", value)
 
+
+if not MYPY:
+    class AutomationRuleRunPlaybookActionArgsDict(TypedDict):
+        """
+        Describes an automation rule action to run a playbook
+        """
+        action_type: pulumi.Input[str]
+        """
+        The type of the automation rule action.
+        Expected value is 'RunPlaybook'.
+        """
+        order: pulumi.Input[int]
+        action_configuration: NotRequired[pulumi.Input['PlaybookActionPropertiesArgsDict']]
+elif False:
+    AutomationRuleRunPlaybookActionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AutomationRuleRunPlaybookActionArgs:
@@ -620,6 +856,28 @@ class AutomationRuleRunPlaybookActionArgs:
     def action_configuration(self, value: Optional[pulumi.Input['PlaybookActionPropertiesArgs']]):
         pulumi.set(self, "action_configuration", value)
 
+
+if not MYPY:
+    class AutomationRuleTriggeringLogicArgsDict(TypedDict):
+        """
+        Describes automation rule triggering logic.
+        """
+        is_enabled: pulumi.Input[bool]
+        """
+        Determines whether the automation rule is enabled or disabled.
+        """
+        triggers_on: pulumi.Input[Union[str, 'TriggersOn']]
+        triggers_when: pulumi.Input[Union[str, 'TriggersWhen']]
+        conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union['BooleanConditionPropertiesArgsDict', 'PropertyArrayChangedConditionPropertiesArgsDict', 'PropertyArrayConditionPropertiesArgsDict', 'PropertyChangedConditionPropertiesArgsDict', 'PropertyConditionPropertiesArgsDict']]]]]
+        """
+        The conditions to evaluate to determine if the automation rule should be triggered on a given object.
+        """
+        expiration_time_utc: NotRequired[pulumi.Input[str]]
+        """
+        Determines when the automation rule should automatically expire and be disabled.
+        """
+elif False:
+    AutomationRuleTriggeringLogicArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AutomationRuleTriggeringLogicArgs:
@@ -698,6 +956,18 @@ class AutomationRuleTriggeringLogicArgs:
         pulumi.set(self, "expiration_time_utc", value)
 
 
+if not MYPY:
+    class AwsCloudTrailDataConnectorDataTypesLogsArgsDict(TypedDict):
+        """
+        Logs data type.
+        """
+        state: NotRequired[pulumi.Input[Union[str, 'DataTypeState']]]
+        """
+        Describe whether this data type connection is enabled or not.
+        """
+elif False:
+    AwsCloudTrailDataConnectorDataTypesLogsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AwsCloudTrailDataConnectorDataTypesLogsArgs:
     def __init__(__self__, *,
@@ -722,6 +992,18 @@ class AwsCloudTrailDataConnectorDataTypesLogsArgs:
         pulumi.set(self, "state", value)
 
 
+if not MYPY:
+    class AwsCloudTrailDataConnectorDataTypesArgsDict(TypedDict):
+        """
+        The available data types for Amazon Web Services CloudTrail data connector.
+        """
+        logs: NotRequired[pulumi.Input['AwsCloudTrailDataConnectorDataTypesLogsArgsDict']]
+        """
+        Logs data type.
+        """
+elif False:
+    AwsCloudTrailDataConnectorDataTypesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AwsCloudTrailDataConnectorDataTypesArgs:
     def __init__(__self__, *,
@@ -745,6 +1027,23 @@ class AwsCloudTrailDataConnectorDataTypesArgs:
     def logs(self, value: Optional[pulumi.Input['AwsCloudTrailDataConnectorDataTypesLogsArgs']]):
         pulumi.set(self, "logs", value)
 
+
+if not MYPY:
+    class BooleanConditionPropertiesArgsDict(TypedDict):
+        """
+        Describes an automation rule condition that applies a boolean operator (e.g AND, OR) to conditions
+        """
+        condition_type: pulumi.Input[str]
+        """
+
+        Expected value is 'Boolean'.
+        """
+        condition_properties: NotRequired[pulumi.Input['AutomationRuleBooleanConditionArgsDict']]
+        """
+        Describes an automation rule condition with boolean operators.
+        """
+elif False:
+    BooleanConditionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class BooleanConditionPropertiesArgs:
@@ -786,6 +1085,30 @@ class BooleanConditionPropertiesArgs:
     def condition_properties(self, value: Optional[pulumi.Input['AutomationRuleBooleanConditionArgs']]):
         pulumi.set(self, "condition_properties", value)
 
+
+if not MYPY:
+    class ClientInfoArgsDict(TypedDict):
+        """
+        Information on the client (user or application) that made some action
+        """
+        email: NotRequired[pulumi.Input[str]]
+        """
+        The email of the client.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the client.
+        """
+        object_id: NotRequired[pulumi.Input[str]]
+        """
+        The object id of the client.
+        """
+        user_principal_name: NotRequired[pulumi.Input[str]]
+        """
+        The user principal name of the client.
+        """
+elif False:
+    ClientInfoArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ClientInfoArgs:
@@ -859,6 +1182,18 @@ class ClientInfoArgs:
         pulumi.set(self, "user_principal_name", value)
 
 
+if not MYPY:
+    class DataConnectorDataTypeCommonArgsDict(TypedDict):
+        """
+        Common field for data type in data connectors.
+        """
+        state: NotRequired[pulumi.Input[Union[str, 'DataTypeState']]]
+        """
+        Describe whether this data type connection is enabled or not.
+        """
+elif False:
+    DataConnectorDataTypeCommonArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DataConnectorDataTypeCommonArgs:
     def __init__(__self__, *,
@@ -882,6 +1217,22 @@ class DataConnectorDataTypeCommonArgs:
     def state(self, value: Optional[pulumi.Input[Union[str, 'DataTypeState']]]):
         pulumi.set(self, "state", value)
 
+
+if not MYPY:
+    class EntityMappingArgsDict(TypedDict):
+        """
+        Single entity mapping for the alert rule
+        """
+        entity_type: NotRequired[pulumi.Input[Union[str, 'EntityMappingType']]]
+        """
+        The V3 type of the mapped entity
+        """
+        field_mappings: NotRequired[pulumi.Input[Sequence[pulumi.Input['FieldMappingArgsDict']]]]
+        """
+        array of field mappings for the given entity mapping
+        """
+elif False:
+    EntityMappingArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EntityMappingArgs:
@@ -923,6 +1274,18 @@ class EntityMappingArgs:
         pulumi.set(self, "field_mappings", value)
 
 
+if not MYPY:
+    class EventGroupingSettingsArgsDict(TypedDict):
+        """
+        Event grouping settings property bag.
+        """
+        aggregation_kind: NotRequired[pulumi.Input[Union[str, 'EventGroupingAggregationKind']]]
+        """
+        The event grouping aggregation kinds
+        """
+elif False:
+    EventGroupingSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EventGroupingSettingsArgs:
     def __init__(__self__, *,
@@ -946,6 +1309,22 @@ class EventGroupingSettingsArgs:
     def aggregation_kind(self, value: Optional[pulumi.Input[Union[str, 'EventGroupingAggregationKind']]]):
         pulumi.set(self, "aggregation_kind", value)
 
+
+if not MYPY:
+    class FieldMappingArgsDict(TypedDict):
+        """
+        A single field mapping of the mapped entity
+        """
+        column_name: NotRequired[pulumi.Input[str]]
+        """
+        the column name to be mapped to the identifier
+        """
+        identifier: NotRequired[pulumi.Input[str]]
+        """
+        the V3 identifier of the entity
+        """
+elif False:
+    FieldMappingArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FieldMappingArgs:
@@ -986,6 +1365,42 @@ class FieldMappingArgs:
     def identifier(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "identifier", value)
 
+
+if not MYPY:
+    class GroupingConfigurationArgsDict(TypedDict):
+        """
+        Grouping configuration property bag.
+        """
+        enabled: pulumi.Input[bool]
+        """
+        Grouping enabled
+        """
+        lookback_duration: pulumi.Input[str]
+        """
+        Limit the group to alerts created within the lookback duration (in ISO 8601 duration format)
+        """
+        matching_method: pulumi.Input[Union[str, 'MatchingMethod']]
+        """
+        Grouping matching method. When method is Selected at least one of groupByEntities, groupByAlertDetails, groupByCustomDetails must be provided and not empty.
+        """
+        reopen_closed_incident: pulumi.Input[bool]
+        """
+        Re-open closed matching incidents
+        """
+        group_by_alert_details: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AlertDetail']]]]]
+        """
+        A list of alert details to group by (when matchingMethod is Selected)
+        """
+        group_by_custom_details: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of custom details keys to group by (when matchingMethod is Selected). Only keys defined in the current alert rule may be used.
+        """
+        group_by_entities: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'EntityMappingType']]]]]
+        """
+        A list of entity types to group by (when matchingMethod is Selected). Only entities defined in the current alert rule may be used.
+        """
+elif False:
+    GroupingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GroupingConfigurationArgs:
@@ -1103,6 +1518,22 @@ class GroupingConfigurationArgs:
         pulumi.set(self, "group_by_entities", value)
 
 
+if not MYPY:
+    class IncidentConfigurationArgsDict(TypedDict):
+        """
+        Incident Configuration property bag.
+        """
+        create_incident: pulumi.Input[bool]
+        """
+        Create incidents from alerts triggered by this analytics rule
+        """
+        grouping_configuration: NotRequired[pulumi.Input['GroupingConfigurationArgsDict']]
+        """
+        Set how the alerts that are triggered by this analytics rule, are grouped into incidents
+        """
+elif False:
+    IncidentConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IncidentConfigurationArgs:
     def __init__(__self__, *,
@@ -1141,6 +1572,30 @@ class IncidentConfigurationArgs:
     def grouping_configuration(self, value: Optional[pulumi.Input['GroupingConfigurationArgs']]):
         pulumi.set(self, "grouping_configuration", value)
 
+
+if not MYPY:
+    class IncidentInfoArgsDict(TypedDict):
+        """
+        Describes related incident information for the bookmark
+        """
+        incident_id: NotRequired[pulumi.Input[str]]
+        """
+        Incident Id
+        """
+        relation_name: NotRequired[pulumi.Input[str]]
+        """
+        Relation Name
+        """
+        severity: NotRequired[pulumi.Input[Union[str, 'IncidentSeverity']]]
+        """
+        The severity of the incident
+        """
+        title: NotRequired[pulumi.Input[str]]
+        """
+        The title of the incident
+        """
+elif False:
+    IncidentInfoArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IncidentInfoArgs:
@@ -1214,6 +1669,18 @@ class IncidentInfoArgs:
         pulumi.set(self, "title", value)
 
 
+if not MYPY:
+    class IncidentLabelArgsDict(TypedDict):
+        """
+        Represents an incident label
+        """
+        label_name: pulumi.Input[str]
+        """
+        The name of the label
+        """
+elif False:
+    IncidentLabelArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IncidentLabelArgs:
     def __init__(__self__, *,
@@ -1236,6 +1703,34 @@ class IncidentLabelArgs:
     def label_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "label_name", value)
 
+
+if not MYPY:
+    class IncidentOwnerInfoArgsDict(TypedDict):
+        """
+        Information on the user an incident is assigned to
+        """
+        assigned_to: NotRequired[pulumi.Input[str]]
+        """
+        The name of the user the incident is assigned to.
+        """
+        email: NotRequired[pulumi.Input[str]]
+        """
+        The email of the user the incident is assigned to.
+        """
+        object_id: NotRequired[pulumi.Input[str]]
+        """
+        The object id of the user the incident is assigned to.
+        """
+        owner_type: NotRequired[pulumi.Input[Union[str, 'OwnerType']]]
+        """
+        The type of the owner the incident is assigned to.
+        """
+        user_principal_name: NotRequired[pulumi.Input[str]]
+        """
+        The user principal name of the user the incident is assigned to.
+        """
+elif False:
+    IncidentOwnerInfoArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IncidentOwnerInfoArgs:
@@ -1324,6 +1819,39 @@ class IncidentOwnerInfoArgs:
     def user_principal_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "user_principal_name", value)
 
+
+if not MYPY:
+    class IncidentPropertiesActionArgsDict(TypedDict):
+        classification: NotRequired[pulumi.Input[Union[str, 'IncidentClassification']]]
+        """
+        The reason the incident was closed
+        """
+        classification_comment: NotRequired[pulumi.Input[str]]
+        """
+        Describes the reason the incident was closed.
+        """
+        classification_reason: NotRequired[pulumi.Input[Union[str, 'IncidentClassificationReason']]]
+        """
+        The classification reason the incident was closed with
+        """
+        labels: NotRequired[pulumi.Input[Sequence[pulumi.Input['IncidentLabelArgsDict']]]]
+        """
+        List of labels to add to the incident.
+        """
+        owner: NotRequired[pulumi.Input['IncidentOwnerInfoArgsDict']]
+        """
+        Information on the user an incident is assigned to
+        """
+        severity: NotRequired[pulumi.Input[Union[str, 'IncidentSeverity']]]
+        """
+        The severity of the incident
+        """
+        status: NotRequired[pulumi.Input[Union[str, 'IncidentStatus']]]
+        """
+        The status of the incident
+        """
+elif False:
+    IncidentPropertiesActionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IncidentPropertiesActionArgs:
@@ -1444,6 +1972,22 @@ class IncidentPropertiesActionArgs:
         pulumi.set(self, "status", value)
 
 
+if not MYPY:
+    class MCASDataConnectorDataTypesArgsDict(TypedDict):
+        """
+        The available data types for MCAS (Microsoft Cloud App Security) data connector.
+        """
+        alerts: NotRequired[pulumi.Input['DataConnectorDataTypeCommonArgsDict']]
+        """
+        Alerts data type connection.
+        """
+        discovery_logs: NotRequired[pulumi.Input['DataConnectorDataTypeCommonArgsDict']]
+        """
+        Discovery log data type connection.
+        """
+elif False:
+    MCASDataConnectorDataTypesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MCASDataConnectorDataTypesArgs:
     def __init__(__self__, *,
@@ -1483,6 +2027,26 @@ class MCASDataConnectorDataTypesArgs:
     def discovery_logs(self, value: Optional[pulumi.Input['DataConnectorDataTypeCommonArgs']]):
         pulumi.set(self, "discovery_logs", value)
 
+
+if not MYPY:
+    class MetadataAuthorArgsDict(TypedDict):
+        """
+        Publisher or creator of the content item.
+        """
+        email: NotRequired[pulumi.Input[str]]
+        """
+        Email of author contact
+        """
+        link: NotRequired[pulumi.Input[str]]
+        """
+        Link for author/vendor page
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the author. Company or person.
+        """
+elif False:
+    MetadataAuthorArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MetadataAuthorArgs:
@@ -1540,6 +2104,22 @@ class MetadataAuthorArgs:
         pulumi.set(self, "name", value)
 
 
+if not MYPY:
+    class MetadataCategoriesArgsDict(TypedDict):
+        """
+        ies for the solution content item
+        """
+        domains: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        domain for the solution content item
+        """
+        verticals: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Industry verticals for the solution content item
+        """
+elif False:
+    MetadataCategoriesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MetadataCategoriesArgs:
     def __init__(__self__, *,
@@ -1579,6 +2159,38 @@ class MetadataCategoriesArgs:
     def verticals(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "verticals", value)
 
+
+if not MYPY:
+    class MetadataDependenciesArgsDict(TypedDict):
+        """
+        Dependencies for the content item, what other content items it requires to work.  Can describe more complex dependencies using a recursive/nested structure. For a single dependency an id/kind/version can be supplied or operator/criteria for complex dependencies.
+        """
+        content_id: NotRequired[pulumi.Input[str]]
+        """
+        Id of the content item we depend on
+        """
+        criteria: NotRequired[pulumi.Input[Sequence[pulumi.Input['MetadataDependenciesArgsDict']]]]
+        """
+        This is the list of dependencies we must fulfill, according to the AND/OR operator
+        """
+        kind: NotRequired[pulumi.Input[Union[str, 'Kind']]]
+        """
+        Type of the content item we depend on
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the content item
+        """
+        operator: NotRequired[pulumi.Input[Union[str, 'Operator']]]
+        """
+        Operator used for list of dependencies in criteria array.
+        """
+        version: NotRequired[pulumi.Input[str]]
+        """
+        Version of the the content item we depend on.  Can be blank, * or missing to indicate any version fulfills the dependency.  If version does not match our defined numeric format then an exact match is required.
+        """
+elif False:
+    MetadataDependenciesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MetadataDependenciesArgs:
@@ -1684,6 +2296,26 @@ class MetadataDependenciesArgs:
         pulumi.set(self, "version", value)
 
 
+if not MYPY:
+    class MetadataSourceArgsDict(TypedDict):
+        """
+        The original source of the content item, where it comes from.
+        """
+        kind: pulumi.Input[Union[str, 'SourceKind']]
+        """
+        Source type of the content
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the content source.  The repo name, solution name, LA workspace name etc.
+        """
+        source_id: NotRequired[pulumi.Input[str]]
+        """
+        ID of the content source.  The solution ID, workspace ID, etc
+        """
+elif False:
+    MetadataSourceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MetadataSourceArgs:
     def __init__(__self__, *,
@@ -1738,6 +2370,30 @@ class MetadataSourceArgs:
     def source_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "source_id", value)
 
+
+if not MYPY:
+    class MetadataSupportArgsDict(TypedDict):
+        """
+        Support information for the content item.
+        """
+        tier: pulumi.Input[Union[str, 'SupportTier']]
+        """
+        Type of support for content item
+        """
+        email: NotRequired[pulumi.Input[str]]
+        """
+        Email of support contact
+        """
+        link: NotRequired[pulumi.Input[str]]
+        """
+        Link for support help, like to support page to open a ticket etc.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the support contact. Company or person.
+        """
+elif False:
+    MetadataSupportArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MetadataSupportArgs:
@@ -1810,6 +2466,18 @@ class MetadataSupportArgs:
         pulumi.set(self, "name", value)
 
 
+if not MYPY:
+    class OfficeDataConnectorDataTypesExchangeArgsDict(TypedDict):
+        """
+        Exchange data type connection.
+        """
+        state: NotRequired[pulumi.Input[Union[str, 'DataTypeState']]]
+        """
+        Describe whether this data type connection is enabled or not.
+        """
+elif False:
+    OfficeDataConnectorDataTypesExchangeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OfficeDataConnectorDataTypesExchangeArgs:
     def __init__(__self__, *,
@@ -1833,6 +2501,18 @@ class OfficeDataConnectorDataTypesExchangeArgs:
     def state(self, value: Optional[pulumi.Input[Union[str, 'DataTypeState']]]):
         pulumi.set(self, "state", value)
 
+
+if not MYPY:
+    class OfficeDataConnectorDataTypesSharePointArgsDict(TypedDict):
+        """
+        SharePoint data type connection.
+        """
+        state: NotRequired[pulumi.Input[Union[str, 'DataTypeState']]]
+        """
+        Describe whether this data type connection is enabled or not.
+        """
+elif False:
+    OfficeDataConnectorDataTypesSharePointArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OfficeDataConnectorDataTypesSharePointArgs:
@@ -1858,6 +2538,18 @@ class OfficeDataConnectorDataTypesSharePointArgs:
         pulumi.set(self, "state", value)
 
 
+if not MYPY:
+    class OfficeDataConnectorDataTypesTeamsArgsDict(TypedDict):
+        """
+        Teams data type connection.
+        """
+        state: NotRequired[pulumi.Input[Union[str, 'DataTypeState']]]
+        """
+        Describe whether this data type connection is enabled or not.
+        """
+elif False:
+    OfficeDataConnectorDataTypesTeamsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OfficeDataConnectorDataTypesTeamsArgs:
     def __init__(__self__, *,
@@ -1881,6 +2573,26 @@ class OfficeDataConnectorDataTypesTeamsArgs:
     def state(self, value: Optional[pulumi.Input[Union[str, 'DataTypeState']]]):
         pulumi.set(self, "state", value)
 
+
+if not MYPY:
+    class OfficeDataConnectorDataTypesArgsDict(TypedDict):
+        """
+        The available data types for office data connector.
+        """
+        exchange: NotRequired[pulumi.Input['OfficeDataConnectorDataTypesExchangeArgsDict']]
+        """
+        Exchange data type connection.
+        """
+        share_point: NotRequired[pulumi.Input['OfficeDataConnectorDataTypesSharePointArgsDict']]
+        """
+        SharePoint data type connection.
+        """
+        teams: NotRequired[pulumi.Input['OfficeDataConnectorDataTypesTeamsArgsDict']]
+        """
+        Teams data type connection.
+        """
+elif False:
+    OfficeDataConnectorDataTypesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OfficeDataConnectorDataTypesArgs:
@@ -1938,6 +2650,19 @@ class OfficeDataConnectorDataTypesArgs:
         pulumi.set(self, "teams", value)
 
 
+if not MYPY:
+    class PlaybookActionPropertiesArgsDict(TypedDict):
+        logic_app_resource_id: pulumi.Input[str]
+        """
+        The resource id of the playbook resource.
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        The tenant id of the playbook resource.
+        """
+elif False:
+    PlaybookActionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PlaybookActionPropertiesArgs:
     def __init__(__self__, *,
@@ -1976,6 +2701,20 @@ class PlaybookActionPropertiesArgs:
         pulumi.set(self, "tenant_id", value)
 
 
+if not MYPY:
+    class PropertyArrayChangedConditionPropertiesArgsDict(TypedDict):
+        """
+        Describes an automation rule condition that evaluates an array property's value change
+        """
+        condition_type: pulumi.Input[str]
+        """
+
+        Expected value is 'PropertyArrayChanged'.
+        """
+        condition_properties: NotRequired[pulumi.Input['AutomationRulePropertyArrayChangedValuesConditionArgsDict']]
+elif False:
+    PropertyArrayChangedConditionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PropertyArrayChangedConditionPropertiesArgs:
     def __init__(__self__, *,
@@ -2012,6 +2751,23 @@ class PropertyArrayChangedConditionPropertiesArgs:
     def condition_properties(self, value: Optional[pulumi.Input['AutomationRulePropertyArrayChangedValuesConditionArgs']]):
         pulumi.set(self, "condition_properties", value)
 
+
+if not MYPY:
+    class PropertyArrayConditionPropertiesArgsDict(TypedDict):
+        """
+        Describes an automation rule condition that evaluates an array property's value
+        """
+        condition_type: pulumi.Input[str]
+        """
+
+        Expected value is 'PropertyArray'.
+        """
+        condition_properties: NotRequired[pulumi.Input['AutomationRulePropertyArrayValuesConditionArgsDict']]
+        """
+        Describes an automation rule condition on array properties.
+        """
+elif False:
+    PropertyArrayConditionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PropertyArrayConditionPropertiesArgs:
@@ -2054,6 +2810,20 @@ class PropertyArrayConditionPropertiesArgs:
         pulumi.set(self, "condition_properties", value)
 
 
+if not MYPY:
+    class PropertyChangedConditionPropertiesArgsDict(TypedDict):
+        """
+        Describes an automation rule condition that evaluates a property's value change
+        """
+        condition_type: pulumi.Input[str]
+        """
+
+        Expected value is 'PropertyChanged'.
+        """
+        condition_properties: NotRequired[pulumi.Input['AutomationRulePropertyValuesChangedConditionArgsDict']]
+elif False:
+    PropertyChangedConditionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PropertyChangedConditionPropertiesArgs:
     def __init__(__self__, *,
@@ -2091,6 +2861,20 @@ class PropertyChangedConditionPropertiesArgs:
         pulumi.set(self, "condition_properties", value)
 
 
+if not MYPY:
+    class PropertyConditionPropertiesArgsDict(TypedDict):
+        """
+        Describes an automation rule condition that evaluates a property's value
+        """
+        condition_type: pulumi.Input[str]
+        """
+
+        Expected value is 'Property'.
+        """
+        condition_properties: NotRequired[pulumi.Input['AutomationRulePropertyValuesConditionArgsDict']]
+elif False:
+    PropertyConditionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PropertyConditionPropertiesArgs:
     def __init__(__self__, *,
@@ -2127,6 +2911,22 @@ class PropertyConditionPropertiesArgs:
     def condition_properties(self, value: Optional[pulumi.Input['AutomationRulePropertyValuesConditionArgs']]):
         pulumi.set(self, "condition_properties", value)
 
+
+if not MYPY:
+    class SecurityMLAnalyticsSettingsDataSourceArgsDict(TypedDict):
+        """
+        security ml analytics settings data sources
+        """
+        connector_id: NotRequired[pulumi.Input[str]]
+        """
+        The connector id that provides the following data types
+        """
+        data_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The data types used by the security ml analytics settings
+        """
+elif False:
+    SecurityMLAnalyticsSettingsDataSourceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SecurityMLAnalyticsSettingsDataSourceArgs:
@@ -2168,6 +2968,18 @@ class SecurityMLAnalyticsSettingsDataSourceArgs:
         pulumi.set(self, "data_types", value)
 
 
+if not MYPY:
+    class TIDataConnectorDataTypesIndicatorsArgsDict(TypedDict):
+        """
+        Data type for indicators connection.
+        """
+        state: NotRequired[pulumi.Input[Union[str, 'DataTypeState']]]
+        """
+        Describe whether this data type connection is enabled or not.
+        """
+elif False:
+    TIDataConnectorDataTypesIndicatorsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TIDataConnectorDataTypesIndicatorsArgs:
     def __init__(__self__, *,
@@ -2192,6 +3004,18 @@ class TIDataConnectorDataTypesIndicatorsArgs:
         pulumi.set(self, "state", value)
 
 
+if not MYPY:
+    class TIDataConnectorDataTypesArgsDict(TypedDict):
+        """
+        The available data types for TI (Threat Intelligence) data connector.
+        """
+        indicators: NotRequired[pulumi.Input['TIDataConnectorDataTypesIndicatorsArgsDict']]
+        """
+        Data type for indicators connection.
+        """
+elif False:
+    TIDataConnectorDataTypesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TIDataConnectorDataTypesArgs:
     def __init__(__self__, *,
@@ -2215,6 +3039,34 @@ class TIDataConnectorDataTypesArgs:
     def indicators(self, value: Optional[pulumi.Input['TIDataConnectorDataTypesIndicatorsArgs']]):
         pulumi.set(self, "indicators", value)
 
+
+if not MYPY:
+    class ThreatIntelligenceExternalReferenceArgsDict(TypedDict):
+        """
+        Describes external reference
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        External reference description
+        """
+        external_id: NotRequired[pulumi.Input[str]]
+        """
+        External reference ID
+        """
+        hashes: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        External reference hashes
+        """
+        source_name: NotRequired[pulumi.Input[str]]
+        """
+        External reference source name
+        """
+        url: NotRequired[pulumi.Input[str]]
+        """
+        External reference URL
+        """
+elif False:
+    ThreatIntelligenceExternalReferenceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ThreatIntelligenceExternalReferenceArgs:
@@ -2304,6 +3156,26 @@ class ThreatIntelligenceExternalReferenceArgs:
         pulumi.set(self, "url", value)
 
 
+if not MYPY:
+    class ThreatIntelligenceGranularMarkingModelArgsDict(TypedDict):
+        """
+        Describes threat granular marking model entity
+        """
+        language: NotRequired[pulumi.Input[str]]
+        """
+        Language granular marking model
+        """
+        marking_ref: NotRequired[pulumi.Input[int]]
+        """
+        marking reference granular marking model
+        """
+        selectors: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        granular marking model selectors
+        """
+elif False:
+    ThreatIntelligenceGranularMarkingModelArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ThreatIntelligenceGranularMarkingModelArgs:
     def __init__(__self__, *,
@@ -2360,6 +3232,22 @@ class ThreatIntelligenceGranularMarkingModelArgs:
         pulumi.set(self, "selectors", value)
 
 
+if not MYPY:
+    class ThreatIntelligenceKillChainPhaseArgsDict(TypedDict):
+        """
+        Describes threat kill chain phase entity
+        """
+        kill_chain_name: NotRequired[pulumi.Input[str]]
+        """
+        Kill chainName name
+        """
+        phase_name: NotRequired[pulumi.Input[str]]
+        """
+        Phase name
+        """
+elif False:
+    ThreatIntelligenceKillChainPhaseArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ThreatIntelligenceKillChainPhaseArgs:
     def __init__(__self__, *,
@@ -2399,6 +3287,22 @@ class ThreatIntelligenceKillChainPhaseArgs:
     def phase_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "phase_name", value)
 
+
+if not MYPY:
+    class ThreatIntelligenceParsedPatternTypeValueArgsDict(TypedDict):
+        """
+        Describes threat kill chain phase entity
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        Value of parsed pattern
+        """
+        value_type: NotRequired[pulumi.Input[str]]
+        """
+        Type of the value
+        """
+elif False:
+    ThreatIntelligenceParsedPatternTypeValueArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ThreatIntelligenceParsedPatternTypeValueArgs:
@@ -2440,6 +3344,22 @@ class ThreatIntelligenceParsedPatternTypeValueArgs:
         pulumi.set(self, "value_type", value)
 
 
+if not MYPY:
+    class ThreatIntelligenceParsedPatternArgsDict(TypedDict):
+        """
+        Describes parsed pattern entity
+        """
+        pattern_type_key: NotRequired[pulumi.Input[str]]
+        """
+        Pattern type key
+        """
+        pattern_type_values: NotRequired[pulumi.Input[Sequence[pulumi.Input['ThreatIntelligenceParsedPatternTypeValueArgsDict']]]]
+        """
+        Pattern type keys
+        """
+elif False:
+    ThreatIntelligenceParsedPatternArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ThreatIntelligenceParsedPatternArgs:
     def __init__(__self__, *,
@@ -2480,6 +3400,18 @@ class ThreatIntelligenceParsedPatternArgs:
         pulumi.set(self, "pattern_type_values", value)
 
 
+if not MYPY:
+    class UserInfoArgsDict(TypedDict):
+        """
+        User information that made some action
+        """
+        object_id: NotRequired[pulumi.Input[str]]
+        """
+        The object id of the user.
+        """
+elif False:
+    UserInfoArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class UserInfoArgs:
     def __init__(__self__, *,
@@ -2503,6 +3435,18 @@ class UserInfoArgs:
     def object_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "object_id", value)
 
+
+if not MYPY:
+    class WatchlistUserInfoArgsDict(TypedDict):
+        """
+        User information that made some action
+        """
+        object_id: NotRequired[pulumi.Input[str]]
+        """
+        The object id of the user.
+        """
+elif False:
+    WatchlistUserInfoArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WatchlistUserInfoArgs:

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -88,7 +93,7 @@ class ManagedNetworkSettingsRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 properties: Optional[pulumi.Input[Union[pulumi.InputType['FqdnOutboundRuleArgs'], pulumi.InputType['PrivateEndpointOutboundRuleArgs'], pulumi.InputType['ServiceTagOutboundRuleArgs']]]] = None,
+                 properties: Optional[pulumi.Input[Union[Union['FqdnOutboundRuleArgs', 'FqdnOutboundRuleArgsDict'], Union['PrivateEndpointOutboundRuleArgs', 'PrivateEndpointOutboundRuleArgsDict'], Union['ServiceTagOutboundRuleArgs', 'ServiceTagOutboundRuleArgsDict']]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  rule_name: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
@@ -98,7 +103,7 @@ class ManagedNetworkSettingsRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union[pulumi.InputType['FqdnOutboundRuleArgs'], pulumi.InputType['PrivateEndpointOutboundRuleArgs'], pulumi.InputType['ServiceTagOutboundRuleArgs']]] properties: Outbound Rule for the managed network of a machine learning workspace.
+        :param pulumi.Input[Union[Union['FqdnOutboundRuleArgs', 'FqdnOutboundRuleArgsDict'], Union['PrivateEndpointOutboundRuleArgs', 'PrivateEndpointOutboundRuleArgsDict'], Union['ServiceTagOutboundRuleArgs', 'ServiceTagOutboundRuleArgsDict']]] properties: Outbound Rule for the managed network of a machine learning workspace.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] rule_name: Name of the workspace managed network outbound rule
         :param pulumi.Input[str] workspace_name: Name of Azure Machine Learning workspace.
@@ -127,7 +132,7 @@ class ManagedNetworkSettingsRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 properties: Optional[pulumi.Input[Union[pulumi.InputType['FqdnOutboundRuleArgs'], pulumi.InputType['PrivateEndpointOutboundRuleArgs'], pulumi.InputType['ServiceTagOutboundRuleArgs']]]] = None,
+                 properties: Optional[pulumi.Input[Union[Union['FqdnOutboundRuleArgs', 'FqdnOutboundRuleArgsDict'], Union['PrivateEndpointOutboundRuleArgs', 'PrivateEndpointOutboundRuleArgsDict'], Union['ServiceTagOutboundRuleArgs', 'ServiceTagOutboundRuleArgsDict']]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  rule_name: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,

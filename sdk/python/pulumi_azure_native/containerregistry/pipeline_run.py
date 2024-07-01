@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -108,7 +113,7 @@ class PipelineRun(pulumi.CustomResource):
                  force_update_tag: Optional[pulumi.Input[str]] = None,
                  pipeline_run_name: Optional[pulumi.Input[str]] = None,
                  registry_name: Optional[pulumi.Input[str]] = None,
-                 request: Optional[pulumi.Input[pulumi.InputType['PipelineRunRequestArgs']]] = None,
+                 request: Optional[pulumi.Input[Union['PipelineRunRequestArgs', 'PipelineRunRequestArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -122,7 +127,7 @@ class PipelineRun(pulumi.CustomResource):
         :param pulumi.Input[str] force_update_tag: How the pipeline run should be forced to recreate even if the pipeline run configuration has not changed.
         :param pulumi.Input[str] pipeline_run_name: The name of the pipeline run.
         :param pulumi.Input[str] registry_name: The name of the container registry.
-        :param pulumi.Input[pulumi.InputType['PipelineRunRequestArgs']] request: The request parameters for a pipeline run.
+        :param pulumi.Input[Union['PipelineRunRequestArgs', 'PipelineRunRequestArgsDict']] request: The request parameters for a pipeline run.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         """
         ...
@@ -155,7 +160,7 @@ class PipelineRun(pulumi.CustomResource):
                  force_update_tag: Optional[pulumi.Input[str]] = None,
                  pipeline_run_name: Optional[pulumi.Input[str]] = None,
                  registry_name: Optional[pulumi.Input[str]] = None,
-                 request: Optional[pulumi.Input[pulumi.InputType['PipelineRunRequestArgs']]] = None,
+                 request: Optional[pulumi.Input[Union['PipelineRunRequestArgs', 'PipelineRunRequestArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

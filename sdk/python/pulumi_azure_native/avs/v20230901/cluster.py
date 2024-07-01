@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -141,7 +146,7 @@ class Cluster(pulumi.CustomResource):
                  hosts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  private_cloud_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  vsan_datastore_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -154,7 +159,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] hosts: The hosts
         :param pulumi.Input[str] private_cloud_name: Name of the private cloud
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The SKU (Stock Keeping Unit) assigned to this resource.
+        :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: The SKU (Stock Keeping Unit) assigned to this resource.
         :param pulumi.Input[str] vsan_datastore_name: Name of the vsan datastore associated with the cluster
         """
         ...
@@ -186,7 +191,7 @@ class Cluster(pulumi.CustomResource):
                  hosts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  private_cloud_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  vsan_datastore_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

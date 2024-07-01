@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -188,13 +193,13 @@ class AutomationAccount(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  automation_account_name: Optional[pulumi.Input[str]] = None,
                  disable_local_auth: Optional[pulumi.Input[bool]] = None,
-                 encryption: Optional[pulumi.Input[pulumi.InputType['EncryptionPropertiesArgs']]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
+                 encryption: Optional[pulumi.Input[Union['EncryptionPropertiesArgs', 'EncryptionPropertiesArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  public_network_access: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -207,13 +212,13 @@ class AutomationAccount(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] automation_account_name: The name of the automation account.
         :param pulumi.Input[bool] disable_local_auth: Indicates whether requests using non-AAD authentication are blocked
-        :param pulumi.Input[pulumi.InputType['EncryptionPropertiesArgs']] encryption: Set the encryption properties for the automation account
-        :param pulumi.Input[pulumi.InputType['IdentityArgs']] identity: Sets the identity property for automation account
+        :param pulumi.Input[Union['EncryptionPropertiesArgs', 'EncryptionPropertiesArgsDict']] encryption: Set the encryption properties for the automation account
+        :param pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']] identity: Sets the identity property for automation account
         :param pulumi.Input[str] location: Gets or sets the location of the resource.
         :param pulumi.Input[str] name: Gets or sets name of the resource.
         :param pulumi.Input[bool] public_network_access: Indicates whether traffic on the non-ARM endpoint (Webhook/Agent) is allowed from the public internet
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
-        :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: Gets or sets account SKU.
+        :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: Gets or sets account SKU.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Gets or sets the tags attached to the resource.
         """
         ...
@@ -245,13 +250,13 @@ class AutomationAccount(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  automation_account_name: Optional[pulumi.Input[str]] = None,
                  disable_local_auth: Optional[pulumi.Input[bool]] = None,
-                 encryption: Optional[pulumi.Input[pulumi.InputType['EncryptionPropertiesArgs']]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
+                 encryption: Optional[pulumi.Input[Union['EncryptionPropertiesArgs', 'EncryptionPropertiesArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  public_network_access: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

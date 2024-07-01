@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -198,35 +203,35 @@ class IoTRole(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 compute_resource: Optional[pulumi.Input[pulumi.InputType['ComputeResourceArgs']]] = None,
+                 compute_resource: Optional[pulumi.Input[Union['ComputeResourceArgs', 'ComputeResourceArgsDict']]] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
                  host_platform: Optional[pulumi.Input[Union[str, 'PlatformType']]] = None,
-                 io_t_device_details: Optional[pulumi.Input[pulumi.InputType['IoTDeviceInfoArgs']]] = None,
-                 io_t_edge_agent_info: Optional[pulumi.Input[pulumi.InputType['IoTEdgeAgentInfoArgs']]] = None,
-                 io_t_edge_device_details: Optional[pulumi.Input[pulumi.InputType['IoTDeviceInfoArgs']]] = None,
+                 io_t_device_details: Optional[pulumi.Input[Union['IoTDeviceInfoArgs', 'IoTDeviceInfoArgsDict']]] = None,
+                 io_t_edge_agent_info: Optional[pulumi.Input[Union['IoTEdgeAgentInfoArgs', 'IoTEdgeAgentInfoArgsDict']]] = None,
+                 io_t_edge_device_details: Optional[pulumi.Input[Union['IoTDeviceInfoArgs', 'IoTDeviceInfoArgsDict']]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  role_status: Optional[pulumi.Input[Union[str, 'RoleStatus']]] = None,
-                 share_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MountPointMapArgs']]]]] = None,
+                 share_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MountPointMapArgs', 'MountPointMapArgsDict']]]]] = None,
                  __props__=None):
         """
         Compute role.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ComputeResourceArgs']] compute_resource: Resource allocation
+        :param pulumi.Input[Union['ComputeResourceArgs', 'ComputeResourceArgsDict']] compute_resource: Resource allocation
         :param pulumi.Input[str] device_name: The device name.
         :param pulumi.Input[Union[str, 'PlatformType']] host_platform: Host OS supported by the IoT role.
-        :param pulumi.Input[pulumi.InputType['IoTDeviceInfoArgs']] io_t_device_details: IoT device metadata to which data box edge device needs to be connected.
-        :param pulumi.Input[pulumi.InputType['IoTEdgeAgentInfoArgs']] io_t_edge_agent_info: Iot edge agent details to download the agent and bootstrap iot runtime.
-        :param pulumi.Input[pulumi.InputType['IoTDeviceInfoArgs']] io_t_edge_device_details: IoT edge device to which the IoT role needs to be configured.
+        :param pulumi.Input[Union['IoTDeviceInfoArgs', 'IoTDeviceInfoArgsDict']] io_t_device_details: IoT device metadata to which data box edge device needs to be connected.
+        :param pulumi.Input[Union['IoTEdgeAgentInfoArgs', 'IoTEdgeAgentInfoArgsDict']] io_t_edge_agent_info: Iot edge agent details to download the agent and bootstrap iot runtime.
+        :param pulumi.Input[Union['IoTDeviceInfoArgs', 'IoTDeviceInfoArgsDict']] io_t_edge_device_details: IoT edge device to which the IoT role needs to be configured.
         :param pulumi.Input[str] kind: Role type.
                Expected value is 'IOT'.
         :param pulumi.Input[str] name: The role name.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[Union[str, 'RoleStatus']] role_status: Role status.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MountPointMapArgs']]]] share_mappings: Mount points of shares in role(s).
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MountPointMapArgs', 'MountPointMapArgsDict']]]] share_mappings: Mount points of shares in role(s).
         """
         ...
     @overload
@@ -252,17 +257,17 @@ class IoTRole(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 compute_resource: Optional[pulumi.Input[pulumi.InputType['ComputeResourceArgs']]] = None,
+                 compute_resource: Optional[pulumi.Input[Union['ComputeResourceArgs', 'ComputeResourceArgsDict']]] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
                  host_platform: Optional[pulumi.Input[Union[str, 'PlatformType']]] = None,
-                 io_t_device_details: Optional[pulumi.Input[pulumi.InputType['IoTDeviceInfoArgs']]] = None,
-                 io_t_edge_agent_info: Optional[pulumi.Input[pulumi.InputType['IoTEdgeAgentInfoArgs']]] = None,
-                 io_t_edge_device_details: Optional[pulumi.Input[pulumi.InputType['IoTDeviceInfoArgs']]] = None,
+                 io_t_device_details: Optional[pulumi.Input[Union['IoTDeviceInfoArgs', 'IoTDeviceInfoArgsDict']]] = None,
+                 io_t_edge_agent_info: Optional[pulumi.Input[Union['IoTEdgeAgentInfoArgs', 'IoTEdgeAgentInfoArgsDict']]] = None,
+                 io_t_edge_device_details: Optional[pulumi.Input[Union['IoTDeviceInfoArgs', 'IoTDeviceInfoArgsDict']]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  role_status: Optional[pulumi.Input[Union[str, 'RoleStatus']]] = None,
-                 share_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MountPointMapArgs']]]]] = None,
+                 share_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MountPointMapArgs', 'MountPointMapArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

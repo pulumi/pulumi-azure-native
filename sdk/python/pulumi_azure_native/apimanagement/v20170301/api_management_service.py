@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -265,20 +270,20 @@ class ApiManagementService(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_locations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AdditionalLocationArgs']]]]] = None,
-                 certificates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertificateConfigurationArgs']]]]] = None,
+                 additional_locations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AdditionalLocationArgs', 'AdditionalLocationArgsDict']]]]] = None,
+                 certificates: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CertificateConfigurationArgs', 'CertificateConfigurationArgsDict']]]]] = None,
                  custom_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 hostname_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HostnameConfigurationArgs']]]]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ApiManagementServiceIdentityArgs']]] = None,
+                 hostname_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['HostnameConfigurationArgs', 'HostnameConfigurationArgsDict']]]]] = None,
+                 identity: Optional[pulumi.Input[Union['ApiManagementServiceIdentityArgs', 'ApiManagementServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  notification_sender_email: Optional[pulumi.Input[str]] = None,
                  publisher_email: Optional[pulumi.Input[str]] = None,
                  publisher_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['ApiManagementServiceSkuPropertiesArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['ApiManagementServiceSkuPropertiesArgs', 'ApiManagementServiceSkuPropertiesArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 virtual_network_configuration: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkConfigurationArgs']]] = None,
+                 virtual_network_configuration: Optional[pulumi.Input[Union['VirtualNetworkConfigurationArgs', 'VirtualNetworkConfigurationArgsDict']]] = None,
                  virtual_network_type: Optional[pulumi.Input[Union[str, 'VirtualNetworkType']]] = None,
                  __props__=None):
         """
@@ -286,20 +291,20 @@ class ApiManagementService(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AdditionalLocationArgs']]]] additional_locations: Additional datacenter locations of the API Management service.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertificateConfigurationArgs']]]] certificates: List of Certificates that need to be installed in the API Management service. Max supported certificates that can be installed is 10.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AdditionalLocationArgs', 'AdditionalLocationArgsDict']]]] additional_locations: Additional datacenter locations of the API Management service.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CertificateConfigurationArgs', 'CertificateConfigurationArgsDict']]]] certificates: List of Certificates that need to be installed in the API Management service. Max supported certificates that can be installed is 10.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] custom_properties: Custom properties of the API Management service. Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TripleDes168` will disable the cipher TLS_RSA_WITH_3DES_EDE_CBC_SHA for all TLS(1.0, 1.1 and 1.2). Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls11` can be used to disable just TLS 1.1 and setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls10` can be used to disable TLS 1.0 on an API Management service.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HostnameConfigurationArgs']]]] hostname_configurations: Custom hostname configuration of the API Management service.
-        :param pulumi.Input[pulumi.InputType['ApiManagementServiceIdentityArgs']] identity: Managed service identity of the Api Management service.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['HostnameConfigurationArgs', 'HostnameConfigurationArgsDict']]]] hostname_configurations: Custom hostname configuration of the API Management service.
+        :param pulumi.Input[Union['ApiManagementServiceIdentityArgs', 'ApiManagementServiceIdentityArgsDict']] identity: Managed service identity of the Api Management service.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] notification_sender_email: Email address from which the notification will be sent.
         :param pulumi.Input[str] publisher_email: Publisher email.
         :param pulumi.Input[str] publisher_name: Publisher name.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] service_name: The name of the API Management service.
-        :param pulumi.Input[pulumi.InputType['ApiManagementServiceSkuPropertiesArgs']] sku: SKU properties of the API Management service.
+        :param pulumi.Input[Union['ApiManagementServiceSkuPropertiesArgs', 'ApiManagementServiceSkuPropertiesArgsDict']] sku: SKU properties of the API Management service.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[pulumi.InputType['VirtualNetworkConfigurationArgs']] virtual_network_configuration: Virtual network configuration of the API Management service.
+        :param pulumi.Input[Union['VirtualNetworkConfigurationArgs', 'VirtualNetworkConfigurationArgsDict']] virtual_network_configuration: Virtual network configuration of the API Management service.
         :param pulumi.Input[Union[str, 'VirtualNetworkType']] virtual_network_type: The type of VPN in which API Management service needs to be configured in. None (Default Value) means the API Management service is not part of any Virtual Network, External means the API Management deployment is set up inside a Virtual Network having an Internet Facing Endpoint, and Internal means that API Management deployment is setup inside a Virtual Network having an Intranet Facing Endpoint only.
         """
         ...
@@ -326,20 +331,20 @@ class ApiManagementService(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_locations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AdditionalLocationArgs']]]]] = None,
-                 certificates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertificateConfigurationArgs']]]]] = None,
+                 additional_locations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AdditionalLocationArgs', 'AdditionalLocationArgsDict']]]]] = None,
+                 certificates: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CertificateConfigurationArgs', 'CertificateConfigurationArgsDict']]]]] = None,
                  custom_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 hostname_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HostnameConfigurationArgs']]]]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ApiManagementServiceIdentityArgs']]] = None,
+                 hostname_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['HostnameConfigurationArgs', 'HostnameConfigurationArgsDict']]]]] = None,
+                 identity: Optional[pulumi.Input[Union['ApiManagementServiceIdentityArgs', 'ApiManagementServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  notification_sender_email: Optional[pulumi.Input[str]] = None,
                  publisher_email: Optional[pulumi.Input[str]] = None,
                  publisher_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['ApiManagementServiceSkuPropertiesArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['ApiManagementServiceSkuPropertiesArgs', 'ApiManagementServiceSkuPropertiesArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 virtual_network_configuration: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkConfigurationArgs']]] = None,
+                 virtual_network_configuration: Optional[pulumi.Input[Union['VirtualNetworkConfigurationArgs', 'VirtualNetworkConfigurationArgsDict']]] = None,
                  virtual_network_type: Optional[pulumi.Input[Union[str, 'VirtualNetworkType']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -451,23 +456,23 @@ class DraftPackage(pulumi.CustomResource):
                  draft_package_name: Optional[pulumi.Input[str]] = None,
                  edit_package: Optional[pulumi.Input[bool]] = None,
                  executable_launch_command: Optional[pulumi.Input[str]] = None,
-                 first_party_apps: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirstPartyAppDefinitionArgs']]]]] = None,
+                 first_party_apps: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FirstPartyAppDefinitionArgs', 'FirstPartyAppDefinitionArgsDict']]]]] = None,
                  flighting_ring: Optional[pulumi.Input[str]] = None,
-                 gallery_apps: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GalleryAppDefinitionArgs']]]]] = None,
-                 highlighted_files: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HighlightedFileArgs']]]]] = None,
-                 inplace_upgrade_os_pair: Optional[pulumi.Input[pulumi.InputType['InplaceUpgradeOSInfoArgs']]] = None,
-                 intune_enrollment_metadata: Optional[pulumi.Input[pulumi.InputType['IntuneEnrollmentMetadataArgs']]] = None,
-                 intune_metadata: Optional[pulumi.Input[pulumi.InputType['DraftPackageIntuneAppMetadataArgs']]] = None,
+                 gallery_apps: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GalleryAppDefinitionArgs', 'GalleryAppDefinitionArgsDict']]]]] = None,
+                 highlighted_files: Optional[pulumi.Input[Sequence[pulumi.Input[Union['HighlightedFileArgs', 'HighlightedFileArgsDict']]]]] = None,
+                 inplace_upgrade_os_pair: Optional[pulumi.Input[Union['InplaceUpgradeOSInfoArgs', 'InplaceUpgradeOSInfoArgsDict']]] = None,
+                 intune_enrollment_metadata: Optional[pulumi.Input[Union['IntuneEnrollmentMetadataArgs', 'IntuneEnrollmentMetadataArgsDict']]] = None,
+                 intune_metadata: Optional[pulumi.Input[Union['DraftPackageIntuneAppMetadataArgs', 'DraftPackageIntuneAppMetadataArgsDict']]] = None,
                  package_id: Optional[pulumi.Input[str]] = None,
                  package_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  process_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  source_type: Optional[pulumi.Input[Union[str, 'DraftPackageSourceType']]] = None,
-                 tab_state: Optional[pulumi.Input[pulumi.InputType['TabStateArgs']]] = None,
-                 target_os_list: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TargetOSInfoArgs']]]]] = None,
+                 tab_state: Optional[pulumi.Input[Union['TabStateArgs', 'TabStateArgsDict']]] = None,
+                 target_os_list: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TargetOSInfoArgs', 'TargetOSInfoArgsDict']]]]] = None,
                  test_base_account_name: Optional[pulumi.Input[str]] = None,
                  test_types: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'TestType']]]]] = None,
-                 tests: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TestArgs']]]]] = None,
+                 tests: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TestArgs', 'TestArgsDict']]]]] = None,
                  use_autofill: Optional[pulumi.Input[bool]] = None,
                  use_sample: Optional[pulumi.Input[bool]] = None,
                  version: Optional[pulumi.Input[str]] = None,
@@ -483,23 +488,23 @@ class DraftPackage(pulumi.CustomResource):
         :param pulumi.Input[str] draft_package_name: The resource name of the Test Base Draft Package.
         :param pulumi.Input[bool] edit_package: Specifies whether this draft package is used to edit a package.
         :param pulumi.Input[str] executable_launch_command: The executable launch command for script auto-fill. Will be used to run the application.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirstPartyAppDefinitionArgs']]]] first_party_apps: The list of first party applications to test along with user application.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FirstPartyAppDefinitionArgs', 'FirstPartyAppDefinitionArgsDict']]]] first_party_apps: The list of first party applications to test along with user application.
         :param pulumi.Input[str] flighting_ring: The flighting ring for feature update.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GalleryAppDefinitionArgs']]]] gallery_apps: The list of gallery apps to test along with user application.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HighlightedFileArgs']]]] highlighted_files: The highlight files in the package.
-        :param pulumi.Input[pulumi.InputType['InplaceUpgradeOSInfoArgs']] inplace_upgrade_os_pair: Specifies the baseline os and target os for inplace upgrade.
-        :param pulumi.Input[pulumi.InputType['IntuneEnrollmentMetadataArgs']] intune_enrollment_metadata: The metadata of Intune enrollment.
-        :param pulumi.Input[pulumi.InputType['DraftPackageIntuneAppMetadataArgs']] intune_metadata: Metadata used to generate draft package folder and scripts.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['GalleryAppDefinitionArgs', 'GalleryAppDefinitionArgsDict']]]] gallery_apps: The list of gallery apps to test along with user application.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['HighlightedFileArgs', 'HighlightedFileArgsDict']]]] highlighted_files: The highlight files in the package.
+        :param pulumi.Input[Union['InplaceUpgradeOSInfoArgs', 'InplaceUpgradeOSInfoArgsDict']] inplace_upgrade_os_pair: Specifies the baseline os and target os for inplace upgrade.
+        :param pulumi.Input[Union['IntuneEnrollmentMetadataArgs', 'IntuneEnrollmentMetadataArgsDict']] intune_enrollment_metadata: The metadata of Intune enrollment.
+        :param pulumi.Input[Union['DraftPackageIntuneAppMetadataArgs', 'DraftPackageIntuneAppMetadataArgsDict']] intune_metadata: Metadata used to generate draft package folder and scripts.
         :param pulumi.Input[str] package_id: Specifies the package id from which the draft package copied.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] package_tags: Tags of the package to be created.
         :param pulumi.Input[str] process_name: The process name for script auto-fill. Will be used to identify the application process.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union[str, 'DraftPackageSourceType']] source_type: The source type.
-        :param pulumi.Input[pulumi.InputType['TabStateArgs']] tab_state: Tab state.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TargetOSInfoArgs']]]] target_os_list: Specifies the target OSs of specific OS Update types.
+        :param pulumi.Input[Union['TabStateArgs', 'TabStateArgsDict']] tab_state: Tab state.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TargetOSInfoArgs', 'TargetOSInfoArgsDict']]]] target_os_list: Specifies the target OSs of specific OS Update types.
         :param pulumi.Input[str] test_base_account_name: The resource name of the Test Base Account.
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'TestType']]]] test_types: OOB, functional or flow driven. Mapped to the data in 'tests' property.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TestArgs']]]] tests: The detailed test information.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TestArgs', 'TestArgsDict']]]] tests: The detailed test information.
         :param pulumi.Input[bool] use_autofill: Indicates whether user choose to enable script auto-fill.
         :param pulumi.Input[bool] use_sample: Specifies whether a sample package should be used instead of the one uploaded by the user.
         :param pulumi.Input[str] version: Application version
@@ -534,23 +539,23 @@ class DraftPackage(pulumi.CustomResource):
                  draft_package_name: Optional[pulumi.Input[str]] = None,
                  edit_package: Optional[pulumi.Input[bool]] = None,
                  executable_launch_command: Optional[pulumi.Input[str]] = None,
-                 first_party_apps: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirstPartyAppDefinitionArgs']]]]] = None,
+                 first_party_apps: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FirstPartyAppDefinitionArgs', 'FirstPartyAppDefinitionArgsDict']]]]] = None,
                  flighting_ring: Optional[pulumi.Input[str]] = None,
-                 gallery_apps: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GalleryAppDefinitionArgs']]]]] = None,
-                 highlighted_files: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HighlightedFileArgs']]]]] = None,
-                 inplace_upgrade_os_pair: Optional[pulumi.Input[pulumi.InputType['InplaceUpgradeOSInfoArgs']]] = None,
-                 intune_enrollment_metadata: Optional[pulumi.Input[pulumi.InputType['IntuneEnrollmentMetadataArgs']]] = None,
-                 intune_metadata: Optional[pulumi.Input[pulumi.InputType['DraftPackageIntuneAppMetadataArgs']]] = None,
+                 gallery_apps: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GalleryAppDefinitionArgs', 'GalleryAppDefinitionArgsDict']]]]] = None,
+                 highlighted_files: Optional[pulumi.Input[Sequence[pulumi.Input[Union['HighlightedFileArgs', 'HighlightedFileArgsDict']]]]] = None,
+                 inplace_upgrade_os_pair: Optional[pulumi.Input[Union['InplaceUpgradeOSInfoArgs', 'InplaceUpgradeOSInfoArgsDict']]] = None,
+                 intune_enrollment_metadata: Optional[pulumi.Input[Union['IntuneEnrollmentMetadataArgs', 'IntuneEnrollmentMetadataArgsDict']]] = None,
+                 intune_metadata: Optional[pulumi.Input[Union['DraftPackageIntuneAppMetadataArgs', 'DraftPackageIntuneAppMetadataArgsDict']]] = None,
                  package_id: Optional[pulumi.Input[str]] = None,
                  package_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  process_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  source_type: Optional[pulumi.Input[Union[str, 'DraftPackageSourceType']]] = None,
-                 tab_state: Optional[pulumi.Input[pulumi.InputType['TabStateArgs']]] = None,
-                 target_os_list: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TargetOSInfoArgs']]]]] = None,
+                 tab_state: Optional[pulumi.Input[Union['TabStateArgs', 'TabStateArgsDict']]] = None,
+                 target_os_list: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TargetOSInfoArgs', 'TargetOSInfoArgsDict']]]]] = None,
                  test_base_account_name: Optional[pulumi.Input[str]] = None,
                  test_types: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'TestType']]]]] = None,
-                 tests: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TestArgs']]]]] = None,
+                 tests: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TestArgs', 'TestArgsDict']]]]] = None,
                  use_autofill: Optional[pulumi.Input[bool]] = None,
                  use_sample: Optional[pulumi.Input[bool]] = None,
                  version: Optional[pulumi.Input[str]] = None,

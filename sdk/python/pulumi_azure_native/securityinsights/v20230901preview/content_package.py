@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -420,13 +425,13 @@ class ContentPackage(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 author: Optional[pulumi.Input[pulumi.InputType['MetadataAuthorArgs']]] = None,
-                 categories: Optional[pulumi.Input[pulumi.InputType['MetadataCategoriesArgs']]] = None,
+                 author: Optional[pulumi.Input[Union['MetadataAuthorArgs', 'MetadataAuthorArgsDict']]] = None,
+                 categories: Optional[pulumi.Input[Union['MetadataCategoriesArgs', 'MetadataCategoriesArgsDict']]] = None,
                  content_id: Optional[pulumi.Input[str]] = None,
                  content_kind: Optional[pulumi.Input[Union[str, 'PackageKind']]] = None,
                  content_product_id: Optional[pulumi.Input[str]] = None,
                  content_schema_version: Optional[pulumi.Input[str]] = None,
-                 dependencies: Optional[pulumi.Input[pulumi.InputType['MetadataDependenciesArgs']]] = None,
+                 dependencies: Optional[pulumi.Input[Union['MetadataDependenciesArgs', 'MetadataDependenciesArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  first_publish_date: Optional[pulumi.Input[str]] = None,
@@ -439,8 +444,8 @@ class ContentPackage(pulumi.CustomResource):
                  providers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  publisher_display_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 source: Optional[pulumi.Input[pulumi.InputType['MetadataSourceArgs']]] = None,
-                 support: Optional[pulumi.Input[pulumi.InputType['MetadataSupportArgs']]] = None,
+                 source: Optional[pulumi.Input[Union['MetadataSourceArgs', 'MetadataSourceArgsDict']]] = None,
+                 support: Optional[pulumi.Input[Union['MetadataSupportArgs', 'MetadataSupportArgsDict']]] = None,
                  threat_analysis_tactics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  threat_analysis_techniques: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  version: Optional[pulumi.Input[str]] = None,
@@ -451,13 +456,13 @@ class ContentPackage(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['MetadataAuthorArgs']] author: The author of the package
-        :param pulumi.Input[pulumi.InputType['MetadataCategoriesArgs']] categories: The categories of the package
+        :param pulumi.Input[Union['MetadataAuthorArgs', 'MetadataAuthorArgsDict']] author: The author of the package
+        :param pulumi.Input[Union['MetadataCategoriesArgs', 'MetadataCategoriesArgsDict']] categories: The categories of the package
         :param pulumi.Input[str] content_id: The content id of the package
         :param pulumi.Input[Union[str, 'PackageKind']] content_kind: The package kind
         :param pulumi.Input[str] content_product_id: Unique ID for the content. It should be generated based on the contentId, contentKind and the contentVersion of the package
         :param pulumi.Input[str] content_schema_version: The version of the content schema.
-        :param pulumi.Input[pulumi.InputType['MetadataDependenciesArgs']] dependencies: The support tier of the package
+        :param pulumi.Input[Union['MetadataDependenciesArgs', 'MetadataDependenciesArgsDict']] dependencies: The support tier of the package
         :param pulumi.Input[str] description: The description of the package
         :param pulumi.Input[str] display_name: The display name of the package
         :param pulumi.Input[str] first_publish_date: first publish date package item
@@ -470,8 +475,8 @@ class ContentPackage(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] providers: Providers for the package item
         :param pulumi.Input[str] publisher_display_name: The publisher display name of the package
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[pulumi.InputType['MetadataSourceArgs']] source: The source of the package
-        :param pulumi.Input[pulumi.InputType['MetadataSupportArgs']] support: The support tier of the package
+        :param pulumi.Input[Union['MetadataSourceArgs', 'MetadataSourceArgsDict']] source: The source of the package
+        :param pulumi.Input[Union['MetadataSupportArgs', 'MetadataSupportArgsDict']] support: The support tier of the package
         :param pulumi.Input[Sequence[pulumi.Input[str]]] threat_analysis_tactics: the tactics the resource covers
         :param pulumi.Input[Sequence[pulumi.Input[str]]] threat_analysis_techniques: the techniques the resource covers, these have to be aligned with the tactics being used
         :param pulumi.Input[str] version: the latest version number of the package
@@ -501,13 +506,13 @@ class ContentPackage(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 author: Optional[pulumi.Input[pulumi.InputType['MetadataAuthorArgs']]] = None,
-                 categories: Optional[pulumi.Input[pulumi.InputType['MetadataCategoriesArgs']]] = None,
+                 author: Optional[pulumi.Input[Union['MetadataAuthorArgs', 'MetadataAuthorArgsDict']]] = None,
+                 categories: Optional[pulumi.Input[Union['MetadataCategoriesArgs', 'MetadataCategoriesArgsDict']]] = None,
                  content_id: Optional[pulumi.Input[str]] = None,
                  content_kind: Optional[pulumi.Input[Union[str, 'PackageKind']]] = None,
                  content_product_id: Optional[pulumi.Input[str]] = None,
                  content_schema_version: Optional[pulumi.Input[str]] = None,
-                 dependencies: Optional[pulumi.Input[pulumi.InputType['MetadataDependenciesArgs']]] = None,
+                 dependencies: Optional[pulumi.Input[Union['MetadataDependenciesArgs', 'MetadataDependenciesArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  first_publish_date: Optional[pulumi.Input[str]] = None,
@@ -520,8 +525,8 @@ class ContentPackage(pulumi.CustomResource):
                  providers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  publisher_display_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 source: Optional[pulumi.Input[pulumi.InputType['MetadataSourceArgs']]] = None,
-                 support: Optional[pulumi.Input[pulumi.InputType['MetadataSupportArgs']]] = None,
+                 source: Optional[pulumi.Input[Union['MetadataSourceArgs', 'MetadataSourceArgsDict']]] = None,
+                 support: Optional[pulumi.Input[Union['MetadataSupportArgs', 'MetadataSupportArgsDict']]] = None,
                  threat_analysis_tactics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  threat_analysis_techniques: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  version: Optional[pulumi.Input[str]] = None,

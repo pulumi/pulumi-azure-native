@@ -4,20 +4,45 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'DelegatedSubnetArgumentsArgs',
+    'DelegatedSubnetArgumentsArgsDict',
     'IdentityArgs',
+    'IdentityArgsDict',
     'MaintenanceWindowArgs',
+    'MaintenanceWindowArgsDict',
     'PrivateDnsZoneArgumentsArgs',
+    'PrivateDnsZoneArgumentsArgsDict',
     'SkuArgs',
+    'SkuArgsDict',
     'StorageProfileArgs',
+    'StorageProfileArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class DelegatedSubnetArgumentsArgsDict(TypedDict):
+        """
+        Delegated subnet arguments of a server
+        """
+        subnet_arm_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        delegated subnet arm resource id.
+        """
+elif False:
+    DelegatedSubnetArgumentsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DelegatedSubnetArgumentsArgs:
@@ -43,6 +68,18 @@ class DelegatedSubnetArgumentsArgs:
         pulumi.set(self, "subnet_arm_resource_id", value)
 
 
+if not MYPY:
+    class IdentityArgsDict(TypedDict):
+        """
+        Identity for the resource.
+        """
+        type: NotRequired[pulumi.Input['ResourceIdentityType']]
+        """
+        The identity type.
+        """
+elif False:
+    IdentityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IdentityArgs:
     def __init__(__self__, *,
@@ -66,6 +103,30 @@ class IdentityArgs:
     def type(self, value: Optional[pulumi.Input['ResourceIdentityType']]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class MaintenanceWindowArgsDict(TypedDict):
+        """
+        Maintenance window of a server.
+        """
+        custom_window: NotRequired[pulumi.Input[str]]
+        """
+        indicates whether custom window is enabled or disabled
+        """
+        day_of_week: NotRequired[pulumi.Input[int]]
+        """
+        day of week for maintenance window
+        """
+        start_hour: NotRequired[pulumi.Input[int]]
+        """
+        start hour for maintenance window
+        """
+        start_minute: NotRequired[pulumi.Input[int]]
+        """
+        start minute for maintenance window
+        """
+elif False:
+    MaintenanceWindowArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MaintenanceWindowArgs:
@@ -139,6 +200,18 @@ class MaintenanceWindowArgs:
         pulumi.set(self, "start_minute", value)
 
 
+if not MYPY:
+    class PrivateDnsZoneArgumentsArgsDict(TypedDict):
+        """
+        Private DNS zone arguments of a server
+        """
+        private_dns_zone_arm_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        private dns zone arm resource id.
+        """
+elif False:
+    PrivateDnsZoneArgumentsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PrivateDnsZoneArgumentsArgs:
     def __init__(__self__, *,
@@ -162,6 +235,22 @@ class PrivateDnsZoneArgumentsArgs:
     def private_dns_zone_arm_resource_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "private_dns_zone_arm_resource_id", value)
 
+
+if not MYPY:
+    class SkuArgsDict(TypedDict):
+        """
+        Billing information related properties of a server.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the sku, e.g. Standard_D32s_v3.
+        """
+        tier: pulumi.Input[Union[str, 'SkuTier']]
+        """
+        The tier of the particular SKU, e.g. GeneralPurpose.
+        """
+elif False:
+    SkuArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SkuArgs:
@@ -200,6 +289,30 @@ class SkuArgs:
     def tier(self, value: pulumi.Input[Union[str, 'SkuTier']]):
         pulumi.set(self, "tier", value)
 
+
+if not MYPY:
+    class StorageProfileArgsDict(TypedDict):
+        """
+        Storage Profile properties of a server
+        """
+        backup_retention_days: NotRequired[pulumi.Input[int]]
+        """
+        Backup retention days for the server.
+        """
+        storage_autogrow: NotRequired[pulumi.Input[Union[str, 'StorageAutogrow']]]
+        """
+        Enable Storage Auto Grow.
+        """
+        storage_iops: NotRequired[pulumi.Input[int]]
+        """
+        Storage IOPS for a server.
+        """
+        storage_mb: NotRequired[pulumi.Input[int]]
+        """
+        Max storage allowed for a server.
+        """
+elif False:
+    StorageProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class StorageProfileArgs:

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -169,7 +174,7 @@ class TrunkedNetwork(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
                  hybrid_aks_plugin_type: Optional[pulumi.Input[Union[str, 'HybridAksPluginType']]] = None,
                  interface_name: Optional[pulumi.Input[str]] = None,
                  isolation_domain_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -186,7 +191,7 @@ class TrunkedNetwork(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: The extended location of the cluster associated with the resource.
+        :param pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']] extended_location: The extended location of the cluster associated with the resource.
         :param pulumi.Input[Union[str, 'HybridAksPluginType']] hybrid_aks_plugin_type: Field Deprecated. The field was previously optional, now it will have no defined behavior and will be ignored. The network plugin type for Hybrid AKS.
         :param pulumi.Input[str] interface_name: The default interface name for this trunked network in the virtual machine. This name can be overridden by the name supplied in the network attachment configuration of that virtual machine.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] isolation_domain_ids: The list of resource IDs representing the Network Fabric isolation domains. It can be any combination of l2IsolationDomain and l3IsolationDomain resources.
@@ -222,7 +227,7 @@ class TrunkedNetwork(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
                  hybrid_aks_plugin_type: Optional[pulumi.Input[Union[str, 'HybridAksPluginType']]] = None,
                  interface_name: Optional[pulumi.Input[str]] = None,
                  isolation_domain_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,

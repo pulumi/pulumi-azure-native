@@ -4,31 +4,87 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'CaptureDescriptionArgs',
+    'CaptureDescriptionArgsDict',
     'CaptureIdentityArgs',
+    'CaptureIdentityArgsDict',
     'ClusterSkuArgs',
+    'ClusterSkuArgsDict',
     'ConnectionStateArgs',
+    'ConnectionStateArgsDict',
     'DestinationArgs',
+    'DestinationArgsDict',
     'EncryptionArgs',
+    'EncryptionArgsDict',
     'IdentityArgs',
+    'IdentityArgsDict',
     'KeyVaultPropertiesArgs',
+    'KeyVaultPropertiesArgsDict',
     'NWRuleSetIpRulesArgs',
+    'NWRuleSetIpRulesArgsDict',
     'NWRuleSetVirtualNetworkRulesArgs',
+    'NWRuleSetVirtualNetworkRulesArgsDict',
     'PrivateEndpointConnectionArgs',
+    'PrivateEndpointConnectionArgsDict',
     'PrivateEndpointArgs',
+    'PrivateEndpointArgsDict',
     'RetentionDescriptionArgs',
+    'RetentionDescriptionArgsDict',
     'SkuArgs',
+    'SkuArgsDict',
     'SubnetArgs',
+    'SubnetArgsDict',
     'ThrottlingPolicyArgs',
+    'ThrottlingPolicyArgsDict',
     'UserAssignedIdentityPropertiesArgs',
+    'UserAssignedIdentityPropertiesArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class CaptureDescriptionArgsDict(TypedDict):
+        """
+        Properties to configure capture description for eventhub
+        """
+        destination: NotRequired[pulumi.Input['DestinationArgsDict']]
+        """
+        Properties of Destination where capture will be stored. (Storage Account, Blob Names)
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        A value that indicates whether capture description is enabled. 
+        """
+        encoding: NotRequired[pulumi.Input['EncodingCaptureDescription']]
+        """
+        Enumerates the possible values for the encoding format of capture description. Note: 'AvroDeflate' will be deprecated in New API Version
+        """
+        interval_in_seconds: NotRequired[pulumi.Input[int]]
+        """
+        The time window allows you to set the frequency with which the capture to Azure Blobs will happen, value should between 60 to 900 seconds
+        """
+        size_limit_in_bytes: NotRequired[pulumi.Input[int]]
+        """
+        The size window defines the amount of data built up in your Event Hub before an capture operation, value should be between 10485760 to 524288000 bytes
+        """
+        skip_empty_archives: NotRequired[pulumi.Input[bool]]
+        """
+        A value that indicates whether to Skip Empty Archives
+        """
+elif False:
+    CaptureDescriptionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CaptureDescriptionArgs:
@@ -134,6 +190,22 @@ class CaptureDescriptionArgs:
         pulumi.set(self, "skip_empty_archives", value)
 
 
+if not MYPY:
+    class CaptureIdentityArgsDict(TypedDict):
+        """
+        A value that indicates whether capture description is enabled.
+        """
+        type: NotRequired[pulumi.Input['CaptureIdentityType']]
+        """
+        Type of Azure Active Directory Managed Identity.
+        """
+        user_assigned_identity: NotRequired[pulumi.Input[str]]
+        """
+        ARM ID of Managed User Identity. This property is required is the type is UserAssignedIdentity. If type is SystemAssigned, then the System Assigned Identity Associated with the namespace will be used.
+        """
+elif False:
+    CaptureIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CaptureIdentityArgs:
     def __init__(__self__, *,
@@ -174,6 +246,22 @@ class CaptureIdentityArgs:
         pulumi.set(self, "user_assigned_identity", value)
 
 
+if not MYPY:
+    class ClusterSkuArgsDict(TypedDict):
+        """
+        SKU parameters particular to a cluster instance.
+        """
+        name: pulumi.Input[Union[str, 'ClusterSkuName']]
+        """
+        Name of this SKU.
+        """
+        capacity: NotRequired[pulumi.Input[int]]
+        """
+        The quantity of Event Hubs Cluster Capacity Units contained in this cluster.
+        """
+elif False:
+    ClusterSkuArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ClusterSkuArgs:
     def __init__(__self__, *,
@@ -212,6 +300,22 @@ class ClusterSkuArgs:
     def capacity(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "capacity", value)
 
+
+if not MYPY:
+    class ConnectionStateArgsDict(TypedDict):
+        """
+        ConnectionState information.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Description of the connection state.
+        """
+        status: NotRequired[pulumi.Input[Union[str, 'PrivateLinkConnectionStatus']]]
+        """
+        Status of the connection.
+        """
+elif False:
+    ConnectionStateArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ConnectionStateArgs:
@@ -252,6 +356,46 @@ class ConnectionStateArgs:
     def status(self, value: Optional[pulumi.Input[Union[str, 'PrivateLinkConnectionStatus']]]):
         pulumi.set(self, "status", value)
 
+
+if not MYPY:
+    class DestinationArgsDict(TypedDict):
+        """
+        Capture storage details for capture description
+        """
+        archive_name_format: NotRequired[pulumi.Input[str]]
+        """
+        Blob naming convention for archive, e.g. {Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}. Here all the parameters (Namespace,EventHub .. etc) are mandatory irrespective of order
+        """
+        blob_container: NotRequired[pulumi.Input[str]]
+        """
+        Blob container Name
+        """
+        data_lake_account_name: NotRequired[pulumi.Input[str]]
+        """
+        The Azure Data Lake Store name for the captured events
+        """
+        data_lake_folder_path: NotRequired[pulumi.Input[str]]
+        """
+        The destination folder path for the captured events
+        """
+        data_lake_subscription_id: NotRequired[pulumi.Input[str]]
+        """
+        Subscription Id of Azure Data Lake Store
+        """
+        identity: NotRequired[pulumi.Input['CaptureIdentityArgsDict']]
+        """
+        A value that indicates whether capture description is enabled.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name for capture destination
+        """
+        storage_account_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        Resource id of the storage account to be used to create the blobs
+        """
+elif False:
+    DestinationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DestinationArgs:
@@ -389,6 +533,26 @@ class DestinationArgs:
         pulumi.set(self, "storage_account_resource_id", value)
 
 
+if not MYPY:
+    class EncryptionArgsDict(TypedDict):
+        """
+        Properties to configure Encryption
+        """
+        key_source: NotRequired[pulumi.Input['KeySource']]
+        """
+        Enumerates the possible value of keySource for Encryption
+        """
+        key_vault_properties: NotRequired[pulumi.Input[Sequence[pulumi.Input['KeyVaultPropertiesArgsDict']]]]
+        """
+        Properties of KeyVault
+        """
+        require_infrastructure_encryption: NotRequired[pulumi.Input[bool]]
+        """
+        Enable Infrastructure Encryption (Double Encryption)
+        """
+elif False:
+    EncryptionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EncryptionArgs:
     def __init__(__self__, *,
@@ -447,6 +611,22 @@ class EncryptionArgs:
         pulumi.set(self, "require_infrastructure_encryption", value)
 
 
+if not MYPY:
+    class IdentityArgsDict(TypedDict):
+        """
+        Properties to configure Identity for Bring your Own Keys
+        """
+        type: NotRequired[pulumi.Input['ManagedServiceIdentityType']]
+        """
+        Type of managed service identity.
+        """
+        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Properties for User Assigned Identities
+        """
+elif False:
+    IdentityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IdentityArgs:
     def __init__(__self__, *,
@@ -486,6 +666,27 @@ class IdentityArgs:
     def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
+
+if not MYPY:
+    class KeyVaultPropertiesArgsDict(TypedDict):
+        """
+        Properties to configure keyVault Properties
+        """
+        identity: NotRequired[pulumi.Input['UserAssignedIdentityPropertiesArgsDict']]
+        key_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the Key from KeyVault
+        """
+        key_vault_uri: NotRequired[pulumi.Input[str]]
+        """
+        Uri of KeyVault
+        """
+        key_version: NotRequired[pulumi.Input[str]]
+        """
+        Key Version
+        """
+elif False:
+    KeyVaultPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class KeyVaultPropertiesArgs:
@@ -555,6 +756,22 @@ class KeyVaultPropertiesArgs:
         pulumi.set(self, "key_version", value)
 
 
+if not MYPY:
+    class NWRuleSetIpRulesArgsDict(TypedDict):
+        """
+        The response from the List namespace operation.
+        """
+        action: NotRequired[pulumi.Input[Union[str, 'NetworkRuleIPAction']]]
+        """
+        The IP Filter Action
+        """
+        ip_mask: NotRequired[pulumi.Input[str]]
+        """
+        IP Mask
+        """
+elif False:
+    NWRuleSetIpRulesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NWRuleSetIpRulesArgs:
     def __init__(__self__, *,
@@ -595,6 +812,22 @@ class NWRuleSetIpRulesArgs:
         pulumi.set(self, "ip_mask", value)
 
 
+if not MYPY:
+    class NWRuleSetVirtualNetworkRulesArgsDict(TypedDict):
+        """
+        The response from the List namespace operation.
+        """
+        ignore_missing_vnet_service_endpoint: NotRequired[pulumi.Input[bool]]
+        """
+        Value that indicates whether to ignore missing Vnet Service Endpoint
+        """
+        subnet: NotRequired[pulumi.Input['SubnetArgsDict']]
+        """
+        Subnet properties
+        """
+elif False:
+    NWRuleSetVirtualNetworkRulesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NWRuleSetVirtualNetworkRulesArgs:
     def __init__(__self__, *,
@@ -634,6 +867,26 @@ class NWRuleSetVirtualNetworkRulesArgs:
     def subnet(self, value: Optional[pulumi.Input['SubnetArgs']]):
         pulumi.set(self, "subnet", value)
 
+
+if not MYPY:
+    class PrivateEndpointConnectionArgsDict(TypedDict):
+        """
+        Properties of the PrivateEndpointConnection.
+        """
+        private_endpoint: NotRequired[pulumi.Input['PrivateEndpointArgsDict']]
+        """
+        The Private Endpoint resource for this Connection.
+        """
+        private_link_service_connection_state: NotRequired[pulumi.Input['ConnectionStateArgsDict']]
+        """
+        Details about the state of the connection.
+        """
+        provisioning_state: NotRequired[pulumi.Input[Union[str, 'EndPointProvisioningState']]]
+        """
+        Provisioning state of the Private Endpoint Connection.
+        """
+elif False:
+    PrivateEndpointConnectionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PrivateEndpointConnectionArgs:
@@ -691,6 +944,18 @@ class PrivateEndpointConnectionArgs:
         pulumi.set(self, "provisioning_state", value)
 
 
+if not MYPY:
+    class PrivateEndpointArgsDict(TypedDict):
+        """
+        PrivateEndpoint information.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The ARM identifier for Private Endpoint.
+        """
+elif False:
+    PrivateEndpointArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PrivateEndpointArgs:
     def __init__(__self__, *,
@@ -714,6 +979,26 @@ class PrivateEndpointArgs:
     def id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class RetentionDescriptionArgsDict(TypedDict):
+        """
+        Properties to configure retention settings for the  eventhub
+        """
+        cleanup_policy: NotRequired[pulumi.Input[Union[str, 'CleanupPolicyRetentionDescription']]]
+        """
+        Enumerates the possible values for cleanup policy
+        """
+        retention_time_in_hours: NotRequired[pulumi.Input[float]]
+        """
+        Number of hours to retain the events for this Event Hub. This value is only used when cleanupPolicy is Delete. If cleanupPolicy is Compact the returned value of this property is Long.MaxValue 
+        """
+        tombstone_retention_time_in_hours: NotRequired[pulumi.Input[int]]
+        """
+        Number of hours to retain the tombstone markers of a compacted Event Hub. This value is only used when cleanupPolicy is Compact. Consumer must complete reading the tombstone marker within this specified amount of time if consumer begins from starting offset to ensure they get a valid snapshot for the specific key described by the tombstone marker within the compacted Event Hub
+        """
+elif False:
+    RetentionDescriptionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RetentionDescriptionArgs:
@@ -771,6 +1056,26 @@ class RetentionDescriptionArgs:
         pulumi.set(self, "tombstone_retention_time_in_hours", value)
 
 
+if not MYPY:
+    class SkuArgsDict(TypedDict):
+        """
+        SKU parameters supplied to the create namespace operation
+        """
+        name: pulumi.Input[Union[str, 'SkuName']]
+        """
+        Name of this SKU.
+        """
+        capacity: NotRequired[pulumi.Input[int]]
+        """
+        The Event Hubs throughput units for Basic or Standard tiers, where value should be 0 to 20 throughput units. The Event Hubs premium units for Premium tier, where value should be 0 to 10 premium units.
+        """
+        tier: NotRequired[pulumi.Input[Union[str, 'SkuTier']]]
+        """
+        The billing tier of this particular SKU.
+        """
+elif False:
+    SkuArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SkuArgs:
     def __init__(__self__, *,
@@ -826,6 +1131,18 @@ class SkuArgs:
         pulumi.set(self, "tier", value)
 
 
+if not MYPY:
+    class SubnetArgsDict(TypedDict):
+        """
+        Properties supplied for Subnet
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID of Virtual Network Subnet
+        """
+elif False:
+    SubnetArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SubnetArgs:
     def __init__(__self__, *,
@@ -849,6 +1166,31 @@ class SubnetArgs:
     def id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class ThrottlingPolicyArgsDict(TypedDict):
+        """
+        Properties of the throttling policy
+        """
+        metric_id: pulumi.Input[Union[str, 'MetricId']]
+        """
+        Metric Id on which the throttle limit should be set, MetricId can be discovered by hovering over Metric in the Metrics section of Event Hub Namespace inside Azure Portal
+        """
+        name: pulumi.Input[str]
+        """
+        The Name of this policy
+        """
+        rate_limit_threshold: pulumi.Input[float]
+        """
+        The Threshold limit above which the application group will be throttled.Rate limit is always per second.
+        """
+        type: pulumi.Input[str]
+        """
+        Application Group Policy types
+        Expected value is 'ThrottlingPolicy'.
+        """
+elif False:
+    ThrottlingPolicyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ThrottlingPolicyArgs:
@@ -919,6 +1261,15 @@ class ThrottlingPolicyArgs:
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class UserAssignedIdentityPropertiesArgsDict(TypedDict):
+        user_assigned_identity: NotRequired[pulumi.Input[str]]
+        """
+        ARM ID of user Identity selected for encryption
+        """
+elif False:
+    UserAssignedIdentityPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserAssignedIdentityPropertiesArgs:

@@ -4,33 +4,79 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'DnsSettingsArgs',
+    'DnsSettingsArgsDict',
     'ExplicitProxySettingsArgs',
+    'ExplicitProxySettingsArgsDict',
     'FilterItems',
+    'FilterItemsDict',
     'FirewallPolicyCertificateAuthorityArgs',
+    'FirewallPolicyCertificateAuthorityArgsDict',
     'FirewallPolicyInsightsArgs',
+    'FirewallPolicyInsightsArgsDict',
     'FirewallPolicyIntrusionDetectionBypassTrafficSpecificationsArgs',
+    'FirewallPolicyIntrusionDetectionBypassTrafficSpecificationsArgsDict',
     'FirewallPolicyIntrusionDetectionConfigurationArgs',
+    'FirewallPolicyIntrusionDetectionConfigurationArgsDict',
     'FirewallPolicyIntrusionDetectionSignatureSpecificationArgs',
+    'FirewallPolicyIntrusionDetectionSignatureSpecificationArgsDict',
     'FirewallPolicyIntrusionDetectionArgs',
+    'FirewallPolicyIntrusionDetectionArgsDict',
     'FirewallPolicyLogAnalyticsResourcesArgs',
+    'FirewallPolicyLogAnalyticsResourcesArgsDict',
     'FirewallPolicyLogAnalyticsWorkspaceArgs',
+    'FirewallPolicyLogAnalyticsWorkspaceArgsDict',
     'FirewallPolicySNATArgs',
+    'FirewallPolicySNATArgsDict',
     'FirewallPolicySQLArgs',
+    'FirewallPolicySQLArgsDict',
     'FirewallPolicySkuArgs',
+    'FirewallPolicySkuArgsDict',
     'FirewallPolicyThreatIntelWhitelistArgs',
+    'FirewallPolicyThreatIntelWhitelistArgsDict',
     'FirewallPolicyTransportSecurityArgs',
+    'FirewallPolicyTransportSecurityArgsDict',
     'ManagedServiceIdentityArgs',
+    'ManagedServiceIdentityArgsDict',
     'OrderBy',
+    'OrderByDict',
     'SubResourceArgs',
+    'SubResourceArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class DnsSettingsArgsDict(TypedDict):
+        """
+        DNS Proxy Settings in Firewall Policy.
+        """
+        enable_proxy: NotRequired[pulumi.Input[bool]]
+        """
+        Enable DNS Proxy on Firewalls attached to the Firewall Policy.
+        """
+        require_proxy_for_network_rules: NotRequired[pulumi.Input[bool]]
+        """
+        FQDNs in Network Rules are supported when set to true.
+        """
+        servers: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of Custom DNS Servers.
+        """
+elif False:
+    DnsSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DnsSettingsArgs:
@@ -87,6 +133,34 @@ class DnsSettingsArgs:
     def servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "servers", value)
 
+
+if not MYPY:
+    class ExplicitProxySettingsArgsDict(TypedDict):
+        """
+        Explicit Proxy Settings in Firewall Policy.
+        """
+        enable_explicit_proxy: NotRequired[pulumi.Input[bool]]
+        """
+        When set to true, explicit proxy mode is enabled.
+        """
+        http_port: NotRequired[pulumi.Input[int]]
+        """
+        Port number for explicit proxy http protocol, cannot be greater than 64000.
+        """
+        https_port: NotRequired[pulumi.Input[int]]
+        """
+        Port number for explicit proxy https protocol, cannot be greater than 64000.
+        """
+        pac_file: NotRequired[pulumi.Input[str]]
+        """
+        SAS URL for PAC file.
+        """
+        pac_file_port: NotRequired[pulumi.Input[int]]
+        """
+        Port number for firewall to serve PAC file.
+        """
+elif False:
+    ExplicitProxySettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ExplicitProxySettingsArgs:
@@ -176,6 +250,22 @@ class ExplicitProxySettingsArgs:
         pulumi.set(self, "pac_file_port", value)
 
 
+if not MYPY:
+    class FilterItemsDict(TypedDict):
+        """
+        Will contain the filter name and values to operate on
+        """
+        field: NotRequired[str]
+        """
+        The name of the field we would like to filter
+        """
+        values: NotRequired[Sequence[str]]
+        """
+        List of values to filter the current field by
+        """
+elif False:
+    FilterItemsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FilterItems:
     def __init__(__self__, *,
@@ -216,6 +306,22 @@ class FilterItems:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class FirewallPolicyCertificateAuthorityArgsDict(TypedDict):
+        """
+        Trusted Root certificates properties for tls.
+        """
+        key_vault_secret_id: NotRequired[pulumi.Input[str]]
+        """
+        Secret Id of (base-64 encoded unencrypted pfx) 'Secret' or 'Certificate' object stored in KeyVault.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the CA certificate.
+        """
+elif False:
+    FirewallPolicyCertificateAuthorityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FirewallPolicyCertificateAuthorityArgs:
     def __init__(__self__, *,
@@ -255,6 +361,26 @@ class FirewallPolicyCertificateAuthorityArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class FirewallPolicyInsightsArgsDict(TypedDict):
+        """
+        Firewall Policy Insights.
+        """
+        is_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        A flag to indicate if the insights are enabled on the policy.
+        """
+        log_analytics_resources: NotRequired[pulumi.Input['FirewallPolicyLogAnalyticsResourcesArgsDict']]
+        """
+        Workspaces needed to configure the Firewall Policy Insights.
+        """
+        retention_days: NotRequired[pulumi.Input[int]]
+        """
+        Number of days the insights should be enabled on the policy.
+        """
+elif False:
+    FirewallPolicyInsightsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FirewallPolicyInsightsArgs:
@@ -311,6 +437,46 @@ class FirewallPolicyInsightsArgs:
     def retention_days(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "retention_days", value)
 
+
+if not MYPY:
+    class FirewallPolicyIntrusionDetectionBypassTrafficSpecificationsArgsDict(TypedDict):
+        """
+        Intrusion detection bypass traffic specification.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Description of the bypass traffic rule.
+        """
+        destination_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of destination IP addresses or ranges for this rule.
+        """
+        destination_ip_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of destination IpGroups for this rule.
+        """
+        destination_ports: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of destination ports or ranges.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the bypass traffic rule.
+        """
+        protocol: NotRequired[pulumi.Input[Union[str, 'FirewallPolicyIntrusionDetectionProtocol']]]
+        """
+        The rule bypass protocol.
+        """
+        source_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of source IP addresses or ranges for this rule.
+        """
+        source_ip_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of source IpGroups for this rule.
+        """
+elif False:
+    FirewallPolicyIntrusionDetectionBypassTrafficSpecificationsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FirewallPolicyIntrusionDetectionBypassTrafficSpecificationsArgs:
@@ -448,6 +614,26 @@ class FirewallPolicyIntrusionDetectionBypassTrafficSpecificationsArgs:
         pulumi.set(self, "source_ip_groups", value)
 
 
+if not MYPY:
+    class FirewallPolicyIntrusionDetectionConfigurationArgsDict(TypedDict):
+        """
+        The operation for configuring intrusion detection.
+        """
+        bypass_traffic_settings: NotRequired[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyIntrusionDetectionBypassTrafficSpecificationsArgsDict']]]]
+        """
+        List of rules for traffic to bypass.
+        """
+        private_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        IDPS Private IP address ranges are used to identify traffic direction (i.e. inbound, outbound, etc.). By default, only ranges defined by IANA RFC 1918 are considered private IP addresses. To modify default ranges, specify your Private IP address ranges with this property
+        """
+        signature_overrides: NotRequired[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyIntrusionDetectionSignatureSpecificationArgsDict']]]]
+        """
+        List of specific signatures states.
+        """
+elif False:
+    FirewallPolicyIntrusionDetectionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FirewallPolicyIntrusionDetectionConfigurationArgs:
     def __init__(__self__, *,
@@ -504,6 +690,22 @@ class FirewallPolicyIntrusionDetectionConfigurationArgs:
         pulumi.set(self, "signature_overrides", value)
 
 
+if not MYPY:
+    class FirewallPolicyIntrusionDetectionSignatureSpecificationArgsDict(TypedDict):
+        """
+        Intrusion detection signatures specification states.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Signature id.
+        """
+        mode: NotRequired[pulumi.Input[Union[str, 'FirewallPolicyIntrusionDetectionStateType']]]
+        """
+        The signature state.
+        """
+elif False:
+    FirewallPolicyIntrusionDetectionSignatureSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FirewallPolicyIntrusionDetectionSignatureSpecificationArgs:
     def __init__(__self__, *,
@@ -543,6 +745,22 @@ class FirewallPolicyIntrusionDetectionSignatureSpecificationArgs:
     def mode(self, value: Optional[pulumi.Input[Union[str, 'FirewallPolicyIntrusionDetectionStateType']]]):
         pulumi.set(self, "mode", value)
 
+
+if not MYPY:
+    class FirewallPolicyIntrusionDetectionArgsDict(TypedDict):
+        """
+        Configuration for intrusion detection mode and rules.
+        """
+        configuration: NotRequired[pulumi.Input['FirewallPolicyIntrusionDetectionConfigurationArgsDict']]
+        """
+        Intrusion detection configuration properties.
+        """
+        mode: NotRequired[pulumi.Input[Union[str, 'FirewallPolicyIntrusionDetectionStateType']]]
+        """
+        Intrusion detection general state.
+        """
+elif False:
+    FirewallPolicyIntrusionDetectionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FirewallPolicyIntrusionDetectionArgs:
@@ -584,6 +802,22 @@ class FirewallPolicyIntrusionDetectionArgs:
         pulumi.set(self, "mode", value)
 
 
+if not MYPY:
+    class FirewallPolicyLogAnalyticsResourcesArgsDict(TypedDict):
+        """
+        Log Analytics Resources for Firewall Policy Insights.
+        """
+        default_workspace_id: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        """
+        The default workspace Id for Firewall Policy Insights.
+        """
+        workspaces: NotRequired[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyLogAnalyticsWorkspaceArgsDict']]]]
+        """
+        List of workspaces for Firewall Policy Insights.
+        """
+elif False:
+    FirewallPolicyLogAnalyticsResourcesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FirewallPolicyLogAnalyticsResourcesArgs:
     def __init__(__self__, *,
@@ -623,6 +857,22 @@ class FirewallPolicyLogAnalyticsResourcesArgs:
     def workspaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyLogAnalyticsWorkspaceArgs']]]]):
         pulumi.set(self, "workspaces", value)
 
+
+if not MYPY:
+    class FirewallPolicyLogAnalyticsWorkspaceArgsDict(TypedDict):
+        """
+        Log Analytics Workspace for Firewall Policy Insights.
+        """
+        region: NotRequired[pulumi.Input[str]]
+        """
+        Region to configure the Workspace.
+        """
+        workspace_id: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        """
+        The workspace Id for Firewall Policy Insights.
+        """
+elif False:
+    FirewallPolicyLogAnalyticsWorkspaceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FirewallPolicyLogAnalyticsWorkspaceArgs:
@@ -664,6 +914,18 @@ class FirewallPolicyLogAnalyticsWorkspaceArgs:
         pulumi.set(self, "workspace_id", value)
 
 
+if not MYPY:
+    class FirewallPolicySNATArgsDict(TypedDict):
+        """
+        The private IP addresses/IP ranges to which traffic will not be SNAT.
+        """
+        private_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of private IP addresses/IP address ranges to not be SNAT.
+        """
+elif False:
+    FirewallPolicySNATArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FirewallPolicySNATArgs:
     def __init__(__self__, *,
@@ -687,6 +949,18 @@ class FirewallPolicySNATArgs:
     def private_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "private_ranges", value)
 
+
+if not MYPY:
+    class FirewallPolicySQLArgsDict(TypedDict):
+        """
+        SQL Settings in Firewall Policy.
+        """
+        allow_sql_redirect: NotRequired[pulumi.Input[bool]]
+        """
+        A flag to indicate if SQL Redirect traffic filtering is enabled. Turning on the flag requires no rule using port 11000-11999.
+        """
+elif False:
+    FirewallPolicySQLArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FirewallPolicySQLArgs:
@@ -712,6 +986,18 @@ class FirewallPolicySQLArgs:
         pulumi.set(self, "allow_sql_redirect", value)
 
 
+if not MYPY:
+    class FirewallPolicySkuArgsDict(TypedDict):
+        """
+        SKU of Firewall policy.
+        """
+        tier: NotRequired[pulumi.Input[Union[str, 'FirewallPolicySkuTier']]]
+        """
+        Tier of Firewall Policy.
+        """
+elif False:
+    FirewallPolicySkuArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FirewallPolicySkuArgs:
     def __init__(__self__, *,
@@ -735,6 +1021,22 @@ class FirewallPolicySkuArgs:
     def tier(self, value: Optional[pulumi.Input[Union[str, 'FirewallPolicySkuTier']]]):
         pulumi.set(self, "tier", value)
 
+
+if not MYPY:
+    class FirewallPolicyThreatIntelWhitelistArgsDict(TypedDict):
+        """
+        ThreatIntel Whitelist for Firewall Policy.
+        """
+        fqdns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of FQDNs for the ThreatIntel Whitelist.
+        """
+        ip_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of IP addresses for the ThreatIntel Whitelist.
+        """
+elif False:
+    FirewallPolicyThreatIntelWhitelistArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FirewallPolicyThreatIntelWhitelistArgs:
@@ -776,6 +1078,18 @@ class FirewallPolicyThreatIntelWhitelistArgs:
         pulumi.set(self, "ip_addresses", value)
 
 
+if not MYPY:
+    class FirewallPolicyTransportSecurityArgsDict(TypedDict):
+        """
+        Configuration needed to perform TLS termination & initiation.
+        """
+        certificate_authority: NotRequired[pulumi.Input['FirewallPolicyCertificateAuthorityArgsDict']]
+        """
+        The CA used for intermediate CA generation.
+        """
+elif False:
+    FirewallPolicyTransportSecurityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FirewallPolicyTransportSecurityArgs:
     def __init__(__self__, *,
@@ -799,6 +1113,22 @@ class FirewallPolicyTransportSecurityArgs:
     def certificate_authority(self, value: Optional[pulumi.Input['FirewallPolicyCertificateAuthorityArgs']]):
         pulumi.set(self, "certificate_authority", value)
 
+
+if not MYPY:
+    class ManagedServiceIdentityArgsDict(TypedDict):
+        """
+        Identity for the resource.
+        """
+        type: NotRequired[pulumi.Input['ResourceIdentityType']]
+        """
+        The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the virtual machine.
+        """
+        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of user identities associated with resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+elif False:
+    ManagedServiceIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ManagedServiceIdentityArgs:
@@ -840,6 +1170,22 @@ class ManagedServiceIdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
+if not MYPY:
+    class OrderByDict(TypedDict):
+        """
+        Describes a column to sort
+        """
+        field: NotRequired[str]
+        """
+        Describes the actual column name to sort by
+        """
+        order: NotRequired[Union[str, 'FirewallPolicyIDPSQuerySortOrder']]
+        """
+        Describes if results should be in ascending/descending order
+        """
+elif False:
+    OrderByDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OrderBy:
     def __init__(__self__, *,
@@ -879,6 +1225,21 @@ class OrderBy:
     def order(self, value: Optional[Union[str, 'FirewallPolicyIDPSQuerySortOrder']]):
         pulumi.set(self, "order", value)
 
+
+if not MYPY:
+    class SubResourceArgsDict(TypedDict):
+        """
+        Reference to another subresource.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Sub-resource ID. Both absolute resource ID and a relative resource ID are accepted.
+        An absolute ID starts with /subscriptions/ and contains the entire ID of the parent resource and the ID of the sub-resource in the end.
+        A relative ID replaces the ID of the parent resource with a token '$self', followed by the sub-resource ID itself.
+        Example of a relative ID: $self/frontEndConfigurations/my-frontend.
+        """
+elif False:
+    SubResourceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SubResourceArgs:

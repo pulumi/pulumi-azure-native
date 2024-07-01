@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -92,7 +97,7 @@ class AssociatedTenant(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  associated_tenant_name: Optional[pulumi.Input[str]] = None,
                  billing_account_name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['AssociatedTenantPropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['AssociatedTenantPropertiesArgs', 'AssociatedTenantPropertiesArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -103,7 +108,7 @@ class AssociatedTenant(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] associated_tenant_name: The ID that uniquely identifies a tenant.
         :param pulumi.Input[str] billing_account_name: The ID that uniquely identifies a billing account.
-        :param pulumi.Input[pulumi.InputType['AssociatedTenantPropertiesArgs']] properties: An associated tenant.
+        :param pulumi.Input[Union['AssociatedTenantPropertiesArgs', 'AssociatedTenantPropertiesArgsDict']] properties: An associated tenant.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Dictionary of metadata associated with the resource. It may not be populated for all resource types. Maximum key/value length supported of 256 characters. Keys/value should not empty value nor null. Keys can not contain < > % & \\ ? /
         """
         ...
@@ -133,7 +138,7 @@ class AssociatedTenant(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  associated_tenant_name: Optional[pulumi.Input[str]] = None,
                  billing_account_name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['AssociatedTenantPropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['AssociatedTenantPropertiesArgs', 'AssociatedTenantPropertiesArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -166,9 +171,9 @@ class BrokerAuthorization(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  authorization_name: Optional[pulumi.Input[str]] = None,
-                 authorization_policies: Optional[pulumi.Input[pulumi.InputType['AuthorizationConfigArgs']]] = None,
+                 authorization_policies: Optional[pulumi.Input[Union['AuthorizationConfigArgs', 'AuthorizationConfigArgsDict']]] = None,
                  broker_name: Optional[pulumi.Input[str]] = None,
-                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationPropertyArgs']]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationPropertyArgs', 'ExtendedLocationPropertyArgsDict']]] = None,
                  listener_ref: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  mq_name: Optional[pulumi.Input[str]] = None,
@@ -181,9 +186,9 @@ class BrokerAuthorization(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] authorization_name: Name of MQ broker/authorization resource
-        :param pulumi.Input[pulumi.InputType['AuthorizationConfigArgs']] authorization_policies: The list of authorization policies supported by the Authorization Resource.
+        :param pulumi.Input[Union['AuthorizationConfigArgs', 'AuthorizationConfigArgsDict']] authorization_policies: The list of authorization policies supported by the Authorization Resource.
         :param pulumi.Input[str] broker_name: Name of MQ broker resource
-        :param pulumi.Input[pulumi.InputType['ExtendedLocationPropertyArgs']] extended_location: Extended Location
+        :param pulumi.Input[Union['ExtendedLocationPropertyArgs', 'ExtendedLocationPropertyArgsDict']] extended_location: Extended Location
         :param pulumi.Input[Sequence[pulumi.Input[str]]] listener_ref: The array of listener Resources it supports.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] mq_name: Name of MQ resource
@@ -215,9 +220,9 @@ class BrokerAuthorization(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  authorization_name: Optional[pulumi.Input[str]] = None,
-                 authorization_policies: Optional[pulumi.Input[pulumi.InputType['AuthorizationConfigArgs']]] = None,
+                 authorization_policies: Optional[pulumi.Input[Union['AuthorizationConfigArgs', 'AuthorizationConfigArgsDict']]] = None,
                  broker_name: Optional[pulumi.Input[str]] = None,
-                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationPropertyArgs']]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationPropertyArgs', 'ExtendedLocationPropertyArgsDict']]] = None,
                  listener_ref: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  mq_name: Optional[pulumi.Input[str]] = None,

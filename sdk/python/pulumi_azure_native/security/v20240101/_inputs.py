@@ -4,15 +4,47 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'ExtensionArgs',
+    'ExtensionArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ExtensionArgsDict(TypedDict):
+        """
+        A plan's extension properties
+        """
+        is_enabled: pulumi.Input[Union[str, 'IsEnabled']]
+        """
+        Indicates whether the extension is enabled.
+        """
+        name: pulumi.Input[str]
+        """
+        The extension name. Supported values are: <br><br>**AgentlessDiscoveryForKubernetes** - API-based discovery of information about Kubernetes cluster architecture, workload objects, and setup. Required for Kubernetes inventory, identity and network exposure detection, attack path analysis and risk hunting as part of the cloud security explorer.
+        Available for CloudPosture plan.<br><br>**OnUploadMalwareScanning** - Limits the GB to be scanned per month for each storage account within the subscription. Once this limit reached on a given storage account, Blobs won't be scanned during current calendar month.
+        Available for StorageAccounts plan.<br><br>**SensitiveDataDiscovery** - Sensitive data discovery identifies Blob storage container with sensitive data such as credentials, credit cards, and more, to help prioritize and investigate security events.
+        Available for StorageAccounts and CloudPosture plans.<br><br>**ContainerRegistriesVulnerabilityAssessments** - Provides vulnerability management for images stored in your container registries.
+        Available for CloudPosture and Containers plans.
+        """
+        additional_extension_properties: NotRequired[Any]
+        """
+        Property values associated with the extension.
+        """
+elif False:
+    ExtensionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ExtensionArgs:

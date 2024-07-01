@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -153,8 +158,8 @@ class KubernetesRole(pulumi.CustomResource):
                  device_name: Optional[pulumi.Input[str]] = None,
                  host_platform: Optional[pulumi.Input[Union[str, 'PlatformType']]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
-                 kubernetes_cluster_info: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterInfoArgs']]] = None,
-                 kubernetes_role_resources: Optional[pulumi.Input[pulumi.InputType['KubernetesRoleResourcesArgs']]] = None,
+                 kubernetes_cluster_info: Optional[pulumi.Input[Union['KubernetesClusterInfoArgs', 'KubernetesClusterInfoArgsDict']]] = None,
+                 kubernetes_role_resources: Optional[pulumi.Input[Union['KubernetesRoleResourcesArgs', 'KubernetesRoleResourcesArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  role_status: Optional[pulumi.Input[Union[str, 'RoleStatus']]] = None,
@@ -175,8 +180,8 @@ class KubernetesRole(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'PlatformType']] host_platform: Host OS supported by the Kubernetes role.
         :param pulumi.Input[str] kind: Role type.
                Expected value is 'Kubernetes'.
-        :param pulumi.Input[pulumi.InputType['KubernetesClusterInfoArgs']] kubernetes_cluster_info: Kubernetes cluster configuration
-        :param pulumi.Input[pulumi.InputType['KubernetesRoleResourcesArgs']] kubernetes_role_resources: Kubernetes role resources
+        :param pulumi.Input[Union['KubernetesClusterInfoArgs', 'KubernetesClusterInfoArgsDict']] kubernetes_cluster_info: Kubernetes cluster configuration
+        :param pulumi.Input[Union['KubernetesRoleResourcesArgs', 'KubernetesRoleResourcesArgsDict']] kubernetes_role_resources: Kubernetes role resources
         :param pulumi.Input[str] name: The role name.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[Union[str, 'RoleStatus']] role_status: Role status.
@@ -215,8 +220,8 @@ class KubernetesRole(pulumi.CustomResource):
                  device_name: Optional[pulumi.Input[str]] = None,
                  host_platform: Optional[pulumi.Input[Union[str, 'PlatformType']]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
-                 kubernetes_cluster_info: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterInfoArgs']]] = None,
-                 kubernetes_role_resources: Optional[pulumi.Input[pulumi.InputType['KubernetesRoleResourcesArgs']]] = None,
+                 kubernetes_cluster_info: Optional[pulumi.Input[Union['KubernetesClusterInfoArgs', 'KubernetesClusterInfoArgsDict']]] = None,
+                 kubernetes_role_resources: Optional[pulumi.Input[Union['KubernetesRoleResourcesArgs', 'KubernetesRoleResourcesArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  role_status: Optional[pulumi.Input[Union[str, 'RoleStatus']]] = None,

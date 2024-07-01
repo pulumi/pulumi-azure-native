@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -125,7 +130,7 @@ class Cluster(pulumi.CustomResource):
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['ClusterSkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['ClusterSkuArgs', 'ClusterSkuArgsDict']]] = None,
                  supports_scaling: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -137,7 +142,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] cluster_name: The name of the Event Hubs Cluster.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] resource_group_name: Name of the resource group within the azure subscription.
-        :param pulumi.Input[pulumi.InputType['ClusterSkuArgs']] sku: Properties of the cluster SKU.
+        :param pulumi.Input[Union['ClusterSkuArgs', 'ClusterSkuArgsDict']] sku: Properties of the cluster SKU.
         :param pulumi.Input[bool] supports_scaling: A value that indicates whether Scaling is Supported.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -168,7 +173,7 @@ class Cluster(pulumi.CustomResource):
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['ClusterSkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['ClusterSkuArgs', 'ClusterSkuArgsDict']]] = None,
                  supports_scaling: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):

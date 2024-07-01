@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -236,9 +241,9 @@ class EndpointVariant(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  compute_type: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 environment_image_request: Optional[pulumi.Input[pulumi.InputType['CreateServiceRequestEnvironmentImageRequestArgs']]] = None,
+                 environment_image_request: Optional[pulumi.Input[Union['CreateServiceRequestEnvironmentImageRequestArgs', 'CreateServiceRequestEnvironmentImageRequestArgsDict']]] = None,
                  is_default: Optional[pulumi.Input[bool]] = None,
-                 keys: Optional[pulumi.Input[pulumi.InputType['CreateServiceRequestKeysArgs']]] = None,
+                 keys: Optional[pulumi.Input[Union['CreateServiceRequestKeysArgs', 'CreateServiceRequestKeysArgsDict']]] = None,
                  kv_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -256,9 +261,9 @@ class EndpointVariant(pulumi.CustomResource):
         :param pulumi.Input[str] compute_type: The compute environment type for the service.
                Expected value is 'Custom'.
         :param pulumi.Input[str] description: The description of the service.
-        :param pulumi.Input[pulumi.InputType['CreateServiceRequestEnvironmentImageRequestArgs']] environment_image_request: The Environment, models and assets needed for inferencing.
+        :param pulumi.Input[Union['CreateServiceRequestEnvironmentImageRequestArgs', 'CreateServiceRequestEnvironmentImageRequestArgsDict']] environment_image_request: The Environment, models and assets needed for inferencing.
         :param pulumi.Input[bool] is_default: Is this the default variant.
-        :param pulumi.Input[pulumi.InputType['CreateServiceRequestKeysArgs']] keys: The authentication keys.
+        :param pulumi.Input[Union['CreateServiceRequestKeysArgs', 'CreateServiceRequestKeysArgsDict']] keys: The authentication keys.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] kv_tags: The service tag dictionary. Tags are mutable.
         :param pulumi.Input[str] location: The name of the Azure location/region.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: The service properties dictionary. Properties are immutable.
@@ -294,9 +299,9 @@ class EndpointVariant(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  compute_type: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 environment_image_request: Optional[pulumi.Input[pulumi.InputType['CreateServiceRequestEnvironmentImageRequestArgs']]] = None,
+                 environment_image_request: Optional[pulumi.Input[Union['CreateServiceRequestEnvironmentImageRequestArgs', 'CreateServiceRequestEnvironmentImageRequestArgsDict']]] = None,
                  is_default: Optional[pulumi.Input[bool]] = None,
-                 keys: Optional[pulumi.Input[pulumi.InputType['CreateServiceRequestKeysArgs']]] = None,
+                 keys: Optional[pulumi.Input[Union['CreateServiceRequestKeysArgs', 'CreateServiceRequestKeysArgsDict']]] = None,
                  kv_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,

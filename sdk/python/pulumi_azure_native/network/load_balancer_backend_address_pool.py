@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -188,13 +193,13 @@ class LoadBalancerBackendAddressPool(pulumi.CustomResource):
                  backend_address_pool_name: Optional[pulumi.Input[str]] = None,
                  drain_period_in_seconds: Optional[pulumi.Input[int]] = None,
                  id: Optional[pulumi.Input[str]] = None,
-                 load_balancer_backend_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LoadBalancerBackendAddressArgs']]]]] = None,
+                 load_balancer_backend_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LoadBalancerBackendAddressArgs', 'LoadBalancerBackendAddressArgsDict']]]]] = None,
                  load_balancer_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 tunnel_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GatewayLoadBalancerTunnelInterfaceArgs']]]]] = None,
-                 virtual_network: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
+                 tunnel_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GatewayLoadBalancerTunnelInterfaceArgs', 'GatewayLoadBalancerTunnelInterfaceArgsDict']]]]] = None,
+                 virtual_network: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
                  __props__=None):
         """
         Pool of backend IP addresses.
@@ -207,13 +212,13 @@ class LoadBalancerBackendAddressPool(pulumi.CustomResource):
         :param pulumi.Input[str] backend_address_pool_name: The name of the backend address pool.
         :param pulumi.Input[int] drain_period_in_seconds: Amount of seconds Load Balancer waits for before sending RESET to client and backend address.
         :param pulumi.Input[str] id: Resource ID.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LoadBalancerBackendAddressArgs']]]] load_balancer_backend_addresses: An array of backend addresses.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LoadBalancerBackendAddressArgs', 'LoadBalancerBackendAddressArgsDict']]]] load_balancer_backend_addresses: An array of backend addresses.
         :param pulumi.Input[str] load_balancer_name: The name of the load balancer.
         :param pulumi.Input[str] location: The location of the backend address pool.
         :param pulumi.Input[str] name: The name of the resource that is unique within the set of backend address pools used by the load balancer. This name can be used to access the resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GatewayLoadBalancerTunnelInterfaceArgs']]]] tunnel_interfaces: An array of gateway load balancer tunnel interfaces.
-        :param pulumi.Input[pulumi.InputType['SubResourceArgs']] virtual_network: A reference to a virtual network.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['GatewayLoadBalancerTunnelInterfaceArgs', 'GatewayLoadBalancerTunnelInterfaceArgsDict']]]] tunnel_interfaces: An array of gateway load balancer tunnel interfaces.
+        :param pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']] virtual_network: A reference to a virtual network.
         """
         ...
     @overload
@@ -245,13 +250,13 @@ class LoadBalancerBackendAddressPool(pulumi.CustomResource):
                  backend_address_pool_name: Optional[pulumi.Input[str]] = None,
                  drain_period_in_seconds: Optional[pulumi.Input[int]] = None,
                  id: Optional[pulumi.Input[str]] = None,
-                 load_balancer_backend_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LoadBalancerBackendAddressArgs']]]]] = None,
+                 load_balancer_backend_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LoadBalancerBackendAddressArgs', 'LoadBalancerBackendAddressArgsDict']]]]] = None,
                  load_balancer_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 tunnel_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GatewayLoadBalancerTunnelInterfaceArgs']]]]] = None,
-                 virtual_network: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
+                 tunnel_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GatewayLoadBalancerTunnelInterfaceArgs', 'GatewayLoadBalancerTunnelInterfaceArgsDict']]]]] = None,
+                 virtual_network: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

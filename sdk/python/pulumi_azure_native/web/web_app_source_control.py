@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -186,7 +191,7 @@ class WebAppSourceControl(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  branch: Optional[pulumi.Input[str]] = None,
                  deployment_rollback_enabled: Optional[pulumi.Input[bool]] = None,
-                 git_hub_action_configuration: Optional[pulumi.Input[pulumi.InputType['GitHubActionConfigurationArgs']]] = None,
+                 git_hub_action_configuration: Optional[pulumi.Input[Union['GitHubActionConfigurationArgs', 'GitHubActionConfigurationArgsDict']]] = None,
                  is_git_hub_action: Optional[pulumi.Input[bool]] = None,
                  is_manual_integration: Optional[pulumi.Input[bool]] = None,
                  is_mercurial: Optional[pulumi.Input[bool]] = None,
@@ -205,7 +210,7 @@ class WebAppSourceControl(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] branch: Name of branch to use for deployment.
         :param pulumi.Input[bool] deployment_rollback_enabled: <code>true</code> to enable deployment rollback; otherwise, <code>false</code>.
-        :param pulumi.Input[pulumi.InputType['GitHubActionConfigurationArgs']] git_hub_action_configuration: If GitHub Action is selected, than the associated configuration.
+        :param pulumi.Input[Union['GitHubActionConfigurationArgs', 'GitHubActionConfigurationArgsDict']] git_hub_action_configuration: If GitHub Action is selected, than the associated configuration.
         :param pulumi.Input[bool] is_git_hub_action: <code>true</code> if this is deployed via GitHub action.
         :param pulumi.Input[bool] is_manual_integration: <code>true</code> to limit to manual integration; <code>false</code> to enable continuous integration (which configures webhooks into online repos like GitHub).
         :param pulumi.Input[bool] is_mercurial: <code>true</code> for a Mercurial repository; <code>false</code> for a Git repository.
@@ -243,7 +248,7 @@ class WebAppSourceControl(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  branch: Optional[pulumi.Input[str]] = None,
                  deployment_rollback_enabled: Optional[pulumi.Input[bool]] = None,
-                 git_hub_action_configuration: Optional[pulumi.Input[pulumi.InputType['GitHubActionConfigurationArgs']]] = None,
+                 git_hub_action_configuration: Optional[pulumi.Input[Union['GitHubActionConfigurationArgs', 'GitHubActionConfigurationArgsDict']]] = None,
                  is_git_hub_action: Optional[pulumi.Input[bool]] = None,
                  is_manual_integration: Optional[pulumi.Input[bool]] = None,
                  is_mercurial: Optional[pulumi.Input[bool]] = None,

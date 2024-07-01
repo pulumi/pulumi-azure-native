@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -216,14 +221,14 @@ class AmlFilesystem(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aml_filesystem_name: Optional[pulumi.Input[str]] = None,
-                 encryption_settings: Optional[pulumi.Input[pulumi.InputType['AmlFilesystemEncryptionSettingsArgs']]] = None,
+                 encryption_settings: Optional[pulumi.Input[Union['AmlFilesystemEncryptionSettingsArgs', 'AmlFilesystemEncryptionSettingsArgsDict']]] = None,
                  filesystem_subnet: Optional[pulumi.Input[str]] = None,
-                 hsm: Optional[pulumi.Input[pulumi.InputType['AmlFilesystemHsmArgs']]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['AmlFilesystemIdentityArgs']]] = None,
+                 hsm: Optional[pulumi.Input[Union['AmlFilesystemHsmArgs', 'AmlFilesystemHsmArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['AmlFilesystemIdentityArgs', 'AmlFilesystemIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 maintenance_window: Optional[pulumi.Input[pulumi.InputType['AmlFilesystemMaintenanceWindowArgs']]] = None,
+                 maintenance_window: Optional[pulumi.Input[Union['AmlFilesystemMaintenanceWindowArgs', 'AmlFilesystemMaintenanceWindowArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SkuNameArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuNameArgs', 'SkuNameArgsDict']]] = None,
                  storage_capacity_ti_b: Optional[pulumi.Input[float]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -235,14 +240,14 @@ class AmlFilesystem(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] aml_filesystem_name: Name for the AML file system. Allows alphanumerics, underscores, and hyphens. Start and end with alphanumeric.
-        :param pulumi.Input[pulumi.InputType['AmlFilesystemEncryptionSettingsArgs']] encryption_settings: Specifies encryption settings of the AML file system.
+        :param pulumi.Input[Union['AmlFilesystemEncryptionSettingsArgs', 'AmlFilesystemEncryptionSettingsArgsDict']] encryption_settings: Specifies encryption settings of the AML file system.
         :param pulumi.Input[str] filesystem_subnet: Subnet used for managing the AML file system and for client-facing operations. This subnet should have at least a /24 subnet mask within the VNET's address space.
-        :param pulumi.Input[pulumi.InputType['AmlFilesystemHsmArgs']] hsm: Hydration and archive settings and status
-        :param pulumi.Input[pulumi.InputType['AmlFilesystemIdentityArgs']] identity: The managed identity used by the AML file system, if configured.
+        :param pulumi.Input[Union['AmlFilesystemHsmArgs', 'AmlFilesystemHsmArgsDict']] hsm: Hydration and archive settings and status
+        :param pulumi.Input[Union['AmlFilesystemIdentityArgs', 'AmlFilesystemIdentityArgsDict']] identity: The managed identity used by the AML file system, if configured.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[pulumi.InputType['AmlFilesystemMaintenanceWindowArgs']] maintenance_window: Start time of a 30-minute weekly maintenance window.
+        :param pulumi.Input[Union['AmlFilesystemMaintenanceWindowArgs', 'AmlFilesystemMaintenanceWindowArgsDict']] maintenance_window: Start time of a 30-minute weekly maintenance window.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[pulumi.InputType['SkuNameArgs']] sku: SKU for the resource.
+        :param pulumi.Input[Union['SkuNameArgs', 'SkuNameArgsDict']] sku: SKU for the resource.
         :param pulumi.Input[float] storage_capacity_ti_b: The size of the AML file system, in TiB. This might be rounded up.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Availability zones for resources. This field should only contain a single element in the array.
@@ -273,14 +278,14 @@ class AmlFilesystem(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aml_filesystem_name: Optional[pulumi.Input[str]] = None,
-                 encryption_settings: Optional[pulumi.Input[pulumi.InputType['AmlFilesystemEncryptionSettingsArgs']]] = None,
+                 encryption_settings: Optional[pulumi.Input[Union['AmlFilesystemEncryptionSettingsArgs', 'AmlFilesystemEncryptionSettingsArgsDict']]] = None,
                  filesystem_subnet: Optional[pulumi.Input[str]] = None,
-                 hsm: Optional[pulumi.Input[pulumi.InputType['AmlFilesystemHsmArgs']]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['AmlFilesystemIdentityArgs']]] = None,
+                 hsm: Optional[pulumi.Input[Union['AmlFilesystemHsmArgs', 'AmlFilesystemHsmArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['AmlFilesystemIdentityArgs', 'AmlFilesystemIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 maintenance_window: Optional[pulumi.Input[pulumi.InputType['AmlFilesystemMaintenanceWindowArgs']]] = None,
+                 maintenance_window: Optional[pulumi.Input[Union['AmlFilesystemMaintenanceWindowArgs', 'AmlFilesystemMaintenanceWindowArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SkuNameArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuNameArgs', 'SkuNameArgsDict']]] = None,
                  storage_capacity_ti_b: Optional[pulumi.Input[float]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,

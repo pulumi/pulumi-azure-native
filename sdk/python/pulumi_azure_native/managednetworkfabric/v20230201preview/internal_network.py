@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -219,16 +224,16 @@ class InternalNetwork(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  annotation: Optional[pulumi.Input[str]] = None,
-                 bgp_configuration: Optional[pulumi.Input[pulumi.InputType['BgpConfigurationArgs']]] = None,
-                 connected_i_pv4_subnets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConnectedSubnetArgs']]]]] = None,
-                 connected_i_pv6_subnets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConnectedSubnetArgs']]]]] = None,
+                 bgp_configuration: Optional[pulumi.Input[Union['BgpConfigurationArgs', 'BgpConfigurationArgsDict']]] = None,
+                 connected_i_pv4_subnets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ConnectedSubnetArgs', 'ConnectedSubnetArgsDict']]]]] = None,
+                 connected_i_pv6_subnets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ConnectedSubnetArgs', 'ConnectedSubnetArgsDict']]]]] = None,
                  export_route_policy_id: Optional[pulumi.Input[str]] = None,
                  import_route_policy_id: Optional[pulumi.Input[str]] = None,
                  internal_network_name: Optional[pulumi.Input[str]] = None,
                  l3_isolation_domain_name: Optional[pulumi.Input[str]] = None,
                  mtu: Optional[pulumi.Input[int]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 static_route_configuration: Optional[pulumi.Input[pulumi.InputType['StaticRouteConfigurationArgs']]] = None,
+                 static_route_configuration: Optional[pulumi.Input[Union['StaticRouteConfigurationArgs', 'StaticRouteConfigurationArgsDict']]] = None,
                  vlan_id: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         """
@@ -237,16 +242,16 @@ class InternalNetwork(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] annotation: Switch configuration description.
-        :param pulumi.Input[pulumi.InputType['BgpConfigurationArgs']] bgp_configuration: BGP configuration properties
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConnectedSubnetArgs']]]] connected_i_pv4_subnets: List with object connected IPv4 Subnets.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConnectedSubnetArgs']]]] connected_i_pv6_subnets: List with object connected IPv6 Subnets.
+        :param pulumi.Input[Union['BgpConfigurationArgs', 'BgpConfigurationArgsDict']] bgp_configuration: BGP configuration properties
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ConnectedSubnetArgs', 'ConnectedSubnetArgsDict']]]] connected_i_pv4_subnets: List with object connected IPv4 Subnets.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ConnectedSubnetArgs', 'ConnectedSubnetArgsDict']]]] connected_i_pv6_subnets: List with object connected IPv6 Subnets.
         :param pulumi.Input[str] export_route_policy_id: ARM resource ID of importRoutePolicy.
         :param pulumi.Input[str] import_route_policy_id: ARM resource ID of importRoutePolicy.
         :param pulumi.Input[str] internal_network_name: Name of the InternalNetwork
         :param pulumi.Input[str] l3_isolation_domain_name: Name of the L3IsolationDomain
         :param pulumi.Input[int] mtu: Maximum transmission unit. Default value is 1500.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[pulumi.InputType['StaticRouteConfigurationArgs']] static_route_configuration: Static Route Configuration properties.
+        :param pulumi.Input[Union['StaticRouteConfigurationArgs', 'StaticRouteConfigurationArgsDict']] static_route_configuration: Static Route Configuration properties.
         :param pulumi.Input[int] vlan_id: Vlan identifier. Example: 1001.
         """
         ...
@@ -274,16 +279,16 @@ class InternalNetwork(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  annotation: Optional[pulumi.Input[str]] = None,
-                 bgp_configuration: Optional[pulumi.Input[pulumi.InputType['BgpConfigurationArgs']]] = None,
-                 connected_i_pv4_subnets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConnectedSubnetArgs']]]]] = None,
-                 connected_i_pv6_subnets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConnectedSubnetArgs']]]]] = None,
+                 bgp_configuration: Optional[pulumi.Input[Union['BgpConfigurationArgs', 'BgpConfigurationArgsDict']]] = None,
+                 connected_i_pv4_subnets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ConnectedSubnetArgs', 'ConnectedSubnetArgsDict']]]]] = None,
+                 connected_i_pv6_subnets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ConnectedSubnetArgs', 'ConnectedSubnetArgsDict']]]]] = None,
                  export_route_policy_id: Optional[pulumi.Input[str]] = None,
                  import_route_policy_id: Optional[pulumi.Input[str]] = None,
                  internal_network_name: Optional[pulumi.Input[str]] = None,
                  l3_isolation_domain_name: Optional[pulumi.Input[str]] = None,
                  mtu: Optional[pulumi.Input[int]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 static_route_configuration: Optional[pulumi.Input[pulumi.InputType['StaticRouteConfigurationArgs']]] = None,
+                 static_route_configuration: Optional[pulumi.Input[Union['StaticRouteConfigurationArgs', 'StaticRouteConfigurationArgsDict']]] = None,
                  vlan_id: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

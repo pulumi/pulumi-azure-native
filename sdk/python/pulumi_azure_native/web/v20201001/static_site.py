@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -186,14 +191,14 @@ class StaticSite(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  branch: Optional[pulumi.Input[str]] = None,
-                 build_properties: Optional[pulumi.Input[pulumi.InputType['StaticSiteBuildPropertiesArgs']]] = None,
+                 build_properties: Optional[pulumi.Input[Union['StaticSiteBuildPropertiesArgs', 'StaticSiteBuildPropertiesArgsDict']]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  repository_token: Optional[pulumi.Input[str]] = None,
                  repository_url: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SkuDescriptionArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuDescriptionArgs', 'SkuDescriptionArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -202,14 +207,14 @@ class StaticSite(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] branch: The target branch in the repository.
-        :param pulumi.Input[pulumi.InputType['StaticSiteBuildPropertiesArgs']] build_properties: Build properties to configure on the repository.
+        :param pulumi.Input[Union['StaticSiteBuildPropertiesArgs', 'StaticSiteBuildPropertiesArgsDict']] build_properties: Build properties to configure on the repository.
         :param pulumi.Input[str] kind: Kind of resource.
         :param pulumi.Input[str] location: Resource Location.
         :param pulumi.Input[str] name: Name of the static site to create or update.
         :param pulumi.Input[str] repository_token: A user's github repository token. This is used to setup the Github Actions workflow file and API secrets.
         :param pulumi.Input[str] repository_url: URL for the repository of the static site.
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
-        :param pulumi.Input[pulumi.InputType['SkuDescriptionArgs']] sku: Description of a SKU for a scalable resource.
+        :param pulumi.Input[Union['SkuDescriptionArgs', 'SkuDescriptionArgsDict']] sku: Description of a SKU for a scalable resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         ...
@@ -237,14 +242,14 @@ class StaticSite(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  branch: Optional[pulumi.Input[str]] = None,
-                 build_properties: Optional[pulumi.Input[pulumi.InputType['StaticSiteBuildPropertiesArgs']]] = None,
+                 build_properties: Optional[pulumi.Input[Union['StaticSiteBuildPropertiesArgs', 'StaticSiteBuildPropertiesArgsDict']]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  repository_token: Optional[pulumi.Input[str]] = None,
                  repository_url: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SkuDescriptionArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuDescriptionArgs', 'SkuDescriptionArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

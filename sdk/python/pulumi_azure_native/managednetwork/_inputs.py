@@ -4,17 +4,51 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'ManagedNetworkPeeringPolicyPropertiesArgs',
+    'ManagedNetworkPeeringPolicyPropertiesArgsDict',
     'ResourceIdArgs',
+    'ResourceIdArgsDict',
     'ScopeArgs',
+    'ScopeArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ManagedNetworkPeeringPolicyPropertiesArgsDict(TypedDict):
+        """
+        Properties of a Managed Network Peering Policy
+        """
+        type: pulumi.Input[Union[str, 'Type']]
+        """
+        Gets or sets the connectivity type of a network structure policy
+        """
+        hub: NotRequired[pulumi.Input['ResourceIdArgsDict']]
+        """
+        Gets or sets the hub virtual network ID
+        """
+        mesh: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceIdArgsDict']]]]
+        """
+        Gets or sets the mesh group IDs
+        """
+        spokes: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceIdArgsDict']]]]
+        """
+        Gets or sets the spokes group IDs
+        """
+elif False:
+    ManagedNetworkPeeringPolicyPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ManagedNetworkPeeringPolicyPropertiesArgs:
@@ -87,6 +121,18 @@ class ManagedNetworkPeeringPolicyPropertiesArgs:
         pulumi.set(self, "spokes", value)
 
 
+if not MYPY:
+    class ResourceIdArgsDict(TypedDict):
+        """
+        Generic pointer to a resource
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource Id
+        """
+elif False:
+    ResourceIdArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ResourceIdArgs:
     def __init__(__self__, *,
@@ -110,6 +156,30 @@ class ResourceIdArgs:
     def id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class ScopeArgsDict(TypedDict):
+        """
+        Scope of a Managed Network
+        """
+        management_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceIdArgsDict']]]]
+        """
+        The collection of management groups covered by the Managed Network
+        """
+        subnets: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceIdArgsDict']]]]
+        """
+        The collection of  subnets covered by the Managed Network
+        """
+        subscriptions: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceIdArgsDict']]]]
+        """
+        The collection of subscriptions covered by the Managed Network
+        """
+        virtual_networks: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceIdArgsDict']]]]
+        """
+        The collection of virtual nets covered by the Managed Network
+        """
+elif False:
+    ScopeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ScopeArgs:

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -125,7 +130,7 @@ class Project(pulumi.CustomResource):
                  e_tag: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  project_name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['ProjectPropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['ProjectPropertiesArgs', 'ProjectPropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[Any] = None,
                  __props__=None):
@@ -137,7 +142,7 @@ class Project(pulumi.CustomResource):
         :param pulumi.Input[str] e_tag: For optimistic concurrency control.
         :param pulumi.Input[str] location: Azure location in which project is created.
         :param pulumi.Input[str] project_name: Name of the Azure Migrate project.
-        :param pulumi.Input[pulumi.InputType['ProjectPropertiesArgs']] properties: Properties of the project.
+        :param pulumi.Input[Union['ProjectPropertiesArgs', 'ProjectPropertiesArgsDict']] properties: Properties of the project.
         :param pulumi.Input[str] resource_group_name: Name of the Azure Resource Group that project is part of.
         :param Any tags: Tags provided by Azure Tagging service.
         """
@@ -168,7 +173,7 @@ class Project(pulumi.CustomResource):
                  e_tag: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  project_name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['ProjectPropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['ProjectPropertiesArgs', 'ProjectPropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[Any] = None,
                  __props__=None):

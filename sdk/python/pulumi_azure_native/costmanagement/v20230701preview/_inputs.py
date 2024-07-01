@@ -4,37 +4,87 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'ExportDatasetConfigurationArgs',
+    'ExportDatasetConfigurationArgsDict',
     'ExportDatasetArgs',
+    'ExportDatasetArgsDict',
     'ExportDefinitionArgs',
+    'ExportDefinitionArgsDict',
     'ExportDeliveryDestinationArgs',
+    'ExportDeliveryDestinationArgsDict',
     'ExportDeliveryInfoArgs',
+    'ExportDeliveryInfoArgsDict',
     'ExportRecurrencePeriodArgs',
+    'ExportRecurrencePeriodArgsDict',
     'ExportScheduleArgs',
+    'ExportScheduleArgsDict',
     'ExportTimePeriodArgs',
+    'ExportTimePeriodArgsDict',
     'FileDestinationArgs',
+    'FileDestinationArgsDict',
     'FilterItemsArgs',
+    'FilterItemsArgsDict',
     'KpiPropertiesArgs',
+    'KpiPropertiesArgsDict',
     'NotificationPropertiesArgs',
+    'NotificationPropertiesArgsDict',
     'PivotPropertiesArgs',
+    'PivotPropertiesArgsDict',
     'ReportConfigAggregationArgs',
+    'ReportConfigAggregationArgsDict',
     'ReportConfigComparisonExpressionArgs',
+    'ReportConfigComparisonExpressionArgsDict',
     'ReportConfigDatasetConfigurationArgs',
+    'ReportConfigDatasetConfigurationArgsDict',
     'ReportConfigDatasetArgs',
+    'ReportConfigDatasetArgsDict',
     'ReportConfigFilterArgs',
+    'ReportConfigFilterArgsDict',
     'ReportConfigGroupingArgs',
+    'ReportConfigGroupingArgsDict',
     'ReportConfigSortingArgs',
+    'ReportConfigSortingArgsDict',
     'ReportConfigTimePeriodArgs',
+    'ReportConfigTimePeriodArgsDict',
     'SchedulePropertiesArgs',
+    'SchedulePropertiesArgsDict',
     'SystemAssignedServiceIdentityArgs',
+    'SystemAssignedServiceIdentityArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ExportDatasetConfigurationArgsDict(TypedDict):
+        """
+        The export dataset configuration.
+        """
+        columns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        This is on path to deprecation and will not be supported going forward.
+        """
+        data_version: NotRequired[pulumi.Input[str]]
+        """
+        The data version for the selected for the export. If not provided then the export will default to latest data version.
+        """
+        filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterItemsArgsDict']]]]
+        """
+        Filters associated with the data sets.
+        """
+elif False:
+    ExportDatasetConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ExportDatasetConfigurationArgs:
@@ -92,6 +142,22 @@ class ExportDatasetConfigurationArgs:
         pulumi.set(self, "filters", value)
 
 
+if not MYPY:
+    class ExportDatasetArgsDict(TypedDict):
+        """
+        The definition for data in the export.
+        """
+        configuration: NotRequired[pulumi.Input['ExportDatasetConfigurationArgsDict']]
+        """
+        The export dataset configuration.
+        """
+        granularity: NotRequired[pulumi.Input[Union[str, 'GranularityType']]]
+        """
+        The granularity of rows in the export. Currently 'Daily' is supported for most cases.
+        """
+elif False:
+    ExportDatasetArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ExportDatasetArgs:
     def __init__(__self__, *,
@@ -131,6 +197,30 @@ class ExportDatasetArgs:
     def granularity(self, value: Optional[pulumi.Input[Union[str, 'GranularityType']]]):
         pulumi.set(self, "granularity", value)
 
+
+if not MYPY:
+    class ExportDefinitionArgsDict(TypedDict):
+        """
+        The definition of an export.
+        """
+        timeframe: pulumi.Input[Union[str, 'TimeframeType']]
+        """
+        The time frame for pulling data for the export. If custom, then a specific time period must be provided.
+        """
+        type: pulumi.Input[Union[str, 'ExportType']]
+        """
+        The type of the export. Note that 'Usage' is equivalent to 'ActualCost' and is applicable to exports that do not yet provide data for charges or amortization for service reservations.
+        """
+        data_set: NotRequired[pulumi.Input['ExportDatasetArgsDict']]
+        """
+        The definition for data in the export.
+        """
+        time_period: NotRequired[pulumi.Input['ExportTimePeriodArgsDict']]
+        """
+        Has time period for pulling data for the export.
+        """
+elif False:
+    ExportDefinitionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ExportDefinitionArgs:
@@ -201,6 +291,38 @@ class ExportDefinitionArgs:
     def time_period(self, value: Optional[pulumi.Input['ExportTimePeriodArgs']]):
         pulumi.set(self, "time_period", value)
 
+
+if not MYPY:
+    class ExportDeliveryDestinationArgsDict(TypedDict):
+        """
+        This represents the blob storage account location where exports of costs will be delivered. There are two ways to configure the destination. The approach recommended for most customers is to specify the resourceId of the storage account. This requires a one-time registration of the account's subscription with the Microsoft.CostManagementExports resource provider in order to give Cost Management services access to the storage. When creating an export in the Azure portal this registration is performed automatically but API users may need to register the subscription explicitly (for more information see https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-supported-services ). Another way to configure the destination is available ONLY to Partners with a Microsoft Partner Agreement plan who are global admins of their billing account. These Partners, instead of specifying the resourceId of a storage account, can specify the storage account name along with a SAS token for the account. This allows exports of costs to a storage account in any tenant. The SAS token should be created for the blob service with Service/Container/Object resource types and with Read/Write/Delete/List/Add/Create permissions (for more information see https://docs.microsoft.com/en-us/azure/cost-management-billing/costs/export-cost-data-storage-account-sas-key ).
+        """
+        container: pulumi.Input[str]
+        """
+        The name of the container where exports will be uploaded. If the container does not exist it will be created.
+        """
+        resource_id: NotRequired[pulumi.Input[str]]
+        """
+        The resource id of the storage account where exports will be delivered. This is not required if a sasToken and storageAccount are specified.
+        """
+        root_folder_path: NotRequired[pulumi.Input[str]]
+        """
+        The name of the directory where exports will be uploaded.
+        """
+        sas_token: NotRequired[pulumi.Input[str]]
+        """
+        A SAS token for the storage account. For a restricted set of Azure customers this together with storageAccount can be specified instead of resourceId. Note: the value returned by the API for this property will always be obfuscated. Returning this same obfuscated value will not result in the SAS token being updated. To update this value a new SAS token must be specified.
+        """
+        storage_account: NotRequired[pulumi.Input[str]]
+        """
+        The storage account where exports will be uploaded. For a restricted set of Azure customers this together with sasToken can be specified instead of resourceId.
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'DestinationType']]]
+        """
+        The export delivery destination type. Currently only 'AzureBlob' is supported.
+        """
+elif False:
+    ExportDeliveryDestinationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ExportDeliveryDestinationArgs:
@@ -305,6 +427,18 @@ class ExportDeliveryDestinationArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class ExportDeliveryInfoArgsDict(TypedDict):
+        """
+        The delivery information associated with a export.
+        """
+        destination: pulumi.Input['ExportDeliveryDestinationArgsDict']
+        """
+        Has destination for the export being delivered.
+        """
+elif False:
+    ExportDeliveryInfoArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ExportDeliveryInfoArgs:
     def __init__(__self__, *,
@@ -327,6 +461,22 @@ class ExportDeliveryInfoArgs:
     def destination(self, value: pulumi.Input['ExportDeliveryDestinationArgs']):
         pulumi.set(self, "destination", value)
 
+
+if not MYPY:
+    class ExportRecurrencePeriodArgsDict(TypedDict):
+        """
+        The start and end date for recurrence schedule.
+        """
+        from_: pulumi.Input[str]
+        """
+        The start date of recurrence.
+        """
+        to: NotRequired[pulumi.Input[str]]
+        """
+        The end date of recurrence.
+        """
+elif False:
+    ExportRecurrencePeriodArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ExportRecurrencePeriodArgs:
@@ -366,6 +516,26 @@ class ExportRecurrencePeriodArgs:
     def to(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "to", value)
 
+
+if not MYPY:
+    class ExportScheduleArgsDict(TypedDict):
+        """
+        The schedule associated with the export.
+        """
+        recurrence: NotRequired[pulumi.Input[Union[str, 'RecurrenceType']]]
+        """
+        The schedule recurrence.
+        """
+        recurrence_period: NotRequired[pulumi.Input['ExportRecurrencePeriodArgsDict']]
+        """
+        Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
+        """
+        status: NotRequired[pulumi.Input[Union[str, 'StatusType']]]
+        """
+        The status of the export's schedule. If 'Inactive', the export's schedule is paused. 'SystemSuspended' can only be set by export service.
+        """
+elif False:
+    ExportScheduleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ExportScheduleArgs:
@@ -423,6 +593,22 @@ class ExportScheduleArgs:
         pulumi.set(self, "status", value)
 
 
+if not MYPY:
+    class ExportTimePeriodArgsDict(TypedDict):
+        """
+        The date range for data in the export. This should only be specified with timeFrame set to 'Custom'. The maximum date range is 1 month.
+        """
+        from_: pulumi.Input[str]
+        """
+        The start date for export data.
+        """
+        to: pulumi.Input[str]
+        """
+        The end date for export data.
+        """
+elif False:
+    ExportTimePeriodArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ExportTimePeriodArgs:
     def __init__(__self__, *,
@@ -461,6 +647,18 @@ class ExportTimePeriodArgs:
         pulumi.set(self, "to", value)
 
 
+if not MYPY:
+    class FileDestinationArgsDict(TypedDict):
+        """
+        Destination of the view data. This is optional. Currently only CSV format is supported.
+        """
+        file_formats: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'FileFormat']]]]]
+        """
+        Destination of the view data. Currently only CSV format is supported.
+        """
+elif False:
+    FileDestinationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FileDestinationArgs:
     def __init__(__self__, *,
@@ -484,6 +682,22 @@ class FileDestinationArgs:
     def file_formats(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'FileFormat']]]]]):
         pulumi.set(self, "file_formats", value)
 
+
+if not MYPY:
+    class FilterItemsArgsDict(TypedDict):
+        """
+        Will contain the filter name and value to operate on. This is currently only supported for Export Definition type of ReservationRecommendations.
+        """
+        name: NotRequired[pulumi.Input[Union[str, 'FilterItemNames']]]
+        """
+        The name of the filter. This is currently only supported for Export Definition type of ReservationRecommendations. Supported names are ['ReservationScope', 'LookBackPeriod', 'ResourceType']
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        Value to filter by. Currently values supported per name are, for 'ReservationScope' supported values are ['Single', 'Shared'], for 'LookBackPeriod' supported values are ['Last7Days', 'Last30Days', 'Last60Days'] and for 'ResourceType' supported values are ['VirtualMachines', 'SQLDatabases', 'PostgreSQL', 'ManagedDisk', 'MySQL', 'RedHat', 'MariaDB', 'RedisCache', 'CosmosDB', 'SqlDataWarehouse', 'SUSELinux', 'AppService', 'BlockBlob', 'AzureDataExplorer', 'VMwareCloudSimple'].
+        """
+elif False:
+    FilterItemsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FilterItemsArgs:
@@ -524,6 +738,26 @@ class FilterItemsArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class KpiPropertiesArgsDict(TypedDict):
+        """
+        Each KPI must contain a 'type' and 'enabled' key.
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        show the KPI in the UI?
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        ID of resource related to metric (budget).
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'KpiTypeType']]]
+        """
+        KPI type (Forecast, Budget).
+        """
+elif False:
+    KpiPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class KpiPropertiesArgs:
@@ -580,6 +814,34 @@ class KpiPropertiesArgs:
     def type(self, value: Optional[pulumi.Input[Union[str, 'KpiTypeType']]]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class NotificationPropertiesArgsDict(TypedDict):
+        """
+        The properties of the scheduled action notification.
+        """
+        subject: pulumi.Input[str]
+        """
+        Subject of the email. Length is limited to 70 characters.
+        """
+        to: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Array of email addresses.
+        """
+        language: NotRequired[pulumi.Input[str]]
+        """
+        Locale of the email.
+        """
+        message: NotRequired[pulumi.Input[str]]
+        """
+        Optional message to be added in the email. Length is limited to 250 characters.
+        """
+        regional_format: NotRequired[pulumi.Input[str]]
+        """
+        Regional format used for formatting date/time and currency values in the email.
+        """
+elif False:
+    NotificationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NotificationPropertiesArgs:
@@ -667,6 +929,22 @@ class NotificationPropertiesArgs:
         pulumi.set(self, "regional_format", value)
 
 
+if not MYPY:
+    class PivotPropertiesArgsDict(TypedDict):
+        """
+        Each pivot must contain a 'type' and 'name'.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Data field to show in view.
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'PivotTypeType']]]
+        """
+        Data type to show in view.
+        """
+elif False:
+    PivotPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PivotPropertiesArgs:
     def __init__(__self__, *,
@@ -707,6 +985,22 @@ class PivotPropertiesArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class ReportConfigAggregationArgsDict(TypedDict):
+        """
+        The aggregation expression to be used in the report.
+        """
+        function: pulumi.Input[Union[str, 'FunctionType']]
+        """
+        The name of the aggregation function to use.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the column to aggregate.
+        """
+elif False:
+    ReportConfigAggregationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ReportConfigAggregationArgs:
     def __init__(__self__, *,
@@ -744,6 +1038,26 @@ class ReportConfigAggregationArgs:
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class ReportConfigComparisonExpressionArgsDict(TypedDict):
+        """
+        The comparison expression to be used in the report.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the column to use in comparison.
+        """
+        operator: pulumi.Input[Union[str, 'OperatorType']]
+        """
+        The operator to use for comparison.
+        """
+        values: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Array of values to use for comparison
+        """
+elif False:
+    ReportConfigComparisonExpressionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ReportConfigComparisonExpressionArgs:
@@ -798,6 +1112,18 @@ class ReportConfigComparisonExpressionArgs:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class ReportConfigDatasetConfigurationArgsDict(TypedDict):
+        """
+        The configuration of dataset in the report.
+        """
+        columns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Array of column names to be included in the report. Any valid report column name is allowed. If not provided, then report includes all columns.
+        """
+elif False:
+    ReportConfigDatasetConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ReportConfigDatasetConfigurationArgs:
     def __init__(__self__, *,
@@ -821,6 +1147,38 @@ class ReportConfigDatasetConfigurationArgs:
     def columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "columns", value)
 
+
+if not MYPY:
+    class ReportConfigDatasetArgsDict(TypedDict):
+        """
+        The definition of data present in the report.
+        """
+        aggregation: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['ReportConfigAggregationArgsDict']]]]
+        """
+        Dictionary of aggregation expression to use in the report. The key of each item in the dictionary is the alias for the aggregated column. Report can have up to 2 aggregation clauses.
+        """
+        configuration: NotRequired[pulumi.Input['ReportConfigDatasetConfigurationArgsDict']]
+        """
+        Has configuration information for the data in the report. The configuration will be ignored if aggregation and grouping are provided.
+        """
+        filter: NotRequired[pulumi.Input['ReportConfigFilterArgsDict']]
+        """
+        Has filter expression to use in the report.
+        """
+        granularity: NotRequired[pulumi.Input[Union[str, 'ReportGranularityType']]]
+        """
+        The granularity of rows in the report.
+        """
+        grouping: NotRequired[pulumi.Input[Sequence[pulumi.Input['ReportConfigGroupingArgsDict']]]]
+        """
+        Array of group by expression to use in the report. Report can have up to 2 group by clauses.
+        """
+        sorting: NotRequired[pulumi.Input[Sequence[pulumi.Input['ReportConfigSortingArgsDict']]]]
+        """
+        Array of order by expression to use in the report.
+        """
+elif False:
+    ReportConfigDatasetArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ReportConfigDatasetArgs:
@@ -926,6 +1284,30 @@ class ReportConfigDatasetArgs:
         pulumi.set(self, "sorting", value)
 
 
+if not MYPY:
+    class ReportConfigFilterArgsDict(TypedDict):
+        """
+        The filter expression to be used in the report.
+        """
+        and_: NotRequired[pulumi.Input[Sequence[pulumi.Input['ReportConfigFilterArgsDict']]]]
+        """
+        The logical "AND" expression. Must have at least 2 items.
+        """
+        dimensions: NotRequired[pulumi.Input['ReportConfigComparisonExpressionArgsDict']]
+        """
+        Has comparison expression for a dimension
+        """
+        or_: NotRequired[pulumi.Input[Sequence[pulumi.Input['ReportConfigFilterArgsDict']]]]
+        """
+        The logical "OR" expression. Must have at least 2 items.
+        """
+        tags: NotRequired[pulumi.Input['ReportConfigComparisonExpressionArgsDict']]
+        """
+        Has comparison expression for a tag
+        """
+elif False:
+    ReportConfigFilterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ReportConfigFilterArgs:
     def __init__(__self__, *,
@@ -998,6 +1380,22 @@ class ReportConfigFilterArgs:
         pulumi.set(self, "tags", value)
 
 
+if not MYPY:
+    class ReportConfigGroupingArgsDict(TypedDict):
+        """
+        The group by expression to be used in the report.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the column to group. This version supports subscription lowest possible grain.
+        """
+        type: pulumi.Input[Union[str, 'QueryColumnType']]
+        """
+        Has type of the column to group.
+        """
+elif False:
+    ReportConfigGroupingArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ReportConfigGroupingArgs:
     def __init__(__self__, *,
@@ -1035,6 +1433,22 @@ class ReportConfigGroupingArgs:
     def type(self, value: pulumi.Input[Union[str, 'QueryColumnType']]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class ReportConfigSortingArgsDict(TypedDict):
+        """
+        The order by expression to be used in the report.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the column to sort.
+        """
+        direction: NotRequired[pulumi.Input[Union[str, 'ReportConfigSortingType']]]
+        """
+        Direction of sort.
+        """
+elif False:
+    ReportConfigSortingArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ReportConfigSortingArgs:
@@ -1075,6 +1489,22 @@ class ReportConfigSortingArgs:
         pulumi.set(self, "direction", value)
 
 
+if not MYPY:
+    class ReportConfigTimePeriodArgsDict(TypedDict):
+        """
+        The start and end date for pulling data for the report.
+        """
+        from_: pulumi.Input[str]
+        """
+        The start date to pull data from.
+        """
+        to: pulumi.Input[str]
+        """
+        The end date to pull data to.
+        """
+elif False:
+    ReportConfigTimePeriodArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ReportConfigTimePeriodArgs:
     def __init__(__self__, *,
@@ -1112,6 +1542,42 @@ class ReportConfigTimePeriodArgs:
     def to(self, value: pulumi.Input[str]):
         pulumi.set(self, "to", value)
 
+
+if not MYPY:
+    class SchedulePropertiesArgsDict(TypedDict):
+        """
+        The properties of the schedule.
+        """
+        end_date: pulumi.Input[str]
+        """
+        The end date and time of the scheduled action (UTC).
+        """
+        frequency: pulumi.Input[Union[str, 'ScheduleFrequency']]
+        """
+        Frequency of the schedule.
+        """
+        start_date: pulumi.Input[str]
+        """
+        The start date and time of the scheduled action (UTC).
+        """
+        day_of_month: NotRequired[pulumi.Input[int]]
+        """
+        UTC day on which cost analysis data will be emailed. Must be between 1 and 31. This property is applicable when frequency is Monthly and overrides weeksOfMonth or daysOfWeek.
+        """
+        days_of_week: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'DaysOfWeek']]]]]
+        """
+        Day names in english on which cost analysis data will be emailed. This property is applicable when frequency is Weekly or Monthly.
+        """
+        hour_of_day: NotRequired[pulumi.Input[int]]
+        """
+        UTC time at which cost analysis data will be emailed.
+        """
+        weeks_of_month: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'WeeksOfMonth']]]]]
+        """
+        Weeks in which cost analysis data will be emailed. This property is applicable when frequency is Monthly and used in combination with daysOfWeek.
+        """
+elif False:
+    SchedulePropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SchedulePropertiesArgs:
@@ -1229,6 +1695,18 @@ class SchedulePropertiesArgs:
     def weeks_of_month(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'WeeksOfMonth']]]]]):
         pulumi.set(self, "weeks_of_month", value)
 
+
+if not MYPY:
+    class SystemAssignedServiceIdentityArgsDict(TypedDict):
+        """
+        Managed service identity (either system assigned, or none)
+        """
+        type: pulumi.Input[Union[str, 'SystemAssignedServiceIdentityType']]
+        """
+        Type of managed service identity (either system assigned, or none).
+        """
+elif False:
+    SystemAssignedServiceIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SystemAssignedServiceIdentityArgs:

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -108,7 +113,7 @@ class CommitmentPlan(pulumi.CustomResource):
                  commitment_plan_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['ResourceSkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['ResourceSkuArgs', 'ResourceSkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -120,7 +125,7 @@ class CommitmentPlan(pulumi.CustomResource):
         :param pulumi.Input[str] commitment_plan_name: The Azure ML commitment plan name.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] resource_group_name: The resource group name.
-        :param pulumi.Input[pulumi.InputType['ResourceSkuArgs']] sku: The commitment plan SKU.
+        :param pulumi.Input[Union['ResourceSkuArgs', 'ResourceSkuArgsDict']] sku: The commitment plan SKU.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: User-defined tags for the resource.
         """
         ...
@@ -151,7 +156,7 @@ class CommitmentPlan(pulumi.CustomResource):
                  commitment_plan_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['ResourceSkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['ResourceSkuArgs', 'ResourceSkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

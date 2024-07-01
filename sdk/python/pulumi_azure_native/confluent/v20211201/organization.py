@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -120,11 +125,11 @@ class Organization(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 offer_detail: Optional[pulumi.Input[pulumi.InputType['OfferDetailArgs']]] = None,
+                 offer_detail: Optional[pulumi.Input[Union['OfferDetailArgs', 'OfferDetailArgsDict']]] = None,
                  organization_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 user_detail: Optional[pulumi.Input[pulumi.InputType['UserDetailArgs']]] = None,
+                 user_detail: Optional[pulumi.Input[Union['UserDetailArgs', 'UserDetailArgsDict']]] = None,
                  __props__=None):
         """
         Organization resource.
@@ -132,11 +137,11 @@ class Organization(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Location of Organization resource
-        :param pulumi.Input[pulumi.InputType['OfferDetailArgs']] offer_detail: Confluent offer detail
+        :param pulumi.Input[Union['OfferDetailArgs', 'OfferDetailArgsDict']] offer_detail: Confluent offer detail
         :param pulumi.Input[str] organization_name: Organization resource name
         :param pulumi.Input[str] resource_group_name: Resource group name
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Organization resource tags
-        :param pulumi.Input[pulumi.InputType['UserDetailArgs']] user_detail: Subscriber detail
+        :param pulumi.Input[Union['UserDetailArgs', 'UserDetailArgsDict']] user_detail: Subscriber detail
         """
         ...
     @overload
@@ -163,11 +168,11 @@ class Organization(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 offer_detail: Optional[pulumi.Input[pulumi.InputType['OfferDetailArgs']]] = None,
+                 offer_detail: Optional[pulumi.Input[Union['OfferDetailArgs', 'OfferDetailArgsDict']]] = None,
                  organization_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 user_detail: Optional[pulumi.Input[pulumi.InputType['UserDetailArgs']]] = None,
+                 user_detail: Optional[pulumi.Input[Union['UserDetailArgs', 'UserDetailArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -4,16 +4,41 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'CustomLocationPropertiesAuthenticationArgs',
+    'CustomLocationPropertiesAuthenticationArgsDict',
     'IdentityArgs',
+    'IdentityArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class CustomLocationPropertiesAuthenticationArgsDict(TypedDict):
+        """
+        This is optional input that contains the authentication that should be used to generate the namespace.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        The type of the Custom Locations authentication
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        The kubeconfig value.
+        """
+elif False:
+    CustomLocationPropertiesAuthenticationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CustomLocationPropertiesAuthenticationArgs:
@@ -54,6 +79,18 @@ class CustomLocationPropertiesAuthenticationArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class IdentityArgsDict(TypedDict):
+        """
+        Identity for the resource.
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'ResourceIdentityType']]]
+        """
+        The identity type.
+        """
+elif False:
+    IdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IdentityArgs:

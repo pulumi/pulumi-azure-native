@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -152,9 +157,9 @@ class Cluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  cluster_pool_name: Optional[pulumi.Input[str]] = None,
-                 cluster_profile: Optional[pulumi.Input[pulumi.InputType['ClusterProfileArgs']]] = None,
+                 cluster_profile: Optional[pulumi.Input[Union['ClusterProfileArgs', 'ClusterProfileArgsDict']]] = None,
                  cluster_type: Optional[pulumi.Input[str]] = None,
-                 compute_profile: Optional[pulumi.Input[pulumi.InputType['ComputeProfileArgs']]] = None,
+                 compute_profile: Optional[pulumi.Input[Union['ComputeProfileArgs', 'ComputeProfileArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -166,9 +171,9 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_name: The name of the HDInsight cluster.
         :param pulumi.Input[str] cluster_pool_name: The name of the cluster pool.
-        :param pulumi.Input[pulumi.InputType['ClusterProfileArgs']] cluster_profile: Cluster profile.
+        :param pulumi.Input[Union['ClusterProfileArgs', 'ClusterProfileArgsDict']] cluster_profile: Cluster profile.
         :param pulumi.Input[str] cluster_type: The type of cluster.
-        :param pulumi.Input[pulumi.InputType['ComputeProfileArgs']] compute_profile: The compute profile.
+        :param pulumi.Input[Union['ComputeProfileArgs', 'ComputeProfileArgsDict']] compute_profile: The compute profile.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -199,9 +204,9 @@ class Cluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  cluster_pool_name: Optional[pulumi.Input[str]] = None,
-                 cluster_profile: Optional[pulumi.Input[pulumi.InputType['ClusterProfileArgs']]] = None,
+                 cluster_profile: Optional[pulumi.Input[Union['ClusterProfileArgs', 'ClusterProfileArgsDict']]] = None,
                  cluster_type: Optional[pulumi.Input[str]] = None,
-                 compute_profile: Optional[pulumi.Input[pulumi.InputType['ComputeProfileArgs']]] = None,
+                 compute_profile: Optional[pulumi.Input[Union['ComputeProfileArgs', 'ComputeProfileArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,

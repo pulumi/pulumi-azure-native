@@ -4,18 +4,58 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 
 __all__ = [
     'AddVCenterRequestPropertiesArgs',
+    'AddVCenterRequestPropertiesArgsDict',
     'AzureToAzureCreateNetworkMappingInputArgs',
+    'AzureToAzureCreateNetworkMappingInputArgsDict',
     'CreateNetworkMappingInputPropertiesArgs',
+    'CreateNetworkMappingInputPropertiesArgsDict',
     'VmmToAzureCreateNetworkMappingInputArgs',
+    'VmmToAzureCreateNetworkMappingInputArgsDict',
     'VmmToVmmCreateNetworkMappingInputArgs',
+    'VmmToVmmCreateNetworkMappingInputArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AddVCenterRequestPropertiesArgsDict(TypedDict):
+        """
+        The properties of an add vCenter request.
+        """
+        friendly_name: NotRequired[pulumi.Input[str]]
+        """
+        The friendly name of the vCenter.
+        """
+        ip_address: NotRequired[pulumi.Input[str]]
+        """
+        The IP address of the vCenter to be discovered.
+        """
+        port: NotRequired[pulumi.Input[str]]
+        """
+        The port number for discovery.
+        """
+        process_server_id: NotRequired[pulumi.Input[str]]
+        """
+        The process server Id from where the discovery is orchestrated.
+        """
+        run_as_account_id: NotRequired[pulumi.Input[str]]
+        """
+        The account Id which has privileges to discover the vCenter.
+        """
+elif False:
+    AddVCenterRequestPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AddVCenterRequestPropertiesArgs:
@@ -105,6 +145,23 @@ class AddVCenterRequestPropertiesArgs:
         pulumi.set(self, "run_as_account_id", value)
 
 
+if not MYPY:
+    class AzureToAzureCreateNetworkMappingInputArgsDict(TypedDict):
+        """
+        Create network mappings input properties/behavior specific to Azure to Azure Network mapping.
+        """
+        instance_type: NotRequired[pulumi.Input[str]]
+        """
+        The instance type.
+        Expected value is 'AzureToAzure'.
+        """
+        primary_network_id: NotRequired[pulumi.Input[str]]
+        """
+        The primary azure vnet Id.
+        """
+elif False:
+    AzureToAzureCreateNetworkMappingInputArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AzureToAzureCreateNetworkMappingInputArgs:
     def __init__(__self__, *,
@@ -146,6 +203,26 @@ class AzureToAzureCreateNetworkMappingInputArgs:
     def primary_network_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "primary_network_id", value)
 
+
+if not MYPY:
+    class CreateNetworkMappingInputPropertiesArgsDict(TypedDict):
+        """
+        Common input details for network mapping operation.
+        """
+        fabric_specific_details: NotRequired[pulumi.Input[Union['AzureToAzureCreateNetworkMappingInputArgsDict', 'VmmToAzureCreateNetworkMappingInputArgsDict', 'VmmToVmmCreateNetworkMappingInputArgsDict']]]
+        """
+        Fabric specific input properties.
+        """
+        recovery_fabric_name: NotRequired[pulumi.Input[str]]
+        """
+        Recovery fabric Name.
+        """
+        recovery_network_id: NotRequired[pulumi.Input[str]]
+        """
+        Recovery network Id.
+        """
+elif False:
+    CreateNetworkMappingInputPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CreateNetworkMappingInputPropertiesArgs:
@@ -203,6 +280,19 @@ class CreateNetworkMappingInputPropertiesArgs:
         pulumi.set(self, "recovery_network_id", value)
 
 
+if not MYPY:
+    class VmmToAzureCreateNetworkMappingInputArgsDict(TypedDict):
+        """
+        Create network mappings input properties/behavior specific to Vmm to Azure Network mapping.
+        """
+        instance_type: NotRequired[pulumi.Input[str]]
+        """
+        The instance type.
+        Expected value is 'VmmToAzure'.
+        """
+elif False:
+    VmmToAzureCreateNetworkMappingInputArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class VmmToAzureCreateNetworkMappingInputArgs:
     def __init__(__self__, *,
@@ -228,6 +318,19 @@ class VmmToAzureCreateNetworkMappingInputArgs:
     def instance_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "instance_type", value)
 
+
+if not MYPY:
+    class VmmToVmmCreateNetworkMappingInputArgsDict(TypedDict):
+        """
+        Create network mappings input properties/behavior specific to vmm to vmm Network mapping.
+        """
+        instance_type: NotRequired[pulumi.Input[str]]
+        """
+        The instance type.
+        Expected value is 'VmmToVmm'.
+        """
+elif False:
+    VmmToVmmCreateNetworkMappingInputArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VmmToVmmCreateNetworkMappingInputArgs:

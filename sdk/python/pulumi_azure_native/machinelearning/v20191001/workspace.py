@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -155,7 +160,7 @@ class Workspace(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  owner_email: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  user_storage_account_id: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
@@ -169,7 +174,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[str] location: The location of the resource. This cannot be changed after the resource is created.
         :param pulumi.Input[str] owner_email: The email id of the owner for this workspace.
         :param pulumi.Input[str] resource_group_name: The name of the resource group to which the machine learning workspace belongs.
-        :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The sku of the workspace.
+        :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: The sku of the workspace.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
         :param pulumi.Input[str] user_storage_account_id: The fully qualified arm id of the storage account associated with this workspace.
         :param pulumi.Input[str] workspace_name: The name of the machine learning workspace.
@@ -202,7 +207,7 @@ class Workspace(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  owner_email: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  user_storage_account_id: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
