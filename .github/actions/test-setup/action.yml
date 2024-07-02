@@ -72,3 +72,11 @@ runs:
       with:
         tag: v2.5.0
         repo: GoTestTools/gotestfmt
+
+    - name: Install tparse
+      uses: jaxxstorm/action-install-gh-release@v1.11.0
+      with:
+        repo: mfridman/tparse
+        extension-matching: disable
+        rename-to: tparse
+        chmod: 0755
