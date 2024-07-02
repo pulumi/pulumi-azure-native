@@ -17,34 +17,16 @@ namespace Pulumi.AzureNative.Security
     public partial class DefenderForStorage : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Indicates whether Defender for Storage is enabled on this storage account.
-        /// </summary>
-        [Output("isEnabled")]
-        public Output<bool?> IsEnabled { get; private set; } = null!;
-
-        /// <summary>
-        /// Properties of Malware Scanning.
-        /// </summary>
-        [Output("malwareScanning")]
-        public Output<Outputs.MalwareScanningPropertiesResponse?> MalwareScanning { get; private set; } = null!;
-
-        /// <summary>
         /// Resource name
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates whether the settings defined for this storage account should override the settings defined for the subscription.
+        /// Defender for Storage resource properties.
         /// </summary>
-        [Output("overrideSubscriptionLevelSettings")]
-        public Output<bool?> OverrideSubscriptionLevelSettings { get; private set; } = null!;
-
-        /// <summary>
-        /// Properties of Sensitive Data Discovery.
-        /// </summary>
-        [Output("sensitiveDataDiscovery")]
-        public Output<Outputs.SensitiveDataDiscoveryPropertiesResponse?> SensitiveDataDiscovery { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.DefenderForStorageSettingPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type
@@ -102,34 +84,16 @@ namespace Pulumi.AzureNative.Security
     public sealed class DefenderForStorageArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Indicates whether Defender for Storage is enabled on this storage account.
+        /// Defender for Storage resource properties.
         /// </summary>
-        [Input("isEnabled")]
-        public Input<bool>? IsEnabled { get; set; }
-
-        /// <summary>
-        /// Properties of Malware Scanning.
-        /// </summary>
-        [Input("malwareScanning")]
-        public Input<Inputs.MalwareScanningPropertiesArgs>? MalwareScanning { get; set; }
-
-        /// <summary>
-        /// Indicates whether the settings defined for this storage account should override the settings defined for the subscription.
-        /// </summary>
-        [Input("overrideSubscriptionLevelSettings")]
-        public Input<bool>? OverrideSubscriptionLevelSettings { get; set; }
+        [Input("properties")]
+        public Input<Inputs.DefenderForStorageSettingPropertiesArgs>? Properties { get; set; }
 
         /// <summary>
         /// The identifier of the resource.
         /// </summary>
         [Input("resourceId", required: true)]
         public Input<string> ResourceId { get; set; } = null!;
-
-        /// <summary>
-        /// Properties of Sensitive Data Discovery.
-        /// </summary>
-        [Input("sensitiveDataDiscovery")]
-        public Input<Inputs.SensitiveDataDiscoveryPropertiesArgs>? SensitiveDataDiscovery { get; set; }
 
         /// <summary>
         /// Defender for Storage setting name.
