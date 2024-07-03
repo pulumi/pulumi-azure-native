@@ -4,24 +4,57 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'ContainerServiceLinuxProfileArgs',
+    'ContainerServiceLinuxProfileArgsDict',
     'ContainerServiceNetworkProfileArgs',
+    'ContainerServiceNetworkProfileArgsDict',
     'ContainerServiceSshConfigurationArgs',
+    'ContainerServiceSshConfigurationArgsDict',
     'ContainerServiceSshPublicKeyArgs',
+    'ContainerServiceSshPublicKeyArgsDict',
     'ManagedClusterAADProfileArgs',
+    'ManagedClusterAADProfileArgsDict',
     'ManagedClusterAddonProfileArgs',
+    'ManagedClusterAddonProfileArgsDict',
     'ManagedClusterAgentPoolProfileArgs',
+    'ManagedClusterAgentPoolProfileArgsDict',
     'ManagedClusterIdentityArgs',
+    'ManagedClusterIdentityArgsDict',
     'ManagedClusterServicePrincipalProfileArgs',
+    'ManagedClusterServicePrincipalProfileArgsDict',
     'ManagedClusterWindowsProfileArgs',
+    'ManagedClusterWindowsProfileArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ContainerServiceLinuxProfileArgsDict(TypedDict):
+        """
+        Profile for Linux VMs in the container service cluster.
+        """
+        admin_username: pulumi.Input[str]
+        """
+        The administrator username to use for Linux VMs.
+        """
+        ssh: pulumi.Input['ContainerServiceSshConfigurationArgsDict']
+        """
+        SSH configuration for Linux-based VMs running on Azure.
+        """
+elif False:
+    ContainerServiceLinuxProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ContainerServiceLinuxProfileArgs:
@@ -60,6 +93,42 @@ class ContainerServiceLinuxProfileArgs:
     def ssh(self, value: pulumi.Input['ContainerServiceSshConfigurationArgs']):
         pulumi.set(self, "ssh", value)
 
+
+if not MYPY:
+    class ContainerServiceNetworkProfileArgsDict(TypedDict):
+        """
+        Profile of network configuration.
+        """
+        dns_service_ip: NotRequired[pulumi.Input[str]]
+        """
+        An IP address assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range specified in serviceCidr.
+        """
+        docker_bridge_cidr: NotRequired[pulumi.Input[str]]
+        """
+        A CIDR notation IP range assigned to the Docker bridge network. It must not overlap with any Subnet IP ranges or the Kubernetes service address range.
+        """
+        load_balancer_sku: NotRequired[pulumi.Input[Union[str, 'LoadBalancerSku']]]
+        """
+        The load balancer sku for the managed cluster.
+        """
+        network_plugin: NotRequired[pulumi.Input[Union[str, 'NetworkPlugin']]]
+        """
+        Network plugin used for building Kubernetes network.
+        """
+        network_policy: NotRequired[pulumi.Input[Union[str, 'NetworkPolicy']]]
+        """
+        Network policy used for building Kubernetes network.
+        """
+        pod_cidr: NotRequired[pulumi.Input[str]]
+        """
+        A CIDR notation IP range from which to assign pod IPs when kubenet is used.
+        """
+        service_cidr: NotRequired[pulumi.Input[str]]
+        """
+        A CIDR notation IP range from which to assign service cluster IPs. It must not overlap with any Subnet IP ranges.
+        """
+elif False:
+    ContainerServiceNetworkProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ContainerServiceNetworkProfileArgs:
@@ -191,6 +260,18 @@ class ContainerServiceNetworkProfileArgs:
         pulumi.set(self, "service_cidr", value)
 
 
+if not MYPY:
+    class ContainerServiceSshConfigurationArgsDict(TypedDict):
+        """
+        SSH configuration for Linux-based VMs running on Azure.
+        """
+        public_keys: pulumi.Input[Sequence[pulumi.Input['ContainerServiceSshPublicKeyArgsDict']]]
+        """
+        The list of SSH public keys used to authenticate with Linux-based VMs. Only expect one key specified.
+        """
+elif False:
+    ContainerServiceSshConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ContainerServiceSshConfigurationArgs:
     def __init__(__self__, *,
@@ -214,6 +295,18 @@ class ContainerServiceSshConfigurationArgs:
         pulumi.set(self, "public_keys", value)
 
 
+if not MYPY:
+    class ContainerServiceSshPublicKeyArgsDict(TypedDict):
+        """
+        Contains information about SSH certificate public key data.
+        """
+        key_data: pulumi.Input[str]
+        """
+        Certificate public key used to authenticate with VMs through SSH. The certificate must be in PEM format with or without headers.
+        """
+elif False:
+    ContainerServiceSshPublicKeyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ContainerServiceSshPublicKeyArgs:
     def __init__(__self__, *,
@@ -236,6 +329,30 @@ class ContainerServiceSshPublicKeyArgs:
     def key_data(self, value: pulumi.Input[str]):
         pulumi.set(self, "key_data", value)
 
+
+if not MYPY:
+    class ManagedClusterAADProfileArgsDict(TypedDict):
+        """
+        AADProfile specifies attributes for Azure Active Directory integration.
+        """
+        client_app_id: pulumi.Input[str]
+        """
+        The client AAD application ID.
+        """
+        server_app_id: pulumi.Input[str]
+        """
+        The server AAD application ID.
+        """
+        server_app_secret: NotRequired[pulumi.Input[str]]
+        """
+        The server AAD application secret.
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        The AAD tenant ID to use for authentication. If not specified, will use the tenant of the deployment subscription.
+        """
+elif False:
+    ManagedClusterAADProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ManagedClusterAADProfileArgs:
@@ -307,6 +424,22 @@ class ManagedClusterAADProfileArgs:
         pulumi.set(self, "tenant_id", value)
 
 
+if not MYPY:
+    class ManagedClusterAddonProfileArgsDict(TypedDict):
+        """
+        A Kubernetes add-on profile for a managed cluster.
+        """
+        enabled: pulumi.Input[bool]
+        """
+        Whether the add-on is enabled or not.
+        """
+        config: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Key-value pairs for configuring an add-on.
+        """
+elif False:
+    ManagedClusterAddonProfileArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ManagedClusterAddonProfileArgs:
     def __init__(__self__, *,
@@ -345,6 +478,82 @@ class ManagedClusterAddonProfileArgs:
     def config(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "config", value)
 
+
+if not MYPY:
+    class ManagedClusterAgentPoolProfileArgsDict(TypedDict):
+        """
+        Profile for the container service agent pool.
+        """
+        name: pulumi.Input[str]
+        """
+        Unique name of the agent pool profile in the context of the subscription and resource group.
+        """
+        availability_zones: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        (PREVIEW) Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
+        """
+        count: NotRequired[pulumi.Input[int]]
+        """
+        Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
+        """
+        enable_auto_scaling: NotRequired[pulumi.Input[bool]]
+        """
+        Whether to enable auto-scaler
+        """
+        enable_node_public_ip: NotRequired[pulumi.Input[bool]]
+        """
+        Enable public IP for nodes
+        """
+        max_count: NotRequired[pulumi.Input[int]]
+        """
+        Maximum number of nodes for auto-scaling
+        """
+        max_pods: NotRequired[pulumi.Input[int]]
+        """
+        Maximum number of pods that can run on a node.
+        """
+        min_count: NotRequired[pulumi.Input[int]]
+        """
+        Minimum number of nodes for auto-scaling
+        """
+        node_taints: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
+        """
+        orchestrator_version: NotRequired[pulumi.Input[str]]
+        """
+        Version of orchestrator specified when creating the managed cluster.
+        """
+        os_disk_size_gb: NotRequired[pulumi.Input[int]]
+        """
+        OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
+        """
+        os_type: NotRequired[pulumi.Input[Union[str, 'OSType']]]
+        """
+        OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
+        """
+        scale_set_eviction_policy: NotRequired[pulumi.Input[Union[str, 'ScaleSetEvictionPolicy']]]
+        """
+        ScaleSetEvictionPolicy to be used to specify eviction policy for low priority virtual machine scale set. Default to Delete.
+        """
+        scale_set_priority: NotRequired[pulumi.Input[Union[str, 'ScaleSetPriority']]]
+        """
+        ScaleSetPriority to be used to specify virtual machine scale set priority. Default to regular.
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'AgentPoolType']]]
+        """
+        AgentPoolType represents types of an agent pool
+        """
+        vm_size: NotRequired[pulumi.Input[Union[str, 'ContainerServiceVMSizeTypes']]]
+        """
+        Size of agent VMs.
+        """
+        vnet_subnet_id: NotRequired[pulumi.Input[str]]
+        """
+        VNet SubnetID specifies the VNet's subnet identifier.
+        """
+elif False:
+    ManagedClusterAgentPoolProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ManagedClusterAgentPoolProfileArgs:
@@ -625,6 +834,18 @@ class ManagedClusterAgentPoolProfileArgs:
         pulumi.set(self, "vnet_subnet_id", value)
 
 
+if not MYPY:
+    class ManagedClusterIdentityArgsDict(TypedDict):
+        """
+        Identity for the managed cluster.
+        """
+        type: NotRequired[pulumi.Input['ResourceIdentityType']]
+        """
+        The type of identity used for the managed cluster. Type 'SystemAssigned' will use an implicitly created identity in master components and an auto-created user assigned identity in MC_ resource group in agent nodes. Type 'None' will not use MSI for the managed cluster, service principal will be used instead.
+        """
+elif False:
+    ManagedClusterIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ManagedClusterIdentityArgs:
     def __init__(__self__, *,
@@ -648,6 +869,22 @@ class ManagedClusterIdentityArgs:
     def type(self, value: Optional[pulumi.Input['ResourceIdentityType']]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class ManagedClusterServicePrincipalProfileArgsDict(TypedDict):
+        """
+        Information about a service principal identity for the cluster to use for manipulating Azure APIs.
+        """
+        client_id: pulumi.Input[str]
+        """
+        The ID for the service principal.
+        """
+        secret: NotRequired[pulumi.Input[str]]
+        """
+        The secret password associated with the service principal in plain text.
+        """
+elif False:
+    ManagedClusterServicePrincipalProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ManagedClusterServicePrincipalProfileArgs:
@@ -687,6 +924,22 @@ class ManagedClusterServicePrincipalProfileArgs:
     def secret(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "secret", value)
 
+
+if not MYPY:
+    class ManagedClusterWindowsProfileArgsDict(TypedDict):
+        """
+        Profile for Windows VMs in the container service cluster.
+        """
+        admin_username: pulumi.Input[str]
+        """
+        Specifies the name of the administrator account. <br><br> **restriction:** Cannot end in "." <br><br> **Disallowed values:** "administrator", "admin", "user", "user1", "test", "user2", "test1", "user3", "admin1", "1", "123", "a", "actuser", "adm", "admin2", "aspnet", "backup", "console", "david", "guest", "john", "owner", "root", "server", "sql", "support", "support_388945a0", "sys", "test2", "test3", "user4", "user5". <br><br> **Minimum-length:** 1 character <br><br> **Max-length:** 20 characters
+        """
+        admin_password: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the password of the administrator account. <br><br> **Minimum-length:** 8 characters <br><br> **Max-length:** 123 characters <br><br> **Complexity requirements:** 3 out of 4 conditions below need to be fulfilled <br> Has lower characters <br>Has upper characters <br> Has a digit <br> Has a special character (Regex match [\\W_]) <br><br> **Disallowed values:** "abc@123", "P@$$w0rd", "P@ssw0rd", "P@ssword123", "Pa$$word", "pass@word1", "Password!", "Password1", "Password22", "iloveyou!"
+        """
+elif False:
+    ManagedClusterWindowsProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ManagedClusterWindowsProfileArgs:

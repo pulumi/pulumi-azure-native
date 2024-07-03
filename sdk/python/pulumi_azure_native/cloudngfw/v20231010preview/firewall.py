@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -246,18 +251,18 @@ class Firewall(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 associated_rulestack: Optional[pulumi.Input[pulumi.InputType['RulestackDetailsArgs']]] = None,
-                 dns_settings: Optional[pulumi.Input[pulumi.InputType['DNSSettingsArgs']]] = None,
+                 associated_rulestack: Optional[pulumi.Input[Union['RulestackDetailsArgs', 'RulestackDetailsArgsDict']]] = None,
+                 dns_settings: Optional[pulumi.Input[Union['DNSSettingsArgs', 'DNSSettingsArgsDict']]] = None,
                  firewall_name: Optional[pulumi.Input[str]] = None,
-                 front_end_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrontendSettingArgs']]]]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['AzureResourceManagerManagedIdentityPropertiesArgs']]] = None,
+                 front_end_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FrontendSettingArgs', 'FrontendSettingArgsDict']]]]] = None,
+                 identity: Optional[pulumi.Input[Union['AzureResourceManagerManagedIdentityPropertiesArgs', 'AzureResourceManagerManagedIdentityPropertiesArgsDict']]] = None,
                  is_panorama_managed: Optional[pulumi.Input[Union[str, 'BooleanEnum']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 marketplace_details: Optional[pulumi.Input[pulumi.InputType['MarketplaceDetailsArgs']]] = None,
-                 network_profile: Optional[pulumi.Input[pulumi.InputType['NetworkProfileArgs']]] = None,
+                 marketplace_details: Optional[pulumi.Input[Union['MarketplaceDetailsArgs', 'MarketplaceDetailsArgsDict']]] = None,
+                 network_profile: Optional[pulumi.Input[Union['NetworkProfileArgs', 'NetworkProfileArgsDict']]] = None,
                  pan_etag: Optional[pulumi.Input[str]] = None,
-                 panorama_config: Optional[pulumi.Input[pulumi.InputType['PanoramaConfigArgs']]] = None,
-                 plan_data: Optional[pulumi.Input[pulumi.InputType['PlanDataArgs']]] = None,
+                 panorama_config: Optional[pulumi.Input[Union['PanoramaConfigArgs', 'PanoramaConfigArgsDict']]] = None,
+                 plan_data: Optional[pulumi.Input[Union['PlanDataArgs', 'PlanDataArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -266,18 +271,18 @@ class Firewall(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['RulestackDetailsArgs']] associated_rulestack: Associated Rulestack
-        :param pulumi.Input[pulumi.InputType['DNSSettingsArgs']] dns_settings: DNS settings for Firewall
+        :param pulumi.Input[Union['RulestackDetailsArgs', 'RulestackDetailsArgsDict']] associated_rulestack: Associated Rulestack
+        :param pulumi.Input[Union['DNSSettingsArgs', 'DNSSettingsArgsDict']] dns_settings: DNS settings for Firewall
         :param pulumi.Input[str] firewall_name: Firewall resource name
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrontendSettingArgs']]]] front_end_settings: Frontend settings for Firewall
-        :param pulumi.Input[pulumi.InputType['AzureResourceManagerManagedIdentityPropertiesArgs']] identity: The managed service identities assigned to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FrontendSettingArgs', 'FrontendSettingArgsDict']]]] front_end_settings: Frontend settings for Firewall
+        :param pulumi.Input[Union['AzureResourceManagerManagedIdentityPropertiesArgs', 'AzureResourceManagerManagedIdentityPropertiesArgsDict']] identity: The managed service identities assigned to this resource.
         :param pulumi.Input[Union[str, 'BooleanEnum']] is_panorama_managed: Panorama Managed: Default is False. Default will be CloudSec managed
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[pulumi.InputType['MarketplaceDetailsArgs']] marketplace_details: Marketplace details
-        :param pulumi.Input[pulumi.InputType['NetworkProfileArgs']] network_profile: Network settings
+        :param pulumi.Input[Union['MarketplaceDetailsArgs', 'MarketplaceDetailsArgsDict']] marketplace_details: Marketplace details
+        :param pulumi.Input[Union['NetworkProfileArgs', 'NetworkProfileArgsDict']] network_profile: Network settings
         :param pulumi.Input[str] pan_etag: panEtag info
-        :param pulumi.Input[pulumi.InputType['PanoramaConfigArgs']] panorama_config: Panorama Configuration
-        :param pulumi.Input[pulumi.InputType['PlanDataArgs']] plan_data: Billing plan information.
+        :param pulumi.Input[Union['PanoramaConfigArgs', 'PanoramaConfigArgsDict']] panorama_config: Panorama Configuration
+        :param pulumi.Input[Union['PlanDataArgs', 'PlanDataArgsDict']] plan_data: Billing plan information.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -305,18 +310,18 @@ class Firewall(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 associated_rulestack: Optional[pulumi.Input[pulumi.InputType['RulestackDetailsArgs']]] = None,
-                 dns_settings: Optional[pulumi.Input[pulumi.InputType['DNSSettingsArgs']]] = None,
+                 associated_rulestack: Optional[pulumi.Input[Union['RulestackDetailsArgs', 'RulestackDetailsArgsDict']]] = None,
+                 dns_settings: Optional[pulumi.Input[Union['DNSSettingsArgs', 'DNSSettingsArgsDict']]] = None,
                  firewall_name: Optional[pulumi.Input[str]] = None,
-                 front_end_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrontendSettingArgs']]]]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['AzureResourceManagerManagedIdentityPropertiesArgs']]] = None,
+                 front_end_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FrontendSettingArgs', 'FrontendSettingArgsDict']]]]] = None,
+                 identity: Optional[pulumi.Input[Union['AzureResourceManagerManagedIdentityPropertiesArgs', 'AzureResourceManagerManagedIdentityPropertiesArgsDict']]] = None,
                  is_panorama_managed: Optional[pulumi.Input[Union[str, 'BooleanEnum']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 marketplace_details: Optional[pulumi.Input[pulumi.InputType['MarketplaceDetailsArgs']]] = None,
-                 network_profile: Optional[pulumi.Input[pulumi.InputType['NetworkProfileArgs']]] = None,
+                 marketplace_details: Optional[pulumi.Input[Union['MarketplaceDetailsArgs', 'MarketplaceDetailsArgsDict']]] = None,
+                 network_profile: Optional[pulumi.Input[Union['NetworkProfileArgs', 'NetworkProfileArgsDict']]] = None,
                  pan_etag: Optional[pulumi.Input[str]] = None,
-                 panorama_config: Optional[pulumi.Input[pulumi.InputType['PanoramaConfigArgs']]] = None,
-                 plan_data: Optional[pulumi.Input[pulumi.InputType['PlanDataArgs']]] = None,
+                 panorama_config: Optional[pulumi.Input[Union['PanoramaConfigArgs', 'PanoramaConfigArgsDict']]] = None,
+                 plan_data: Optional[pulumi.Input[Union['PlanDataArgs', 'PlanDataArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):

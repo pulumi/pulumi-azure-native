@@ -4,16 +4,46 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 
 __all__ = [
     'DashboardLensArgs',
+    'DashboardLensArgsDict',
     'DashboardPartsPositionArgs',
+    'DashboardPartsPositionArgsDict',
     'DashboardPartsArgs',
+    'DashboardPartsArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class DashboardLensArgsDict(TypedDict):
+        """
+        A dashboard lens.
+        """
+        order: pulumi.Input[int]
+        """
+        The lens order.
+        """
+        parts: pulumi.Input[Mapping[str, pulumi.Input['DashboardPartsArgsDict']]]
+        """
+        The dashboard parts.
+        """
+        metadata: NotRequired[pulumi.Input[Mapping[str, Any]]]
+        """
+        The dashboard len's metadata.
+        """
+elif False:
+    DashboardLensArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DashboardLensArgs:
@@ -68,6 +98,34 @@ class DashboardLensArgs:
     def metadata(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
         pulumi.set(self, "metadata", value)
 
+
+if not MYPY:
+    class DashboardPartsPositionArgsDict(TypedDict):
+        """
+        The dashboard's part position.
+        """
+        col_span: pulumi.Input[int]
+        """
+        The dashboard's part column span.
+        """
+        row_span: pulumi.Input[int]
+        """
+        The dashboard's part row span.
+        """
+        x: pulumi.Input[int]
+        """
+        The dashboard's part x coordinate.
+        """
+        y: pulumi.Input[int]
+        """
+        The dashboard's part y coordinate.
+        """
+        metadata: NotRequired[pulumi.Input[Mapping[str, Any]]]
+        """
+        The dashboard part's metadata.
+        """
+elif False:
+    DashboardPartsPositionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DashboardPartsPositionArgs:
@@ -152,6 +210,22 @@ class DashboardPartsPositionArgs:
     def metadata(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
         pulumi.set(self, "metadata", value)
 
+
+if not MYPY:
+    class DashboardPartsArgsDict(TypedDict):
+        """
+        A dashboard part.
+        """
+        position: pulumi.Input['DashboardPartsPositionArgsDict']
+        """
+        The dashboard's part position.
+        """
+        metadata: NotRequired[Any]
+        """
+        A dashboard part metadata.
+        """
+elif False:
+    DashboardPartsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DashboardPartsArgs:

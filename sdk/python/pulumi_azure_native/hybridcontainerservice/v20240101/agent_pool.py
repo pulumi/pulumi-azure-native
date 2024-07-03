@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -274,7 +279,7 @@ class AgentPool(pulumi.CustomResource):
                  connected_cluster_resource_uri: Optional[pulumi.Input[str]] = None,
                  count: Optional[pulumi.Input[int]] = None,
                  enable_auto_scaling: Optional[pulumi.Input[bool]] = None,
-                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
                  max_count: Optional[pulumi.Input[int]] = None,
                  max_pods: Optional[pulumi.Input[int]] = None,
                  min_count: Optional[pulumi.Input[int]] = None,
@@ -282,7 +287,7 @@ class AgentPool(pulumi.CustomResource):
                  node_taints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  os_sku: Optional[pulumi.Input[Union[str, 'OSSKU']]] = None,
                  os_type: Optional[pulumi.Input[Union[str, 'OsType']]] = None,
-                 status: Optional[pulumi.Input[pulumi.InputType['AgentPoolProvisioningStatusStatusArgs']]] = None,
+                 status: Optional[pulumi.Input[Union['AgentPoolProvisioningStatusStatusArgs', 'AgentPoolProvisioningStatusStatusArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vm_size: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -295,7 +300,7 @@ class AgentPool(pulumi.CustomResource):
         :param pulumi.Input[str] connected_cluster_resource_uri: The fully qualified Azure Resource Manager identifier of the connected cluster resource.
         :param pulumi.Input[int] count: Number of nodes in the agent pool. The default value is 1.
         :param pulumi.Input[bool] enable_auto_scaling: Whether to enable auto-scaler. Default value is false
-        :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: Extended location pointing to the underlying infrastructure
+        :param pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']] extended_location: Extended location pointing to the underlying infrastructure
         :param pulumi.Input[int] max_count: The maximum number of nodes for auto-scaling
         :param pulumi.Input[int] max_pods: The maximum number of pods that can run on a node.
         :param pulumi.Input[int] min_count: The minimum number of nodes for auto-scaling
@@ -303,7 +308,7 @@ class AgentPool(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] node_taints: Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
         :param pulumi.Input[Union[str, 'OSSKU']] os_sku: Specifies the OS SKU used by the agent pool. The default is CBLMariner if OSType is Linux. The default is Windows2019 when OSType is Windows.
         :param pulumi.Input[Union[str, 'OsType']] os_type: OSType to be used to specify OS type for the VMs. Choose from Linux and Windows. Default to Linux. Possible values include: 'Linux', 'Windows'
-        :param pulumi.Input[pulumi.InputType['AgentPoolProvisioningStatusStatusArgs']] status: The observed status of the agent pool.
+        :param pulumi.Input[Union['AgentPoolProvisioningStatusStatusArgs', 'AgentPoolProvisioningStatusStatusArgsDict']] status: The observed status of the agent pool.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[str] vm_size: The VM sku size of the agent pool node VMs.
         """
@@ -335,7 +340,7 @@ class AgentPool(pulumi.CustomResource):
                  connected_cluster_resource_uri: Optional[pulumi.Input[str]] = None,
                  count: Optional[pulumi.Input[int]] = None,
                  enable_auto_scaling: Optional[pulumi.Input[bool]] = None,
-                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
                  max_count: Optional[pulumi.Input[int]] = None,
                  max_pods: Optional[pulumi.Input[int]] = None,
                  min_count: Optional[pulumi.Input[int]] = None,
@@ -343,7 +348,7 @@ class AgentPool(pulumi.CustomResource):
                  node_taints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  os_sku: Optional[pulumi.Input[Union[str, 'OSSKU']]] = None,
                  os_type: Optional[pulumi.Input[Union[str, 'OsType']]] = None,
-                 status: Optional[pulumi.Input[pulumi.InputType['AgentPoolProvisioningStatusStatusArgs']]] = None,
+                 status: Optional[pulumi.Input[Union['AgentPoolProvisioningStatusStatusArgs', 'AgentPoolProvisioningStatusStatusArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vm_size: Optional[pulumi.Input[str]] = None,
                  __props__=None):

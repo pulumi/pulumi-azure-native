@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -170,11 +175,11 @@ class DiskEncryptionSet(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 active_key: Optional[pulumi.Input[pulumi.InputType['KeyForDiskEncryptionSetArgs']]] = None,
+                 active_key: Optional[pulumi.Input[Union['KeyForDiskEncryptionSetArgs', 'KeyForDiskEncryptionSetArgsDict']]] = None,
                  disk_encryption_set_name: Optional[pulumi.Input[str]] = None,
                  encryption_type: Optional[pulumi.Input[Union[str, 'DiskEncryptionSetType']]] = None,
                  federated_client_id: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['EncryptionSetIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['EncryptionSetIdentityArgs', 'EncryptionSetIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  rotation_to_latest_key_version_enabled: Optional[pulumi.Input[bool]] = None,
@@ -185,11 +190,11 @@ class DiskEncryptionSet(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['KeyForDiskEncryptionSetArgs']] active_key: The key vault key which is currently used by this disk encryption set.
+        :param pulumi.Input[Union['KeyForDiskEncryptionSetArgs', 'KeyForDiskEncryptionSetArgsDict']] active_key: The key vault key which is currently used by this disk encryption set.
         :param pulumi.Input[str] disk_encryption_set_name: The name of the disk encryption set that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
         :param pulumi.Input[Union[str, 'DiskEncryptionSetType']] encryption_type: The type of key used to encrypt the data of the disk.
         :param pulumi.Input[str] federated_client_id: Multi-tenant application client id to access key vault in a different tenant. Setting the value to 'None' will clear the property.
-        :param pulumi.Input[pulumi.InputType['EncryptionSetIdentityArgs']] identity: The managed identity for the disk encryption set. It should be given permission on the key vault before it can be used to encrypt disks.
+        :param pulumi.Input[Union['EncryptionSetIdentityArgs', 'EncryptionSetIdentityArgsDict']] identity: The managed identity for the disk encryption set. It should be given permission on the key vault before it can be used to encrypt disks.
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[bool] rotation_to_latest_key_version_enabled: Set this flag to true to enable auto-updating of this disk encryption set to the latest key version.
@@ -219,11 +224,11 @@ class DiskEncryptionSet(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 active_key: Optional[pulumi.Input[pulumi.InputType['KeyForDiskEncryptionSetArgs']]] = None,
+                 active_key: Optional[pulumi.Input[Union['KeyForDiskEncryptionSetArgs', 'KeyForDiskEncryptionSetArgsDict']]] = None,
                  disk_encryption_set_name: Optional[pulumi.Input[str]] = None,
                  encryption_type: Optional[pulumi.Input[Union[str, 'DiskEncryptionSetType']]] = None,
                  federated_client_id: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['EncryptionSetIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['EncryptionSetIdentityArgs', 'EncryptionSetIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  rotation_to_latest_key_version_enabled: Optional[pulumi.Input[bool]] = None,

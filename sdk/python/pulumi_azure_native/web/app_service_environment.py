@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -315,8 +320,8 @@ class AppServiceEnvironment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NameValuePairArgs']]]]] = None,
-                 custom_dns_suffix_configuration: Optional[pulumi.Input[pulumi.InputType['CustomDnsSuffixConfigurationArgs']]] = None,
+                 cluster_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NameValuePairArgs', 'NameValuePairArgsDict']]]]] = None,
+                 custom_dns_suffix_configuration: Optional[pulumi.Input[Union['CustomDnsSuffixConfigurationArgs', 'CustomDnsSuffixConfigurationArgsDict']]] = None,
                  dedicated_host_count: Optional[pulumi.Input[int]] = None,
                  dns_suffix: Optional[pulumi.Input[str]] = None,
                  front_end_scale_factor: Optional[pulumi.Input[int]] = None,
@@ -326,12 +331,12 @@ class AppServiceEnvironment(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  multi_size: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 networking_configuration: Optional[pulumi.Input[pulumi.InputType['AseV3NetworkingConfigurationArgs']]] = None,
+                 networking_configuration: Optional[pulumi.Input[Union['AseV3NetworkingConfigurationArgs', 'AseV3NetworkingConfigurationArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  upgrade_preference: Optional[pulumi.Input[Union[str, 'UpgradePreference']]] = None,
                  user_whitelisted_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 virtual_network: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkProfileArgs']]] = None,
+                 virtual_network: Optional[pulumi.Input[Union['VirtualNetworkProfileArgs', 'VirtualNetworkProfileArgsDict']]] = None,
                  zone_redundant: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
@@ -342,8 +347,8 @@ class AppServiceEnvironment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NameValuePairArgs']]]] cluster_settings: Custom settings for changing the behavior of the App Service Environment.
-        :param pulumi.Input[pulumi.InputType['CustomDnsSuffixConfigurationArgs']] custom_dns_suffix_configuration: Full view of the custom domain suffix configuration for ASEv3.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NameValuePairArgs', 'NameValuePairArgsDict']]]] cluster_settings: Custom settings for changing the behavior of the App Service Environment.
+        :param pulumi.Input[Union['CustomDnsSuffixConfigurationArgs', 'CustomDnsSuffixConfigurationArgsDict']] custom_dns_suffix_configuration: Full view of the custom domain suffix configuration for ASEv3.
         :param pulumi.Input[int] dedicated_host_count: Dedicated Host Count
         :param pulumi.Input[str] dns_suffix: DNS suffix of the App Service Environment.
         :param pulumi.Input[int] front_end_scale_factor: Scale factor for front-ends.
@@ -353,12 +358,12 @@ class AppServiceEnvironment(pulumi.CustomResource):
         :param pulumi.Input[str] location: Resource Location.
         :param pulumi.Input[str] multi_size: Front-end VM size, e.g. "Medium", "Large".
         :param pulumi.Input[str] name: Name of the App Service Environment.
-        :param pulumi.Input[pulumi.InputType['AseV3NetworkingConfigurationArgs']] networking_configuration: Full view of networking configuration for an ASE.
+        :param pulumi.Input[Union['AseV3NetworkingConfigurationArgs', 'AseV3NetworkingConfigurationArgsDict']] networking_configuration: Full view of networking configuration for an ASE.
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[Union[str, 'UpgradePreference']] upgrade_preference: Upgrade Preference
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_whitelisted_ip_ranges: User added ip ranges to whitelist on ASE db
-        :param pulumi.Input[pulumi.InputType['VirtualNetworkProfileArgs']] virtual_network: Description of the Virtual Network.
+        :param pulumi.Input[Union['VirtualNetworkProfileArgs', 'VirtualNetworkProfileArgsDict']] virtual_network: Description of the Virtual Network.
         :param pulumi.Input[bool] zone_redundant: Whether or not this App Service Environment is zone-redundant.
         """
         ...
@@ -388,8 +393,8 @@ class AppServiceEnvironment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NameValuePairArgs']]]]] = None,
-                 custom_dns_suffix_configuration: Optional[pulumi.Input[pulumi.InputType['CustomDnsSuffixConfigurationArgs']]] = None,
+                 cluster_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NameValuePairArgs', 'NameValuePairArgsDict']]]]] = None,
+                 custom_dns_suffix_configuration: Optional[pulumi.Input[Union['CustomDnsSuffixConfigurationArgs', 'CustomDnsSuffixConfigurationArgsDict']]] = None,
                  dedicated_host_count: Optional[pulumi.Input[int]] = None,
                  dns_suffix: Optional[pulumi.Input[str]] = None,
                  front_end_scale_factor: Optional[pulumi.Input[int]] = None,
@@ -399,12 +404,12 @@ class AppServiceEnvironment(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  multi_size: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 networking_configuration: Optional[pulumi.Input[pulumi.InputType['AseV3NetworkingConfigurationArgs']]] = None,
+                 networking_configuration: Optional[pulumi.Input[Union['AseV3NetworkingConfigurationArgs', 'AseV3NetworkingConfigurationArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  upgrade_preference: Optional[pulumi.Input[Union[str, 'UpgradePreference']]] = None,
                  user_whitelisted_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 virtual_network: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkProfileArgs']]] = None,
+                 virtual_network: Optional[pulumi.Input[Union['VirtualNetworkProfileArgs', 'VirtualNetworkProfileArgsDict']]] = None,
                  zone_redundant: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

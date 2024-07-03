@@ -4,19 +4,55 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'AclArgs',
+    'AclArgsDict',
     'AttributesArgs',
+    'AttributesArgsDict',
     'DiskArgs',
+    'DiskArgsDict',
     'IscsiLunArgs',
+    'IscsiLunArgsDict',
     'TargetPortalGroupCreateArgs',
+    'TargetPortalGroupCreateArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AclArgsDict(TypedDict):
+        """
+        Access Control List (ACL) for an iSCSI target portal group
+        """
+        initiator_iqn: pulumi.Input[str]
+        """
+        iSCSI initiator IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:client".
+        """
+        mapped_luns: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        List of LUN names mapped to the ACL.
+        """
+        password: pulumi.Input[str]
+        """
+        Password for Challenge Handshake Authentication Protocol (CHAP) authentication.
+        """
+        username: pulumi.Input[str]
+        """
+        Username for Challenge Handshake Authentication Protocol (CHAP) authentication.
+        """
+elif False:
+    AclArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AclArgs:
@@ -86,6 +122,22 @@ class AclArgs:
         pulumi.set(self, "username", value)
 
 
+if not MYPY:
+    class AttributesArgsDict(TypedDict):
+        """
+        Attributes of a iSCSI target portal group.
+        """
+        authentication: pulumi.Input[bool]
+        """
+        Indicates whether or not authentication is enabled on the ACL.
+        """
+        prod_mode_write_protect: pulumi.Input[bool]
+        """
+        Indicates whether or not write protect is enabled on the LUNs.
+        """
+elif False:
+    AttributesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AttributesArgs:
     def __init__(__self__, *,
@@ -124,6 +176,18 @@ class AttributesArgs:
         pulumi.set(self, "prod_mode_write_protect", value)
 
 
+if not MYPY:
+    class DiskArgsDict(TypedDict):
+        """
+        Azure Managed Disk to attach to the Disk pool.
+        """
+        id: pulumi.Input[str]
+        """
+        Unique Azure Resource ID of the Managed Disk.
+        """
+elif False:
+    DiskArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DiskArgs:
     def __init__(__self__, *,
@@ -146,6 +210,22 @@ class DiskArgs:
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class IscsiLunArgsDict(TypedDict):
+        """
+        LUN to expose the Azure Managed Disk.
+        """
+        managed_disk_azure_resource_id: pulumi.Input[str]
+        """
+        Azure Resource ID of the Managed Disk.
+        """
+        name: pulumi.Input[str]
+        """
+        User defined name for iSCSI LUN; example: "lun0"
+        """
+elif False:
+    IscsiLunArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IscsiLunArgs:
@@ -184,6 +264,26 @@ class IscsiLunArgs:
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class TargetPortalGroupCreateArgsDict(TypedDict):
+        """
+        Target portal group properties for create or update iSCSI target request.
+        """
+        acls: pulumi.Input[Sequence[pulumi.Input['AclArgsDict']]]
+        """
+        Access Control List (ACL) for an iSCSI target portal group.
+        """
+        attributes: pulumi.Input['AttributesArgsDict']
+        """
+        Attributes of an iSCSI target portal group.
+        """
+        luns: pulumi.Input[Sequence[pulumi.Input['IscsiLunArgsDict']]]
+        """
+        List of LUNs to be exposed through the iSCSI target portal group.
+        """
+elif False:
+    TargetPortalGroupCreateArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TargetPortalGroupCreateArgs:

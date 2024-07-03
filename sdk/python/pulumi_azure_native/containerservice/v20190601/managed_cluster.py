@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -314,48 +319,48 @@ class ManagedCluster(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aad_profile: Optional[pulumi.Input[pulumi.InputType['ManagedClusterAADProfileArgs']]] = None,
-                 addon_profiles: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ManagedClusterAddonProfileArgs']]]]] = None,
-                 agent_pool_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ManagedClusterAgentPoolProfileArgs']]]]] = None,
+                 aad_profile: Optional[pulumi.Input[Union['ManagedClusterAADProfileArgs', 'ManagedClusterAADProfileArgsDict']]] = None,
+                 addon_profiles: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['ManagedClusterAddonProfileArgs', 'ManagedClusterAddonProfileArgsDict']]]]] = None,
+                 agent_pool_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ManagedClusterAgentPoolProfileArgs', 'ManagedClusterAgentPoolProfileArgsDict']]]]] = None,
                  api_server_authorized_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  dns_prefix: Optional[pulumi.Input[str]] = None,
                  enable_pod_security_policy: Optional[pulumi.Input[bool]] = None,
                  enable_rbac: Optional[pulumi.Input[bool]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedClusterIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedClusterIdentityArgs', 'ManagedClusterIdentityArgsDict']]] = None,
                  kubernetes_version: Optional[pulumi.Input[str]] = None,
-                 linux_profile: Optional[pulumi.Input[pulumi.InputType['ContainerServiceLinuxProfileArgs']]] = None,
+                 linux_profile: Optional[pulumi.Input[Union['ContainerServiceLinuxProfileArgs', 'ContainerServiceLinuxProfileArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 network_profile: Optional[pulumi.Input[pulumi.InputType['ContainerServiceNetworkProfileArgs']]] = None,
+                 network_profile: Optional[pulumi.Input[Union['ContainerServiceNetworkProfileArgs', 'ContainerServiceNetworkProfileArgsDict']]] = None,
                  node_resource_group: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
-                 service_principal_profile: Optional[pulumi.Input[pulumi.InputType['ManagedClusterServicePrincipalProfileArgs']]] = None,
+                 service_principal_profile: Optional[pulumi.Input[Union['ManagedClusterServicePrincipalProfileArgs', 'ManagedClusterServicePrincipalProfileArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 windows_profile: Optional[pulumi.Input[pulumi.InputType['ManagedClusterWindowsProfileArgs']]] = None,
+                 windows_profile: Optional[pulumi.Input[Union['ManagedClusterWindowsProfileArgs', 'ManagedClusterWindowsProfileArgsDict']]] = None,
                  __props__=None):
         """
         Managed cluster.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ManagedClusterAADProfileArgs']] aad_profile: Profile of Azure Active Directory configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ManagedClusterAddonProfileArgs']]]] addon_profiles: Profile of managed cluster add-on.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ManagedClusterAgentPoolProfileArgs']]]] agent_pool_profiles: Properties of the agent pool.
+        :param pulumi.Input[Union['ManagedClusterAADProfileArgs', 'ManagedClusterAADProfileArgsDict']] aad_profile: Profile of Azure Active Directory configuration.
+        :param pulumi.Input[Mapping[str, pulumi.Input[Union['ManagedClusterAddonProfileArgs', 'ManagedClusterAddonProfileArgsDict']]]] addon_profiles: Profile of managed cluster add-on.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ManagedClusterAgentPoolProfileArgs', 'ManagedClusterAgentPoolProfileArgsDict']]]] agent_pool_profiles: Properties of the agent pool.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] api_server_authorized_ip_ranges: (PREVIEW) Authorized IP Ranges to kubernetes API server.
         :param pulumi.Input[str] dns_prefix: DNS prefix specified when creating the managed cluster.
         :param pulumi.Input[bool] enable_pod_security_policy: (DEPRECATING) Whether to enable Kubernetes pod security policy (preview). This feature is set for removal on October 15th, 2020. Learn more at aka.ms/aks/azpodpolicy.
         :param pulumi.Input[bool] enable_rbac: Whether to enable Kubernetes Role-Based Access Control.
-        :param pulumi.Input[pulumi.InputType['ManagedClusterIdentityArgs']] identity: The identity of the managed cluster, if configured.
+        :param pulumi.Input[Union['ManagedClusterIdentityArgs', 'ManagedClusterIdentityArgsDict']] identity: The identity of the managed cluster, if configured.
         :param pulumi.Input[str] kubernetes_version: Version of Kubernetes specified when creating the managed cluster.
-        :param pulumi.Input[pulumi.InputType['ContainerServiceLinuxProfileArgs']] linux_profile: Profile for Linux VMs in the container service cluster.
+        :param pulumi.Input[Union['ContainerServiceLinuxProfileArgs', 'ContainerServiceLinuxProfileArgsDict']] linux_profile: Profile for Linux VMs in the container service cluster.
         :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[pulumi.InputType['ContainerServiceNetworkProfileArgs']] network_profile: Profile of network configuration.
+        :param pulumi.Input[Union['ContainerServiceNetworkProfileArgs', 'ContainerServiceNetworkProfileArgsDict']] network_profile: Profile of network configuration.
         :param pulumi.Input[str] node_resource_group: Name of the resource group containing agent pool nodes.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] resource_name_: The name of the managed cluster resource.
-        :param pulumi.Input[pulumi.InputType['ManagedClusterServicePrincipalProfileArgs']] service_principal_profile: Information about a service principal identity for the cluster to use for manipulating Azure APIs.
+        :param pulumi.Input[Union['ManagedClusterServicePrincipalProfileArgs', 'ManagedClusterServicePrincipalProfileArgsDict']] service_principal_profile: Information about a service principal identity for the cluster to use for manipulating Azure APIs.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
-        :param pulumi.Input[pulumi.InputType['ManagedClusterWindowsProfileArgs']] windows_profile: Profile for Windows VMs in the container service cluster.
+        :param pulumi.Input[Union['ManagedClusterWindowsProfileArgs', 'ManagedClusterWindowsProfileArgsDict']] windows_profile: Profile for Windows VMs in the container service cluster.
         """
         ...
     @overload
@@ -381,24 +386,24 @@ class ManagedCluster(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aad_profile: Optional[pulumi.Input[pulumi.InputType['ManagedClusterAADProfileArgs']]] = None,
-                 addon_profiles: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ManagedClusterAddonProfileArgs']]]]] = None,
-                 agent_pool_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ManagedClusterAgentPoolProfileArgs']]]]] = None,
+                 aad_profile: Optional[pulumi.Input[Union['ManagedClusterAADProfileArgs', 'ManagedClusterAADProfileArgsDict']]] = None,
+                 addon_profiles: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['ManagedClusterAddonProfileArgs', 'ManagedClusterAddonProfileArgsDict']]]]] = None,
+                 agent_pool_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ManagedClusterAgentPoolProfileArgs', 'ManagedClusterAgentPoolProfileArgsDict']]]]] = None,
                  api_server_authorized_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  dns_prefix: Optional[pulumi.Input[str]] = None,
                  enable_pod_security_policy: Optional[pulumi.Input[bool]] = None,
                  enable_rbac: Optional[pulumi.Input[bool]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedClusterIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedClusterIdentityArgs', 'ManagedClusterIdentityArgsDict']]] = None,
                  kubernetes_version: Optional[pulumi.Input[str]] = None,
-                 linux_profile: Optional[pulumi.Input[pulumi.InputType['ContainerServiceLinuxProfileArgs']]] = None,
+                 linux_profile: Optional[pulumi.Input[Union['ContainerServiceLinuxProfileArgs', 'ContainerServiceLinuxProfileArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 network_profile: Optional[pulumi.Input[pulumi.InputType['ContainerServiceNetworkProfileArgs']]] = None,
+                 network_profile: Optional[pulumi.Input[Union['ContainerServiceNetworkProfileArgs', 'ContainerServiceNetworkProfileArgsDict']]] = None,
                  node_resource_group: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
-                 service_principal_profile: Optional[pulumi.Input[pulumi.InputType['ManagedClusterServicePrincipalProfileArgs']]] = None,
+                 service_principal_profile: Optional[pulumi.Input[Union['ManagedClusterServicePrincipalProfileArgs', 'ManagedClusterServicePrincipalProfileArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 windows_profile: Optional[pulumi.Input[pulumi.InputType['ManagedClusterWindowsProfileArgs']]] = None,
+                 windows_profile: Optional[pulumi.Input[Union['ManagedClusterWindowsProfileArgs', 'ManagedClusterWindowsProfileArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

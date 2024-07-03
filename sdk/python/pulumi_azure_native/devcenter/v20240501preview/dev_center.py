@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -202,15 +207,15 @@ class DevCenter(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dev_box_provisioning_settings: Optional[pulumi.Input[pulumi.InputType['DevBoxProvisioningSettingsArgs']]] = None,
+                 dev_box_provisioning_settings: Optional[pulumi.Input[Union['DevBoxProvisioningSettingsArgs', 'DevBoxProvisioningSettingsArgsDict']]] = None,
                  dev_center_name: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 encryption: Optional[pulumi.Input[pulumi.InputType['EncryptionArgs']]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
+                 encryption: Optional[pulumi.Input[Union['EncryptionArgs', 'EncryptionArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 network_settings: Optional[pulumi.Input[pulumi.InputType['DevCenterNetworkSettingsArgs']]] = None,
+                 network_settings: Optional[pulumi.Input[Union['DevCenterNetworkSettingsArgs', 'DevCenterNetworkSettingsArgsDict']]] = None,
                  plan_id: Optional[pulumi.Input[str]] = None,
-                 project_catalog_settings: Optional[pulumi.Input[pulumi.InputType['DevCenterProjectCatalogSettingsArgs']]] = None,
+                 project_catalog_settings: Optional[pulumi.Input[Union['DevCenterProjectCatalogSettingsArgs', 'DevCenterProjectCatalogSettingsArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -219,15 +224,15 @@ class DevCenter(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['DevBoxProvisioningSettingsArgs']] dev_box_provisioning_settings: Settings to be used in the provisioning of all Dev Boxes that belong to this dev center.
+        :param pulumi.Input[Union['DevBoxProvisioningSettingsArgs', 'DevBoxProvisioningSettingsArgsDict']] dev_box_provisioning_settings: Settings to be used in the provisioning of all Dev Boxes that belong to this dev center.
         :param pulumi.Input[str] dev_center_name: The name of the devcenter.
         :param pulumi.Input[str] display_name: The display name of the devcenter.
-        :param pulumi.Input[pulumi.InputType['EncryptionArgs']] encryption: Encryption settings to be used for server-side encryption for proprietary content (such as catalogs, logs, customizations).
-        :param pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']] identity: Managed identity properties
+        :param pulumi.Input[Union['EncryptionArgs', 'EncryptionArgsDict']] encryption: Encryption settings to be used for server-side encryption for proprietary content (such as catalogs, logs, customizations).
+        :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: Managed identity properties
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[pulumi.InputType['DevCenterNetworkSettingsArgs']] network_settings: Network settings that will be enforced on network resources associated with the Dev Center.
+        :param pulumi.Input[Union['DevCenterNetworkSettingsArgs', 'DevCenterNetworkSettingsArgsDict']] network_settings: Network settings that will be enforced on network resources associated with the Dev Center.
         :param pulumi.Input[str] plan_id: Resource Id of an associated Plan
-        :param pulumi.Input[pulumi.InputType['DevCenterProjectCatalogSettingsArgs']] project_catalog_settings: Dev Center settings to be used when associating a project with a catalog.
+        :param pulumi.Input[Union['DevCenterProjectCatalogSettingsArgs', 'DevCenterProjectCatalogSettingsArgsDict']] project_catalog_settings: Dev Center settings to be used when associating a project with a catalog.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -255,15 +260,15 @@ class DevCenter(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dev_box_provisioning_settings: Optional[pulumi.Input[pulumi.InputType['DevBoxProvisioningSettingsArgs']]] = None,
+                 dev_box_provisioning_settings: Optional[pulumi.Input[Union['DevBoxProvisioningSettingsArgs', 'DevBoxProvisioningSettingsArgsDict']]] = None,
                  dev_center_name: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 encryption: Optional[pulumi.Input[pulumi.InputType['EncryptionArgs']]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
+                 encryption: Optional[pulumi.Input[Union['EncryptionArgs', 'EncryptionArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 network_settings: Optional[pulumi.Input[pulumi.InputType['DevCenterNetworkSettingsArgs']]] = None,
+                 network_settings: Optional[pulumi.Input[Union['DevCenterNetworkSettingsArgs', 'DevCenterNetworkSettingsArgsDict']]] = None,
                  plan_id: Optional[pulumi.Input[str]] = None,
-                 project_catalog_settings: Optional[pulumi.Input[pulumi.InputType['DevCenterProjectCatalogSettingsArgs']]] = None,
+                 project_catalog_settings: Optional[pulumi.Input[Union['DevCenterProjectCatalogSettingsArgs', 'DevCenterProjectCatalogSettingsArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):

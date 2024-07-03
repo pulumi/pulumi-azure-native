@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -121,8 +126,8 @@ class GuestAgent(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 credentials: Optional[pulumi.Input[pulumi.InputType['GuestCredentialArgs']]] = None,
-                 http_proxy_config: Optional[pulumi.Input[pulumi.InputType['HttpProxyConfigurationArgs']]] = None,
+                 credentials: Optional[pulumi.Input[Union['GuestCredentialArgs', 'GuestCredentialArgsDict']]] = None,
+                 http_proxy_config: Optional[pulumi.Input[Union['HttpProxyConfigurationArgs', 'HttpProxyConfigurationArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  provisioning_action: Optional[pulumi.Input[Union[str, 'ProvisioningAction']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -133,8 +138,8 @@ class GuestAgent(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['GuestCredentialArgs']] credentials: Username / Password Credentials to provision guest agent.
-        :param pulumi.Input[pulumi.InputType['HttpProxyConfigurationArgs']] http_proxy_config: HTTP Proxy configuration for the VM.
+        :param pulumi.Input[Union['GuestCredentialArgs', 'GuestCredentialArgsDict']] credentials: Username / Password Credentials to provision guest agent.
+        :param pulumi.Input[Union['HttpProxyConfigurationArgs', 'HttpProxyConfigurationArgsDict']] http_proxy_config: HTTP Proxy configuration for the VM.
         :param pulumi.Input[str] name: Name of the guestAgents.
         :param pulumi.Input[Union[str, 'ProvisioningAction']] provisioning_action: Gets or sets the guest agent provisioning action.
         :param pulumi.Input[str] resource_group_name: The Resource Group Name.
@@ -164,8 +169,8 @@ class GuestAgent(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 credentials: Optional[pulumi.Input[pulumi.InputType['GuestCredentialArgs']]] = None,
-                 http_proxy_config: Optional[pulumi.Input[pulumi.InputType['HttpProxyConfigurationArgs']]] = None,
+                 credentials: Optional[pulumi.Input[Union['GuestCredentialArgs', 'GuestCredentialArgsDict']]] = None,
+                 http_proxy_config: Optional[pulumi.Input[Union['HttpProxyConfigurationArgs', 'HttpProxyConfigurationArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  provisioning_action: Optional[pulumi.Input[Union[str, 'ProvisioningAction']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,

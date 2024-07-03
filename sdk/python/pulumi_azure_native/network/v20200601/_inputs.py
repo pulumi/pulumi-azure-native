@@ -4,38 +4,81 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'ARecordArgs',
+    'ARecordArgsDict',
     'AaaaRecordArgs',
+    'AaaaRecordArgsDict',
     'ApplicationSecurityGroupArgs',
+    'ApplicationSecurityGroupArgsDict',
     'CnameRecordArgs',
+    'CnameRecordArgsDict',
     'DelegationArgs',
+    'DelegationArgsDict',
     'MxRecordArgs',
+    'MxRecordArgsDict',
     'NetworkSecurityGroupArgs',
+    'NetworkSecurityGroupArgsDict',
     'PacketCaptureFilterArgs',
+    'PacketCaptureFilterArgsDict',
     'PacketCaptureStorageLocationArgs',
+    'PacketCaptureStorageLocationArgsDict',
     'PtrRecordArgs',
+    'PtrRecordArgsDict',
     'RouteTableArgs',
+    'RouteTableArgsDict',
     'RouteArgs',
+    'RouteArgsDict',
     'SecurityRuleArgs',
+    'SecurityRuleArgsDict',
     'ServiceEndpointPolicyDefinitionArgs',
+    'ServiceEndpointPolicyDefinitionArgsDict',
     'ServiceEndpointPolicyArgs',
+    'ServiceEndpointPolicyArgsDict',
     'ServiceEndpointPropertiesFormatArgs',
+    'ServiceEndpointPropertiesFormatArgsDict',
     'SoaRecordArgs',
+    'SoaRecordArgsDict',
     'SrvRecordArgs',
+    'SrvRecordArgsDict',
     'SubResourceArgs',
+    'SubResourceArgsDict',
     'TxtRecordArgs',
+    'TxtRecordArgsDict',
     'VirtualHubRouteTableV2Args',
+    'VirtualHubRouteTableV2ArgsDict',
     'VirtualHubRouteTableArgs',
+    'VirtualHubRouteTableArgsDict',
     'VirtualHubRouteV2Args',
+    'VirtualHubRouteV2ArgsDict',
     'VirtualHubRouteArgs',
+    'VirtualHubRouteArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ARecordArgsDict(TypedDict):
+        """
+        An A record.
+        """
+        ipv4_address: NotRequired[pulumi.Input[str]]
+        """
+        The IPv4 address of this A record.
+        """
+elif False:
+    ARecordArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ARecordArgs:
@@ -61,6 +104,18 @@ class ARecordArgs:
         pulumi.set(self, "ipv4_address", value)
 
 
+if not MYPY:
+    class AaaaRecordArgsDict(TypedDict):
+        """
+        An AAAA record.
+        """
+        ipv6_address: NotRequired[pulumi.Input[str]]
+        """
+        The IPv6 address of this AAAA record.
+        """
+elif False:
+    AaaaRecordArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AaaaRecordArgs:
     def __init__(__self__, *,
@@ -84,6 +139,26 @@ class AaaaRecordArgs:
     def ipv6_address(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "ipv6_address", value)
 
+
+if not MYPY:
+    class ApplicationSecurityGroupArgsDict(TypedDict):
+        """
+        An application security group in a resource group.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        location: NotRequired[pulumi.Input[str]]
+        """
+        Resource location.
+        """
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Resource tags.
+        """
+elif False:
+    ApplicationSecurityGroupArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApplicationSecurityGroupArgs:
@@ -141,6 +216,18 @@ class ApplicationSecurityGroupArgs:
         pulumi.set(self, "tags", value)
 
 
+if not MYPY:
+    class CnameRecordArgsDict(TypedDict):
+        """
+        A CNAME record.
+        """
+        cname: NotRequired[pulumi.Input[str]]
+        """
+        The canonical name for this CNAME record.
+        """
+elif False:
+    CnameRecordArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CnameRecordArgs:
     def __init__(__self__, *,
@@ -164,6 +251,26 @@ class CnameRecordArgs:
     def cname(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "cname", value)
 
+
+if not MYPY:
+    class DelegationArgsDict(TypedDict):
+        """
+        Details the service to which the subnet is delegated.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the resource that is unique within a subnet. This name can be used to access the resource.
+        """
+        service_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the service to whom the subnet should be delegated (e.g. Microsoft.Sql/servers).
+        """
+elif False:
+    DelegationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DelegationArgs:
@@ -221,6 +328,22 @@ class DelegationArgs:
         pulumi.set(self, "service_name", value)
 
 
+if not MYPY:
+    class MxRecordArgsDict(TypedDict):
+        """
+        An MX record.
+        """
+        exchange: NotRequired[pulumi.Input[str]]
+        """
+        The domain name of the mail host for this MX record.
+        """
+        preference: NotRequired[pulumi.Input[int]]
+        """
+        The preference value for this MX record.
+        """
+elif False:
+    MxRecordArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MxRecordArgs:
     def __init__(__self__, *,
@@ -260,6 +383,30 @@ class MxRecordArgs:
     def preference(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "preference", value)
 
+
+if not MYPY:
+    class NetworkSecurityGroupArgsDict(TypedDict):
+        """
+        NetworkSecurityGroup resource.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        location: NotRequired[pulumi.Input[str]]
+        """
+        Resource location.
+        """
+        security_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['SecurityRuleArgsDict']]]]
+        """
+        A collection of security rules of the network security group.
+        """
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Resource tags.
+        """
+elif False:
+    NetworkSecurityGroupArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NetworkSecurityGroupArgs:
@@ -332,6 +479,34 @@ class NetworkSecurityGroupArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+
+if not MYPY:
+    class PacketCaptureFilterArgsDict(TypedDict):
+        """
+        Filter that is applied to packet capture request. Multiple filters can be applied.
+        """
+        local_ip_address: NotRequired[pulumi.Input[str]]
+        """
+        Local IP Address to be filtered on. Notation: "127.0.0.1" for single address entry. "127.0.0.1-127.0.0.255" for range. "127.0.0.1;127.0.0.5"? for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Default = null.
+        """
+        local_port: NotRequired[pulumi.Input[str]]
+        """
+        Local port to be filtered on. Notation: "80" for single port entry."80-85" for range. "80;443;" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Default = null.
+        """
+        protocol: NotRequired[pulumi.Input[Union[str, 'PcProtocol']]]
+        """
+        Protocol to be filtered on.
+        """
+        remote_ip_address: NotRequired[pulumi.Input[str]]
+        """
+        Local IP Address to be filtered on. Notation: "127.0.0.1" for single address entry. "127.0.0.1-127.0.0.255" for range. "127.0.0.1;127.0.0.5;" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Default = null.
+        """
+        remote_port: NotRequired[pulumi.Input[str]]
+        """
+        Remote port to be filtered on. Notation: "80" for single port entry."80-85" for range. "80;443;" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Default = null.
+        """
+elif False:
+    PacketCaptureFilterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PacketCaptureFilterArgs:
@@ -423,6 +598,26 @@ class PacketCaptureFilterArgs:
         pulumi.set(self, "remote_port", value)
 
 
+if not MYPY:
+    class PacketCaptureStorageLocationArgsDict(TypedDict):
+        """
+        The storage location for a packet capture session.
+        """
+        file_path: NotRequired[pulumi.Input[str]]
+        """
+        A valid local path on the targeting VM. Must include the name of the capture file (*.cap). For linux virtual machine it must start with /var/captures. Required if no storage ID is provided, otherwise optional.
+        """
+        storage_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the storage account to save the packet capture session. Required if no local file path is provided.
+        """
+        storage_path: NotRequired[pulumi.Input[str]]
+        """
+        The URI of the storage path to save the packet capture. Must be a well-formed URI describing the location to save the packet capture.
+        """
+elif False:
+    PacketCaptureStorageLocationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PacketCaptureStorageLocationArgs:
     def __init__(__self__, *,
@@ -479,6 +674,18 @@ class PacketCaptureStorageLocationArgs:
         pulumi.set(self, "storage_path", value)
 
 
+if not MYPY:
+    class PtrRecordArgsDict(TypedDict):
+        """
+        A PTR record.
+        """
+        ptrdname: NotRequired[pulumi.Input[str]]
+        """
+        The PTR target domain name for this PTR record.
+        """
+elif False:
+    PtrRecordArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PtrRecordArgs:
     def __init__(__self__, *,
@@ -502,6 +709,34 @@ class PtrRecordArgs:
     def ptrdname(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "ptrdname", value)
 
+
+if not MYPY:
+    class RouteTableArgsDict(TypedDict):
+        """
+        Route table resource.
+        """
+        disable_bgp_route_propagation: NotRequired[pulumi.Input[bool]]
+        """
+        Whether to disable the routes learned by BGP on that route table. True means disable.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        location: NotRequired[pulumi.Input[str]]
+        """
+        Resource location.
+        """
+        routes: NotRequired[pulumi.Input[Sequence[pulumi.Input['RouteArgsDict']]]]
+        """
+        Collection of routes contained within a route table.
+        """
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Resource tags.
+        """
+elif False:
+    RouteTableArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RouteTableArgs:
@@ -591,6 +826,34 @@ class RouteTableArgs:
         pulumi.set(self, "tags", value)
 
 
+if not MYPY:
+    class RouteArgsDict(TypedDict):
+        """
+        Route resource.
+        """
+        next_hop_type: pulumi.Input[Union[str, 'RouteNextHopType']]
+        """
+        The type of Azure hop the packet should be sent to.
+        """
+        address_prefix: NotRequired[pulumi.Input[str]]
+        """
+        The destination CIDR to which the route applies.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+        next_hop_ip_address: NotRequired[pulumi.Input[str]]
+        """
+        The IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is VirtualAppliance.
+        """
+elif False:
+    RouteArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RouteArgs:
     def __init__(__self__, *,
@@ -677,6 +940,82 @@ class RouteArgs:
     def next_hop_ip_address(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "next_hop_ip_address", value)
 
+
+if not MYPY:
+    class SecurityRuleArgsDict(TypedDict):
+        """
+        Network security rule.
+        """
+        access: pulumi.Input[Union[str, 'SecurityRuleAccess']]
+        """
+        The network traffic is allowed or denied.
+        """
+        direction: pulumi.Input[Union[str, 'SecurityRuleDirection']]
+        """
+        The direction of the rule. The direction specifies if rule will be evaluated on incoming or outgoing traffic.
+        """
+        protocol: pulumi.Input[Union[str, 'SecurityRuleProtocol']]
+        """
+        Network protocol this rule applies to.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        A description for this rule. Restricted to 140 chars.
+        """
+        destination_address_prefix: NotRequired[pulumi.Input[str]]
+        """
+        The destination address prefix. CIDR or destination IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used.
+        """
+        destination_address_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The destination address prefixes. CIDR or destination IP ranges.
+        """
+        destination_application_security_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationSecurityGroupArgsDict']]]]
+        """
+        The application security group specified as destination.
+        """
+        destination_port_range: NotRequired[pulumi.Input[str]]
+        """
+        The destination port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
+        """
+        destination_port_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The destination port ranges.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+        priority: NotRequired[pulumi.Input[int]]
+        """
+        The priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
+        """
+        source_address_prefix: NotRequired[pulumi.Input[str]]
+        """
+        The CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. If this is an ingress rule, specifies where network traffic originates from.
+        """
+        source_address_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The CIDR or source IP ranges.
+        """
+        source_application_security_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationSecurityGroupArgsDict']]]]
+        """
+        The application security group specified as source.
+        """
+        source_port_range: NotRequired[pulumi.Input[str]]
+        """
+        The source port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
+        """
+        source_port_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The source port ranges.
+        """
+elif False:
+    SecurityRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SecurityRuleArgs:
@@ -955,6 +1294,34 @@ class SecurityRuleArgs:
         pulumi.set(self, "source_port_ranges", value)
 
 
+if not MYPY:
+    class ServiceEndpointPolicyDefinitionArgsDict(TypedDict):
+        """
+        Service Endpoint policy definitions.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        A description for this rule. Restricted to 140 chars.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+        service: NotRequired[pulumi.Input[str]]
+        """
+        Service endpoint name.
+        """
+        service_resources: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of service resources.
+        """
+elif False:
+    ServiceEndpointPolicyDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ServiceEndpointPolicyDefinitionArgs:
     def __init__(__self__, *,
@@ -1043,6 +1410,30 @@ class ServiceEndpointPolicyDefinitionArgs:
         pulumi.set(self, "service_resources", value)
 
 
+if not MYPY:
+    class ServiceEndpointPolicyArgsDict(TypedDict):
+        """
+        Service End point policy resource.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        location: NotRequired[pulumi.Input[str]]
+        """
+        Resource location.
+        """
+        service_endpoint_policy_definitions: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceEndpointPolicyDefinitionArgsDict']]]]
+        """
+        A collection of service endpoint policy definitions of the service endpoint policy.
+        """
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Resource tags.
+        """
+elif False:
+    ServiceEndpointPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ServiceEndpointPolicyArgs:
     def __init__(__self__, *,
@@ -1115,6 +1506,22 @@ class ServiceEndpointPolicyArgs:
         pulumi.set(self, "tags", value)
 
 
+if not MYPY:
+    class ServiceEndpointPropertiesFormatArgsDict(TypedDict):
+        """
+        The service endpoint properties.
+        """
+        locations: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of locations.
+        """
+        service: NotRequired[pulumi.Input[str]]
+        """
+        The type of the endpoint service.
+        """
+elif False:
+    ServiceEndpointPropertiesFormatArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ServiceEndpointPropertiesFormatArgs:
     def __init__(__self__, *,
@@ -1154,6 +1561,42 @@ class ServiceEndpointPropertiesFormatArgs:
     def service(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "service", value)
 
+
+if not MYPY:
+    class SoaRecordArgsDict(TypedDict):
+        """
+        An SOA record.
+        """
+        email: NotRequired[pulumi.Input[str]]
+        """
+        The email contact for this SOA record.
+        """
+        expire_time: NotRequired[pulumi.Input[float]]
+        """
+        The expire time for this SOA record.
+        """
+        host: NotRequired[pulumi.Input[str]]
+        """
+        The domain name of the authoritative name server for this SOA record.
+        """
+        minimum_ttl: NotRequired[pulumi.Input[float]]
+        """
+        The minimum value for this SOA record. By convention this is used to determine the negative caching duration.
+        """
+        refresh_time: NotRequired[pulumi.Input[float]]
+        """
+        The refresh value for this SOA record.
+        """
+        retry_time: NotRequired[pulumi.Input[float]]
+        """
+        The retry time for this SOA record.
+        """
+        serial_number: NotRequired[pulumi.Input[float]]
+        """
+        The serial number for this SOA record.
+        """
+elif False:
+    SoaRecordArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SoaRecordArgs:
@@ -1275,6 +1718,30 @@ class SoaRecordArgs:
         pulumi.set(self, "serial_number", value)
 
 
+if not MYPY:
+    class SrvRecordArgsDict(TypedDict):
+        """
+        An SRV record.
+        """
+        port: NotRequired[pulumi.Input[int]]
+        """
+        The port value for this SRV record.
+        """
+        priority: NotRequired[pulumi.Input[int]]
+        """
+        The priority value for this SRV record.
+        """
+        target: NotRequired[pulumi.Input[str]]
+        """
+        The target domain name for this SRV record.
+        """
+        weight: NotRequired[pulumi.Input[int]]
+        """
+        The weight value for this SRV record.
+        """
+elif False:
+    SrvRecordArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SrvRecordArgs:
     def __init__(__self__, *,
@@ -1347,6 +1814,21 @@ class SrvRecordArgs:
         pulumi.set(self, "weight", value)
 
 
+if not MYPY:
+    class SubResourceArgsDict(TypedDict):
+        """
+        Reference to another subresource.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Sub-resource ID. Both absolute resource ID and a relative resource ID are accepted.
+        An absolute ID starts with /subscriptions/ and contains the entire ID of the parent resource and the ID of the sub-resource in the end.
+        A relative ID replaces the ID of the parent resource with a token '$self', followed by the sub-resource ID itself.
+        Example of a relative ID: $self/frontEndConfigurations/my-frontend.
+        """
+elif False:
+    SubResourceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SubResourceArgs:
     def __init__(__self__, *,
@@ -1377,6 +1859,18 @@ class SubResourceArgs:
         pulumi.set(self, "id", value)
 
 
+if not MYPY:
+    class TxtRecordArgsDict(TypedDict):
+        """
+        A TXT record.
+        """
+        value: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The text value of this TXT record.
+        """
+elif False:
+    TxtRecordArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TxtRecordArgs:
     def __init__(__self__, *,
@@ -1400,6 +1894,30 @@ class TxtRecordArgs:
     def value(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class VirtualHubRouteTableV2ArgsDict(TypedDict):
+        """
+        VirtualHubRouteTableV2 Resource.
+        """
+        attached_connections: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of all connections attached to this route table v2.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+        routes: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualHubRouteV2ArgsDict']]]]
+        """
+        List of all routes.
+        """
+elif False:
+    VirtualHubRouteTableV2ArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VirtualHubRouteTableV2Args:
@@ -1473,6 +1991,18 @@ class VirtualHubRouteTableV2Args:
         pulumi.set(self, "routes", value)
 
 
+if not MYPY:
+    class VirtualHubRouteTableArgsDict(TypedDict):
+        """
+        VirtualHub route table.
+        """
+        routes: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualHubRouteArgsDict']]]]
+        """
+        List of all routes.
+        """
+elif False:
+    VirtualHubRouteTableArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class VirtualHubRouteTableArgs:
     def __init__(__self__, *,
@@ -1496,6 +2026,30 @@ class VirtualHubRouteTableArgs:
     def routes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualHubRouteArgs']]]]):
         pulumi.set(self, "routes", value)
 
+
+if not MYPY:
+    class VirtualHubRouteV2ArgsDict(TypedDict):
+        """
+        VirtualHubRouteTableV2 route.
+        """
+        destination_type: NotRequired[pulumi.Input[str]]
+        """
+        The type of destinations.
+        """
+        destinations: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of all destinations.
+        """
+        next_hop_type: NotRequired[pulumi.Input[str]]
+        """
+        The type of next hops.
+        """
+        next_hops: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        NextHops ip address.
+        """
+elif False:
+    VirtualHubRouteV2ArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VirtualHubRouteV2Args:
@@ -1568,6 +2122,22 @@ class VirtualHubRouteV2Args:
     def next_hops(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "next_hops", value)
 
+
+if not MYPY:
+    class VirtualHubRouteArgsDict(TypedDict):
+        """
+        VirtualHub route.
+        """
+        address_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of all addressPrefixes.
+        """
+        next_hop_ip_address: NotRequired[pulumi.Input[str]]
+        """
+        NextHop ip address.
+        """
+elif False:
+    VirtualHubRouteArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VirtualHubRouteArgs:

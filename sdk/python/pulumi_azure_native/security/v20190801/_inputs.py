@@ -4,21 +4,55 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'AdditionalWorkspacesPropertiesArgs',
+    'AdditionalWorkspacesPropertiesArgsDict',
     'AllowlistCustomAlertRuleArgs',
+    'AllowlistCustomAlertRuleArgsDict',
     'DenylistCustomAlertRuleArgs',
+    'DenylistCustomAlertRuleArgsDict',
     'RecommendationConfigurationPropertiesArgs',
+    'RecommendationConfigurationPropertiesArgsDict',
     'ThresholdCustomAlertRuleArgs',
+    'ThresholdCustomAlertRuleArgsDict',
     'TimeWindowCustomAlertRuleArgs',
+    'TimeWindowCustomAlertRuleArgsDict',
     'UserDefinedResourcesPropertiesArgs',
+    'UserDefinedResourcesPropertiesArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AdditionalWorkspacesPropertiesArgsDict(TypedDict):
+        """
+        Properties of the additional workspaces.
+        """
+        data_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AdditionalWorkspaceDataType']]]]]
+        """
+        List of data types sent to workspace
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'AdditionalWorkspaceType']]]
+        """
+        Workspace type.
+        """
+        workspace: NotRequired[pulumi.Input[str]]
+        """
+        Workspace resource id
+        """
+elif False:
+    AdditionalWorkspacesPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AdditionalWorkspacesPropertiesArgs:
@@ -78,6 +112,27 @@ class AdditionalWorkspacesPropertiesArgs:
         pulumi.set(self, "workspace", value)
 
 
+if not MYPY:
+    class AllowlistCustomAlertRuleArgsDict(TypedDict):
+        """
+        A custom alert rule that checks if a value (depends on the custom alert type) is allowed.
+        """
+        allowlist_values: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        The values to allow. The format of the values depends on the rule type.
+        """
+        is_enabled: pulumi.Input[bool]
+        """
+        Status of the custom alert.
+        """
+        rule_type: pulumi.Input[str]
+        """
+        The type of the custom alert rule.
+        Expected value is 'AllowlistCustomAlertRule'.
+        """
+elif False:
+    AllowlistCustomAlertRuleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AllowlistCustomAlertRuleArgs:
     def __init__(__self__, *,
@@ -132,6 +187,27 @@ class AllowlistCustomAlertRuleArgs:
     def rule_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "rule_type", value)
 
+
+if not MYPY:
+    class DenylistCustomAlertRuleArgsDict(TypedDict):
+        """
+        A custom alert rule that checks if a value (depends on the custom alert type) is denied.
+        """
+        denylist_values: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        The values to deny. The format of the values depends on the rule type.
+        """
+        is_enabled: pulumi.Input[bool]
+        """
+        Status of the custom alert.
+        """
+        rule_type: pulumi.Input[str]
+        """
+        The type of the custom alert rule.
+        Expected value is 'DenylistCustomAlertRule'.
+        """
+elif False:
+    DenylistCustomAlertRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DenylistCustomAlertRuleArgs:
@@ -188,6 +264,22 @@ class DenylistCustomAlertRuleArgs:
         pulumi.set(self, "rule_type", value)
 
 
+if not MYPY:
+    class RecommendationConfigurationPropertiesArgsDict(TypedDict):
+        """
+        The type of IoT Security recommendation.
+        """
+        recommendation_type: pulumi.Input[Union[str, 'RecommendationType']]
+        """
+        The type of IoT Security recommendation.
+        """
+        status: pulumi.Input[Union[str, 'RecommendationConfigStatus']]
+        """
+        Recommendation status. When the recommendation status is disabled recommendations are not generated.
+        """
+elif False:
+    RecommendationConfigurationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RecommendationConfigurationPropertiesArgs:
     def __init__(__self__, *,
@@ -227,6 +319,31 @@ class RecommendationConfigurationPropertiesArgs:
     def status(self, value: pulumi.Input[Union[str, 'RecommendationConfigStatus']]):
         pulumi.set(self, "status", value)
 
+
+if not MYPY:
+    class ThresholdCustomAlertRuleArgsDict(TypedDict):
+        """
+        A custom alert rule that checks if a value (depends on the custom alert type) is within the given range.
+        """
+        is_enabled: pulumi.Input[bool]
+        """
+        Status of the custom alert.
+        """
+        max_threshold: pulumi.Input[int]
+        """
+        The maximum threshold.
+        """
+        min_threshold: pulumi.Input[int]
+        """
+        The minimum threshold.
+        """
+        rule_type: pulumi.Input[str]
+        """
+        The type of the custom alert rule.
+        Expected value is 'ThresholdCustomAlertRule'.
+        """
+elif False:
+    ThresholdCustomAlertRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ThresholdCustomAlertRuleArgs:
@@ -297,6 +414,35 @@ class ThresholdCustomAlertRuleArgs:
     def rule_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "rule_type", value)
 
+
+if not MYPY:
+    class TimeWindowCustomAlertRuleArgsDict(TypedDict):
+        """
+        A custom alert rule that checks if the number of activities (depends on the custom alert type) in a time window is within the given range.
+        """
+        is_enabled: pulumi.Input[bool]
+        """
+        Status of the custom alert.
+        """
+        max_threshold: pulumi.Input[int]
+        """
+        The maximum threshold.
+        """
+        min_threshold: pulumi.Input[int]
+        """
+        The minimum threshold.
+        """
+        rule_type: pulumi.Input[str]
+        """
+        The type of the custom alert rule.
+        Expected value is 'TimeWindowCustomAlertRule'.
+        """
+        time_window_size: pulumi.Input[str]
+        """
+        The time window size in iso8601 format.
+        """
+elif False:
+    TimeWindowCustomAlertRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TimeWindowCustomAlertRuleArgs:
@@ -382,6 +528,22 @@ class TimeWindowCustomAlertRuleArgs:
     def time_window_size(self, value: pulumi.Input[str]):
         pulumi.set(self, "time_window_size", value)
 
+
+if not MYPY:
+    class UserDefinedResourcesPropertiesArgsDict(TypedDict):
+        """
+        Properties of the IoT Security solution's user defined resources.
+        """
+        query: pulumi.Input[str]
+        """
+        Azure Resource Graph query which represents the security solution's user defined resources. Required to start with "where type != "Microsoft.Devices/IotHubs""
+        """
+        query_subscriptions: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        List of Azure subscription ids on which the user defined resources query should be executed.
+        """
+elif False:
+    UserDefinedResourcesPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserDefinedResourcesPropertiesArgs:

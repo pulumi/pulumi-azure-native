@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -216,7 +221,7 @@ class GalleryApplication(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 custom_actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GalleryApplicationCustomActionArgs']]]]] = None,
+                 custom_actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GalleryApplicationCustomActionArgs', 'GalleryApplicationCustomActionArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  end_of_life_date: Optional[pulumi.Input[str]] = None,
                  eula: Optional[pulumi.Input[str]] = None,
@@ -234,7 +239,7 @@ class GalleryApplication(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GalleryApplicationCustomActionArgs']]]] custom_actions: A list of custom actions that can be performed with all of the Gallery Application Versions within this Gallery Application.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['GalleryApplicationCustomActionArgs', 'GalleryApplicationCustomActionArgsDict']]]] custom_actions: A list of custom actions that can be performed with all of the Gallery Application Versions within this Gallery Application.
         :param pulumi.Input[str] description: The description of this gallery Application Definition resource. This property is updatable.
         :param pulumi.Input[str] end_of_life_date: The end of life date of the gallery Application Definition. This property can be used for decommissioning purposes. This property is updatable.
         :param pulumi.Input[str] eula: The Eula agreement for the gallery Application Definition.
@@ -271,7 +276,7 @@ class GalleryApplication(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 custom_actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GalleryApplicationCustomActionArgs']]]]] = None,
+                 custom_actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GalleryApplicationCustomActionArgs', 'GalleryApplicationCustomActionArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  end_of_life_date: Optional[pulumi.Input[str]] = None,
                  eula: Optional[pulumi.Input[str]] = None,

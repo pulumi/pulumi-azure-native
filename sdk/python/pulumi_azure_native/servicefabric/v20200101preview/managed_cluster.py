@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -287,18 +292,18 @@ class ManagedCluster(pulumi.CustomResource):
                  addon_features: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  admin_password: Optional[pulumi.Input[str]] = None,
                  admin_user_name: Optional[pulumi.Input[str]] = None,
-                 azure_active_directory: Optional[pulumi.Input[pulumi.InputType['AzureActiveDirectoryArgs']]] = None,
+                 azure_active_directory: Optional[pulumi.Input[Union['AzureActiveDirectoryArgs', 'AzureActiveDirectoryArgsDict']]] = None,
                  client_connection_port: Optional[pulumi.Input[int]] = None,
-                 clients: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClientCertificateArgs']]]]] = None,
+                 clients: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClientCertificateArgs', 'ClientCertificateArgsDict']]]]] = None,
                  cluster_code_version: Optional[pulumi.Input[str]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  dns_name: Optional[pulumi.Input[str]] = None,
-                 fabric_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SettingsSectionDescriptionArgs']]]]] = None,
+                 fabric_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SettingsSectionDescriptionArgs', 'SettingsSectionDescriptionArgsDict']]]]] = None,
                  http_gateway_connection_port: Optional[pulumi.Input[int]] = None,
-                 load_balancing_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LoadBalancingRuleArgs']]]]] = None,
+                 load_balancing_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LoadBalancingRuleArgs', 'LoadBalancingRuleArgsDict']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -309,18 +314,18 @@ class ManagedCluster(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] addon_features: client certificates for the cluster.
         :param pulumi.Input[str] admin_password: vm admin user password.
         :param pulumi.Input[str] admin_user_name: vm admin user name.
-        :param pulumi.Input[pulumi.InputType['AzureActiveDirectoryArgs']] azure_active_directory: Azure active directory.
+        :param pulumi.Input[Union['AzureActiveDirectoryArgs', 'AzureActiveDirectoryArgsDict']] azure_active_directory: Azure active directory.
         :param pulumi.Input[int] client_connection_port: The port used for client connections to the cluster.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClientCertificateArgs']]]] clients: client certificates for the cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ClientCertificateArgs', 'ClientCertificateArgsDict']]]] clients: client certificates for the cluster.
         :param pulumi.Input[str] cluster_code_version: The Service Fabric runtime version of the cluster. This property can only by set the user when **upgradeMode** is set to 'Manual'. To get list of available Service Fabric versions for new clusters use [ClusterVersion API](./ClusterVersion.md). To get the list of available version for existing clusters use **availableClusterVersions**.
         :param pulumi.Input[str] cluster_name: The name of the cluster resource.
         :param pulumi.Input[str] dns_name: The cluster dns name.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SettingsSectionDescriptionArgs']]]] fabric_settings: The list of custom fabric settings to configure the cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SettingsSectionDescriptionArgs', 'SettingsSectionDescriptionArgsDict']]]] fabric_settings: The list of custom fabric settings to configure the cluster.
         :param pulumi.Input[int] http_gateway_connection_port: The port used for http connections to the cluster.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LoadBalancingRuleArgs']]]] load_balancing_rules: Describes load balancing rules.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LoadBalancingRuleArgs', 'LoadBalancingRuleArgsDict']]]] load_balancing_rules: Describes load balancing rules.
         :param pulumi.Input[str] location: Azure resource location.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The sku of the managed cluster
+        :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: The sku of the managed cluster
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Azure resource tags.
         """
         ...
@@ -350,18 +355,18 @@ class ManagedCluster(pulumi.CustomResource):
                  addon_features: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  admin_password: Optional[pulumi.Input[str]] = None,
                  admin_user_name: Optional[pulumi.Input[str]] = None,
-                 azure_active_directory: Optional[pulumi.Input[pulumi.InputType['AzureActiveDirectoryArgs']]] = None,
+                 azure_active_directory: Optional[pulumi.Input[Union['AzureActiveDirectoryArgs', 'AzureActiveDirectoryArgsDict']]] = None,
                  client_connection_port: Optional[pulumi.Input[int]] = None,
-                 clients: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClientCertificateArgs']]]]] = None,
+                 clients: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClientCertificateArgs', 'ClientCertificateArgsDict']]]]] = None,
                  cluster_code_version: Optional[pulumi.Input[str]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  dns_name: Optional[pulumi.Input[str]] = None,
-                 fabric_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SettingsSectionDescriptionArgs']]]]] = None,
+                 fabric_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SettingsSectionDescriptionArgs', 'SettingsSectionDescriptionArgsDict']]]]] = None,
                  http_gateway_connection_port: Optional[pulumi.Input[int]] = None,
-                 load_balancing_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LoadBalancingRuleArgs']]]]] = None,
+                 load_balancing_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LoadBalancingRuleArgs', 'LoadBalancingRuleArgsDict']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

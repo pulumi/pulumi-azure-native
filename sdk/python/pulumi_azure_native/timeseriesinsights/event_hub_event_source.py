@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -283,7 +288,7 @@ class EventHubEventSource(pulumi.CustomResource):
                  event_source_resource_id: Optional[pulumi.Input[str]] = None,
                  key_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
-                 local_timestamp: Optional[pulumi.Input[pulumi.InputType['LocalTimestampArgs']]] = None,
+                 local_timestamp: Optional[pulumi.Input[Union['LocalTimestampArgs', 'LocalTimestampArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_bus_namespace: Optional[pulumi.Input[str]] = None,
@@ -307,7 +312,7 @@ class EventHubEventSource(pulumi.CustomResource):
         :param pulumi.Input[str] key_name: The name of the SAS key that grants the Time Series Insights service access to the event hub. The shared access policies for this key must grant 'Listen' permissions to the event hub.
         :param pulumi.Input[str] kind: The kind of the event source.
                Expected value is 'Microsoft.EventHub'.
-        :param pulumi.Input[pulumi.InputType['LocalTimestampArgs']] local_timestamp: An object that represents the local timestamp property. It contains the format of local timestamp that needs to be used and the corresponding timezone offset information. If a value isn't specified for localTimestamp, or if null, then the local timestamp will not be ingressed with the events.
+        :param pulumi.Input[Union['LocalTimestampArgs', 'LocalTimestampArgsDict']] local_timestamp: An object that represents the local timestamp property. It contains the format of local timestamp that needs to be used and the corresponding timezone offset information. If a value isn't specified for localTimestamp, or if null, then the local timestamp will not be ingressed with the events.
         :param pulumi.Input[str] location: The location of the resource.
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
         :param pulumi.Input[str] service_bus_namespace: The name of the service bus that contains the event hub.
@@ -349,7 +354,7 @@ class EventHubEventSource(pulumi.CustomResource):
                  event_source_resource_id: Optional[pulumi.Input[str]] = None,
                  key_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
-                 local_timestamp: Optional[pulumi.Input[pulumi.InputType['LocalTimestampArgs']]] = None,
+                 local_timestamp: Optional[pulumi.Input[Union['LocalTimestampArgs', 'LocalTimestampArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_bus_namespace: Optional[pulumi.Input[str]] = None,

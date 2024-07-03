@@ -4,20 +4,53 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'CreateFirewallRuleWithAccountParametersArgs',
+    'CreateFirewallRuleWithAccountParametersArgsDict',
     'CreateTrustedIdProviderWithAccountParametersArgs',
+    'CreateTrustedIdProviderWithAccountParametersArgsDict',
     'CreateVirtualNetworkRuleWithAccountParametersArgs',
+    'CreateVirtualNetworkRuleWithAccountParametersArgsDict',
     'EncryptionConfigArgs',
+    'EncryptionConfigArgsDict',
     'EncryptionIdentityArgs',
+    'EncryptionIdentityArgsDict',
     'KeyVaultMetaInfoArgs',
+    'KeyVaultMetaInfoArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class CreateFirewallRuleWithAccountParametersArgsDict(TypedDict):
+        """
+        The parameters used to create a new firewall rule while creating a new Data Lake Store account.
+        """
+        end_ip_address: pulumi.Input[str]
+        """
+        The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
+        """
+        name: pulumi.Input[str]
+        """
+        The unique name of the firewall rule to create.
+        """
+        start_ip_address: pulumi.Input[str]
+        """
+        The start IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
+        """
+elif False:
+    CreateFirewallRuleWithAccountParametersArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CreateFirewallRuleWithAccountParametersArgs:
@@ -72,6 +105,22 @@ class CreateFirewallRuleWithAccountParametersArgs:
         pulumi.set(self, "start_ip_address", value)
 
 
+if not MYPY:
+    class CreateTrustedIdProviderWithAccountParametersArgsDict(TypedDict):
+        """
+        The parameters used to create a new trusted identity provider while creating a new Data Lake Store account.
+        """
+        id_provider: pulumi.Input[str]
+        """
+        The URL of this trusted identity provider.
+        """
+        name: pulumi.Input[str]
+        """
+        The unique name of the trusted identity provider to create.
+        """
+elif False:
+    CreateTrustedIdProviderWithAccountParametersArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CreateTrustedIdProviderWithAccountParametersArgs:
     def __init__(__self__, *,
@@ -110,6 +159,22 @@ class CreateTrustedIdProviderWithAccountParametersArgs:
         pulumi.set(self, "name", value)
 
 
+if not MYPY:
+    class CreateVirtualNetworkRuleWithAccountParametersArgsDict(TypedDict):
+        """
+        The parameters used to create a new virtual network rule while creating a new Data Lake Store account.
+        """
+        name: pulumi.Input[str]
+        """
+        The unique name of the virtual network rule to create.
+        """
+        subnet_id: pulumi.Input[str]
+        """
+        The resource identifier for the subnet.
+        """
+elif False:
+    CreateVirtualNetworkRuleWithAccountParametersArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CreateVirtualNetworkRuleWithAccountParametersArgs:
     def __init__(__self__, *,
@@ -147,6 +212,22 @@ class CreateVirtualNetworkRuleWithAccountParametersArgs:
     def subnet_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "subnet_id", value)
 
+
+if not MYPY:
+    class EncryptionConfigArgsDict(TypedDict):
+        """
+        The encryption configuration for the account.
+        """
+        type: pulumi.Input['EncryptionConfigType']
+        """
+        The type of encryption configuration being used. Currently the only supported types are 'UserManaged' and 'ServiceManaged'.
+        """
+        key_vault_meta_info: NotRequired[pulumi.Input['KeyVaultMetaInfoArgsDict']]
+        """
+        The Key Vault information for connecting to user managed encryption keys.
+        """
+elif False:
+    EncryptionConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EncryptionConfigArgs:
@@ -187,6 +268,18 @@ class EncryptionConfigArgs:
         pulumi.set(self, "key_vault_meta_info", value)
 
 
+if not MYPY:
+    class EncryptionIdentityArgsDict(TypedDict):
+        """
+        The encryption identity properties.
+        """
+        type: pulumi.Input['EncryptionIdentityType']
+        """
+        The type of encryption being used. Currently the only supported type is 'SystemAssigned'.
+        """
+elif False:
+    EncryptionIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EncryptionIdentityArgs:
     def __init__(__self__, *,
@@ -209,6 +302,26 @@ class EncryptionIdentityArgs:
     def type(self, value: pulumi.Input['EncryptionIdentityType']):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class KeyVaultMetaInfoArgsDict(TypedDict):
+        """
+        Metadata information used by account encryption.
+        """
+        encryption_key_name: pulumi.Input[str]
+        """
+        The name of the user managed encryption key.
+        """
+        encryption_key_version: pulumi.Input[str]
+        """
+        The version of the user managed encryption key.
+        """
+        key_vault_resource_id: pulumi.Input[str]
+        """
+        The resource identifier for the user managed Key Vault being used to encrypt.
+        """
+elif False:
+    KeyVaultMetaInfoArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class KeyVaultMetaInfoArgs:

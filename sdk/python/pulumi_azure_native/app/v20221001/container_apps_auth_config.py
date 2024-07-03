@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -155,11 +160,11 @@ class ContainerAppsAuthConfig(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auth_config_name: Optional[pulumi.Input[str]] = None,
                  container_app_name: Optional[pulumi.Input[str]] = None,
-                 global_validation: Optional[pulumi.Input[pulumi.InputType['GlobalValidationArgs']]] = None,
-                 http_settings: Optional[pulumi.Input[pulumi.InputType['HttpSettingsArgs']]] = None,
-                 identity_providers: Optional[pulumi.Input[pulumi.InputType['IdentityProvidersArgs']]] = None,
-                 login: Optional[pulumi.Input[pulumi.InputType['LoginArgs']]] = None,
-                 platform: Optional[pulumi.Input[pulumi.InputType['AuthPlatformArgs']]] = None,
+                 global_validation: Optional[pulumi.Input[Union['GlobalValidationArgs', 'GlobalValidationArgsDict']]] = None,
+                 http_settings: Optional[pulumi.Input[Union['HttpSettingsArgs', 'HttpSettingsArgsDict']]] = None,
+                 identity_providers: Optional[pulumi.Input[Union['IdentityProvidersArgs', 'IdentityProvidersArgsDict']]] = None,
+                 login: Optional[pulumi.Input[Union['LoginArgs', 'LoginArgsDict']]] = None,
+                 platform: Optional[pulumi.Input[Union['AuthPlatformArgs', 'AuthPlatformArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -169,11 +174,11 @@ class ContainerAppsAuthConfig(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] auth_config_name: Name of the Container App AuthConfig.
         :param pulumi.Input[str] container_app_name: Name of the Container App.
-        :param pulumi.Input[pulumi.InputType['GlobalValidationArgs']] global_validation: The configuration settings that determines the validation flow of users using  Service Authentication/Authorization.
-        :param pulumi.Input[pulumi.InputType['HttpSettingsArgs']] http_settings: The configuration settings of the HTTP requests for authentication and authorization requests made against ContainerApp Service Authentication/Authorization.
-        :param pulumi.Input[pulumi.InputType['IdentityProvidersArgs']] identity_providers: The configuration settings of each of the identity providers used to configure ContainerApp Service Authentication/Authorization.
-        :param pulumi.Input[pulumi.InputType['LoginArgs']] login: The configuration settings of the login flow of users using ContainerApp Service Authentication/Authorization.
-        :param pulumi.Input[pulumi.InputType['AuthPlatformArgs']] platform: The configuration settings of the platform of ContainerApp Service Authentication/Authorization.
+        :param pulumi.Input[Union['GlobalValidationArgs', 'GlobalValidationArgsDict']] global_validation: The configuration settings that determines the validation flow of users using  Service Authentication/Authorization.
+        :param pulumi.Input[Union['HttpSettingsArgs', 'HttpSettingsArgsDict']] http_settings: The configuration settings of the HTTP requests for authentication and authorization requests made against ContainerApp Service Authentication/Authorization.
+        :param pulumi.Input[Union['IdentityProvidersArgs', 'IdentityProvidersArgsDict']] identity_providers: The configuration settings of each of the identity providers used to configure ContainerApp Service Authentication/Authorization.
+        :param pulumi.Input[Union['LoginArgs', 'LoginArgsDict']] login: The configuration settings of the login flow of users using ContainerApp Service Authentication/Authorization.
+        :param pulumi.Input[Union['AuthPlatformArgs', 'AuthPlatformArgsDict']] platform: The configuration settings of the platform of ContainerApp Service Authentication/Authorization.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         """
         ...
@@ -202,11 +207,11 @@ class ContainerAppsAuthConfig(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auth_config_name: Optional[pulumi.Input[str]] = None,
                  container_app_name: Optional[pulumi.Input[str]] = None,
-                 global_validation: Optional[pulumi.Input[pulumi.InputType['GlobalValidationArgs']]] = None,
-                 http_settings: Optional[pulumi.Input[pulumi.InputType['HttpSettingsArgs']]] = None,
-                 identity_providers: Optional[pulumi.Input[pulumi.InputType['IdentityProvidersArgs']]] = None,
-                 login: Optional[pulumi.Input[pulumi.InputType['LoginArgs']]] = None,
-                 platform: Optional[pulumi.Input[pulumi.InputType['AuthPlatformArgs']]] = None,
+                 global_validation: Optional[pulumi.Input[Union['GlobalValidationArgs', 'GlobalValidationArgsDict']]] = None,
+                 http_settings: Optional[pulumi.Input[Union['HttpSettingsArgs', 'HttpSettingsArgsDict']]] = None,
+                 identity_providers: Optional[pulumi.Input[Union['IdentityProvidersArgs', 'IdentityProvidersArgsDict']]] = None,
+                 login: Optional[pulumi.Input[Union['LoginArgs', 'LoginArgsDict']]] = None,
+                 platform: Optional[pulumi.Input[Union['AuthPlatformArgs', 'AuthPlatformArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

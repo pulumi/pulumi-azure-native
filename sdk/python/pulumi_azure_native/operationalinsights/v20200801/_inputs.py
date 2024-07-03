@@ -4,21 +4,51 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'ClusterSkuArgs',
+    'ClusterSkuArgsDict',
     'IdentityArgs',
+    'IdentityArgsDict',
     'KeyVaultPropertiesArgs',
+    'KeyVaultPropertiesArgsDict',
     'StorageAccountArgs',
+    'StorageAccountArgsDict',
     'TagArgs',
+    'TagArgsDict',
     'WorkspaceCappingArgs',
+    'WorkspaceCappingArgsDict',
     'WorkspaceSkuArgs',
+    'WorkspaceSkuArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ClusterSkuArgsDict(TypedDict):
+        """
+        The cluster sku definition.
+        """
+        capacity: NotRequired[pulumi.Input[float]]
+        """
+        The capacity value
+        """
+        name: NotRequired[pulumi.Input[Union[str, 'ClusterSkuNameEnum']]]
+        """
+        The name of the SKU.
+        """
+elif False:
+    ClusterSkuArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ClusterSkuArgs:
@@ -60,6 +90,18 @@ class ClusterSkuArgs:
         pulumi.set(self, "name", value)
 
 
+if not MYPY:
+    class IdentityArgsDict(TypedDict):
+        """
+        Identity for the resource.
+        """
+        type: pulumi.Input['IdentityType']
+        """
+        The identity type.
+        """
+elif False:
+    IdentityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IdentityArgs:
     def __init__(__self__, *,
@@ -82,6 +124,26 @@ class IdentityArgs:
     def type(self, value: pulumi.Input['IdentityType']):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class KeyVaultPropertiesArgsDict(TypedDict):
+        """
+        The key vault properties.
+        """
+        key_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the key associated with the Log Analytics cluster.
+        """
+        key_vault_uri: NotRequired[pulumi.Input[str]]
+        """
+        The Key Vault uri which holds they key associated with the Log Analytics cluster.
+        """
+        key_version: NotRequired[pulumi.Input[str]]
+        """
+        The version of the key associated with the Log Analytics cluster.
+        """
+elif False:
+    KeyVaultPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class KeyVaultPropertiesArgs:
@@ -139,6 +201,22 @@ class KeyVaultPropertiesArgs:
         pulumi.set(self, "key_version", value)
 
 
+if not MYPY:
+    class StorageAccountArgsDict(TypedDict):
+        """
+        Describes a storage account connection.
+        """
+        id: pulumi.Input[str]
+        """
+        The Azure Resource Manager ID of the storage account resource.
+        """
+        key: pulumi.Input[str]
+        """
+        The storage account key.
+        """
+elif False:
+    StorageAccountArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class StorageAccountArgs:
     def __init__(__self__, *,
@@ -176,6 +254,22 @@ class StorageAccountArgs:
     def key(self, value: pulumi.Input[str]):
         pulumi.set(self, "key", value)
 
+
+if not MYPY:
+    class TagArgsDict(TypedDict):
+        """
+        A tag of a saved search.
+        """
+        name: pulumi.Input[str]
+        """
+        The tag name.
+        """
+        value: pulumi.Input[str]
+        """
+        The tag value.
+        """
+elif False:
+    TagArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TagArgs:
@@ -215,6 +309,18 @@ class TagArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class WorkspaceCappingArgsDict(TypedDict):
+        """
+        The daily volume cap for ingestion.
+        """
+        daily_quota_gb: NotRequired[pulumi.Input[float]]
+        """
+        The workspace daily quota for ingestion.
+        """
+elif False:
+    WorkspaceCappingArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WorkspaceCappingArgs:
     def __init__(__self__, *,
@@ -238,6 +344,22 @@ class WorkspaceCappingArgs:
     def daily_quota_gb(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "daily_quota_gb", value)
 
+
+if not MYPY:
+    class WorkspaceSkuArgsDict(TypedDict):
+        """
+        The SKU (tier) of a workspace.
+        """
+        name: pulumi.Input[Union[str, 'WorkspaceSkuNameEnum']]
+        """
+        The name of the SKU.
+        """
+        capacity_reservation_level: NotRequired[pulumi.Input[int]]
+        """
+        The capacity reservation level for this workspace, when CapacityReservation sku is selected.
+        """
+elif False:
+    WorkspaceSkuArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WorkspaceSkuArgs:

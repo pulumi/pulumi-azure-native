@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -144,7 +149,7 @@ class SecurityPartnerProvider(pulumi.CustomResource):
                  security_partner_provider_name: Optional[pulumi.Input[str]] = None,
                  security_provider_name: Optional[pulumi.Input[Union[str, 'SecurityProviderName']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 virtual_hub: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
+                 virtual_hub: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
                  __props__=None):
         """
         Security Partner Provider resource.
@@ -157,7 +162,7 @@ class SecurityPartnerProvider(pulumi.CustomResource):
         :param pulumi.Input[str] security_partner_provider_name: The name of the Security Partner Provider.
         :param pulumi.Input[Union[str, 'SecurityProviderName']] security_provider_name: The security provider name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[pulumi.InputType['SubResourceArgs']] virtual_hub: The virtualHub to which the Security Partner Provider belongs.
+        :param pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']] virtual_hub: The virtualHub to which the Security Partner Provider belongs.
         """
         ...
     @overload
@@ -189,7 +194,7 @@ class SecurityPartnerProvider(pulumi.CustomResource):
                  security_partner_provider_name: Optional[pulumi.Input[str]] = None,
                  security_provider_name: Optional[pulumi.Input[Union[str, 'SecurityProviderName']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 virtual_hub: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
+                 virtual_hub: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

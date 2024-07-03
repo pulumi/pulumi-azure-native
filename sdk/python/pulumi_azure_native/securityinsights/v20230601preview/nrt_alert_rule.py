@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -356,20 +361,20 @@ class NrtAlertRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 alert_details_override: Optional[pulumi.Input[pulumi.InputType['AlertDetailsOverrideArgs']]] = None,
+                 alert_details_override: Optional[pulumi.Input[Union['AlertDetailsOverrideArgs', 'AlertDetailsOverrideArgsDict']]] = None,
                  alert_rule_template_name: Optional[pulumi.Input[str]] = None,
                  custom_details: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 entity_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EntityMappingArgs']]]]] = None,
-                 event_grouping_settings: Optional[pulumi.Input[pulumi.InputType['EventGroupingSettingsArgs']]] = None,
-                 incident_configuration: Optional[pulumi.Input[pulumi.InputType['IncidentConfigurationArgs']]] = None,
+                 entity_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EntityMappingArgs', 'EntityMappingArgsDict']]]]] = None,
+                 event_grouping_settings: Optional[pulumi.Input[Union['EventGroupingSettingsArgs', 'EventGroupingSettingsArgsDict']]] = None,
+                 incident_configuration: Optional[pulumi.Input[Union['IncidentConfigurationArgs', 'IncidentConfigurationArgsDict']]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  query: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  rule_id: Optional[pulumi.Input[str]] = None,
-                 sentinel_entities_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SentinelEntityMappingArgs']]]]] = None,
+                 sentinel_entities_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SentinelEntityMappingArgs', 'SentinelEntityMappingArgsDict']]]]] = None,
                  severity: Optional[pulumi.Input[Union[str, 'AlertSeverity']]] = None,
                  suppression_duration: Optional[pulumi.Input[str]] = None,
                  suppression_enabled: Optional[pulumi.Input[bool]] = None,
@@ -383,21 +388,21 @@ class NrtAlertRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['AlertDetailsOverrideArgs']] alert_details_override: The alert details override settings
+        :param pulumi.Input[Union['AlertDetailsOverrideArgs', 'AlertDetailsOverrideArgsDict']] alert_details_override: The alert details override settings
         :param pulumi.Input[str] alert_rule_template_name: The Name of the alert rule template used to create this rule.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] custom_details: Dictionary of string key-value pairs of columns to be attached to the alert
         :param pulumi.Input[str] description: The description of the alert rule.
         :param pulumi.Input[str] display_name: The display name for alerts created by this alert rule.
         :param pulumi.Input[bool] enabled: Determines whether this alert rule is enabled or disabled.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EntityMappingArgs']]]] entity_mappings: Array of the entity mappings of the alert rule
-        :param pulumi.Input[pulumi.InputType['EventGroupingSettingsArgs']] event_grouping_settings: The event grouping settings.
-        :param pulumi.Input[pulumi.InputType['IncidentConfigurationArgs']] incident_configuration: The settings of the incidents that created from alerts triggered by this analytics rule
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EntityMappingArgs', 'EntityMappingArgsDict']]]] entity_mappings: Array of the entity mappings of the alert rule
+        :param pulumi.Input[Union['EventGroupingSettingsArgs', 'EventGroupingSettingsArgsDict']] event_grouping_settings: The event grouping settings.
+        :param pulumi.Input[Union['IncidentConfigurationArgs', 'IncidentConfigurationArgsDict']] incident_configuration: The settings of the incidents that created from alerts triggered by this analytics rule
         :param pulumi.Input[str] kind: The kind of the alert rule
                Expected value is 'NRT'.
         :param pulumi.Input[str] query: The query that creates alerts for this rule.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] rule_id: Alert rule ID
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SentinelEntityMappingArgs']]]] sentinel_entities_mappings: Array of the sentinel entity mappings of the alert rule
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SentinelEntityMappingArgs', 'SentinelEntityMappingArgsDict']]]] sentinel_entities_mappings: Array of the sentinel entity mappings of the alert rule
         :param pulumi.Input[Union[str, 'AlertSeverity']] severity: The severity for alerts created by this alert rule.
         :param pulumi.Input[str] suppression_duration: The suppression (in ISO 8601 duration format) to wait since last time this alert rule been triggered.
         :param pulumi.Input[bool] suppression_enabled: Determines whether the suppression for this alert rule is enabled or disabled.
@@ -430,20 +435,20 @@ class NrtAlertRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 alert_details_override: Optional[pulumi.Input[pulumi.InputType['AlertDetailsOverrideArgs']]] = None,
+                 alert_details_override: Optional[pulumi.Input[Union['AlertDetailsOverrideArgs', 'AlertDetailsOverrideArgsDict']]] = None,
                  alert_rule_template_name: Optional[pulumi.Input[str]] = None,
                  custom_details: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 entity_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EntityMappingArgs']]]]] = None,
-                 event_grouping_settings: Optional[pulumi.Input[pulumi.InputType['EventGroupingSettingsArgs']]] = None,
-                 incident_configuration: Optional[pulumi.Input[pulumi.InputType['IncidentConfigurationArgs']]] = None,
+                 entity_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EntityMappingArgs', 'EntityMappingArgsDict']]]]] = None,
+                 event_grouping_settings: Optional[pulumi.Input[Union['EventGroupingSettingsArgs', 'EventGroupingSettingsArgsDict']]] = None,
+                 incident_configuration: Optional[pulumi.Input[Union['IncidentConfigurationArgs', 'IncidentConfigurationArgsDict']]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  query: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  rule_id: Optional[pulumi.Input[str]] = None,
-                 sentinel_entities_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SentinelEntityMappingArgs']]]]] = None,
+                 sentinel_entities_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SentinelEntityMappingArgs', 'SentinelEntityMappingArgsDict']]]]] = None,
                  severity: Optional[pulumi.Input[Union[str, 'AlertSeverity']]] = None,
                  suppression_duration: Optional[pulumi.Input[str]] = None,
                  suppression_enabled: Optional[pulumi.Input[bool]] = None,

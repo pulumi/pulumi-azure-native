@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -161,7 +166,7 @@ class Client(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  attributes: Optional[Any] = None,
                  authentication_name: Optional[pulumi.Input[str]] = None,
-                 client_certificate_authentication: Optional[pulumi.Input[pulumi.InputType['ClientCertificateAuthenticationArgs']]] = None,
+                 client_certificate_authentication: Optional[pulumi.Input[Union['ClientCertificateAuthenticationArgs', 'ClientCertificateAuthenticationArgsDict']]] = None,
                  client_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
@@ -177,7 +182,7 @@ class Client(pulumi.CustomResource):
                Example:
                "attributes": { "room": "345", "floor": 12, "deviceTypes": ["Fan", "Light"] }
         :param pulumi.Input[str] authentication_name: The name presented by the client for authentication. The default value is the name of the resource.
-        :param pulumi.Input[pulumi.InputType['ClientCertificateAuthenticationArgs']] client_certificate_authentication: The client certificate authentication information.
+        :param pulumi.Input[Union['ClientCertificateAuthenticationArgs', 'ClientCertificateAuthenticationArgsDict']] client_certificate_authentication: The client certificate authentication information.
         :param pulumi.Input[str] client_name: The client name.
         :param pulumi.Input[str] description: Description for the Client resource.
         :param pulumi.Input[str] namespace_name: Name of the namespace.
@@ -210,7 +215,7 @@ class Client(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  attributes: Optional[Any] = None,
                  authentication_name: Optional[pulumi.Input[str]] = None,
-                 client_certificate_authentication: Optional[pulumi.Input[pulumi.InputType['ClientCertificateAuthenticationArgs']]] = None,
+                 client_certificate_authentication: Optional[pulumi.Input[Union['ClientCertificateAuthenticationArgs', 'ClientCertificateAuthenticationArgsDict']]] = None,
                  client_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,

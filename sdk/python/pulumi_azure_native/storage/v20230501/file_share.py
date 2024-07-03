@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -194,7 +199,7 @@ class FileShare(pulumi.CustomResource):
                  root_squash: Optional[pulumi.Input[Union[str, 'RootSquashType']]] = None,
                  share_name: Optional[pulumi.Input[str]] = None,
                  share_quota: Optional[pulumi.Input[int]] = None,
-                 signed_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SignedIdentifierArgs']]]]] = None,
+                 signed_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SignedIdentifierArgs', 'SignedIdentifierArgsDict']]]]] = None,
                  __props__=None):
         """
         Properties of the file share, including Id, resource name, resource type, Etag.
@@ -210,7 +215,7 @@ class FileShare(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'RootSquashType']] root_squash: The property is for NFS share only. The default is NoRootSquash.
         :param pulumi.Input[str] share_name: The name of the file share within the specified storage account. File share names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
         :param pulumi.Input[int] share_quota: The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5TB (5120). For Large File Shares, the maximum size is 102400.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SignedIdentifierArgs']]]] signed_identifiers: List of stored access policies specified on the share.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SignedIdentifierArgs', 'SignedIdentifierArgsDict']]]] signed_identifiers: List of stored access policies specified on the share.
         """
         ...
     @overload
@@ -245,7 +250,7 @@ class FileShare(pulumi.CustomResource):
                  root_squash: Optional[pulumi.Input[Union[str, 'RootSquashType']]] = None,
                  share_name: Optional[pulumi.Input[str]] = None,
                  share_quota: Optional[pulumi.Input[int]] = None,
-                 signed_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SignedIdentifierArgs']]]]] = None,
+                 signed_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SignedIdentifierArgs', 'SignedIdentifierArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

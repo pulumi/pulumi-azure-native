@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -297,46 +302,46 @@ class NotificationHub(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 adm_credential: Optional[pulumi.Input[pulumi.InputType['AdmCredentialArgs']]] = None,
-                 apns_credential: Optional[pulumi.Input[pulumi.InputType['ApnsCredentialArgs']]] = None,
-                 baidu_credential: Optional[pulumi.Input[pulumi.InputType['BaiduCredentialArgs']]] = None,
-                 browser_credential: Optional[pulumi.Input[pulumi.InputType['BrowserCredentialArgs']]] = None,
-                 fcm_v1_credential: Optional[pulumi.Input[pulumi.InputType['FcmV1CredentialArgs']]] = None,
-                 gcm_credential: Optional[pulumi.Input[pulumi.InputType['GcmCredentialArgs']]] = None,
+                 adm_credential: Optional[pulumi.Input[Union['AdmCredentialArgs', 'AdmCredentialArgsDict']]] = None,
+                 apns_credential: Optional[pulumi.Input[Union['ApnsCredentialArgs', 'ApnsCredentialArgsDict']]] = None,
+                 baidu_credential: Optional[pulumi.Input[Union['BaiduCredentialArgs', 'BaiduCredentialArgsDict']]] = None,
+                 browser_credential: Optional[pulumi.Input[Union['BrowserCredentialArgs', 'BrowserCredentialArgsDict']]] = None,
+                 fcm_v1_credential: Optional[pulumi.Input[Union['FcmV1CredentialArgs', 'FcmV1CredentialArgsDict']]] = None,
+                 gcm_credential: Optional[pulumi.Input[Union['GcmCredentialArgs', 'GcmCredentialArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 mpns_credential: Optional[pulumi.Input[pulumi.InputType['MpnsCredentialArgs']]] = None,
+                 mpns_credential: Optional[pulumi.Input[Union['MpnsCredentialArgs', 'MpnsCredentialArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
                  notification_hub_name: Optional[pulumi.Input[str]] = None,
                  registration_ttl: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 wns_credential: Optional[pulumi.Input[pulumi.InputType['WnsCredentialArgs']]] = None,
-                 xiaomi_credential: Optional[pulumi.Input[pulumi.InputType['XiaomiCredentialArgs']]] = None,
+                 wns_credential: Optional[pulumi.Input[Union['WnsCredentialArgs', 'WnsCredentialArgsDict']]] = None,
+                 xiaomi_credential: Optional[pulumi.Input[Union['XiaomiCredentialArgs', 'XiaomiCredentialArgsDict']]] = None,
                  __props__=None):
         """
         Notification Hub Resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['AdmCredentialArgs']] adm_credential: Description of a NotificationHub AdmCredential.
-        :param pulumi.Input[pulumi.InputType['ApnsCredentialArgs']] apns_credential: Description of a NotificationHub ApnsCredential.
-        :param pulumi.Input[pulumi.InputType['BaiduCredentialArgs']] baidu_credential: Description of a NotificationHub BaiduCredential.
-        :param pulumi.Input[pulumi.InputType['BrowserCredentialArgs']] browser_credential: Description of a NotificationHub BrowserCredential.
-        :param pulumi.Input[pulumi.InputType['FcmV1CredentialArgs']] fcm_v1_credential: Description of a NotificationHub FcmV1Credential.
-        :param pulumi.Input[pulumi.InputType['GcmCredentialArgs']] gcm_credential: Description of a NotificationHub GcmCredential.
+        :param pulumi.Input[Union['AdmCredentialArgs', 'AdmCredentialArgsDict']] adm_credential: Description of a NotificationHub AdmCredential.
+        :param pulumi.Input[Union['ApnsCredentialArgs', 'ApnsCredentialArgsDict']] apns_credential: Description of a NotificationHub ApnsCredential.
+        :param pulumi.Input[Union['BaiduCredentialArgs', 'BaiduCredentialArgsDict']] baidu_credential: Description of a NotificationHub BaiduCredential.
+        :param pulumi.Input[Union['BrowserCredentialArgs', 'BrowserCredentialArgsDict']] browser_credential: Description of a NotificationHub BrowserCredential.
+        :param pulumi.Input[Union['FcmV1CredentialArgs', 'FcmV1CredentialArgsDict']] fcm_v1_credential: Description of a NotificationHub FcmV1Credential.
+        :param pulumi.Input[Union['GcmCredentialArgs', 'GcmCredentialArgsDict']] gcm_credential: Description of a NotificationHub GcmCredential.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[pulumi.InputType['MpnsCredentialArgs']] mpns_credential: Description of a NotificationHub MpnsCredential.
+        :param pulumi.Input[Union['MpnsCredentialArgs', 'MpnsCredentialArgsDict']] mpns_credential: Description of a NotificationHub MpnsCredential.
         :param pulumi.Input[str] name: Gets or sets the NotificationHub name.
         :param pulumi.Input[str] namespace_name: Namespace name
         :param pulumi.Input[str] notification_hub_name: Notification Hub name
         :param pulumi.Input[str] registration_ttl: Gets or sets the RegistrationTtl of the created NotificationHub
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The Sku description for a namespace
+        :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: The Sku description for a namespace
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[pulumi.InputType['WnsCredentialArgs']] wns_credential: Description of a NotificationHub WnsCredential.
-        :param pulumi.Input[pulumi.InputType['XiaomiCredentialArgs']] xiaomi_credential: Description of a NotificationHub XiaomiCredential.
+        :param pulumi.Input[Union['WnsCredentialArgs', 'WnsCredentialArgsDict']] wns_credential: Description of a NotificationHub WnsCredential.
+        :param pulumi.Input[Union['XiaomiCredentialArgs', 'XiaomiCredentialArgsDict']] xiaomi_credential: Description of a NotificationHub XiaomiCredential.
         """
         ...
     @overload
@@ -362,23 +367,23 @@ class NotificationHub(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 adm_credential: Optional[pulumi.Input[pulumi.InputType['AdmCredentialArgs']]] = None,
-                 apns_credential: Optional[pulumi.Input[pulumi.InputType['ApnsCredentialArgs']]] = None,
-                 baidu_credential: Optional[pulumi.Input[pulumi.InputType['BaiduCredentialArgs']]] = None,
-                 browser_credential: Optional[pulumi.Input[pulumi.InputType['BrowserCredentialArgs']]] = None,
-                 fcm_v1_credential: Optional[pulumi.Input[pulumi.InputType['FcmV1CredentialArgs']]] = None,
-                 gcm_credential: Optional[pulumi.Input[pulumi.InputType['GcmCredentialArgs']]] = None,
+                 adm_credential: Optional[pulumi.Input[Union['AdmCredentialArgs', 'AdmCredentialArgsDict']]] = None,
+                 apns_credential: Optional[pulumi.Input[Union['ApnsCredentialArgs', 'ApnsCredentialArgsDict']]] = None,
+                 baidu_credential: Optional[pulumi.Input[Union['BaiduCredentialArgs', 'BaiduCredentialArgsDict']]] = None,
+                 browser_credential: Optional[pulumi.Input[Union['BrowserCredentialArgs', 'BrowserCredentialArgsDict']]] = None,
+                 fcm_v1_credential: Optional[pulumi.Input[Union['FcmV1CredentialArgs', 'FcmV1CredentialArgsDict']]] = None,
+                 gcm_credential: Optional[pulumi.Input[Union['GcmCredentialArgs', 'GcmCredentialArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 mpns_credential: Optional[pulumi.Input[pulumi.InputType['MpnsCredentialArgs']]] = None,
+                 mpns_credential: Optional[pulumi.Input[Union['MpnsCredentialArgs', 'MpnsCredentialArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
                  notification_hub_name: Optional[pulumi.Input[str]] = None,
                  registration_ttl: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 wns_credential: Optional[pulumi.Input[pulumi.InputType['WnsCredentialArgs']]] = None,
-                 xiaomi_credential: Optional[pulumi.Input[pulumi.InputType['XiaomiCredentialArgs']]] = None,
+                 wns_credential: Optional[pulumi.Input[Union['WnsCredentialArgs', 'WnsCredentialArgsDict']]] = None,
+                 xiaomi_credential: Optional[pulumi.Input[Union['XiaomiCredentialArgs', 'XiaomiCredentialArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

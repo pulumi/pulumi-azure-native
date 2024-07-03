@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -186,7 +191,7 @@ class ADCCatalog(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 admins: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrincipalsArgs']]]]] = None,
+                 admins: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PrincipalsArgs', 'PrincipalsArgsDict']]]]] = None,
                  catalog_name: Optional[pulumi.Input[str]] = None,
                  enable_automatic_unit_adjustment: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -195,14 +200,14 @@ class ADCCatalog(pulumi.CustomResource):
                  successfully_provisioned: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  units: Optional[pulumi.Input[int]] = None,
-                 users: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrincipalsArgs']]]]] = None,
+                 users: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PrincipalsArgs', 'PrincipalsArgsDict']]]]] = None,
                  __props__=None):
         """
         Azure Data Catalog.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrincipalsArgs']]]] admins: Azure data catalog admin list.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PrincipalsArgs', 'PrincipalsArgsDict']]]] admins: Azure data catalog admin list.
         :param pulumi.Input[str] catalog_name: The name of the data catalog in the specified subscription and resource group.
         :param pulumi.Input[bool] enable_automatic_unit_adjustment: Automatic unit adjustment enabled or not.
         :param pulumi.Input[str] location: Resource location
@@ -211,7 +216,7 @@ class ADCCatalog(pulumi.CustomResource):
         :param pulumi.Input[bool] successfully_provisioned: Azure data catalog provision status.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[int] units: Azure data catalog units.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrincipalsArgs']]]] users: Azure data catalog user list.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PrincipalsArgs', 'PrincipalsArgsDict']]]] users: Azure data catalog user list.
         """
         ...
     @overload
@@ -237,7 +242,7 @@ class ADCCatalog(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 admins: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrincipalsArgs']]]]] = None,
+                 admins: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PrincipalsArgs', 'PrincipalsArgsDict']]]]] = None,
                  catalog_name: Optional[pulumi.Input[str]] = None,
                  enable_automatic_unit_adjustment: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -246,7 +251,7 @@ class ADCCatalog(pulumi.CustomResource):
                  successfully_provisioned: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  units: Optional[pulumi.Input[int]] = None,
-                 users: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrincipalsArgs']]]]] = None,
+                 users: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PrincipalsArgs', 'PrincipalsArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

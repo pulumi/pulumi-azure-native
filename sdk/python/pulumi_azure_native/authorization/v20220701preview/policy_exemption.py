@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -211,7 +216,7 @@ class PolicyExemption(pulumi.CustomResource):
                  policy_assignment_id: Optional[pulumi.Input[str]] = None,
                  policy_definition_reference_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  policy_exemption_name: Optional[pulumi.Input[str]] = None,
-                 resource_selectors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceSelectorArgs']]]]] = None,
+                 resource_selectors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResourceSelectorArgs', 'ResourceSelectorArgsDict']]]]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -228,7 +233,7 @@ class PolicyExemption(pulumi.CustomResource):
         :param pulumi.Input[str] policy_assignment_id: The ID of the policy assignment that is being exempted.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] policy_definition_reference_ids: The policy definition reference ID list when the associated policy assignment is an assignment of a policy set definition.
         :param pulumi.Input[str] policy_exemption_name: The name of the policy exemption to delete.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceSelectorArgs']]]] resource_selectors: The resource selector list to filter policies by resource properties.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ResourceSelectorArgs', 'ResourceSelectorArgsDict']]]] resource_selectors: The resource selector list to filter policies by resource properties.
         :param pulumi.Input[str] scope: The scope of the policy exemption. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
         """
         ...
@@ -264,7 +269,7 @@ class PolicyExemption(pulumi.CustomResource):
                  policy_assignment_id: Optional[pulumi.Input[str]] = None,
                  policy_definition_reference_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  policy_exemption_name: Optional[pulumi.Input[str]] = None,
-                 resource_selectors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceSelectorArgs']]]]] = None,
+                 resource_selectors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResourceSelectorArgs', 'ResourceSelectorArgsDict']]]]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

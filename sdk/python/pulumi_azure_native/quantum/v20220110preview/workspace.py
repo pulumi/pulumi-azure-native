@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -138,9 +143,9 @@ class Workspace(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['QuantumWorkspaceIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['QuantumWorkspaceIdentityArgs', 'QuantumWorkspaceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 providers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProviderArgs']]]]] = None,
+                 providers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProviderArgs', 'ProviderArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  storage_account: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -151,9 +156,9 @@ class Workspace(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['QuantumWorkspaceIdentityArgs']] identity: Managed Identity information.
+        :param pulumi.Input[Union['QuantumWorkspaceIdentityArgs', 'QuantumWorkspaceIdentityArgsDict']] identity: Managed Identity information.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProviderArgs']]]] providers: List of Providers selected for this Workspace
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ProviderArgs', 'ProviderArgsDict']]]] providers: List of Providers selected for this Workspace
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] storage_account: ARM Resource Id of the storage account associated with this workspace.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -183,9 +188,9 @@ class Workspace(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['QuantumWorkspaceIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['QuantumWorkspaceIdentityArgs', 'QuantumWorkspaceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 providers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProviderArgs']]]]] = None,
+                 providers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProviderArgs', 'ProviderArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  storage_account: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,

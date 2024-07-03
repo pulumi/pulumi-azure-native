@@ -4,14 +4,42 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 
 __all__ = [
     'LogAnalyticsQueryPackQueryPropertiesRelatedArgs',
+    'LogAnalyticsQueryPackQueryPropertiesRelatedArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class LogAnalyticsQueryPackQueryPropertiesRelatedArgsDict(TypedDict):
+        """
+        The related metadata items for the function.
+        """
+        categories: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The related categories for the function.
+        """
+        resource_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The related resource types for the function.
+        """
+        solutions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The related Log Analytics solutions for the function.
+        """
+elif False:
+    LogAnalyticsQueryPackQueryPropertiesRelatedArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LogAnalyticsQueryPackQueryPropertiesRelatedArgs:

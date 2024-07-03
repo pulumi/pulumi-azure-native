@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -191,7 +196,7 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
                  default_principals_modification_kind: Optional[pulumi.Input[Union[str, 'DefaultPrincipalsModificationKind']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 table_level_sharing_properties: Optional[pulumi.Input[pulumi.InputType['TableLevelSharingPropertiesArgs']]] = None,
+                 table_level_sharing_properties: Optional[pulumi.Input[Union['TableLevelSharingPropertiesArgs', 'TableLevelSharingPropertiesArgsDict']]] = None,
                  __props__=None):
         """
         Class representing an attached database configuration.
@@ -207,7 +212,7 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'DefaultPrincipalsModificationKind']] default_principals_modification_kind: The default principals modification kind
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[pulumi.InputType['TableLevelSharingPropertiesArgs']] table_level_sharing_properties: Table level sharing specifications
+        :param pulumi.Input[Union['TableLevelSharingPropertiesArgs', 'TableLevelSharingPropertiesArgsDict']] table_level_sharing_properties: Table level sharing specifications
         """
         ...
     @overload
@@ -242,7 +247,7 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
                  default_principals_modification_kind: Optional[pulumi.Input[Union[str, 'DefaultPrincipalsModificationKind']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 table_level_sharing_properties: Optional[pulumi.Input[pulumi.InputType['TableLevelSharingPropertiesArgs']]] = None,
+                 table_level_sharing_properties: Optional[pulumi.Input[Union['TableLevelSharingPropertiesArgs', 'TableLevelSharingPropertiesArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

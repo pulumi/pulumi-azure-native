@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -201,7 +206,7 @@ class LiveOutput(pulumi.CustomResource):
                  archive_window_length: Optional[pulumi.Input[str]] = None,
                  asset_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 hls: Optional[pulumi.Input[pulumi.InputType['HlsArgs']]] = None,
+                 hls: Optional[pulumi.Input[Union['HlsArgs', 'HlsArgsDict']]] = None,
                  live_event_name: Optional[pulumi.Input[str]] = None,
                  live_output_name: Optional[pulumi.Input[str]] = None,
                  manifest_name: Optional[pulumi.Input[str]] = None,
@@ -218,7 +223,7 @@ class LiveOutput(pulumi.CustomResource):
         :param pulumi.Input[str] archive_window_length: ISO 8601 time between 1 minute to 25 hours to indicate the maximum content length that can be archived in the asset for this live output. This also sets the maximum content length for the rewind window. For example, use PT1H30M to indicate 1 hour and 30 minutes of archive window.
         :param pulumi.Input[str] asset_name: The asset that the live output will write to.
         :param pulumi.Input[str] description: The description of the live output.
-        :param pulumi.Input[pulumi.InputType['HlsArgs']] hls: HTTP Live Streaming (HLS) packing setting for the live output.
+        :param pulumi.Input[Union['HlsArgs', 'HlsArgsDict']] hls: HTTP Live Streaming (HLS) packing setting for the live output.
         :param pulumi.Input[str] live_event_name: The name of the live event, maximum length is 32.
         :param pulumi.Input[str] live_output_name: The name of the live output.
         :param pulumi.Input[str] manifest_name: The manifest file name. If not provided, the service will generate one automatically.
@@ -254,7 +259,7 @@ class LiveOutput(pulumi.CustomResource):
                  archive_window_length: Optional[pulumi.Input[str]] = None,
                  asset_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 hls: Optional[pulumi.Input[pulumi.InputType['HlsArgs']]] = None,
+                 hls: Optional[pulumi.Input[Union['HlsArgs', 'HlsArgsDict']]] = None,
                  live_event_name: Optional[pulumi.Input[str]] = None,
                  live_output_name: Optional[pulumi.Input[str]] = None,
                  manifest_name: Optional[pulumi.Input[str]] = None,

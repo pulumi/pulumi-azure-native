@@ -4,14 +4,38 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 
 __all__ = [
     'StorageAccountArgs',
+    'StorageAccountArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class StorageAccountArgsDict(TypedDict):
+        """
+        The properties of a storage account associated with this resource.
+        """
+        id: pulumi.Input[str]
+        """
+        The id of the storage account resource. Media Services relies on tables and queues as well as blobs, so the primary storage account must be a Standard Storage account (either Microsoft.ClassicStorage or Microsoft.Storage). Blob only storage accounts can be added as secondary storage accounts (isPrimary false).
+        """
+        is_primary: pulumi.Input[bool]
+        """
+        Is this storage account resource the primary storage account for the Media Service resource. Blob only storage must set this to false.
+        """
+elif False:
+    StorageAccountArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class StorageAccountArgs:

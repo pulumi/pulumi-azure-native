@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -201,7 +206,7 @@ class IntegrationAccountPartner(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 content: Optional[pulumi.Input[pulumi.InputType['PartnerContentArgs']]] = None,
+                 content: Optional[pulumi.Input[Union['PartnerContentArgs', 'PartnerContentArgsDict']]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  integration_account_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -217,7 +222,7 @@ class IntegrationAccountPartner(pulumi.CustomResource):
         Create a IntegrationAccountPartner resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['PartnerContentArgs']] content: The partner content.
+        :param pulumi.Input[Union['PartnerContentArgs', 'PartnerContentArgsDict']] content: The partner content.
         :param pulumi.Input[str] id: The resource id.
         :param pulumi.Input[str] integration_account_name: The integration account name.
         :param pulumi.Input[str] location: The resource location.
@@ -252,7 +257,7 @@ class IntegrationAccountPartner(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 content: Optional[pulumi.Input[pulumi.InputType['PartnerContentArgs']]] = None,
+                 content: Optional[pulumi.Input[Union['PartnerContentArgs', 'PartnerContentArgsDict']]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  integration_account_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,

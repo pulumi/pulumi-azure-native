@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -220,15 +225,15 @@ class BlobServiceProperties(pulumi.CustomResource):
                  account_name: Optional[pulumi.Input[str]] = None,
                  automatic_snapshot_policy_enabled: Optional[pulumi.Input[bool]] = None,
                  blob_services_name: Optional[pulumi.Input[str]] = None,
-                 change_feed: Optional[pulumi.Input[pulumi.InputType['ChangeFeedArgs']]] = None,
-                 container_delete_retention_policy: Optional[pulumi.Input[pulumi.InputType['DeleteRetentionPolicyArgs']]] = None,
-                 cors: Optional[pulumi.Input[pulumi.InputType['CorsRulesArgs']]] = None,
+                 change_feed: Optional[pulumi.Input[Union['ChangeFeedArgs', 'ChangeFeedArgsDict']]] = None,
+                 container_delete_retention_policy: Optional[pulumi.Input[Union['DeleteRetentionPolicyArgs', 'DeleteRetentionPolicyArgsDict']]] = None,
+                 cors: Optional[pulumi.Input[Union['CorsRulesArgs', 'CorsRulesArgsDict']]] = None,
                  default_service_version: Optional[pulumi.Input[str]] = None,
-                 delete_retention_policy: Optional[pulumi.Input[pulumi.InputType['DeleteRetentionPolicyArgs']]] = None,
+                 delete_retention_policy: Optional[pulumi.Input[Union['DeleteRetentionPolicyArgs', 'DeleteRetentionPolicyArgsDict']]] = None,
                  is_versioning_enabled: Optional[pulumi.Input[bool]] = None,
-                 last_access_time_tracking_policy: Optional[pulumi.Input[pulumi.InputType['LastAccessTimeTrackingPolicyArgs']]] = None,
+                 last_access_time_tracking_policy: Optional[pulumi.Input[Union['LastAccessTimeTrackingPolicyArgs', 'LastAccessTimeTrackingPolicyArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 restore_policy: Optional[pulumi.Input[pulumi.InputType['RestorePolicyPropertiesArgs']]] = None,
+                 restore_policy: Optional[pulumi.Input[Union['RestorePolicyPropertiesArgs', 'RestorePolicyPropertiesArgsDict']]] = None,
                  __props__=None):
         """
         The properties of a storage account’s Blob service.
@@ -241,15 +246,15 @@ class BlobServiceProperties(pulumi.CustomResource):
         :param pulumi.Input[str] account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
         :param pulumi.Input[bool] automatic_snapshot_policy_enabled: Deprecated in favor of isVersioningEnabled property.
         :param pulumi.Input[str] blob_services_name: The name of the blob Service within the specified storage account. Blob Service Name must be 'default'
-        :param pulumi.Input[pulumi.InputType['ChangeFeedArgs']] change_feed: The blob service properties for change feed events.
-        :param pulumi.Input[pulumi.InputType['DeleteRetentionPolicyArgs']] container_delete_retention_policy: The blob service properties for container soft delete.
-        :param pulumi.Input[pulumi.InputType['CorsRulesArgs']] cors: Specifies CORS rules for the Blob service. You can include up to five CorsRule elements in the request. If no CorsRule elements are included in the request body, all CORS rules will be deleted, and CORS will be disabled for the Blob service.
+        :param pulumi.Input[Union['ChangeFeedArgs', 'ChangeFeedArgsDict']] change_feed: The blob service properties for change feed events.
+        :param pulumi.Input[Union['DeleteRetentionPolicyArgs', 'DeleteRetentionPolicyArgsDict']] container_delete_retention_policy: The blob service properties for container soft delete.
+        :param pulumi.Input[Union['CorsRulesArgs', 'CorsRulesArgsDict']] cors: Specifies CORS rules for the Blob service. You can include up to five CorsRule elements in the request. If no CorsRule elements are included in the request body, all CORS rules will be deleted, and CORS will be disabled for the Blob service.
         :param pulumi.Input[str] default_service_version: DefaultServiceVersion indicates the default version to use for requests to the Blob service if an incoming request’s version is not specified. Possible values include version 2008-10-27 and all more recent versions.
-        :param pulumi.Input[pulumi.InputType['DeleteRetentionPolicyArgs']] delete_retention_policy: The blob service properties for blob soft delete.
+        :param pulumi.Input[Union['DeleteRetentionPolicyArgs', 'DeleteRetentionPolicyArgsDict']] delete_retention_policy: The blob service properties for blob soft delete.
         :param pulumi.Input[bool] is_versioning_enabled: Versioning is enabled if set to true.
-        :param pulumi.Input[pulumi.InputType['LastAccessTimeTrackingPolicyArgs']] last_access_time_tracking_policy: The blob service property to configure last access time based tracking policy.
+        :param pulumi.Input[Union['LastAccessTimeTrackingPolicyArgs', 'LastAccessTimeTrackingPolicyArgsDict']] last_access_time_tracking_policy: The blob service property to configure last access time based tracking policy.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
-        :param pulumi.Input[pulumi.InputType['RestorePolicyPropertiesArgs']] restore_policy: The blob service properties for blob restore policy.
+        :param pulumi.Input[Union['RestorePolicyPropertiesArgs', 'RestorePolicyPropertiesArgsDict']] restore_policy: The blob service properties for blob restore policy.
         """
         ...
     @overload
@@ -281,15 +286,15 @@ class BlobServiceProperties(pulumi.CustomResource):
                  account_name: Optional[pulumi.Input[str]] = None,
                  automatic_snapshot_policy_enabled: Optional[pulumi.Input[bool]] = None,
                  blob_services_name: Optional[pulumi.Input[str]] = None,
-                 change_feed: Optional[pulumi.Input[pulumi.InputType['ChangeFeedArgs']]] = None,
-                 container_delete_retention_policy: Optional[pulumi.Input[pulumi.InputType['DeleteRetentionPolicyArgs']]] = None,
-                 cors: Optional[pulumi.Input[pulumi.InputType['CorsRulesArgs']]] = None,
+                 change_feed: Optional[pulumi.Input[Union['ChangeFeedArgs', 'ChangeFeedArgsDict']]] = None,
+                 container_delete_retention_policy: Optional[pulumi.Input[Union['DeleteRetentionPolicyArgs', 'DeleteRetentionPolicyArgsDict']]] = None,
+                 cors: Optional[pulumi.Input[Union['CorsRulesArgs', 'CorsRulesArgsDict']]] = None,
                  default_service_version: Optional[pulumi.Input[str]] = None,
-                 delete_retention_policy: Optional[pulumi.Input[pulumi.InputType['DeleteRetentionPolicyArgs']]] = None,
+                 delete_retention_policy: Optional[pulumi.Input[Union['DeleteRetentionPolicyArgs', 'DeleteRetentionPolicyArgsDict']]] = None,
                  is_versioning_enabled: Optional[pulumi.Input[bool]] = None,
-                 last_access_time_tracking_policy: Optional[pulumi.Input[pulumi.InputType['LastAccessTimeTrackingPolicyArgs']]] = None,
+                 last_access_time_tracking_policy: Optional[pulumi.Input[Union['LastAccessTimeTrackingPolicyArgs', 'LastAccessTimeTrackingPolicyArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 restore_policy: Optional[pulumi.Input[pulumi.InputType['RestorePolicyPropertiesArgs']]] = None,
+                 restore_policy: Optional[pulumi.Input[Union['RestorePolicyPropertiesArgs', 'RestorePolicyPropertiesArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

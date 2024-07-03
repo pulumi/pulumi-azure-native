@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -139,7 +144,7 @@ class ManagedClusterService(pulumi.CustomResource):
                  application_name: Optional[pulumi.Input[str]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[Union[pulumi.InputType['StatefulServicePropertiesArgs'], pulumi.InputType['StatelessServicePropertiesArgs']]]] = None,
+                 properties: Optional[pulumi.Input[Union[Union['StatefulServicePropertiesArgs', 'StatefulServicePropertiesArgsDict'], Union['StatelessServicePropertiesArgs', 'StatelessServicePropertiesArgsDict']]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -152,7 +157,7 @@ class ManagedClusterService(pulumi.CustomResource):
         :param pulumi.Input[str] application_name: The name of the application resource.
         :param pulumi.Input[str] cluster_name: The name of the cluster resource.
         :param pulumi.Input[str] location: Resource location depends on the parent resource.
-        :param pulumi.Input[Union[pulumi.InputType['StatefulServicePropertiesArgs'], pulumi.InputType['StatelessServicePropertiesArgs']]] properties: The service resource properties.
+        :param pulumi.Input[Union[Union['StatefulServicePropertiesArgs', 'StatefulServicePropertiesArgsDict'], Union['StatelessServicePropertiesArgs', 'StatelessServicePropertiesArgsDict']]] properties: The service resource properties.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] service_name: The name of the service resource in the format of {applicationName}~{serviceName}.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Azure resource tags.
@@ -184,7 +189,7 @@ class ManagedClusterService(pulumi.CustomResource):
                  application_name: Optional[pulumi.Input[str]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[Union[pulumi.InputType['StatefulServicePropertiesArgs'], pulumi.InputType['StatelessServicePropertiesArgs']]]] = None,
+                 properties: Optional[pulumi.Input[Union[Union['StatefulServicePropertiesArgs', 'StatefulServicePropertiesArgsDict'], Union['StatelessServicePropertiesArgs', 'StatelessServicePropertiesArgsDict']]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -149,8 +154,8 @@ class L2Connection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 edge_site: Optional[pulumi.Input[pulumi.InputType['L2ConnectionsPropertiesEdgeSiteArgs']]] = None,
-                 ground_station: Optional[pulumi.Input[pulumi.InputType['L2ConnectionsPropertiesGroundStationArgs']]] = None,
+                 edge_site: Optional[pulumi.Input[Union['L2ConnectionsPropertiesEdgeSiteArgs', 'L2ConnectionsPropertiesEdgeSiteArgsDict']]] = None,
+                 ground_station: Optional[pulumi.Input[Union['L2ConnectionsPropertiesGroundStationArgs', 'L2ConnectionsPropertiesGroundStationArgsDict']]] = None,
                  l2_connection_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -163,8 +168,8 @@ class L2Connection(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['L2ConnectionsPropertiesEdgeSiteArgs']] edge_site: A reference to an Microsoft.Orbital/edgeSites resource to route traffic for.
-        :param pulumi.Input[pulumi.InputType['L2ConnectionsPropertiesGroundStationArgs']] ground_station: A reference to an Microsoft.Orbital/groundStations resource to route traffic for.
+        :param pulumi.Input[Union['L2ConnectionsPropertiesEdgeSiteArgs', 'L2ConnectionsPropertiesEdgeSiteArgsDict']] edge_site: A reference to an Microsoft.Orbital/edgeSites resource to route traffic for.
+        :param pulumi.Input[Union['L2ConnectionsPropertiesGroundStationArgs', 'L2ConnectionsPropertiesGroundStationArgsDict']] ground_station: A reference to an Microsoft.Orbital/groundStations resource to route traffic for.
         :param pulumi.Input[str] l2_connection_name: L2 Connection name.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] name: The unique name of the partner router that cross-connects with the Orbital Edge Router at the ground station site.
@@ -196,8 +201,8 @@ class L2Connection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 edge_site: Optional[pulumi.Input[pulumi.InputType['L2ConnectionsPropertiesEdgeSiteArgs']]] = None,
-                 ground_station: Optional[pulumi.Input[pulumi.InputType['L2ConnectionsPropertiesGroundStationArgs']]] = None,
+                 edge_site: Optional[pulumi.Input[Union['L2ConnectionsPropertiesEdgeSiteArgs', 'L2ConnectionsPropertiesEdgeSiteArgsDict']]] = None,
+                 ground_station: Optional[pulumi.Input[Union['L2ConnectionsPropertiesGroundStationArgs', 'L2ConnectionsPropertiesGroundStationArgsDict']]] = None,
                  l2_connection_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,

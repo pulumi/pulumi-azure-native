@@ -4,17 +4,59 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'ManagedInstanceExternalAdministratorArgs',
+    'ManagedInstanceExternalAdministratorArgsDict',
     'ResourceIdentityArgs',
+    'ResourceIdentityArgsDict',
     'SkuArgs',
+    'SkuArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ManagedInstanceExternalAdministratorArgsDict(TypedDict):
+        """
+        Properties of a active directory administrator.
+        """
+        administrator_type: NotRequired[pulumi.Input[Union[str, 'AdministratorType']]]
+        """
+        Type of the sever administrator.
+        """
+        azure_ad_only_authentication: NotRequired[pulumi.Input[bool]]
+        """
+        Azure Active Directory only Authentication enabled.
+        """
+        login: NotRequired[pulumi.Input[str]]
+        """
+        Login name of the server administrator.
+        """
+        principal_type: NotRequired[pulumi.Input[Union[str, 'PrincipalType']]]
+        """
+        Principal Type of the sever administrator.
+        """
+        sid: NotRequired[pulumi.Input[str]]
+        """
+        SID (object ID) of the server administrator.
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        Tenant ID of the administrator.
+        """
+elif False:
+    ManagedInstanceExternalAdministratorArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ManagedInstanceExternalAdministratorArgs:
@@ -120,6 +162,22 @@ class ManagedInstanceExternalAdministratorArgs:
         pulumi.set(self, "tenant_id", value)
 
 
+if not MYPY:
+    class ResourceIdentityArgsDict(TypedDict):
+        """
+        Azure Active Directory identity configuration for a resource.
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'IdentityType']]]
+        """
+        The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
+        """
+        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The resource ids of the user assigned identities to use
+        """
+elif False:
+    ResourceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ResourceIdentityArgs:
     def __init__(__self__, *,
@@ -159,6 +217,34 @@ class ResourceIdentityArgs:
     def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
+
+if not MYPY:
+    class SkuArgsDict(TypedDict):
+        """
+        An ARM Resource SKU.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the SKU, typically, a letter + Number code, e.g. P3.
+        """
+        capacity: NotRequired[pulumi.Input[int]]
+        """
+        Capacity of the particular SKU.
+        """
+        family: NotRequired[pulumi.Input[str]]
+        """
+        If the service has different generations of hardware, for the same SKU, then that can be captured here.
+        """
+        size: NotRequired[pulumi.Input[str]]
+        """
+        Size of the particular SKU
+        """
+        tier: NotRequired[pulumi.Input[str]]
+        """
+        The tier or edition of the particular SKU, e.g. Basic, Premium.
+        """
+elif False:
+    SkuArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SkuArgs:

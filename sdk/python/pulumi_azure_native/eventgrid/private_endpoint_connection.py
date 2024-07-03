@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -155,9 +160,9 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                  group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  parent_name: Optional[pulumi.Input[str]] = None,
                  parent_type: Optional[pulumi.Input[str]] = None,
-                 private_endpoint: Optional[pulumi.Input[pulumi.InputType['PrivateEndpointArgs']]] = None,
+                 private_endpoint: Optional[pulumi.Input[Union['PrivateEndpointArgs', 'PrivateEndpointArgsDict']]] = None,
                  private_endpoint_connection_name: Optional[pulumi.Input[str]] = None,
-                 private_link_service_connection_state: Optional[pulumi.Input[pulumi.InputType['ConnectionStateArgs']]] = None,
+                 private_link_service_connection_state: Optional[pulumi.Input[Union['ConnectionStateArgs', 'ConnectionStateArgsDict']]] = None,
                  provisioning_state: Optional[pulumi.Input[Union[str, 'ResourceProvisioningState']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -171,9 +176,9 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] group_ids: GroupIds from the private link service resource.
         :param pulumi.Input[str] parent_name: The name of the parent resource (namely, either, the topic name, domain name, or partner namespace name).
         :param pulumi.Input[str] parent_type: The type of the parent resource. This can be either \\'topics\\', \\'domains\\', or \\'partnerNamespaces\\'.
-        :param pulumi.Input[pulumi.InputType['PrivateEndpointArgs']] private_endpoint: The Private Endpoint resource for this Connection.
+        :param pulumi.Input[Union['PrivateEndpointArgs', 'PrivateEndpointArgsDict']] private_endpoint: The Private Endpoint resource for this Connection.
         :param pulumi.Input[str] private_endpoint_connection_name: The name of the private endpoint connection connection.
-        :param pulumi.Input[pulumi.InputType['ConnectionStateArgs']] private_link_service_connection_state: Details about the state of the connection.
+        :param pulumi.Input[Union['ConnectionStateArgs', 'ConnectionStateArgsDict']] private_link_service_connection_state: Details about the state of the connection.
         :param pulumi.Input[Union[str, 'ResourceProvisioningState']] provisioning_state: Provisioning state of the Private Endpoint Connection.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription.
         """
@@ -206,9 +211,9 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                  group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  parent_name: Optional[pulumi.Input[str]] = None,
                  parent_type: Optional[pulumi.Input[str]] = None,
-                 private_endpoint: Optional[pulumi.Input[pulumi.InputType['PrivateEndpointArgs']]] = None,
+                 private_endpoint: Optional[pulumi.Input[Union['PrivateEndpointArgs', 'PrivateEndpointArgsDict']]] = None,
                  private_endpoint_connection_name: Optional[pulumi.Input[str]] = None,
-                 private_link_service_connection_state: Optional[pulumi.Input[pulumi.InputType['ConnectionStateArgs']]] = None,
+                 private_link_service_connection_state: Optional[pulumi.Input[Union['ConnectionStateArgs', 'ConnectionStateArgsDict']]] = None,
                  provisioning_state: Optional[pulumi.Input[Union[str, 'ResourceProvisioningState']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):

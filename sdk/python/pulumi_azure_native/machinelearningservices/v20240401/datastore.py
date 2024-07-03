@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -104,7 +109,7 @@ class Datastore(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 datastore_properties: Optional[pulumi.Input[Union[pulumi.InputType['AzureBlobDatastoreArgs'], pulumi.InputType['AzureDataLakeGen1DatastoreArgs'], pulumi.InputType['AzureDataLakeGen2DatastoreArgs'], pulumi.InputType['AzureFileDatastoreArgs'], pulumi.InputType['OneLakeDatastoreArgs']]]] = None,
+                 datastore_properties: Optional[pulumi.Input[Union[Union['AzureBlobDatastoreArgs', 'AzureBlobDatastoreArgsDict'], Union['AzureDataLakeGen1DatastoreArgs', 'AzureDataLakeGen1DatastoreArgsDict'], Union['AzureDataLakeGen2DatastoreArgs', 'AzureDataLakeGen2DatastoreArgsDict'], Union['AzureFileDatastoreArgs', 'AzureFileDatastoreArgsDict'], Union['OneLakeDatastoreArgs', 'OneLakeDatastoreArgsDict']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  skip_validation: Optional[pulumi.Input[bool]] = None,
@@ -115,7 +120,7 @@ class Datastore(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union[pulumi.InputType['AzureBlobDatastoreArgs'], pulumi.InputType['AzureDataLakeGen1DatastoreArgs'], pulumi.InputType['AzureDataLakeGen2DatastoreArgs'], pulumi.InputType['AzureFileDatastoreArgs'], pulumi.InputType['OneLakeDatastoreArgs']]] datastore_properties: [Required] Additional attributes of the entity.
+        :param pulumi.Input[Union[Union['AzureBlobDatastoreArgs', 'AzureBlobDatastoreArgsDict'], Union['AzureDataLakeGen1DatastoreArgs', 'AzureDataLakeGen1DatastoreArgsDict'], Union['AzureDataLakeGen2DatastoreArgs', 'AzureDataLakeGen2DatastoreArgsDict'], Union['AzureFileDatastoreArgs', 'AzureFileDatastoreArgsDict'], Union['OneLakeDatastoreArgs', 'OneLakeDatastoreArgsDict']]] datastore_properties: [Required] Additional attributes of the entity.
         :param pulumi.Input[str] name: Datastore name.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[bool] skip_validation: Flag to skip validation.
@@ -145,7 +150,7 @@ class Datastore(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 datastore_properties: Optional[pulumi.Input[Union[pulumi.InputType['AzureBlobDatastoreArgs'], pulumi.InputType['AzureDataLakeGen1DatastoreArgs'], pulumi.InputType['AzureDataLakeGen2DatastoreArgs'], pulumi.InputType['AzureFileDatastoreArgs'], pulumi.InputType['OneLakeDatastoreArgs']]]] = None,
+                 datastore_properties: Optional[pulumi.Input[Union[Union['AzureBlobDatastoreArgs', 'AzureBlobDatastoreArgsDict'], Union['AzureDataLakeGen1DatastoreArgs', 'AzureDataLakeGen1DatastoreArgsDict'], Union['AzureDataLakeGen2DatastoreArgs', 'AzureDataLakeGen2DatastoreArgsDict'], Union['AzureFileDatastoreArgs', 'AzureFileDatastoreArgsDict'], Union['OneLakeDatastoreArgs', 'OneLakeDatastoreArgsDict']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  skip_validation: Optional[pulumi.Input[bool]] = None,

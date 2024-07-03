@@ -4,42 +4,93 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'ColumnDefinitionArgs',
+    'ColumnDefinitionArgsDict',
     'DataCollectionEndpointNetworkAclsArgs',
+    'DataCollectionEndpointNetworkAclsArgsDict',
     'DataCollectionEndpointResourceIdentityArgs',
+    'DataCollectionEndpointResourceIdentityArgsDict',
     'DataCollectionRuleDataSourcesArgs',
+    'DataCollectionRuleDataSourcesArgsDict',
     'DataCollectionRuleDestinationsArgs',
+    'DataCollectionRuleDestinationsArgsDict',
     'DataCollectionRuleResourceIdentityArgs',
+    'DataCollectionRuleResourceIdentityArgsDict',
     'DataFlowArgs',
+    'DataFlowArgsDict',
     'DataImportSourcesEventHubArgs',
+    'DataImportSourcesEventHubArgsDict',
     'DataSourcesSpecDataImportsArgs',
+    'DataSourcesSpecDataImportsArgsDict',
     'DestinationsSpecAzureMonitorMetricsArgs',
+    'DestinationsSpecAzureMonitorMetricsArgsDict',
     'EventHubDestinationArgs',
+    'EventHubDestinationArgsDict',
     'EventHubDirectDestinationArgs',
+    'EventHubDirectDestinationArgsDict',
     'ExtensionDataSourceArgs',
+    'ExtensionDataSourceArgsDict',
     'IisLogsDataSourceArgs',
+    'IisLogsDataSourceArgsDict',
     'LogAnalyticsDestinationArgs',
+    'LogAnalyticsDestinationArgsDict',
     'LogFileSettingsTextArgs',
+    'LogFileSettingsTextArgsDict',
     'LogFilesDataSourceSettingsArgs',
+    'LogFilesDataSourceSettingsArgsDict',
     'LogFilesDataSourceArgs',
+    'LogFilesDataSourceArgsDict',
     'MonitoringAccountDestinationArgs',
+    'MonitoringAccountDestinationArgsDict',
     'PerfCounterDataSourceArgs',
+    'PerfCounterDataSourceArgsDict',
     'PlatformTelemetryDataSourceArgs',
+    'PlatformTelemetryDataSourceArgsDict',
     'PrometheusForwarderDataSourceArgs',
+    'PrometheusForwarderDataSourceArgsDict',
     'StorageBlobDestinationArgs',
+    'StorageBlobDestinationArgsDict',
     'StorageTableDestinationArgs',
+    'StorageTableDestinationArgsDict',
     'StreamDeclarationArgs',
+    'StreamDeclarationArgsDict',
     'SyslogDataSourceArgs',
+    'SyslogDataSourceArgsDict',
     'WindowsEventLogDataSourceArgs',
+    'WindowsEventLogDataSourceArgsDict',
     'WindowsFirewallLogsDataSourceArgs',
+    'WindowsFirewallLogsDataSourceArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ColumnDefinitionArgsDict(TypedDict):
+        """
+        Definition of custom data column.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the column.
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'KnownColumnDefinitionType']]]
+        """
+        The type of the column data.
+        """
+elif False:
+    ColumnDefinitionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ColumnDefinitionArgs:
@@ -81,6 +132,18 @@ class ColumnDefinitionArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class DataCollectionEndpointNetworkAclsArgsDict(TypedDict):
+        """
+        Network access control rules for the endpoints.
+        """
+        public_network_access: NotRequired[pulumi.Input[Union[str, 'KnownPublicNetworkAccessOptions']]]
+        """
+        The configuration to set whether network access from public internet to the endpoints are allowed.
+        """
+elif False:
+    DataCollectionEndpointNetworkAclsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DataCollectionEndpointNetworkAclsArgs:
     def __init__(__self__, *,
@@ -104,6 +167,22 @@ class DataCollectionEndpointNetworkAclsArgs:
     def public_network_access(self, value: Optional[pulumi.Input[Union[str, 'KnownPublicNetworkAccessOptions']]]):
         pulumi.set(self, "public_network_access", value)
 
+
+if not MYPY:
+    class DataCollectionEndpointResourceIdentityArgsDict(TypedDict):
+        """
+        Managed service identity of the resource.
+        """
+        type: pulumi.Input[Union[str, 'ManagedServiceIdentityType']]
+        """
+        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        """
+        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        """
+elif False:
+    DataCollectionEndpointResourceIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataCollectionEndpointResourceIdentityArgs:
@@ -143,6 +222,55 @@ class DataCollectionEndpointResourceIdentityArgs:
     def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
+
+if not MYPY:
+    class DataCollectionRuleDataSourcesArgsDict(TypedDict):
+        """
+        The specification of data sources. 
+        This property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint.
+        """
+        data_imports: NotRequired[pulumi.Input['DataSourcesSpecDataImportsArgsDict']]
+        """
+        Specifications of pull based data sources
+        """
+        extensions: NotRequired[pulumi.Input[Sequence[pulumi.Input['ExtensionDataSourceArgsDict']]]]
+        """
+        The list of Azure VM extension data source configurations.
+        """
+        iis_logs: NotRequired[pulumi.Input[Sequence[pulumi.Input['IisLogsDataSourceArgsDict']]]]
+        """
+        The list of IIS logs source configurations.
+        """
+        log_files: NotRequired[pulumi.Input[Sequence[pulumi.Input['LogFilesDataSourceArgsDict']]]]
+        """
+        The list of Log files source configurations.
+        """
+        performance_counters: NotRequired[pulumi.Input[Sequence[pulumi.Input['PerfCounterDataSourceArgsDict']]]]
+        """
+        The list of performance counter data source configurations.
+        """
+        platform_telemetry: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlatformTelemetryDataSourceArgsDict']]]]
+        """
+        The list of platform telemetry configurations
+        """
+        prometheus_forwarder: NotRequired[pulumi.Input[Sequence[pulumi.Input['PrometheusForwarderDataSourceArgsDict']]]]
+        """
+        The list of Prometheus forwarder data source configurations.
+        """
+        syslog: NotRequired[pulumi.Input[Sequence[pulumi.Input['SyslogDataSourceArgsDict']]]]
+        """
+        The list of Syslog data source configurations.
+        """
+        windows_event_logs: NotRequired[pulumi.Input[Sequence[pulumi.Input['WindowsEventLogDataSourceArgsDict']]]]
+        """
+        The list of Windows Event Log data source configurations.
+        """
+        windows_firewall_logs: NotRequired[pulumi.Input[Sequence[pulumi.Input['WindowsFirewallLogsDataSourceArgsDict']]]]
+        """
+        The list of Windows Firewall logs source configurations.
+        """
+elif False:
+    DataCollectionRuleDataSourcesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataCollectionRuleDataSourcesArgs:
@@ -313,6 +441,46 @@ class DataCollectionRuleDataSourcesArgs:
         pulumi.set(self, "windows_firewall_logs", value)
 
 
+if not MYPY:
+    class DataCollectionRuleDestinationsArgsDict(TypedDict):
+        """
+        The specification of destinations.
+        """
+        azure_monitor_metrics: NotRequired[pulumi.Input['DestinationsSpecAzureMonitorMetricsArgsDict']]
+        """
+        Azure Monitor Metrics destination.
+        """
+        event_hubs: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventHubDestinationArgsDict']]]]
+        """
+        List of Event Hubs destinations.
+        """
+        event_hubs_direct: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventHubDirectDestinationArgsDict']]]]
+        """
+        List of Event Hubs Direct destinations.
+        """
+        log_analytics: NotRequired[pulumi.Input[Sequence[pulumi.Input['LogAnalyticsDestinationArgsDict']]]]
+        """
+        List of Log Analytics destinations.
+        """
+        monitoring_accounts: NotRequired[pulumi.Input[Sequence[pulumi.Input['MonitoringAccountDestinationArgsDict']]]]
+        """
+        List of monitoring account destinations.
+        """
+        storage_accounts: NotRequired[pulumi.Input[Sequence[pulumi.Input['StorageBlobDestinationArgsDict']]]]
+        """
+        List of storage accounts destinations.
+        """
+        storage_blobs_direct: NotRequired[pulumi.Input[Sequence[pulumi.Input['StorageBlobDestinationArgsDict']]]]
+        """
+        List of Storage Blob Direct destinations. To be used only for sending data directly to store from the agent.
+        """
+        storage_tables_direct: NotRequired[pulumi.Input[Sequence[pulumi.Input['StorageTableDestinationArgsDict']]]]
+        """
+        List of Storage Table Direct destinations.
+        """
+elif False:
+    DataCollectionRuleDestinationsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DataCollectionRuleDestinationsArgs:
     def __init__(__self__, *,
@@ -449,6 +617,22 @@ class DataCollectionRuleDestinationsArgs:
         pulumi.set(self, "storage_tables_direct", value)
 
 
+if not MYPY:
+    class DataCollectionRuleResourceIdentityArgsDict(TypedDict):
+        """
+        Managed service identity of the resource.
+        """
+        type: pulumi.Input[Union[str, 'ManagedServiceIdentityType']]
+        """
+        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        """
+        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        """
+elif False:
+    DataCollectionRuleResourceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DataCollectionRuleResourceIdentityArgs:
     def __init__(__self__, *,
@@ -487,6 +671,34 @@ class DataCollectionRuleResourceIdentityArgs:
     def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
+
+if not MYPY:
+    class DataFlowArgsDict(TypedDict):
+        """
+        Definition of which streams are sent to which destinations.
+        """
+        built_in_transform: NotRequired[pulumi.Input[str]]
+        """
+        The builtIn transform to transform stream data
+        """
+        destinations: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of destinations for this data flow.
+        """
+        output_stream: NotRequired[pulumi.Input[str]]
+        """
+        The output stream of the transform. Only required if the transform changes data to a different stream.
+        """
+        streams: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'KnownDataFlowStreams']]]]]
+        """
+        List of streams for this data flow.
+        """
+        transform_kql: NotRequired[pulumi.Input[str]]
+        """
+        The KQL query to transform stream data.
+        """
+elif False:
+    DataFlowArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataFlowArgs:
@@ -576,6 +788,27 @@ class DataFlowArgs:
         pulumi.set(self, "transform_kql", value)
 
 
+if not MYPY:
+    class DataImportSourcesEventHubArgsDict(TypedDict):
+        """
+        Definition of Event Hub configuration.
+        """
+        consumer_group: NotRequired[pulumi.Input[str]]
+        """
+        Event Hub consumer group name
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        A friendly name for the data source. 
+        This name should be unique across all data sources (regardless of type) within the data collection rule.
+        """
+        stream: NotRequired[pulumi.Input[str]]
+        """
+        The stream to collect from EventHub
+        """
+elif False:
+    DataImportSourcesEventHubArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DataImportSourcesEventHubArgs:
     def __init__(__self__, *,
@@ -634,6 +867,18 @@ class DataImportSourcesEventHubArgs:
         pulumi.set(self, "stream", value)
 
 
+if not MYPY:
+    class DataSourcesSpecDataImportsArgsDict(TypedDict):
+        """
+        Specifications of pull based data sources
+        """
+        event_hub: NotRequired[pulumi.Input['DataImportSourcesEventHubArgsDict']]
+        """
+        Definition of Event Hub configuration.
+        """
+elif False:
+    DataSourcesSpecDataImportsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DataSourcesSpecDataImportsArgs:
     def __init__(__self__, *,
@@ -657,6 +902,19 @@ class DataSourcesSpecDataImportsArgs:
     def event_hub(self, value: Optional[pulumi.Input['DataImportSourcesEventHubArgs']]):
         pulumi.set(self, "event_hub", value)
 
+
+if not MYPY:
+    class DestinationsSpecAzureMonitorMetricsArgsDict(TypedDict):
+        """
+        Azure Monitor Metrics destination.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        A friendly name for the destination. 
+        This name should be unique across all destinations (regardless of type) within the data collection rule.
+        """
+elif False:
+    DestinationsSpecAzureMonitorMetricsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DestinationsSpecAzureMonitorMetricsArgs:
@@ -683,6 +941,20 @@ class DestinationsSpecAzureMonitorMetricsArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class EventHubDestinationArgsDict(TypedDict):
+        event_hub_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        The resource ID of the event hub.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        A friendly name for the destination. 
+        This name should be unique across all destinations (regardless of type) within the data collection rule.
+        """
+elif False:
+    EventHubDestinationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EventHubDestinationArgs:
@@ -725,6 +997,20 @@ class EventHubDestinationArgs:
         pulumi.set(self, "name", value)
 
 
+if not MYPY:
+    class EventHubDirectDestinationArgsDict(TypedDict):
+        event_hub_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        The resource ID of the event hub.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        A friendly name for the destination. 
+        This name should be unique across all destinations (regardless of type) within the data collection rule.
+        """
+elif False:
+    EventHubDirectDestinationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EventHubDirectDestinationArgs:
     def __init__(__self__, *,
@@ -765,6 +1051,37 @@ class EventHubDirectDestinationArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class ExtensionDataSourceArgsDict(TypedDict):
+        """
+        Definition of which data will be collected from a separate VM extension that integrates with the Azure Monitor Agent.
+        Collected from either Windows and Linux machines, depending on which extension is defined.
+        """
+        extension_name: pulumi.Input[str]
+        """
+        The name of the VM extension.
+        """
+        extension_settings: NotRequired[Any]
+        """
+        The extension settings. The format is specific for particular extension.
+        """
+        input_data_sources: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of data sources this extension needs data from.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        A friendly name for the data source. 
+        This name should be unique across all data sources (regardless of type) within the data collection rule.
+        """
+        streams: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'KnownExtensionDataSourceStreams']]]]]
+        """
+        List of streams that this data source will be sent to.
+        A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
+        """
+elif False:
+    ExtensionDataSourceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ExtensionDataSourceArgs:
@@ -858,6 +1175,27 @@ class ExtensionDataSourceArgs:
         pulumi.set(self, "streams", value)
 
 
+if not MYPY:
+    class IisLogsDataSourceArgsDict(TypedDict):
+        """
+        Enables IIS logs to be collected by this data collection rule.
+        """
+        streams: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        IIS streams
+        """
+        log_directories: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Absolute paths file location
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        A friendly name for the data source. 
+        This name should be unique across all data sources (regardless of type) within the data collection rule.
+        """
+elif False:
+    IisLogsDataSourceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IisLogsDataSourceArgs:
     def __init__(__self__, *,
@@ -915,6 +1253,23 @@ class IisLogsDataSourceArgs:
         pulumi.set(self, "name", value)
 
 
+if not MYPY:
+    class LogAnalyticsDestinationArgsDict(TypedDict):
+        """
+        Log Analytics destination.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        A friendly name for the destination. 
+        This name should be unique across all destinations (regardless of type) within the data collection rule.
+        """
+        workspace_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        The resource ID of the Log Analytics workspace.
+        """
+elif False:
+    LogAnalyticsDestinationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LogAnalyticsDestinationArgs:
     def __init__(__self__, *,
@@ -957,6 +1312,18 @@ class LogAnalyticsDestinationArgs:
         pulumi.set(self, "workspace_resource_id", value)
 
 
+if not MYPY:
+    class LogFileSettingsTextArgsDict(TypedDict):
+        """
+        Text settings
+        """
+        record_start_timestamp_format: pulumi.Input[Union[str, 'KnownLogFileTextSettingsRecordStartTimestampFormat']]
+        """
+        One of the supported timestamp formats
+        """
+elif False:
+    LogFileSettingsTextArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LogFileSettingsTextArgs:
     def __init__(__self__, *,
@@ -979,6 +1346,18 @@ class LogFileSettingsTextArgs:
     def record_start_timestamp_format(self, value: pulumi.Input[Union[str, 'KnownLogFileTextSettingsRecordStartTimestampFormat']]):
         pulumi.set(self, "record_start_timestamp_format", value)
 
+
+if not MYPY:
+    class LogFilesDataSourceSettingsArgsDict(TypedDict):
+        """
+        The log files specific settings.
+        """
+        text: NotRequired[pulumi.Input['LogFileSettingsTextArgsDict']]
+        """
+        Text settings
+        """
+elif False:
+    LogFilesDataSourceSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LogFilesDataSourceSettingsArgs:
@@ -1003,6 +1382,36 @@ class LogFilesDataSourceSettingsArgs:
     def text(self, value: Optional[pulumi.Input['LogFileSettingsTextArgs']]):
         pulumi.set(self, "text", value)
 
+
+if not MYPY:
+    class LogFilesDataSourceArgsDict(TypedDict):
+        """
+        Definition of which custom log files will be collected by this data collection rule
+        """
+        file_patterns: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        File Patterns where the log files are located
+        """
+        format: pulumi.Input[Union[str, 'KnownLogFilesDataSourceFormat']]
+        """
+        The data format of the log files
+        """
+        streams: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        List of streams that this data source will be sent to.
+        A stream indicates what schema will be used for this data source
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        A friendly name for the data source. 
+        This name should be unique across all data sources (regardless of type) within the data collection rule.
+        """
+        settings: NotRequired[pulumi.Input['LogFilesDataSourceSettingsArgsDict']]
+        """
+        The log files specific settings.
+        """
+elif False:
+    LogFilesDataSourceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LogFilesDataSourceArgs:
@@ -1093,6 +1502,23 @@ class LogFilesDataSourceArgs:
         pulumi.set(self, "settings", value)
 
 
+if not MYPY:
+    class MonitoringAccountDestinationArgsDict(TypedDict):
+        """
+        Monitoring account destination.
+        """
+        account_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        The resource ID of the monitoring account.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        A friendly name for the destination. 
+        This name should be unique across all destinations (regardless of type) within the data collection rule.
+        """
+elif False:
+    MonitoringAccountDestinationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MonitoringAccountDestinationArgs:
     def __init__(__self__, *,
@@ -1134,6 +1560,35 @@ class MonitoringAccountDestinationArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class PerfCounterDataSourceArgsDict(TypedDict):
+        """
+        Definition of which performance counters will be collected and how they will be collected by this data collection rule.
+        Collected from both Windows and Linux machines where the counter is present.
+        """
+        counter_specifiers: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of specifier names of the performance counters you want to collect.
+        Use a wildcard (*) to collect a counter for all instances.
+        To get a list of performance counters on Windows, run the command 'typeperf'.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        A friendly name for the data source. 
+        This name should be unique across all data sources (regardless of type) within the data collection rule.
+        """
+        sampling_frequency_in_seconds: NotRequired[pulumi.Input[int]]
+        """
+        The number of seconds between consecutive counter measurements (samples).
+        """
+        streams: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'KnownPerfCounterDataSourceStreams']]]]]
+        """
+        List of streams that this data source will be sent to.
+        A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
+        """
+elif False:
+    PerfCounterDataSourceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PerfCounterDataSourceArgs:
@@ -1216,6 +1671,23 @@ class PerfCounterDataSourceArgs:
         pulumi.set(self, "streams", value)
 
 
+if not MYPY:
+    class PlatformTelemetryDataSourceArgsDict(TypedDict):
+        """
+        Definition of platform telemetry data source configuration
+        """
+        streams: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        List of platform telemetry streams to collect
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        A friendly name for the data source. 
+        This name should be unique across all data sources (regardless of type) within the data collection rule.
+        """
+elif False:
+    PlatformTelemetryDataSourceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PlatformTelemetryDataSourceArgs:
     def __init__(__self__, *,
@@ -1256,6 +1728,29 @@ class PlatformTelemetryDataSourceArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class PrometheusForwarderDataSourceArgsDict(TypedDict):
+        """
+        Definition of Prometheus metrics forwarding configuration.
+        """
+        label_include_filter: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        The list of label inclusion filters in the form of label "name-value" pairs.
+        Currently only one label is supported: 'microsoft_metrics_include_label'.
+        Label values are matched case-insensitively.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        A friendly name for the data source. 
+        This name should be unique across all data sources (regardless of type) within the data collection rule.
+        """
+        streams: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'KnownPrometheusForwarderDataSourceStreams']]]]]
+        """
+        List of streams that this data source will be sent to.
+        """
+elif False:
+    PrometheusForwarderDataSourceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PrometheusForwarderDataSourceArgs:
@@ -1319,6 +1814,24 @@ class PrometheusForwarderDataSourceArgs:
         pulumi.set(self, "streams", value)
 
 
+if not MYPY:
+    class StorageBlobDestinationArgsDict(TypedDict):
+        container_name: NotRequired[pulumi.Input[str]]
+        """
+        The container name of the Storage Blob.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        A friendly name for the destination. 
+        This name should be unique across all destinations (regardless of type) within the data collection rule.
+        """
+        storage_account_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        The resource ID of the storage account.
+        """
+elif False:
+    StorageBlobDestinationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class StorageBlobDestinationArgs:
     def __init__(__self__, *,
@@ -1375,6 +1888,24 @@ class StorageBlobDestinationArgs:
     def storage_account_resource_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "storage_account_resource_id", value)
 
+
+if not MYPY:
+    class StorageTableDestinationArgsDict(TypedDict):
+        name: NotRequired[pulumi.Input[str]]
+        """
+        A friendly name for the destination. 
+        This name should be unique across all destinations (regardless of type) within the data collection rule.
+        """
+        storage_account_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        The resource ID of the storage account.
+        """
+        table_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the Storage Table.
+        """
+elif False:
+    StorageTableDestinationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class StorageTableDestinationArgs:
@@ -1433,6 +1964,18 @@ class StorageTableDestinationArgs:
         pulumi.set(self, "table_name", value)
 
 
+if not MYPY:
+    class StreamDeclarationArgsDict(TypedDict):
+        """
+        Declaration of a custom stream.
+        """
+        columns: NotRequired[pulumi.Input[Sequence[pulumi.Input['ColumnDefinitionArgsDict']]]]
+        """
+        List of columns used by data in this stream.
+        """
+elif False:
+    StreamDeclarationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class StreamDeclarationArgs:
     def __init__(__self__, *,
@@ -1456,6 +1999,33 @@ class StreamDeclarationArgs:
     def columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ColumnDefinitionArgs']]]]):
         pulumi.set(self, "columns", value)
 
+
+if not MYPY:
+    class SyslogDataSourceArgsDict(TypedDict):
+        """
+        Definition of which syslog data will be collected and how it will be collected.
+        Only collected from Linux machines.
+        """
+        facility_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'KnownSyslogDataSourceFacilityNames']]]]]
+        """
+        The list of facility names.
+        """
+        log_levels: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'KnownSyslogDataSourceLogLevels']]]]]
+        """
+        The log levels to collect.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        A friendly name for the data source. 
+        This name should be unique across all data sources (regardless of type) within the data collection rule.
+        """
+        streams: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'KnownSyslogDataSourceStreams']]]]]
+        """
+        List of streams that this data source will be sent to.
+        A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
+        """
+elif False:
+    SyslogDataSourceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SyslogDataSourceArgs:
@@ -1534,6 +2104,29 @@ class SyslogDataSourceArgs:
         pulumi.set(self, "streams", value)
 
 
+if not MYPY:
+    class WindowsEventLogDataSourceArgsDict(TypedDict):
+        """
+        Definition of which Windows Event Log events will be collected and how they will be collected.
+        Only collected from Windows machines.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        A friendly name for the data source. 
+        This name should be unique across all data sources (regardless of type) within the data collection rule.
+        """
+        streams: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'KnownWindowsEventLogDataSourceStreams']]]]]
+        """
+        List of streams that this data source will be sent to.
+        A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
+        """
+        x_path_queries: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of Windows Event Log queries in XPATH format.
+        """
+elif False:
+    WindowsEventLogDataSourceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WindowsEventLogDataSourceArgs:
     def __init__(__self__, *,
@@ -1594,6 +2187,23 @@ class WindowsEventLogDataSourceArgs:
     def x_path_queries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "x_path_queries", value)
 
+
+if not MYPY:
+    class WindowsFirewallLogsDataSourceArgsDict(TypedDict):
+        """
+        Enables Firewall logs to be collected by this data collection rule.
+        """
+        streams: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Firewall logs streams
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        A friendly name for the data source. 
+        This name should be unique across all data sources (regardless of type) within the data collection rule.
+        """
+elif False:
+    WindowsFirewallLogsDataSourceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WindowsFirewallLogsDataSourceArgs:

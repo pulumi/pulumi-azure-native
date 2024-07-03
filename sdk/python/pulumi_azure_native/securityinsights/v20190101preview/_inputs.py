@@ -4,26 +4,81 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'AutomationRuleModifyPropertiesActionActionConfigurationArgs',
+    'AutomationRuleModifyPropertiesActionActionConfigurationArgsDict',
     'AutomationRuleModifyPropertiesActionArgs',
+    'AutomationRuleModifyPropertiesActionArgsDict',
     'AutomationRulePropertyValuesConditionConditionPropertiesArgs',
+    'AutomationRulePropertyValuesConditionConditionPropertiesArgsDict',
     'AutomationRulePropertyValuesConditionArgs',
+    'AutomationRulePropertyValuesConditionArgsDict',
     'AutomationRuleRunPlaybookActionActionConfigurationArgs',
+    'AutomationRuleRunPlaybookActionActionConfigurationArgsDict',
     'AutomationRuleRunPlaybookActionArgs',
+    'AutomationRuleRunPlaybookActionArgsDict',
     'AutomationRuleTriggeringLogicArgs',
+    'AutomationRuleTriggeringLogicArgsDict',
     'IncidentInfoArgs',
+    'IncidentInfoArgsDict',
     'IncidentLabelArgs',
+    'IncidentLabelArgsDict',
     'IncidentOwnerInfoArgs',
+    'IncidentOwnerInfoArgsDict',
     'UserInfoArgs',
+    'UserInfoArgsDict',
     'WatchlistUserInfoArgs',
+    'WatchlistUserInfoArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AutomationRuleModifyPropertiesActionActionConfigurationArgsDict(TypedDict):
+        """
+        The configuration of the modify properties automation rule action
+        """
+        classification: NotRequired[pulumi.Input[Union[str, 'IncidentClassification']]]
+        """
+        The reason the incident was closed
+        """
+        classification_comment: NotRequired[pulumi.Input[str]]
+        """
+        Describes the reason the incident was closed
+        """
+        classification_reason: NotRequired[pulumi.Input[Union[str, 'IncidentClassificationReason']]]
+        """
+        The classification reason to close the incident with
+        """
+        labels: NotRequired[pulumi.Input[Sequence[pulumi.Input['IncidentLabelArgsDict']]]]
+        """
+        List of labels to add to the incident
+        """
+        owner: NotRequired[pulumi.Input['IncidentOwnerInfoArgsDict']]
+        """
+        Describes a user that the incident is assigned to
+        """
+        severity: NotRequired[pulumi.Input[Union[str, 'IncidentSeverity']]]
+        """
+        The severity of the incident
+        """
+        status: NotRequired[pulumi.Input[Union[str, 'IncidentStatus']]]
+        """
+        The status of the incident
+        """
+elif False:
+    AutomationRuleModifyPropertiesActionActionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AutomationRuleModifyPropertiesActionActionConfigurationArgs:
@@ -145,6 +200,27 @@ class AutomationRuleModifyPropertiesActionActionConfigurationArgs:
         pulumi.set(self, "status", value)
 
 
+if not MYPY:
+    class AutomationRuleModifyPropertiesActionArgsDict(TypedDict):
+        """
+        Describes an automation rule action to modify an object's properties
+        """
+        action_configuration: pulumi.Input['AutomationRuleModifyPropertiesActionActionConfigurationArgsDict']
+        """
+        The configuration of the modify properties automation rule action
+        """
+        action_type: pulumi.Input[str]
+        """
+        The type of the automation rule action
+        Expected value is 'ModifyProperties'.
+        """
+        order: pulumi.Input[int]
+        """
+        The order of execution of the automation rule action
+        """
+elif False:
+    AutomationRuleModifyPropertiesActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AutomationRuleModifyPropertiesActionArgs:
     def __init__(__self__, *,
@@ -199,6 +275,26 @@ class AutomationRuleModifyPropertiesActionArgs:
     def order(self, value: pulumi.Input[int]):
         pulumi.set(self, "order", value)
 
+
+if not MYPY:
+    class AutomationRulePropertyValuesConditionConditionPropertiesArgsDict(TypedDict):
+        """
+        The configuration of the automation rule condition
+        """
+        operator: NotRequired[pulumi.Input[Union[str, 'AutomationRulePropertyConditionSupportedOperator']]]
+        """
+        The operator to use for evaluation the condition
+        """
+        property_name: NotRequired[pulumi.Input[Union[str, 'AutomationRulePropertyConditionSupportedProperty']]]
+        """
+        The property to evaluate
+        """
+        property_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The values to use for evaluating the condition
+        """
+elif False:
+    AutomationRulePropertyValuesConditionConditionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AutomationRulePropertyValuesConditionConditionPropertiesArgs:
@@ -256,6 +352,23 @@ class AutomationRulePropertyValuesConditionConditionPropertiesArgs:
         pulumi.set(self, "property_values", value)
 
 
+if not MYPY:
+    class AutomationRulePropertyValuesConditionArgsDict(TypedDict):
+        """
+        Describes an automation rule condition that evaluates a property's value
+        """
+        condition_properties: pulumi.Input['AutomationRulePropertyValuesConditionConditionPropertiesArgsDict']
+        """
+        The configuration of the automation rule condition
+        """
+        condition_type: pulumi.Input[str]
+        """
+        The type of the automation rule condition
+        Expected value is 'Property'.
+        """
+elif False:
+    AutomationRulePropertyValuesConditionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AutomationRulePropertyValuesConditionArgs:
     def __init__(__self__, *,
@@ -296,6 +409,22 @@ class AutomationRulePropertyValuesConditionArgs:
         pulumi.set(self, "condition_type", value)
 
 
+if not MYPY:
+    class AutomationRuleRunPlaybookActionActionConfigurationArgsDict(TypedDict):
+        """
+        The configuration of the run playbook automation rule action
+        """
+        logic_app_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        The resource id of the playbook resource
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        The tenant id of the playbook resource
+        """
+elif False:
+    AutomationRuleRunPlaybookActionActionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AutomationRuleRunPlaybookActionActionConfigurationArgs:
     def __init__(__self__, *,
@@ -335,6 +464,27 @@ class AutomationRuleRunPlaybookActionActionConfigurationArgs:
     def tenant_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tenant_id", value)
 
+
+if not MYPY:
+    class AutomationRuleRunPlaybookActionArgsDict(TypedDict):
+        """
+        Describes an automation rule action to run a playbook
+        """
+        action_configuration: pulumi.Input['AutomationRuleRunPlaybookActionActionConfigurationArgsDict']
+        """
+        The configuration of the run playbook automation rule action
+        """
+        action_type: pulumi.Input[str]
+        """
+        The type of the automation rule action
+        Expected value is 'RunPlaybook'.
+        """
+        order: pulumi.Input[int]
+        """
+        The order of execution of the automation rule action
+        """
+elif False:
+    AutomationRuleRunPlaybookActionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AutomationRuleRunPlaybookActionArgs:
@@ -390,6 +540,34 @@ class AutomationRuleRunPlaybookActionArgs:
     def order(self, value: pulumi.Input[int]):
         pulumi.set(self, "order", value)
 
+
+if not MYPY:
+    class AutomationRuleTriggeringLogicArgsDict(TypedDict):
+        """
+        Describes automation rule triggering logic
+        """
+        is_enabled: pulumi.Input[bool]
+        """
+        Determines whether the automation rule is enabled or disabled.
+        """
+        triggers_on: pulumi.Input[Union[str, 'TriggersOn']]
+        """
+        The type of object the automation rule triggers on
+        """
+        triggers_when: pulumi.Input[Union[str, 'TriggersWhen']]
+        """
+        The type of event the automation rule triggers on
+        """
+        conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRulePropertyValuesConditionArgsDict']]]]
+        """
+        The conditions to evaluate to determine if the automation rule should be triggered on a given object
+        """
+        expiration_time_utc: NotRequired[pulumi.Input[str]]
+        """
+        Determines when the automation rule should automatically expire and be disabled.
+        """
+elif False:
+    AutomationRuleTriggeringLogicArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AutomationRuleTriggeringLogicArgs:
@@ -476,6 +654,30 @@ class AutomationRuleTriggeringLogicArgs:
         pulumi.set(self, "expiration_time_utc", value)
 
 
+if not MYPY:
+    class IncidentInfoArgsDict(TypedDict):
+        """
+        Describes related incident information for the bookmark
+        """
+        incident_id: NotRequired[pulumi.Input[str]]
+        """
+        Incident Id
+        """
+        relation_name: NotRequired[pulumi.Input[str]]
+        """
+        Relation Name
+        """
+        severity: NotRequired[pulumi.Input[Union[str, 'IncidentSeverity']]]
+        """
+        The severity of the incident
+        """
+        title: NotRequired[pulumi.Input[str]]
+        """
+        The title of the incident
+        """
+elif False:
+    IncidentInfoArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IncidentInfoArgs:
     def __init__(__self__, *,
@@ -548,6 +750,18 @@ class IncidentInfoArgs:
         pulumi.set(self, "title", value)
 
 
+if not MYPY:
+    class IncidentLabelArgsDict(TypedDict):
+        """
+        Represents an incident label
+        """
+        label_name: pulumi.Input[str]
+        """
+        The name of the label
+        """
+elif False:
+    IncidentLabelArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IncidentLabelArgs:
     def __init__(__self__, *,
@@ -570,6 +784,30 @@ class IncidentLabelArgs:
     def label_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "label_name", value)
 
+
+if not MYPY:
+    class IncidentOwnerInfoArgsDict(TypedDict):
+        """
+        Information on the user an incident is assigned to
+        """
+        assigned_to: NotRequired[pulumi.Input[str]]
+        """
+        The name of the user the incident is assigned to.
+        """
+        email: NotRequired[pulumi.Input[str]]
+        """
+        The email of the user the incident is assigned to.
+        """
+        object_id: NotRequired[pulumi.Input[str]]
+        """
+        The object id of the user the incident is assigned to.
+        """
+        user_principal_name: NotRequired[pulumi.Input[str]]
+        """
+        The user principal name of the user the incident is assigned to.
+        """
+elif False:
+    IncidentOwnerInfoArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IncidentOwnerInfoArgs:
@@ -643,6 +881,18 @@ class IncidentOwnerInfoArgs:
         pulumi.set(self, "user_principal_name", value)
 
 
+if not MYPY:
+    class UserInfoArgsDict(TypedDict):
+        """
+        User information that made some action
+        """
+        object_id: NotRequired[pulumi.Input[str]]
+        """
+        The object id of the user.
+        """
+elif False:
+    UserInfoArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class UserInfoArgs:
     def __init__(__self__, *,
@@ -666,6 +916,18 @@ class UserInfoArgs:
     def object_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "object_id", value)
 
+
+if not MYPY:
+    class WatchlistUserInfoArgsDict(TypedDict):
+        """
+        User information that made some action
+        """
+        object_id: NotRequired[pulumi.Input[str]]
+        """
+        The object id of the user.
+        """
+elif False:
+    WatchlistUserInfoArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WatchlistUserInfoArgs:

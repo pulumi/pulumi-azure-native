@@ -4,59 +4,123 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'AllowedAudiencesValidationArgs',
+    'AllowedAudiencesValidationArgsDict',
     'AllowedPrincipalsArgs',
+    'AllowedPrincipalsArgsDict',
     'AppRegistrationArgs',
+    'AppRegistrationArgsDict',
     'AppleRegistrationArgs',
+    'AppleRegistrationArgsDict',
     'AppleArgs',
+    'AppleArgsDict',
     'AuthPlatformArgs',
+    'AuthPlatformArgsDict',
     'AzureActiveDirectoryLoginArgs',
+    'AzureActiveDirectoryLoginArgsDict',
     'AzureActiveDirectoryRegistrationArgs',
+    'AzureActiveDirectoryRegistrationArgsDict',
     'AzureActiveDirectoryValidationArgs',
+    'AzureActiveDirectoryValidationArgsDict',
     'AzureActiveDirectoryArgs',
+    'AzureActiveDirectoryArgsDict',
     'AzureStaticWebAppsRegistrationArgs',
+    'AzureStaticWebAppsRegistrationArgsDict',
     'AzureStaticWebAppsArgs',
+    'AzureStaticWebAppsArgsDict',
     'BlobStorageTokenStoreArgs',
+    'BlobStorageTokenStoreArgsDict',
     'CapabilityArgs',
+    'CapabilityArgsDict',
     'ClientRegistrationArgs',
+    'ClientRegistrationArgsDict',
     'CookieExpirationArgs',
+    'CookieExpirationArgsDict',
     'CustomOpenIdConnectProviderArgs',
+    'CustomOpenIdConnectProviderArgsDict',
     'DefaultAuthorizationPolicyArgs',
+    'DefaultAuthorizationPolicyArgsDict',
     'FacebookArgs',
+    'FacebookArgsDict',
     'FileSystemTokenStoreArgs',
+    'FileSystemTokenStoreArgsDict',
     'ForwardProxyArgs',
+    'ForwardProxyArgsDict',
     'GitHubArgs',
+    'GitHubArgsDict',
     'GlobalValidationArgs',
+    'GlobalValidationArgsDict',
     'GoogleArgs',
+    'GoogleArgsDict',
     'HttpSettingsRoutesArgs',
+    'HttpSettingsRoutesArgsDict',
     'HttpSettingsArgs',
+    'HttpSettingsArgsDict',
     'IdentityProvidersArgs',
+    'IdentityProvidersArgsDict',
     'JwtClaimChecksArgs',
+    'JwtClaimChecksArgsDict',
     'LegacyMicrosoftAccountArgs',
+    'LegacyMicrosoftAccountArgsDict',
     'LoginRoutesArgs',
+    'LoginRoutesArgsDict',
     'LoginScopesArgs',
+    'LoginScopesArgsDict',
     'LoginArgs',
+    'LoginArgsDict',
     'ManagedServiceIdentityArgs',
+    'ManagedServiceIdentityArgsDict',
     'NonceArgs',
+    'NonceArgsDict',
     'OpenIdConnectClientCredentialArgs',
+    'OpenIdConnectClientCredentialArgsDict',
     'OpenIdConnectConfigArgs',
+    'OpenIdConnectConfigArgsDict',
     'OpenIdConnectLoginArgs',
+    'OpenIdConnectLoginArgsDict',
     'OpenIdConnectRegistrationArgs',
+    'OpenIdConnectRegistrationArgsDict',
     'SkuCapacityArgs',
+    'SkuCapacityArgsDict',
     'SkuDescriptionArgs',
+    'SkuDescriptionArgsDict',
     'StaticSiteBuildPropertiesArgs',
+    'StaticSiteBuildPropertiesArgsDict',
     'StaticSiteTemplateOptionsArgs',
+    'StaticSiteTemplateOptionsArgsDict',
     'TokenStoreArgs',
+    'TokenStoreArgsDict',
     'TwitterRegistrationArgs',
+    'TwitterRegistrationArgsDict',
     'TwitterArgs',
+    'TwitterArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AllowedAudiencesValidationArgsDict(TypedDict):
+        """
+        The configuration settings of the Allowed Audiences validation flow.
+        """
+        allowed_audiences: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The configuration settings of the allowed list of audiences from which to validate the JWT token.
+        """
+elif False:
+    AllowedAudiencesValidationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AllowedAudiencesValidationArgs:
@@ -81,6 +145,22 @@ class AllowedAudiencesValidationArgs:
     def allowed_audiences(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "allowed_audiences", value)
 
+
+if not MYPY:
+    class AllowedPrincipalsArgsDict(TypedDict):
+        """
+        The configuration settings of the Azure Active Directory allowed principals.
+        """
+        groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of the allowed groups.
+        """
+        identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of the allowed identities.
+        """
+elif False:
+    AllowedPrincipalsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AllowedPrincipalsArgs:
@@ -122,6 +202,22 @@ class AllowedPrincipalsArgs:
         pulumi.set(self, "identities", value)
 
 
+if not MYPY:
+    class AppRegistrationArgsDict(TypedDict):
+        """
+        The configuration settings of the app registration for providers that have app ids and app secrets
+        """
+        app_id: NotRequired[pulumi.Input[str]]
+        """
+        The App ID of the app used for login.
+        """
+        app_secret_setting_name: NotRequired[pulumi.Input[str]]
+        """
+        The app setting name that contains the app secret.
+        """
+elif False:
+    AppRegistrationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AppRegistrationArgs:
     def __init__(__self__, *,
@@ -162,6 +258,22 @@ class AppRegistrationArgs:
         pulumi.set(self, "app_secret_setting_name", value)
 
 
+if not MYPY:
+    class AppleRegistrationArgsDict(TypedDict):
+        """
+        The configuration settings of the registration for the Apple provider
+        """
+        client_id: NotRequired[pulumi.Input[str]]
+        """
+        The Client ID of the app used for login.
+        """
+        client_secret_setting_name: NotRequired[pulumi.Input[str]]
+        """
+        The app setting name that contains the client secret.
+        """
+elif False:
+    AppleRegistrationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AppleRegistrationArgs:
     def __init__(__self__, *,
@@ -201,6 +313,26 @@ class AppleRegistrationArgs:
     def client_secret_setting_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "client_secret_setting_name", value)
 
+
+if not MYPY:
+    class AppleArgsDict(TypedDict):
+        """
+        The configuration settings of the Apple provider.
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        <code>false</code> if the Apple provider should not be enabled despite the set registration; otherwise, <code>true</code>.
+        """
+        login: NotRequired[pulumi.Input['LoginScopesArgsDict']]
+        """
+        The configuration settings of the login flow.
+        """
+        registration: NotRequired[pulumi.Input['AppleRegistrationArgsDict']]
+        """
+        The configuration settings of the Apple registration.
+        """
+elif False:
+    AppleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AppleArgs:
@@ -257,6 +389,28 @@ class AppleArgs:
     def registration(self, value: Optional[pulumi.Input['AppleRegistrationArgs']]):
         pulumi.set(self, "registration", value)
 
+
+if not MYPY:
+    class AuthPlatformArgsDict(TypedDict):
+        """
+        The configuration settings of the platform of App Service Authentication/Authorization.
+        """
+        config_file_path: NotRequired[pulumi.Input[str]]
+        """
+        The path of the config file containing auth settings if they come from a file.
+        If the path is relative, base will the site's root directory.
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        <code>true</code> if the Authentication / Authorization feature is enabled for the current app; otherwise, <code>false</code>.
+        """
+        runtime_version: NotRequired[pulumi.Input[str]]
+        """
+        The RuntimeVersion of the Authentication / Authorization feature in use for the current app.
+        The setting in this value can control the behavior of certain features in the Authentication / Authorization module.
+        """
+elif False:
+    AuthPlatformArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AuthPlatformArgs:
@@ -318,6 +472,23 @@ class AuthPlatformArgs:
         pulumi.set(self, "runtime_version", value)
 
 
+if not MYPY:
+    class AzureActiveDirectoryLoginArgsDict(TypedDict):
+        """
+        The configuration settings of the Azure Active Directory login flow.
+        """
+        disable_www_authenticate: NotRequired[pulumi.Input[bool]]
+        """
+        <code>true</code> if the www-authenticate provider should be omitted from the request; otherwise, <code>false</code>.
+        """
+        login_parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Login parameters to send to the OpenID Connect authorization endpoint when
+        a user logs in. Each parameter must be in the form "key=value".
+        """
+elif False:
+    AzureActiveDirectoryLoginArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AzureActiveDirectoryLoginArgs:
     def __init__(__self__, *,
@@ -359,6 +530,47 @@ class AzureActiveDirectoryLoginArgs:
     def login_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "login_parameters", value)
 
+
+if not MYPY:
+    class AzureActiveDirectoryRegistrationArgsDict(TypedDict):
+        """
+        The configuration settings of the Azure Active Directory app registration.
+        """
+        client_id: NotRequired[pulumi.Input[str]]
+        """
+        The Client ID of this relying party application, known as the client_id.
+        This setting is required for enabling OpenID Connection authentication with Azure Active Directory or 
+        other 3rd party OpenID Connect providers.
+        More information on OpenID Connect: http://openid.net/specs/openid-connect-core-1_0.html
+        """
+        client_secret_certificate_issuer: NotRequired[pulumi.Input[str]]
+        """
+        An alternative to the client secret thumbprint, that is the issuer of a certificate used for signing purposes. This property acts as
+        a replacement for the Client Secret Certificate Thumbprint. It is also optional.
+        """
+        client_secret_certificate_subject_alternative_name: NotRequired[pulumi.Input[str]]
+        """
+        An alternative to the client secret thumbprint, that is the subject alternative name of a certificate used for signing purposes. This property acts as
+        a replacement for the Client Secret Certificate Thumbprint. It is also optional.
+        """
+        client_secret_certificate_thumbprint: NotRequired[pulumi.Input[str]]
+        """
+        An alternative to the client secret, that is the thumbprint of a certificate used for signing purposes. This property acts as
+        a replacement for the Client Secret. It is also optional.
+        """
+        client_secret_setting_name: NotRequired[pulumi.Input[str]]
+        """
+        The app setting name that contains the client secret of the relying party application.
+        """
+        open_id_issuer: NotRequired[pulumi.Input[str]]
+        """
+        The OpenID Connect Issuer URI that represents the entity which issues access tokens for this application.
+        When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://login.microsoftonline.com/v2.0/{tenant-guid}/.
+        This URI is a case-sensitive identifier for the token issuer.
+        More information on OpenID Connect Discovery: http://openid.net/specs/openid-connect-discovery-1_0.html
+        """
+elif False:
+    AzureActiveDirectoryRegistrationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AzureActiveDirectoryRegistrationArgs:
@@ -482,6 +694,26 @@ class AzureActiveDirectoryRegistrationArgs:
         pulumi.set(self, "open_id_issuer", value)
 
 
+if not MYPY:
+    class AzureActiveDirectoryValidationArgsDict(TypedDict):
+        """
+        The configuration settings of the Azure Active Directory token validation flow.
+        """
+        allowed_audiences: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of audiences that can make successful authentication/authorization requests.
+        """
+        default_authorization_policy: NotRequired[pulumi.Input['DefaultAuthorizationPolicyArgsDict']]
+        """
+        The configuration settings of the default authorization policy.
+        """
+        jwt_claim_checks: NotRequired[pulumi.Input['JwtClaimChecksArgsDict']]
+        """
+        The configuration settings of the checks that should be made while validating the JWT Claims.
+        """
+elif False:
+    AzureActiveDirectoryValidationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AzureActiveDirectoryValidationArgs:
     def __init__(__self__, *,
@@ -537,6 +769,36 @@ class AzureActiveDirectoryValidationArgs:
     def jwt_claim_checks(self, value: Optional[pulumi.Input['JwtClaimChecksArgs']]):
         pulumi.set(self, "jwt_claim_checks", value)
 
+
+if not MYPY:
+    class AzureActiveDirectoryArgsDict(TypedDict):
+        """
+        The configuration settings of the Azure Active directory provider.
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        <code>false</code> if the Azure Active Directory provider should not be enabled despite the set registration; otherwise, <code>true</code>.
+        """
+        is_auto_provisioned: NotRequired[pulumi.Input[bool]]
+        """
+        Gets a value indicating whether the Azure AD configuration was auto-provisioned using 1st party tooling.
+        This is an internal flag primarily intended to support the Azure Management Portal. Users should not
+        read or write to this property.
+        """
+        login: NotRequired[pulumi.Input['AzureActiveDirectoryLoginArgsDict']]
+        """
+        The configuration settings of the Azure Active Directory login flow.
+        """
+        registration: NotRequired[pulumi.Input['AzureActiveDirectoryRegistrationArgsDict']]
+        """
+        The configuration settings of the Azure Active Directory app registration.
+        """
+        validation: NotRequired[pulumi.Input['AzureActiveDirectoryValidationArgsDict']]
+        """
+        The configuration settings of the Azure Active Directory token validation flow.
+        """
+elif False:
+    AzureActiveDirectoryArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AzureActiveDirectoryArgs:
@@ -630,6 +892,18 @@ class AzureActiveDirectoryArgs:
         pulumi.set(self, "validation", value)
 
 
+if not MYPY:
+    class AzureStaticWebAppsRegistrationArgsDict(TypedDict):
+        """
+        The configuration settings of the registration for the Azure Static Web Apps provider
+        """
+        client_id: NotRequired[pulumi.Input[str]]
+        """
+        The Client ID of the app used for login.
+        """
+elif False:
+    AzureStaticWebAppsRegistrationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AzureStaticWebAppsRegistrationArgs:
     def __init__(__self__, *,
@@ -653,6 +927,22 @@ class AzureStaticWebAppsRegistrationArgs:
     def client_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "client_id", value)
 
+
+if not MYPY:
+    class AzureStaticWebAppsArgsDict(TypedDict):
+        """
+        The configuration settings of the Azure Static Web Apps provider.
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        <code>false</code> if the Azure Static Web Apps provider should not be enabled despite the set registration; otherwise, <code>true</code>.
+        """
+        registration: NotRequired[pulumi.Input['AzureStaticWebAppsRegistrationArgsDict']]
+        """
+        The configuration settings of the Azure Static Web Apps registration.
+        """
+elif False:
+    AzureStaticWebAppsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AzureStaticWebAppsArgs:
@@ -694,6 +984,18 @@ class AzureStaticWebAppsArgs:
         pulumi.set(self, "registration", value)
 
 
+if not MYPY:
+    class BlobStorageTokenStoreArgsDict(TypedDict):
+        """
+        The configuration settings of the storage of the tokens if blob storage is used.
+        """
+        sas_url_setting_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the app setting containing the SAS URL of the blob storage containing the tokens.
+        """
+elif False:
+    BlobStorageTokenStoreArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class BlobStorageTokenStoreArgs:
     def __init__(__self__, *,
@@ -717,6 +1019,26 @@ class BlobStorageTokenStoreArgs:
     def sas_url_setting_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "sas_url_setting_name", value)
 
+
+if not MYPY:
+    class CapabilityArgsDict(TypedDict):
+        """
+        Describes the capabilities/features allowed for a specific SKU.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the SKU capability.
+        """
+        reason: NotRequired[pulumi.Input[str]]
+        """
+        Reason of the SKU capability.
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        Value of the SKU capability.
+        """
+elif False:
+    CapabilityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CapabilityArgs:
@@ -774,6 +1096,22 @@ class CapabilityArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class ClientRegistrationArgsDict(TypedDict):
+        """
+        The configuration settings of the app registration for providers that have client ids and client secrets
+        """
+        client_id: NotRequired[pulumi.Input[str]]
+        """
+        The Client ID of the app used for login.
+        """
+        client_secret_setting_name: NotRequired[pulumi.Input[str]]
+        """
+        The app setting name that contains the client secret.
+        """
+elif False:
+    ClientRegistrationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ClientRegistrationArgs:
     def __init__(__self__, *,
@@ -814,6 +1152,22 @@ class ClientRegistrationArgs:
         pulumi.set(self, "client_secret_setting_name", value)
 
 
+if not MYPY:
+    class CookieExpirationArgsDict(TypedDict):
+        """
+        The configuration settings of the session cookie's expiration.
+        """
+        convention: NotRequired[pulumi.Input['CookieExpirationConvention']]
+        """
+        The convention used when determining the session cookie's expiration.
+        """
+        time_to_expiration: NotRequired[pulumi.Input[str]]
+        """
+        The time after the request is made when the session cookie should expire.
+        """
+elif False:
+    CookieExpirationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CookieExpirationArgs:
     def __init__(__self__, *,
@@ -853,6 +1207,26 @@ class CookieExpirationArgs:
     def time_to_expiration(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "time_to_expiration", value)
 
+
+if not MYPY:
+    class CustomOpenIdConnectProviderArgsDict(TypedDict):
+        """
+        The configuration settings of the custom Open ID Connect provider.
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        <code>false</code> if the custom Open ID provider provider should not be enabled; otherwise, <code>true</code>.
+        """
+        login: NotRequired[pulumi.Input['OpenIdConnectLoginArgsDict']]
+        """
+        The configuration settings of the login flow of the custom Open ID Connect provider.
+        """
+        registration: NotRequired[pulumi.Input['OpenIdConnectRegistrationArgsDict']]
+        """
+        The configuration settings of the app registration for the custom Open ID Connect provider.
+        """
+elif False:
+    CustomOpenIdConnectProviderArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CustomOpenIdConnectProviderArgs:
@@ -910,6 +1284,22 @@ class CustomOpenIdConnectProviderArgs:
         pulumi.set(self, "registration", value)
 
 
+if not MYPY:
+    class DefaultAuthorizationPolicyArgsDict(TypedDict):
+        """
+        The configuration settings of the Azure Active Directory default authorization policy.
+        """
+        allowed_applications: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The configuration settings of the Azure Active Directory allowed applications.
+        """
+        allowed_principals: NotRequired[pulumi.Input['AllowedPrincipalsArgsDict']]
+        """
+        The configuration settings of the Azure Active Directory allowed principals.
+        """
+elif False:
+    DefaultAuthorizationPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DefaultAuthorizationPolicyArgs:
     def __init__(__self__, *,
@@ -949,6 +1339,30 @@ class DefaultAuthorizationPolicyArgs:
     def allowed_principals(self, value: Optional[pulumi.Input['AllowedPrincipalsArgs']]):
         pulumi.set(self, "allowed_principals", value)
 
+
+if not MYPY:
+    class FacebookArgsDict(TypedDict):
+        """
+        The configuration settings of the Facebook provider.
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        <code>false</code> if the Facebook provider should not be enabled despite the set registration; otherwise, <code>true</code>.
+        """
+        graph_api_version: NotRequired[pulumi.Input[str]]
+        """
+        The version of the Facebook api to be used while logging in.
+        """
+        login: NotRequired[pulumi.Input['LoginScopesArgsDict']]
+        """
+        The configuration settings of the login flow.
+        """
+        registration: NotRequired[pulumi.Input['AppRegistrationArgsDict']]
+        """
+        The configuration settings of the app registration for the Facebook provider.
+        """
+elif False:
+    FacebookArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FacebookArgs:
@@ -1022,6 +1436,18 @@ class FacebookArgs:
         pulumi.set(self, "registration", value)
 
 
+if not MYPY:
+    class FileSystemTokenStoreArgsDict(TypedDict):
+        """
+        The configuration settings of the storage of the tokens if a file system is used.
+        """
+        directory: NotRequired[pulumi.Input[str]]
+        """
+        The directory in which the tokens will be stored.
+        """
+elif False:
+    FileSystemTokenStoreArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FileSystemTokenStoreArgs:
     def __init__(__self__, *,
@@ -1045,6 +1471,26 @@ class FileSystemTokenStoreArgs:
     def directory(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "directory", value)
 
+
+if not MYPY:
+    class ForwardProxyArgsDict(TypedDict):
+        """
+        The configuration settings of a forward proxy used to make the requests.
+        """
+        convention: NotRequired[pulumi.Input['ForwardProxyConvention']]
+        """
+        The convention used to determine the url of the request made.
+        """
+        custom_host_header_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the header containing the host of the request.
+        """
+        custom_proto_header_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the header containing the scheme of the request.
+        """
+elif False:
+    ForwardProxyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ForwardProxyArgs:
@@ -1102,6 +1548,26 @@ class ForwardProxyArgs:
         pulumi.set(self, "custom_proto_header_name", value)
 
 
+if not MYPY:
+    class GitHubArgsDict(TypedDict):
+        """
+        The configuration settings of the GitHub provider.
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        <code>false</code> if the GitHub provider should not be enabled despite the set registration; otherwise, <code>true</code>.
+        """
+        login: NotRequired[pulumi.Input['LoginScopesArgsDict']]
+        """
+        The configuration settings of the login flow.
+        """
+        registration: NotRequired[pulumi.Input['ClientRegistrationArgsDict']]
+        """
+        The configuration settings of the app registration for the GitHub provider.
+        """
+elif False:
+    GitHubArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GitHubArgs:
     def __init__(__self__, *,
@@ -1157,6 +1623,32 @@ class GitHubArgs:
     def registration(self, value: Optional[pulumi.Input['ClientRegistrationArgs']]):
         pulumi.set(self, "registration", value)
 
+
+if not MYPY:
+    class GlobalValidationArgsDict(TypedDict):
+        """
+        The configuration settings that determines the validation flow of users using App Service Authentication/Authorization.
+        """
+        excluded_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The paths for which unauthenticated flow would not be redirected to the login page.
+        """
+        redirect_to_provider: NotRequired[pulumi.Input[str]]
+        """
+        The default authentication provider to use when multiple providers are configured.
+        This setting is only needed if multiple providers are configured and the unauthenticated client
+        action is set to "RedirectToLoginPage".
+        """
+        require_authentication: NotRequired[pulumi.Input[bool]]
+        """
+        <code>true</code> if the authentication flow is required any request is made; otherwise, <code>false</code>.
+        """
+        unauthenticated_client_action: NotRequired[pulumi.Input['UnauthenticatedClientActionV2']]
+        """
+        The action to take when an unauthenticated client attempts to access the app.
+        """
+elif False:
+    GlobalValidationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GlobalValidationArgs:
@@ -1234,6 +1726,30 @@ class GlobalValidationArgs:
         pulumi.set(self, "unauthenticated_client_action", value)
 
 
+if not MYPY:
+    class GoogleArgsDict(TypedDict):
+        """
+        The configuration settings of the Google provider.
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        <code>false</code> if the Google provider should not be enabled despite the set registration; otherwise, <code>true</code>.
+        """
+        login: NotRequired[pulumi.Input['LoginScopesArgsDict']]
+        """
+        The configuration settings of the login flow.
+        """
+        registration: NotRequired[pulumi.Input['ClientRegistrationArgsDict']]
+        """
+        The configuration settings of the app registration for the Google provider.
+        """
+        validation: NotRequired[pulumi.Input['AllowedAudiencesValidationArgsDict']]
+        """
+        The configuration settings of the Azure Active Directory token validation flow.
+        """
+elif False:
+    GoogleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GoogleArgs:
     def __init__(__self__, *,
@@ -1306,6 +1822,18 @@ class GoogleArgs:
         pulumi.set(self, "validation", value)
 
 
+if not MYPY:
+    class HttpSettingsRoutesArgsDict(TypedDict):
+        """
+        The configuration settings of the paths HTTP requests.
+        """
+        api_prefix: NotRequired[pulumi.Input[str]]
+        """
+        The prefix that should precede all the authentication/authorization paths.
+        """
+elif False:
+    HttpSettingsRoutesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class HttpSettingsRoutesArgs:
     def __init__(__self__, *,
@@ -1329,6 +1857,26 @@ class HttpSettingsRoutesArgs:
     def api_prefix(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "api_prefix", value)
 
+
+if not MYPY:
+    class HttpSettingsArgsDict(TypedDict):
+        """
+        The configuration settings of the HTTP requests for authentication and authorization requests made against App Service Authentication/Authorization.
+        """
+        forward_proxy: NotRequired[pulumi.Input['ForwardProxyArgsDict']]
+        """
+        The configuration settings of a forward proxy used to make the requests.
+        """
+        require_https: NotRequired[pulumi.Input[bool]]
+        """
+        <code>false</code> if the authentication/authorization responses not having the HTTPS scheme are permissible; otherwise, <code>true</code>.
+        """
+        routes: NotRequired[pulumi.Input['HttpSettingsRoutesArgsDict']]
+        """
+        The configuration settings of the paths HTTP requests.
+        """
+elif False:
+    HttpSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class HttpSettingsArgs:
@@ -1385,6 +1933,51 @@ class HttpSettingsArgs:
     def routes(self, value: Optional[pulumi.Input['HttpSettingsRoutesArgs']]):
         pulumi.set(self, "routes", value)
 
+
+if not MYPY:
+    class IdentityProvidersArgsDict(TypedDict):
+        """
+        The configuration settings of each of the identity providers used to configure App Service Authentication/Authorization.
+        """
+        apple: NotRequired[pulumi.Input['AppleArgsDict']]
+        """
+        The configuration settings of the Apple provider.
+        """
+        azure_active_directory: NotRequired[pulumi.Input['AzureActiveDirectoryArgsDict']]
+        """
+        The configuration settings of the Azure Active directory provider.
+        """
+        azure_static_web_apps: NotRequired[pulumi.Input['AzureStaticWebAppsArgsDict']]
+        """
+        The configuration settings of the Azure Static Web Apps provider.
+        """
+        custom_open_id_connect_providers: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['CustomOpenIdConnectProviderArgsDict']]]]
+        """
+        The map of the name of the alias of each custom Open ID Connect provider to the
+        configuration settings of the custom Open ID Connect provider.
+        """
+        facebook: NotRequired[pulumi.Input['FacebookArgsDict']]
+        """
+        The configuration settings of the Facebook provider.
+        """
+        git_hub: NotRequired[pulumi.Input['GitHubArgsDict']]
+        """
+        The configuration settings of the GitHub provider.
+        """
+        google: NotRequired[pulumi.Input['GoogleArgsDict']]
+        """
+        The configuration settings of the Google provider.
+        """
+        legacy_microsoft_account: NotRequired[pulumi.Input['LegacyMicrosoftAccountArgsDict']]
+        """
+        The configuration settings of the legacy Microsoft Account provider.
+        """
+        twitter: NotRequired[pulumi.Input['TwitterArgsDict']]
+        """
+        The configuration settings of the Twitter provider.
+        """
+elif False:
+    IdentityProvidersArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IdentityProvidersArgs:
@@ -1540,6 +2133,22 @@ class IdentityProvidersArgs:
         pulumi.set(self, "twitter", value)
 
 
+if not MYPY:
+    class JwtClaimChecksArgsDict(TypedDict):
+        """
+        The configuration settings of the checks that should be made while validating the JWT Claims.
+        """
+        allowed_client_applications: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of the allowed client applications.
+        """
+        allowed_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of the allowed groups.
+        """
+elif False:
+    JwtClaimChecksArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class JwtClaimChecksArgs:
     def __init__(__self__, *,
@@ -1579,6 +2188,30 @@ class JwtClaimChecksArgs:
     def allowed_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "allowed_groups", value)
 
+
+if not MYPY:
+    class LegacyMicrosoftAccountArgsDict(TypedDict):
+        """
+        The configuration settings of the legacy Microsoft Account provider.
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        <code>false</code> if the legacy Microsoft Account provider should not be enabled despite the set registration; otherwise, <code>true</code>.
+        """
+        login: NotRequired[pulumi.Input['LoginScopesArgsDict']]
+        """
+        The configuration settings of the login flow.
+        """
+        registration: NotRequired[pulumi.Input['ClientRegistrationArgsDict']]
+        """
+        The configuration settings of the app registration for the legacy Microsoft Account provider.
+        """
+        validation: NotRequired[pulumi.Input['AllowedAudiencesValidationArgsDict']]
+        """
+        The configuration settings of the legacy Microsoft Account provider token validation flow.
+        """
+elif False:
+    LegacyMicrosoftAccountArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LegacyMicrosoftAccountArgs:
@@ -1652,6 +2285,18 @@ class LegacyMicrosoftAccountArgs:
         pulumi.set(self, "validation", value)
 
 
+if not MYPY:
+    class LoginRoutesArgsDict(TypedDict):
+        """
+        The routes that specify the endpoints used for login and logout requests.
+        """
+        logout_endpoint: NotRequired[pulumi.Input[str]]
+        """
+        The endpoint at which a logout request should be made.
+        """
+elif False:
+    LoginRoutesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LoginRoutesArgs:
     def __init__(__self__, *,
@@ -1676,6 +2321,18 @@ class LoginRoutesArgs:
         pulumi.set(self, "logout_endpoint", value)
 
 
+if not MYPY:
+    class LoginScopesArgsDict(TypedDict):
+        """
+        The configuration settings of the login flow, including the scopes that should be requested.
+        """
+        scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of the scopes that should be requested while authenticating.
+        """
+elif False:
+    LoginScopesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LoginScopesArgs:
     def __init__(__self__, *,
@@ -1699,6 +2356,40 @@ class LoginScopesArgs:
     def scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "scopes", value)
 
+
+if not MYPY:
+    class LoginArgsDict(TypedDict):
+        """
+        The configuration settings of the login flow of users using App Service Authentication/Authorization.
+        """
+        allowed_external_redirect_urls: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        External URLs that can be redirected to as part of logging in or logging out of the app. Note that the query string part of the URL is ignored.
+        This is an advanced setting typically only needed by Windows Store application backends.
+        Note that URLs within the current domain are always implicitly allowed.
+        """
+        cookie_expiration: NotRequired[pulumi.Input['CookieExpirationArgsDict']]
+        """
+        The configuration settings of the session cookie's expiration.
+        """
+        nonce: NotRequired[pulumi.Input['NonceArgsDict']]
+        """
+        The configuration settings of the nonce used in the login flow.
+        """
+        preserve_url_fragments_for_logins: NotRequired[pulumi.Input[bool]]
+        """
+        <code>true</code> if the fragments from the request are preserved after the login request is made; otherwise, <code>false</code>.
+        """
+        routes: NotRequired[pulumi.Input['LoginRoutesArgsDict']]
+        """
+        The routes that specify the endpoints used for login and logout requests.
+        """
+        token_store: NotRequired[pulumi.Input['TokenStoreArgsDict']]
+        """
+        The configuration settings of the token store.
+        """
+elif False:
+    LoginArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LoginArgs:
@@ -1808,6 +2499,22 @@ class LoginArgs:
         pulumi.set(self, "token_store", value)
 
 
+if not MYPY:
+    class ManagedServiceIdentityArgsDict(TypedDict):
+        """
+        Managed service identity.
+        """
+        type: NotRequired[pulumi.Input['ManagedServiceIdentityType']]
+        """
+        Type of managed service identity.
+        """
+        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of user assigned identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}
+        """
+elif False:
+    ManagedServiceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ManagedServiceIdentityArgs:
     def __init__(__self__, *,
@@ -1847,6 +2554,22 @@ class ManagedServiceIdentityArgs:
     def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
+
+if not MYPY:
+    class NonceArgsDict(TypedDict):
+        """
+        The configuration settings of the nonce used in the login flow.
+        """
+        nonce_expiration_interval: NotRequired[pulumi.Input[str]]
+        """
+        The time after the request is made when the nonce should expire.
+        """
+        validate_nonce: NotRequired[pulumi.Input[bool]]
+        """
+        <code>false</code> if the nonce should not be validated while completing the login flow; otherwise, <code>true</code>.
+        """
+elif False:
+    NonceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NonceArgs:
@@ -1888,6 +2611,22 @@ class NonceArgs:
         pulumi.set(self, "validate_nonce", value)
 
 
+if not MYPY:
+    class OpenIdConnectClientCredentialArgsDict(TypedDict):
+        """
+        The authentication client credentials of the custom Open ID Connect provider.
+        """
+        client_secret_setting_name: NotRequired[pulumi.Input[str]]
+        """
+        The app setting that contains the client secret for the custom Open ID Connect provider.
+        """
+        method: NotRequired[pulumi.Input['ClientCredentialMethod']]
+        """
+        The method that should be used to authenticate the user.
+        """
+elif False:
+    OpenIdConnectClientCredentialArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OpenIdConnectClientCredentialArgs:
     def __init__(__self__, *,
@@ -1927,6 +2666,34 @@ class OpenIdConnectClientCredentialArgs:
     def method(self, value: Optional[pulumi.Input['ClientCredentialMethod']]):
         pulumi.set(self, "method", value)
 
+
+if not MYPY:
+    class OpenIdConnectConfigArgsDict(TypedDict):
+        """
+        The configuration settings of the endpoints used for the custom Open ID Connect provider.
+        """
+        authorization_endpoint: NotRequired[pulumi.Input[str]]
+        """
+        The endpoint to be used to make an authorization request.
+        """
+        certification_uri: NotRequired[pulumi.Input[str]]
+        """
+        The endpoint that provides the keys necessary to validate the token.
+        """
+        issuer: NotRequired[pulumi.Input[str]]
+        """
+        The endpoint that issues the token.
+        """
+        token_endpoint: NotRequired[pulumi.Input[str]]
+        """
+        The endpoint to be used to request a token.
+        """
+        well_known_open_id_configuration: NotRequired[pulumi.Input[str]]
+        """
+        The endpoint that contains all the configuration endpoints for the provider.
+        """
+elif False:
+    OpenIdConnectConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OpenIdConnectConfigArgs:
@@ -2016,6 +2783,22 @@ class OpenIdConnectConfigArgs:
         pulumi.set(self, "well_known_open_id_configuration", value)
 
 
+if not MYPY:
+    class OpenIdConnectLoginArgsDict(TypedDict):
+        """
+        The configuration settings of the login flow of the custom Open ID Connect provider.
+        """
+        name_claim_type: NotRequired[pulumi.Input[str]]
+        """
+        The name of the claim that contains the users name.
+        """
+        scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of the scopes that should be requested while authenticating.
+        """
+elif False:
+    OpenIdConnectLoginArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OpenIdConnectLoginArgs:
     def __init__(__self__, *,
@@ -2055,6 +2838,26 @@ class OpenIdConnectLoginArgs:
     def scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "scopes", value)
 
+
+if not MYPY:
+    class OpenIdConnectRegistrationArgsDict(TypedDict):
+        """
+        The configuration settings of the app registration for the custom Open ID Connect provider.
+        """
+        client_credential: NotRequired[pulumi.Input['OpenIdConnectClientCredentialArgsDict']]
+        """
+        The authentication credentials of the custom Open ID Connect provider.
+        """
+        client_id: NotRequired[pulumi.Input[str]]
+        """
+        The client id of the custom Open ID Connect provider.
+        """
+        open_id_connect_configuration: NotRequired[pulumi.Input['OpenIdConnectConfigArgsDict']]
+        """
+        The configuration settings of the endpoints used for the custom Open ID Connect provider.
+        """
+elif False:
+    OpenIdConnectRegistrationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OpenIdConnectRegistrationArgs:
@@ -2111,6 +2914,34 @@ class OpenIdConnectRegistrationArgs:
     def open_id_connect_configuration(self, value: Optional[pulumi.Input['OpenIdConnectConfigArgs']]):
         pulumi.set(self, "open_id_connect_configuration", value)
 
+
+if not MYPY:
+    class SkuCapacityArgsDict(TypedDict):
+        """
+        Description of the App Service plan scale options.
+        """
+        default: NotRequired[pulumi.Input[int]]
+        """
+        Default number of workers for this App Service plan SKU.
+        """
+        elastic_maximum: NotRequired[pulumi.Input[int]]
+        """
+        Maximum number of Elastic workers for this App Service plan SKU.
+        """
+        maximum: NotRequired[pulumi.Input[int]]
+        """
+        Maximum number of workers for this App Service plan SKU.
+        """
+        minimum: NotRequired[pulumi.Input[int]]
+        """
+        Minimum number of workers for this App Service plan SKU.
+        """
+        scale_type: NotRequired[pulumi.Input[str]]
+        """
+        Available scale configurations for an App Service plan.
+        """
+elif False:
+    SkuCapacityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SkuCapacityArgs:
@@ -2199,6 +3030,46 @@ class SkuCapacityArgs:
     def scale_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "scale_type", value)
 
+
+if not MYPY:
+    class SkuDescriptionArgsDict(TypedDict):
+        """
+        Description of a SKU for a scalable resource.
+        """
+        capabilities: NotRequired[pulumi.Input[Sequence[pulumi.Input['CapabilityArgsDict']]]]
+        """
+        Capabilities of the SKU, e.g., is traffic manager enabled?
+        """
+        capacity: NotRequired[pulumi.Input[int]]
+        """
+        Current number of instances assigned to the resource.
+        """
+        family: NotRequired[pulumi.Input[str]]
+        """
+        Family code of the resource SKU.
+        """
+        locations: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Locations of the SKU.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the resource SKU.
+        """
+        size: NotRequired[pulumi.Input[str]]
+        """
+        Size specifier of the resource SKU.
+        """
+        sku_capacity: NotRequired[pulumi.Input['SkuCapacityArgsDict']]
+        """
+        Min, max, and default scale values of the SKU.
+        """
+        tier: NotRequired[pulumi.Input[str]]
+        """
+        Service tier of the resource SKU.
+        """
+elif False:
+    SkuDescriptionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SkuDescriptionArgs:
@@ -2336,6 +3207,46 @@ class SkuDescriptionArgs:
         pulumi.set(self, "tier", value)
 
 
+if not MYPY:
+    class StaticSiteBuildPropertiesArgsDict(TypedDict):
+        """
+        Build properties for the static site.
+        """
+        api_build_command: NotRequired[pulumi.Input[str]]
+        """
+        A custom command to run during deployment of the Azure Functions API application.
+        """
+        api_location: NotRequired[pulumi.Input[str]]
+        """
+        The path to the api code within the repository.
+        """
+        app_artifact_location: NotRequired[pulumi.Input[str]]
+        """
+        Deprecated: The path of the app artifacts after building (deprecated in favor of OutputLocation)
+        """
+        app_build_command: NotRequired[pulumi.Input[str]]
+        """
+        A custom command to run during deployment of the static content application.
+        """
+        app_location: NotRequired[pulumi.Input[str]]
+        """
+        The path to the app code within the repository.
+        """
+        github_action_secret_name_override: NotRequired[pulumi.Input[str]]
+        """
+        Github Action secret name override.
+        """
+        output_location: NotRequired[pulumi.Input[str]]
+        """
+        The output path of the app after building.
+        """
+        skip_github_action_workflow_generation: NotRequired[pulumi.Input[bool]]
+        """
+        Skip Github Action workflow generation.
+        """
+elif False:
+    StaticSiteBuildPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class StaticSiteBuildPropertiesArgs:
     def __init__(__self__, *,
@@ -2472,6 +3383,34 @@ class StaticSiteBuildPropertiesArgs:
         pulumi.set(self, "skip_github_action_workflow_generation", value)
 
 
+if not MYPY:
+    class StaticSiteTemplateOptionsArgsDict(TypedDict):
+        """
+        Template Options for the static site.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Description of the newly generated repository.
+        """
+        is_private: NotRequired[pulumi.Input[bool]]
+        """
+        Whether or not the newly generated repository is a private repository. Defaults to false (i.e. public).
+        """
+        owner: NotRequired[pulumi.Input[str]]
+        """
+        Owner of the newly generated repository.
+        """
+        repository_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the newly generated repository.
+        """
+        template_repository_url: NotRequired[pulumi.Input[str]]
+        """
+        URL of the template repository. The newly generated repository will be based on this one.
+        """
+elif False:
+    StaticSiteTemplateOptionsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class StaticSiteTemplateOptionsArgs:
     def __init__(__self__, *,
@@ -2560,6 +3499,32 @@ class StaticSiteTemplateOptionsArgs:
         pulumi.set(self, "template_repository_url", value)
 
 
+if not MYPY:
+    class TokenStoreArgsDict(TypedDict):
+        """
+        The configuration settings of the token store.
+        """
+        azure_blob_storage: NotRequired[pulumi.Input['BlobStorageTokenStoreArgsDict']]
+        """
+        The configuration settings of the storage of the tokens if blob storage is used.
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        <code>true</code> to durably store platform-specific security tokens that are obtained during login flows; otherwise, <code>false</code>.
+         The default is <code>false</code>.
+        """
+        file_system: NotRequired[pulumi.Input['FileSystemTokenStoreArgsDict']]
+        """
+        The configuration settings of the storage of the tokens if a file system is used.
+        """
+        token_refresh_extension_hours: NotRequired[pulumi.Input[float]]
+        """
+        The number of hours after session token expiration that a session token can be used to
+        call the token refresh API. The default is 72 hours.
+        """
+elif False:
+    TokenStoreArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TokenStoreArgs:
     def __init__(__self__, *,
@@ -2636,6 +3601,25 @@ class TokenStoreArgs:
         pulumi.set(self, "token_refresh_extension_hours", value)
 
 
+if not MYPY:
+    class TwitterRegistrationArgsDict(TypedDict):
+        """
+        The configuration settings of the app registration for the Twitter provider.
+        """
+        consumer_key: NotRequired[pulumi.Input[str]]
+        """
+        The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+        This setting is required for enabling Twitter Sign-In.
+        Twitter Sign-In documentation: https://dev.twitter.com/web/sign-in
+        """
+        consumer_secret_setting_name: NotRequired[pulumi.Input[str]]
+        """
+        The app setting name that contains the OAuth 1.0a consumer secret of the Twitter
+        application used for sign-in.
+        """
+elif False:
+    TwitterRegistrationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TwitterRegistrationArgs:
     def __init__(__self__, *,
@@ -2681,6 +3665,22 @@ class TwitterRegistrationArgs:
     def consumer_secret_setting_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "consumer_secret_setting_name", value)
 
+
+if not MYPY:
+    class TwitterArgsDict(TypedDict):
+        """
+        The configuration settings of the Twitter provider.
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        <code>false</code> if the Twitter provider should not be enabled despite the set registration; otherwise, <code>true</code>.
+        """
+        registration: NotRequired[pulumi.Input['TwitterRegistrationArgsDict']]
+        """
+        The configuration settings of the app registration for the Twitter provider.
+        """
+elif False:
+    TwitterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TwitterArgs:

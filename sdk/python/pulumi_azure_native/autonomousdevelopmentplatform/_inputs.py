@@ -4,17 +4,51 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'DataPoolEncryptionArgs',
+    'DataPoolEncryptionArgsDict',
     'DataPoolLocationArgs',
+    'DataPoolLocationArgsDict',
     'StorageSkuArgs',
+    'StorageSkuArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class DataPoolEncryptionArgsDict(TypedDict):
+        """
+        Encryption properties of a Data Pool
+        """
+        key_name: pulumi.Input[str]
+        """
+        The name of Key Vault key
+        """
+        key_vault_uri: pulumi.Input[str]
+        """
+        The URI of a soft delete-enabled Key Vault that is in the same location as the Data Pool location
+        """
+        user_assigned_identity: pulumi.Input[str]
+        """
+        The resource ID of a user-assigned Managed Identity used to access the encryption key in the Key Vault. Requires access to the key operations get, wrap, unwrap, and recover
+        """
+        key_version: NotRequired[pulumi.Input[str]]
+        """
+        The version of Key Vault key
+        """
+elif False:
+    DataPoolEncryptionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataPoolEncryptionArgs:
@@ -84,6 +118,30 @@ class DataPoolEncryptionArgs:
     def key_version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "key_version", value)
 
+
+if not MYPY:
+    class DataPoolLocationArgsDict(TypedDict):
+        """
+        Location of a Data Pool
+        """
+        name: pulumi.Input[str]
+        """
+        The location name
+        """
+        encryption: NotRequired[pulumi.Input['DataPoolEncryptionArgsDict']]
+        """
+        Encryption properties of a Data Pool location
+        """
+        storage_account_count: NotRequired[pulumi.Input[int]]
+        """
+        The amount of storage accounts provisioned per Data Pool. Default: 5
+        """
+        storage_sku: NotRequired[pulumi.Input['StorageSkuArgsDict']]
+        """
+        The Storage SKU. Default: Standard_ZRS.
+        """
+elif False:
+    DataPoolLocationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataPoolLocationArgs:
@@ -155,6 +213,18 @@ class DataPoolLocationArgs:
     def storage_sku(self, value: Optional[pulumi.Input['StorageSkuArgs']]):
         pulumi.set(self, "storage_sku", value)
 
+
+if not MYPY:
+    class StorageSkuArgsDict(TypedDict):
+        """
+        The Storage SKU.
+        """
+        name: pulumi.Input[Union[str, 'StorageSkuName']]
+        """
+        The SKU name
+        """
+elif False:
+    StorageSkuArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class StorageSkuArgs:

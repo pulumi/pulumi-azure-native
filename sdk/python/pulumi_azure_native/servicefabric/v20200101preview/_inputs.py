@@ -4,20 +4,53 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'AzureActiveDirectoryArgs',
+    'AzureActiveDirectoryArgsDict',
     'ClientCertificateArgs',
+    'ClientCertificateArgsDict',
     'LoadBalancingRuleArgs',
+    'LoadBalancingRuleArgsDict',
     'SettingsParameterDescriptionArgs',
+    'SettingsParameterDescriptionArgsDict',
     'SettingsSectionDescriptionArgs',
+    'SettingsSectionDescriptionArgsDict',
     'SkuArgs',
+    'SkuArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AzureActiveDirectoryArgsDict(TypedDict):
+        """
+        The settings to enable AAD authentication on the cluster.
+        """
+        client_application: NotRequired[pulumi.Input[str]]
+        """
+        Azure active directory client application id.
+        """
+        cluster_application: NotRequired[pulumi.Input[str]]
+        """
+        Azure active directory cluster application id.
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        Azure active directory tenant id.
+        """
+elif False:
+    AzureActiveDirectoryArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AzureActiveDirectoryArgs:
@@ -74,6 +107,30 @@ class AzureActiveDirectoryArgs:
     def tenant_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tenant_id", value)
 
+
+if not MYPY:
+    class ClientCertificateArgsDict(TypedDict):
+        """
+        Client Certificate definition.
+        """
+        is_admin: pulumi.Input[bool]
+        """
+        Whether the certificate is admin or not.
+        """
+        common_name: NotRequired[pulumi.Input[str]]
+        """
+        Certificate Common name.
+        """
+        issuer_thumbprint: NotRequired[pulumi.Input[str]]
+        """
+        Issuer thumbprint for the certificate. Only used together with CommonName.
+        """
+        thumbprint: NotRequired[pulumi.Input[str]]
+        """
+        Certificate Thumbprint.
+        """
+elif False:
+    ClientCertificateArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ClientCertificateArgs:
@@ -145,6 +202,34 @@ class ClientCertificateArgs:
     def thumbprint(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "thumbprint", value)
 
+
+if not MYPY:
+    class LoadBalancingRuleArgsDict(TypedDict):
+        """
+        Describes a load balancing rule.
+        """
+        backend_port: pulumi.Input[int]
+        """
+        The port used for internal connections on the endpoint. Acceptable values are between 1 and 65535.
+        """
+        frontend_port: pulumi.Input[int]
+        """
+        The port for the external endpoint. Port numbers for each rule must be unique within the Load Balancer. Acceptable values are between 1 and 65534.
+        """
+        probe_protocol: pulumi.Input[Union[str, 'ProbeProtocol']]
+        """
+        the reference to the load balancer probe used by the load balancing rule.
+        """
+        protocol: pulumi.Input[Union[str, 'Protocol']]
+        """
+        The reference to the transport protocol used by the load balancing rule.
+        """
+        probe_request_path: NotRequired[pulumi.Input[str]]
+        """
+        The probe request path. Only supported for HTTP/HTTPS probes.
+        """
+elif False:
+    LoadBalancingRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LoadBalancingRuleArgs:
@@ -230,6 +315,22 @@ class LoadBalancingRuleArgs:
         pulumi.set(self, "probe_request_path", value)
 
 
+if not MYPY:
+    class SettingsParameterDescriptionArgsDict(TypedDict):
+        """
+        Describes a parameter in fabric settings of the cluster.
+        """
+        name: pulumi.Input[str]
+        """
+        The parameter name of fabric setting.
+        """
+        value: pulumi.Input[str]
+        """
+        The parameter value of fabric setting.
+        """
+elif False:
+    SettingsParameterDescriptionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SettingsParameterDescriptionArgs:
     def __init__(__self__, *,
@@ -268,6 +369,22 @@ class SettingsParameterDescriptionArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class SettingsSectionDescriptionArgsDict(TypedDict):
+        """
+        Describes a section in the fabric settings of the cluster.
+        """
+        name: pulumi.Input[str]
+        """
+        The section name of the fabric settings.
+        """
+        parameters: pulumi.Input[Sequence[pulumi.Input['SettingsParameterDescriptionArgsDict']]]
+        """
+        The collection of parameters in the section.
+        """
+elif False:
+    SettingsSectionDescriptionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SettingsSectionDescriptionArgs:
     def __init__(__self__, *,
@@ -305,6 +422,18 @@ class SettingsSectionDescriptionArgs:
     def parameters(self, value: pulumi.Input[Sequence[pulumi.Input['SettingsParameterDescriptionArgs']]]):
         pulumi.set(self, "parameters", value)
 
+
+if not MYPY:
+    class SkuArgsDict(TypedDict):
+        """
+        Sku definition
+        """
+        name: pulumi.Input[str]
+        """
+        Sku Name.
+        """
+elif False:
+    SkuArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SkuArgs:

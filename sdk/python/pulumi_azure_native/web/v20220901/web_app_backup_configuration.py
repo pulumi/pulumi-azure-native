@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -153,8 +158,8 @@ class WebAppBackupConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  backup_name: Optional[pulumi.Input[str]] = None,
-                 backup_schedule: Optional[pulumi.Input[pulumi.InputType['BackupScheduleArgs']]] = None,
-                 databases: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatabaseBackupSettingArgs']]]]] = None,
+                 backup_schedule: Optional[pulumi.Input[Union['BackupScheduleArgs', 'BackupScheduleArgsDict']]] = None,
+                 databases: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DatabaseBackupSettingArgs', 'DatabaseBackupSettingArgsDict']]]]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -167,8 +172,8 @@ class WebAppBackupConfiguration(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] backup_name: Name of the backup.
-        :param pulumi.Input[pulumi.InputType['BackupScheduleArgs']] backup_schedule: Schedule for the backup if it is executed periodically.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatabaseBackupSettingArgs']]]] databases: Databases included in the backup.
+        :param pulumi.Input[Union['BackupScheduleArgs', 'BackupScheduleArgsDict']] backup_schedule: Schedule for the backup if it is executed periodically.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DatabaseBackupSettingArgs', 'DatabaseBackupSettingArgsDict']]]] databases: Databases included in the backup.
         :param pulumi.Input[bool] enabled: True if the backup schedule is enabled (must be included in that case), false if the backup schedule should be disabled.
         :param pulumi.Input[str] kind: Kind of resource.
         :param pulumi.Input[str] name: Name of the app.
@@ -200,8 +205,8 @@ class WebAppBackupConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  backup_name: Optional[pulumi.Input[str]] = None,
-                 backup_schedule: Optional[pulumi.Input[pulumi.InputType['BackupScheduleArgs']]] = None,
-                 databases: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatabaseBackupSettingArgs']]]]] = None,
+                 backup_schedule: Optional[pulumi.Input[Union['BackupScheduleArgs', 'BackupScheduleArgsDict']]] = None,
+                 databases: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DatabaseBackupSettingArgs', 'DatabaseBackupSettingArgsDict']]]]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,

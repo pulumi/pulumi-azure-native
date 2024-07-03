@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -334,10 +339,10 @@ class PreRule(pulumi.CustomResource):
                  action_type: Optional[pulumi.Input[Union[str, 'ActionEnum']]] = None,
                  applications: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  audit_comment: Optional[pulumi.Input[str]] = None,
-                 category: Optional[pulumi.Input[pulumi.InputType['CategoryArgs']]] = None,
+                 category: Optional[pulumi.Input[Union['CategoryArgs', 'CategoryArgsDict']]] = None,
                  decryption_rule_type: Optional[pulumi.Input[Union[str, 'DecryptionRuleTypeEnum']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 destination: Optional[pulumi.Input[pulumi.InputType['DestinationAddrArgs']]] = None,
+                 destination: Optional[pulumi.Input[Union['DestinationAddrArgs', 'DestinationAddrArgsDict']]] = None,
                  enable_logging: Optional[pulumi.Input[Union[str, 'StateEnum']]] = None,
                  global_rulestack_name: Optional[pulumi.Input[str]] = None,
                  inbound_inspection_certificate: Optional[pulumi.Input[str]] = None,
@@ -348,8 +353,8 @@ class PreRule(pulumi.CustomResource):
                  protocol_port_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  rule_name: Optional[pulumi.Input[str]] = None,
                  rule_state: Optional[pulumi.Input[Union[str, 'StateEnum']]] = None,
-                 source: Optional[pulumi.Input[pulumi.InputType['SourceAddrArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TagInfoArgs']]]]] = None,
+                 source: Optional[pulumi.Input[Union['SourceAddrArgs', 'SourceAddrArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TagInfoArgs', 'TagInfoArgsDict']]]]] = None,
                  __props__=None):
         """
         PreRulestack rule list
@@ -359,10 +364,10 @@ class PreRule(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'ActionEnum']] action_type: rule action
         :param pulumi.Input[Sequence[pulumi.Input[str]]] applications: array of rule applications
         :param pulumi.Input[str] audit_comment: rule comment
-        :param pulumi.Input[pulumi.InputType['CategoryArgs']] category: rule category
+        :param pulumi.Input[Union['CategoryArgs', 'CategoryArgsDict']] category: rule category
         :param pulumi.Input[Union[str, 'DecryptionRuleTypeEnum']] decryption_rule_type: enable or disable decryption
         :param pulumi.Input[str] description: rule description
-        :param pulumi.Input[pulumi.InputType['DestinationAddrArgs']] destination: destination address
+        :param pulumi.Input[Union['DestinationAddrArgs', 'DestinationAddrArgsDict']] destination: destination address
         :param pulumi.Input[Union[str, 'StateEnum']] enable_logging: enable or disable logging
         :param pulumi.Input[str] global_rulestack_name: GlobalRulestack resource name
         :param pulumi.Input[str] inbound_inspection_certificate: inbound Inspection Certificate
@@ -373,8 +378,8 @@ class PreRule(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] protocol_port_list: prot port list
         :param pulumi.Input[str] rule_name: rule name
         :param pulumi.Input[Union[str, 'StateEnum']] rule_state: state of this rule
-        :param pulumi.Input[pulumi.InputType['SourceAddrArgs']] source: source address
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TagInfoArgs']]]] tags: tag for rule
+        :param pulumi.Input[Union['SourceAddrArgs', 'SourceAddrArgsDict']] source: source address
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TagInfoArgs', 'TagInfoArgsDict']]]] tags: tag for rule
         """
         ...
     @overload
@@ -403,10 +408,10 @@ class PreRule(pulumi.CustomResource):
                  action_type: Optional[pulumi.Input[Union[str, 'ActionEnum']]] = None,
                  applications: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  audit_comment: Optional[pulumi.Input[str]] = None,
-                 category: Optional[pulumi.Input[pulumi.InputType['CategoryArgs']]] = None,
+                 category: Optional[pulumi.Input[Union['CategoryArgs', 'CategoryArgsDict']]] = None,
                  decryption_rule_type: Optional[pulumi.Input[Union[str, 'DecryptionRuleTypeEnum']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 destination: Optional[pulumi.Input[pulumi.InputType['DestinationAddrArgs']]] = None,
+                 destination: Optional[pulumi.Input[Union['DestinationAddrArgs', 'DestinationAddrArgsDict']]] = None,
                  enable_logging: Optional[pulumi.Input[Union[str, 'StateEnum']]] = None,
                  global_rulestack_name: Optional[pulumi.Input[str]] = None,
                  inbound_inspection_certificate: Optional[pulumi.Input[str]] = None,
@@ -417,8 +422,8 @@ class PreRule(pulumi.CustomResource):
                  protocol_port_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  rule_name: Optional[pulumi.Input[str]] = None,
                  rule_state: Optional[pulumi.Input[Union[str, 'StateEnum']]] = None,
-                 source: Optional[pulumi.Input[pulumi.InputType['SourceAddrArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TagInfoArgs']]]]] = None,
+                 source: Optional[pulumi.Input[Union['SourceAddrArgs', 'SourceAddrArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TagInfoArgs', 'TagInfoArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

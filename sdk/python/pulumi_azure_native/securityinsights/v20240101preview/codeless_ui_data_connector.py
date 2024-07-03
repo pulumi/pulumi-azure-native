@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -106,7 +111,7 @@ class CodelessUiDataConnector(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 connector_ui_config: Optional[pulumi.Input[pulumi.InputType['CodelessUiConnectorConfigPropertiesArgs']]] = None,
+                 connector_ui_config: Optional[pulumi.Input[Union['CodelessUiConnectorConfigPropertiesArgs', 'CodelessUiConnectorConfigPropertiesArgsDict']]] = None,
                  data_connector_id: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -117,7 +122,7 @@ class CodelessUiDataConnector(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['CodelessUiConnectorConfigPropertiesArgs']] connector_ui_config: Config to describe the instructions blade
+        :param pulumi.Input[Union['CodelessUiConnectorConfigPropertiesArgs', 'CodelessUiConnectorConfigPropertiesArgsDict']] connector_ui_config: Config to describe the instructions blade
         :param pulumi.Input[str] data_connector_id: Connector ID
         :param pulumi.Input[str] kind: The kind of the data connector
                Expected value is 'GenericUI'.
@@ -148,7 +153,7 @@ class CodelessUiDataConnector(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 connector_ui_config: Optional[pulumi.Input[pulumi.InputType['CodelessUiConnectorConfigPropertiesArgs']]] = None,
+                 connector_ui_config: Optional[pulumi.Input[Union['CodelessUiConnectorConfigPropertiesArgs', 'CodelessUiConnectorConfigPropertiesArgsDict']]] = None,
                  data_connector_id: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,

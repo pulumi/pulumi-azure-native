@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -167,14 +172,14 @@ class GovernanceAssignment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_data: Optional[pulumi.Input[pulumi.InputType['GovernanceAssignmentAdditionalDataArgs']]] = None,
+                 additional_data: Optional[pulumi.Input[Union['GovernanceAssignmentAdditionalDataArgs', 'GovernanceAssignmentAdditionalDataArgsDict']]] = None,
                  assessment_name: Optional[pulumi.Input[str]] = None,
                  assignment_key: Optional[pulumi.Input[str]] = None,
-                 governance_email_notification: Optional[pulumi.Input[pulumi.InputType['GovernanceEmailNotificationArgs']]] = None,
+                 governance_email_notification: Optional[pulumi.Input[Union['GovernanceEmailNotificationArgs', 'GovernanceEmailNotificationArgsDict']]] = None,
                  is_grace_period: Optional[pulumi.Input[bool]] = None,
                  owner: Optional[pulumi.Input[str]] = None,
                  remediation_due_date: Optional[pulumi.Input[str]] = None,
-                 remediation_eta: Optional[pulumi.Input[pulumi.InputType['RemediationEtaArgs']]] = None,
+                 remediation_eta: Optional[pulumi.Input[Union['RemediationEtaArgs', 'RemediationEtaArgsDict']]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -183,14 +188,14 @@ class GovernanceAssignment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['GovernanceAssignmentAdditionalDataArgs']] additional_data: The additional data for the governance assignment - e.g. links to ticket (optional), see example
+        :param pulumi.Input[Union['GovernanceAssignmentAdditionalDataArgs', 'GovernanceAssignmentAdditionalDataArgsDict']] additional_data: The additional data for the governance assignment - e.g. links to ticket (optional), see example
         :param pulumi.Input[str] assessment_name: The Assessment Key - A unique key for the assessment type
         :param pulumi.Input[str] assignment_key: The governance assignment key - the assessment key of the required governance assignment
-        :param pulumi.Input[pulumi.InputType['GovernanceEmailNotificationArgs']] governance_email_notification: The email notifications settings for the governance rule, states whether to disable notifications for mangers and owners
+        :param pulumi.Input[Union['GovernanceEmailNotificationArgs', 'GovernanceEmailNotificationArgsDict']] governance_email_notification: The email notifications settings for the governance rule, states whether to disable notifications for mangers and owners
         :param pulumi.Input[bool] is_grace_period: Defines whether there is a grace period on the governance assignment
         :param pulumi.Input[str] owner: The Owner for the governance assignment - e.g. user@contoso.com - see example
         :param pulumi.Input[str] remediation_due_date: The remediation due-date - after this date Secure Score will be affected (in case of  active grace-period)
-        :param pulumi.Input[pulumi.InputType['RemediationEtaArgs']] remediation_eta: The ETA (estimated time of arrival) for remediation (optional), see example
+        :param pulumi.Input[Union['RemediationEtaArgs', 'RemediationEtaArgsDict']] remediation_eta: The ETA (estimated time of arrival) for remediation (optional), see example
         :param pulumi.Input[str] scope: The scope of the Governance assignments. Valid scopes are: subscription (format: 'subscriptions/{subscriptionId}'), or security connector (format: 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/securityConnectors/{securityConnectorName})'
         """
         ...
@@ -218,14 +223,14 @@ class GovernanceAssignment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_data: Optional[pulumi.Input[pulumi.InputType['GovernanceAssignmentAdditionalDataArgs']]] = None,
+                 additional_data: Optional[pulumi.Input[Union['GovernanceAssignmentAdditionalDataArgs', 'GovernanceAssignmentAdditionalDataArgsDict']]] = None,
                  assessment_name: Optional[pulumi.Input[str]] = None,
                  assignment_key: Optional[pulumi.Input[str]] = None,
-                 governance_email_notification: Optional[pulumi.Input[pulumi.InputType['GovernanceEmailNotificationArgs']]] = None,
+                 governance_email_notification: Optional[pulumi.Input[Union['GovernanceEmailNotificationArgs', 'GovernanceEmailNotificationArgsDict']]] = None,
                  is_grace_period: Optional[pulumi.Input[bool]] = None,
                  owner: Optional[pulumi.Input[str]] = None,
                  remediation_due_date: Optional[pulumi.Input[str]] = None,
-                 remediation_eta: Optional[pulumi.Input[pulumi.InputType['RemediationEtaArgs']]] = None,
+                 remediation_eta: Optional[pulumi.Input[Union['RemediationEtaArgs', 'RemediationEtaArgsDict']]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

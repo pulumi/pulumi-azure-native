@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -301,7 +306,7 @@ class AnomalySecurityMLAnalyticsSettings(pulumi.CustomResource):
                  frequency: Optional[pulumi.Input[str]] = None,
                  is_default_settings: Optional[pulumi.Input[bool]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
-                 required_data_connectors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityMLAnalyticsSettingsDataSourceArgs']]]]] = None,
+                 required_data_connectors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecurityMLAnalyticsSettingsDataSourceArgs', 'SecurityMLAnalyticsSettingsDataSourceArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  settings_definition_id: Optional[pulumi.Input[str]] = None,
                  settings_resource_name: Optional[pulumi.Input[str]] = None,
@@ -325,7 +330,7 @@ class AnomalySecurityMLAnalyticsSettings(pulumi.CustomResource):
         :param pulumi.Input[bool] is_default_settings: Determines whether this anomaly security ml analytics settings is a default settings
         :param pulumi.Input[str] kind: The kind of security ML analytics settings
                Expected value is 'Anomaly'.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityMLAnalyticsSettingsDataSourceArgs']]]] required_data_connectors: The required data sources for this SecurityMLAnalyticsSettings
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SecurityMLAnalyticsSettingsDataSourceArgs', 'SecurityMLAnalyticsSettingsDataSourceArgsDict']]]] required_data_connectors: The required data sources for this SecurityMLAnalyticsSettings
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] settings_definition_id: The anomaly settings definition Id
         :param pulumi.Input[str] settings_resource_name: Security ML Analytics Settings resource name
@@ -367,7 +372,7 @@ class AnomalySecurityMLAnalyticsSettings(pulumi.CustomResource):
                  frequency: Optional[pulumi.Input[str]] = None,
                  is_default_settings: Optional[pulumi.Input[bool]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
-                 required_data_connectors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityMLAnalyticsSettingsDataSourceArgs']]]]] = None,
+                 required_data_connectors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecurityMLAnalyticsSettingsDataSourceArgs', 'SecurityMLAnalyticsSettingsDataSourceArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  settings_definition_id: Optional[pulumi.Input[str]] = None,
                  settings_resource_name: Optional[pulumi.Input[str]] = None,

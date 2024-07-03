@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -219,13 +224,13 @@ class ExpressRouteConnection(pulumi.CustomResource):
                  connection_name: Optional[pulumi.Input[str]] = None,
                  enable_internet_security: Optional[pulumi.Input[bool]] = None,
                  enable_private_link_fast_path: Optional[pulumi.Input[bool]] = None,
-                 express_route_circuit_peering: Optional[pulumi.Input[pulumi.InputType['ExpressRouteCircuitPeeringIdArgs']]] = None,
+                 express_route_circuit_peering: Optional[pulumi.Input[Union['ExpressRouteCircuitPeeringIdArgs', 'ExpressRouteCircuitPeeringIdArgsDict']]] = None,
                  express_route_gateway_bypass: Optional[pulumi.Input[bool]] = None,
                  express_route_gateway_name: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 routing_configuration: Optional[pulumi.Input[pulumi.InputType['RoutingConfigurationArgs']]] = None,
+                 routing_configuration: Optional[pulumi.Input[Union['RoutingConfigurationArgs', 'RoutingConfigurationArgsDict']]] = None,
                  routing_weight: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         """
@@ -237,13 +242,13 @@ class ExpressRouteConnection(pulumi.CustomResource):
         :param pulumi.Input[str] connection_name: The name of the connection subresource.
         :param pulumi.Input[bool] enable_internet_security: Enable internet security.
         :param pulumi.Input[bool] enable_private_link_fast_path: Bypass the ExpressRoute gateway when accessing private-links. ExpressRoute FastPath (expressRouteGatewayBypass) must be enabled.
-        :param pulumi.Input[pulumi.InputType['ExpressRouteCircuitPeeringIdArgs']] express_route_circuit_peering: The ExpressRoute circuit peering.
+        :param pulumi.Input[Union['ExpressRouteCircuitPeeringIdArgs', 'ExpressRouteCircuitPeeringIdArgsDict']] express_route_circuit_peering: The ExpressRoute circuit peering.
         :param pulumi.Input[bool] express_route_gateway_bypass: Enable FastPath to vWan Firewall hub.
         :param pulumi.Input[str] express_route_gateway_name: The name of the ExpressRoute gateway.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] name: The name of the resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[pulumi.InputType['RoutingConfigurationArgs']] routing_configuration: The Routing Configuration indicating the associated and propagated route tables on this connection.
+        :param pulumi.Input[Union['RoutingConfigurationArgs', 'RoutingConfigurationArgsDict']] routing_configuration: The Routing Configuration indicating the associated and propagated route tables on this connection.
         :param pulumi.Input[int] routing_weight: The routing weight associated to the connection.
         """
         ...
@@ -274,13 +279,13 @@ class ExpressRouteConnection(pulumi.CustomResource):
                  connection_name: Optional[pulumi.Input[str]] = None,
                  enable_internet_security: Optional[pulumi.Input[bool]] = None,
                  enable_private_link_fast_path: Optional[pulumi.Input[bool]] = None,
-                 express_route_circuit_peering: Optional[pulumi.Input[pulumi.InputType['ExpressRouteCircuitPeeringIdArgs']]] = None,
+                 express_route_circuit_peering: Optional[pulumi.Input[Union['ExpressRouteCircuitPeeringIdArgs', 'ExpressRouteCircuitPeeringIdArgsDict']]] = None,
                  express_route_gateway_bypass: Optional[pulumi.Input[bool]] = None,
                  express_route_gateway_name: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 routing_configuration: Optional[pulumi.Input[pulumi.InputType['RoutingConfigurationArgs']]] = None,
+                 routing_configuration: Optional[pulumi.Input[Union['RoutingConfigurationArgs', 'RoutingConfigurationArgsDict']]] = None,
                  routing_weight: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

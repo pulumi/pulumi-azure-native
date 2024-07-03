@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -107,7 +112,7 @@ class PlacementPolicy(pulumi.CustomResource):
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  placement_policy_name: Optional[pulumi.Input[str]] = None,
                  private_cloud_name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[Union[pulumi.InputType['VmHostPlacementPolicyPropertiesArgs'], pulumi.InputType['VmVmPlacementPolicyPropertiesArgs']]]] = None,
+                 properties: Optional[pulumi.Input[Union[Union['VmHostPlacementPolicyPropertiesArgs', 'VmHostPlacementPolicyPropertiesArgsDict'], Union['VmVmPlacementPolicyPropertiesArgs', 'VmVmPlacementPolicyPropertiesArgsDict']]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -121,7 +126,7 @@ class PlacementPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] cluster_name: Name of the cluster in the private cloud
         :param pulumi.Input[str] placement_policy_name: Name of the VMware vSphere Distributed Resource Scheduler (DRS) placement policy
         :param pulumi.Input[str] private_cloud_name: Name of the private cloud
-        :param pulumi.Input[Union[pulumi.InputType['VmHostPlacementPolicyPropertiesArgs'], pulumi.InputType['VmVmPlacementPolicyPropertiesArgs']]] properties: placement policy properties
+        :param pulumi.Input[Union[Union['VmHostPlacementPolicyPropertiesArgs', 'VmHostPlacementPolicyPropertiesArgsDict'], Union['VmVmPlacementPolicyPropertiesArgs', 'VmVmPlacementPolicyPropertiesArgsDict']]] properties: placement policy properties
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         """
         ...
@@ -154,7 +159,7 @@ class PlacementPolicy(pulumi.CustomResource):
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  placement_policy_name: Optional[pulumi.Input[str]] = None,
                  private_cloud_name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[Union[pulumi.InputType['VmHostPlacementPolicyPropertiesArgs'], pulumi.InputType['VmVmPlacementPolicyPropertiesArgs']]]] = None,
+                 properties: Optional[pulumi.Input[Union[Union['VmHostPlacementPolicyPropertiesArgs', 'VmHostPlacementPolicyPropertiesArgsDict'], Union['VmVmPlacementPolicyPropertiesArgs', 'VmVmPlacementPolicyPropertiesArgsDict']]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

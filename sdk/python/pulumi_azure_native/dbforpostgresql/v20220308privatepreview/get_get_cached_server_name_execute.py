@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 from ._inputs import *
@@ -48,8 +53,8 @@ class AwaitableGetGetCachedServerNameExecuteResult(GetGetCachedServerNameExecute
 
 def get_get_cached_server_name_execute(location_name: Optional[str] = None,
                                        resource_group_name: Optional[str] = None,
-                                       sku: Optional[pulumi.InputType['Sku']] = None,
-                                       storage: Optional[pulumi.InputType['Storage']] = None,
+                                       sku: Optional[Union['Sku', 'SkuDict']] = None,
+                                       storage: Optional[Union['Storage', 'StorageDict']] = None,
                                        version: Optional[Union[str, 'ServerVersion']] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGetCachedServerNameExecuteResult:
     """
@@ -58,8 +63,8 @@ def get_get_cached_server_name_execute(location_name: Optional[str] = None,
 
     :param str location_name: The name of the location.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
-    :param pulumi.InputType['Sku'] sku: The SKU (pricing tier) of the server.
-    :param pulumi.InputType['Storage'] storage: Storage properties of a server.
+    :param Union['Sku', 'SkuDict'] sku: The SKU (pricing tier) of the server.
+    :param Union['Storage', 'StorageDict'] storage: Storage properties of a server.
     :param Union[str, 'ServerVersion'] version: PostgreSQL Server version.
     """
     __args__ = dict()
@@ -78,8 +83,8 @@ def get_get_cached_server_name_execute(location_name: Optional[str] = None,
 @_utilities.lift_output_func(get_get_cached_server_name_execute)
 def get_get_cached_server_name_execute_output(location_name: Optional[pulumi.Input[str]] = None,
                                               resource_group_name: Optional[pulumi.Input[str]] = None,
-                                              sku: Optional[pulumi.Input[pulumi.InputType['Sku']]] = None,
-                                              storage: Optional[pulumi.Input[pulumi.InputType['Storage']]] = None,
+                                              sku: Optional[pulumi.Input[Union['Sku', 'SkuDict']]] = None,
+                                              storage: Optional[pulumi.Input[Union['Storage', 'StorageDict']]] = None,
                                               version: Optional[pulumi.Input[Union[str, 'ServerVersion']]] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGetCachedServerNameExecuteResult]:
     """
@@ -88,8 +93,8 @@ def get_get_cached_server_name_execute_output(location_name: Optional[pulumi.Inp
 
     :param str location_name: The name of the location.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
-    :param pulumi.InputType['Sku'] sku: The SKU (pricing tier) of the server.
-    :param pulumi.InputType['Storage'] storage: Storage properties of a server.
+    :param Union['Sku', 'SkuDict'] sku: The SKU (pricing tier) of the server.
+    :param Union['Storage', 'StorageDict'] storage: Storage properties of a server.
     :param Union[str, 'ServerVersion'] version: PostgreSQL Server version.
     """
     ...

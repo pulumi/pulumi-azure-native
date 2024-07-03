@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -139,10 +144,10 @@ class IntegrationAccount(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  integration_account_name: Optional[pulumi.Input[str]] = None,
-                 integration_service_environment: Optional[pulumi.Input[pulumi.InputType['ResourceReferenceArgs']]] = None,
+                 integration_service_environment: Optional[pulumi.Input[Union['ResourceReferenceArgs', 'ResourceReferenceArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['IntegrationAccountSkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['IntegrationAccountSkuArgs', 'IntegrationAccountSkuArgsDict']]] = None,
                  state: Optional[pulumi.Input[Union[str, 'WorkflowState']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -155,10 +160,10 @@ class IntegrationAccount(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] integration_account_name: The integration account name.
-        :param pulumi.Input[pulumi.InputType['ResourceReferenceArgs']] integration_service_environment: The integration service environment.
+        :param pulumi.Input[Union['ResourceReferenceArgs', 'ResourceReferenceArgsDict']] integration_service_environment: The integration service environment.
         :param pulumi.Input[str] location: The resource location.
         :param pulumi.Input[str] resource_group_name: The resource group name.
-        :param pulumi.Input[pulumi.InputType['IntegrationAccountSkuArgs']] sku: The sku.
+        :param pulumi.Input[Union['IntegrationAccountSkuArgs', 'IntegrationAccountSkuArgsDict']] sku: The sku.
         :param pulumi.Input[Union[str, 'WorkflowState']] state: The workflow state.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
         """
@@ -190,10 +195,10 @@ class IntegrationAccount(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  integration_account_name: Optional[pulumi.Input[str]] = None,
-                 integration_service_environment: Optional[pulumi.Input[pulumi.InputType['ResourceReferenceArgs']]] = None,
+                 integration_service_environment: Optional[pulumi.Input[Union['ResourceReferenceArgs', 'ResourceReferenceArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['IntegrationAccountSkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['IntegrationAccountSkuArgs', 'IntegrationAccountSkuArgsDict']]] = None,
                  state: Optional[pulumi.Input[Union[str, 'WorkflowState']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):

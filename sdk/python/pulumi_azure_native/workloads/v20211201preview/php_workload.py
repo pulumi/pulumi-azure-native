@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -340,52 +345,52 @@ class PhpWorkload(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 admin_user_profile: Optional[pulumi.Input[pulumi.InputType['UserProfileArgs']]] = None,
+                 admin_user_profile: Optional[pulumi.Input[Union['UserProfileArgs', 'UserProfileArgsDict']]] = None,
                  app_location: Optional[pulumi.Input[str]] = None,
-                 backup_profile: Optional[pulumi.Input[pulumi.InputType['BackupProfileArgs']]] = None,
-                 cache_profile: Optional[pulumi.Input[pulumi.InputType['CacheProfileArgs']]] = None,
-                 controller_profile: Optional[pulumi.Input[pulumi.InputType['NodeProfileArgs']]] = None,
-                 database_profile: Optional[pulumi.Input[pulumi.InputType['DatabaseProfileArgs']]] = None,
-                 fileshare_profile: Optional[pulumi.Input[pulumi.InputType['FileshareProfileArgs']]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['PhpWorkloadResourceIdentityArgs']]] = None,
+                 backup_profile: Optional[pulumi.Input[Union['BackupProfileArgs', 'BackupProfileArgsDict']]] = None,
+                 cache_profile: Optional[pulumi.Input[Union['CacheProfileArgs', 'CacheProfileArgsDict']]] = None,
+                 controller_profile: Optional[pulumi.Input[Union['NodeProfileArgs', 'NodeProfileArgsDict']]] = None,
+                 database_profile: Optional[pulumi.Input[Union['DatabaseProfileArgs', 'DatabaseProfileArgsDict']]] = None,
+                 fileshare_profile: Optional[pulumi.Input[Union['FileshareProfileArgs', 'FileshareProfileArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['PhpWorkloadResourceIdentityArgs', 'PhpWorkloadResourceIdentityArgsDict']]] = None,
                  kind: Optional[pulumi.Input[Union[str, 'WorkloadKind']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 managed_resource_group_configuration: Optional[pulumi.Input[pulumi.InputType['ManagedRGConfigurationArgs']]] = None,
-                 network_profile: Optional[pulumi.Input[pulumi.InputType['NetworkProfileArgs']]] = None,
-                 php_profile: Optional[pulumi.Input[pulumi.InputType['PhpProfileArgs']]] = None,
+                 managed_resource_group_configuration: Optional[pulumi.Input[Union['ManagedRGConfigurationArgs', 'ManagedRGConfigurationArgsDict']]] = None,
+                 network_profile: Optional[pulumi.Input[Union['NetworkProfileArgs', 'NetworkProfileArgsDict']]] = None,
+                 php_profile: Optional[pulumi.Input[Union['PhpProfileArgs', 'PhpProfileArgsDict']]] = None,
                  php_workload_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 search_profile: Optional[pulumi.Input[pulumi.InputType['SearchProfileArgs']]] = None,
-                 site_profile: Optional[pulumi.Input[pulumi.InputType['SiteProfileArgs']]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 search_profile: Optional[pulumi.Input[Union['SearchProfileArgs', 'SearchProfileArgsDict']]] = None,
+                 site_profile: Optional[pulumi.Input[Union['SiteProfileArgs', 'SiteProfileArgsDict']]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 web_nodes_profile: Optional[pulumi.Input[pulumi.InputType['VmssNodesProfileArgs']]] = None,
+                 web_nodes_profile: Optional[pulumi.Input[Union['VmssNodesProfileArgs', 'VmssNodesProfileArgsDict']]] = None,
                  __props__=None):
         """
         Php workload resource
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['UserProfileArgs']] admin_user_profile: Admin user profile used for VM and VMSS
+        :param pulumi.Input[Union['UserProfileArgs', 'UserProfileArgsDict']] admin_user_profile: Admin user profile used for VM and VMSS
         :param pulumi.Input[str] app_location: The infra resources for PHP workload will be created in this location
-        :param pulumi.Input[pulumi.InputType['BackupProfileArgs']] backup_profile: Backup profile
-        :param pulumi.Input[pulumi.InputType['CacheProfileArgs']] cache_profile: Cache profile
-        :param pulumi.Input[pulumi.InputType['NodeProfileArgs']] controller_profile: Controller VM profile
-        :param pulumi.Input[pulumi.InputType['DatabaseProfileArgs']] database_profile: Database profile
-        :param pulumi.Input[pulumi.InputType['FileshareProfileArgs']] fileshare_profile: File share profile
-        :param pulumi.Input[pulumi.InputType['PhpWorkloadResourceIdentityArgs']] identity: Identity for the resource. Currently not supported
+        :param pulumi.Input[Union['BackupProfileArgs', 'BackupProfileArgsDict']] backup_profile: Backup profile
+        :param pulumi.Input[Union['CacheProfileArgs', 'CacheProfileArgsDict']] cache_profile: Cache profile
+        :param pulumi.Input[Union['NodeProfileArgs', 'NodeProfileArgsDict']] controller_profile: Controller VM profile
+        :param pulumi.Input[Union['DatabaseProfileArgs', 'DatabaseProfileArgsDict']] database_profile: Database profile
+        :param pulumi.Input[Union['FileshareProfileArgs', 'FileshareProfileArgsDict']] fileshare_profile: File share profile
+        :param pulumi.Input[Union['PhpWorkloadResourceIdentityArgs', 'PhpWorkloadResourceIdentityArgsDict']] identity: Identity for the resource. Currently not supported
         :param pulumi.Input[Union[str, 'WorkloadKind']] kind: Indicates which kind of php workload this resource represent e.g WordPress
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[pulumi.InputType['ManagedRGConfigurationArgs']] managed_resource_group_configuration: Managed resource group configuration of the workload
-        :param pulumi.Input[pulumi.InputType['NetworkProfileArgs']] network_profile: Network profile
-        :param pulumi.Input[pulumi.InputType['PhpProfileArgs']] php_profile: PHP profile
+        :param pulumi.Input[Union['ManagedRGConfigurationArgs', 'ManagedRGConfigurationArgsDict']] managed_resource_group_configuration: Managed resource group configuration of the workload
+        :param pulumi.Input[Union['NetworkProfileArgs', 'NetworkProfileArgsDict']] network_profile: Network profile
+        :param pulumi.Input[Union['PhpProfileArgs', 'PhpProfileArgsDict']] php_profile: PHP profile
         :param pulumi.Input[str] php_workload_name: Php workload name
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[pulumi.InputType['SearchProfileArgs']] search_profile: Search profile
-        :param pulumi.Input[pulumi.InputType['SiteProfileArgs']] site_profile: Site profile
-        :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: Php workloads SKU
+        :param pulumi.Input[Union['SearchProfileArgs', 'SearchProfileArgsDict']] search_profile: Search profile
+        :param pulumi.Input[Union['SiteProfileArgs', 'SiteProfileArgsDict']] site_profile: Site profile
+        :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: Php workloads SKU
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[pulumi.InputType['VmssNodesProfileArgs']] web_nodes_profile: VMSS web nodes profile
+        :param pulumi.Input[Union['VmssNodesProfileArgs', 'VmssNodesProfileArgsDict']] web_nodes_profile: VMSS web nodes profile
         """
         ...
     @overload
@@ -411,26 +416,26 @@ class PhpWorkload(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 admin_user_profile: Optional[pulumi.Input[pulumi.InputType['UserProfileArgs']]] = None,
+                 admin_user_profile: Optional[pulumi.Input[Union['UserProfileArgs', 'UserProfileArgsDict']]] = None,
                  app_location: Optional[pulumi.Input[str]] = None,
-                 backup_profile: Optional[pulumi.Input[pulumi.InputType['BackupProfileArgs']]] = None,
-                 cache_profile: Optional[pulumi.Input[pulumi.InputType['CacheProfileArgs']]] = None,
-                 controller_profile: Optional[pulumi.Input[pulumi.InputType['NodeProfileArgs']]] = None,
-                 database_profile: Optional[pulumi.Input[pulumi.InputType['DatabaseProfileArgs']]] = None,
-                 fileshare_profile: Optional[pulumi.Input[pulumi.InputType['FileshareProfileArgs']]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['PhpWorkloadResourceIdentityArgs']]] = None,
+                 backup_profile: Optional[pulumi.Input[Union['BackupProfileArgs', 'BackupProfileArgsDict']]] = None,
+                 cache_profile: Optional[pulumi.Input[Union['CacheProfileArgs', 'CacheProfileArgsDict']]] = None,
+                 controller_profile: Optional[pulumi.Input[Union['NodeProfileArgs', 'NodeProfileArgsDict']]] = None,
+                 database_profile: Optional[pulumi.Input[Union['DatabaseProfileArgs', 'DatabaseProfileArgsDict']]] = None,
+                 fileshare_profile: Optional[pulumi.Input[Union['FileshareProfileArgs', 'FileshareProfileArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['PhpWorkloadResourceIdentityArgs', 'PhpWorkloadResourceIdentityArgsDict']]] = None,
                  kind: Optional[pulumi.Input[Union[str, 'WorkloadKind']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 managed_resource_group_configuration: Optional[pulumi.Input[pulumi.InputType['ManagedRGConfigurationArgs']]] = None,
-                 network_profile: Optional[pulumi.Input[pulumi.InputType['NetworkProfileArgs']]] = None,
-                 php_profile: Optional[pulumi.Input[pulumi.InputType['PhpProfileArgs']]] = None,
+                 managed_resource_group_configuration: Optional[pulumi.Input[Union['ManagedRGConfigurationArgs', 'ManagedRGConfigurationArgsDict']]] = None,
+                 network_profile: Optional[pulumi.Input[Union['NetworkProfileArgs', 'NetworkProfileArgsDict']]] = None,
+                 php_profile: Optional[pulumi.Input[Union['PhpProfileArgs', 'PhpProfileArgsDict']]] = None,
                  php_workload_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 search_profile: Optional[pulumi.Input[pulumi.InputType['SearchProfileArgs']]] = None,
-                 site_profile: Optional[pulumi.Input[pulumi.InputType['SiteProfileArgs']]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 search_profile: Optional[pulumi.Input[Union['SearchProfileArgs', 'SearchProfileArgsDict']]] = None,
+                 site_profile: Optional[pulumi.Input[Union['SiteProfileArgs', 'SiteProfileArgsDict']]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 web_nodes_profile: Optional[pulumi.Input[pulumi.InputType['VmssNodesProfileArgs']]] = None,
+                 web_nodes_profile: Optional[pulumi.Input[Union['VmssNodesProfileArgs', 'VmssNodesProfileArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

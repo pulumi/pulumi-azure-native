@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -171,11 +176,11 @@ class IscsiTarget(pulumi.CustomResource):
                  acl_mode: Optional[pulumi.Input[Union[str, 'IscsiTargetAclMode']]] = None,
                  disk_pool_name: Optional[pulumi.Input[str]] = None,
                  iscsi_target_name: Optional[pulumi.Input[str]] = None,
-                 luns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IscsiLunArgs']]]]] = None,
+                 luns: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IscsiLunArgs', 'IscsiLunArgsDict']]]]] = None,
                  managed_by: Optional[pulumi.Input[str]] = None,
                  managed_by_extended: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 static_acls: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AclArgs']]]]] = None,
+                 static_acls: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AclArgs', 'AclArgsDict']]]]] = None,
                  target_iqn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -189,11 +194,11 @@ class IscsiTarget(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'IscsiTargetAclMode']] acl_mode: Mode for Target connectivity.
         :param pulumi.Input[str] disk_pool_name: The name of the Disk Pool.
         :param pulumi.Input[str] iscsi_target_name: The name of the iSCSI Target.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IscsiLunArgs']]]] luns: List of LUNs to be exposed through iSCSI Target.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IscsiLunArgs', 'IscsiLunArgsDict']]]] luns: List of LUNs to be exposed through iSCSI Target.
         :param pulumi.Input[str] managed_by: Azure resource id. Indicates if this resource is managed by another Azure resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] managed_by_extended: List of Azure resource ids that manage this resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AclArgs']]]] static_acls: Access Control List (ACL) for an iSCSI Target; defines LUN masking policy
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AclArgs', 'AclArgsDict']]]] static_acls: Access Control List (ACL) for an iSCSI Target; defines LUN masking policy
         :param pulumi.Input[str] target_iqn: iSCSI Target IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:server".
         """
         ...
@@ -226,11 +231,11 @@ class IscsiTarget(pulumi.CustomResource):
                  acl_mode: Optional[pulumi.Input[Union[str, 'IscsiTargetAclMode']]] = None,
                  disk_pool_name: Optional[pulumi.Input[str]] = None,
                  iscsi_target_name: Optional[pulumi.Input[str]] = None,
-                 luns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IscsiLunArgs']]]]] = None,
+                 luns: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IscsiLunArgs', 'IscsiLunArgsDict']]]]] = None,
                  managed_by: Optional[pulumi.Input[str]] = None,
                  managed_by_extended: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 static_acls: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AclArgs']]]]] = None,
+                 static_acls: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AclArgs', 'AclArgsDict']]]]] = None,
                  target_iqn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

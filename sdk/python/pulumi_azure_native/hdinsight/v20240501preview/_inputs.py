@@ -4,70 +4,149 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'AuthorizationProfileArgs',
+    'AuthorizationProfileArgsDict',
     'AutoscaleProfileArgs',
+    'AutoscaleProfileArgsDict',
     'CatalogOptionsArgs',
+    'CatalogOptionsArgsDict',
     'ClusterAccessProfileArgs',
+    'ClusterAccessProfileArgsDict',
     'ClusterConfigFileArgs',
+    'ClusterConfigFileArgsDict',
     'ClusterLogAnalyticsApplicationLogsArgs',
+    'ClusterLogAnalyticsApplicationLogsArgsDict',
     'ClusterLogAnalyticsProfileArgs',
+    'ClusterLogAnalyticsProfileArgsDict',
     'ClusterPoolResourcePropertiesClusterPoolProfileArgs',
+    'ClusterPoolResourcePropertiesClusterPoolProfileArgsDict',
     'ClusterPoolResourcePropertiesComputeProfileArgs',
+    'ClusterPoolResourcePropertiesComputeProfileArgsDict',
     'ClusterPoolResourcePropertiesLogAnalyticsProfileArgs',
+    'ClusterPoolResourcePropertiesLogAnalyticsProfileArgsDict',
     'ClusterPoolResourcePropertiesNetworkProfileArgs',
+    'ClusterPoolResourcePropertiesNetworkProfileArgsDict',
     'ClusterProfileArgs',
+    'ClusterProfileArgsDict',
     'ClusterPrometheusProfileArgs',
+    'ClusterPrometheusProfileArgsDict',
     'ClusterRangerPluginProfileArgs',
+    'ClusterRangerPluginProfileArgsDict',
     'ClusterServiceConfigsProfileArgs',
+    'ClusterServiceConfigsProfileArgsDict',
     'ClusterServiceConfigArgs',
+    'ClusterServiceConfigArgsDict',
     'ComparisonRuleArgs',
+    'ComparisonRuleArgsDict',
     'ComputeProfileArgs',
+    'ComputeProfileArgsDict',
     'ComputeResourceDefinitionArgs',
+    'ComputeResourceDefinitionArgsDict',
     'DiskStorageProfileArgs',
+    'DiskStorageProfileArgsDict',
     'FlinkCatalogOptionsArgs',
+    'FlinkCatalogOptionsArgsDict',
     'FlinkHiveCatalogOptionArgs',
+    'FlinkHiveCatalogOptionArgsDict',
     'FlinkJobProfileArgs',
+    'FlinkJobProfileArgsDict',
     'FlinkProfileArgs',
+    'FlinkProfileArgsDict',
     'FlinkStorageProfileArgs',
+    'FlinkStorageProfileArgsDict',
     'HiveCatalogOptionArgs',
+    'HiveCatalogOptionArgsDict',
     'IdentityProfileArgs',
+    'IdentityProfileArgsDict',
     'IpTagArgs',
+    'IpTagArgsDict',
     'KafkaProfileArgs',
+    'KafkaProfileArgsDict',
     'LoadBasedConfigArgs',
+    'LoadBasedConfigArgsDict',
     'ManagedIdentityProfileArgs',
+    'ManagedIdentityProfileArgsDict',
     'ManagedIdentitySpecArgs',
+    'ManagedIdentitySpecArgsDict',
     'NodeProfileArgs',
+    'NodeProfileArgsDict',
     'RangerAdminSpecDatabaseArgs',
+    'RangerAdminSpecDatabaseArgsDict',
     'RangerAdminSpecArgs',
+    'RangerAdminSpecArgsDict',
     'RangerAuditSpecArgs',
+    'RangerAuditSpecArgsDict',
     'RangerProfileArgs',
+    'RangerProfileArgsDict',
     'RangerUsersyncSpecArgs',
+    'RangerUsersyncSpecArgsDict',
     'ScalingRuleArgs',
+    'ScalingRuleArgsDict',
     'ScheduleBasedConfigArgs',
+    'ScheduleBasedConfigArgsDict',
     'ScheduleArgs',
+    'ScheduleArgsDict',
     'ScriptActionProfileArgs',
+    'ScriptActionProfileArgsDict',
     'SecretReferenceArgs',
+    'SecretReferenceArgsDict',
     'SecretsProfileArgs',
+    'SecretsProfileArgsDict',
     'SparkMetastoreSpecArgs',
+    'SparkMetastoreSpecArgsDict',
     'SparkProfileArgs',
+    'SparkProfileArgsDict',
     'SparkUserPluginsArgs',
+    'SparkUserPluginsArgsDict',
     'SparkUserPluginArgs',
+    'SparkUserPluginArgsDict',
     'SshProfileArgs',
+    'SshProfileArgsDict',
     'TrinoCoordinatorArgs',
+    'TrinoCoordinatorArgsDict',
     'TrinoProfileArgs',
+    'TrinoProfileArgsDict',
     'TrinoTelemetryConfigArgs',
+    'TrinoTelemetryConfigArgsDict',
     'TrinoUserPluginsArgs',
+    'TrinoUserPluginsArgsDict',
     'TrinoUserPluginArgs',
+    'TrinoUserPluginArgsDict',
     'TrinoUserTelemetryArgs',
+    'TrinoUserTelemetryArgsDict',
     'TrinoWorkerArgs',
+    'TrinoWorkerArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AuthorizationProfileArgsDict(TypedDict):
+        """
+        Authorization profile with details of AAD user Ids and group Ids authorized for data plane access.
+        """
+        group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        AAD group Ids authorized for data plane access.
+        """
+        user_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        AAD user Ids authorized for data plane access.
+        """
+elif False:
+    AuthorizationProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AuthorizationProfileArgs:
@@ -108,6 +187,34 @@ class AuthorizationProfileArgs:
     def user_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "user_ids", value)
 
+
+if not MYPY:
+    class AutoscaleProfileArgsDict(TypedDict):
+        """
+        This is the Autoscale profile for the cluster. This will allow customer to create cluster enabled with Autoscale.
+        """
+        enabled: pulumi.Input[bool]
+        """
+        This indicates whether auto scale is enabled on HDInsight on AKS cluster.
+        """
+        autoscale_type: NotRequired[pulumi.Input[Union[str, 'AutoscaleType']]]
+        """
+        User to specify which type of Autoscale to be implemented - Scheduled Based or Load Based.
+        """
+        graceful_decommission_timeout: NotRequired[pulumi.Input[int]]
+        """
+        This property is for graceful decommission timeout; It has a default setting of 3600 seconds before forced shutdown takes place. This is the maximal time to wait for running containers and applications to complete before transition a DECOMMISSIONING node into DECOMMISSIONED. The default value is 3600 seconds. Negative value (like -1) is handled as infinite timeout.
+        """
+        load_based_config: NotRequired[pulumi.Input['LoadBasedConfigArgsDict']]
+        """
+        Profiles of load based Autoscale.
+        """
+        schedule_based_config: NotRequired[pulumi.Input['ScheduleBasedConfigArgsDict']]
+        """
+        Profiles of schedule based Autoscale.
+        """
+elif False:
+    AutoscaleProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AutoscaleProfileArgs:
@@ -196,6 +303,18 @@ class AutoscaleProfileArgs:
         pulumi.set(self, "schedule_based_config", value)
 
 
+if not MYPY:
+    class CatalogOptionsArgsDict(TypedDict):
+        """
+        Trino cluster catalog options.
+        """
+        hive: NotRequired[pulumi.Input[Sequence[pulumi.Input['HiveCatalogOptionArgsDict']]]]
+        """
+        hive catalog options.
+        """
+elif False:
+    CatalogOptionsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CatalogOptionsArgs:
     def __init__(__self__, *,
@@ -220,6 +339,18 @@ class CatalogOptionsArgs:
         pulumi.set(self, "hive", value)
 
 
+if not MYPY:
+    class ClusterAccessProfileArgsDict(TypedDict):
+        """
+        Cluster access profile.
+        """
+        enable_internal_ingress: pulumi.Input[bool]
+        """
+        Whether to create cluster using private IP instead of public IP. This property must be set at create time.
+        """
+elif False:
+    ClusterAccessProfileArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ClusterAccessProfileArgs:
     def __init__(__self__, *,
@@ -242,6 +373,35 @@ class ClusterAccessProfileArgs:
     def enable_internal_ingress(self, value: pulumi.Input[bool]):
         pulumi.set(self, "enable_internal_ingress", value)
 
+
+if not MYPY:
+    class ClusterConfigFileArgsDict(TypedDict):
+        """
+        Cluster configuration files.
+        """
+        file_name: pulumi.Input[str]
+        """
+        Configuration file name.
+        """
+        content: NotRequired[pulumi.Input[str]]
+        """
+        Free form content of the entire configuration file.
+        """
+        encoding: NotRequired[pulumi.Input[Union[str, 'ContentEncoding']]]
+        """
+        This property indicates if the content is encoded and is case-insensitive. Please set the value to base64 if the content is base64 encoded. Set it to none or skip it if the content is plain text.
+        """
+        path: NotRequired[pulumi.Input[str]]
+        """
+        Path of the config file if content is specified.
+        """
+        values: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        List of key value pairs
+        where key represents a valid service configuration name and value represents the value of the config.
+        """
+elif False:
+    ClusterConfigFileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ClusterConfigFileArgs:
@@ -332,6 +492,22 @@ class ClusterConfigFileArgs:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class ClusterLogAnalyticsApplicationLogsArgsDict(TypedDict):
+        """
+        Collection of logs to be enabled or disabled for log analytics.
+        """
+        std_error_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        True if stderror is enabled, otherwise false.
+        """
+        std_out_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        True if stdout is enabled, otherwise false.
+        """
+elif False:
+    ClusterLogAnalyticsApplicationLogsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ClusterLogAnalyticsApplicationLogsArgs:
     def __init__(__self__, *,
@@ -371,6 +547,26 @@ class ClusterLogAnalyticsApplicationLogsArgs:
     def std_out_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "std_out_enabled", value)
 
+
+if not MYPY:
+    class ClusterLogAnalyticsProfileArgsDict(TypedDict):
+        """
+        Cluster log analytics profile to enable or disable OMS agent for cluster.
+        """
+        enabled: pulumi.Input[bool]
+        """
+        True if log analytics is enabled for the cluster, otherwise false.
+        """
+        application_logs: NotRequired[pulumi.Input['ClusterLogAnalyticsApplicationLogsArgsDict']]
+        """
+        Collection of logs to be enabled or disabled for log analytics.
+        """
+        metrics_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        True if metrics are enabled, otherwise false.
+        """
+elif False:
+    ClusterLogAnalyticsProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ClusterLogAnalyticsProfileArgs:
@@ -427,6 +623,22 @@ class ClusterLogAnalyticsProfileArgs:
         pulumi.set(self, "metrics_enabled", value)
 
 
+if not MYPY:
+    class ClusterPoolResourcePropertiesClusterPoolProfileArgsDict(TypedDict):
+        """
+        CLuster pool profile.
+        """
+        cluster_pool_version: pulumi.Input[str]
+        """
+        Cluster pool version is a 2-part version.
+        """
+        public_ip_tag: NotRequired[pulumi.Input['IpTagArgsDict']]
+        """
+        Gets or sets the IP tag for the public IPs created along with the HDInsightOnAks ClusterPools and Clusters. 
+        """
+elif False:
+    ClusterPoolResourcePropertiesClusterPoolProfileArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ClusterPoolResourcePropertiesClusterPoolProfileArgs:
     def __init__(__self__, *,
@@ -465,6 +677,22 @@ class ClusterPoolResourcePropertiesClusterPoolProfileArgs:
     def public_ip_tag(self, value: Optional[pulumi.Input['IpTagArgs']]):
         pulumi.set(self, "public_ip_tag", value)
 
+
+if not MYPY:
+    class ClusterPoolResourcePropertiesComputeProfileArgsDict(TypedDict):
+        """
+        CLuster pool compute profile.
+        """
+        vm_size: pulumi.Input[str]
+        """
+        The virtual machine SKU.
+        """
+        availability_zones: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of Availability zones to use for AKS VMSS nodes.
+        """
+elif False:
+    ClusterPoolResourcePropertiesComputeProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ClusterPoolResourcePropertiesComputeProfileArgs:
@@ -505,6 +733,22 @@ class ClusterPoolResourcePropertiesComputeProfileArgs:
         pulumi.set(self, "availability_zones", value)
 
 
+if not MYPY:
+    class ClusterPoolResourcePropertiesLogAnalyticsProfileArgsDict(TypedDict):
+        """
+        Cluster pool log analytics profile to enable OMS agent for AKS cluster.
+        """
+        enabled: pulumi.Input[bool]
+        """
+        True if log analytics is enabled for cluster pool, otherwise false.
+        """
+        workspace_id: NotRequired[pulumi.Input[str]]
+        """
+        Log analytics workspace to associate with the OMS agent.
+        """
+elif False:
+    ClusterPoolResourcePropertiesLogAnalyticsProfileArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ClusterPoolResourcePropertiesLogAnalyticsProfileArgs:
     def __init__(__self__, *,
@@ -543,6 +787,30 @@ class ClusterPoolResourcePropertiesLogAnalyticsProfileArgs:
     def workspace_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "workspace_id", value)
 
+
+if not MYPY:
+    class ClusterPoolResourcePropertiesNetworkProfileArgsDict(TypedDict):
+        """
+        Cluster pool network profile.
+        """
+        subnet_id: pulumi.Input[str]
+        """
+        Cluster pool subnet resource id.
+        """
+        api_server_authorized_ip_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        IP ranges are specified in CIDR format, e.g. 137.117.106.88/29. This feature is not compatible with private AKS clusters. So you cannot set enablePrivateApiServer to true and apiServerAuthorizedIpRanges at the same time. Currently, this property is not supported and please don't use it.
+        """
+        enable_private_api_server: NotRequired[pulumi.Input[bool]]
+        """
+        ClusterPool is based on AKS cluster. AKS cluster exposes the API server to public internet by default. If you set this property to true, a private AKS cluster will be created, and it will use private apiserver, which is not exposed to public internet.
+        """
+        outbound_type: NotRequired[pulumi.Input[Union[str, 'OutboundType']]]
+        """
+        This can only be set at cluster pool creation time and cannot be changed later. 
+        """
+elif False:
+    ClusterPoolResourcePropertiesNetworkProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ClusterPoolResourcePropertiesNetworkProfileArgs:
@@ -616,6 +884,98 @@ class ClusterPoolResourcePropertiesNetworkProfileArgs:
     def outbound_type(self, value: Optional[pulumi.Input[Union[str, 'OutboundType']]]):
         pulumi.set(self, "outbound_type", value)
 
+
+if not MYPY:
+    class ClusterProfileArgsDict(TypedDict):
+        """
+        Cluster profile.
+        """
+        authorization_profile: pulumi.Input['AuthorizationProfileArgsDict']
+        """
+        Authorization profile with details of AAD user Ids and group Ids authorized for data plane access.
+        """
+        cluster_version: pulumi.Input[str]
+        """
+        Version with 3/4 part.
+        """
+        oss_version: pulumi.Input[str]
+        """
+        Version with three part.
+        """
+        autoscale_profile: NotRequired[pulumi.Input['AutoscaleProfileArgsDict']]
+        """
+        This is the Autoscale profile for the cluster. This will allow customer to create cluster enabled with Autoscale.
+        """
+        cluster_access_profile: NotRequired[pulumi.Input['ClusterAccessProfileArgsDict']]
+        """
+        Cluster access profile.
+        """
+        flink_profile: NotRequired[pulumi.Input['FlinkProfileArgsDict']]
+        """
+        The Flink cluster profile.
+        """
+        identity_profile: NotRequired[pulumi.Input['IdentityProfileArgsDict']]
+        """
+        This is deprecated. Please use managed identity profile instead.
+        """
+        kafka_profile: NotRequired[pulumi.Input['KafkaProfileArgsDict']]
+        """
+        The Kafka cluster profile.
+        """
+        llap_profile: NotRequired[Any]
+        """
+        LLAP cluster profile.
+        """
+        log_analytics_profile: NotRequired[pulumi.Input['ClusterLogAnalyticsProfileArgsDict']]
+        """
+        Cluster log analytics profile to enable or disable OMS agent for cluster.
+        """
+        managed_identity_profile: NotRequired[pulumi.Input['ManagedIdentityProfileArgsDict']]
+        """
+        This property is required by Trino, Spark and Flink cluster but is optional for Kafka cluster.
+        """
+        prometheus_profile: NotRequired[pulumi.Input['ClusterPrometheusProfileArgsDict']]
+        """
+        Cluster Prometheus profile.
+        """
+        ranger_plugin_profile: NotRequired[pulumi.Input['ClusterRangerPluginProfileArgsDict']]
+        """
+        Cluster Ranger plugin profile.
+        """
+        ranger_profile: NotRequired[pulumi.Input['RangerProfileArgsDict']]
+        """
+        The ranger cluster profile.
+        """
+        script_action_profiles: NotRequired[pulumi.Input[Sequence[pulumi.Input['ScriptActionProfileArgsDict']]]]
+        """
+        The script action profile list.
+        """
+        secrets_profile: NotRequired[pulumi.Input['SecretsProfileArgsDict']]
+        """
+        The cluster secret profile.
+        """
+        service_configs_profiles: NotRequired[pulumi.Input[Sequence[pulumi.Input['ClusterServiceConfigsProfileArgsDict']]]]
+        """
+        The service configs profiles.
+        """
+        spark_profile: NotRequired[pulumi.Input['SparkProfileArgsDict']]
+        """
+        The spark cluster profile.
+        """
+        ssh_profile: NotRequired[pulumi.Input['SshProfileArgsDict']]
+        """
+        Ssh profile for the cluster.
+        """
+        stub_profile: NotRequired[Any]
+        """
+        Stub cluster profile.
+        """
+        trino_profile: NotRequired[pulumi.Input['TrinoProfileArgsDict']]
+        """
+        Trino Cluster profile.
+        """
+elif False:
+    ClusterProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ClusterProfileArgs:
@@ -958,6 +1318,18 @@ class ClusterProfileArgs:
         pulumi.set(self, "trino_profile", value)
 
 
+if not MYPY:
+    class ClusterPrometheusProfileArgsDict(TypedDict):
+        """
+        Cluster Prometheus profile.
+        """
+        enabled: pulumi.Input[bool]
+        """
+        Enable Prometheus for cluster or not.
+        """
+elif False:
+    ClusterPrometheusProfileArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ClusterPrometheusProfileArgs:
     def __init__(__self__, *,
@@ -983,6 +1355,18 @@ class ClusterPrometheusProfileArgs:
         pulumi.set(self, "enabled", value)
 
 
+if not MYPY:
+    class ClusterRangerPluginProfileArgsDict(TypedDict):
+        """
+        Cluster Ranger plugin profile.
+        """
+        enabled: pulumi.Input[bool]
+        """
+        Enable Ranger for cluster or not.
+        """
+elif False:
+    ClusterRangerPluginProfileArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ClusterRangerPluginProfileArgs:
     def __init__(__self__, *,
@@ -1007,6 +1391,22 @@ class ClusterRangerPluginProfileArgs:
     def enabled(self, value: pulumi.Input[bool]):
         pulumi.set(self, "enabled", value)
 
+
+if not MYPY:
+    class ClusterServiceConfigsProfileArgsDict(TypedDict):
+        """
+        Cluster service configs.
+        """
+        configs: pulumi.Input[Sequence[pulumi.Input['ClusterServiceConfigArgsDict']]]
+        """
+        List of service configs.
+        """
+        service_name: pulumi.Input[str]
+        """
+        Name of the service the configurations should apply to.
+        """
+elif False:
+    ClusterServiceConfigsProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ClusterServiceConfigsProfileArgs:
@@ -1046,6 +1446,22 @@ class ClusterServiceConfigsProfileArgs:
         pulumi.set(self, "service_name", value)
 
 
+if not MYPY:
+    class ClusterServiceConfigArgsDict(TypedDict):
+        """
+        Cluster configs per component.
+        """
+        component: pulumi.Input[str]
+        """
+        Name of the component the config files should apply to.
+        """
+        files: pulumi.Input[Sequence[pulumi.Input['ClusterConfigFileArgsDict']]]
+        """
+        List of Config Files.
+        """
+elif False:
+    ClusterServiceConfigArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ClusterServiceConfigArgs:
     def __init__(__self__, *,
@@ -1084,6 +1500,22 @@ class ClusterServiceConfigArgs:
         pulumi.set(self, "files", value)
 
 
+if not MYPY:
+    class ComparisonRuleArgsDict(TypedDict):
+        """
+        The comparison rule.
+        """
+        operator: pulumi.Input[Union[str, 'ComparisonOperator']]
+        """
+        The comparison operator.
+        """
+        threshold: pulumi.Input[float]
+        """
+        Threshold setting.
+        """
+elif False:
+    ComparisonRuleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ComparisonRuleArgs:
     def __init__(__self__, *,
@@ -1121,6 +1553,22 @@ class ComparisonRuleArgs:
     def threshold(self, value: pulumi.Input[float]):
         pulumi.set(self, "threshold", value)
 
+
+if not MYPY:
+    class ComputeProfileArgsDict(TypedDict):
+        """
+        The compute profile.
+        """
+        nodes: pulumi.Input[Sequence[pulumi.Input['NodeProfileArgsDict']]]
+        """
+        The nodes definitions.
+        """
+        availability_zones: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of Availability zones to use for AKS VMSS nodes.
+        """
+elif False:
+    ComputeProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ComputeProfileArgs:
@@ -1161,6 +1609,22 @@ class ComputeProfileArgs:
         pulumi.set(self, "availability_zones", value)
 
 
+if not MYPY:
+    class ComputeResourceDefinitionArgsDict(TypedDict):
+        """
+        The cpu and memory requirement definition.
+        """
+        cpu: pulumi.Input[float]
+        """
+        The required CPU.
+        """
+        memory: pulumi.Input[float]
+        """
+        The required memory in MB, Container memory will be 110 percentile
+        """
+elif False:
+    ComputeResourceDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ComputeResourceDefinitionArgs:
     def __init__(__self__, *,
@@ -1198,6 +1662,22 @@ class ComputeResourceDefinitionArgs:
     def memory(self, value: pulumi.Input[float]):
         pulumi.set(self, "memory", value)
 
+
+if not MYPY:
+    class DiskStorageProfileArgsDict(TypedDict):
+        """
+        Kafka disk storage profile.
+        """
+        data_disk_size: pulumi.Input[int]
+        """
+        Managed Disk size in GB. The maximum supported disk size for Standard and Premium HDD/SSD is 32TB, except for Premium SSD v2, which supports up to 64TB.
+        """
+        data_disk_type: pulumi.Input[Union[str, 'DataDiskType']]
+        """
+        Managed Disk Type.
+        """
+elif False:
+    DiskStorageProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DiskStorageProfileArgs:
@@ -1237,6 +1717,18 @@ class DiskStorageProfileArgs:
         pulumi.set(self, "data_disk_type", value)
 
 
+if not MYPY:
+    class FlinkCatalogOptionsArgsDict(TypedDict):
+        """
+        Flink cluster catalog options.
+        """
+        hive: NotRequired[pulumi.Input['FlinkHiveCatalogOptionArgsDict']]
+        """
+        Hive Catalog Option for Flink cluster.
+        """
+elif False:
+    FlinkCatalogOptionsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FlinkCatalogOptionsArgs:
     def __init__(__self__, *,
@@ -1260,6 +1752,30 @@ class FlinkCatalogOptionsArgs:
     def hive(self, value: Optional[pulumi.Input['FlinkHiveCatalogOptionArgs']]):
         pulumi.set(self, "hive", value)
 
+
+if not MYPY:
+    class FlinkHiveCatalogOptionArgsDict(TypedDict):
+        """
+        Hive Catalog Option for Flink cluster.
+        """
+        metastore_db_connection_url: pulumi.Input[str]
+        """
+        Connection string for hive metastore database.
+        """
+        metastore_db_connection_authentication_mode: NotRequired[pulumi.Input[Union[str, 'MetastoreDbConnectionAuthenticationMode']]]
+        """
+        The authentication mode to connect to your Hive metastore database. More details: https://learn.microsoft.com/en-us/azure/azure-sql/database/logins-create-manage?view=azuresql#authentication-and-authorization
+        """
+        metastore_db_connection_password_secret: NotRequired[pulumi.Input[str]]
+        """
+        Secret reference name from secretsProfile.secrets containing password for database connection.
+        """
+        metastore_db_connection_user_name: NotRequired[pulumi.Input[str]]
+        """
+        User name for database connection.
+        """
+elif False:
+    FlinkHiveCatalogOptionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FlinkHiveCatalogOptionArgs:
@@ -1333,6 +1849,38 @@ class FlinkHiveCatalogOptionArgs:
     def metastore_db_connection_user_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "metastore_db_connection_user_name", value)
 
+
+if not MYPY:
+    class FlinkJobProfileArgsDict(TypedDict):
+        """
+        Job specifications for flink clusters in application deployment mode. The specification is immutable even if job properties are changed by calling the RunJob API, please use the ListJob API to get the latest job information.
+        """
+        jar_name: pulumi.Input[str]
+        """
+        A string property that represents the name of the job JAR.
+        """
+        job_jar_directory: pulumi.Input[str]
+        """
+        A string property that specifies the directory where the job JAR is located.
+        """
+        upgrade_mode: pulumi.Input[Union[str, 'UpgradeMode']]
+        """
+        A string property that indicates the upgrade mode to be performed on the Flink job. It can have one of the following enum values => STATELESS_UPDATE, UPDATE, LAST_STATE_UPDATE.
+        """
+        args: NotRequired[pulumi.Input[str]]
+        """
+        A string property representing additional JVM arguments for the Flink job. It should be space separated value.
+        """
+        entry_class: NotRequired[pulumi.Input[str]]
+        """
+        A string property that specifies the entry class for the Flink job. If not specified, the entry point is auto-detected from the flink job jar package.
+        """
+        save_point_name: NotRequired[pulumi.Input[str]]
+        """
+        A string property that represents the name of the savepoint for the Flink job
+        """
+elif False:
+    FlinkJobProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FlinkJobProfileArgs:
@@ -1434,6 +1982,46 @@ class FlinkJobProfileArgs:
     def save_point_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "save_point_name", value)
 
+
+if not MYPY:
+    class FlinkProfileArgsDict(TypedDict):
+        """
+        The Flink cluster profile.
+        """
+        job_manager: pulumi.Input['ComputeResourceDefinitionArgsDict']
+        """
+        Job Manager container/ process CPU and memory requirements
+        """
+        storage: pulumi.Input['FlinkStorageProfileArgsDict']
+        """
+        The storage profile
+        """
+        task_manager: pulumi.Input['ComputeResourceDefinitionArgsDict']
+        """
+        Task Manager container/ process CPU and memory requirements
+        """
+        catalog_options: NotRequired[pulumi.Input['FlinkCatalogOptionsArgsDict']]
+        """
+        Flink cluster catalog options.
+        """
+        deployment_mode: NotRequired[pulumi.Input[Union[str, 'DeploymentMode']]]
+        """
+        A string property that indicates the deployment mode of Flink cluster. It can have one of the following enum values => Application, Session. Default value is Session
+        """
+        history_server: NotRequired[pulumi.Input['ComputeResourceDefinitionArgsDict']]
+        """
+        History Server container/ process CPU and memory requirements
+        """
+        job_spec: NotRequired[pulumi.Input['FlinkJobProfileArgsDict']]
+        """
+        Job specifications for flink clusters in application deployment mode. The specification is immutable even if job properties are changed by calling the RunJob API, please use the ListJob API to get the latest job information.
+        """
+        num_replicas: NotRequired[pulumi.Input[int]]
+        """
+        The number of task managers.
+        """
+elif False:
+    FlinkProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FlinkProfileArgs:
@@ -1568,6 +2156,22 @@ class FlinkProfileArgs:
         pulumi.set(self, "num_replicas", value)
 
 
+if not MYPY:
+    class FlinkStorageProfileArgsDict(TypedDict):
+        """
+        The storage profile
+        """
+        storage_uri: pulumi.Input[str]
+        """
+        Storage account uri which is used for savepoint and checkpoint state.
+        """
+        storagekey: NotRequired[pulumi.Input[str]]
+        """
+        Storage key is only required for wasb(s) storage.
+        """
+elif False:
+    FlinkStorageProfileArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FlinkStorageProfileArgs:
     def __init__(__self__, *,
@@ -1606,6 +2210,38 @@ class FlinkStorageProfileArgs:
     def storagekey(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "storagekey", value)
 
+
+if not MYPY:
+    class HiveCatalogOptionArgsDict(TypedDict):
+        """
+        Hive Catalog Option
+        """
+        catalog_name: pulumi.Input[str]
+        """
+        Name of trino catalog which should use specified hive metastore.
+        """
+        metastore_db_connection_url: pulumi.Input[str]
+        """
+        Connection string for hive metastore database.
+        """
+        metastore_warehouse_dir: pulumi.Input[str]
+        """
+        Metastore root directory URI, format: abfs[s]://<container>@<account_name>.dfs.core.windows.net/<path>. More details: https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-introduction-abfs-uri
+        """
+        metastore_db_connection_authentication_mode: NotRequired[pulumi.Input[Union[str, 'MetastoreDbConnectionAuthenticationMode']]]
+        """
+        The authentication mode to connect to your Hive metastore database. More details: https://learn.microsoft.com/en-us/azure/azure-sql/database/logins-create-manage?view=azuresql#authentication-and-authorization
+        """
+        metastore_db_connection_password_secret: NotRequired[pulumi.Input[str]]
+        """
+        Secret reference name from secretsProfile.secrets containing password for database connection.
+        """
+        metastore_db_connection_user_name: NotRequired[pulumi.Input[str]]
+        """
+        User name for database connection.
+        """
+elif False:
+    HiveCatalogOptionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class HiveCatalogOptionArgs:
@@ -1710,6 +2346,26 @@ class HiveCatalogOptionArgs:
         pulumi.set(self, "metastore_db_connection_user_name", value)
 
 
+if not MYPY:
+    class IdentityProfileArgsDict(TypedDict):
+        """
+        Identity Profile with details of an MSI.
+        """
+        msi_client_id: pulumi.Input[str]
+        """
+        ClientId of the MSI.
+        """
+        msi_object_id: pulumi.Input[str]
+        """
+        ObjectId of the MSI.
+        """
+        msi_resource_id: pulumi.Input[str]
+        """
+        ResourceId of the MSI.
+        """
+elif False:
+    IdentityProfileArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IdentityProfileArgs:
     def __init__(__self__, *,
@@ -1763,6 +2419,22 @@ class IdentityProfileArgs:
         pulumi.set(self, "msi_resource_id", value)
 
 
+if not MYPY:
+    class IpTagArgsDict(TypedDict):
+        """
+        Contains the IpTag associated with the public IP address
+        """
+        ip_tag_type: pulumi.Input[str]
+        """
+        Gets or sets the ipTag type: Example FirstPartyUsage.
+        """
+        tag: pulumi.Input[str]
+        """
+        Gets or sets value of the IpTag associated with the public IP. Example HDInsight, SQL, Storage etc
+        """
+elif False:
+    IpTagArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IpTagArgs:
     def __init__(__self__, *,
@@ -1800,6 +2472,30 @@ class IpTagArgs:
     def tag(self, value: pulumi.Input[str]):
         pulumi.set(self, "tag", value)
 
+
+if not MYPY:
+    class KafkaProfileArgsDict(TypedDict):
+        """
+        The Kafka cluster profile.
+        """
+        disk_storage: pulumi.Input['DiskStorageProfileArgsDict']
+        """
+        Kafka disk storage profile.
+        """
+        enable_k_raft: NotRequired[pulumi.Input[bool]]
+        """
+        Expose Kafka cluster in KRaft mode.
+        """
+        enable_public_endpoints: NotRequired[pulumi.Input[bool]]
+        """
+        Expose worker nodes as public endpoints.
+        """
+        remote_storage_uri: NotRequired[pulumi.Input[str]]
+        """
+        Fully qualified path of Azure Storage container used for Tiered Storage.
+        """
+elif False:
+    KafkaProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class KafkaProfileArgs:
@@ -1875,6 +2571,34 @@ class KafkaProfileArgs:
     def remote_storage_uri(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "remote_storage_uri", value)
 
+
+if not MYPY:
+    class LoadBasedConfigArgsDict(TypedDict):
+        """
+        Profile of load based Autoscale.
+        """
+        max_nodes: pulumi.Input[int]
+        """
+        User needs to set the maximum number of nodes for load based scaling, the load based scaling will use this to scale up and scale down between minimum and maximum number of nodes.
+        """
+        min_nodes: pulumi.Input[int]
+        """
+        User needs to set the minimum number of nodes for load based scaling, the load based scaling will use this to scale up and scale down between minimum and maximum number of nodes.
+        """
+        scaling_rules: pulumi.Input[Sequence[pulumi.Input['ScalingRuleArgsDict']]]
+        """
+        The scaling rules.
+        """
+        cooldown_period: NotRequired[pulumi.Input[int]]
+        """
+        This is a cool down period, this is a time period in seconds, which determines the amount of time that must elapse between a scaling activity started by a rule and the start of the next scaling activity, regardless of the rule that triggers it. The default value is 300 seconds.
+        """
+        poll_interval: NotRequired[pulumi.Input[int]]
+        """
+        User can specify the poll interval, this is the time period (in seconds) after which scaling metrics are polled for triggering a scaling operation.
+        """
+elif False:
+    LoadBasedConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LoadBasedConfigArgs:
@@ -1961,6 +2685,18 @@ class LoadBasedConfigArgs:
         pulumi.set(self, "poll_interval", value)
 
 
+if not MYPY:
+    class ManagedIdentityProfileArgsDict(TypedDict):
+        """
+        The details of managed identity.
+        """
+        identity_list: pulumi.Input[Sequence[pulumi.Input['ManagedIdentitySpecArgsDict']]]
+        """
+        The list of managed identity.
+        """
+elif False:
+    ManagedIdentityProfileArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ManagedIdentityProfileArgs:
     def __init__(__self__, *,
@@ -1983,6 +2719,30 @@ class ManagedIdentityProfileArgs:
     def identity_list(self, value: pulumi.Input[Sequence[pulumi.Input['ManagedIdentitySpecArgs']]]):
         pulumi.set(self, "identity_list", value)
 
+
+if not MYPY:
+    class ManagedIdentitySpecArgsDict(TypedDict):
+        """
+        The details of a managed identity.
+        """
+        client_id: pulumi.Input[str]
+        """
+        ClientId of the managed identity.
+        """
+        object_id: pulumi.Input[str]
+        """
+        ObjectId of the managed identity.
+        """
+        resource_id: pulumi.Input[str]
+        """
+        ResourceId of the managed identity.
+        """
+        type: pulumi.Input[Union[str, 'ManagedIdentityType']]
+        """
+        The type of managed identity.
+        """
+elif False:
+    ManagedIdentitySpecArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ManagedIdentitySpecArgs:
@@ -2052,6 +2812,26 @@ class ManagedIdentitySpecArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class NodeProfileArgsDict(TypedDict):
+        """
+        The node profile.
+        """
+        count: pulumi.Input[int]
+        """
+        The number of virtual machines.
+        """
+        type: pulumi.Input[str]
+        """
+        The node type.
+        """
+        vm_size: pulumi.Input[str]
+        """
+        The virtual machine SKU.
+        """
+elif False:
+    NodeProfileArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NodeProfileArgs:
     def __init__(__self__, *,
@@ -2104,6 +2884,27 @@ class NodeProfileArgs:
     def vm_size(self, value: pulumi.Input[str]):
         pulumi.set(self, "vm_size", value)
 
+
+if not MYPY:
+    class RangerAdminSpecDatabaseArgsDict(TypedDict):
+        host: pulumi.Input[str]
+        """
+        The database URL
+        """
+        name: pulumi.Input[str]
+        """
+        The database name
+        """
+        password_secret_ref: NotRequired[pulumi.Input[str]]
+        """
+        Reference for the database password
+        """
+        username: NotRequired[pulumi.Input[str]]
+        """
+        The name of the database user
+        """
+elif False:
+    RangerAdminSpecDatabaseArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RangerAdminSpecDatabaseArgs:
@@ -2174,6 +2975,19 @@ class RangerAdminSpecDatabaseArgs:
         pulumi.set(self, "username", value)
 
 
+if not MYPY:
+    class RangerAdminSpecArgsDict(TypedDict):
+        """
+        Specification for the Ranger Admin service.
+        """
+        admins: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        List of usernames that should be marked as ranger admins. These usernames should match the user principal name (UPN) of the respective AAD users.
+        """
+        database: pulumi.Input['RangerAdminSpecDatabaseArgsDict']
+elif False:
+    RangerAdminSpecArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RangerAdminSpecArgs:
     def __init__(__self__, *,
@@ -2208,6 +3022,18 @@ class RangerAdminSpecArgs:
         pulumi.set(self, "database", value)
 
 
+if not MYPY:
+    class RangerAuditSpecArgsDict(TypedDict):
+        """
+        Properties required to describe audit log storage.
+        """
+        storage_account: NotRequired[pulumi.Input[str]]
+        """
+        Azure storage location of the blobs. MSI should have read/write access to this Storage account.
+        """
+elif False:
+    RangerAuditSpecArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RangerAuditSpecArgs:
     def __init__(__self__, *,
@@ -2231,6 +3057,26 @@ class RangerAuditSpecArgs:
     def storage_account(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "storage_account", value)
 
+
+if not MYPY:
+    class RangerProfileArgsDict(TypedDict):
+        """
+        The ranger cluster profile.
+        """
+        ranger_admin: pulumi.Input['RangerAdminSpecArgsDict']
+        """
+        Specification for the Ranger Admin service.
+        """
+        ranger_usersync: pulumi.Input['RangerUsersyncSpecArgsDict']
+        """
+        Specification for the Ranger Usersync service
+        """
+        ranger_audit: NotRequired[pulumi.Input['RangerAuditSpecArgsDict']]
+        """
+        Properties required to describe audit log storage.
+        """
+elif False:
+    RangerProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RangerProfileArgs:
@@ -2285,6 +3131,34 @@ class RangerProfileArgs:
     def ranger_audit(self, value: Optional[pulumi.Input['RangerAuditSpecArgs']]):
         pulumi.set(self, "ranger_audit", value)
 
+
+if not MYPY:
+    class RangerUsersyncSpecArgsDict(TypedDict):
+        """
+        Specification for the Ranger Usersync service
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Denotes whether usersync service should be enabled
+        """
+        groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of groups that should be synced. These group names should match the object id of the respective AAD groups.
+        """
+        mode: NotRequired[pulumi.Input[Union[str, 'RangerUsersyncMode']]]
+        """
+        User & groups can be synced automatically or via a static list that's refreshed.
+        """
+        user_mapping_location: NotRequired[pulumi.Input[str]]
+        """
+        Azure storage location of a mapping file that lists user & group associations.
+        """
+        users: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of user names that should be synced. These usernames should match the User principal name of the respective AAD users.
+        """
+elif False:
+    RangerUsersyncSpecArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RangerUsersyncSpecArgs:
@@ -2378,6 +3252,30 @@ class RangerUsersyncSpecArgs:
         pulumi.set(self, "users", value)
 
 
+if not MYPY:
+    class ScalingRuleArgsDict(TypedDict):
+        """
+        The scaling rule.
+        """
+        action_type: pulumi.Input[Union[str, 'ScaleActionType']]
+        """
+        The action type.
+        """
+        comparison_rule: pulumi.Input['ComparisonRuleArgsDict']
+        """
+        The comparison rule.
+        """
+        evaluation_count: pulumi.Input[int]
+        """
+        This is an evaluation count for a scaling condition, the number of times a trigger condition should be successful, before scaling activity is triggered.
+        """
+        scaling_metric: pulumi.Input[str]
+        """
+        Metrics name for individual workloads. For example: cpu
+        """
+elif False:
+    ScalingRuleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ScalingRuleArgs:
     def __init__(__self__, *,
@@ -2446,6 +3344,26 @@ class ScalingRuleArgs:
         pulumi.set(self, "scaling_metric", value)
 
 
+if not MYPY:
+    class ScheduleBasedConfigArgsDict(TypedDict):
+        """
+        Profile of schedule based Autoscale.
+        """
+        default_count: pulumi.Input[int]
+        """
+        Setting default node count of current schedule configuration. Default node count specifies the number of nodes which are default when an specified scaling operation is executed (scale up/scale down)
+        """
+        schedules: pulumi.Input[Sequence[pulumi.Input['ScheduleArgsDict']]]
+        """
+        This specifies the schedules where scheduled based Autoscale to be enabled, the user has a choice to set multiple rules within the schedule across days and times (start/end).
+        """
+        time_zone: pulumi.Input[str]
+        """
+        User has to specify the timezone on which the schedule has to be set for schedule based autoscale configuration.
+        """
+elif False:
+    ScheduleBasedConfigArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ScheduleBasedConfigArgs:
     def __init__(__self__, *,
@@ -2498,6 +3416,30 @@ class ScheduleBasedConfigArgs:
     def time_zone(self, value: pulumi.Input[str]):
         pulumi.set(self, "time_zone", value)
 
+
+if not MYPY:
+    class ScheduleArgsDict(TypedDict):
+        """
+        Schedule definition.
+        """
+        count: pulumi.Input[int]
+        """
+        User has to set the node count anticipated at end of the scaling operation of the set current schedule configuration, format is integer.
+        """
+        days: pulumi.Input[Sequence[pulumi.Input[Union[str, 'ScheduleDay']]]]
+        """
+        User has to set the days where schedule has to be set for autoscale operation.
+        """
+        end_time: pulumi.Input[str]
+        """
+        User has to set the end time of current schedule configuration, format like 10:30 (HH:MM).
+        """
+        start_time: pulumi.Input[str]
+        """
+        User has to set the start time of current schedule configuration, format like 10:30 (HH:MM).
+        """
+elif False:
+    ScheduleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ScheduleArgs:
@@ -2566,6 +3508,42 @@ class ScheduleArgs:
     def start_time(self, value: pulumi.Input[str]):
         pulumi.set(self, "start_time", value)
 
+
+if not MYPY:
+    class ScriptActionProfileArgsDict(TypedDict):
+        """
+        The script action profile.
+        """
+        name: pulumi.Input[str]
+        """
+        Script name.
+        """
+        services: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        List of services to apply the script action.
+        """
+        type: pulumi.Input[str]
+        """
+        Type of the script action. Supported type is bash scripts.
+        """
+        url: pulumi.Input[str]
+        """
+        Url of the script file.
+        """
+        parameters: NotRequired[pulumi.Input[str]]
+        """
+        Additional parameters for the script action. It should be space-separated list of arguments required for script execution.
+        """
+        should_persist: NotRequired[pulumi.Input[bool]]
+        """
+        Specify if the script should persist on the cluster.
+        """
+        timeout_in_minutes: NotRequired[pulumi.Input[int]]
+        """
+        Timeout duration for the script action in minutes.
+        """
+elif False:
+    ScriptActionProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ScriptActionProfileArgs:
@@ -2685,6 +3663,30 @@ class ScriptActionProfileArgs:
         pulumi.set(self, "timeout_in_minutes", value)
 
 
+if not MYPY:
+    class SecretReferenceArgsDict(TypedDict):
+        """
+        Secret reference and corresponding properties of a key vault secret.
+        """
+        key_vault_object_name: pulumi.Input[str]
+        """
+        Object identifier name of the secret in key vault.
+        """
+        reference_name: pulumi.Input[str]
+        """
+        Reference name of the secret to be used in service configs.
+        """
+        type: pulumi.Input[Union[str, 'KeyVaultObjectType']]
+        """
+        Type of key vault object: secret, key or certificate.
+        """
+        version: NotRequired[pulumi.Input[str]]
+        """
+        Version of the secret in key vault.
+        """
+elif False:
+    SecretReferenceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SecretReferenceArgs:
     def __init__(__self__, *,
@@ -2754,6 +3756,22 @@ class SecretReferenceArgs:
         pulumi.set(self, "version", value)
 
 
+if not MYPY:
+    class SecretsProfileArgsDict(TypedDict):
+        """
+        The cluster secret profile.
+        """
+        key_vault_resource_id: pulumi.Input[str]
+        """
+        Name of the user Key Vault where all the cluster specific user secrets are stored.
+        """
+        secrets: NotRequired[pulumi.Input[Sequence[pulumi.Input['SecretReferenceArgsDict']]]]
+        """
+        Properties of Key Vault secret.
+        """
+elif False:
+    SecretsProfileArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SecretsProfileArgs:
     def __init__(__self__, *,
@@ -2792,6 +3810,42 @@ class SecretsProfileArgs:
     def secrets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SecretReferenceArgs']]]]):
         pulumi.set(self, "secrets", value)
 
+
+if not MYPY:
+    class SparkMetastoreSpecArgsDict(TypedDict):
+        """
+        The metastore specification for Spark cluster.
+        """
+        db_name: pulumi.Input[str]
+        """
+        The database name.
+        """
+        db_server_host: pulumi.Input[str]
+        """
+        The database server host.
+        """
+        db_connection_authentication_mode: NotRequired[pulumi.Input[Union[str, 'DbConnectionAuthenticationMode']]]
+        """
+        The authentication mode to connect to your Hive metastore database. More details: https://learn.microsoft.com/en-us/azure/azure-sql/database/logins-create-manage?view=azuresql#authentication-and-authorization
+        """
+        db_password_secret_name: NotRequired[pulumi.Input[str]]
+        """
+        The secret name which contains the database user password.
+        """
+        db_user_name: NotRequired[pulumi.Input[str]]
+        """
+        The database user name.
+        """
+        key_vault_id: NotRequired[pulumi.Input[str]]
+        """
+        The key vault resource id.
+        """
+        thrift_url: NotRequired[pulumi.Input[str]]
+        """
+        The thrift url.
+        """
+elif False:
+    SparkMetastoreSpecArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SparkMetastoreSpecArgs:
@@ -2913,6 +3967,26 @@ class SparkMetastoreSpecArgs:
         pulumi.set(self, "thrift_url", value)
 
 
+if not MYPY:
+    class SparkProfileArgsDict(TypedDict):
+        """
+        The spark cluster profile.
+        """
+        default_storage_url: NotRequired[pulumi.Input[str]]
+        """
+        The default storage URL.
+        """
+        metastore_spec: NotRequired[pulumi.Input['SparkMetastoreSpecArgsDict']]
+        """
+        The metastore specification for Spark cluster.
+        """
+        user_plugins_spec: NotRequired[pulumi.Input['SparkUserPluginsArgsDict']]
+        """
+        Spark user plugins spec
+        """
+elif False:
+    SparkProfileArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SparkProfileArgs:
     def __init__(__self__, *,
@@ -2969,6 +4043,18 @@ class SparkProfileArgs:
         pulumi.set(self, "user_plugins_spec", value)
 
 
+if not MYPY:
+    class SparkUserPluginsArgsDict(TypedDict):
+        """
+        Spark user plugins spec
+        """
+        plugins: NotRequired[pulumi.Input[Sequence[pulumi.Input['SparkUserPluginArgsDict']]]]
+        """
+        Spark user plugins.
+        """
+elif False:
+    SparkUserPluginsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SparkUserPluginsArgs:
     def __init__(__self__, *,
@@ -2993,6 +4079,18 @@ class SparkUserPluginsArgs:
         pulumi.set(self, "plugins", value)
 
 
+if not MYPY:
+    class SparkUserPluginArgsDict(TypedDict):
+        """
+        Spark user plugin.
+        """
+        path: pulumi.Input[str]
+        """
+        Fully qualified path to the folder containing the plugins.
+        """
+elif False:
+    SparkUserPluginArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SparkUserPluginArgs:
     def __init__(__self__, *,
@@ -3015,6 +4113,22 @@ class SparkUserPluginArgs:
     def path(self, value: pulumi.Input[str]):
         pulumi.set(self, "path", value)
 
+
+if not MYPY:
+    class SshProfileArgsDict(TypedDict):
+        """
+        Ssh profile for the cluster.
+        """
+        count: pulumi.Input[int]
+        """
+        Number of ssh pods per cluster.
+        """
+        vm_size: NotRequired[pulumi.Input[str]]
+        """
+        The virtual machine SKU.
+        """
+elif False:
+    SshProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SshProfileArgs:
@@ -3054,6 +4168,30 @@ class SshProfileArgs:
     def vm_size(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "vm_size", value)
 
+
+if not MYPY:
+    class TrinoCoordinatorArgsDict(TypedDict):
+        """
+        Trino Coordinator.
+        """
+        enable: NotRequired[pulumi.Input[bool]]
+        """
+        The flag that if enable debug or not.
+        """
+        high_availability_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        The flag that if enable coordinator HA, uses multiple coordinator replicas with auto failover, one per each head node. Default: true.
+        """
+        port: NotRequired[pulumi.Input[int]]
+        """
+        The debug port.
+        """
+        suspend: NotRequired[pulumi.Input[bool]]
+        """
+        The flag that if suspend debug or not.
+        """
+elif False:
+    TrinoCoordinatorArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TrinoCoordinatorArgs:
@@ -3134,6 +4272,34 @@ class TrinoCoordinatorArgs:
     def suspend(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "suspend", value)
 
+
+if not MYPY:
+    class TrinoProfileArgsDict(TypedDict):
+        """
+        Trino Cluster profile.
+        """
+        catalog_options: NotRequired[pulumi.Input['CatalogOptionsArgsDict']]
+        """
+        Trino cluster catalog options.
+        """
+        coordinator: NotRequired[pulumi.Input['TrinoCoordinatorArgsDict']]
+        """
+        Trino Coordinator.
+        """
+        user_plugins_spec: NotRequired[pulumi.Input['TrinoUserPluginsArgsDict']]
+        """
+        Trino user plugins spec
+        """
+        user_telemetry_spec: NotRequired[pulumi.Input['TrinoUserTelemetryArgsDict']]
+        """
+        User telemetry
+        """
+        worker: NotRequired[pulumi.Input['TrinoWorkerArgsDict']]
+        """
+        Trino worker.
+        """
+elif False:
+    TrinoProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TrinoProfileArgs:
@@ -3223,6 +4389,30 @@ class TrinoProfileArgs:
         pulumi.set(self, "worker", value)
 
 
+if not MYPY:
+    class TrinoTelemetryConfigArgsDict(TypedDict):
+        """
+        Trino user telemetry definition.
+        """
+        hivecatalog_name: NotRequired[pulumi.Input[str]]
+        """
+        Hive Catalog name used to mount external tables on the logs written by trino, if not specified there tables are not created.
+        """
+        hivecatalog_schema: NotRequired[pulumi.Input[str]]
+        """
+        Schema of the above catalog to use, to mount query logs as external tables, if not specified tables will be mounted under schema trinologs.
+        """
+        partition_retention_in_days: NotRequired[pulumi.Input[int]]
+        """
+        Retention period for query log table partitions, this doesn't have any affect on actual data.
+        """
+        path: NotRequired[pulumi.Input[str]]
+        """
+        Azure storage location of the blobs.
+        """
+elif False:
+    TrinoTelemetryConfigArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TrinoTelemetryConfigArgs:
     def __init__(__self__, *,
@@ -3299,6 +4489,18 @@ class TrinoTelemetryConfigArgs:
         pulumi.set(self, "path", value)
 
 
+if not MYPY:
+    class TrinoUserPluginsArgsDict(TypedDict):
+        """
+        Trino user plugins spec
+        """
+        plugins: NotRequired[pulumi.Input[Sequence[pulumi.Input['TrinoUserPluginArgsDict']]]]
+        """
+        Trino user plugins.
+        """
+elif False:
+    TrinoUserPluginsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TrinoUserPluginsArgs:
     def __init__(__self__, *,
@@ -3322,6 +4524,26 @@ class TrinoUserPluginsArgs:
     def plugins(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TrinoUserPluginArgs']]]]):
         pulumi.set(self, "plugins", value)
 
+
+if not MYPY:
+    class TrinoUserPluginArgsDict(TypedDict):
+        """
+        Trino user plugin.
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Denotes whether the plugin is active or not.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        This field maps to the sub-directory in trino plugins location, that will contain all the plugins under path.
+        """
+        path: NotRequired[pulumi.Input[str]]
+        """
+        Fully qualified path to the folder containing the plugins.
+        """
+elif False:
+    TrinoUserPluginArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TrinoUserPluginArgs:
@@ -3379,6 +4601,18 @@ class TrinoUserPluginArgs:
         pulumi.set(self, "path", value)
 
 
+if not MYPY:
+    class TrinoUserTelemetryArgsDict(TypedDict):
+        """
+        User telemetry
+        """
+        storage: NotRequired[pulumi.Input['TrinoTelemetryConfigArgsDict']]
+        """
+        Trino user telemetry definition.
+        """
+elif False:
+    TrinoUserTelemetryArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TrinoUserTelemetryArgs:
     def __init__(__self__, *,
@@ -3402,6 +4636,26 @@ class TrinoUserTelemetryArgs:
     def storage(self, value: Optional[pulumi.Input['TrinoTelemetryConfigArgs']]):
         pulumi.set(self, "storage", value)
 
+
+if not MYPY:
+    class TrinoWorkerArgsDict(TypedDict):
+        """
+        Trino worker.
+        """
+        enable: NotRequired[pulumi.Input[bool]]
+        """
+        The flag that if enable debug or not.
+        """
+        port: NotRequired[pulumi.Input[int]]
+        """
+        The debug port.
+        """
+        suspend: NotRequired[pulumi.Input[bool]]
+        """
+        The flag that if suspend debug or not.
+        """
+elif False:
+    TrinoWorkerArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TrinoWorkerArgs:

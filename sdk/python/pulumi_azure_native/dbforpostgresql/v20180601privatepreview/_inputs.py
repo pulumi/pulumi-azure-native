@@ -4,15 +4,33 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 
 __all__ = [
     'PrivateEndpointPropertyArgs',
+    'PrivateEndpointPropertyArgsDict',
     'PrivateLinkServiceConnectionStatePropertyArgs',
+    'PrivateLinkServiceConnectionStatePropertyArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class PrivateEndpointPropertyArgsDict(TypedDict):
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource id of the private endpoint.
+        """
+elif False:
+    PrivateEndpointPropertyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PrivateEndpointPropertyArgs:
@@ -36,6 +54,19 @@ class PrivateEndpointPropertyArgs:
     def id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class PrivateLinkServiceConnectionStatePropertyArgsDict(TypedDict):
+        description: pulumi.Input[str]
+        """
+        The private link service connection description.
+        """
+        status: pulumi.Input[str]
+        """
+        The private link service connection status.
+        """
+elif False:
+    PrivateLinkServiceConnectionStatePropertyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PrivateLinkServiceConnectionStatePropertyArgs:

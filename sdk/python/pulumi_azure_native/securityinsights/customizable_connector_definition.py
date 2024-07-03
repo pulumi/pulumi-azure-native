@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -153,8 +158,8 @@ class CustomizableConnectorDefinition(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 connections_config: Optional[pulumi.Input[pulumi.InputType['CustomizableConnectionsConfigArgs']]] = None,
-                 connector_ui_config: Optional[pulumi.Input[pulumi.InputType['CustomizableConnectorUiConfigArgs']]] = None,
+                 connections_config: Optional[pulumi.Input[Union['CustomizableConnectionsConfigArgs', 'CustomizableConnectionsConfigArgsDict']]] = None,
+                 connector_ui_config: Optional[pulumi.Input[Union['CustomizableConnectorUiConfigArgs', 'CustomizableConnectorUiConfigArgsDict']]] = None,
                  created_time_utc: Optional[pulumi.Input[str]] = None,
                  data_connector_definition_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
@@ -168,8 +173,8 @@ class CustomizableConnectorDefinition(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['CustomizableConnectionsConfigArgs']] connections_config: The UiConfig for 'Customizable' connector definition kind.
-        :param pulumi.Input[pulumi.InputType['CustomizableConnectorUiConfigArgs']] connector_ui_config: The UiConfig for 'Customizable' connector definition kind.
+        :param pulumi.Input[Union['CustomizableConnectionsConfigArgs', 'CustomizableConnectionsConfigArgsDict']] connections_config: The UiConfig for 'Customizable' connector definition kind.
+        :param pulumi.Input[Union['CustomizableConnectorUiConfigArgs', 'CustomizableConnectorUiConfigArgsDict']] connector_ui_config: The UiConfig for 'Customizable' connector definition kind.
         :param pulumi.Input[str] created_time_utc: Gets or sets the connector definition created date in UTC format.
         :param pulumi.Input[str] data_connector_definition_name: The data connector definition name.
         :param pulumi.Input[str] kind: The kind of the data connector definitions
@@ -203,8 +208,8 @@ class CustomizableConnectorDefinition(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 connections_config: Optional[pulumi.Input[pulumi.InputType['CustomizableConnectionsConfigArgs']]] = None,
-                 connector_ui_config: Optional[pulumi.Input[pulumi.InputType['CustomizableConnectorUiConfigArgs']]] = None,
+                 connections_config: Optional[pulumi.Input[Union['CustomizableConnectionsConfigArgs', 'CustomizableConnectionsConfigArgsDict']]] = None,
+                 connector_ui_config: Optional[pulumi.Input[Union['CustomizableConnectorUiConfigArgs', 'CustomizableConnectorUiConfigArgsDict']]] = None,
                  created_time_utc: Optional[pulumi.Input[str]] = None,
                  data_connector_definition_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,

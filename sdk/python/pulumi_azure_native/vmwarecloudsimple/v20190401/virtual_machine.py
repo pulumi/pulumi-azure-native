@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -280,16 +285,16 @@ class VirtualMachine(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  amount_of_ram: Optional[pulumi.Input[int]] = None,
-                 customization: Optional[pulumi.Input[pulumi.InputType['GuestOSCustomizationArgs']]] = None,
-                 disks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualDiskArgs']]]]] = None,
+                 customization: Optional[pulumi.Input[Union['GuestOSCustomizationArgs', 'GuestOSCustomizationArgsDict']]] = None,
+                 disks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VirtualDiskArgs', 'VirtualDiskArgsDict']]]]] = None,
                  expose_to_guest_vm: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 nics: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualNicArgs']]]]] = None,
+                 nics: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VirtualNicArgs', 'VirtualNicArgsDict']]]]] = None,
                  number_of_cores: Optional[pulumi.Input[int]] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  private_cloud_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 resource_pool: Optional[pulumi.Input[pulumi.InputType['ResourcePoolArgs']]] = None,
+                 resource_pool: Optional[pulumi.Input[Union['ResourcePoolArgs', 'ResourcePoolArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  template_id: Optional[pulumi.Input[str]] = None,
                  username: Optional[pulumi.Input[str]] = None,
@@ -302,16 +307,16 @@ class VirtualMachine(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] amount_of_ram: The amount of memory
-        :param pulumi.Input[pulumi.InputType['GuestOSCustomizationArgs']] customization: Virtual machine properties
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualDiskArgs']]]] disks: The list of Virtual Disks
+        :param pulumi.Input[Union['GuestOSCustomizationArgs', 'GuestOSCustomizationArgsDict']] customization: Virtual machine properties
+        :param pulumi.Input[Sequence[pulumi.Input[Union['VirtualDiskArgs', 'VirtualDiskArgsDict']]]] disks: The list of Virtual Disks
         :param pulumi.Input[bool] expose_to_guest_vm: Expose Guest OS or not
         :param pulumi.Input[str] location: Azure region
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualNicArgs']]]] nics: The list of Virtual NICs
+        :param pulumi.Input[Sequence[pulumi.Input[Union['VirtualNicArgs', 'VirtualNicArgsDict']]]] nics: The list of Virtual NICs
         :param pulumi.Input[int] number_of_cores: The number of CPU cores
         :param pulumi.Input[str] password: Password for login. Deprecated - use customization property
         :param pulumi.Input[str] private_cloud_id: Private Cloud Id
         :param pulumi.Input[str] resource_group_name: The name of the resource group
-        :param pulumi.Input[pulumi.InputType['ResourcePoolArgs']] resource_pool: Virtual Machines Resource Pool
+        :param pulumi.Input[Union['ResourcePoolArgs', 'ResourcePoolArgsDict']] resource_pool: Virtual Machines Resource Pool
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The list of tags
         :param pulumi.Input[str] template_id: Virtual Machine Template Id
         :param pulumi.Input[str] username: Username for login. Deprecated - use customization property
@@ -343,16 +348,16 @@ class VirtualMachine(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  amount_of_ram: Optional[pulumi.Input[int]] = None,
-                 customization: Optional[pulumi.Input[pulumi.InputType['GuestOSCustomizationArgs']]] = None,
-                 disks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualDiskArgs']]]]] = None,
+                 customization: Optional[pulumi.Input[Union['GuestOSCustomizationArgs', 'GuestOSCustomizationArgsDict']]] = None,
+                 disks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VirtualDiskArgs', 'VirtualDiskArgsDict']]]]] = None,
                  expose_to_guest_vm: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 nics: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualNicArgs']]]]] = None,
+                 nics: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VirtualNicArgs', 'VirtualNicArgsDict']]]]] = None,
                  number_of_cores: Optional[pulumi.Input[int]] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  private_cloud_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 resource_pool: Optional[pulumi.Input[pulumi.InputType['ResourcePoolArgs']]] = None,
+                 resource_pool: Optional[pulumi.Input[Union['ResourcePoolArgs', 'ResourcePoolArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  template_id: Optional[pulumi.Input[str]] = None,
                  username: Optional[pulumi.Input[str]] = None,

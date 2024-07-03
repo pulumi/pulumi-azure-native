@@ -4,31 +4,68 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'EncryptionPropertyArgs',
+    'EncryptionPropertyArgsDict',
     'ExportPolicyArgs',
+    'ExportPolicyArgsDict',
     'IPRuleArgs',
+    'IPRuleArgsDict',
     'IdentityPropertiesArgs',
+    'IdentityPropertiesArgsDict',
     'KeyVaultPropertiesArgs',
+    'KeyVaultPropertiesArgsDict',
     'NetworkRuleSetArgs',
+    'NetworkRuleSetArgsDict',
     'PoliciesArgs',
+    'PoliciesArgsDict',
     'PrivateEndpointArgs',
+    'PrivateEndpointArgsDict',
     'PrivateLinkServiceConnectionStateArgs',
+    'PrivateLinkServiceConnectionStateArgsDict',
     'QuarantinePolicyArgs',
+    'QuarantinePolicyArgsDict',
     'RetentionPolicyArgs',
+    'RetentionPolicyArgsDict',
     'SkuArgs',
+    'SkuArgsDict',
     'TokenCertificateArgs',
+    'TokenCertificateArgsDict',
     'TokenCredentialsPropertiesArgs',
+    'TokenCredentialsPropertiesArgsDict',
     'TokenPasswordArgs',
+    'TokenPasswordArgsDict',
     'TrustPolicyArgs',
+    'TrustPolicyArgsDict',
     'UserIdentityPropertiesArgs',
+    'UserIdentityPropertiesArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class EncryptionPropertyArgsDict(TypedDict):
+        key_vault_properties: NotRequired[pulumi.Input['KeyVaultPropertiesArgsDict']]
+        """
+        Key vault properties.
+        """
+        status: NotRequired[pulumi.Input[Union[str, 'EncryptionStatus']]]
+        """
+        Indicates whether or not the encryption is enabled for container registry.
+        """
+elif False:
+    EncryptionPropertyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EncryptionPropertyArgs:
@@ -69,6 +106,18 @@ class EncryptionPropertyArgs:
         pulumi.set(self, "status", value)
 
 
+if not MYPY:
+    class ExportPolicyArgsDict(TypedDict):
+        """
+        The export policy for a container registry.
+        """
+        status: NotRequired[pulumi.Input[Union[str, 'ExportPolicyStatus']]]
+        """
+        The value that indicates whether the policy is enabled or not.
+        """
+elif False:
+    ExportPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ExportPolicyArgs:
     def __init__(__self__, *,
@@ -94,6 +143,22 @@ class ExportPolicyArgs:
     def status(self, value: Optional[pulumi.Input[Union[str, 'ExportPolicyStatus']]]):
         pulumi.set(self, "status", value)
 
+
+if not MYPY:
+    class IPRuleArgsDict(TypedDict):
+        """
+        IP rule with specific IP or IP range in CIDR format.
+        """
+        i_p_address_or_range: pulumi.Input[str]
+        """
+        Specifies the IP or IP range in CIDR format. Only IPV4 address is allowed.
+        """
+        action: NotRequired[pulumi.Input[Union[str, 'Action']]]
+        """
+        The action of IP ACL rule.
+        """
+elif False:
+    IPRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IPRuleArgs:
@@ -135,6 +200,33 @@ class IPRuleArgs:
     def action(self, value: Optional[pulumi.Input[Union[str, 'Action']]]):
         pulumi.set(self, "action", value)
 
+
+if not MYPY:
+    class IdentityPropertiesArgsDict(TypedDict):
+        """
+        Managed identity for the resource.
+        """
+        principal_id: NotRequired[pulumi.Input[str]]
+        """
+        The principal ID of resource identity.
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        The tenant ID of resource.
+        """
+        type: NotRequired[pulumi.Input['ResourceIdentityType']]
+        """
+        The identity type.
+        """
+        user_assigned_identities: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['UserIdentityPropertiesArgsDict']]]]
+        """
+        The list of user identities associated with the resource. The user identity 
+        dictionary key references will be ARM resource ids in the form: 
+        '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/
+            providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+elif False:
+    IdentityPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IdentityPropertiesArgs:
@@ -214,6 +306,19 @@ class IdentityPropertiesArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
+if not MYPY:
+    class KeyVaultPropertiesArgsDict(TypedDict):
+        identity: NotRequired[pulumi.Input[str]]
+        """
+        The client id of the identity which will be used to access key vault.
+        """
+        key_identifier: NotRequired[pulumi.Input[str]]
+        """
+        Key vault uri to access the encryption key.
+        """
+elif False:
+    KeyVaultPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class KeyVaultPropertiesArgs:
     def __init__(__self__, *,
@@ -252,6 +357,22 @@ class KeyVaultPropertiesArgs:
     def key_identifier(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "key_identifier", value)
 
+
+if not MYPY:
+    class NetworkRuleSetArgsDict(TypedDict):
+        """
+        The network rule set for a container registry.
+        """
+        default_action: pulumi.Input[Union[str, 'DefaultAction']]
+        """
+        The default action of allow or deny when no other rules match.
+        """
+        ip_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['IPRuleArgsDict']]]]
+        """
+        The IP ACL rules.
+        """
+elif False:
+    NetworkRuleSetArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NetworkRuleSetArgs:
@@ -293,6 +414,30 @@ class NetworkRuleSetArgs:
     def ip_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IPRuleArgs']]]]):
         pulumi.set(self, "ip_rules", value)
 
+
+if not MYPY:
+    class PoliciesArgsDict(TypedDict):
+        """
+        The policies for a container registry.
+        """
+        export_policy: NotRequired[pulumi.Input['ExportPolicyArgsDict']]
+        """
+        The export policy for a container registry.
+        """
+        quarantine_policy: NotRequired[pulumi.Input['QuarantinePolicyArgsDict']]
+        """
+        The quarantine policy for a container registry.
+        """
+        retention_policy: NotRequired[pulumi.Input['RetentionPolicyArgsDict']]
+        """
+        The retention policy for a container registry.
+        """
+        trust_policy: NotRequired[pulumi.Input['TrustPolicyArgsDict']]
+        """
+        The content trust policy for a container registry.
+        """
+elif False:
+    PoliciesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PoliciesArgs:
@@ -366,6 +511,18 @@ class PoliciesArgs:
         pulumi.set(self, "trust_policy", value)
 
 
+if not MYPY:
+    class PrivateEndpointArgsDict(TypedDict):
+        """
+        The Private Endpoint resource.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        This is private endpoint resource created with Microsoft.Network resource provider.
+        """
+elif False:
+    PrivateEndpointArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PrivateEndpointArgs:
     def __init__(__self__, *,
@@ -389,6 +546,26 @@ class PrivateEndpointArgs:
     def id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
+        """
+        The state of a private link service connection.
+        """
+        actions_required: NotRequired[pulumi.Input[Union[str, 'ActionsRequired']]]
+        """
+        A message indicating if changes on the service provider require any updates on the consumer.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The description for connection status. For example if connection is rejected it can indicate reason for rejection.
+        """
+        status: NotRequired[pulumi.Input[Union[str, 'ConnectionStatus']]]
+        """
+        The private link service connection status.
+        """
+elif False:
+    PrivateLinkServiceConnectionStateArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:
@@ -446,6 +623,18 @@ class PrivateLinkServiceConnectionStateArgs:
         pulumi.set(self, "status", value)
 
 
+if not MYPY:
+    class QuarantinePolicyArgsDict(TypedDict):
+        """
+        The quarantine policy for a container registry.
+        """
+        status: NotRequired[pulumi.Input[Union[str, 'PolicyStatus']]]
+        """
+        The value that indicates whether the policy is enabled or not.
+        """
+elif False:
+    QuarantinePolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class QuarantinePolicyArgs:
     def __init__(__self__, *,
@@ -471,6 +660,22 @@ class QuarantinePolicyArgs:
     def status(self, value: Optional[pulumi.Input[Union[str, 'PolicyStatus']]]):
         pulumi.set(self, "status", value)
 
+
+if not MYPY:
+    class RetentionPolicyArgsDict(TypedDict):
+        """
+        The retention policy for a container registry.
+        """
+        days: NotRequired[pulumi.Input[int]]
+        """
+        The number of days to retain an untagged manifest after which it gets purged.
+        """
+        status: NotRequired[pulumi.Input[Union[str, 'PolicyStatus']]]
+        """
+        The value that indicates whether the policy is enabled or not.
+        """
+elif False:
+    RetentionPolicyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RetentionPolicyArgs:
@@ -516,6 +721,18 @@ class RetentionPolicyArgs:
         pulumi.set(self, "status", value)
 
 
+if not MYPY:
+    class SkuArgsDict(TypedDict):
+        """
+        The SKU of a container registry.
+        """
+        name: pulumi.Input[Union[str, 'SkuName']]
+        """
+        The SKU name of the container registry. Required for registry creation.
+        """
+elif False:
+    SkuArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SkuArgs:
     def __init__(__self__, *,
@@ -538,6 +755,27 @@ class SkuArgs:
     def name(self, value: pulumi.Input[Union[str, 'SkuName']]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class TokenCertificateArgsDict(TypedDict):
+        """
+        The properties of a certificate used for authenticating a token.
+        """
+        encoded_pem_certificate: NotRequired[pulumi.Input[str]]
+        """
+        Base 64 encoded string of the public certificate1 in PEM format that will be used for authenticating the token.
+        """
+        expiry: NotRequired[pulumi.Input[str]]
+        """
+        The expiry datetime of the certificate.
+        """
+        name: NotRequired[pulumi.Input[Union[str, 'TokenCertificateName']]]
+        thumbprint: NotRequired[pulumi.Input[str]]
+        """
+        The thumbprint of the certificate.
+        """
+elif False:
+    TokenCertificateArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TokenCertificateArgs:
@@ -607,6 +845,16 @@ class TokenCertificateArgs:
         pulumi.set(self, "thumbprint", value)
 
 
+if not MYPY:
+    class TokenCredentialsPropertiesArgsDict(TypedDict):
+        """
+        The properties of the credentials that can be used for authenticating the token.
+        """
+        certificates: NotRequired[pulumi.Input[Sequence[pulumi.Input['TokenCertificateArgsDict']]]]
+        passwords: NotRequired[pulumi.Input[Sequence[pulumi.Input['TokenPasswordArgsDict']]]]
+elif False:
+    TokenCredentialsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TokenCredentialsPropertiesArgs:
     def __init__(__self__, *,
@@ -638,6 +886,26 @@ class TokenCredentialsPropertiesArgs:
     def passwords(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TokenPasswordArgs']]]]):
         pulumi.set(self, "passwords", value)
 
+
+if not MYPY:
+    class TokenPasswordArgsDict(TypedDict):
+        """
+        The password that will be used for authenticating the token of a container registry.
+        """
+        creation_time: NotRequired[pulumi.Input[str]]
+        """
+        The creation datetime of the password.
+        """
+        expiry: NotRequired[pulumi.Input[str]]
+        """
+        The expiry datetime of the password.
+        """
+        name: NotRequired[pulumi.Input[Union[str, 'TokenPasswordName']]]
+        """
+        The password name "password1" or "password2"
+        """
+elif False:
+    TokenPasswordArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TokenPasswordArgs:
@@ -695,6 +963,22 @@ class TokenPasswordArgs:
         pulumi.set(self, "name", value)
 
 
+if not MYPY:
+    class TrustPolicyArgsDict(TypedDict):
+        """
+        The content trust policy for a container registry.
+        """
+        status: NotRequired[pulumi.Input[Union[str, 'PolicyStatus']]]
+        """
+        The value that indicates whether the policy is enabled or not.
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'TrustPolicyType']]]
+        """
+        The type of trust policy.
+        """
+elif False:
+    TrustPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TrustPolicyArgs:
     def __init__(__self__, *,
@@ -738,6 +1022,19 @@ class TrustPolicyArgs:
     def type(self, value: Optional[pulumi.Input[Union[str, 'TrustPolicyType']]]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class UserIdentityPropertiesArgsDict(TypedDict):
+        client_id: NotRequired[pulumi.Input[str]]
+        """
+        The client id of user assigned identity.
+        """
+        principal_id: NotRequired[pulumi.Input[str]]
+        """
+        The principal id of user assigned identity.
+        """
+elif False:
+    UserIdentityPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserIdentityPropertiesArgs:

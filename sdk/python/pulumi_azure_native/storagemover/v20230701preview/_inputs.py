@@ -4,19 +4,52 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'AzureKeyVaultSmbCredentialsArgs',
+    'AzureKeyVaultSmbCredentialsArgsDict',
     'AzureStorageBlobContainerEndpointPropertiesArgs',
+    'AzureStorageBlobContainerEndpointPropertiesArgsDict',
     'AzureStorageSmbFileShareEndpointPropertiesArgs',
+    'AzureStorageSmbFileShareEndpointPropertiesArgsDict',
     'NfsMountEndpointPropertiesArgs',
+    'NfsMountEndpointPropertiesArgsDict',
     'SmbMountEndpointPropertiesArgs',
+    'SmbMountEndpointPropertiesArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AzureKeyVaultSmbCredentialsArgsDict(TypedDict):
+        """
+        The Azure Key Vault secret URIs which store the credentials.
+        """
+        type: pulumi.Input[str]
+        """
+        The Credentials type.
+        Expected value is 'AzureKeyVaultSmb'.
+        """
+        password_uri: NotRequired[pulumi.Input[str]]
+        """
+        The Azure Key Vault secret URI which stores the password. Use empty string to clean-up existing value.
+        """
+        username_uri: NotRequired[pulumi.Input[str]]
+        """
+        The Azure Key Vault secret URI which stores the username. Use empty string to clean-up existing value.
+        """
+elif False:
+    AzureKeyVaultSmbCredentialsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AzureKeyVaultSmbCredentialsArgs:
@@ -74,6 +107,31 @@ class AzureKeyVaultSmbCredentialsArgs:
     def username_uri(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "username_uri", value)
 
+
+if not MYPY:
+    class AzureStorageBlobContainerEndpointPropertiesArgsDict(TypedDict):
+        """
+        The properties of Azure Storage blob container endpoint.
+        """
+        blob_container_name: pulumi.Input[str]
+        """
+        The name of the Storage blob container that is the target destination.
+        """
+        endpoint_type: pulumi.Input[str]
+        """
+        The Endpoint resource type.
+        Expected value is 'AzureStorageBlobContainer'.
+        """
+        storage_account_resource_id: pulumi.Input[str]
+        """
+        The Azure Resource ID of the storage account that is the target destination.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        A description for the Endpoint.
+        """
+elif False:
+    AzureStorageBlobContainerEndpointPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AzureStorageBlobContainerEndpointPropertiesArgs:
@@ -146,6 +204,31 @@ class AzureStorageBlobContainerEndpointPropertiesArgs:
         pulumi.set(self, "description", value)
 
 
+if not MYPY:
+    class AzureStorageSmbFileShareEndpointPropertiesArgsDict(TypedDict):
+        """
+        The properties of Azure Storage SMB file share endpoint.
+        """
+        endpoint_type: pulumi.Input[str]
+        """
+        The Endpoint resource type.
+        Expected value is 'AzureStorageSmbFileShare'.
+        """
+        file_share_name: pulumi.Input[str]
+        """
+        The name of the Azure Storage file share.
+        """
+        storage_account_resource_id: pulumi.Input[str]
+        """
+        The Azure Resource ID of the storage account.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        A description for the Endpoint.
+        """
+elif False:
+    AzureStorageSmbFileShareEndpointPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AzureStorageSmbFileShareEndpointPropertiesArgs:
     def __init__(__self__, *,
@@ -216,6 +299,35 @@ class AzureStorageSmbFileShareEndpointPropertiesArgs:
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
 
+
+if not MYPY:
+    class NfsMountEndpointPropertiesArgsDict(TypedDict):
+        """
+        The properties of NFS share endpoint.
+        """
+        endpoint_type: pulumi.Input[str]
+        """
+        The Endpoint resource type.
+        Expected value is 'NfsMount'.
+        """
+        export: pulumi.Input[str]
+        """
+        The directory being exported from the server.
+        """
+        host: pulumi.Input[str]
+        """
+        The host name or IP address of the server exporting the file system.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        A description for the Endpoint.
+        """
+        nfs_version: NotRequired[pulumi.Input[Union[str, 'NfsVersion']]]
+        """
+        The NFS protocol version.
+        """
+elif False:
+    NfsMountEndpointPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NfsMountEndpointPropertiesArgs:
@@ -303,6 +415,35 @@ class NfsMountEndpointPropertiesArgs:
     def nfs_version(self, value: Optional[pulumi.Input[Union[str, 'NfsVersion']]]):
         pulumi.set(self, "nfs_version", value)
 
+
+if not MYPY:
+    class SmbMountEndpointPropertiesArgsDict(TypedDict):
+        """
+        The properties of SMB share endpoint.
+        """
+        endpoint_type: pulumi.Input[str]
+        """
+        The Endpoint resource type.
+        Expected value is 'SmbMount'.
+        """
+        host: pulumi.Input[str]
+        """
+        The host name or IP address of the server exporting the file system.
+        """
+        share_name: pulumi.Input[str]
+        """
+        The name of the SMB share being exported from the server.
+        """
+        credentials: NotRequired[pulumi.Input['AzureKeyVaultSmbCredentialsArgsDict']]
+        """
+        The Azure Key Vault secret URIs which store the required credentials to access the SMB share.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        A description for the Endpoint.
+        """
+elif False:
+    SmbMountEndpointPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SmbMountEndpointPropertiesArgs:

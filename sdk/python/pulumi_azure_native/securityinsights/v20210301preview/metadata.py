@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -278,10 +283,10 @@ class Metadata(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 author: Optional[pulumi.Input[pulumi.InputType['MetadataAuthorArgs']]] = None,
-                 categories: Optional[pulumi.Input[pulumi.InputType['MetadataCategoriesArgs']]] = None,
+                 author: Optional[pulumi.Input[Union['MetadataAuthorArgs', 'MetadataAuthorArgsDict']]] = None,
+                 categories: Optional[pulumi.Input[Union['MetadataCategoriesArgs', 'MetadataCategoriesArgsDict']]] = None,
                  content_id: Optional[pulumi.Input[str]] = None,
-                 dependencies: Optional[pulumi.Input[pulumi.InputType['MetadataDependenciesArgs']]] = None,
+                 dependencies: Optional[pulumi.Input[Union['MetadataDependenciesArgs', 'MetadataDependenciesArgsDict']]] = None,
                  first_publish_date: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[Union[str, 'Kind']]] = None,
                  last_publish_date: Optional[pulumi.Input[str]] = None,
@@ -290,8 +295,8 @@ class Metadata(pulumi.CustomResource):
                  parent_id: Optional[pulumi.Input[str]] = None,
                  providers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 source: Optional[pulumi.Input[pulumi.InputType['MetadataSourceArgs']]] = None,
-                 support: Optional[pulumi.Input[pulumi.InputType['MetadataSupportArgs']]] = None,
+                 source: Optional[pulumi.Input[Union['MetadataSourceArgs', 'MetadataSourceArgsDict']]] = None,
+                 support: Optional[pulumi.Input[Union['MetadataSupportArgs', 'MetadataSupportArgsDict']]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -300,10 +305,10 @@ class Metadata(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['MetadataAuthorArgs']] author: The creator of the content item.
-        :param pulumi.Input[pulumi.InputType['MetadataCategoriesArgs']] categories: Categories for the solution content item
+        :param pulumi.Input[Union['MetadataAuthorArgs', 'MetadataAuthorArgsDict']] author: The creator of the content item.
+        :param pulumi.Input[Union['MetadataCategoriesArgs', 'MetadataCategoriesArgsDict']] categories: Categories for the solution content item
         :param pulumi.Input[str] content_id: Static ID for the content.  Used to identify dependencies and content from solutions or community.  Hard-coded/static for out of the box content and solutions. Dynamic for user-created.  This is the resource name
-        :param pulumi.Input[pulumi.InputType['MetadataDependenciesArgs']] dependencies: Dependencies for the content item, what other content items it requires to work.  Can describe more complex dependencies using a recursive/nested structure. For a single dependency an id/kind/version can be supplied or operator/criteria for complex formats.
+        :param pulumi.Input[Union['MetadataDependenciesArgs', 'MetadataDependenciesArgsDict']] dependencies: Dependencies for the content item, what other content items it requires to work.  Can describe more complex dependencies using a recursive/nested structure. For a single dependency an id/kind/version can be supplied or operator/criteria for complex formats.
         :param pulumi.Input[str] first_publish_date: first publish date solution content item
         :param pulumi.Input[Union[str, 'Kind']] kind: The kind of content the metadata is for.
         :param pulumi.Input[str] last_publish_date: last publish date for the solution content item
@@ -312,8 +317,8 @@ class Metadata(pulumi.CustomResource):
         :param pulumi.Input[str] parent_id: Full parent resource ID of the content item the metadata is for.  This is the full resource ID including the scope (subscription and resource group)
         :param pulumi.Input[Sequence[pulumi.Input[str]]] providers: Providers for the solution content item
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[pulumi.InputType['MetadataSourceArgs']] source: Source of the content.  This is where/how it was created.
-        :param pulumi.Input[pulumi.InputType['MetadataSupportArgs']] support: Support information for the metadata - type, name, contact information
+        :param pulumi.Input[Union['MetadataSourceArgs', 'MetadataSourceArgsDict']] source: Source of the content.  This is where/how it was created.
+        :param pulumi.Input[Union['MetadataSupportArgs', 'MetadataSupportArgsDict']] support: Support information for the metadata - type, name, contact information
         :param pulumi.Input[str] version: Version of the content.  Default and recommended format is numeric (e.g. 1, 1.0, 1.0.0, 1.0.0.0), following ARM template best practices.  Can also be any string, but then we cannot guarantee any version checks
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         """
@@ -341,10 +346,10 @@ class Metadata(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 author: Optional[pulumi.Input[pulumi.InputType['MetadataAuthorArgs']]] = None,
-                 categories: Optional[pulumi.Input[pulumi.InputType['MetadataCategoriesArgs']]] = None,
+                 author: Optional[pulumi.Input[Union['MetadataAuthorArgs', 'MetadataAuthorArgsDict']]] = None,
+                 categories: Optional[pulumi.Input[Union['MetadataCategoriesArgs', 'MetadataCategoriesArgsDict']]] = None,
                  content_id: Optional[pulumi.Input[str]] = None,
-                 dependencies: Optional[pulumi.Input[pulumi.InputType['MetadataDependenciesArgs']]] = None,
+                 dependencies: Optional[pulumi.Input[Union['MetadataDependenciesArgs', 'MetadataDependenciesArgsDict']]] = None,
                  first_publish_date: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[Union[str, 'Kind']]] = None,
                  last_publish_date: Optional[pulumi.Input[str]] = None,
@@ -353,8 +358,8 @@ class Metadata(pulumi.CustomResource):
                  parent_id: Optional[pulumi.Input[str]] = None,
                  providers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 source: Optional[pulumi.Input[pulumi.InputType['MetadataSourceArgs']]] = None,
-                 support: Optional[pulumi.Input[pulumi.InputType['MetadataSupportArgs']]] = None,
+                 source: Optional[pulumi.Input[Union['MetadataSourceArgs', 'MetadataSourceArgsDict']]] = None,
+                 support: Optional[pulumi.Input[Union['MetadataSupportArgs', 'MetadataSupportArgsDict']]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):

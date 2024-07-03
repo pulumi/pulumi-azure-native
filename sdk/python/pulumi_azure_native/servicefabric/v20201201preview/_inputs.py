@@ -4,32 +4,74 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 
 __all__ = [
     'ApplicationDeltaHealthPolicyArgs',
+    'ApplicationDeltaHealthPolicyArgsDict',
     'ApplicationHealthPolicyArgs',
+    'ApplicationHealthPolicyArgsDict',
     'ApplicationTypeVersionsCleanupPolicyArgs',
+    'ApplicationTypeVersionsCleanupPolicyArgsDict',
     'AzureActiveDirectoryArgs',
+    'AzureActiveDirectoryArgsDict',
     'CertificateDescriptionArgs',
+    'CertificateDescriptionArgsDict',
     'ClientCertificateCommonNameArgs',
+    'ClientCertificateCommonNameArgsDict',
     'ClientCertificateThumbprintArgs',
+    'ClientCertificateThumbprintArgsDict',
     'ClusterHealthPolicyArgs',
+    'ClusterHealthPolicyArgsDict',
     'ClusterUpgradeDeltaHealthPolicyArgs',
+    'ClusterUpgradeDeltaHealthPolicyArgsDict',
     'ClusterUpgradePolicyArgs',
+    'ClusterUpgradePolicyArgsDict',
     'DiagnosticsStorageAccountConfigArgs',
+    'DiagnosticsStorageAccountConfigArgsDict',
     'EndpointRangeDescriptionArgs',
+    'EndpointRangeDescriptionArgsDict',
     'NodeTypeDescriptionArgs',
+    'NodeTypeDescriptionArgsDict',
     'ServerCertificateCommonNamesArgs',
+    'ServerCertificateCommonNamesArgsDict',
     'ServerCertificateCommonNameArgs',
+    'ServerCertificateCommonNameArgsDict',
     'ServiceTypeDeltaHealthPolicyArgs',
+    'ServiceTypeDeltaHealthPolicyArgsDict',
     'ServiceTypeHealthPolicyArgs',
+    'ServiceTypeHealthPolicyArgsDict',
     'SettingsParameterDescriptionArgs',
+    'SettingsParameterDescriptionArgsDict',
     'SettingsSectionDescriptionArgs',
+    'SettingsSectionDescriptionArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ApplicationDeltaHealthPolicyArgsDict(TypedDict):
+        """
+        Defines a delta health policy used to evaluate the health of an application or one of its child entities when upgrading the cluster.
+        """
+        default_service_type_delta_health_policy: NotRequired[pulumi.Input['ServiceTypeDeltaHealthPolicyArgsDict']]
+        """
+        The delta health policy used by default to evaluate the health of a service type when upgrading the cluster.
+        """
+        service_type_delta_health_policies: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['ServiceTypeDeltaHealthPolicyArgsDict']]]]
+        """
+        The map with service type delta health policy per service type name. The map is empty by default.
+        """
+elif False:
+    ApplicationDeltaHealthPolicyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApplicationDeltaHealthPolicyArgs:
@@ -72,6 +114,22 @@ class ApplicationDeltaHealthPolicyArgs:
         pulumi.set(self, "service_type_delta_health_policies", value)
 
 
+if not MYPY:
+    class ApplicationHealthPolicyArgsDict(TypedDict):
+        """
+        Defines a health policy used to evaluate the health of an application or one of its children entities.
+        """
+        default_service_type_health_policy: NotRequired[pulumi.Input['ServiceTypeHealthPolicyArgsDict']]
+        """
+        The health policy used by default to evaluate the health of a service type.
+        """
+        service_type_health_policies: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['ServiceTypeHealthPolicyArgsDict']]]]
+        """
+        The map with service type health policy per service type name. The map is empty by default.
+        """
+elif False:
+    ApplicationHealthPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ApplicationHealthPolicyArgs:
     def __init__(__self__, *,
@@ -113,6 +171,15 @@ class ApplicationHealthPolicyArgs:
         pulumi.set(self, "service_type_health_policies", value)
 
 
+if not MYPY:
+    class ApplicationTypeVersionsCleanupPolicyArgsDict(TypedDict):
+        max_unused_versions_to_keep: pulumi.Input[float]
+        """
+        Number of unused versions per application type to keep.
+        """
+elif False:
+    ApplicationTypeVersionsCleanupPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ApplicationTypeVersionsCleanupPolicyArgs:
     def __init__(__self__, *,
@@ -134,6 +201,26 @@ class ApplicationTypeVersionsCleanupPolicyArgs:
     def max_unused_versions_to_keep(self, value: pulumi.Input[float]):
         pulumi.set(self, "max_unused_versions_to_keep", value)
 
+
+if not MYPY:
+    class AzureActiveDirectoryArgsDict(TypedDict):
+        """
+        The settings to enable AAD authentication on the cluster.
+        """
+        client_application: NotRequired[pulumi.Input[str]]
+        """
+        Azure active directory client application id.
+        """
+        cluster_application: NotRequired[pulumi.Input[str]]
+        """
+        Azure active directory cluster application id.
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        Azure active directory tenant id.
+        """
+elif False:
+    AzureActiveDirectoryArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AzureActiveDirectoryArgs:
@@ -191,6 +278,26 @@ class AzureActiveDirectoryArgs:
         pulumi.set(self, "tenant_id", value)
 
 
+if not MYPY:
+    class CertificateDescriptionArgsDict(TypedDict):
+        """
+        Describes the certificate details.
+        """
+        thumbprint: pulumi.Input[str]
+        """
+        Thumbprint of the primary certificate.
+        """
+        thumbprint_secondary: NotRequired[pulumi.Input[str]]
+        """
+        Thumbprint of the secondary certificate.
+        """
+        x509_store_name: NotRequired[pulumi.Input[str]]
+        """
+        The local certificate store location.
+        """
+elif False:
+    CertificateDescriptionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CertificateDescriptionArgs:
     def __init__(__self__, *,
@@ -246,6 +353,26 @@ class CertificateDescriptionArgs:
         pulumi.set(self, "x509_store_name", value)
 
 
+if not MYPY:
+    class ClientCertificateCommonNameArgsDict(TypedDict):
+        """
+        Describes the client certificate details using common name.
+        """
+        certificate_common_name: pulumi.Input[str]
+        """
+        The common name of the client certificate.
+        """
+        certificate_issuer_thumbprint: pulumi.Input[str]
+        """
+        The issuer thumbprint of the client certificate.
+        """
+        is_admin: pulumi.Input[bool]
+        """
+        Indicates if the client certificate has admin access to the cluster. Non admin clients can perform only read only operations on the cluster.
+        """
+elif False:
+    ClientCertificateCommonNameArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ClientCertificateCommonNameArgs:
     def __init__(__self__, *,
@@ -299,6 +426,22 @@ class ClientCertificateCommonNameArgs:
         pulumi.set(self, "is_admin", value)
 
 
+if not MYPY:
+    class ClientCertificateThumbprintArgsDict(TypedDict):
+        """
+        Describes the client certificate details using thumbprint.
+        """
+        certificate_thumbprint: pulumi.Input[str]
+        """
+        The thumbprint of the client certificate.
+        """
+        is_admin: pulumi.Input[bool]
+        """
+        Indicates if the client certificate has admin access to the cluster. Non admin clients can perform only read only operations on the cluster.
+        """
+elif False:
+    ClientCertificateThumbprintArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ClientCertificateThumbprintArgs:
     def __init__(__self__, *,
@@ -336,6 +479,38 @@ class ClientCertificateThumbprintArgs:
     def is_admin(self, value: pulumi.Input[bool]):
         pulumi.set(self, "is_admin", value)
 
+
+if not MYPY:
+    class ClusterHealthPolicyArgsDict(TypedDict):
+        """
+        Defines a health policy used to evaluate the health of the cluster or of a cluster node.
+        """
+        application_health_policies: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['ApplicationHealthPolicyArgsDict']]]]
+        """
+        Defines the application health policy map used to evaluate the health of an application or one of its children entities.
+        """
+        max_percent_unhealthy_applications: NotRequired[pulumi.Input[int]]
+        """
+        The maximum allowed percentage of unhealthy applications before reporting an error. For example, to allow 10% of applications to be unhealthy, this value would be 10.
+
+        The percentage represents the maximum tolerated percentage of applications that can be unhealthy before the cluster is considered in error.
+        If the percentage is respected but there is at least one unhealthy application, the health is evaluated as Warning.
+        This is calculated by dividing the number of unhealthy applications over the total number of application instances in the cluster, excluding applications of application types that are included in the ApplicationTypeHealthPolicyMap.
+        The computation rounds up to tolerate one failure on small numbers of applications. Default percentage is zero.
+        """
+        max_percent_unhealthy_nodes: NotRequired[pulumi.Input[int]]
+        """
+        The maximum allowed percentage of unhealthy nodes before reporting an error. For example, to allow 10% of nodes to be unhealthy, this value would be 10.
+
+        The percentage represents the maximum tolerated percentage of nodes that can be unhealthy before the cluster is considered in error.
+        If the percentage is respected but there is at least one unhealthy node, the health is evaluated as Warning.
+        The percentage is calculated by dividing the number of unhealthy nodes over the total number of nodes in the cluster.
+        The computation rounds up to tolerate one failure on small numbers of nodes. Default percentage is zero.
+
+        In large clusters, some nodes will always be down or out for repairs, so this percentage should be configured to tolerate that.
+        """
+elif False:
+    ClusterHealthPolicyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ClusterHealthPolicyArgs:
@@ -422,6 +597,36 @@ class ClusterHealthPolicyArgs:
         pulumi.set(self, "max_percent_unhealthy_nodes", value)
 
 
+if not MYPY:
+    class ClusterUpgradeDeltaHealthPolicyArgsDict(TypedDict):
+        """
+        Describes the delta health policies for the cluster upgrade.
+        """
+        max_percent_delta_unhealthy_applications: pulumi.Input[int]
+        """
+        The maximum allowed percentage of applications health degradation allowed during cluster upgrades.
+        The delta is measured between the state of the applications at the beginning of upgrade and the state of the applications at the time of the health evaluation.
+        The check is performed after every upgrade domain upgrade completion to make sure the global state of the cluster is within tolerated limits. System services are not included in this.
+        """
+        max_percent_delta_unhealthy_nodes: pulumi.Input[int]
+        """
+        The maximum allowed percentage of nodes health degradation allowed during cluster upgrades.
+        The delta is measured between the state of the nodes at the beginning of upgrade and the state of the nodes at the time of the health evaluation.
+        The check is performed after every upgrade domain upgrade completion to make sure the global state of the cluster is within tolerated limits.
+        """
+        max_percent_upgrade_domain_delta_unhealthy_nodes: pulumi.Input[int]
+        """
+        The maximum allowed percentage of upgrade domain nodes health degradation allowed during cluster upgrades.
+        The delta is measured between the state of the upgrade domain nodes at the beginning of upgrade and the state of the upgrade domain nodes at the time of the health evaluation.
+        The check is performed after every upgrade domain upgrade completion for all completed upgrade domains to make sure the state of the upgrade domains is within tolerated limits.
+        """
+        application_delta_health_policies: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['ApplicationDeltaHealthPolicyArgsDict']]]]
+        """
+        Defines the application delta health policy map used to evaluate the health of an application or one of its child entities when upgrading the cluster.
+        """
+elif False:
+    ClusterUpgradeDeltaHealthPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ClusterUpgradeDeltaHealthPolicyArgs:
     def __init__(__self__, *,
@@ -502,6 +707,50 @@ class ClusterUpgradeDeltaHealthPolicyArgs:
     def application_delta_health_policies(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['ApplicationDeltaHealthPolicyArgs']]]]):
         pulumi.set(self, "application_delta_health_policies", value)
 
+
+if not MYPY:
+    class ClusterUpgradePolicyArgsDict(TypedDict):
+        """
+        Describes the policy used when upgrading the cluster.
+        """
+        health_check_retry_timeout: pulumi.Input[str]
+        """
+        The amount of time to retry health evaluation when the application or cluster is unhealthy before the upgrade rolls back. The timeout can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
+        """
+        health_check_stable_duration: pulumi.Input[str]
+        """
+        The amount of time that the application or cluster must remain healthy before the upgrade proceeds to the next upgrade domain. The duration can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
+        """
+        health_check_wait_duration: pulumi.Input[str]
+        """
+        The length of time to wait after completing an upgrade domain before performing health checks. The duration can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
+        """
+        health_policy: pulumi.Input['ClusterHealthPolicyArgsDict']
+        """
+        The cluster health policy used when upgrading the cluster.
+        """
+        upgrade_domain_timeout: pulumi.Input[str]
+        """
+        The amount of time each upgrade domain has to complete before the upgrade rolls back. The timeout can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
+        """
+        upgrade_replica_set_check_timeout: pulumi.Input[str]
+        """
+        The maximum amount of time to block processing of an upgrade domain and prevent loss of availability when there are unexpected issues. When this timeout expires, processing of the upgrade domain will proceed regardless of availability loss issues. The timeout is reset at the start of each upgrade domain. The timeout can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
+        """
+        upgrade_timeout: pulumi.Input[str]
+        """
+        The amount of time the overall upgrade has to complete before the upgrade rolls back. The timeout can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
+        """
+        delta_health_policy: NotRequired[pulumi.Input['ClusterUpgradeDeltaHealthPolicyArgsDict']]
+        """
+        The cluster delta health policy used when upgrading the cluster.
+        """
+        force_restart: NotRequired[pulumi.Input[bool]]
+        """
+        If true, then processes are forcefully restarted during upgrade even when the code version has not changed (the upgrade only changes configuration or data).
+        """
+elif False:
+    ClusterUpgradePolicyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ClusterUpgradePolicyArgs:
@@ -648,6 +897,38 @@ class ClusterUpgradePolicyArgs:
         pulumi.set(self, "force_restart", value)
 
 
+if not MYPY:
+    class DiagnosticsStorageAccountConfigArgsDict(TypedDict):
+        """
+        The storage account information for storing Service Fabric diagnostic logs.
+        """
+        blob_endpoint: pulumi.Input[str]
+        """
+        The blob endpoint of the azure storage account.
+        """
+        protected_account_key_name: pulumi.Input[str]
+        """
+        The protected diagnostics storage key name.
+        """
+        queue_endpoint: pulumi.Input[str]
+        """
+        The queue endpoint of the azure storage account.
+        """
+        storage_account_name: pulumi.Input[str]
+        """
+        The Azure storage account name.
+        """
+        table_endpoint: pulumi.Input[str]
+        """
+        The table endpoint of the azure storage account.
+        """
+        protected_account_key_name2: NotRequired[pulumi.Input[str]]
+        """
+        The secondary protected diagnostics storage key name. If one of the storage account keys is rotated the cluster will fallback to using the other.
+        """
+elif False:
+    DiagnosticsStorageAccountConfigArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DiagnosticsStorageAccountConfigArgs:
     def __init__(__self__, *,
@@ -747,6 +1028,22 @@ class DiagnosticsStorageAccountConfigArgs:
         pulumi.set(self, "protected_account_key_name2", value)
 
 
+if not MYPY:
+    class EndpointRangeDescriptionArgsDict(TypedDict):
+        """
+        Port range details
+        """
+        end_port: pulumi.Input[int]
+        """
+        End port of a range of ports
+        """
+        start_port: pulumi.Input[int]
+        """
+        Starting port of a range of ports
+        """
+elif False:
+    EndpointRangeDescriptionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EndpointRangeDescriptionArgs:
     def __init__(__self__, *,
@@ -784,6 +1081,62 @@ class EndpointRangeDescriptionArgs:
     def start_port(self, value: pulumi.Input[int]):
         pulumi.set(self, "start_port", value)
 
+
+if not MYPY:
+    class NodeTypeDescriptionArgsDict(TypedDict):
+        """
+        Describes a node type in the cluster, each node type represents sub set of nodes in the cluster.
+        """
+        client_connection_endpoint_port: pulumi.Input[int]
+        """
+        The TCP cluster management endpoint port.
+        """
+        http_gateway_endpoint_port: pulumi.Input[int]
+        """
+        The HTTP cluster management endpoint port.
+        """
+        is_primary: pulumi.Input[bool]
+        """
+        The node type on which system services will run. Only one node type should be marked as primary. Primary node type cannot be deleted or changed for existing clusters.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the node type.
+        """
+        vm_instance_count: pulumi.Input[int]
+        """
+        The number of nodes in the node type. This count should match the capacity property in the corresponding VirtualMachineScaleSet resource.
+        """
+        application_ports: NotRequired[pulumi.Input['EndpointRangeDescriptionArgsDict']]
+        """
+        The range of ports from which cluster assigned port to Service Fabric applications.
+        """
+        capacities: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        The capacity tags applied to the nodes in the node type, the cluster resource manager uses these tags to understand how much resource a node has.
+        """
+        durability_level: NotRequired[pulumi.Input[str]]
+        """
+        The durability level of the node type. Learn about [DurabilityLevel](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity).
+
+          - Bronze - No privileges. This is the default.
+          - Silver - The infrastructure jobs can be paused for a duration of 10 minutes per UD.
+          - Gold - The infrastructure jobs can be paused for a duration of 2 hours per UD. Gold durability can be enabled only on full node VM skus like D15_V2, G5 etc.
+        """
+        ephemeral_ports: NotRequired[pulumi.Input['EndpointRangeDescriptionArgsDict']]
+        """
+        The range of ephemeral ports that nodes in this node type should be configured with.
+        """
+        placement_properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run.
+        """
+        reverse_proxy_endpoint_port: NotRequired[pulumi.Input[int]]
+        """
+        The endpoint used by reverse proxy.
+        """
+elif False:
+    NodeTypeDescriptionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NodeTypeDescriptionArgs:
@@ -972,6 +1325,22 @@ class NodeTypeDescriptionArgs:
         pulumi.set(self, "reverse_proxy_endpoint_port", value)
 
 
+if not MYPY:
+    class ServerCertificateCommonNamesArgsDict(TypedDict):
+        """
+        Describes a list of server certificates referenced by common name that are used to secure the cluster.
+        """
+        common_names: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServerCertificateCommonNameArgsDict']]]]
+        """
+        The list of server certificates referenced by common name that are used to secure the cluster.
+        """
+        x509_store_name: NotRequired[pulumi.Input[str]]
+        """
+        The local certificate store location.
+        """
+elif False:
+    ServerCertificateCommonNamesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ServerCertificateCommonNamesArgs:
     def __init__(__self__, *,
@@ -1012,6 +1381,22 @@ class ServerCertificateCommonNamesArgs:
         pulumi.set(self, "x509_store_name", value)
 
 
+if not MYPY:
+    class ServerCertificateCommonNameArgsDict(TypedDict):
+        """
+        Describes the server certificate details using common name.
+        """
+        certificate_common_name: pulumi.Input[str]
+        """
+        The common name of the server certificate.
+        """
+        certificate_issuer_thumbprint: pulumi.Input[str]
+        """
+        The issuer thumbprint of the server certificate.
+        """
+elif False:
+    ServerCertificateCommonNameArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ServerCertificateCommonNameArgs:
     def __init__(__self__, *,
@@ -1050,6 +1435,20 @@ class ServerCertificateCommonNameArgs:
         pulumi.set(self, "certificate_issuer_thumbprint", value)
 
 
+if not MYPY:
+    class ServiceTypeDeltaHealthPolicyArgsDict(TypedDict):
+        """
+        Represents the delta health policy used to evaluate the health of services belonging to a service type when upgrading the cluster.
+        """
+        max_percent_delta_unhealthy_services: NotRequired[pulumi.Input[int]]
+        """
+        The maximum allowed percentage of services health degradation allowed during cluster upgrades.
+        The delta is measured between the state of the services at the beginning of upgrade and the state of the services at the time of the health evaluation.
+        The check is performed after every upgrade domain upgrade completion to make sure the global state of the cluster is within tolerated limits.
+        """
+elif False:
+    ServiceTypeDeltaHealthPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ServiceTypeDeltaHealthPolicyArgs:
     def __init__(__self__, *,
@@ -1081,6 +1480,18 @@ class ServiceTypeDeltaHealthPolicyArgs:
         pulumi.set(self, "max_percent_delta_unhealthy_services", value)
 
 
+if not MYPY:
+    class ServiceTypeHealthPolicyArgsDict(TypedDict):
+        """
+        Represents the health policy used to evaluate the health of services belonging to a service type.
+        """
+        max_percent_unhealthy_services: NotRequired[pulumi.Input[int]]
+        """
+        The maximum percentage of services allowed to be unhealthy before your application is considered in error.
+        """
+elif False:
+    ServiceTypeHealthPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ServiceTypeHealthPolicyArgs:
     def __init__(__self__, *,
@@ -1107,6 +1518,22 @@ class ServiceTypeHealthPolicyArgs:
     def max_percent_unhealthy_services(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max_percent_unhealthy_services", value)
 
+
+if not MYPY:
+    class SettingsParameterDescriptionArgsDict(TypedDict):
+        """
+        Describes a parameter in fabric settings of the cluster.
+        """
+        name: pulumi.Input[str]
+        """
+        The parameter name of fabric setting.
+        """
+        value: pulumi.Input[str]
+        """
+        The parameter value of fabric setting.
+        """
+elif False:
+    SettingsParameterDescriptionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SettingsParameterDescriptionArgs:
@@ -1145,6 +1572,22 @@ class SettingsParameterDescriptionArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class SettingsSectionDescriptionArgsDict(TypedDict):
+        """
+        Describes a section in the fabric settings of the cluster.
+        """
+        name: pulumi.Input[str]
+        """
+        The section name of the fabric settings.
+        """
+        parameters: pulumi.Input[Sequence[pulumi.Input['SettingsParameterDescriptionArgsDict']]]
+        """
+        The collection of parameters in the section.
+        """
+elif False:
+    SettingsSectionDescriptionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SettingsSectionDescriptionArgs:

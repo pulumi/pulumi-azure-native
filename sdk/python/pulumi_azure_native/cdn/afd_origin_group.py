@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -137,8 +142,8 @@ class AFDOriginGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 health_probe_settings: Optional[pulumi.Input[pulumi.InputType['HealthProbeParametersArgs']]] = None,
-                 load_balancing_settings: Optional[pulumi.Input[pulumi.InputType['LoadBalancingSettingsParametersArgs']]] = None,
+                 health_probe_settings: Optional[pulumi.Input[Union['HealthProbeParametersArgs', 'HealthProbeParametersArgsDict']]] = None,
+                 load_balancing_settings: Optional[pulumi.Input[Union['LoadBalancingSettingsParametersArgs', 'LoadBalancingSettingsParametersArgsDict']]] = None,
                  origin_group_name: Optional[pulumi.Input[str]] = None,
                  profile_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -153,8 +158,8 @@ class AFDOriginGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['HealthProbeParametersArgs']] health_probe_settings: Health probe settings to the origin that is used to determine the health of the origin.
-        :param pulumi.Input[pulumi.InputType['LoadBalancingSettingsParametersArgs']] load_balancing_settings: Load balancing settings for a backend pool
+        :param pulumi.Input[Union['HealthProbeParametersArgs', 'HealthProbeParametersArgsDict']] health_probe_settings: Health probe settings to the origin that is used to determine the health of the origin.
+        :param pulumi.Input[Union['LoadBalancingSettingsParametersArgs', 'LoadBalancingSettingsParametersArgsDict']] load_balancing_settings: Load balancing settings for a backend pool
         :param pulumi.Input[str] origin_group_name: Name of the origin group which is unique within the endpoint.
         :param pulumi.Input[str] profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
@@ -188,8 +193,8 @@ class AFDOriginGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 health_probe_settings: Optional[pulumi.Input[pulumi.InputType['HealthProbeParametersArgs']]] = None,
-                 load_balancing_settings: Optional[pulumi.Input[pulumi.InputType['LoadBalancingSettingsParametersArgs']]] = None,
+                 health_probe_settings: Optional[pulumi.Input[Union['HealthProbeParametersArgs', 'HealthProbeParametersArgsDict']]] = None,
+                 load_balancing_settings: Optional[pulumi.Input[Union['LoadBalancingSettingsParametersArgs', 'LoadBalancingSettingsParametersArgsDict']]] = None,
                  origin_group_name: Optional[pulumi.Input[str]] = None,
                  profile_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,

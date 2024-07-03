@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -303,9 +308,9 @@ class CustomIPPrefix(pulumi.CustomResource):
                  cidr: Optional[pulumi.Input[str]] = None,
                  commissioned_state: Optional[pulumi.Input[Union[str, 'CommissionedState']]] = None,
                  custom_ip_prefix_name: Optional[pulumi.Input[str]] = None,
-                 custom_ip_prefix_parent: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
+                 custom_ip_prefix_parent: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
                  express_route_advertise: Optional[pulumi.Input[bool]] = None,
-                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
                  geo: Optional[pulumi.Input[Union[str, 'Geo']]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -329,9 +334,9 @@ class CustomIPPrefix(pulumi.CustomResource):
         :param pulumi.Input[str] cidr: The prefix range in CIDR notation. Should include the start address and the prefix length.
         :param pulumi.Input[Union[str, 'CommissionedState']] commissioned_state: The commissioned state of the Custom IP Prefix.
         :param pulumi.Input[str] custom_ip_prefix_name: The name of the custom IP prefix.
-        :param pulumi.Input[pulumi.InputType['SubResourceArgs']] custom_ip_prefix_parent: The Parent CustomIpPrefix for IPv6 /64 CustomIpPrefix.
+        :param pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']] custom_ip_prefix_parent: The Parent CustomIpPrefix for IPv6 /64 CustomIpPrefix.
         :param pulumi.Input[bool] express_route_advertise: Whether to do express route advertise.
-        :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: The extended location of the custom IP prefix.
+        :param pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']] extended_location: The extended location of the custom IP prefix.
         :param pulumi.Input[Union[str, 'Geo']] geo: The Geo for CIDR advertising. Should be an Geo code.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
@@ -374,9 +379,9 @@ class CustomIPPrefix(pulumi.CustomResource):
                  cidr: Optional[pulumi.Input[str]] = None,
                  commissioned_state: Optional[pulumi.Input[Union[str, 'CommissionedState']]] = None,
                  custom_ip_prefix_name: Optional[pulumi.Input[str]] = None,
-                 custom_ip_prefix_parent: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
+                 custom_ip_prefix_parent: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
                  express_route_advertise: Optional[pulumi.Input[bool]] = None,
-                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
                  geo: Optional[pulumi.Input[Union[str, 'Geo']]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,

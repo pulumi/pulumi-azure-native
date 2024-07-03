@@ -4,21 +4,59 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'AuthorizationArgs',
+    'AuthorizationArgsDict',
     'EligibleApproverArgs',
+    'EligibleApproverArgsDict',
     'EligibleAuthorizationArgs',
+    'EligibleAuthorizationArgsDict',
     'JustInTimeAccessPolicyArgs',
+    'JustInTimeAccessPolicyArgsDict',
     'PlanArgs',
+    'PlanArgsDict',
     'RegistrationAssignmentPropertiesArgs',
+    'RegistrationAssignmentPropertiesArgsDict',
     'RegistrationDefinitionPropertiesArgs',
+    'RegistrationDefinitionPropertiesArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AuthorizationArgsDict(TypedDict):
+        """
+        The Azure Active Directory principal identifier and Azure built-in role that describes the access the principal will receive on the delegated resource in the managed tenant.
+        """
+        principal_id: pulumi.Input[str]
+        """
+        The identifier of the Azure Active Directory principal.
+        """
+        role_definition_id: pulumi.Input[str]
+        """
+        The identifier of the Azure built-in role that defines the permissions that the Azure Active Directory principal will have on the projected scope.
+        """
+        delegated_role_definition_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The delegatedRoleDefinitionIds field is required when the roleDefinitionId refers to the User Access Administrator Role. It is the list of role definition ids which define all the permissions that the user in the authorization can assign to other principals.
+        """
+        principal_id_display_name: NotRequired[pulumi.Input[str]]
+        """
+        The display name of the Azure Active Directory principal.
+        """
+elif False:
+    AuthorizationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AuthorizationArgs:
@@ -90,6 +128,22 @@ class AuthorizationArgs:
         pulumi.set(self, "principal_id_display_name", value)
 
 
+if not MYPY:
+    class EligibleApproverArgsDict(TypedDict):
+        """
+        Defines the Azure Active Directory principal that can approve any just-in-time access requests by the principal defined in the EligibleAuthorization.
+        """
+        principal_id: pulumi.Input[str]
+        """
+        The identifier of the Azure Active Directory principal.
+        """
+        principal_id_display_name: NotRequired[pulumi.Input[str]]
+        """
+        The display name of the Azure Active Directory principal.
+        """
+elif False:
+    EligibleApproverArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EligibleApproverArgs:
     def __init__(__self__, *,
@@ -128,6 +182,30 @@ class EligibleApproverArgs:
     def principal_id_display_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "principal_id_display_name", value)
 
+
+if not MYPY:
+    class EligibleAuthorizationArgsDict(TypedDict):
+        """
+        The Azure Active Directory principal identifier, Azure built-in role, and just-in-time access policy that describes the just-in-time access the principal will receive on the delegated resource in the managed tenant.
+        """
+        principal_id: pulumi.Input[str]
+        """
+        The identifier of the Azure Active Directory principal.
+        """
+        role_definition_id: pulumi.Input[str]
+        """
+        The identifier of the Azure built-in role that defines the permissions that the Azure Active Directory principal will have on the projected scope.
+        """
+        just_in_time_access_policy: NotRequired[pulumi.Input['JustInTimeAccessPolicyArgsDict']]
+        """
+        The just-in-time access policy setting.
+        """
+        principal_id_display_name: NotRequired[pulumi.Input[str]]
+        """
+        The display name of the Azure Active Directory principal.
+        """
+elif False:
+    EligibleAuthorizationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EligibleAuthorizationArgs:
@@ -199,6 +277,26 @@ class EligibleAuthorizationArgs:
         pulumi.set(self, "principal_id_display_name", value)
 
 
+if not MYPY:
+    class JustInTimeAccessPolicyArgsDict(TypedDict):
+        """
+        Just-in-time access policy setting.
+        """
+        multi_factor_auth_provider: pulumi.Input[Union[str, 'MultiFactorAuthProvider']]
+        """
+        The multi-factor authorization provider to be used for just-in-time access requests.
+        """
+        managed_by_tenant_approvers: NotRequired[pulumi.Input[Sequence[pulumi.Input['EligibleApproverArgsDict']]]]
+        """
+        The list of managedByTenant approvers for the eligible authorization.
+        """
+        maximum_activation_duration: NotRequired[pulumi.Input[str]]
+        """
+        The maximum access duration in ISO 8601 format for just-in-time access requests.
+        """
+elif False:
+    JustInTimeAccessPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class JustInTimeAccessPolicyArgs:
     def __init__(__self__, *,
@@ -257,6 +355,30 @@ class JustInTimeAccessPolicyArgs:
     def maximum_activation_duration(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "maximum_activation_duration", value)
 
+
+if not MYPY:
+    class PlanArgsDict(TypedDict):
+        """
+        The details for the Managed Services offer’s plan in Azure Marketplace.
+        """
+        name: pulumi.Input[str]
+        """
+        Azure Marketplace plan name.
+        """
+        product: pulumi.Input[str]
+        """
+        Azure Marketplace product code.
+        """
+        publisher: pulumi.Input[str]
+        """
+        Azure Marketplace publisher ID.
+        """
+        version: pulumi.Input[str]
+        """
+        Azure Marketplace plan's version.
+        """
+elif False:
+    PlanArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PlanArgs:
@@ -326,6 +448,18 @@ class PlanArgs:
         pulumi.set(self, "version", value)
 
 
+if not MYPY:
+    class RegistrationAssignmentPropertiesArgsDict(TypedDict):
+        """
+        The properties of the registration assignment.
+        """
+        registration_definition_id: pulumi.Input[str]
+        """
+        The fully qualified path of the registration definition.
+        """
+elif False:
+    RegistrationAssignmentPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RegistrationAssignmentPropertiesArgs:
     def __init__(__self__, *,
@@ -348,6 +482,34 @@ class RegistrationAssignmentPropertiesArgs:
     def registration_definition_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "registration_definition_id", value)
 
+
+if not MYPY:
+    class RegistrationDefinitionPropertiesArgsDict(TypedDict):
+        """
+        The properties of a registration definition.
+        """
+        authorizations: pulumi.Input[Sequence[pulumi.Input['AuthorizationArgsDict']]]
+        """
+        The collection of authorization objects describing the access Azure Active Directory principals in the managedBy tenant will receive on the delegated resource in the managed tenant.
+        """
+        managed_by_tenant_id: pulumi.Input[str]
+        """
+        The identifier of the managedBy tenant.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The description of the registration definition.
+        """
+        eligible_authorizations: NotRequired[pulumi.Input[Sequence[pulumi.Input['EligibleAuthorizationArgsDict']]]]
+        """
+        The collection of eligible authorization objects describing the just-in-time access Azure Active Directory principals in the managedBy tenant will receive on the delegated resource in the managed tenant.
+        """
+        registration_definition_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the registration definition.
+        """
+elif False:
+    RegistrationDefinitionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RegistrationDefinitionPropertiesArgs:

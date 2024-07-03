@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -254,17 +259,17 @@ class WebPubSub(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  disable_aad_auth: Optional[pulumi.Input[bool]] = None,
                  disable_local_auth: Optional[pulumi.Input[bool]] = None,
-                 event_handler: Optional[pulumi.Input[pulumi.InputType['EventHandlerSettingsArgs']]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedIdentityArgs']]] = None,
-                 live_trace_configuration: Optional[pulumi.Input[pulumi.InputType['LiveTraceConfigurationArgs']]] = None,
+                 event_handler: Optional[pulumi.Input[Union['EventHandlerSettingsArgs', 'EventHandlerSettingsArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedIdentityArgs', 'ManagedIdentityArgsDict']]] = None,
+                 live_trace_configuration: Optional[pulumi.Input[Union['LiveTraceConfigurationArgs', 'LiveTraceConfigurationArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 network_acls: Optional[pulumi.Input[pulumi.InputType['WebPubSubNetworkACLsArgs']]] = None,
+                 network_acls: Optional[pulumi.Input[Union['WebPubSubNetworkACLsArgs', 'WebPubSubNetworkACLsArgsDict']]] = None,
                  public_network_access: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['ResourceSkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['ResourceSkuArgs', 'ResourceSkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tls: Optional[pulumi.Input[pulumi.InputType['WebPubSubTlsSettingsArgs']]] = None,
+                 tls: Optional[pulumi.Input[Union['WebPubSubTlsSettingsArgs', 'WebPubSubTlsSettingsArgsDict']]] = None,
                  __props__=None):
         """
         A class represent a resource.
@@ -277,19 +282,19 @@ class WebPubSub(pulumi.CustomResource):
         :param pulumi.Input[bool] disable_local_auth: DisableLocalAuth
                Enable or disable local auth with AccessKey
                When set as true, connection with AccessKey=xxx won't work.
-        :param pulumi.Input[pulumi.InputType['EventHandlerSettingsArgs']] event_handler: The settings for event handler in webpubsub service.
-        :param pulumi.Input[pulumi.InputType['ManagedIdentityArgs']] identity: The managed identity response
-        :param pulumi.Input[pulumi.InputType['LiveTraceConfigurationArgs']] live_trace_configuration: Live trace configuration of a Microsoft.SignalRService resource.
+        :param pulumi.Input[Union['EventHandlerSettingsArgs', 'EventHandlerSettingsArgsDict']] event_handler: The settings for event handler in webpubsub service.
+        :param pulumi.Input[Union['ManagedIdentityArgs', 'ManagedIdentityArgsDict']] identity: The managed identity response
+        :param pulumi.Input[Union['LiveTraceConfigurationArgs', 'LiveTraceConfigurationArgsDict']] live_trace_configuration: Live trace configuration of a Microsoft.SignalRService resource.
         :param pulumi.Input[str] location: The GEO location of the resource. e.g. West US | East US | North Central US | South Central US.
-        :param pulumi.Input[pulumi.InputType['WebPubSubNetworkACLsArgs']] network_acls: Network ACLs
+        :param pulumi.Input[Union['WebPubSubNetworkACLsArgs', 'WebPubSubNetworkACLsArgsDict']] network_acls: Network ACLs
         :param pulumi.Input[str] public_network_access: Enable or disable public network access. Default to "Enabled".
                When it's Enabled, network ACLs still apply.
                When it's Disabled, public network access is always disabled no matter what you set in network ACLs.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] resource_name_: The name of the resource.
-        :param pulumi.Input[pulumi.InputType['ResourceSkuArgs']] sku: The billing information of the resource.(e.g. Free, Standard)
+        :param pulumi.Input[Union['ResourceSkuArgs', 'ResourceSkuArgsDict']] sku: The billing information of the resource.(e.g. Free, Standard)
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags of the service which is a list of key value pairs that describe the resource.
-        :param pulumi.Input[pulumi.InputType['WebPubSubTlsSettingsArgs']] tls: TLS settings.
+        :param pulumi.Input[Union['WebPubSubTlsSettingsArgs', 'WebPubSubTlsSettingsArgsDict']] tls: TLS settings.
         """
         ...
     @overload
@@ -317,17 +322,17 @@ class WebPubSub(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  disable_aad_auth: Optional[pulumi.Input[bool]] = None,
                  disable_local_auth: Optional[pulumi.Input[bool]] = None,
-                 event_handler: Optional[pulumi.Input[pulumi.InputType['EventHandlerSettingsArgs']]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedIdentityArgs']]] = None,
-                 live_trace_configuration: Optional[pulumi.Input[pulumi.InputType['LiveTraceConfigurationArgs']]] = None,
+                 event_handler: Optional[pulumi.Input[Union['EventHandlerSettingsArgs', 'EventHandlerSettingsArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedIdentityArgs', 'ManagedIdentityArgsDict']]] = None,
+                 live_trace_configuration: Optional[pulumi.Input[Union['LiveTraceConfigurationArgs', 'LiveTraceConfigurationArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 network_acls: Optional[pulumi.Input[pulumi.InputType['WebPubSubNetworkACLsArgs']]] = None,
+                 network_acls: Optional[pulumi.Input[Union['WebPubSubNetworkACLsArgs', 'WebPubSubNetworkACLsArgsDict']]] = None,
                  public_network_access: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['ResourceSkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['ResourceSkuArgs', 'ResourceSkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tls: Optional[pulumi.Input[pulumi.InputType['WebPubSubTlsSettingsArgs']]] = None,
+                 tls: Optional[pulumi.Input[Union['WebPubSubTlsSettingsArgs', 'WebPubSubTlsSettingsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

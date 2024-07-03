@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -125,7 +130,7 @@ class SecurityPoliciesInterface(pulumi.CustomResource):
                  security_policy_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  traffic_controller_name: Optional[pulumi.Input[str]] = None,
-                 waf_policy: Optional[pulumi.Input[pulumi.InputType['WafPolicyArgs']]] = None,
+                 waf_policy: Optional[pulumi.Input[Union['WafPolicyArgs', 'WafPolicyArgsDict']]] = None,
                  __props__=None):
         """
         SecurityPolicy Subresource of Traffic Controller.
@@ -138,7 +143,7 @@ class SecurityPoliciesInterface(pulumi.CustomResource):
         :param pulumi.Input[str] security_policy_name: SecurityPolicy
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] traffic_controller_name: traffic controller name for path
-        :param pulumi.Input[pulumi.InputType['WafPolicyArgs']] waf_policy: Web Application Firewall Policy of the Traffic Controller Security Policy
+        :param pulumi.Input[Union['WafPolicyArgs', 'WafPolicyArgsDict']] waf_policy: Web Application Firewall Policy of the Traffic Controller Security Policy
         """
         ...
     @overload
@@ -170,7 +175,7 @@ class SecurityPoliciesInterface(pulumi.CustomResource):
                  security_policy_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  traffic_controller_name: Optional[pulumi.Input[str]] = None,
-                 waf_policy: Optional[pulumi.Input[pulumi.InputType['WafPolicyArgs']]] = None,
+                 waf_policy: Optional[pulumi.Input[Union['WafPolicyArgs', 'WafPolicyArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -4,26 +4,57 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'AgentPropertiesArgs',
+    'AgentPropertiesArgsDict',
     'AuthInfoArgs',
+    'AuthInfoArgsDict',
     'BaseImageTriggerArgs',
+    'BaseImageTriggerArgsDict',
     'CredentialsArgs',
+    'CredentialsArgsDict',
     'CustomRegistryCredentialsArgs',
+    'CustomRegistryCredentialsArgsDict',
     'PlatformPropertiesArgs',
+    'PlatformPropertiesArgsDict',
     'SecretObjectArgs',
+    'SecretObjectArgsDict',
     'SourcePropertiesArgs',
+    'SourcePropertiesArgsDict',
     'SourceRegistryCredentialsArgs',
+    'SourceRegistryCredentialsArgsDict',
     'SourceTriggerArgs',
+    'SourceTriggerArgsDict',
     'TaskStepPropertiesArgs',
+    'TaskStepPropertiesArgsDict',
     'TriggerPropertiesArgs',
+    'TriggerPropertiesArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AgentPropertiesArgsDict(TypedDict):
+        """
+        The properties that determine the run agent configuration.
+        """
+        cpu: NotRequired[pulumi.Input[int]]
+        """
+        The CPU configuration in terms of number of cores required for the run.
+        """
+elif False:
+    AgentPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AgentPropertiesArgs:
@@ -48,6 +79,34 @@ class AgentPropertiesArgs:
     def cpu(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "cpu", value)
 
+
+if not MYPY:
+    class AuthInfoArgsDict(TypedDict):
+        """
+        The authorization properties for accessing the source code repository.
+        """
+        token: pulumi.Input[str]
+        """
+        The access token used to access the source control provider.
+        """
+        token_type: pulumi.Input[Union[str, 'TokenType']]
+        """
+        The type of Auth token.
+        """
+        expires_in: NotRequired[pulumi.Input[int]]
+        """
+        Time in seconds that the token remains valid
+        """
+        refresh_token: NotRequired[pulumi.Input[str]]
+        """
+        The refresh token used to refresh the access token.
+        """
+        scope: NotRequired[pulumi.Input[str]]
+        """
+        The scope of the access token.
+        """
+elif False:
+    AuthInfoArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AuthInfoArgs:
@@ -135,6 +194,26 @@ class AuthInfoArgs:
         pulumi.set(self, "scope", value)
 
 
+if not MYPY:
+    class BaseImageTriggerArgsDict(TypedDict):
+        """
+        The trigger based on base image dependency.
+        """
+        base_image_trigger_type: pulumi.Input[Union[str, 'BaseImageTriggerType']]
+        """
+        The type of the auto trigger for base image dependency updates.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the trigger.
+        """
+        status: NotRequired[pulumi.Input[Union[str, 'TriggerStatus']]]
+        """
+        The current status of trigger.
+        """
+elif False:
+    BaseImageTriggerArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class BaseImageTriggerArgs:
     def __init__(__self__, *,
@@ -191,6 +270,24 @@ class BaseImageTriggerArgs:
         pulumi.set(self, "status", value)
 
 
+if not MYPY:
+    class CredentialsArgsDict(TypedDict):
+        """
+        The parameters that describes a set of credentials that will be used when a run is invoked.
+        """
+        custom_registries: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['CustomRegistryCredentialsArgsDict']]]]
+        """
+        Describes the credential parameters for accessing other custom registries. The key
+        for the dictionary item will be the registry login server (myregistry.azurecr.io) and
+        the value of the item will be the registry credentials for accessing the registry.
+        """
+        source_registry: NotRequired[pulumi.Input['SourceRegistryCredentialsArgsDict']]
+        """
+        Describes the credential parameters for accessing the source registry.
+        """
+elif False:
+    CredentialsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CredentialsArgs:
     def __init__(__self__, *,
@@ -235,6 +332,23 @@ class CredentialsArgs:
         pulumi.set(self, "source_registry", value)
 
 
+if not MYPY:
+    class CustomRegistryCredentialsArgsDict(TypedDict):
+        """
+        Describes the credentials that will be used to access a custom registry during a run.
+        """
+        password: NotRequired[pulumi.Input['SecretObjectArgsDict']]
+        """
+        The password for logging into the custom registry. The password is a secret 
+        object that allows multiple ways of providing the value for it.
+        """
+        user_name: NotRequired[pulumi.Input['SecretObjectArgsDict']]
+        """
+        The username for logging into the custom registry.
+        """
+elif False:
+    CustomRegistryCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CustomRegistryCredentialsArgs:
     def __init__(__self__, *,
@@ -276,6 +390,26 @@ class CustomRegistryCredentialsArgs:
     def user_name(self, value: Optional[pulumi.Input['SecretObjectArgs']]):
         pulumi.set(self, "user_name", value)
 
+
+if not MYPY:
+    class PlatformPropertiesArgsDict(TypedDict):
+        """
+        The platform properties against which the run has to happen.
+        """
+        os: pulumi.Input[Union[str, 'OS']]
+        """
+        The operating system type required for the run.
+        """
+        architecture: NotRequired[pulumi.Input[Union[str, 'Architecture']]]
+        """
+        The OS architecture.
+        """
+        variant: NotRequired[pulumi.Input[Union[str, 'Variant']]]
+        """
+        Variant of the CPU.
+        """
+elif False:
+    PlatformPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PlatformPropertiesArgs:
@@ -332,6 +466,25 @@ class PlatformPropertiesArgs:
         pulumi.set(self, "variant", value)
 
 
+if not MYPY:
+    class SecretObjectArgsDict(TypedDict):
+        """
+        Describes the properties of a secret object value.
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'SecretObjectType']]]
+        """
+        The type of the secret object which determines how the value of the secret object has to be
+        interpreted.
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        The value of the secret. The format of this value will be determined
+        based on the type of the secret object. If the type is Opaque, the value will be
+        used as is without any modification.
+        """
+elif False:
+    SecretObjectArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SecretObjectArgs:
     def __init__(__self__, *,
@@ -377,6 +530,31 @@ class SecretObjectArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class SourcePropertiesArgsDict(TypedDict):
+        """
+        The properties of the source code repository.
+        """
+        repository_url: pulumi.Input[str]
+        """
+        The full URL to the source code repository
+        """
+        source_control_type: pulumi.Input[Union[str, 'SourceControlType']]
+        """
+        The type of source control service.
+        """
+        branch: NotRequired[pulumi.Input[str]]
+        """
+        The branch name of the source code.
+        """
+        source_control_auth_properties: NotRequired[pulumi.Input['AuthInfoArgsDict']]
+        """
+        The authorization properties for accessing the source code repository and to set up
+        webhooks for notifications.
+        """
+elif False:
+    SourcePropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SourcePropertiesArgs:
@@ -450,6 +628,20 @@ class SourcePropertiesArgs:
         pulumi.set(self, "source_control_auth_properties", value)
 
 
+if not MYPY:
+    class SourceRegistryCredentialsArgsDict(TypedDict):
+        """
+        Describes the credential parameters for accessing the source registry.
+        """
+        login_mode: NotRequired[pulumi.Input[Union[str, 'SourceRegistryLoginMode']]]
+        """
+        The authentication mode which determines the source registry login scope. The credentials for the source registry
+        will be generated using the given scope. These credentials will be used to login to
+        the source registry during the run.
+        """
+elif False:
+    SourceRegistryCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SourceRegistryCredentialsArgs:
     def __init__(__self__, *,
@@ -477,6 +669,30 @@ class SourceRegistryCredentialsArgs:
     def login_mode(self, value: Optional[pulumi.Input[Union[str, 'SourceRegistryLoginMode']]]):
         pulumi.set(self, "login_mode", value)
 
+
+if not MYPY:
+    class SourceTriggerArgsDict(TypedDict):
+        """
+        The properties of a source based trigger.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the trigger.
+        """
+        source_repository: pulumi.Input['SourcePropertiesArgsDict']
+        """
+        The properties that describes the source(code) for the task.
+        """
+        source_trigger_events: pulumi.Input[Sequence[pulumi.Input[Union[str, 'SourceTriggerEvent']]]]
+        """
+        The source event corresponding to the trigger.
+        """
+        status: NotRequired[pulumi.Input[Union[str, 'TriggerStatus']]]
+        """
+        The current status of trigger.
+        """
+elif False:
+    SourceTriggerArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SourceTriggerArgs:
@@ -549,6 +765,22 @@ class SourceTriggerArgs:
         pulumi.set(self, "status", value)
 
 
+if not MYPY:
+    class TaskStepPropertiesArgsDict(TypedDict):
+        """
+        Base properties for any task step.
+        """
+        context_access_token: NotRequired[pulumi.Input[str]]
+        """
+        The token (git PAT or SAS token of storage account blob) associated with the context for a step.
+        """
+        context_path: NotRequired[pulumi.Input[str]]
+        """
+        The URL(absolute or relative) of the source context for the task step.
+        """
+elif False:
+    TaskStepPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TaskStepPropertiesArgs:
     def __init__(__self__, *,
@@ -588,6 +820,22 @@ class TaskStepPropertiesArgs:
     def context_path(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "context_path", value)
 
+
+if not MYPY:
+    class TriggerPropertiesArgsDict(TypedDict):
+        """
+        The properties of a trigger.
+        """
+        base_image_trigger: NotRequired[pulumi.Input['BaseImageTriggerArgsDict']]
+        """
+        The trigger based on base image dependencies.
+        """
+        source_triggers: NotRequired[pulumi.Input[Sequence[pulumi.Input['SourceTriggerArgsDict']]]]
+        """
+        The collection of triggers based on source code repository.
+        """
+elif False:
+    TriggerPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TriggerPropertiesArgs:

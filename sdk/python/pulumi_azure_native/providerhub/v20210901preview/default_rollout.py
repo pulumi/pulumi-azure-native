@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -74,7 +79,7 @@ class DefaultRollout(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['DefaultRolloutPropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['DefaultRolloutPropertiesArgs', 'DefaultRolloutPropertiesArgsDict']]] = None,
                  provider_namespace: Optional[pulumi.Input[str]] = None,
                  rollout_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -83,7 +88,7 @@ class DefaultRollout(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['DefaultRolloutPropertiesArgs']] properties: Properties of the rollout.
+        :param pulumi.Input[Union['DefaultRolloutPropertiesArgs', 'DefaultRolloutPropertiesArgsDict']] properties: Properties of the rollout.
         :param pulumi.Input[str] provider_namespace: The name of the resource provider hosted within ProviderHub.
         :param pulumi.Input[str] rollout_name: The rollout name.
         """
@@ -111,7 +116,7 @@ class DefaultRollout(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['DefaultRolloutPropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['DefaultRolloutPropertiesArgs', 'DefaultRolloutPropertiesArgsDict']]] = None,
                  provider_namespace: Optional[pulumi.Input[str]] = None,
                  rollout_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):

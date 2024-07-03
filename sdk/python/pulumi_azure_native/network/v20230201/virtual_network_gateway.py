@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -464,27 +469,27 @@ class VirtualNetworkGateway(pulumi.CustomResource):
                  admin_state: Optional[pulumi.Input[Union[str, 'AdminState']]] = None,
                  allow_remote_vnet_traffic: Optional[pulumi.Input[bool]] = None,
                  allow_virtual_wan_traffic: Optional[pulumi.Input[bool]] = None,
-                 bgp_settings: Optional[pulumi.Input[pulumi.InputType['BgpSettingsArgs']]] = None,
-                 custom_routes: Optional[pulumi.Input[pulumi.InputType['AddressSpaceArgs']]] = None,
+                 bgp_settings: Optional[pulumi.Input[Union['BgpSettingsArgs', 'BgpSettingsArgsDict']]] = None,
+                 custom_routes: Optional[pulumi.Input[Union['AddressSpaceArgs', 'AddressSpaceArgsDict']]] = None,
                  disable_ip_sec_replay_protection: Optional[pulumi.Input[bool]] = None,
                  enable_bgp: Optional[pulumi.Input[bool]] = None,
                  enable_bgp_route_translation_for_nat: Optional[pulumi.Input[bool]] = None,
                  enable_dns_forwarding: Optional[pulumi.Input[bool]] = None,
                  enable_private_ip_address: Optional[pulumi.Input[bool]] = None,
-                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
-                 gateway_default_site: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 gateway_default_site: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
                  gateway_type: Optional[pulumi.Input[Union[str, 'VirtualNetworkGatewayType']]] = None,
                  id: Optional[pulumi.Input[str]] = None,
-                 ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayIPConfigurationArgs']]]]] = None,
+                 ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VirtualNetworkGatewayIPConfigurationArgs', 'VirtualNetworkGatewayIPConfigurationArgsDict']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 nat_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayNatRuleArgs']]]]] = None,
+                 nat_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VirtualNetworkGatewayNatRuleArgs', 'VirtualNetworkGatewayNatRuleArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkGatewaySkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['VirtualNetworkGatewaySkuArgs', 'VirtualNetworkGatewaySkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  v_net_extended_location_resource_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_gateway_name: Optional[pulumi.Input[str]] = None,
-                 virtual_network_gateway_policy_groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayPolicyGroupArgs']]]]] = None,
-                 vpn_client_configuration: Optional[pulumi.Input[pulumi.InputType['VpnClientConfigurationArgs']]] = None,
+                 virtual_network_gateway_policy_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VirtualNetworkGatewayPolicyGroupArgs', 'VirtualNetworkGatewayPolicyGroupArgsDict']]]]] = None,
+                 vpn_client_configuration: Optional[pulumi.Input[Union['VpnClientConfigurationArgs', 'VpnClientConfigurationArgsDict']]] = None,
                  vpn_gateway_generation: Optional[pulumi.Input[Union[str, 'VpnGatewayGeneration']]] = None,
                  vpn_type: Optional[pulumi.Input[Union[str, 'VpnType']]] = None,
                  __props__=None):
@@ -497,28 +502,28 @@ class VirtualNetworkGateway(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'AdminState']] admin_state: Property to indicate if the Express Route Gateway serves traffic when there are multiple Express Route Gateways in the vnet
         :param pulumi.Input[bool] allow_remote_vnet_traffic: Configure this gateway to accept traffic from other Azure Virtual Networks. This configuration does not support connectivity to Azure Virtual WAN.
         :param pulumi.Input[bool] allow_virtual_wan_traffic: Configures this gateway to accept traffic from remote Virtual WAN networks.
-        :param pulumi.Input[pulumi.InputType['BgpSettingsArgs']] bgp_settings: Virtual network gateway's BGP speaker settings.
-        :param pulumi.Input[pulumi.InputType['AddressSpaceArgs']] custom_routes: The reference to the address space resource which represents the custom routes address space specified by the customer for virtual network gateway and VpnClient.
+        :param pulumi.Input[Union['BgpSettingsArgs', 'BgpSettingsArgsDict']] bgp_settings: Virtual network gateway's BGP speaker settings.
+        :param pulumi.Input[Union['AddressSpaceArgs', 'AddressSpaceArgsDict']] custom_routes: The reference to the address space resource which represents the custom routes address space specified by the customer for virtual network gateway and VpnClient.
         :param pulumi.Input[bool] disable_ip_sec_replay_protection: disableIPSecReplayProtection flag.
         :param pulumi.Input[bool] enable_bgp: Whether BGP is enabled for this virtual network gateway or not.
         :param pulumi.Input[bool] enable_bgp_route_translation_for_nat: EnableBgpRouteTranslationForNat flag.
         :param pulumi.Input[bool] enable_dns_forwarding: Whether dns forwarding is enabled or not.
         :param pulumi.Input[bool] enable_private_ip_address: Whether private IP needs to be enabled on this gateway for connections or not.
-        :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: The extended location of type local virtual network gateway.
-        :param pulumi.Input[pulumi.InputType['SubResourceArgs']] gateway_default_site: The reference to the LocalNetworkGateway resource which represents local network site having default routes. Assign Null value in case of removing existing default site setting.
+        :param pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']] extended_location: The extended location of type local virtual network gateway.
+        :param pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']] gateway_default_site: The reference to the LocalNetworkGateway resource which represents local network site having default routes. Assign Null value in case of removing existing default site setting.
         :param pulumi.Input[Union[str, 'VirtualNetworkGatewayType']] gateway_type: The type of this virtual network gateway.
         :param pulumi.Input[str] id: Resource ID.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayIPConfigurationArgs']]]] ip_configurations: IP configurations for virtual network gateway.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['VirtualNetworkGatewayIPConfigurationArgs', 'VirtualNetworkGatewayIPConfigurationArgsDict']]]] ip_configurations: IP configurations for virtual network gateway.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayNatRuleArgs']]]] nat_rules: NatRules for virtual network gateway.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['VirtualNetworkGatewayNatRuleArgs', 'VirtualNetworkGatewayNatRuleArgsDict']]]] nat_rules: NatRules for virtual network gateway.
                These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[pulumi.InputType['VirtualNetworkGatewaySkuArgs']] sku: The reference to the VirtualNetworkGatewaySku resource which represents the SKU selected for Virtual network gateway.
+        :param pulumi.Input[Union['VirtualNetworkGatewaySkuArgs', 'VirtualNetworkGatewaySkuArgsDict']] sku: The reference to the VirtualNetworkGatewaySku resource which represents the SKU selected for Virtual network gateway.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] v_net_extended_location_resource_id: Customer vnet resource id. VirtualNetworkGateway of type local gateway is associated with the customer vnet.
         :param pulumi.Input[str] virtual_network_gateway_name: The name of the virtual network gateway.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayPolicyGroupArgs']]]] virtual_network_gateway_policy_groups: The reference to the VirtualNetworkGatewayPolicyGroup resource which represents the available VirtualNetworkGatewayPolicyGroup for the gateway.
-        :param pulumi.Input[pulumi.InputType['VpnClientConfigurationArgs']] vpn_client_configuration: The reference to the VpnClientConfiguration resource which represents the P2S VpnClient configurations.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['VirtualNetworkGatewayPolicyGroupArgs', 'VirtualNetworkGatewayPolicyGroupArgsDict']]]] virtual_network_gateway_policy_groups: The reference to the VirtualNetworkGatewayPolicyGroup resource which represents the available VirtualNetworkGatewayPolicyGroup for the gateway.
+        :param pulumi.Input[Union['VpnClientConfigurationArgs', 'VpnClientConfigurationArgsDict']] vpn_client_configuration: The reference to the VpnClientConfiguration resource which represents the P2S VpnClient configurations.
         :param pulumi.Input[Union[str, 'VpnGatewayGeneration']] vpn_gateway_generation: The generation for this VirtualNetworkGateway. Must be None if gatewayType is not VPN.
         :param pulumi.Input[Union[str, 'VpnType']] vpn_type: The type of this virtual network gateway.
         """
@@ -550,27 +555,27 @@ class VirtualNetworkGateway(pulumi.CustomResource):
                  admin_state: Optional[pulumi.Input[Union[str, 'AdminState']]] = None,
                  allow_remote_vnet_traffic: Optional[pulumi.Input[bool]] = None,
                  allow_virtual_wan_traffic: Optional[pulumi.Input[bool]] = None,
-                 bgp_settings: Optional[pulumi.Input[pulumi.InputType['BgpSettingsArgs']]] = None,
-                 custom_routes: Optional[pulumi.Input[pulumi.InputType['AddressSpaceArgs']]] = None,
+                 bgp_settings: Optional[pulumi.Input[Union['BgpSettingsArgs', 'BgpSettingsArgsDict']]] = None,
+                 custom_routes: Optional[pulumi.Input[Union['AddressSpaceArgs', 'AddressSpaceArgsDict']]] = None,
                  disable_ip_sec_replay_protection: Optional[pulumi.Input[bool]] = None,
                  enable_bgp: Optional[pulumi.Input[bool]] = None,
                  enable_bgp_route_translation_for_nat: Optional[pulumi.Input[bool]] = None,
                  enable_dns_forwarding: Optional[pulumi.Input[bool]] = None,
                  enable_private_ip_address: Optional[pulumi.Input[bool]] = None,
-                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
-                 gateway_default_site: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 gateway_default_site: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
                  gateway_type: Optional[pulumi.Input[Union[str, 'VirtualNetworkGatewayType']]] = None,
                  id: Optional[pulumi.Input[str]] = None,
-                 ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayIPConfigurationArgs']]]]] = None,
+                 ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VirtualNetworkGatewayIPConfigurationArgs', 'VirtualNetworkGatewayIPConfigurationArgsDict']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 nat_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayNatRuleArgs']]]]] = None,
+                 nat_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VirtualNetworkGatewayNatRuleArgs', 'VirtualNetworkGatewayNatRuleArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkGatewaySkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['VirtualNetworkGatewaySkuArgs', 'VirtualNetworkGatewaySkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  v_net_extended_location_resource_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_gateway_name: Optional[pulumi.Input[str]] = None,
-                 virtual_network_gateway_policy_groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayPolicyGroupArgs']]]]] = None,
-                 vpn_client_configuration: Optional[pulumi.Input[pulumi.InputType['VpnClientConfigurationArgs']]] = None,
+                 virtual_network_gateway_policy_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VirtualNetworkGatewayPolicyGroupArgs', 'VirtualNetworkGatewayPolicyGroupArgsDict']]]]] = None,
+                 vpn_client_configuration: Optional[pulumi.Input[Union['VpnClientConfigurationArgs', 'VpnClientConfigurationArgsDict']]] = None,
                  vpn_gateway_generation: Optional[pulumi.Input[Union[str, 'VpnGatewayGeneration']]] = None,
                  vpn_type: Optional[pulumi.Input[Union[str, 'VpnType']]] = None,
                  __props__=None):

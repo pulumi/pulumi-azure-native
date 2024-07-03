@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -173,9 +178,9 @@ class Gen1Environment(pulumi.CustomResource):
                  environment_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 partition_key_properties: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TimeSeriesIdPropertyArgs']]]]] = None,
+                 partition_key_properties: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TimeSeriesIdPropertyArgs', 'TimeSeriesIdPropertyArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  storage_limit_exceeded_behavior: Optional[pulumi.Input[Union[str, 'StorageLimitExceededBehavior']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -190,9 +195,9 @@ class Gen1Environment(pulumi.CustomResource):
         :param pulumi.Input[str] kind: The kind of the environment.
                Expected value is 'Gen1'.
         :param pulumi.Input[str] location: The location of the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TimeSeriesIdPropertyArgs']]]] partition_key_properties: The list of event properties which will be used to partition data in the environment. Currently, only a single partition key property is supported.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TimeSeriesIdPropertyArgs', 'TimeSeriesIdPropertyArgsDict']]]] partition_key_properties: The list of event properties which will be used to partition data in the environment. Currently, only a single partition key property is supported.
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
-        :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The sku determines the type of environment, either Gen1 (S1 or S2) or Gen2 (L1). For Gen1 environments the sku determines the capacity of the environment, the ingress rate, and the billing rate.
+        :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: The sku determines the type of environment, either Gen1 (S1 or S2) or Gen2 (L1). For Gen1 environments the sku determines the capacity of the environment, the ingress rate, and the billing rate.
         :param pulumi.Input[Union[str, 'StorageLimitExceededBehavior']] storage_limit_exceeded_behavior: The behavior the Time Series Insights service should take when the environment's capacity has been exceeded. If "PauseIngress" is specified, new events will not be read from the event source. If "PurgeOldData" is specified, new events will continue to be read and old events will be deleted from the environment. The default behavior is PurgeOldData.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pairs of additional properties for the resource.
         """
@@ -225,9 +230,9 @@ class Gen1Environment(pulumi.CustomResource):
                  environment_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 partition_key_properties: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TimeSeriesIdPropertyArgs']]]]] = None,
+                 partition_key_properties: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TimeSeriesIdPropertyArgs', 'TimeSeriesIdPropertyArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  storage_limit_exceeded_behavior: Optional[pulumi.Input[Union[str, 'StorageLimitExceededBehavior']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):

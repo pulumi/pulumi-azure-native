@@ -4,15 +4,39 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'AttestationEvidenceArgs',
+    'AttestationEvidenceArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AttestationEvidenceArgsDict(TypedDict):
+        """
+        A piece of evidence supporting the compliance state set in the attestation.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The description for this piece of evidence.
+        """
+        source_uri: NotRequired[pulumi.Input[str]]
+        """
+        The URI location of the evidence.
+        """
+elif False:
+    AttestationEvidenceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AttestationEvidenceArgs:

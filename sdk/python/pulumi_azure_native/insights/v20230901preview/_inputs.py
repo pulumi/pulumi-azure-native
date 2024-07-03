@@ -4,27 +4,67 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'ArmRoleReceiverArgs',
+    'ArmRoleReceiverArgsDict',
     'AutomationRunbookReceiverArgs',
+    'AutomationRunbookReceiverArgsDict',
     'AzureAppPushReceiverArgs',
+    'AzureAppPushReceiverArgsDict',
     'AzureFunctionReceiverArgs',
+    'AzureFunctionReceiverArgsDict',
     'EmailReceiverArgs',
+    'EmailReceiverArgsDict',
     'EventHubReceiverArgs',
+    'EventHubReceiverArgsDict',
     'IncidentReceiverArgs',
+    'IncidentReceiverArgsDict',
     'IncidentServiceConnectionArgs',
+    'IncidentServiceConnectionArgsDict',
     'ItsmReceiverArgs',
+    'ItsmReceiverArgsDict',
     'LogicAppReceiverArgs',
+    'LogicAppReceiverArgsDict',
     'SmsReceiverArgs',
+    'SmsReceiverArgsDict',
     'VoiceReceiverArgs',
+    'VoiceReceiverArgsDict',
     'WebhookReceiverArgs',
+    'WebhookReceiverArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ArmRoleReceiverArgsDict(TypedDict):
+        """
+        An arm role receiver.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the arm role receiver. Names must be unique across all receivers within an action group.
+        """
+        role_id: pulumi.Input[str]
+        """
+        The arm role id.
+        """
+        use_common_alert_schema: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether to use common alert schema.
+        """
+elif False:
+    ArmRoleReceiverArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ArmRoleReceiverArgs:
@@ -81,6 +121,42 @@ class ArmRoleReceiverArgs:
     def use_common_alert_schema(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "use_common_alert_schema", value)
 
+
+if not MYPY:
+    class AutomationRunbookReceiverArgsDict(TypedDict):
+        """
+        The Azure Automation Runbook notification receiver.
+        """
+        automation_account_id: pulumi.Input[str]
+        """
+        The Azure automation account Id which holds this runbook and authenticate to Azure resource.
+        """
+        is_global_runbook: pulumi.Input[bool]
+        """
+        Indicates whether this instance is global runbook.
+        """
+        runbook_name: pulumi.Input[str]
+        """
+        The name for this runbook.
+        """
+        webhook_resource_id: pulumi.Input[str]
+        """
+        The resource id for webhook linked to this runbook.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Indicates name of the webhook.
+        """
+        service_uri: NotRequired[pulumi.Input[str]]
+        """
+        The URI where webhooks should be sent.
+        """
+        use_common_alert_schema: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether to use common alert schema.
+        """
+elif False:
+    AutomationRunbookReceiverArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AutomationRunbookReceiverArgs:
@@ -200,6 +276,22 @@ class AutomationRunbookReceiverArgs:
         pulumi.set(self, "use_common_alert_schema", value)
 
 
+if not MYPY:
+    class AzureAppPushReceiverArgsDict(TypedDict):
+        """
+        The Azure mobile App push notification receiver.
+        """
+        email_address: pulumi.Input[str]
+        """
+        The email address registered for the Azure mobile app.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the Azure mobile app push receiver. Names must be unique across all receivers within an action group.
+        """
+elif False:
+    AzureAppPushReceiverArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AzureAppPushReceiverArgs:
     def __init__(__self__, *,
@@ -237,6 +329,34 @@ class AzureAppPushReceiverArgs:
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class AzureFunctionReceiverArgsDict(TypedDict):
+        """
+        An azure function receiver.
+        """
+        function_app_resource_id: pulumi.Input[str]
+        """
+        The azure resource id of the function app.
+        """
+        function_name: pulumi.Input[str]
+        """
+        The function name in the function app.
+        """
+        http_trigger_url: pulumi.Input[str]
+        """
+        The http trigger url where http request sent to.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the azure function receiver. Names must be unique across all receivers within an action group.
+        """
+        use_common_alert_schema: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether to use common alert schema.
+        """
+elif False:
+    AzureFunctionReceiverArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AzureFunctionReceiverArgs:
@@ -324,6 +444,26 @@ class AzureFunctionReceiverArgs:
         pulumi.set(self, "use_common_alert_schema", value)
 
 
+if not MYPY:
+    class EmailReceiverArgsDict(TypedDict):
+        """
+        An email receiver.
+        """
+        email_address: pulumi.Input[str]
+        """
+        The email address of this receiver.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the email receiver. Names must be unique across all receivers within an action group.
+        """
+        use_common_alert_schema: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether to use common alert schema.
+        """
+elif False:
+    EmailReceiverArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EmailReceiverArgs:
     def __init__(__self__, *,
@@ -379,6 +519,38 @@ class EmailReceiverArgs:
     def use_common_alert_schema(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "use_common_alert_schema", value)
 
+
+if not MYPY:
+    class EventHubReceiverArgsDict(TypedDict):
+        """
+        An Event hub receiver.
+        """
+        event_hub_name: pulumi.Input[str]
+        """
+        The name of the specific Event Hub queue
+        """
+        event_hub_name_space: pulumi.Input[str]
+        """
+        The Event Hub namespace
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the Event hub receiver. Names must be unique across all receivers within an action group.
+        """
+        subscription_id: pulumi.Input[str]
+        """
+        The Id for the subscription containing this event hub
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        The tenant Id for the subscription containing this event hub
+        """
+        use_common_alert_schema: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether to use common alert schema.
+        """
+elif False:
+    EventHubReceiverArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EventHubReceiverArgs:
@@ -482,6 +654,30 @@ class EventHubReceiverArgs:
         pulumi.set(self, "use_common_alert_schema", value)
 
 
+if not MYPY:
+    class IncidentReceiverArgsDict(TypedDict):
+        """
+        An Incident receiver.
+        """
+        connection: pulumi.Input['IncidentServiceConnectionArgsDict']
+        """
+        The incident service connection
+        """
+        incident_management_service: pulumi.Input[Union[str, 'IncidentManagementService']]
+        """
+        The incident management service type
+        """
+        mappings: pulumi.Input[Mapping[str, pulumi.Input[str]]]
+        """
+        Field mappings for the incident service
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the Incident receiver. Names must be unique across all receivers within an action group.
+        """
+elif False:
+    IncidentReceiverArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IncidentReceiverArgs:
     def __init__(__self__, *,
@@ -550,6 +746,22 @@ class IncidentReceiverArgs:
         pulumi.set(self, "name", value)
 
 
+if not MYPY:
+    class IncidentServiceConnectionArgsDict(TypedDict):
+        """
+        The connection info for Incident Receiver.
+        """
+        id: pulumi.Input[str]
+        """
+        GUID value representing the connection ID for the incident management service.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the connection.
+        """
+elif False:
+    IncidentServiceConnectionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IncidentServiceConnectionArgs:
     def __init__(__self__, *,
@@ -587,6 +799,34 @@ class IncidentServiceConnectionArgs:
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class ItsmReceiverArgsDict(TypedDict):
+        """
+        An Itsm receiver.
+        """
+        connection_id: pulumi.Input[str]
+        """
+        Unique identification of ITSM connection among multiple defined in above workspace.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the Itsm receiver. Names must be unique across all receivers within an action group.
+        """
+        region: pulumi.Input[str]
+        """
+        Region in which workspace resides. Supported values:'centralindia','japaneast','southeastasia','australiasoutheast','uksouth','westcentralus','canadacentral','eastus','westeurope'
+        """
+        ticket_configuration: pulumi.Input[str]
+        """
+        JSON blob for the configurations of the ITSM action. CreateMultipleWorkItems option will be part of this blob as well.
+        """
+        workspace_id: pulumi.Input[str]
+        """
+        OMS LA instance identifier.
+        """
+elif False:
+    ItsmReceiverArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ItsmReceiverArgs:
@@ -671,6 +911,30 @@ class ItsmReceiverArgs:
         pulumi.set(self, "workspace_id", value)
 
 
+if not MYPY:
+    class LogicAppReceiverArgsDict(TypedDict):
+        """
+        A logic app receiver.
+        """
+        callback_url: pulumi.Input[str]
+        """
+        The callback url where http request sent to.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the logic app receiver. Names must be unique across all receivers within an action group.
+        """
+        resource_id: pulumi.Input[str]
+        """
+        The azure resource id of the logic app receiver.
+        """
+        use_common_alert_schema: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether to use common alert schema.
+        """
+elif False:
+    LogicAppReceiverArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LogicAppReceiverArgs:
     def __init__(__self__, *,
@@ -742,6 +1006,26 @@ class LogicAppReceiverArgs:
         pulumi.set(self, "use_common_alert_schema", value)
 
 
+if not MYPY:
+    class SmsReceiverArgsDict(TypedDict):
+        """
+        An SMS receiver.
+        """
+        country_code: pulumi.Input[str]
+        """
+        The country code of the SMS receiver.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the SMS receiver. Names must be unique across all receivers within an action group.
+        """
+        phone_number: pulumi.Input[str]
+        """
+        The phone number of the SMS receiver.
+        """
+elif False:
+    SmsReceiverArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SmsReceiverArgs:
     def __init__(__self__, *,
@@ -795,6 +1079,26 @@ class SmsReceiverArgs:
         pulumi.set(self, "phone_number", value)
 
 
+if not MYPY:
+    class VoiceReceiverArgsDict(TypedDict):
+        """
+        A voice receiver.
+        """
+        country_code: pulumi.Input[str]
+        """
+        The country code of the voice receiver.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the voice receiver. Names must be unique across all receivers within an action group.
+        """
+        phone_number: pulumi.Input[str]
+        """
+        The phone number of the voice receiver.
+        """
+elif False:
+    VoiceReceiverArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class VoiceReceiverArgs:
     def __init__(__self__, *,
@@ -847,6 +1151,42 @@ class VoiceReceiverArgs:
     def phone_number(self, value: pulumi.Input[str]):
         pulumi.set(self, "phone_number", value)
 
+
+if not MYPY:
+    class WebhookReceiverArgsDict(TypedDict):
+        """
+        A webhook receiver.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the webhook receiver. Names must be unique across all receivers within an action group.
+        """
+        service_uri: pulumi.Input[str]
+        """
+        The URI where webhooks should be sent.
+        """
+        identifier_uri: NotRequired[pulumi.Input[str]]
+        """
+        Indicates the identifier uri for aad auth.
+        """
+        object_id: NotRequired[pulumi.Input[str]]
+        """
+        Indicates the webhook app object Id for aad auth.
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        Indicates the tenant id for aad auth.
+        """
+        use_aad_auth: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether or not use AAD authentication.
+        """
+        use_common_alert_schema: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether to use common alert schema.
+        """
+elif False:
+    WebhookReceiverArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WebhookReceiverArgs:

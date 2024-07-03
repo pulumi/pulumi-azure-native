@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -187,7 +192,7 @@ class NotificationChannel(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  email_recipient: Optional[pulumi.Input[str]] = None,
-                 events: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventArgs']]]]] = None,
+                 events: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EventArgs', 'EventArgsDict']]]]] = None,
                  lab_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -206,7 +211,7 @@ class NotificationChannel(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description of notification.
         :param pulumi.Input[str] email_recipient: The email recipient to send notifications to (can be a list of semi-colon separated email addresses).
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventArgs']]]] events: The list of event for which this notification is enabled.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EventArgs', 'EventArgsDict']]]] events: The list of event for which this notification is enabled.
         :param pulumi.Input[str] lab_name: The name of the lab.
         :param pulumi.Input[str] location: The location of the resource.
         :param pulumi.Input[str] name: The name of the notification channel.
@@ -244,7 +249,7 @@ class NotificationChannel(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  email_recipient: Optional[pulumi.Input[str]] = None,
-                 events: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventArgs']]]]] = None,
+                 events: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EventArgs', 'EventArgsDict']]]]] = None,
                  lab_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -220,12 +225,12 @@ class BatchAccount(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  allowed_authentication_modes: Optional[pulumi.Input[Sequence[pulumi.Input['AuthenticationMode']]]] = None,
-                 auto_storage: Optional[pulumi.Input[pulumi.InputType['AutoStorageBasePropertiesArgs']]] = None,
-                 encryption: Optional[pulumi.Input[pulumi.InputType['EncryptionPropertiesArgs']]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['BatchAccountIdentityArgs']]] = None,
-                 key_vault_reference: Optional[pulumi.Input[pulumi.InputType['KeyVaultReferenceArgs']]] = None,
+                 auto_storage: Optional[pulumi.Input[Union['AutoStorageBasePropertiesArgs', 'AutoStorageBasePropertiesArgsDict']]] = None,
+                 encryption: Optional[pulumi.Input[Union['EncryptionPropertiesArgs', 'EncryptionPropertiesArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['BatchAccountIdentityArgs', 'BatchAccountIdentityArgsDict']]] = None,
+                 key_vault_reference: Optional[pulumi.Input[Union['KeyVaultReferenceArgs', 'KeyVaultReferenceArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 network_profile: Optional[pulumi.Input[pulumi.InputType['NetworkProfileArgs']]] = None,
+                 network_profile: Optional[pulumi.Input[Union['NetworkProfileArgs', 'NetworkProfileArgsDict']]] = None,
                  pool_allocation_mode: Optional[pulumi.Input['PoolAllocationMode']] = None,
                  public_network_access: Optional[pulumi.Input['PublicNetworkAccessType']] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -241,12 +246,12 @@ class BatchAccount(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: A name for the Batch account which must be unique within the region. Batch account names must be between 3 and 24 characters in length and must use only numbers and lowercase letters. This name is used as part of the DNS name that is used to access the Batch service in the region in which the account is created. For example: http://accountname.region.batch.azure.com/.
         :param pulumi.Input[Sequence[pulumi.Input['AuthenticationMode']]] allowed_authentication_modes: List of allowed authentication modes for the Batch account that can be used to authenticate with the data plane. This does not affect authentication with the control plane.
-        :param pulumi.Input[pulumi.InputType['AutoStorageBasePropertiesArgs']] auto_storage: The properties related to the auto-storage account.
-        :param pulumi.Input[pulumi.InputType['EncryptionPropertiesArgs']] encryption: Configures how customer data is encrypted inside the Batch account. By default, accounts are encrypted using a Microsoft managed key. For additional control, a customer-managed key can be used instead.
-        :param pulumi.Input[pulumi.InputType['BatchAccountIdentityArgs']] identity: The identity of the Batch account.
-        :param pulumi.Input[pulumi.InputType['KeyVaultReferenceArgs']] key_vault_reference: A reference to the Azure key vault associated with the Batch account.
+        :param pulumi.Input[Union['AutoStorageBasePropertiesArgs', 'AutoStorageBasePropertiesArgsDict']] auto_storage: The properties related to the auto-storage account.
+        :param pulumi.Input[Union['EncryptionPropertiesArgs', 'EncryptionPropertiesArgsDict']] encryption: Configures how customer data is encrypted inside the Batch account. By default, accounts are encrypted using a Microsoft managed key. For additional control, a customer-managed key can be used instead.
+        :param pulumi.Input[Union['BatchAccountIdentityArgs', 'BatchAccountIdentityArgsDict']] identity: The identity of the Batch account.
+        :param pulumi.Input[Union['KeyVaultReferenceArgs', 'KeyVaultReferenceArgsDict']] key_vault_reference: A reference to the Azure key vault associated with the Batch account.
         :param pulumi.Input[str] location: The region in which to create the account.
-        :param pulumi.Input[pulumi.InputType['NetworkProfileArgs']] network_profile: The network profile only takes effect when publicNetworkAccess is enabled.
+        :param pulumi.Input[Union['NetworkProfileArgs', 'NetworkProfileArgsDict']] network_profile: The network profile only takes effect when publicNetworkAccess is enabled.
         :param pulumi.Input['PoolAllocationMode'] pool_allocation_mode: The pool allocation mode also affects how clients may authenticate to the Batch Service API. If the mode is BatchService, clients may authenticate using access keys or Azure Active Directory. If the mode is UserSubscription, clients must use Azure Active Directory. The default is BatchService.
         :param pulumi.Input['PublicNetworkAccessType'] public_network_access: If not specified, the default value is 'enabled'.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the Batch account.
@@ -281,12 +286,12 @@ class BatchAccount(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  allowed_authentication_modes: Optional[pulumi.Input[Sequence[pulumi.Input['AuthenticationMode']]]] = None,
-                 auto_storage: Optional[pulumi.Input[pulumi.InputType['AutoStorageBasePropertiesArgs']]] = None,
-                 encryption: Optional[pulumi.Input[pulumi.InputType['EncryptionPropertiesArgs']]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['BatchAccountIdentityArgs']]] = None,
-                 key_vault_reference: Optional[pulumi.Input[pulumi.InputType['KeyVaultReferenceArgs']]] = None,
+                 auto_storage: Optional[pulumi.Input[Union['AutoStorageBasePropertiesArgs', 'AutoStorageBasePropertiesArgsDict']]] = None,
+                 encryption: Optional[pulumi.Input[Union['EncryptionPropertiesArgs', 'EncryptionPropertiesArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['BatchAccountIdentityArgs', 'BatchAccountIdentityArgsDict']]] = None,
+                 key_vault_reference: Optional[pulumi.Input[Union['KeyVaultReferenceArgs', 'KeyVaultReferenceArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 network_profile: Optional[pulumi.Input[pulumi.InputType['NetworkProfileArgs']]] = None,
+                 network_profile: Optional[pulumi.Input[Union['NetworkProfileArgs', 'NetworkProfileArgsDict']]] = None,
                  pool_allocation_mode: Optional[pulumi.Input['PoolAllocationMode']] = None,
                  public_network_access: Optional[pulumi.Input['PublicNetworkAccessType']] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,

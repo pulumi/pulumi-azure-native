@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -403,7 +408,7 @@ class Cluster(pulumi.CustomResource):
                  enable_ha: Optional[pulumi.Input[bool]] = None,
                  enable_shards_on_coordinator: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 maintenance_window: Optional[pulumi.Input[pulumi.InputType['MaintenanceWindowArgs']]] = None,
+                 maintenance_window: Optional[pulumi.Input[Union['MaintenanceWindowArgs', 'MaintenanceWindowArgsDict']]] = None,
                  node_count: Optional[pulumi.Input[int]] = None,
                  node_enable_public_ip_access: Optional[pulumi.Input[bool]] = None,
                  node_server_edition: Optional[pulumi.Input[str]] = None,
@@ -432,7 +437,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_ha: If high availability (HA) is enabled or not for the cluster.
         :param pulumi.Input[bool] enable_shards_on_coordinator: If distributed tables are placed on coordinator or not. Should be set to 'true' on single node clusters. Requires shard rebalancing after value is changed.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[pulumi.InputType['MaintenanceWindowArgs']] maintenance_window: Maintenance window of a cluster.
+        :param pulumi.Input[Union['MaintenanceWindowArgs', 'MaintenanceWindowArgsDict']] maintenance_window: Maintenance window of a cluster.
         :param pulumi.Input[int] node_count: Worker node count of the cluster. When node count is 0, it represents a single node configuration with the ability to create distributed tables on that node. 2 or more worker nodes represent multi-node configuration. Node count value cannot be 1. Required for creation.
         :param pulumi.Input[bool] node_enable_public_ip_access: If public access is enabled on worker nodes.
         :param pulumi.Input[str] node_server_edition: The edition of a node server (default: MemoryOptimized).
@@ -480,7 +485,7 @@ class Cluster(pulumi.CustomResource):
                  enable_ha: Optional[pulumi.Input[bool]] = None,
                  enable_shards_on_coordinator: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 maintenance_window: Optional[pulumi.Input[pulumi.InputType['MaintenanceWindowArgs']]] = None,
+                 maintenance_window: Optional[pulumi.Input[Union['MaintenanceWindowArgs', 'MaintenanceWindowArgsDict']]] = None,
                  node_count: Optional[pulumi.Input[int]] = None,
                  node_enable_public_ip_access: Optional[pulumi.Input[bool]] = None,
                  node_server_edition: Optional[pulumi.Input[str]] = None,

@@ -4,18 +4,38 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'CertificateArgs',
+    'CertificateArgsDict',
     'ClusterResourcePropertiesArgs',
+    'ClusterResourcePropertiesArgsDict',
     'ManagedServiceIdentityArgs',
+    'ManagedServiceIdentityArgsDict',
     'SeedNodeArgs',
+    'SeedNodeArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class CertificateArgsDict(TypedDict):
+        pem: NotRequired[pulumi.Input[str]]
+        """
+        PEM formatted public key.
+        """
+elif False:
+    CertificateArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CertificateArgs:
@@ -39,6 +59,66 @@ class CertificateArgs:
     def pem(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "pem", value)
 
+
+if not MYPY:
+    class ClusterResourcePropertiesArgsDict(TypedDict):
+        """
+        Properties of a managed Cassandra cluster.
+        """
+        authentication_method: NotRequired[pulumi.Input[Union[str, 'AuthenticationMethod']]]
+        """
+        Which authentication method Cassandra should use to authenticate clients. 'None' turns off authentication, so should not be used except in emergencies. 'Cassandra' is the default password based authentication. The default is 'Cassandra'.
+        """
+        cassandra_version: NotRequired[pulumi.Input[str]]
+        """
+        Which version of Cassandra should this cluster converge to running (e.g., 3.11). When updated, the cluster may take some time to migrate to the new version.
+        """
+        client_certificates: NotRequired[pulumi.Input[Sequence[pulumi.Input['CertificateArgsDict']]]]
+        """
+        List of TLS certificates used to authorize clients connecting to the cluster. All connections are TLS encrypted whether clientCertificates is set or not, but if clientCertificates is set, the managed Cassandra cluster will reject all connections not bearing a TLS client certificate that can be validated from one or more of the public certificates in this property.
+        """
+        cluster_name_override: NotRequired[pulumi.Input[str]]
+        """
+        If you need to set the clusterName property in cassandra.yaml to something besides the resource name of the cluster, set the value to use on this property.
+        """
+        delegated_management_subnet_id: NotRequired[pulumi.Input[str]]
+        """
+        Resource id of a subnet that this cluster's management service should have its network interface attached to. The subnet must be routable to all subnets that will be delegated to data centers. The resource id must be of the form '/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Network/virtualNetworks/<virtual network>/subnets/<subnet>'
+        """
+        external_gossip_certificates: NotRequired[pulumi.Input[Sequence[pulumi.Input['CertificateArgsDict']]]]
+        """
+        List of TLS certificates used to authorize gossip from unmanaged data centers. The TLS certificates of all nodes in unmanaged data centers must be verifiable using one of the certificates provided in this property.
+        """
+        external_seed_nodes: NotRequired[pulumi.Input[Sequence[pulumi.Input['SeedNodeArgsDict']]]]
+        """
+        List of IP addresses of seed nodes in unmanaged data centers. These will be added to the seed node lists of all managed nodes.
+        """
+        hours_between_backups: NotRequired[pulumi.Input[int]]
+        """
+        Number of hours to wait between taking a backup of the cluster. To disable backups, set this property to 0.
+        """
+        initial_cassandra_admin_password: NotRequired[pulumi.Input[str]]
+        """
+        Initial password for clients connecting as admin to the cluster. Should be changed after cluster creation. Returns null on GET. This field only applies when the authenticationMethod field is 'Cassandra'.
+        """
+        prometheus_endpoint: NotRequired[pulumi.Input['SeedNodeArgsDict']]
+        """
+        Hostname or IP address where the Prometheus endpoint containing data about the managed Cassandra nodes can be reached.
+        """
+        provisioning_state: NotRequired[pulumi.Input[Union[str, 'ManagedCassandraProvisioningState']]]
+        """
+        The status of the resource at the time the operation was called.
+        """
+        repair_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should automatic repairs run on this cluster? If omitted, this is true, and should stay true unless you are running a hybrid cluster where you are already doing your own repairs.
+        """
+        restore_from_backup_id: NotRequired[pulumi.Input[str]]
+        """
+        To create an empty cluster, omit this field or set it to null. To restore a backup into a new cluster, set this field to the resource id of the backup.
+        """
+elif False:
+    ClusterResourcePropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ClusterResourcePropertiesArgs:
@@ -256,6 +336,22 @@ class ClusterResourcePropertiesArgs:
         pulumi.set(self, "restore_from_backup_id", value)
 
 
+if not MYPY:
+    class ManagedServiceIdentityArgsDict(TypedDict):
+        """
+        Identity for the resource.
+        """
+        type: NotRequired[pulumi.Input['ResourceIdentityType']]
+        """
+        The type of identity used for the resource. The type 'SystemAssigned,UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
+        """
+        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of user identities associated with resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+elif False:
+    ManagedServiceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ManagedServiceIdentityArgs:
     def __init__(__self__, *,
@@ -295,6 +391,15 @@ class ManagedServiceIdentityArgs:
     def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
+
+if not MYPY:
+    class SeedNodeArgsDict(TypedDict):
+        ip_address: NotRequired[pulumi.Input[str]]
+        """
+        IP address of this seed node.
+        """
+elif False:
+    SeedNodeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SeedNodeArgs:

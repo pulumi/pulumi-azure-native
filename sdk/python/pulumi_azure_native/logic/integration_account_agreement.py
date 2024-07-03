@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -213,10 +218,10 @@ class IntegrationAccountAgreement(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  agreement_name: Optional[pulumi.Input[str]] = None,
                  agreement_type: Optional[pulumi.Input['AgreementType']] = None,
-                 content: Optional[pulumi.Input[pulumi.InputType['AgreementContentArgs']]] = None,
-                 guest_identity: Optional[pulumi.Input[pulumi.InputType['BusinessIdentityArgs']]] = None,
+                 content: Optional[pulumi.Input[Union['AgreementContentArgs', 'AgreementContentArgsDict']]] = None,
+                 guest_identity: Optional[pulumi.Input[Union['BusinessIdentityArgs', 'BusinessIdentityArgsDict']]] = None,
                  guest_partner: Optional[pulumi.Input[str]] = None,
-                 host_identity: Optional[pulumi.Input[pulumi.InputType['BusinessIdentityArgs']]] = None,
+                 host_identity: Optional[pulumi.Input[Union['BusinessIdentityArgs', 'BusinessIdentityArgsDict']]] = None,
                  host_partner: Optional[pulumi.Input[str]] = None,
                  integration_account_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -234,10 +239,10 @@ class IntegrationAccountAgreement(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] agreement_name: The integration account agreement name.
         :param pulumi.Input['AgreementType'] agreement_type: The agreement type.
-        :param pulumi.Input[pulumi.InputType['AgreementContentArgs']] content: The agreement content.
-        :param pulumi.Input[pulumi.InputType['BusinessIdentityArgs']] guest_identity: The business identity of the guest partner.
+        :param pulumi.Input[Union['AgreementContentArgs', 'AgreementContentArgsDict']] content: The agreement content.
+        :param pulumi.Input[Union['BusinessIdentityArgs', 'BusinessIdentityArgsDict']] guest_identity: The business identity of the guest partner.
         :param pulumi.Input[str] guest_partner: The integration account partner that is set as guest partner for this agreement.
-        :param pulumi.Input[pulumi.InputType['BusinessIdentityArgs']] host_identity: The business identity of the host partner.
+        :param pulumi.Input[Union['BusinessIdentityArgs', 'BusinessIdentityArgsDict']] host_identity: The business identity of the host partner.
         :param pulumi.Input[str] host_partner: The integration account partner that is set as host partner for this agreement.
         :param pulumi.Input[str] integration_account_name: The integration account name.
         :param pulumi.Input[str] location: The resource location.
@@ -274,10 +279,10 @@ class IntegrationAccountAgreement(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  agreement_name: Optional[pulumi.Input[str]] = None,
                  agreement_type: Optional[pulumi.Input['AgreementType']] = None,
-                 content: Optional[pulumi.Input[pulumi.InputType['AgreementContentArgs']]] = None,
-                 guest_identity: Optional[pulumi.Input[pulumi.InputType['BusinessIdentityArgs']]] = None,
+                 content: Optional[pulumi.Input[Union['AgreementContentArgs', 'AgreementContentArgsDict']]] = None,
+                 guest_identity: Optional[pulumi.Input[Union['BusinessIdentityArgs', 'BusinessIdentityArgsDict']]] = None,
                  guest_partner: Optional[pulumi.Input[str]] = None,
-                 host_identity: Optional[pulumi.Input[pulumi.InputType['BusinessIdentityArgs']]] = None,
+                 host_identity: Optional[pulumi.Input[Union['BusinessIdentityArgs', 'BusinessIdentityArgsDict']]] = None,
                  host_partner: Optional[pulumi.Input[str]] = None,
                  integration_account_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,

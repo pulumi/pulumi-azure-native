@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -185,15 +190,15 @@ class P2sVpnGateway(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 custom_routes: Optional[pulumi.Input[pulumi.InputType['AddressSpaceArgs']]] = None,
+                 custom_routes: Optional[pulumi.Input[Union['AddressSpaceArgs', 'AddressSpaceArgsDict']]] = None,
                  gateway_name: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 p2_s_vpn_server_configuration: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
+                 p2_s_vpn_server_configuration: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 virtual_hub: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
-                 vpn_client_address_pool: Optional[pulumi.Input[pulumi.InputType['AddressSpaceArgs']]] = None,
+                 virtual_hub: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
+                 vpn_client_address_pool: Optional[pulumi.Input[Union['AddressSpaceArgs', 'AddressSpaceArgsDict']]] = None,
                  vpn_gateway_scale_unit: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         """
@@ -201,15 +206,15 @@ class P2sVpnGateway(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['AddressSpaceArgs']] custom_routes: The reference of the address space resource which represents the custom routes specified by the customer for P2SVpnGateway and P2S VpnClient.
+        :param pulumi.Input[Union['AddressSpaceArgs', 'AddressSpaceArgsDict']] custom_routes: The reference of the address space resource which represents the custom routes specified by the customer for P2SVpnGateway and P2S VpnClient.
         :param pulumi.Input[str] gateway_name: The name of the gateway.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[pulumi.InputType['SubResourceArgs']] p2_s_vpn_server_configuration: The P2SVpnServerConfiguration to which the p2sVpnGateway is attached to.
+        :param pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']] p2_s_vpn_server_configuration: The P2SVpnServerConfiguration to which the p2sVpnGateway is attached to.
         :param pulumi.Input[str] resource_group_name: The resource group name of the P2SVpnGateway.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[pulumi.InputType['SubResourceArgs']] virtual_hub: The VirtualHub to which the gateway belongs.
-        :param pulumi.Input[pulumi.InputType['AddressSpaceArgs']] vpn_client_address_pool: The reference of the address space resource which represents Address space for P2S VpnClient.
+        :param pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']] virtual_hub: The VirtualHub to which the gateway belongs.
+        :param pulumi.Input[Union['AddressSpaceArgs', 'AddressSpaceArgsDict']] vpn_client_address_pool: The reference of the address space resource which represents Address space for P2S VpnClient.
         :param pulumi.Input[int] vpn_gateway_scale_unit: The scale unit for this p2s vpn gateway.
         """
         ...
@@ -236,15 +241,15 @@ class P2sVpnGateway(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 custom_routes: Optional[pulumi.Input[pulumi.InputType['AddressSpaceArgs']]] = None,
+                 custom_routes: Optional[pulumi.Input[Union['AddressSpaceArgs', 'AddressSpaceArgsDict']]] = None,
                  gateway_name: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 p2_s_vpn_server_configuration: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
+                 p2_s_vpn_server_configuration: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 virtual_hub: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
-                 vpn_client_address_pool: Optional[pulumi.Input[pulumi.InputType['AddressSpaceArgs']]] = None,
+                 virtual_hub: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
+                 vpn_client_address_pool: Optional[pulumi.Input[Union['AddressSpaceArgs', 'AddressSpaceArgsDict']]] = None,
                  vpn_gateway_scale_unit: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

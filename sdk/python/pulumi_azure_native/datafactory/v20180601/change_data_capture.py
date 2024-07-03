@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -186,12 +191,12 @@ class ChangeDataCapture(pulumi.CustomResource):
                  change_data_capture_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  factory_name: Optional[pulumi.Input[str]] = None,
-                 folder: Optional[pulumi.Input[pulumi.InputType['ChangeDataCaptureFolderArgs']]] = None,
-                 policy: Optional[pulumi.Input[pulumi.InputType['MapperPolicyArgs']]] = None,
+                 folder: Optional[pulumi.Input[Union['ChangeDataCaptureFolderArgs', 'ChangeDataCaptureFolderArgsDict']]] = None,
+                 policy: Optional[pulumi.Input[Union['MapperPolicyArgs', 'MapperPolicyArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 source_connections_info: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MapperSourceConnectionsInfoArgs']]]]] = None,
+                 source_connections_info: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MapperSourceConnectionsInfoArgs', 'MapperSourceConnectionsInfoArgsDict']]]]] = None,
                  status: Optional[pulumi.Input[str]] = None,
-                 target_connections_info: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MapperTargetConnectionsInfoArgs']]]]] = None,
+                 target_connections_info: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MapperTargetConnectionsInfoArgs', 'MapperTargetConnectionsInfoArgsDict']]]]] = None,
                  __props__=None):
         """
         Change data capture resource type.
@@ -202,12 +207,12 @@ class ChangeDataCapture(pulumi.CustomResource):
         :param pulumi.Input[str] change_data_capture_name: The change data capture name.
         :param pulumi.Input[str] description: The description of the change data capture.
         :param pulumi.Input[str] factory_name: The factory name.
-        :param pulumi.Input[pulumi.InputType['ChangeDataCaptureFolderArgs']] folder: The folder that this CDC is in. If not specified, CDC will appear at the root level.
-        :param pulumi.Input[pulumi.InputType['MapperPolicyArgs']] policy: CDC policy
+        :param pulumi.Input[Union['ChangeDataCaptureFolderArgs', 'ChangeDataCaptureFolderArgsDict']] folder: The folder that this CDC is in. If not specified, CDC will appear at the root level.
+        :param pulumi.Input[Union['MapperPolicyArgs', 'MapperPolicyArgsDict']] policy: CDC policy
         :param pulumi.Input[str] resource_group_name: The resource group name.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MapperSourceConnectionsInfoArgs']]]] source_connections_info: List of sources connections that can be used as sources in the CDC.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MapperSourceConnectionsInfoArgs', 'MapperSourceConnectionsInfoArgsDict']]]] source_connections_info: List of sources connections that can be used as sources in the CDC.
         :param pulumi.Input[str] status: Status of the CDC as to if it is running or stopped.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MapperTargetConnectionsInfoArgs']]]] target_connections_info: List of target connections that can be used as sources in the CDC.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MapperTargetConnectionsInfoArgs', 'MapperTargetConnectionsInfoArgsDict']]]] target_connections_info: List of target connections that can be used as sources in the CDC.
         """
         ...
     @overload
@@ -237,12 +242,12 @@ class ChangeDataCapture(pulumi.CustomResource):
                  change_data_capture_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  factory_name: Optional[pulumi.Input[str]] = None,
-                 folder: Optional[pulumi.Input[pulumi.InputType['ChangeDataCaptureFolderArgs']]] = None,
-                 policy: Optional[pulumi.Input[pulumi.InputType['MapperPolicyArgs']]] = None,
+                 folder: Optional[pulumi.Input[Union['ChangeDataCaptureFolderArgs', 'ChangeDataCaptureFolderArgsDict']]] = None,
+                 policy: Optional[pulumi.Input[Union['MapperPolicyArgs', 'MapperPolicyArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 source_connections_info: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MapperSourceConnectionsInfoArgs']]]]] = None,
+                 source_connections_info: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MapperSourceConnectionsInfoArgs', 'MapperSourceConnectionsInfoArgsDict']]]]] = None,
                  status: Optional[pulumi.Input[str]] = None,
-                 target_connections_info: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MapperTargetConnectionsInfoArgs']]]]] = None,
+                 target_connections_info: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MapperTargetConnectionsInfoArgs', 'MapperTargetConnectionsInfoArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

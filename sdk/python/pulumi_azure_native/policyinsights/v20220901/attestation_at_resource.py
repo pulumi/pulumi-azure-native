@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -205,7 +210,7 @@ class AttestationAtResource(pulumi.CustomResource):
                  attestation_name: Optional[pulumi.Input[str]] = None,
                  comments: Optional[pulumi.Input[str]] = None,
                  compliance_state: Optional[pulumi.Input[Union[str, 'ComplianceState']]] = None,
-                 evidence: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AttestationEvidenceArgs']]]]] = None,
+                 evidence: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AttestationEvidenceArgs', 'AttestationEvidenceArgsDict']]]]] = None,
                  expires_on: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[Any] = None,
                  owner: Optional[pulumi.Input[str]] = None,
@@ -222,7 +227,7 @@ class AttestationAtResource(pulumi.CustomResource):
         :param pulumi.Input[str] attestation_name: The name of the attestation.
         :param pulumi.Input[str] comments: Comments describing why this attestation was created.
         :param pulumi.Input[Union[str, 'ComplianceState']] compliance_state: The compliance state that should be set on the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AttestationEvidenceArgs']]]] evidence: The evidence supporting the compliance state set in this attestation.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AttestationEvidenceArgs', 'AttestationEvidenceArgsDict']]]] evidence: The evidence supporting the compliance state set in this attestation.
         :param pulumi.Input[str] expires_on: The time the compliance state should expire.
         :param Any metadata: Additional metadata for this attestation
         :param pulumi.Input[str] owner: The person responsible for setting the state of the resource. This value is typically an Azure Active Directory object ID.
@@ -258,7 +263,7 @@ class AttestationAtResource(pulumi.CustomResource):
                  attestation_name: Optional[pulumi.Input[str]] = None,
                  comments: Optional[pulumi.Input[str]] = None,
                  compliance_state: Optional[pulumi.Input[Union[str, 'ComplianceState']]] = None,
-                 evidence: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AttestationEvidenceArgs']]]]] = None,
+                 evidence: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AttestationEvidenceArgs', 'AttestationEvidenceArgsDict']]]]] = None,
                  expires_on: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[Any] = None,
                  owner: Optional[pulumi.Input[str]] = None,

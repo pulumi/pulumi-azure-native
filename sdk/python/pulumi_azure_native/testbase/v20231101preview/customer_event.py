@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -104,7 +109,7 @@ class CustomerEvent(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  customer_event_name: Optional[pulumi.Input[str]] = None,
                  event_name: Optional[pulumi.Input[str]] = None,
-                 receivers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NotificationEventReceiverArgs']]]]] = None,
+                 receivers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NotificationEventReceiverArgs', 'NotificationEventReceiverArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  test_base_account_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -115,7 +120,7 @@ class CustomerEvent(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] customer_event_name: The resource name of the Test Base Customer event.
         :param pulumi.Input[str] event_name: The name of the event subscribed to.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NotificationEventReceiverArgs']]]] receivers: The notification event receivers.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NotificationEventReceiverArgs', 'NotificationEventReceiverArgsDict']]]] receivers: The notification event receivers.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] test_base_account_name: The resource name of the Test Base Account.
         """
@@ -145,7 +150,7 @@ class CustomerEvent(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  customer_event_name: Optional[pulumi.Input[str]] = None,
                  event_name: Optional[pulumi.Input[str]] = None,
-                 receivers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NotificationEventReceiverArgs']]]]] = None,
+                 receivers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NotificationEventReceiverArgs', 'NotificationEventReceiverArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  test_base_account_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):

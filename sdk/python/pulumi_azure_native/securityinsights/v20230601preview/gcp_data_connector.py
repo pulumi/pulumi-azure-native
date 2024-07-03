@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -150,12 +155,12 @@ class GCPDataConnector(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auth: Optional[pulumi.Input[pulumi.InputType['GCPAuthPropertiesArgs']]] = None,
+                 auth: Optional[pulumi.Input[Union['GCPAuthPropertiesArgs', 'GCPAuthPropertiesArgsDict']]] = None,
                  connector_definition_name: Optional[pulumi.Input[str]] = None,
                  data_connector_id: Optional[pulumi.Input[str]] = None,
-                 dcr_config: Optional[pulumi.Input[pulumi.InputType['DCRConfigurationArgs']]] = None,
+                 dcr_config: Optional[pulumi.Input[Union['DCRConfigurationArgs', 'DCRConfigurationArgsDict']]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
-                 request: Optional[pulumi.Input[pulumi.InputType['GCPRequestPropertiesArgs']]] = None,
+                 request: Optional[pulumi.Input[Union['GCPRequestPropertiesArgs', 'GCPRequestPropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -164,13 +169,13 @@ class GCPDataConnector(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['GCPAuthPropertiesArgs']] auth: The auth section of the connector.
+        :param pulumi.Input[Union['GCPAuthPropertiesArgs', 'GCPAuthPropertiesArgsDict']] auth: The auth section of the connector.
         :param pulumi.Input[str] connector_definition_name: The name of the connector definition that represents the UI config.
         :param pulumi.Input[str] data_connector_id: Connector ID
-        :param pulumi.Input[pulumi.InputType['DCRConfigurationArgs']] dcr_config: The configuration of the destination of the data.
+        :param pulumi.Input[Union['DCRConfigurationArgs', 'DCRConfigurationArgsDict']] dcr_config: The configuration of the destination of the data.
         :param pulumi.Input[str] kind: The kind of the data connector
                Expected value is 'GCP'.
-        :param pulumi.Input[pulumi.InputType['GCPRequestPropertiesArgs']] request: The request section of the connector.
+        :param pulumi.Input[Union['GCPRequestPropertiesArgs', 'GCPRequestPropertiesArgsDict']] request: The request section of the connector.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         """
@@ -198,12 +203,12 @@ class GCPDataConnector(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auth: Optional[pulumi.Input[pulumi.InputType['GCPAuthPropertiesArgs']]] = None,
+                 auth: Optional[pulumi.Input[Union['GCPAuthPropertiesArgs', 'GCPAuthPropertiesArgsDict']]] = None,
                  connector_definition_name: Optional[pulumi.Input[str]] = None,
                  data_connector_id: Optional[pulumi.Input[str]] = None,
-                 dcr_config: Optional[pulumi.Input[pulumi.InputType['DCRConfigurationArgs']]] = None,
+                 dcr_config: Optional[pulumi.Input[Union['DCRConfigurationArgs', 'DCRConfigurationArgsDict']]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
-                 request: Optional[pulumi.Input[pulumi.InputType['GCPRequestPropertiesArgs']]] = None,
+                 request: Optional[pulumi.Input[Union['GCPRequestPropertiesArgs', 'GCPRequestPropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):

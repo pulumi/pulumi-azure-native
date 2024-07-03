@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -59,7 +64,7 @@ class AwaitableListIntegrationAccountKeyVaultKeysResult(ListIntegrationAccountKe
 
 
 def list_integration_account_key_vault_keys(integration_account_name: Optional[str] = None,
-                                            key_vault: Optional[pulumi.InputType['KeyVaultReference']] = None,
+                                            key_vault: Optional[Union['KeyVaultReference', 'KeyVaultReferenceDict']] = None,
                                             resource_group_name: Optional[str] = None,
                                             skip_token: Optional[str] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListIntegrationAccountKeyVaultKeysResult:
@@ -69,7 +74,7 @@ def list_integration_account_key_vault_keys(integration_account_name: Optional[s
 
 
     :param str integration_account_name: The integration account name.
-    :param pulumi.InputType['KeyVaultReference'] key_vault: The key vault reference.
+    :param Union['KeyVaultReference', 'KeyVaultReferenceDict'] key_vault: The key vault reference.
     :param str resource_group_name: The resource group name.
     :param str skip_token: The skip token.
     """
@@ -88,7 +93,7 @@ def list_integration_account_key_vault_keys(integration_account_name: Optional[s
 
 @_utilities.lift_output_func(list_integration_account_key_vault_keys)
 def list_integration_account_key_vault_keys_output(integration_account_name: Optional[pulumi.Input[str]] = None,
-                                                   key_vault: Optional[pulumi.Input[pulumi.InputType['KeyVaultReference']]] = None,
+                                                   key_vault: Optional[pulumi.Input[Union['KeyVaultReference', 'KeyVaultReferenceDict']]] = None,
                                                    resource_group_name: Optional[pulumi.Input[str]] = None,
                                                    skip_token: Optional[pulumi.Input[Optional[str]]] = None,
                                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListIntegrationAccountKeyVaultKeysResult]:
@@ -98,7 +103,7 @@ def list_integration_account_key_vault_keys_output(integration_account_name: Opt
 
 
     :param str integration_account_name: The integration account name.
-    :param pulumi.InputType['KeyVaultReference'] key_vault: The key vault reference.
+    :param Union['KeyVaultReference', 'KeyVaultReferenceDict'] key_vault: The key vault reference.
     :param str resource_group_name: The resource group name.
     :param str skip_token: The skip token.
     """

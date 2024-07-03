@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -273,7 +278,7 @@ class BrokerListener(pulumi.CustomResource):
                  authorization_enabled: Optional[pulumi.Input[bool]] = None,
                  broker_name: Optional[pulumi.Input[str]] = None,
                  broker_ref: Optional[pulumi.Input[str]] = None,
-                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationPropertyArgs']]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationPropertyArgs', 'ExtendedLocationPropertyArgsDict']]] = None,
                  listener_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  mq_name: Optional[pulumi.Input[str]] = None,
@@ -283,7 +288,7 @@ class BrokerListener(pulumi.CustomResource):
                  service_name: Optional[pulumi.Input[str]] = None,
                  service_type: Optional[pulumi.Input[Union[str, 'ServiceType']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tls: Optional[pulumi.Input[pulumi.InputType['TlsCertMethodArgs']]] = None,
+                 tls: Optional[pulumi.Input[Union['TlsCertMethodArgs', 'TlsCertMethodArgsDict']]] = None,
                  __props__=None):
         """
         MQ broker/listener resource
@@ -294,7 +299,7 @@ class BrokerListener(pulumi.CustomResource):
         :param pulumi.Input[bool] authorization_enabled: The flag for enabling Authorization policies on Listener Port. false - AllowAll, true - Use Authorization resource rules if present.
         :param pulumi.Input[str] broker_name: Name of MQ broker resource
         :param pulumi.Input[str] broker_ref: The k8s cr/resource reference of mq/broker.
-        :param pulumi.Input[pulumi.InputType['ExtendedLocationPropertyArgs']] extended_location: Extended Location
+        :param pulumi.Input[Union['ExtendedLocationPropertyArgs', 'ExtendedLocationPropertyArgsDict']] extended_location: Extended Location
         :param pulumi.Input[str] listener_name: Name of MQ broker/listener resource
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] mq_name: Name of MQ resource
@@ -304,7 +309,7 @@ class BrokerListener(pulumi.CustomResource):
         :param pulumi.Input[str] service_name: The service name to expose Listener port on.
         :param pulumi.Input[Union[str, 'ServiceType']] service_type: The Kubernetes Service type to deploy for Listener.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[pulumi.InputType['TlsCertMethodArgs']] tls: Defines configuration of a TLS server certificate. NOTE Enum - Only one TLS Cert method is supported
+        :param pulumi.Input[Union['TlsCertMethodArgs', 'TlsCertMethodArgsDict']] tls: Defines configuration of a TLS server certificate. NOTE Enum - Only one TLS Cert method is supported
         """
         ...
     @overload
@@ -334,7 +339,7 @@ class BrokerListener(pulumi.CustomResource):
                  authorization_enabled: Optional[pulumi.Input[bool]] = None,
                  broker_name: Optional[pulumi.Input[str]] = None,
                  broker_ref: Optional[pulumi.Input[str]] = None,
-                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationPropertyArgs']]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationPropertyArgs', 'ExtendedLocationPropertyArgsDict']]] = None,
                  listener_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  mq_name: Optional[pulumi.Input[str]] = None,
@@ -344,7 +349,7 @@ class BrokerListener(pulumi.CustomResource):
                  service_name: Optional[pulumi.Input[str]] = None,
                  service_type: Optional[pulumi.Input[Union[str, 'ServiceType']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tls: Optional[pulumi.Input[pulumi.InputType['TlsCertMethodArgs']]] = None,
+                 tls: Optional[pulumi.Input[Union['TlsCertMethodArgs', 'TlsCertMethodArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

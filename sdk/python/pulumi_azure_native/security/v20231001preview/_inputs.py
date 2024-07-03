@@ -4,96 +4,210 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'AwsEnvironmentDataArgs',
+    'AwsEnvironmentDataArgsDict',
     'AwsOrganizationalDataMasterArgs',
+    'AwsOrganizationalDataMasterArgsDict',
     'AwsOrganizationalDataMemberArgs',
+    'AwsOrganizationalDataMemberArgsDict',
     'AzureDevOpsScopeEnvironmentDataArgs',
+    'AzureDevOpsScopeEnvironmentDataArgsDict',
     'CspmMonitorAwsOfferingNativeCloudConnectionArgs',
+    'CspmMonitorAwsOfferingNativeCloudConnectionArgsDict',
     'CspmMonitorAwsOfferingArgs',
+    'CspmMonitorAwsOfferingArgsDict',
     'CspmMonitorAzureDevOpsOfferingArgs',
+    'CspmMonitorAzureDevOpsOfferingArgsDict',
     'CspmMonitorGcpOfferingNativeCloudConnectionArgs',
+    'CspmMonitorGcpOfferingNativeCloudConnectionArgsDict',
     'CspmMonitorGcpOfferingArgs',
+    'CspmMonitorGcpOfferingArgsDict',
     'CspmMonitorGitLabOfferingArgs',
+    'CspmMonitorGitLabOfferingArgsDict',
     'CspmMonitorGithubOfferingArgs',
+    'CspmMonitorGithubOfferingArgsDict',
     'DefenderCspmAwsOfferingCiemDiscoveryArgs',
+    'DefenderCspmAwsOfferingCiemDiscoveryArgsDict',
     'DefenderCspmAwsOfferingCiemOidcArgs',
+    'DefenderCspmAwsOfferingCiemOidcArgsDict',
     'DefenderCspmAwsOfferingCiemArgs',
+    'DefenderCspmAwsOfferingCiemArgsDict',
     'DefenderCspmAwsOfferingConfigurationArgs',
+    'DefenderCspmAwsOfferingConfigurationArgsDict',
     'DefenderCspmAwsOfferingDataSensitivityDiscoveryArgs',
+    'DefenderCspmAwsOfferingDataSensitivityDiscoveryArgsDict',
     'DefenderCspmAwsOfferingDatabasesDspmArgs',
+    'DefenderCspmAwsOfferingDatabasesDspmArgsDict',
     'DefenderCspmAwsOfferingMdcContainersAgentlessDiscoveryK8sArgs',
+    'DefenderCspmAwsOfferingMdcContainersAgentlessDiscoveryK8sArgsDict',
     'DefenderCspmAwsOfferingMdcContainersImageAssessmentArgs',
+    'DefenderCspmAwsOfferingMdcContainersImageAssessmentArgsDict',
     'DefenderCspmAwsOfferingVmScannersArgs',
+    'DefenderCspmAwsOfferingVmScannersArgsDict',
     'DefenderCspmAwsOfferingArgs',
+    'DefenderCspmAwsOfferingArgsDict',
     'DefenderCspmGcpOfferingCiemDiscoveryArgs',
+    'DefenderCspmGcpOfferingCiemDiscoveryArgsDict',
     'DefenderCspmGcpOfferingConfigurationArgs',
+    'DefenderCspmGcpOfferingConfigurationArgsDict',
     'DefenderCspmGcpOfferingDataSensitivityDiscoveryArgs',
+    'DefenderCspmGcpOfferingDataSensitivityDiscoveryArgsDict',
     'DefenderCspmGcpOfferingMdcContainersAgentlessDiscoveryK8sArgs',
+    'DefenderCspmGcpOfferingMdcContainersAgentlessDiscoveryK8sArgsDict',
     'DefenderCspmGcpOfferingMdcContainersImageAssessmentArgs',
+    'DefenderCspmGcpOfferingMdcContainersImageAssessmentArgsDict',
     'DefenderCspmGcpOfferingVmScannersArgs',
+    'DefenderCspmGcpOfferingVmScannersArgsDict',
     'DefenderCspmGcpOfferingArgs',
+    'DefenderCspmGcpOfferingArgsDict',
     'DefenderFoDatabasesAwsOfferingArcAutoProvisioningArgs',
+    'DefenderFoDatabasesAwsOfferingArcAutoProvisioningArgsDict',
     'DefenderFoDatabasesAwsOfferingConfigurationArgs',
+    'DefenderFoDatabasesAwsOfferingConfigurationArgsDict',
     'DefenderFoDatabasesAwsOfferingDatabasesDspmArgs',
+    'DefenderFoDatabasesAwsOfferingDatabasesDspmArgsDict',
     'DefenderFoDatabasesAwsOfferingRdsArgs',
+    'DefenderFoDatabasesAwsOfferingRdsArgsDict',
     'DefenderFoDatabasesAwsOfferingArgs',
+    'DefenderFoDatabasesAwsOfferingArgsDict',
     'DefenderForContainersAwsOfferingCloudWatchToKinesisArgs',
+    'DefenderForContainersAwsOfferingCloudWatchToKinesisArgsDict',
     'DefenderForContainersAwsOfferingContainerVulnerabilityAssessmentTaskArgs',
+    'DefenderForContainersAwsOfferingContainerVulnerabilityAssessmentTaskArgsDict',
     'DefenderForContainersAwsOfferingContainerVulnerabilityAssessmentArgs',
+    'DefenderForContainersAwsOfferingContainerVulnerabilityAssessmentArgsDict',
     'DefenderForContainersAwsOfferingKinesisToS3Args',
+    'DefenderForContainersAwsOfferingKinesisToS3ArgsDict',
     'DefenderForContainersAwsOfferingKubernetesScubaReaderArgs',
+    'DefenderForContainersAwsOfferingKubernetesScubaReaderArgsDict',
     'DefenderForContainersAwsOfferingKubernetesServiceArgs',
+    'DefenderForContainersAwsOfferingKubernetesServiceArgsDict',
     'DefenderForContainersAwsOfferingMdcContainersAgentlessDiscoveryK8sArgs',
+    'DefenderForContainersAwsOfferingMdcContainersAgentlessDiscoveryK8sArgsDict',
     'DefenderForContainersAwsOfferingMdcContainersImageAssessmentArgs',
+    'DefenderForContainersAwsOfferingMdcContainersImageAssessmentArgsDict',
     'DefenderForContainersAwsOfferingArgs',
+    'DefenderForContainersAwsOfferingArgsDict',
     'DefenderForContainersGcpOfferingDataPipelineNativeCloudConnectionArgs',
+    'DefenderForContainersGcpOfferingDataPipelineNativeCloudConnectionArgsDict',
     'DefenderForContainersGcpOfferingMdcContainersAgentlessDiscoveryK8sArgs',
+    'DefenderForContainersGcpOfferingMdcContainersAgentlessDiscoveryK8sArgsDict',
     'DefenderForContainersGcpOfferingMdcContainersImageAssessmentArgs',
+    'DefenderForContainersGcpOfferingMdcContainersImageAssessmentArgsDict',
     'DefenderForContainersGcpOfferingNativeCloudConnectionArgs',
+    'DefenderForContainersGcpOfferingNativeCloudConnectionArgsDict',
     'DefenderForContainersGcpOfferingArgs',
+    'DefenderForContainersGcpOfferingArgsDict',
     'DefenderForDatabasesGcpOfferingArcAutoProvisioningArgs',
+    'DefenderForDatabasesGcpOfferingArcAutoProvisioningArgsDict',
     'DefenderForDatabasesGcpOfferingConfigurationArgs',
+    'DefenderForDatabasesGcpOfferingConfigurationArgsDict',
     'DefenderForDatabasesGcpOfferingDefenderForDatabasesArcAutoProvisioningArgs',
+    'DefenderForDatabasesGcpOfferingDefenderForDatabasesArcAutoProvisioningArgsDict',
     'DefenderForDatabasesGcpOfferingArgs',
+    'DefenderForDatabasesGcpOfferingArgsDict',
     'DefenderForDevOpsAzureDevOpsOfferingArgs',
+    'DefenderForDevOpsAzureDevOpsOfferingArgsDict',
     'DefenderForDevOpsGitLabOfferingArgs',
+    'DefenderForDevOpsGitLabOfferingArgsDict',
     'DefenderForDevOpsGithubOfferingArgs',
+    'DefenderForDevOpsGithubOfferingArgsDict',
     'DefenderForServersAwsOfferingArcAutoProvisioningArgs',
+    'DefenderForServersAwsOfferingArcAutoProvisioningArgsDict',
     'DefenderForServersAwsOfferingConfigurationConfigurationConfigurationArgs',
+    'DefenderForServersAwsOfferingConfigurationConfigurationConfigurationArgsDict',
     'DefenderForServersAwsOfferingConfigurationConfigurationArgs',
+    'DefenderForServersAwsOfferingConfigurationConfigurationArgsDict',
     'DefenderForServersAwsOfferingConfigurationArgs',
+    'DefenderForServersAwsOfferingConfigurationArgsDict',
     'DefenderForServersAwsOfferingDefenderForServersArgs',
+    'DefenderForServersAwsOfferingDefenderForServersArgsDict',
     'DefenderForServersAwsOfferingMdeAutoProvisioningArgs',
+    'DefenderForServersAwsOfferingMdeAutoProvisioningArgsDict',
     'DefenderForServersAwsOfferingSubPlanArgs',
+    'DefenderForServersAwsOfferingSubPlanArgsDict',
     'DefenderForServersAwsOfferingVaAutoProvisioningArgs',
+    'DefenderForServersAwsOfferingVaAutoProvisioningArgsDict',
     'DefenderForServersAwsOfferingVmScannersArgs',
+    'DefenderForServersAwsOfferingVmScannersArgsDict',
     'DefenderForServersAwsOfferingArgs',
+    'DefenderForServersAwsOfferingArgsDict',
     'DefenderForServersGcpOfferingArcAutoProvisioningArgs',
+    'DefenderForServersGcpOfferingArcAutoProvisioningArgsDict',
     'DefenderForServersGcpOfferingConfigurationConfigurationConfigurationArgs',
+    'DefenderForServersGcpOfferingConfigurationConfigurationConfigurationArgsDict',
     'DefenderForServersGcpOfferingConfigurationConfigurationArgs',
+    'DefenderForServersGcpOfferingConfigurationConfigurationArgsDict',
     'DefenderForServersGcpOfferingConfigurationArgs',
+    'DefenderForServersGcpOfferingConfigurationArgsDict',
     'DefenderForServersGcpOfferingDefenderForServersArgs',
+    'DefenderForServersGcpOfferingDefenderForServersArgsDict',
     'DefenderForServersGcpOfferingMdeAutoProvisioningArgs',
+    'DefenderForServersGcpOfferingMdeAutoProvisioningArgsDict',
     'DefenderForServersGcpOfferingSubPlanArgs',
+    'DefenderForServersGcpOfferingSubPlanArgsDict',
     'DefenderForServersGcpOfferingVaAutoProvisioningArgs',
+    'DefenderForServersGcpOfferingVaAutoProvisioningArgsDict',
     'DefenderForServersGcpOfferingVmScannersArgs',
+    'DefenderForServersGcpOfferingVmScannersArgsDict',
     'DefenderForServersGcpOfferingArgs',
+    'DefenderForServersGcpOfferingArgsDict',
     'GcpOrganizationalDataMemberArgs',
+    'GcpOrganizationalDataMemberArgsDict',
     'GcpOrganizationalDataOrganizationArgs',
+    'GcpOrganizationalDataOrganizationArgsDict',
     'GcpProjectDetailsArgs',
+    'GcpProjectDetailsArgsDict',
     'GcpProjectEnvironmentDataArgs',
+    'GcpProjectEnvironmentDataArgsDict',
     'GithubScopeEnvironmentDataArgs',
+    'GithubScopeEnvironmentDataArgsDict',
     'GitlabScopeEnvironmentDataArgs',
+    'GitlabScopeEnvironmentDataArgsDict',
     'InformationProtectionAwsOfferingInformationProtectionArgs',
+    'InformationProtectionAwsOfferingInformationProtectionArgsDict',
     'InformationProtectionAwsOfferingArgs',
+    'InformationProtectionAwsOfferingArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AwsEnvironmentDataArgsDict(TypedDict):
+        """
+        The AWS connector environment data
+        """
+        environment_type: pulumi.Input[str]
+        """
+        The type of the environment data.
+        Expected value is 'AwsAccount'.
+        """
+        organizational_data: NotRequired[pulumi.Input[Union['AwsOrganizationalDataMasterArgsDict', 'AwsOrganizationalDataMemberArgsDict']]]
+        """
+        The AWS account's organizational data
+        """
+        regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        list of regions to scan
+        """
+        scan_interval: NotRequired[pulumi.Input[float]]
+        """
+        Scan interval in hours (value should be between 1-hour to 24-hours)
+        """
+elif False:
+    AwsEnvironmentDataArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AwsEnvironmentDataArgs:
@@ -168,6 +282,27 @@ class AwsEnvironmentDataArgs:
         pulumi.set(self, "scan_interval", value)
 
 
+if not MYPY:
+    class AwsOrganizationalDataMasterArgsDict(TypedDict):
+        """
+        The AWS organization data for the master account
+        """
+        organization_membership_type: pulumi.Input[str]
+        """
+        The multi cloud account's membership type in the organization
+        Expected value is 'Organization'.
+        """
+        excluded_account_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        If the multi cloud account is of membership type organization, list of accounts excluded from offering
+        """
+        stackset_name: NotRequired[pulumi.Input[str]]
+        """
+        If the multi cloud account is of membership type organization, this will be the name of the onboarding stackset
+        """
+elif False:
+    AwsOrganizationalDataMasterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AwsOrganizationalDataMasterArgs:
     def __init__(__self__, *,
@@ -225,6 +360,23 @@ class AwsOrganizationalDataMasterArgs:
         pulumi.set(self, "stackset_name", value)
 
 
+if not MYPY:
+    class AwsOrganizationalDataMemberArgsDict(TypedDict):
+        """
+        The AWS organization data for the member account
+        """
+        organization_membership_type: pulumi.Input[str]
+        """
+        The multi cloud account's membership type in the organization
+        Expected value is 'Member'.
+        """
+        parent_hierarchy_id: NotRequired[pulumi.Input[str]]
+        """
+        If the multi cloud account is not of membership type organization, this will be the ID of the account's parent
+        """
+elif False:
+    AwsOrganizationalDataMemberArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AwsOrganizationalDataMemberArgs:
     def __init__(__self__, *,
@@ -266,6 +418,19 @@ class AwsOrganizationalDataMemberArgs:
         pulumi.set(self, "parent_hierarchy_id", value)
 
 
+if not MYPY:
+    class AzureDevOpsScopeEnvironmentDataArgsDict(TypedDict):
+        """
+        The AzureDevOps scope connector's environment data
+        """
+        environment_type: pulumi.Input[str]
+        """
+        The type of the environment data.
+        Expected value is 'AzureDevOpsScope'.
+        """
+elif False:
+    AzureDevOpsScopeEnvironmentDataArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AzureDevOpsScopeEnvironmentDataArgs:
     def __init__(__self__, *,
@@ -291,6 +456,18 @@ class AzureDevOpsScopeEnvironmentDataArgs:
         pulumi.set(self, "environment_type", value)
 
 
+if not MYPY:
+    class CspmMonitorAwsOfferingNativeCloudConnectionArgsDict(TypedDict):
+        """
+        The native cloud connection configuration
+        """
+        cloud_role_arn: NotRequired[pulumi.Input[str]]
+        """
+        The cloud role ARN in AWS for this feature
+        """
+elif False:
+    CspmMonitorAwsOfferingNativeCloudConnectionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CspmMonitorAwsOfferingNativeCloudConnectionArgs:
     def __init__(__self__, *,
@@ -314,6 +491,23 @@ class CspmMonitorAwsOfferingNativeCloudConnectionArgs:
     def cloud_role_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "cloud_role_arn", value)
 
+
+if not MYPY:
+    class CspmMonitorAwsOfferingArgsDict(TypedDict):
+        """
+        The CSPM monitoring for AWS offering
+        """
+        offering_type: pulumi.Input[str]
+        """
+        The type of the security offering.
+        Expected value is 'CspmMonitorAws'.
+        """
+        native_cloud_connection: NotRequired[pulumi.Input['CspmMonitorAwsOfferingNativeCloudConnectionArgsDict']]
+        """
+        The native cloud connection configuration
+        """
+elif False:
+    CspmMonitorAwsOfferingArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CspmMonitorAwsOfferingArgs:
@@ -356,6 +550,19 @@ class CspmMonitorAwsOfferingArgs:
         pulumi.set(self, "native_cloud_connection", value)
 
 
+if not MYPY:
+    class CspmMonitorAzureDevOpsOfferingArgsDict(TypedDict):
+        """
+        The CSPM monitoring for AzureDevOps offering
+        """
+        offering_type: pulumi.Input[str]
+        """
+        The type of the security offering.
+        Expected value is 'CspmMonitorAzureDevOps'.
+        """
+elif False:
+    CspmMonitorAzureDevOpsOfferingArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CspmMonitorAzureDevOpsOfferingArgs:
     def __init__(__self__, *,
@@ -380,6 +587,22 @@ class CspmMonitorAzureDevOpsOfferingArgs:
     def offering_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "offering_type", value)
 
+
+if not MYPY:
+    class CspmMonitorGcpOfferingNativeCloudConnectionArgsDict(TypedDict):
+        """
+        The native cloud connection configuration
+        """
+        service_account_email_address: NotRequired[pulumi.Input[str]]
+        """
+        The service account email address in GCP for this offering
+        """
+        workload_identity_provider_id: NotRequired[pulumi.Input[str]]
+        """
+        The GCP workload identity provider id for the offering
+        """
+elif False:
+    CspmMonitorGcpOfferingNativeCloudConnectionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CspmMonitorGcpOfferingNativeCloudConnectionArgs:
@@ -420,6 +643,23 @@ class CspmMonitorGcpOfferingNativeCloudConnectionArgs:
     def workload_identity_provider_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "workload_identity_provider_id", value)
 
+
+if not MYPY:
+    class CspmMonitorGcpOfferingArgsDict(TypedDict):
+        """
+        The CSPM monitoring for GCP offering
+        """
+        offering_type: pulumi.Input[str]
+        """
+        The type of the security offering.
+        Expected value is 'CspmMonitorGcp'.
+        """
+        native_cloud_connection: NotRequired[pulumi.Input['CspmMonitorGcpOfferingNativeCloudConnectionArgsDict']]
+        """
+        The native cloud connection configuration
+        """
+elif False:
+    CspmMonitorGcpOfferingArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CspmMonitorGcpOfferingArgs:
@@ -462,6 +702,19 @@ class CspmMonitorGcpOfferingArgs:
         pulumi.set(self, "native_cloud_connection", value)
 
 
+if not MYPY:
+    class CspmMonitorGitLabOfferingArgsDict(TypedDict):
+        """
+        The CSPM (Cloud security posture management) monitoring for gitlab offering
+        """
+        offering_type: pulumi.Input[str]
+        """
+        The type of the security offering.
+        Expected value is 'CspmMonitorGitLab'.
+        """
+elif False:
+    CspmMonitorGitLabOfferingArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CspmMonitorGitLabOfferingArgs:
     def __init__(__self__, *,
@@ -486,6 +739,19 @@ class CspmMonitorGitLabOfferingArgs:
     def offering_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "offering_type", value)
 
+
+if not MYPY:
+    class CspmMonitorGithubOfferingArgsDict(TypedDict):
+        """
+        The CSPM monitoring for github offering
+        """
+        offering_type: pulumi.Input[str]
+        """
+        The type of the security offering.
+        Expected value is 'CspmMonitorGithub'.
+        """
+elif False:
+    CspmMonitorGithubOfferingArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CspmMonitorGithubOfferingArgs:
@@ -512,6 +778,18 @@ class CspmMonitorGithubOfferingArgs:
         pulumi.set(self, "offering_type", value)
 
 
+if not MYPY:
+    class DefenderCspmAwsOfferingCiemDiscoveryArgsDict(TypedDict):
+        """
+        Defender CSPM CIEM discovery configuration
+        """
+        cloud_role_arn: NotRequired[pulumi.Input[str]]
+        """
+        The cloud role ARN in AWS for CIEM discovery
+        """
+elif False:
+    DefenderCspmAwsOfferingCiemDiscoveryArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DefenderCspmAwsOfferingCiemDiscoveryArgs:
     def __init__(__self__, *,
@@ -535,6 +813,22 @@ class DefenderCspmAwsOfferingCiemDiscoveryArgs:
     def cloud_role_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "cloud_role_arn", value)
 
+
+if not MYPY:
+    class DefenderCspmAwsOfferingCiemOidcArgsDict(TypedDict):
+        """
+        Defender CSPM CIEM AWS OIDC (open id connect) configuration
+        """
+        azure_active_directory_app_name: NotRequired[pulumi.Input[str]]
+        """
+        the azure active directory app name used of authenticating against AWS
+        """
+        cloud_role_arn: NotRequired[pulumi.Input[str]]
+        """
+        The cloud role ARN in AWS for CIEM oidc connection
+        """
+elif False:
+    DefenderCspmAwsOfferingCiemOidcArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DefenderCspmAwsOfferingCiemOidcArgs:
@@ -576,6 +870,22 @@ class DefenderCspmAwsOfferingCiemOidcArgs:
         pulumi.set(self, "cloud_role_arn", value)
 
 
+if not MYPY:
+    class DefenderCspmAwsOfferingCiemArgsDict(TypedDict):
+        """
+        Defenders CSPM Cloud infrastructure entitlement management (CIEM) offering configurations
+        """
+        ciem_discovery: NotRequired[pulumi.Input['DefenderCspmAwsOfferingCiemDiscoveryArgsDict']]
+        """
+        Defender CSPM CIEM discovery configuration
+        """
+        ciem_oidc: NotRequired[pulumi.Input['DefenderCspmAwsOfferingCiemOidcArgsDict']]
+        """
+        Defender CSPM CIEM AWS OIDC (open id connect) configuration
+        """
+elif False:
+    DefenderCspmAwsOfferingCiemArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DefenderCspmAwsOfferingCiemArgs:
     def __init__(__self__, *,
@@ -615,6 +925,26 @@ class DefenderCspmAwsOfferingCiemArgs:
     def ciem_oidc(self, value: Optional[pulumi.Input['DefenderCspmAwsOfferingCiemOidcArgs']]):
         pulumi.set(self, "ciem_oidc", value)
 
+
+if not MYPY:
+    class DefenderCspmAwsOfferingConfigurationArgsDict(TypedDict):
+        """
+        configuration for Microsoft Defender for Server VM scanning
+        """
+        cloud_role_arn: NotRequired[pulumi.Input[str]]
+        """
+        The cloud role ARN in AWS for this feature
+        """
+        exclusion_tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        VM tags that indicates that VM should not be scanned
+        """
+        scanning_mode: NotRequired[pulumi.Input[Union[str, 'ScanningMode']]]
+        """
+        The scanning mode for the VM scan.
+        """
+elif False:
+    DefenderCspmAwsOfferingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DefenderCspmAwsOfferingConfigurationArgs:
@@ -672,6 +1002,22 @@ class DefenderCspmAwsOfferingConfigurationArgs:
         pulumi.set(self, "scanning_mode", value)
 
 
+if not MYPY:
+    class DefenderCspmAwsOfferingDataSensitivityDiscoveryArgsDict(TypedDict):
+        """
+        The Microsoft Defender Data Sensitivity discovery configuration
+        """
+        cloud_role_arn: NotRequired[pulumi.Input[str]]
+        """
+        The cloud role ARN in AWS for this feature
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is Microsoft Defender Data Sensitivity discovery enabled
+        """
+elif False:
+    DefenderCspmAwsOfferingDataSensitivityDiscoveryArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DefenderCspmAwsOfferingDataSensitivityDiscoveryArgs:
     def __init__(__self__, *,
@@ -711,6 +1057,22 @@ class DefenderCspmAwsOfferingDataSensitivityDiscoveryArgs:
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
 
+
+if not MYPY:
+    class DefenderCspmAwsOfferingDatabasesDspmArgsDict(TypedDict):
+        """
+        The databases DSPM configuration
+        """
+        cloud_role_arn: NotRequired[pulumi.Input[str]]
+        """
+        The cloud role ARN in AWS for this feature
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is databases DSPM protection enabled
+        """
+elif False:
+    DefenderCspmAwsOfferingDatabasesDspmArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DefenderCspmAwsOfferingDatabasesDspmArgs:
@@ -752,6 +1114,22 @@ class DefenderCspmAwsOfferingDatabasesDspmArgs:
         pulumi.set(self, "enabled", value)
 
 
+if not MYPY:
+    class DefenderCspmAwsOfferingMdcContainersAgentlessDiscoveryK8sArgsDict(TypedDict):
+        """
+        The Microsoft Defender container agentless discovery K8s configuration
+        """
+        cloud_role_arn: NotRequired[pulumi.Input[str]]
+        """
+        The cloud role ARN in AWS for this feature
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is Microsoft Defender container agentless discovery K8s enabled
+        """
+elif False:
+    DefenderCspmAwsOfferingMdcContainersAgentlessDiscoveryK8sArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DefenderCspmAwsOfferingMdcContainersAgentlessDiscoveryK8sArgs:
     def __init__(__self__, *,
@@ -791,6 +1169,22 @@ class DefenderCspmAwsOfferingMdcContainersAgentlessDiscoveryK8sArgs:
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
 
+
+if not MYPY:
+    class DefenderCspmAwsOfferingMdcContainersImageAssessmentArgsDict(TypedDict):
+        """
+        The Microsoft Defender container image assessment configuration
+        """
+        cloud_role_arn: NotRequired[pulumi.Input[str]]
+        """
+        The cloud role ARN in AWS for this feature
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is Microsoft Defender container image assessment enabled
+        """
+elif False:
+    DefenderCspmAwsOfferingMdcContainersImageAssessmentArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DefenderCspmAwsOfferingMdcContainersImageAssessmentArgs:
@@ -832,6 +1226,22 @@ class DefenderCspmAwsOfferingMdcContainersImageAssessmentArgs:
         pulumi.set(self, "enabled", value)
 
 
+if not MYPY:
+    class DefenderCspmAwsOfferingVmScannersArgsDict(TypedDict):
+        """
+        The Microsoft Defender for Server VM scanning configuration
+        """
+        configuration: NotRequired[pulumi.Input['DefenderCspmAwsOfferingConfigurationArgsDict']]
+        """
+        configuration for Microsoft Defender for Server VM scanning
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is Microsoft Defender for Server VM scanning enabled
+        """
+elif False:
+    DefenderCspmAwsOfferingVmScannersArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DefenderCspmAwsOfferingVmScannersArgs:
     def __init__(__self__, *,
@@ -871,6 +1281,43 @@ class DefenderCspmAwsOfferingVmScannersArgs:
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
 
+
+if not MYPY:
+    class DefenderCspmAwsOfferingArgsDict(TypedDict):
+        """
+        The CSPM P1 for AWS offering
+        """
+        offering_type: pulumi.Input[str]
+        """
+        The type of the security offering.
+        Expected value is 'DefenderCspmAws'.
+        """
+        ciem: NotRequired[pulumi.Input['DefenderCspmAwsOfferingCiemArgsDict']]
+        """
+        Defenders CSPM Cloud infrastructure entitlement management (CIEM) offering configurations
+        """
+        data_sensitivity_discovery: NotRequired[pulumi.Input['DefenderCspmAwsOfferingDataSensitivityDiscoveryArgsDict']]
+        """
+        The Microsoft Defender Data Sensitivity discovery configuration
+        """
+        databases_dspm: NotRequired[pulumi.Input['DefenderCspmAwsOfferingDatabasesDspmArgsDict']]
+        """
+        The databases DSPM configuration
+        """
+        mdc_containers_agentless_discovery_k8s: NotRequired[pulumi.Input['DefenderCspmAwsOfferingMdcContainersAgentlessDiscoveryK8sArgsDict']]
+        """
+        The Microsoft Defender container agentless discovery K8s configuration
+        """
+        mdc_containers_image_assessment: NotRequired[pulumi.Input['DefenderCspmAwsOfferingMdcContainersImageAssessmentArgsDict']]
+        """
+        The Microsoft Defender container image assessment configuration
+        """
+        vm_scanners: NotRequired[pulumi.Input['DefenderCspmAwsOfferingVmScannersArgsDict']]
+        """
+        The Microsoft Defender for Server VM scanning configuration
+        """
+elif False:
+    DefenderCspmAwsOfferingArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DefenderCspmAwsOfferingArgs:
@@ -993,6 +1440,26 @@ class DefenderCspmAwsOfferingArgs:
         pulumi.set(self, "vm_scanners", value)
 
 
+if not MYPY:
+    class DefenderCspmGcpOfferingCiemDiscoveryArgsDict(TypedDict):
+        """
+        GCP Defenders CSPM Cloud infrastructure entitlement management (CIEM) discovery offering configurations
+        """
+        azure_active_directory_app_name: NotRequired[pulumi.Input[str]]
+        """
+        the azure active directory app name used of authenticating against GCP workload identity federation
+        """
+        service_account_email_address: NotRequired[pulumi.Input[str]]
+        """
+        The service account email address in GCP for CIEM discovery offering
+        """
+        workload_identity_provider_id: NotRequired[pulumi.Input[str]]
+        """
+        The GCP workload identity provider id for CIEM discovery offering
+        """
+elif False:
+    DefenderCspmGcpOfferingCiemDiscoveryArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DefenderCspmGcpOfferingCiemDiscoveryArgs:
     def __init__(__self__, *,
@@ -1049,6 +1516,22 @@ class DefenderCspmGcpOfferingCiemDiscoveryArgs:
         pulumi.set(self, "workload_identity_provider_id", value)
 
 
+if not MYPY:
+    class DefenderCspmGcpOfferingConfigurationArgsDict(TypedDict):
+        """
+        configuration for Microsoft Defender for Server VM scanning
+        """
+        exclusion_tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        VM tags that indicates that VM should not be scanned
+        """
+        scanning_mode: NotRequired[pulumi.Input[Union[str, 'ScanningMode']]]
+        """
+        The scanning mode for the VM scan.
+        """
+elif False:
+    DefenderCspmGcpOfferingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DefenderCspmGcpOfferingConfigurationArgs:
     def __init__(__self__, *,
@@ -1088,6 +1571,26 @@ class DefenderCspmGcpOfferingConfigurationArgs:
     def scanning_mode(self, value: Optional[pulumi.Input[Union[str, 'ScanningMode']]]):
         pulumi.set(self, "scanning_mode", value)
 
+
+if not MYPY:
+    class DefenderCspmGcpOfferingDataSensitivityDiscoveryArgsDict(TypedDict):
+        """
+        The Microsoft Defender Data Sensitivity discovery configuration
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is Microsoft Defender Data Sensitivity discovery enabled
+        """
+        service_account_email_address: NotRequired[pulumi.Input[str]]
+        """
+        The service account email address in GCP for this feature
+        """
+        workload_identity_provider_id: NotRequired[pulumi.Input[str]]
+        """
+        The workload identity provider id in GCP for this feature
+        """
+elif False:
+    DefenderCspmGcpOfferingDataSensitivityDiscoveryArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DefenderCspmGcpOfferingDataSensitivityDiscoveryArgs:
@@ -1145,6 +1648,26 @@ class DefenderCspmGcpOfferingDataSensitivityDiscoveryArgs:
         pulumi.set(self, "workload_identity_provider_id", value)
 
 
+if not MYPY:
+    class DefenderCspmGcpOfferingMdcContainersAgentlessDiscoveryK8sArgsDict(TypedDict):
+        """
+        The Microsoft Defender Container agentless discovery configuration
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is Microsoft Defender container agentless discovery enabled
+        """
+        service_account_email_address: NotRequired[pulumi.Input[str]]
+        """
+        The service account email address in GCP for this feature
+        """
+        workload_identity_provider_id: NotRequired[pulumi.Input[str]]
+        """
+        The workload identity provider id in GCP for this feature
+        """
+elif False:
+    DefenderCspmGcpOfferingMdcContainersAgentlessDiscoveryK8sArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DefenderCspmGcpOfferingMdcContainersAgentlessDiscoveryK8sArgs:
     def __init__(__self__, *,
@@ -1200,6 +1723,26 @@ class DefenderCspmGcpOfferingMdcContainersAgentlessDiscoveryK8sArgs:
     def workload_identity_provider_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "workload_identity_provider_id", value)
 
+
+if not MYPY:
+    class DefenderCspmGcpOfferingMdcContainersImageAssessmentArgsDict(TypedDict):
+        """
+        The Microsoft Defender Container image assessment configuration
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is Microsoft Defender container image assessment enabled
+        """
+        service_account_email_address: NotRequired[pulumi.Input[str]]
+        """
+        The service account email address in GCP for this feature
+        """
+        workload_identity_provider_id: NotRequired[pulumi.Input[str]]
+        """
+        The workload identity provider id in GCP for this feature
+        """
+elif False:
+    DefenderCspmGcpOfferingMdcContainersImageAssessmentArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DefenderCspmGcpOfferingMdcContainersImageAssessmentArgs:
@@ -1257,6 +1800,22 @@ class DefenderCspmGcpOfferingMdcContainersImageAssessmentArgs:
         pulumi.set(self, "workload_identity_provider_id", value)
 
 
+if not MYPY:
+    class DefenderCspmGcpOfferingVmScannersArgsDict(TypedDict):
+        """
+        The Microsoft Defender for Server VM scanning configuration
+        """
+        configuration: NotRequired[pulumi.Input['DefenderCspmGcpOfferingConfigurationArgsDict']]
+        """
+        configuration for Microsoft Defender for Server VM scanning
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is Microsoft Defender for Server VM scanning enabled
+        """
+elif False:
+    DefenderCspmGcpOfferingVmScannersArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DefenderCspmGcpOfferingVmScannersArgs:
     def __init__(__self__, *,
@@ -1296,6 +1855,39 @@ class DefenderCspmGcpOfferingVmScannersArgs:
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
 
+
+if not MYPY:
+    class DefenderCspmGcpOfferingArgsDict(TypedDict):
+        """
+        The CSPM P1 for GCP offering
+        """
+        offering_type: pulumi.Input[str]
+        """
+        The type of the security offering.
+        Expected value is 'DefenderCspmGcp'.
+        """
+        ciem_discovery: NotRequired[pulumi.Input['DefenderCspmGcpOfferingCiemDiscoveryArgsDict']]
+        """
+        GCP Defenders CSPM Cloud infrastructure entitlement management (CIEM) discovery offering configurations
+        """
+        data_sensitivity_discovery: NotRequired[pulumi.Input['DefenderCspmGcpOfferingDataSensitivityDiscoveryArgsDict']]
+        """
+        The Microsoft Defender Data Sensitivity discovery configuration
+        """
+        mdc_containers_agentless_discovery_k8s: NotRequired[pulumi.Input['DefenderCspmGcpOfferingMdcContainersAgentlessDiscoveryK8sArgsDict']]
+        """
+        The Microsoft Defender Container agentless discovery configuration
+        """
+        mdc_containers_image_assessment: NotRequired[pulumi.Input['DefenderCspmGcpOfferingMdcContainersImageAssessmentArgsDict']]
+        """
+        The Microsoft Defender Container image assessment configuration
+        """
+        vm_scanners: NotRequired[pulumi.Input['DefenderCspmGcpOfferingVmScannersArgsDict']]
+        """
+        The Microsoft Defender for Server VM scanning configuration
+        """
+elif False:
+    DefenderCspmGcpOfferingArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DefenderCspmGcpOfferingArgs:
@@ -1402,6 +1994,26 @@ class DefenderCspmGcpOfferingArgs:
         pulumi.set(self, "vm_scanners", value)
 
 
+if not MYPY:
+    class DefenderFoDatabasesAwsOfferingArcAutoProvisioningArgsDict(TypedDict):
+        """
+        The ARC autoprovisioning configuration
+        """
+        cloud_role_arn: NotRequired[pulumi.Input[str]]
+        """
+        The cloud role ARN in AWS for this feature
+        """
+        configuration: NotRequired[pulumi.Input['DefenderFoDatabasesAwsOfferingConfigurationArgsDict']]
+        """
+        Configuration for servers Arc auto provisioning
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is arc auto provisioning enabled
+        """
+elif False:
+    DefenderFoDatabasesAwsOfferingArcAutoProvisioningArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DefenderFoDatabasesAwsOfferingArcAutoProvisioningArgs:
     def __init__(__self__, *,
@@ -1458,6 +2070,22 @@ class DefenderFoDatabasesAwsOfferingArcAutoProvisioningArgs:
         pulumi.set(self, "enabled", value)
 
 
+if not MYPY:
+    class DefenderFoDatabasesAwsOfferingConfigurationArgsDict(TypedDict):
+        """
+        Configuration for servers Arc auto provisioning
+        """
+        private_link_scope: NotRequired[pulumi.Input[str]]
+        """
+        Optional Arc private link scope resource id to link the Arc agent
+        """
+        proxy: NotRequired[pulumi.Input[str]]
+        """
+        Optional http proxy endpoint to use for the Arc agent
+        """
+elif False:
+    DefenderFoDatabasesAwsOfferingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DefenderFoDatabasesAwsOfferingConfigurationArgs:
     def __init__(__self__, *,
@@ -1497,6 +2125,22 @@ class DefenderFoDatabasesAwsOfferingConfigurationArgs:
     def proxy(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "proxy", value)
 
+
+if not MYPY:
+    class DefenderFoDatabasesAwsOfferingDatabasesDspmArgsDict(TypedDict):
+        """
+        The databases data security posture management (DSPM) configuration
+        """
+        cloud_role_arn: NotRequired[pulumi.Input[str]]
+        """
+        The cloud role ARN in AWS for this feature
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is databases data security posture management (DSPM) protection enabled
+        """
+elif False:
+    DefenderFoDatabasesAwsOfferingDatabasesDspmArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DefenderFoDatabasesAwsOfferingDatabasesDspmArgs:
@@ -1538,6 +2182,22 @@ class DefenderFoDatabasesAwsOfferingDatabasesDspmArgs:
         pulumi.set(self, "enabled", value)
 
 
+if not MYPY:
+    class DefenderFoDatabasesAwsOfferingRdsArgsDict(TypedDict):
+        """
+        The RDS configuration
+        """
+        cloud_role_arn: NotRequired[pulumi.Input[str]]
+        """
+        The cloud role ARN in AWS for this feature
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is RDS protection enabled
+        """
+elif False:
+    DefenderFoDatabasesAwsOfferingRdsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DefenderFoDatabasesAwsOfferingRdsArgs:
     def __init__(__self__, *,
@@ -1577,6 +2237,31 @@ class DefenderFoDatabasesAwsOfferingRdsArgs:
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
 
+
+if not MYPY:
+    class DefenderFoDatabasesAwsOfferingArgsDict(TypedDict):
+        """
+        The Defender for Databases AWS offering
+        """
+        offering_type: pulumi.Input[str]
+        """
+        The type of the security offering.
+        Expected value is 'DefenderForDatabasesAws'.
+        """
+        arc_auto_provisioning: NotRequired[pulumi.Input['DefenderFoDatabasesAwsOfferingArcAutoProvisioningArgsDict']]
+        """
+        The ARC autoprovisioning configuration
+        """
+        databases_dspm: NotRequired[pulumi.Input['DefenderFoDatabasesAwsOfferingDatabasesDspmArgsDict']]
+        """
+        The databases data security posture management (DSPM) configuration
+        """
+        rds: NotRequired[pulumi.Input['DefenderFoDatabasesAwsOfferingRdsArgsDict']]
+        """
+        The RDS configuration
+        """
+elif False:
+    DefenderFoDatabasesAwsOfferingArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DefenderFoDatabasesAwsOfferingArgs:
@@ -1651,6 +2336,18 @@ class DefenderFoDatabasesAwsOfferingArgs:
         pulumi.set(self, "rds", value)
 
 
+if not MYPY:
+    class DefenderForContainersAwsOfferingCloudWatchToKinesisArgsDict(TypedDict):
+        """
+        The cloudwatch to kinesis connection configuration
+        """
+        cloud_role_arn: NotRequired[pulumi.Input[str]]
+        """
+        The cloud role ARN in AWS used by CloudWatch to transfer data into Kinesis
+        """
+elif False:
+    DefenderForContainersAwsOfferingCloudWatchToKinesisArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DefenderForContainersAwsOfferingCloudWatchToKinesisArgs:
     def __init__(__self__, *,
@@ -1674,6 +2371,18 @@ class DefenderForContainersAwsOfferingCloudWatchToKinesisArgs:
     def cloud_role_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "cloud_role_arn", value)
 
+
+if not MYPY:
+    class DefenderForContainersAwsOfferingContainerVulnerabilityAssessmentTaskArgsDict(TypedDict):
+        """
+        The container vulnerability assessment task configuration
+        """
+        cloud_role_arn: NotRequired[pulumi.Input[str]]
+        """
+        The cloud role ARN in AWS for this feature
+        """
+elif False:
+    DefenderForContainersAwsOfferingContainerVulnerabilityAssessmentTaskArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DefenderForContainersAwsOfferingContainerVulnerabilityAssessmentTaskArgs:
@@ -1699,6 +2408,18 @@ class DefenderForContainersAwsOfferingContainerVulnerabilityAssessmentTaskArgs:
         pulumi.set(self, "cloud_role_arn", value)
 
 
+if not MYPY:
+    class DefenderForContainersAwsOfferingContainerVulnerabilityAssessmentArgsDict(TypedDict):
+        """
+        The container vulnerability assessment configuration
+        """
+        cloud_role_arn: NotRequired[pulumi.Input[str]]
+        """
+        The cloud role ARN in AWS for this feature
+        """
+elif False:
+    DefenderForContainersAwsOfferingContainerVulnerabilityAssessmentArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DefenderForContainersAwsOfferingContainerVulnerabilityAssessmentArgs:
     def __init__(__self__, *,
@@ -1722,6 +2443,18 @@ class DefenderForContainersAwsOfferingContainerVulnerabilityAssessmentArgs:
     def cloud_role_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "cloud_role_arn", value)
 
+
+if not MYPY:
+    class DefenderForContainersAwsOfferingKinesisToS3ArgsDict(TypedDict):
+        """
+        The kinesis to s3 connection configuration
+        """
+        cloud_role_arn: NotRequired[pulumi.Input[str]]
+        """
+        The cloud role ARN in AWS used by Kinesis to transfer data into S3
+        """
+elif False:
+    DefenderForContainersAwsOfferingKinesisToS3ArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DefenderForContainersAwsOfferingKinesisToS3Args:
@@ -1747,6 +2480,18 @@ class DefenderForContainersAwsOfferingKinesisToS3Args:
         pulumi.set(self, "cloud_role_arn", value)
 
 
+if not MYPY:
+    class DefenderForContainersAwsOfferingKubernetesScubaReaderArgsDict(TypedDict):
+        """
+        The kubernetes to scuba connection configuration
+        """
+        cloud_role_arn: NotRequired[pulumi.Input[str]]
+        """
+        The cloud role ARN in AWS for this feature used for reading data
+        """
+elif False:
+    DefenderForContainersAwsOfferingKubernetesScubaReaderArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DefenderForContainersAwsOfferingKubernetesScubaReaderArgs:
     def __init__(__self__, *,
@@ -1771,6 +2516,18 @@ class DefenderForContainersAwsOfferingKubernetesScubaReaderArgs:
         pulumi.set(self, "cloud_role_arn", value)
 
 
+if not MYPY:
+    class DefenderForContainersAwsOfferingKubernetesServiceArgsDict(TypedDict):
+        """
+        The kubernetes service connection configuration
+        """
+        cloud_role_arn: NotRequired[pulumi.Input[str]]
+        """
+        The cloud role ARN in AWS for this feature used for provisioning resources
+        """
+elif False:
+    DefenderForContainersAwsOfferingKubernetesServiceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DefenderForContainersAwsOfferingKubernetesServiceArgs:
     def __init__(__self__, *,
@@ -1794,6 +2551,22 @@ class DefenderForContainersAwsOfferingKubernetesServiceArgs:
     def cloud_role_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "cloud_role_arn", value)
 
+
+if not MYPY:
+    class DefenderForContainersAwsOfferingMdcContainersAgentlessDiscoveryK8sArgsDict(TypedDict):
+        """
+        The Microsoft Defender container agentless discovery K8s configuration
+        """
+        cloud_role_arn: NotRequired[pulumi.Input[str]]
+        """
+        The cloud role ARN in AWS for this feature
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is Microsoft Defender container agentless discovery K8s enabled
+        """
+elif False:
+    DefenderForContainersAwsOfferingMdcContainersAgentlessDiscoveryK8sArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DefenderForContainersAwsOfferingMdcContainersAgentlessDiscoveryK8sArgs:
@@ -1835,6 +2608,22 @@ class DefenderForContainersAwsOfferingMdcContainersAgentlessDiscoveryK8sArgs:
         pulumi.set(self, "enabled", value)
 
 
+if not MYPY:
+    class DefenderForContainersAwsOfferingMdcContainersImageAssessmentArgsDict(TypedDict):
+        """
+        The Microsoft Defender container image assessment configuration
+        """
+        cloud_role_arn: NotRequired[pulumi.Input[str]]
+        """
+        The cloud role ARN in AWS for this feature
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is Microsoft Defender container image assessment enabled
+        """
+elif False:
+    DefenderForContainersAwsOfferingMdcContainersImageAssessmentArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DefenderForContainersAwsOfferingMdcContainersImageAssessmentArgs:
     def __init__(__self__, *,
@@ -1874,6 +2663,67 @@ class DefenderForContainersAwsOfferingMdcContainersImageAssessmentArgs:
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
 
+
+if not MYPY:
+    class DefenderForContainersAwsOfferingArgsDict(TypedDict):
+        """
+        The Defender for Containers AWS offering
+        """
+        offering_type: pulumi.Input[str]
+        """
+        The type of the security offering.
+        Expected value is 'DefenderForContainersAws'.
+        """
+        auto_provisioning: NotRequired[pulumi.Input[bool]]
+        """
+        Is audit logs pipeline auto provisioning enabled
+        """
+        cloud_watch_to_kinesis: NotRequired[pulumi.Input['DefenderForContainersAwsOfferingCloudWatchToKinesisArgsDict']]
+        """
+        The cloudwatch to kinesis connection configuration
+        """
+        container_vulnerability_assessment: NotRequired[pulumi.Input['DefenderForContainersAwsOfferingContainerVulnerabilityAssessmentArgsDict']]
+        """
+        The container vulnerability assessment configuration
+        """
+        container_vulnerability_assessment_task: NotRequired[pulumi.Input['DefenderForContainersAwsOfferingContainerVulnerabilityAssessmentTaskArgsDict']]
+        """
+        The container vulnerability assessment task configuration
+        """
+        enable_container_vulnerability_assessment: NotRequired[pulumi.Input[bool]]
+        """
+        Enable container vulnerability assessment feature
+        """
+        kinesis_to_s3: NotRequired[pulumi.Input['DefenderForContainersAwsOfferingKinesisToS3ArgsDict']]
+        """
+        The kinesis to s3 connection configuration
+        """
+        kube_audit_retention_time: NotRequired[pulumi.Input[float]]
+        """
+        The retention time in days of kube audit logs set on the CloudWatch log group
+        """
+        kubernetes_scuba_reader: NotRequired[pulumi.Input['DefenderForContainersAwsOfferingKubernetesScubaReaderArgsDict']]
+        """
+        The kubernetes to scuba connection configuration
+        """
+        kubernetes_service: NotRequired[pulumi.Input['DefenderForContainersAwsOfferingKubernetesServiceArgsDict']]
+        """
+        The kubernetes service connection configuration
+        """
+        mdc_containers_agentless_discovery_k8s: NotRequired[pulumi.Input['DefenderForContainersAwsOfferingMdcContainersAgentlessDiscoveryK8sArgsDict']]
+        """
+        The Microsoft Defender container agentless discovery K8s configuration
+        """
+        mdc_containers_image_assessment: NotRequired[pulumi.Input['DefenderForContainersAwsOfferingMdcContainersImageAssessmentArgsDict']]
+        """
+        The Microsoft Defender container image assessment configuration
+        """
+        scuba_external_id: NotRequired[pulumi.Input[str]]
+        """
+        The externalId used by the data reader to prevent the confused deputy attack
+        """
+elif False:
+    DefenderForContainersAwsOfferingArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DefenderForContainersAwsOfferingArgs:
@@ -2092,6 +2942,22 @@ class DefenderForContainersAwsOfferingArgs:
         pulumi.set(self, "scuba_external_id", value)
 
 
+if not MYPY:
+    class DefenderForContainersGcpOfferingDataPipelineNativeCloudConnectionArgsDict(TypedDict):
+        """
+        The native cloud connection configuration
+        """
+        service_account_email_address: NotRequired[pulumi.Input[str]]
+        """
+        The data collection service account email address in GCP for this offering
+        """
+        workload_identity_provider_id: NotRequired[pulumi.Input[str]]
+        """
+        The data collection GCP workload identity provider id for this offering
+        """
+elif False:
+    DefenderForContainersGcpOfferingDataPipelineNativeCloudConnectionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DefenderForContainersGcpOfferingDataPipelineNativeCloudConnectionArgs:
     def __init__(__self__, *,
@@ -2131,6 +2997,26 @@ class DefenderForContainersGcpOfferingDataPipelineNativeCloudConnectionArgs:
     def workload_identity_provider_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "workload_identity_provider_id", value)
 
+
+if not MYPY:
+    class DefenderForContainersGcpOfferingMdcContainersAgentlessDiscoveryK8sArgsDict(TypedDict):
+        """
+        The Microsoft Defender Container agentless discovery configuration
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is Microsoft Defender container agentless discovery enabled
+        """
+        service_account_email_address: NotRequired[pulumi.Input[str]]
+        """
+        The service account email address in GCP for this feature
+        """
+        workload_identity_provider_id: NotRequired[pulumi.Input[str]]
+        """
+        The workload identity provider id in GCP for this feature
+        """
+elif False:
+    DefenderForContainersGcpOfferingMdcContainersAgentlessDiscoveryK8sArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DefenderForContainersGcpOfferingMdcContainersAgentlessDiscoveryK8sArgs:
@@ -2188,6 +3074,26 @@ class DefenderForContainersGcpOfferingMdcContainersAgentlessDiscoveryK8sArgs:
         pulumi.set(self, "workload_identity_provider_id", value)
 
 
+if not MYPY:
+    class DefenderForContainersGcpOfferingMdcContainersImageAssessmentArgsDict(TypedDict):
+        """
+        The Microsoft Defender Container image assessment configuration
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is Microsoft Defender container image assessment enabled
+        """
+        service_account_email_address: NotRequired[pulumi.Input[str]]
+        """
+        The service account email address in GCP for this feature
+        """
+        workload_identity_provider_id: NotRequired[pulumi.Input[str]]
+        """
+        The workload identity provider id in GCP for this feature
+        """
+elif False:
+    DefenderForContainersGcpOfferingMdcContainersImageAssessmentArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DefenderForContainersGcpOfferingMdcContainersImageAssessmentArgs:
     def __init__(__self__, *,
@@ -2244,6 +3150,22 @@ class DefenderForContainersGcpOfferingMdcContainersImageAssessmentArgs:
         pulumi.set(self, "workload_identity_provider_id", value)
 
 
+if not MYPY:
+    class DefenderForContainersGcpOfferingNativeCloudConnectionArgsDict(TypedDict):
+        """
+        The native cloud connection configuration
+        """
+        service_account_email_address: NotRequired[pulumi.Input[str]]
+        """
+        The service account email address in GCP for this offering
+        """
+        workload_identity_provider_id: NotRequired[pulumi.Input[str]]
+        """
+        The GCP workload identity provider id for this offering
+        """
+elif False:
+    DefenderForContainersGcpOfferingNativeCloudConnectionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DefenderForContainersGcpOfferingNativeCloudConnectionArgs:
     def __init__(__self__, *,
@@ -2283,6 +3205,47 @@ class DefenderForContainersGcpOfferingNativeCloudConnectionArgs:
     def workload_identity_provider_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "workload_identity_provider_id", value)
 
+
+if not MYPY:
+    class DefenderForContainersGcpOfferingArgsDict(TypedDict):
+        """
+        The containers GCP offering
+        """
+        offering_type: pulumi.Input[str]
+        """
+        The type of the security offering.
+        Expected value is 'DefenderForContainersGcp'.
+        """
+        audit_logs_auto_provisioning_flag: NotRequired[pulumi.Input[bool]]
+        """
+        Is audit logs data collection enabled
+        """
+        data_pipeline_native_cloud_connection: NotRequired[pulumi.Input['DefenderForContainersGcpOfferingDataPipelineNativeCloudConnectionArgsDict']]
+        """
+        The native cloud connection configuration
+        """
+        defender_agent_auto_provisioning_flag: NotRequired[pulumi.Input[bool]]
+        """
+        Is Microsoft Defender for Cloud Kubernetes agent auto provisioning enabled
+        """
+        mdc_containers_agentless_discovery_k8s: NotRequired[pulumi.Input['DefenderForContainersGcpOfferingMdcContainersAgentlessDiscoveryK8sArgsDict']]
+        """
+        The Microsoft Defender Container agentless discovery configuration
+        """
+        mdc_containers_image_assessment: NotRequired[pulumi.Input['DefenderForContainersGcpOfferingMdcContainersImageAssessmentArgsDict']]
+        """
+        The Microsoft Defender Container image assessment configuration
+        """
+        native_cloud_connection: NotRequired[pulumi.Input['DefenderForContainersGcpOfferingNativeCloudConnectionArgsDict']]
+        """
+        The native cloud connection configuration
+        """
+        policy_agent_auto_provisioning_flag: NotRequired[pulumi.Input[bool]]
+        """
+        Is Policy Kubernetes agent auto provisioning enabled
+        """
+elif False:
+    DefenderForContainersGcpOfferingArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DefenderForContainersGcpOfferingArgs:
@@ -2421,6 +3384,22 @@ class DefenderForContainersGcpOfferingArgs:
         pulumi.set(self, "policy_agent_auto_provisioning_flag", value)
 
 
+if not MYPY:
+    class DefenderForDatabasesGcpOfferingArcAutoProvisioningArgsDict(TypedDict):
+        """
+        The ARC autoprovisioning configuration
+        """
+        configuration: NotRequired[pulumi.Input['DefenderForDatabasesGcpOfferingConfigurationArgsDict']]
+        """
+        Configuration for servers Arc auto provisioning
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is arc auto provisioning enabled
+        """
+elif False:
+    DefenderForDatabasesGcpOfferingArcAutoProvisioningArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DefenderForDatabasesGcpOfferingArcAutoProvisioningArgs:
     def __init__(__self__, *,
@@ -2460,6 +3439,22 @@ class DefenderForDatabasesGcpOfferingArcAutoProvisioningArgs:
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
 
+
+if not MYPY:
+    class DefenderForDatabasesGcpOfferingConfigurationArgsDict(TypedDict):
+        """
+        Configuration for servers Arc auto provisioning
+        """
+        private_link_scope: NotRequired[pulumi.Input[str]]
+        """
+        Optional Arc private link scope resource id to link the Arc agent
+        """
+        proxy: NotRequired[pulumi.Input[str]]
+        """
+        Optional http proxy endpoint to use for the Arc agent
+        """
+elif False:
+    DefenderForDatabasesGcpOfferingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DefenderForDatabasesGcpOfferingConfigurationArgs:
@@ -2501,6 +3496,22 @@ class DefenderForDatabasesGcpOfferingConfigurationArgs:
         pulumi.set(self, "proxy", value)
 
 
+if not MYPY:
+    class DefenderForDatabasesGcpOfferingDefenderForDatabasesArcAutoProvisioningArgsDict(TypedDict):
+        """
+        The native cloud connection configuration
+        """
+        service_account_email_address: NotRequired[pulumi.Input[str]]
+        """
+        The service account email address in GCP for this offering
+        """
+        workload_identity_provider_id: NotRequired[pulumi.Input[str]]
+        """
+        The GCP workload identity provider id for this offering
+        """
+elif False:
+    DefenderForDatabasesGcpOfferingDefenderForDatabasesArcAutoProvisioningArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DefenderForDatabasesGcpOfferingDefenderForDatabasesArcAutoProvisioningArgs:
     def __init__(__self__, *,
@@ -2540,6 +3551,27 @@ class DefenderForDatabasesGcpOfferingDefenderForDatabasesArcAutoProvisioningArgs
     def workload_identity_provider_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "workload_identity_provider_id", value)
 
+
+if not MYPY:
+    class DefenderForDatabasesGcpOfferingArgsDict(TypedDict):
+        """
+        The Defender for Databases GCP offering configurations
+        """
+        offering_type: pulumi.Input[str]
+        """
+        The type of the security offering.
+        Expected value is 'DefenderForDatabasesGcp'.
+        """
+        arc_auto_provisioning: NotRequired[pulumi.Input['DefenderForDatabasesGcpOfferingArcAutoProvisioningArgsDict']]
+        """
+        The ARC autoprovisioning configuration
+        """
+        defender_for_databases_arc_auto_provisioning: NotRequired[pulumi.Input['DefenderForDatabasesGcpOfferingDefenderForDatabasesArcAutoProvisioningArgsDict']]
+        """
+        The native cloud connection configuration
+        """
+elif False:
+    DefenderForDatabasesGcpOfferingArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DefenderForDatabasesGcpOfferingArgs:
@@ -2598,6 +3630,19 @@ class DefenderForDatabasesGcpOfferingArgs:
         pulumi.set(self, "defender_for_databases_arc_auto_provisioning", value)
 
 
+if not MYPY:
+    class DefenderForDevOpsAzureDevOpsOfferingArgsDict(TypedDict):
+        """
+        The Defender for DevOps for Azure DevOps offering
+        """
+        offering_type: pulumi.Input[str]
+        """
+        The type of the security offering.
+        Expected value is 'DefenderForDevOpsAzureDevOps'.
+        """
+elif False:
+    DefenderForDevOpsAzureDevOpsOfferingArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DefenderForDevOpsAzureDevOpsOfferingArgs:
     def __init__(__self__, *,
@@ -2622,6 +3667,19 @@ class DefenderForDevOpsAzureDevOpsOfferingArgs:
     def offering_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "offering_type", value)
 
+
+if not MYPY:
+    class DefenderForDevOpsGitLabOfferingArgsDict(TypedDict):
+        """
+        The Defender for DevOps for Gitlab offering
+        """
+        offering_type: pulumi.Input[str]
+        """
+        The type of the security offering.
+        Expected value is 'DefenderForDevOpsGitLab'.
+        """
+elif False:
+    DefenderForDevOpsGitLabOfferingArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DefenderForDevOpsGitLabOfferingArgs:
@@ -2648,6 +3706,19 @@ class DefenderForDevOpsGitLabOfferingArgs:
         pulumi.set(self, "offering_type", value)
 
 
+if not MYPY:
+    class DefenderForDevOpsGithubOfferingArgsDict(TypedDict):
+        """
+        The Defender for DevOps for Github offering
+        """
+        offering_type: pulumi.Input[str]
+        """
+        The type of the security offering.
+        Expected value is 'DefenderForDevOpsGithub'.
+        """
+elif False:
+    DefenderForDevOpsGithubOfferingArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DefenderForDevOpsGithubOfferingArgs:
     def __init__(__self__, *,
@@ -2672,6 +3743,26 @@ class DefenderForDevOpsGithubOfferingArgs:
     def offering_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "offering_type", value)
 
+
+if not MYPY:
+    class DefenderForServersAwsOfferingArcAutoProvisioningArgsDict(TypedDict):
+        """
+        The ARC autoprovisioning configuration
+        """
+        cloud_role_arn: NotRequired[pulumi.Input[str]]
+        """
+        The cloud role ARN in AWS for this feature
+        """
+        configuration: NotRequired[pulumi.Input['DefenderForServersAwsOfferingConfigurationArgsDict']]
+        """
+        Configuration for servers Arc auto provisioning
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is arc auto provisioning enabled
+        """
+elif False:
+    DefenderForServersAwsOfferingArcAutoProvisioningArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DefenderForServersAwsOfferingArcAutoProvisioningArgs:
@@ -2729,6 +3820,26 @@ class DefenderForServersAwsOfferingArcAutoProvisioningArgs:
         pulumi.set(self, "enabled", value)
 
 
+if not MYPY:
+    class DefenderForServersAwsOfferingConfigurationConfigurationConfigurationArgsDict(TypedDict):
+        """
+        configuration for Microsoft Defender for Server VM scanning
+        """
+        cloud_role_arn: NotRequired[pulumi.Input[str]]
+        """
+        The cloud role ARN in AWS for this feature
+        """
+        exclusion_tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        VM tags that indicates that VM should not be scanned
+        """
+        scanning_mode: NotRequired[pulumi.Input[Union[str, 'ScanningMode']]]
+        """
+        The scanning mode for the VM scan.
+        """
+elif False:
+    DefenderForServersAwsOfferingConfigurationConfigurationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DefenderForServersAwsOfferingConfigurationConfigurationConfigurationArgs:
     def __init__(__self__, *,
@@ -2785,6 +3896,18 @@ class DefenderForServersAwsOfferingConfigurationConfigurationConfigurationArgs:
         pulumi.set(self, "scanning_mode", value)
 
 
+if not MYPY:
+    class DefenderForServersAwsOfferingConfigurationConfigurationArgsDict(TypedDict):
+        """
+        configuration for Vulnerability Assessment autoprovisioning
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'Type']]]
+        """
+        The Vulnerability Assessment solution to be provisioned. Can be either 'TVM' or 'Qualys'
+        """
+elif False:
+    DefenderForServersAwsOfferingConfigurationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DefenderForServersAwsOfferingConfigurationConfigurationArgs:
     def __init__(__self__, *,
@@ -2808,6 +3931,22 @@ class DefenderForServersAwsOfferingConfigurationConfigurationArgs:
     def type(self, value: Optional[pulumi.Input[Union[str, 'Type']]]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class DefenderForServersAwsOfferingConfigurationArgsDict(TypedDict):
+        """
+        Configuration for servers Arc auto provisioning
+        """
+        private_link_scope: NotRequired[pulumi.Input[str]]
+        """
+        Optional Arc private link scope resource id to link the Arc agent
+        """
+        proxy: NotRequired[pulumi.Input[str]]
+        """
+        Optional HTTP proxy endpoint to use for the Arc agent
+        """
+elif False:
+    DefenderForServersAwsOfferingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DefenderForServersAwsOfferingConfigurationArgs:
@@ -2849,6 +3988,18 @@ class DefenderForServersAwsOfferingConfigurationArgs:
         pulumi.set(self, "proxy", value)
 
 
+if not MYPY:
+    class DefenderForServersAwsOfferingDefenderForServersArgsDict(TypedDict):
+        """
+        The Defender for servers connection configuration
+        """
+        cloud_role_arn: NotRequired[pulumi.Input[str]]
+        """
+        The cloud role ARN in AWS for this feature
+        """
+elif False:
+    DefenderForServersAwsOfferingDefenderForServersArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DefenderForServersAwsOfferingDefenderForServersArgs:
     def __init__(__self__, *,
@@ -2872,6 +4023,22 @@ class DefenderForServersAwsOfferingDefenderForServersArgs:
     def cloud_role_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "cloud_role_arn", value)
 
+
+if not MYPY:
+    class DefenderForServersAwsOfferingMdeAutoProvisioningArgsDict(TypedDict):
+        """
+        The Microsoft Defender for Endpoint autoprovisioning configuration
+        """
+        configuration: NotRequired[Any]
+        """
+        configuration for Microsoft Defender for Endpoint autoprovisioning
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is Microsoft Defender for Endpoint auto provisioning enabled
+        """
+elif False:
+    DefenderForServersAwsOfferingMdeAutoProvisioningArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DefenderForServersAwsOfferingMdeAutoProvisioningArgs:
@@ -2913,6 +4080,18 @@ class DefenderForServersAwsOfferingMdeAutoProvisioningArgs:
         pulumi.set(self, "enabled", value)
 
 
+if not MYPY:
+    class DefenderForServersAwsOfferingSubPlanArgsDict(TypedDict):
+        """
+        configuration for the servers offering subPlan
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'SubPlan']]]
+        """
+        The available sub plans
+        """
+elif False:
+    DefenderForServersAwsOfferingSubPlanArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DefenderForServersAwsOfferingSubPlanArgs:
     def __init__(__self__, *,
@@ -2936,6 +4115,22 @@ class DefenderForServersAwsOfferingSubPlanArgs:
     def type(self, value: Optional[pulumi.Input[Union[str, 'SubPlan']]]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class DefenderForServersAwsOfferingVaAutoProvisioningArgsDict(TypedDict):
+        """
+        The Vulnerability Assessment autoprovisioning configuration
+        """
+        configuration: NotRequired[pulumi.Input['DefenderForServersAwsOfferingConfigurationConfigurationArgsDict']]
+        """
+        configuration for Vulnerability Assessment autoprovisioning
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is Vulnerability Assessment auto provisioning enabled
+        """
+elif False:
+    DefenderForServersAwsOfferingVaAutoProvisioningArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DefenderForServersAwsOfferingVaAutoProvisioningArgs:
@@ -2977,6 +4172,22 @@ class DefenderForServersAwsOfferingVaAutoProvisioningArgs:
         pulumi.set(self, "enabled", value)
 
 
+if not MYPY:
+    class DefenderForServersAwsOfferingVmScannersArgsDict(TypedDict):
+        """
+        The Microsoft Defender for Server VM scanning configuration
+        """
+        configuration: NotRequired[pulumi.Input['DefenderForServersAwsOfferingConfigurationConfigurationConfigurationArgsDict']]
+        """
+        configuration for Microsoft Defender for Server VM scanning
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is Microsoft Defender for Server VM scanning enabled
+        """
+elif False:
+    DefenderForServersAwsOfferingVmScannersArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DefenderForServersAwsOfferingVmScannersArgs:
     def __init__(__self__, *,
@@ -3016,6 +4227,43 @@ class DefenderForServersAwsOfferingVmScannersArgs:
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
 
+
+if not MYPY:
+    class DefenderForServersAwsOfferingArgsDict(TypedDict):
+        """
+        The Defender for Servers AWS offering
+        """
+        offering_type: pulumi.Input[str]
+        """
+        The type of the security offering.
+        Expected value is 'DefenderForServersAws'.
+        """
+        arc_auto_provisioning: NotRequired[pulumi.Input['DefenderForServersAwsOfferingArcAutoProvisioningArgsDict']]
+        """
+        The ARC autoprovisioning configuration
+        """
+        defender_for_servers: NotRequired[pulumi.Input['DefenderForServersAwsOfferingDefenderForServersArgsDict']]
+        """
+        The Defender for servers connection configuration
+        """
+        mde_auto_provisioning: NotRequired[pulumi.Input['DefenderForServersAwsOfferingMdeAutoProvisioningArgsDict']]
+        """
+        The Microsoft Defender for Endpoint autoprovisioning configuration
+        """
+        sub_plan: NotRequired[pulumi.Input['DefenderForServersAwsOfferingSubPlanArgsDict']]
+        """
+        configuration for the servers offering subPlan
+        """
+        va_auto_provisioning: NotRequired[pulumi.Input['DefenderForServersAwsOfferingVaAutoProvisioningArgsDict']]
+        """
+        The Vulnerability Assessment autoprovisioning configuration
+        """
+        vm_scanners: NotRequired[pulumi.Input['DefenderForServersAwsOfferingVmScannersArgsDict']]
+        """
+        The Microsoft Defender for Server VM scanning configuration
+        """
+elif False:
+    DefenderForServersAwsOfferingArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DefenderForServersAwsOfferingArgs:
@@ -3138,6 +4386,22 @@ class DefenderForServersAwsOfferingArgs:
         pulumi.set(self, "vm_scanners", value)
 
 
+if not MYPY:
+    class DefenderForServersGcpOfferingArcAutoProvisioningArgsDict(TypedDict):
+        """
+        The ARC autoprovisioning configuration
+        """
+        configuration: NotRequired[pulumi.Input['DefenderForServersGcpOfferingConfigurationArgsDict']]
+        """
+        Configuration for servers Arc auto provisioning
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is arc auto provisioning enabled
+        """
+elif False:
+    DefenderForServersGcpOfferingArcAutoProvisioningArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DefenderForServersGcpOfferingArcAutoProvisioningArgs:
     def __init__(__self__, *,
@@ -3177,6 +4441,22 @@ class DefenderForServersGcpOfferingArcAutoProvisioningArgs:
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
 
+
+if not MYPY:
+    class DefenderForServersGcpOfferingConfigurationConfigurationConfigurationArgsDict(TypedDict):
+        """
+        configuration for Microsoft Defender for Server VM scanning
+        """
+        exclusion_tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        VM tags that indicate that VM should not be scanned
+        """
+        scanning_mode: NotRequired[pulumi.Input[Union[str, 'ScanningMode']]]
+        """
+        The scanning mode for the VM scan.
+        """
+elif False:
+    DefenderForServersGcpOfferingConfigurationConfigurationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DefenderForServersGcpOfferingConfigurationConfigurationConfigurationArgs:
@@ -3218,6 +4498,18 @@ class DefenderForServersGcpOfferingConfigurationConfigurationConfigurationArgs:
         pulumi.set(self, "scanning_mode", value)
 
 
+if not MYPY:
+    class DefenderForServersGcpOfferingConfigurationConfigurationArgsDict(TypedDict):
+        """
+        configuration for Vulnerability Assessment autoprovisioning
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'Type']]]
+        """
+        The Vulnerability Assessment solution to be provisioned. Can be either 'TVM' or 'Qualys'
+        """
+elif False:
+    DefenderForServersGcpOfferingConfigurationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DefenderForServersGcpOfferingConfigurationConfigurationArgs:
     def __init__(__self__, *,
@@ -3241,6 +4533,22 @@ class DefenderForServersGcpOfferingConfigurationConfigurationArgs:
     def type(self, value: Optional[pulumi.Input[Union[str, 'Type']]]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class DefenderForServersGcpOfferingConfigurationArgsDict(TypedDict):
+        """
+        Configuration for servers Arc auto provisioning
+        """
+        private_link_scope: NotRequired[pulumi.Input[str]]
+        """
+        Optional Arc private link scope resource id to link the Arc agent
+        """
+        proxy: NotRequired[pulumi.Input[str]]
+        """
+        Optional HTTP proxy endpoint to use for the Arc agent
+        """
+elif False:
+    DefenderForServersGcpOfferingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DefenderForServersGcpOfferingConfigurationArgs:
@@ -3282,6 +4590,22 @@ class DefenderForServersGcpOfferingConfigurationArgs:
         pulumi.set(self, "proxy", value)
 
 
+if not MYPY:
+    class DefenderForServersGcpOfferingDefenderForServersArgsDict(TypedDict):
+        """
+        The Defender for servers connection configuration
+        """
+        service_account_email_address: NotRequired[pulumi.Input[str]]
+        """
+        The service account email address in GCP for this feature
+        """
+        workload_identity_provider_id: NotRequired[pulumi.Input[str]]
+        """
+        The workload identity provider id in GCP for this feature
+        """
+elif False:
+    DefenderForServersGcpOfferingDefenderForServersArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DefenderForServersGcpOfferingDefenderForServersArgs:
     def __init__(__self__, *,
@@ -3321,6 +4645,22 @@ class DefenderForServersGcpOfferingDefenderForServersArgs:
     def workload_identity_provider_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "workload_identity_provider_id", value)
 
+
+if not MYPY:
+    class DefenderForServersGcpOfferingMdeAutoProvisioningArgsDict(TypedDict):
+        """
+        The Microsoft Defender for Endpoint autoprovisioning configuration
+        """
+        configuration: NotRequired[Any]
+        """
+        configuration for Microsoft Defender for Endpoint autoprovisioning
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is Microsoft Defender for Endpoint auto provisioning enabled
+        """
+elif False:
+    DefenderForServersGcpOfferingMdeAutoProvisioningArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DefenderForServersGcpOfferingMdeAutoProvisioningArgs:
@@ -3362,6 +4702,18 @@ class DefenderForServersGcpOfferingMdeAutoProvisioningArgs:
         pulumi.set(self, "enabled", value)
 
 
+if not MYPY:
+    class DefenderForServersGcpOfferingSubPlanArgsDict(TypedDict):
+        """
+        configuration for the servers offering subPlan
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'SubPlan']]]
+        """
+        The available sub plans
+        """
+elif False:
+    DefenderForServersGcpOfferingSubPlanArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DefenderForServersGcpOfferingSubPlanArgs:
     def __init__(__self__, *,
@@ -3385,6 +4737,22 @@ class DefenderForServersGcpOfferingSubPlanArgs:
     def type(self, value: Optional[pulumi.Input[Union[str, 'SubPlan']]]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class DefenderForServersGcpOfferingVaAutoProvisioningArgsDict(TypedDict):
+        """
+        The Vulnerability Assessment autoprovisioning configuration
+        """
+        configuration: NotRequired[pulumi.Input['DefenderForServersGcpOfferingConfigurationConfigurationArgsDict']]
+        """
+        configuration for Vulnerability Assessment autoprovisioning
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is Vulnerability Assessment auto provisioning enabled
+        """
+elif False:
+    DefenderForServersGcpOfferingVaAutoProvisioningArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DefenderForServersGcpOfferingVaAutoProvisioningArgs:
@@ -3426,6 +4794,22 @@ class DefenderForServersGcpOfferingVaAutoProvisioningArgs:
         pulumi.set(self, "enabled", value)
 
 
+if not MYPY:
+    class DefenderForServersGcpOfferingVmScannersArgsDict(TypedDict):
+        """
+        The Microsoft Defender for Server VM scanning configuration
+        """
+        configuration: NotRequired[pulumi.Input['DefenderForServersGcpOfferingConfigurationConfigurationConfigurationArgsDict']]
+        """
+        configuration for Microsoft Defender for Server VM scanning
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is Microsoft Defender for Server VM scanning enabled
+        """
+elif False:
+    DefenderForServersGcpOfferingVmScannersArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DefenderForServersGcpOfferingVmScannersArgs:
     def __init__(__self__, *,
@@ -3465,6 +4849,43 @@ class DefenderForServersGcpOfferingVmScannersArgs:
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
 
+
+if not MYPY:
+    class DefenderForServersGcpOfferingArgsDict(TypedDict):
+        """
+        The Defender for Servers GCP offering configurations
+        """
+        offering_type: pulumi.Input[str]
+        """
+        The type of the security offering.
+        Expected value is 'DefenderForServersGcp'.
+        """
+        arc_auto_provisioning: NotRequired[pulumi.Input['DefenderForServersGcpOfferingArcAutoProvisioningArgsDict']]
+        """
+        The ARC autoprovisioning configuration
+        """
+        defender_for_servers: NotRequired[pulumi.Input['DefenderForServersGcpOfferingDefenderForServersArgsDict']]
+        """
+        The Defender for servers connection configuration
+        """
+        mde_auto_provisioning: NotRequired[pulumi.Input['DefenderForServersGcpOfferingMdeAutoProvisioningArgsDict']]
+        """
+        The Microsoft Defender for Endpoint autoprovisioning configuration
+        """
+        sub_plan: NotRequired[pulumi.Input['DefenderForServersGcpOfferingSubPlanArgsDict']]
+        """
+        configuration for the servers offering subPlan
+        """
+        va_auto_provisioning: NotRequired[pulumi.Input['DefenderForServersGcpOfferingVaAutoProvisioningArgsDict']]
+        """
+        The Vulnerability Assessment autoprovisioning configuration
+        """
+        vm_scanners: NotRequired[pulumi.Input['DefenderForServersGcpOfferingVmScannersArgsDict']]
+        """
+        The Microsoft Defender for Server VM scanning configuration
+        """
+elif False:
+    DefenderForServersGcpOfferingArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DefenderForServersGcpOfferingArgs:
@@ -3587,6 +5008,27 @@ class DefenderForServersGcpOfferingArgs:
         pulumi.set(self, "vm_scanners", value)
 
 
+if not MYPY:
+    class GcpOrganizationalDataMemberArgsDict(TypedDict):
+        """
+        The gcpOrganization data for the member account
+        """
+        organization_membership_type: pulumi.Input[str]
+        """
+        The multi cloud account's membership type in the organization
+        Expected value is 'Member'.
+        """
+        management_project_number: NotRequired[pulumi.Input[str]]
+        """
+        The GCP management project number from organizational onboarding
+        """
+        parent_hierarchy_id: NotRequired[pulumi.Input[str]]
+        """
+        If the multi cloud account is not of membership type organization, this will be the ID of the project's parent
+        """
+elif False:
+    GcpOrganizationalDataMemberArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GcpOrganizationalDataMemberArgs:
     def __init__(__self__, *,
@@ -3643,6 +5085,31 @@ class GcpOrganizationalDataMemberArgs:
     def parent_hierarchy_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "parent_hierarchy_id", value)
 
+
+if not MYPY:
+    class GcpOrganizationalDataOrganizationArgsDict(TypedDict):
+        """
+        The gcpOrganization data for the parent account
+        """
+        organization_membership_type: pulumi.Input[str]
+        """
+        The multi cloud account's membership type in the organization
+        Expected value is 'Organization'.
+        """
+        excluded_project_numbers: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        If the multi cloud account is of membership type organization, list of accounts excluded from offering
+        """
+        service_account_email_address: NotRequired[pulumi.Input[str]]
+        """
+        The service account email address which represents the organization level permissions container.
+        """
+        workload_identity_provider_id: NotRequired[pulumi.Input[str]]
+        """
+        The GCP workload identity provider id which represents the permissions required to auto provision security connectors
+        """
+elif False:
+    GcpOrganizationalDataOrganizationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GcpOrganizationalDataOrganizationArgs:
@@ -3717,6 +5184,22 @@ class GcpOrganizationalDataOrganizationArgs:
         pulumi.set(self, "workload_identity_provider_id", value)
 
 
+if not MYPY:
+    class GcpProjectDetailsArgsDict(TypedDict):
+        """
+        The details about the project represented by the security connector
+        """
+        project_id: NotRequired[pulumi.Input[str]]
+        """
+        The GCP Project id
+        """
+        project_number: NotRequired[pulumi.Input[str]]
+        """
+        The unique GCP Project number
+        """
+elif False:
+    GcpProjectDetailsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GcpProjectDetailsArgs:
     def __init__(__self__, *,
@@ -3756,6 +5239,31 @@ class GcpProjectDetailsArgs:
     def project_number(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "project_number", value)
 
+
+if not MYPY:
+    class GcpProjectEnvironmentDataArgsDict(TypedDict):
+        """
+        The GCP project connector environment data
+        """
+        environment_type: pulumi.Input[str]
+        """
+        The type of the environment data.
+        Expected value is 'GcpProject'.
+        """
+        organizational_data: NotRequired[pulumi.Input[Union['GcpOrganizationalDataMemberArgsDict', 'GcpOrganizationalDataOrganizationArgsDict']]]
+        """
+        The Gcp project's organizational data
+        """
+        project_details: NotRequired[pulumi.Input['GcpProjectDetailsArgsDict']]
+        """
+        The Gcp project's details
+        """
+        scan_interval: NotRequired[pulumi.Input[float]]
+        """
+        Scan interval in hours (value should be between 1-hour to 24-hours)
+        """
+elif False:
+    GcpProjectEnvironmentDataArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GcpProjectEnvironmentDataArgs:
@@ -3830,6 +5338,19 @@ class GcpProjectEnvironmentDataArgs:
         pulumi.set(self, "scan_interval", value)
 
 
+if not MYPY:
+    class GithubScopeEnvironmentDataArgsDict(TypedDict):
+        """
+        The github scope connector's environment data
+        """
+        environment_type: pulumi.Input[str]
+        """
+        The type of the environment data.
+        Expected value is 'GithubScope'.
+        """
+elif False:
+    GithubScopeEnvironmentDataArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GithubScopeEnvironmentDataArgs:
     def __init__(__self__, *,
@@ -3854,6 +5375,19 @@ class GithubScopeEnvironmentDataArgs:
     def environment_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "environment_type", value)
 
+
+if not MYPY:
+    class GitlabScopeEnvironmentDataArgsDict(TypedDict):
+        """
+        The GitLab scope connector's environment data
+        """
+        environment_type: pulumi.Input[str]
+        """
+        The type of the environment data.
+        Expected value is 'GitlabScope'.
+        """
+elif False:
+    GitlabScopeEnvironmentDataArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GitlabScopeEnvironmentDataArgs:
@@ -3880,6 +5414,18 @@ class GitlabScopeEnvironmentDataArgs:
         pulumi.set(self, "environment_type", value)
 
 
+if not MYPY:
+    class InformationProtectionAwsOfferingInformationProtectionArgsDict(TypedDict):
+        """
+        The native cloud connection configuration
+        """
+        cloud_role_arn: NotRequired[pulumi.Input[str]]
+        """
+        The cloud role ARN in AWS for this feature
+        """
+elif False:
+    InformationProtectionAwsOfferingInformationProtectionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InformationProtectionAwsOfferingInformationProtectionArgs:
     def __init__(__self__, *,
@@ -3903,6 +5449,23 @@ class InformationProtectionAwsOfferingInformationProtectionArgs:
     def cloud_role_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "cloud_role_arn", value)
 
+
+if not MYPY:
+    class InformationProtectionAwsOfferingArgsDict(TypedDict):
+        """
+        The information protection for AWS offering
+        """
+        offering_type: pulumi.Input[str]
+        """
+        The type of the security offering.
+        Expected value is 'InformationProtectionAws'.
+        """
+        information_protection: NotRequired[pulumi.Input['InformationProtectionAwsOfferingInformationProtectionArgsDict']]
+        """
+        The native cloud connection configuration
+        """
+elif False:
+    InformationProtectionAwsOfferingArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InformationProtectionAwsOfferingArgs:

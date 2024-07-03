@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -104,7 +109,7 @@ class Extension(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_api_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ApiPropertiesArgs']]]]] = None,
+                 additional_api_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['ApiPropertiesArgs', 'ApiPropertiesArgsDict']]]]] = None,
                  extension_id: Optional[pulumi.Input[str]] = None,
                  extension_version: Optional[pulumi.Input[str]] = None,
                  farm_beats_resource_name: Optional[pulumi.Input[str]] = None,
@@ -115,7 +120,7 @@ class Extension(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ApiPropertiesArgs']]]] additional_api_properties: Additional Api Properties.
+        :param pulumi.Input[Mapping[str, pulumi.Input[Union['ApiPropertiesArgs', 'ApiPropertiesArgsDict']]]] additional_api_properties: Additional Api Properties.
         :param pulumi.Input[str] extension_id: Id of extension resource.
         :param pulumi.Input[str] extension_version: Extension Version.
         :param pulumi.Input[str] farm_beats_resource_name: FarmBeats resource name.
@@ -145,7 +150,7 @@ class Extension(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_api_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ApiPropertiesArgs']]]]] = None,
+                 additional_api_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['ApiPropertiesArgs', 'ApiPropertiesArgsDict']]]]] = None,
                  extension_id: Optional[pulumi.Input[str]] = None,
                  extension_version: Optional[pulumi.Input[str]] = None,
                  farm_beats_resource_name: Optional[pulumi.Input[str]] = None,

@@ -4,17 +4,47 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'AccessModeSettingsExclusionArgs',
+    'AccessModeSettingsExclusionArgsDict',
     'AccessModeSettingsArgs',
+    'AccessModeSettingsArgsDict',
     'PrivateLinkServiceConnectionStateArgs',
+    'PrivateLinkServiceConnectionStateArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AccessModeSettingsExclusionArgsDict(TypedDict):
+        """
+        Properties that define the scope private link mode settings exclusion item. This setting applies to a specific private endpoint connection and overrides the default settings for that private endpoint connection.
+        """
+        ingestion_access_mode: NotRequired[pulumi.Input[Union[str, 'AccessMode']]]
+        """
+        Specifies the access mode of ingestion through the specified private endpoint connection in the exclusion.
+        """
+        private_endpoint_connection_name: NotRequired[pulumi.Input[str]]
+        """
+        The private endpoint connection name associated to the private endpoint on which we want to apply the specific access mode settings.
+        """
+        query_access_mode: NotRequired[pulumi.Input[Union[str, 'AccessMode']]]
+        """
+        Specifies the access mode of queries through the specified private endpoint connection in the exclusion.
+        """
+elif False:
+    AccessModeSettingsExclusionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AccessModeSettingsExclusionArgs:
@@ -72,6 +102,26 @@ class AccessModeSettingsExclusionArgs:
         pulumi.set(self, "query_access_mode", value)
 
 
+if not MYPY:
+    class AccessModeSettingsArgsDict(TypedDict):
+        """
+        Properties that define the scope private link mode settings.
+        """
+        ingestion_access_mode: pulumi.Input[Union[str, 'AccessMode']]
+        """
+        Specifies the default access mode of ingestion through associated private endpoints in scope. If not specified default value is 'Open'. You can override this default setting for a specific private endpoint connection by adding an exclusion in the 'exclusions' array.
+        """
+        query_access_mode: pulumi.Input[Union[str, 'AccessMode']]
+        """
+        Specifies the default access mode of queries through associated private endpoints in scope. If not specified default value is 'Open'. You can override this default setting for a specific private endpoint connection by adding an exclusion in the 'exclusions' array.
+        """
+        exclusions: NotRequired[pulumi.Input[Sequence[pulumi.Input['AccessModeSettingsExclusionArgsDict']]]]
+        """
+        List of exclusions that override the default access mode settings for specific private endpoint connections.
+        """
+elif False:
+    AccessModeSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AccessModeSettingsArgs:
     def __init__(__self__, *,
@@ -125,6 +175,26 @@ class AccessModeSettingsArgs:
     def exclusions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AccessModeSettingsExclusionArgs']]]]):
         pulumi.set(self, "exclusions", value)
 
+
+if not MYPY:
+    class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
+        """
+        A collection of information about the state of the connection between service consumer and provider.
+        """
+        actions_required: NotRequired[pulumi.Input[str]]
+        """
+        A message indicating if changes on the service provider require any updates on the consumer.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The reason for approval/rejection of the connection.
+        """
+        status: NotRequired[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]]
+        """
+        Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+        """
+elif False:
+    PrivateLinkServiceConnectionStateArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:

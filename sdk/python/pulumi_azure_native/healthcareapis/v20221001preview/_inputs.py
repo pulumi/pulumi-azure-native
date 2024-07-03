@@ -4,18 +4,50 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'AnalyticsConnectorDataLakeDataDestinationArgs',
+    'AnalyticsConnectorDataLakeDataDestinationArgsDict',
     'AnalyticsConnectorFhirServiceDataSourceArgs',
+    'AnalyticsConnectorFhirServiceDataSourceArgsDict',
     'AnalyticsConnectorFhirToParquetMappingArgs',
+    'AnalyticsConnectorFhirToParquetMappingArgsDict',
     'ServiceManagedIdentityIdentityArgs',
+    'ServiceManagedIdentityIdentityArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AnalyticsConnectorDataLakeDataDestinationArgsDict(TypedDict):
+        """
+        The Data Lake data destination for Analytics Connector.
+        """
+        data_lake_name: pulumi.Input[str]
+        """
+        The name for the Data Lake.
+        """
+        type: pulumi.Input[str]
+        """
+        Type of data destination.
+        Expected value is 'datalake'.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of data destination.
+        """
+elif False:
+    AnalyticsConnectorDataLakeDataDestinationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AnalyticsConnectorDataLakeDataDestinationArgs:
@@ -73,6 +105,27 @@ class AnalyticsConnectorDataLakeDataDestinationArgs:
         pulumi.set(self, "name", value)
 
 
+if not MYPY:
+    class AnalyticsConnectorFhirServiceDataSourceArgsDict(TypedDict):
+        """
+        The FHIR service data source for Analytics Connector.
+        """
+        kind: pulumi.Input[Union[str, 'FhirServiceVersion']]
+        """
+        The kind of FHIR Service.
+        """
+        type: pulumi.Input[str]
+        """
+        Type of data source.
+        Expected value is 'fhirservice'.
+        """
+        url: pulumi.Input[str]
+        """
+        The URL of FHIR service.
+        """
+elif False:
+    AnalyticsConnectorFhirServiceDataSourceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AnalyticsConnectorFhirServiceDataSourceArgs:
     def __init__(__self__, *,
@@ -127,6 +180,27 @@ class AnalyticsConnectorFhirServiceDataSourceArgs:
     def url(self, value: pulumi.Input[str]):
         pulumi.set(self, "url", value)
 
+
+if not MYPY:
+    class AnalyticsConnectorFhirToParquetMappingArgsDict(TypedDict):
+        """
+        FHIR Service data mapping configuration for Analytics Connector.
+        """
+        type: pulumi.Input[str]
+        """
+        Type of data mapping.
+        Expected value is 'fhirToParquet'.
+        """
+        extension_schema_reference: NotRequired[pulumi.Input[str]]
+        """
+        Artifact reference for extension schema.
+        """
+        filter_configuration_reference: NotRequired[pulumi.Input[str]]
+        """
+        Artifact reference for filter configurations.
+        """
+elif False:
+    AnalyticsConnectorFhirToParquetMappingArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AnalyticsConnectorFhirToParquetMappingArgs:
@@ -184,6 +258,22 @@ class AnalyticsConnectorFhirToParquetMappingArgs:
     def filter_configuration_reference(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "filter_configuration_reference", value)
 
+
+if not MYPY:
+    class ServiceManagedIdentityIdentityArgsDict(TypedDict):
+        """
+        Setting indicating whether the service has a managed identity associated with it.
+        """
+        type: pulumi.Input[Union[str, 'ServiceManagedIdentityType']]
+        """
+        Type of identity being specified, currently SystemAssigned and None are allowed.
+        """
+        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        """
+elif False:
+    ServiceManagedIdentityIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ServiceManagedIdentityIdentityArgs:

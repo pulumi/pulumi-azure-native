@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -175,7 +180,7 @@ class MongoDBResourceMongoUserDefinition(pulumi.CustomResource):
                  mongo_user_definition_id: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 roles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RoleArgs']]]]] = None,
+                 roles: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RoleArgs', 'RoleArgsDict']]]]] = None,
                  user_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -190,7 +195,7 @@ class MongoDBResourceMongoUserDefinition(pulumi.CustomResource):
         :param pulumi.Input[str] mongo_user_definition_id: The ID for the User Definition {dbName.userName}.
         :param pulumi.Input[str] password: The password for User Definition. Response does not contain user password.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RoleArgs']]]] roles: The set of roles inherited by the User Definition.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RoleArgs', 'RoleArgsDict']]]] roles: The set of roles inherited by the User Definition.
         :param pulumi.Input[str] user_name: The user name for User Definition.
         """
         ...
@@ -224,7 +229,7 @@ class MongoDBResourceMongoUserDefinition(pulumi.CustomResource):
                  mongo_user_definition_id: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 roles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RoleArgs']]]]] = None,
+                 roles: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RoleArgs', 'RoleArgsDict']]]]] = None,
                  user_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

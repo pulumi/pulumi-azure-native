@@ -4,61 +4,144 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'AzureFunctionEventSubscriptionDestinationArgs',
+    'AzureFunctionEventSubscriptionDestinationArgsDict',
     'BoolEqualsAdvancedFilterArgs',
+    'BoolEqualsAdvancedFilterArgsDict',
     'ConnectionStateArgs',
+    'ConnectionStateArgsDict',
     'DeadLetterWithResourceIdentityArgs',
+    'DeadLetterWithResourceIdentityArgsDict',
     'DeliveryWithResourceIdentityArgs',
+    'DeliveryWithResourceIdentityArgsDict',
     'DynamicDeliveryAttributeMappingArgs',
+    'DynamicDeliveryAttributeMappingArgsDict',
     'EventHubEventSubscriptionDestinationArgs',
+    'EventHubEventSubscriptionDestinationArgsDict',
     'EventSubscriptionFilterArgs',
+    'EventSubscriptionFilterArgsDict',
     'EventSubscriptionIdentityArgs',
+    'EventSubscriptionIdentityArgsDict',
     'EventTypeInfoArgs',
+    'EventTypeInfoArgsDict',
     'HybridConnectionEventSubscriptionDestinationArgs',
+    'HybridConnectionEventSubscriptionDestinationArgsDict',
     'IdentityInfoArgs',
+    'IdentityInfoArgsDict',
     'InboundIpRuleArgs',
+    'InboundIpRuleArgsDict',
     'InlineEventPropertiesArgs',
+    'InlineEventPropertiesArgsDict',
     'IsNotNullAdvancedFilterArgs',
+    'IsNotNullAdvancedFilterArgsDict',
     'IsNullOrUndefinedAdvancedFilterArgs',
+    'IsNullOrUndefinedAdvancedFilterArgsDict',
     'JsonFieldWithDefaultArgs',
+    'JsonFieldWithDefaultArgsDict',
     'JsonFieldArgs',
+    'JsonFieldArgsDict',
     'JsonInputSchemaMappingArgs',
+    'JsonInputSchemaMappingArgsDict',
     'NumberGreaterThanAdvancedFilterArgs',
+    'NumberGreaterThanAdvancedFilterArgsDict',
     'NumberGreaterThanOrEqualsAdvancedFilterArgs',
+    'NumberGreaterThanOrEqualsAdvancedFilterArgsDict',
     'NumberInAdvancedFilterArgs',
+    'NumberInAdvancedFilterArgsDict',
     'NumberInRangeAdvancedFilterArgs',
+    'NumberInRangeAdvancedFilterArgsDict',
     'NumberLessThanAdvancedFilterArgs',
+    'NumberLessThanAdvancedFilterArgsDict',
     'NumberLessThanOrEqualsAdvancedFilterArgs',
+    'NumberLessThanOrEqualsAdvancedFilterArgsDict',
     'NumberNotInAdvancedFilterArgs',
+    'NumberNotInAdvancedFilterArgsDict',
     'NumberNotInRangeAdvancedFilterArgs',
+    'NumberNotInRangeAdvancedFilterArgsDict',
     'PartnerAuthorizationArgs',
+    'PartnerAuthorizationArgsDict',
     'PartnerTopicInfoArgs',
+    'PartnerTopicInfoArgsDict',
     'PartnerArgs',
+    'PartnerArgsDict',
     'PrivateEndpointArgs',
+    'PrivateEndpointArgsDict',
     'RetryPolicyArgs',
+    'RetryPolicyArgsDict',
     'ServiceBusQueueEventSubscriptionDestinationArgs',
+    'ServiceBusQueueEventSubscriptionDestinationArgsDict',
     'ServiceBusTopicEventSubscriptionDestinationArgs',
+    'ServiceBusTopicEventSubscriptionDestinationArgsDict',
     'StaticDeliveryAttributeMappingArgs',
+    'StaticDeliveryAttributeMappingArgsDict',
     'StorageBlobDeadLetterDestinationArgs',
+    'StorageBlobDeadLetterDestinationArgsDict',
     'StorageQueueEventSubscriptionDestinationArgs',
+    'StorageQueueEventSubscriptionDestinationArgsDict',
     'StringBeginsWithAdvancedFilterArgs',
+    'StringBeginsWithAdvancedFilterArgsDict',
     'StringContainsAdvancedFilterArgs',
+    'StringContainsAdvancedFilterArgsDict',
     'StringEndsWithAdvancedFilterArgs',
+    'StringEndsWithAdvancedFilterArgsDict',
     'StringInAdvancedFilterArgs',
+    'StringInAdvancedFilterArgsDict',
     'StringNotBeginsWithAdvancedFilterArgs',
+    'StringNotBeginsWithAdvancedFilterArgsDict',
     'StringNotContainsAdvancedFilterArgs',
+    'StringNotContainsAdvancedFilterArgsDict',
     'StringNotEndsWithAdvancedFilterArgs',
+    'StringNotEndsWithAdvancedFilterArgsDict',
     'StringNotInAdvancedFilterArgs',
+    'StringNotInAdvancedFilterArgsDict',
     'UserIdentityPropertiesArgs',
+    'UserIdentityPropertiesArgsDict',
     'WebHookEventSubscriptionDestinationArgs',
+    'WebHookEventSubscriptionDestinationArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AzureFunctionEventSubscriptionDestinationArgsDict(TypedDict):
+        """
+        Information about the azure function destination for an event subscription.
+        """
+        endpoint_type: pulumi.Input[str]
+        """
+        Type of the endpoint for the event subscription destination.
+        Expected value is 'AzureFunction'.
+        """
+        delivery_attribute_mappings: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union['DynamicDeliveryAttributeMappingArgsDict', 'StaticDeliveryAttributeMappingArgsDict']]]]]
+        """
+        Delivery attribute details.
+        """
+        max_events_per_batch: NotRequired[pulumi.Input[int]]
+        """
+        Maximum number of events per batch.
+        """
+        preferred_batch_size_in_kilobytes: NotRequired[pulumi.Input[int]]
+        """
+        Preferred batch size in Kilobytes.
+        """
+        resource_id: NotRequired[pulumi.Input[str]]
+        """
+        The Azure Resource Id that represents the endpoint of the Azure Function destination of an event subscription.
+        """
+elif False:
+    AzureFunctionEventSubscriptionDestinationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AzureFunctionEventSubscriptionDestinationArgs:
@@ -153,6 +236,27 @@ class AzureFunctionEventSubscriptionDestinationArgs:
         pulumi.set(self, "resource_id", value)
 
 
+if not MYPY:
+    class BoolEqualsAdvancedFilterArgsDict(TypedDict):
+        """
+        BoolEquals Advanced Filter.
+        """
+        operator_type: pulumi.Input[str]
+        """
+        The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        Expected value is 'BoolEquals'.
+        """
+        key: NotRequired[pulumi.Input[str]]
+        """
+        The field/property in the event based on which you want to filter.
+        """
+        value: NotRequired[pulumi.Input[bool]]
+        """
+        The boolean filter value.
+        """
+elif False:
+    BoolEqualsAdvancedFilterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class BoolEqualsAdvancedFilterArgs:
     def __init__(__self__, *,
@@ -210,6 +314,26 @@ class BoolEqualsAdvancedFilterArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class ConnectionStateArgsDict(TypedDict):
+        """
+        ConnectionState information.
+        """
+        actions_required: NotRequired[pulumi.Input[str]]
+        """
+        Actions required (if any).
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Description of the connection state.
+        """
+        status: NotRequired[pulumi.Input[Union[str, 'PersistedConnectionStatus']]]
+        """
+        Status of the connection.
+        """
+elif False:
+    ConnectionStateArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ConnectionStateArgs:
     def __init__(__self__, *,
@@ -266,6 +390,23 @@ class ConnectionStateArgs:
         pulumi.set(self, "status", value)
 
 
+if not MYPY:
+    class DeadLetterWithResourceIdentityArgsDict(TypedDict):
+        """
+        Information about the deadletter destination with resource identity.
+        """
+        dead_letter_destination: NotRequired[pulumi.Input['StorageBlobDeadLetterDestinationArgsDict']]
+        """
+        Information about the destination where events have to be delivered for the event subscription.
+        Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
+        """
+        identity: NotRequired[pulumi.Input['EventSubscriptionIdentityArgsDict']]
+        """
+        The identity to use when dead-lettering events.
+        """
+elif False:
+    DeadLetterWithResourceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DeadLetterWithResourceIdentityArgs:
     def __init__(__self__, *,
@@ -308,6 +449,23 @@ class DeadLetterWithResourceIdentityArgs:
         pulumi.set(self, "identity", value)
 
 
+if not MYPY:
+    class DeliveryWithResourceIdentityArgsDict(TypedDict):
+        """
+        Information about the delivery for an event subscription with resource identity.
+        """
+        destination: NotRequired[pulumi.Input[Union['AzureFunctionEventSubscriptionDestinationArgsDict', 'EventHubEventSubscriptionDestinationArgsDict', 'HybridConnectionEventSubscriptionDestinationArgsDict', 'ServiceBusQueueEventSubscriptionDestinationArgsDict', 'ServiceBusTopicEventSubscriptionDestinationArgsDict', 'StorageQueueEventSubscriptionDestinationArgsDict', 'WebHookEventSubscriptionDestinationArgsDict']]]
+        """
+        Information about the destination where events have to be delivered for the event subscription.
+        Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
+        """
+        identity: NotRequired[pulumi.Input['EventSubscriptionIdentityArgsDict']]
+        """
+        The identity to use when delivering events.
+        """
+elif False:
+    DeliveryWithResourceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DeliveryWithResourceIdentityArgs:
     def __init__(__self__, *,
@@ -349,6 +507,27 @@ class DeliveryWithResourceIdentityArgs:
     def identity(self, value: Optional[pulumi.Input['EventSubscriptionIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
+
+if not MYPY:
+    class DynamicDeliveryAttributeMappingArgsDict(TypedDict):
+        """
+        Dynamic delivery attribute mapping details.
+        """
+        type: pulumi.Input[str]
+        """
+        Type of the delivery attribute or header name.
+        Expected value is 'Dynamic'.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the delivery attribute or header.
+        """
+        source_field: NotRequired[pulumi.Input[str]]
+        """
+        JSON path in the event which contains attribute value.
+        """
+elif False:
+    DynamicDeliveryAttributeMappingArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DynamicDeliveryAttributeMappingArgs:
@@ -407,6 +586,27 @@ class DynamicDeliveryAttributeMappingArgs:
         pulumi.set(self, "source_field", value)
 
 
+if not MYPY:
+    class EventHubEventSubscriptionDestinationArgsDict(TypedDict):
+        """
+        Information about the event hub destination for an event subscription.
+        """
+        endpoint_type: pulumi.Input[str]
+        """
+        Type of the endpoint for the event subscription destination.
+        Expected value is 'EventHub'.
+        """
+        delivery_attribute_mappings: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union['DynamicDeliveryAttributeMappingArgsDict', 'StaticDeliveryAttributeMappingArgsDict']]]]]
+        """
+        Delivery attribute details.
+        """
+        resource_id: NotRequired[pulumi.Input[str]]
+        """
+        The Azure Resource Id that represents the endpoint of an Event Hub destination of an event subscription.
+        """
+elif False:
+    EventHubEventSubscriptionDestinationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EventHubEventSubscriptionDestinationArgs:
     def __init__(__self__, *,
@@ -463,6 +663,42 @@ class EventHubEventSubscriptionDestinationArgs:
     def resource_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "resource_id", value)
 
+
+if not MYPY:
+    class EventSubscriptionFilterArgsDict(TypedDict):
+        """
+        Filter for the Event Subscription.
+        """
+        advanced_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union['BoolEqualsAdvancedFilterArgsDict', 'IsNotNullAdvancedFilterArgsDict', 'IsNullOrUndefinedAdvancedFilterArgsDict', 'NumberGreaterThanAdvancedFilterArgsDict', 'NumberGreaterThanOrEqualsAdvancedFilterArgsDict', 'NumberInAdvancedFilterArgsDict', 'NumberInRangeAdvancedFilterArgsDict', 'NumberLessThanAdvancedFilterArgsDict', 'NumberLessThanOrEqualsAdvancedFilterArgsDict', 'NumberNotInAdvancedFilterArgsDict', 'NumberNotInRangeAdvancedFilterArgsDict', 'StringBeginsWithAdvancedFilterArgsDict', 'StringContainsAdvancedFilterArgsDict', 'StringEndsWithAdvancedFilterArgsDict', 'StringInAdvancedFilterArgsDict', 'StringNotBeginsWithAdvancedFilterArgsDict', 'StringNotContainsAdvancedFilterArgsDict', 'StringNotEndsWithAdvancedFilterArgsDict', 'StringNotInAdvancedFilterArgsDict']]]]]
+        """
+        An array of advanced filters that are used for filtering event subscriptions.
+        """
+        enable_advanced_filtering_on_arrays: NotRequired[pulumi.Input[bool]]
+        """
+        Allows advanced filters to be evaluated against an array of values instead of expecting a singular value.
+        """
+        included_event_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of applicable event types that need to be part of the event subscription. If it is desired to subscribe to all default event types, set the IncludedEventTypes to null.
+        """
+        is_subject_case_sensitive: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies if the SubjectBeginsWith and SubjectEndsWith properties of the filter
+        should be compared in a case sensitive manner.
+        """
+        subject_begins_with: NotRequired[pulumi.Input[str]]
+        """
+        An optional string to filter events for an event subscription based on a resource path prefix.
+        The format of this depends on the publisher of the events.
+        Wildcard characters are not supported in this path.
+        """
+        subject_ends_with: NotRequired[pulumi.Input[str]]
+        """
+        An optional string to filter events for an event subscription based on a resource path suffix.
+        Wildcard characters are not supported in this path.
+        """
+elif False:
+    EventSubscriptionFilterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EventSubscriptionFilterArgs:
@@ -578,6 +814,22 @@ class EventSubscriptionFilterArgs:
         pulumi.set(self, "subject_ends_with", value)
 
 
+if not MYPY:
+    class EventSubscriptionIdentityArgsDict(TypedDict):
+        """
+        The identity information with the event subscription.
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'EventSubscriptionIdentityType']]]
+        """
+        The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identity.
+        """
+        user_assigned_identity: NotRequired[pulumi.Input[str]]
+        """
+        The user identity associated with the resource.
+        """
+elif False:
+    EventSubscriptionIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EventSubscriptionIdentityArgs:
     def __init__(__self__, *,
@@ -617,6 +869,24 @@ class EventSubscriptionIdentityArgs:
     def user_assigned_identity(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "user_assigned_identity", value)
 
+
+if not MYPY:
+    class EventTypeInfoArgsDict(TypedDict):
+        """
+        The event type information for Channels.
+        """
+        inline_event_types: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['InlineEventPropertiesArgsDict']]]]
+        """
+        A collection of inline event types for the resource. The inline event type keys are of type string which represents the name of the event.
+        An example of a valid inline event name is "Contoso.OrderCreated".
+        The inline event type values are of type InlineEventProperties and will contain additional information for every inline event type.
+        """
+        kind: NotRequired[pulumi.Input[Union[str, 'EventDefinitionKind']]]
+        """
+        The kind of event type used.
+        """
+elif False:
+    EventTypeInfoArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EventTypeInfoArgs:
@@ -661,6 +931,27 @@ class EventTypeInfoArgs:
     def kind(self, value: Optional[pulumi.Input[Union[str, 'EventDefinitionKind']]]):
         pulumi.set(self, "kind", value)
 
+
+if not MYPY:
+    class HybridConnectionEventSubscriptionDestinationArgsDict(TypedDict):
+        """
+        Information about the HybridConnection destination for an event subscription.
+        """
+        endpoint_type: pulumi.Input[str]
+        """
+        Type of the endpoint for the event subscription destination.
+        Expected value is 'HybridConnection'.
+        """
+        delivery_attribute_mappings: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union['DynamicDeliveryAttributeMappingArgsDict', 'StaticDeliveryAttributeMappingArgsDict']]]]]
+        """
+        Delivery attribute details.
+        """
+        resource_id: NotRequired[pulumi.Input[str]]
+        """
+        The Azure Resource ID of an hybrid connection that is the destination of an event subscription.
+        """
+elif False:
+    HybridConnectionEventSubscriptionDestinationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class HybridConnectionEventSubscriptionDestinationArgs:
@@ -718,6 +1009,32 @@ class HybridConnectionEventSubscriptionDestinationArgs:
     def resource_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "resource_id", value)
 
+
+if not MYPY:
+    class IdentityInfoArgsDict(TypedDict):
+        """
+        The identity information for the resource.
+        """
+        principal_id: NotRequired[pulumi.Input[str]]
+        """
+        The principal ID of resource identity.
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        The tenant ID of resource.
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'IdentityType']]]
+        """
+        The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identity.
+        """
+        user_assigned_identities: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['UserIdentityPropertiesArgsDict']]]]
+        """
+        The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form:
+        '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        This property is currently not used and reserved for future usage.
+        """
+elif False:
+    IdentityInfoArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IdentityInfoArgs:
@@ -795,6 +1112,19 @@ class IdentityInfoArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
+if not MYPY:
+    class InboundIpRuleArgsDict(TypedDict):
+        action: NotRequired[pulumi.Input[Union[str, 'IpActionType']]]
+        """
+        Action to perform based on the match or no match of the IpMask.
+        """
+        ip_mask: NotRequired[pulumi.Input[str]]
+        """
+        IP Address in CIDR notation e.g., 10.0.0.0/8.
+        """
+elif False:
+    InboundIpRuleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InboundIpRuleArgs:
     def __init__(__self__, *,
@@ -833,6 +1163,30 @@ class InboundIpRuleArgs:
     def ip_mask(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "ip_mask", value)
 
+
+if not MYPY:
+    class InlineEventPropertiesArgsDict(TypedDict):
+        """
+        Additional information about every inline event.
+        """
+        data_schema_url: NotRequired[pulumi.Input[str]]
+        """
+        The dataSchemaUrl for the inline event.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The description for the inline event.
+        """
+        display_name: NotRequired[pulumi.Input[str]]
+        """
+        The displayName for the inline event.
+        """
+        documentation_url: NotRequired[pulumi.Input[str]]
+        """
+        The documentationUrl for the inline event.
+        """
+elif False:
+    InlineEventPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InlineEventPropertiesArgs:
@@ -906,6 +1260,23 @@ class InlineEventPropertiesArgs:
         pulumi.set(self, "documentation_url", value)
 
 
+if not MYPY:
+    class IsNotNullAdvancedFilterArgsDict(TypedDict):
+        """
+        IsNotNull Advanced Filter.
+        """
+        operator_type: pulumi.Input[str]
+        """
+        The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        Expected value is 'IsNotNull'.
+        """
+        key: NotRequired[pulumi.Input[str]]
+        """
+        The field/property in the event based on which you want to filter.
+        """
+elif False:
+    IsNotNullAdvancedFilterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IsNotNullAdvancedFilterArgs:
     def __init__(__self__, *,
@@ -947,6 +1318,23 @@ class IsNotNullAdvancedFilterArgs:
         pulumi.set(self, "key", value)
 
 
+if not MYPY:
+    class IsNullOrUndefinedAdvancedFilterArgsDict(TypedDict):
+        """
+        IsNullOrUndefined Advanced Filter.
+        """
+        operator_type: pulumi.Input[str]
+        """
+        The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        Expected value is 'IsNullOrUndefined'.
+        """
+        key: NotRequired[pulumi.Input[str]]
+        """
+        The field/property in the event based on which you want to filter.
+        """
+elif False:
+    IsNullOrUndefinedAdvancedFilterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IsNullOrUndefinedAdvancedFilterArgs:
     def __init__(__self__, *,
@@ -987,6 +1375,25 @@ class IsNullOrUndefinedAdvancedFilterArgs:
     def key(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "key", value)
 
+
+if not MYPY:
+    class JsonFieldWithDefaultArgsDict(TypedDict):
+        """
+        This is used to express the source of an input schema mapping for a single target field
+        in the Event Grid Event schema. This is currently used in the mappings for the 'subject',
+        'eventtype' and 'dataversion' properties. This represents a field in the input event schema
+        along with a default value to be used, and at least one of these two properties should be provided.
+        """
+        default_value: NotRequired[pulumi.Input[str]]
+        """
+        The default value to be used for mapping when a SourceField is not provided or if there's no property with the specified name in the published JSON event payload.
+        """
+        source_field: NotRequired[pulumi.Input[str]]
+        """
+        Name of a field in the input event schema that's to be used as the source of a mapping.
+        """
+elif False:
+    JsonFieldWithDefaultArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class JsonFieldWithDefaultArgs:
@@ -1031,6 +1438,18 @@ class JsonFieldWithDefaultArgs:
         pulumi.set(self, "source_field", value)
 
 
+if not MYPY:
+    class JsonFieldArgsDict(TypedDict):
+        """
+        This is used to express the source of an input schema mapping for a single target field in the Event Grid Event schema. This is currently used in the mappings for the 'id', 'topic' and 'eventtime' properties. This represents a field in the input event schema.
+        """
+        source_field: NotRequired[pulumi.Input[str]]
+        """
+        Name of a field in the input event schema that's to be used as the source of a mapping.
+        """
+elif False:
+    JsonFieldArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class JsonFieldArgs:
     def __init__(__self__, *,
@@ -1054,6 +1473,43 @@ class JsonFieldArgs:
     def source_field(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "source_field", value)
 
+
+if not MYPY:
+    class JsonInputSchemaMappingArgsDict(TypedDict):
+        """
+        This enables publishing to Event Grid using a custom input schema. This can be used to map properties from a custom input JSON schema to the Event Grid event schema.
+        """
+        input_schema_mapping_type: pulumi.Input[str]
+        """
+        Type of the custom mapping
+        Expected value is 'Json'.
+        """
+        data_version: NotRequired[pulumi.Input['JsonFieldWithDefaultArgsDict']]
+        """
+        The mapping information for the DataVersion property of the Event Grid Event.
+        """
+        event_time: NotRequired[pulumi.Input['JsonFieldArgsDict']]
+        """
+        The mapping information for the EventTime property of the Event Grid Event.
+        """
+        event_type: NotRequired[pulumi.Input['JsonFieldWithDefaultArgsDict']]
+        """
+        The mapping information for the EventType property of the Event Grid Event.
+        """
+        id: NotRequired[pulumi.Input['JsonFieldArgsDict']]
+        """
+        The mapping information for the Id property of the Event Grid Event.
+        """
+        subject: NotRequired[pulumi.Input['JsonFieldWithDefaultArgsDict']]
+        """
+        The mapping information for the Subject property of the Event Grid Event.
+        """
+        topic: NotRequired[pulumi.Input['JsonFieldArgsDict']]
+        """
+        The mapping information for the Topic property of the Event Grid Event.
+        """
+elif False:
+    JsonInputSchemaMappingArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class JsonInputSchemaMappingArgs:
@@ -1176,6 +1632,27 @@ class JsonInputSchemaMappingArgs:
         pulumi.set(self, "topic", value)
 
 
+if not MYPY:
+    class NumberGreaterThanAdvancedFilterArgsDict(TypedDict):
+        """
+        NumberGreaterThan Advanced Filter.
+        """
+        operator_type: pulumi.Input[str]
+        """
+        The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        Expected value is 'NumberGreaterThan'.
+        """
+        key: NotRequired[pulumi.Input[str]]
+        """
+        The field/property in the event based on which you want to filter.
+        """
+        value: NotRequired[pulumi.Input[float]]
+        """
+        The filter value.
+        """
+elif False:
+    NumberGreaterThanAdvancedFilterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NumberGreaterThanAdvancedFilterArgs:
     def __init__(__self__, *,
@@ -1232,6 +1709,27 @@ class NumberGreaterThanAdvancedFilterArgs:
     def value(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class NumberGreaterThanOrEqualsAdvancedFilterArgsDict(TypedDict):
+        """
+        NumberGreaterThanOrEquals Advanced Filter.
+        """
+        operator_type: pulumi.Input[str]
+        """
+        The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        Expected value is 'NumberGreaterThanOrEquals'.
+        """
+        key: NotRequired[pulumi.Input[str]]
+        """
+        The field/property in the event based on which you want to filter.
+        """
+        value: NotRequired[pulumi.Input[float]]
+        """
+        The filter value.
+        """
+elif False:
+    NumberGreaterThanOrEqualsAdvancedFilterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NumberGreaterThanOrEqualsAdvancedFilterArgs:
@@ -1290,6 +1788,27 @@ class NumberGreaterThanOrEqualsAdvancedFilterArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class NumberInAdvancedFilterArgsDict(TypedDict):
+        """
+        NumberIn Advanced Filter.
+        """
+        operator_type: pulumi.Input[str]
+        """
+        The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        Expected value is 'NumberIn'.
+        """
+        key: NotRequired[pulumi.Input[str]]
+        """
+        The field/property in the event based on which you want to filter.
+        """
+        values: NotRequired[pulumi.Input[Sequence[pulumi.Input[float]]]]
+        """
+        The set of filter values.
+        """
+elif False:
+    NumberInAdvancedFilterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NumberInAdvancedFilterArgs:
     def __init__(__self__, *,
@@ -1346,6 +1865,27 @@ class NumberInAdvancedFilterArgs:
     def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[float]]]]):
         pulumi.set(self, "values", value)
 
+
+if not MYPY:
+    class NumberInRangeAdvancedFilterArgsDict(TypedDict):
+        """
+        NumberInRange Advanced Filter.
+        """
+        operator_type: pulumi.Input[str]
+        """
+        The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        Expected value is 'NumberInRange'.
+        """
+        key: NotRequired[pulumi.Input[str]]
+        """
+        The field/property in the event based on which you want to filter.
+        """
+        values: NotRequired[pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[float]]]]]]
+        """
+        The set of filter values.
+        """
+elif False:
+    NumberInRangeAdvancedFilterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NumberInRangeAdvancedFilterArgs:
@@ -1404,6 +1944,27 @@ class NumberInRangeAdvancedFilterArgs:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class NumberLessThanAdvancedFilterArgsDict(TypedDict):
+        """
+        NumberLessThan Advanced Filter.
+        """
+        operator_type: pulumi.Input[str]
+        """
+        The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        Expected value is 'NumberLessThan'.
+        """
+        key: NotRequired[pulumi.Input[str]]
+        """
+        The field/property in the event based on which you want to filter.
+        """
+        value: NotRequired[pulumi.Input[float]]
+        """
+        The filter value.
+        """
+elif False:
+    NumberLessThanAdvancedFilterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NumberLessThanAdvancedFilterArgs:
     def __init__(__self__, *,
@@ -1460,6 +2021,27 @@ class NumberLessThanAdvancedFilterArgs:
     def value(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class NumberLessThanOrEqualsAdvancedFilterArgsDict(TypedDict):
+        """
+        NumberLessThanOrEquals Advanced Filter.
+        """
+        operator_type: pulumi.Input[str]
+        """
+        The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        Expected value is 'NumberLessThanOrEquals'.
+        """
+        key: NotRequired[pulumi.Input[str]]
+        """
+        The field/property in the event based on which you want to filter.
+        """
+        value: NotRequired[pulumi.Input[float]]
+        """
+        The filter value.
+        """
+elif False:
+    NumberLessThanOrEqualsAdvancedFilterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NumberLessThanOrEqualsAdvancedFilterArgs:
@@ -1518,6 +2100,27 @@ class NumberLessThanOrEqualsAdvancedFilterArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class NumberNotInAdvancedFilterArgsDict(TypedDict):
+        """
+        NumberNotIn Advanced Filter.
+        """
+        operator_type: pulumi.Input[str]
+        """
+        The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        Expected value is 'NumberNotIn'.
+        """
+        key: NotRequired[pulumi.Input[str]]
+        """
+        The field/property in the event based on which you want to filter.
+        """
+        values: NotRequired[pulumi.Input[Sequence[pulumi.Input[float]]]]
+        """
+        The set of filter values.
+        """
+elif False:
+    NumberNotInAdvancedFilterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NumberNotInAdvancedFilterArgs:
     def __init__(__self__, *,
@@ -1574,6 +2177,27 @@ class NumberNotInAdvancedFilterArgs:
     def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[float]]]]):
         pulumi.set(self, "values", value)
 
+
+if not MYPY:
+    class NumberNotInRangeAdvancedFilterArgsDict(TypedDict):
+        """
+        NumberNotInRange Advanced Filter.
+        """
+        operator_type: pulumi.Input[str]
+        """
+        The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        Expected value is 'NumberNotInRange'.
+        """
+        key: NotRequired[pulumi.Input[str]]
+        """
+        The field/property in the event based on which you want to filter.
+        """
+        values: NotRequired[pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[float]]]]]]
+        """
+        The set of filter values.
+        """
+elif False:
+    NumberNotInRangeAdvancedFilterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NumberNotInRangeAdvancedFilterArgs:
@@ -1632,6 +2256,23 @@ class NumberNotInRangeAdvancedFilterArgs:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class PartnerAuthorizationArgsDict(TypedDict):
+        """
+        The partner authorization details.
+        """
+        authorized_partners_list: NotRequired[pulumi.Input[Sequence[pulumi.Input['PartnerArgsDict']]]]
+        """
+        The list of authorized partners.
+        """
+        default_maximum_expiration_time_in_days: NotRequired[pulumi.Input[int]]
+        """
+        Time used to validate the authorization expiration time for each authorized partner. If DefaultMaximumExpirationTimeInDays is
+        not specified, the default is 7 days. Otherwise, allowed values are between 1 and 365 days.
+        """
+elif False:
+    PartnerAuthorizationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PartnerAuthorizationArgs:
     def __init__(__self__, *,
@@ -1673,6 +2314,39 @@ class PartnerAuthorizationArgs:
     def default_maximum_expiration_time_in_days(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "default_maximum_expiration_time_in_days", value)
 
+
+if not MYPY:
+    class PartnerTopicInfoArgsDict(TypedDict):
+        """
+        Properties of the corresponding partner topic of a Channel.
+        """
+        azure_subscription_id: NotRequired[pulumi.Input[str]]
+        """
+        Azure subscription ID of the subscriber. The partner topic associated with the channel will be
+        created under this Azure subscription.
+        """
+        event_type_info: NotRequired[pulumi.Input['EventTypeInfoArgsDict']]
+        """
+        Event Type Information for the partner topic. This information is provided by the publisher and can be used by the 
+        subscriber to view different types of events that are published.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the partner topic associated with the channel.
+        """
+        resource_group_name: NotRequired[pulumi.Input[str]]
+        """
+        Azure Resource Group of the subscriber. The partner topic associated with the channel will be
+        created under this resource group.
+        """
+        source: NotRequired[pulumi.Input[str]]
+        """
+        The source information is provided by the publisher to determine the scope or context from which the events
+        are originating. This information can be used by the subscriber during the approval process of the
+        created partner topic.
+        """
+elif False:
+    PartnerTopicInfoArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PartnerTopicInfoArgs:
@@ -1772,6 +2446,28 @@ class PartnerTopicInfoArgs:
         pulumi.set(self, "source", value)
 
 
+if not MYPY:
+    class PartnerArgsDict(TypedDict):
+        """
+        Information about the partner.
+        """
+        authorization_expiration_time_in_utc: NotRequired[pulumi.Input[str]]
+        """
+        Expiration time of the partner authorization. If this timer expires, any request from this partner to create, update or delete resources in subscriber's
+        context will fail. If specified, the allowed values are between 1 to the value of defaultMaximumExpirationTimeInDays specified in PartnerConfiguration.
+        If not specified, the default value will be the value of defaultMaximumExpirationTimeInDays specified in PartnerConfiguration or 7 if this value is not specified.
+        """
+        partner_name: NotRequired[pulumi.Input[str]]
+        """
+        The partner name.
+        """
+        partner_registration_immutable_id: NotRequired[pulumi.Input[str]]
+        """
+        The immutableId of the corresponding partner registration.
+        """
+elif False:
+    PartnerArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PartnerArgs:
     def __init__(__self__, *,
@@ -1832,6 +2528,18 @@ class PartnerArgs:
         pulumi.set(self, "partner_registration_immutable_id", value)
 
 
+if not MYPY:
+    class PrivateEndpointArgsDict(TypedDict):
+        """
+        PrivateEndpoint information.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The ARM identifier for Private Endpoint.
+        """
+elif False:
+    PrivateEndpointArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PrivateEndpointArgs:
     def __init__(__self__, *,
@@ -1855,6 +2563,22 @@ class PrivateEndpointArgs:
     def id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class RetryPolicyArgsDict(TypedDict):
+        """
+        Information about the retry policy for an event subscription.
+        """
+        event_time_to_live_in_minutes: NotRequired[pulumi.Input[int]]
+        """
+        Time To Live (in minutes) for events.
+        """
+        max_delivery_attempts: NotRequired[pulumi.Input[int]]
+        """
+        Maximum number of delivery retry attempts for events.
+        """
+elif False:
+    RetryPolicyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RetryPolicyArgs:
@@ -1899,6 +2623,27 @@ class RetryPolicyArgs:
     def max_delivery_attempts(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max_delivery_attempts", value)
 
+
+if not MYPY:
+    class ServiceBusQueueEventSubscriptionDestinationArgsDict(TypedDict):
+        """
+        Information about the service bus destination for an event subscription.
+        """
+        endpoint_type: pulumi.Input[str]
+        """
+        Type of the endpoint for the event subscription destination.
+        Expected value is 'ServiceBusQueue'.
+        """
+        delivery_attribute_mappings: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union['DynamicDeliveryAttributeMappingArgsDict', 'StaticDeliveryAttributeMappingArgsDict']]]]]
+        """
+        Delivery attribute details.
+        """
+        resource_id: NotRequired[pulumi.Input[str]]
+        """
+        The Azure Resource Id that represents the endpoint of the Service Bus destination of an event subscription.
+        """
+elif False:
+    ServiceBusQueueEventSubscriptionDestinationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ServiceBusQueueEventSubscriptionDestinationArgs:
@@ -1957,6 +2702,27 @@ class ServiceBusQueueEventSubscriptionDestinationArgs:
         pulumi.set(self, "resource_id", value)
 
 
+if not MYPY:
+    class ServiceBusTopicEventSubscriptionDestinationArgsDict(TypedDict):
+        """
+        Information about the service bus topic destination for an event subscription.
+        """
+        endpoint_type: pulumi.Input[str]
+        """
+        Type of the endpoint for the event subscription destination.
+        Expected value is 'ServiceBusTopic'.
+        """
+        delivery_attribute_mappings: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union['DynamicDeliveryAttributeMappingArgsDict', 'StaticDeliveryAttributeMappingArgsDict']]]]]
+        """
+        Delivery attribute details.
+        """
+        resource_id: NotRequired[pulumi.Input[str]]
+        """
+        The Azure Resource Id that represents the endpoint of the Service Bus Topic destination of an event subscription.
+        """
+elif False:
+    ServiceBusTopicEventSubscriptionDestinationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ServiceBusTopicEventSubscriptionDestinationArgs:
     def __init__(__self__, *,
@@ -2013,6 +2779,31 @@ class ServiceBusTopicEventSubscriptionDestinationArgs:
     def resource_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "resource_id", value)
 
+
+if not MYPY:
+    class StaticDeliveryAttributeMappingArgsDict(TypedDict):
+        """
+        Static delivery attribute mapping details.
+        """
+        type: pulumi.Input[str]
+        """
+        Type of the delivery attribute or header name.
+        Expected value is 'Static'.
+        """
+        is_secret: NotRequired[pulumi.Input[bool]]
+        """
+        Boolean flag to tell if the attribute contains sensitive information .
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the delivery attribute or header.
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        Value of the delivery attribute.
+        """
+elif False:
+    StaticDeliveryAttributeMappingArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class StaticDeliveryAttributeMappingArgs:
@@ -2089,6 +2880,27 @@ class StaticDeliveryAttributeMappingArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class StorageBlobDeadLetterDestinationArgsDict(TypedDict):
+        """
+        Information about the storage blob based dead letter destination.
+        """
+        endpoint_type: pulumi.Input[str]
+        """
+        Type of the endpoint for the dead letter destination
+        Expected value is 'StorageBlob'.
+        """
+        blob_container_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the Storage blob container that is the destination of the deadletter events
+        """
+        resource_id: NotRequired[pulumi.Input[str]]
+        """
+        The Azure Resource ID of the storage account that is the destination of the deadletter events
+        """
+elif False:
+    StorageBlobDeadLetterDestinationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class StorageBlobDeadLetterDestinationArgs:
     def __init__(__self__, *,
@@ -2145,6 +2957,31 @@ class StorageBlobDeadLetterDestinationArgs:
     def resource_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "resource_id", value)
 
+
+if not MYPY:
+    class StorageQueueEventSubscriptionDestinationArgsDict(TypedDict):
+        """
+        Information about the storage queue destination for an event subscription.
+        """
+        endpoint_type: pulumi.Input[str]
+        """
+        Type of the endpoint for the event subscription destination.
+        Expected value is 'StorageQueue'.
+        """
+        queue_message_time_to_live_in_seconds: NotRequired[pulumi.Input[float]]
+        """
+        Storage queue message time to live in seconds.
+        """
+        queue_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the Storage queue under a storage account that is the destination of an event subscription.
+        """
+        resource_id: NotRequired[pulumi.Input[str]]
+        """
+        The Azure Resource ID of the storage account that contains the queue that is the destination of an event subscription.
+        """
+elif False:
+    StorageQueueEventSubscriptionDestinationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class StorageQueueEventSubscriptionDestinationArgs:
@@ -2219,6 +3056,27 @@ class StorageQueueEventSubscriptionDestinationArgs:
         pulumi.set(self, "resource_id", value)
 
 
+if not MYPY:
+    class StringBeginsWithAdvancedFilterArgsDict(TypedDict):
+        """
+        StringBeginsWith Advanced Filter.
+        """
+        operator_type: pulumi.Input[str]
+        """
+        The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        Expected value is 'StringBeginsWith'.
+        """
+        key: NotRequired[pulumi.Input[str]]
+        """
+        The field/property in the event based on which you want to filter.
+        """
+        values: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The set of filter values.
+        """
+elif False:
+    StringBeginsWithAdvancedFilterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class StringBeginsWithAdvancedFilterArgs:
     def __init__(__self__, *,
@@ -2275,6 +3133,27 @@ class StringBeginsWithAdvancedFilterArgs:
     def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "values", value)
 
+
+if not MYPY:
+    class StringContainsAdvancedFilterArgsDict(TypedDict):
+        """
+        StringContains Advanced Filter.
+        """
+        operator_type: pulumi.Input[str]
+        """
+        The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        Expected value is 'StringContains'.
+        """
+        key: NotRequired[pulumi.Input[str]]
+        """
+        The field/property in the event based on which you want to filter.
+        """
+        values: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The set of filter values.
+        """
+elif False:
+    StringContainsAdvancedFilterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class StringContainsAdvancedFilterArgs:
@@ -2333,6 +3212,27 @@ class StringContainsAdvancedFilterArgs:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class StringEndsWithAdvancedFilterArgsDict(TypedDict):
+        """
+        StringEndsWith Advanced Filter.
+        """
+        operator_type: pulumi.Input[str]
+        """
+        The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        Expected value is 'StringEndsWith'.
+        """
+        key: NotRequired[pulumi.Input[str]]
+        """
+        The field/property in the event based on which you want to filter.
+        """
+        values: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The set of filter values.
+        """
+elif False:
+    StringEndsWithAdvancedFilterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class StringEndsWithAdvancedFilterArgs:
     def __init__(__self__, *,
@@ -2389,6 +3289,27 @@ class StringEndsWithAdvancedFilterArgs:
     def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "values", value)
 
+
+if not MYPY:
+    class StringInAdvancedFilterArgsDict(TypedDict):
+        """
+        StringIn Advanced Filter.
+        """
+        operator_type: pulumi.Input[str]
+        """
+        The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        Expected value is 'StringIn'.
+        """
+        key: NotRequired[pulumi.Input[str]]
+        """
+        The field/property in the event based on which you want to filter.
+        """
+        values: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The set of filter values.
+        """
+elif False:
+    StringInAdvancedFilterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class StringInAdvancedFilterArgs:
@@ -2447,6 +3368,27 @@ class StringInAdvancedFilterArgs:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class StringNotBeginsWithAdvancedFilterArgsDict(TypedDict):
+        """
+        StringNotBeginsWith Advanced Filter.
+        """
+        operator_type: pulumi.Input[str]
+        """
+        The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        Expected value is 'StringNotBeginsWith'.
+        """
+        key: NotRequired[pulumi.Input[str]]
+        """
+        The field/property in the event based on which you want to filter.
+        """
+        values: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The set of filter values.
+        """
+elif False:
+    StringNotBeginsWithAdvancedFilterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class StringNotBeginsWithAdvancedFilterArgs:
     def __init__(__self__, *,
@@ -2503,6 +3445,27 @@ class StringNotBeginsWithAdvancedFilterArgs:
     def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "values", value)
 
+
+if not MYPY:
+    class StringNotContainsAdvancedFilterArgsDict(TypedDict):
+        """
+        StringNotContains Advanced Filter.
+        """
+        operator_type: pulumi.Input[str]
+        """
+        The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        Expected value is 'StringNotContains'.
+        """
+        key: NotRequired[pulumi.Input[str]]
+        """
+        The field/property in the event based on which you want to filter.
+        """
+        values: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The set of filter values.
+        """
+elif False:
+    StringNotContainsAdvancedFilterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class StringNotContainsAdvancedFilterArgs:
@@ -2561,6 +3524,27 @@ class StringNotContainsAdvancedFilterArgs:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class StringNotEndsWithAdvancedFilterArgsDict(TypedDict):
+        """
+        StringNotEndsWith Advanced Filter.
+        """
+        operator_type: pulumi.Input[str]
+        """
+        The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        Expected value is 'StringNotEndsWith'.
+        """
+        key: NotRequired[pulumi.Input[str]]
+        """
+        The field/property in the event based on which you want to filter.
+        """
+        values: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The set of filter values.
+        """
+elif False:
+    StringNotEndsWithAdvancedFilterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class StringNotEndsWithAdvancedFilterArgs:
     def __init__(__self__, *,
@@ -2617,6 +3601,27 @@ class StringNotEndsWithAdvancedFilterArgs:
     def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "values", value)
 
+
+if not MYPY:
+    class StringNotInAdvancedFilterArgsDict(TypedDict):
+        """
+        StringNotIn Advanced Filter.
+        """
+        operator_type: pulumi.Input[str]
+        """
+        The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        Expected value is 'StringNotIn'.
+        """
+        key: NotRequired[pulumi.Input[str]]
+        """
+        The field/property in the event based on which you want to filter.
+        """
+        values: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The set of filter values.
+        """
+elif False:
+    StringNotInAdvancedFilterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class StringNotInAdvancedFilterArgs:
@@ -2675,6 +3680,22 @@ class StringNotInAdvancedFilterArgs:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class UserIdentityPropertiesArgsDict(TypedDict):
+        """
+        The information about the user identity.
+        """
+        client_id: NotRequired[pulumi.Input[str]]
+        """
+        The client id of user assigned identity.
+        """
+        principal_id: NotRequired[pulumi.Input[str]]
+        """
+        The principal id of user assigned identity.
+        """
+elif False:
+    UserIdentityPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class UserIdentityPropertiesArgs:
     def __init__(__self__, *,
@@ -2714,6 +3735,43 @@ class UserIdentityPropertiesArgs:
     def principal_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "principal_id", value)
 
+
+if not MYPY:
+    class WebHookEventSubscriptionDestinationArgsDict(TypedDict):
+        """
+        Information about the webhook destination for an event subscription.
+        """
+        endpoint_type: pulumi.Input[str]
+        """
+        Type of the endpoint for the event subscription destination.
+        Expected value is 'WebHook'.
+        """
+        azure_active_directory_application_id_or_uri: NotRequired[pulumi.Input[str]]
+        """
+        The Azure Active Directory Application ID or URI to get the access token that will be included as the bearer token in delivery requests.
+        """
+        azure_active_directory_tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        The Azure Active Directory Tenant ID to get the access token that will be included as the bearer token in delivery requests.
+        """
+        delivery_attribute_mappings: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union['DynamicDeliveryAttributeMappingArgsDict', 'StaticDeliveryAttributeMappingArgsDict']]]]]
+        """
+        Delivery attribute details.
+        """
+        endpoint_url: NotRequired[pulumi.Input[str]]
+        """
+        The URL that represents the endpoint of the destination of an event subscription.
+        """
+        max_events_per_batch: NotRequired[pulumi.Input[int]]
+        """
+        Maximum number of events per batch.
+        """
+        preferred_batch_size_in_kilobytes: NotRequired[pulumi.Input[int]]
+        """
+        Preferred batch size in Kilobytes.
+        """
+elif False:
+    WebHookEventSubscriptionDestinationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WebHookEventSubscriptionDestinationArgs:

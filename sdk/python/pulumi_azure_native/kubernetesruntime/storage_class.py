@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -244,7 +249,7 @@ class StorageClass(pulumi.CustomResource):
                  provisioner: Optional[pulumi.Input[str]] = None,
                  resource_uri: Optional[pulumi.Input[str]] = None,
                  storage_class_name: Optional[pulumi.Input[str]] = None,
-                 type_properties: Optional[pulumi.Input[Union[pulumi.InputType['BlobStorageClassTypePropertiesArgs'], pulumi.InputType['NativeStorageClassTypePropertiesArgs'], pulumi.InputType['NfsStorageClassTypePropertiesArgs'], pulumi.InputType['RwxStorageClassTypePropertiesArgs'], pulumi.InputType['SmbStorageClassTypePropertiesArgs']]]] = None,
+                 type_properties: Optional[pulumi.Input[Union[Union['BlobStorageClassTypePropertiesArgs', 'BlobStorageClassTypePropertiesArgsDict'], Union['NativeStorageClassTypePropertiesArgs', 'NativeStorageClassTypePropertiesArgsDict'], Union['NfsStorageClassTypePropertiesArgs', 'NfsStorageClassTypePropertiesArgsDict'], Union['RwxStorageClassTypePropertiesArgs', 'RwxStorageClassTypePropertiesArgsDict'], Union['SmbStorageClassTypePropertiesArgs', 'SmbStorageClassTypePropertiesArgsDict']]]] = None,
                  volume_binding_mode: Optional[pulumi.Input[Union[str, 'VolumeBindingMode']]] = None,
                  __props__=None):
         """
@@ -266,7 +271,7 @@ class StorageClass(pulumi.CustomResource):
         :param pulumi.Input[str] provisioner: Provisioner name
         :param pulumi.Input[str] resource_uri: The fully qualified Azure Resource manager identifier of the resource.
         :param pulumi.Input[str] storage_class_name: The name of the the storage class
-        :param pulumi.Input[Union[pulumi.InputType['BlobStorageClassTypePropertiesArgs'], pulumi.InputType['NativeStorageClassTypePropertiesArgs'], pulumi.InputType['NfsStorageClassTypePropertiesArgs'], pulumi.InputType['RwxStorageClassTypePropertiesArgs'], pulumi.InputType['SmbStorageClassTypePropertiesArgs']]] type_properties: Properties of the StorageClass
+        :param pulumi.Input[Union[Union['BlobStorageClassTypePropertiesArgs', 'BlobStorageClassTypePropertiesArgsDict'], Union['NativeStorageClassTypePropertiesArgs', 'NativeStorageClassTypePropertiesArgsDict'], Union['NfsStorageClassTypePropertiesArgs', 'NfsStorageClassTypePropertiesArgsDict'], Union['RwxStorageClassTypePropertiesArgs', 'RwxStorageClassTypePropertiesArgsDict'], Union['SmbStorageClassTypePropertiesArgs', 'SmbStorageClassTypePropertiesArgsDict']]] type_properties: Properties of the StorageClass
         :param pulumi.Input[Union[str, 'VolumeBindingMode']] volume_binding_mode: Binding mode of volumes: Immediate, WaitForFirstConsumer
         """
         ...
@@ -307,7 +312,7 @@ class StorageClass(pulumi.CustomResource):
                  provisioner: Optional[pulumi.Input[str]] = None,
                  resource_uri: Optional[pulumi.Input[str]] = None,
                  storage_class_name: Optional[pulumi.Input[str]] = None,
-                 type_properties: Optional[pulumi.Input[Union[pulumi.InputType['BlobStorageClassTypePropertiesArgs'], pulumi.InputType['NativeStorageClassTypePropertiesArgs'], pulumi.InputType['NfsStorageClassTypePropertiesArgs'], pulumi.InputType['RwxStorageClassTypePropertiesArgs'], pulumi.InputType['SmbStorageClassTypePropertiesArgs']]]] = None,
+                 type_properties: Optional[pulumi.Input[Union[Union['BlobStorageClassTypePropertiesArgs', 'BlobStorageClassTypePropertiesArgsDict'], Union['NativeStorageClassTypePropertiesArgs', 'NativeStorageClassTypePropertiesArgsDict'], Union['NfsStorageClassTypePropertiesArgs', 'NfsStorageClassTypePropertiesArgsDict'], Union['RwxStorageClassTypePropertiesArgs', 'RwxStorageClassTypePropertiesArgsDict'], Union['SmbStorageClassTypePropertiesArgs', 'SmbStorageClassTypePropertiesArgsDict']]]] = None,
                  volume_binding_mode: Optional[pulumi.Input[Union[str, 'VolumeBindingMode']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

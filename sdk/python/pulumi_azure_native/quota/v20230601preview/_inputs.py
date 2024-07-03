@@ -4,17 +4,40 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'AdditionalAttributesArgs',
+    'AdditionalAttributesArgsDict',
     'GroupQuotasEntityBaseArgs',
+    'GroupQuotasEntityBaseArgsDict',
     'GroupingIdArgs',
+    'GroupingIdArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AdditionalAttributesArgsDict(TypedDict):
+        """
+        Additional attribute or filter to allow subscriptions meeting the requirements to be part of the GroupQuota.
+        """
+        group_id: pulumi.Input['GroupingIdArgsDict']
+        """
+        The grouping Id for the group quota. It can be Billing Id or ServiceTreeId if applicable. 
+        """
+        environment: NotRequired[Any]
+elif False:
+    AdditionalAttributesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AdditionalAttributesArgs:
@@ -50,6 +73,22 @@ class AdditionalAttributesArgs:
     def environment(self, value: Optional[Any]):
         pulumi.set(self, "environment", value)
 
+
+if not MYPY:
+    class GroupQuotasEntityBaseArgsDict(TypedDict):
+        """
+        Properties and filters for ShareQuota. The request parameter is optional, if there are no filters specified.
+        """
+        additional_attributes: NotRequired[pulumi.Input['AdditionalAttributesArgsDict']]
+        """
+        Additional attributes to filter/restrict the subscriptions, which can be added to the subscriptionIds.
+        """
+        display_name: NotRequired[pulumi.Input[str]]
+        """
+        Display name of the GroupQuota entity.
+        """
+elif False:
+    GroupQuotasEntityBaseArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GroupQuotasEntityBaseArgs:
@@ -90,6 +129,22 @@ class GroupQuotasEntityBaseArgs:
     def display_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "display_name", value)
 
+
+if not MYPY:
+    class GroupingIdArgsDict(TypedDict):
+        """
+        The grouping Id for the group quota. It can be Billing Id or ServiceTreeId if applicable. 
+        """
+        grouping_id_type: NotRequired[pulumi.Input[Union[str, 'GroupingIdType']]]
+        """
+        GroupingId type. It is a required property. More types of groupIds can be supported in future.
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        GroupId value based on the groupingType selected - Billing Id or ServiceTreeId.
+        """
+elif False:
+    GroupingIdArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GroupingIdArgs:

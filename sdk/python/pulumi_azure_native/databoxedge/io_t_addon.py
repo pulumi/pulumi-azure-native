@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -137,8 +142,8 @@ class IoTAddon(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  addon_name: Optional[pulumi.Input[str]] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
-                 io_t_device_details: Optional[pulumi.Input[pulumi.InputType['IoTDeviceInfoArgs']]] = None,
-                 io_t_edge_device_details: Optional[pulumi.Input[pulumi.InputType['IoTDeviceInfoArgs']]] = None,
+                 io_t_device_details: Optional[pulumi.Input[Union['IoTDeviceInfoArgs', 'IoTDeviceInfoArgsDict']]] = None,
+                 io_t_edge_device_details: Optional[pulumi.Input[Union['IoTDeviceInfoArgs', 'IoTDeviceInfoArgsDict']]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  role_name: Optional[pulumi.Input[str]] = None,
@@ -151,8 +156,8 @@ class IoTAddon(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] addon_name: The addon name.
         :param pulumi.Input[str] device_name: The device name.
-        :param pulumi.Input[pulumi.InputType['IoTDeviceInfoArgs']] io_t_device_details: IoT device metadata to which appliance needs to be connected.
-        :param pulumi.Input[pulumi.InputType['IoTDeviceInfoArgs']] io_t_edge_device_details: IoT edge device to which the IoT Addon needs to be configured.
+        :param pulumi.Input[Union['IoTDeviceInfoArgs', 'IoTDeviceInfoArgsDict']] io_t_device_details: IoT device metadata to which appliance needs to be connected.
+        :param pulumi.Input[Union['IoTDeviceInfoArgs', 'IoTDeviceInfoArgsDict']] io_t_edge_device_details: IoT edge device to which the IoT Addon needs to be configured.
         :param pulumi.Input[str] kind: Addon type.
                Expected value is 'IotEdge'.
         :param pulumi.Input[str] resource_group_name: The resource group name.
@@ -185,8 +190,8 @@ class IoTAddon(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  addon_name: Optional[pulumi.Input[str]] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
-                 io_t_device_details: Optional[pulumi.Input[pulumi.InputType['IoTDeviceInfoArgs']]] = None,
-                 io_t_edge_device_details: Optional[pulumi.Input[pulumi.InputType['IoTDeviceInfoArgs']]] = None,
+                 io_t_device_details: Optional[pulumi.Input[Union['IoTDeviceInfoArgs', 'IoTDeviceInfoArgsDict']]] = None,
+                 io_t_edge_device_details: Optional[pulumi.Input[Union['IoTDeviceInfoArgs', 'IoTDeviceInfoArgsDict']]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  role_name: Optional[pulumi.Input[str]] = None,

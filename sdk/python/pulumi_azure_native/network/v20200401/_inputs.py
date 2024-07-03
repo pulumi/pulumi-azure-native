@@ -4,46 +4,130 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'ApplicationRuleConditionArgs',
+    'ApplicationRuleConditionArgsDict',
     'AzureFirewallApplicationRuleCollectionArgs',
+    'AzureFirewallApplicationRuleCollectionArgsDict',
     'AzureFirewallApplicationRuleProtocolArgs',
+    'AzureFirewallApplicationRuleProtocolArgsDict',
     'AzureFirewallApplicationRuleArgs',
+    'AzureFirewallApplicationRuleArgsDict',
     'AzureFirewallIPConfigurationArgs',
+    'AzureFirewallIPConfigurationArgsDict',
     'AzureFirewallNatRCActionArgs',
+    'AzureFirewallNatRCActionArgsDict',
     'AzureFirewallNatRuleCollectionArgs',
+    'AzureFirewallNatRuleCollectionArgsDict',
     'AzureFirewallNatRuleArgs',
+    'AzureFirewallNatRuleArgsDict',
     'AzureFirewallNetworkRuleCollectionArgs',
+    'AzureFirewallNetworkRuleCollectionArgsDict',
     'AzureFirewallNetworkRuleArgs',
+    'AzureFirewallNetworkRuleArgsDict',
     'AzureFirewallRCActionArgs',
+    'AzureFirewallRCActionArgsDict',
     'AzureFirewallSkuArgs',
+    'AzureFirewallSkuArgsDict',
     'FirewallPolicyFilterRuleActionArgs',
+    'FirewallPolicyFilterRuleActionArgsDict',
     'FirewallPolicyFilterRuleArgs',
+    'FirewallPolicyFilterRuleArgsDict',
     'FirewallPolicyNatRuleActionArgs',
+    'FirewallPolicyNatRuleActionArgsDict',
     'FirewallPolicyNatRuleArgs',
+    'FirewallPolicyNatRuleArgsDict',
     'FirewallPolicyRuleConditionApplicationProtocolArgs',
+    'FirewallPolicyRuleConditionApplicationProtocolArgsDict',
     'FirewallPolicyThreatIntelWhitelistArgs',
+    'FirewallPolicyThreatIntelWhitelistArgsDict',
     'HubVirtualNetworkConnectionArgs',
+    'HubVirtualNetworkConnectionArgsDict',
     'ManagedServiceIdentityArgs',
+    'ManagedServiceIdentityArgsDict',
     'NatRuleConditionArgs',
+    'NatRuleConditionArgsDict',
     'NetworkRuleConditionArgs',
+    'NetworkRuleConditionArgsDict',
     'PropagatedRouteTableArgs',
+    'PropagatedRouteTableArgsDict',
     'RoutingConfigurationArgs',
+    'RoutingConfigurationArgsDict',
     'StaticRouteArgs',
+    'StaticRouteArgsDict',
     'SubResourceArgs',
+    'SubResourceArgsDict',
     'VirtualApplianceSkuPropertiesArgs',
+    'VirtualApplianceSkuPropertiesArgsDict',
     'VirtualHubRouteTableV2Args',
+    'VirtualHubRouteTableV2ArgsDict',
     'VirtualHubRouteTableArgs',
+    'VirtualHubRouteTableArgsDict',
     'VirtualHubRouteV2Args',
+    'VirtualHubRouteV2ArgsDict',
     'VirtualHubRouteArgs',
+    'VirtualHubRouteArgsDict',
     'VnetRouteArgs',
+    'VnetRouteArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ApplicationRuleConditionArgsDict(TypedDict):
+        """
+        Rule condition of type application.
+        """
+        rule_condition_type: pulumi.Input[str]
+        """
+        Rule Condition Type.
+        Expected value is 'ApplicationRuleCondition'.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Description of the rule condition.
+        """
+        destination_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of destination IP addresses or Service Tags.
+        """
+        fqdn_tags: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of FQDN Tags for this rule condition.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the rule condition.
+        """
+        protocols: NotRequired[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleConditionApplicationProtocolArgsDict']]]]
+        """
+        Array of Application Protocols.
+        """
+        source_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of source IP addresses for this rule.
+        """
+        source_ip_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of source IpGroups for this rule.
+        """
+        target_fqdns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of FQDNs for this rule condition.
+        """
+elif False:
+    ApplicationRuleConditionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApplicationRuleConditionArgs:
@@ -198,6 +282,34 @@ class ApplicationRuleConditionArgs:
         pulumi.set(self, "target_fqdns", value)
 
 
+if not MYPY:
+    class AzureFirewallApplicationRuleCollectionArgsDict(TypedDict):
+        """
+        Application rule collection resource.
+        """
+        action: NotRequired[pulumi.Input['AzureFirewallRCActionArgsDict']]
+        """
+        The action type of a rule collection.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the resource that is unique within the Azure firewall. This name can be used to access the resource.
+        """
+        priority: NotRequired[pulumi.Input[int]]
+        """
+        Priority of the application rule collection resource.
+        """
+        rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['AzureFirewallApplicationRuleArgsDict']]]]
+        """
+        Collection of rules used by a application rule collection.
+        """
+elif False:
+    AzureFirewallApplicationRuleCollectionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AzureFirewallApplicationRuleCollectionArgs:
     def __init__(__self__, *,
@@ -286,6 +398,22 @@ class AzureFirewallApplicationRuleCollectionArgs:
         pulumi.set(self, "rules", value)
 
 
+if not MYPY:
+    class AzureFirewallApplicationRuleProtocolArgsDict(TypedDict):
+        """
+        Properties of the application rule protocol.
+        """
+        port: NotRequired[pulumi.Input[int]]
+        """
+        Port number for the protocol, cannot be greater than 64000. This field is optional.
+        """
+        protocol_type: NotRequired[pulumi.Input[Union[str, 'AzureFirewallApplicationRuleProtocolType']]]
+        """
+        Protocol type.
+        """
+elif False:
+    AzureFirewallApplicationRuleProtocolArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AzureFirewallApplicationRuleProtocolArgs:
     def __init__(__self__, *,
@@ -325,6 +453,42 @@ class AzureFirewallApplicationRuleProtocolArgs:
     def protocol_type(self, value: Optional[pulumi.Input[Union[str, 'AzureFirewallApplicationRuleProtocolType']]]):
         pulumi.set(self, "protocol_type", value)
 
+
+if not MYPY:
+    class AzureFirewallApplicationRuleArgsDict(TypedDict):
+        """
+        Properties of an application rule.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Description of the rule.
+        """
+        fqdn_tags: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of FQDN Tags for this rule.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the application rule.
+        """
+        protocols: NotRequired[pulumi.Input[Sequence[pulumi.Input['AzureFirewallApplicationRuleProtocolArgsDict']]]]
+        """
+        Array of ApplicationRuleProtocols.
+        """
+        source_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of source IP addresses for this rule.
+        """
+        source_ip_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of source IpGroups for this rule.
+        """
+        target_fqdns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of FQDNs for this rule.
+        """
+elif False:
+    AzureFirewallApplicationRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AzureFirewallApplicationRuleArgs:
@@ -446,6 +610,30 @@ class AzureFirewallApplicationRuleArgs:
         pulumi.set(self, "target_fqdns", value)
 
 
+if not MYPY:
+    class AzureFirewallIPConfigurationArgsDict(TypedDict):
+        """
+        IP configuration of an Azure Firewall.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+        public_ip_address: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        """
+        Reference to the PublicIP resource. This field is a mandatory input if subnet is not null.
+        """
+        subnet: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        """
+        Reference to the subnet resource. This resource must be named 'AzureFirewallSubnet' or 'AzureFirewallManagementSubnet'.
+        """
+elif False:
+    AzureFirewallIPConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AzureFirewallIPConfigurationArgs:
     def __init__(__self__, *,
@@ -518,6 +706,18 @@ class AzureFirewallIPConfigurationArgs:
         pulumi.set(self, "subnet", value)
 
 
+if not MYPY:
+    class AzureFirewallNatRCActionArgsDict(TypedDict):
+        """
+        AzureFirewall NAT Rule Collection Action.
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'AzureFirewallNatRCActionType']]]
+        """
+        The type of action.
+        """
+elif False:
+    AzureFirewallNatRCActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AzureFirewallNatRCActionArgs:
     def __init__(__self__, *,
@@ -541,6 +741,34 @@ class AzureFirewallNatRCActionArgs:
     def type(self, value: Optional[pulumi.Input[Union[str, 'AzureFirewallNatRCActionType']]]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class AzureFirewallNatRuleCollectionArgsDict(TypedDict):
+        """
+        NAT rule collection resource.
+        """
+        action: NotRequired[pulumi.Input['AzureFirewallNatRCActionArgsDict']]
+        """
+        The action type of a NAT rule collection.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the resource that is unique within the Azure firewall. This name can be used to access the resource.
+        """
+        priority: NotRequired[pulumi.Input[int]]
+        """
+        Priority of the NAT rule collection resource.
+        """
+        rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['AzureFirewallNatRuleArgsDict']]]]
+        """
+        Collection of rules used by a NAT rule collection.
+        """
+elif False:
+    AzureFirewallNatRuleCollectionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AzureFirewallNatRuleCollectionArgs:
@@ -629,6 +857,54 @@ class AzureFirewallNatRuleCollectionArgs:
     def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AzureFirewallNatRuleArgs']]]]):
         pulumi.set(self, "rules", value)
 
+
+if not MYPY:
+    class AzureFirewallNatRuleArgsDict(TypedDict):
+        """
+        Properties of a NAT rule.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Description of the rule.
+        """
+        destination_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of destination IP addresses for this rule. Supports IP ranges, prefixes, and service tags.
+        """
+        destination_ports: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of destination ports.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the NAT rule.
+        """
+        protocols: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AzureFirewallNetworkRuleProtocol']]]]]
+        """
+        Array of AzureFirewallNetworkRuleProtocols applicable to this NAT rule.
+        """
+        source_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of source IP addresses for this rule.
+        """
+        source_ip_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of source IpGroups for this rule.
+        """
+        translated_address: NotRequired[pulumi.Input[str]]
+        """
+        The translated address for this NAT rule.
+        """
+        translated_fqdn: NotRequired[pulumi.Input[str]]
+        """
+        The translated FQDN for this NAT rule.
+        """
+        translated_port: NotRequired[pulumi.Input[str]]
+        """
+        The translated port for this NAT rule.
+        """
+elif False:
+    AzureFirewallNatRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AzureFirewallNatRuleArgs:
@@ -798,6 +1074,34 @@ class AzureFirewallNatRuleArgs:
         pulumi.set(self, "translated_port", value)
 
 
+if not MYPY:
+    class AzureFirewallNetworkRuleCollectionArgsDict(TypedDict):
+        """
+        Network rule collection resource.
+        """
+        action: NotRequired[pulumi.Input['AzureFirewallRCActionArgsDict']]
+        """
+        The action type of a rule collection.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the resource that is unique within the Azure firewall. This name can be used to access the resource.
+        """
+        priority: NotRequired[pulumi.Input[int]]
+        """
+        Priority of the network rule collection resource.
+        """
+        rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['AzureFirewallNetworkRuleArgsDict']]]]
+        """
+        Collection of rules used by a network rule collection.
+        """
+elif False:
+    AzureFirewallNetworkRuleCollectionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AzureFirewallNetworkRuleCollectionArgs:
     def __init__(__self__, *,
@@ -885,6 +1189,50 @@ class AzureFirewallNetworkRuleCollectionArgs:
     def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AzureFirewallNetworkRuleArgs']]]]):
         pulumi.set(self, "rules", value)
 
+
+if not MYPY:
+    class AzureFirewallNetworkRuleArgsDict(TypedDict):
+        """
+        Properties of the network rule.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Description of the rule.
+        """
+        destination_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of destination IP addresses.
+        """
+        destination_fqdns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of destination FQDNs.
+        """
+        destination_ip_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of destination IpGroups for this rule.
+        """
+        destination_ports: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of destination ports.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the network rule.
+        """
+        protocols: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AzureFirewallNetworkRuleProtocol']]]]]
+        """
+        Array of AzureFirewallNetworkRuleProtocols.
+        """
+        source_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of source IP addresses for this rule.
+        """
+        source_ip_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of source IpGroups for this rule.
+        """
+elif False:
+    AzureFirewallNetworkRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AzureFirewallNetworkRuleArgs:
@@ -1038,6 +1386,18 @@ class AzureFirewallNetworkRuleArgs:
         pulumi.set(self, "source_ip_groups", value)
 
 
+if not MYPY:
+    class AzureFirewallRCActionArgsDict(TypedDict):
+        """
+        Properties of the AzureFirewallRCAction.
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'AzureFirewallRCActionType']]]
+        """
+        The type of action.
+        """
+elif False:
+    AzureFirewallRCActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AzureFirewallRCActionArgs:
     def __init__(__self__, *,
@@ -1061,6 +1421,22 @@ class AzureFirewallRCActionArgs:
     def type(self, value: Optional[pulumi.Input[Union[str, 'AzureFirewallRCActionType']]]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class AzureFirewallSkuArgsDict(TypedDict):
+        """
+        SKU of an Azure Firewall.
+        """
+        name: NotRequired[pulumi.Input[Union[str, 'AzureFirewallSkuName']]]
+        """
+        Name of an Azure Firewall SKU.
+        """
+        tier: NotRequired[pulumi.Input[Union[str, 'AzureFirewallSkuTier']]]
+        """
+        Tier of an Azure Firewall.
+        """
+elif False:
+    AzureFirewallSkuArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AzureFirewallSkuArgs:
@@ -1102,6 +1478,18 @@ class AzureFirewallSkuArgs:
         pulumi.set(self, "tier", value)
 
 
+if not MYPY:
+    class FirewallPolicyFilterRuleActionArgsDict(TypedDict):
+        """
+        Properties of the FirewallPolicyFilterRuleAction.
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'FirewallPolicyFilterRuleActionType']]]
+        """
+        The type of action.
+        """
+elif False:
+    FirewallPolicyFilterRuleActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FirewallPolicyFilterRuleActionArgs:
     def __init__(__self__, *,
@@ -1125,6 +1513,35 @@ class FirewallPolicyFilterRuleActionArgs:
     def type(self, value: Optional[pulumi.Input[Union[str, 'FirewallPolicyFilterRuleActionType']]]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class FirewallPolicyFilterRuleArgsDict(TypedDict):
+        """
+        Firewall Policy Filter Rule.
+        """
+        rule_type: pulumi.Input[str]
+        """
+        The type of the rule.
+        Expected value is 'FirewallPolicyFilterRule'.
+        """
+        action: NotRequired[pulumi.Input['FirewallPolicyFilterRuleActionArgsDict']]
+        """
+        The action type of a Filter rule.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the rule.
+        """
+        priority: NotRequired[pulumi.Input[int]]
+        """
+        Priority of the Firewall Policy Rule resource.
+        """
+        rule_conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationRuleConditionArgsDict', 'NatRuleConditionArgsDict', 'NetworkRuleConditionArgsDict']]]]]
+        """
+        Collection of rule conditions used by a rule.
+        """
+elif False:
+    FirewallPolicyFilterRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FirewallPolicyFilterRuleArgs:
@@ -1215,6 +1632,18 @@ class FirewallPolicyFilterRuleArgs:
         pulumi.set(self, "rule_conditions", value)
 
 
+if not MYPY:
+    class FirewallPolicyNatRuleActionArgsDict(TypedDict):
+        """
+        Properties of the FirewallPolicyNatRuleAction.
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'FirewallPolicyNatRuleActionType']]]
+        """
+        The type of action.
+        """
+elif False:
+    FirewallPolicyNatRuleActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FirewallPolicyNatRuleActionArgs:
     def __init__(__self__, *,
@@ -1238,6 +1667,43 @@ class FirewallPolicyNatRuleActionArgs:
     def type(self, value: Optional[pulumi.Input[Union[str, 'FirewallPolicyNatRuleActionType']]]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class FirewallPolicyNatRuleArgsDict(TypedDict):
+        """
+        Firewall Policy NAT Rule.
+        """
+        rule_type: pulumi.Input[str]
+        """
+        The type of the rule.
+        Expected value is 'FirewallPolicyNatRule'.
+        """
+        action: NotRequired[pulumi.Input['FirewallPolicyNatRuleActionArgsDict']]
+        """
+        The action type of a Nat rule.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the rule.
+        """
+        priority: NotRequired[pulumi.Input[int]]
+        """
+        Priority of the Firewall Policy Rule resource.
+        """
+        rule_condition: NotRequired[pulumi.Input[Union['ApplicationRuleConditionArgsDict', 'NatRuleConditionArgsDict', 'NetworkRuleConditionArgsDict']]]
+        """
+        The match conditions for incoming traffic.
+        """
+        translated_address: NotRequired[pulumi.Input[str]]
+        """
+        The translated address for this NAT rule.
+        """
+        translated_port: NotRequired[pulumi.Input[str]]
+        """
+        The translated port for this NAT rule.
+        """
+elif False:
+    FirewallPolicyNatRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FirewallPolicyNatRuleArgs:
@@ -1360,6 +1826,22 @@ class FirewallPolicyNatRuleArgs:
         pulumi.set(self, "translated_port", value)
 
 
+if not MYPY:
+    class FirewallPolicyRuleConditionApplicationProtocolArgsDict(TypedDict):
+        """
+        Properties of the application rule protocol.
+        """
+        port: NotRequired[pulumi.Input[int]]
+        """
+        Port number for the protocol, cannot be greater than 64000.
+        """
+        protocol_type: NotRequired[pulumi.Input[Union[str, 'FirewallPolicyRuleConditionApplicationProtocolType']]]
+        """
+        Protocol type.
+        """
+elif False:
+    FirewallPolicyRuleConditionApplicationProtocolArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FirewallPolicyRuleConditionApplicationProtocolArgs:
     def __init__(__self__, *,
@@ -1400,6 +1882,22 @@ class FirewallPolicyRuleConditionApplicationProtocolArgs:
         pulumi.set(self, "protocol_type", value)
 
 
+if not MYPY:
+    class FirewallPolicyThreatIntelWhitelistArgsDict(TypedDict):
+        """
+        ThreatIntel Whitelist for Firewall Policy.
+        """
+        fqdns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of FQDNs for the ThreatIntel Whitelist.
+        """
+        ip_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of IP addresses for the ThreatIntel Whitelist.
+        """
+elif False:
+    FirewallPolicyThreatIntelWhitelistArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FirewallPolicyThreatIntelWhitelistArgs:
     def __init__(__self__, *,
@@ -1439,6 +1937,42 @@ class FirewallPolicyThreatIntelWhitelistArgs:
     def ip_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "ip_addresses", value)
 
+
+if not MYPY:
+    class HubVirtualNetworkConnectionArgsDict(TypedDict):
+        """
+        HubVirtualNetworkConnection Resource.
+        """
+        allow_hub_to_remote_vnet_transit: NotRequired[pulumi.Input[bool]]
+        """
+        VirtualHub to RemoteVnet transit to enabled or not.
+        """
+        allow_remote_vnet_to_use_hub_vnet_gateways: NotRequired[pulumi.Input[bool]]
+        """
+        Allow RemoteVnet to use Virtual Hub's gateways.
+        """
+        enable_internet_security: NotRequired[pulumi.Input[bool]]
+        """
+        Enable internet security.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+        remote_virtual_network: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        """
+        Reference to the remote virtual network.
+        """
+        routing_configuration: NotRequired[pulumi.Input['RoutingConfigurationArgsDict']]
+        """
+        The Routing Configuration indicating the associated and propagated route tables on this connection.
+        """
+elif False:
+    HubVirtualNetworkConnectionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class HubVirtualNetworkConnectionArgs:
@@ -1560,6 +2094,22 @@ class HubVirtualNetworkConnectionArgs:
         pulumi.set(self, "routing_configuration", value)
 
 
+if not MYPY:
+    class ManagedServiceIdentityArgsDict(TypedDict):
+        """
+        Identity for the resource.
+        """
+        type: NotRequired[pulumi.Input['ResourceIdentityType']]
+        """
+        The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the virtual machine.
+        """
+        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of user identities associated with resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+elif False:
+    ManagedServiceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ManagedServiceIdentityArgs:
     def __init__(__self__, *,
@@ -1599,6 +2149,47 @@ class ManagedServiceIdentityArgs:
     def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
+
+if not MYPY:
+    class NatRuleConditionArgsDict(TypedDict):
+        """
+        Rule condition of type nat.
+        """
+        rule_condition_type: pulumi.Input[str]
+        """
+        Rule Condition Type.
+        Expected value is 'NatRuleCondition'.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Description of the rule condition.
+        """
+        destination_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of destination IP addresses or Service Tags.
+        """
+        destination_ports: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of destination ports.
+        """
+        ip_protocols: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'FirewallPolicyRuleConditionNetworkProtocol']]]]]
+        """
+        Array of FirewallPolicyRuleConditionNetworkProtocols.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the rule condition.
+        """
+        source_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of source IP addresses for this rule.
+        """
+        source_ip_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of source IpGroups for this rule.
+        """
+elif False:
+    NatRuleConditionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NatRuleConditionArgs:
@@ -1736,6 +2327,51 @@ class NatRuleConditionArgs:
     def source_ip_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "source_ip_groups", value)
 
+
+if not MYPY:
+    class NetworkRuleConditionArgsDict(TypedDict):
+        """
+        Rule condition of type network.
+        """
+        rule_condition_type: pulumi.Input[str]
+        """
+        Rule Condition Type.
+        Expected value is 'NetworkRuleCondition'.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Description of the rule condition.
+        """
+        destination_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of destination IP addresses or Service Tags.
+        """
+        destination_ip_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of destination IpGroups for this rule.
+        """
+        destination_ports: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of destination ports.
+        """
+        ip_protocols: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'FirewallPolicyRuleConditionNetworkProtocol']]]]]
+        """
+        Array of FirewallPolicyRuleConditionNetworkProtocols.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the rule condition.
+        """
+        source_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of source IP addresses for this rule.
+        """
+        source_ip_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of source IpGroups for this rule.
+        """
+elif False:
+    NetworkRuleConditionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NetworkRuleConditionArgs:
@@ -1890,6 +2526,22 @@ class NetworkRuleConditionArgs:
         pulumi.set(self, "source_ip_groups", value)
 
 
+if not MYPY:
+    class PropagatedRouteTableArgsDict(TypedDict):
+        """
+        The list of RouteTables to advertise the routes to.
+        """
+        ids: NotRequired[pulumi.Input[Sequence[pulumi.Input['SubResourceArgsDict']]]]
+        """
+        The list of resource ids of all the RouteTables.
+        """
+        labels: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of labels.
+        """
+elif False:
+    PropagatedRouteTableArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PropagatedRouteTableArgs:
     def __init__(__self__, *,
@@ -1929,6 +2581,26 @@ class PropagatedRouteTableArgs:
     def labels(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "labels", value)
 
+
+if not MYPY:
+    class RoutingConfigurationArgsDict(TypedDict):
+        """
+        Routing Configuration indicating the associated and propagated route tables for this connection.
+        """
+        associated_route_table: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        """
+        The resource id RouteTable associated with this RoutingConfiguration.
+        """
+        propagated_route_tables: NotRequired[pulumi.Input['PropagatedRouteTableArgsDict']]
+        """
+        The list of RouteTables to advertise the routes to.
+        """
+        vnet_routes: NotRequired[pulumi.Input['VnetRouteArgsDict']]
+        """
+        List of routes that control routing from VirtualHub into a virtual network connection.
+        """
+elif False:
+    RoutingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RoutingConfigurationArgs:
@@ -1986,6 +2658,26 @@ class RoutingConfigurationArgs:
         pulumi.set(self, "vnet_routes", value)
 
 
+if not MYPY:
+    class StaticRouteArgsDict(TypedDict):
+        """
+        List of all Static Routes.
+        """
+        address_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of all address prefixes.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the StaticRoute that is unique within a VnetRoute.
+        """
+        next_hop_ip_address: NotRequired[pulumi.Input[str]]
+        """
+        The ip address of the next hop.
+        """
+elif False:
+    StaticRouteArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class StaticRouteArgs:
     def __init__(__self__, *,
@@ -2042,6 +2734,21 @@ class StaticRouteArgs:
         pulumi.set(self, "next_hop_ip_address", value)
 
 
+if not MYPY:
+    class SubResourceArgsDict(TypedDict):
+        """
+        Reference to another subresource.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Sub-resource ID. Both absolute resource ID and a relative resource ID are accepted.
+        An absolute ID starts with /subscriptions/ and contains the entire ID of the parent resource and the ID of the sub-resource in the end.
+        A relative ID replaces the ID of the parent resource with a token '$self', followed by the sub-resource ID itself.
+        Example of a relative ID: $self/frontEndConfigurations/my-frontend.
+        """
+elif False:
+    SubResourceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SubResourceArgs:
     def __init__(__self__, *,
@@ -2071,6 +2778,26 @@ class SubResourceArgs:
     def id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class VirtualApplianceSkuPropertiesArgsDict(TypedDict):
+        """
+        Network Virtual Appliance Sku Properties.
+        """
+        bundled_scale_unit: NotRequired[pulumi.Input[str]]
+        """
+        Virtual Appliance Scale Unit.
+        """
+        market_place_version: NotRequired[pulumi.Input[str]]
+        """
+        Virtual Appliance Version.
+        """
+        vendor: NotRequired[pulumi.Input[str]]
+        """
+        Virtual Appliance Vendor.
+        """
+elif False:
+    VirtualApplianceSkuPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VirtualApplianceSkuPropertiesArgs:
@@ -2127,6 +2854,30 @@ class VirtualApplianceSkuPropertiesArgs:
     def vendor(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "vendor", value)
 
+
+if not MYPY:
+    class VirtualHubRouteTableV2ArgsDict(TypedDict):
+        """
+        VirtualHubRouteTableV2 Resource.
+        """
+        attached_connections: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of all connections attached to this route table v2.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+        routes: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualHubRouteV2ArgsDict']]]]
+        """
+        List of all routes.
+        """
+elif False:
+    VirtualHubRouteTableV2ArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VirtualHubRouteTableV2Args:
@@ -2200,6 +2951,18 @@ class VirtualHubRouteTableV2Args:
         pulumi.set(self, "routes", value)
 
 
+if not MYPY:
+    class VirtualHubRouteTableArgsDict(TypedDict):
+        """
+        VirtualHub route table.
+        """
+        routes: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualHubRouteArgsDict']]]]
+        """
+        List of all routes.
+        """
+elif False:
+    VirtualHubRouteTableArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class VirtualHubRouteTableArgs:
     def __init__(__self__, *,
@@ -2223,6 +2986,30 @@ class VirtualHubRouteTableArgs:
     def routes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualHubRouteArgs']]]]):
         pulumi.set(self, "routes", value)
 
+
+if not MYPY:
+    class VirtualHubRouteV2ArgsDict(TypedDict):
+        """
+        VirtualHubRouteTableV2 route.
+        """
+        destination_type: NotRequired[pulumi.Input[str]]
+        """
+        The type of destinations.
+        """
+        destinations: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of all destinations.
+        """
+        next_hop_type: NotRequired[pulumi.Input[str]]
+        """
+        The type of next hops.
+        """
+        next_hops: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        NextHops ip address.
+        """
+elif False:
+    VirtualHubRouteV2ArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VirtualHubRouteV2Args:
@@ -2296,6 +3083,22 @@ class VirtualHubRouteV2Args:
         pulumi.set(self, "next_hops", value)
 
 
+if not MYPY:
+    class VirtualHubRouteArgsDict(TypedDict):
+        """
+        VirtualHub route.
+        """
+        address_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of all addressPrefixes.
+        """
+        next_hop_ip_address: NotRequired[pulumi.Input[str]]
+        """
+        NextHop ip address.
+        """
+elif False:
+    VirtualHubRouteArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class VirtualHubRouteArgs:
     def __init__(__self__, *,
@@ -2335,6 +3138,18 @@ class VirtualHubRouteArgs:
     def next_hop_ip_address(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "next_hop_ip_address", value)
 
+
+if not MYPY:
+    class VnetRouteArgsDict(TypedDict):
+        """
+        List of routes that control routing from VirtualHub into a virtual network connection.
+        """
+        static_routes: NotRequired[pulumi.Input[Sequence[pulumi.Input['StaticRouteArgsDict']]]]
+        """
+        List of all Static Routes.
+        """
+elif False:
+    VnetRouteArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VnetRouteArgs:

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -102,7 +107,7 @@ class WorkspaceManagerAssignment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 items: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssignmentItemArgs']]]]] = None,
+                 items: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AssignmentItemArgs', 'AssignmentItemArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  target_resource_name: Optional[pulumi.Input[str]] = None,
                  workspace_manager_assignment_name: Optional[pulumi.Input[str]] = None,
@@ -116,7 +121,7 @@ class WorkspaceManagerAssignment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssignmentItemArgs']]]] items: List of resources included in this workspace manager assignment
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AssignmentItemArgs', 'AssignmentItemArgsDict']]]] items: List of resources included in this workspace manager assignment
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] target_resource_name: The resource name of the workspace manager group targeted by the workspace manager assignment
         :param pulumi.Input[str] workspace_manager_assignment_name: The name of the workspace manager assignment
@@ -149,7 +154,7 @@ class WorkspaceManagerAssignment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 items: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssignmentItemArgs']]]]] = None,
+                 items: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AssignmentItemArgs', 'AssignmentItemArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  target_resource_name: Optional[pulumi.Input[str]] = None,
                  workspace_manager_assignment_name: Optional[pulumi.Input[str]] = None,

@@ -4,18 +4,46 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 
 __all__ = [
     'AzureAppPushReceiverArgs',
+    'AzureAppPushReceiverArgsDict',
     'EmailReceiverArgs',
+    'EmailReceiverArgsDict',
     'SmsReceiverArgs',
+    'SmsReceiverArgsDict',
     'VoiceReceiverArgs',
+    'VoiceReceiverArgsDict',
     'WebhookReceiverArgs',
+    'WebhookReceiverArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AzureAppPushReceiverArgsDict(TypedDict):
+        """
+        The Azure mobile App push notification receiver.
+        """
+        email_address: pulumi.Input[str]
+        """
+        The email address registered for the Azure mobile app.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the Azure mobile app push receiver. Names must be unique across all receivers within a tenant action group.
+        """
+elif False:
+    AzureAppPushReceiverArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AzureAppPushReceiverArgs:
@@ -54,6 +82,26 @@ class AzureAppPushReceiverArgs:
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class EmailReceiverArgsDict(TypedDict):
+        """
+        An email receiver.
+        """
+        email_address: pulumi.Input[str]
+        """
+        The email address of this receiver.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the email receiver. Names must be unique across all receivers within a tenant action group.
+        """
+        use_common_alert_schema: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether to use common alert schema.
+        """
+elif False:
+    EmailReceiverArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EmailReceiverArgs:
@@ -111,6 +159,26 @@ class EmailReceiverArgs:
         pulumi.set(self, "use_common_alert_schema", value)
 
 
+if not MYPY:
+    class SmsReceiverArgsDict(TypedDict):
+        """
+        An SMS receiver.
+        """
+        country_code: pulumi.Input[str]
+        """
+        The country code of the SMS receiver.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the SMS receiver. Names must be unique across all receivers within a tenant action group.
+        """
+        phone_number: pulumi.Input[str]
+        """
+        The phone number of the SMS receiver.
+        """
+elif False:
+    SmsReceiverArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SmsReceiverArgs:
     def __init__(__self__, *,
@@ -164,6 +232,26 @@ class SmsReceiverArgs:
         pulumi.set(self, "phone_number", value)
 
 
+if not MYPY:
+    class VoiceReceiverArgsDict(TypedDict):
+        """
+        A voice receiver.
+        """
+        country_code: pulumi.Input[str]
+        """
+        The country code of the voice receiver.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the voice receiver. Names must be unique across all receivers within a tenant action group.
+        """
+        phone_number: pulumi.Input[str]
+        """
+        The phone number of the voice receiver.
+        """
+elif False:
+    VoiceReceiverArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class VoiceReceiverArgs:
     def __init__(__self__, *,
@@ -216,6 +304,42 @@ class VoiceReceiverArgs:
     def phone_number(self, value: pulumi.Input[str]):
         pulumi.set(self, "phone_number", value)
 
+
+if not MYPY:
+    class WebhookReceiverArgsDict(TypedDict):
+        """
+        A webhook receiver.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the webhook receiver. Names must be unique across all receivers within a tenant action group.
+        """
+        service_uri: pulumi.Input[str]
+        """
+        The URI where webhooks should be sent.
+        """
+        identifier_uri: NotRequired[pulumi.Input[str]]
+        """
+        Indicates the identifier uri for aad auth.
+        """
+        object_id: NotRequired[pulumi.Input[str]]
+        """
+        Indicates the webhook app object Id for aad auth.
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        Indicates the tenant id for aad auth.
+        """
+        use_aad_auth: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether or not use AAD authentication.
+        """
+        use_common_alert_schema: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether to use common alert schema.
+        """
+elif False:
+    WebhookReceiverArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WebhookReceiverArgs:

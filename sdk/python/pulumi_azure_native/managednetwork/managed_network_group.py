@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -173,11 +178,11 @@ class ManagedNetworkGroup(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  managed_network_group_name: Optional[pulumi.Input[str]] = None,
                  managed_network_name: Optional[pulumi.Input[str]] = None,
-                 management_groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceIdArgs']]]]] = None,
+                 management_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResourceIdArgs', 'ResourceIdArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 subnets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceIdArgs']]]]] = None,
-                 subscriptions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceIdArgs']]]]] = None,
-                 virtual_networks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceIdArgs']]]]] = None,
+                 subnets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResourceIdArgs', 'ResourceIdArgsDict']]]]] = None,
+                 subscriptions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResourceIdArgs', 'ResourceIdArgsDict']]]]] = None,
+                 virtual_networks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResourceIdArgs', 'ResourceIdArgsDict']]]]] = None,
                  __props__=None):
         """
         The Managed Network Group resource
@@ -189,11 +194,11 @@ class ManagedNetworkGroup(pulumi.CustomResource):
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] managed_network_group_name: The name of the Managed Network Group.
         :param pulumi.Input[str] managed_network_name: The name of the Managed Network.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceIdArgs']]]] management_groups: The collection of management groups covered by the Managed Network
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ResourceIdArgs', 'ResourceIdArgsDict']]]] management_groups: The collection of management groups covered by the Managed Network
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceIdArgs']]]] subnets: The collection of  subnets covered by the Managed Network
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceIdArgs']]]] subscriptions: The collection of subscriptions covered by the Managed Network
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceIdArgs']]]] virtual_networks: The collection of virtual nets covered by the Managed Network
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ResourceIdArgs', 'ResourceIdArgsDict']]]] subnets: The collection of  subnets covered by the Managed Network
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ResourceIdArgs', 'ResourceIdArgsDict']]]] subscriptions: The collection of subscriptions covered by the Managed Network
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ResourceIdArgs', 'ResourceIdArgsDict']]]] virtual_networks: The collection of virtual nets covered by the Managed Network
         """
         ...
     @overload
@@ -224,11 +229,11 @@ class ManagedNetworkGroup(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  managed_network_group_name: Optional[pulumi.Input[str]] = None,
                  managed_network_name: Optional[pulumi.Input[str]] = None,
-                 management_groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceIdArgs']]]]] = None,
+                 management_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResourceIdArgs', 'ResourceIdArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 subnets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceIdArgs']]]]] = None,
-                 subscriptions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceIdArgs']]]]] = None,
-                 virtual_networks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceIdArgs']]]]] = None,
+                 subnets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResourceIdArgs', 'ResourceIdArgsDict']]]]] = None,
+                 subscriptions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResourceIdArgs', 'ResourceIdArgsDict']]]]] = None,
+                 virtual_networks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResourceIdArgs', 'ResourceIdArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

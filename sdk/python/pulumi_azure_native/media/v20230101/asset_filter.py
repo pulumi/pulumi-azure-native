@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -139,10 +144,10 @@ class AssetFilter(pulumi.CustomResource):
                  account_name: Optional[pulumi.Input[str]] = None,
                  asset_name: Optional[pulumi.Input[str]] = None,
                  filter_name: Optional[pulumi.Input[str]] = None,
-                 first_quality: Optional[pulumi.Input[pulumi.InputType['FirstQualityArgs']]] = None,
-                 presentation_time_range: Optional[pulumi.Input[pulumi.InputType['PresentationTimeRangeArgs']]] = None,
+                 first_quality: Optional[pulumi.Input[Union['FirstQualityArgs', 'FirstQualityArgsDict']]] = None,
+                 presentation_time_range: Optional[pulumi.Input[Union['PresentationTimeRangeArgs', 'PresentationTimeRangeArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 tracks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FilterTrackSelectionArgs']]]]] = None,
+                 tracks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FilterTrackSelectionArgs', 'FilterTrackSelectionArgsDict']]]]] = None,
                  __props__=None):
         """
         An Asset Filter.
@@ -152,10 +157,10 @@ class AssetFilter(pulumi.CustomResource):
         :param pulumi.Input[str] account_name: The Media Services account name.
         :param pulumi.Input[str] asset_name: The Asset name.
         :param pulumi.Input[str] filter_name: The Asset Filter name
-        :param pulumi.Input[pulumi.InputType['FirstQualityArgs']] first_quality: The first quality.
-        :param pulumi.Input[pulumi.InputType['PresentationTimeRangeArgs']] presentation_time_range: The presentation time range.
+        :param pulumi.Input[Union['FirstQualityArgs', 'FirstQualityArgsDict']] first_quality: The first quality.
+        :param pulumi.Input[Union['PresentationTimeRangeArgs', 'PresentationTimeRangeArgsDict']] presentation_time_range: The presentation time range.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the Azure subscription.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FilterTrackSelectionArgs']]]] tracks: The tracks selection conditions.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FilterTrackSelectionArgs', 'FilterTrackSelectionArgsDict']]]] tracks: The tracks selection conditions.
         """
         ...
     @overload
@@ -184,10 +189,10 @@ class AssetFilter(pulumi.CustomResource):
                  account_name: Optional[pulumi.Input[str]] = None,
                  asset_name: Optional[pulumi.Input[str]] = None,
                  filter_name: Optional[pulumi.Input[str]] = None,
-                 first_quality: Optional[pulumi.Input[pulumi.InputType['FirstQualityArgs']]] = None,
-                 presentation_time_range: Optional[pulumi.Input[pulumi.InputType['PresentationTimeRangeArgs']]] = None,
+                 first_quality: Optional[pulumi.Input[Union['FirstQualityArgs', 'FirstQualityArgsDict']]] = None,
+                 presentation_time_range: Optional[pulumi.Input[Union['PresentationTimeRangeArgs', 'PresentationTimeRangeArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 tracks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FilterTrackSelectionArgs']]]]] = None,
+                 tracks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FilterTrackSelectionArgs', 'FilterTrackSelectionArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

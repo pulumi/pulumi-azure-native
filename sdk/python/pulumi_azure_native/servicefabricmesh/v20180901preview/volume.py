@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -137,7 +142,7 @@ class Volume(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 azure_file_parameters: Optional[pulumi.Input[pulumi.InputType['VolumeProviderParametersAzureFileArgs']]] = None,
+                 azure_file_parameters: Optional[pulumi.Input[Union['VolumeProviderParametersAzureFileArgs', 'VolumeProviderParametersAzureFileArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  provider: Optional[pulumi.Input[Union[str, 'VolumeProvider']]] = None,
@@ -150,7 +155,7 @@ class Volume(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['VolumeProviderParametersAzureFileArgs']] azure_file_parameters: This type describes a volume provided by an Azure Files file share.
+        :param pulumi.Input[Union['VolumeProviderParametersAzureFileArgs', 'VolumeProviderParametersAzureFileArgsDict']] azure_file_parameters: This type describes a volume provided by an Azure Files file share.
         :param pulumi.Input[str] description: User readable description of the volume.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Union[str, 'VolumeProvider']] provider: Provider of the volume.
@@ -182,7 +187,7 @@ class Volume(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 azure_file_parameters: Optional[pulumi.Input[pulumi.InputType['VolumeProviderParametersAzureFileArgs']]] = None,
+                 azure_file_parameters: Optional[pulumi.Input[Union['VolumeProviderParametersAzureFileArgs', 'VolumeProviderParametersAzureFileArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  provider: Optional[pulumi.Input[Union[str, 'VolumeProvider']]] = None,

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -202,7 +207,7 @@ class BackupSchedule(pulumi.CustomResource):
                  manager_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  retention_count: Optional[pulumi.Input[float]] = None,
-                 schedule_recurrence: Optional[pulumi.Input[pulumi.InputType['ScheduleRecurrenceArgs']]] = None,
+                 schedule_recurrence: Optional[pulumi.Input[Union['ScheduleRecurrenceArgs', 'ScheduleRecurrenceArgsDict']]] = None,
                  schedule_status: Optional[pulumi.Input['ScheduleStatus']] = None,
                  start_time: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -219,7 +224,7 @@ class BackupSchedule(pulumi.CustomResource):
         :param pulumi.Input[str] manager_name: The manager name
         :param pulumi.Input[str] resource_group_name: The resource group name
         :param pulumi.Input[float] retention_count: The number of backups to be retained.
-        :param pulumi.Input[pulumi.InputType['ScheduleRecurrenceArgs']] schedule_recurrence: The schedule recurrence.
+        :param pulumi.Input[Union['ScheduleRecurrenceArgs', 'ScheduleRecurrenceArgsDict']] schedule_recurrence: The schedule recurrence.
         :param pulumi.Input['ScheduleStatus'] schedule_status: The schedule status.
         :param pulumi.Input[str] start_time: The start time of the schedule.
         """
@@ -255,7 +260,7 @@ class BackupSchedule(pulumi.CustomResource):
                  manager_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  retention_count: Optional[pulumi.Input[float]] = None,
-                 schedule_recurrence: Optional[pulumi.Input[pulumi.InputType['ScheduleRecurrenceArgs']]] = None,
+                 schedule_recurrence: Optional[pulumi.Input[Union['ScheduleRecurrenceArgs', 'ScheduleRecurrenceArgsDict']]] = None,
                  schedule_status: Optional[pulumi.Input['ScheduleStatus']] = None,
                  start_time: Optional[pulumi.Input[str]] = None,
                  __props__=None):

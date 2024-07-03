@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -120,7 +125,7 @@ class ReplicationMigrationItem(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  fabric_name: Optional[pulumi.Input[str]] = None,
                  migration_item_name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['EnableMigrationInputPropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['EnableMigrationInputPropertiesArgs', 'EnableMigrationInputPropertiesArgsDict']]] = None,
                  protection_container_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
@@ -132,7 +137,7 @@ class ReplicationMigrationItem(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] fabric_name: Fabric name.
         :param pulumi.Input[str] migration_item_name: Migration item name.
-        :param pulumi.Input[pulumi.InputType['EnableMigrationInputPropertiesArgs']] properties: Enable migration input properties.
+        :param pulumi.Input[Union['EnableMigrationInputPropertiesArgs', 'EnableMigrationInputPropertiesArgsDict']] properties: Enable migration input properties.
         :param pulumi.Input[str] protection_container_name: Protection container name.
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the recovery services vault is present.
         :param pulumi.Input[str] resource_name_: The name of the recovery services vault.
@@ -163,7 +168,7 @@ class ReplicationMigrationItem(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  fabric_name: Optional[pulumi.Input[str]] = None,
                  migration_item_name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['EnableMigrationInputPropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['EnableMigrationInputPropertiesArgs', 'EnableMigrationInputPropertiesArgsDict']]] = None,
                  protection_container_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,

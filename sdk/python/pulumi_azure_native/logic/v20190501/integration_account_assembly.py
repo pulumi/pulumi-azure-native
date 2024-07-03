@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -122,7 +127,7 @@ class IntegrationAccountAssembly(pulumi.CustomResource):
                  assembly_artifact_name: Optional[pulumi.Input[str]] = None,
                  integration_account_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['AssemblyPropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['AssemblyPropertiesArgs', 'AssemblyPropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -134,7 +139,7 @@ class IntegrationAccountAssembly(pulumi.CustomResource):
         :param pulumi.Input[str] assembly_artifact_name: The assembly artifact name.
         :param pulumi.Input[str] integration_account_name: The integration account name.
         :param pulumi.Input[str] location: The resource location.
-        :param pulumi.Input[pulumi.InputType['AssemblyPropertiesArgs']] properties: The assembly properties.
+        :param pulumi.Input[Union['AssemblyPropertiesArgs', 'AssemblyPropertiesArgsDict']] properties: The assembly properties.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
         """
@@ -165,7 +170,7 @@ class IntegrationAccountAssembly(pulumi.CustomResource):
                  assembly_artifact_name: Optional[pulumi.Input[str]] = None,
                  integration_account_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['AssemblyPropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['AssemblyPropertiesArgs', 'AssemblyPropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):

@@ -4,20 +4,49 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'CmkKekIdentityArgs',
+    'CmkKekIdentityArgsDict',
     'CmkKeyVaultPropertiesArgs',
+    'CmkKeyVaultPropertiesArgsDict',
     'IdentityDataArgs',
+    'IdentityDataArgsDict',
     'SkuArgs',
+    'SkuArgsDict',
     'VaultPropertiesEncryptionArgs',
+    'VaultPropertiesEncryptionArgsDict',
     'VaultPropertiesArgs',
+    'VaultPropertiesArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class CmkKekIdentityArgsDict(TypedDict):
+        """
+        The details of the identity used for CMK
+        """
+        use_system_assigned_identity: NotRequired[pulumi.Input[bool]]
+        """
+        Indicate that system assigned identity should be used. Mutually exclusive with 'userAssignedIdentity' field
+        """
+        user_assigned_identity: NotRequired[pulumi.Input[str]]
+        """
+        The user assigned identity to be used to grant permissions in case the type of identity used is UserAssigned
+        """
+elif False:
+    CmkKekIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CmkKekIdentityArgs:
@@ -59,6 +88,18 @@ class CmkKekIdentityArgs:
         pulumi.set(self, "user_assigned_identity", value)
 
 
+if not MYPY:
+    class CmkKeyVaultPropertiesArgsDict(TypedDict):
+        """
+        The properties of the Key Vault which hosts CMK
+        """
+        key_uri: NotRequired[pulumi.Input[str]]
+        """
+        The key uri of the Customer Managed Key
+        """
+elif False:
+    CmkKeyVaultPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CmkKeyVaultPropertiesArgs:
     def __init__(__self__, *,
@@ -82,6 +123,22 @@ class CmkKeyVaultPropertiesArgs:
     def key_uri(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "key_uri", value)
 
+
+if not MYPY:
+    class IdentityDataArgsDict(TypedDict):
+        """
+        Identity for the resource.
+        """
+        type: pulumi.Input[Union[str, 'ResourceIdentityType']]
+        """
+        The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
+        """
+        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of user-assigned identities associated with the resource. The user-assigned identity dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+elif False:
+    IdentityDataArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IdentityDataArgs:
@@ -122,6 +179,18 @@ class IdentityDataArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
+if not MYPY:
+    class SkuArgsDict(TypedDict):
+        """
+        Identifies the unique system identifier for each Azure resource.
+        """
+        name: pulumi.Input[Union[str, 'SkuName']]
+        """
+        The Sku name.
+        """
+elif False:
+    SkuArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SkuArgs:
     def __init__(__self__, *,
@@ -144,6 +213,26 @@ class SkuArgs:
     def name(self, value: pulumi.Input[Union[str, 'SkuName']]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class VaultPropertiesEncryptionArgsDict(TypedDict):
+        """
+        Customer Managed Key details of the resource.
+        """
+        infrastructure_encryption: NotRequired[pulumi.Input[Union[str, 'InfrastructureEncryptionState']]]
+        """
+        Enabling/Disabling the Double Encryption state
+        """
+        kek_identity: NotRequired[pulumi.Input['CmkKekIdentityArgsDict']]
+        """
+        The details of the identity used for CMK
+        """
+        key_vault_properties: NotRequired[pulumi.Input['CmkKeyVaultPropertiesArgsDict']]
+        """
+        The properties of the Key Vault which hosts CMK
+        """
+elif False:
+    VaultPropertiesEncryptionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VaultPropertiesEncryptionArgs:
@@ -200,6 +289,18 @@ class VaultPropertiesEncryptionArgs:
     def key_vault_properties(self, value: Optional[pulumi.Input['CmkKeyVaultPropertiesArgs']]):
         pulumi.set(self, "key_vault_properties", value)
 
+
+if not MYPY:
+    class VaultPropertiesArgsDict(TypedDict):
+        """
+        Properties of the vault.
+        """
+        encryption: NotRequired[pulumi.Input['VaultPropertiesEncryptionArgsDict']]
+        """
+        Customer Managed Key details of the resource.
+        """
+elif False:
+    VaultPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VaultPropertiesArgs:

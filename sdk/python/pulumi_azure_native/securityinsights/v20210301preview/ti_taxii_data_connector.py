@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -264,7 +269,7 @@ class TiTaxiiDataConnector(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  collection_id: Optional[pulumi.Input[str]] = None,
                  data_connector_id: Optional[pulumi.Input[str]] = None,
-                 data_types: Optional[pulumi.Input[pulumi.InputType['TiTaxiiDataConnectorDataTypesArgs']]] = None,
+                 data_types: Optional[pulumi.Input[Union['TiTaxiiDataConnectorDataTypesArgs', 'TiTaxiiDataConnectorDataTypesArgsDict']]] = None,
                  friendly_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  operational_insights_resource_provider: Optional[pulumi.Input[str]] = None,
@@ -285,7 +290,7 @@ class TiTaxiiDataConnector(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] collection_id: The collection id of the TAXII server.
         :param pulumi.Input[str] data_connector_id: Connector ID
-        :param pulumi.Input[pulumi.InputType['TiTaxiiDataConnectorDataTypesArgs']] data_types: The available data types for Threat Intelligence TAXII data connector.
+        :param pulumi.Input[Union['TiTaxiiDataConnectorDataTypesArgs', 'TiTaxiiDataConnectorDataTypesArgsDict']] data_types: The available data types for Threat Intelligence TAXII data connector.
         :param pulumi.Input[str] friendly_name: The friendly name for the TAXII server.
         :param pulumi.Input[str] kind: The kind of the data connector
                Expected value is 'ThreatIntelligenceTaxii'.
@@ -326,7 +331,7 @@ class TiTaxiiDataConnector(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  collection_id: Optional[pulumi.Input[str]] = None,
                  data_connector_id: Optional[pulumi.Input[str]] = None,
-                 data_types: Optional[pulumi.Input[pulumi.InputType['TiTaxiiDataConnectorDataTypesArgs']]] = None,
+                 data_types: Optional[pulumi.Input[Union['TiTaxiiDataConnectorDataTypesArgs', 'TiTaxiiDataConnectorDataTypesArgsDict']]] = None,
                  friendly_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  operational_insights_resource_provider: Optional[pulumi.Input[str]] = None,

@@ -4,51 +4,115 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'AccountEncryptionArgs',
+    'AccountEncryptionArgsDict',
     'AudioEncoderAacArgs',
+    'AudioEncoderAacArgsDict',
     'EccTokenKeyArgs',
+    'EccTokenKeyArgsDict',
     'EncoderCustomPresetArgs',
+    'EncoderCustomPresetArgsDict',
     'EncoderProcessorArgs',
+    'EncoderProcessorArgsDict',
     'EncoderSystemPresetArgs',
+    'EncoderSystemPresetArgsDict',
     'GroupLevelAccessControlArgs',
+    'GroupLevelAccessControlArgsDict',
     'IotHubArgs',
+    'IotHubArgsDict',
     'JwtAuthenticationArgs',
+    'JwtAuthenticationArgsDict',
     'KeyVaultPropertiesArgs',
+    'KeyVaultPropertiesArgsDict',
     'NetworkAccessControlArgs',
+    'NetworkAccessControlArgsDict',
     'NodeInputArgs',
+    'NodeInputArgsDict',
     'ParameterDeclarationArgs',
+    'ParameterDeclarationArgsDict',
     'ParameterDefinitionArgs',
+    'ParameterDefinitionArgsDict',
     'PemCertificateListArgs',
+    'PemCertificateListArgsDict',
     'PrivateLinkServiceConnectionStateArgs',
+    'PrivateLinkServiceConnectionStateArgsDict',
     'ResourceIdentityArgs',
+    'ResourceIdentityArgsDict',
     'RsaTokenKeyArgs',
+    'RsaTokenKeyArgsDict',
     'RtspSourceArgs',
+    'RtspSourceArgsDict',
     'SecureIotDeviceRemoteTunnelArgs',
+    'SecureIotDeviceRemoteTunnelArgsDict',
     'SkuArgs',
+    'SkuArgsDict',
     'StorageAccountArgs',
+    'StorageAccountArgsDict',
     'TlsEndpointArgs',
+    'TlsEndpointArgsDict',
     'TlsValidationOptionsArgs',
+    'TlsValidationOptionsArgsDict',
     'TokenClaimArgs',
+    'TokenClaimArgsDict',
     'UnsecuredEndpointArgs',
+    'UnsecuredEndpointArgsDict',
     'UsernamePasswordCredentialsArgs',
+    'UsernamePasswordCredentialsArgsDict',
     'VideoAnalyzerIdentityArgs',
+    'VideoAnalyzerIdentityArgsDict',
     'VideoArchivalArgs',
+    'VideoArchivalArgsDict',
     'VideoCreationPropertiesArgs',
+    'VideoCreationPropertiesArgsDict',
     'VideoEncoderH264Args',
+    'VideoEncoderH264ArgsDict',
     'VideoMediaInfoArgs',
+    'VideoMediaInfoArgsDict',
     'VideoPublishingOptionsArgs',
+    'VideoPublishingOptionsArgsDict',
     'VideoScaleArgs',
+    'VideoScaleArgsDict',
     'VideoSequenceAbsoluteTimeMarkersArgs',
+    'VideoSequenceAbsoluteTimeMarkersArgsDict',
     'VideoSinkArgs',
+    'VideoSinkArgsDict',
     'VideoSourceArgs',
+    'VideoSourceArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AccountEncryptionArgsDict(TypedDict):
+        """
+        Defines how the Video Analyzer account is (optionally) encrypted.
+        """
+        type: pulumi.Input[Union[str, 'AccountEncryptionKeyType']]
+        """
+        The type of key used to encrypt the Account Key.
+        """
+        identity: NotRequired[pulumi.Input['ResourceIdentityArgsDict']]
+        """
+        The Key Vault identity.
+        """
+        key_vault_properties: NotRequired[pulumi.Input['KeyVaultPropertiesArgsDict']]
+        """
+        The properties of the key used to encrypt the account.
+        """
+elif False:
+    AccountEncryptionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AccountEncryptionArgs:
@@ -105,6 +169,23 @@ class AccountEncryptionArgs:
         pulumi.set(self, "key_vault_properties", value)
 
 
+if not MYPY:
+    class AudioEncoderAacArgsDict(TypedDict):
+        """
+        A custom preset for encoding audio with the AAC codec.
+        """
+        type: pulumi.Input[str]
+        """
+        The discriminator for derived types.
+        Expected value is '#Microsoft.VideoAnalyzer.AudioEncoderAac'.
+        """
+        bitrate_kbps: NotRequired[pulumi.Input[str]]
+        """
+        Bitrate, in kilobits per second or Kbps, at which audio should be encoded (2-channel stereo audio at a sampling rate of 48 kHz). Allowed values are 96, 112, 128, 160, 192, 224, and 256. If omitted, the bitrate of the input audio is used.
+        """
+elif False:
+    AudioEncoderAacArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AudioEncoderAacArgs:
     def __init__(__self__, *,
@@ -145,6 +226,35 @@ class AudioEncoderAacArgs:
     def bitrate_kbps(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "bitrate_kbps", value)
 
+
+if not MYPY:
+    class EccTokenKeyArgsDict(TypedDict):
+        """
+        Required validation properties for tokens generated with Elliptical Curve algorithm.
+        """
+        alg: pulumi.Input[Union[str, 'AccessPolicyEccAlgo']]
+        """
+        Elliptical curve algorithm to be used: ES256, ES384 or ES512.
+        """
+        kid: pulumi.Input[str]
+        """
+        JWT token key id. Validation keys are looked up based on the key id present on the JWT token header.
+        """
+        type: pulumi.Input[str]
+        """
+        The discriminator for derived types.
+        Expected value is '#Microsoft.VideoAnalyzer.EccTokenKey'.
+        """
+        x: pulumi.Input[str]
+        """
+        X coordinate.
+        """
+        y: pulumi.Input[str]
+        """
+        Y coordinate.
+        """
+elif False:
+    EccTokenKeyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EccTokenKeyArgs:
@@ -231,6 +341,27 @@ class EccTokenKeyArgs:
         pulumi.set(self, "y", value)
 
 
+if not MYPY:
+    class EncoderCustomPresetArgsDict(TypedDict):
+        """
+        Describes a custom preset for encoding the input content using the encoder processor.
+        """
+        type: pulumi.Input[str]
+        """
+        The discriminator for derived types.
+        Expected value is '#Microsoft.VideoAnalyzer.EncoderCustomPreset'.
+        """
+        audio_encoder: NotRequired[pulumi.Input['AudioEncoderAacArgsDict']]
+        """
+        Describes a custom preset for encoding audio.
+        """
+        video_encoder: NotRequired[pulumi.Input['VideoEncoderH264ArgsDict']]
+        """
+        Describes a custom preset for encoding video.
+        """
+elif False:
+    EncoderCustomPresetArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EncoderCustomPresetArgs:
     def __init__(__self__, *,
@@ -287,6 +418,31 @@ class EncoderCustomPresetArgs:
     def video_encoder(self, value: Optional[pulumi.Input['VideoEncoderH264Args']]):
         pulumi.set(self, "video_encoder", value)
 
+
+if not MYPY:
+    class EncoderProcessorArgsDict(TypedDict):
+        """
+        Encoder processor allows for encoding of the input content. For example, it can used to change the resolution from 4K to 1280x720.
+        """
+        inputs: pulumi.Input[Sequence[pulumi.Input['NodeInputArgsDict']]]
+        """
+        An array of upstream node references within the topology to be used as inputs for this node.
+        """
+        name: pulumi.Input[str]
+        """
+        Node name. Must be unique within the topology.
+        """
+        preset: pulumi.Input[Union['EncoderCustomPresetArgsDict', 'EncoderSystemPresetArgsDict']]
+        """
+        The encoder preset, which defines the recipe or instructions on how the input content should be processed.
+        """
+        type: pulumi.Input[str]
+        """
+        The discriminator for derived types.
+        Expected value is '#Microsoft.VideoAnalyzer.EncoderProcessor'.
+        """
+elif False:
+    EncoderProcessorArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EncoderProcessorArgs:
@@ -358,6 +514,23 @@ class EncoderProcessorArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class EncoderSystemPresetArgsDict(TypedDict):
+        """
+        Describes a built-in preset for encoding the input content using the encoder processor.
+        """
+        name: pulumi.Input[Union[str, 'EncoderSystemPresetType']]
+        """
+        Name of the built-in encoding preset.
+        """
+        type: pulumi.Input[str]
+        """
+        The discriminator for derived types.
+        Expected value is '#Microsoft.VideoAnalyzer.EncoderSystemPreset'.
+        """
+elif False:
+    EncoderSystemPresetArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EncoderSystemPresetArgs:
     def __init__(__self__, *,
@@ -398,6 +571,18 @@ class EncoderSystemPresetArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class GroupLevelAccessControlArgsDict(TypedDict):
+        """
+        Group level network access control.
+        """
+        public_network_access: NotRequired[pulumi.Input[Union[str, 'PublicNetworkAccess']]]
+        """
+        Whether or not public network access is allowed for specified resources under the Video Analyzer account.
+        """
+elif False:
+    GroupLevelAccessControlArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GroupLevelAccessControlArgs:
     def __init__(__self__, *,
@@ -421,6 +606,22 @@ class GroupLevelAccessControlArgs:
     def public_network_access(self, value: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]]):
         pulumi.set(self, "public_network_access", value)
 
+
+if not MYPY:
+    class IotHubArgsDict(TypedDict):
+        """
+        The IoT Hub details.
+        """
+        id: pulumi.Input[str]
+        """
+        The IoT Hub resource identifier.
+        """
+        identity: pulumi.Input['ResourceIdentityArgsDict']
+        """
+        The IoT Hub identity.
+        """
+elif False:
+    IotHubArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IotHubArgs:
@@ -459,6 +660,35 @@ class IotHubArgs:
     def identity(self, value: pulumi.Input['ResourceIdentityArgs']):
         pulumi.set(self, "identity", value)
 
+
+if not MYPY:
+    class JwtAuthenticationArgsDict(TypedDict):
+        """
+        Properties for access validation based on JSON Web Tokens (JWT).
+        """
+        type: pulumi.Input[str]
+        """
+        The discriminator for derived types.
+        Expected value is '#Microsoft.VideoAnalyzer.JwtAuthentication'.
+        """
+        audiences: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of expected token audiences. Token audience is valid if it matches at least one of the given values.
+        """
+        claims: NotRequired[pulumi.Input[Sequence[pulumi.Input['TokenClaimArgsDict']]]]
+        """
+        List of additional token claims to be validated. Token must contains all claims and respective values for it to be valid.
+        """
+        issuers: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of expected token issuers. Token issuer is valid if it matches at least one of the given values.
+        """
+        keys: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union['EccTokenKeyArgsDict', 'RsaTokenKeyArgsDict']]]]]
+        """
+        List of keys which can be used to validate access tokens. Having multiple keys allow for seamless key rotation of the token signing key. Token signature must match exactly one key.
+        """
+elif False:
+    JwtAuthenticationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class JwtAuthenticationArgs:
@@ -549,6 +779,18 @@ class JwtAuthenticationArgs:
         pulumi.set(self, "keys", value)
 
 
+if not MYPY:
+    class KeyVaultPropertiesArgsDict(TypedDict):
+        """
+        The details for accessing the encryption keys in Key Vault.
+        """
+        key_identifier: pulumi.Input[str]
+        """
+        The URL of the Key Vault key used to encrypt the account. The key may either be versioned (for example https://vault/keys/mykey/version1) or reference a key without a version (for example https://vault/keys/mykey).
+        """
+elif False:
+    KeyVaultPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class KeyVaultPropertiesArgs:
     def __init__(__self__, *,
@@ -571,6 +813,26 @@ class KeyVaultPropertiesArgs:
     def key_identifier(self, value: pulumi.Input[str]):
         pulumi.set(self, "key_identifier", value)
 
+
+if not MYPY:
+    class NetworkAccessControlArgsDict(TypedDict):
+        """
+        Network access control for video analyzer account.
+        """
+        consumption: NotRequired[pulumi.Input['GroupLevelAccessControlArgsDict']]
+        """
+        Public network access for consumption group.
+        """
+        ingestion: NotRequired[pulumi.Input['GroupLevelAccessControlArgsDict']]
+        """
+        Public network access for ingestion group.
+        """
+        integration: NotRequired[pulumi.Input['GroupLevelAccessControlArgsDict']]
+        """
+        Public network access for integration group.
+        """
+elif False:
+    NetworkAccessControlArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NetworkAccessControlArgs:
@@ -628,6 +890,18 @@ class NetworkAccessControlArgs:
         pulumi.set(self, "integration", value)
 
 
+if not MYPY:
+    class NodeInputArgsDict(TypedDict):
+        """
+        Describes an input signal to be used on a pipeline node.
+        """
+        node_name: pulumi.Input[str]
+        """
+        The name of the upstream node in the pipeline which output is used as input of the current node.
+        """
+elif False:
+    NodeInputArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NodeInputArgs:
     def __init__(__self__, *,
@@ -650,6 +924,30 @@ class NodeInputArgs:
     def node_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "node_name", value)
 
+
+if not MYPY:
+    class ParameterDeclarationArgsDict(TypedDict):
+        """
+        Single topology parameter declaration. Declared parameters can and must be referenced throughout the topology and can optionally have default values to be used when they are not defined in the pipelines.
+        """
+        name: pulumi.Input[str]
+        """
+        Name of the parameter.
+        """
+        type: pulumi.Input[Union[str, 'ParameterType']]
+        """
+        Type of the parameter.
+        """
+        default: NotRequired[pulumi.Input[str]]
+        """
+        The default value for the parameter to be used if the pipeline does not specify a value.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Description of the parameter.
+        """
+elif False:
+    ParameterDeclarationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ParameterDeclarationArgs:
@@ -721,6 +1019,22 @@ class ParameterDeclarationArgs:
         pulumi.set(self, "description", value)
 
 
+if not MYPY:
+    class ParameterDefinitionArgsDict(TypedDict):
+        """
+        Defines the parameter value of an specific pipeline topology parameter. See pipeline topology parameters for more information.
+        """
+        name: pulumi.Input[str]
+        """
+        Name of the parameter declared in the pipeline topology.
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        Parameter value to be applied on this specific pipeline.
+        """
+elif False:
+    ParameterDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ParameterDefinitionArgs:
     def __init__(__self__, *,
@@ -759,6 +1073,23 @@ class ParameterDefinitionArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class PemCertificateListArgsDict(TypedDict):
+        """
+        A list of PEM formatted certificates.
+        """
+        certificates: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        PEM formatted public certificates. One certificate per entry.
+        """
+        type: pulumi.Input[str]
+        """
+        The discriminator for derived types.
+        Expected value is '#Microsoft.VideoAnalyzer.PemCertificateList'.
+        """
+elif False:
+    PemCertificateListArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PemCertificateListArgs:
@@ -799,6 +1130,26 @@ class PemCertificateListArgs:
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
+        """
+        A collection of information about the state of the connection between service consumer and provider.
+        """
+        actions_required: NotRequired[pulumi.Input[str]]
+        """
+        A message indicating if changes on the service provider require any updates on the consumer.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The reason for approval/rejection of the connection.
+        """
+        status: NotRequired[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]]
+        """
+        Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+        """
+elif False:
+    PrivateLinkServiceConnectionStateArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:
@@ -856,6 +1207,18 @@ class PrivateLinkServiceConnectionStateArgs:
         pulumi.set(self, "status", value)
 
 
+if not MYPY:
+    class ResourceIdentityArgsDict(TypedDict):
+        """
+        The user assigned managed identity to use when accessing a resource.
+        """
+        user_assigned_identity: pulumi.Input[str]
+        """
+        The user assigned managed identity's resource identifier to use when accessing a resource.
+        """
+elif False:
+    ResourceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ResourceIdentityArgs:
     def __init__(__self__, *,
@@ -878,6 +1241,35 @@ class ResourceIdentityArgs:
     def user_assigned_identity(self, value: pulumi.Input[str]):
         pulumi.set(self, "user_assigned_identity", value)
 
+
+if not MYPY:
+    class RsaTokenKeyArgsDict(TypedDict):
+        """
+        Required validation properties for tokens generated with RSA algorithm.
+        """
+        alg: pulumi.Input[Union[str, 'AccessPolicyRsaAlgo']]
+        """
+        RSA algorithm to be used: RS256, RS384 or RS512.
+        """
+        e: pulumi.Input[str]
+        """
+        RSA public key exponent.
+        """
+        kid: pulumi.Input[str]
+        """
+        JWT token key id. Validation keys are looked up based on the key id present on the JWT token header.
+        """
+        n: pulumi.Input[str]
+        """
+        RSA public key modulus.
+        """
+        type: pulumi.Input[str]
+        """
+        The discriminator for derived types.
+        Expected value is '#Microsoft.VideoAnalyzer.RsaTokenKey'.
+        """
+elif False:
+    RsaTokenKeyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RsaTokenKeyArgs:
@@ -964,6 +1356,31 @@ class RsaTokenKeyArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class RtspSourceArgsDict(TypedDict):
+        """
+        RTSP source allows for media from an RTSP camera or generic RTSP server to be ingested into a pipeline.
+        """
+        endpoint: pulumi.Input[Union['TlsEndpointArgsDict', 'UnsecuredEndpointArgsDict']]
+        """
+        RTSP endpoint information for Video Analyzer to connect to. This contains the required information for Video Analyzer to connect to RTSP cameras and/or generic RTSP servers.
+        """
+        name: pulumi.Input[str]
+        """
+        Node name. Must be unique within the topology.
+        """
+        type: pulumi.Input[str]
+        """
+        The discriminator for derived types.
+        Expected value is '#Microsoft.VideoAnalyzer.RtspSource'.
+        """
+        transport: NotRequired[pulumi.Input[Union[str, 'RtspTransport']]]
+        """
+        Network transport utilized by the RTSP and RTP exchange: TCP or HTTP. When using TCP, the RTP packets are interleaved on the TCP RTSP connection. When using HTTP, the RTSP messages are exchanged through long lived HTTP connections, and the RTP packages are interleaved in the HTTP connections alongside the RTSP messages.
+        """
+elif False:
+    RtspSourceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RtspSourceArgs:
     def __init__(__self__, *,
@@ -1035,6 +1452,27 @@ class RtspSourceArgs:
         pulumi.set(self, "transport", value)
 
 
+if not MYPY:
+    class SecureIotDeviceRemoteTunnelArgsDict(TypedDict):
+        """
+        A remote tunnel securely established using IoT Hub device information.
+        """
+        device_id: pulumi.Input[str]
+        """
+        The IoT device id to use when establishing the remote tunnel. This string is case-sensitive.
+        """
+        iot_hub_name: pulumi.Input[str]
+        """
+        Name of the IoT Hub.
+        """
+        type: pulumi.Input[str]
+        """
+        The discriminator for derived types.
+        Expected value is '#Microsoft.VideoAnalyzer.SecureIotDeviceRemoteTunnel'.
+        """
+elif False:
+    SecureIotDeviceRemoteTunnelArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SecureIotDeviceRemoteTunnelArgs:
     def __init__(__self__, *,
@@ -1090,6 +1528,18 @@ class SecureIotDeviceRemoteTunnelArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class SkuArgsDict(TypedDict):
+        """
+        The SKU details.
+        """
+        name: pulumi.Input[Union[str, 'SkuName']]
+        """
+        The SKU name.
+        """
+elif False:
+    SkuArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SkuArgs:
     def __init__(__self__, *,
@@ -1112,6 +1562,22 @@ class SkuArgs:
     def name(self, value: pulumi.Input[Union[str, 'SkuName']]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class StorageAccountArgsDict(TypedDict):
+        """
+        The details about the associated storage account.
+        """
+        id: pulumi.Input[str]
+        """
+        The ID of the storage account resource. Video Analyzer relies on tables, queues, and blobs. The primary storage account must be a Standard Storage account (either Microsoft.ClassicStorage or Microsoft.Storage).
+        """
+        identity: NotRequired[pulumi.Input['ResourceIdentityArgsDict']]
+        """
+        A managed identity that Video Analyzer will use to access the storage account.
+        """
+elif False:
+    StorageAccountArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class StorageAccountArgs:
@@ -1151,6 +1617,39 @@ class StorageAccountArgs:
     def identity(self, value: Optional[pulumi.Input['ResourceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
+
+if not MYPY:
+    class TlsEndpointArgsDict(TypedDict):
+        """
+        TLS endpoint describes an endpoint that the pipeline can connect to over TLS transport (data is encrypted in transit).
+        """
+        credentials: pulumi.Input['UsernamePasswordCredentialsArgsDict']
+        """
+        Credentials to be presented to the endpoint.
+        """
+        type: pulumi.Input[str]
+        """
+        The discriminator for derived types.
+        Expected value is '#Microsoft.VideoAnalyzer.TlsEndpoint'.
+        """
+        url: pulumi.Input[str]
+        """
+        The endpoint URL for Video Analyzer to connect to.
+        """
+        trusted_certificates: NotRequired[pulumi.Input['PemCertificateListArgsDict']]
+        """
+        List of trusted certificate authorities when authenticating a TLS connection. A null list designates that Azure Video Analyzer's list of trusted authorities should be used.
+        """
+        tunnel: NotRequired[pulumi.Input['SecureIotDeviceRemoteTunnelArgsDict']]
+        """
+        Describes the tunnel through which Video Analyzer can connect to the endpoint URL. This is an optional property, typically used when the endpoint is behind a firewall.
+        """
+        validation_options: NotRequired[pulumi.Input['TlsValidationOptionsArgsDict']]
+        """
+        Validation options to use when authenticating a TLS connection. By default, strict validation is used.
+        """
+elif False:
+    TlsEndpointArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TlsEndpointArgs:
@@ -1255,6 +1754,22 @@ class TlsEndpointArgs:
         pulumi.set(self, "validation_options", value)
 
 
+if not MYPY:
+    class TlsValidationOptionsArgsDict(TypedDict):
+        """
+        Options for controlling the validation of TLS endpoints.
+        """
+        ignore_hostname: NotRequired[pulumi.Input[str]]
+        """
+        When set to 'true' causes the certificate subject name validation to be skipped. Default is 'false'.
+        """
+        ignore_signature: NotRequired[pulumi.Input[str]]
+        """
+        When set to 'true' causes the certificate chain trust validation to be skipped. Default is 'false'.
+        """
+elif False:
+    TlsValidationOptionsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TlsValidationOptionsArgs:
     def __init__(__self__, *,
@@ -1295,6 +1810,22 @@ class TlsValidationOptionsArgs:
         pulumi.set(self, "ignore_signature", value)
 
 
+if not MYPY:
+    class TokenClaimArgsDict(TypedDict):
+        """
+        Properties for expected token claims.
+        """
+        name: pulumi.Input[str]
+        """
+        Name of the claim which must be present on the token.
+        """
+        value: pulumi.Input[str]
+        """
+        Expected value of the claim to be present on the token.
+        """
+elif False:
+    TokenClaimArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TokenClaimArgs:
     def __init__(__self__, *,
@@ -1332,6 +1863,31 @@ class TokenClaimArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class UnsecuredEndpointArgsDict(TypedDict):
+        """
+        Unsecured endpoint describes an endpoint that the pipeline can connect to over clear transport (no encryption in transit).
+        """
+        credentials: pulumi.Input['UsernamePasswordCredentialsArgsDict']
+        """
+        Credentials to be presented to the endpoint.
+        """
+        type: pulumi.Input[str]
+        """
+        The discriminator for derived types.
+        Expected value is '#Microsoft.VideoAnalyzer.UnsecuredEndpoint'.
+        """
+        url: pulumi.Input[str]
+        """
+        The endpoint URL for Video Analyzer to connect to.
+        """
+        tunnel: NotRequired[pulumi.Input['SecureIotDeviceRemoteTunnelArgsDict']]
+        """
+        Describes the tunnel through which Video Analyzer can connect to the endpoint URL. This is an optional property, typically used when the endpoint is behind a firewall.
+        """
+elif False:
+    UnsecuredEndpointArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UnsecuredEndpointArgs:
@@ -1404,6 +1960,27 @@ class UnsecuredEndpointArgs:
         pulumi.set(self, "tunnel", value)
 
 
+if not MYPY:
+    class UsernamePasswordCredentialsArgsDict(TypedDict):
+        """
+        Username and password credentials.
+        """
+        password: pulumi.Input[str]
+        """
+        Password to be presented as part of the credentials. It is recommended that this value is parameterized as a secret string in order to prevent this value to be returned as part of the resource on API requests.
+        """
+        type: pulumi.Input[str]
+        """
+        The discriminator for derived types.
+        Expected value is '#Microsoft.VideoAnalyzer.UsernamePasswordCredentials'.
+        """
+        username: pulumi.Input[str]
+        """
+        Username to be presented as part of the credentials.
+        """
+elif False:
+    UsernamePasswordCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class UsernamePasswordCredentialsArgs:
     def __init__(__self__, *,
@@ -1459,6 +2036,22 @@ class UsernamePasswordCredentialsArgs:
         pulumi.set(self, "username", value)
 
 
+if not MYPY:
+    class VideoAnalyzerIdentityArgsDict(TypedDict):
+        """
+        The managed identity for the Video Analyzer resource.
+        """
+        type: pulumi.Input[str]
+        """
+        The identity type.
+        """
+        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The User Assigned Managed Identities.
+        """
+elif False:
+    VideoAnalyzerIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class VideoAnalyzerIdentityArgs:
     def __init__(__self__, *,
@@ -1498,6 +2091,18 @@ class VideoAnalyzerIdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
+if not MYPY:
+    class VideoArchivalArgsDict(TypedDict):
+        """
+        Video archival properties.
+        """
+        retention_period: NotRequired[pulumi.Input[str]]
+        """
+        Video retention period indicates the maximum age of the video archive segments which are intended to be kept in storage. It must be provided in the ISO8601 duration format in the granularity of days, up to a maximum of 10 years. For example, if this is set to P30D (30 days), content older than 30 days will be periodically deleted. This value can be updated at any time and the new desired retention period will be effective within 24 hours.
+        """
+elif False:
+    VideoArchivalArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class VideoArchivalArgs:
     def __init__(__self__, *,
@@ -1521,6 +2126,30 @@ class VideoArchivalArgs:
     def retention_period(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "retention_period", value)
 
+
+if not MYPY:
+    class VideoCreationPropertiesArgsDict(TypedDict):
+        """
+        Optional properties to be used in case a new video resource needs to be created on the service. These will not take effect if the video already exists.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Optional description provided by the user. Value can be up to 2048 characters long.
+        """
+        retention_period: NotRequired[pulumi.Input[str]]
+        """
+        Video retention period indicates how long the video is kept in storage. Value must be specified in ISO8601 duration format (i.e. "P1D" equals 1 day) and can vary between 1 day to 10 years, in 1 day increments. When absent (null), all video content is retained indefinitely. This property is only allowed for topologies where "kind" is set to "live".
+        """
+        segment_length: NotRequired[pulumi.Input[str]]
+        """
+        Segment length indicates the length of individual content files (segments) which are persisted to storage. Smaller segments provide lower archive playback latency but generate larger volume of storage transactions. Larger segments reduce the amount of storage transactions while increasing the archive playback latency. Value must be specified in ISO8601 duration format (i.e. "PT30S" equals 30 seconds) and can vary between 30 seconds to 5 minutes, in 30 seconds increments. Changing this value after the initial call to create the video resource can lead to errors when uploading content to the archive. Default value is 30 seconds. This property is only allowed for topologies where "kind" is set to "live".
+        """
+        title: NotRequired[pulumi.Input[str]]
+        """
+        Optional title provided by the user. Value can be up to 256 characters long.
+        """
+elif False:
+    VideoCreationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VideoCreationPropertiesArgs:
@@ -1593,6 +2222,31 @@ class VideoCreationPropertiesArgs:
     def title(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "title", value)
 
+
+if not MYPY:
+    class VideoEncoderH264ArgsDict(TypedDict):
+        """
+        A custom preset for encoding video with the H.264 (AVC) codec.
+        """
+        type: pulumi.Input[str]
+        """
+        The discriminator for derived types.
+        Expected value is '#Microsoft.VideoAnalyzer.VideoEncoderH264'.
+        """
+        bitrate_kbps: NotRequired[pulumi.Input[str]]
+        """
+        The maximum bitrate, in kilobits per second or Kbps, at which video should be encoded. If omitted, encoder sets it automatically to try and match the quality of the input video.
+        """
+        frame_rate: NotRequired[pulumi.Input[str]]
+        """
+        The frame rate (in frames per second) of the encoded video. The value must be greater than zero, and less than or equal to 300. If omitted, the encoder uses the average frame rate of the input video.
+        """
+        scale: NotRequired[pulumi.Input['VideoScaleArgsDict']]
+        """
+        Describes the resolution of the encoded video. If omitted, the encoder uses the resolution of the input video.
+        """
+elif False:
+    VideoEncoderH264ArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VideoEncoderH264Args:
@@ -1667,6 +2321,18 @@ class VideoEncoderH264Args:
         pulumi.set(self, "scale", value)
 
 
+if not MYPY:
+    class VideoMediaInfoArgsDict(TypedDict):
+        """
+        Contains information about the video and audio content.
+        """
+        segment_length: NotRequired[pulumi.Input[str]]
+        """
+        Video segment length indicates the length of individual video files (segments) which are persisted to storage. Smaller segments provide lower archive playback latency but generate larger volume of storage transactions. Larger segments reduce the amount of storage transactions while increasing the archive playback latency. Value must be specified in ISO8601 duration format (i.e. "PT30S" equals 30 seconds) and can vary between 30 seconds to 5 minutes, in 30 seconds increments.
+        """
+elif False:
+    VideoMediaInfoArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class VideoMediaInfoArgs:
     def __init__(__self__, *,
@@ -1690,6 +2356,22 @@ class VideoMediaInfoArgs:
     def segment_length(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "segment_length", value)
 
+
+if not MYPY:
+    class VideoPublishingOptionsArgsDict(TypedDict):
+        """
+        Optional flags used to change how video is published. These are only allowed for topologies where "kind" is set to "live".
+        """
+        disable_archive: NotRequired[pulumi.Input[str]]
+        """
+        When set to 'true' content will not be archived or recorded. This is used, for example, when the topology is used only for low latency video streaming. Default is 'false'.  If set to 'true', then "disableRtspPublishing" must be set to 'false'.
+        """
+        disable_rtsp_publishing: NotRequired[pulumi.Input[str]]
+        """
+        When set to 'true' the RTSP playback URL will not be published, disabling low latency streaming. This is used, for example, when the topology is used only for archiving content. Default is 'false'.  If set to 'true', then "disableArchive" must be set to 'false'.
+        """
+elif False:
+    VideoPublishingOptionsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VideoPublishingOptionsArgs:
@@ -1730,6 +2412,26 @@ class VideoPublishingOptionsArgs:
     def disable_rtsp_publishing(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "disable_rtsp_publishing", value)
 
+
+if not MYPY:
+    class VideoScaleArgsDict(TypedDict):
+        """
+        The video scaling information.
+        """
+        height: NotRequired[pulumi.Input[str]]
+        """
+        The desired output video height.
+        """
+        mode: NotRequired[pulumi.Input[Union[str, 'VideoScaleMode']]]
+        """
+        Describes the video scaling mode to be applied. Default mode is 'Pad'. If the mode is 'Pad' or 'Stretch' then both width and height must be specified. Else if the mode is 'PreserveAspectRatio' then only one of width or height need be provided.
+        """
+        width: NotRequired[pulumi.Input[str]]
+        """
+        The desired output video width.
+        """
+elif False:
+    VideoScaleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VideoScaleArgs:
@@ -1787,6 +2489,23 @@ class VideoScaleArgs:
         pulumi.set(self, "width", value)
 
 
+if not MYPY:
+    class VideoSequenceAbsoluteTimeMarkersArgsDict(TypedDict):
+        """
+        A sequence of absolute datetime ranges as a string. The datetime values should follow IS08601, and the sum of the ranges should add up to 24 hours or less. Currently, there can be only one range specified in the sequence.
+        """
+        ranges: pulumi.Input[str]
+        """
+        The sequence of datetime ranges. Example: '[["2021-10-05T03:30:00Z", "2021-10-05T03:40:00Z"]]'.
+        """
+        type: pulumi.Input[str]
+        """
+        The discriminator for derived types.
+        Expected value is '#Microsoft.VideoAnalyzer.VideoSequenceAbsoluteTimeMarkers'.
+        """
+elif False:
+    VideoSequenceAbsoluteTimeMarkersArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class VideoSequenceAbsoluteTimeMarkersArgs:
     def __init__(__self__, *,
@@ -1826,6 +2545,39 @@ class VideoSequenceAbsoluteTimeMarkersArgs:
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class VideoSinkArgsDict(TypedDict):
+        """
+        Video sink in a live topology allows for video and audio to be captured, optionally archived, and published via a video resource. If archiving is enabled, this results in a video of type 'archive'. If used in a batch topology, this allows for video and audio to be stored as a file, and published via a video resource of type 'file'
+        """
+        inputs: pulumi.Input[Sequence[pulumi.Input['NodeInputArgsDict']]]
+        """
+        An array of upstream node references within the topology to be used as inputs for this node.
+        """
+        name: pulumi.Input[str]
+        """
+        Node name. Must be unique within the topology.
+        """
+        type: pulumi.Input[str]
+        """
+        The discriminator for derived types.
+        Expected value is '#Microsoft.VideoAnalyzer.VideoSink'.
+        """
+        video_name: pulumi.Input[str]
+        """
+        Name of a new or existing video resource used to capture and publish content. Note: if downstream of RTSP source, and if disableArchive is set to true, then no content is archived.
+        """
+        video_creation_properties: NotRequired[pulumi.Input['VideoCreationPropertiesArgsDict']]
+        """
+        Optional video properties to be used in case a new video resource needs to be created on the service.
+        """
+        video_publishing_options: NotRequired[pulumi.Input['VideoPublishingOptionsArgsDict']]
+        """
+        Options to change how the video sink publishes content via the video resource. This property is only allowed for topologies where "kind" is set to "live".
+        """
+elif False:
+    VideoSinkArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VideoSinkArgs:
@@ -1928,6 +2680,31 @@ class VideoSinkArgs:
     def video_publishing_options(self, value: Optional[pulumi.Input['VideoPublishingOptionsArgs']]):
         pulumi.set(self, "video_publishing_options", value)
 
+
+if not MYPY:
+    class VideoSourceArgsDict(TypedDict):
+        """
+        Video source allows for content from a Video Analyzer video resource to be ingested into a pipeline. Currently supported only with batch pipelines.
+        """
+        name: pulumi.Input[str]
+        """
+        Node name. Must be unique within the topology.
+        """
+        time_sequences: pulumi.Input['VideoSequenceAbsoluteTimeMarkersArgsDict']
+        """
+        Describes a sequence of datetime ranges. The video source only picks up recorded media within these ranges.
+        """
+        type: pulumi.Input[str]
+        """
+        The discriminator for derived types.
+        Expected value is '#Microsoft.VideoAnalyzer.VideoSource'.
+        """
+        video_name: pulumi.Input[str]
+        """
+        Name of the Video Analyzer video resource to be used as the source.
+        """
+elif False:
+    VideoSourceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VideoSourceArgs:

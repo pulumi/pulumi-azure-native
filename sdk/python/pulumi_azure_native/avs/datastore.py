@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -122,8 +127,8 @@ class Datastore(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  datastore_name: Optional[pulumi.Input[str]] = None,
-                 disk_pool_volume: Optional[pulumi.Input[pulumi.InputType['DiskPoolVolumeArgs']]] = None,
-                 net_app_volume: Optional[pulumi.Input[pulumi.InputType['NetAppVolumeArgs']]] = None,
+                 disk_pool_volume: Optional[pulumi.Input[Union['DiskPoolVolumeArgs', 'DiskPoolVolumeArgsDict']]] = None,
+                 net_app_volume: Optional[pulumi.Input[Union['NetAppVolumeArgs', 'NetAppVolumeArgsDict']]] = None,
                  private_cloud_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -137,8 +142,8 @@ class Datastore(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_name: Name of the cluster in the private cloud
         :param pulumi.Input[str] datastore_name: Name of the datastore in the private cloud cluster
-        :param pulumi.Input[pulumi.InputType['DiskPoolVolumeArgs']] disk_pool_volume: An iSCSI volume
-        :param pulumi.Input[pulumi.InputType['NetAppVolumeArgs']] net_app_volume: An Azure NetApp Files volume
+        :param pulumi.Input[Union['DiskPoolVolumeArgs', 'DiskPoolVolumeArgsDict']] disk_pool_volume: An iSCSI volume
+        :param pulumi.Input[Union['NetAppVolumeArgs', 'NetAppVolumeArgsDict']] net_app_volume: An Azure NetApp Files volume
         :param pulumi.Input[str] private_cloud_name: Name of the private cloud
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         """
@@ -171,8 +176,8 @@ class Datastore(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  datastore_name: Optional[pulumi.Input[str]] = None,
-                 disk_pool_volume: Optional[pulumi.Input[pulumi.InputType['DiskPoolVolumeArgs']]] = None,
-                 net_app_volume: Optional[pulumi.Input[pulumi.InputType['NetAppVolumeArgs']]] = None,
+                 disk_pool_volume: Optional[pulumi.Input[Union['DiskPoolVolumeArgs', 'DiskPoolVolumeArgsDict']]] = None,
+                 net_app_volume: Optional[pulumi.Input[Union['NetAppVolumeArgs', 'NetAppVolumeArgsDict']]] = None,
                  private_cloud_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):

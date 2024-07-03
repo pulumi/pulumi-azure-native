@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -185,15 +190,15 @@ class Policy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 custom_rules: Optional[pulumi.Input[pulumi.InputType['CustomRuleListArgs']]] = None,
+                 custom_rules: Optional[pulumi.Input[Union['CustomRuleListArgs', 'CustomRuleListArgsDict']]] = None,
                  extended_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 managed_rules: Optional[pulumi.Input[pulumi.InputType['ManagedRuleSetListArgs']]] = None,
+                 managed_rules: Optional[pulumi.Input[Union['ManagedRuleSetListArgs', 'ManagedRuleSetListArgsDict']]] = None,
                  policy_name: Optional[pulumi.Input[str]] = None,
-                 policy_settings: Optional[pulumi.Input[pulumi.InputType['PolicySettingsArgs']]] = None,
-                 rate_limit_rules: Optional[pulumi.Input[pulumi.InputType['RateLimitRuleListArgs']]] = None,
+                 policy_settings: Optional[pulumi.Input[Union['PolicySettingsArgs', 'PolicySettingsArgsDict']]] = None,
+                 rate_limit_rules: Optional[pulumi.Input[Union['RateLimitRuleListArgs', 'RateLimitRuleListArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -201,15 +206,15 @@ class Policy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['CustomRuleListArgs']] custom_rules: Describes custom rules inside the policy.
+        :param pulumi.Input[Union['CustomRuleListArgs', 'CustomRuleListArgsDict']] custom_rules: Describes custom rules inside the policy.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] extended_properties: Key-Value pair representing additional properties for Web Application Firewall policy.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[pulumi.InputType['ManagedRuleSetListArgs']] managed_rules: Describes managed rules inside the policy.
+        :param pulumi.Input[Union['ManagedRuleSetListArgs', 'ManagedRuleSetListArgsDict']] managed_rules: Describes managed rules inside the policy.
         :param pulumi.Input[str] policy_name: The name of the CdnWebApplicationFirewallPolicy.
-        :param pulumi.Input[pulumi.InputType['PolicySettingsArgs']] policy_settings: Describes  policySettings for policy
-        :param pulumi.Input[pulumi.InputType['RateLimitRuleListArgs']] rate_limit_rules: Describes rate limit rules inside the policy.
+        :param pulumi.Input[Union['PolicySettingsArgs', 'PolicySettingsArgsDict']] policy_settings: Describes  policySettings for policy
+        :param pulumi.Input[Union['RateLimitRuleListArgs', 'RateLimitRuleListArgsDict']] rate_limit_rules: Describes rate limit rules inside the policy.
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
-        :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The pricing tier (defines a CDN provider, feature list and rate) of the CdnWebApplicationFirewallPolicy.
+        :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: The pricing tier (defines a CDN provider, feature list and rate) of the CdnWebApplicationFirewallPolicy.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         ...
@@ -236,15 +241,15 @@ class Policy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 custom_rules: Optional[pulumi.Input[pulumi.InputType['CustomRuleListArgs']]] = None,
+                 custom_rules: Optional[pulumi.Input[Union['CustomRuleListArgs', 'CustomRuleListArgsDict']]] = None,
                  extended_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 managed_rules: Optional[pulumi.Input[pulumi.InputType['ManagedRuleSetListArgs']]] = None,
+                 managed_rules: Optional[pulumi.Input[Union['ManagedRuleSetListArgs', 'ManagedRuleSetListArgsDict']]] = None,
                  policy_name: Optional[pulumi.Input[str]] = None,
-                 policy_settings: Optional[pulumi.Input[pulumi.InputType['PolicySettingsArgs']]] = None,
-                 rate_limit_rules: Optional[pulumi.Input[pulumi.InputType['RateLimitRuleListArgs']]] = None,
+                 policy_settings: Optional[pulumi.Input[Union['PolicySettingsArgs', 'PolicySettingsArgsDict']]] = None,
+                 rate_limit_rules: Optional[pulumi.Input[Union['RateLimitRuleListArgs', 'RateLimitRuleListArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

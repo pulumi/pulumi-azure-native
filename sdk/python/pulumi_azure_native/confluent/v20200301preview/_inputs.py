@@ -4,15 +4,52 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 
 __all__ = [
     'OrganizationResourcePropertiesOfferDetailArgs',
+    'OrganizationResourcePropertiesOfferDetailArgsDict',
     'OrganizationResourcePropertiesUserDetailArgs',
+    'OrganizationResourcePropertiesUserDetailArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class OrganizationResourcePropertiesOfferDetailArgsDict(TypedDict):
+        """
+        Confluent offer detail
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Offer Id
+        """
+        plan_id: NotRequired[pulumi.Input[str]]
+        """
+        Offer Plan Id
+        """
+        plan_name: NotRequired[pulumi.Input[str]]
+        """
+        Offer Plan Name
+        """
+        publisher_id: NotRequired[pulumi.Input[str]]
+        """
+        Publisher Id
+        """
+        term_unit: NotRequired[pulumi.Input[str]]
+        """
+        Offer Plan Term unit
+        """
+elif False:
+    OrganizationResourcePropertiesOfferDetailArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OrganizationResourcePropertiesOfferDetailArgs:
@@ -101,6 +138,26 @@ class OrganizationResourcePropertiesOfferDetailArgs:
     def term_unit(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "term_unit", value)
 
+
+if not MYPY:
+    class OrganizationResourcePropertiesUserDetailArgsDict(TypedDict):
+        """
+        Subscriber detail
+        """
+        email_address: NotRequired[pulumi.Input[str]]
+        """
+        Email address
+        """
+        first_name: NotRequired[pulumi.Input[str]]
+        """
+        First name
+        """
+        last_name: NotRequired[pulumi.Input[str]]
+        """
+        Last name
+        """
+elif False:
+    OrganizationResourcePropertiesUserDetailArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OrganizationResourcePropertiesUserDetailArgs:

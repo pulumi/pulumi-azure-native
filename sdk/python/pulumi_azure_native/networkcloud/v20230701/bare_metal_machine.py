@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -256,10 +261,10 @@ class BareMetalMachine(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bare_metal_machine_name: Optional[pulumi.Input[str]] = None,
                  bmc_connection_string: Optional[pulumi.Input[str]] = None,
-                 bmc_credentials: Optional[pulumi.Input[pulumi.InputType['AdministrativeCredentialsArgs']]] = None,
+                 bmc_credentials: Optional[pulumi.Input[Union['AdministrativeCredentialsArgs', 'AdministrativeCredentialsArgsDict']]] = None,
                  bmc_mac_address: Optional[pulumi.Input[str]] = None,
                  boot_mac_address: Optional[pulumi.Input[str]] = None,
-                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  machine_details: Optional[pulumi.Input[str]] = None,
                  machine_name: Optional[pulumi.Input[str]] = None,
@@ -276,10 +281,10 @@ class BareMetalMachine(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] bare_metal_machine_name: The name of the bare metal machine.
         :param pulumi.Input[str] bmc_connection_string: The connection string for the baseboard management controller including IP address and protocol.
-        :param pulumi.Input[pulumi.InputType['AdministrativeCredentialsArgs']] bmc_credentials: The credentials of the baseboard management controller on this bare metal machine.
+        :param pulumi.Input[Union['AdministrativeCredentialsArgs', 'AdministrativeCredentialsArgsDict']] bmc_credentials: The credentials of the baseboard management controller on this bare metal machine.
         :param pulumi.Input[str] bmc_mac_address: The MAC address of the BMC device.
         :param pulumi.Input[str] boot_mac_address: The MAC address of a NIC connected to the PXE network.
-        :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: The extended location of the cluster associated with the resource.
+        :param pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']] extended_location: The extended location of the cluster associated with the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] machine_details: The custom details provided by the customer.
         :param pulumi.Input[str] machine_name: The OS-level hostname assigned to this machine.
@@ -315,10 +320,10 @@ class BareMetalMachine(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bare_metal_machine_name: Optional[pulumi.Input[str]] = None,
                  bmc_connection_string: Optional[pulumi.Input[str]] = None,
-                 bmc_credentials: Optional[pulumi.Input[pulumi.InputType['AdministrativeCredentialsArgs']]] = None,
+                 bmc_credentials: Optional[pulumi.Input[Union['AdministrativeCredentialsArgs', 'AdministrativeCredentialsArgsDict']]] = None,
                  bmc_mac_address: Optional[pulumi.Input[str]] = None,
                  boot_mac_address: Optional[pulumi.Input[str]] = None,
-                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  machine_details: Optional[pulumi.Input[str]] = None,
                  machine_name: Optional[pulumi.Input[str]] = None,

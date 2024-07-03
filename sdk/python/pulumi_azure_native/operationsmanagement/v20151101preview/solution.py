@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -122,8 +127,8 @@ class Solution(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 plan: Optional[pulumi.Input[pulumi.InputType['SolutionPlanArgs']]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['SolutionPropertiesArgs']]] = None,
+                 plan: Optional[pulumi.Input[Union['SolutionPlanArgs', 'SolutionPlanArgsDict']]] = None,
+                 properties: Optional[pulumi.Input[Union['SolutionPropertiesArgs', 'SolutionPropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  solution_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -134,8 +139,8 @@ class Solution(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[pulumi.InputType['SolutionPlanArgs']] plan: Plan for solution object supported by the OperationsManagement resource provider.
-        :param pulumi.Input[pulumi.InputType['SolutionPropertiesArgs']] properties: Properties for solution object supported by the OperationsManagement resource provider.
+        :param pulumi.Input[Union['SolutionPlanArgs', 'SolutionPlanArgsDict']] plan: Plan for solution object supported by the OperationsManagement resource provider.
+        :param pulumi.Input[Union['SolutionPropertiesArgs', 'SolutionPropertiesArgsDict']] properties: Properties for solution object supported by the OperationsManagement resource provider.
         :param pulumi.Input[str] resource_group_name: The name of the resource group to get. The name is case insensitive.
         :param pulumi.Input[str] solution_name: User Solution Name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
@@ -165,8 +170,8 @@ class Solution(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 plan: Optional[pulumi.Input[pulumi.InputType['SolutionPlanArgs']]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['SolutionPropertiesArgs']]] = None,
+                 plan: Optional[pulumi.Input[Union['SolutionPlanArgs', 'SolutionPlanArgsDict']]] = None,
+                 properties: Optional[pulumi.Input[Union['SolutionPropertiesArgs', 'SolutionPropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  solution_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,

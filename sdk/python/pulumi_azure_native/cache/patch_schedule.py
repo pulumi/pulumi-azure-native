@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -91,7 +96,7 @@ class PatchSchedule(pulumi.CustomResource):
                  default: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 schedule_entries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScheduleEntryArgs']]]]] = None,
+                 schedule_entries: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ScheduleEntryArgs', 'ScheduleEntryArgsDict']]]]] = None,
                  __props__=None):
         """
         Response to put/get patch schedules for Redis cache.
@@ -104,7 +109,7 @@ class PatchSchedule(pulumi.CustomResource):
         :param pulumi.Input[str] default: Default string modeled as parameter for auto generation to work correctly.
         :param pulumi.Input[str] name: The name of the Redis cache.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScheduleEntryArgs']]]] schedule_entries: List of patch schedules for a Redis cache.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ScheduleEntryArgs', 'ScheduleEntryArgsDict']]]] schedule_entries: List of patch schedules for a Redis cache.
         """
         ...
     @overload
@@ -136,7 +141,7 @@ class PatchSchedule(pulumi.CustomResource):
                  default: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 schedule_entries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScheduleEntryArgs']]]]] = None,
+                 schedule_entries: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ScheduleEntryArgs', 'ScheduleEntryArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

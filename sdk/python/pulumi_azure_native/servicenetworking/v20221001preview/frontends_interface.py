@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -157,7 +162,7 @@ class FrontendsInterface(pulumi.CustomResource):
                  ip_address_version: Optional[pulumi.Input['FrontendIPAddressVersion']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  mode: Optional[pulumi.Input['FrontendMode']] = None,
-                 public_ip_address: Optional[pulumi.Input[pulumi.InputType['FrontendPropertiesIPAddressArgs']]] = None,
+                 public_ip_address: Optional[pulumi.Input[Union['FrontendPropertiesIPAddressArgs', 'FrontendPropertiesIPAddressArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  traffic_controller_name: Optional[pulumi.Input[str]] = None,
@@ -171,7 +176,7 @@ class FrontendsInterface(pulumi.CustomResource):
         :param pulumi.Input['FrontendIPAddressVersion'] ip_address_version: Frontend IP Address Version (Optional).
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input['FrontendMode'] mode: Frontend Mode (Optional).
-        :param pulumi.Input[pulumi.InputType['FrontendPropertiesIPAddressArgs']] public_ip_address: Frontend Public IP Address (Optional).
+        :param pulumi.Input[Union['FrontendPropertiesIPAddressArgs', 'FrontendPropertiesIPAddressArgsDict']] public_ip_address: Frontend Public IP Address (Optional).
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] traffic_controller_name: traffic controller name for path
@@ -204,7 +209,7 @@ class FrontendsInterface(pulumi.CustomResource):
                  ip_address_version: Optional[pulumi.Input['FrontendIPAddressVersion']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  mode: Optional[pulumi.Input['FrontendMode']] = None,
-                 public_ip_address: Optional[pulumi.Input[pulumi.InputType['FrontendPropertiesIPAddressArgs']]] = None,
+                 public_ip_address: Optional[pulumi.Input[Union['FrontendPropertiesIPAddressArgs', 'FrontendPropertiesIPAddressArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  traffic_controller_name: Optional[pulumi.Input[str]] = None,

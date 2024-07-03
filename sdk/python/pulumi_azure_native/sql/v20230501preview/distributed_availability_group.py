@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -201,7 +206,7 @@ class DistributedAvailabilityGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 databases: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributedAvailabilityGroupDatabaseArgs']]]]] = None,
+                 databases: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DistributedAvailabilityGroupDatabaseArgs', 'DistributedAvailabilityGroupDatabaseArgsDict']]]]] = None,
                  distributed_availability_group_name: Optional[pulumi.Input[str]] = None,
                  failover_mode: Optional[pulumi.Input[Union[str, 'FailoverModeType']]] = None,
                  instance_availability_group_name: Optional[pulumi.Input[str]] = None,
@@ -218,7 +223,7 @@ class DistributedAvailabilityGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributedAvailabilityGroupDatabaseArgs']]]] databases: Databases in the distributed availability group
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DistributedAvailabilityGroupDatabaseArgs', 'DistributedAvailabilityGroupDatabaseArgsDict']]]] databases: Databases in the distributed availability group
         :param pulumi.Input[str] distributed_availability_group_name: The distributed availability group name.
         :param pulumi.Input[Union[str, 'FailoverModeType']] failover_mode: The link failover mode - can be Manual if intended to be used for two-way failover with a supported SQL Server, or None for one-way failover to Azure.
         :param pulumi.Input[str] instance_availability_group_name: Managed instance side availability group name
@@ -254,7 +259,7 @@ class DistributedAvailabilityGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 databases: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributedAvailabilityGroupDatabaseArgs']]]]] = None,
+                 databases: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DistributedAvailabilityGroupDatabaseArgs', 'DistributedAvailabilityGroupDatabaseArgsDict']]]]] = None,
                  distributed_availability_group_name: Optional[pulumi.Input[str]] = None,
                  failover_mode: Optional[pulumi.Input[Union[str, 'FailoverModeType']]] = None,
                  instance_availability_group_name: Optional[pulumi.Input[str]] = None,

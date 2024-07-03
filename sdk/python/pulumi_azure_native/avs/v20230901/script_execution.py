@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -204,10 +209,10 @@ class ScriptExecution(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  failure_reason: Optional[pulumi.Input[str]] = None,
-                 hidden_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union[pulumi.InputType['PSCredentialExecutionParameterArgs'], pulumi.InputType['ScriptSecureStringExecutionParameterArgs'], pulumi.InputType['ScriptStringExecutionParameterArgs']]]]]] = None,
+                 hidden_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union[Union['PSCredentialExecutionParameterArgs', 'PSCredentialExecutionParameterArgsDict'], Union['ScriptSecureStringExecutionParameterArgs', 'ScriptSecureStringExecutionParameterArgsDict'], Union['ScriptStringExecutionParameterArgs', 'ScriptStringExecutionParameterArgsDict']]]]]] = None,
                  named_outputs: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  output: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union[pulumi.InputType['PSCredentialExecutionParameterArgs'], pulumi.InputType['ScriptSecureStringExecutionParameterArgs'], pulumi.InputType['ScriptStringExecutionParameterArgs']]]]]] = None,
+                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union[Union['PSCredentialExecutionParameterArgs', 'PSCredentialExecutionParameterArgsDict'], Union['ScriptSecureStringExecutionParameterArgs', 'ScriptSecureStringExecutionParameterArgsDict'], Union['ScriptStringExecutionParameterArgs', 'ScriptStringExecutionParameterArgsDict']]]]]] = None,
                  private_cloud_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  retention: Optional[pulumi.Input[str]] = None,
@@ -222,11 +227,11 @@ class ScriptExecution(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] failure_reason: Error message if the script was able to run, but if the script itself had
                errors or powershell threw an exception
-        :param pulumi.Input[Sequence[pulumi.Input[Union[pulumi.InputType['PSCredentialExecutionParameterArgs'], pulumi.InputType['ScriptSecureStringExecutionParameterArgs'], pulumi.InputType['ScriptStringExecutionParameterArgs']]]]] hidden_parameters: Parameters that will be hidden/not visible to ARM, such as passwords and
+        :param pulumi.Input[Sequence[pulumi.Input[Union[Union['PSCredentialExecutionParameterArgs', 'PSCredentialExecutionParameterArgsDict'], Union['ScriptSecureStringExecutionParameterArgs', 'ScriptSecureStringExecutionParameterArgsDict'], Union['ScriptStringExecutionParameterArgs', 'ScriptStringExecutionParameterArgsDict']]]]] hidden_parameters: Parameters that will be hidden/not visible to ARM, such as passwords and
                credentials
         :param pulumi.Input[Mapping[str, Any]] named_outputs: User-defined dictionary.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] output: Standard output stream from the powershell execution
-        :param pulumi.Input[Sequence[pulumi.Input[Union[pulumi.InputType['PSCredentialExecutionParameterArgs'], pulumi.InputType['ScriptSecureStringExecutionParameterArgs'], pulumi.InputType['ScriptStringExecutionParameterArgs']]]]] parameters: Parameters the script will accept
+        :param pulumi.Input[Sequence[pulumi.Input[Union[Union['PSCredentialExecutionParameterArgs', 'PSCredentialExecutionParameterArgsDict'], Union['ScriptSecureStringExecutionParameterArgs', 'ScriptSecureStringExecutionParameterArgsDict'], Union['ScriptStringExecutionParameterArgs', 'ScriptStringExecutionParameterArgsDict']]]]] parameters: Parameters the script will accept
         :param pulumi.Input[str] private_cloud_name: Name of the private cloud
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] retention: Time to live for the resource. If not provided, will be available for 60 days
@@ -259,10 +264,10 @@ class ScriptExecution(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  failure_reason: Optional[pulumi.Input[str]] = None,
-                 hidden_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union[pulumi.InputType['PSCredentialExecutionParameterArgs'], pulumi.InputType['ScriptSecureStringExecutionParameterArgs'], pulumi.InputType['ScriptStringExecutionParameterArgs']]]]]] = None,
+                 hidden_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union[Union['PSCredentialExecutionParameterArgs', 'PSCredentialExecutionParameterArgsDict'], Union['ScriptSecureStringExecutionParameterArgs', 'ScriptSecureStringExecutionParameterArgsDict'], Union['ScriptStringExecutionParameterArgs', 'ScriptStringExecutionParameterArgsDict']]]]]] = None,
                  named_outputs: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  output: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union[pulumi.InputType['PSCredentialExecutionParameterArgs'], pulumi.InputType['ScriptSecureStringExecutionParameterArgs'], pulumi.InputType['ScriptStringExecutionParameterArgs']]]]]] = None,
+                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union[Union['PSCredentialExecutionParameterArgs', 'PSCredentialExecutionParameterArgsDict'], Union['ScriptSecureStringExecutionParameterArgs', 'ScriptSecureStringExecutionParameterArgsDict'], Union['ScriptStringExecutionParameterArgs', 'ScriptStringExecutionParameterArgsDict']]]]]] = None,
                  private_cloud_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  retention: Optional[pulumi.Input[str]] = None,

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -197,13 +202,13 @@ class Pool(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 agent_profile: Optional[pulumi.Input[Union[pulumi.InputType['StatefulArgs'], pulumi.InputType['StatelessAgentProfileArgs']]]] = None,
+                 agent_profile: Optional[pulumi.Input[Union[Union['StatefulArgs', 'StatefulArgsDict'], Union['StatelessAgentProfileArgs', 'StatelessAgentProfileArgsDict']]]] = None,
                  dev_center_project_resource_id: Optional[pulumi.Input[str]] = None,
-                 fabric_profile: Optional[pulumi.Input[pulumi.InputType['VmssFabricProfileArgs']]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
+                 fabric_profile: Optional[pulumi.Input[Union['VmssFabricProfileArgs', 'VmssFabricProfileArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  maximum_concurrency: Optional[pulumi.Input[int]] = None,
-                 organization_profile: Optional[pulumi.Input[pulumi.InputType['AzureDevOpsOrganizationProfileArgs']]] = None,
+                 organization_profile: Optional[pulumi.Input[Union['AzureDevOpsOrganizationProfileArgs', 'AzureDevOpsOrganizationProfileArgsDict']]] = None,
                  pool_name: Optional[pulumi.Input[str]] = None,
                  provisioning_state: Optional[pulumi.Input[Union[str, 'ProvisioningState']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -217,13 +222,13 @@ class Pool(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union[pulumi.InputType['StatefulArgs'], pulumi.InputType['StatelessAgentProfileArgs']]] agent_profile: Defines how the machine will be handled once it executed a job.
+        :param pulumi.Input[Union[Union['StatefulArgs', 'StatefulArgsDict'], Union['StatelessAgentProfileArgs', 'StatelessAgentProfileArgsDict']]] agent_profile: Defines how the machine will be handled once it executed a job.
         :param pulumi.Input[str] dev_center_project_resource_id: The resource id of the DevCenter Project the pool belongs to.
-        :param pulumi.Input[pulumi.InputType['VmssFabricProfileArgs']] fabric_profile: Defines the type of fabric the agent will run on.
-        :param pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']] identity: The managed service identities assigned to this resource.
+        :param pulumi.Input[Union['VmssFabricProfileArgs', 'VmssFabricProfileArgsDict']] fabric_profile: Defines the type of fabric the agent will run on.
+        :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: The managed service identities assigned to this resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[int] maximum_concurrency: Defines how many resources can there be created at any given time.
-        :param pulumi.Input[pulumi.InputType['AzureDevOpsOrganizationProfileArgs']] organization_profile: Defines the organization in which the pool will be used.
+        :param pulumi.Input[Union['AzureDevOpsOrganizationProfileArgs', 'AzureDevOpsOrganizationProfileArgsDict']] organization_profile: Defines the organization in which the pool will be used.
         :param pulumi.Input[str] pool_name: Name of the pool. It needs to be globally unique.
         :param pulumi.Input[Union[str, 'ProvisioningState']] provisioning_state: The status of the current operation.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -256,13 +261,13 @@ class Pool(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 agent_profile: Optional[pulumi.Input[Union[pulumi.InputType['StatefulArgs'], pulumi.InputType['StatelessAgentProfileArgs']]]] = None,
+                 agent_profile: Optional[pulumi.Input[Union[Union['StatefulArgs', 'StatefulArgsDict'], Union['StatelessAgentProfileArgs', 'StatelessAgentProfileArgsDict']]]] = None,
                  dev_center_project_resource_id: Optional[pulumi.Input[str]] = None,
-                 fabric_profile: Optional[pulumi.Input[pulumi.InputType['VmssFabricProfileArgs']]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
+                 fabric_profile: Optional[pulumi.Input[Union['VmssFabricProfileArgs', 'VmssFabricProfileArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  maximum_concurrency: Optional[pulumi.Input[int]] = None,
-                 organization_profile: Optional[pulumi.Input[pulumi.InputType['AzureDevOpsOrganizationProfileArgs']]] = None,
+                 organization_profile: Optional[pulumi.Input[Union['AzureDevOpsOrganizationProfileArgs', 'AzureDevOpsOrganizationProfileArgsDict']]] = None,
                  pool_name: Optional[pulumi.Input[str]] = None,
                  provisioning_state: Optional[pulumi.Input[Union[str, 'ProvisioningState']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,

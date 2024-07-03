@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -311,11 +316,11 @@ class Account(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
-                 compute_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CreateComputePolicyWithAccountParametersArgs']]]]] = None,
-                 data_lake_store_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AddDataLakeStoreWithAccountParametersArgs']]]]] = None,
+                 compute_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CreateComputePolicyWithAccountParametersArgs', 'CreateComputePolicyWithAccountParametersArgsDict']]]]] = None,
+                 data_lake_store_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AddDataLakeStoreWithAccountParametersArgs', 'AddDataLakeStoreWithAccountParametersArgsDict']]]]] = None,
                  default_data_lake_store_account: Optional[pulumi.Input[str]] = None,
                  firewall_allow_azure_ips: Optional[pulumi.Input['FirewallAllowAzureIpsState']] = None,
-                 firewall_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CreateFirewallRuleWithAccountParametersArgs']]]]] = None,
+                 firewall_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CreateFirewallRuleWithAccountParametersArgs', 'CreateFirewallRuleWithAccountParametersArgsDict']]]]] = None,
                  firewall_state: Optional[pulumi.Input['FirewallState']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  max_degree_of_parallelism: Optional[pulumi.Input[int]] = None,
@@ -325,7 +330,7 @@ class Account(pulumi.CustomResource):
                  new_tier: Optional[pulumi.Input['TierType']] = None,
                  query_store_retention: Optional[pulumi.Input[int]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AddStorageAccountWithAccountParametersArgs']]]]] = None,
+                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AddStorageAccountWithAccountParametersArgs', 'AddStorageAccountWithAccountParametersArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -334,11 +339,11 @@ class Account(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the Data Lake Analytics account.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CreateComputePolicyWithAccountParametersArgs']]]] compute_policies: The list of compute policies associated with this account.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AddDataLakeStoreWithAccountParametersArgs']]]] data_lake_store_accounts: The list of Data Lake Store accounts associated with this account.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CreateComputePolicyWithAccountParametersArgs', 'CreateComputePolicyWithAccountParametersArgsDict']]]] compute_policies: The list of compute policies associated with this account.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AddDataLakeStoreWithAccountParametersArgs', 'AddDataLakeStoreWithAccountParametersArgsDict']]]] data_lake_store_accounts: The list of Data Lake Store accounts associated with this account.
         :param pulumi.Input[str] default_data_lake_store_account: The default Data Lake Store account associated with this account.
         :param pulumi.Input['FirewallAllowAzureIpsState'] firewall_allow_azure_ips: The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CreateFirewallRuleWithAccountParametersArgs']]]] firewall_rules: The list of firewall rules associated with this account.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CreateFirewallRuleWithAccountParametersArgs', 'CreateFirewallRuleWithAccountParametersArgsDict']]]] firewall_rules: The list of firewall rules associated with this account.
         :param pulumi.Input['FirewallState'] firewall_state: The current state of the IP address firewall for this account.
         :param pulumi.Input[str] location: The resource location.
         :param pulumi.Input[int] max_degree_of_parallelism: The maximum supported degree of parallelism for this account.
@@ -348,7 +353,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input['TierType'] new_tier: The commitment tier for the next month.
         :param pulumi.Input[int] query_store_retention: The number of days that job metadata is retained.
         :param pulumi.Input[str] resource_group_name: The name of the Azure resource group.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AddStorageAccountWithAccountParametersArgs']]]] storage_accounts: The list of Azure Blob Storage accounts associated with this account.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AddStorageAccountWithAccountParametersArgs', 'AddStorageAccountWithAccountParametersArgsDict']]]] storage_accounts: The list of Azure Blob Storage accounts associated with this account.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
         """
         ...
@@ -376,11 +381,11 @@ class Account(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
-                 compute_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CreateComputePolicyWithAccountParametersArgs']]]]] = None,
-                 data_lake_store_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AddDataLakeStoreWithAccountParametersArgs']]]]] = None,
+                 compute_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CreateComputePolicyWithAccountParametersArgs', 'CreateComputePolicyWithAccountParametersArgsDict']]]]] = None,
+                 data_lake_store_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AddDataLakeStoreWithAccountParametersArgs', 'AddDataLakeStoreWithAccountParametersArgsDict']]]]] = None,
                  default_data_lake_store_account: Optional[pulumi.Input[str]] = None,
                  firewall_allow_azure_ips: Optional[pulumi.Input['FirewallAllowAzureIpsState']] = None,
-                 firewall_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CreateFirewallRuleWithAccountParametersArgs']]]]] = None,
+                 firewall_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CreateFirewallRuleWithAccountParametersArgs', 'CreateFirewallRuleWithAccountParametersArgsDict']]]]] = None,
                  firewall_state: Optional[pulumi.Input['FirewallState']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  max_degree_of_parallelism: Optional[pulumi.Input[int]] = None,
@@ -390,7 +395,7 @@ class Account(pulumi.CustomResource):
                  new_tier: Optional[pulumi.Input['TierType']] = None,
                  query_store_retention: Optional[pulumi.Input[int]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AddStorageAccountWithAccountParametersArgs']]]]] = None,
+                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AddStorageAccountWithAccountParametersArgs', 'AddStorageAccountWithAccountParametersArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

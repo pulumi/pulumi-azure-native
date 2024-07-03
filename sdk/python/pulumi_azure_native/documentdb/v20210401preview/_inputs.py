@@ -4,29 +4,60 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'ApiPropertiesArgs',
+    'ApiPropertiesArgsDict',
     'CapabilityArgs',
+    'CapabilityArgsDict',
     'ConsistencyPolicyArgs',
+    'ConsistencyPolicyArgsDict',
     'ContinuousModeBackupPolicyArgs',
+    'ContinuousModeBackupPolicyArgsDict',
     'CorsPolicyArgs',
+    'CorsPolicyArgsDict',
     'DatabaseRestoreResourceArgs',
+    'DatabaseRestoreResourceArgsDict',
     'DefaultRequestDatabaseAccountCreateUpdatePropertiesArgs',
+    'DefaultRequestDatabaseAccountCreateUpdatePropertiesArgsDict',
     'IpAddressOrRangeArgs',
+    'IpAddressOrRangeArgsDict',
     'LocationArgs',
+    'LocationArgsDict',
     'ManagedServiceIdentityArgs',
+    'ManagedServiceIdentityArgsDict',
     'PeriodicModeBackupPolicyArgs',
+    'PeriodicModeBackupPolicyArgsDict',
     'PeriodicModePropertiesArgs',
+    'PeriodicModePropertiesArgsDict',
     'RestoreParametersArgs',
+    'RestoreParametersArgsDict',
     'RestoreReqeustDatabaseAccountCreateUpdatePropertiesArgs',
+    'RestoreReqeustDatabaseAccountCreateUpdatePropertiesArgsDict',
     'VirtualNetworkRuleArgs',
+    'VirtualNetworkRuleArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ApiPropertiesArgsDict(TypedDict):
+        server_version: NotRequired[pulumi.Input[Union[str, 'ServerVersion']]]
+        """
+        Describes the ServerVersion of an a MongoDB account.
+        """
+elif False:
+    ApiPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApiPropertiesArgs:
@@ -51,6 +82,18 @@ class ApiPropertiesArgs:
         pulumi.set(self, "server_version", value)
 
 
+if not MYPY:
+    class CapabilityArgsDict(TypedDict):
+        """
+        Cosmos DB capability object
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the Cosmos DB capability. For example, "name": "EnableCassandra". Current values also include "EnableTable" and "EnableGremlin".
+        """
+elif False:
+    CapabilityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CapabilityArgs:
     def __init__(__self__, *,
@@ -74,6 +117,26 @@ class CapabilityArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class ConsistencyPolicyArgsDict(TypedDict):
+        """
+        The consistency policy for the Cosmos DB database account.
+        """
+        default_consistency_level: pulumi.Input['DefaultConsistencyLevel']
+        """
+        The default consistency level and configuration settings of the Cosmos DB account.
+        """
+        max_interval_in_seconds: NotRequired[pulumi.Input[int]]
+        """
+        When used with the Bounded Staleness consistency level, this value represents the time amount of staleness (in seconds) tolerated. Accepted range for this value is 5 - 86400. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
+        """
+        max_staleness_prefix: NotRequired[pulumi.Input[float]]
+        """
+        When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. Accepted range for this value is 1 – 2,147,483,647. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
+        """
+elif False:
+    ConsistencyPolicyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ConsistencyPolicyArgs:
@@ -130,6 +193,19 @@ class ConsistencyPolicyArgs:
         pulumi.set(self, "max_staleness_prefix", value)
 
 
+if not MYPY:
+    class ContinuousModeBackupPolicyArgsDict(TypedDict):
+        """
+        The object representing continuous mode backup policy.
+        """
+        type: pulumi.Input[str]
+        """
+        Describes the mode of backups.
+        Expected value is 'Continuous'.
+        """
+elif False:
+    ContinuousModeBackupPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ContinuousModeBackupPolicyArgs:
     def __init__(__self__, *,
@@ -154,6 +230,34 @@ class ContinuousModeBackupPolicyArgs:
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class CorsPolicyArgsDict(TypedDict):
+        """
+        The CORS policy for the Cosmos DB database account.
+        """
+        allowed_origins: pulumi.Input[str]
+        """
+        The origin domains that are permitted to make a request against the service via CORS.
+        """
+        allowed_headers: NotRequired[pulumi.Input[str]]
+        """
+        The request headers that the origin domain may specify on the CORS request.
+        """
+        allowed_methods: NotRequired[pulumi.Input[str]]
+        """
+        The methods (HTTP request verbs) that the origin domain may use for a CORS request.
+        """
+        exposed_headers: NotRequired[pulumi.Input[str]]
+        """
+        The response headers that may be sent in the response to the CORS request and exposed by the browser to the request issuer.
+        """
+        max_age_in_seconds: NotRequired[pulumi.Input[float]]
+        """
+        The maximum amount time that a browser should cache the preflight OPTIONS request.
+        """
+elif False:
+    CorsPolicyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CorsPolicyArgs:
@@ -242,6 +346,22 @@ class CorsPolicyArgs:
         pulumi.set(self, "max_age_in_seconds", value)
 
 
+if not MYPY:
+    class DatabaseRestoreResourceArgsDict(TypedDict):
+        """
+        Specific Databases to restore.
+        """
+        collection_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The names of the collections available for restore.
+        """
+        database_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the database available for restore.
+        """
+elif False:
+    DatabaseRestoreResourceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DatabaseRestoreResourceArgs:
     def __init__(__self__, *,
@@ -281,6 +401,107 @@ class DatabaseRestoreResourceArgs:
     def database_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "database_name", value)
 
+
+if not MYPY:
+    class DefaultRequestDatabaseAccountCreateUpdatePropertiesArgsDict(TypedDict):
+        """
+        Properties for non-restore Azure Cosmos DB database account requests.
+        """
+        create_mode: pulumi.Input[str]
+        """
+        Enum to indicate the mode of account creation.
+        Expected value is 'Default'.
+        """
+        database_account_offer_type: pulumi.Input['DatabaseAccountOfferType']
+        """
+        The offer type for the database
+        """
+        locations: pulumi.Input[Sequence[pulumi.Input['LocationArgsDict']]]
+        """
+        An array that contains the georeplication locations enabled for the Cosmos DB account.
+        """
+        api_properties: NotRequired[pulumi.Input['ApiPropertiesArgsDict']]
+        """
+        API specific properties. Currently, supported only for MongoDB API.
+        """
+        backup_policy: NotRequired[pulumi.Input[Union['ContinuousModeBackupPolicyArgsDict', 'PeriodicModeBackupPolicyArgsDict']]]
+        """
+        The object representing the policy for taking backups on an account.
+        """
+        capabilities: NotRequired[pulumi.Input[Sequence[pulumi.Input['CapabilityArgsDict']]]]
+        """
+        List of Cosmos DB capabilities for the account
+        """
+        connector_offer: NotRequired[pulumi.Input[Union[str, 'ConnectorOffer']]]
+        """
+        The cassandra connector offer type for the Cosmos DB database C* account.
+        """
+        consistency_policy: NotRequired[pulumi.Input['ConsistencyPolicyArgsDict']]
+        """
+        The consistency policy for the Cosmos DB account.
+        """
+        cors: NotRequired[pulumi.Input[Sequence[pulumi.Input['CorsPolicyArgsDict']]]]
+        """
+        The CORS policy for the Cosmos DB database account.
+        """
+        default_identity: NotRequired[pulumi.Input[str]]
+        """
+        The default identity for accessing key vault used in features like customer managed keys. The default identity needs to be explicitly set by the users. It can be "FirstPartyIdentity", "SystemAssignedIdentity" and more.
+        """
+        disable_key_based_metadata_write_access: NotRequired[pulumi.Input[bool]]
+        """
+        Disable write operations on metadata resources (databases, containers, throughput) via account keys
+        """
+        enable_analytical_storage: NotRequired[pulumi.Input[bool]]
+        """
+        Flag to indicate whether to enable storage analytics.
+        """
+        enable_automatic_failover: NotRequired[pulumi.Input[bool]]
+        """
+        Enables automatic failover of the write region in the rare event that the region is unavailable due to an outage. Automatic failover will result in a new write region for the account and is chosen based on the failover priorities configured for the account.
+        """
+        enable_cassandra_connector: NotRequired[pulumi.Input[bool]]
+        """
+        Enables the cassandra connector on the Cosmos DB C* account
+        """
+        enable_free_tier: NotRequired[pulumi.Input[bool]]
+        """
+        Flag to indicate whether Free Tier is enabled.
+        """
+        enable_multiple_write_locations: NotRequired[pulumi.Input[bool]]
+        """
+        Enables the account to write in multiple locations
+        """
+        ip_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['IpAddressOrRangeArgsDict']]]]
+        """
+        List of IpRules.
+        """
+        is_virtual_network_filter_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Flag to indicate whether to enable/disable Virtual Network ACL rules.
+        """
+        key_vault_key_uri: NotRequired[pulumi.Input[str]]
+        """
+        The URI of the key vault
+        """
+        network_acl_bypass: NotRequired[pulumi.Input['NetworkAclBypass']]
+        """
+        Indicates what services are allowed to bypass firewall checks.
+        """
+        network_acl_bypass_resource_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        An array that contains the Resource Ids for Network Acl Bypass for the Cosmos DB account.
+        """
+        public_network_access: NotRequired[pulumi.Input[Union[str, 'PublicNetworkAccess']]]
+        """
+        Whether requests from Public Network are allowed
+        """
+        virtual_network_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgsDict']]]]
+        """
+        List of Virtual Network ACL rules configured for the Cosmos DB account.
+        """
+elif False:
+    DefaultRequestDatabaseAccountCreateUpdatePropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DefaultRequestDatabaseAccountCreateUpdatePropertiesArgs:
@@ -659,6 +880,18 @@ class DefaultRequestDatabaseAccountCreateUpdatePropertiesArgs:
         pulumi.set(self, "virtual_network_rules", value)
 
 
+if not MYPY:
+    class IpAddressOrRangeArgsDict(TypedDict):
+        """
+        IpAddressOrRange object
+        """
+        ip_address_or_range: NotRequired[pulumi.Input[str]]
+        """
+        A single IPv4 address or a single IPv4 address range in CIDR format. Provided IPs must be well-formatted and cannot be contained in one of the following ranges: 10.0.0.0/8, 100.64.0.0/10, 172.16.0.0/12, 192.168.0.0/16, since these are not enforceable by the IP address filter. Example of valid inputs: “23.40.210.245” or “23.40.210.0/8”.
+        """
+elif False:
+    IpAddressOrRangeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IpAddressOrRangeArgs:
     def __init__(__self__, *,
@@ -682,6 +915,26 @@ class IpAddressOrRangeArgs:
     def ip_address_or_range(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "ip_address_or_range", value)
 
+
+if not MYPY:
+    class LocationArgsDict(TypedDict):
+        """
+        A region in which the Azure Cosmos DB database account is deployed.
+        """
+        failover_priority: NotRequired[pulumi.Input[int]]
+        """
+        The failover priority of the region. A failover priority of 0 indicates a write region. The maximum value for a failover priority = (total number of regions - 1). Failover priority values must be unique for each of the regions in which the database account exists.
+        """
+        is_zone_redundant: NotRequired[pulumi.Input[bool]]
+        """
+        Flag to indicate whether or not this region is an AvailabilityZone region
+        """
+        location_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the region.
+        """
+elif False:
+    LocationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LocationArgs:
@@ -739,6 +992,22 @@ class LocationArgs:
         pulumi.set(self, "location_name", value)
 
 
+if not MYPY:
+    class ManagedServiceIdentityArgsDict(TypedDict):
+        """
+        Identity for the resource.
+        """
+        type: NotRequired[pulumi.Input['ResourceIdentityType']]
+        """
+        The type of identity used for the resource. The type 'SystemAssigned,UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
+        """
+        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of user identities associated with resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+elif False:
+    ManagedServiceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ManagedServiceIdentityArgs:
     def __init__(__self__, *,
@@ -778,6 +1047,23 @@ class ManagedServiceIdentityArgs:
     def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
+
+if not MYPY:
+    class PeriodicModeBackupPolicyArgsDict(TypedDict):
+        """
+        The object representing periodic mode backup policy.
+        """
+        type: pulumi.Input[str]
+        """
+        Describes the mode of backups.
+        Expected value is 'Periodic'.
+        """
+        periodic_mode_properties: NotRequired[pulumi.Input['PeriodicModePropertiesArgsDict']]
+        """
+        Configuration values for periodic mode backup
+        """
+elif False:
+    PeriodicModeBackupPolicyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PeriodicModeBackupPolicyArgs:
@@ -819,6 +1105,26 @@ class PeriodicModeBackupPolicyArgs:
     def periodic_mode_properties(self, value: Optional[pulumi.Input['PeriodicModePropertiesArgs']]):
         pulumi.set(self, "periodic_mode_properties", value)
 
+
+if not MYPY:
+    class PeriodicModePropertiesArgsDict(TypedDict):
+        """
+        Configuration values for periodic mode backup
+        """
+        backup_interval_in_minutes: NotRequired[pulumi.Input[int]]
+        """
+        An integer representing the interval in minutes between two backups
+        """
+        backup_retention_interval_in_hours: NotRequired[pulumi.Input[int]]
+        """
+        An integer representing the time (in hours) that each backup is retained
+        """
+        backup_storage_redundancy: NotRequired[pulumi.Input[Union[str, 'BackupStorageRedundancy']]]
+        """
+        Enum to indicate type of backup residency
+        """
+elif False:
+    PeriodicModePropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PeriodicModePropertiesArgs:
@@ -875,6 +1181,30 @@ class PeriodicModePropertiesArgs:
     def backup_storage_redundancy(self, value: Optional[pulumi.Input[Union[str, 'BackupStorageRedundancy']]]):
         pulumi.set(self, "backup_storage_redundancy", value)
 
+
+if not MYPY:
+    class RestoreParametersArgsDict(TypedDict):
+        """
+        Parameters to indicate the information about the restore.
+        """
+        databases_to_restore: NotRequired[pulumi.Input[Sequence[pulumi.Input['DatabaseRestoreResourceArgsDict']]]]
+        """
+        List of specific databases available for restore.
+        """
+        restore_mode: NotRequired[pulumi.Input[Union[str, 'RestoreMode']]]
+        """
+        Describes the mode of the restore.
+        """
+        restore_source: NotRequired[pulumi.Input[str]]
+        """
+        The id of the restorable database account from which the restore has to be initiated. For example: /subscriptions/{subscriptionId}/providers/Microsoft.DocumentDB/locations/{location}/restorableDatabaseAccounts/{restorableDatabaseAccountName}
+        """
+        restore_timestamp_in_utc: NotRequired[pulumi.Input[str]]
+        """
+        Time to which the account has to be restored (ISO-8601 format).
+        """
+elif False:
+    RestoreParametersArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RestoreParametersArgs:
@@ -947,6 +1277,111 @@ class RestoreParametersArgs:
     def restore_timestamp_in_utc(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "restore_timestamp_in_utc", value)
 
+
+if not MYPY:
+    class RestoreReqeustDatabaseAccountCreateUpdatePropertiesArgsDict(TypedDict):
+        """
+        Properties to restore Azure Cosmos DB database account.
+        """
+        create_mode: pulumi.Input[str]
+        """
+        Enum to indicate the mode of account creation.
+        Expected value is 'Restore'.
+        """
+        database_account_offer_type: pulumi.Input['DatabaseAccountOfferType']
+        """
+        The offer type for the database
+        """
+        locations: pulumi.Input[Sequence[pulumi.Input['LocationArgsDict']]]
+        """
+        An array that contains the georeplication locations enabled for the Cosmos DB account.
+        """
+        api_properties: NotRequired[pulumi.Input['ApiPropertiesArgsDict']]
+        """
+        API specific properties. Currently, supported only for MongoDB API.
+        """
+        backup_policy: NotRequired[pulumi.Input[Union['ContinuousModeBackupPolicyArgsDict', 'PeriodicModeBackupPolicyArgsDict']]]
+        """
+        The object representing the policy for taking backups on an account.
+        """
+        capabilities: NotRequired[pulumi.Input[Sequence[pulumi.Input['CapabilityArgsDict']]]]
+        """
+        List of Cosmos DB capabilities for the account
+        """
+        connector_offer: NotRequired[pulumi.Input[Union[str, 'ConnectorOffer']]]
+        """
+        The cassandra connector offer type for the Cosmos DB database C* account.
+        """
+        consistency_policy: NotRequired[pulumi.Input['ConsistencyPolicyArgsDict']]
+        """
+        The consistency policy for the Cosmos DB account.
+        """
+        cors: NotRequired[pulumi.Input[Sequence[pulumi.Input['CorsPolicyArgsDict']]]]
+        """
+        The CORS policy for the Cosmos DB database account.
+        """
+        default_identity: NotRequired[pulumi.Input[str]]
+        """
+        The default identity for accessing key vault used in features like customer managed keys. The default identity needs to be explicitly set by the users. It can be "FirstPartyIdentity", "SystemAssignedIdentity" and more.
+        """
+        disable_key_based_metadata_write_access: NotRequired[pulumi.Input[bool]]
+        """
+        Disable write operations on metadata resources (databases, containers, throughput) via account keys
+        """
+        enable_analytical_storage: NotRequired[pulumi.Input[bool]]
+        """
+        Flag to indicate whether to enable storage analytics.
+        """
+        enable_automatic_failover: NotRequired[pulumi.Input[bool]]
+        """
+        Enables automatic failover of the write region in the rare event that the region is unavailable due to an outage. Automatic failover will result in a new write region for the account and is chosen based on the failover priorities configured for the account.
+        """
+        enable_cassandra_connector: NotRequired[pulumi.Input[bool]]
+        """
+        Enables the cassandra connector on the Cosmos DB C* account
+        """
+        enable_free_tier: NotRequired[pulumi.Input[bool]]
+        """
+        Flag to indicate whether Free Tier is enabled.
+        """
+        enable_multiple_write_locations: NotRequired[pulumi.Input[bool]]
+        """
+        Enables the account to write in multiple locations
+        """
+        ip_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['IpAddressOrRangeArgsDict']]]]
+        """
+        List of IpRules.
+        """
+        is_virtual_network_filter_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Flag to indicate whether to enable/disable Virtual Network ACL rules.
+        """
+        key_vault_key_uri: NotRequired[pulumi.Input[str]]
+        """
+        The URI of the key vault
+        """
+        network_acl_bypass: NotRequired[pulumi.Input['NetworkAclBypass']]
+        """
+        Indicates what services are allowed to bypass firewall checks.
+        """
+        network_acl_bypass_resource_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        An array that contains the Resource Ids for Network Acl Bypass for the Cosmos DB account.
+        """
+        public_network_access: NotRequired[pulumi.Input[Union[str, 'PublicNetworkAccess']]]
+        """
+        Whether requests from Public Network are allowed
+        """
+        restore_parameters: NotRequired[pulumi.Input['RestoreParametersArgsDict']]
+        """
+        Parameters to indicate the information about the restore.
+        """
+        virtual_network_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgsDict']]]]
+        """
+        List of Virtual Network ACL rules configured for the Cosmos DB account.
+        """
+elif False:
+    RestoreReqeustDatabaseAccountCreateUpdatePropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RestoreReqeustDatabaseAccountCreateUpdatePropertiesArgs:
@@ -1340,6 +1775,22 @@ class RestoreReqeustDatabaseAccountCreateUpdatePropertiesArgs:
     def virtual_network_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgs']]]]):
         pulumi.set(self, "virtual_network_rules", value)
 
+
+if not MYPY:
+    class VirtualNetworkRuleArgsDict(TypedDict):
+        """
+        Virtual Network ACL Rule object
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}.
+        """
+        ignore_missing_v_net_service_endpoint: NotRequired[pulumi.Input[bool]]
+        """
+        Create firewall rule before the virtual network has vnet service endpoint enabled.
+        """
+elif False:
+    VirtualNetworkRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VirtualNetworkRuleArgs:

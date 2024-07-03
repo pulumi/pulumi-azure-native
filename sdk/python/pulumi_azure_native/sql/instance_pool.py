@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -155,7 +160,7 @@ class InstancePool(pulumi.CustomResource):
                  license_type: Optional[pulumi.Input[Union[str, 'InstancePoolLicenseType']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  v_cores: Optional[pulumi.Input[int]] = None,
@@ -172,7 +177,7 @@ class InstancePool(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'InstancePoolLicenseType']] license_type: The license type. Possible values are 'LicenseIncluded' (price for SQL license is included) and 'BasePrice' (without SQL license price).
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-        :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The name and tier of the SKU.
+        :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: The name and tier of the SKU.
         :param pulumi.Input[str] subnet_id: Resource ID of the subnet to place this instance pool in.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[int] v_cores: Count of vCores belonging to this instance pool.
@@ -208,7 +213,7 @@ class InstancePool(pulumi.CustomResource):
                  license_type: Optional[pulumi.Input[Union[str, 'InstancePoolLicenseType']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  v_cores: Optional[pulumi.Input[int]] = None,

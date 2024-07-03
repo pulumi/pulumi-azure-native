@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -158,7 +163,7 @@ class MachineGroup(pulumi.CustomResource):
                  group_type: Optional[pulumi.Input[Union[str, 'MachineGroupType']]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  machine_group_name: Optional[pulumi.Input[str]] = None,
-                 machines: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MachineReferenceWithHintsArgs']]]]] = None,
+                 machines: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MachineReferenceWithHintsArgs', 'MachineReferenceWithHintsArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -174,7 +179,7 @@ class MachineGroup(pulumi.CustomResource):
         :param pulumi.Input[str] kind: Additional resource type qualifier.
                Expected value is 'machineGroup'.
         :param pulumi.Input[str] machine_group_name: Machine Group resource name.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MachineReferenceWithHintsArgs']]]] machines: References of the machines in this group. The hints within each reference do not represent the current value of the corresponding fields. They are a snapshot created during the last time the machine group was updated.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MachineReferenceWithHintsArgs', 'MachineReferenceWithHintsArgsDict']]]] machines: References of the machines in this group. The hints within each reference do not represent the current value of the corresponding fields. They are a snapshot created during the last time the machine group was updated.
         :param pulumi.Input[str] resource_group_name: Resource group name within the specified subscriptionId.
         :param pulumi.Input[str] workspace_name: OMS workspace containing the resources of interest.
         """
@@ -208,7 +213,7 @@ class MachineGroup(pulumi.CustomResource):
                  group_type: Optional[pulumi.Input[Union[str, 'MachineGroupType']]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  machine_group_name: Optional[pulumi.Input[str]] = None,
-                 machines: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MachineReferenceWithHintsArgs']]]]] = None,
+                 machines: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MachineReferenceWithHintsArgs', 'MachineReferenceWithHintsArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):

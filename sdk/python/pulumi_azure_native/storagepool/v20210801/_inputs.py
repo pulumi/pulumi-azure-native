@@ -4,18 +4,45 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'AclArgs',
+    'AclArgsDict',
     'DiskArgs',
+    'DiskArgsDict',
     'IscsiLunArgs',
+    'IscsiLunArgsDict',
     'SkuArgs',
+    'SkuArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AclArgsDict(TypedDict):
+        """
+        Access Control List (ACL) for an iSCSI Target; defines LUN masking policy
+        """
+        initiator_iqn: pulumi.Input[str]
+        """
+        iSCSI initiator IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:client".
+        """
+        mapped_luns: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        List of LUN names mapped to the ACL.
+        """
+elif False:
+    AclArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AclArgs:
@@ -55,6 +82,18 @@ class AclArgs:
         pulumi.set(self, "mapped_luns", value)
 
 
+if not MYPY:
+    class DiskArgsDict(TypedDict):
+        """
+        Azure Managed Disk to attach to the Disk Pool.
+        """
+        id: pulumi.Input[str]
+        """
+        Unique Azure Resource ID of the Managed Disk.
+        """
+elif False:
+    DiskArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DiskArgs:
     def __init__(__self__, *,
@@ -77,6 +116,22 @@ class DiskArgs:
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class IscsiLunArgsDict(TypedDict):
+        """
+        LUN to expose the Azure Managed Disk.
+        """
+        managed_disk_azure_resource_id: pulumi.Input[str]
+        """
+        Azure Resource ID of the Managed Disk.
+        """
+        name: pulumi.Input[str]
+        """
+        User defined name for iSCSI LUN; example: "lun0"
+        """
+elif False:
+    IscsiLunArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IscsiLunArgs:
@@ -115,6 +170,22 @@ class IscsiLunArgs:
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class SkuArgsDict(TypedDict):
+        """
+        Sku for ARM resource
+        """
+        name: pulumi.Input[str]
+        """
+        Sku name
+        """
+        tier: NotRequired[pulumi.Input[str]]
+        """
+        Sku tier
+        """
+elif False:
+    SkuArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SkuArgs:

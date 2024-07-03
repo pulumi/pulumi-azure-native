@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -59,18 +64,18 @@ class AwaitableListProductFamiliesResult(ListProductFamiliesResult):
             value=self.value)
 
 
-def list_product_families(customer_subscription_details: Optional[pulumi.InputType['CustomerSubscriptionDetails']] = None,
+def list_product_families(customer_subscription_details: Optional[Union['CustomerSubscriptionDetails', 'CustomerSubscriptionDetailsDict']] = None,
                           expand: Optional[str] = None,
-                          filterable_properties: Optional[Mapping[str, Sequence[pulumi.InputType['FilterableProperty']]]] = None,
+                          filterable_properties: Optional[Mapping[str, Sequence[Union['FilterableProperty', 'FilterablePropertyDict']]]] = None,
                           skip_token: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListProductFamiliesResult:
     """
     This method provides the list of product families for the given subscription.
 
 
-    :param pulumi.InputType['CustomerSubscriptionDetails'] customer_subscription_details: Customer subscription properties. Clients can display available products to unregistered customers by explicitly passing subscription details
+    :param Union['CustomerSubscriptionDetails', 'CustomerSubscriptionDetailsDict'] customer_subscription_details: Customer subscription properties. Clients can display available products to unregistered customers by explicitly passing subscription details
     :param str expand: $expand is supported on configurations parameter for product, which provides details on the configurations for the product.
-    :param Mapping[str, Sequence[pulumi.InputType['FilterableProperty']]] filterable_properties: Dictionary of filterable properties on product family.
+    :param Mapping[str, Sequence[Union['FilterableProperty', 'FilterablePropertyDict']]] filterable_properties: Dictionary of filterable properties on product family.
     :param str skip_token: $skipToken is supported on list of product families, which provides the next page in the list of product families.
     """
     __args__ = dict()
@@ -87,18 +92,18 @@ def list_product_families(customer_subscription_details: Optional[pulumi.InputTy
 
 
 @_utilities.lift_output_func(list_product_families)
-def list_product_families_output(customer_subscription_details: Optional[pulumi.Input[Optional[pulumi.InputType['CustomerSubscriptionDetails']]]] = None,
+def list_product_families_output(customer_subscription_details: Optional[pulumi.Input[Optional[Union['CustomerSubscriptionDetails', 'CustomerSubscriptionDetailsDict']]]] = None,
                                  expand: Optional[pulumi.Input[Optional[str]]] = None,
-                                 filterable_properties: Optional[pulumi.Input[Mapping[str, Sequence[pulumi.InputType['FilterableProperty']]]]] = None,
+                                 filterable_properties: Optional[pulumi.Input[Mapping[str, Sequence[Union['FilterableProperty', 'FilterablePropertyDict']]]]] = None,
                                  skip_token: Optional[pulumi.Input[Optional[str]]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListProductFamiliesResult]:
     """
     This method provides the list of product families for the given subscription.
 
 
-    :param pulumi.InputType['CustomerSubscriptionDetails'] customer_subscription_details: Customer subscription properties. Clients can display available products to unregistered customers by explicitly passing subscription details
+    :param Union['CustomerSubscriptionDetails', 'CustomerSubscriptionDetailsDict'] customer_subscription_details: Customer subscription properties. Clients can display available products to unregistered customers by explicitly passing subscription details
     :param str expand: $expand is supported on configurations parameter for product, which provides details on the configurations for the product.
-    :param Mapping[str, Sequence[pulumi.InputType['FilterableProperty']]] filterable_properties: Dictionary of filterable properties on product family.
+    :param Mapping[str, Sequence[Union['FilterableProperty', 'FilterablePropertyDict']]] filterable_properties: Dictionary of filterable properties on product family.
     :param str skip_token: $skipToken is supported on list of product families, which provides the next page in the list of product families.
     """
     ...

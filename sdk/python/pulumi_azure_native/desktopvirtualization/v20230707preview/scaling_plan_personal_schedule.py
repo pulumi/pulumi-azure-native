@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -502,26 +507,26 @@ class ScalingPlanPersonalSchedule(pulumi.CustomResource):
                  off_peak_action_on_logoff: Optional[pulumi.Input[Union[str, 'SessionHandlingOperation']]] = None,
                  off_peak_minutes_to_wait_on_disconnect: Optional[pulumi.Input[int]] = None,
                  off_peak_minutes_to_wait_on_logoff: Optional[pulumi.Input[int]] = None,
-                 off_peak_start_time: Optional[pulumi.Input[pulumi.InputType['TimeArgs']]] = None,
+                 off_peak_start_time: Optional[pulumi.Input[Union['TimeArgs', 'TimeArgsDict']]] = None,
                  off_peak_start_vm_on_connect: Optional[pulumi.Input[Union[str, 'SetStartVMOnConnect']]] = None,
                  peak_action_on_disconnect: Optional[pulumi.Input[Union[str, 'SessionHandlingOperation']]] = None,
                  peak_action_on_logoff: Optional[pulumi.Input[Union[str, 'SessionHandlingOperation']]] = None,
                  peak_minutes_to_wait_on_disconnect: Optional[pulumi.Input[int]] = None,
                  peak_minutes_to_wait_on_logoff: Optional[pulumi.Input[int]] = None,
-                 peak_start_time: Optional[pulumi.Input[pulumi.InputType['TimeArgs']]] = None,
+                 peak_start_time: Optional[pulumi.Input[Union['TimeArgs', 'TimeArgsDict']]] = None,
                  peak_start_vm_on_connect: Optional[pulumi.Input[Union[str, 'SetStartVMOnConnect']]] = None,
                  ramp_down_action_on_disconnect: Optional[pulumi.Input[Union[str, 'SessionHandlingOperation']]] = None,
                  ramp_down_action_on_logoff: Optional[pulumi.Input[Union[str, 'SessionHandlingOperation']]] = None,
                  ramp_down_minutes_to_wait_on_disconnect: Optional[pulumi.Input[int]] = None,
                  ramp_down_minutes_to_wait_on_logoff: Optional[pulumi.Input[int]] = None,
-                 ramp_down_start_time: Optional[pulumi.Input[pulumi.InputType['TimeArgs']]] = None,
+                 ramp_down_start_time: Optional[pulumi.Input[Union['TimeArgs', 'TimeArgsDict']]] = None,
                  ramp_down_start_vm_on_connect: Optional[pulumi.Input[Union[str, 'SetStartVMOnConnect']]] = None,
                  ramp_up_action_on_disconnect: Optional[pulumi.Input[Union[str, 'SessionHandlingOperation']]] = None,
                  ramp_up_action_on_logoff: Optional[pulumi.Input[Union[str, 'SessionHandlingOperation']]] = None,
                  ramp_up_auto_start_hosts: Optional[pulumi.Input[Union[str, 'StartupBehavior']]] = None,
                  ramp_up_minutes_to_wait_on_disconnect: Optional[pulumi.Input[int]] = None,
                  ramp_up_minutes_to_wait_on_logoff: Optional[pulumi.Input[int]] = None,
-                 ramp_up_start_time: Optional[pulumi.Input[pulumi.InputType['TimeArgs']]] = None,
+                 ramp_up_start_time: Optional[pulumi.Input[Union['TimeArgs', 'TimeArgsDict']]] = None,
                  ramp_up_start_vm_on_connect: Optional[pulumi.Input[Union[str, 'SetStartVMOnConnect']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  scaling_plan_name: Optional[pulumi.Input[str]] = None,
@@ -537,26 +542,26 @@ class ScalingPlanPersonalSchedule(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'SessionHandlingOperation']] off_peak_action_on_logoff: Action to be taken after a logoff during the off-peak period.
         :param pulumi.Input[int] off_peak_minutes_to_wait_on_disconnect: The time in minutes to wait before performing the desired session handling action when a user disconnects during the off-peak period.
         :param pulumi.Input[int] off_peak_minutes_to_wait_on_logoff: The time in minutes to wait before performing the desired session handling action when a user logs off during the off-peak period.
-        :param pulumi.Input[pulumi.InputType['TimeArgs']] off_peak_start_time: Starting time for off-peak period.
+        :param pulumi.Input[Union['TimeArgs', 'TimeArgsDict']] off_peak_start_time: Starting time for off-peak period.
         :param pulumi.Input[Union[str, 'SetStartVMOnConnect']] off_peak_start_vm_on_connect: The desired configuration of Start VM On Connect for the hostpool during the off-peak phase.
         :param pulumi.Input[Union[str, 'SessionHandlingOperation']] peak_action_on_disconnect: Action to be taken after a user disconnect during the peak period.
         :param pulumi.Input[Union[str, 'SessionHandlingOperation']] peak_action_on_logoff: Action to be taken after a logoff during the peak period.
         :param pulumi.Input[int] peak_minutes_to_wait_on_disconnect: The time in minutes to wait before performing the desired session handling action when a user disconnects during the peak period.
         :param pulumi.Input[int] peak_minutes_to_wait_on_logoff: The time in minutes to wait before performing the desired session handling action when a user logs off during the peak period.
-        :param pulumi.Input[pulumi.InputType['TimeArgs']] peak_start_time: Starting time for peak period.
+        :param pulumi.Input[Union['TimeArgs', 'TimeArgsDict']] peak_start_time: Starting time for peak period.
         :param pulumi.Input[Union[str, 'SetStartVMOnConnect']] peak_start_vm_on_connect: The desired configuration of Start VM On Connect for the hostpool during the peak phase.
         :param pulumi.Input[Union[str, 'SessionHandlingOperation']] ramp_down_action_on_disconnect: Action to be taken after a user disconnect during the ramp down period.
         :param pulumi.Input[Union[str, 'SessionHandlingOperation']] ramp_down_action_on_logoff: Action to be taken after a logoff during the ramp down period.
         :param pulumi.Input[int] ramp_down_minutes_to_wait_on_disconnect: The time in minutes to wait before performing the desired session handling action when a user disconnects during the ramp down period.
         :param pulumi.Input[int] ramp_down_minutes_to_wait_on_logoff: The time in minutes to wait before performing the desired session handling action when a user logs off during the ramp down period.
-        :param pulumi.Input[pulumi.InputType['TimeArgs']] ramp_down_start_time: Starting time for ramp down period.
+        :param pulumi.Input[Union['TimeArgs', 'TimeArgsDict']] ramp_down_start_time: Starting time for ramp down period.
         :param pulumi.Input[Union[str, 'SetStartVMOnConnect']] ramp_down_start_vm_on_connect: The desired configuration of Start VM On Connect for the hostpool during the ramp down phase.
         :param pulumi.Input[Union[str, 'SessionHandlingOperation']] ramp_up_action_on_disconnect: Action to be taken after a user disconnect during the ramp up period.
         :param pulumi.Input[Union[str, 'SessionHandlingOperation']] ramp_up_action_on_logoff: Action to be taken after a logoff during the ramp up period.
         :param pulumi.Input[Union[str, 'StartupBehavior']] ramp_up_auto_start_hosts: The desired startup behavior during the ramp up period for personal vms in the hostpool.
         :param pulumi.Input[int] ramp_up_minutes_to_wait_on_disconnect: The time in minutes to wait before performing the desired session handling action when a user disconnects during the ramp up period.
         :param pulumi.Input[int] ramp_up_minutes_to_wait_on_logoff: The time in minutes to wait before performing the desired session handling action when a user logs off during the ramp up period.
-        :param pulumi.Input[pulumi.InputType['TimeArgs']] ramp_up_start_time: Starting time for ramp up period.
+        :param pulumi.Input[Union['TimeArgs', 'TimeArgsDict']] ramp_up_start_time: Starting time for ramp up period.
         :param pulumi.Input[Union[str, 'SetStartVMOnConnect']] ramp_up_start_vm_on_connect: The desired configuration of Start VM On Connect for the hostpool during the ramp up phase. If this is disabled, session hosts must be turned on using rampUpAutoStartHosts or by turning them on manually.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] scaling_plan_name: The name of the scaling plan.
@@ -591,26 +596,26 @@ class ScalingPlanPersonalSchedule(pulumi.CustomResource):
                  off_peak_action_on_logoff: Optional[pulumi.Input[Union[str, 'SessionHandlingOperation']]] = None,
                  off_peak_minutes_to_wait_on_disconnect: Optional[pulumi.Input[int]] = None,
                  off_peak_minutes_to_wait_on_logoff: Optional[pulumi.Input[int]] = None,
-                 off_peak_start_time: Optional[pulumi.Input[pulumi.InputType['TimeArgs']]] = None,
+                 off_peak_start_time: Optional[pulumi.Input[Union['TimeArgs', 'TimeArgsDict']]] = None,
                  off_peak_start_vm_on_connect: Optional[pulumi.Input[Union[str, 'SetStartVMOnConnect']]] = None,
                  peak_action_on_disconnect: Optional[pulumi.Input[Union[str, 'SessionHandlingOperation']]] = None,
                  peak_action_on_logoff: Optional[pulumi.Input[Union[str, 'SessionHandlingOperation']]] = None,
                  peak_minutes_to_wait_on_disconnect: Optional[pulumi.Input[int]] = None,
                  peak_minutes_to_wait_on_logoff: Optional[pulumi.Input[int]] = None,
-                 peak_start_time: Optional[pulumi.Input[pulumi.InputType['TimeArgs']]] = None,
+                 peak_start_time: Optional[pulumi.Input[Union['TimeArgs', 'TimeArgsDict']]] = None,
                  peak_start_vm_on_connect: Optional[pulumi.Input[Union[str, 'SetStartVMOnConnect']]] = None,
                  ramp_down_action_on_disconnect: Optional[pulumi.Input[Union[str, 'SessionHandlingOperation']]] = None,
                  ramp_down_action_on_logoff: Optional[pulumi.Input[Union[str, 'SessionHandlingOperation']]] = None,
                  ramp_down_minutes_to_wait_on_disconnect: Optional[pulumi.Input[int]] = None,
                  ramp_down_minutes_to_wait_on_logoff: Optional[pulumi.Input[int]] = None,
-                 ramp_down_start_time: Optional[pulumi.Input[pulumi.InputType['TimeArgs']]] = None,
+                 ramp_down_start_time: Optional[pulumi.Input[Union['TimeArgs', 'TimeArgsDict']]] = None,
                  ramp_down_start_vm_on_connect: Optional[pulumi.Input[Union[str, 'SetStartVMOnConnect']]] = None,
                  ramp_up_action_on_disconnect: Optional[pulumi.Input[Union[str, 'SessionHandlingOperation']]] = None,
                  ramp_up_action_on_logoff: Optional[pulumi.Input[Union[str, 'SessionHandlingOperation']]] = None,
                  ramp_up_auto_start_hosts: Optional[pulumi.Input[Union[str, 'StartupBehavior']]] = None,
                  ramp_up_minutes_to_wait_on_disconnect: Optional[pulumi.Input[int]] = None,
                  ramp_up_minutes_to_wait_on_logoff: Optional[pulumi.Input[int]] = None,
-                 ramp_up_start_time: Optional[pulumi.Input[pulumi.InputType['TimeArgs']]] = None,
+                 ramp_up_start_time: Optional[pulumi.Input[Union['TimeArgs', 'TimeArgsDict']]] = None,
                  ramp_up_start_vm_on_connect: Optional[pulumi.Input[Union[str, 'SetStartVMOnConnect']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  scaling_plan_name: Optional[pulumi.Input[str]] = None,

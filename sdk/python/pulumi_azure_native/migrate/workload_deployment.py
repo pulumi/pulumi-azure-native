@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -122,7 +127,7 @@ class WorkloadDeployment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  modernize_project_name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['WorkloadDeploymentModelPropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['WorkloadDeploymentModelPropertiesArgs', 'WorkloadDeploymentModelPropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  subscription_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -135,7 +140,7 @@ class WorkloadDeployment(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] modernize_project_name: ModernizeProject name.
-        :param pulumi.Input[pulumi.InputType['WorkloadDeploymentModelPropertiesArgs']] properties: Workload deployment model properties.
+        :param pulumi.Input[Union['WorkloadDeploymentModelPropertiesArgs', 'WorkloadDeploymentModelPropertiesArgsDict']] properties: Workload deployment model properties.
         :param pulumi.Input[str] resource_group_name: Name of the Azure Resource Group that project is part of.
         :param pulumi.Input[str] subscription_id: Azure Subscription Id in which project was created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Gets or sets the resource tags.
@@ -167,7 +172,7 @@ class WorkloadDeployment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  modernize_project_name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['WorkloadDeploymentModelPropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['WorkloadDeploymentModelPropertiesArgs', 'WorkloadDeploymentModelPropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  subscription_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,

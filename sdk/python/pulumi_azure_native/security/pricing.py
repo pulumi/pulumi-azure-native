@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -122,7 +127,7 @@ class Pricing(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  enforce: Optional[pulumi.Input[Union[str, 'Enforce']]] = None,
-                 extensions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExtensionArgs']]]]] = None,
+                 extensions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ExtensionArgs', 'ExtensionArgsDict']]]]] = None,
                  pricing_name: Optional[pulumi.Input[str]] = None,
                  pricing_tier: Optional[pulumi.Input[Union[str, 'PricingTier']]] = None,
                  scope_id: Optional[pulumi.Input[str]] = None,
@@ -135,7 +140,7 @@ class Pricing(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[str, 'Enforce']] enforce: If set to "False", it allows the descendants of this scope to override the pricing configuration set on this scope (allows setting inherited="False"). If set to "True", it prevents overrides and forces this pricing configuration on all the descendants of this scope. This field is only available for subscription-level pricing.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExtensionArgs']]]] extensions: Optional. List of extensions offered under a plan.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ExtensionArgs', 'ExtensionArgsDict']]]] extensions: Optional. List of extensions offered under a plan.
         :param pulumi.Input[str] pricing_name: name of the pricing configuration
         :param pulumi.Input[Union[str, 'PricingTier']] pricing_tier: Indicates whether the Defender plan is enabled on the selected scope. Microsoft Defender for Cloud is provided in two pricing tiers: free and standard. The standard tier offers advanced security capabilities, while the free tier offers basic security features.
         :param pulumi.Input[str] scope_id: The scope id of the pricing. Valid scopes are: subscription (format: 'subscriptions/{subscriptionId}'), or a specific resource (format: 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}) - Supported resources are (VirtualMachines)
@@ -167,7 +172,7 @@ class Pricing(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  enforce: Optional[pulumi.Input[Union[str, 'Enforce']]] = None,
-                 extensions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExtensionArgs']]]]] = None,
+                 extensions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ExtensionArgs', 'ExtensionArgsDict']]]]] = None,
                  pricing_name: Optional[pulumi.Input[str]] = None,
                  pricing_tier: Optional[pulumi.Input[Union[str, 'PricingTier']]] = None,
                  scope_id: Optional[pulumi.Input[str]] = None,

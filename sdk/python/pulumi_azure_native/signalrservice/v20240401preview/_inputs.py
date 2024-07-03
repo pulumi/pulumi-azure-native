@@ -4,39 +4,83 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'ApplicationFirewallSettingsArgs',
+    'ApplicationFirewallSettingsArgsDict',
     'IPRuleArgs',
+    'IPRuleArgsDict',
     'LiveTraceCategoryArgs',
+    'LiveTraceCategoryArgsDict',
     'LiveTraceConfigurationArgs',
+    'LiveTraceConfigurationArgsDict',
     'ManagedIdentitySettingsArgs',
+    'ManagedIdentitySettingsArgsDict',
     'ManagedIdentityArgs',
+    'ManagedIdentityArgsDict',
     'NetworkACLArgs',
+    'NetworkACLArgsDict',
     'PrivateEndpointACLArgs',
+    'PrivateEndpointACLArgsDict',
     'PrivateEndpointArgs',
+    'PrivateEndpointArgsDict',
     'PrivateLinkServiceConnectionStateArgs',
+    'PrivateLinkServiceConnectionStateArgsDict',
     'ResourceLogCategoryArgs',
+    'ResourceLogCategoryArgsDict',
     'ResourceLogConfigurationArgs',
+    'ResourceLogConfigurationArgsDict',
     'ResourceReferenceArgs',
+    'ResourceReferenceArgsDict',
     'ResourceSkuArgs',
+    'ResourceSkuArgsDict',
     'ServerlessSettingsArgs',
+    'ServerlessSettingsArgsDict',
     'ServerlessUpstreamSettingsArgs',
+    'ServerlessUpstreamSettingsArgsDict',
     'SignalRCorsSettingsArgs',
+    'SignalRCorsSettingsArgsDict',
     'SignalRFeatureArgs',
+    'SignalRFeatureArgsDict',
     'SignalRNetworkACLsArgs',
+    'SignalRNetworkACLsArgsDict',
     'SignalRTlsSettingsArgs',
+    'SignalRTlsSettingsArgsDict',
     'ThrottleByJwtCustomClaimRuleArgs',
+    'ThrottleByJwtCustomClaimRuleArgsDict',
     'ThrottleByJwtSignatureRuleArgs',
+    'ThrottleByJwtSignatureRuleArgsDict',
     'ThrottleByUserIdRuleArgs',
+    'ThrottleByUserIdRuleArgsDict',
     'UpstreamAuthSettingsArgs',
+    'UpstreamAuthSettingsArgsDict',
     'UpstreamTemplateArgs',
+    'UpstreamTemplateArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ApplicationFirewallSettingsArgsDict(TypedDict):
+        """
+        Application firewall settings for the resource
+        """
+        client_connection_count_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union['ThrottleByJwtCustomClaimRuleArgsDict', 'ThrottleByJwtSignatureRuleArgsDict', 'ThrottleByUserIdRuleArgsDict']]]]]
+        """
+        Rules to control the client connection count
+        """
+elif False:
+    ApplicationFirewallSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApplicationFirewallSettingsArgs:
@@ -61,6 +105,22 @@ class ApplicationFirewallSettingsArgs:
     def client_connection_count_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ThrottleByJwtCustomClaimRuleArgs', 'ThrottleByJwtSignatureRuleArgs', 'ThrottleByUserIdRuleArgs']]]]]):
         pulumi.set(self, "client_connection_count_rules", value)
 
+
+if not MYPY:
+    class IPRuleArgsDict(TypedDict):
+        """
+        An IP rule
+        """
+        action: NotRequired[pulumi.Input[Union[str, 'ACLAction']]]
+        """
+        Azure Networking ACL Action.
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        An IP or CIDR or ServiceTag
+        """
+elif False:
+    IPRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IPRuleArgs:
@@ -101,6 +161,26 @@ class IPRuleArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class LiveTraceCategoryArgsDict(TypedDict):
+        """
+        Live trace category configuration of a Microsoft.SignalRService resource.
+        """
+        enabled: NotRequired[pulumi.Input[str]]
+        """
+        Indicates whether or the live trace category is enabled.
+        Available values: true, false.
+        Case insensitive.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the live trace category's name.
+        Available values: ConnectivityLogs, MessagingLogs.
+        Case insensitive.
+        """
+elif False:
+    LiveTraceCategoryArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LiveTraceCategoryArgs:
@@ -149,6 +229,26 @@ class LiveTraceCategoryArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class LiveTraceConfigurationArgsDict(TypedDict):
+        """
+        Live trace configuration of a Microsoft.SignalRService resource.
+        """
+        categories: NotRequired[pulumi.Input[Sequence[pulumi.Input['LiveTraceCategoryArgsDict']]]]
+        """
+        Gets or sets the list of category configurations.
+        """
+        enabled: NotRequired[pulumi.Input[str]]
+        """
+        Indicates whether or not enable live trace.
+        When it's set to true, live trace client can connect to the service.
+        Otherwise, live trace client can't connect to the service, so that you are unable to receive any log, no matter what you configure in "categories".
+        Available values: true, false.
+        Case insensitive.
+        """
+elif False:
+    LiveTraceConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LiveTraceConfigurationArgs:
@@ -200,6 +300,19 @@ class LiveTraceConfigurationArgs:
         pulumi.set(self, "enabled", value)
 
 
+if not MYPY:
+    class ManagedIdentitySettingsArgsDict(TypedDict):
+        """
+        Managed identity settings for upstream.
+        """
+        resource: NotRequired[pulumi.Input[str]]
+        """
+        The Resource indicating the App ID URI of the target resource.
+        It also appears in the aud (audience) claim of the issued token.
+        """
+elif False:
+    ManagedIdentitySettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ManagedIdentitySettingsArgs:
     def __init__(__self__, *,
@@ -225,6 +338,22 @@ class ManagedIdentitySettingsArgs:
     def resource(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "resource", value)
 
+
+if not MYPY:
+    class ManagedIdentityArgsDict(TypedDict):
+        """
+        A class represent managed identities used for request and response
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'ManagedIdentityType']]]
+        """
+        Represents the identity type: systemAssigned, userAssigned, None
+        """
+        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Get or set the user assigned identities
+        """
+elif False:
+    ManagedIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ManagedIdentityArgs:
@@ -266,6 +395,22 @@ class ManagedIdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
+if not MYPY:
+    class NetworkACLArgsDict(TypedDict):
+        """
+        Network ACL
+        """
+        allow: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'SignalRRequestType']]]]]
+        """
+        Allowed request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
+        """
+        deny: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'SignalRRequestType']]]]]
+        """
+        Denied request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
+        """
+elif False:
+    NetworkACLArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NetworkACLArgs:
     def __init__(__self__, *,
@@ -305,6 +450,26 @@ class NetworkACLArgs:
     def deny(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'SignalRRequestType']]]]]):
         pulumi.set(self, "deny", value)
 
+
+if not MYPY:
+    class PrivateEndpointACLArgsDict(TypedDict):
+        """
+        ACL for a private endpoint
+        """
+        name: pulumi.Input[str]
+        """
+        Name of the private endpoint connection
+        """
+        allow: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'SignalRRequestType']]]]]
+        """
+        Allowed request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
+        """
+        deny: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'SignalRRequestType']]]]]
+        """
+        Denied request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
+        """
+elif False:
+    PrivateEndpointACLArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PrivateEndpointACLArgs:
@@ -361,6 +526,18 @@ class PrivateEndpointACLArgs:
         pulumi.set(self, "deny", value)
 
 
+if not MYPY:
+    class PrivateEndpointArgsDict(TypedDict):
+        """
+        Private endpoint
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Full qualified Id of the private endpoint
+        """
+elif False:
+    PrivateEndpointArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PrivateEndpointArgs:
     def __init__(__self__, *,
@@ -384,6 +561,26 @@ class PrivateEndpointArgs:
     def id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
+        """
+        Connection state of the private endpoint connection
+        """
+        actions_required: NotRequired[pulumi.Input[str]]
+        """
+        A message indicating if changes on the service provider require any updates on the consumer.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The reason for approval/rejection of the connection.
+        """
+        status: NotRequired[pulumi.Input[Union[str, 'PrivateLinkServiceConnectionStatus']]]
+        """
+        Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+        """
+elif False:
+    PrivateLinkServiceConnectionStateArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:
@@ -441,6 +638,26 @@ class PrivateLinkServiceConnectionStateArgs:
         pulumi.set(self, "status", value)
 
 
+if not MYPY:
+    class ResourceLogCategoryArgsDict(TypedDict):
+        """
+        Resource log category configuration of a Microsoft.SignalRService resource.
+        """
+        enabled: NotRequired[pulumi.Input[str]]
+        """
+        Indicates whether or the resource log category is enabled.
+        Available values: true, false.
+        Case insensitive.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the resource log category's name.
+        Available values: ConnectivityLogs, MessagingLogs.
+        Case insensitive.
+        """
+elif False:
+    ResourceLogCategoryArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ResourceLogCategoryArgs:
     def __init__(__self__, *,
@@ -489,6 +706,18 @@ class ResourceLogCategoryArgs:
         pulumi.set(self, "name", value)
 
 
+if not MYPY:
+    class ResourceLogConfigurationArgsDict(TypedDict):
+        """
+        Resource log configuration of a Microsoft.SignalRService resource.
+        """
+        categories: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceLogCategoryArgsDict']]]]
+        """
+        Gets or sets the list of category configurations.
+        """
+elif False:
+    ResourceLogConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ResourceLogConfigurationArgs:
     def __init__(__self__, *,
@@ -513,6 +742,18 @@ class ResourceLogConfigurationArgs:
         pulumi.set(self, "categories", value)
 
 
+if not MYPY:
+    class ResourceReferenceArgsDict(TypedDict):
+        """
+        Reference to a resource.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+elif False:
+    ResourceReferenceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ResourceReferenceArgs:
     def __init__(__self__, *,
@@ -536,6 +777,37 @@ class ResourceReferenceArgs:
     def id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class ResourceSkuArgsDict(TypedDict):
+        """
+        The billing information of the resource.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the SKU. Required.
+        
+        Allowed values: Standard_S1, Free_F1, Premium_P1, Premium_P2
+        """
+        capacity: NotRequired[pulumi.Input[int]]
+        """
+        Optional, integer. The unit count of the resource.
+        1 for Free_F1/Standard_S1/Premium_P1, 100 for Premium_P2 by default.
+        
+        If present, following values are allowed:
+            Free_F1: 1;
+            Standard_S1: 1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100;
+            Premium_P1:  1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100;
+            Premium_P2:  100,200,300,400,500,600,700,800,900,1000;
+        """
+        tier: NotRequired[pulumi.Input[Union[str, 'SignalRSkuTier']]]
+        """
+        Optional tier of this particular SKU. 'Standard' or 'Free'. 
+        
+        `Basic` is deprecated, use `Standard` instead.
+        """
+elif False:
+    ResourceSkuArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ResourceSkuArgs:
@@ -614,6 +886,25 @@ class ResourceSkuArgs:
         pulumi.set(self, "tier", value)
 
 
+if not MYPY:
+    class ServerlessSettingsArgsDict(TypedDict):
+        """
+        Serverless settings.
+        """
+        connection_timeout_in_seconds: NotRequired[pulumi.Input[int]]
+        """
+        Gets or sets Client Connection Timeout. Optional to be set.
+        Value in seconds.
+        Default value is 30 seconds.
+        Customer should set the timeout to a shorter period if messages are expected to be sent in shorter intervals,
+        and want the client to disconnect more quickly after the last message is sent.
+        You can set the timeout to a longer period if messages are expected to be sent in longer intervals,
+        and they want to keep the same client connection alive during this session.
+        The service considers the client disconnected if it hasn't received a message (including keep-alive) in this interval.
+        """
+elif False:
+    ServerlessSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ServerlessSettingsArgs:
     def __init__(__self__, *,
@@ -654,6 +945,18 @@ class ServerlessSettingsArgs:
         pulumi.set(self, "connection_timeout_in_seconds", value)
 
 
+if not MYPY:
+    class ServerlessUpstreamSettingsArgsDict(TypedDict):
+        """
+        The settings for the Upstream when the service is in server-less mode.
+        """
+        templates: NotRequired[pulumi.Input[Sequence[pulumi.Input['UpstreamTemplateArgsDict']]]]
+        """
+        Gets or sets the list of Upstream URL templates. Order matters, and the first matching template takes effects.
+        """
+elif False:
+    ServerlessUpstreamSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ServerlessUpstreamSettingsArgs:
     def __init__(__self__, *,
@@ -678,6 +981,18 @@ class ServerlessUpstreamSettingsArgs:
         pulumi.set(self, "templates", value)
 
 
+if not MYPY:
+    class SignalRCorsSettingsArgsDict(TypedDict):
+        """
+        Cross-Origin Resource Sharing (CORS) settings.
+        """
+        allowed_origins: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Gets or sets the list of origins that should be allowed to make cross-origin calls (for example: http://example.com:12345). Use "*" to allow all. If omitted, allow all by default.
+        """
+elif False:
+    SignalRCorsSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SignalRCorsSettingsArgs:
     def __init__(__self__, *,
@@ -701,6 +1016,30 @@ class SignalRCorsSettingsArgs:
     def allowed_origins(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "allowed_origins", value)
 
+
+if not MYPY:
+    class SignalRFeatureArgsDict(TypedDict):
+        """
+        Feature of a resource, which controls the runtime behavior.
+        """
+        flag: pulumi.Input[Union[str, 'FeatureFlags']]
+        """
+        FeatureFlags is the supported features of Azure SignalR service.
+        - ServiceMode: Flag for backend server for SignalR service. Values allowed: "Default": have your own backend server; "Serverless": your application doesn't have a backend server; "Classic": for backward compatibility. Support both Default and Serverless mode but not recommended; "PredefinedOnly": for future use.
+        - EnableConnectivityLogs: "true"/"false", to enable/disable the connectivity log category respectively.
+        - EnableMessagingLogs: "true"/"false", to enable/disable the connectivity log category respectively.
+        - EnableLiveTrace: Live Trace allows you to know what's happening inside Azure SignalR service, it will give you live traces in real time, it will be helpful when you developing your own Azure SignalR based web application or self-troubleshooting some issues. Please note that live traces are counted as outbound messages that will be charged. Values allowed: "true"/"false", to enable/disable live trace feature.
+        """
+        value: pulumi.Input[str]
+        """
+        Value of the feature flag. See Azure SignalR service document https://docs.microsoft.com/azure/azure-signalr/ for allowed values.
+        """
+        properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Optional properties related to this feature.
+        """
+elif False:
+    SignalRFeatureArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SignalRFeatureArgs:
@@ -763,6 +1102,30 @@ class SignalRFeatureArgs:
     def properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "properties", value)
 
+
+if not MYPY:
+    class SignalRNetworkACLsArgsDict(TypedDict):
+        """
+        Network ACLs for the resource
+        """
+        default_action: NotRequired[pulumi.Input[Union[str, 'ACLAction']]]
+        """
+        Azure Networking ACL Action.
+        """
+        ip_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['IPRuleArgsDict']]]]
+        """
+        IP rules for filtering public traffic
+        """
+        private_endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input['PrivateEndpointACLArgsDict']]]]
+        """
+        ACLs for requests from private endpoints
+        """
+        public_network: NotRequired[pulumi.Input['NetworkACLArgsDict']]
+        """
+        Network ACL
+        """
+elif False:
+    SignalRNetworkACLsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SignalRNetworkACLsArgs:
@@ -836,6 +1199,18 @@ class SignalRNetworkACLsArgs:
         pulumi.set(self, "public_network", value)
 
 
+if not MYPY:
+    class SignalRTlsSettingsArgsDict(TypedDict):
+        """
+        TLS settings for the resource
+        """
+        client_cert_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Request client certificate during TLS handshake if enabled. Not supported for free tier. Any input will be ignored for free tier.
+        """
+elif False:
+    SignalRTlsSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SignalRTlsSettingsArgs:
     def __init__(__self__, *,
@@ -861,6 +1236,27 @@ class SignalRTlsSettingsArgs:
     def client_cert_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "client_cert_enabled", value)
 
+
+if not MYPY:
+    class ThrottleByJwtCustomClaimRuleArgsDict(TypedDict):
+        """
+        Throttle the client connection by a custom JWT claim
+        """
+        claim_name: pulumi.Input[str]
+        """
+        The name of the claim in the JWT token. The client connection with the same claim value will be aggregated. If the claim is not found in the token, the connection will be allowed.
+        """
+        type: pulumi.Input[str]
+        """
+
+        Expected value is 'ThrottleByJwtCustomClaimRule'.
+        """
+        max_count: NotRequired[pulumi.Input[int]]
+        """
+        Maximum connection count allowed for the same Jwt claim value. Clients with the same Jwt claim will get rejected if the connection count exceeds this value. Default value is 20.
+        """
+elif False:
+    ThrottleByJwtCustomClaimRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ThrottleByJwtCustomClaimRuleArgs:
@@ -920,6 +1316,23 @@ class ThrottleByJwtCustomClaimRuleArgs:
         pulumi.set(self, "max_count", value)
 
 
+if not MYPY:
+    class ThrottleByJwtSignatureRuleArgsDict(TypedDict):
+        """
+        Throttle the client connection by the JWT signature
+        """
+        type: pulumi.Input[str]
+        """
+
+        Expected value is 'ThrottleByJwtSignatureRule'.
+        """
+        max_count: NotRequired[pulumi.Input[int]]
+        """
+        Maximum connection count allowed for the same JWT signature. Clients with the same JWT signature will get rejected if the connection count exceeds this value. Default value is 20.
+        """
+elif False:
+    ThrottleByJwtSignatureRuleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ThrottleByJwtSignatureRuleArgs:
     def __init__(__self__, *,
@@ -962,6 +1375,23 @@ class ThrottleByJwtSignatureRuleArgs:
     def max_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max_count", value)
 
+
+if not MYPY:
+    class ThrottleByUserIdRuleArgsDict(TypedDict):
+        """
+        Throttle the client connection by the user ID
+        """
+        type: pulumi.Input[str]
+        """
+
+        Expected value is 'ThrottleByUserIdRule'.
+        """
+        max_count: NotRequired[pulumi.Input[int]]
+        """
+        Maximum connection count allowed for the same user ID. Clients with the same user ID will get rejected if the connection count exceeds this value. Default value is 20.
+        """
+elif False:
+    ThrottleByUserIdRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ThrottleByUserIdRuleArgs:
@@ -1006,6 +1436,22 @@ class ThrottleByUserIdRuleArgs:
         pulumi.set(self, "max_count", value)
 
 
+if not MYPY:
+    class UpstreamAuthSettingsArgsDict(TypedDict):
+        """
+        Upstream auth settings. If not set, no auth is used for upstream messages.
+        """
+        managed_identity: NotRequired[pulumi.Input['ManagedIdentitySettingsArgsDict']]
+        """
+        Managed identity settings for upstream.
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'UpstreamAuthType']]]
+        """
+        Upstream auth type enum.
+        """
+elif False:
+    UpstreamAuthSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class UpstreamAuthSettingsArgs:
     def __init__(__self__, *,
@@ -1045,6 +1491,48 @@ class UpstreamAuthSettingsArgs:
     def type(self, value: Optional[pulumi.Input[Union[str, 'UpstreamAuthType']]]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class UpstreamTemplateArgsDict(TypedDict):
+        """
+        Upstream template item settings. It defines the Upstream URL of the incoming requests.
+        The template defines the pattern of the event, the hub or the category of the incoming request that matches current URL template.
+        """
+        url_template: pulumi.Input[str]
+        """
+        Gets or sets the Upstream URL template. You can use 3 predefined parameters {hub}, {category} {event} inside the template, the value of the Upstream URL is dynamically calculated when the client request comes in.
+        For example, if the urlTemplate is `http://example.com/{hub}/api/{event}`, with a client request from hub `chat` connects, it will first POST to this URL: `http://example.com/chat/api/connect`.
+        """
+        auth: NotRequired[pulumi.Input['UpstreamAuthSettingsArgsDict']]
+        """
+        Upstream auth settings. If not set, no auth is used for upstream messages.
+        """
+        category_pattern: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the matching pattern for category names. If not set, it matches any category.
+        There are 3 kind of patterns supported:
+            1. "*", it to matches any category name.
+            2. Combine multiple categories with ",", for example "connections,messages", it matches category "connections" and "messages".
+            3. The single category name, for example, "connections", it matches the category "connections".
+        """
+        event_pattern: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the matching pattern for event names. If not set, it matches any event.
+        There are 3 kind of patterns supported:
+            1. "*", it to matches any event name.
+            2. Combine multiple events with ",", for example "connect,disconnect", it matches event "connect" and "disconnect".
+            3. The single event name, for example, "connect", it matches "connect".
+        """
+        hub_pattern: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the matching pattern for hub names. If not set, it matches any hub.
+        There are 3 kind of patterns supported:
+            1. "*", it to matches any hub name.
+            2. Combine multiple hubs with ",", for example "hub1,hub2", it matches "hub1" and "hub2".
+            3. The single hub name, for example, "hub1", it matches "hub1".
+        """
+elif False:
+    UpstreamTemplateArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UpstreamTemplateArgs:

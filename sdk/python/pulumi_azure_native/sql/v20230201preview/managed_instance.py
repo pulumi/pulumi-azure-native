@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -590,11 +595,11 @@ class ManagedInstance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  administrator_login: Optional[pulumi.Input[str]] = None,
                  administrator_login_password: Optional[pulumi.Input[str]] = None,
-                 administrators: Optional[pulumi.Input[pulumi.InputType['ManagedInstanceExternalAdministratorArgs']]] = None,
+                 administrators: Optional[pulumi.Input[Union['ManagedInstanceExternalAdministratorArgs', 'ManagedInstanceExternalAdministratorArgsDict']]] = None,
                  collation: Optional[pulumi.Input[str]] = None,
                  dns_zone_partner: Optional[pulumi.Input[str]] = None,
                  hybrid_secondary_usage: Optional[pulumi.Input[Union[str, 'HybridSecondaryUsage']]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ResourceIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['ResourceIdentityArgs', 'ResourceIdentityArgsDict']]] = None,
                  instance_pool_id: Optional[pulumi.Input[str]] = None,
                  is_general_purpose_v2: Optional[pulumi.Input[bool]] = None,
                  key_id: Optional[pulumi.Input[str]] = None,
@@ -611,8 +616,8 @@ class ManagedInstance(pulumi.CustomResource):
                  requested_backup_storage_redundancy: Optional[pulumi.Input[Union[str, 'BackupStorageRedundancy']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  restore_point_in_time: Optional[pulumi.Input[str]] = None,
-                 service_principal: Optional[pulumi.Input[pulumi.InputType['ServicePrincipalArgs']]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 service_principal: Optional[pulumi.Input[Union['ServicePrincipalArgs', 'ServicePrincipalArgsDict']]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  source_managed_instance_id: Optional[pulumi.Input[str]] = None,
                  storage_i_ops: Optional[pulumi.Input[int]] = None,
                  storage_size_in_gb: Optional[pulumi.Input[int]] = None,
@@ -630,11 +635,11 @@ class ManagedInstance(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] administrator_login: Administrator username for the managed instance. Can only be specified when the managed instance is being created (and is required for creation).
         :param pulumi.Input[str] administrator_login_password: The administrator login password (required for managed instance creation).
-        :param pulumi.Input[pulumi.InputType['ManagedInstanceExternalAdministratorArgs']] administrators: The Azure Active Directory administrator of the instance. This can only be used at instance create time. If used for instance update, it will be ignored or it will result in an error. For updates individual APIs will need to be used.
+        :param pulumi.Input[Union['ManagedInstanceExternalAdministratorArgs', 'ManagedInstanceExternalAdministratorArgsDict']] administrators: The Azure Active Directory administrator of the instance. This can only be used at instance create time. If used for instance update, it will be ignored or it will result in an error. For updates individual APIs will need to be used.
         :param pulumi.Input[str] collation: Collation of the managed instance.
         :param pulumi.Input[str] dns_zone_partner: The resource id of another managed instance whose DNS zone this managed instance will share after creation.
         :param pulumi.Input[Union[str, 'HybridSecondaryUsage']] hybrid_secondary_usage: Hybrid secondary usage. Possible values are 'Active' (default value) and 'Passive' (customer uses the secondary as Passive DR).
-        :param pulumi.Input[pulumi.InputType['ResourceIdentityArgs']] identity: The Azure Active Directory identity of the managed instance.
+        :param pulumi.Input[Union['ResourceIdentityArgs', 'ResourceIdentityArgsDict']] identity: The Azure Active Directory identity of the managed instance.
         :param pulumi.Input[str] instance_pool_id: The Id of the instance pool this managed server belongs to.
         :param pulumi.Input[bool] is_general_purpose_v2: Whether or not this is a GPv2 variant of General Purpose edition.
         :param pulumi.Input[str] key_id: A CMK URI of the key to use for encryption.
@@ -655,8 +660,8 @@ class ManagedInstance(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'BackupStorageRedundancy']] requested_backup_storage_redundancy: The storage account type to be used to store backups for this instance. The options are Local (LocallyRedundantStorage), Zone (ZoneRedundantStorage), Geo (GeoRedundantStorage) and GeoZone(GeoZoneRedundantStorage)
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] restore_point_in_time: Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database.
-        :param pulumi.Input[pulumi.InputType['ServicePrincipalArgs']] service_principal: The managed instance's service principal.
-        :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: Managed instance SKU. Allowed values for sku.name: GP_Gen5, GP_G8IM, GP_G8IH, BC_Gen5, BC_G8IM, BC_G8IH
+        :param pulumi.Input[Union['ServicePrincipalArgs', 'ServicePrincipalArgsDict']] service_principal: The managed instance's service principal.
+        :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: Managed instance SKU. Allowed values for sku.name: GP_Gen5, GP_G8IM, GP_G8IH, BC_Gen5, BC_G8IM, BC_G8IH
         :param pulumi.Input[str] source_managed_instance_id: The resource identifier of the source managed instance associated with create operation of this instance.
         :param pulumi.Input[int] storage_i_ops: Storage IOps. Minimum value: 300. Maximum value: 80000. Increments of 1 IOps allowed only. Maximum value depends on the selected hardware family and number of vCores.
         :param pulumi.Input[int] storage_size_in_gb: Storage size in GB. Minimum value: 32. Maximum value: 16384. Increments of 32 GB allowed only. Maximum value depends on the selected hardware family and number of vCores.
@@ -698,11 +703,11 @@ class ManagedInstance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  administrator_login: Optional[pulumi.Input[str]] = None,
                  administrator_login_password: Optional[pulumi.Input[str]] = None,
-                 administrators: Optional[pulumi.Input[pulumi.InputType['ManagedInstanceExternalAdministratorArgs']]] = None,
+                 administrators: Optional[pulumi.Input[Union['ManagedInstanceExternalAdministratorArgs', 'ManagedInstanceExternalAdministratorArgsDict']]] = None,
                  collation: Optional[pulumi.Input[str]] = None,
                  dns_zone_partner: Optional[pulumi.Input[str]] = None,
                  hybrid_secondary_usage: Optional[pulumi.Input[Union[str, 'HybridSecondaryUsage']]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ResourceIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['ResourceIdentityArgs', 'ResourceIdentityArgsDict']]] = None,
                  instance_pool_id: Optional[pulumi.Input[str]] = None,
                  is_general_purpose_v2: Optional[pulumi.Input[bool]] = None,
                  key_id: Optional[pulumi.Input[str]] = None,
@@ -719,8 +724,8 @@ class ManagedInstance(pulumi.CustomResource):
                  requested_backup_storage_redundancy: Optional[pulumi.Input[Union[str, 'BackupStorageRedundancy']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  restore_point_in_time: Optional[pulumi.Input[str]] = None,
-                 service_principal: Optional[pulumi.Input[pulumi.InputType['ServicePrincipalArgs']]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 service_principal: Optional[pulumi.Input[Union['ServicePrincipalArgs', 'ServicePrincipalArgsDict']]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  source_managed_instance_id: Optional[pulumi.Input[str]] = None,
                  storage_i_ops: Optional[pulumi.Input[int]] = None,
                  storage_size_in_gb: Optional[pulumi.Input[int]] = None,

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -138,10 +143,10 @@ class SimGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 encryption_key: Optional[pulumi.Input[pulumi.InputType['KeyVaultKeyArgs']]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
+                 encryption_key: Optional[pulumi.Input[Union['KeyVaultKeyArgs', 'KeyVaultKeyArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 mobile_network: Optional[pulumi.Input[pulumi.InputType['MobileNetworkResourceIdArgs']]] = None,
+                 mobile_network: Optional[pulumi.Input[Union['MobileNetworkResourceIdArgs', 'MobileNetworkResourceIdArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sim_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -151,10 +156,10 @@ class SimGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['KeyVaultKeyArgs']] encryption_key: A key to encrypt the SIM data that belongs to this SIM group.
-        :param pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']] identity: The identity used to retrieve the encryption key from Azure key vault.
+        :param pulumi.Input[Union['KeyVaultKeyArgs', 'KeyVaultKeyArgsDict']] encryption_key: A key to encrypt the SIM data that belongs to this SIM group.
+        :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: The identity used to retrieve the encryption key from Azure key vault.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[pulumi.InputType['MobileNetworkResourceIdArgs']] mobile_network: Mobile network that this SIM group belongs to. The mobile network must be in the same location as the SIM group.
+        :param pulumi.Input[Union['MobileNetworkResourceIdArgs', 'MobileNetworkResourceIdArgsDict']] mobile_network: Mobile network that this SIM group belongs to. The mobile network must be in the same location as the SIM group.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] sim_group_name: The name of the SIM Group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -183,10 +188,10 @@ class SimGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 encryption_key: Optional[pulumi.Input[pulumi.InputType['KeyVaultKeyArgs']]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
+                 encryption_key: Optional[pulumi.Input[Union['KeyVaultKeyArgs', 'KeyVaultKeyArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 mobile_network: Optional[pulumi.Input[pulumi.InputType['MobileNetworkResourceIdArgs']]] = None,
+                 mobile_network: Optional[pulumi.Input[Union['MobileNetworkResourceIdArgs', 'MobileNetworkResourceIdArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sim_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,

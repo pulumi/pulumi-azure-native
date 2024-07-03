@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -138,7 +143,7 @@ class ReferenceDataSet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_string_comparison_behavior: Optional[pulumi.Input[Union[str, 'DataStringComparisonBehavior']]] = None,
                  environment_name: Optional[pulumi.Input[str]] = None,
-                 key_properties: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReferenceDataSetKeyPropertyArgs']]]]] = None,
+                 key_properties: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReferenceDataSetKeyPropertyArgs', 'ReferenceDataSetKeyPropertyArgsDict']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  reference_data_set_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -151,7 +156,7 @@ class ReferenceDataSet(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[str, 'DataStringComparisonBehavior']] data_string_comparison_behavior: The reference data set key comparison behavior can be set using this property. By default, the value is 'Ordinal' - which means case sensitive key comparison will be performed while joining reference data with events or while adding new reference data. When 'OrdinalIgnoreCase' is set, case insensitive comparison will be used.
         :param pulumi.Input[str] environment_name: The name of the Time Series Insights environment associated with the specified resource group.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReferenceDataSetKeyPropertyArgs']]]] key_properties: The list of key properties for the reference data set.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ReferenceDataSetKeyPropertyArgs', 'ReferenceDataSetKeyPropertyArgsDict']]]] key_properties: The list of key properties for the reference data set.
         :param pulumi.Input[str] location: The location of the resource.
         :param pulumi.Input[str] reference_data_set_name: Name of the reference data set.
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
@@ -183,7 +188,7 @@ class ReferenceDataSet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_string_comparison_behavior: Optional[pulumi.Input[Union[str, 'DataStringComparisonBehavior']]] = None,
                  environment_name: Optional[pulumi.Input[str]] = None,
-                 key_properties: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReferenceDataSetKeyPropertyArgs']]]]] = None,
+                 key_properties: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReferenceDataSetKeyPropertyArgs', 'ReferenceDataSetKeyPropertyArgsDict']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  reference_data_set_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,

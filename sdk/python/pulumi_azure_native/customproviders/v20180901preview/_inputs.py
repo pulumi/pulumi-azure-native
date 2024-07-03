@@ -4,17 +4,47 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'CustomRPActionRouteDefinitionArgs',
+    'CustomRPActionRouteDefinitionArgsDict',
     'CustomRPResourceTypeRouteDefinitionArgs',
+    'CustomRPResourceTypeRouteDefinitionArgsDict',
     'CustomRPValidationsArgs',
+    'CustomRPValidationsArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class CustomRPActionRouteDefinitionArgsDict(TypedDict):
+        """
+        The route definition for an action implemented by the custom resource provider.
+        """
+        endpoint: pulumi.Input[str]
+        """
+        The route definition endpoint URI that the custom resource provider will proxy requests to. This can be in the form of a flat URI (e.g. 'https://testendpoint/') or can specify to route via a path (e.g. 'https://testendpoint/{requestPath}')
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the route definition. This becomes the name for the ARM extension (e.g. '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/{name}')
+        """
+        routing_type: NotRequired[pulumi.Input[Union[str, 'ActionRouting']]]
+        """
+        The routing types that are supported for action requests.
+        """
+elif False:
+    CustomRPActionRouteDefinitionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CustomRPActionRouteDefinitionArgs:
@@ -70,6 +100,26 @@ class CustomRPActionRouteDefinitionArgs:
         pulumi.set(self, "routing_type", value)
 
 
+if not MYPY:
+    class CustomRPResourceTypeRouteDefinitionArgsDict(TypedDict):
+        """
+        The route definition for a resource implemented by the custom resource provider.
+        """
+        endpoint: pulumi.Input[str]
+        """
+        The route definition endpoint URI that the custom resource provider will proxy requests to. This can be in the form of a flat URI (e.g. 'https://testendpoint/') or can specify to route via a path (e.g. 'https://testendpoint/{requestPath}')
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the route definition. This becomes the name for the ARM extension (e.g. '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/{name}')
+        """
+        routing_type: NotRequired[pulumi.Input[Union[str, 'ResourceTypeRouting']]]
+        """
+        The routing types that are supported for resource requests.
+        """
+elif False:
+    CustomRPResourceTypeRouteDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CustomRPResourceTypeRouteDefinitionArgs:
     def __init__(__self__, *,
@@ -123,6 +173,22 @@ class CustomRPResourceTypeRouteDefinitionArgs:
     def routing_type(self, value: Optional[pulumi.Input[Union[str, 'ResourceTypeRouting']]]):
         pulumi.set(self, "routing_type", value)
 
+
+if not MYPY:
+    class CustomRPValidationsArgsDict(TypedDict):
+        """
+        A validation to apply on custom resource provider requests.
+        """
+        specification: pulumi.Input[str]
+        """
+        A link to the validation specification. The specification must be hosted on raw.githubusercontent.com.
+        """
+        validation_type: NotRequired[pulumi.Input[Union[str, 'ValidationType']]]
+        """
+        The type of validation to run against a matching request.
+        """
+elif False:
+    CustomRPValidationsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CustomRPValidationsArgs:

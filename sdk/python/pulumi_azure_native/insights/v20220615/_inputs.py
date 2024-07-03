@@ -4,20 +4,49 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'HeaderFieldArgs',
+    'HeaderFieldArgsDict',
     'WebTestGeolocationArgs',
+    'WebTestGeolocationArgsDict',
     'WebTestPropertiesConfigurationArgs',
+    'WebTestPropertiesConfigurationArgsDict',
     'WebTestPropertiesContentValidationArgs',
+    'WebTestPropertiesContentValidationArgsDict',
     'WebTestPropertiesRequestArgs',
+    'WebTestPropertiesRequestArgsDict',
     'WebTestPropertiesValidationRulesArgs',
+    'WebTestPropertiesValidationRulesArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class HeaderFieldArgsDict(TypedDict):
+        """
+        A header to add to the WebTest.
+        """
+        header_field_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the header.
+        """
+        header_field_value: NotRequired[pulumi.Input[str]]
+        """
+        The value of the header.
+        """
+elif False:
+    HeaderFieldArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class HeaderFieldArgs:
@@ -59,6 +88,18 @@ class HeaderFieldArgs:
         pulumi.set(self, "header_field_value", value)
 
 
+if not MYPY:
+    class WebTestGeolocationArgsDict(TypedDict):
+        """
+        Geo-physical location to run a WebTest from. You must specify one or more locations for the test to run from.
+        """
+        location: NotRequired[pulumi.Input[str]]
+        """
+        Location ID for the WebTest to run from.
+        """
+elif False:
+    WebTestGeolocationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WebTestGeolocationArgs:
     def __init__(__self__, *,
@@ -83,6 +124,18 @@ class WebTestGeolocationArgs:
         pulumi.set(self, "location", value)
 
 
+if not MYPY:
+    class WebTestPropertiesConfigurationArgsDict(TypedDict):
+        """
+        An XML configuration specification for a WebTest.
+        """
+        web_test: NotRequired[pulumi.Input[str]]
+        """
+        The XML specification of a WebTest to run against an application.
+        """
+elif False:
+    WebTestPropertiesConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WebTestPropertiesConfigurationArgs:
     def __init__(__self__, *,
@@ -106,6 +159,26 @@ class WebTestPropertiesConfigurationArgs:
     def web_test(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "web_test", value)
 
+
+if not MYPY:
+    class WebTestPropertiesContentValidationArgsDict(TypedDict):
+        """
+        The collection of content validation properties
+        """
+        content_match: NotRequired[pulumi.Input[str]]
+        """
+        Content to look for in the return of the WebTest.  Must not be null or empty.
+        """
+        ignore_case: NotRequired[pulumi.Input[bool]]
+        """
+        When set, this value makes the ContentMatch validation case insensitive.
+        """
+        pass_if_text_found: NotRequired[pulumi.Input[bool]]
+        """
+        When true, validation will pass if there is a match for the ContentMatch string.  If false, validation will fail if there is a match
+        """
+elif False:
+    WebTestPropertiesContentValidationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WebTestPropertiesContentValidationArgs:
@@ -162,6 +235,38 @@ class WebTestPropertiesContentValidationArgs:
     def pass_if_text_found(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "pass_if_text_found", value)
 
+
+if not MYPY:
+    class WebTestPropertiesRequestArgsDict(TypedDict):
+        """
+        The collection of request properties
+        """
+        follow_redirects: NotRequired[pulumi.Input[bool]]
+        """
+        Follow redirects for this web test.
+        """
+        headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['HeaderFieldArgsDict']]]]
+        """
+        List of headers and their values to add to the WebTest call.
+        """
+        http_verb: NotRequired[pulumi.Input[str]]
+        """
+        Http verb to use for this web test.
+        """
+        parse_dependent_requests: NotRequired[pulumi.Input[bool]]
+        """
+        Parse Dependent request for this WebTest.
+        """
+        request_body: NotRequired[pulumi.Input[str]]
+        """
+        Base64 encoded string body to send with this web test.
+        """
+        request_url: NotRequired[pulumi.Input[str]]
+        """
+        Url location to test.
+        """
+elif False:
+    WebTestPropertiesRequestArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WebTestPropertiesRequestArgs:
@@ -266,6 +371,34 @@ class WebTestPropertiesRequestArgs:
     def request_url(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "request_url", value)
 
+
+if not MYPY:
+    class WebTestPropertiesValidationRulesArgsDict(TypedDict):
+        """
+        The collection of validation rule properties
+        """
+        content_validation: NotRequired[pulumi.Input['WebTestPropertiesContentValidationArgsDict']]
+        """
+        The collection of content validation properties
+        """
+        expected_http_status_code: NotRequired[pulumi.Input[int]]
+        """
+        Validate that the WebTest returns the http status code provided.
+        """
+        ignore_http_status_code: NotRequired[pulumi.Input[bool]]
+        """
+        When set, validation will ignore the status code.
+        """
+        s_sl_cert_remaining_lifetime_check: NotRequired[pulumi.Input[int]]
+        """
+        A number of days to check still remain before the the existing SSL cert expires.  Value must be positive and the SSLCheck must be set to true.
+        """
+        s_sl_check: NotRequired[pulumi.Input[bool]]
+        """
+        Checks to see if the SSL cert is still valid.
+        """
+elif False:
+    WebTestPropertiesValidationRulesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WebTestPropertiesValidationRulesArgs:

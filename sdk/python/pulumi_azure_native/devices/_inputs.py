@@ -4,51 +4,105 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'ArmIdentityArgs',
+    'ArmIdentityArgsDict',
     'CertificatePropertiesArgs',
+    'CertificatePropertiesArgsDict',
     'CloudToDevicePropertiesArgs',
+    'CloudToDevicePropertiesArgsDict',
     'EncryptionPropertiesDescriptionArgs',
+    'EncryptionPropertiesDescriptionArgsDict',
     'EnrichmentPropertiesArgs',
+    'EnrichmentPropertiesArgsDict',
     'EventHubConsumerGroupNameArgs',
+    'EventHubConsumerGroupNameArgsDict',
     'EventHubPropertiesArgs',
+    'EventHubPropertiesArgsDict',
     'FallbackRoutePropertiesArgs',
+    'FallbackRoutePropertiesArgsDict',
     'FeedbackPropertiesArgs',
+    'FeedbackPropertiesArgsDict',
     'IotDpsPropertiesDescriptionArgs',
+    'IotDpsPropertiesDescriptionArgsDict',
     'IotDpsSkuInfoArgs',
+    'IotDpsSkuInfoArgsDict',
     'IotHubDefinitionDescriptionArgs',
+    'IotHubDefinitionDescriptionArgsDict',
     'IotHubPropertiesDeviceStreamsArgs',
+    'IotHubPropertiesDeviceStreamsArgsDict',
     'IotHubPropertiesArgs',
+    'IotHubPropertiesArgsDict',
     'IotHubSkuInfoArgs',
+    'IotHubSkuInfoArgsDict',
     'IpFilterRuleArgs',
+    'IpFilterRuleArgsDict',
     'KeyVaultKeyPropertiesArgs',
+    'KeyVaultKeyPropertiesArgsDict',
     'ManagedIdentityArgs',
+    'ManagedIdentityArgsDict',
     'MessagingEndpointPropertiesArgs',
+    'MessagingEndpointPropertiesArgsDict',
     'NetworkRuleSetIpRuleArgs',
+    'NetworkRuleSetIpRuleArgsDict',
     'NetworkRuleSetPropertiesArgs',
+    'NetworkRuleSetPropertiesArgsDict',
     'PrivateEndpointConnectionPropertiesArgs',
+    'PrivateEndpointConnectionPropertiesArgsDict',
     'PrivateEndpointConnectionArgs',
+    'PrivateEndpointConnectionArgsDict',
     'PrivateLinkServiceConnectionStateArgs',
+    'PrivateLinkServiceConnectionStateArgsDict',
     'RootCertificatePropertiesArgs',
+    'RootCertificatePropertiesArgsDict',
     'RoutePropertiesArgs',
+    'RoutePropertiesArgsDict',
     'RoutingCosmosDBSqlApiPropertiesArgs',
+    'RoutingCosmosDBSqlApiPropertiesArgsDict',
     'RoutingEndpointsArgs',
+    'RoutingEndpointsArgsDict',
     'RoutingEventHubPropertiesArgs',
+    'RoutingEventHubPropertiesArgsDict',
     'RoutingPropertiesArgs',
+    'RoutingPropertiesArgsDict',
     'RoutingServiceBusQueueEndpointPropertiesArgs',
+    'RoutingServiceBusQueueEndpointPropertiesArgsDict',
     'RoutingServiceBusTopicEndpointPropertiesArgs',
+    'RoutingServiceBusTopicEndpointPropertiesArgsDict',
     'RoutingStorageContainerPropertiesArgs',
+    'RoutingStorageContainerPropertiesArgsDict',
     'SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArgs',
+    'SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArgsDict',
     'SharedAccessSignatureAuthorizationRuleArgs',
+    'SharedAccessSignatureAuthorizationRuleArgsDict',
     'StorageEndpointPropertiesArgs',
+    'StorageEndpointPropertiesArgsDict',
     'TargetIpFilterRuleArgs',
+    'TargetIpFilterRuleArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ArmIdentityArgsDict(TypedDict):
+        type: NotRequired[pulumi.Input['ResourceIdentityType']]
+        """
+        The type of identity used for the resource. The type 'SystemAssigned,UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
+        """
+        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+elif False:
+    ArmIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ArmIdentityArgs:
@@ -84,6 +138,22 @@ class ArmIdentityArgs:
     def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
+
+if not MYPY:
+    class CertificatePropertiesArgsDict(TypedDict):
+        """
+        The description of an X509 CA Certificate.
+        """
+        certificate: NotRequired[pulumi.Input[str]]
+        """
+        base-64 representation of X509 certificate .cer file or just .pem file content.
+        """
+        is_verified: NotRequired[pulumi.Input[bool]]
+        """
+        Determines whether certificate has been verified.
+        """
+elif False:
+    CertificatePropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CertificatePropertiesArgs:
@@ -124,6 +194,26 @@ class CertificatePropertiesArgs:
     def is_verified(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "is_verified", value)
 
+
+if not MYPY:
+    class CloudToDevicePropertiesArgsDict(TypedDict):
+        """
+        The IoT hub cloud-to-device messaging properties.
+        """
+        default_ttl_as_iso8601: NotRequired[pulumi.Input[str]]
+        """
+        The default time to live for cloud-to-device messages in the device queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
+        """
+        feedback: NotRequired[pulumi.Input['FeedbackPropertiesArgsDict']]
+        """
+        The properties of the feedback queue for cloud-to-device messages.
+        """
+        max_delivery_count: NotRequired[pulumi.Input[int]]
+        """
+        The max delivery count for cloud-to-device messages in the device queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
+        """
+elif False:
+    CloudToDevicePropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CloudToDevicePropertiesArgs:
@@ -181,6 +271,22 @@ class CloudToDevicePropertiesArgs:
         pulumi.set(self, "max_delivery_count", value)
 
 
+if not MYPY:
+    class EncryptionPropertiesDescriptionArgsDict(TypedDict):
+        """
+        The encryption properties for the IoT hub.
+        """
+        key_source: NotRequired[pulumi.Input[str]]
+        """
+        The source of the key.
+        """
+        key_vault_properties: NotRequired[pulumi.Input[Sequence[pulumi.Input['KeyVaultKeyPropertiesArgsDict']]]]
+        """
+        The properties of the KeyVault key.
+        """
+elif False:
+    EncryptionPropertiesDescriptionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EncryptionPropertiesDescriptionArgs:
     def __init__(__self__, *,
@@ -220,6 +326,26 @@ class EncryptionPropertiesDescriptionArgs:
     def key_vault_properties(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KeyVaultKeyPropertiesArgs']]]]):
         pulumi.set(self, "key_vault_properties", value)
 
+
+if not MYPY:
+    class EnrichmentPropertiesArgsDict(TypedDict):
+        """
+        The properties of an enrichment that your IoT hub applies to messages delivered to endpoints.
+        """
+        endpoint_names: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        The list of endpoints for which the enrichment is applied to the message.
+        """
+        key: pulumi.Input[str]
+        """
+        The key or name for the enrichment property.
+        """
+        value: pulumi.Input[str]
+        """
+        The value for the enrichment property.
+        """
+elif False:
+    EnrichmentPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EnrichmentPropertiesArgs:
@@ -274,6 +400,18 @@ class EnrichmentPropertiesArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class EventHubConsumerGroupNameArgsDict(TypedDict):
+        """
+        The EventHub consumer group name.
+        """
+        name: pulumi.Input[str]
+        """
+        EventHub consumer group name
+        """
+elif False:
+    EventHubConsumerGroupNameArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EventHubConsumerGroupNameArgs:
     def __init__(__self__, *,
@@ -296,6 +434,22 @@ class EventHubConsumerGroupNameArgs:
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class EventHubPropertiesArgsDict(TypedDict):
+        """
+        The properties of the provisioned Event Hub-compatible endpoint used by the IoT hub.
+        """
+        partition_count: NotRequired[pulumi.Input[int]]
+        """
+        The number of partitions for receiving device-to-cloud messages in the Event Hub-compatible endpoint. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#device-to-cloud-messages.
+        """
+        retention_time_in_days: NotRequired[pulumi.Input[float]]
+        """
+        The retention time for device-to-cloud messages in days. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#device-to-cloud-messages
+        """
+elif False:
+    EventHubPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EventHubPropertiesArgs:
@@ -336,6 +490,34 @@ class EventHubPropertiesArgs:
     def retention_time_in_days(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "retention_time_in_days", value)
 
+
+if not MYPY:
+    class FallbackRoutePropertiesArgsDict(TypedDict):
+        """
+        The properties of the fallback route. IoT Hub uses these properties when it routes messages to the fallback endpoint.
+        """
+        endpoint_names: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        The list of endpoints to which the messages that satisfy the condition are routed to. Currently only 1 endpoint is allowed.
+        """
+        is_enabled: pulumi.Input[bool]
+        """
+        Used to specify whether the fallback route is enabled.
+        """
+        source: pulumi.Input[Union[str, 'RoutingSource']]
+        """
+        The source to which the routing rule is to be applied to. For example, DeviceMessages
+        """
+        condition: NotRequired[pulumi.Input[str]]
+        """
+        The condition which is evaluated in order to apply the fallback route. If the condition is not provided it will evaluate to true by default. For grammar, See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the route. The name can only include alphanumeric characters, periods, underscores, hyphens, has a maximum length of 64 characters, and must be unique.
+        """
+elif False:
+    FallbackRoutePropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FallbackRoutePropertiesArgs:
@@ -422,6 +604,26 @@ class FallbackRoutePropertiesArgs:
         pulumi.set(self, "name", value)
 
 
+if not MYPY:
+    class FeedbackPropertiesArgsDict(TypedDict):
+        """
+        The properties of the feedback queue for cloud-to-device messages.
+        """
+        lock_duration_as_iso8601: NotRequired[pulumi.Input[str]]
+        """
+        The lock duration for the feedback queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
+        """
+        max_delivery_count: NotRequired[pulumi.Input[int]]
+        """
+        The number of times the IoT hub attempts to deliver a message on the feedback queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
+        """
+        ttl_as_iso8601: NotRequired[pulumi.Input[str]]
+        """
+        The period of time for which a message is available to consume before it is expired by the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
+        """
+elif False:
+    FeedbackPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FeedbackPropertiesArgs:
     def __init__(__self__, *,
@@ -477,6 +679,55 @@ class FeedbackPropertiesArgs:
     def ttl_as_iso8601(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "ttl_as_iso8601", value)
 
+
+if not MYPY:
+    class IotDpsPropertiesDescriptionArgsDict(TypedDict):
+        """
+        the service specific properties of a provisioning service, including keys, linked iot hubs, current state, and system generated properties such as hostname and idScope
+        """
+        allocation_policy: NotRequired[pulumi.Input[Union[str, 'AllocationPolicy']]]
+        """
+        Allocation policy to be used by this provisioning service.
+        """
+        authorization_policies: NotRequired[pulumi.Input[Sequence[pulumi.Input['SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArgsDict']]]]
+        """
+        List of authorization keys for a provisioning service.
+        """
+        enable_data_residency: NotRequired[pulumi.Input[bool]]
+        """
+        Optional.
+        Indicates if the DPS instance has Data Residency enabled, removing the cross geo-pair disaster recovery.
+        """
+        iot_hubs: NotRequired[pulumi.Input[Sequence[pulumi.Input['IotHubDefinitionDescriptionArgsDict']]]]
+        """
+        List of IoT hubs associated with this provisioning service.
+        """
+        ip_filter_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['TargetIpFilterRuleArgsDict']]]]
+        """
+        The IP filter rules.
+        """
+        portal_operations_host_name: NotRequired[pulumi.Input[str]]
+        """
+        Portal endpoint to enable CORS for this provisioning service.
+        """
+        private_endpoint_connections: NotRequired[pulumi.Input[Sequence[pulumi.Input['PrivateEndpointConnectionArgsDict']]]]
+        """
+        Private endpoint connections created on this IotHub
+        """
+        provisioning_state: NotRequired[pulumi.Input[str]]
+        """
+        The ARM provisioning state of the provisioning service.
+        """
+        public_network_access: NotRequired[pulumi.Input[Union[str, 'PublicNetworkAccess']]]
+        """
+        Whether requests from Public Network are allowed
+        """
+        state: NotRequired[pulumi.Input[Union[str, 'State']]]
+        """
+        Current state of the provisioning service.
+        """
+elif False:
+    IotDpsPropertiesDescriptionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IotDpsPropertiesDescriptionArgs:
@@ -648,6 +899,22 @@ class IotDpsPropertiesDescriptionArgs:
         pulumi.set(self, "state", value)
 
 
+if not MYPY:
+    class IotDpsSkuInfoArgsDict(TypedDict):
+        """
+        List of possible provisioning service SKUs.
+        """
+        capacity: NotRequired[pulumi.Input[float]]
+        """
+        The number of units to provision
+        """
+        name: NotRequired[pulumi.Input[Union[str, 'IotDpsSku']]]
+        """
+        Sku name.
+        """
+elif False:
+    IotDpsSkuInfoArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IotDpsSkuInfoArgs:
     def __init__(__self__, *,
@@ -687,6 +954,30 @@ class IotDpsSkuInfoArgs:
     def name(self, value: Optional[pulumi.Input[Union[str, 'IotDpsSku']]]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class IotHubDefinitionDescriptionArgsDict(TypedDict):
+        """
+        Description of the IoT hub.
+        """
+        connection_string: pulumi.Input[str]
+        """
+        Connection string of the IoT hub.
+        """
+        location: pulumi.Input[str]
+        """
+        ARM region of the IoT hub.
+        """
+        allocation_weight: NotRequired[pulumi.Input[int]]
+        """
+        weight to apply for a given iot h.
+        """
+        apply_allocation_policy: NotRequired[pulumi.Input[bool]]
+        """
+        flag for applying allocationPolicy or not for a given iot hub.
+        """
+elif False:
+    IotHubDefinitionDescriptionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IotHubDefinitionDescriptionArgs:
@@ -758,6 +1049,18 @@ class IotHubDefinitionDescriptionArgs:
         pulumi.set(self, "apply_allocation_policy", value)
 
 
+if not MYPY:
+    class IotHubPropertiesDeviceStreamsArgsDict(TypedDict):
+        """
+        The device streams properties of iothub.
+        """
+        streaming_endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of Device Streams Endpoints.
+        """
+elif False:
+    IotHubPropertiesDeviceStreamsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IotHubPropertiesDeviceStreamsArgs:
     def __init__(__self__, *,
@@ -781,6 +1084,106 @@ class IotHubPropertiesDeviceStreamsArgs:
     def streaming_endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "streaming_endpoints", value)
 
+
+if not MYPY:
+    class IotHubPropertiesArgsDict(TypedDict):
+        """
+        The properties of an IoT hub.
+        """
+        allowed_fqdn_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of allowed FQDNs(Fully Qualified Domain Name) for egress from Iot Hub.
+        """
+        authorization_policies: NotRequired[pulumi.Input[Sequence[pulumi.Input['SharedAccessSignatureAuthorizationRuleArgsDict']]]]
+        """
+        The shared access policies you can use to secure a connection to the IoT hub.
+        """
+        cloud_to_device: NotRequired[pulumi.Input['CloudToDevicePropertiesArgsDict']]
+        """
+        The IoT hub cloud-to-device messaging properties.
+        """
+        comments: NotRequired[pulumi.Input[str]]
+        """
+        IoT hub comments.
+        """
+        device_streams: NotRequired[pulumi.Input['IotHubPropertiesDeviceStreamsArgsDict']]
+        """
+        The device streams properties of iothub.
+        """
+        disable_device_sas: NotRequired[pulumi.Input[bool]]
+        """
+        If true, all device(including Edge devices but excluding modules) scoped SAS keys cannot be used for authentication.
+        """
+        disable_local_auth: NotRequired[pulumi.Input[bool]]
+        """
+        If true, SAS tokens with Iot hub scoped SAS keys cannot be used for authentication.
+        """
+        disable_module_sas: NotRequired[pulumi.Input[bool]]
+        """
+        If true, all module scoped SAS keys cannot be used for authentication.
+        """
+        enable_data_residency: NotRequired[pulumi.Input[bool]]
+        """
+        This property when set to true, will enable data residency, thus, disabling disaster recovery.
+        """
+        enable_file_upload_notifications: NotRequired[pulumi.Input[bool]]
+        """
+        If True, file upload notifications are enabled.
+        """
+        encryption: NotRequired[pulumi.Input['EncryptionPropertiesDescriptionArgsDict']]
+        """
+        The encryption properties for the IoT hub.
+        """
+        event_hub_endpoints: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['EventHubPropertiesArgsDict']]]]
+        """
+        The Event Hub-compatible endpoint properties. The only possible keys to this dictionary is events. This key has to be present in the dictionary while making create or update calls for the IoT hub.
+        """
+        features: NotRequired[pulumi.Input[Union[str, 'Capabilities']]]
+        """
+        The capabilities and features enabled for the IoT hub.
+        """
+        ip_filter_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['IpFilterRuleArgsDict']]]]
+        """
+        The IP filter rules.
+        """
+        messaging_endpoints: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['MessagingEndpointPropertiesArgsDict']]]]
+        """
+        The messaging endpoint properties for the file upload notification queue.
+        """
+        min_tls_version: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the minimum TLS version to support for this hub. Can be set to "1.2" to have clients that use a TLS version below 1.2 to be rejected.
+        """
+        network_rule_sets: NotRequired[pulumi.Input['NetworkRuleSetPropertiesArgsDict']]
+        """
+        Network Rule Set Properties of IotHub
+        """
+        private_endpoint_connections: NotRequired[pulumi.Input[Sequence[pulumi.Input['PrivateEndpointConnectionArgsDict']]]]
+        """
+        Private endpoint connections created on this IotHub
+        """
+        public_network_access: NotRequired[pulumi.Input[Union[str, 'PublicNetworkAccess']]]
+        """
+        Whether requests from Public Network are allowed
+        """
+        restrict_outbound_network_access: NotRequired[pulumi.Input[bool]]
+        """
+        If true, egress from IotHub will be restricted to only the allowed FQDNs that are configured via allowedFqdnList.
+        """
+        root_certificate: NotRequired[pulumi.Input['RootCertificatePropertiesArgsDict']]
+        """
+        This property store root certificate related information
+        """
+        routing: NotRequired[pulumi.Input['RoutingPropertiesArgsDict']]
+        """
+        The routing related properties of the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging
+        """
+        storage_endpoints: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['StorageEndpointPropertiesArgsDict']]]]
+        """
+        The list of Azure Storage endpoints where you can upload files. Currently you can configure only one Azure Storage account and that MUST have its key as $default. Specifying more than one storage account causes an error to be thrown. Not specifying a value for this property when the enableFileUploadNotifications property is set to True, causes an error to be thrown.
+        """
+elif False:
+    IotHubPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IotHubPropertiesArgs:
@@ -1158,6 +1561,22 @@ class IotHubPropertiesArgs:
         pulumi.set(self, "storage_endpoints", value)
 
 
+if not MYPY:
+    class IotHubSkuInfoArgsDict(TypedDict):
+        """
+        Information about the SKU of the IoT hub.
+        """
+        name: pulumi.Input[Union[str, 'IotHubSku']]
+        """
+        The name of the SKU.
+        """
+        capacity: NotRequired[pulumi.Input[float]]
+        """
+        The number of provisioned IoT Hub units. See: https://docs.microsoft.com/azure/azure-subscription-service-limits#iot-hub-limits.
+        """
+elif False:
+    IotHubSkuInfoArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IotHubSkuInfoArgs:
     def __init__(__self__, *,
@@ -1196,6 +1615,26 @@ class IotHubSkuInfoArgs:
     def capacity(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "capacity", value)
 
+
+if not MYPY:
+    class IpFilterRuleArgsDict(TypedDict):
+        """
+        The IP filter rules for the IoT hub.
+        """
+        action: pulumi.Input['IpFilterActionType']
+        """
+        The desired action for requests captured by this rule.
+        """
+        filter_name: pulumi.Input[str]
+        """
+        The name of the IP filter rule.
+        """
+        ip_mask: pulumi.Input[str]
+        """
+        A string that contains the IP address range in CIDR notation for the rule.
+        """
+elif False:
+    IpFilterRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IpFilterRuleArgs:
@@ -1250,6 +1689,22 @@ class IpFilterRuleArgs:
         pulumi.set(self, "ip_mask", value)
 
 
+if not MYPY:
+    class KeyVaultKeyPropertiesArgsDict(TypedDict):
+        """
+        The properties of the KeyVault key.
+        """
+        identity: NotRequired[pulumi.Input['ManagedIdentityArgsDict']]
+        """
+        Managed identity properties of KeyVault Key.
+        """
+        key_identifier: NotRequired[pulumi.Input[str]]
+        """
+        The identifier of the key.
+        """
+elif False:
+    KeyVaultKeyPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class KeyVaultKeyPropertiesArgs:
     def __init__(__self__, *,
@@ -1290,6 +1745,18 @@ class KeyVaultKeyPropertiesArgs:
         pulumi.set(self, "key_identifier", value)
 
 
+if not MYPY:
+    class ManagedIdentityArgsDict(TypedDict):
+        """
+        The properties of the Managed identity.
+        """
+        user_assigned_identity: NotRequired[pulumi.Input[str]]
+        """
+        The user assigned identity.
+        """
+elif False:
+    ManagedIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ManagedIdentityArgs:
     def __init__(__self__, *,
@@ -1313,6 +1780,26 @@ class ManagedIdentityArgs:
     def user_assigned_identity(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "user_assigned_identity", value)
 
+
+if not MYPY:
+    class MessagingEndpointPropertiesArgsDict(TypedDict):
+        """
+        The properties of the messaging endpoints used by this IoT hub.
+        """
+        lock_duration_as_iso8601: NotRequired[pulumi.Input[str]]
+        """
+        The lock duration. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-file-upload.
+        """
+        max_delivery_count: NotRequired[pulumi.Input[int]]
+        """
+        The number of times the IoT hub attempts to deliver a message. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-file-upload.
+        """
+        ttl_as_iso8601: NotRequired[pulumi.Input[str]]
+        """
+        The period of time for which a message is available to consume before it is expired by the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-file-upload.
+        """
+elif False:
+    MessagingEndpointPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MessagingEndpointPropertiesArgs:
@@ -1370,6 +1857,26 @@ class MessagingEndpointPropertiesArgs:
         pulumi.set(self, "ttl_as_iso8601", value)
 
 
+if not MYPY:
+    class NetworkRuleSetIpRuleArgsDict(TypedDict):
+        """
+        IP Rule to be applied as part of Network Rule Set
+        """
+        filter_name: pulumi.Input[str]
+        """
+        Name of the IP filter rule.
+        """
+        ip_mask: pulumi.Input[str]
+        """
+        A string that contains the IP address range in CIDR notation for the rule.
+        """
+        action: NotRequired[pulumi.Input[Union[str, 'NetworkRuleIPAction']]]
+        """
+        IP Filter Action
+        """
+elif False:
+    NetworkRuleSetIpRuleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NetworkRuleSetIpRuleArgs:
     def __init__(__self__, *,
@@ -1425,6 +1932,26 @@ class NetworkRuleSetIpRuleArgs:
     def action(self, value: Optional[pulumi.Input[Union[str, 'NetworkRuleIPAction']]]):
         pulumi.set(self, "action", value)
 
+
+if not MYPY:
+    class NetworkRuleSetPropertiesArgsDict(TypedDict):
+        """
+        Network Rule Set Properties of IotHub
+        """
+        apply_to_built_in_event_hub_endpoint: pulumi.Input[bool]
+        """
+        If True, then Network Rule Set is also applied to BuiltIn EventHub EndPoint of IotHub
+        """
+        ip_rules: pulumi.Input[Sequence[pulumi.Input['NetworkRuleSetIpRuleArgsDict']]]
+        """
+        List of IP Rules
+        """
+        default_action: NotRequired[pulumi.Input[Union[str, 'DefaultAction']]]
+        """
+        Default Action for Network Rule Set
+        """
+elif False:
+    NetworkRuleSetPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NetworkRuleSetPropertiesArgs:
@@ -1482,6 +2009,18 @@ class NetworkRuleSetPropertiesArgs:
         pulumi.set(self, "default_action", value)
 
 
+if not MYPY:
+    class PrivateEndpointConnectionPropertiesArgsDict(TypedDict):
+        """
+        The properties of a private endpoint connection
+        """
+        private_link_service_connection_state: pulumi.Input['PrivateLinkServiceConnectionStateArgsDict']
+        """
+        The current state of a private endpoint connection
+        """
+elif False:
+    PrivateEndpointConnectionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PrivateEndpointConnectionPropertiesArgs:
     def __init__(__self__, *,
@@ -1505,6 +2044,18 @@ class PrivateEndpointConnectionPropertiesArgs:
         pulumi.set(self, "private_link_service_connection_state", value)
 
 
+if not MYPY:
+    class PrivateEndpointConnectionArgsDict(TypedDict):
+        """
+        The private endpoint connection of an IotHub
+        """
+        properties: pulumi.Input['PrivateEndpointConnectionPropertiesArgsDict']
+        """
+        The properties of a private endpoint connection
+        """
+elif False:
+    PrivateEndpointConnectionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PrivateEndpointConnectionArgs:
     def __init__(__self__, *,
@@ -1527,6 +2078,26 @@ class PrivateEndpointConnectionArgs:
     def properties(self, value: pulumi.Input['PrivateEndpointConnectionPropertiesArgs']):
         pulumi.set(self, "properties", value)
 
+
+if not MYPY:
+    class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
+        """
+        The current state of a private endpoint connection
+        """
+        description: pulumi.Input[str]
+        """
+        The description for the current state of a private endpoint connection
+        """
+        status: pulumi.Input[Union[str, 'PrivateLinkServiceConnectionStatus']]
+        """
+        The status of a private endpoint connection
+        """
+        actions_required: NotRequired[pulumi.Input[str]]
+        """
+        Actions required for a private endpoint connection
+        """
+elif False:
+    PrivateLinkServiceConnectionStateArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:
@@ -1582,6 +2153,18 @@ class PrivateLinkServiceConnectionStateArgs:
         pulumi.set(self, "actions_required", value)
 
 
+if not MYPY:
+    class RootCertificatePropertiesArgsDict(TypedDict):
+        """
+        This property store root certificate related information
+        """
+        enable_root_certificate_v2: NotRequired[pulumi.Input[bool]]
+        """
+        This property when set to true, hub will use G2 cert; while it's set to false, hub uses Baltimore Cert.
+        """
+elif False:
+    RootCertificatePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RootCertificatePropertiesArgs:
     def __init__(__self__, *,
@@ -1605,6 +2188,34 @@ class RootCertificatePropertiesArgs:
     def enable_root_certificate_v2(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enable_root_certificate_v2", value)
 
+
+if not MYPY:
+    class RoutePropertiesArgsDict(TypedDict):
+        """
+        The properties of a routing rule that your IoT hub uses to route messages to endpoints.
+        """
+        endpoint_names: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        The list of endpoints to which messages that satisfy the condition are routed. Currently only one endpoint is allowed.
+        """
+        is_enabled: pulumi.Input[bool]
+        """
+        Used to specify whether a route is enabled.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the route. The name can only include alphanumeric characters, periods, underscores, hyphens, has a maximum length of 64 characters, and must be unique.
+        """
+        source: pulumi.Input[Union[str, 'RoutingSource']]
+        """
+        The source that the routing rule is to be applied to, such as DeviceMessages.
+        """
+        condition: NotRequired[pulumi.Input[str]]
+        """
+        The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to true by default. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language
+        """
+elif False:
+    RoutePropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RoutePropertiesArgs:
@@ -1689,6 +2300,66 @@ class RoutePropertiesArgs:
     def condition(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "condition", value)
 
+
+if not MYPY:
+    class RoutingCosmosDBSqlApiPropertiesArgsDict(TypedDict):
+        """
+        The properties related to a cosmos DB sql collection endpoint.
+        """
+        collection_name: pulumi.Input[str]
+        """
+        The name of the cosmos DB sql collection in the cosmos DB database.
+        """
+        database_name: pulumi.Input[str]
+        """
+        The name of the cosmos DB database in the cosmos DB account.
+        """
+        endpoint_uri: pulumi.Input[str]
+        """
+        The url of the cosmos DB account. It must include the protocol https://
+        """
+        name: pulumi.Input[str]
+        """
+        The name that identifies this endpoint. The name can only include alphanumeric characters, periods, underscores, hyphens and has a maximum length of 64 characters. The following names are reserved:  events, fileNotifications, $default. Endpoint names must be unique across endpoint types.
+        """
+        authentication_type: NotRequired[pulumi.Input[Union[str, 'AuthenticationType']]]
+        """
+        Method used to authenticate against the cosmos DB sql collection endpoint
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Id of the cosmos DB sql collection endpoint
+        """
+        identity: NotRequired[pulumi.Input['ManagedIdentityArgsDict']]
+        """
+        Managed identity properties of routing cosmos DB collection endpoint.
+        """
+        partition_key_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the partition key associated with this cosmos DB sql collection if one exists. This is an optional parameter.
+        """
+        partition_key_template: NotRequired[pulumi.Input[str]]
+        """
+        The template for generating a synthetic partition key value for use with this cosmos DB sql collection. The template must include at least one of the following placeholders: {iothub}, {deviceid}, {DD}, {MM}, and {YYYY}. Any one placeholder may be specified at most once, but order and non-placeholder components are arbitrary. This parameter is only required if PartitionKeyName is specified.
+        """
+        primary_key: NotRequired[pulumi.Input[str]]
+        """
+        The primary key of the cosmos DB account.
+        """
+        resource_group: NotRequired[pulumi.Input[str]]
+        """
+        The name of the resource group of the cosmos DB account.
+        """
+        secondary_key: NotRequired[pulumi.Input[str]]
+        """
+        The secondary key of the cosmos DB account.
+        """
+        subscription_id: NotRequired[pulumi.Input[str]]
+        """
+        The subscription identifier of the cosmos DB account.
+        """
+elif False:
+    RoutingCosmosDBSqlApiPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RoutingCosmosDBSqlApiPropertiesArgs:
@@ -1902,6 +2573,34 @@ class RoutingCosmosDBSqlApiPropertiesArgs:
         pulumi.set(self, "subscription_id", value)
 
 
+if not MYPY:
+    class RoutingEndpointsArgsDict(TypedDict):
+        """
+        The properties related to the custom endpoints to which your IoT hub routes messages based on the routing rules. A maximum of 10 custom endpoints are allowed across all endpoint types for paid hubs and only 1 custom endpoint is allowed across all endpoint types for free hubs.
+        """
+        cosmos_db_sql_collections: NotRequired[pulumi.Input[Sequence[pulumi.Input['RoutingCosmosDBSqlApiPropertiesArgsDict']]]]
+        """
+        The list of Cosmos DB collection endpoints that IoT hub routes messages to, based on the routing rules.
+        """
+        event_hubs: NotRequired[pulumi.Input[Sequence[pulumi.Input['RoutingEventHubPropertiesArgsDict']]]]
+        """
+        The list of Event Hubs endpoints that IoT hub routes messages to, based on the routing rules. This list does not include the built-in Event Hubs endpoint.
+        """
+        service_bus_queues: NotRequired[pulumi.Input[Sequence[pulumi.Input['RoutingServiceBusQueueEndpointPropertiesArgsDict']]]]
+        """
+        The list of Service Bus queue endpoints that IoT hub routes the messages to, based on the routing rules.
+        """
+        service_bus_topics: NotRequired[pulumi.Input[Sequence[pulumi.Input['RoutingServiceBusTopicEndpointPropertiesArgsDict']]]]
+        """
+        The list of Service Bus topic endpoints that the IoT hub routes the messages to, based on the routing rules.
+        """
+        storage_containers: NotRequired[pulumi.Input[Sequence[pulumi.Input['RoutingStorageContainerPropertiesArgsDict']]]]
+        """
+        The list of storage container endpoints that IoT hub routes messages to, based on the routing rules.
+        """
+elif False:
+    RoutingEndpointsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RoutingEndpointsArgs:
     def __init__(__self__, *,
@@ -1989,6 +2688,50 @@ class RoutingEndpointsArgs:
     def storage_containers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RoutingStorageContainerPropertiesArgs']]]]):
         pulumi.set(self, "storage_containers", value)
 
+
+if not MYPY:
+    class RoutingEventHubPropertiesArgsDict(TypedDict):
+        """
+        The properties related to an event hub endpoint.
+        """
+        name: pulumi.Input[str]
+        """
+        The name that identifies this endpoint. The name can only include alphanumeric characters, periods, underscores, hyphens and has a maximum length of 64 characters. The following names are reserved:  events, fileNotifications, $default. Endpoint names must be unique across endpoint types.
+        """
+        authentication_type: NotRequired[pulumi.Input[Union[str, 'AuthenticationType']]]
+        """
+        Method used to authenticate against the event hub endpoint
+        """
+        connection_string: NotRequired[pulumi.Input[str]]
+        """
+        The connection string of the event hub endpoint. 
+        """
+        endpoint_uri: NotRequired[pulumi.Input[str]]
+        """
+        The url of the event hub endpoint. It must include the protocol sb://
+        """
+        entity_path: NotRequired[pulumi.Input[str]]
+        """
+        Event hub name on the event hub namespace
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Id of the event hub endpoint
+        """
+        identity: NotRequired[pulumi.Input['ManagedIdentityArgsDict']]
+        """
+        Managed identity properties of routing event hub endpoint.
+        """
+        resource_group: NotRequired[pulumi.Input[str]]
+        """
+        The name of the resource group of the event hub endpoint.
+        """
+        subscription_id: NotRequired[pulumi.Input[str]]
+        """
+        The subscription identifier of the event hub endpoint.
+        """
+elif False:
+    RoutingEventHubPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RoutingEventHubPropertiesArgs:
@@ -2141,6 +2884,30 @@ class RoutingEventHubPropertiesArgs:
         pulumi.set(self, "subscription_id", value)
 
 
+if not MYPY:
+    class RoutingPropertiesArgsDict(TypedDict):
+        """
+        The routing related properties of the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging
+        """
+        endpoints: NotRequired[pulumi.Input['RoutingEndpointsArgsDict']]
+        """
+        The properties related to the custom endpoints to which your IoT hub routes messages based on the routing rules. A maximum of 10 custom endpoints are allowed across all endpoint types for paid hubs and only 1 custom endpoint is allowed across all endpoint types for free hubs.
+        """
+        enrichments: NotRequired[pulumi.Input[Sequence[pulumi.Input['EnrichmentPropertiesArgsDict']]]]
+        """
+        The list of user-provided enrichments that the IoT hub applies to messages to be delivered to built-in and custom endpoints. See: https://aka.ms/telemetryoneventgrid
+        """
+        fallback_route: NotRequired[pulumi.Input['FallbackRoutePropertiesArgsDict']]
+        """
+        The properties of the route that is used as a fall-back route when none of the conditions specified in the 'routes' section are met. This is an optional parameter. When this property is not set, the messages which do not meet any of the conditions specified in the 'routes' section get routed to the built-in eventhub endpoint.
+        """
+        routes: NotRequired[pulumi.Input[Sequence[pulumi.Input['RoutePropertiesArgsDict']]]]
+        """
+        The list of user-provided routing rules that the IoT hub uses to route messages to built-in and custom endpoints. A maximum of 100 routing rules are allowed for paid hubs and a maximum of 5 routing rules are allowed for free hubs.
+        """
+elif False:
+    RoutingPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RoutingPropertiesArgs:
     def __init__(__self__, *,
@@ -2212,6 +2979,50 @@ class RoutingPropertiesArgs:
     def routes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RoutePropertiesArgs']]]]):
         pulumi.set(self, "routes", value)
 
+
+if not MYPY:
+    class RoutingServiceBusQueueEndpointPropertiesArgsDict(TypedDict):
+        """
+        The properties related to service bus queue endpoint types.
+        """
+        name: pulumi.Input[str]
+        """
+        The name that identifies this endpoint. The name can only include alphanumeric characters, periods, underscores, hyphens and has a maximum length of 64 characters. The following names are reserved:  events, fileNotifications, $default. Endpoint names must be unique across endpoint types. The name need not be the same as the actual queue name.
+        """
+        authentication_type: NotRequired[pulumi.Input[Union[str, 'AuthenticationType']]]
+        """
+        Method used to authenticate against the service bus queue endpoint
+        """
+        connection_string: NotRequired[pulumi.Input[str]]
+        """
+        The connection string of the service bus queue endpoint.
+        """
+        endpoint_uri: NotRequired[pulumi.Input[str]]
+        """
+        The url of the service bus queue endpoint. It must include the protocol sb://
+        """
+        entity_path: NotRequired[pulumi.Input[str]]
+        """
+        Queue name on the service bus namespace
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Id of the service bus queue endpoint
+        """
+        identity: NotRequired[pulumi.Input['ManagedIdentityArgsDict']]
+        """
+        Managed identity properties of routing service bus queue endpoint.
+        """
+        resource_group: NotRequired[pulumi.Input[str]]
+        """
+        The name of the resource group of the service bus queue endpoint.
+        """
+        subscription_id: NotRequired[pulumi.Input[str]]
+        """
+        The subscription identifier of the service bus queue endpoint.
+        """
+elif False:
+    RoutingServiceBusQueueEndpointPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RoutingServiceBusQueueEndpointPropertiesArgs:
@@ -2364,6 +3175,50 @@ class RoutingServiceBusQueueEndpointPropertiesArgs:
         pulumi.set(self, "subscription_id", value)
 
 
+if not MYPY:
+    class RoutingServiceBusTopicEndpointPropertiesArgsDict(TypedDict):
+        """
+        The properties related to service bus topic endpoint types.
+        """
+        name: pulumi.Input[str]
+        """
+        The name that identifies this endpoint. The name can only include alphanumeric characters, periods, underscores, hyphens and has a maximum length of 64 characters. The following names are reserved:  events, fileNotifications, $default. Endpoint names must be unique across endpoint types.  The name need not be the same as the actual topic name.
+        """
+        authentication_type: NotRequired[pulumi.Input[Union[str, 'AuthenticationType']]]
+        """
+        Method used to authenticate against the service bus topic endpoint
+        """
+        connection_string: NotRequired[pulumi.Input[str]]
+        """
+        The connection string of the service bus topic endpoint.
+        """
+        endpoint_uri: NotRequired[pulumi.Input[str]]
+        """
+        The url of the service bus topic endpoint. It must include the protocol sb://
+        """
+        entity_path: NotRequired[pulumi.Input[str]]
+        """
+        Queue name on the service bus topic
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Id of the service bus topic endpoint
+        """
+        identity: NotRequired[pulumi.Input['ManagedIdentityArgsDict']]
+        """
+        Managed identity properties of routing service bus topic endpoint.
+        """
+        resource_group: NotRequired[pulumi.Input[str]]
+        """
+        The name of the resource group of the service bus topic endpoint.
+        """
+        subscription_id: NotRequired[pulumi.Input[str]]
+        """
+        The subscription identifier of the service bus topic endpoint.
+        """
+elif False:
+    RoutingServiceBusTopicEndpointPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RoutingServiceBusTopicEndpointPropertiesArgs:
     def __init__(__self__, *,
@@ -2514,6 +3369,66 @@ class RoutingServiceBusTopicEndpointPropertiesArgs:
     def subscription_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "subscription_id", value)
 
+
+if not MYPY:
+    class RoutingStorageContainerPropertiesArgsDict(TypedDict):
+        """
+        The properties related to a storage container endpoint.
+        """
+        container_name: pulumi.Input[str]
+        """
+        The name of storage container in the storage account.
+        """
+        name: pulumi.Input[str]
+        """
+        The name that identifies this endpoint. The name can only include alphanumeric characters, periods, underscores, hyphens and has a maximum length of 64 characters. The following names are reserved:  events, fileNotifications, $default. Endpoint names must be unique across endpoint types.
+        """
+        authentication_type: NotRequired[pulumi.Input[Union[str, 'AuthenticationType']]]
+        """
+        Method used to authenticate against the storage endpoint
+        """
+        batch_frequency_in_seconds: NotRequired[pulumi.Input[int]]
+        """
+        Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds.
+        """
+        connection_string: NotRequired[pulumi.Input[str]]
+        """
+        The connection string of the storage account.
+        """
+        encoding: NotRequired[pulumi.Input[str]]
+        """
+        Encoding that is used to serialize messages to blobs. Supported values are 'avro', 'avrodeflate', and 'JSON'. Default value is 'avro'.
+        """
+        endpoint_uri: NotRequired[pulumi.Input[str]]
+        """
+        The url of the storage endpoint. It must include the protocol https://
+        """
+        file_name_format: NotRequired[pulumi.Input[str]]
+        """
+        File name format for the blob. Default format is {iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}. All parameters are mandatory but can be reordered.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Id of the storage container endpoint
+        """
+        identity: NotRequired[pulumi.Input['ManagedIdentityArgsDict']]
+        """
+        Managed identity properties of routing storage endpoint.
+        """
+        max_chunk_size_in_bytes: NotRequired[pulumi.Input[int]]
+        """
+        Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB).
+        """
+        resource_group: NotRequired[pulumi.Input[str]]
+        """
+        The name of the resource group of the storage account.
+        """
+        subscription_id: NotRequired[pulumi.Input[str]]
+        """
+        The subscription identifier of the storage account.
+        """
+elif False:
+    RoutingStorageContainerPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RoutingStorageContainerPropertiesArgs:
@@ -2729,6 +3644,30 @@ class RoutingStorageContainerPropertiesArgs:
         pulumi.set(self, "subscription_id", value)
 
 
+if not MYPY:
+    class SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArgsDict(TypedDict):
+        """
+        Description of the shared access key.
+        """
+        key_name: pulumi.Input[str]
+        """
+        Name of the key.
+        """
+        rights: pulumi.Input[Union[str, 'AccessRightsDescription']]
+        """
+        Rights that this key has.
+        """
+        primary_key: NotRequired[pulumi.Input[str]]
+        """
+        Primary SAS key value.
+        """
+        secondary_key: NotRequired[pulumi.Input[str]]
+        """
+        Secondary SAS key value.
+        """
+elif False:
+    SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArgs:
     def __init__(__self__, *,
@@ -2799,6 +3738,30 @@ class SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArgs:
         pulumi.set(self, "secondary_key", value)
 
 
+if not MYPY:
+    class SharedAccessSignatureAuthorizationRuleArgsDict(TypedDict):
+        """
+        The properties of an IoT hub shared access policy.
+        """
+        key_name: pulumi.Input[str]
+        """
+        The name of the shared access policy.
+        """
+        rights: pulumi.Input['AccessRights']
+        """
+        The permissions assigned to the shared access policy.
+        """
+        primary_key: NotRequired[pulumi.Input[str]]
+        """
+        The primary key.
+        """
+        secondary_key: NotRequired[pulumi.Input[str]]
+        """
+        The secondary key.
+        """
+elif False:
+    SharedAccessSignatureAuthorizationRuleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SharedAccessSignatureAuthorizationRuleArgs:
     def __init__(__self__, *,
@@ -2868,6 +3831,34 @@ class SharedAccessSignatureAuthorizationRuleArgs:
     def secondary_key(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "secondary_key", value)
 
+
+if not MYPY:
+    class StorageEndpointPropertiesArgsDict(TypedDict):
+        """
+        The properties of the Azure Storage endpoint for file upload.
+        """
+        connection_string: pulumi.Input[str]
+        """
+        The connection string for the Azure Storage account to which files are uploaded.
+        """
+        container_name: pulumi.Input[str]
+        """
+        The name of the root container where you upload files. The container need not exist but should be creatable using the connectionString specified.
+        """
+        authentication_type: NotRequired[pulumi.Input[Union[str, 'AuthenticationType']]]
+        """
+        Specifies authentication type being used for connecting to the storage account.
+        """
+        identity: NotRequired[pulumi.Input['ManagedIdentityArgsDict']]
+        """
+        Managed identity properties of storage endpoint for file upload.
+        """
+        sas_ttl_as_iso8601: NotRequired[pulumi.Input[str]]
+        """
+        The period of time for which the SAS URI generated by IoT Hub for file upload is valid. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-file-upload#file-upload-notification-configuration-options.
+        """
+elif False:
+    StorageEndpointPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class StorageEndpointPropertiesArgs:
@@ -2954,6 +3945,30 @@ class StorageEndpointPropertiesArgs:
     def sas_ttl_as_iso8601(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "sas_ttl_as_iso8601", value)
 
+
+if not MYPY:
+    class TargetIpFilterRuleArgsDict(TypedDict):
+        """
+        The IP filter rules for a provisioning Service.
+        """
+        action: pulumi.Input['IpFilterActionType']
+        """
+        The desired action for requests captured by this rule.
+        """
+        filter_name: pulumi.Input[str]
+        """
+        The name of the IP filter rule.
+        """
+        ip_mask: pulumi.Input[str]
+        """
+        A string that contains the IP address range in CIDR notation for the rule.
+        """
+        target: NotRequired[pulumi.Input['IpFilterTargetType']]
+        """
+        Target for requests captured by this rule.
+        """
+elif False:
+    TargetIpFilterRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TargetIpFilterRuleArgs:

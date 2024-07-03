@@ -4,18 +4,49 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'ConsoleCreatePropertiesArgs',
+    'ConsoleCreatePropertiesArgsDict',
     'StorageProfileArgs',
+    'StorageProfileArgsDict',
     'TerminalSettingsArgs',
+    'TerminalSettingsArgsDict',
     'UserPropertiesArgs',
+    'UserPropertiesArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ConsoleCreatePropertiesArgsDict(TypedDict):
+        """
+        Cloud shell properties for creating a console.
+        """
+        os_type: pulumi.Input[Union[str, 'OsType']]
+        """
+        The operating system type of the cloud shell.
+        """
+        provisioning_state: NotRequired[pulumi.Input[Union[str, 'ProvisioningState']]]
+        """
+        Provisioning state of the console.
+        """
+        uri: NotRequired[pulumi.Input[str]]
+        """
+        Uri of the console.
+        """
+elif False:
+    ConsoleCreatePropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ConsoleCreatePropertiesArgs:
@@ -71,6 +102,26 @@ class ConsoleCreatePropertiesArgs:
     def uri(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "uri", value)
 
+
+if not MYPY:
+    class StorageProfileArgsDict(TypedDict):
+        """
+        The storage profile of the user settings.
+        """
+        disk_size_in_gb: NotRequired[pulumi.Input[int]]
+        """
+        Size of file share
+        """
+        file_share_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the mounted file share. 63 characters or less, lowercase alphabet, numbers, and -
+        """
+        storage_account_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        Full resource ID of storage account.
+        """
+elif False:
+    StorageProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class StorageProfileArgs:
@@ -128,6 +179,22 @@ class StorageProfileArgs:
         pulumi.set(self, "storage_account_resource_id", value)
 
 
+if not MYPY:
+    class TerminalSettingsArgsDict(TypedDict):
+        """
+        Settings for terminal appearance.
+        """
+        font_size: NotRequired[pulumi.Input[Union[str, 'FontSize']]]
+        """
+        Size of terminal font.
+        """
+        font_style: NotRequired[pulumi.Input[Union[str, 'FontStyle']]]
+        """
+        Style of terminal font.
+        """
+elif False:
+    TerminalSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TerminalSettingsArgs:
     def __init__(__self__, *,
@@ -167,6 +234,34 @@ class TerminalSettingsArgs:
     def font_style(self, value: Optional[pulumi.Input[Union[str, 'FontStyle']]]):
         pulumi.set(self, "font_style", value)
 
+
+if not MYPY:
+    class UserPropertiesArgsDict(TypedDict):
+        """
+        The cloud shell user settings properties.
+        """
+        preferred_location: pulumi.Input[str]
+        """
+        The preferred location of the cloud shell.
+        """
+        preferred_os_type: pulumi.Input[Union[str, 'OsType']]
+        """
+        The operating system type of the cloud shell. Deprecated, use preferredShellType.
+        """
+        preferred_shell_type: pulumi.Input[Union[str, 'ShellType']]
+        """
+        The shell type of the cloud shell.
+        """
+        storage_profile: pulumi.Input['StorageProfileArgsDict']
+        """
+        The storage profile of the user settings.
+        """
+        terminal_settings: pulumi.Input['TerminalSettingsArgsDict']
+        """
+        Settings for terminal appearance.
+        """
+elif False:
+    UserPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserPropertiesArgs:

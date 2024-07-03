@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -264,7 +269,7 @@ class WebAppSiteContainerSlot(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auth_type: Optional[pulumi.Input['AuthType']] = None,
                  container_name: Optional[pulumi.Input[str]] = None,
-                 environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentVariableArgs']]]]] = None,
+                 environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentVariableArgs', 'EnvironmentVariableArgsDict']]]]] = None,
                  image: Optional[pulumi.Input[str]] = None,
                  is_main: Optional[pulumi.Input[bool]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
@@ -276,7 +281,7 @@ class WebAppSiteContainerSlot(pulumi.CustomResource):
                  target_port: Optional[pulumi.Input[str]] = None,
                  user_managed_identity_client_id: Optional[pulumi.Input[str]] = None,
                  user_name: Optional[pulumi.Input[str]] = None,
-                 volume_mounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VolumeMountArgs']]]]] = None,
+                 volume_mounts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VolumeMountArgs', 'VolumeMountArgsDict']]]]] = None,
                  __props__=None):
         """
         Container of a site
@@ -285,7 +290,7 @@ class WebAppSiteContainerSlot(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['AuthType'] auth_type: Auth Type
         :param pulumi.Input[str] container_name: Site Container Name
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentVariableArgs']]]] environment_variables: List of environment variables
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentVariableArgs', 'EnvironmentVariableArgsDict']]]] environment_variables: List of environment variables
         :param pulumi.Input[str] image: Image Name
         :param pulumi.Input[bool] is_main: <code>true</code> if the container is the main site container; <code>false</code> otherwise.
         :param pulumi.Input[str] kind: Kind of resource.
@@ -297,7 +302,7 @@ class WebAppSiteContainerSlot(pulumi.CustomResource):
         :param pulumi.Input[str] target_port: Target Port
         :param pulumi.Input[str] user_managed_identity_client_id: UserManagedIdentity ClientId
         :param pulumi.Input[str] user_name: User Name
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VolumeMountArgs']]]] volume_mounts: List of volume mounts
+        :param pulumi.Input[Sequence[pulumi.Input[Union['VolumeMountArgs', 'VolumeMountArgsDict']]]] volume_mounts: List of volume mounts
         """
         ...
     @overload
@@ -325,7 +330,7 @@ class WebAppSiteContainerSlot(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auth_type: Optional[pulumi.Input['AuthType']] = None,
                  container_name: Optional[pulumi.Input[str]] = None,
-                 environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentVariableArgs']]]]] = None,
+                 environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentVariableArgs', 'EnvironmentVariableArgsDict']]]]] = None,
                  image: Optional[pulumi.Input[str]] = None,
                  is_main: Optional[pulumi.Input[bool]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
@@ -337,7 +342,7 @@ class WebAppSiteContainerSlot(pulumi.CustomResource):
                  target_port: Optional[pulumi.Input[str]] = None,
                  user_managed_identity_client_id: Optional[pulumi.Input[str]] = None,
                  user_name: Optional[pulumi.Input[str]] = None,
-                 volume_mounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VolumeMountArgs']]]]] = None,
+                 volume_mounts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VolumeMountArgs', 'VolumeMountArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

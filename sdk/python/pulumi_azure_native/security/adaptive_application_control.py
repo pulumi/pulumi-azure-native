@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -116,9 +121,9 @@ class AdaptiveApplicationControl(pulumi.CustomResource):
                  asc_location: Optional[pulumi.Input[str]] = None,
                  enforcement_mode: Optional[pulumi.Input[str]] = None,
                  group_name: Optional[pulumi.Input[str]] = None,
-                 path_recommendations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PathRecommendationArgs']]]]] = None,
-                 protection_mode: Optional[pulumi.Input[pulumi.InputType['ProtectionModeArgs']]] = None,
-                 vm_recommendations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VmRecommendationArgs']]]]] = None,
+                 path_recommendations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PathRecommendationArgs', 'PathRecommendationArgsDict']]]]] = None,
+                 protection_mode: Optional[pulumi.Input[Union['ProtectionModeArgs', 'ProtectionModeArgsDict']]] = None,
+                 vm_recommendations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VmRecommendationArgs', 'VmRecommendationArgsDict']]]]] = None,
                  __props__=None):
         """
         Azure REST API version: 2020-01-01. Prior API version in Azure Native 1.x: 2020-01-01.
@@ -130,7 +135,7 @@ class AdaptiveApplicationControl(pulumi.CustomResource):
         :param pulumi.Input[str] asc_location: The location where ASC stores the data of the subscription. can be retrieved from Get locations
         :param pulumi.Input[str] enforcement_mode: The application control policy enforcement/protection mode of the machine group
         :param pulumi.Input[str] group_name: Name of an application control machine group
-        :param pulumi.Input[pulumi.InputType['ProtectionModeArgs']] protection_mode: The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
+        :param pulumi.Input[Union['ProtectionModeArgs', 'ProtectionModeArgsDict']] protection_mode: The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
         """
         ...
     @overload
@@ -161,9 +166,9 @@ class AdaptiveApplicationControl(pulumi.CustomResource):
                  asc_location: Optional[pulumi.Input[str]] = None,
                  enforcement_mode: Optional[pulumi.Input[str]] = None,
                  group_name: Optional[pulumi.Input[str]] = None,
-                 path_recommendations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PathRecommendationArgs']]]]] = None,
-                 protection_mode: Optional[pulumi.Input[pulumi.InputType['ProtectionModeArgs']]] = None,
-                 vm_recommendations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VmRecommendationArgs']]]]] = None,
+                 path_recommendations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PathRecommendationArgs', 'PathRecommendationArgsDict']]]]] = None,
+                 protection_mode: Optional[pulumi.Input[Union['ProtectionModeArgs', 'ProtectionModeArgsDict']]] = None,
+                 vm_recommendations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VmRecommendationArgs', 'VmRecommendationArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

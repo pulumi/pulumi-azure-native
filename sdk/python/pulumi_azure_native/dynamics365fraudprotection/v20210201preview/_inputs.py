@@ -4,14 +4,34 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 
 __all__ = [
     'DFPInstanceAdministratorsArgs',
+    'DFPInstanceAdministratorsArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class DFPInstanceAdministratorsArgsDict(TypedDict):
+        """
+        An array of administrator user identities
+        """
+        members: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        An array of administrator user identities.
+        """
+elif False:
+    DFPInstanceAdministratorsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DFPInstanceAdministratorsArgs:

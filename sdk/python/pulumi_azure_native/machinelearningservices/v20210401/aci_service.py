@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -371,13 +376,13 @@ class ACIService(pulumi.CustomResource):
                  auth_enabled: Optional[pulumi.Input[bool]] = None,
                  cname: Optional[pulumi.Input[str]] = None,
                  compute_type: Optional[pulumi.Input[str]] = None,
-                 container_resource_requirements: Optional[pulumi.Input[pulumi.InputType['ContainerResourceRequirementsArgs']]] = None,
-                 data_collection: Optional[pulumi.Input[pulumi.InputType['ACIServiceCreateRequestDataCollectionArgs']]] = None,
+                 container_resource_requirements: Optional[pulumi.Input[Union['ContainerResourceRequirementsArgs', 'ContainerResourceRequirementsArgsDict']]] = None,
+                 data_collection: Optional[pulumi.Input[Union['ACIServiceCreateRequestDataCollectionArgs', 'ACIServiceCreateRequestDataCollectionArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  dns_name_label: Optional[pulumi.Input[str]] = None,
-                 encryption_properties: Optional[pulumi.Input[pulumi.InputType['ACIServiceCreateRequestEncryptionPropertiesArgs']]] = None,
-                 environment_image_request: Optional[pulumi.Input[pulumi.InputType['CreateServiceRequestEnvironmentImageRequestArgs']]] = None,
-                 keys: Optional[pulumi.Input[pulumi.InputType['CreateServiceRequestKeysArgs']]] = None,
+                 encryption_properties: Optional[pulumi.Input[Union['ACIServiceCreateRequestEncryptionPropertiesArgs', 'ACIServiceCreateRequestEncryptionPropertiesArgsDict']]] = None,
+                 environment_image_request: Optional[pulumi.Input[Union['CreateServiceRequestEnvironmentImageRequestArgs', 'CreateServiceRequestEnvironmentImageRequestArgsDict']]] = None,
+                 keys: Optional[pulumi.Input[Union['CreateServiceRequestKeysArgs', 'CreateServiceRequestKeysArgsDict']]] = None,
                  kv_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -386,7 +391,7 @@ class ACIService(pulumi.CustomResource):
                  ssl_certificate: Optional[pulumi.Input[str]] = None,
                  ssl_enabled: Optional[pulumi.Input[bool]] = None,
                  ssl_key: Optional[pulumi.Input[str]] = None,
-                 vnet_configuration: Optional[pulumi.Input[pulumi.InputType['ACIServiceCreateRequestVnetConfigurationArgs']]] = None,
+                 vnet_configuration: Optional[pulumi.Input[Union['ACIServiceCreateRequestVnetConfigurationArgs', 'ACIServiceCreateRequestVnetConfigurationArgsDict']]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -399,13 +404,13 @@ class ACIService(pulumi.CustomResource):
         :param pulumi.Input[str] cname: The CName for the service.
         :param pulumi.Input[str] compute_type: The compute environment type for the service.
                Expected value is 'ACI'.
-        :param pulumi.Input[pulumi.InputType['ContainerResourceRequirementsArgs']] container_resource_requirements: The container resource requirements.
-        :param pulumi.Input[pulumi.InputType['ACIServiceCreateRequestDataCollectionArgs']] data_collection: Details of the data collection options specified.
+        :param pulumi.Input[Union['ContainerResourceRequirementsArgs', 'ContainerResourceRequirementsArgsDict']] container_resource_requirements: The container resource requirements.
+        :param pulumi.Input[Union['ACIServiceCreateRequestDataCollectionArgs', 'ACIServiceCreateRequestDataCollectionArgsDict']] data_collection: Details of the data collection options specified.
         :param pulumi.Input[str] description: The description of the service.
         :param pulumi.Input[str] dns_name_label: The Dns label for the service.
-        :param pulumi.Input[pulumi.InputType['ACIServiceCreateRequestEncryptionPropertiesArgs']] encryption_properties: The encryption properties.
-        :param pulumi.Input[pulumi.InputType['CreateServiceRequestEnvironmentImageRequestArgs']] environment_image_request: The Environment, models and assets needed for inferencing.
-        :param pulumi.Input[pulumi.InputType['CreateServiceRequestKeysArgs']] keys: The authentication keys.
+        :param pulumi.Input[Union['ACIServiceCreateRequestEncryptionPropertiesArgs', 'ACIServiceCreateRequestEncryptionPropertiesArgsDict']] encryption_properties: The encryption properties.
+        :param pulumi.Input[Union['CreateServiceRequestEnvironmentImageRequestArgs', 'CreateServiceRequestEnvironmentImageRequestArgsDict']] environment_image_request: The Environment, models and assets needed for inferencing.
+        :param pulumi.Input[Union['CreateServiceRequestKeysArgs', 'CreateServiceRequestKeysArgsDict']] keys: The authentication keys.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] kv_tags: The service tag dictionary. Tags are mutable.
         :param pulumi.Input[str] location: The name of the Azure location/region.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: The service properties dictionary. Properties are immutable.
@@ -414,7 +419,7 @@ class ACIService(pulumi.CustomResource):
         :param pulumi.Input[str] ssl_certificate: The public SSL certificate in PEM format to use if SSL is enabled.
         :param pulumi.Input[bool] ssl_enabled: Whether or not SSL is enabled.
         :param pulumi.Input[str] ssl_key: The public SSL key in PEM format for the certificate.
-        :param pulumi.Input[pulumi.InputType['ACIServiceCreateRequestVnetConfigurationArgs']] vnet_configuration: The virtual network configuration.
+        :param pulumi.Input[Union['ACIServiceCreateRequestVnetConfigurationArgs', 'ACIServiceCreateRequestVnetConfigurationArgsDict']] vnet_configuration: The virtual network configuration.
         :param pulumi.Input[str] workspace_name: Name of Azure Machine Learning workspace.
         """
         ...
@@ -445,13 +450,13 @@ class ACIService(pulumi.CustomResource):
                  auth_enabled: Optional[pulumi.Input[bool]] = None,
                  cname: Optional[pulumi.Input[str]] = None,
                  compute_type: Optional[pulumi.Input[str]] = None,
-                 container_resource_requirements: Optional[pulumi.Input[pulumi.InputType['ContainerResourceRequirementsArgs']]] = None,
-                 data_collection: Optional[pulumi.Input[pulumi.InputType['ACIServiceCreateRequestDataCollectionArgs']]] = None,
+                 container_resource_requirements: Optional[pulumi.Input[Union['ContainerResourceRequirementsArgs', 'ContainerResourceRequirementsArgsDict']]] = None,
+                 data_collection: Optional[pulumi.Input[Union['ACIServiceCreateRequestDataCollectionArgs', 'ACIServiceCreateRequestDataCollectionArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  dns_name_label: Optional[pulumi.Input[str]] = None,
-                 encryption_properties: Optional[pulumi.Input[pulumi.InputType['ACIServiceCreateRequestEncryptionPropertiesArgs']]] = None,
-                 environment_image_request: Optional[pulumi.Input[pulumi.InputType['CreateServiceRequestEnvironmentImageRequestArgs']]] = None,
-                 keys: Optional[pulumi.Input[pulumi.InputType['CreateServiceRequestKeysArgs']]] = None,
+                 encryption_properties: Optional[pulumi.Input[Union['ACIServiceCreateRequestEncryptionPropertiesArgs', 'ACIServiceCreateRequestEncryptionPropertiesArgsDict']]] = None,
+                 environment_image_request: Optional[pulumi.Input[Union['CreateServiceRequestEnvironmentImageRequestArgs', 'CreateServiceRequestEnvironmentImageRequestArgsDict']]] = None,
+                 keys: Optional[pulumi.Input[Union['CreateServiceRequestKeysArgs', 'CreateServiceRequestKeysArgsDict']]] = None,
                  kv_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -460,7 +465,7 @@ class ACIService(pulumi.CustomResource):
                  ssl_certificate: Optional[pulumi.Input[str]] = None,
                  ssl_enabled: Optional[pulumi.Input[bool]] = None,
                  ssl_key: Optional[pulumi.Input[str]] = None,
-                 vnet_configuration: Optional[pulumi.Input[pulumi.InputType['ACIServiceCreateRequestVnetConfigurationArgs']]] = None,
+                 vnet_configuration: Optional[pulumi.Input[Union['ACIServiceCreateRequestVnetConfigurationArgs', 'ACIServiceCreateRequestVnetConfigurationArgsDict']]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

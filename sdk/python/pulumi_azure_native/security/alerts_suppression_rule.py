@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -142,7 +147,7 @@ class AlertsSuppressionRule(pulumi.CustomResource):
                  expiration_date_utc: Optional[pulumi.Input[str]] = None,
                  reason: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input[Union[str, 'RuleState']]] = None,
-                 suppression_alerts_scope: Optional[pulumi.Input[pulumi.InputType['SuppressionAlertsScopeArgs']]] = None,
+                 suppression_alerts_scope: Optional[pulumi.Input[Union['SuppressionAlertsScopeArgs', 'SuppressionAlertsScopeArgsDict']]] = None,
                  __props__=None):
         """
         Describes the suppression rule
@@ -156,7 +161,7 @@ class AlertsSuppressionRule(pulumi.CustomResource):
         :param pulumi.Input[str] expiration_date_utc: Expiration date of the rule, if value is not provided or provided as null there will no expiration at all
         :param pulumi.Input[str] reason: The reason for dismissing the alert
         :param pulumi.Input[Union[str, 'RuleState']] state: Possible states of the rule
-        :param pulumi.Input[pulumi.InputType['SuppressionAlertsScopeArgs']] suppression_alerts_scope: The suppression conditions
+        :param pulumi.Input[Union['SuppressionAlertsScopeArgs', 'SuppressionAlertsScopeArgsDict']] suppression_alerts_scope: The suppression conditions
         """
         ...
     @overload
@@ -189,7 +194,7 @@ class AlertsSuppressionRule(pulumi.CustomResource):
                  expiration_date_utc: Optional[pulumi.Input[str]] = None,
                  reason: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input[Union[str, 'RuleState']]] = None,
-                 suppression_alerts_scope: Optional[pulumi.Input[pulumi.InputType['SuppressionAlertsScopeArgs']]] = None,
+                 suppression_alerts_scope: Optional[pulumi.Input[Union['SuppressionAlertsScopeArgs', 'SuppressionAlertsScopeArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

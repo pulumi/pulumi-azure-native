@@ -4,24 +4,61 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'NetworkProfileArgs',
+    'NetworkProfileArgsDict',
     'OpenShiftAPIPropertiesArgs',
+    'OpenShiftAPIPropertiesArgsDict',
     'OpenShiftManagedClusterAADIdentityProviderArgs',
+    'OpenShiftManagedClusterAADIdentityProviderArgsDict',
     'OpenShiftManagedClusterAgentPoolProfileArgs',
+    'OpenShiftManagedClusterAgentPoolProfileArgsDict',
     'OpenShiftManagedClusterAuthProfileArgs',
+    'OpenShiftManagedClusterAuthProfileArgsDict',
     'OpenShiftManagedClusterIdentityProviderArgs',
+    'OpenShiftManagedClusterIdentityProviderArgsDict',
     'OpenShiftManagedClusterMasterPoolProfileArgs',
+    'OpenShiftManagedClusterMasterPoolProfileArgsDict',
     'OpenShiftManagedClusterMonitorProfileArgs',
+    'OpenShiftManagedClusterMonitorProfileArgsDict',
     'OpenShiftRouterProfileArgs',
+    'OpenShiftRouterProfileArgsDict',
     'PurchasePlanArgs',
+    'PurchasePlanArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class NetworkProfileArgsDict(TypedDict):
+        """
+        Represents the OpenShift networking configuration
+        """
+        management_subnet_cidr: NotRequired[pulumi.Input[str]]
+        """
+        CIDR of subnet used to create PLS needed for management of the cluster
+        """
+        vnet_cidr: NotRequired[pulumi.Input[str]]
+        """
+        CIDR for the OpenShift Vnet.
+        """
+        vnet_id: NotRequired[pulumi.Input[str]]
+        """
+        ID of the Vnet created for OSA cluster.
+        """
+elif False:
+    NetworkProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NetworkProfileArgs:
@@ -81,6 +118,18 @@ class NetworkProfileArgs:
         pulumi.set(self, "vnet_id", value)
 
 
+if not MYPY:
+    class OpenShiftAPIPropertiesArgsDict(TypedDict):
+        """
+        Defines further properties on the API.
+        """
+        private_api_server: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies if API server is public or private.
+        """
+elif False:
+    OpenShiftAPIPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OpenShiftAPIPropertiesArgs:
     def __init__(__self__, *,
@@ -104,6 +153,35 @@ class OpenShiftAPIPropertiesArgs:
     def private_api_server(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "private_api_server", value)
 
+
+if not MYPY:
+    class OpenShiftManagedClusterAADIdentityProviderArgsDict(TypedDict):
+        """
+        Defines the Identity provider for MS AAD.
+        """
+        kind: pulumi.Input[str]
+        """
+        The kind of the provider.
+        Expected value is 'AADIdentityProvider'.
+        """
+        client_id: NotRequired[pulumi.Input[str]]
+        """
+        The clientId password associated with the provider.
+        """
+        customer_admin_group_id: NotRequired[pulumi.Input[str]]
+        """
+        The groupId to be granted cluster admin role.
+        """
+        secret: NotRequired[pulumi.Input[str]]
+        """
+        The secret password associated with the provider.
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        The tenantId associated with the provider.
+        """
+elif False:
+    OpenShiftManagedClusterAADIdentityProviderArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OpenShiftManagedClusterAADIdentityProviderArgs:
@@ -193,6 +271,38 @@ class OpenShiftManagedClusterAADIdentityProviderArgs:
     def tenant_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tenant_id", value)
 
+
+if not MYPY:
+    class OpenShiftManagedClusterAgentPoolProfileArgsDict(TypedDict):
+        """
+        Defines the configuration of the OpenShift cluster VMs.
+        """
+        count: pulumi.Input[int]
+        """
+        Number of agents (VMs) to host docker containers.
+        """
+        name: pulumi.Input[str]
+        """
+        Unique name of the pool profile in the context of the subscription and resource group.
+        """
+        vm_size: pulumi.Input[Union[str, 'OpenShiftContainerServiceVMSize']]
+        """
+        Size of agent VMs.
+        """
+        os_type: NotRequired[pulumi.Input[Union[str, 'OSType']]]
+        """
+        OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
+        """
+        role: NotRequired[pulumi.Input[Union[str, 'OpenShiftAgentPoolProfileRole']]]
+        """
+        Define the role of the AgentPoolProfile.
+        """
+        subnet_cidr: NotRequired[pulumi.Input[str]]
+        """
+        Subnet CIDR for the peering.
+        """
+elif False:
+    OpenShiftManagedClusterAgentPoolProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OpenShiftManagedClusterAgentPoolProfileArgs:
@@ -297,6 +407,18 @@ class OpenShiftManagedClusterAgentPoolProfileArgs:
         pulumi.set(self, "subnet_cidr", value)
 
 
+if not MYPY:
+    class OpenShiftManagedClusterAuthProfileArgsDict(TypedDict):
+        """
+        Defines all possible authentication profiles for the OpenShift cluster.
+        """
+        identity_providers: NotRequired[pulumi.Input[Sequence[pulumi.Input['OpenShiftManagedClusterIdentityProviderArgsDict']]]]
+        """
+        Type of authentication profile to use.
+        """
+elif False:
+    OpenShiftManagedClusterAuthProfileArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OpenShiftManagedClusterAuthProfileArgs:
     def __init__(__self__, *,
@@ -320,6 +442,22 @@ class OpenShiftManagedClusterAuthProfileArgs:
     def identity_providers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OpenShiftManagedClusterIdentityProviderArgs']]]]):
         pulumi.set(self, "identity_providers", value)
 
+
+if not MYPY:
+    class OpenShiftManagedClusterIdentityProviderArgsDict(TypedDict):
+        """
+        Defines the configuration of the identity providers to be used in the OpenShift cluster.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the provider.
+        """
+        provider: NotRequired[pulumi.Input['OpenShiftManagedClusterAADIdentityProviderArgsDict']]
+        """
+        Configuration of the provider.
+        """
+elif False:
+    OpenShiftManagedClusterIdentityProviderArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OpenShiftManagedClusterIdentityProviderArgs:
@@ -360,6 +498,30 @@ class OpenShiftManagedClusterIdentityProviderArgs:
     def provider(self, value: Optional[pulumi.Input['OpenShiftManagedClusterAADIdentityProviderArgs']]):
         pulumi.set(self, "provider", value)
 
+
+if not MYPY:
+    class OpenShiftManagedClusterMasterPoolProfileArgsDict(TypedDict):
+        """
+        OpenShiftManagedClusterMaterPoolProfile contains configuration for OpenShift master VMs.
+        """
+        count: pulumi.Input[int]
+        """
+        Number of masters (VMs) to host docker containers. The default value is 3.
+        """
+        vm_size: pulumi.Input[Union[str, 'OpenShiftContainerServiceVMSize']]
+        """
+        Size of agent VMs.
+        """
+        api_properties: NotRequired[pulumi.Input['OpenShiftAPIPropertiesArgsDict']]
+        """
+        Defines further properties on the API.
+        """
+        subnet_cidr: NotRequired[pulumi.Input[str]]
+        """
+        Subnet CIDR for the peering.
+        """
+elif False:
+    OpenShiftManagedClusterMasterPoolProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OpenShiftManagedClusterMasterPoolProfileArgs:
@@ -431,6 +593,22 @@ class OpenShiftManagedClusterMasterPoolProfileArgs:
         pulumi.set(self, "subnet_cidr", value)
 
 
+if not MYPY:
+    class OpenShiftManagedClusterMonitorProfileArgsDict(TypedDict):
+        """
+        Defines the configuration for Log Analytics integration.
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If the Log analytics integration should be turned on or off
+        """
+        workspace_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        Azure Resource Manager Resource ID for the Log Analytics workspace to integrate with.
+        """
+elif False:
+    OpenShiftManagedClusterMonitorProfileArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OpenShiftManagedClusterMonitorProfileArgs:
     def __init__(__self__, *,
@@ -471,6 +649,18 @@ class OpenShiftManagedClusterMonitorProfileArgs:
         pulumi.set(self, "workspace_resource_id", value)
 
 
+if not MYPY:
+    class OpenShiftRouterProfileArgsDict(TypedDict):
+        """
+        Represents an OpenShift router
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the router profile.
+        """
+elif False:
+    OpenShiftRouterProfileArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OpenShiftRouterProfileArgs:
     def __init__(__self__, *,
@@ -494,6 +684,30 @@ class OpenShiftRouterProfileArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class PurchasePlanArgsDict(TypedDict):
+        """
+        Used for establishing the purchase context of any 3rd Party artifact through MarketPlace.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The plan ID.
+        """
+        product: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the product of the image from the marketplace. This is the same value as Offer under the imageReference element.
+        """
+        promotion_code: NotRequired[pulumi.Input[str]]
+        """
+        The promotion code.
+        """
+        publisher: NotRequired[pulumi.Input[str]]
+        """
+        The plan ID.
+        """
+elif False:
+    PurchasePlanArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PurchasePlanArgs:

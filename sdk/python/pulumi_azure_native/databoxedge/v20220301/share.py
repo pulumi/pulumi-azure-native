@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -215,17 +220,17 @@ class Share(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_protocol: Optional[pulumi.Input[Union[str, 'ShareAccessProtocol']]] = None,
-                 azure_container_info: Optional[pulumi.Input[pulumi.InputType['AzureContainerInfoArgs']]] = None,
-                 client_access_rights: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClientAccessRightArgs']]]]] = None,
+                 azure_container_info: Optional[pulumi.Input[Union['AzureContainerInfoArgs', 'AzureContainerInfoArgsDict']]] = None,
+                 client_access_rights: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClientAccessRightArgs', 'ClientAccessRightArgsDict']]]]] = None,
                  data_policy: Optional[pulumi.Input[Union[str, 'DataPolicy']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
                  monitoring_status: Optional[pulumi.Input[Union[str, 'MonitoringStatus']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 refresh_details: Optional[pulumi.Input[pulumi.InputType['RefreshDetailsArgs']]] = None,
+                 refresh_details: Optional[pulumi.Input[Union['RefreshDetailsArgs', 'RefreshDetailsArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  share_status: Optional[pulumi.Input[Union[str, 'ShareStatus']]] = None,
-                 user_access_rights: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserAccessRightArgs']]]]] = None,
+                 user_access_rights: Optional[pulumi.Input[Sequence[pulumi.Input[Union['UserAccessRightArgs', 'UserAccessRightArgsDict']]]]] = None,
                  __props__=None):
         """
         Represents a share on the  Data Box Edge/Gateway device.
@@ -233,17 +238,17 @@ class Share(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[str, 'ShareAccessProtocol']] access_protocol: Access protocol to be used by the share.
-        :param pulumi.Input[pulumi.InputType['AzureContainerInfoArgs']] azure_container_info: Azure container mapping for the share.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClientAccessRightArgs']]]] client_access_rights: List of IP addresses and corresponding access rights on the share(required for NFS protocol).
+        :param pulumi.Input[Union['AzureContainerInfoArgs', 'AzureContainerInfoArgsDict']] azure_container_info: Azure container mapping for the share.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ClientAccessRightArgs', 'ClientAccessRightArgsDict']]]] client_access_rights: List of IP addresses and corresponding access rights on the share(required for NFS protocol).
         :param pulumi.Input[Union[str, 'DataPolicy']] data_policy: Data policy of the share.
         :param pulumi.Input[str] description: Description for the share.
         :param pulumi.Input[str] device_name: The device name.
         :param pulumi.Input[Union[str, 'MonitoringStatus']] monitoring_status: Current monitoring status of the share.
         :param pulumi.Input[str] name: The share name.
-        :param pulumi.Input[pulumi.InputType['RefreshDetailsArgs']] refresh_details: Details of the refresh job on this share.
+        :param pulumi.Input[Union['RefreshDetailsArgs', 'RefreshDetailsArgsDict']] refresh_details: Details of the refresh job on this share.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[Union[str, 'ShareStatus']] share_status: Current status of the share.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserAccessRightArgs']]]] user_access_rights: Mapping of users and corresponding access rights on the share (required for SMB protocol).
+        :param pulumi.Input[Sequence[pulumi.Input[Union['UserAccessRightArgs', 'UserAccessRightArgsDict']]]] user_access_rights: Mapping of users and corresponding access rights on the share (required for SMB protocol).
         """
         ...
     @overload
@@ -270,17 +275,17 @@ class Share(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_protocol: Optional[pulumi.Input[Union[str, 'ShareAccessProtocol']]] = None,
-                 azure_container_info: Optional[pulumi.Input[pulumi.InputType['AzureContainerInfoArgs']]] = None,
-                 client_access_rights: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClientAccessRightArgs']]]]] = None,
+                 azure_container_info: Optional[pulumi.Input[Union['AzureContainerInfoArgs', 'AzureContainerInfoArgsDict']]] = None,
+                 client_access_rights: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClientAccessRightArgs', 'ClientAccessRightArgsDict']]]]] = None,
                  data_policy: Optional[pulumi.Input[Union[str, 'DataPolicy']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
                  monitoring_status: Optional[pulumi.Input[Union[str, 'MonitoringStatus']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 refresh_details: Optional[pulumi.Input[pulumi.InputType['RefreshDetailsArgs']]] = None,
+                 refresh_details: Optional[pulumi.Input[Union['RefreshDetailsArgs', 'RefreshDetailsArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  share_status: Optional[pulumi.Input[Union[str, 'ShareStatus']]] = None,
-                 user_access_rights: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserAccessRightArgs']]]]] = None,
+                 user_access_rights: Optional[pulumi.Input[Sequence[pulumi.Input[Union['UserAccessRightArgs', 'UserAccessRightArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

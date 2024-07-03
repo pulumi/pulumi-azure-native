@@ -4,20 +4,53 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'AccountEncryptionArgs',
+    'AccountEncryptionArgsDict',
     'ActiveDirectoryArgs',
+    'ActiveDirectoryArgsDict',
     'EncryptionIdentityArgs',
+    'EncryptionIdentityArgsDict',
     'IdentityArgs',
+    'IdentityArgsDict',
     'KeyVaultPropertiesArgs',
+    'KeyVaultPropertiesArgsDict',
     'LdapSearchScopeOptArgs',
+    'LdapSearchScopeOptArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AccountEncryptionArgsDict(TypedDict):
+        """
+        Encryption settings
+        """
+        identity: NotRequired[pulumi.Input['EncryptionIdentityArgsDict']]
+        """
+        Identity used to authenticate to KeyVault. Applicable if keySource is 'Microsoft.KeyVault'.
+        """
+        key_source: NotRequired[pulumi.Input[Union[str, 'KeySource']]]
+        """
+        The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.NetApp, Microsoft.KeyVault
+        """
+        key_vault_properties: NotRequired[pulumi.Input['KeyVaultPropertiesArgsDict']]
+        """
+        Properties provided by KeVault. Applicable if keySource is 'Microsoft.KeyVault'.
+        """
+elif False:
+    AccountEncryptionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AccountEncryptionArgs:
@@ -76,6 +109,94 @@ class AccountEncryptionArgs:
     def key_vault_properties(self, value: Optional[pulumi.Input['KeyVaultPropertiesArgs']]):
         pulumi.set(self, "key_vault_properties", value)
 
+
+if not MYPY:
+    class ActiveDirectoryArgsDict(TypedDict):
+        """
+        Active Directory
+        """
+        active_directory_id: NotRequired[pulumi.Input[str]]
+        """
+        Id of the Active Directory
+        """
+        ad_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the active directory machine. This optional parameter is used only while creating kerberos volume
+        """
+        administrators: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Users to be added to the Built-in Administrators active directory group. A list of unique usernames without domain specifier
+        """
+        aes_encryption: NotRequired[pulumi.Input[bool]]
+        """
+        If enabled, AES encryption will be enabled for SMB communication.
+        """
+        allow_local_nfs_users_with_ldap: NotRequired[pulumi.Input[bool]]
+        """
+         If enabled, NFS client local users can also (in addition to LDAP users) access the NFS volumes.
+        """
+        backup_operators: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Users to be added to the Built-in Backup Operator active directory group. A list of unique usernames without domain specifier
+        """
+        dns: NotRequired[pulumi.Input[str]]
+        """
+        Comma separated list of DNS server IP addresses (IPv4 only) for the Active Directory domain
+        """
+        domain: NotRequired[pulumi.Input[str]]
+        """
+        Name of the Active Directory domain
+        """
+        encrypt_dc_connections: NotRequired[pulumi.Input[bool]]
+        """
+        If enabled, Traffic between the SMB server to Domain Controller (DC) will be encrypted.
+        """
+        kdc_ip: NotRequired[pulumi.Input[str]]
+        """
+        kdc server IP addresses for the active directory machine. This optional parameter is used only while creating kerberos volume.
+        """
+        ldap_over_tls: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies whether or not the LDAP traffic needs to be secured via TLS.
+        """
+        ldap_search_scope: NotRequired[pulumi.Input['LdapSearchScopeOptArgsDict']]
+        """
+        LDAP Search scope options
+        """
+        ldap_signing: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies whether or not the LDAP traffic needs to be signed.
+        """
+        organizational_unit: NotRequired[pulumi.Input[str]]
+        """
+        The Organizational Unit (OU) within the Windows Active Directory
+        """
+        password: NotRequired[pulumi.Input[str]]
+        """
+        Plain text password of Active Directory domain administrator, value is masked in the response
+        """
+        security_operators: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Domain Users in the Active directory to be given SeSecurityPrivilege privilege (Needed for SMB Continuously available shares for SQL). A list of unique usernames without domain specifier
+        """
+        server_root_ca_certificate: NotRequired[pulumi.Input[str]]
+        """
+        When LDAP over SSL/TLS is enabled, the LDAP client is required to have base64 encoded Active Directory Certificate Service's self-signed root CA certificate, this optional parameter is used only for dual protocol with LDAP user-mapping volumes.
+        """
+        site: NotRequired[pulumi.Input[str]]
+        """
+        The Active Directory site the service will limit Domain Controller discovery to
+        """
+        smb_server_name: NotRequired[pulumi.Input[str]]
+        """
+        NetBIOS name of the SMB server. This name will be registered as a computer account in the AD and used to mount volumes
+        """
+        username: NotRequired[pulumi.Input[str]]
+        """
+        A domain user account with permission to create machine accounts
+        """
+elif False:
+    ActiveDirectoryArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ActiveDirectoryArgs:
@@ -407,6 +528,18 @@ class ActiveDirectoryArgs:
         pulumi.set(self, "username", value)
 
 
+if not MYPY:
+    class EncryptionIdentityArgsDict(TypedDict):
+        """
+        Identity used to authenticate with key vault.
+        """
+        user_assigned_identity: NotRequired[pulumi.Input[str]]
+        """
+        The ARM resource identifier of the user assigned identity used to authenticate with key vault. Applicable if identity.type has 'UserAssigned'. It should match key of identity.userAssignedIdentities.
+        """
+elif False:
+    EncryptionIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EncryptionIdentityArgs:
     def __init__(__self__, *,
@@ -430,6 +563,22 @@ class EncryptionIdentityArgs:
     def user_assigned_identity(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "user_assigned_identity", value)
 
+
+if not MYPY:
+    class IdentityArgsDict(TypedDict):
+        """
+        Identity for the resource.
+        """
+        type: pulumi.Input[Union[str, 'IdentityType']]
+        """
+        The identity type.
+        """
+        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Gets or sets a list of key value pairs that describe the set of User Assigned identities that will be used with this storage account. The key is the ARM resource identifier of the identity. Only 1 User Assigned identity is permitted here.
+        """
+elif False:
+    IdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IdentityArgs:
@@ -469,6 +618,26 @@ class IdentityArgs:
     def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
+
+if not MYPY:
+    class KeyVaultPropertiesArgsDict(TypedDict):
+        """
+        Properties of key vault.
+        """
+        key_name: pulumi.Input[str]
+        """
+        The name of KeyVault key.
+        """
+        key_vault_resource_id: pulumi.Input[str]
+        """
+        The resource ID of KeyVault.
+        """
+        key_vault_uri: pulumi.Input[str]
+        """
+        The Uri of KeyVault.
+        """
+elif False:
+    KeyVaultPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class KeyVaultPropertiesArgs:
@@ -522,6 +691,26 @@ class KeyVaultPropertiesArgs:
     def key_vault_uri(self, value: pulumi.Input[str]):
         pulumi.set(self, "key_vault_uri", value)
 
+
+if not MYPY:
+    class LdapSearchScopeOptArgsDict(TypedDict):
+        """
+        LDAP search scope 
+        """
+        group_dn: NotRequired[pulumi.Input[str]]
+        """
+        This specifies the group DN, which overrides the base DN for group lookups.
+        """
+        group_membership_filter: NotRequired[pulumi.Input[str]]
+        """
+        This specifies the custom LDAP search filter to be used when looking up group membership from LDAP server.
+        """
+        user_dn: NotRequired[pulumi.Input[str]]
+        """
+        This specifies the user DN, which overrides the base DN for user lookups.
+        """
+elif False:
+    LdapSearchScopeOptArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LdapSearchScopeOptArgs:

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -122,11 +127,11 @@ class DotNetComponent(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  component_type: Optional[pulumi.Input[Union[str, 'DotNetComponentType']]] = None,
-                 configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DotNetComponentConfigurationPropertyArgs']]]]] = None,
+                 configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DotNetComponentConfigurationPropertyArgs', 'DotNetComponentConfigurationPropertyArgsDict']]]]] = None,
                  environment_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 service_binds: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DotNetComponentServiceBindArgs']]]]] = None,
+                 service_binds: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DotNetComponentServiceBindArgs', 'DotNetComponentServiceBindArgsDict']]]]] = None,
                  __props__=None):
         """
         .NET Component.
@@ -137,11 +142,11 @@ class DotNetComponent(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[str, 'DotNetComponentType']] component_type: Type of the .NET Component.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DotNetComponentConfigurationPropertyArgs']]]] configurations: List of .NET Components configuration properties
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DotNetComponentConfigurationPropertyArgs', 'DotNetComponentConfigurationPropertyArgsDict']]]] configurations: List of .NET Components configuration properties
         :param pulumi.Input[str] environment_name: Name of the Managed Environment.
         :param pulumi.Input[str] name: Name of the .NET Component.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DotNetComponentServiceBindArgs']]]] service_binds: List of .NET Components that are bound to the .NET component
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DotNetComponentServiceBindArgs', 'DotNetComponentServiceBindArgsDict']]]] service_binds: List of .NET Components that are bound to the .NET component
         """
         ...
     @overload
@@ -171,11 +176,11 @@ class DotNetComponent(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  component_type: Optional[pulumi.Input[Union[str, 'DotNetComponentType']]] = None,
-                 configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DotNetComponentConfigurationPropertyArgs']]]]] = None,
+                 configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DotNetComponentConfigurationPropertyArgs', 'DotNetComponentConfigurationPropertyArgsDict']]]]] = None,
                  environment_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 service_binds: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DotNetComponentServiceBindArgs']]]]] = None,
+                 service_binds: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DotNetComponentServiceBindArgs', 'DotNetComponentServiceBindArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

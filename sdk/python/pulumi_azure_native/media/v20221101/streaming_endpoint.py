@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -295,21 +300,21 @@ class StreamingEndpoint(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_control: Optional[pulumi.Input[pulumi.InputType['StreamingEndpointAccessControlArgs']]] = None,
+                 access_control: Optional[pulumi.Input[Union['StreamingEndpointAccessControlArgs', 'StreamingEndpointAccessControlArgsDict']]] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  auto_start: Optional[pulumi.Input[bool]] = None,
                  availability_set_name: Optional[pulumi.Input[str]] = None,
                  cdn_enabled: Optional[pulumi.Input[bool]] = None,
                  cdn_profile: Optional[pulumi.Input[str]] = None,
                  cdn_provider: Optional[pulumi.Input[str]] = None,
-                 cross_site_access_policies: Optional[pulumi.Input[pulumi.InputType['CrossSiteAccessPoliciesArgs']]] = None,
+                 cross_site_access_policies: Optional[pulumi.Input[Union['CrossSiteAccessPoliciesArgs', 'CrossSiteAccessPoliciesArgsDict']]] = None,
                  custom_host_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  max_cache_age: Optional[pulumi.Input[float]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  scale_units: Optional[pulumi.Input[int]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['ArmStreamingEndpointCurrentSkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['ArmStreamingEndpointCurrentSkuArgs', 'ArmStreamingEndpointCurrentSkuArgsDict']]] = None,
                  streaming_endpoint_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -318,21 +323,21 @@ class StreamingEndpoint(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['StreamingEndpointAccessControlArgs']] access_control: The access control definition of the streaming endpoint.
+        :param pulumi.Input[Union['StreamingEndpointAccessControlArgs', 'StreamingEndpointAccessControlArgsDict']] access_control: The access control definition of the streaming endpoint.
         :param pulumi.Input[str] account_name: The Media Services account name.
         :param pulumi.Input[bool] auto_start: The flag indicates if the resource should be automatically started on creation.
         :param pulumi.Input[str] availability_set_name: This feature is deprecated, do not set a value for this property.
         :param pulumi.Input[bool] cdn_enabled: The CDN enabled flag.
         :param pulumi.Input[str] cdn_profile: The CDN profile name.
         :param pulumi.Input[str] cdn_provider: The CDN provider name.
-        :param pulumi.Input[pulumi.InputType['CrossSiteAccessPoliciesArgs']] cross_site_access_policies: The streaming endpoint access policies.
+        :param pulumi.Input[Union['CrossSiteAccessPoliciesArgs', 'CrossSiteAccessPoliciesArgsDict']] cross_site_access_policies: The streaming endpoint access policies.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_host_names: The custom host names of the streaming endpoint
         :param pulumi.Input[str] description: The streaming endpoint description.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[float] max_cache_age: Max cache age
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the Azure subscription.
         :param pulumi.Input[int] scale_units: The number of scale units. Use the Scale operation to adjust this value.
-        :param pulumi.Input[pulumi.InputType['ArmStreamingEndpointCurrentSkuArgs']] sku: The streaming endpoint sku.
+        :param pulumi.Input[Union['ArmStreamingEndpointCurrentSkuArgs', 'ArmStreamingEndpointCurrentSkuArgsDict']] sku: The streaming endpoint sku.
         :param pulumi.Input[str] streaming_endpoint_name: The name of the streaming endpoint, maximum length is 24.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -360,21 +365,21 @@ class StreamingEndpoint(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_control: Optional[pulumi.Input[pulumi.InputType['StreamingEndpointAccessControlArgs']]] = None,
+                 access_control: Optional[pulumi.Input[Union['StreamingEndpointAccessControlArgs', 'StreamingEndpointAccessControlArgsDict']]] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  auto_start: Optional[pulumi.Input[bool]] = None,
                  availability_set_name: Optional[pulumi.Input[str]] = None,
                  cdn_enabled: Optional[pulumi.Input[bool]] = None,
                  cdn_profile: Optional[pulumi.Input[str]] = None,
                  cdn_provider: Optional[pulumi.Input[str]] = None,
-                 cross_site_access_policies: Optional[pulumi.Input[pulumi.InputType['CrossSiteAccessPoliciesArgs']]] = None,
+                 cross_site_access_policies: Optional[pulumi.Input[Union['CrossSiteAccessPoliciesArgs', 'CrossSiteAccessPoliciesArgsDict']]] = None,
                  custom_host_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  max_cache_age: Optional[pulumi.Input[float]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  scale_units: Optional[pulumi.Input[int]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['ArmStreamingEndpointCurrentSkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['ArmStreamingEndpointCurrentSkuArgs', 'ArmStreamingEndpointCurrentSkuArgsDict']]] = None,
                  streaming_endpoint_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):

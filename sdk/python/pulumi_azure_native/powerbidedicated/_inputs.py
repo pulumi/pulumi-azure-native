@@ -4,18 +4,49 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'AutoScaleVCoreSkuArgs',
+    'AutoScaleVCoreSkuArgsDict',
     'CapacitySkuArgs',
+    'CapacitySkuArgsDict',
     'DedicatedCapacityAdministratorsArgs',
+    'DedicatedCapacityAdministratorsArgsDict',
     'SystemDataArgs',
+    'SystemDataArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AutoScaleVCoreSkuArgsDict(TypedDict):
+        """
+        Represents the SKU name and Azure pricing tier for auto scale v-core resource.
+        """
+        name: pulumi.Input[str]
+        """
+        Name of the SKU level.
+        """
+        capacity: NotRequired[pulumi.Input[int]]
+        """
+        The capacity of an auto scale v-core resource.
+        """
+        tier: NotRequired[pulumi.Input[Union[str, 'VCoreSkuTier']]]
+        """
+        The name of the Azure pricing tier to which the SKU applies.
+        """
+elif False:
+    AutoScaleVCoreSkuArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AutoScaleVCoreSkuArgs:
@@ -72,6 +103,26 @@ class AutoScaleVCoreSkuArgs:
         pulumi.set(self, "tier", value)
 
 
+if not MYPY:
+    class CapacitySkuArgsDict(TypedDict):
+        """
+        Represents the SKU name and Azure pricing tier for PowerBI Dedicated capacity resource.
+        """
+        name: pulumi.Input[str]
+        """
+        Name of the SKU level.
+        """
+        capacity: NotRequired[pulumi.Input[int]]
+        """
+        The capacity of the SKU.
+        """
+        tier: NotRequired[pulumi.Input[Union[str, 'CapacitySkuTier']]]
+        """
+        The name of the Azure pricing tier to which the SKU applies.
+        """
+elif False:
+    CapacitySkuArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CapacitySkuArgs:
     def __init__(__self__, *,
@@ -127,6 +178,18 @@ class CapacitySkuArgs:
         pulumi.set(self, "tier", value)
 
 
+if not MYPY:
+    class DedicatedCapacityAdministratorsArgsDict(TypedDict):
+        """
+        An array of administrator user identities
+        """
+        members: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        An array of administrator user identities.
+        """
+elif False:
+    DedicatedCapacityAdministratorsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DedicatedCapacityAdministratorsArgs:
     def __init__(__self__, *,
@@ -150,6 +213,38 @@ class DedicatedCapacityAdministratorsArgs:
     def members(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "members", value)
 
+
+if not MYPY:
+    class SystemDataArgsDict(TypedDict):
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        created_at: NotRequired[pulumi.Input[str]]
+        """
+        The timestamp of resource creation (UTC)
+        """
+        created_by: NotRequired[pulumi.Input[str]]
+        """
+        An identifier for the identity that created the resource
+        """
+        created_by_type: NotRequired[pulumi.Input[Union[str, 'IdentityType']]]
+        """
+        The type of identity that created the resource
+        """
+        last_modified_at: NotRequired[pulumi.Input[str]]
+        """
+        The timestamp of resource last modification (UTC)
+        """
+        last_modified_by: NotRequired[pulumi.Input[str]]
+        """
+        An identifier for the identity that last modified the resource
+        """
+        last_modified_by_type: NotRequired[pulumi.Input[Union[str, 'IdentityType']]]
+        """
+        The type of identity that last modified the resource
+        """
+elif False:
+    SystemDataArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SystemDataArgs:

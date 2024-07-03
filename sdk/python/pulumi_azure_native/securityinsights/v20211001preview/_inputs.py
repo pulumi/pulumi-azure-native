@@ -4,25 +4,67 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'AlertDetailsOverrideArgs',
+    'AlertDetailsOverrideArgsDict',
     'EntityMappingArgs',
+    'EntityMappingArgsDict',
     'FieldMappingArgs',
+    'FieldMappingArgsDict',
     'FusionScenarioExclusionPatternArgs',
+    'FusionScenarioExclusionPatternArgsDict',
     'FusionSourceSettingsArgs',
+    'FusionSourceSettingsArgsDict',
     'FusionSourceSubTypeSettingArgs',
+    'FusionSourceSubTypeSettingArgsDict',
     'FusionSubTypeSeverityFiltersItemArgs',
+    'FusionSubTypeSeverityFiltersItemArgsDict',
     'FusionSubTypeSeverityFilterArgs',
+    'FusionSubTypeSeverityFilterArgsDict',
     'GroupingConfigurationArgs',
+    'GroupingConfigurationArgsDict',
     'IncidentConfigurationArgs',
+    'IncidentConfigurationArgsDict',
     'WatchlistUserInfoArgs',
+    'WatchlistUserInfoArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AlertDetailsOverrideArgsDict(TypedDict):
+        """
+        Settings for how to dynamically override alert static details
+        """
+        alert_description_format: NotRequired[pulumi.Input[str]]
+        """
+        the format containing columns name(s) to override the alert description
+        """
+        alert_display_name_format: NotRequired[pulumi.Input[str]]
+        """
+        the format containing columns name(s) to override the alert name
+        """
+        alert_severity_column_name: NotRequired[pulumi.Input[str]]
+        """
+        the column name to take the alert severity from
+        """
+        alert_tactics_column_name: NotRequired[pulumi.Input[str]]
+        """
+        the column name to take the alert tactics from
+        """
+elif False:
+    AlertDetailsOverrideArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AlertDetailsOverrideArgs:
@@ -96,6 +138,22 @@ class AlertDetailsOverrideArgs:
         pulumi.set(self, "alert_tactics_column_name", value)
 
 
+if not MYPY:
+    class EntityMappingArgsDict(TypedDict):
+        """
+        Single entity mapping for the alert rule
+        """
+        entity_type: NotRequired[pulumi.Input[Union[str, 'EntityMappingType']]]
+        """
+        The V3 type of the mapped entity
+        """
+        field_mappings: NotRequired[pulumi.Input[Sequence[pulumi.Input['FieldMappingArgsDict']]]]
+        """
+        array of field mappings for the given entity mapping
+        """
+elif False:
+    EntityMappingArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EntityMappingArgs:
     def __init__(__self__, *,
@@ -135,6 +193,22 @@ class EntityMappingArgs:
     def field_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FieldMappingArgs']]]]):
         pulumi.set(self, "field_mappings", value)
 
+
+if not MYPY:
+    class FieldMappingArgsDict(TypedDict):
+        """
+        A single field mapping of the mapped entity
+        """
+        column_name: NotRequired[pulumi.Input[str]]
+        """
+        the column name to be mapped to the identifier
+        """
+        identifier: NotRequired[pulumi.Input[str]]
+        """
+        the V3 identifier of the entity
+        """
+elif False:
+    FieldMappingArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FieldMappingArgs:
@@ -176,6 +250,22 @@ class FieldMappingArgs:
         pulumi.set(self, "identifier", value)
 
 
+if not MYPY:
+    class FusionScenarioExclusionPatternArgsDict(TypedDict):
+        """
+        Represents a Fusion scenario exclusion patterns in Fusion detection.
+        """
+        date_added_in_utc: pulumi.Input[str]
+        """
+        DateTime when scenario exclusion pattern is added in UTC.
+        """
+        exclusion_pattern: pulumi.Input[str]
+        """
+        Scenario exclusion pattern.
+        """
+elif False:
+    FusionScenarioExclusionPatternArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FusionScenarioExclusionPatternArgs:
     def __init__(__self__, *,
@@ -213,6 +303,26 @@ class FusionScenarioExclusionPatternArgs:
     def exclusion_pattern(self, value: pulumi.Input[str]):
         pulumi.set(self, "exclusion_pattern", value)
 
+
+if not MYPY:
+    class FusionSourceSettingsArgsDict(TypedDict):
+        """
+        Represents a supported source signal configuration in Fusion detection.
+        """
+        enabled: pulumi.Input[bool]
+        """
+        Determines whether this source signal is enabled or disabled in Fusion detection.
+        """
+        source_name: pulumi.Input[str]
+        """
+        Name of the Fusion source signal. Refer to Fusion alert rule template for supported values.
+        """
+        source_sub_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['FusionSourceSubTypeSettingArgsDict']]]]
+        """
+        Configuration for all source subtypes under this source signal consumed in fusion detection.
+        """
+elif False:
+    FusionSourceSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FusionSourceSettingsArgs:
@@ -268,6 +378,26 @@ class FusionSourceSettingsArgs:
         pulumi.set(self, "source_sub_types", value)
 
 
+if not MYPY:
+    class FusionSourceSubTypeSettingArgsDict(TypedDict):
+        """
+        Represents a supported source subtype configuration under a source signal in Fusion detection.
+        """
+        enabled: pulumi.Input[bool]
+        """
+        Determines whether this source subtype under source signal is enabled or disabled in Fusion detection.
+        """
+        severity_filters: pulumi.Input['FusionSubTypeSeverityFilterArgsDict']
+        """
+        Severity configuration for a source subtype consumed in fusion detection.
+        """
+        source_sub_type_name: pulumi.Input[str]
+        """
+        The Name of the source subtype under a given source signal in Fusion detection. Refer to Fusion alert rule template for supported values.
+        """
+elif False:
+    FusionSourceSubTypeSettingArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FusionSourceSubTypeSettingArgs:
     def __init__(__self__, *,
@@ -321,6 +451,22 @@ class FusionSourceSubTypeSettingArgs:
         pulumi.set(self, "source_sub_type_name", value)
 
 
+if not MYPY:
+    class FusionSubTypeSeverityFiltersItemArgsDict(TypedDict):
+        """
+        Represents a Severity filter setting for a given source subtype consumed in Fusion detection.
+        """
+        enabled: pulumi.Input[bool]
+        """
+        Determines whether this severity is enabled or disabled for this source subtype consumed in Fusion detection.
+        """
+        severity: pulumi.Input[Union[str, 'AlertSeverity']]
+        """
+        The Severity for a given source subtype consumed in Fusion detection.
+        """
+elif False:
+    FusionSubTypeSeverityFiltersItemArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FusionSubTypeSeverityFiltersItemArgs:
     def __init__(__self__, *,
@@ -359,6 +505,18 @@ class FusionSubTypeSeverityFiltersItemArgs:
         pulumi.set(self, "severity", value)
 
 
+if not MYPY:
+    class FusionSubTypeSeverityFilterArgsDict(TypedDict):
+        """
+        Represents severity configuration for a source subtype consumed in Fusion detection.
+        """
+        filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['FusionSubTypeSeverityFiltersItemArgsDict']]]]
+        """
+        Individual Severity configuration settings for a given source subtype consumed in Fusion detection.
+        """
+elif False:
+    FusionSubTypeSeverityFilterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FusionSubTypeSeverityFilterArgs:
     def __init__(__self__, *,
@@ -382,6 +540,42 @@ class FusionSubTypeSeverityFilterArgs:
     def filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FusionSubTypeSeverityFiltersItemArgs']]]]):
         pulumi.set(self, "filters", value)
 
+
+if not MYPY:
+    class GroupingConfigurationArgsDict(TypedDict):
+        """
+        Grouping configuration property bag.
+        """
+        enabled: pulumi.Input[bool]
+        """
+        Grouping enabled
+        """
+        lookback_duration: pulumi.Input[str]
+        """
+        Limit the group to alerts created within the lookback duration (in ISO 8601 duration format)
+        """
+        matching_method: pulumi.Input[Union[str, 'MatchingMethod']]
+        """
+        Grouping matching method. When method is Selected at least one of groupByEntities, groupByAlertDetails, groupByCustomDetails must be provided and not empty.
+        """
+        reopen_closed_incident: pulumi.Input[bool]
+        """
+        Re-open closed matching incidents
+        """
+        group_by_alert_details: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AlertDetail']]]]]
+        """
+        A list of alert details to group by (when matchingMethod is Selected)
+        """
+        group_by_custom_details: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of custom details keys to group by (when matchingMethod is Selected). Only keys defined in the current alert rule may be used.
+        """
+        group_by_entities: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'EntityMappingType']]]]]
+        """
+        A list of entity types to group by (when matchingMethod is Selected). Only entities defined in the current alert rule may be used.
+        """
+elif False:
+    GroupingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GroupingConfigurationArgs:
@@ -499,6 +693,22 @@ class GroupingConfigurationArgs:
         pulumi.set(self, "group_by_entities", value)
 
 
+if not MYPY:
+    class IncidentConfigurationArgsDict(TypedDict):
+        """
+        Incident Configuration property bag.
+        """
+        create_incident: pulumi.Input[bool]
+        """
+        Create incidents from alerts triggered by this analytics rule
+        """
+        grouping_configuration: NotRequired[pulumi.Input['GroupingConfigurationArgsDict']]
+        """
+        Set how the alerts that are triggered by this analytics rule, are grouped into incidents
+        """
+elif False:
+    IncidentConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IncidentConfigurationArgs:
     def __init__(__self__, *,
@@ -537,6 +747,18 @@ class IncidentConfigurationArgs:
     def grouping_configuration(self, value: Optional[pulumi.Input['GroupingConfigurationArgs']]):
         pulumi.set(self, "grouping_configuration", value)
 
+
+if not MYPY:
+    class WatchlistUserInfoArgsDict(TypedDict):
+        """
+        User information that made some action
+        """
+        object_id: NotRequired[pulumi.Input[str]]
+        """
+        The object id of the user.
+        """
+elif False:
+    WatchlistUserInfoArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WatchlistUserInfoArgs:

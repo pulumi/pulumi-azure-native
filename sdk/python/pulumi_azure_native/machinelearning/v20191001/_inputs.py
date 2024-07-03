@@ -4,14 +4,38 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 
 __all__ = [
     'SkuArgs',
+    'SkuArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class SkuArgsDict(TypedDict):
+        """
+        Sku of the resource
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the sku
+        """
+        tier: NotRequired[pulumi.Input[str]]
+        """
+        Tier of the sku like Basic or Enterprise
+        """
+elif False:
+    SkuArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SkuArgs:

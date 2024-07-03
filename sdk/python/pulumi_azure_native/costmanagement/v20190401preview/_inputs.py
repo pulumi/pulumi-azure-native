@@ -4,18 +4,45 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'BudgetTimePeriodArgs',
+    'BudgetTimePeriodArgsDict',
     'NotificationArgs',
+    'NotificationArgsDict',
     'ReportConfigComparisonExpressionArgs',
+    'ReportConfigComparisonExpressionArgsDict',
     'ReportConfigFilterArgs',
+    'ReportConfigFilterArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class BudgetTimePeriodArgsDict(TypedDict):
+        """
+        The start and end date for a budget.
+        """
+        start_date: pulumi.Input[str]
+        """
+        The start date for the budget.
+        """
+        end_date: NotRequired[pulumi.Input[str]]
+        """
+        The end date for the budget. If not provided, we default this to 10 years from the start date.
+        """
+elif False:
+    BudgetTimePeriodArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class BudgetTimePeriodArgs:
@@ -55,6 +82,38 @@ class BudgetTimePeriodArgs:
     def end_date(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "end_date", value)
 
+
+if not MYPY:
+    class NotificationArgsDict(TypedDict):
+        """
+        The notification associated with a budget.
+        """
+        contact_emails: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Email addresses to send the budget notification to when the threshold is exceeded.
+        """
+        enabled: pulumi.Input[bool]
+        """
+        The notification is enabled or not.
+        """
+        operator: pulumi.Input[Union[str, 'NotificationOperatorType']]
+        """
+        The comparison operator.
+        """
+        threshold: pulumi.Input[float]
+        """
+        Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000.
+        """
+        contact_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Action groups to send the budget notification to when the threshold is exceeded.
+        """
+        contact_roles: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Contact roles to send the budget notification to when the threshold is exceeded.
+        """
+elif False:
+    NotificationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NotificationArgs:
@@ -156,6 +215,26 @@ class NotificationArgs:
         pulumi.set(self, "contact_roles", value)
 
 
+if not MYPY:
+    class ReportConfigComparisonExpressionArgsDict(TypedDict):
+        """
+        The comparison expression to be used in the report.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the column to use in comparison.
+        """
+        operator: pulumi.Input[Union[str, 'OperatorType']]
+        """
+        The operator to use for comparison.
+        """
+        values: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Array of values to use for comparison
+        """
+elif False:
+    ReportConfigComparisonExpressionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ReportConfigComparisonExpressionArgs:
     def __init__(__self__, *,
@@ -208,6 +287,34 @@ class ReportConfigComparisonExpressionArgs:
     def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "values", value)
 
+
+if not MYPY:
+    class ReportConfigFilterArgsDict(TypedDict):
+        """
+        The filter expression to be used in the report.
+        """
+        and_: NotRequired[pulumi.Input[Sequence[pulumi.Input['ReportConfigFilterArgsDict']]]]
+        """
+        The logical "AND" expression. Must have at least 2 items.
+        """
+        dimension: NotRequired[pulumi.Input['ReportConfigComparisonExpressionArgsDict']]
+        """
+        Has comparison expression for a dimension
+        """
+        not_: NotRequired[pulumi.Input['ReportConfigFilterArgsDict']]
+        """
+        The logical "NOT" expression.
+        """
+        or_: NotRequired[pulumi.Input[Sequence[pulumi.Input['ReportConfigFilterArgsDict']]]]
+        """
+        The logical "OR" expression. Must have at least 2 items.
+        """
+        tag: NotRequired[pulumi.Input['ReportConfigComparisonExpressionArgsDict']]
+        """
+        Has comparison expression for a tag
+        """
+elif False:
+    ReportConfigFilterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ReportConfigFilterArgs:

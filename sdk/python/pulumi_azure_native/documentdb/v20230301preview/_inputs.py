@@ -4,16 +4,42 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 
 __all__ = [
     'PrivilegeResourceArgs',
+    'PrivilegeResourceArgsDict',
     'PrivilegeArgs',
+    'PrivilegeArgsDict',
     'RoleArgs',
+    'RoleArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class PrivilegeResourceArgsDict(TypedDict):
+        """
+        An Azure Cosmos DB Mongo DB Resource.
+        """
+        collection: NotRequired[pulumi.Input[str]]
+        """
+        The collection name the role is applied.
+        """
+        db: NotRequired[pulumi.Input[str]]
+        """
+        The database name the role is applied.
+        """
+elif False:
+    PrivilegeResourceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PrivilegeResourceArgs:
@@ -55,6 +81,22 @@ class PrivilegeResourceArgs:
         pulumi.set(self, "db", value)
 
 
+if not MYPY:
+    class PrivilegeArgsDict(TypedDict):
+        """
+        The set of data plane operations permitted through this Role Definition.
+        """
+        actions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        An array of actions that are allowed.
+        """
+        resource: NotRequired[pulumi.Input['PrivilegeResourceArgsDict']]
+        """
+        An Azure Cosmos DB Mongo DB Resource.
+        """
+elif False:
+    PrivilegeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PrivilegeArgs:
     def __init__(__self__, *,
@@ -94,6 +136,22 @@ class PrivilegeArgs:
     def resource(self, value: Optional[pulumi.Input['PrivilegeResourceArgs']]):
         pulumi.set(self, "resource", value)
 
+
+if not MYPY:
+    class RoleArgsDict(TypedDict):
+        """
+        The set of roles permitted through this Role Definition.
+        """
+        db: NotRequired[pulumi.Input[str]]
+        """
+        The database name the role is applied.
+        """
+        role: NotRequired[pulumi.Input[str]]
+        """
+        The role name.
+        """
+elif False:
+    RoleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RoleArgs:

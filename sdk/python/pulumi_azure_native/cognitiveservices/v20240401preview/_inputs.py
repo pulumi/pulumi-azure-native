@@ -4,42 +4,133 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'AccountPropertiesArgs',
+    'AccountPropertiesArgsDict',
     'ApiPropertiesArgs',
+    'ApiPropertiesArgsDict',
     'CommitmentPeriodArgs',
+    'CommitmentPeriodArgsDict',
     'CommitmentPlanPropertiesArgs',
+    'CommitmentPlanPropertiesArgsDict',
     'DeploymentCapacitySettingsArgs',
+    'DeploymentCapacitySettingsArgsDict',
     'DeploymentModelArgs',
+    'DeploymentModelArgsDict',
     'DeploymentPropertiesArgs',
+    'DeploymentPropertiesArgsDict',
     'DeploymentScaleSettingsArgs',
+    'DeploymentScaleSettingsArgsDict',
     'EncryptionScopePropertiesArgs',
+    'EncryptionScopePropertiesArgsDict',
     'EncryptionArgs',
+    'EncryptionArgsDict',
     'IdentityArgs',
+    'IdentityArgsDict',
     'IpRuleArgs',
+    'IpRuleArgsDict',
     'KeyVaultPropertiesArgs',
+    'KeyVaultPropertiesArgsDict',
     'MultiRegionSettingsArgs',
+    'MultiRegionSettingsArgsDict',
     'NetworkRuleSetArgs',
+    'NetworkRuleSetArgsDict',
     'PrivateEndpointConnectionPropertiesArgs',
+    'PrivateEndpointConnectionPropertiesArgsDict',
     'PrivateLinkServiceConnectionStateArgs',
+    'PrivateLinkServiceConnectionStateArgsDict',
     'RaiBlocklistConfigArgs',
+    'RaiBlocklistConfigArgsDict',
     'RaiBlocklistItemPropertiesArgs',
+    'RaiBlocklistItemPropertiesArgsDict',
     'RaiBlocklistPropertiesArgs',
+    'RaiBlocklistPropertiesArgsDict',
     'RaiMonitorConfigArgs',
+    'RaiMonitorConfigArgsDict',
     'RaiPolicyContentFilterArgs',
+    'RaiPolicyContentFilterArgsDict',
     'RaiPolicyPropertiesArgs',
+    'RaiPolicyPropertiesArgsDict',
     'RegionSettingArgs',
+    'RegionSettingArgsDict',
     'SkuArgs',
+    'SkuArgsDict',
     'UserOwnedAmlWorkspaceArgs',
+    'UserOwnedAmlWorkspaceArgsDict',
     'UserOwnedStorageArgs',
+    'UserOwnedStorageArgsDict',
     'VirtualNetworkRuleArgs',
+    'VirtualNetworkRuleArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AccountPropertiesArgsDict(TypedDict):
+        """
+        Properties of Cognitive Services account.
+        """
+        allowed_fqdn_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        aml_workspace: NotRequired[pulumi.Input['UserOwnedAmlWorkspaceArgsDict']]
+        """
+        The user owned AML workspace properties.
+        """
+        api_properties: NotRequired[pulumi.Input['ApiPropertiesArgsDict']]
+        """
+        The api properties for special APIs.
+        """
+        custom_sub_domain_name: NotRequired[pulumi.Input[str]]
+        """
+        Optional subdomain name used for token-based authentication.
+        """
+        disable_local_auth: NotRequired[pulumi.Input[bool]]
+        dynamic_throttling_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        The flag to enable dynamic throttling.
+        """
+        encryption: NotRequired[pulumi.Input['EncryptionArgsDict']]
+        """
+        The encryption properties for this resource.
+        """
+        locations: NotRequired[pulumi.Input['MultiRegionSettingsArgsDict']]
+        """
+        The multiregion settings of Cognitive Services account.
+        """
+        migration_token: NotRequired[pulumi.Input[str]]
+        """
+        Resource migration token.
+        """
+        network_acls: NotRequired[pulumi.Input['NetworkRuleSetArgsDict']]
+        """
+        A collection of rules governing the accessibility from specific network locations.
+        """
+        public_network_access: NotRequired[pulumi.Input[Union[str, 'PublicNetworkAccess']]]
+        """
+        Whether or not public endpoint access is allowed for this account.
+        """
+        rai_monitor_config: NotRequired[pulumi.Input['RaiMonitorConfigArgsDict']]
+        """
+        Cognitive Services Rai Monitor Config.
+        """
+        restore: NotRequired[pulumi.Input[bool]]
+        restrict_outbound_network_access: NotRequired[pulumi.Input[bool]]
+        user_owned_storage: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserOwnedStorageArgsDict']]]]
+        """
+        The storage accounts for this resource.
+        """
+elif False:
+    AccountPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AccountPropertiesArgs:
@@ -273,6 +364,54 @@ class AccountPropertiesArgs:
         pulumi.set(self, "user_owned_storage", value)
 
 
+if not MYPY:
+    class ApiPropertiesArgsDict(TypedDict):
+        """
+        The api properties for special APIs.
+        """
+        aad_client_id: NotRequired[pulumi.Input[str]]
+        """
+        (Metrics Advisor Only) The Azure AD Client Id (Application Id).
+        """
+        aad_tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        (Metrics Advisor Only) The Azure AD Tenant Id.
+        """
+        event_hub_connection_string: NotRequired[pulumi.Input[str]]
+        """
+        (Personalization Only) The flag to enable statistics of Bing Search.
+        """
+        qna_azure_search_endpoint_id: NotRequired[pulumi.Input[str]]
+        """
+        (QnAMaker Only) The Azure Search endpoint id of QnAMaker.
+        """
+        qna_azure_search_endpoint_key: NotRequired[pulumi.Input[str]]
+        """
+        (QnAMaker Only) The Azure Search endpoint key of QnAMaker.
+        """
+        qna_runtime_endpoint: NotRequired[pulumi.Input[str]]
+        """
+        (QnAMaker Only) The runtime endpoint of QnAMaker.
+        """
+        statistics_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        (Bing Search Only) The flag to enable statistics of Bing Search.
+        """
+        storage_account_connection_string: NotRequired[pulumi.Input[str]]
+        """
+        (Personalization Only) The storage account connection string.
+        """
+        super_user: NotRequired[pulumi.Input[str]]
+        """
+        (Metrics Advisor Only) The super user of Metrics Advisor.
+        """
+        website_name: NotRequired[pulumi.Input[str]]
+        """
+        (Metrics Advisor Only) The website name of Metrics Advisor.
+        """
+elif False:
+    ApiPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ApiPropertiesArgs:
     def __init__(__self__, *,
@@ -441,6 +580,22 @@ class ApiPropertiesArgs:
         pulumi.set(self, "website_name", value)
 
 
+if not MYPY:
+    class CommitmentPeriodArgsDict(TypedDict):
+        """
+        Cognitive Services account commitment period.
+        """
+        count: NotRequired[pulumi.Input[int]]
+        """
+        Commitment period commitment count.
+        """
+        tier: NotRequired[pulumi.Input[str]]
+        """
+        Commitment period commitment tier.
+        """
+elif False:
+    CommitmentPeriodArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CommitmentPeriodArgs:
     def __init__(__self__, *,
@@ -480,6 +635,38 @@ class CommitmentPeriodArgs:
     def tier(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tier", value)
 
+
+if not MYPY:
+    class CommitmentPlanPropertiesArgsDict(TypedDict):
+        """
+        Properties of Cognitive Services account commitment plan.
+        """
+        auto_renew: NotRequired[pulumi.Input[bool]]
+        """
+        AutoRenew commitment plan.
+        """
+        commitment_plan_guid: NotRequired[pulumi.Input[str]]
+        """
+        Commitment plan guid.
+        """
+        current: NotRequired[pulumi.Input['CommitmentPeriodArgsDict']]
+        """
+        Cognitive Services account commitment period.
+        """
+        hosting_model: NotRequired[pulumi.Input[Union[str, 'HostingModel']]]
+        """
+        Account hosting model.
+        """
+        next: NotRequired[pulumi.Input['CommitmentPeriodArgsDict']]
+        """
+        Cognitive Services account commitment period.
+        """
+        plan_type: NotRequired[pulumi.Input[str]]
+        """
+        Commitment plan type.
+        """
+elif False:
+    CommitmentPlanPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CommitmentPlanPropertiesArgs:
@@ -585,6 +772,22 @@ class CommitmentPlanPropertiesArgs:
         pulumi.set(self, "plan_type", value)
 
 
+if not MYPY:
+    class DeploymentCapacitySettingsArgsDict(TypedDict):
+        """
+        Internal use only.
+        """
+        designated_capacity: NotRequired[pulumi.Input[int]]
+        """
+        The designated capacity.
+        """
+        priority: NotRequired[pulumi.Input[int]]
+        """
+        The priority of this capacity setting.
+        """
+elif False:
+    DeploymentCapacitySettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DeploymentCapacitySettingsArgs:
     def __init__(__self__, *,
@@ -624,6 +827,30 @@ class DeploymentCapacitySettingsArgs:
     def priority(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "priority", value)
 
+
+if not MYPY:
+    class DeploymentModelArgsDict(TypedDict):
+        """
+        Properties of Cognitive Services account deployment model.
+        """
+        format: NotRequired[pulumi.Input[str]]
+        """
+        Deployment model format.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Deployment model name.
+        """
+        source: NotRequired[pulumi.Input[str]]
+        """
+        Optional. Deployment model source ARM resource ID.
+        """
+        version: NotRequired[pulumi.Input[str]]
+        """
+        Optional. Deployment model version. If version is not specified, a default version will be assigned. The default version is different for different models and might change when there is new version available for a model. Default version for a model could be found from list models API.
+        """
+elif False:
+    DeploymentModelArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DeploymentModelArgs:
@@ -696,6 +923,38 @@ class DeploymentModelArgs:
     def version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "version", value)
 
+
+if not MYPY:
+    class DeploymentPropertiesArgsDict(TypedDict):
+        """
+        Properties of Cognitive Services account deployment.
+        """
+        capacity_settings: NotRequired[pulumi.Input['DeploymentCapacitySettingsArgsDict']]
+        """
+        Internal use only.
+        """
+        current_capacity: NotRequired[pulumi.Input[int]]
+        """
+        The current capacity.
+        """
+        model: NotRequired[pulumi.Input['DeploymentModelArgsDict']]
+        """
+        Properties of Cognitive Services account deployment model.
+        """
+        rai_policy_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of RAI policy.
+        """
+        scale_settings: NotRequired[pulumi.Input['DeploymentScaleSettingsArgsDict']]
+        """
+        Properties of Cognitive Services account deployment model. (Deprecated, please use Deployment.sku instead.)
+        """
+        version_upgrade_option: NotRequired[pulumi.Input[Union[str, 'DeploymentModelVersionUpgradeOption']]]
+        """
+        Deployment model version upgrade option.
+        """
+elif False:
+    DeploymentPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DeploymentPropertiesArgs:
@@ -801,6 +1060,22 @@ class DeploymentPropertiesArgs:
         pulumi.set(self, "version_upgrade_option", value)
 
 
+if not MYPY:
+    class DeploymentScaleSettingsArgsDict(TypedDict):
+        """
+        Properties of Cognitive Services account deployment model. (Deprecated, please use Deployment.sku instead.)
+        """
+        capacity: NotRequired[pulumi.Input[int]]
+        """
+        Deployment capacity.
+        """
+        scale_type: NotRequired[pulumi.Input[Union[str, 'DeploymentScaleType']]]
+        """
+        Deployment scale type.
+        """
+elif False:
+    DeploymentScaleSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DeploymentScaleSettingsArgs:
     def __init__(__self__, *,
@@ -840,6 +1115,26 @@ class DeploymentScaleSettingsArgs:
     def scale_type(self, value: Optional[pulumi.Input[Union[str, 'DeploymentScaleType']]]):
         pulumi.set(self, "scale_type", value)
 
+
+if not MYPY:
+    class EncryptionScopePropertiesArgsDict(TypedDict):
+        """
+        Properties to EncryptionScope
+        """
+        key_source: NotRequired[pulumi.Input[Union[str, 'KeySource']]]
+        """
+        Enumerates the possible value of keySource for Encryption
+        """
+        key_vault_properties: NotRequired[pulumi.Input['KeyVaultPropertiesArgsDict']]
+        """
+        Properties of KeyVault
+        """
+        state: NotRequired[pulumi.Input[Union[str, 'EncryptionScopeState']]]
+        """
+        The encryptionScope state.
+        """
+elif False:
+    EncryptionScopePropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EncryptionScopePropertiesArgs:
@@ -899,6 +1194,22 @@ class EncryptionScopePropertiesArgs:
         pulumi.set(self, "state", value)
 
 
+if not MYPY:
+    class EncryptionArgsDict(TypedDict):
+        """
+        Properties to configure Encryption
+        """
+        key_source: NotRequired[pulumi.Input[Union[str, 'KeySource']]]
+        """
+        Enumerates the possible value of keySource for Encryption
+        """
+        key_vault_properties: NotRequired[pulumi.Input['KeyVaultPropertiesArgsDict']]
+        """
+        Properties of KeyVault
+        """
+elif False:
+    EncryptionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EncryptionArgs:
     def __init__(__self__, *,
@@ -941,6 +1252,22 @@ class EncryptionArgs:
         pulumi.set(self, "key_vault_properties", value)
 
 
+if not MYPY:
+    class IdentityArgsDict(TypedDict):
+        """
+        Identity for the resource.
+        """
+        type: NotRequired[pulumi.Input['ResourceIdentityType']]
+        """
+        The identity type.
+        """
+        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of user assigned identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}
+        """
+elif False:
+    IdentityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IdentityArgs:
     def __init__(__self__, *,
@@ -981,6 +1308,18 @@ class IdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
+if not MYPY:
+    class IpRuleArgsDict(TypedDict):
+        """
+        A rule governing the accessibility from a specific ip address or ip range.
+        """
+        value: pulumi.Input[str]
+        """
+        An IPv4 address range in CIDR notation, such as '124.56.78.91' (simple IP address) or '124.56.78.0/24' (all addresses that start with 124.56.78).
+        """
+elif False:
+    IpRuleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IpRuleArgs:
     def __init__(__self__, *,
@@ -1003,6 +1342,27 @@ class IpRuleArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class KeyVaultPropertiesArgsDict(TypedDict):
+        """
+        Properties to configure keyVault Properties
+        """
+        identity_client_id: NotRequired[pulumi.Input[str]]
+        key_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the Key from KeyVault
+        """
+        key_vault_uri: NotRequired[pulumi.Input[str]]
+        """
+        Uri of KeyVault
+        """
+        key_version: NotRequired[pulumi.Input[str]]
+        """
+        Version of the Key from KeyVault
+        """
+elif False:
+    KeyVaultPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class KeyVaultPropertiesArgs:
@@ -1072,6 +1432,19 @@ class KeyVaultPropertiesArgs:
         pulumi.set(self, "key_version", value)
 
 
+if not MYPY:
+    class MultiRegionSettingsArgsDict(TypedDict):
+        """
+        The multiregion settings Cognitive Services account.
+        """
+        regions: NotRequired[pulumi.Input[Sequence[pulumi.Input['RegionSettingArgsDict']]]]
+        routing_method: NotRequired[pulumi.Input[Union[str, 'RoutingMethods']]]
+        """
+        Multiregion routing methods.
+        """
+elif False:
+    MultiRegionSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MultiRegionSettingsArgs:
     def __init__(__self__, *,
@@ -1107,6 +1480,30 @@ class MultiRegionSettingsArgs:
     def routing_method(self, value: Optional[pulumi.Input[Union[str, 'RoutingMethods']]]):
         pulumi.set(self, "routing_method", value)
 
+
+if not MYPY:
+    class NetworkRuleSetArgsDict(TypedDict):
+        """
+        A set of rules governing the network accessibility.
+        """
+        bypass: NotRequired[pulumi.Input[Union[str, 'ByPassSelection']]]
+        """
+        Setting for trusted services.
+        """
+        default_action: NotRequired[pulumi.Input[Union[str, 'NetworkRuleAction']]]
+        """
+        The default action when no rule from ipRules and from virtualNetworkRules match. This is only used after the bypass property has been evaluated.
+        """
+        ip_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['IpRuleArgsDict']]]]
+        """
+        The list of IP address rules.
+        """
+        virtual_network_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgsDict']]]]
+        """
+        The list of virtual network rules.
+        """
+elif False:
+    NetworkRuleSetArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NetworkRuleSetArgs:
@@ -1180,6 +1577,22 @@ class NetworkRuleSetArgs:
         pulumi.set(self, "virtual_network_rules", value)
 
 
+if not MYPY:
+    class PrivateEndpointConnectionPropertiesArgsDict(TypedDict):
+        """
+        Properties of the PrivateEndpointConnectProperties.
+        """
+        private_link_service_connection_state: pulumi.Input['PrivateLinkServiceConnectionStateArgsDict']
+        """
+        A collection of information about the state of the connection between service consumer and provider.
+        """
+        group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The private link resource group ids.
+        """
+elif False:
+    PrivateEndpointConnectionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PrivateEndpointConnectionPropertiesArgs:
     def __init__(__self__, *,
@@ -1218,6 +1631,26 @@ class PrivateEndpointConnectionPropertiesArgs:
     def group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "group_ids", value)
 
+
+if not MYPY:
+    class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
+        """
+        A collection of information about the state of the connection between service consumer and provider.
+        """
+        actions_required: NotRequired[pulumi.Input[str]]
+        """
+        A message indicating if changes on the service provider require any updates on the consumer.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The reason for approval/rejection of the connection.
+        """
+        status: NotRequired[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]]
+        """
+        Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+        """
+elif False:
+    PrivateLinkServiceConnectionStateArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:
@@ -1275,6 +1708,22 @@ class PrivateLinkServiceConnectionStateArgs:
         pulumi.set(self, "status", value)
 
 
+if not MYPY:
+    class RaiBlocklistConfigArgsDict(TypedDict):
+        """
+        Azure OpenAI blocklist config.
+        """
+        blocking: NotRequired[pulumi.Input[bool]]
+        """
+        If blocking would occur.
+        """
+        blocklist_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of ContentFilter.
+        """
+elif False:
+    RaiBlocklistConfigArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RaiBlocklistConfigArgs:
     def __init__(__self__, *,
@@ -1314,6 +1763,22 @@ class RaiBlocklistConfigArgs:
     def blocklist_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "blocklist_name", value)
 
+
+if not MYPY:
+    class RaiBlocklistItemPropertiesArgsDict(TypedDict):
+        """
+        RAI Custom Blocklist Item properties.
+        """
+        is_regex: NotRequired[pulumi.Input[bool]]
+        """
+        If the pattern is a regex pattern.
+        """
+        pattern: NotRequired[pulumi.Input[str]]
+        """
+        Pattern to match against.
+        """
+elif False:
+    RaiBlocklistItemPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RaiBlocklistItemPropertiesArgs:
@@ -1355,6 +1820,18 @@ class RaiBlocklistItemPropertiesArgs:
         pulumi.set(self, "pattern", value)
 
 
+if not MYPY:
+    class RaiBlocklistPropertiesArgsDict(TypedDict):
+        """
+        RAI Custom Blocklist properties.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Description of the block list.
+        """
+elif False:
+    RaiBlocklistPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RaiBlocklistPropertiesArgs:
     def __init__(__self__, *,
@@ -1378,6 +1855,22 @@ class RaiBlocklistPropertiesArgs:
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
 
+
+if not MYPY:
+    class RaiMonitorConfigArgsDict(TypedDict):
+        """
+        Cognitive Services Rai Monitor Config.
+        """
+        adx_storage_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        The storage resource Id.
+        """
+        identity_client_id: NotRequired[pulumi.Input[str]]
+        """
+        The identity client Id to access the storage.
+        """
+elif False:
+    RaiMonitorConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RaiMonitorConfigArgs:
@@ -1418,6 +1911,34 @@ class RaiMonitorConfigArgs:
     def identity_client_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "identity_client_id", value)
 
+
+if not MYPY:
+    class RaiPolicyContentFilterArgsDict(TypedDict):
+        """
+        Azure OpenAI Content Filter.
+        """
+        allowed_content_level: NotRequired[pulumi.Input[Union[str, 'AllowedContentLevel']]]
+        """
+        Level at which content is filtered.
+        """
+        blocking: NotRequired[pulumi.Input[bool]]
+        """
+        If blocking would occur.
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If the ContentFilter is enabled.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of ContentFilter.
+        """
+        source: NotRequired[pulumi.Input[Union[str, 'RaiPolicyContentSource']]]
+        """
+        Content source to apply the Content Filters.
+        """
+elif False:
+    RaiPolicyContentFilterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RaiPolicyContentFilterArgs:
@@ -1507,6 +2028,34 @@ class RaiPolicyContentFilterArgs:
         pulumi.set(self, "source", value)
 
 
+if not MYPY:
+    class RaiPolicyPropertiesArgsDict(TypedDict):
+        """
+        Azure OpenAI Content Filters properties.
+        """
+        base_policy_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the base Content Filters.
+        """
+        completion_blocklists: NotRequired[pulumi.Input[Sequence[pulumi.Input['RaiBlocklistConfigArgsDict']]]]
+        """
+        The list of blocklists for completion.
+        """
+        content_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['RaiPolicyContentFilterArgsDict']]]]
+        """
+        The list of Content Filters.
+        """
+        mode: NotRequired[pulumi.Input[Union[str, 'RaiPolicyMode']]]
+        """
+        Content Filters mode.
+        """
+        prompt_blocklists: NotRequired[pulumi.Input[Sequence[pulumi.Input['RaiBlocklistConfigArgsDict']]]]
+        """
+        The list of blocklists for prompt.
+        """
+elif False:
+    RaiPolicyPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RaiPolicyPropertiesArgs:
     def __init__(__self__, *,
@@ -1595,6 +2144,26 @@ class RaiPolicyPropertiesArgs:
         pulumi.set(self, "prompt_blocklists", value)
 
 
+if not MYPY:
+    class RegionSettingArgsDict(TypedDict):
+        """
+        The call rate limit Cognitive Services account.
+        """
+        customsubdomain: NotRequired[pulumi.Input[str]]
+        """
+        Maps the region to the regional custom subdomain.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the region.
+        """
+        value: NotRequired[pulumi.Input[float]]
+        """
+        A value for priority or weighted routing methods.
+        """
+elif False:
+    RegionSettingArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RegionSettingArgs:
     def __init__(__self__, *,
@@ -1650,6 +2219,34 @@ class RegionSettingArgs:
     def value(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class SkuArgsDict(TypedDict):
+        """
+        The resource model definition representing SKU
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the SKU. Ex - P3. It is typically a letter+number code
+        """
+        capacity: NotRequired[pulumi.Input[int]]
+        """
+        If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
+        """
+        family: NotRequired[pulumi.Input[str]]
+        """
+        If the service has different generations of hardware, for the same SKU, then that can be captured here.
+        """
+        size: NotRequired[pulumi.Input[str]]
+        """
+        The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+        """
+        tier: NotRequired[pulumi.Input[Union[str, 'SkuTier']]]
+        """
+        This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+        """
+elif False:
+    SkuArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SkuArgs:
@@ -1738,6 +2335,22 @@ class SkuArgs:
         pulumi.set(self, "tier", value)
 
 
+if not MYPY:
+    class UserOwnedAmlWorkspaceArgsDict(TypedDict):
+        """
+        The user owned AML workspace for Cognitive Services account.
+        """
+        identity_client_id: NotRequired[pulumi.Input[str]]
+        """
+        Identity Client id of a AML workspace resource.
+        """
+        resource_id: NotRequired[pulumi.Input[str]]
+        """
+        Full resource id of a AML workspace resource.
+        """
+elif False:
+    UserOwnedAmlWorkspaceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class UserOwnedAmlWorkspaceArgs:
     def __init__(__self__, *,
@@ -1778,6 +2391,19 @@ class UserOwnedAmlWorkspaceArgs:
         pulumi.set(self, "resource_id", value)
 
 
+if not MYPY:
+    class UserOwnedStorageArgsDict(TypedDict):
+        """
+        The user owned storage for Cognitive Services account.
+        """
+        identity_client_id: NotRequired[pulumi.Input[str]]
+        resource_id: NotRequired[pulumi.Input[str]]
+        """
+        Full resource id of a Microsoft.Storage resource.
+        """
+elif False:
+    UserOwnedStorageArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class UserOwnedStorageArgs:
     def __init__(__self__, *,
@@ -1813,6 +2439,26 @@ class UserOwnedStorageArgs:
     def resource_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "resource_id", value)
 
+
+if not MYPY:
+    class VirtualNetworkRuleArgsDict(TypedDict):
+        """
+        A rule governing the accessibility from a specific virtual network.
+        """
+        id: pulumi.Input[str]
+        """
+        Full resource id of a vnet subnet, such as '/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1'.
+        """
+        ignore_missing_vnet_service_endpoint: NotRequired[pulumi.Input[bool]]
+        """
+        Ignore missing vnet service endpoint or not.
+        """
+        state: NotRequired[pulumi.Input[str]]
+        """
+        Gets the state of virtual network rule.
+        """
+elif False:
+    VirtualNetworkRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VirtualNetworkRuleArgs:

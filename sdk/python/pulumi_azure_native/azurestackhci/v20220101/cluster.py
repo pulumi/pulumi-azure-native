@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -255,7 +260,7 @@ class Cluster(pulumi.CustomResource):
                  created_at: Optional[pulumi.Input[str]] = None,
                  created_by: Optional[pulumi.Input[str]] = None,
                  created_by_type: Optional[pulumi.Input[Union[str, 'CreatedByType']]] = None,
-                 desired_properties: Optional[pulumi.Input[pulumi.InputType['ClusterDesiredPropertiesArgs']]] = None,
+                 desired_properties: Optional[pulumi.Input[Union['ClusterDesiredPropertiesArgs', 'ClusterDesiredPropertiesArgsDict']]] = None,
                  last_modified_at: Optional[pulumi.Input[str]] = None,
                  last_modified_by: Optional[pulumi.Input[str]] = None,
                  last_modified_by_type: Optional[pulumi.Input[Union[str, 'CreatedByType']]] = None,
@@ -275,7 +280,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] created_at: The timestamp of resource creation (UTC).
         :param pulumi.Input[str] created_by: The identity that created the resource.
         :param pulumi.Input[Union[str, 'CreatedByType']] created_by_type: The type of identity that created the resource.
-        :param pulumi.Input[pulumi.InputType['ClusterDesiredPropertiesArgs']] desired_properties: Desired properties of the cluster.
+        :param pulumi.Input[Union['ClusterDesiredPropertiesArgs', 'ClusterDesiredPropertiesArgsDict']] desired_properties: Desired properties of the cluster.
         :param pulumi.Input[str] last_modified_at: The timestamp of resource last modification (UTC)
         :param pulumi.Input[str] last_modified_by: The identity that last modified the resource.
         :param pulumi.Input[Union[str, 'CreatedByType']] last_modified_by_type: The type of identity that last modified the resource.
@@ -314,7 +319,7 @@ class Cluster(pulumi.CustomResource):
                  created_at: Optional[pulumi.Input[str]] = None,
                  created_by: Optional[pulumi.Input[str]] = None,
                  created_by_type: Optional[pulumi.Input[Union[str, 'CreatedByType']]] = None,
-                 desired_properties: Optional[pulumi.Input[pulumi.InputType['ClusterDesiredPropertiesArgs']]] = None,
+                 desired_properties: Optional[pulumi.Input[Union['ClusterDesiredPropertiesArgs', 'ClusterDesiredPropertiesArgsDict']]] = None,
                  last_modified_at: Optional[pulumi.Input[str]] = None,
                  last_modified_by: Optional[pulumi.Input[str]] = None,
                  last_modified_by_type: Optional[pulumi.Input[Union[str, 'CreatedByType']]] = None,

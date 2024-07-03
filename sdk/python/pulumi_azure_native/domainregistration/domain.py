@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -277,11 +282,11 @@ class Domain(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auth_code: Optional[pulumi.Input[str]] = None,
                  auto_renew: Optional[pulumi.Input[bool]] = None,
-                 consent: Optional[pulumi.Input[pulumi.InputType['DomainPurchaseConsentArgs']]] = None,
-                 contact_admin: Optional[pulumi.Input[pulumi.InputType['ContactArgs']]] = None,
-                 contact_billing: Optional[pulumi.Input[pulumi.InputType['ContactArgs']]] = None,
-                 contact_registrant: Optional[pulumi.Input[pulumi.InputType['ContactArgs']]] = None,
-                 contact_tech: Optional[pulumi.Input[pulumi.InputType['ContactArgs']]] = None,
+                 consent: Optional[pulumi.Input[Union['DomainPurchaseConsentArgs', 'DomainPurchaseConsentArgsDict']]] = None,
+                 contact_admin: Optional[pulumi.Input[Union['ContactArgs', 'ContactArgsDict']]] = None,
+                 contact_billing: Optional[pulumi.Input[Union['ContactArgs', 'ContactArgsDict']]] = None,
+                 contact_registrant: Optional[pulumi.Input[Union['ContactArgs', 'ContactArgsDict']]] = None,
+                 contact_tech: Optional[pulumi.Input[Union['ContactArgs', 'ContactArgsDict']]] = None,
                  dns_type: Optional[pulumi.Input['DnsType']] = None,
                  dns_zone_id: Optional[pulumi.Input[str]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
@@ -301,11 +306,11 @@ class Domain(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_renew: <code>true</code> if the domain should be automatically renewed; otherwise, <code>false</code>.
-        :param pulumi.Input[pulumi.InputType['DomainPurchaseConsentArgs']] consent: Legal agreement consent.
-        :param pulumi.Input[pulumi.InputType['ContactArgs']] contact_admin: Administrative contact.
-        :param pulumi.Input[pulumi.InputType['ContactArgs']] contact_billing: Billing contact.
-        :param pulumi.Input[pulumi.InputType['ContactArgs']] contact_registrant: Registrant contact.
-        :param pulumi.Input[pulumi.InputType['ContactArgs']] contact_tech: Technical contact.
+        :param pulumi.Input[Union['DomainPurchaseConsentArgs', 'DomainPurchaseConsentArgsDict']] consent: Legal agreement consent.
+        :param pulumi.Input[Union['ContactArgs', 'ContactArgsDict']] contact_admin: Administrative contact.
+        :param pulumi.Input[Union['ContactArgs', 'ContactArgsDict']] contact_billing: Billing contact.
+        :param pulumi.Input[Union['ContactArgs', 'ContactArgsDict']] contact_registrant: Registrant contact.
+        :param pulumi.Input[Union['ContactArgs', 'ContactArgsDict']] contact_tech: Technical contact.
         :param pulumi.Input['DnsType'] dns_type: Current DNS type
         :param pulumi.Input[str] dns_zone_id: Azure DNS Zone to use
         :param pulumi.Input[str] domain_name: Name of the domain.
@@ -345,11 +350,11 @@ class Domain(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auth_code: Optional[pulumi.Input[str]] = None,
                  auto_renew: Optional[pulumi.Input[bool]] = None,
-                 consent: Optional[pulumi.Input[pulumi.InputType['DomainPurchaseConsentArgs']]] = None,
-                 contact_admin: Optional[pulumi.Input[pulumi.InputType['ContactArgs']]] = None,
-                 contact_billing: Optional[pulumi.Input[pulumi.InputType['ContactArgs']]] = None,
-                 contact_registrant: Optional[pulumi.Input[pulumi.InputType['ContactArgs']]] = None,
-                 contact_tech: Optional[pulumi.Input[pulumi.InputType['ContactArgs']]] = None,
+                 consent: Optional[pulumi.Input[Union['DomainPurchaseConsentArgs', 'DomainPurchaseConsentArgsDict']]] = None,
+                 contact_admin: Optional[pulumi.Input[Union['ContactArgs', 'ContactArgsDict']]] = None,
+                 contact_billing: Optional[pulumi.Input[Union['ContactArgs', 'ContactArgsDict']]] = None,
+                 contact_registrant: Optional[pulumi.Input[Union['ContactArgs', 'ContactArgsDict']]] = None,
+                 contact_tech: Optional[pulumi.Input[Union['ContactArgs', 'ContactArgsDict']]] = None,
                  dns_type: Optional[pulumi.Input['DnsType']] = None,
                  dns_zone_id: Optional[pulumi.Input[str]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,

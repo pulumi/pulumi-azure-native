@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -93,7 +98,7 @@ class ActionRequest(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  action_request_name: Optional[pulumi.Input[str]] = None,
-                 pre_release_access_request_spec: Optional[pulumi.Input[pulumi.InputType['PreReleaseAccessRequestSpecArgs']]] = None,
+                 pre_release_access_request_spec: Optional[pulumi.Input[Union['PreReleaseAccessRequestSpecArgs', 'PreReleaseAccessRequestSpecArgsDict']]] = None,
                  request_type: Optional[pulumi.Input[Union[str, 'RequestTypes']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  test_base_account_name: Optional[pulumi.Input[str]] = None,
@@ -129,7 +134,7 @@ class ActionRequest(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  action_request_name: Optional[pulumi.Input[str]] = None,
-                 pre_release_access_request_spec: Optional[pulumi.Input[pulumi.InputType['PreReleaseAccessRequestSpecArgs']]] = None,
+                 pre_release_access_request_spec: Optional[pulumi.Input[Union['PreReleaseAccessRequestSpecArgs', 'PreReleaseAccessRequestSpecArgsDict']]] = None,
                  request_type: Optional[pulumi.Input[Union[str, 'RequestTypes']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  test_base_account_name: Optional[pulumi.Input[str]] = None,

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -231,16 +236,16 @@ class Api(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_name: Optional[pulumi.Input[str]] = None,
-                 contacts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContactArgs']]]]] = None,
+                 contacts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ContactArgs', 'ContactArgsDict']]]]] = None,
                  custom_properties: Optional[Any] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 external_documentation: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExternalDocumentationArgs']]]]] = None,
+                 external_documentation: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ExternalDocumentationArgs', 'ExternalDocumentationArgsDict']]]]] = None,
                  kind: Optional[pulumi.Input[Union[str, 'ApiKind']]] = None,
-                 license: Optional[pulumi.Input[pulumi.InputType['LicenseArgs']]] = None,
+                 license: Optional[pulumi.Input[Union['LicenseArgs', 'LicenseArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  summary: Optional[pulumi.Input[str]] = None,
-                 terms_of_service: Optional[pulumi.Input[pulumi.InputType['TermsOfServiceArgs']]] = None,
+                 terms_of_service: Optional[pulumi.Input[Union['TermsOfServiceArgs', 'TermsOfServiceArgsDict']]] = None,
                  title: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -250,16 +255,16 @@ class Api(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_name: The name of the API.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContactArgs']]]] contacts: The set of contacts
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ContactArgs', 'ContactArgsDict']]]] contacts: The set of contacts
         :param Any custom_properties: The custom metadata defined for API catalog entities.
         :param pulumi.Input[str] description: Description of the API.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExternalDocumentationArgs']]]] external_documentation: The set of external documentation
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ExternalDocumentationArgs', 'ExternalDocumentationArgsDict']]]] external_documentation: The set of external documentation
         :param pulumi.Input[Union[str, 'ApiKind']] kind: Kind of API. For example, REST or GraphQL.
-        :param pulumi.Input[pulumi.InputType['LicenseArgs']] license: The license information for the API.
+        :param pulumi.Input[Union['LicenseArgs', 'LicenseArgsDict']] license: The license information for the API.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] service_name: The name of Azure API Center service.
         :param pulumi.Input[str] summary: Short description of the API.
-        :param pulumi.Input[pulumi.InputType['TermsOfServiceArgs']] terms_of_service: Terms of service for the API.
+        :param pulumi.Input[Union['TermsOfServiceArgs', 'TermsOfServiceArgsDict']] terms_of_service: Terms of service for the API.
         :param pulumi.Input[str] title: API title.
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         """
@@ -288,16 +293,16 @@ class Api(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_name: Optional[pulumi.Input[str]] = None,
-                 contacts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContactArgs']]]]] = None,
+                 contacts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ContactArgs', 'ContactArgsDict']]]]] = None,
                  custom_properties: Optional[Any] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 external_documentation: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExternalDocumentationArgs']]]]] = None,
+                 external_documentation: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ExternalDocumentationArgs', 'ExternalDocumentationArgsDict']]]]] = None,
                  kind: Optional[pulumi.Input[Union[str, 'ApiKind']]] = None,
-                 license: Optional[pulumi.Input[pulumi.InputType['LicenseArgs']]] = None,
+                 license: Optional[pulumi.Input[Union['LicenseArgs', 'LicenseArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  summary: Optional[pulumi.Input[str]] = None,
-                 terms_of_service: Optional[pulumi.Input[pulumi.InputType['TermsOfServiceArgs']]] = None,
+                 terms_of_service: Optional[pulumi.Input[Union['TermsOfServiceArgs', 'TermsOfServiceArgsDict']]] = None,
                  title: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):

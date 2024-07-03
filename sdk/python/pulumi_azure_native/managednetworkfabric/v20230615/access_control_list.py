@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -192,9 +197,9 @@ class AccessControlList(pulumi.CustomResource):
                  annotation: Optional[pulumi.Input[str]] = None,
                  configuration_type: Optional[pulumi.Input[Union[str, 'ConfigurationType']]] = None,
                  default_action: Optional[pulumi.Input[Union[str, 'CommunityActionTypes']]] = None,
-                 dynamic_match_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CommonDynamicMatchConfigurationArgs']]]]] = None,
+                 dynamic_match_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CommonDynamicMatchConfigurationArgs', 'CommonDynamicMatchConfigurationArgsDict']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 match_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccessControlListMatchConfigurationArgs']]]]] = None,
+                 match_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AccessControlListMatchConfigurationArgs', 'AccessControlListMatchConfigurationArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -208,9 +213,9 @@ class AccessControlList(pulumi.CustomResource):
         :param pulumi.Input[str] annotation: Switch configuration description.
         :param pulumi.Input[Union[str, 'ConfigurationType']] configuration_type: Input method to configure Access Control List.
         :param pulumi.Input[Union[str, 'CommunityActionTypes']] default_action: Default action that needs to be applied when no condition is matched. Example: Permit | Deny.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CommonDynamicMatchConfigurationArgs']]]] dynamic_match_configurations: List of dynamic match configurations.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CommonDynamicMatchConfigurationArgs', 'CommonDynamicMatchConfigurationArgsDict']]]] dynamic_match_configurations: List of dynamic match configurations.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccessControlListMatchConfigurationArgs']]]] match_configurations: List of match configurations.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AccessControlListMatchConfigurationArgs', 'AccessControlListMatchConfigurationArgsDict']]]] match_configurations: List of match configurations.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -243,9 +248,9 @@ class AccessControlList(pulumi.CustomResource):
                  annotation: Optional[pulumi.Input[str]] = None,
                  configuration_type: Optional[pulumi.Input[Union[str, 'ConfigurationType']]] = None,
                  default_action: Optional[pulumi.Input[Union[str, 'CommunityActionTypes']]] = None,
-                 dynamic_match_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CommonDynamicMatchConfigurationArgs']]]]] = None,
+                 dynamic_match_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CommonDynamicMatchConfigurationArgs', 'CommonDynamicMatchConfigurationArgsDict']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 match_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccessControlListMatchConfigurationArgs']]]]] = None,
+                 match_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AccessControlListMatchConfigurationArgs', 'AccessControlListMatchConfigurationArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):

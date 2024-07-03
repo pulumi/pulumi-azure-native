@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -170,30 +175,30 @@ class VirtualMachineInstance(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
-                 hardware_profile: Optional[pulumi.Input[pulumi.InputType['HardwareProfileArgs']]] = None,
-                 infrastructure_profile: Optional[pulumi.Input[pulumi.InputType['InfrastructureProfileArgs']]] = None,
-                 network_profile: Optional[pulumi.Input[pulumi.InputType['NetworkProfileArgs']]] = None,
-                 os_profile: Optional[pulumi.Input[pulumi.InputType['OsProfileForVMInstanceArgs']]] = None,
-                 placement_profile: Optional[pulumi.Input[pulumi.InputType['PlacementProfileArgs']]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 hardware_profile: Optional[pulumi.Input[Union['HardwareProfileArgs', 'HardwareProfileArgsDict']]] = None,
+                 infrastructure_profile: Optional[pulumi.Input[Union['InfrastructureProfileArgs', 'InfrastructureProfileArgsDict']]] = None,
+                 network_profile: Optional[pulumi.Input[Union['NetworkProfileArgs', 'NetworkProfileArgsDict']]] = None,
+                 os_profile: Optional[pulumi.Input[Union['OsProfileForVMInstanceArgs', 'OsProfileForVMInstanceArgsDict']]] = None,
+                 placement_profile: Optional[pulumi.Input[Union['PlacementProfileArgs', 'PlacementProfileArgsDict']]] = None,
                  resource_uri: Optional[pulumi.Input[str]] = None,
-                 security_profile: Optional[pulumi.Input[pulumi.InputType['SecurityProfileArgs']]] = None,
-                 storage_profile: Optional[pulumi.Input[pulumi.InputType['StorageProfileArgs']]] = None,
+                 security_profile: Optional[pulumi.Input[Union['SecurityProfileArgs', 'SecurityProfileArgsDict']]] = None,
+                 storage_profile: Optional[pulumi.Input[Union['StorageProfileArgs', 'StorageProfileArgsDict']]] = None,
                  __props__=None):
         """
         Define the virtualMachineInstance.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: Gets or sets the extended location.
-        :param pulumi.Input[pulumi.InputType['HardwareProfileArgs']] hardware_profile: Hardware properties.
-        :param pulumi.Input[pulumi.InputType['InfrastructureProfileArgs']] infrastructure_profile: Gets the infrastructure profile.
-        :param pulumi.Input[pulumi.InputType['NetworkProfileArgs']] network_profile: Network properties.
-        :param pulumi.Input[pulumi.InputType['OsProfileForVMInstanceArgs']] os_profile: OS properties.
-        :param pulumi.Input[pulumi.InputType['PlacementProfileArgs']] placement_profile: Placement properties.
+        :param pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']] extended_location: Gets or sets the extended location.
+        :param pulumi.Input[Union['HardwareProfileArgs', 'HardwareProfileArgsDict']] hardware_profile: Hardware properties.
+        :param pulumi.Input[Union['InfrastructureProfileArgs', 'InfrastructureProfileArgsDict']] infrastructure_profile: Gets the infrastructure profile.
+        :param pulumi.Input[Union['NetworkProfileArgs', 'NetworkProfileArgsDict']] network_profile: Network properties.
+        :param pulumi.Input[Union['OsProfileForVMInstanceArgs', 'OsProfileForVMInstanceArgsDict']] os_profile: OS properties.
+        :param pulumi.Input[Union['PlacementProfileArgs', 'PlacementProfileArgsDict']] placement_profile: Placement properties.
         :param pulumi.Input[str] resource_uri: The fully qualified Azure Resource manager identifier of the Hybrid Compute machine resource to be extended.
-        :param pulumi.Input[pulumi.InputType['SecurityProfileArgs']] security_profile: Gets the security profile.
-        :param pulumi.Input[pulumi.InputType['StorageProfileArgs']] storage_profile: Storage properties.
+        :param pulumi.Input[Union['SecurityProfileArgs', 'SecurityProfileArgsDict']] security_profile: Gets the security profile.
+        :param pulumi.Input[Union['StorageProfileArgs', 'StorageProfileArgsDict']] storage_profile: Storage properties.
         """
         ...
     @overload
@@ -219,15 +224,15 @@ class VirtualMachineInstance(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
-                 hardware_profile: Optional[pulumi.Input[pulumi.InputType['HardwareProfileArgs']]] = None,
-                 infrastructure_profile: Optional[pulumi.Input[pulumi.InputType['InfrastructureProfileArgs']]] = None,
-                 network_profile: Optional[pulumi.Input[pulumi.InputType['NetworkProfileArgs']]] = None,
-                 os_profile: Optional[pulumi.Input[pulumi.InputType['OsProfileForVMInstanceArgs']]] = None,
-                 placement_profile: Optional[pulumi.Input[pulumi.InputType['PlacementProfileArgs']]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 hardware_profile: Optional[pulumi.Input[Union['HardwareProfileArgs', 'HardwareProfileArgsDict']]] = None,
+                 infrastructure_profile: Optional[pulumi.Input[Union['InfrastructureProfileArgs', 'InfrastructureProfileArgsDict']]] = None,
+                 network_profile: Optional[pulumi.Input[Union['NetworkProfileArgs', 'NetworkProfileArgsDict']]] = None,
+                 os_profile: Optional[pulumi.Input[Union['OsProfileForVMInstanceArgs', 'OsProfileForVMInstanceArgsDict']]] = None,
+                 placement_profile: Optional[pulumi.Input[Union['PlacementProfileArgs', 'PlacementProfileArgsDict']]] = None,
                  resource_uri: Optional[pulumi.Input[str]] = None,
-                 security_profile: Optional[pulumi.Input[pulumi.InputType['SecurityProfileArgs']]] = None,
-                 storage_profile: Optional[pulumi.Input[pulumi.InputType['StorageProfileArgs']]] = None,
+                 security_profile: Optional[pulumi.Input[Union['SecurityProfileArgs', 'SecurityProfileArgsDict']]] = None,
+                 storage_profile: Optional[pulumi.Input[Union['StorageProfileArgs', 'StorageProfileArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

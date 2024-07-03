@@ -4,27 +4,63 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'AdvancedScheduleMonthlyOccurrenceArgs',
+    'AdvancedScheduleMonthlyOccurrenceArgsDict',
     'AdvancedScheduleArgs',
+    'AdvancedScheduleArgsDict',
     'AzureQueryPropertiesArgs',
+    'AzureQueryPropertiesArgsDict',
     'ErrorResponseArgs',
+    'ErrorResponseArgsDict',
     'LinuxPropertiesArgs',
+    'LinuxPropertiesArgsDict',
     'NonAzureQueryPropertiesArgs',
+    'NonAzureQueryPropertiesArgsDict',
     'SchedulePropertiesArgs',
+    'SchedulePropertiesArgsDict',
     'SoftwareUpdateConfigurationTasksArgs',
+    'SoftwareUpdateConfigurationTasksArgsDict',
     'TagSettingsPropertiesArgs',
+    'TagSettingsPropertiesArgsDict',
     'TargetPropertiesArgs',
+    'TargetPropertiesArgsDict',
     'TaskPropertiesArgs',
+    'TaskPropertiesArgsDict',
     'UpdateConfigurationArgs',
+    'UpdateConfigurationArgsDict',
     'WindowsPropertiesArgs',
+    'WindowsPropertiesArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AdvancedScheduleMonthlyOccurrenceArgsDict(TypedDict):
+        """
+        The properties of the create advanced schedule monthly occurrence.
+        """
+        day: NotRequired[pulumi.Input[Union[str, 'ScheduleDay']]]
+        """
+        Day of the occurrence. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.
+        """
+        occurrence: NotRequired[pulumi.Input[int]]
+        """
+        Occurrence of the week within the month. Must be between 1 and 5
+        """
+elif False:
+    AdvancedScheduleMonthlyOccurrenceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AdvancedScheduleMonthlyOccurrenceArgs:
@@ -65,6 +101,26 @@ class AdvancedScheduleMonthlyOccurrenceArgs:
     def occurrence(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "occurrence", value)
 
+
+if not MYPY:
+    class AdvancedScheduleArgsDict(TypedDict):
+        """
+        The properties of the create Advanced Schedule.
+        """
+        month_days: NotRequired[pulumi.Input[Sequence[pulumi.Input[int]]]]
+        """
+        Days of the month that the job should execute on. Must be between 1 and 31.
+        """
+        monthly_occurrences: NotRequired[pulumi.Input[Sequence[pulumi.Input['AdvancedScheduleMonthlyOccurrenceArgsDict']]]]
+        """
+        Occurrences of days within a month.
+        """
+        week_days: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Days of the week that the job should execute on.
+        """
+elif False:
+    AdvancedScheduleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AdvancedScheduleArgs:
@@ -122,6 +178,26 @@ class AdvancedScheduleArgs:
         pulumi.set(self, "week_days", value)
 
 
+if not MYPY:
+    class AzureQueryPropertiesArgsDict(TypedDict):
+        """
+        Azure query for the update configuration.
+        """
+        locations: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of locations to scope the query to.
+        """
+        scope: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of Subscription or Resource Group ARM Ids.
+        """
+        tag_settings: NotRequired[pulumi.Input['TagSettingsPropertiesArgsDict']]
+        """
+        Tag settings for the VM.
+        """
+elif False:
+    AzureQueryPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AzureQueryPropertiesArgs:
     def __init__(__self__, *,
@@ -178,6 +254,22 @@ class AzureQueryPropertiesArgs:
         pulumi.set(self, "tag_settings", value)
 
 
+if not MYPY:
+    class ErrorResponseArgsDict(TypedDict):
+        """
+        Error response of an operation failure
+        """
+        code: NotRequired[pulumi.Input[str]]
+        """
+        Error code
+        """
+        message: NotRequired[pulumi.Input[str]]
+        """
+        Error message indicating why the operation failed.
+        """
+elif False:
+    ErrorResponseArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ErrorResponseArgs:
     def __init__(__self__, *,
@@ -217,6 +309,30 @@ class ErrorResponseArgs:
     def message(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "message", value)
 
+
+if not MYPY:
+    class LinuxPropertiesArgsDict(TypedDict):
+        """
+        Linux specific update configuration.
+        """
+        excluded_package_name_masks: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        packages excluded from the software update configuration.
+        """
+        included_package_classifications: NotRequired[pulumi.Input[Union[str, 'LinuxUpdateClasses']]]
+        """
+        Update classifications included in the software update configuration.
+        """
+        included_package_name_masks: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        packages included from the software update configuration.
+        """
+        reboot_setting: NotRequired[pulumi.Input[str]]
+        """
+        Reboot setting for the software update configuration.
+        """
+elif False:
+    LinuxPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LinuxPropertiesArgs:
@@ -290,6 +406,22 @@ class LinuxPropertiesArgs:
         pulumi.set(self, "reboot_setting", value)
 
 
+if not MYPY:
+    class NonAzureQueryPropertiesArgsDict(TypedDict):
+        """
+        Non Azure query for the update configuration.
+        """
+        function_alias: NotRequired[pulumi.Input[str]]
+        """
+        Log Analytics Saved Search name.
+        """
+        workspace_id: NotRequired[pulumi.Input[str]]
+        """
+        Workspace Id for Log Analytics in which the saved Search is resided.
+        """
+elif False:
+    NonAzureQueryPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NonAzureQueryPropertiesArgs:
     def __init__(__self__, *,
@@ -329,6 +461,66 @@ class NonAzureQueryPropertiesArgs:
     def workspace_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "workspace_id", value)
 
+
+if not MYPY:
+    class SchedulePropertiesArgsDict(TypedDict):
+        """
+        Definition of schedule parameters.
+        """
+        advanced_schedule: NotRequired[pulumi.Input['AdvancedScheduleArgsDict']]
+        """
+        Gets or sets the advanced schedule.
+        """
+        creation_time: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the creation time.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the description.
+        """
+        expiry_time: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the end time of the schedule.
+        """
+        expiry_time_offset_minutes: NotRequired[pulumi.Input[float]]
+        """
+        Gets or sets the expiry time's offset in minutes.
+        """
+        frequency: NotRequired[pulumi.Input[Union[str, 'ScheduleFrequency']]]
+        """
+        Gets or sets the frequency of the schedule.
+        """
+        interval: NotRequired[pulumi.Input[int]]
+        """
+        Gets or sets the interval of the schedule.
+        """
+        is_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Gets or sets a value indicating whether this schedule is enabled.
+        """
+        last_modified_time: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the last modified time.
+        """
+        next_run: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the next run time of the schedule.
+        """
+        next_run_offset_minutes: NotRequired[pulumi.Input[float]]
+        """
+        Gets or sets the next run time's offset in minutes.
+        """
+        start_time: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the start time of the schedule.
+        """
+        time_zone: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the time zone of the schedule.
+        """
+elif False:
+    SchedulePropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SchedulePropertiesArgs:
@@ -548,6 +740,22 @@ class SchedulePropertiesArgs:
         pulumi.set(self, "time_zone", value)
 
 
+if not MYPY:
+    class SoftwareUpdateConfigurationTasksArgsDict(TypedDict):
+        """
+        Task properties of the software update configuration.
+        """
+        post_task: NotRequired[pulumi.Input['TaskPropertiesArgsDict']]
+        """
+        Post task properties.
+        """
+        pre_task: NotRequired[pulumi.Input['TaskPropertiesArgsDict']]
+        """
+        Pre task properties.
+        """
+elif False:
+    SoftwareUpdateConfigurationTasksArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SoftwareUpdateConfigurationTasksArgs:
     def __init__(__self__, *,
@@ -587,6 +795,22 @@ class SoftwareUpdateConfigurationTasksArgs:
     def pre_task(self, value: Optional[pulumi.Input['TaskPropertiesArgs']]):
         pulumi.set(self, "pre_task", value)
 
+
+if not MYPY:
+    class TagSettingsPropertiesArgsDict(TypedDict):
+        """
+        Tag filter information for the VM.
+        """
+        filter_operator: NotRequired[pulumi.Input['TagOperators']]
+        """
+        Filter VMs by Any or All specified tags.
+        """
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[str]]]]]]
+        """
+        Dictionary of tags with its list of values.
+        """
+elif False:
+    TagSettingsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TagSettingsPropertiesArgs:
@@ -628,6 +852,22 @@ class TagSettingsPropertiesArgs:
         pulumi.set(self, "tags", value)
 
 
+if not MYPY:
+    class TargetPropertiesArgsDict(TypedDict):
+        """
+        Group specific to the update configuration.
+        """
+        azure_queries: NotRequired[pulumi.Input[Sequence[pulumi.Input['AzureQueryPropertiesArgsDict']]]]
+        """
+        List of Azure queries in the software update configuration.
+        """
+        non_azure_queries: NotRequired[pulumi.Input[Sequence[pulumi.Input['NonAzureQueryPropertiesArgsDict']]]]
+        """
+        List of non Azure queries in the software update configuration.
+        """
+elif False:
+    TargetPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TargetPropertiesArgs:
     def __init__(__self__, *,
@@ -668,6 +908,22 @@ class TargetPropertiesArgs:
         pulumi.set(self, "non_azure_queries", value)
 
 
+if not MYPY:
+    class TaskPropertiesArgsDict(TypedDict):
+        """
+        Task properties of the software update configuration.
+        """
+        parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Gets or sets the parameters of the task.
+        """
+        source: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the name of the runbook.
+        """
+elif False:
+    TaskPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TaskPropertiesArgs:
     def __init__(__self__, *,
@@ -707,6 +963,42 @@ class TaskPropertiesArgs:
     def source(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "source", value)
 
+
+if not MYPY:
+    class UpdateConfigurationArgsDict(TypedDict):
+        """
+        Update specific properties of the software update configuration.
+        """
+        operating_system: pulumi.Input['OperatingSystemType']
+        """
+        operating system of target machines
+        """
+        azure_virtual_machines: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of azure resource Ids for azure virtual machines targeted by the software update configuration.
+        """
+        duration: NotRequired[pulumi.Input[str]]
+        """
+        Maximum time allowed for the software update configuration run. Duration needs to be specified using the format PT[n]H[n]M[n]S as per ISO8601
+        """
+        linux: NotRequired[pulumi.Input['LinuxPropertiesArgsDict']]
+        """
+        Linux specific update configuration.
+        """
+        non_azure_computer_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of names of non-azure machines targeted by the software update configuration.
+        """
+        targets: NotRequired[pulumi.Input['TargetPropertiesArgsDict']]
+        """
+        Group targets for the software update configuration.
+        """
+        windows: NotRequired[pulumi.Input['WindowsPropertiesArgsDict']]
+        """
+        Windows specific update configuration.
+        """
+elif False:
+    UpdateConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UpdateConfigurationArgs:
@@ -826,6 +1118,30 @@ class UpdateConfigurationArgs:
     def windows(self, value: Optional[pulumi.Input['WindowsPropertiesArgs']]):
         pulumi.set(self, "windows", value)
 
+
+if not MYPY:
+    class WindowsPropertiesArgsDict(TypedDict):
+        """
+        Windows specific update configuration.
+        """
+        excluded_kb_numbers: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        KB numbers excluded from the software update configuration.
+        """
+        included_kb_numbers: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        KB numbers included from the software update configuration.
+        """
+        included_update_classifications: NotRequired[pulumi.Input[Union[str, 'WindowsUpdateClasses']]]
+        """
+        Update classification included in the software update configuration. A comma separated string with required values
+        """
+        reboot_setting: NotRequired[pulumi.Input[str]]
+        """
+        Reboot setting for the software update configuration.
+        """
+elif False:
+    WindowsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WindowsPropertiesArgs:

@@ -4,24 +4,53 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'CustomRuleListArgs',
+    'CustomRuleListArgsDict',
     'CustomRuleArgs',
+    'CustomRuleArgsDict',
     'FrontDoorManagedRuleGroupOverrideArgs',
+    'FrontDoorManagedRuleGroupOverrideArgsDict',
     'FrontDoorManagedRuleOverrideArgs',
+    'FrontDoorManagedRuleOverrideArgsDict',
     'FrontDoorManagedRuleSetArgs',
+    'FrontDoorManagedRuleSetArgsDict',
     'FrontDoorMatchConditionArgs',
+    'FrontDoorMatchConditionArgsDict',
     'FrontDoorPolicySettingsArgs',
+    'FrontDoorPolicySettingsArgsDict',
     'ManagedRuleExclusionArgs',
+    'ManagedRuleExclusionArgsDict',
     'ManagedRuleSetListArgs',
+    'ManagedRuleSetListArgsDict',
     'SkuArgs',
+    'SkuArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class CustomRuleListArgsDict(TypedDict):
+        """
+        Defines contents of custom rules
+        """
+        rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['CustomRuleArgsDict']]]]
+        """
+        List of rules
+        """
+elif False:
+    CustomRuleListArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CustomRuleListArgs:
@@ -46,6 +75,46 @@ class CustomRuleListArgs:
     def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CustomRuleArgs']]]]):
         pulumi.set(self, "rules", value)
 
+
+if not MYPY:
+    class CustomRuleArgsDict(TypedDict):
+        """
+        Defines contents of a web application rule
+        """
+        action: pulumi.Input[Union[str, 'ActionType']]
+        """
+        Describes what action to be applied when rule matches.
+        """
+        match_conditions: pulumi.Input[Sequence[pulumi.Input['FrontDoorMatchConditionArgsDict']]]
+        """
+        List of match conditions.
+        """
+        priority: pulumi.Input[int]
+        """
+        Describes priority of the rule. Rules with a lower value will be evaluated before rules with a higher value.
+        """
+        rule_type: pulumi.Input[Union[str, 'RuleType']]
+        """
+        Describes type of rule.
+        """
+        enabled_state: NotRequired[pulumi.Input[Union[str, 'CustomRuleEnabledState']]]
+        """
+        Describes if the custom rule is in enabled or disabled state. Defaults to Enabled if not specified.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Describes the name of the rule.
+        """
+        rate_limit_duration_in_minutes: NotRequired[pulumi.Input[int]]
+        """
+        Time window for resetting the rate limit count. Default is 1 minute.
+        """
+        rate_limit_threshold: NotRequired[pulumi.Input[int]]
+        """
+        Number of allowed requests per client within the time window.
+        """
+elif False:
+    CustomRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CustomRuleArgs:
@@ -179,6 +248,26 @@ class CustomRuleArgs:
         pulumi.set(self, "rate_limit_threshold", value)
 
 
+if not MYPY:
+    class FrontDoorManagedRuleGroupOverrideArgsDict(TypedDict):
+        """
+        Defines a managed rule group override setting.
+        """
+        rule_group_name: pulumi.Input[str]
+        """
+        Describes the managed rule group to override.
+        """
+        exclusions: NotRequired[pulumi.Input[Sequence[pulumi.Input['ManagedRuleExclusionArgsDict']]]]
+        """
+        Describes the exclusions that are applied to all rules in the group.
+        """
+        rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['FrontDoorManagedRuleOverrideArgsDict']]]]
+        """
+        List of rules that will be disabled. If none specified, all rules in the group will be disabled.
+        """
+elif False:
+    FrontDoorManagedRuleGroupOverrideArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FrontDoorManagedRuleGroupOverrideArgs:
     def __init__(__self__, *,
@@ -233,6 +322,30 @@ class FrontDoorManagedRuleGroupOverrideArgs:
     def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontDoorManagedRuleOverrideArgs']]]]):
         pulumi.set(self, "rules", value)
 
+
+if not MYPY:
+    class FrontDoorManagedRuleOverrideArgsDict(TypedDict):
+        """
+        Defines a managed rule group override setting.
+        """
+        rule_id: pulumi.Input[str]
+        """
+        Identifier for the managed rule.
+        """
+        action: NotRequired[pulumi.Input[Union[str, 'ActionType']]]
+        """
+        Describes the override action to be applied when rule matches.
+        """
+        enabled_state: NotRequired[pulumi.Input[Union[str, 'ManagedRuleEnabledState']]]
+        """
+        Describes if the managed rule is in enabled or disabled state. Defaults to Disabled if not specified.
+        """
+        exclusions: NotRequired[pulumi.Input[Sequence[pulumi.Input['ManagedRuleExclusionArgsDict']]]]
+        """
+        Describes the exclusions that are applied to this specific rule.
+        """
+elif False:
+    FrontDoorManagedRuleOverrideArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FrontDoorManagedRuleOverrideArgs:
@@ -304,6 +417,34 @@ class FrontDoorManagedRuleOverrideArgs:
     def exclusions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedRuleExclusionArgs']]]]):
         pulumi.set(self, "exclusions", value)
 
+
+if not MYPY:
+    class FrontDoorManagedRuleSetArgsDict(TypedDict):
+        """
+        Defines a managed rule set.
+        """
+        rule_set_type: pulumi.Input[str]
+        """
+        Defines the rule set type to use.
+        """
+        rule_set_version: pulumi.Input[str]
+        """
+        Defines the version of the rule set to use.
+        """
+        exclusions: NotRequired[pulumi.Input[Sequence[pulumi.Input['ManagedRuleExclusionArgsDict']]]]
+        """
+        Describes the exclusions that are applied to all rules in the set.
+        """
+        rule_group_overrides: NotRequired[pulumi.Input[Sequence[pulumi.Input['FrontDoorManagedRuleGroupOverrideArgsDict']]]]
+        """
+        Defines the rule group overrides to apply to the rule set.
+        """
+        rule_set_action: NotRequired[pulumi.Input[Union[str, 'ManagedRuleSetActionType']]]
+        """
+        Defines the rule set action.
+        """
+elif False:
+    FrontDoorManagedRuleSetArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FrontDoorManagedRuleSetArgs:
@@ -390,6 +531,38 @@ class FrontDoorManagedRuleSetArgs:
     def rule_set_action(self, value: Optional[pulumi.Input[Union[str, 'ManagedRuleSetActionType']]]):
         pulumi.set(self, "rule_set_action", value)
 
+
+if not MYPY:
+    class FrontDoorMatchConditionArgsDict(TypedDict):
+        """
+        Define a match condition.
+        """
+        match_value: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        List of possible match values.
+        """
+        match_variable: pulumi.Input[Union[str, 'FrontDoorMatchVariable']]
+        """
+        Request variable to compare with.
+        """
+        operator: pulumi.Input[Union[str, 'Operator']]
+        """
+        Comparison type to use for matching with the variable value.
+        """
+        negate_condition: NotRequired[pulumi.Input[bool]]
+        """
+        Describes if the result of this condition should be negated.
+        """
+        selector: NotRequired[pulumi.Input[str]]
+        """
+        Match against a specific key from the QueryString, PostArgs, RequestHeader or Cookies variables. Default is null.
+        """
+        transforms: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'TransformType']]]]]
+        """
+        List of transforms.
+        """
+elif False:
+    FrontDoorMatchConditionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FrontDoorMatchConditionArgs:
@@ -491,6 +664,38 @@ class FrontDoorMatchConditionArgs:
     def transforms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'TransformType']]]]]):
         pulumi.set(self, "transforms", value)
 
+
+if not MYPY:
+    class FrontDoorPolicySettingsArgsDict(TypedDict):
+        """
+        Defines top-level WebApplicationFirewallPolicy configuration settings.
+        """
+        custom_block_response_body: NotRequired[pulumi.Input[str]]
+        """
+        If the action type is block, customer can override the response body. The body must be specified in base64 encoding.
+        """
+        custom_block_response_status_code: NotRequired[pulumi.Input[int]]
+        """
+        If the action type is block, customer can override the response status code.
+        """
+        enabled_state: NotRequired[pulumi.Input[Union[str, 'PolicyEnabledState']]]
+        """
+        Describes if the policy is in enabled or disabled state. Defaults to Enabled if not specified.
+        """
+        mode: NotRequired[pulumi.Input[Union[str, 'PolicyMode']]]
+        """
+        Describes if it is in detection mode or prevention mode at policy level.
+        """
+        redirect_url: NotRequired[pulumi.Input[str]]
+        """
+        If action type is redirect, this field represents redirect URL for the client.
+        """
+        request_body_check: NotRequired[pulumi.Input[Union[str, 'PolicyRequestBodyCheck']]]
+        """
+        Describes if policy managed rules will inspect the request body content.
+        """
+elif False:
+    FrontDoorPolicySettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FrontDoorPolicySettingsArgs:
@@ -596,6 +801,26 @@ class FrontDoorPolicySettingsArgs:
         pulumi.set(self, "request_body_check", value)
 
 
+if not MYPY:
+    class ManagedRuleExclusionArgsDict(TypedDict):
+        """
+        Exclude variables from managed rule evaluation.
+        """
+        match_variable: pulumi.Input[Union[str, 'ManagedRuleExclusionMatchVariable']]
+        """
+        The variable type to be excluded.
+        """
+        selector: pulumi.Input[str]
+        """
+        Selector value for which elements in the collection this exclusion applies to.
+        """
+        selector_match_operator: pulumi.Input[Union[str, 'ManagedRuleExclusionSelectorMatchOperator']]
+        """
+        Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to.
+        """
+elif False:
+    ManagedRuleExclusionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ManagedRuleExclusionArgs:
     def __init__(__self__, *,
@@ -649,6 +874,18 @@ class ManagedRuleExclusionArgs:
         pulumi.set(self, "selector_match_operator", value)
 
 
+if not MYPY:
+    class ManagedRuleSetListArgsDict(TypedDict):
+        """
+        Defines the list of managed rule sets for the policy.
+        """
+        managed_rule_sets: NotRequired[pulumi.Input[Sequence[pulumi.Input['FrontDoorManagedRuleSetArgsDict']]]]
+        """
+        List of rule sets.
+        """
+elif False:
+    ManagedRuleSetListArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ManagedRuleSetListArgs:
     def __init__(__self__, *,
@@ -672,6 +909,18 @@ class ManagedRuleSetListArgs:
     def managed_rule_sets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontDoorManagedRuleSetArgs']]]]):
         pulumi.set(self, "managed_rule_sets", value)
 
+
+if not MYPY:
+    class SkuArgsDict(TypedDict):
+        """
+        The pricing tier of the web application firewall policy.
+        """
+        name: NotRequired[pulumi.Input[Union[str, 'SkuName']]]
+        """
+        Name of the pricing tier.
+        """
+elif False:
+    SkuArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SkuArgs:

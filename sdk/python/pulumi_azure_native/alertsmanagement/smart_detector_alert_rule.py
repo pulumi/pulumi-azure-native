@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -214,10 +219,10 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action_groups: Optional[pulumi.Input[pulumi.InputType['ActionGroupsInformationArgs']]] = None,
+                 action_groups: Optional[pulumi.Input[Union['ActionGroupsInformationArgs', 'ActionGroupsInformationArgsDict']]] = None,
                  alert_rule_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 detector: Optional[pulumi.Input[pulumi.InputType['DetectorArgs']]] = None,
+                 detector: Optional[pulumi.Input[Union['DetectorArgs', 'DetectorArgsDict']]] = None,
                  frequency: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -225,7 +230,7 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
                  severity: Optional[pulumi.Input[Union[str, 'Severity']]] = None,
                  state: Optional[pulumi.Input[Union[str, 'AlertRuleState']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 throttling: Optional[pulumi.Input[pulumi.InputType['ThrottlingInformationArgs']]] = None,
+                 throttling: Optional[pulumi.Input[Union['ThrottlingInformationArgs', 'ThrottlingInformationArgsDict']]] = None,
                  __props__=None):
         """
         The alert rule information
@@ -233,10 +238,10 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ActionGroupsInformationArgs']] action_groups: The alert rule actions.
+        :param pulumi.Input[Union['ActionGroupsInformationArgs', 'ActionGroupsInformationArgsDict']] action_groups: The alert rule actions.
         :param pulumi.Input[str] alert_rule_name: The name of the alert rule.
         :param pulumi.Input[str] description: The alert rule description.
-        :param pulumi.Input[pulumi.InputType['DetectorArgs']] detector: The alert rule's detector.
+        :param pulumi.Input[Union['DetectorArgs', 'DetectorArgsDict']] detector: The alert rule's detector.
         :param pulumi.Input[str] frequency: The alert rule frequency in ISO8601 format. The time granularity must be in minutes and minimum value is 1 minute, depending on the detector.
         :param pulumi.Input[str] location: The resource location.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
@@ -244,7 +249,7 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'Severity']] severity: The alert rule severity.
         :param pulumi.Input[Union[str, 'AlertRuleState']] state: The alert rule state.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
-        :param pulumi.Input[pulumi.InputType['ThrottlingInformationArgs']] throttling: The alert rule throttling information.
+        :param pulumi.Input[Union['ThrottlingInformationArgs', 'ThrottlingInformationArgsDict']] throttling: The alert rule throttling information.
         """
         ...
     @overload
@@ -271,10 +276,10 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action_groups: Optional[pulumi.Input[pulumi.InputType['ActionGroupsInformationArgs']]] = None,
+                 action_groups: Optional[pulumi.Input[Union['ActionGroupsInformationArgs', 'ActionGroupsInformationArgsDict']]] = None,
                  alert_rule_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 detector: Optional[pulumi.Input[pulumi.InputType['DetectorArgs']]] = None,
+                 detector: Optional[pulumi.Input[Union['DetectorArgs', 'DetectorArgsDict']]] = None,
                  frequency: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -282,7 +287,7 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
                  severity: Optional[pulumi.Input[Union[str, 'Severity']]] = None,
                  state: Optional[pulumi.Input[Union[str, 'AlertRuleState']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 throttling: Optional[pulumi.Input[pulumi.InputType['ThrottlingInformationArgs']]] = None,
+                 throttling: Optional[pulumi.Input[Union['ThrottlingInformationArgs', 'ThrottlingInformationArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

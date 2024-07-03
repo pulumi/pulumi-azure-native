@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -324,12 +329,12 @@ class Sim(pulumi.CustomResource):
                  last_modified_by: Optional[pulumi.Input[str]] = None,
                  last_modified_by_type: Optional[pulumi.Input[Union[str, 'CreatedByType']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 mobile_network: Optional[pulumi.Input[pulumi.InputType['MobileNetworkResourceIdArgs']]] = None,
+                 mobile_network: Optional[pulumi.Input[Union['MobileNetworkResourceIdArgs', 'MobileNetworkResourceIdArgsDict']]] = None,
                  operator_key_code: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sim_name: Optional[pulumi.Input[str]] = None,
-                 sim_policy: Optional[pulumi.Input[pulumi.InputType['SimPolicyResourceIdArgs']]] = None,
-                 static_ip_configuration: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SimStaticIpPropertiesArgs']]]]] = None,
+                 sim_policy: Optional[pulumi.Input[Union['SimPolicyResourceIdArgs', 'SimPolicyResourceIdArgsDict']]] = None,
+                 static_ip_configuration: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SimStaticIpPropertiesArgs', 'SimStaticIpPropertiesArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -348,12 +353,12 @@ class Sim(pulumi.CustomResource):
         :param pulumi.Input[str] last_modified_by: The identity that last modified the resource.
         :param pulumi.Input[Union[str, 'CreatedByType']] last_modified_by_type: The type of identity that last modified the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[pulumi.InputType['MobileNetworkResourceIdArgs']] mobile_network: Mobile network that this sim belongs to
+        :param pulumi.Input[Union['MobileNetworkResourceIdArgs', 'MobileNetworkResourceIdArgsDict']] mobile_network: Mobile network that this sim belongs to
         :param pulumi.Input[str] operator_key_code: The Opc value for the sim.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] sim_name: The name of the SIM.
-        :param pulumi.Input[pulumi.InputType['SimPolicyResourceIdArgs']] sim_policy: The simPolicy used by this sim.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SimStaticIpPropertiesArgs']]]] static_ip_configuration: A list of static IP addresses assigned to this sim. Each address is assigned at a defined network scope, made up of {attached data network, slice}.
+        :param pulumi.Input[Union['SimPolicyResourceIdArgs', 'SimPolicyResourceIdArgsDict']] sim_policy: The simPolicy used by this sim.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SimStaticIpPropertiesArgs', 'SimStaticIpPropertiesArgsDict']]]] static_ip_configuration: A list of static IP addresses assigned to this sim. Each address is assigned at a defined network scope, made up of {attached data network, slice}.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         ...
@@ -391,12 +396,12 @@ class Sim(pulumi.CustomResource):
                  last_modified_by: Optional[pulumi.Input[str]] = None,
                  last_modified_by_type: Optional[pulumi.Input[Union[str, 'CreatedByType']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 mobile_network: Optional[pulumi.Input[pulumi.InputType['MobileNetworkResourceIdArgs']]] = None,
+                 mobile_network: Optional[pulumi.Input[Union['MobileNetworkResourceIdArgs', 'MobileNetworkResourceIdArgsDict']]] = None,
                  operator_key_code: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sim_name: Optional[pulumi.Input[str]] = None,
-                 sim_policy: Optional[pulumi.Input[pulumi.InputType['SimPolicyResourceIdArgs']]] = None,
-                 static_ip_configuration: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SimStaticIpPropertiesArgs']]]]] = None,
+                 sim_policy: Optional[pulumi.Input[Union['SimPolicyResourceIdArgs', 'SimPolicyResourceIdArgsDict']]] = None,
+                 static_ip_configuration: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SimStaticIpPropertiesArgs', 'SimStaticIpPropertiesArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

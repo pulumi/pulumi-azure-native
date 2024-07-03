@@ -4,18 +4,43 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'AuthorizationArgs',
+    'AuthorizationArgsDict',
     'DevOpsConfigurationPropertiesArgs',
+    'DevOpsConfigurationPropertiesArgsDict',
     'DevOpsPolicyAssignmentPropertiesArgs',
+    'DevOpsPolicyAssignmentPropertiesArgsDict',
     'DevOpsPolicyDescriptorArgs',
+    'DevOpsPolicyDescriptorArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AuthorizationArgsDict(TypedDict):
+        """
+        Authorization payload.
+        """
+        code: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets one-time OAuth code to exchange for refresh and access tokens.
+        
+        Only used during PUT/PATCH operations. The secret is cleared during GET.
+        """
+elif False:
+    AuthorizationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AuthorizationArgs:
@@ -44,6 +69,27 @@ class AuthorizationArgs:
     def code(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "code", value)
 
+
+if not MYPY:
+    class DevOpsConfigurationPropertiesArgsDict(TypedDict):
+        """
+        DevOps Configuration properties.
+        """
+        authorization: NotRequired[pulumi.Input['AuthorizationArgsDict']]
+        """
+        Authorization payload.
+        """
+        auto_discovery: NotRequired[pulumi.Input[Union[str, 'AutoDiscovery']]]
+        """
+        AutoDiscovery states.
+        """
+        top_level_inventory_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of top-level inventory to select when AutoDiscovery is disabled.
+        This field is ignored when AutoDiscovery is enabled.
+        """
+elif False:
+    DevOpsConfigurationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DevOpsConfigurationPropertiesArgs:
@@ -102,6 +148,30 @@ class DevOpsConfigurationPropertiesArgs:
     def top_level_inventory_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "top_level_inventory_list", value)
 
+
+if not MYPY:
+    class DevOpsPolicyAssignmentPropertiesArgsDict(TypedDict):
+        """
+        Properties of the DevOps policy assignment resource.
+        """
+        assigned_at: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets time when the assignment was created in UTC.
+        """
+        descendant_behavior: NotRequired[pulumi.Input[Union[str, 'DescendantBehavior']]]
+        """
+        The behavior of a policy on descendant resources.
+        """
+        policy: NotRequired[pulumi.Input['DevOpsPolicyDescriptorArgsDict']]
+        """
+        Condensed information to identify a DevOps Policy resource.
+        """
+        resource_id: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the Azure resource id.
+        """
+elif False:
+    DevOpsPolicyAssignmentPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DevOpsPolicyAssignmentPropertiesArgs:
@@ -174,6 +244,30 @@ class DevOpsPolicyAssignmentPropertiesArgs:
     def resource_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "resource_id", value)
 
+
+if not MYPY:
+    class DevOpsPolicyDescriptorArgsDict(TypedDict):
+        """
+        Condensed information to identify a DevOps Policy resource.
+        """
+        policy_id: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the policy GUID.
+        """
+        policy_name: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the policy name.
+        """
+        policy_type: NotRequired[pulumi.Input[Union[str, 'DevOpsPolicyType']]]
+        """
+        DevOps Policy resource types.
+        """
+        policy_version: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the version.
+        """
+elif False:
+    DevOpsPolicyDescriptorArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DevOpsPolicyDescriptorArgs:

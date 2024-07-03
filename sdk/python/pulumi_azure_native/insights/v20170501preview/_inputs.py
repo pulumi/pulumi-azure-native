@@ -4,14 +4,38 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 
 __all__ = [
     'SubscriptionLogSettingsArgs',
+    'SubscriptionLogSettingsArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class SubscriptionLogSettingsArgsDict(TypedDict):
+        """
+        Part of Subscription diagnostic setting. Specifies the settings for a particular log.
+        """
+        enabled: pulumi.Input[bool]
+        """
+        a value indicating whether this log is enabled.
+        """
+        category: NotRequired[pulumi.Input[str]]
+        """
+        Name of a Subscription Diagnostic Log category for a resource type this setting is applied to.
+        """
+elif False:
+    SubscriptionLogSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SubscriptionLogSettingsArgs:

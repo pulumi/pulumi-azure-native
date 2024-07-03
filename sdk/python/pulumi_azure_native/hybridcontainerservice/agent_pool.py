@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -331,9 +336,9 @@ class AgentPool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  agent_pool_name: Optional[pulumi.Input[str]] = None,
                  availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 cloud_provider_profile: Optional[pulumi.Input[pulumi.InputType['CloudProviderProfileArgs']]] = None,
+                 cloud_provider_profile: Optional[pulumi.Input[Union['CloudProviderProfileArgs', 'CloudProviderProfileArgsDict']]] = None,
                  count: Optional[pulumi.Input[int]] = None,
-                 extended_location: Optional[pulumi.Input[pulumi.InputType['AgentPoolExtendedLocationArgs']]] = None,
+                 extended_location: Optional[pulumi.Input[Union['AgentPoolExtendedLocationArgs', 'AgentPoolExtendedLocationArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  max_count: Optional[pulumi.Input[int]] = None,
                  max_pods: Optional[pulumi.Input[int]] = None,
@@ -345,7 +350,7 @@ class AgentPool(pulumi.CustomResource):
                  os_type: Optional[pulumi.Input[Union[str, 'OsType']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
-                 status: Optional[pulumi.Input[pulumi.InputType['AgentPoolProvisioningStatusStatusArgs']]] = None,
+                 status: Optional[pulumi.Input[Union['AgentPoolProvisioningStatusStatusArgs', 'AgentPoolProvisioningStatusStatusArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vm_size: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -357,7 +362,7 @@ class AgentPool(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] agent_pool_name: Parameter for the name of the agent pool in the provisioned cluster
         :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: AvailabilityZones - The list of Availability zones to use for nodes. Datacenter racks modelled as zones
-        :param pulumi.Input[pulumi.InputType['CloudProviderProfileArgs']] cloud_provider_profile: The underlying cloud infra provider properties.
+        :param pulumi.Input[Union['CloudProviderProfileArgs', 'CloudProviderProfileArgsDict']] cloud_provider_profile: The underlying cloud infra provider properties.
         :param pulumi.Input[int] count: Count - Number of agents to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
         :param pulumi.Input[str] location: The resource location
         :param pulumi.Input[int] max_count: The maximum number of nodes for auto-scaling
@@ -370,7 +375,7 @@ class AgentPool(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'OsType']] os_type: OsType - OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux. Possible values include: 'Linux', 'Windows'
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] resource_name_: Parameter for the name of the provisioned cluster
-        :param pulumi.Input[pulumi.InputType['AgentPoolProvisioningStatusStatusArgs']] status: HybridAKSNodePoolStatus defines the observed state of HybridAKSNodePool
+        :param pulumi.Input[Union['AgentPoolProvisioningStatusStatusArgs', 'AgentPoolProvisioningStatusStatusArgsDict']] status: HybridAKSNodePoolStatus defines the observed state of HybridAKSNodePool
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[str] vm_size: VmSize - The size of the agent pool VMs.
         """
@@ -401,9 +406,9 @@ class AgentPool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  agent_pool_name: Optional[pulumi.Input[str]] = None,
                  availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 cloud_provider_profile: Optional[pulumi.Input[pulumi.InputType['CloudProviderProfileArgs']]] = None,
+                 cloud_provider_profile: Optional[pulumi.Input[Union['CloudProviderProfileArgs', 'CloudProviderProfileArgsDict']]] = None,
                  count: Optional[pulumi.Input[int]] = None,
-                 extended_location: Optional[pulumi.Input[pulumi.InputType['AgentPoolExtendedLocationArgs']]] = None,
+                 extended_location: Optional[pulumi.Input[Union['AgentPoolExtendedLocationArgs', 'AgentPoolExtendedLocationArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  max_count: Optional[pulumi.Input[int]] = None,
                  max_pods: Optional[pulumi.Input[int]] = None,
@@ -415,7 +420,7 @@ class AgentPool(pulumi.CustomResource):
                  os_type: Optional[pulumi.Input[Union[str, 'OsType']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
-                 status: Optional[pulumi.Input[pulumi.InputType['AgentPoolProvisioningStatusStatusArgs']]] = None,
+                 status: Optional[pulumi.Input[Union['AgentPoolProvisioningStatusStatusArgs', 'AgentPoolProvisioningStatusStatusArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vm_size: Optional[pulumi.Input[str]] = None,
                  __props__=None):

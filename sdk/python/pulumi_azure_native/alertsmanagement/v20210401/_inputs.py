@@ -4,17 +4,47 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'ActionGroupsInformationArgs',
+    'ActionGroupsInformationArgsDict',
     'DetectorArgs',
+    'DetectorArgsDict',
     'ThrottlingInformationArgs',
+    'ThrottlingInformationArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ActionGroupsInformationArgsDict(TypedDict):
+        """
+        The Action Groups information, used by the alert rule.
+        """
+        group_ids: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        The Action Group resource IDs.
+        """
+        custom_email_subject: NotRequired[pulumi.Input[str]]
+        """
+        An optional custom email subject to use in email notifications.
+        """
+        custom_webhook_payload: NotRequired[pulumi.Input[str]]
+        """
+        An optional custom web-hook payload to use in web-hook notifications.
+        """
+elif False:
+    ActionGroupsInformationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ActionGroupsInformationArgs:
@@ -71,6 +101,22 @@ class ActionGroupsInformationArgs:
         pulumi.set(self, "custom_webhook_payload", value)
 
 
+if not MYPY:
+    class DetectorArgsDict(TypedDict):
+        """
+        The detector information. By default this is not populated, unless it's specified in expandDetector
+        """
+        id: pulumi.Input[str]
+        """
+        The detector id.
+        """
+        parameters: NotRequired[pulumi.Input[Mapping[str, Any]]]
+        """
+        The detector's parameters.'
+        """
+elif False:
+    DetectorArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DetectorArgs:
     def __init__(__self__, *,
@@ -109,6 +155,18 @@ class DetectorArgs:
     def parameters(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
         pulumi.set(self, "parameters", value)
 
+
+if not MYPY:
+    class ThrottlingInformationArgsDict(TypedDict):
+        """
+        Optional throttling information for the alert rule.
+        """
+        duration: NotRequired[pulumi.Input[str]]
+        """
+        The required duration (in ISO8601 format) to wait before notifying on the alert rule again. The time granularity must be in minutes and minimum value is 0 minutes
+        """
+elif False:
+    ThrottlingInformationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ThrottlingInformationArgs:

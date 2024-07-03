@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -157,12 +162,12 @@ class ServerSitesController(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 agent_details: Optional[pulumi.Input[pulumi.InputType['SiteAgentPropertiesArgs']]] = None,
+                 agent_details: Optional[pulumi.Input[Union['SiteAgentPropertiesArgs', 'SiteAgentPropertiesArgsDict']]] = None,
                  appliance_name: Optional[pulumi.Input[str]] = None,
                  discovery_solution_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 service_principal_identity_details: Optional[pulumi.Input[pulumi.InputType['SiteSpnPropertiesArgs']]] = None,
+                 service_principal_identity_details: Optional[pulumi.Input[Union['SiteSpnPropertiesArgs', 'SiteSpnPropertiesArgsDict']]] = None,
                  site_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -171,12 +176,12 @@ class ServerSitesController(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['SiteAgentPropertiesArgs']] agent_details: Gets or sets the on-premises agent details.
+        :param pulumi.Input[Union['SiteAgentPropertiesArgs', 'SiteAgentPropertiesArgsDict']] agent_details: Gets or sets the on-premises agent details.
         :param pulumi.Input[str] appliance_name: Gets or sets the Appliance Name.
         :param pulumi.Input[str] discovery_solution_id: Gets or sets the ARM ID of migration hub solution for SDS.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[pulumi.InputType['SiteSpnPropertiesArgs']] service_principal_identity_details: Gets or sets the service principal identity details used by agent for
+        :param pulumi.Input[Union['SiteSpnPropertiesArgs', 'SiteSpnPropertiesArgsDict']] service_principal_identity_details: Gets or sets the service principal identity details used by agent for
                communication
                            to the service.
         :param pulumi.Input[str] site_name: Site name
@@ -206,12 +211,12 @@ class ServerSitesController(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 agent_details: Optional[pulumi.Input[pulumi.InputType['SiteAgentPropertiesArgs']]] = None,
+                 agent_details: Optional[pulumi.Input[Union['SiteAgentPropertiesArgs', 'SiteAgentPropertiesArgsDict']]] = None,
                  appliance_name: Optional[pulumi.Input[str]] = None,
                  discovery_solution_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 service_principal_identity_details: Optional[pulumi.Input[pulumi.InputType['SiteSpnPropertiesArgs']]] = None,
+                 service_principal_identity_details: Optional[pulumi.Input[Union['SiteSpnPropertiesArgs', 'SiteSpnPropertiesArgsDict']]] = None,
                  site_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):

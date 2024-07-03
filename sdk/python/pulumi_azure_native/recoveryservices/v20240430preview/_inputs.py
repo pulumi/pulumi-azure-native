@@ -4,114 +4,289 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'AzureBackupServerContainerArgs',
+    'AzureBackupServerContainerArgsDict',
     'AzureFileShareProtectionPolicyArgs',
+    'AzureFileShareProtectionPolicyArgsDict',
     'AzureFileshareProtectedItemExtendedInfoArgs',
+    'AzureFileshareProtectedItemExtendedInfoArgsDict',
     'AzureFileshareProtectedItemArgs',
+    'AzureFileshareProtectedItemArgsDict',
     'AzureIaaSClassicComputeVMContainerArgs',
+    'AzureIaaSClassicComputeVMContainerArgsDict',
     'AzureIaaSClassicComputeVMProtectedItemArgs',
+    'AzureIaaSClassicComputeVMProtectedItemArgsDict',
     'AzureIaaSComputeVMContainerArgs',
+    'AzureIaaSComputeVMContainerArgsDict',
     'AzureIaaSComputeVMProtectedItemArgs',
+    'AzureIaaSComputeVMProtectedItemArgsDict',
     'AzureIaaSVMProtectedItemExtendedInfoArgs',
+    'AzureIaaSVMProtectedItemExtendedInfoArgsDict',
     'AzureIaaSVMProtectedItemArgs',
+    'AzureIaaSVMProtectedItemArgsDict',
     'AzureIaaSVMProtectionPolicyArgs',
+    'AzureIaaSVMProtectionPolicyArgsDict',
     'AzureMonitorAlertSettingsArgs',
+    'AzureMonitorAlertSettingsArgsDict',
     'AzureRecoveryServiceVaultProtectionIntentArgs',
+    'AzureRecoveryServiceVaultProtectionIntentArgsDict',
     'AzureResourceProtectionIntentArgs',
+    'AzureResourceProtectionIntentArgsDict',
     'AzureSQLAGWorkloadContainerProtectionContainerArgs',
+    'AzureSQLAGWorkloadContainerProtectionContainerArgsDict',
     'AzureSqlContainerArgs',
+    'AzureSqlContainerArgsDict',
     'AzureSqlProtectedItemExtendedInfoArgs',
+    'AzureSqlProtectedItemExtendedInfoArgsDict',
     'AzureSqlProtectedItemArgs',
+    'AzureSqlProtectedItemArgsDict',
     'AzureSqlProtectionPolicyArgs',
+    'AzureSqlProtectionPolicyArgsDict',
     'AzureStorageContainerArgs',
+    'AzureStorageContainerArgsDict',
     'AzureVMAppContainerProtectionContainerArgs',
+    'AzureVMAppContainerProtectionContainerArgsDict',
     'AzureVmWorkloadProtectedItemExtendedInfoArgs',
+    'AzureVmWorkloadProtectedItemExtendedInfoArgsDict',
     'AzureVmWorkloadProtectedItemArgs',
+    'AzureVmWorkloadProtectedItemArgsDict',
     'AzureVmWorkloadProtectionPolicyArgs',
+    'AzureVmWorkloadProtectionPolicyArgsDict',
     'AzureVmWorkloadSAPAseDatabaseProtectedItemArgs',
+    'AzureVmWorkloadSAPAseDatabaseProtectedItemArgsDict',
     'AzureVmWorkloadSAPHanaDBInstanceProtectedItemArgs',
+    'AzureVmWorkloadSAPHanaDBInstanceProtectedItemArgsDict',
     'AzureVmWorkloadSAPHanaDatabaseProtectedItemArgs',
+    'AzureVmWorkloadSAPHanaDatabaseProtectedItemArgsDict',
     'AzureVmWorkloadSQLDatabaseProtectedItemArgs',
+    'AzureVmWorkloadSQLDatabaseProtectedItemArgsDict',
     'AzureWorkloadAutoProtectionIntentArgs',
+    'AzureWorkloadAutoProtectionIntentArgsDict',
     'AzureWorkloadContainerAutoProtectionIntentArgs',
+    'AzureWorkloadContainerAutoProtectionIntentArgsDict',
     'AzureWorkloadContainerExtendedInfoArgs',
+    'AzureWorkloadContainerExtendedInfoArgsDict',
     'AzureWorkloadContainerArgs',
+    'AzureWorkloadContainerArgsDict',
     'AzureWorkloadSQLAutoProtectionIntentArgs',
+    'AzureWorkloadSQLAutoProtectionIntentArgsDict',
     'ClassicAlertSettingsArgs',
+    'ClassicAlertSettingsArgsDict',
     'CmkKekIdentityArgs',
+    'CmkKekIdentityArgsDict',
     'CmkKeyVaultPropertiesArgs',
+    'CmkKeyVaultPropertiesArgsDict',
     'ContainerIdentityInfoArgs',
+    'ContainerIdentityInfoArgsDict',
     'CrossSubscriptionRestoreSettingsArgs',
+    'CrossSubscriptionRestoreSettingsArgsDict',
     'DPMContainerExtendedInfoArgs',
+    'DPMContainerExtendedInfoArgsDict',
     'DPMProtectedItemExtendedInfoArgs',
+    'DPMProtectedItemExtendedInfoArgsDict',
     'DPMProtectedItemArgs',
+    'DPMProtectedItemArgsDict',
     'DailyRetentionFormatArgs',
+    'DailyRetentionFormatArgsDict',
     'DailyRetentionScheduleArgs',
+    'DailyRetentionScheduleArgsDict',
     'DailyScheduleArgs',
+    'DailyScheduleArgsDict',
     'DayArgs',
+    'DayArgsDict',
     'DiskExclusionPropertiesArgs',
+    'DiskExclusionPropertiesArgsDict',
     'DistributedNodesInfoArgs',
+    'DistributedNodesInfoArgsDict',
     'DpmContainerArgs',
+    'DpmContainerArgsDict',
     'ExtendedPropertiesArgs',
+    'ExtendedPropertiesArgsDict',
     'GenericContainerExtendedInfoArgs',
+    'GenericContainerExtendedInfoArgsDict',
     'GenericContainerArgs',
+    'GenericContainerArgsDict',
     'GenericProtectedItemArgs',
+    'GenericProtectedItemArgsDict',
     'GenericProtectionPolicyArgs',
+    'GenericProtectionPolicyArgsDict',
     'HourlyScheduleArgs',
+    'HourlyScheduleArgsDict',
     'IaaSVMContainerArgs',
+    'IaaSVMContainerArgsDict',
     'IdentityDataArgs',
+    'IdentityDataArgsDict',
     'ImmutabilitySettingsArgs',
+    'ImmutabilitySettingsArgsDict',
     'InquiryInfoArgs',
+    'InquiryInfoArgsDict',
     'InquiryValidationArgs',
+    'InquiryValidationArgsDict',
     'InstantRPAdditionalDetailsArgs',
+    'InstantRPAdditionalDetailsArgsDict',
     'KPIResourceHealthDetailsArgs',
+    'KPIResourceHealthDetailsArgsDict',
     'LogSchedulePolicyArgs',
+    'LogSchedulePolicyArgsDict',
     'LongTermRetentionPolicyArgs',
+    'LongTermRetentionPolicyArgsDict',
     'LongTermSchedulePolicyArgs',
+    'LongTermSchedulePolicyArgsDict',
     'MABContainerHealthDetailsArgs',
+    'MABContainerHealthDetailsArgsDict',
     'MabContainerExtendedInfoArgs',
+    'MabContainerExtendedInfoArgsDict',
     'MabContainerArgs',
+    'MabContainerArgsDict',
     'MabFileFolderProtectedItemExtendedInfoArgs',
+    'MabFileFolderProtectedItemExtendedInfoArgsDict',
     'MabFileFolderProtectedItemArgs',
+    'MabFileFolderProtectedItemArgsDict',
     'MabProtectionPolicyArgs',
+    'MabProtectionPolicyArgsDict',
     'MonitoringSettingsArgs',
+    'MonitoringSettingsArgsDict',
     'MonthlyRetentionScheduleArgs',
+    'MonthlyRetentionScheduleArgsDict',
     'PrivateEndpointConnectionArgs',
+    'PrivateEndpointConnectionArgsDict',
     'PrivateEndpointArgs',
+    'PrivateEndpointArgsDict',
     'PrivateLinkServiceConnectionStateArgs',
+    'PrivateLinkServiceConnectionStateArgsDict',
     'ResourceGuardOperationDetailArgs',
+    'ResourceGuardOperationDetailArgsDict',
     'ResourceGuardProxyBaseArgs',
+    'ResourceGuardProxyBaseArgsDict',
     'RestoreSettingsArgs',
+    'RestoreSettingsArgsDict',
     'RetentionDurationArgs',
+    'RetentionDurationArgsDict',
     'SecuritySettingsArgs',
+    'SecuritySettingsArgsDict',
     'SettingsArgs',
+    'SettingsArgsDict',
     'SimpleRetentionPolicyArgs',
+    'SimpleRetentionPolicyArgsDict',
     'SimpleSchedulePolicyV2Args',
+    'SimpleSchedulePolicyV2ArgsDict',
     'SimpleSchedulePolicyArgs',
+    'SimpleSchedulePolicyArgsDict',
     'SkuArgs',
+    'SkuArgsDict',
     'SnapshotBackupAdditionalDetailsArgs',
+    'SnapshotBackupAdditionalDetailsArgsDict',
     'SoftDeleteSettingsArgs',
+    'SoftDeleteSettingsArgsDict',
     'SubProtectionPolicyArgs',
+    'SubProtectionPolicyArgsDict',
     'TieringPolicyArgs',
+    'TieringPolicyArgsDict',
     'UserAssignedIdentityPropertiesArgs',
+    'UserAssignedIdentityPropertiesArgsDict',
     'UserAssignedManagedIdentityDetailsArgs',
+    'UserAssignedManagedIdentityDetailsArgsDict',
     'VaultPropertiesEncryptionArgs',
+    'VaultPropertiesEncryptionArgsDict',
     'VaultPropertiesRedundancySettingsArgs',
+    'VaultPropertiesRedundancySettingsArgsDict',
     'VaultPropertiesArgs',
+    'VaultPropertiesArgsDict',
     'VaultRetentionPolicyArgs',
+    'VaultRetentionPolicyArgsDict',
     'WeeklyRetentionFormatArgs',
+    'WeeklyRetentionFormatArgsDict',
     'WeeklyRetentionScheduleArgs',
+    'WeeklyRetentionScheduleArgsDict',
     'WeeklyScheduleArgs',
+    'WeeklyScheduleArgsDict',
     'WorkloadInquiryDetailsArgs',
+    'WorkloadInquiryDetailsArgsDict',
     'YearlyRetentionScheduleArgs',
+    'YearlyRetentionScheduleArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AzureBackupServerContainerArgsDict(TypedDict):
+        """
+        AzureBackupServer (DPMVenus) workload-specific protection container.
+        """
+        container_type: pulumi.Input[str]
+        """
+        Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+        Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+        Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+        Backup is VMAppContainer
+        Expected value is 'AzureBackupServerContainer'.
+        """
+        backup_management_type: NotRequired[pulumi.Input[Union[str, 'BackupManagementType']]]
+        """
+        Type of backup management for the container.
+        """
+        can_re_register: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies whether the container is re-registrable.
+        """
+        container_id: NotRequired[pulumi.Input[str]]
+        """
+        ID of container.
+        """
+        dpm_agent_version: NotRequired[pulumi.Input[str]]
+        """
+        Backup engine Agent version
+        """
+        dpm_servers: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of BackupEngines protecting the container
+        """
+        extended_info: NotRequired[pulumi.Input['DPMContainerExtendedInfoArgsDict']]
+        """
+        Extended Info of the container.
+        """
+        friendly_name: NotRequired[pulumi.Input[str]]
+        """
+        Friendly name of the container.
+        """
+        health_status: NotRequired[pulumi.Input[str]]
+        """
+        Status of health of the container.
+        """
+        protectable_object_type: NotRequired[pulumi.Input[str]]
+        """
+        Type of the protectable object associated with this container
+        """
+        protected_item_count: NotRequired[pulumi.Input[float]]
+        """
+        Number of protected items in the BackupEngine
+        """
+        protection_status: NotRequired[pulumi.Input[str]]
+        """
+        Protection status of the container.
+        """
+        registration_status: NotRequired[pulumi.Input[str]]
+        """
+        Status of registration of the container with the Recovery Services Vault.
+        """
+        upgrade_available: NotRequired[pulumi.Input[bool]]
+        """
+        To check if upgrade available
+        """
+elif False:
+    AzureBackupServerContainerArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AzureBackupServerContainerArgs:
@@ -352,6 +527,47 @@ class AzureBackupServerContainerArgs:
         pulumi.set(self, "upgrade_available", value)
 
 
+if not MYPY:
+    class AzureFileShareProtectionPolicyArgsDict(TypedDict):
+        """
+        AzureStorage backup policy.
+        """
+        backup_management_type: pulumi.Input[str]
+        """
+        This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+        Expected value is 'AzureStorage'.
+        """
+        protected_items_count: NotRequired[pulumi.Input[int]]
+        """
+        Number of items associated with this policy.
+        """
+        resource_guard_operation_requests: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        ResourceGuard Operation Requests
+        """
+        retention_policy: NotRequired[pulumi.Input[Union['LongTermRetentionPolicyArgsDict', 'SimpleRetentionPolicyArgsDict']]]
+        """
+        Retention policy with the details on backup copy retention ranges.
+        """
+        schedule_policy: NotRequired[pulumi.Input[Union['LogSchedulePolicyArgsDict', 'LongTermSchedulePolicyArgsDict', 'SimpleSchedulePolicyArgsDict', 'SimpleSchedulePolicyV2ArgsDict']]]
+        """
+        Backup schedule specified as part of backup policy.
+        """
+        time_zone: NotRequired[pulumi.Input[str]]
+        """
+        TimeZone optional input as string. For example: TimeZone = "Pacific Standard Time".
+        """
+        vault_retention_policy: NotRequired[pulumi.Input['VaultRetentionPolicyArgsDict']]
+        """
+        Retention policy with the details on hardened backup copy retention ranges.
+        """
+        work_load_type: NotRequired[pulumi.Input[Union[str, 'WorkloadType']]]
+        """
+        Type of workload for the backup management
+        """
+elif False:
+    AzureFileShareProtectionPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AzureFileShareProtectionPolicyArgs:
     def __init__(__self__, *,
@@ -489,6 +705,26 @@ class AzureFileShareProtectionPolicyArgs:
         pulumi.set(self, "work_load_type", value)
 
 
+if not MYPY:
+    class AzureFileshareProtectedItemExtendedInfoArgsDict(TypedDict):
+        """
+        Additional information about Azure File Share backup item.
+        """
+        oldest_recovery_point: NotRequired[pulumi.Input[str]]
+        """
+        The oldest backup copy available for this item in the service.
+        """
+        policy_state: NotRequired[pulumi.Input[str]]
+        """
+        Indicates consistency of policy object and policy applied to this backup item.
+        """
+        recovery_point_count: NotRequired[pulumi.Input[int]]
+        """
+        Number of available backup copies associated with this backup item.
+        """
+elif False:
+    AzureFileshareProtectedItemExtendedInfoArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AzureFileshareProtectedItemExtendedInfoArgs:
     def __init__(__self__, *,
@@ -544,6 +780,107 @@ class AzureFileshareProtectedItemExtendedInfoArgs:
     def recovery_point_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "recovery_point_count", value)
 
+
+if not MYPY:
+    class AzureFileshareProtectedItemArgsDict(TypedDict):
+        """
+        Azure File Share workload-specific backup item.
+        """
+        protected_item_type: pulumi.Input[str]
+        """
+        backup item type.
+        Expected value is 'AzureFileShareProtectedItem'.
+        """
+        backup_set_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the backup set the backup item belongs to
+        """
+        container_name: NotRequired[pulumi.Input[str]]
+        """
+        Unique name of container
+        """
+        create_mode: NotRequired[pulumi.Input[Union[str, 'CreateMode']]]
+        """
+        Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
+        """
+        deferred_delete_time_in_utc: NotRequired[pulumi.Input[str]]
+        """
+        Time for deferred deletion in UTC
+        """
+        deferred_delete_time_remaining: NotRequired[pulumi.Input[str]]
+        """
+        Time remaining before the DS marked for deferred delete is permanently deleted
+        """
+        extended_info: NotRequired[pulumi.Input['AzureFileshareProtectedItemExtendedInfoArgsDict']]
+        """
+        Additional information with this backup item.
+        """
+        friendly_name: NotRequired[pulumi.Input[str]]
+        """
+        Friendly name of the fileshare represented by this backup item.
+        """
+        is_archive_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Flag to identify whether datasource is protected in archive
+        """
+        is_deferred_delete_schedule_upcoming: NotRequired[pulumi.Input[bool]]
+        """
+        Flag to identify whether the deferred deleted DS is to be purged soon
+        """
+        is_rehydrate: NotRequired[pulumi.Input[bool]]
+        """
+        Flag to identify that deferred deleted DS is to be moved into Pause state
+        """
+        is_scheduled_for_deferred_delete: NotRequired[pulumi.Input[bool]]
+        """
+        Flag to identify whether the DS is scheduled for deferred delete
+        """
+        kpis_healths: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['KPIResourceHealthDetailsArgsDict']]]]
+        """
+        Health details of different KPIs
+        """
+        last_backup_status: NotRequired[pulumi.Input[str]]
+        """
+        Last backup operation status. Possible values: Healthy, Unhealthy.
+        """
+        last_backup_time: NotRequired[pulumi.Input[str]]
+        """
+        Timestamp of the last backup operation on this backup item.
+        """
+        last_recovery_point: NotRequired[pulumi.Input[str]]
+        """
+        Timestamp when the last (latest) backup copy was created for this backup item.
+        """
+        policy_id: NotRequired[pulumi.Input[str]]
+        """
+        ID of the backup policy with which this item is backed up.
+        """
+        policy_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the policy used for protection
+        """
+        protection_state: NotRequired[pulumi.Input[Union[str, 'ProtectionState']]]
+        """
+        Backup state of this backup item.
+        """
+        protection_status: NotRequired[pulumi.Input[str]]
+        """
+        Backup status of this backup item.
+        """
+        resource_guard_operation_requests: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        ResourceGuardOperationRequests on which LAC check will be performed
+        """
+        soft_delete_retention_period_in_days: NotRequired[pulumi.Input[int]]
+        """
+        Soft delete retention period in days
+        """
+        source_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        ARM ID of the resource to be backed up.
+        """
+elif False:
+    AzureFileshareProtectedItemArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AzureFileshareProtectedItemArgs:
@@ -922,6 +1259,54 @@ class AzureFileshareProtectedItemArgs:
         pulumi.set(self, "source_resource_id", value)
 
 
+if not MYPY:
+    class AzureIaaSClassicComputeVMContainerArgsDict(TypedDict):
+        """
+        IaaS VM workload-specific backup item representing a classic virtual machine.
+        """
+        container_type: pulumi.Input[str]
+        """
+        Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+        Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+        Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+        Backup is VMAppContainer
+        Expected value is 'Microsoft.ClassicCompute/virtualMachines'.
+        """
+        backup_management_type: NotRequired[pulumi.Input[Union[str, 'BackupManagementType']]]
+        """
+        Type of backup management for the container.
+        """
+        friendly_name: NotRequired[pulumi.Input[str]]
+        """
+        Friendly name of the container.
+        """
+        health_status: NotRequired[pulumi.Input[str]]
+        """
+        Status of health of the container.
+        """
+        protectable_object_type: NotRequired[pulumi.Input[str]]
+        """
+        Type of the protectable object associated with this container
+        """
+        registration_status: NotRequired[pulumi.Input[str]]
+        """
+        Status of registration of the container with the Recovery Services Vault.
+        """
+        resource_group: NotRequired[pulumi.Input[str]]
+        """
+        Resource group name of Recovery Services Vault.
+        """
+        virtual_machine_id: NotRequired[pulumi.Input[str]]
+        """
+        Fully qualified ARM url of the virtual machine represented by this Azure IaaS VM container.
+        """
+        virtual_machine_version: NotRequired[pulumi.Input[str]]
+        """
+        Specifies whether the container represents a Classic or an Azure Resource Manager VM.
+        """
+elif False:
+    AzureIaaSClassicComputeVMContainerArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AzureIaaSClassicComputeVMContainerArgs:
     def __init__(__self__, *,
@@ -1080,6 +1465,103 @@ class AzureIaaSClassicComputeVMContainerArgs:
     def virtual_machine_version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "virtual_machine_version", value)
 
+
+if not MYPY:
+    class AzureIaaSClassicComputeVMProtectedItemArgsDict(TypedDict):
+        """
+        IaaS VM workload-specific backup item representing the Classic Compute VM.
+        """
+        protected_item_type: pulumi.Input[str]
+        """
+        backup item type.
+        Expected value is 'Microsoft.ClassicCompute/virtualMachines'.
+        """
+        backup_set_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the backup set the backup item belongs to
+        """
+        container_name: NotRequired[pulumi.Input[str]]
+        """
+        Unique name of container
+        """
+        create_mode: NotRequired[pulumi.Input[Union[str, 'CreateMode']]]
+        """
+        Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
+        """
+        deferred_delete_time_in_utc: NotRequired[pulumi.Input[str]]
+        """
+        Time for deferred deletion in UTC
+        """
+        deferred_delete_time_remaining: NotRequired[pulumi.Input[str]]
+        """
+        Time remaining before the DS marked for deferred delete is permanently deleted
+        """
+        extended_info: NotRequired[pulumi.Input['AzureIaaSVMProtectedItemExtendedInfoArgsDict']]
+        """
+        Additional information for this backup item.
+        """
+        extended_properties: NotRequired[pulumi.Input['ExtendedPropertiesArgsDict']]
+        """
+        Extended Properties for Azure IaasVM Backup.
+        """
+        is_archive_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Flag to identify whether datasource is protected in archive
+        """
+        is_deferred_delete_schedule_upcoming: NotRequired[pulumi.Input[bool]]
+        """
+        Flag to identify whether the deferred deleted DS is to be purged soon
+        """
+        is_rehydrate: NotRequired[pulumi.Input[bool]]
+        """
+        Flag to identify that deferred deleted DS is to be moved into Pause state
+        """
+        is_scheduled_for_deferred_delete: NotRequired[pulumi.Input[bool]]
+        """
+        Flag to identify whether the DS is scheduled for deferred delete
+        """
+        kpis_healths: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['KPIResourceHealthDetailsArgsDict']]]]
+        """
+        Health details of different KPIs
+        """
+        last_backup_status: NotRequired[pulumi.Input[str]]
+        """
+        Last backup operation status.
+        """
+        last_recovery_point: NotRequired[pulumi.Input[str]]
+        """
+        Timestamp when the last (latest) backup copy was created for this backup item.
+        """
+        policy_id: NotRequired[pulumi.Input[str]]
+        """
+        ID of the backup policy with which this item is backed up.
+        """
+        policy_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the policy used for protection
+        """
+        protection_state: NotRequired[pulumi.Input[Union[str, 'ProtectionState']]]
+        """
+        Backup state of this backup item.
+        """
+        protection_status: NotRequired[pulumi.Input[str]]
+        """
+        Backup status of this backup item.
+        """
+        resource_guard_operation_requests: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        ResourceGuardOperationRequests on which LAC check will be performed
+        """
+        soft_delete_retention_period_in_days: NotRequired[pulumi.Input[int]]
+        """
+        Soft delete retention period in days
+        """
+        source_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        ARM ID of the resource to be backed up.
+        """
+elif False:
+    AzureIaaSClassicComputeVMProtectedItemArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AzureIaaSClassicComputeVMProtectedItemArgs:
@@ -1442,6 +1924,54 @@ class AzureIaaSClassicComputeVMProtectedItemArgs:
         pulumi.set(self, "source_resource_id", value)
 
 
+if not MYPY:
+    class AzureIaaSComputeVMContainerArgsDict(TypedDict):
+        """
+        IaaS VM workload-specific backup item representing an Azure Resource Manager virtual machine.
+        """
+        container_type: pulumi.Input[str]
+        """
+        Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+        Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+        Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+        Backup is VMAppContainer
+        Expected value is 'Microsoft.Compute/virtualMachines'.
+        """
+        backup_management_type: NotRequired[pulumi.Input[Union[str, 'BackupManagementType']]]
+        """
+        Type of backup management for the container.
+        """
+        friendly_name: NotRequired[pulumi.Input[str]]
+        """
+        Friendly name of the container.
+        """
+        health_status: NotRequired[pulumi.Input[str]]
+        """
+        Status of health of the container.
+        """
+        protectable_object_type: NotRequired[pulumi.Input[str]]
+        """
+        Type of the protectable object associated with this container
+        """
+        registration_status: NotRequired[pulumi.Input[str]]
+        """
+        Status of registration of the container with the Recovery Services Vault.
+        """
+        resource_group: NotRequired[pulumi.Input[str]]
+        """
+        Resource group name of Recovery Services Vault.
+        """
+        virtual_machine_id: NotRequired[pulumi.Input[str]]
+        """
+        Fully qualified ARM url of the virtual machine represented by this Azure IaaS VM container.
+        """
+        virtual_machine_version: NotRequired[pulumi.Input[str]]
+        """
+        Specifies whether the container represents a Classic or an Azure Resource Manager VM.
+        """
+elif False:
+    AzureIaaSComputeVMContainerArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AzureIaaSComputeVMContainerArgs:
     def __init__(__self__, *,
@@ -1600,6 +2130,103 @@ class AzureIaaSComputeVMContainerArgs:
     def virtual_machine_version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "virtual_machine_version", value)
 
+
+if not MYPY:
+    class AzureIaaSComputeVMProtectedItemArgsDict(TypedDict):
+        """
+        IaaS VM workload-specific backup item representing the Azure Resource Manager VM.
+        """
+        protected_item_type: pulumi.Input[str]
+        """
+        backup item type.
+        Expected value is 'Microsoft.Compute/virtualMachines'.
+        """
+        backup_set_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the backup set the backup item belongs to
+        """
+        container_name: NotRequired[pulumi.Input[str]]
+        """
+        Unique name of container
+        """
+        create_mode: NotRequired[pulumi.Input[Union[str, 'CreateMode']]]
+        """
+        Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
+        """
+        deferred_delete_time_in_utc: NotRequired[pulumi.Input[str]]
+        """
+        Time for deferred deletion in UTC
+        """
+        deferred_delete_time_remaining: NotRequired[pulumi.Input[str]]
+        """
+        Time remaining before the DS marked for deferred delete is permanently deleted
+        """
+        extended_info: NotRequired[pulumi.Input['AzureIaaSVMProtectedItemExtendedInfoArgsDict']]
+        """
+        Additional information for this backup item.
+        """
+        extended_properties: NotRequired[pulumi.Input['ExtendedPropertiesArgsDict']]
+        """
+        Extended Properties for Azure IaasVM Backup.
+        """
+        is_archive_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Flag to identify whether datasource is protected in archive
+        """
+        is_deferred_delete_schedule_upcoming: NotRequired[pulumi.Input[bool]]
+        """
+        Flag to identify whether the deferred deleted DS is to be purged soon
+        """
+        is_rehydrate: NotRequired[pulumi.Input[bool]]
+        """
+        Flag to identify that deferred deleted DS is to be moved into Pause state
+        """
+        is_scheduled_for_deferred_delete: NotRequired[pulumi.Input[bool]]
+        """
+        Flag to identify whether the DS is scheduled for deferred delete
+        """
+        kpis_healths: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['KPIResourceHealthDetailsArgsDict']]]]
+        """
+        Health details of different KPIs
+        """
+        last_backup_status: NotRequired[pulumi.Input[str]]
+        """
+        Last backup operation status.
+        """
+        last_recovery_point: NotRequired[pulumi.Input[str]]
+        """
+        Timestamp when the last (latest) backup copy was created for this backup item.
+        """
+        policy_id: NotRequired[pulumi.Input[str]]
+        """
+        ID of the backup policy with which this item is backed up.
+        """
+        policy_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the policy used for protection
+        """
+        protection_state: NotRequired[pulumi.Input[Union[str, 'ProtectionState']]]
+        """
+        Backup state of this backup item.
+        """
+        protection_status: NotRequired[pulumi.Input[str]]
+        """
+        Backup status of this backup item.
+        """
+        resource_guard_operation_requests: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        ResourceGuardOperationRequests on which LAC check will be performed
+        """
+        soft_delete_retention_period_in_days: NotRequired[pulumi.Input[int]]
+        """
+        Soft delete retention period in days
+        """
+        source_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        ARM ID of the resource to be backed up.
+        """
+elif False:
+    AzureIaaSComputeVMProtectedItemArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AzureIaaSComputeVMProtectedItemArgs:
@@ -1962,6 +2589,38 @@ class AzureIaaSComputeVMProtectedItemArgs:
         pulumi.set(self, "source_resource_id", value)
 
 
+if not MYPY:
+    class AzureIaaSVMProtectedItemExtendedInfoArgsDict(TypedDict):
+        """
+        Additional information on Azure IaaS VM specific backup item.
+        """
+        newest_recovery_point_in_archive: NotRequired[pulumi.Input[str]]
+        """
+        The latest backup copy available for this backup item in archive tier
+        """
+        oldest_recovery_point: NotRequired[pulumi.Input[str]]
+        """
+        The oldest backup copy available for this backup item across all tiers.
+        """
+        oldest_recovery_point_in_archive: NotRequired[pulumi.Input[str]]
+        """
+        The oldest backup copy available for this backup item in archive tier
+        """
+        oldest_recovery_point_in_vault: NotRequired[pulumi.Input[str]]
+        """
+        The oldest backup copy available for this backup item in vault tier
+        """
+        policy_inconsistent: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies if backup policy associated with the backup item is inconsistent.
+        """
+        recovery_point_count: NotRequired[pulumi.Input[int]]
+        """
+        Number of backup copies available for this backup item.
+        """
+elif False:
+    AzureIaaSVMProtectedItemExtendedInfoArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AzureIaaSVMProtectedItemExtendedInfoArgs:
     def __init__(__self__, *,
@@ -2065,6 +2724,103 @@ class AzureIaaSVMProtectedItemExtendedInfoArgs:
     def recovery_point_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "recovery_point_count", value)
 
+
+if not MYPY:
+    class AzureIaaSVMProtectedItemArgsDict(TypedDict):
+        """
+        IaaS VM workload-specific backup item.
+        """
+        protected_item_type: pulumi.Input[str]
+        """
+        backup item type.
+        Expected value is 'AzureIaaSVMProtectedItem'.
+        """
+        backup_set_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the backup set the backup item belongs to
+        """
+        container_name: NotRequired[pulumi.Input[str]]
+        """
+        Unique name of container
+        """
+        create_mode: NotRequired[pulumi.Input[Union[str, 'CreateMode']]]
+        """
+        Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
+        """
+        deferred_delete_time_in_utc: NotRequired[pulumi.Input[str]]
+        """
+        Time for deferred deletion in UTC
+        """
+        deferred_delete_time_remaining: NotRequired[pulumi.Input[str]]
+        """
+        Time remaining before the DS marked for deferred delete is permanently deleted
+        """
+        extended_info: NotRequired[pulumi.Input['AzureIaaSVMProtectedItemExtendedInfoArgsDict']]
+        """
+        Additional information for this backup item.
+        """
+        extended_properties: NotRequired[pulumi.Input['ExtendedPropertiesArgsDict']]
+        """
+        Extended Properties for Azure IaasVM Backup.
+        """
+        is_archive_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Flag to identify whether datasource is protected in archive
+        """
+        is_deferred_delete_schedule_upcoming: NotRequired[pulumi.Input[bool]]
+        """
+        Flag to identify whether the deferred deleted DS is to be purged soon
+        """
+        is_rehydrate: NotRequired[pulumi.Input[bool]]
+        """
+        Flag to identify that deferred deleted DS is to be moved into Pause state
+        """
+        is_scheduled_for_deferred_delete: NotRequired[pulumi.Input[bool]]
+        """
+        Flag to identify whether the DS is scheduled for deferred delete
+        """
+        kpis_healths: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['KPIResourceHealthDetailsArgsDict']]]]
+        """
+        Health details of different KPIs
+        """
+        last_backup_status: NotRequired[pulumi.Input[str]]
+        """
+        Last backup operation status.
+        """
+        last_recovery_point: NotRequired[pulumi.Input[str]]
+        """
+        Timestamp when the last (latest) backup copy was created for this backup item.
+        """
+        policy_id: NotRequired[pulumi.Input[str]]
+        """
+        ID of the backup policy with which this item is backed up.
+        """
+        policy_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the policy used for protection
+        """
+        protection_state: NotRequired[pulumi.Input[Union[str, 'ProtectionState']]]
+        """
+        Backup state of this backup item.
+        """
+        protection_status: NotRequired[pulumi.Input[str]]
+        """
+        Backup status of this backup item.
+        """
+        resource_guard_operation_requests: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        ResourceGuardOperationRequests on which LAC check will be performed
+        """
+        soft_delete_retention_period_in_days: NotRequired[pulumi.Input[int]]
+        """
+        Soft delete retention period in days
+        """
+        source_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        ARM ID of the resource to be backed up.
+        """
+elif False:
+    AzureIaaSVMProtectedItemArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AzureIaaSVMProtectedItemArgs:
@@ -2427,6 +3183,52 @@ class AzureIaaSVMProtectedItemArgs:
         pulumi.set(self, "source_resource_id", value)
 
 
+if not MYPY:
+    class AzureIaaSVMProtectionPolicyArgsDict(TypedDict):
+        """
+        IaaS VM workload-specific backup policy.
+        """
+        backup_management_type: pulumi.Input[str]
+        """
+        This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+        Expected value is 'AzureIaasVM'.
+        """
+        instant_rp_details: NotRequired[pulumi.Input['InstantRPAdditionalDetailsArgsDict']]
+        instant_rp_retention_range_in_days: NotRequired[pulumi.Input[int]]
+        """
+        Instant RP retention policy range in days
+        """
+        policy_type: NotRequired[pulumi.Input[Union[str, 'IAASVMPolicyType']]]
+        protected_items_count: NotRequired[pulumi.Input[int]]
+        """
+        Number of items associated with this policy.
+        """
+        resource_guard_operation_requests: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        ResourceGuard Operation Requests
+        """
+        retention_policy: NotRequired[pulumi.Input[Union['LongTermRetentionPolicyArgsDict', 'SimpleRetentionPolicyArgsDict']]]
+        """
+        Retention policy with the details on backup copy retention ranges.
+        """
+        schedule_policy: NotRequired[pulumi.Input[Union['LogSchedulePolicyArgsDict', 'LongTermSchedulePolicyArgsDict', 'SimpleSchedulePolicyArgsDict', 'SimpleSchedulePolicyV2ArgsDict']]]
+        """
+        Backup schedule specified as part of backup policy.
+        """
+        snapshot_consistency_type: NotRequired[pulumi.Input[Union[str, 'IaasVMSnapshotConsistencyType']]]
+        tiering_policy: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['TieringPolicyArgsDict']]]]
+        """
+        Tiering policy to automatically move RPs to another tier
+        Key is Target Tier, defined in RecoveryPointTierType enum.
+        Tiering policy specifies the criteria to move RP to the target tier.
+        """
+        time_zone: NotRequired[pulumi.Input[str]]
+        """
+        TimeZone optional input as string. For example: TimeZone = "Pacific Standard Time".
+        """
+elif False:
+    AzureIaaSVMProtectionPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AzureIaaSVMProtectionPolicyArgs:
     def __init__(__self__, *,
@@ -2604,6 +3406,17 @@ class AzureIaaSVMProtectionPolicyArgs:
         pulumi.set(self, "time_zone", value)
 
 
+if not MYPY:
+    class AzureMonitorAlertSettingsArgsDict(TypedDict):
+        """
+        Settings for Azure Monitor based alerts
+        """
+        alerts_for_all_failover_issues: NotRequired[pulumi.Input[Union[str, 'AlertsState']]]
+        alerts_for_all_job_failures: NotRequired[pulumi.Input[Union[str, 'AlertsState']]]
+        alerts_for_all_replication_issues: NotRequired[pulumi.Input[Union[str, 'AlertsState']]]
+elif False:
+    AzureMonitorAlertSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AzureMonitorAlertSettingsArgs:
     def __init__(__self__, *,
@@ -2647,6 +3460,39 @@ class AzureMonitorAlertSettingsArgs:
     def alerts_for_all_replication_issues(self, value: Optional[pulumi.Input[Union[str, 'AlertsState']]]):
         pulumi.set(self, "alerts_for_all_replication_issues", value)
 
+
+if not MYPY:
+    class AzureRecoveryServiceVaultProtectionIntentArgsDict(TypedDict):
+        """
+        Azure Recovery Services Vault specific protection intent item.
+        """
+        protection_intent_item_type: pulumi.Input[str]
+        """
+        backup protectionIntent type.
+        Expected value is 'RecoveryServiceVaultItem'.
+        """
+        backup_management_type: NotRequired[pulumi.Input[Union[str, 'BackupManagementType']]]
+        """
+        Type of backup management for the backed up item.
+        """
+        item_id: NotRequired[pulumi.Input[str]]
+        """
+        ID of the item which is getting protected, In case of Azure Vm , it is ProtectedItemId
+        """
+        policy_id: NotRequired[pulumi.Input[str]]
+        """
+        ID of the backup policy with which this item is backed up.
+        """
+        protection_state: NotRequired[pulumi.Input[Union[str, 'ProtectionStatus']]]
+        """
+        Backup state of this backup item.
+        """
+        source_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        ARM ID of the resource to be backed up.
+        """
+elif False:
+    AzureRecoveryServiceVaultProtectionIntentArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AzureRecoveryServiceVaultProtectionIntentArgs:
@@ -2752,6 +3598,43 @@ class AzureRecoveryServiceVaultProtectionIntentArgs:
     def source_resource_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "source_resource_id", value)
 
+
+if not MYPY:
+    class AzureResourceProtectionIntentArgsDict(TypedDict):
+        """
+        IaaS VM specific backup protection intent item.
+        """
+        protection_intent_item_type: pulumi.Input[str]
+        """
+        backup protectionIntent type.
+        Expected value is 'AzureResourceItem'.
+        """
+        backup_management_type: NotRequired[pulumi.Input[Union[str, 'BackupManagementType']]]
+        """
+        Type of backup management for the backed up item.
+        """
+        friendly_name: NotRequired[pulumi.Input[str]]
+        """
+        Friendly name of the VM represented by this backup item.
+        """
+        item_id: NotRequired[pulumi.Input[str]]
+        """
+        ID of the item which is getting protected, In case of Azure Vm , it is ProtectedItemId
+        """
+        policy_id: NotRequired[pulumi.Input[str]]
+        """
+        ID of the backup policy with which this item is backed up.
+        """
+        protection_state: NotRequired[pulumi.Input[Union[str, 'ProtectionStatus']]]
+        """
+        Backup state of this backup item.
+        """
+        source_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        ARM ID of the resource to be backed up.
+        """
+elif False:
+    AzureResourceProtectionIntentArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AzureResourceProtectionIntentArgs:
@@ -2873,6 +3756,62 @@ class AzureResourceProtectionIntentArgs:
     def source_resource_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "source_resource_id", value)
 
+
+if not MYPY:
+    class AzureSQLAGWorkloadContainerProtectionContainerArgsDict(TypedDict):
+        """
+        Container for SQL workloads under SQL Availability Group.
+        """
+        container_type: pulumi.Input[str]
+        """
+        Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+        Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+        Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+        Backup is VMAppContainer
+        Expected value is 'SQLAGWorkLoadContainer'.
+        """
+        backup_management_type: NotRequired[pulumi.Input[Union[str, 'BackupManagementType']]]
+        """
+        Type of backup management for the container.
+        """
+        extended_info: NotRequired[pulumi.Input['AzureWorkloadContainerExtendedInfoArgsDict']]
+        """
+        Additional details of a workload container.
+        """
+        friendly_name: NotRequired[pulumi.Input[str]]
+        """
+        Friendly name of the container.
+        """
+        health_status: NotRequired[pulumi.Input[str]]
+        """
+        Status of health of the container.
+        """
+        last_updated_time: NotRequired[pulumi.Input[str]]
+        """
+        Time stamp when this container was updated.
+        """
+        operation_type: NotRequired[pulumi.Input[Union[str, 'OperationType']]]
+        """
+        Re-Do Operation
+        """
+        protectable_object_type: NotRequired[pulumi.Input[str]]
+        """
+        Type of the protectable object associated with this container
+        """
+        registration_status: NotRequired[pulumi.Input[str]]
+        """
+        Status of registration of the container with the Recovery Services Vault.
+        """
+        source_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        ARM ID of the virtual machine represented by this Azure Workload Container
+        """
+        workload_type: NotRequired[pulumi.Input[Union[str, 'WorkloadType']]]
+        """
+        Workload type for which registration was sent.
+        """
+elif False:
+    AzureSQLAGWorkloadContainerProtectionContainerArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AzureSQLAGWorkloadContainerProtectionContainerArgs:
@@ -3065,6 +4004,42 @@ class AzureSQLAGWorkloadContainerProtectionContainerArgs:
         pulumi.set(self, "workload_type", value)
 
 
+if not MYPY:
+    class AzureSqlContainerArgsDict(TypedDict):
+        """
+        Azure Sql workload-specific container.
+        """
+        container_type: pulumi.Input[str]
+        """
+        Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+        Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+        Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+        Backup is VMAppContainer
+        Expected value is 'AzureSqlContainer'.
+        """
+        backup_management_type: NotRequired[pulumi.Input[Union[str, 'BackupManagementType']]]
+        """
+        Type of backup management for the container.
+        """
+        friendly_name: NotRequired[pulumi.Input[str]]
+        """
+        Friendly name of the container.
+        """
+        health_status: NotRequired[pulumi.Input[str]]
+        """
+        Status of health of the container.
+        """
+        protectable_object_type: NotRequired[pulumi.Input[str]]
+        """
+        Type of the protectable object associated with this container
+        """
+        registration_status: NotRequired[pulumi.Input[str]]
+        """
+        Status of registration of the container with the Recovery Services Vault.
+        """
+elif False:
+    AzureSqlContainerArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AzureSqlContainerArgs:
     def __init__(__self__, *,
@@ -3176,6 +4151,26 @@ class AzureSqlContainerArgs:
         pulumi.set(self, "registration_status", value)
 
 
+if not MYPY:
+    class AzureSqlProtectedItemExtendedInfoArgsDict(TypedDict):
+        """
+        Additional information on Azure Sql specific protected item.
+        """
+        oldest_recovery_point: NotRequired[pulumi.Input[str]]
+        """
+        The oldest backup copy available for this item in the service.
+        """
+        policy_state: NotRequired[pulumi.Input[str]]
+        """
+        State of the backup policy associated with this backup item.
+        """
+        recovery_point_count: NotRequired[pulumi.Input[int]]
+        """
+        Number of available backup copies associated with this backup item.
+        """
+elif False:
+    AzureSqlProtectedItemExtendedInfoArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AzureSqlProtectedItemExtendedInfoArgs:
     def __init__(__self__, *,
@@ -3231,6 +4226,91 @@ class AzureSqlProtectedItemExtendedInfoArgs:
     def recovery_point_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "recovery_point_count", value)
 
+
+if not MYPY:
+    class AzureSqlProtectedItemArgsDict(TypedDict):
+        """
+        Azure SQL workload-specific backup item.
+        """
+        protected_item_type: pulumi.Input[str]
+        """
+        backup item type.
+        Expected value is 'Microsoft.Sql/servers/databases'.
+        """
+        backup_set_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the backup set the backup item belongs to
+        """
+        container_name: NotRequired[pulumi.Input[str]]
+        """
+        Unique name of container
+        """
+        create_mode: NotRequired[pulumi.Input[Union[str, 'CreateMode']]]
+        """
+        Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
+        """
+        deferred_delete_time_in_utc: NotRequired[pulumi.Input[str]]
+        """
+        Time for deferred deletion in UTC
+        """
+        deferred_delete_time_remaining: NotRequired[pulumi.Input[str]]
+        """
+        Time remaining before the DS marked for deferred delete is permanently deleted
+        """
+        extended_info: NotRequired[pulumi.Input['AzureSqlProtectedItemExtendedInfoArgsDict']]
+        """
+        Additional information for this backup item.
+        """
+        is_archive_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Flag to identify whether datasource is protected in archive
+        """
+        is_deferred_delete_schedule_upcoming: NotRequired[pulumi.Input[bool]]
+        """
+        Flag to identify whether the deferred deleted DS is to be purged soon
+        """
+        is_rehydrate: NotRequired[pulumi.Input[bool]]
+        """
+        Flag to identify that deferred deleted DS is to be moved into Pause state
+        """
+        is_scheduled_for_deferred_delete: NotRequired[pulumi.Input[bool]]
+        """
+        Flag to identify whether the DS is scheduled for deferred delete
+        """
+        last_recovery_point: NotRequired[pulumi.Input[str]]
+        """
+        Timestamp when the last (latest) backup copy was created for this backup item.
+        """
+        policy_id: NotRequired[pulumi.Input[str]]
+        """
+        ID of the backup policy with which this item is backed up.
+        """
+        policy_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the policy used for protection
+        """
+        protected_item_data_id: NotRequired[pulumi.Input[str]]
+        """
+        Internal ID of a backup item. Used by Azure SQL Backup engine to contact Recovery Services.
+        """
+        protection_state: NotRequired[pulumi.Input[Union[str, 'ProtectedItemState']]]
+        """
+        Backup state of the backed up item.
+        """
+        resource_guard_operation_requests: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        ResourceGuardOperationRequests on which LAC check will be performed
+        """
+        soft_delete_retention_period_in_days: NotRequired[pulumi.Input[int]]
+        """
+        Soft delete retention period in days
+        """
+        source_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        ARM ID of the resource to be backed up.
+        """
+elif False:
+    AzureSqlProtectedItemArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AzureSqlProtectedItemArgs:
@@ -3545,6 +4625,31 @@ class AzureSqlProtectedItemArgs:
         pulumi.set(self, "source_resource_id", value)
 
 
+if not MYPY:
+    class AzureSqlProtectionPolicyArgsDict(TypedDict):
+        """
+        Azure SQL workload-specific backup policy.
+        """
+        backup_management_type: pulumi.Input[str]
+        """
+        This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+        Expected value is 'AzureSql'.
+        """
+        protected_items_count: NotRequired[pulumi.Input[int]]
+        """
+        Number of items associated with this policy.
+        """
+        resource_guard_operation_requests: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        ResourceGuard Operation Requests
+        """
+        retention_policy: NotRequired[pulumi.Input[Union['LongTermRetentionPolicyArgsDict', 'SimpleRetentionPolicyArgsDict']]]
+        """
+        Retention policy details.
+        """
+elif False:
+    AzureSqlProtectionPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AzureSqlProtectionPolicyArgs:
     def __init__(__self__, *,
@@ -3617,6 +4722,62 @@ class AzureSqlProtectionPolicyArgs:
     def retention_policy(self, value: Optional[pulumi.Input[Union['LongTermRetentionPolicyArgs', 'SimpleRetentionPolicyArgs']]]):
         pulumi.set(self, "retention_policy", value)
 
+
+if not MYPY:
+    class AzureStorageContainerArgsDict(TypedDict):
+        """
+        Azure Storage Account workload-specific container.
+        """
+        container_type: pulumi.Input[str]
+        """
+        Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+        Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+        Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+        Backup is VMAppContainer
+        Expected value is 'StorageContainer'.
+        """
+        acquire_storage_account_lock: NotRequired[pulumi.Input[Union[str, 'AcquireStorageAccountLock']]]
+        """
+        Whether storage account lock is to be acquired for this container or not.
+        """
+        backup_management_type: NotRequired[pulumi.Input[Union[str, 'BackupManagementType']]]
+        """
+        Type of backup management for the container.
+        """
+        friendly_name: NotRequired[pulumi.Input[str]]
+        """
+        Friendly name of the container.
+        """
+        health_status: NotRequired[pulumi.Input[str]]
+        """
+        Status of health of the container.
+        """
+        protectable_object_type: NotRequired[pulumi.Input[str]]
+        """
+        Type of the protectable object associated with this container
+        """
+        protected_item_count: NotRequired[pulumi.Input[float]]
+        """
+        Number of items backed up in this container.
+        """
+        registration_status: NotRequired[pulumi.Input[str]]
+        """
+        Status of registration of the container with the Recovery Services Vault.
+        """
+        resource_group: NotRequired[pulumi.Input[str]]
+        """
+        Resource group name of Recovery Services Vault.
+        """
+        source_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        Fully qualified ARM url.
+        """
+        storage_account_version: NotRequired[pulumi.Input[str]]
+        """
+        Storage account version.
+        """
+elif False:
+    AzureStorageContainerArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AzureStorageContainerArgs:
@@ -3809,6 +4970,62 @@ class AzureStorageContainerArgs:
         pulumi.set(self, "storage_account_version", value)
 
 
+if not MYPY:
+    class AzureVMAppContainerProtectionContainerArgsDict(TypedDict):
+        """
+        Container for SQL workloads under Azure Virtual Machines.
+        """
+        container_type: pulumi.Input[str]
+        """
+        Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+        Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+        Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+        Backup is VMAppContainer
+        Expected value is 'VMAppContainer'.
+        """
+        backup_management_type: NotRequired[pulumi.Input[Union[str, 'BackupManagementType']]]
+        """
+        Type of backup management for the container.
+        """
+        extended_info: NotRequired[pulumi.Input['AzureWorkloadContainerExtendedInfoArgsDict']]
+        """
+        Additional details of a workload container.
+        """
+        friendly_name: NotRequired[pulumi.Input[str]]
+        """
+        Friendly name of the container.
+        """
+        health_status: NotRequired[pulumi.Input[str]]
+        """
+        Status of health of the container.
+        """
+        last_updated_time: NotRequired[pulumi.Input[str]]
+        """
+        Time stamp when this container was updated.
+        """
+        operation_type: NotRequired[pulumi.Input[Union[str, 'OperationType']]]
+        """
+        Re-Do Operation
+        """
+        protectable_object_type: NotRequired[pulumi.Input[str]]
+        """
+        Type of the protectable object associated with this container
+        """
+        registration_status: NotRequired[pulumi.Input[str]]
+        """
+        Status of registration of the container with the Recovery Services Vault.
+        """
+        source_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        ARM ID of the virtual machine represented by this Azure Workload Container
+        """
+        workload_type: NotRequired[pulumi.Input[Union[str, 'WorkloadType']]]
+        """
+        Workload type for which registration was sent.
+        """
+elif False:
+    AzureVMAppContainerProtectionContainerArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AzureVMAppContainerProtectionContainerArgs:
     def __init__(__self__, *,
@@ -4000,6 +5217,42 @@ class AzureVMAppContainerProtectionContainerArgs:
         pulumi.set(self, "workload_type", value)
 
 
+if not MYPY:
+    class AzureVmWorkloadProtectedItemExtendedInfoArgsDict(TypedDict):
+        """
+        Additional information on Azure Workload for SQL specific backup item.
+        """
+        newest_recovery_point_in_archive: NotRequired[pulumi.Input[str]]
+        """
+        The latest backup copy available for this backup item in archive tier
+        """
+        oldest_recovery_point: NotRequired[pulumi.Input[str]]
+        """
+        The oldest backup copy available for this backup item across all tiers.
+        """
+        oldest_recovery_point_in_archive: NotRequired[pulumi.Input[str]]
+        """
+        The oldest backup copy available for this backup item in archive tier
+        """
+        oldest_recovery_point_in_vault: NotRequired[pulumi.Input[str]]
+        """
+        The oldest backup copy available for this backup item in vault tier
+        """
+        policy_state: NotRequired[pulumi.Input[str]]
+        """
+        Indicates consistency of policy object and policy applied to this backup item.
+        """
+        recovery_model: NotRequired[pulumi.Input[str]]
+        """
+        Indicates consistency of policy object and policy applied to this backup item.
+        """
+        recovery_point_count: NotRequired[pulumi.Input[int]]
+        """
+        Number of backup copies available for this backup item.
+        """
+elif False:
+    AzureVmWorkloadProtectedItemExtendedInfoArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AzureVmWorkloadProtectedItemExtendedInfoArgs:
     def __init__(__self__, *,
@@ -4119,6 +5372,123 @@ class AzureVmWorkloadProtectedItemExtendedInfoArgs:
     def recovery_point_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "recovery_point_count", value)
 
+
+if not MYPY:
+    class AzureVmWorkloadProtectedItemArgsDict(TypedDict):
+        """
+        Azure VM workload-specific protected item.
+        """
+        protected_item_type: pulumi.Input[str]
+        """
+        backup item type.
+        Expected value is 'AzureVmWorkloadProtectedItem'.
+        """
+        backup_set_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the backup set the backup item belongs to
+        """
+        container_name: NotRequired[pulumi.Input[str]]
+        """
+        Unique name of container
+        """
+        create_mode: NotRequired[pulumi.Input[Union[str, 'CreateMode']]]
+        """
+        Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
+        """
+        deferred_delete_time_in_utc: NotRequired[pulumi.Input[str]]
+        """
+        Time for deferred deletion in UTC
+        """
+        deferred_delete_time_remaining: NotRequired[pulumi.Input[str]]
+        """
+        Time remaining before the DS marked for deferred delete is permanently deleted
+        """
+        extended_info: NotRequired[pulumi.Input['AzureVmWorkloadProtectedItemExtendedInfoArgsDict']]
+        """
+        Additional information for this backup item.
+        """
+        is_archive_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Flag to identify whether datasource is protected in archive
+        """
+        is_deferred_delete_schedule_upcoming: NotRequired[pulumi.Input[bool]]
+        """
+        Flag to identify whether the deferred deleted DS is to be purged soon
+        """
+        is_rehydrate: NotRequired[pulumi.Input[bool]]
+        """
+        Flag to identify that deferred deleted DS is to be moved into Pause state
+        """
+        is_scheduled_for_deferred_delete: NotRequired[pulumi.Input[bool]]
+        """
+        Flag to identify whether the DS is scheduled for deferred delete
+        """
+        kpis_healths: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['KPIResourceHealthDetailsArgsDict']]]]
+        """
+        Health details of different KPIs
+        """
+        last_backup_status: NotRequired[pulumi.Input[Union[str, 'LastBackupStatus']]]
+        """
+        Last backup operation status. Possible values: Healthy, Unhealthy.
+        """
+        last_backup_time: NotRequired[pulumi.Input[str]]
+        """
+        Timestamp of the last backup operation on this backup item.
+        """
+        last_recovery_point: NotRequired[pulumi.Input[str]]
+        """
+        Timestamp when the last (latest) backup copy was created for this backup item.
+        """
+        nodes_list: NotRequired[pulumi.Input[Sequence[pulumi.Input['DistributedNodesInfoArgsDict']]]]
+        """
+        List of the nodes in case of distributed container.
+        """
+        parent_name: NotRequired[pulumi.Input[str]]
+        """
+        Parent name of the DB such as Instance or Availability Group.
+        """
+        parent_type: NotRequired[pulumi.Input[str]]
+        """
+        Parent type of protected item, example: for a DB, standalone server or distributed
+        """
+        policy_id: NotRequired[pulumi.Input[str]]
+        """
+        ID of the backup policy with which this item is backed up.
+        """
+        policy_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the policy used for protection
+        """
+        protected_item_data_source_id: NotRequired[pulumi.Input[str]]
+        """
+        Data ID of the protected item.
+        """
+        protected_item_health_status: NotRequired[pulumi.Input[Union[str, 'ProtectedItemHealthStatus']]]
+        """
+        Health status of the backup item, evaluated based on last heartbeat received
+        """
+        protection_state: NotRequired[pulumi.Input[Union[str, 'ProtectionState']]]
+        """
+        Backup state of this backup item.
+        """
+        resource_guard_operation_requests: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        ResourceGuardOperationRequests on which LAC check will be performed
+        """
+        server_name: NotRequired[pulumi.Input[str]]
+        """
+        Host/Cluster Name for instance or AG
+        """
+        soft_delete_retention_period_in_days: NotRequired[pulumi.Input[int]]
+        """
+        Soft delete retention period in days
+        """
+        source_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        ARM ID of the resource to be backed up.
+        """
+elif False:
+    AzureVmWorkloadProtectedItemArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AzureVmWorkloadProtectedItemArgs:
@@ -4561,6 +5931,43 @@ class AzureVmWorkloadProtectedItemArgs:
         pulumi.set(self, "source_resource_id", value)
 
 
+if not MYPY:
+    class AzureVmWorkloadProtectionPolicyArgsDict(TypedDict):
+        """
+        Azure VM (Mercury) workload-specific backup policy.
+        """
+        backup_management_type: pulumi.Input[str]
+        """
+        This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+        Expected value is 'AzureWorkload'.
+        """
+        make_policy_consistent: NotRequired[pulumi.Input[bool]]
+        """
+        Fix the policy inconsistency
+        """
+        protected_items_count: NotRequired[pulumi.Input[int]]
+        """
+        Number of items associated with this policy.
+        """
+        resource_guard_operation_requests: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        ResourceGuard Operation Requests
+        """
+        settings: NotRequired[pulumi.Input['SettingsArgsDict']]
+        """
+        Common settings for the backup management
+        """
+        sub_protection_policy: NotRequired[pulumi.Input[Sequence[pulumi.Input['SubProtectionPolicyArgsDict']]]]
+        """
+        List of sub-protection policies which includes schedule and retention
+        """
+        work_load_type: NotRequired[pulumi.Input[Union[str, 'WorkloadType']]]
+        """
+        Type of workload for the backup management
+        """
+elif False:
+    AzureVmWorkloadProtectionPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AzureVmWorkloadProtectionPolicyArgs:
     def __init__(__self__, *,
@@ -4681,6 +6088,123 @@ class AzureVmWorkloadProtectionPolicyArgs:
     def work_load_type(self, value: Optional[pulumi.Input[Union[str, 'WorkloadType']]]):
         pulumi.set(self, "work_load_type", value)
 
+
+if not MYPY:
+    class AzureVmWorkloadSAPAseDatabaseProtectedItemArgsDict(TypedDict):
+        """
+        Azure VM workload-specific protected item representing SAP ASE Database.
+        """
+        protected_item_type: pulumi.Input[str]
+        """
+        backup item type.
+        Expected value is 'AzureVmWorkloadSAPAseDatabase'.
+        """
+        backup_set_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the backup set the backup item belongs to
+        """
+        container_name: NotRequired[pulumi.Input[str]]
+        """
+        Unique name of container
+        """
+        create_mode: NotRequired[pulumi.Input[Union[str, 'CreateMode']]]
+        """
+        Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
+        """
+        deferred_delete_time_in_utc: NotRequired[pulumi.Input[str]]
+        """
+        Time for deferred deletion in UTC
+        """
+        deferred_delete_time_remaining: NotRequired[pulumi.Input[str]]
+        """
+        Time remaining before the DS marked for deferred delete is permanently deleted
+        """
+        extended_info: NotRequired[pulumi.Input['AzureVmWorkloadProtectedItemExtendedInfoArgsDict']]
+        """
+        Additional information for this backup item.
+        """
+        is_archive_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Flag to identify whether datasource is protected in archive
+        """
+        is_deferred_delete_schedule_upcoming: NotRequired[pulumi.Input[bool]]
+        """
+        Flag to identify whether the deferred deleted DS is to be purged soon
+        """
+        is_rehydrate: NotRequired[pulumi.Input[bool]]
+        """
+        Flag to identify that deferred deleted DS is to be moved into Pause state
+        """
+        is_scheduled_for_deferred_delete: NotRequired[pulumi.Input[bool]]
+        """
+        Flag to identify whether the DS is scheduled for deferred delete
+        """
+        kpis_healths: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['KPIResourceHealthDetailsArgsDict']]]]
+        """
+        Health details of different KPIs
+        """
+        last_backup_status: NotRequired[pulumi.Input[Union[str, 'LastBackupStatus']]]
+        """
+        Last backup operation status. Possible values: Healthy, Unhealthy.
+        """
+        last_backup_time: NotRequired[pulumi.Input[str]]
+        """
+        Timestamp of the last backup operation on this backup item.
+        """
+        last_recovery_point: NotRequired[pulumi.Input[str]]
+        """
+        Timestamp when the last (latest) backup copy was created for this backup item.
+        """
+        nodes_list: NotRequired[pulumi.Input[Sequence[pulumi.Input['DistributedNodesInfoArgsDict']]]]
+        """
+        List of the nodes in case of distributed container.
+        """
+        parent_name: NotRequired[pulumi.Input[str]]
+        """
+        Parent name of the DB such as Instance or Availability Group.
+        """
+        parent_type: NotRequired[pulumi.Input[str]]
+        """
+        Parent type of protected item, example: for a DB, standalone server or distributed
+        """
+        policy_id: NotRequired[pulumi.Input[str]]
+        """
+        ID of the backup policy with which this item is backed up.
+        """
+        policy_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the policy used for protection
+        """
+        protected_item_data_source_id: NotRequired[pulumi.Input[str]]
+        """
+        Data ID of the protected item.
+        """
+        protected_item_health_status: NotRequired[pulumi.Input[Union[str, 'ProtectedItemHealthStatus']]]
+        """
+        Health status of the backup item, evaluated based on last heartbeat received
+        """
+        protection_state: NotRequired[pulumi.Input[Union[str, 'ProtectionState']]]
+        """
+        Backup state of this backup item.
+        """
+        resource_guard_operation_requests: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        ResourceGuardOperationRequests on which LAC check will be performed
+        """
+        server_name: NotRequired[pulumi.Input[str]]
+        """
+        Host/Cluster Name for instance or AG
+        """
+        soft_delete_retention_period_in_days: NotRequired[pulumi.Input[int]]
+        """
+        Soft delete retention period in days
+        """
+        source_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        ARM ID of the resource to be backed up.
+        """
+elif False:
+    AzureVmWorkloadSAPAseDatabaseProtectedItemArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AzureVmWorkloadSAPAseDatabaseProtectedItemArgs:
@@ -5123,6 +6647,123 @@ class AzureVmWorkloadSAPAseDatabaseProtectedItemArgs:
         pulumi.set(self, "source_resource_id", value)
 
 
+if not MYPY:
+    class AzureVmWorkloadSAPHanaDBInstanceProtectedItemArgsDict(TypedDict):
+        """
+        Azure VM workload-specific protected item representing SAP HANA DBInstance.
+        """
+        protected_item_type: pulumi.Input[str]
+        """
+        backup item type.
+        Expected value is 'AzureVmWorkloadSAPHanaDBInstance'.
+        """
+        backup_set_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the backup set the backup item belongs to
+        """
+        container_name: NotRequired[pulumi.Input[str]]
+        """
+        Unique name of container
+        """
+        create_mode: NotRequired[pulumi.Input[Union[str, 'CreateMode']]]
+        """
+        Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
+        """
+        deferred_delete_time_in_utc: NotRequired[pulumi.Input[str]]
+        """
+        Time for deferred deletion in UTC
+        """
+        deferred_delete_time_remaining: NotRequired[pulumi.Input[str]]
+        """
+        Time remaining before the DS marked for deferred delete is permanently deleted
+        """
+        extended_info: NotRequired[pulumi.Input['AzureVmWorkloadProtectedItemExtendedInfoArgsDict']]
+        """
+        Additional information for this backup item.
+        """
+        is_archive_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Flag to identify whether datasource is protected in archive
+        """
+        is_deferred_delete_schedule_upcoming: NotRequired[pulumi.Input[bool]]
+        """
+        Flag to identify whether the deferred deleted DS is to be purged soon
+        """
+        is_rehydrate: NotRequired[pulumi.Input[bool]]
+        """
+        Flag to identify that deferred deleted DS is to be moved into Pause state
+        """
+        is_scheduled_for_deferred_delete: NotRequired[pulumi.Input[bool]]
+        """
+        Flag to identify whether the DS is scheduled for deferred delete
+        """
+        kpis_healths: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['KPIResourceHealthDetailsArgsDict']]]]
+        """
+        Health details of different KPIs
+        """
+        last_backup_status: NotRequired[pulumi.Input[Union[str, 'LastBackupStatus']]]
+        """
+        Last backup operation status. Possible values: Healthy, Unhealthy.
+        """
+        last_backup_time: NotRequired[pulumi.Input[str]]
+        """
+        Timestamp of the last backup operation on this backup item.
+        """
+        last_recovery_point: NotRequired[pulumi.Input[str]]
+        """
+        Timestamp when the last (latest) backup copy was created for this backup item.
+        """
+        nodes_list: NotRequired[pulumi.Input[Sequence[pulumi.Input['DistributedNodesInfoArgsDict']]]]
+        """
+        List of the nodes in case of distributed container.
+        """
+        parent_name: NotRequired[pulumi.Input[str]]
+        """
+        Parent name of the DB such as Instance or Availability Group.
+        """
+        parent_type: NotRequired[pulumi.Input[str]]
+        """
+        Parent type of protected item, example: for a DB, standalone server or distributed
+        """
+        policy_id: NotRequired[pulumi.Input[str]]
+        """
+        ID of the backup policy with which this item is backed up.
+        """
+        policy_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the policy used for protection
+        """
+        protected_item_data_source_id: NotRequired[pulumi.Input[str]]
+        """
+        Data ID of the protected item.
+        """
+        protected_item_health_status: NotRequired[pulumi.Input[Union[str, 'ProtectedItemHealthStatus']]]
+        """
+        Health status of the backup item, evaluated based on last heartbeat received
+        """
+        protection_state: NotRequired[pulumi.Input[Union[str, 'ProtectionState']]]
+        """
+        Backup state of this backup item.
+        """
+        resource_guard_operation_requests: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        ResourceGuardOperationRequests on which LAC check will be performed
+        """
+        server_name: NotRequired[pulumi.Input[str]]
+        """
+        Host/Cluster Name for instance or AG
+        """
+        soft_delete_retention_period_in_days: NotRequired[pulumi.Input[int]]
+        """
+        Soft delete retention period in days
+        """
+        source_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        ARM ID of the resource to be backed up.
+        """
+elif False:
+    AzureVmWorkloadSAPHanaDBInstanceProtectedItemArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AzureVmWorkloadSAPHanaDBInstanceProtectedItemArgs:
     def __init__(__self__, *,
@@ -5563,6 +7204,123 @@ class AzureVmWorkloadSAPHanaDBInstanceProtectedItemArgs:
     def source_resource_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "source_resource_id", value)
 
+
+if not MYPY:
+    class AzureVmWorkloadSAPHanaDatabaseProtectedItemArgsDict(TypedDict):
+        """
+        Azure VM workload-specific protected item representing SAP HANA Database.
+        """
+        protected_item_type: pulumi.Input[str]
+        """
+        backup item type.
+        Expected value is 'AzureVmWorkloadSAPHanaDatabase'.
+        """
+        backup_set_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the backup set the backup item belongs to
+        """
+        container_name: NotRequired[pulumi.Input[str]]
+        """
+        Unique name of container
+        """
+        create_mode: NotRequired[pulumi.Input[Union[str, 'CreateMode']]]
+        """
+        Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
+        """
+        deferred_delete_time_in_utc: NotRequired[pulumi.Input[str]]
+        """
+        Time for deferred deletion in UTC
+        """
+        deferred_delete_time_remaining: NotRequired[pulumi.Input[str]]
+        """
+        Time remaining before the DS marked for deferred delete is permanently deleted
+        """
+        extended_info: NotRequired[pulumi.Input['AzureVmWorkloadProtectedItemExtendedInfoArgsDict']]
+        """
+        Additional information for this backup item.
+        """
+        is_archive_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Flag to identify whether datasource is protected in archive
+        """
+        is_deferred_delete_schedule_upcoming: NotRequired[pulumi.Input[bool]]
+        """
+        Flag to identify whether the deferred deleted DS is to be purged soon
+        """
+        is_rehydrate: NotRequired[pulumi.Input[bool]]
+        """
+        Flag to identify that deferred deleted DS is to be moved into Pause state
+        """
+        is_scheduled_for_deferred_delete: NotRequired[pulumi.Input[bool]]
+        """
+        Flag to identify whether the DS is scheduled for deferred delete
+        """
+        kpis_healths: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['KPIResourceHealthDetailsArgsDict']]]]
+        """
+        Health details of different KPIs
+        """
+        last_backup_status: NotRequired[pulumi.Input[Union[str, 'LastBackupStatus']]]
+        """
+        Last backup operation status. Possible values: Healthy, Unhealthy.
+        """
+        last_backup_time: NotRequired[pulumi.Input[str]]
+        """
+        Timestamp of the last backup operation on this backup item.
+        """
+        last_recovery_point: NotRequired[pulumi.Input[str]]
+        """
+        Timestamp when the last (latest) backup copy was created for this backup item.
+        """
+        nodes_list: NotRequired[pulumi.Input[Sequence[pulumi.Input['DistributedNodesInfoArgsDict']]]]
+        """
+        List of the nodes in case of distributed container.
+        """
+        parent_name: NotRequired[pulumi.Input[str]]
+        """
+        Parent name of the DB such as Instance or Availability Group.
+        """
+        parent_type: NotRequired[pulumi.Input[str]]
+        """
+        Parent type of protected item, example: for a DB, standalone server or distributed
+        """
+        policy_id: NotRequired[pulumi.Input[str]]
+        """
+        ID of the backup policy with which this item is backed up.
+        """
+        policy_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the policy used for protection
+        """
+        protected_item_data_source_id: NotRequired[pulumi.Input[str]]
+        """
+        Data ID of the protected item.
+        """
+        protected_item_health_status: NotRequired[pulumi.Input[Union[str, 'ProtectedItemHealthStatus']]]
+        """
+        Health status of the backup item, evaluated based on last heartbeat received
+        """
+        protection_state: NotRequired[pulumi.Input[Union[str, 'ProtectionState']]]
+        """
+        Backup state of this backup item.
+        """
+        resource_guard_operation_requests: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        ResourceGuardOperationRequests on which LAC check will be performed
+        """
+        server_name: NotRequired[pulumi.Input[str]]
+        """
+        Host/Cluster Name for instance or AG
+        """
+        soft_delete_retention_period_in_days: NotRequired[pulumi.Input[int]]
+        """
+        Soft delete retention period in days
+        """
+        source_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        ARM ID of the resource to be backed up.
+        """
+elif False:
+    AzureVmWorkloadSAPHanaDatabaseProtectedItemArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AzureVmWorkloadSAPHanaDatabaseProtectedItemArgs:
@@ -6005,6 +7763,123 @@ class AzureVmWorkloadSAPHanaDatabaseProtectedItemArgs:
         pulumi.set(self, "source_resource_id", value)
 
 
+if not MYPY:
+    class AzureVmWorkloadSQLDatabaseProtectedItemArgsDict(TypedDict):
+        """
+        Azure VM workload-specific protected item representing SQL Database.
+        """
+        protected_item_type: pulumi.Input[str]
+        """
+        backup item type.
+        Expected value is 'AzureVmWorkloadSQLDatabase'.
+        """
+        backup_set_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the backup set the backup item belongs to
+        """
+        container_name: NotRequired[pulumi.Input[str]]
+        """
+        Unique name of container
+        """
+        create_mode: NotRequired[pulumi.Input[Union[str, 'CreateMode']]]
+        """
+        Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
+        """
+        deferred_delete_time_in_utc: NotRequired[pulumi.Input[str]]
+        """
+        Time for deferred deletion in UTC
+        """
+        deferred_delete_time_remaining: NotRequired[pulumi.Input[str]]
+        """
+        Time remaining before the DS marked for deferred delete is permanently deleted
+        """
+        extended_info: NotRequired[pulumi.Input['AzureVmWorkloadProtectedItemExtendedInfoArgsDict']]
+        """
+        Additional information for this backup item.
+        """
+        is_archive_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Flag to identify whether datasource is protected in archive
+        """
+        is_deferred_delete_schedule_upcoming: NotRequired[pulumi.Input[bool]]
+        """
+        Flag to identify whether the deferred deleted DS is to be purged soon
+        """
+        is_rehydrate: NotRequired[pulumi.Input[bool]]
+        """
+        Flag to identify that deferred deleted DS is to be moved into Pause state
+        """
+        is_scheduled_for_deferred_delete: NotRequired[pulumi.Input[bool]]
+        """
+        Flag to identify whether the DS is scheduled for deferred delete
+        """
+        kpis_healths: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['KPIResourceHealthDetailsArgsDict']]]]
+        """
+        Health details of different KPIs
+        """
+        last_backup_status: NotRequired[pulumi.Input[Union[str, 'LastBackupStatus']]]
+        """
+        Last backup operation status. Possible values: Healthy, Unhealthy.
+        """
+        last_backup_time: NotRequired[pulumi.Input[str]]
+        """
+        Timestamp of the last backup operation on this backup item.
+        """
+        last_recovery_point: NotRequired[pulumi.Input[str]]
+        """
+        Timestamp when the last (latest) backup copy was created for this backup item.
+        """
+        nodes_list: NotRequired[pulumi.Input[Sequence[pulumi.Input['DistributedNodesInfoArgsDict']]]]
+        """
+        List of the nodes in case of distributed container.
+        """
+        parent_name: NotRequired[pulumi.Input[str]]
+        """
+        Parent name of the DB such as Instance or Availability Group.
+        """
+        parent_type: NotRequired[pulumi.Input[str]]
+        """
+        Parent type of protected item, example: for a DB, standalone server or distributed
+        """
+        policy_id: NotRequired[pulumi.Input[str]]
+        """
+        ID of the backup policy with which this item is backed up.
+        """
+        policy_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the policy used for protection
+        """
+        protected_item_data_source_id: NotRequired[pulumi.Input[str]]
+        """
+        Data ID of the protected item.
+        """
+        protected_item_health_status: NotRequired[pulumi.Input[Union[str, 'ProtectedItemHealthStatus']]]
+        """
+        Health status of the backup item, evaluated based on last heartbeat received
+        """
+        protection_state: NotRequired[pulumi.Input[Union[str, 'ProtectionState']]]
+        """
+        Backup state of this backup item.
+        """
+        resource_guard_operation_requests: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        ResourceGuardOperationRequests on which LAC check will be performed
+        """
+        server_name: NotRequired[pulumi.Input[str]]
+        """
+        Host/Cluster Name for instance or AG
+        """
+        soft_delete_retention_period_in_days: NotRequired[pulumi.Input[int]]
+        """
+        Soft delete retention period in days
+        """
+        source_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        ARM ID of the resource to be backed up.
+        """
+elif False:
+    AzureVmWorkloadSQLDatabaseProtectedItemArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AzureVmWorkloadSQLDatabaseProtectedItemArgs:
     def __init__(__self__, *,
@@ -6446,6 +8321,39 @@ class AzureVmWorkloadSQLDatabaseProtectedItemArgs:
         pulumi.set(self, "source_resource_id", value)
 
 
+if not MYPY:
+    class AzureWorkloadAutoProtectionIntentArgsDict(TypedDict):
+        """
+        Azure Recovery Services Vault specific protection intent item.
+        """
+        protection_intent_item_type: pulumi.Input[str]
+        """
+        backup protectionIntent type.
+        Expected value is 'AzureWorkloadAutoProtectionIntent'.
+        """
+        backup_management_type: NotRequired[pulumi.Input[Union[str, 'BackupManagementType']]]
+        """
+        Type of backup management for the backed up item.
+        """
+        item_id: NotRequired[pulumi.Input[str]]
+        """
+        ID of the item which is getting protected, In case of Azure Vm , it is ProtectedItemId
+        """
+        policy_id: NotRequired[pulumi.Input[str]]
+        """
+        ID of the backup policy with which this item is backed up.
+        """
+        protection_state: NotRequired[pulumi.Input[Union[str, 'ProtectionStatus']]]
+        """
+        Backup state of this backup item.
+        """
+        source_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        ARM ID of the resource to be backed up.
+        """
+elif False:
+    AzureWorkloadAutoProtectionIntentArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AzureWorkloadAutoProtectionIntentArgs:
     def __init__(__self__, *,
@@ -6550,6 +8458,39 @@ class AzureWorkloadAutoProtectionIntentArgs:
     def source_resource_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "source_resource_id", value)
 
+
+if not MYPY:
+    class AzureWorkloadContainerAutoProtectionIntentArgsDict(TypedDict):
+        """
+        Azure workload specific protection intent item.
+        """
+        protection_intent_item_type: pulumi.Input[str]
+        """
+        backup protectionIntent type.
+        Expected value is 'AzureWorkloadContainerAutoProtectionIntent'.
+        """
+        backup_management_type: NotRequired[pulumi.Input[Union[str, 'BackupManagementType']]]
+        """
+        Type of backup management for the backed up item.
+        """
+        item_id: NotRequired[pulumi.Input[str]]
+        """
+        ID of the item which is getting protected, In case of Azure Vm , it is ProtectedItemId
+        """
+        policy_id: NotRequired[pulumi.Input[str]]
+        """
+        ID of the backup policy with which this item is backed up.
+        """
+        protection_state: NotRequired[pulumi.Input[Union[str, 'ProtectionStatus']]]
+        """
+        Backup state of this backup item.
+        """
+        source_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        ARM ID of the resource to be backed up.
+        """
+elif False:
+    AzureWorkloadContainerAutoProtectionIntentArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AzureWorkloadContainerAutoProtectionIntentArgs:
@@ -6656,6 +8597,26 @@ class AzureWorkloadContainerAutoProtectionIntentArgs:
         pulumi.set(self, "source_resource_id", value)
 
 
+if not MYPY:
+    class AzureWorkloadContainerExtendedInfoArgsDict(TypedDict):
+        """
+        Extended information of the container.
+        """
+        host_server_name: NotRequired[pulumi.Input[str]]
+        """
+        Host Os Name in case of Stand Alone and Cluster Name in case of distributed container.
+        """
+        inquiry_info: NotRequired[pulumi.Input['InquiryInfoArgsDict']]
+        """
+        Inquiry Status for the container.
+        """
+        nodes_list: NotRequired[pulumi.Input[Sequence[pulumi.Input['DistributedNodesInfoArgsDict']]]]
+        """
+        List of the nodes in case of distributed container.
+        """
+elif False:
+    AzureWorkloadContainerExtendedInfoArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AzureWorkloadContainerExtendedInfoArgs:
     def __init__(__self__, *,
@@ -6711,6 +8672,62 @@ class AzureWorkloadContainerExtendedInfoArgs:
     def nodes_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DistributedNodesInfoArgs']]]]):
         pulumi.set(self, "nodes_list", value)
 
+
+if not MYPY:
+    class AzureWorkloadContainerArgsDict(TypedDict):
+        """
+        Container for the workloads running inside Azure Compute or Classic Compute.
+        """
+        container_type: pulumi.Input[str]
+        """
+        Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+        Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+        Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+        Backup is VMAppContainer
+        Expected value is 'AzureWorkloadContainer'.
+        """
+        backup_management_type: NotRequired[pulumi.Input[Union[str, 'BackupManagementType']]]
+        """
+        Type of backup management for the container.
+        """
+        extended_info: NotRequired[pulumi.Input['AzureWorkloadContainerExtendedInfoArgsDict']]
+        """
+        Additional details of a workload container.
+        """
+        friendly_name: NotRequired[pulumi.Input[str]]
+        """
+        Friendly name of the container.
+        """
+        health_status: NotRequired[pulumi.Input[str]]
+        """
+        Status of health of the container.
+        """
+        last_updated_time: NotRequired[pulumi.Input[str]]
+        """
+        Time stamp when this container was updated.
+        """
+        operation_type: NotRequired[pulumi.Input[Union[str, 'OperationType']]]
+        """
+        Re-Do Operation
+        """
+        protectable_object_type: NotRequired[pulumi.Input[str]]
+        """
+        Type of the protectable object associated with this container
+        """
+        registration_status: NotRequired[pulumi.Input[str]]
+        """
+        Status of registration of the container with the Recovery Services Vault.
+        """
+        source_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        ARM ID of the virtual machine represented by this Azure Workload Container
+        """
+        workload_type: NotRequired[pulumi.Input[Union[str, 'WorkloadType']]]
+        """
+        Workload type for which registration was sent.
+        """
+elif False:
+    AzureWorkloadContainerArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AzureWorkloadContainerArgs:
@@ -6903,6 +8920,43 @@ class AzureWorkloadContainerArgs:
         pulumi.set(self, "workload_type", value)
 
 
+if not MYPY:
+    class AzureWorkloadSQLAutoProtectionIntentArgsDict(TypedDict):
+        """
+        Azure Workload SQL Auto Protection intent item.
+        """
+        protection_intent_item_type: pulumi.Input[str]
+        """
+        backup protectionIntent type.
+        Expected value is 'AzureWorkloadSQLAutoProtectionIntent'.
+        """
+        backup_management_type: NotRequired[pulumi.Input[Union[str, 'BackupManagementType']]]
+        """
+        Type of backup management for the backed up item.
+        """
+        item_id: NotRequired[pulumi.Input[str]]
+        """
+        ID of the item which is getting protected, In case of Azure Vm , it is ProtectedItemId
+        """
+        policy_id: NotRequired[pulumi.Input[str]]
+        """
+        ID of the backup policy with which this item is backed up.
+        """
+        protection_state: NotRequired[pulumi.Input[Union[str, 'ProtectionStatus']]]
+        """
+        Backup state of this backup item.
+        """
+        source_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        ARM ID of the resource to be backed up.
+        """
+        workload_item_type: NotRequired[pulumi.Input[Union[str, 'WorkloadItemType']]]
+        """
+        Workload item type of the item for which intent is to be set
+        """
+elif False:
+    AzureWorkloadSQLAutoProtectionIntentArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AzureWorkloadSQLAutoProtectionIntentArgs:
     def __init__(__self__, *,
@@ -7024,6 +9078,16 @@ class AzureWorkloadSQLAutoProtectionIntentArgs:
         pulumi.set(self, "workload_item_type", value)
 
 
+if not MYPY:
+    class ClassicAlertSettingsArgsDict(TypedDict):
+        """
+        Settings for classic alerts
+        """
+        alerts_for_critical_operations: NotRequired[pulumi.Input[Union[str, 'AlertsState']]]
+        email_notifications_for_site_recovery: NotRequired[pulumi.Input[Union[str, 'AlertsState']]]
+elif False:
+    ClassicAlertSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ClassicAlertSettingsArgs:
     def __init__(__self__, *,
@@ -7055,6 +9119,22 @@ class ClassicAlertSettingsArgs:
     def email_notifications_for_site_recovery(self, value: Optional[pulumi.Input[Union[str, 'AlertsState']]]):
         pulumi.set(self, "email_notifications_for_site_recovery", value)
 
+
+if not MYPY:
+    class CmkKekIdentityArgsDict(TypedDict):
+        """
+        The details of the identity used for CMK
+        """
+        use_system_assigned_identity: NotRequired[pulumi.Input[bool]]
+        """
+        Indicate that system assigned identity should be used. Mutually exclusive with 'userAssignedIdentity' field
+        """
+        user_assigned_identity: NotRequired[pulumi.Input[str]]
+        """
+        The user assigned identity to be used to grant permissions in case the type of identity used is UserAssigned
+        """
+elif False:
+    CmkKekIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CmkKekIdentityArgs:
@@ -7096,6 +9176,18 @@ class CmkKekIdentityArgs:
         pulumi.set(self, "user_assigned_identity", value)
 
 
+if not MYPY:
+    class CmkKeyVaultPropertiesArgsDict(TypedDict):
+        """
+        The properties of the Key Vault which hosts CMK
+        """
+        key_uri: NotRequired[pulumi.Input[str]]
+        """
+        The key uri of the Customer Managed Key
+        """
+elif False:
+    CmkKeyVaultPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CmkKeyVaultPropertiesArgs:
     def __init__(__self__, *,
@@ -7119,6 +9211,30 @@ class CmkKeyVaultPropertiesArgs:
     def key_uri(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "key_uri", value)
 
+
+if not MYPY:
+    class ContainerIdentityInfoArgsDict(TypedDict):
+        """
+        Container identity information
+        """
+        aad_tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        Protection container identity - AAD Tenant
+        """
+        audience: NotRequired[pulumi.Input[str]]
+        """
+        Protection container identity - Audience
+        """
+        service_principal_client_id: NotRequired[pulumi.Input[str]]
+        """
+        Protection container identity - AAD Service Principal
+        """
+        unique_name: NotRequired[pulumi.Input[str]]
+        """
+        Unique name of the container
+        """
+elif False:
+    ContainerIdentityInfoArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ContainerIdentityInfoArgs:
@@ -7192,6 +9308,15 @@ class ContainerIdentityInfoArgs:
         pulumi.set(self, "unique_name", value)
 
 
+if not MYPY:
+    class CrossSubscriptionRestoreSettingsArgsDict(TypedDict):
+        """
+        Settings for Cross Subscription Restore Settings
+        """
+        cross_subscription_restore_state: NotRequired[pulumi.Input[Union[str, 'CrossSubscriptionRestoreState']]]
+elif False:
+    CrossSubscriptionRestoreSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CrossSubscriptionRestoreSettingsArgs:
     def __init__(__self__, *,
@@ -7211,6 +9336,18 @@ class CrossSubscriptionRestoreSettingsArgs:
     def cross_subscription_restore_state(self, value: Optional[pulumi.Input[Union[str, 'CrossSubscriptionRestoreState']]]):
         pulumi.set(self, "cross_subscription_restore_state", value)
 
+
+if not MYPY:
+    class DPMContainerExtendedInfoArgsDict(TypedDict):
+        """
+        Additional information of the DPMContainer.
+        """
+        last_refreshed_at: NotRequired[pulumi.Input[str]]
+        """
+        Last refresh time of the DPMContainer.
+        """
+elif False:
+    DPMContainerExtendedInfoArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DPMContainerExtendedInfoArgs:
@@ -7235,6 +9372,70 @@ class DPMContainerExtendedInfoArgs:
     def last_refreshed_at(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "last_refreshed_at", value)
 
+
+if not MYPY:
+    class DPMProtectedItemExtendedInfoArgsDict(TypedDict):
+        """
+        Additional information of DPM Protected item.
+        """
+        disk_storage_used_in_bytes: NotRequired[pulumi.Input[str]]
+        """
+        Used Disk storage in bytes.
+        """
+        is_collocated: NotRequired[pulumi.Input[bool]]
+        """
+        To check if backup item is collocated.
+        """
+        is_present_on_cloud: NotRequired[pulumi.Input[bool]]
+        """
+        To check if backup item is cloud protected.
+        """
+        last_backup_status: NotRequired[pulumi.Input[str]]
+        """
+        Last backup status information on backup item.
+        """
+        last_refreshed_at: NotRequired[pulumi.Input[str]]
+        """
+        Last refresh time on backup item.
+        """
+        oldest_recovery_point: NotRequired[pulumi.Input[str]]
+        """
+        Oldest cloud recovery point time.
+        """
+        on_premise_latest_recovery_point: NotRequired[pulumi.Input[str]]
+        """
+        latest disk recovery point time.
+        """
+        on_premise_oldest_recovery_point: NotRequired[pulumi.Input[str]]
+        """
+        Oldest disk recovery point time.
+        """
+        on_premise_recovery_point_count: NotRequired[pulumi.Input[int]]
+        """
+        disk recovery point count.
+        """
+        protectable_object_load_path: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Attribute to provide information on various DBs.
+        """
+        protected: NotRequired[pulumi.Input[bool]]
+        """
+        To check if backup item is disk protected.
+        """
+        protection_group_name: NotRequired[pulumi.Input[str]]
+        """
+        Protection group name of the backup item.
+        """
+        recovery_point_count: NotRequired[pulumi.Input[int]]
+        """
+        cloud recovery point count.
+        """
+        total_disk_storage_size_in_bytes: NotRequired[pulumi.Input[str]]
+        """
+        total Disk storage in bytes.
+        """
+elif False:
+    DPMProtectedItemExtendedInfoArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DPMProtectedItemExtendedInfoArgs:
@@ -7467,6 +9668,95 @@ class DPMProtectedItemExtendedInfoArgs:
     def total_disk_storage_size_in_bytes(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "total_disk_storage_size_in_bytes", value)
 
+
+if not MYPY:
+    class DPMProtectedItemArgsDict(TypedDict):
+        """
+        Additional information on Backup engine specific backup item.
+        """
+        protected_item_type: pulumi.Input[str]
+        """
+        backup item type.
+        Expected value is 'DPMProtectedItem'.
+        """
+        backup_engine_name: NotRequired[pulumi.Input[str]]
+        """
+        Backup Management server protecting this backup item
+        """
+        backup_set_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the backup set the backup item belongs to
+        """
+        container_name: NotRequired[pulumi.Input[str]]
+        """
+        Unique name of container
+        """
+        create_mode: NotRequired[pulumi.Input[Union[str, 'CreateMode']]]
+        """
+        Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
+        """
+        deferred_delete_time_in_utc: NotRequired[pulumi.Input[str]]
+        """
+        Time for deferred deletion in UTC
+        """
+        deferred_delete_time_remaining: NotRequired[pulumi.Input[str]]
+        """
+        Time remaining before the DS marked for deferred delete is permanently deleted
+        """
+        extended_info: NotRequired[pulumi.Input['DPMProtectedItemExtendedInfoArgsDict']]
+        """
+        Extended info of the backup item.
+        """
+        friendly_name: NotRequired[pulumi.Input[str]]
+        """
+        Friendly name of the managed item
+        """
+        is_archive_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Flag to identify whether datasource is protected in archive
+        """
+        is_deferred_delete_schedule_upcoming: NotRequired[pulumi.Input[bool]]
+        """
+        Flag to identify whether the deferred deleted DS is to be purged soon
+        """
+        is_rehydrate: NotRequired[pulumi.Input[bool]]
+        """
+        Flag to identify that deferred deleted DS is to be moved into Pause state
+        """
+        is_scheduled_for_deferred_delete: NotRequired[pulumi.Input[bool]]
+        """
+        Flag to identify whether the DS is scheduled for deferred delete
+        """
+        last_recovery_point: NotRequired[pulumi.Input[str]]
+        """
+        Timestamp when the last (latest) backup copy was created for this backup item.
+        """
+        policy_id: NotRequired[pulumi.Input[str]]
+        """
+        ID of the backup policy with which this item is backed up.
+        """
+        policy_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the policy used for protection
+        """
+        protection_state: NotRequired[pulumi.Input[Union[str, 'ProtectedItemState']]]
+        """
+        Protection state of the backup engine
+        """
+        resource_guard_operation_requests: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        ResourceGuardOperationRequests on which LAC check will be performed
+        """
+        soft_delete_retention_period_in_days: NotRequired[pulumi.Input[int]]
+        """
+        Soft delete retention period in days
+        """
+        source_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        ARM ID of the resource to be backed up.
+        """
+elif False:
+    DPMProtectedItemArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DPMProtectedItemArgs:
@@ -7797,6 +10087,18 @@ class DPMProtectedItemArgs:
         pulumi.set(self, "source_resource_id", value)
 
 
+if not MYPY:
+    class DailyRetentionFormatArgsDict(TypedDict):
+        """
+        Daily retention format.
+        """
+        days_of_the_month: NotRequired[pulumi.Input[Sequence[pulumi.Input['DayArgsDict']]]]
+        """
+        List of days of the month.
+        """
+elif False:
+    DailyRetentionFormatArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DailyRetentionFormatArgs:
     def __init__(__self__, *,
@@ -7820,6 +10122,22 @@ class DailyRetentionFormatArgs:
     def days_of_the_month(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DayArgs']]]]):
         pulumi.set(self, "days_of_the_month", value)
 
+
+if not MYPY:
+    class DailyRetentionScheduleArgsDict(TypedDict):
+        """
+        Daily retention schedule.
+        """
+        retention_duration: NotRequired[pulumi.Input['RetentionDurationArgsDict']]
+        """
+        Retention duration of retention Policy.
+        """
+        retention_times: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Retention times of retention policy.
+        """
+elif False:
+    DailyRetentionScheduleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DailyRetentionScheduleArgs:
@@ -7861,6 +10179,15 @@ class DailyRetentionScheduleArgs:
         pulumi.set(self, "retention_times", value)
 
 
+if not MYPY:
+    class DailyScheduleArgsDict(TypedDict):
+        schedule_run_times: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of times of day this schedule has to be run.
+        """
+elif False:
+    DailyScheduleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DailyScheduleArgs:
     def __init__(__self__, *,
@@ -7883,6 +10210,22 @@ class DailyScheduleArgs:
     def schedule_run_times(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "schedule_run_times", value)
 
+
+if not MYPY:
+    class DayArgsDict(TypedDict):
+        """
+        Day of the week.
+        """
+        date: NotRequired[pulumi.Input[int]]
+        """
+        Date of the month
+        """
+        is_last: NotRequired[pulumi.Input[bool]]
+        """
+        Whether Date is last date of month
+        """
+elif False:
+    DayArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DayArgs:
@@ -7924,6 +10267,19 @@ class DayArgs:
         pulumi.set(self, "is_last", value)
 
 
+if not MYPY:
+    class DiskExclusionPropertiesArgsDict(TypedDict):
+        disk_lun_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[int]]]]
+        """
+        List of Disks' Logical Unit Numbers (LUN) to be used for VM Protection.
+        """
+        is_inclusion_list: NotRequired[pulumi.Input[bool]]
+        """
+        Flag to indicate whether DiskLunList is to be included/ excluded from backup.
+        """
+elif False:
+    DiskExclusionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DiskExclusionPropertiesArgs:
     def __init__(__self__, *,
@@ -7962,6 +10318,27 @@ class DiskExclusionPropertiesArgs:
     def is_inclusion_list(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "is_inclusion_list", value)
 
+
+if not MYPY:
+    class DistributedNodesInfoArgsDict(TypedDict):
+        """
+        This is used to represent the various nodes of the distributed container.
+        """
+        node_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the node under a distributed container.
+        """
+        source_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        ARM resource id of the node
+        """
+        status: NotRequired[pulumi.Input[str]]
+        """
+        Status of this Node.
+        Failed | Succeeded
+        """
+elif False:
+    DistributedNodesInfoArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DistributedNodesInfoArgs:
@@ -8020,6 +10397,74 @@ class DistributedNodesInfoArgs:
     def status(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "status", value)
 
+
+if not MYPY:
+    class DpmContainerArgsDict(TypedDict):
+        """
+        DPM workload-specific protection container.
+        """
+        container_type: pulumi.Input[str]
+        """
+        Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+        Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+        Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+        Backup is VMAppContainer
+        Expected value is 'DPMContainer'.
+        """
+        backup_management_type: NotRequired[pulumi.Input[Union[str, 'BackupManagementType']]]
+        """
+        Type of backup management for the container.
+        """
+        can_re_register: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies whether the container is re-registrable.
+        """
+        container_id: NotRequired[pulumi.Input[str]]
+        """
+        ID of container.
+        """
+        dpm_agent_version: NotRequired[pulumi.Input[str]]
+        """
+        Backup engine Agent version
+        """
+        dpm_servers: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of BackupEngines protecting the container
+        """
+        extended_info: NotRequired[pulumi.Input['DPMContainerExtendedInfoArgsDict']]
+        """
+        Extended Info of the container.
+        """
+        friendly_name: NotRequired[pulumi.Input[str]]
+        """
+        Friendly name of the container.
+        """
+        health_status: NotRequired[pulumi.Input[str]]
+        """
+        Status of health of the container.
+        """
+        protectable_object_type: NotRequired[pulumi.Input[str]]
+        """
+        Type of the protectable object associated with this container
+        """
+        protected_item_count: NotRequired[pulumi.Input[float]]
+        """
+        Number of protected items in the BackupEngine
+        """
+        protection_status: NotRequired[pulumi.Input[str]]
+        """
+        Protection status of the container.
+        """
+        registration_status: NotRequired[pulumi.Input[str]]
+        """
+        Status of registration of the container with the Recovery Services Vault.
+        """
+        upgrade_available: NotRequired[pulumi.Input[bool]]
+        """
+        To check if upgrade available
+        """
+elif False:
+    DpmContainerArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DpmContainerArgs:
@@ -8260,6 +10705,22 @@ class DpmContainerArgs:
         pulumi.set(self, "upgrade_available", value)
 
 
+if not MYPY:
+    class ExtendedPropertiesArgsDict(TypedDict):
+        """
+        Extended Properties for Azure IaasVM Backup.
+        """
+        disk_exclusion_properties: NotRequired[pulumi.Input['DiskExclusionPropertiesArgsDict']]
+        """
+        Extended Properties for Disk Exclusion.
+        """
+        linux_vm_application_name: NotRequired[pulumi.Input[str]]
+        """
+        Linux VM name
+        """
+elif False:
+    ExtendedPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ExtendedPropertiesArgs:
     def __init__(__self__, *,
@@ -8299,6 +10760,26 @@ class ExtendedPropertiesArgs:
     def linux_vm_application_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "linux_vm_application_name", value)
 
+
+if not MYPY:
+    class GenericContainerExtendedInfoArgsDict(TypedDict):
+        """
+        Container extended information
+        """
+        container_identity_info: NotRequired[pulumi.Input['ContainerIdentityInfoArgsDict']]
+        """
+        Container identity information
+        """
+        raw_cert_data: NotRequired[pulumi.Input[str]]
+        """
+        Public key of container cert
+        """
+        service_endpoints: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Azure Backup Service Endpoints for the container
+        """
+elif False:
+    GenericContainerExtendedInfoArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GenericContainerExtendedInfoArgs:
@@ -8355,6 +10836,50 @@ class GenericContainerExtendedInfoArgs:
     def service_endpoints(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "service_endpoints", value)
 
+
+if not MYPY:
+    class GenericContainerArgsDict(TypedDict):
+        """
+        Base class for generic container of backup items
+        """
+        container_type: pulumi.Input[str]
+        """
+        Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+        Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+        Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+        Backup is VMAppContainer
+        Expected value is 'GenericContainer'.
+        """
+        backup_management_type: NotRequired[pulumi.Input[Union[str, 'BackupManagementType']]]
+        """
+        Type of backup management for the container.
+        """
+        extended_information: NotRequired[pulumi.Input['GenericContainerExtendedInfoArgsDict']]
+        """
+        Extended information (not returned in List container API calls)
+        """
+        fabric_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the container's fabric
+        """
+        friendly_name: NotRequired[pulumi.Input[str]]
+        """
+        Friendly name of the container.
+        """
+        health_status: NotRequired[pulumi.Input[str]]
+        """
+        Status of health of the container.
+        """
+        protectable_object_type: NotRequired[pulumi.Input[str]]
+        """
+        Type of the protectable object associated with this container
+        """
+        registration_status: NotRequired[pulumi.Input[str]]
+        """
+        Status of registration of the container with the Recovery Services Vault.
+        """
+elif False:
+    GenericContainerArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GenericContainerArgs:
@@ -8498,6 +11023,103 @@ class GenericContainerArgs:
     def registration_status(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "registration_status", value)
 
+
+if not MYPY:
+    class GenericProtectedItemArgsDict(TypedDict):
+        """
+        Base class for backup items.
+        """
+        protected_item_type: pulumi.Input[str]
+        """
+        backup item type.
+        Expected value is 'GenericProtectedItem'.
+        """
+        backup_set_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the backup set the backup item belongs to
+        """
+        container_name: NotRequired[pulumi.Input[str]]
+        """
+        Unique name of container
+        """
+        create_mode: NotRequired[pulumi.Input[Union[str, 'CreateMode']]]
+        """
+        Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
+        """
+        deferred_delete_time_in_utc: NotRequired[pulumi.Input[str]]
+        """
+        Time for deferred deletion in UTC
+        """
+        deferred_delete_time_remaining: NotRequired[pulumi.Input[str]]
+        """
+        Time remaining before the DS marked for deferred delete is permanently deleted
+        """
+        fabric_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of this backup item's fabric.
+        """
+        friendly_name: NotRequired[pulumi.Input[str]]
+        """
+        Friendly name of the container.
+        """
+        is_archive_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Flag to identify whether datasource is protected in archive
+        """
+        is_deferred_delete_schedule_upcoming: NotRequired[pulumi.Input[bool]]
+        """
+        Flag to identify whether the deferred deleted DS is to be purged soon
+        """
+        is_rehydrate: NotRequired[pulumi.Input[bool]]
+        """
+        Flag to identify that deferred deleted DS is to be moved into Pause state
+        """
+        is_scheduled_for_deferred_delete: NotRequired[pulumi.Input[bool]]
+        """
+        Flag to identify whether the DS is scheduled for deferred delete
+        """
+        last_recovery_point: NotRequired[pulumi.Input[str]]
+        """
+        Timestamp when the last (latest) backup copy was created for this backup item.
+        """
+        policy_id: NotRequired[pulumi.Input[str]]
+        """
+        ID of the backup policy with which this item is backed up.
+        """
+        policy_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the policy used for protection
+        """
+        policy_state: NotRequired[pulumi.Input[str]]
+        """
+        Indicates consistency of policy object and policy applied to this backup item.
+        """
+        protected_item_id: NotRequired[pulumi.Input[float]]
+        """
+        Data Plane Service ID of the protected item.
+        """
+        protection_state: NotRequired[pulumi.Input[Union[str, 'ProtectionState']]]
+        """
+        Backup state of this backup item.
+        """
+        resource_guard_operation_requests: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        ResourceGuardOperationRequests on which LAC check will be performed
+        """
+        soft_delete_retention_period_in_days: NotRequired[pulumi.Input[int]]
+        """
+        Soft delete retention period in days
+        """
+        source_associations: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Loosely coupled (type, value) associations (example - parent of a protected item)
+        """
+        source_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        ARM ID of the resource to be backed up.
+        """
+elif False:
+    GenericProtectedItemArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GenericProtectedItemArgs:
@@ -8860,6 +11482,39 @@ class GenericProtectedItemArgs:
         pulumi.set(self, "source_resource_id", value)
 
 
+if not MYPY:
+    class GenericProtectionPolicyArgsDict(TypedDict):
+        """
+        Azure VM (Mercury) workload-specific backup policy.
+        """
+        backup_management_type: pulumi.Input[str]
+        """
+        This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+        Expected value is 'GenericProtectionPolicy'.
+        """
+        fabric_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of this policy's fabric.
+        """
+        protected_items_count: NotRequired[pulumi.Input[int]]
+        """
+        Number of items associated with this policy.
+        """
+        resource_guard_operation_requests: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        ResourceGuard Operation Requests
+        """
+        sub_protection_policy: NotRequired[pulumi.Input[Sequence[pulumi.Input['SubProtectionPolicyArgsDict']]]]
+        """
+        List of sub-protection policies which includes schedule and retention
+        """
+        time_zone: NotRequired[pulumi.Input[str]]
+        """
+        TimeZone optional input as string. For example: TimeZone = "Pacific Standard Time".
+        """
+elif False:
+    GenericProtectionPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GenericProtectionPolicyArgs:
     def __init__(__self__, *,
@@ -8965,6 +11620,24 @@ class GenericProtectionPolicyArgs:
         pulumi.set(self, "time_zone", value)
 
 
+if not MYPY:
+    class HourlyScheduleArgsDict(TypedDict):
+        interval: NotRequired[pulumi.Input[int]]
+        """
+        Interval at which backup needs to be triggered. For hourly the value
+         can be 4/6/8/12
+        """
+        schedule_window_duration: NotRequired[pulumi.Input[int]]
+        """
+        To specify duration of the backup window
+        """
+        schedule_window_start_time: NotRequired[pulumi.Input[str]]
+        """
+        To specify start time of the backup window
+        """
+elif False:
+    HourlyScheduleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class HourlyScheduleArgs:
     def __init__(__self__, *,
@@ -9021,6 +11694,54 @@ class HourlyScheduleArgs:
     def schedule_window_start_time(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "schedule_window_start_time", value)
 
+
+if not MYPY:
+    class IaaSVMContainerArgsDict(TypedDict):
+        """
+        IaaS VM workload-specific container.
+        """
+        container_type: pulumi.Input[str]
+        """
+        Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+        Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+        Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+        Backup is VMAppContainer
+        Expected value is 'IaasVMContainer'.
+        """
+        backup_management_type: NotRequired[pulumi.Input[Union[str, 'BackupManagementType']]]
+        """
+        Type of backup management for the container.
+        """
+        friendly_name: NotRequired[pulumi.Input[str]]
+        """
+        Friendly name of the container.
+        """
+        health_status: NotRequired[pulumi.Input[str]]
+        """
+        Status of health of the container.
+        """
+        protectable_object_type: NotRequired[pulumi.Input[str]]
+        """
+        Type of the protectable object associated with this container
+        """
+        registration_status: NotRequired[pulumi.Input[str]]
+        """
+        Status of registration of the container with the Recovery Services Vault.
+        """
+        resource_group: NotRequired[pulumi.Input[str]]
+        """
+        Resource group name of Recovery Services Vault.
+        """
+        virtual_machine_id: NotRequired[pulumi.Input[str]]
+        """
+        Fully qualified ARM url of the virtual machine represented by this Azure IaaS VM container.
+        """
+        virtual_machine_version: NotRequired[pulumi.Input[str]]
+        """
+        Specifies whether the container represents a Classic or an Azure Resource Manager VM.
+        """
+elif False:
+    IaaSVMContainerArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IaaSVMContainerArgs:
@@ -9181,6 +11902,22 @@ class IaaSVMContainerArgs:
         pulumi.set(self, "virtual_machine_version", value)
 
 
+if not MYPY:
+    class IdentityDataArgsDict(TypedDict):
+        """
+        Identity for the resource.
+        """
+        type: pulumi.Input[Union[str, 'ResourceIdentityType']]
+        """
+        The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
+        """
+        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of user-assigned identities associated with the resource. The user-assigned identity dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+elif False:
+    IdentityDataArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IdentityDataArgs:
     def __init__(__self__, *,
@@ -9220,6 +11957,15 @@ class IdentityDataArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
+if not MYPY:
+    class ImmutabilitySettingsArgsDict(TypedDict):
+        """
+        Immutability Settings of vault
+        """
+        state: NotRequired[pulumi.Input[Union[str, 'ImmutabilityState']]]
+elif False:
+    ImmutabilitySettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ImmutabilitySettingsArgs:
     def __init__(__self__, *,
@@ -9239,6 +11985,24 @@ class ImmutabilitySettingsArgs:
     def state(self, value: Optional[pulumi.Input[Union[str, 'ImmutabilityState']]]):
         pulumi.set(self, "state", value)
 
+
+if not MYPY:
+    class InquiryInfoArgsDict(TypedDict):
+        """
+        Details about inquired protectable items under a given container.
+        """
+        inquiry_details: NotRequired[pulumi.Input[Sequence[pulumi.Input['WorkloadInquiryDetailsArgsDict']]]]
+        """
+        Inquiry Details which will have workload specific details.
+        For e.g. - For SQL and oracle this will contain different details.
+        """
+        status: NotRequired[pulumi.Input[str]]
+        """
+        Inquiry Status for this container such as
+        InProgress | Failed | Succeeded
+        """
+elif False:
+    InquiryInfoArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InquiryInfoArgs:
@@ -9284,6 +12048,18 @@ class InquiryInfoArgs:
         pulumi.set(self, "status", value)
 
 
+if not MYPY:
+    class InquiryValidationArgsDict(TypedDict):
+        """
+        Validation for inquired protectable items under a given container.
+        """
+        status: NotRequired[pulumi.Input[str]]
+        """
+        Status for the Inquiry Validation.
+        """
+elif False:
+    InquiryValidationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InquiryValidationArgs:
     def __init__(__self__, *,
@@ -9307,6 +12083,13 @@ class InquiryValidationArgs:
     def status(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "status", value)
 
+
+if not MYPY:
+    class InstantRPAdditionalDetailsArgsDict(TypedDict):
+        azure_backup_rg_name_prefix: NotRequired[pulumi.Input[str]]
+        azure_backup_rg_name_suffix: NotRequired[pulumi.Input[str]]
+elif False:
+    InstantRPAdditionalDetailsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InstantRPAdditionalDetailsArgs:
@@ -9337,6 +12120,18 @@ class InstantRPAdditionalDetailsArgs:
         pulumi.set(self, "azure_backup_rg_name_suffix", value)
 
 
+if not MYPY:
+    class KPIResourceHealthDetailsArgsDict(TypedDict):
+        """
+        KPI Resource Health Details
+        """
+        resource_health_status: NotRequired[pulumi.Input[Union[str, 'ResourceHealthStatus']]]
+        """
+        Resource Health Status
+        """
+elif False:
+    KPIResourceHealthDetailsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class KPIResourceHealthDetailsArgs:
     def __init__(__self__, *,
@@ -9360,6 +12155,23 @@ class KPIResourceHealthDetailsArgs:
     def resource_health_status(self, value: Optional[pulumi.Input[Union[str, 'ResourceHealthStatus']]]):
         pulumi.set(self, "resource_health_status", value)
 
+
+if not MYPY:
+    class LogSchedulePolicyArgsDict(TypedDict):
+        """
+        Log policy schedule.
+        """
+        schedule_policy_type: pulumi.Input[str]
+        """
+        This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+        Expected value is 'LogSchedulePolicy'.
+        """
+        schedule_frequency_in_mins: NotRequired[pulumi.Input[int]]
+        """
+        Frequency of the log schedule operation of this policy in minutes.
+        """
+elif False:
+    LogSchedulePolicyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LogSchedulePolicyArgs:
@@ -9401,6 +12213,35 @@ class LogSchedulePolicyArgs:
     def schedule_frequency_in_mins(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "schedule_frequency_in_mins", value)
 
+
+if not MYPY:
+    class LongTermRetentionPolicyArgsDict(TypedDict):
+        """
+        Long term retention policy.
+        """
+        retention_policy_type: pulumi.Input[str]
+        """
+        This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+        Expected value is 'LongTermRetentionPolicy'.
+        """
+        daily_schedule: NotRequired[pulumi.Input['DailyRetentionScheduleArgsDict']]
+        """
+        Daily retention schedule of the protection policy.
+        """
+        monthly_schedule: NotRequired[pulumi.Input['MonthlyRetentionScheduleArgsDict']]
+        """
+        Monthly retention schedule of the protection policy.
+        """
+        weekly_schedule: NotRequired[pulumi.Input['WeeklyRetentionScheduleArgsDict']]
+        """
+        Weekly retention schedule of the protection policy.
+        """
+        yearly_schedule: NotRequired[pulumi.Input['YearlyRetentionScheduleArgsDict']]
+        """
+        Yearly retention schedule of the protection policy.
+        """
+elif False:
+    LongTermRetentionPolicyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LongTermRetentionPolicyArgs:
@@ -9491,6 +12332,19 @@ class LongTermRetentionPolicyArgs:
         pulumi.set(self, "yearly_schedule", value)
 
 
+if not MYPY:
+    class LongTermSchedulePolicyArgsDict(TypedDict):
+        """
+        Long term policy schedule.
+        """
+        schedule_policy_type: pulumi.Input[str]
+        """
+        This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+        Expected value is 'LongTermSchedulePolicy'.
+        """
+elif False:
+    LongTermSchedulePolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LongTermSchedulePolicyArgs:
     def __init__(__self__, *,
@@ -9515,6 +12369,30 @@ class LongTermSchedulePolicyArgs:
     def schedule_policy_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "schedule_policy_type", value)
 
+
+if not MYPY:
+    class MABContainerHealthDetailsArgsDict(TypedDict):
+        """
+        MAB workload-specific Health Details.
+        """
+        code: NotRequired[pulumi.Input[int]]
+        """
+        Health Code
+        """
+        message: NotRequired[pulumi.Input[str]]
+        """
+        Health Message
+        """
+        recommendations: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Health Recommended Actions
+        """
+        title: NotRequired[pulumi.Input[str]]
+        """
+        Health Title
+        """
+elif False:
+    MABContainerHealthDetailsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MABContainerHealthDetailsArgs:
@@ -9587,6 +12465,34 @@ class MABContainerHealthDetailsArgs:
     def title(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "title", value)
 
+
+if not MYPY:
+    class MabContainerExtendedInfoArgsDict(TypedDict):
+        """
+        Additional information of the container.
+        """
+        backup_item_type: NotRequired[pulumi.Input[Union[str, 'BackupItemType']]]
+        """
+        Type of backup items associated with this container.
+        """
+        backup_items: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of backup items associated with this container.
+        """
+        last_backup_status: NotRequired[pulumi.Input[str]]
+        """
+        Latest backup status of this container.
+        """
+        last_refreshed_at: NotRequired[pulumi.Input[str]]
+        """
+        Time stamp when this container was refreshed.
+        """
+        policy_name: NotRequired[pulumi.Input[str]]
+        """
+        Backup policy associated with this container.
+        """
+elif False:
+    MabContainerExtendedInfoArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MabContainerExtendedInfoArgs:
@@ -9675,6 +12581,70 @@ class MabContainerExtendedInfoArgs:
     def policy_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "policy_name", value)
 
+
+if not MYPY:
+    class MabContainerArgsDict(TypedDict):
+        """
+        Container with items backed up using MAB backup engine.
+        """
+        container_type: pulumi.Input[str]
+        """
+        Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+        Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+        Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+        Backup is VMAppContainer
+        Expected value is 'Windows'.
+        """
+        agent_version: NotRequired[pulumi.Input[str]]
+        """
+        Agent version of this container.
+        """
+        backup_management_type: NotRequired[pulumi.Input[Union[str, 'BackupManagementType']]]
+        """
+        Type of backup management for the container.
+        """
+        can_re_register: NotRequired[pulumi.Input[bool]]
+        """
+        Can the container be registered one more time.
+        """
+        container_health_state: NotRequired[pulumi.Input[str]]
+        """
+        Health state of mab container.
+        """
+        container_id: NotRequired[pulumi.Input[float]]
+        """
+        ContainerID represents the container.
+        """
+        extended_info: NotRequired[pulumi.Input['MabContainerExtendedInfoArgsDict']]
+        """
+        Additional information for this container
+        """
+        friendly_name: NotRequired[pulumi.Input[str]]
+        """
+        Friendly name of the container.
+        """
+        health_status: NotRequired[pulumi.Input[str]]
+        """
+        Status of health of the container.
+        """
+        mab_container_health_details: NotRequired[pulumi.Input[Sequence[pulumi.Input['MABContainerHealthDetailsArgsDict']]]]
+        """
+        Health details on this mab container.
+        """
+        protectable_object_type: NotRequired[pulumi.Input[str]]
+        """
+        Type of the protectable object associated with this container
+        """
+        protected_item_count: NotRequired[pulumi.Input[float]]
+        """
+        Number of items backed up in this container.
+        """
+        registration_status: NotRequired[pulumi.Input[str]]
+        """
+        Status of registration of the container with the Recovery Services Vault.
+        """
+elif False:
+    MabContainerArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MabContainerArgs:
@@ -9899,6 +12869,26 @@ class MabContainerArgs:
         pulumi.set(self, "registration_status", value)
 
 
+if not MYPY:
+    class MabFileFolderProtectedItemExtendedInfoArgsDict(TypedDict):
+        """
+        Additional information on the backed up item.
+        """
+        last_refreshed_at: NotRequired[pulumi.Input[str]]
+        """
+        Last time when the agent data synced to service.
+        """
+        oldest_recovery_point: NotRequired[pulumi.Input[str]]
+        """
+        The oldest backup copy available.
+        """
+        recovery_point_count: NotRequired[pulumi.Input[int]]
+        """
+        Number of backup copies associated with the backup item.
+        """
+elif False:
+    MabFileFolderProtectedItemExtendedInfoArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MabFileFolderProtectedItemExtendedInfoArgs:
     def __init__(__self__, *,
@@ -9954,6 +12944,107 @@ class MabFileFolderProtectedItemExtendedInfoArgs:
     def recovery_point_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "recovery_point_count", value)
 
+
+if not MYPY:
+    class MabFileFolderProtectedItemArgsDict(TypedDict):
+        """
+        MAB workload-specific backup item.
+        """
+        protected_item_type: pulumi.Input[str]
+        """
+        backup item type.
+        Expected value is 'MabFileFolderProtectedItem'.
+        """
+        backup_set_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the backup set the backup item belongs to
+        """
+        computer_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the computer associated with this backup item.
+        """
+        container_name: NotRequired[pulumi.Input[str]]
+        """
+        Unique name of container
+        """
+        create_mode: NotRequired[pulumi.Input[Union[str, 'CreateMode']]]
+        """
+        Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
+        """
+        deferred_delete_sync_time_in_utc: NotRequired[pulumi.Input[float]]
+        """
+        Sync time for deferred deletion in UTC
+        """
+        deferred_delete_time_in_utc: NotRequired[pulumi.Input[str]]
+        """
+        Time for deferred deletion in UTC
+        """
+        deferred_delete_time_remaining: NotRequired[pulumi.Input[str]]
+        """
+        Time remaining before the DS marked for deferred delete is permanently deleted
+        """
+        extended_info: NotRequired[pulumi.Input['MabFileFolderProtectedItemExtendedInfoArgsDict']]
+        """
+        Additional information with this backup item.
+        """
+        friendly_name: NotRequired[pulumi.Input[str]]
+        """
+        Friendly name of this backup item.
+        """
+        is_archive_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Flag to identify whether datasource is protected in archive
+        """
+        is_deferred_delete_schedule_upcoming: NotRequired[pulumi.Input[bool]]
+        """
+        Flag to identify whether the deferred deleted DS is to be purged soon
+        """
+        is_rehydrate: NotRequired[pulumi.Input[bool]]
+        """
+        Flag to identify that deferred deleted DS is to be moved into Pause state
+        """
+        is_scheduled_for_deferred_delete: NotRequired[pulumi.Input[bool]]
+        """
+        Flag to identify whether the DS is scheduled for deferred delete
+        """
+        last_backup_status: NotRequired[pulumi.Input[str]]
+        """
+        Status of last backup operation.
+        """
+        last_backup_time: NotRequired[pulumi.Input[str]]
+        """
+        Timestamp of the last backup operation on this backup item.
+        """
+        last_recovery_point: NotRequired[pulumi.Input[str]]
+        """
+        Timestamp when the last (latest) backup copy was created for this backup item.
+        """
+        policy_id: NotRequired[pulumi.Input[str]]
+        """
+        ID of the backup policy with which this item is backed up.
+        """
+        policy_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the policy used for protection
+        """
+        protection_state: NotRequired[pulumi.Input[str]]
+        """
+        Protected, ProtectionStopped, IRPending or ProtectionError
+        """
+        resource_guard_operation_requests: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        ResourceGuardOperationRequests on which LAC check will be performed
+        """
+        soft_delete_retention_period_in_days: NotRequired[pulumi.Input[int]]
+        """
+        Soft delete retention period in days
+        """
+        source_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        ARM ID of the resource to be backed up.
+        """
+elif False:
+    MabFileFolderProtectedItemArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MabFileFolderProtectedItemArgs:
@@ -10332,6 +13423,35 @@ class MabFileFolderProtectedItemArgs:
         pulumi.set(self, "source_resource_id", value)
 
 
+if not MYPY:
+    class MabProtectionPolicyArgsDict(TypedDict):
+        """
+        Mab container-specific backup policy.
+        """
+        backup_management_type: pulumi.Input[str]
+        """
+        This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+        Expected value is 'MAB'.
+        """
+        protected_items_count: NotRequired[pulumi.Input[int]]
+        """
+        Number of items associated with this policy.
+        """
+        resource_guard_operation_requests: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        ResourceGuard Operation Requests
+        """
+        retention_policy: NotRequired[pulumi.Input[Union['LongTermRetentionPolicyArgsDict', 'SimpleRetentionPolicyArgsDict']]]
+        """
+        Retention policy details.
+        """
+        schedule_policy: NotRequired[pulumi.Input[Union['LogSchedulePolicyArgsDict', 'LongTermSchedulePolicyArgsDict', 'SimpleSchedulePolicyArgsDict', 'SimpleSchedulePolicyV2ArgsDict']]]
+        """
+        Backup schedule of backup policy.
+        """
+elif False:
+    MabProtectionPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MabProtectionPolicyArgs:
     def __init__(__self__, *,
@@ -10421,6 +13541,22 @@ class MabProtectionPolicyArgs:
         pulumi.set(self, "schedule_policy", value)
 
 
+if not MYPY:
+    class MonitoringSettingsArgsDict(TypedDict):
+        """
+        Monitoring Settings of the vault
+        """
+        azure_monitor_alert_settings: NotRequired[pulumi.Input['AzureMonitorAlertSettingsArgsDict']]
+        """
+        Settings for Azure Monitor based alerts
+        """
+        classic_alert_settings: NotRequired[pulumi.Input['ClassicAlertSettingsArgsDict']]
+        """
+        Settings for classic alerts
+        """
+elif False:
+    MonitoringSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MonitoringSettingsArgs:
     def __init__(__self__, *,
@@ -10460,6 +13596,34 @@ class MonitoringSettingsArgs:
     def classic_alert_settings(self, value: Optional[pulumi.Input['ClassicAlertSettingsArgs']]):
         pulumi.set(self, "classic_alert_settings", value)
 
+
+if not MYPY:
+    class MonthlyRetentionScheduleArgsDict(TypedDict):
+        """
+        Monthly retention schedule.
+        """
+        retention_duration: NotRequired[pulumi.Input['RetentionDurationArgsDict']]
+        """
+        Retention duration of retention Policy.
+        """
+        retention_schedule_daily: NotRequired[pulumi.Input['DailyRetentionFormatArgsDict']]
+        """
+        Daily retention format for monthly retention policy.
+        """
+        retention_schedule_format_type: NotRequired[pulumi.Input[Union[str, 'RetentionScheduleFormat']]]
+        """
+        Retention schedule format type for monthly retention policy.
+        """
+        retention_schedule_weekly: NotRequired[pulumi.Input['WeeklyRetentionFormatArgsDict']]
+        """
+        Weekly retention format for monthly retention policy.
+        """
+        retention_times: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Retention times of retention policy.
+        """
+elif False:
+    MonthlyRetentionScheduleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MonthlyRetentionScheduleArgs:
@@ -10549,6 +13713,30 @@ class MonthlyRetentionScheduleArgs:
         pulumi.set(self, "retention_times", value)
 
 
+if not MYPY:
+    class PrivateEndpointConnectionArgsDict(TypedDict):
+        """
+        Private Endpoint Connection Response Properties
+        """
+        group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'VaultSubResourceType']]]]]
+        """
+        Group Ids for the Private Endpoint
+        """
+        private_endpoint: NotRequired[pulumi.Input['PrivateEndpointArgsDict']]
+        """
+        Gets or sets private endpoint associated with the private endpoint connection
+        """
+        private_link_service_connection_state: NotRequired[pulumi.Input['PrivateLinkServiceConnectionStateArgsDict']]
+        """
+        Gets or sets private link service connection state
+        """
+        provisioning_state: NotRequired[pulumi.Input[Union[str, 'ProvisioningState']]]
+        """
+        Gets or sets provisioning state of the private endpoint connection
+        """
+elif False:
+    PrivateEndpointConnectionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PrivateEndpointConnectionArgs:
     def __init__(__self__, *,
@@ -10621,6 +13809,18 @@ class PrivateEndpointConnectionArgs:
         pulumi.set(self, "provisioning_state", value)
 
 
+if not MYPY:
+    class PrivateEndpointArgsDict(TypedDict):
+        """
+        The Private Endpoint network resource that is linked to the Private Endpoint connection
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets id
+        """
+elif False:
+    PrivateEndpointArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PrivateEndpointArgs:
     def __init__(__self__, *,
@@ -10644,6 +13844,26 @@ class PrivateEndpointArgs:
     def id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
+        """
+        Private Link Service Connection State
+        """
+        actions_required: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets actions required
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets description
+        """
+        status: NotRequired[pulumi.Input[Union[str, 'PrivateEndpointConnectionStatus']]]
+        """
+        Gets or sets the status
+        """
+elif False:
+    PrivateLinkServiceConnectionStateArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:
@@ -10701,6 +13921,13 @@ class PrivateLinkServiceConnectionStateArgs:
         pulumi.set(self, "status", value)
 
 
+if not MYPY:
+    class ResourceGuardOperationDetailArgsDict(TypedDict):
+        default_resource_request: NotRequired[pulumi.Input[str]]
+        vault_critical_operation: NotRequired[pulumi.Input[str]]
+elif False:
+    ResourceGuardOperationDetailArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ResourceGuardOperationDetailArgs:
     def __init__(__self__, *,
@@ -10729,6 +13956,15 @@ class ResourceGuardOperationDetailArgs:
     def vault_critical_operation(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "vault_critical_operation", value)
 
+
+if not MYPY:
+    class ResourceGuardProxyBaseArgsDict(TypedDict):
+        resource_guard_resource_id: pulumi.Input[str]
+        description: NotRequired[pulumi.Input[str]]
+        last_updated_time: NotRequired[pulumi.Input[str]]
+        resource_guard_operation_details: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceGuardOperationDetailArgsDict']]]]
+elif False:
+    ResourceGuardProxyBaseArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ResourceGuardProxyBaseArgs:
@@ -10782,6 +14018,18 @@ class ResourceGuardProxyBaseArgs:
         pulumi.set(self, "resource_guard_operation_details", value)
 
 
+if not MYPY:
+    class RestoreSettingsArgsDict(TypedDict):
+        """
+        Restore Settings  of the vault
+        """
+        cross_subscription_restore_settings: NotRequired[pulumi.Input['CrossSubscriptionRestoreSettingsArgsDict']]
+        """
+        Settings for CrossSubscriptionRestore
+        """
+elif False:
+    RestoreSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RestoreSettingsArgs:
     def __init__(__self__, *,
@@ -10805,6 +14053,23 @@ class RestoreSettingsArgs:
     def cross_subscription_restore_settings(self, value: Optional[pulumi.Input['CrossSubscriptionRestoreSettingsArgs']]):
         pulumi.set(self, "cross_subscription_restore_settings", value)
 
+
+if not MYPY:
+    class RetentionDurationArgsDict(TypedDict):
+        """
+        Retention duration.
+        """
+        count: NotRequired[pulumi.Input[int]]
+        """
+        Count of duration types. Retention duration is obtained by the counting the duration type Count times.
+        For example, when Count = 3 and DurationType = Weeks, retention duration will be three weeks.
+        """
+        duration_type: NotRequired[pulumi.Input[Union[str, 'RetentionDurationType']]]
+        """
+        Retention duration type of retention policy.
+        """
+elif False:
+    RetentionDurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RetentionDurationArgs:
@@ -10848,6 +14113,22 @@ class RetentionDurationArgs:
         pulumi.set(self, "duration_type", value)
 
 
+if not MYPY:
+    class SecuritySettingsArgsDict(TypedDict):
+        """
+        Security Settings of the vault
+        """
+        immutability_settings: NotRequired[pulumi.Input['ImmutabilitySettingsArgsDict']]
+        """
+        Immutability Settings of a vault
+        """
+        soft_delete_settings: NotRequired[pulumi.Input['SoftDeleteSettingsArgsDict']]
+        """
+        Soft delete Settings of a vault
+        """
+elif False:
+    SecuritySettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SecuritySettingsArgs:
     def __init__(__self__, *,
@@ -10887,6 +14168,27 @@ class SecuritySettingsArgs:
     def soft_delete_settings(self, value: Optional[pulumi.Input['SoftDeleteSettingsArgs']]):
         pulumi.set(self, "soft_delete_settings", value)
 
+
+if not MYPY:
+    class SettingsArgsDict(TypedDict):
+        """
+        Common settings field for backup management
+        """
+        is_compression: NotRequired[pulumi.Input[bool]]
+        """
+        Workload compression flag. This has been added so that 'isSqlCompression'
+        will be deprecated once clients upgrade to consider this flag.
+        """
+        issqlcompression: NotRequired[pulumi.Input[bool]]
+        """
+        SQL compression flag
+        """
+        time_zone: NotRequired[pulumi.Input[str]]
+        """
+        TimeZone optional input as string. For example: TimeZone = "Pacific Standard Time".
+        """
+elif False:
+    SettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SettingsArgs:
@@ -10946,6 +14248,23 @@ class SettingsArgs:
         pulumi.set(self, "time_zone", value)
 
 
+if not MYPY:
+    class SimpleRetentionPolicyArgsDict(TypedDict):
+        """
+        Simple policy retention.
+        """
+        retention_policy_type: pulumi.Input[str]
+        """
+        This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+        Expected value is 'SimpleRetentionPolicy'.
+        """
+        retention_duration: NotRequired[pulumi.Input['RetentionDurationArgsDict']]
+        """
+        Retention duration of the protection policy.
+        """
+elif False:
+    SimpleRetentionPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SimpleRetentionPolicyArgs:
     def __init__(__self__, *,
@@ -10986,6 +14305,35 @@ class SimpleRetentionPolicyArgs:
     def retention_duration(self, value: Optional[pulumi.Input['RetentionDurationArgs']]):
         pulumi.set(self, "retention_duration", value)
 
+
+if not MYPY:
+    class SimpleSchedulePolicyV2ArgsDict(TypedDict):
+        """
+        The V2 policy schedule for IaaS that supports hourly backups.
+        """
+        schedule_policy_type: pulumi.Input[str]
+        """
+        This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+        Expected value is 'SimpleSchedulePolicyV2'.
+        """
+        daily_schedule: NotRequired[pulumi.Input['DailyScheduleArgsDict']]
+        """
+        Daily schedule of this policy
+        """
+        hourly_schedule: NotRequired[pulumi.Input['HourlyScheduleArgsDict']]
+        """
+        hourly schedule of this policy
+        """
+        schedule_run_frequency: NotRequired[pulumi.Input[Union[str, 'ScheduleRunType']]]
+        """
+        Frequency of the schedule operation of this policy.
+        """
+        weekly_schedule: NotRequired[pulumi.Input['WeeklyScheduleArgsDict']]
+        """
+        Weekly schedule of this policy
+        """
+elif False:
+    SimpleSchedulePolicyV2ArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SimpleSchedulePolicyV2Args:
@@ -11075,6 +14423,39 @@ class SimpleSchedulePolicyV2Args:
     def weekly_schedule(self, value: Optional[pulumi.Input['WeeklyScheduleArgs']]):
         pulumi.set(self, "weekly_schedule", value)
 
+
+if not MYPY:
+    class SimpleSchedulePolicyArgsDict(TypedDict):
+        """
+        Simple policy schedule.
+        """
+        schedule_policy_type: pulumi.Input[str]
+        """
+        This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+        Expected value is 'SimpleSchedulePolicy'.
+        """
+        hourly_schedule: NotRequired[pulumi.Input['HourlyScheduleArgsDict']]
+        """
+        Hourly Schedule of this Policy
+        """
+        schedule_run_days: NotRequired[pulumi.Input[Sequence[pulumi.Input['DayOfWeek']]]]
+        """
+        List of days of week this schedule has to be run.
+        """
+        schedule_run_frequency: NotRequired[pulumi.Input[Union[str, 'ScheduleRunType']]]
+        """
+        Frequency of the schedule operation of this policy.
+        """
+        schedule_run_times: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of times of day this schedule has to be run.
+        """
+        schedule_weekly_frequency: NotRequired[pulumi.Input[int]]
+        """
+        At every number weeks this schedule has to be run.
+        """
+elif False:
+    SimpleSchedulePolicyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SimpleSchedulePolicyArgs:
@@ -11181,6 +14562,34 @@ class SimpleSchedulePolicyArgs:
         pulumi.set(self, "schedule_weekly_frequency", value)
 
 
+if not MYPY:
+    class SkuArgsDict(TypedDict):
+        """
+        Identifies the unique system identifier for each Azure resource.
+        """
+        name: pulumi.Input[Union[str, 'SkuName']]
+        """
+        Name of SKU is RS0 (Recovery Services 0th version) and the tier is standard tier. They do not have affect on backend storage redundancy or any other vault settings. To manage storage redundancy, use the backupstorageconfig
+        """
+        capacity: NotRequired[pulumi.Input[str]]
+        """
+        The sku capacity
+        """
+        family: NotRequired[pulumi.Input[str]]
+        """
+        The sku family
+        """
+        size: NotRequired[pulumi.Input[str]]
+        """
+        The sku size
+        """
+        tier: NotRequired[pulumi.Input[str]]
+        """
+        The Sku tier.
+        """
+elif False:
+    SkuArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SkuArgs:
     def __init__(__self__, *,
@@ -11268,6 +14677,20 @@ class SkuArgs:
         pulumi.set(self, "tier", value)
 
 
+if not MYPY:
+    class SnapshotBackupAdditionalDetailsArgsDict(TypedDict):
+        """
+        Snapshot Backup related fields for WorkloadType SaPHanaSystem
+        """
+        instant_rp_details: NotRequired[pulumi.Input[str]]
+        instant_rp_retention_range_in_days: NotRequired[pulumi.Input[int]]
+        user_assigned_managed_identity_details: NotRequired[pulumi.Input['UserAssignedManagedIdentityDetailsArgsDict']]
+        """
+        User assigned managed identity details
+        """
+elif False:
+    SnapshotBackupAdditionalDetailsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SnapshotBackupAdditionalDetailsArgs:
     def __init__(__self__, *,
@@ -11316,6 +14739,20 @@ class SnapshotBackupAdditionalDetailsArgs:
         pulumi.set(self, "user_assigned_managed_identity_details", value)
 
 
+if not MYPY:
+    class SoftDeleteSettingsArgsDict(TypedDict):
+        """
+        Soft delete Settings of vault
+        """
+        enhanced_security_state: NotRequired[pulumi.Input[Union[str, 'EnhancedSecurityState']]]
+        soft_delete_retention_period_in_days: NotRequired[pulumi.Input[int]]
+        """
+        Soft delete retention period in days
+        """
+        soft_delete_state: NotRequired[pulumi.Input[Union[str, 'SoftDeleteState']]]
+elif False:
+    SoftDeleteSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SoftDeleteSettingsArgs:
     def __init__(__self__, *,
@@ -11363,6 +14800,36 @@ class SoftDeleteSettingsArgs:
     def soft_delete_state(self, value: Optional[pulumi.Input[Union[str, 'SoftDeleteState']]]):
         pulumi.set(self, "soft_delete_state", value)
 
+
+if not MYPY:
+    class SubProtectionPolicyArgsDict(TypedDict):
+        """
+        Sub-protection policy which includes schedule and retention
+        """
+        policy_type: NotRequired[pulumi.Input[Union[str, 'PolicyType']]]
+        """
+        Type of backup policy type
+        """
+        retention_policy: NotRequired[pulumi.Input[Union['LongTermRetentionPolicyArgsDict', 'SimpleRetentionPolicyArgsDict']]]
+        """
+        Retention policy with the details on backup copy retention ranges.
+        """
+        schedule_policy: NotRequired[pulumi.Input[Union['LogSchedulePolicyArgsDict', 'LongTermSchedulePolicyArgsDict', 'SimpleSchedulePolicyArgsDict', 'SimpleSchedulePolicyV2ArgsDict']]]
+        """
+        Backup schedule specified as part of backup policy.
+        """
+        snapshot_backup_additional_details: NotRequired[pulumi.Input['SnapshotBackupAdditionalDetailsArgsDict']]
+        """
+        Snapshot Backup related fields for WorkloadType SaPHanaSystem
+        """
+        tiering_policy: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['TieringPolicyArgsDict']]]]
+        """
+        Tiering policy to automatically move RPs to another tier.
+        Key is Target Tier, defined in RecoveryPointTierType enum.
+        Tiering policy specifies the criteria to move RP to the target tier.
+        """
+elif False:
+    SubProtectionPolicyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SubProtectionPolicyArgs:
@@ -11456,6 +14923,32 @@ class SubProtectionPolicyArgs:
         pulumi.set(self, "tiering_policy", value)
 
 
+if not MYPY:
+    class TieringPolicyArgsDict(TypedDict):
+        """
+        Tiering Policy for a target tier.
+        If the policy is not specified for a given target tier, service retains the existing configured tiering policy for that tier
+        """
+        duration: NotRequired[pulumi.Input[int]]
+        """
+        Number of days/weeks/months/years to retain backups in current tier before tiering.
+        Used only if TieringMode is set to TierAfter
+        """
+        duration_type: NotRequired[pulumi.Input[Union[str, 'RetentionDurationType']]]
+        """
+        Retention duration type: days/weeks/months/years
+        Used only if TieringMode is set to TierAfter
+        """
+        tiering_mode: NotRequired[pulumi.Input[Union[str, 'TieringMode']]]
+        """
+        Tiering Mode to control automatic tiering of recovery points. Supported values are:
+        1. TierRecommended: Tier all recovery points recommended to be tiered
+        2. TierAfter: Tier all recovery points after a fixed period, as specified in duration + durationType below.
+        3. DoNotTier: Do not tier any recovery points
+        """
+elif False:
+    TieringPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TieringPolicyArgs:
     def __init__(__self__, *,
@@ -11523,6 +15016,22 @@ class TieringPolicyArgs:
         pulumi.set(self, "tiering_mode", value)
 
 
+if not MYPY:
+    class UserAssignedIdentityPropertiesArgsDict(TypedDict):
+        """
+        User assigned managed identity properties
+        """
+        client_id: NotRequired[pulumi.Input[str]]
+        """
+        The client ID of the assigned identity.
+        """
+        principal_id: NotRequired[pulumi.Input[str]]
+        """
+        The principal ID of the assigned identity.
+        """
+elif False:
+    UserAssignedIdentityPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class UserAssignedIdentityPropertiesArgs:
     def __init__(__self__, *,
@@ -11562,6 +15071,26 @@ class UserAssignedIdentityPropertiesArgs:
     def principal_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "principal_id", value)
 
+
+if not MYPY:
+    class UserAssignedManagedIdentityDetailsArgsDict(TypedDict):
+        """
+        User assigned managed identity details
+        """
+        identity_arm_id: NotRequired[pulumi.Input[str]]
+        """
+        The ARM id of the assigned identity.
+        """
+        identity_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the assigned identity.
+        """
+        user_assigned_identity_properties: NotRequired[pulumi.Input['UserAssignedIdentityPropertiesArgsDict']]
+        """
+        User assigned managed identity properties
+        """
+elif False:
+    UserAssignedManagedIdentityDetailsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserAssignedManagedIdentityDetailsArgs:
@@ -11619,6 +15148,26 @@ class UserAssignedManagedIdentityDetailsArgs:
         pulumi.set(self, "user_assigned_identity_properties", value)
 
 
+if not MYPY:
+    class VaultPropertiesEncryptionArgsDict(TypedDict):
+        """
+        Customer Managed Key details of the resource.
+        """
+        infrastructure_encryption: NotRequired[pulumi.Input[Union[str, 'InfrastructureEncryptionState']]]
+        """
+        Enabling/Disabling the Double Encryption state
+        """
+        kek_identity: NotRequired[pulumi.Input['CmkKekIdentityArgsDict']]
+        """
+        The details of the identity used for CMK
+        """
+        key_vault_properties: NotRequired[pulumi.Input['CmkKeyVaultPropertiesArgsDict']]
+        """
+        The properties of the Key Vault which hosts CMK
+        """
+elif False:
+    VaultPropertiesEncryptionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class VaultPropertiesEncryptionArgs:
     def __init__(__self__, *,
@@ -11675,6 +15224,22 @@ class VaultPropertiesEncryptionArgs:
         pulumi.set(self, "key_vault_properties", value)
 
 
+if not MYPY:
+    class VaultPropertiesRedundancySettingsArgsDict(TypedDict):
+        """
+        The redundancy Settings of a Vault
+        """
+        cross_region_restore: NotRequired[pulumi.Input[Union[str, 'CrossRegionRestore']]]
+        """
+        Flag to show if Cross Region Restore is enabled on the Vault or not
+        """
+        standard_tier_storage_redundancy: NotRequired[pulumi.Input[Union[str, 'StandardTierStorageRedundancy']]]
+        """
+        The storage redundancy setting of a vault
+        """
+elif False:
+    VaultPropertiesRedundancySettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class VaultPropertiesRedundancySettingsArgs:
     def __init__(__self__, *,
@@ -11714,6 +15279,42 @@ class VaultPropertiesRedundancySettingsArgs:
     def standard_tier_storage_redundancy(self, value: Optional[pulumi.Input[Union[str, 'StandardTierStorageRedundancy']]]):
         pulumi.set(self, "standard_tier_storage_redundancy", value)
 
+
+if not MYPY:
+    class VaultPropertiesArgsDict(TypedDict):
+        """
+        Properties of the vault.
+        """
+        encryption: NotRequired[pulumi.Input['VaultPropertiesEncryptionArgsDict']]
+        """
+        Customer Managed Key details of the resource.
+        """
+        monitoring_settings: NotRequired[pulumi.Input['MonitoringSettingsArgsDict']]
+        """
+        Monitoring Settings of the vault
+        """
+        public_network_access: NotRequired[pulumi.Input[Union[str, 'PublicNetworkAccess']]]
+        """
+        property to enable or disable resource provider inbound network traffic from public clients
+        """
+        redundancy_settings: NotRequired[pulumi.Input['VaultPropertiesRedundancySettingsArgsDict']]
+        """
+        The redundancy Settings of a Vault
+        """
+        resource_guard_operation_requests: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        ResourceGuardOperationRequests on which LAC check will be performed
+        """
+        restore_settings: NotRequired[pulumi.Input['RestoreSettingsArgsDict']]
+        """
+        Restore Settings of the vault
+        """
+        security_settings: NotRequired[pulumi.Input['SecuritySettingsArgsDict']]
+        """
+        Security Settings of the vault
+        """
+elif False:
+    VaultPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VaultPropertiesArgs:
@@ -11835,6 +15436,19 @@ class VaultPropertiesArgs:
         pulumi.set(self, "security_settings", value)
 
 
+if not MYPY:
+    class VaultRetentionPolicyArgsDict(TypedDict):
+        """
+        Vault retention policy for AzureFileShare
+        """
+        snapshot_retention_in_days: pulumi.Input[int]
+        vault_retention: pulumi.Input[Union['LongTermRetentionPolicyArgsDict', 'SimpleRetentionPolicyArgsDict']]
+        """
+        Base class for retention policy.
+        """
+elif False:
+    VaultRetentionPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class VaultRetentionPolicyArgs:
     def __init__(__self__, *,
@@ -11868,6 +15482,22 @@ class VaultRetentionPolicyArgs:
     def vault_retention(self, value: pulumi.Input[Union['LongTermRetentionPolicyArgs', 'SimpleRetentionPolicyArgs']]):
         pulumi.set(self, "vault_retention", value)
 
+
+if not MYPY:
+    class WeeklyRetentionFormatArgsDict(TypedDict):
+        """
+        Weekly retention format.
+        """
+        days_of_the_week: NotRequired[pulumi.Input[Sequence[pulumi.Input['DayOfWeek']]]]
+        """
+        List of days of the week.
+        """
+        weeks_of_the_month: NotRequired[pulumi.Input[Sequence[pulumi.Input['WeekOfMonth']]]]
+        """
+        List of weeks of month.
+        """
+elif False:
+    WeeklyRetentionFormatArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WeeklyRetentionFormatArgs:
@@ -11908,6 +15538,26 @@ class WeeklyRetentionFormatArgs:
     def weeks_of_the_month(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WeekOfMonth']]]]):
         pulumi.set(self, "weeks_of_the_month", value)
 
+
+if not MYPY:
+    class WeeklyRetentionScheduleArgsDict(TypedDict):
+        """
+        Weekly retention schedule.
+        """
+        days_of_the_week: NotRequired[pulumi.Input[Sequence[pulumi.Input['DayOfWeek']]]]
+        """
+        List of days of week for weekly retention policy.
+        """
+        retention_duration: NotRequired[pulumi.Input['RetentionDurationArgsDict']]
+        """
+        Retention duration of retention Policy.
+        """
+        retention_times: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Retention times of retention policy.
+        """
+elif False:
+    WeeklyRetentionScheduleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WeeklyRetentionScheduleArgs:
@@ -11965,6 +15615,16 @@ class WeeklyRetentionScheduleArgs:
         pulumi.set(self, "retention_times", value)
 
 
+if not MYPY:
+    class WeeklyScheduleArgsDict(TypedDict):
+        schedule_run_days: NotRequired[pulumi.Input[Sequence[pulumi.Input['DayOfWeek']]]]
+        schedule_run_times: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of times of day this schedule has to be run.
+        """
+elif False:
+    WeeklyScheduleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WeeklyScheduleArgs:
     def __init__(__self__, *,
@@ -11999,6 +15659,26 @@ class WeeklyScheduleArgs:
     def schedule_run_times(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "schedule_run_times", value)
 
+
+if not MYPY:
+    class WorkloadInquiryDetailsArgsDict(TypedDict):
+        """
+        Details of an inquired protectable item.
+        """
+        inquiry_validation: NotRequired[pulumi.Input['InquiryValidationArgsDict']]
+        """
+        Inquiry validation such as permissions and other backup validations.
+        """
+        item_count: NotRequired[pulumi.Input[float]]
+        """
+        Contains the protectable item Count inside this Container.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        Type of the Workload such as SQL, Oracle etc.
+        """
+elif False:
+    WorkloadInquiryDetailsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WorkloadInquiryDetailsArgs:
@@ -12055,6 +15735,38 @@ class WorkloadInquiryDetailsArgs:
     def type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class YearlyRetentionScheduleArgsDict(TypedDict):
+        """
+        Yearly retention schedule.
+        """
+        months_of_year: NotRequired[pulumi.Input[Sequence[pulumi.Input['MonthOfYear']]]]
+        """
+        List of months of year of yearly retention policy.
+        """
+        retention_duration: NotRequired[pulumi.Input['RetentionDurationArgsDict']]
+        """
+        Retention duration of retention Policy.
+        """
+        retention_schedule_daily: NotRequired[pulumi.Input['DailyRetentionFormatArgsDict']]
+        """
+        Daily retention format for yearly retention policy.
+        """
+        retention_schedule_format_type: NotRequired[pulumi.Input[Union[str, 'RetentionScheduleFormat']]]
+        """
+        Retention schedule format for yearly retention policy.
+        """
+        retention_schedule_weekly: NotRequired[pulumi.Input['WeeklyRetentionFormatArgsDict']]
+        """
+        Weekly retention format for yearly retention policy.
+        """
+        retention_times: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Retention times of retention policy.
+        """
+elif False:
+    YearlyRetentionScheduleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class YearlyRetentionScheduleArgs:

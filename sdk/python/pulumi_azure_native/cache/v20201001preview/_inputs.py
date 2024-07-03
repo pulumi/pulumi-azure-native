@@ -4,15 +4,39 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'EnterpriseSkuArgs',
+    'EnterpriseSkuArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class EnterpriseSkuArgsDict(TypedDict):
+        """
+        SKU parameters supplied to the create RedisEnterprise operation.
+        """
+        name: pulumi.Input[Union[str, 'SkuName']]
+        """
+        The type of RedisEnterprise cluster to deploy. Possible values: (Enterprise_E10, EnterpriseFlash_F300 etc.)
+        """
+        capacity: NotRequired[pulumi.Input[int]]
+        """
+        The size of the RedisEnterprise cluster. Defaults to 2 or 3 depending on SKU. Valid values are (2, 4, 6, ...) for Enterprise SKUs and (3, 9, 15, ...) for Flash SKUs.
+        """
+elif False:
+    EnterpriseSkuArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EnterpriseSkuArgs:

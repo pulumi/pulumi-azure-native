@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -309,7 +314,7 @@ class UpdateRun(pulumi.CustomResource):
                  start_time_utc: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input[Union[str, 'UpdateRunPropertiesState']]] = None,
                  status: Optional[pulumi.Input[str]] = None,
-                 steps: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StepArgs']]]]] = None,
+                 steps: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StepArgs', 'StepArgsDict']]]]] = None,
                  time_started: Optional[pulumi.Input[str]] = None,
                  update_name: Optional[pulumi.Input[str]] = None,
                  update_run_name: Optional[pulumi.Input[str]] = None,
@@ -335,7 +340,7 @@ class UpdateRun(pulumi.CustomResource):
         :param pulumi.Input[str] start_time_utc: When the step started, or empty if it has not started executing.
         :param pulumi.Input[Union[str, 'UpdateRunPropertiesState']] state: State of the update run.
         :param pulumi.Input[str] status: Status of the step, bubbled up from the ECE action plan for installation attempts. Values are: 'Success', 'Error', 'InProgress', and 'Unknown status'.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StepArgs']]]] steps: Recursive model for child steps of this step.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['StepArgs', 'StepArgsDict']]]] steps: Recursive model for child steps of this step.
         :param pulumi.Input[str] time_started: Timestamp of the update run was started.
         :param pulumi.Input[str] update_name: The name of the Update
         :param pulumi.Input[str] update_run_name: The name of the Update Run
@@ -380,7 +385,7 @@ class UpdateRun(pulumi.CustomResource):
                  start_time_utc: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input[Union[str, 'UpdateRunPropertiesState']]] = None,
                  status: Optional[pulumi.Input[str]] = None,
-                 steps: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StepArgs']]]]] = None,
+                 steps: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StepArgs', 'StepArgsDict']]]]] = None,
                  time_started: Optional[pulumi.Input[str]] = None,
                  update_name: Optional[pulumi.Input[str]] = None,
                  update_run_name: Optional[pulumi.Input[str]] = None,

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -108,7 +113,7 @@ class DeploymentAtManagementGroupScope(pulumi.CustomResource):
                  deployment_name: Optional[pulumi.Input[str]] = None,
                  group_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['DeploymentPropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['DeploymentPropertiesArgs', 'DeploymentPropertiesArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -119,7 +124,7 @@ class DeploymentAtManagementGroupScope(pulumi.CustomResource):
         :param pulumi.Input[str] deployment_name: The name of the deployment.
         :param pulumi.Input[str] group_id: The management group ID.
         :param pulumi.Input[str] location: The location to store the deployment data.
-        :param pulumi.Input[pulumi.InputType['DeploymentPropertiesArgs']] properties: The deployment properties.
+        :param pulumi.Input[Union['DeploymentPropertiesArgs', 'DeploymentPropertiesArgsDict']] properties: The deployment properties.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Deployment tags
         """
         ...
@@ -149,7 +154,7 @@ class DeploymentAtManagementGroupScope(pulumi.CustomResource):
                  deployment_name: Optional[pulumi.Input[str]] = None,
                  group_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['DeploymentPropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['DeploymentPropertiesArgs', 'DeploymentPropertiesArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

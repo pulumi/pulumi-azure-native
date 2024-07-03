@@ -4,20 +4,57 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'DataProductNetworkAclsArgs',
+    'DataProductNetworkAclsArgsDict',
     'EncryptionKeyDetailsArgs',
+    'EncryptionKeyDetailsArgsDict',
     'IPRulesArgs',
+    'IPRulesArgsDict',
     'ManagedResourceGroupConfigurationArgs',
+    'ManagedResourceGroupConfigurationArgsDict',
     'ManagedServiceIdentityArgs',
+    'ManagedServiceIdentityArgsDict',
     'VirtualNetworkRuleArgs',
+    'VirtualNetworkRuleArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class DataProductNetworkAclsArgsDict(TypedDict):
+        """
+        Data Product Network rule set
+        """
+        allowed_query_ip_range_list: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        The list of query ips in the format of CIDR allowed to connect to query/visualization endpoint.
+        """
+        default_action: pulumi.Input[Union[str, 'DefaultAction']]
+        """
+        Default Action
+        """
+        ip_rules: pulumi.Input[Sequence[pulumi.Input['IPRulesArgsDict']]]
+        """
+        IP rule with specific IP or IP range in CIDR format.
+        """
+        virtual_network_rule: pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgsDict']]]
+        """
+        Virtual Network Rule
+        """
+elif False:
+    DataProductNetworkAclsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataProductNetworkAclsArgs:
@@ -87,6 +124,26 @@ class DataProductNetworkAclsArgs:
         pulumi.set(self, "virtual_network_rule", value)
 
 
+if not MYPY:
+    class EncryptionKeyDetailsArgsDict(TypedDict):
+        """
+        Encryption key details.
+        """
+        key_name: pulumi.Input[str]
+        """
+        The name of the key vault key.
+        """
+        key_vault_uri: pulumi.Input[str]
+        """
+        The Uri of the key vault.
+        """
+        key_version: pulumi.Input[str]
+        """
+        The version of the key vault key.
+        """
+elif False:
+    EncryptionKeyDetailsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EncryptionKeyDetailsArgs:
     def __init__(__self__, *,
@@ -140,6 +197,22 @@ class EncryptionKeyDetailsArgs:
         pulumi.set(self, "key_version", value)
 
 
+if not MYPY:
+    class IPRulesArgsDict(TypedDict):
+        """
+        IP rule with specific IP or IP range in CIDR format.
+        """
+        action: pulumi.Input[str]
+        """
+        The action of virtual network rule.
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        IP Rules Value
+        """
+elif False:
+    IPRulesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IPRulesArgs:
     def __init__(__self__, *,
@@ -179,6 +252,22 @@ class IPRulesArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class ManagedResourceGroupConfigurationArgsDict(TypedDict):
+        """
+        ManagedResourceGroup related properties
+        """
+        location: pulumi.Input[str]
+        """
+        Managed Resource Group location
+        """
+        name: pulumi.Input[str]
+        """
+        Name of managed resource group
+        """
+elif False:
+    ManagedResourceGroupConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ManagedResourceGroupConfigurationArgs:
     def __init__(__self__, *,
@@ -216,6 +305,22 @@ class ManagedResourceGroupConfigurationArgs:
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class ManagedServiceIdentityArgsDict(TypedDict):
+        """
+        Managed service identity (system assigned and/or user assigned identities)
+        """
+        type: pulumi.Input[Union[str, 'ManagedServiceIdentityType']]
+        """
+        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        """
+        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        """
+elif False:
+    ManagedServiceIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ManagedServiceIdentityArgs:
@@ -255,6 +360,26 @@ class ManagedServiceIdentityArgs:
     def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
+
+if not MYPY:
+    class VirtualNetworkRuleArgsDict(TypedDict):
+        """
+        Virtual Network Rule
+        """
+        id: pulumi.Input[str]
+        """
+        Resource ID of a subnet
+        """
+        action: NotRequired[pulumi.Input[str]]
+        """
+        The action of virtual network rule.
+        """
+        state: NotRequired[pulumi.Input[str]]
+        """
+        Gets the state of virtual network rule.
+        """
+elif False:
+    VirtualNetworkRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VirtualNetworkRuleArgs:

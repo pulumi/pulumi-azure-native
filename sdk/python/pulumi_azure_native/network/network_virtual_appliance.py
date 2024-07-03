@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -266,21 +271,21 @@ class NetworkVirtualAppliance(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_nics: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualApplianceAdditionalNicPropertiesArgs']]]]] = None,
+                 additional_nics: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VirtualApplianceAdditionalNicPropertiesArgs', 'VirtualApplianceAdditionalNicPropertiesArgsDict']]]]] = None,
                  boot_strap_configuration_blobs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  cloud_init_configuration: Optional[pulumi.Input[str]] = None,
                  cloud_init_configuration_blobs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 delegation: Optional[pulumi.Input[pulumi.InputType['DelegationPropertiesArgs']]] = None,
+                 delegation: Optional[pulumi.Input[Union['DelegationPropertiesArgs', 'DelegationPropertiesArgsDict']]] = None,
                  id: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  network_virtual_appliance_name: Optional[pulumi.Input[str]] = None,
-                 nva_sku: Optional[pulumi.Input[pulumi.InputType['VirtualApplianceSkuPropertiesArgs']]] = None,
+                 nva_sku: Optional[pulumi.Input[Union['VirtualApplianceSkuPropertiesArgs', 'VirtualApplianceSkuPropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  ssh_public_key: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_appliance_asn: Optional[pulumi.Input[float]] = None,
-                 virtual_hub: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
+                 virtual_hub: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
                  __props__=None):
         """
         NetworkVirtualAppliance Resource.
@@ -290,21 +295,21 @@ class NetworkVirtualAppliance(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualApplianceAdditionalNicPropertiesArgs']]]] additional_nics: Details required for Additional Network Interface.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['VirtualApplianceAdditionalNicPropertiesArgs', 'VirtualApplianceAdditionalNicPropertiesArgsDict']]]] additional_nics: Details required for Additional Network Interface.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] boot_strap_configuration_blobs: BootStrapConfigurationBlobs storage URLs.
         :param pulumi.Input[str] cloud_init_configuration: CloudInitConfiguration string in plain text.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cloud_init_configuration_blobs: CloudInitConfigurationBlob storage URLs.
-        :param pulumi.Input[pulumi.InputType['DelegationPropertiesArgs']] delegation: The delegation for the Virtual Appliance
+        :param pulumi.Input[Union['DelegationPropertiesArgs', 'DelegationPropertiesArgsDict']] delegation: The delegation for the Virtual Appliance
         :param pulumi.Input[str] id: Resource ID.
-        :param pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']] identity: The service principal that has read access to cloud-init and config blob.
+        :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: The service principal that has read access to cloud-init and config blob.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] network_virtual_appliance_name: The name of Network Virtual Appliance.
-        :param pulumi.Input[pulumi.InputType['VirtualApplianceSkuPropertiesArgs']] nva_sku: Network Virtual Appliance SKU.
+        :param pulumi.Input[Union['VirtualApplianceSkuPropertiesArgs', 'VirtualApplianceSkuPropertiesArgsDict']] nva_sku: Network Virtual Appliance SKU.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] ssh_public_key: Public key for SSH login.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[float] virtual_appliance_asn: VirtualAppliance ASN. Microsoft private, public and IANA reserved ASN are not supported.
-        :param pulumi.Input[pulumi.InputType['SubResourceArgs']] virtual_hub: The Virtual Hub where Network Virtual Appliance is being deployed.
+        :param pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']] virtual_hub: The Virtual Hub where Network Virtual Appliance is being deployed.
         """
         ...
     @overload
@@ -333,21 +338,21 @@ class NetworkVirtualAppliance(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_nics: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualApplianceAdditionalNicPropertiesArgs']]]]] = None,
+                 additional_nics: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VirtualApplianceAdditionalNicPropertiesArgs', 'VirtualApplianceAdditionalNicPropertiesArgsDict']]]]] = None,
                  boot_strap_configuration_blobs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  cloud_init_configuration: Optional[pulumi.Input[str]] = None,
                  cloud_init_configuration_blobs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 delegation: Optional[pulumi.Input[pulumi.InputType['DelegationPropertiesArgs']]] = None,
+                 delegation: Optional[pulumi.Input[Union['DelegationPropertiesArgs', 'DelegationPropertiesArgsDict']]] = None,
                  id: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  network_virtual_appliance_name: Optional[pulumi.Input[str]] = None,
-                 nva_sku: Optional[pulumi.Input[pulumi.InputType['VirtualApplianceSkuPropertiesArgs']]] = None,
+                 nva_sku: Optional[pulumi.Input[Union['VirtualApplianceSkuPropertiesArgs', 'VirtualApplianceSkuPropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  ssh_public_key: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_appliance_asn: Optional[pulumi.Input[float]] = None,
-                 virtual_hub: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
+                 virtual_hub: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

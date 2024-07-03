@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -104,7 +109,7 @@ class RegistryModelVersion(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  model_name: Optional[pulumi.Input[str]] = None,
-                 model_version_properties: Optional[pulumi.Input[pulumi.InputType['ModelVersionArgs']]] = None,
+                 model_version_properties: Optional[pulumi.Input[Union['ModelVersionArgs', 'ModelVersionArgsDict']]] = None,
                  registry_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[str]] = None,
@@ -115,7 +120,7 @@ class RegistryModelVersion(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] model_name: Container name.
-        :param pulumi.Input[pulumi.InputType['ModelVersionArgs']] model_version_properties: [Required] Additional attributes of the entity.
+        :param pulumi.Input[Union['ModelVersionArgs', 'ModelVersionArgsDict']] model_version_properties: [Required] Additional attributes of the entity.
         :param pulumi.Input[str] registry_name: Name of Azure Machine Learning registry. This is case-insensitive
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] version: Version identifier.
@@ -145,7 +150,7 @@ class RegistryModelVersion(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  model_name: Optional[pulumi.Input[str]] = None,
-                 model_version_properties: Optional[pulumi.Input[pulumi.InputType['ModelVersionArgs']]] = None,
+                 model_version_properties: Optional[pulumi.Input[Union['ModelVersionArgs', 'ModelVersionArgsDict']]] = None,
                  registry_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[str]] = None,

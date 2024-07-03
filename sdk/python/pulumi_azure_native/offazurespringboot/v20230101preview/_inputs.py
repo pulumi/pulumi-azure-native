@@ -4,18 +4,73 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'ErrorArgs',
+    'ErrorArgsDict',
     'SpringbootserversPropertiesArgs',
+    'SpringbootserversPropertiesArgsDict',
     'SpringbootsitesModelExtendedLocationArgs',
+    'SpringbootsitesModelExtendedLocationArgsDict',
     'SpringbootsitesPropertiesArgs',
+    'SpringbootsitesPropertiesArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ErrorArgsDict(TypedDict):
+        """
+        Defines the error.
+        """
+        code: NotRequired[pulumi.Input[str]]
+        """
+        The error code.
+        """
+        id: NotRequired[pulumi.Input[float]]
+        """
+        The error ID.
+        """
+        message: NotRequired[pulumi.Input[str]]
+        """
+        The detailed error message.
+        """
+        possible_causes: NotRequired[pulumi.Input[str]]
+        """
+        The error possible causes.
+        """
+        recommended_action: NotRequired[pulumi.Input[str]]
+        """
+        The error recommended action
+        """
+        run_as_account_id: NotRequired[pulumi.Input[str]]
+        """
+        The account ID used to login.
+        """
+        severity: NotRequired[pulumi.Input[str]]
+        """
+        The error severity
+        """
+        summary_message: NotRequired[pulumi.Input[str]]
+        """
+        The summarized error message.
+        """
+        updated_time_stamp: NotRequired[pulumi.Input[str]]
+        """
+        Time when this error was last updated.
+        """
+elif False:
+    ErrorArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ErrorArgs:
@@ -169,6 +224,46 @@ class ErrorArgs:
         pulumi.set(self, "updated_time_stamp", value)
 
 
+if not MYPY:
+    class SpringbootserversPropertiesArgsDict(TypedDict):
+        """
+        The springbootservers resource definition.
+        """
+        server: pulumi.Input[str]
+        """
+        Server is the target server name or ip address to discover of SpringBootServer.
+        """
+        errors: NotRequired[pulumi.Input[Sequence[pulumi.Input['ErrorArgsDict']]]]
+        """
+        The list of errors.
+        """
+        fqdn_and_ip_address_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The alternative FQDN or IP addresses to discover for this server
+        """
+        machine_arm_id: NotRequired[pulumi.Input[str]]
+        """
+        The machine Id from ARM
+        """
+        port: NotRequired[pulumi.Input[int]]
+        """
+        Target server port for remote login
+        """
+        provisioning_state: NotRequired[pulumi.Input[Union[str, 'ProvisioningState']]]
+        """
+        The resource provisioning state.
+        """
+        spring_boot_apps: NotRequired[pulumi.Input[int]]
+        """
+        The total number of spring boot apps been discovered
+        """
+        total_apps: NotRequired[pulumi.Input[int]]
+        """
+        The total number of apps been discovered
+        """
+elif False:
+    SpringbootserversPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SpringbootserversPropertiesArgs:
     def __init__(__self__, *,
@@ -304,6 +399,22 @@ class SpringbootserversPropertiesArgs:
         pulumi.set(self, "total_apps", value)
 
 
+if not MYPY:
+    class SpringbootsitesModelExtendedLocationArgsDict(TypedDict):
+        """
+        The extended location definition.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The extended location name.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        The extended location type.
+        """
+elif False:
+    SpringbootsitesModelExtendedLocationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SpringbootsitesModelExtendedLocationArgs:
     def __init__(__self__, *,
@@ -343,6 +454,26 @@ class SpringbootsitesModelExtendedLocationArgs:
     def type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class SpringbootsitesPropertiesArgsDict(TypedDict):
+        """
+        The springbootsites resource definition.
+        """
+        master_site_id: NotRequired[pulumi.Input[str]]
+        """
+        The master site ID from Azure Migrate.
+        """
+        migrate_project_id: NotRequired[pulumi.Input[str]]
+        """
+        The migrate project ID from Azure Migrate.
+        """
+        provisioning_state: NotRequired[pulumi.Input[Union[str, 'ProvisioningState']]]
+        """
+        The resource provisioning state.
+        """
+elif False:
+    SpringbootsitesPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SpringbootsitesPropertiesArgs:

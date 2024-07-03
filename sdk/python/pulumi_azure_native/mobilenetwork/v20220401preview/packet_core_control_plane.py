@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -327,21 +332,21 @@ class PacketCoreControlPlane(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 control_plane_access_interface: Optional[pulumi.Input[pulumi.InputType['InterfacePropertiesArgs']]] = None,
+                 control_plane_access_interface: Optional[pulumi.Input[Union['InterfacePropertiesArgs', 'InterfacePropertiesArgsDict']]] = None,
                  core_network_technology: Optional[pulumi.Input[Union[str, 'CoreNetworkType']]] = None,
                  created_at: Optional[pulumi.Input[str]] = None,
                  created_by: Optional[pulumi.Input[str]] = None,
                  created_by_type: Optional[pulumi.Input[Union[str, 'CreatedByType']]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  interop_settings: Optional[Any] = None,
                  last_modified_at: Optional[pulumi.Input[str]] = None,
                  last_modified_by: Optional[pulumi.Input[str]] = None,
                  last_modified_by_type: Optional[pulumi.Input[Union[str, 'CreatedByType']]] = None,
-                 local_diagnostics_access: Optional[pulumi.Input[pulumi.InputType['LocalDiagnosticsAccessConfigurationArgs']]] = None,
+                 local_diagnostics_access: Optional[pulumi.Input[Union['LocalDiagnosticsAccessConfigurationArgs', 'LocalDiagnosticsAccessConfigurationArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 mobile_network: Optional[pulumi.Input[pulumi.InputType['MobileNetworkResourceIdArgs']]] = None,
+                 mobile_network: Optional[pulumi.Input[Union['MobileNetworkResourceIdArgs', 'MobileNetworkResourceIdArgsDict']]] = None,
                  packet_core_control_plane_name: Optional[pulumi.Input[str]] = None,
-                 platform: Optional[pulumi.Input[pulumi.InputType['PlatformConfigurationArgs']]] = None,
+                 platform: Optional[pulumi.Input[Union['PlatformConfigurationArgs', 'PlatformConfigurationArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[Union[str, 'BillingSku']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -352,21 +357,21 @@ class PacketCoreControlPlane(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['InterfacePropertiesArgs']] control_plane_access_interface: The control plane interface on the access network. For 5G networks, this is the N2 interface. For 4G networks, this is the S1-MME interface.
+        :param pulumi.Input[Union['InterfacePropertiesArgs', 'InterfacePropertiesArgsDict']] control_plane_access_interface: The control plane interface on the access network. For 5G networks, this is the N2 interface. For 4G networks, this is the S1-MME interface.
         :param pulumi.Input[Union[str, 'CoreNetworkType']] core_network_technology: The core network technology generation (5G core or EPC / 4G core).
         :param pulumi.Input[str] created_at: The timestamp of resource creation (UTC).
         :param pulumi.Input[str] created_by: The identity that created the resource.
         :param pulumi.Input[Union[str, 'CreatedByType']] created_by_type: The type of identity that created the resource.
-        :param pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']] identity: The identity used to retrieve the ingress certificate from Azure key vault.
+        :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: The identity used to retrieve the ingress certificate from Azure key vault.
         :param Any interop_settings: Settings to allow interoperability with third party components e.g. RANs and UEs.
         :param pulumi.Input[str] last_modified_at: The timestamp of resource last modification (UTC)
         :param pulumi.Input[str] last_modified_by: The identity that last modified the resource.
         :param pulumi.Input[Union[str, 'CreatedByType']] last_modified_by_type: The type of identity that last modified the resource.
-        :param pulumi.Input[pulumi.InputType['LocalDiagnosticsAccessConfigurationArgs']] local_diagnostics_access: The kubernetes ingress configuration to control access to packet core diagnostics over local APIs.
+        :param pulumi.Input[Union['LocalDiagnosticsAccessConfigurationArgs', 'LocalDiagnosticsAccessConfigurationArgsDict']] local_diagnostics_access: The kubernetes ingress configuration to control access to packet core diagnostics over local APIs.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[pulumi.InputType['MobileNetworkResourceIdArgs']] mobile_network: Mobile network in which this packet core control plane is deployed.
+        :param pulumi.Input[Union['MobileNetworkResourceIdArgs', 'MobileNetworkResourceIdArgsDict']] mobile_network: Mobile network in which this packet core control plane is deployed.
         :param pulumi.Input[str] packet_core_control_plane_name: The name of the packet core control plane.
-        :param pulumi.Input[pulumi.InputType['PlatformConfigurationArgs']] platform: The platform where the packet core is deployed.
+        :param pulumi.Input[Union['PlatformConfigurationArgs', 'PlatformConfigurationArgsDict']] platform: The platform where the packet core is deployed.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union[str, 'BillingSku']] sku: The SKU defining the throughput and SIM allowances for this packet core control plane deployment.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -396,21 +401,21 @@ class PacketCoreControlPlane(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 control_plane_access_interface: Optional[pulumi.Input[pulumi.InputType['InterfacePropertiesArgs']]] = None,
+                 control_plane_access_interface: Optional[pulumi.Input[Union['InterfacePropertiesArgs', 'InterfacePropertiesArgsDict']]] = None,
                  core_network_technology: Optional[pulumi.Input[Union[str, 'CoreNetworkType']]] = None,
                  created_at: Optional[pulumi.Input[str]] = None,
                  created_by: Optional[pulumi.Input[str]] = None,
                  created_by_type: Optional[pulumi.Input[Union[str, 'CreatedByType']]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  interop_settings: Optional[Any] = None,
                  last_modified_at: Optional[pulumi.Input[str]] = None,
                  last_modified_by: Optional[pulumi.Input[str]] = None,
                  last_modified_by_type: Optional[pulumi.Input[Union[str, 'CreatedByType']]] = None,
-                 local_diagnostics_access: Optional[pulumi.Input[pulumi.InputType['LocalDiagnosticsAccessConfigurationArgs']]] = None,
+                 local_diagnostics_access: Optional[pulumi.Input[Union['LocalDiagnosticsAccessConfigurationArgs', 'LocalDiagnosticsAccessConfigurationArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 mobile_network: Optional[pulumi.Input[pulumi.InputType['MobileNetworkResourceIdArgs']]] = None,
+                 mobile_network: Optional[pulumi.Input[Union['MobileNetworkResourceIdArgs', 'MobileNetworkResourceIdArgsDict']]] = None,
                  packet_core_control_plane_name: Optional[pulumi.Input[str]] = None,
-                 platform: Optional[pulumi.Input[pulumi.InputType['PlatformConfigurationArgs']]] = None,
+                 platform: Optional[pulumi.Input[Union['PlatformConfigurationArgs', 'PlatformConfigurationArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[Union[str, 'BillingSku']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,

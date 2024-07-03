@@ -4,20 +4,53 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'BindingPropertiesArgs',
+    'BindingPropertiesArgsDict',
     'ComponentPropertiesArgs',
+    'ComponentPropertiesArgsDict',
     'ExtendedLocationArgs',
+    'ExtendedLocationArgsDict',
     'ReconciliationPolicyArgs',
+    'ReconciliationPolicyArgsDict',
     'TargetSelectorPropertiesArgs',
+    'TargetSelectorPropertiesArgsDict',
     'TopologiesPropertiesArgs',
+    'TopologiesPropertiesArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class BindingPropertiesArgsDict(TypedDict):
+        """
+        Defines a component binding for a provider.
+        """
+        config: Any
+        """
+        Configuration values for the binding.
+        """
+        provider: pulumi.Input[str]
+        """
+        Name of the provider.
+        """
+        role: pulumi.Input[str]
+        """
+        Role that the provider binds to with the component.
+        """
+elif False:
+    BindingPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class BindingPropertiesArgs:
@@ -71,6 +104,30 @@ class BindingPropertiesArgs:
     def role(self, value: pulumi.Input[str]):
         pulumi.set(self, "role", value)
 
+
+if not MYPY:
+    class ComponentPropertiesArgsDict(TypedDict):
+        """
+        Defines a desired runtime component.
+        """
+        name: pulumi.Input[str]
+        """
+        Name of the component.
+        """
+        type: pulumi.Input[str]
+        """
+        Component type.
+        """
+        dependencies: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Component dependencies.
+        """
+        properties: NotRequired[Any]
+        """
+        Properties of the component.
+        """
+elif False:
+    ComponentPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ComponentPropertiesArgs:
@@ -142,6 +199,22 @@ class ComponentPropertiesArgs:
         pulumi.set(self, "properties", value)
 
 
+if not MYPY:
+    class ExtendedLocationArgsDict(TypedDict):
+        """
+        Extended location is an extension of Azure locations. They provide a way to use their Azure ARC enabled Kubernetes clusters as target locations for deploying Azure services instances.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the extended location.
+        """
+        type: pulumi.Input[str]
+        """
+        The type of the extended location.
+        """
+elif False:
+    ExtendedLocationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ExtendedLocationArgs:
     def __init__(__self__, *,
@@ -179,6 +252,22 @@ class ExtendedLocationArgs:
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class ReconciliationPolicyArgsDict(TypedDict):
+        """
+        Reconciliation Policy.
+        """
+        type: pulumi.Input[Union[str, 'ReconciliationPolicies']]
+        """
+        Policy type
+        """
+        interval: NotRequired[pulumi.Input[str]]
+        """
+        Policy interval.
+        """
+elif False:
+    ReconciliationPolicyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ReconciliationPolicyArgs:
@@ -219,6 +308,18 @@ class ReconciliationPolicyArgs:
         pulumi.set(self, "interval", value)
 
 
+if not MYPY:
+    class TargetSelectorPropertiesArgsDict(TypedDict):
+        """
+        Properties of the reference target.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the target.
+        """
+elif False:
+    TargetSelectorPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TargetSelectorPropertiesArgs:
     def __init__(__self__, *,
@@ -242,6 +343,18 @@ class TargetSelectorPropertiesArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class TopologiesPropertiesArgsDict(TypedDict):
+        """
+        Defines a desired runtime component.
+        """
+        bindings: NotRequired[pulumi.Input[Sequence[pulumi.Input['BindingPropertiesArgsDict']]]]
+        """
+        bindings description.
+        """
+elif False:
+    TopologiesPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TopologiesPropertiesArgs:

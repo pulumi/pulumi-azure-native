@@ -4,15 +4,51 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'ExtensionResourcePlanArgs',
+    'ExtensionResourcePlanArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ExtensionResourcePlanArgsDict(TypedDict):
+        """
+        Plan data for an extension resource.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the plan.
+        """
+        product: NotRequired[pulumi.Input[str]]
+        """
+        Product name.
+        """
+        promotion_code: NotRequired[pulumi.Input[str]]
+        """
+        Optional: the promotion code associated with the plan.
+        """
+        publisher: NotRequired[pulumi.Input[str]]
+        """
+        Name of the extension publisher.
+        """
+        version: NotRequired[pulumi.Input[str]]
+        """
+        A string that uniquely identifies the plan version.
+        """
+elif False:
+    ExtensionResourcePlanArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ExtensionResourcePlanArgs:

@@ -4,14 +4,46 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 
 __all__ = [
     'PermissionArgs',
+    'PermissionArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class PermissionArgsDict(TypedDict):
+        """
+        Role definition permissions.
+        """
+        actions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Allowed actions.
+        """
+        data_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Allowed Data actions.
+        """
+        not_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Denied actions.
+        """
+        not_data_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Denied Data actions.
+        """
+elif False:
+    PermissionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PermissionArgs:

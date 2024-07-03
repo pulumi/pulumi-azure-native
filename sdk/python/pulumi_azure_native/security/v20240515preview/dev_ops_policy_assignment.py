@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -90,7 +95,7 @@ class DevOpsPolicyAssignment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  policy_assignment_id: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['DevOpsPolicyAssignmentPropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['DevOpsPolicyAssignmentPropertiesArgs', 'DevOpsPolicyAssignmentPropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  security_connector_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -100,7 +105,7 @@ class DevOpsPolicyAssignment(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] policy_assignment_id: The policy assignment Id.
-        :param pulumi.Input[pulumi.InputType['DevOpsPolicyAssignmentPropertiesArgs']] properties: Properties of the DevOps policy assignment resource.
+        :param pulumi.Input[Union['DevOpsPolicyAssignmentPropertiesArgs', 'DevOpsPolicyAssignmentPropertiesArgsDict']] properties: Properties of the DevOps policy assignment resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] security_connector_name: The security connector name.
         """
@@ -129,7 +134,7 @@ class DevOpsPolicyAssignment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  policy_assignment_id: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['DevOpsPolicyAssignmentPropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['DevOpsPolicyAssignmentPropertiesArgs', 'DevOpsPolicyAssignmentPropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  security_connector_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):

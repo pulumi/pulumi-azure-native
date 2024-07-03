@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -185,15 +190,15 @@ class SnapshotPolicy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
-                 daily_schedule: Optional[pulumi.Input[pulumi.InputType['DailyScheduleArgs']]] = None,
+                 daily_schedule: Optional[pulumi.Input[Union['DailyScheduleArgs', 'DailyScheduleArgsDict']]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 hourly_schedule: Optional[pulumi.Input[pulumi.InputType['HourlyScheduleArgs']]] = None,
+                 hourly_schedule: Optional[pulumi.Input[Union['HourlyScheduleArgs', 'HourlyScheduleArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 monthly_schedule: Optional[pulumi.Input[pulumi.InputType['MonthlyScheduleArgs']]] = None,
+                 monthly_schedule: Optional[pulumi.Input[Union['MonthlyScheduleArgs', 'MonthlyScheduleArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  snapshot_policy_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 weekly_schedule: Optional[pulumi.Input[pulumi.InputType['WeeklyScheduleArgs']]] = None,
+                 weekly_schedule: Optional[pulumi.Input[Union['WeeklyScheduleArgs', 'WeeklyScheduleArgsDict']]] = None,
                  __props__=None):
         """
         Snapshot policy information
@@ -204,15 +209,15 @@ class SnapshotPolicy(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the NetApp account
-        :param pulumi.Input[pulumi.InputType['DailyScheduleArgs']] daily_schedule: Schedule for daily snapshots
+        :param pulumi.Input[Union['DailyScheduleArgs', 'DailyScheduleArgsDict']] daily_schedule: Schedule for daily snapshots
         :param pulumi.Input[bool] enabled: The property to decide policy is enabled or not
-        :param pulumi.Input[pulumi.InputType['HourlyScheduleArgs']] hourly_schedule: Schedule for hourly snapshots
+        :param pulumi.Input[Union['HourlyScheduleArgs', 'HourlyScheduleArgsDict']] hourly_schedule: Schedule for hourly snapshots
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[pulumi.InputType['MonthlyScheduleArgs']] monthly_schedule: Schedule for monthly snapshots
+        :param pulumi.Input[Union['MonthlyScheduleArgs', 'MonthlyScheduleArgsDict']] monthly_schedule: Schedule for monthly snapshots
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] snapshot_policy_name: The name of the snapshot policy
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[pulumi.InputType['WeeklyScheduleArgs']] weekly_schedule: Schedule for weekly snapshots
+        :param pulumi.Input[Union['WeeklyScheduleArgs', 'WeeklyScheduleArgsDict']] weekly_schedule: Schedule for weekly snapshots
         """
         ...
     @overload
@@ -242,15 +247,15 @@ class SnapshotPolicy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
-                 daily_schedule: Optional[pulumi.Input[pulumi.InputType['DailyScheduleArgs']]] = None,
+                 daily_schedule: Optional[pulumi.Input[Union['DailyScheduleArgs', 'DailyScheduleArgsDict']]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 hourly_schedule: Optional[pulumi.Input[pulumi.InputType['HourlyScheduleArgs']]] = None,
+                 hourly_schedule: Optional[pulumi.Input[Union['HourlyScheduleArgs', 'HourlyScheduleArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 monthly_schedule: Optional[pulumi.Input[pulumi.InputType['MonthlyScheduleArgs']]] = None,
+                 monthly_schedule: Optional[pulumi.Input[Union['MonthlyScheduleArgs', 'MonthlyScheduleArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  snapshot_policy_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 weekly_schedule: Optional[pulumi.Input[pulumi.InputType['WeeklyScheduleArgs']]] = None,
+                 weekly_schedule: Optional[pulumi.Input[Union['WeeklyScheduleArgs', 'WeeklyScheduleArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

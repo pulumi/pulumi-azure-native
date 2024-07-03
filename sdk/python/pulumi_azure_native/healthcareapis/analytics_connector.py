@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -167,10 +172,10 @@ class AnalyticsConnector(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  analytics_connector_name: Optional[pulumi.Input[str]] = None,
-                 data_destination_configuration: Optional[pulumi.Input[pulumi.InputType['AnalyticsConnectorDataLakeDataDestinationArgs']]] = None,
-                 data_mapping_configuration: Optional[pulumi.Input[pulumi.InputType['AnalyticsConnectorFhirToParquetMappingArgs']]] = None,
-                 data_source_configuration: Optional[pulumi.Input[pulumi.InputType['AnalyticsConnectorFhirServiceDataSourceArgs']]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ServiceManagedIdentityIdentityArgs']]] = None,
+                 data_destination_configuration: Optional[pulumi.Input[Union['AnalyticsConnectorDataLakeDataDestinationArgs', 'AnalyticsConnectorDataLakeDataDestinationArgsDict']]] = None,
+                 data_mapping_configuration: Optional[pulumi.Input[Union['AnalyticsConnectorFhirToParquetMappingArgs', 'AnalyticsConnectorFhirToParquetMappingArgsDict']]] = None,
+                 data_source_configuration: Optional[pulumi.Input[Union['AnalyticsConnectorFhirServiceDataSourceArgs', 'AnalyticsConnectorFhirServiceDataSourceArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['ServiceManagedIdentityIdentityArgs', 'ServiceManagedIdentityIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -183,10 +188,10 @@ class AnalyticsConnector(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] analytics_connector_name: The name of Analytics Connector resource.
-        :param pulumi.Input[pulumi.InputType['AnalyticsConnectorDataLakeDataDestinationArgs']] data_destination_configuration: Data destination configuration for Analytics Connector.
-        :param pulumi.Input[pulumi.InputType['AnalyticsConnectorFhirToParquetMappingArgs']] data_mapping_configuration: Data mapping configuration for Analytics Connector.
-        :param pulumi.Input[pulumi.InputType['AnalyticsConnectorFhirServiceDataSourceArgs']] data_source_configuration: Data source for Analytics Connector.
-        :param pulumi.Input[pulumi.InputType['ServiceManagedIdentityIdentityArgs']] identity: Setting indicating whether the service has a managed identity associated with it.
+        :param pulumi.Input[Union['AnalyticsConnectorDataLakeDataDestinationArgs', 'AnalyticsConnectorDataLakeDataDestinationArgsDict']] data_destination_configuration: Data destination configuration for Analytics Connector.
+        :param pulumi.Input[Union['AnalyticsConnectorFhirToParquetMappingArgs', 'AnalyticsConnectorFhirToParquetMappingArgsDict']] data_mapping_configuration: Data mapping configuration for Analytics Connector.
+        :param pulumi.Input[Union['AnalyticsConnectorFhirServiceDataSourceArgs', 'AnalyticsConnectorFhirServiceDataSourceArgsDict']] data_source_configuration: Data source for Analytics Connector.
+        :param pulumi.Input[Union['ServiceManagedIdentityIdentityArgs', 'ServiceManagedIdentityIdentityArgsDict']] identity: Setting indicating whether the service has a managed identity associated with it.
         :param pulumi.Input[str] location: The resource location.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the service instance.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -218,10 +223,10 @@ class AnalyticsConnector(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  analytics_connector_name: Optional[pulumi.Input[str]] = None,
-                 data_destination_configuration: Optional[pulumi.Input[pulumi.InputType['AnalyticsConnectorDataLakeDataDestinationArgs']]] = None,
-                 data_mapping_configuration: Optional[pulumi.Input[pulumi.InputType['AnalyticsConnectorFhirToParquetMappingArgs']]] = None,
-                 data_source_configuration: Optional[pulumi.Input[pulumi.InputType['AnalyticsConnectorFhirServiceDataSourceArgs']]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ServiceManagedIdentityIdentityArgs']]] = None,
+                 data_destination_configuration: Optional[pulumi.Input[Union['AnalyticsConnectorDataLakeDataDestinationArgs', 'AnalyticsConnectorDataLakeDataDestinationArgsDict']]] = None,
+                 data_mapping_configuration: Optional[pulumi.Input[Union['AnalyticsConnectorFhirToParquetMappingArgs', 'AnalyticsConnectorFhirToParquetMappingArgsDict']]] = None,
+                 data_source_configuration: Optional[pulumi.Input[Union['AnalyticsConnectorFhirServiceDataSourceArgs', 'AnalyticsConnectorFhirServiceDataSourceArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['ServiceManagedIdentityIdentityArgs', 'ServiceManagedIdentityIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,

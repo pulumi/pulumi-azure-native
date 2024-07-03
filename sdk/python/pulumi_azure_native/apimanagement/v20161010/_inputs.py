@@ -4,19 +4,55 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'AdditionalRegionArgs',
+    'AdditionalRegionArgsDict',
     'ApiManagementServiceSkuPropertiesArgs',
+    'ApiManagementServiceSkuPropertiesArgsDict',
     'CertificateInformationArgs',
+    'CertificateInformationArgsDict',
     'HostnameConfigurationArgs',
+    'HostnameConfigurationArgsDict',
     'VirtualNetworkConfigurationArgs',
+    'VirtualNetworkConfigurationArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AdditionalRegionArgsDict(TypedDict):
+        """
+        Description of an additional API Management resource location.
+        """
+        location: pulumi.Input[str]
+        """
+        The location name of the additional region among Azure Data center regions.
+        """
+        sku_type: pulumi.Input['SkuType']
+        """
+        The SKU type in the location.
+        """
+        sku_unit_count: NotRequired[pulumi.Input[int]]
+        """
+        The SKU Unit count at the location. The maximum SKU Unit count depends on the SkuType. Maximum allowed for Developer SKU is 1, for Standard SKU is 4, and for Premium SKU is 10, at a location.
+        """
+        vpnconfiguration: NotRequired[pulumi.Input['VirtualNetworkConfigurationArgsDict']]
+        """
+        Virtual network configuration for the location.
+        """
+elif False:
+    AdditionalRegionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AdditionalRegionArgs:
@@ -90,6 +126,22 @@ class AdditionalRegionArgs:
         pulumi.set(self, "vpnconfiguration", value)
 
 
+if not MYPY:
+    class ApiManagementServiceSkuPropertiesArgsDict(TypedDict):
+        """
+        API Management service resource SKU properties.
+        """
+        name: pulumi.Input['SkuType']
+        """
+        Name of the Sku.
+        """
+        capacity: NotRequired[pulumi.Input[int]]
+        """
+        Capacity of the SKU (number of deployed units of the SKU). The default value is 1.
+        """
+elif False:
+    ApiManagementServiceSkuPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ApiManagementServiceSkuPropertiesArgs:
     def __init__(__self__, *,
@@ -130,6 +182,26 @@ class ApiManagementServiceSkuPropertiesArgs:
     def capacity(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "capacity", value)
 
+
+if not MYPY:
+    class CertificateInformationArgsDict(TypedDict):
+        """
+        SSL certificate information.
+        """
+        expiry: pulumi.Input[str]
+        """
+        Expiration date of the certificate. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+        """
+        subject: pulumi.Input[str]
+        """
+        Subject of the certificate.
+        """
+        thumbprint: pulumi.Input[str]
+        """
+        Thumbprint of the certificate.
+        """
+elif False:
+    CertificateInformationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CertificateInformationArgs:
@@ -184,6 +256,26 @@ class CertificateInformationArgs:
         pulumi.set(self, "thumbprint", value)
 
 
+if not MYPY:
+    class HostnameConfigurationArgsDict(TypedDict):
+        """
+        Custom hostname configuration.
+        """
+        certificate: pulumi.Input['CertificateInformationArgsDict']
+        """
+        Certificate information.
+        """
+        hostname: pulumi.Input[str]
+        """
+        Hostname.
+        """
+        type: pulumi.Input['HostnameType']
+        """
+        Hostname type.
+        """
+elif False:
+    HostnameConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class HostnameConfigurationArgs:
     def __init__(__self__, *,
@@ -236,6 +328,22 @@ class HostnameConfigurationArgs:
     def type(self, value: pulumi.Input['HostnameType']):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class VirtualNetworkConfigurationArgsDict(TypedDict):
+        """
+        Configuration of a virtual network to which API Management service is deployed.
+        """
+        location: NotRequired[pulumi.Input[str]]
+        """
+        The location of the virtual network.
+        """
+        subnet_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        The full resource ID of a subnet in a virtual network to deploy the API Management service in.
+        """
+elif False:
+    VirtualNetworkConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VirtualNetworkConfigurationArgs:

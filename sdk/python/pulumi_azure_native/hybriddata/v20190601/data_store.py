@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -151,7 +156,7 @@ class DataStore(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 customer_secrets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomerSecretArgs']]]]] = None,
+                 customer_secrets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CustomerSecretArgs', 'CustomerSecretArgsDict']]]]] = None,
                  data_manager_name: Optional[pulumi.Input[str]] = None,
                  data_store_name: Optional[pulumi.Input[str]] = None,
                  data_store_type_id: Optional[pulumi.Input[str]] = None,
@@ -165,7 +170,7 @@ class DataStore(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomerSecretArgs']]]] customer_secrets: List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CustomerSecretArgs', 'CustomerSecretArgsDict']]]] customer_secrets: List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
         :param pulumi.Input[str] data_manager_name: The name of the DataManager Resource within the specified resource group. DataManager names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
         :param pulumi.Input[str] data_store_name: The data store/repository name to be created or updated.
         :param pulumi.Input[str] data_store_type_id: The arm id of the data store type.
@@ -198,7 +203,7 @@ class DataStore(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 customer_secrets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomerSecretArgs']]]]] = None,
+                 customer_secrets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CustomerSecretArgs', 'CustomerSecretArgsDict']]]]] = None,
                  data_manager_name: Optional[pulumi.Input[str]] = None,
                  data_store_name: Optional[pulumi.Input[str]] = None,
                  data_store_type_id: Optional[pulumi.Input[str]] = None,

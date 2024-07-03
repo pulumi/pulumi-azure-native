@@ -4,41 +4,108 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'AvailabilitySetResourceSettingsArgs',
+    'AvailabilitySetResourceSettingsArgsDict',
     'DiskEncryptionSetResourceSettingsArgs',
+    'DiskEncryptionSetResourceSettingsArgsDict',
     'IdentityArgs',
+    'IdentityArgsDict',
     'KeyVaultResourceSettingsArgs',
+    'KeyVaultResourceSettingsArgsDict',
     'LBBackendAddressPoolResourceSettingsArgs',
+    'LBBackendAddressPoolResourceSettingsArgsDict',
     'LBFrontendIPConfigurationResourceSettingsArgs',
+    'LBFrontendIPConfigurationResourceSettingsArgsDict',
     'LoadBalancerBackendAddressPoolReferenceArgs',
+    'LoadBalancerBackendAddressPoolReferenceArgsDict',
     'LoadBalancerNatRuleReferenceArgs',
+    'LoadBalancerNatRuleReferenceArgsDict',
     'LoadBalancerResourceSettingsArgs',
+    'LoadBalancerResourceSettingsArgsDict',
     'MoveCollectionPropertiesArgs',
+    'MoveCollectionPropertiesArgsDict',
     'MoveResourceDependencyOverrideArgs',
+    'MoveResourceDependencyOverrideArgsDict',
     'MoveResourcePropertiesArgs',
+    'MoveResourcePropertiesArgsDict',
     'NetworkInterfaceResourceSettingsArgs',
+    'NetworkInterfaceResourceSettingsArgsDict',
     'NetworkSecurityGroupResourceSettingsArgs',
+    'NetworkSecurityGroupResourceSettingsArgsDict',
     'NicIpConfigurationResourceSettingsArgs',
+    'NicIpConfigurationResourceSettingsArgsDict',
     'NsgReferenceArgs',
+    'NsgReferenceArgsDict',
     'NsgSecurityRuleArgs',
+    'NsgSecurityRuleArgsDict',
     'PublicIPAddressResourceSettingsArgs',
+    'PublicIPAddressResourceSettingsArgsDict',
     'PublicIpReferenceArgs',
+    'PublicIpReferenceArgsDict',
     'ResourceGroupResourceSettingsArgs',
+    'ResourceGroupResourceSettingsArgsDict',
     'SqlDatabaseResourceSettingsArgs',
+    'SqlDatabaseResourceSettingsArgsDict',
     'SqlElasticPoolResourceSettingsArgs',
+    'SqlElasticPoolResourceSettingsArgsDict',
     'SqlServerResourceSettingsArgs',
+    'SqlServerResourceSettingsArgsDict',
     'SubnetReferenceArgs',
+    'SubnetReferenceArgsDict',
     'SubnetResourceSettingsArgs',
+    'SubnetResourceSettingsArgsDict',
     'VirtualMachineResourceSettingsArgs',
+    'VirtualMachineResourceSettingsArgsDict',
     'VirtualNetworkResourceSettingsArgs',
+    'VirtualNetworkResourceSettingsArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AvailabilitySetResourceSettingsArgsDict(TypedDict):
+        """
+        Gets or sets the availability set resource settings.
+        """
+        resource_type: pulumi.Input[str]
+        """
+        The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+        Expected value is 'Microsoft.Compute/availabilitySets'.
+        """
+        fault_domain: NotRequired[pulumi.Input[int]]
+        """
+        Gets or sets the target fault domain.
+        """
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Gets or sets the Resource tags.
+        """
+        target_resource_group_name: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the target resource group name.
+        """
+        target_resource_name: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the target Resource name.
+        """
+        update_domain: NotRequired[pulumi.Input[int]]
+        """
+        Gets or sets the target update domain.
+        """
+elif False:
+    AvailabilitySetResourceSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AvailabilitySetResourceSettingsArgs:
@@ -145,6 +212,27 @@ class AvailabilitySetResourceSettingsArgs:
         pulumi.set(self, "update_domain", value)
 
 
+if not MYPY:
+    class DiskEncryptionSetResourceSettingsArgsDict(TypedDict):
+        """
+        Defines the disk encryption set resource settings.
+        """
+        resource_type: pulumi.Input[str]
+        """
+        The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+        Expected value is 'Microsoft.Compute/diskEncryptionSets'.
+        """
+        target_resource_group_name: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the target resource group name.
+        """
+        target_resource_name: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the target Resource name.
+        """
+elif False:
+    DiskEncryptionSetResourceSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DiskEncryptionSetResourceSettingsArgs:
     def __init__(__self__, *,
@@ -202,6 +290,26 @@ class DiskEncryptionSetResourceSettingsArgs:
         pulumi.set(self, "target_resource_name", value)
 
 
+if not MYPY:
+    class IdentityArgsDict(TypedDict):
+        """
+        Defines the MSI properties of the Move Collection.
+        """
+        principal_id: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the principal id.
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the tenant id.
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'ResourceIdentityType']]]
+        """
+        The type of identity used for the resource mover service.
+        """
+elif False:
+    IdentityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IdentityArgs:
     def __init__(__self__, *,
@@ -257,6 +365,27 @@ class IdentityArgs:
     def type(self, value: Optional[pulumi.Input[Union[str, 'ResourceIdentityType']]]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class KeyVaultResourceSettingsArgsDict(TypedDict):
+        """
+        Defines the key vault resource settings.
+        """
+        resource_type: pulumi.Input[str]
+        """
+        The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+        Expected value is 'Microsoft.KeyVault/vaults'.
+        """
+        target_resource_group_name: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the target resource group name.
+        """
+        target_resource_name: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the target Resource name.
+        """
+elif False:
+    KeyVaultResourceSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class KeyVaultResourceSettingsArgs:
@@ -315,6 +444,18 @@ class KeyVaultResourceSettingsArgs:
         pulumi.set(self, "target_resource_name", value)
 
 
+if not MYPY:
+    class LBBackendAddressPoolResourceSettingsArgsDict(TypedDict):
+        """
+        Defines load balancer backend address pool properties.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the backend address pool name.
+        """
+elif False:
+    LBBackendAddressPoolResourceSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LBBackendAddressPoolResourceSettingsArgs:
     def __init__(__self__, *,
@@ -338,6 +479,35 @@ class LBBackendAddressPoolResourceSettingsArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class LBFrontendIPConfigurationResourceSettingsArgsDict(TypedDict):
+        """
+        Defines load balancer frontend IP configuration properties.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the frontend IP configuration name.
+        """
+        private_ip_address: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the IP address of the Load Balancer.This is only specified if a specific
+        private IP address shall be allocated from the subnet specified in subnetRef.
+        """
+        private_ip_allocation_method: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets PrivateIP allocation method (Static/Dynamic).
+        """
+        subnet: NotRequired[pulumi.Input['SubnetReferenceArgsDict']]
+        """
+        Defines reference to subnet.
+        """
+        zones: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the csv list of zones.
+        """
+elif False:
+    LBFrontendIPConfigurationResourceSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LBFrontendIPConfigurationResourceSettingsArgs:
@@ -429,6 +599,22 @@ class LBFrontendIPConfigurationResourceSettingsArgs:
         pulumi.set(self, "zones", value)
 
 
+if not MYPY:
+    class LoadBalancerBackendAddressPoolReferenceArgsDict(TypedDict):
+        """
+        Defines reference to load balancer backend address pools.
+        """
+        source_arm_resource_id: pulumi.Input[str]
+        """
+        Gets the ARM resource ID of the tracked resource being referenced.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Gets the name of the proxy resource on the target side.
+        """
+elif False:
+    LoadBalancerBackendAddressPoolReferenceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LoadBalancerBackendAddressPoolReferenceArgs:
     def __init__(__self__, *,
@@ -468,6 +654,22 @@ class LoadBalancerBackendAddressPoolReferenceArgs:
         pulumi.set(self, "name", value)
 
 
+if not MYPY:
+    class LoadBalancerNatRuleReferenceArgsDict(TypedDict):
+        """
+        Defines reference to load balancer NAT rules.
+        """
+        source_arm_resource_id: pulumi.Input[str]
+        """
+        Gets the ARM resource ID of the tracked resource being referenced.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Gets the name of the proxy resource on the target side.
+        """
+elif False:
+    LoadBalancerNatRuleReferenceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LoadBalancerNatRuleReferenceArgs:
     def __init__(__self__, *,
@@ -506,6 +708,48 @@ class LoadBalancerNatRuleReferenceArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class LoadBalancerResourceSettingsArgsDict(TypedDict):
+        """
+        Defines the load balancer resource settings.
+        """
+        resource_type: pulumi.Input[str]
+        """
+        The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+        Expected value is 'Microsoft.Network/loadBalancers'.
+        """
+        backend_address_pools: NotRequired[pulumi.Input[Sequence[pulumi.Input['LBBackendAddressPoolResourceSettingsArgsDict']]]]
+        """
+        Gets or sets the backend address pools of the load balancer.
+        """
+        frontend_ip_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['LBFrontendIPConfigurationResourceSettingsArgsDict']]]]
+        """
+        Gets or sets the frontend IP configurations of the load balancer.
+        """
+        sku: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets load balancer sku (Basic/Standard).
+        """
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Gets or sets the Resource tags.
+        """
+        target_resource_group_name: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the target resource group name.
+        """
+        target_resource_name: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the target Resource name.
+        """
+        zones: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the csv list of zones common for all frontend IP configurations. Note this is given
+         precedence only if frontend IP configurations settings are not present.
+        """
+elif False:
+    LoadBalancerResourceSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LoadBalancerResourceSettingsArgs:
@@ -646,6 +890,34 @@ class LoadBalancerResourceSettingsArgs:
         pulumi.set(self, "zones", value)
 
 
+if not MYPY:
+    class MoveCollectionPropertiesArgsDict(TypedDict):
+        """
+        Defines the move collection properties.
+        """
+        move_region: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the move region which indicates the region where the VM Regional to Zonal move will be conducted.
+        """
+        move_type: NotRequired[pulumi.Input[Union[str, 'MoveType']]]
+        """
+        Defines the MoveType.
+        """
+        source_region: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the source region.
+        """
+        target_region: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the target region.
+        """
+        version: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the version of move collection.
+        """
+elif False:
+    MoveCollectionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MoveCollectionPropertiesArgs:
     def __init__(__self__, *,
@@ -734,6 +1006,23 @@ class MoveCollectionPropertiesArgs:
         pulumi.set(self, "version", value)
 
 
+if not MYPY:
+    class MoveResourceDependencyOverrideArgsDict(TypedDict):
+        """
+        Defines the dependency override of the move resource.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the ARM ID of the dependent resource.
+        """
+        target_id: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the resource ARM id of either the MoveResource or the resource ARM ID of
+        the dependent resource.
+        """
+elif False:
+    MoveResourceDependencyOverrideArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MoveResourceDependencyOverrideArgs:
     def __init__(__self__, *,
@@ -775,6 +1064,30 @@ class MoveResourceDependencyOverrideArgs:
     def target_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "target_id", value)
 
+
+if not MYPY:
+    class MoveResourcePropertiesArgsDict(TypedDict):
+        """
+        Defines the move resource properties.
+        """
+        source_id: pulumi.Input[str]
+        """
+        Gets or sets the Source ARM Id of the resource.
+        """
+        depends_on_overrides: NotRequired[pulumi.Input[Sequence[pulumi.Input['MoveResourceDependencyOverrideArgsDict']]]]
+        """
+        Gets or sets the move resource dependencies overrides.
+        """
+        existing_target_id: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the existing target ARM Id of the resource.
+        """
+        resource_settings: NotRequired[pulumi.Input[Union['AvailabilitySetResourceSettingsArgsDict', 'DiskEncryptionSetResourceSettingsArgsDict', 'KeyVaultResourceSettingsArgsDict', 'LoadBalancerResourceSettingsArgsDict', 'NetworkInterfaceResourceSettingsArgsDict', 'NetworkSecurityGroupResourceSettingsArgsDict', 'PublicIPAddressResourceSettingsArgsDict', 'ResourceGroupResourceSettingsArgsDict', 'SqlDatabaseResourceSettingsArgsDict', 'SqlElasticPoolResourceSettingsArgsDict', 'SqlServerResourceSettingsArgsDict', 'VirtualMachineResourceSettingsArgsDict', 'VirtualNetworkResourceSettingsArgsDict']]]
+        """
+        Gets or sets the resource settings.
+        """
+elif False:
+    MoveResourcePropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MoveResourcePropertiesArgs:
@@ -846,6 +1159,39 @@ class MoveResourcePropertiesArgs:
     def resource_settings(self, value: Optional[pulumi.Input[Union['AvailabilitySetResourceSettingsArgs', 'DiskEncryptionSetResourceSettingsArgs', 'KeyVaultResourceSettingsArgs', 'LoadBalancerResourceSettingsArgs', 'NetworkInterfaceResourceSettingsArgs', 'NetworkSecurityGroupResourceSettingsArgs', 'PublicIPAddressResourceSettingsArgs', 'ResourceGroupResourceSettingsArgs', 'SqlDatabaseResourceSettingsArgs', 'SqlElasticPoolResourceSettingsArgs', 'SqlServerResourceSettingsArgs', 'VirtualMachineResourceSettingsArgs', 'VirtualNetworkResourceSettingsArgs']]]):
         pulumi.set(self, "resource_settings", value)
 
+
+if not MYPY:
+    class NetworkInterfaceResourceSettingsArgsDict(TypedDict):
+        """
+        Defines the network interface resource settings.
+        """
+        resource_type: pulumi.Input[str]
+        """
+        The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+        Expected value is 'Microsoft.Network/networkInterfaces'.
+        """
+        enable_accelerated_networking: NotRequired[pulumi.Input[bool]]
+        """
+        Gets or sets a value indicating whether accelerated networking is enabled.
+        """
+        ip_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['NicIpConfigurationResourceSettingsArgsDict']]]]
+        """
+        Gets or sets the IP configurations of the NIC.
+        """
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Gets or sets the Resource tags.
+        """
+        target_resource_group_name: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the target resource group name.
+        """
+        target_resource_name: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the target Resource name.
+        """
+elif False:
+    NetworkInterfaceResourceSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NetworkInterfaceResourceSettingsArgs:
@@ -952,6 +1298,35 @@ class NetworkInterfaceResourceSettingsArgs:
         pulumi.set(self, "target_resource_name", value)
 
 
+if not MYPY:
+    class NetworkSecurityGroupResourceSettingsArgsDict(TypedDict):
+        """
+        Defines the NSG resource settings.
+        """
+        resource_type: pulumi.Input[str]
+        """
+        The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+        Expected value is 'Microsoft.Network/networkSecurityGroups'.
+        """
+        security_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['NsgSecurityRuleArgsDict']]]]
+        """
+        Gets or sets Security rules of network security group.
+        """
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Gets or sets the Resource tags.
+        """
+        target_resource_group_name: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the target resource group name.
+        """
+        target_resource_name: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the target Resource name.
+        """
+elif False:
+    NetworkSecurityGroupResourceSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NetworkSecurityGroupResourceSettingsArgs:
     def __init__(__self__, *,
@@ -1040,6 +1415,46 @@ class NetworkSecurityGroupResourceSettingsArgs:
     def target_resource_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "target_resource_name", value)
 
+
+if not MYPY:
+    class NicIpConfigurationResourceSettingsArgsDict(TypedDict):
+        """
+        Defines NIC IP configuration properties.
+        """
+        load_balancer_backend_address_pools: NotRequired[pulumi.Input[Sequence[pulumi.Input['LoadBalancerBackendAddressPoolReferenceArgsDict']]]]
+        """
+        Gets or sets the references of the load balancer backend address pools.
+        """
+        load_balancer_nat_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['LoadBalancerNatRuleReferenceArgsDict']]]]
+        """
+        Gets or sets the references of the load balancer NAT rules.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the IP configuration name.
+        """
+        primary: NotRequired[pulumi.Input[bool]]
+        """
+        Gets or sets a value indicating whether this IP configuration is the primary.
+        """
+        private_ip_address: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the private IP address of the network interface IP Configuration.
+        """
+        private_ip_allocation_method: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the private IP address allocation method.
+        """
+        public_ip: NotRequired[pulumi.Input['PublicIpReferenceArgsDict']]
+        """
+        Defines reference to a public IP.
+        """
+        subnet: NotRequired[pulumi.Input['SubnetReferenceArgsDict']]
+        """
+        Defines reference to subnet.
+        """
+elif False:
+    NicIpConfigurationResourceSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NicIpConfigurationResourceSettingsArgs:
@@ -1177,6 +1592,18 @@ class NicIpConfigurationResourceSettingsArgs:
         pulumi.set(self, "subnet", value)
 
 
+if not MYPY:
+    class NsgReferenceArgsDict(TypedDict):
+        """
+        Defines reference to NSG.
+        """
+        source_arm_resource_id: pulumi.Input[str]
+        """
+        Gets the ARM resource ID of the tracked resource being referenced.
+        """
+elif False:
+    NsgReferenceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NsgReferenceArgs:
     def __init__(__self__, *,
@@ -1199,6 +1626,65 @@ class NsgReferenceArgs:
     def source_arm_resource_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "source_arm_resource_id", value)
 
+
+if not MYPY:
+    class NsgSecurityRuleArgsDict(TypedDict):
+        """
+        Security Rule data model for Network Security Groups.
+        """
+        access: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets whether network traffic is allowed or denied.
+        Possible values are “Allow” and “Deny”.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets a description for this rule. Restricted to 140 chars.
+        """
+        destination_address_prefix: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets destination address prefix. CIDR or source IP range.
+         A “*” can also be used to match all source IPs. Default tags such
+        as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used.
+        """
+        destination_port_range: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets Destination Port or Range. Integer or range between
+        0 and 65535. A “*” can also be used to match all ports.
+        """
+        direction: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the direction of the rule.InBound or Outbound. The
+        direction specifies if rule will be evaluated on incoming or outgoing traffic.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the Security rule name.
+        """
+        priority: NotRequired[pulumi.Input[int]]
+        """
+        Gets or sets the priority of the rule. The value can be between
+        100 and 4096. The priority number must be unique for each rule in the collection.
+        The lower the priority number, the higher the priority of the rule.
+        """
+        protocol: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets Network protocol this rule applies to. Can be Tcp, Udp or All(*).
+        """
+        source_address_prefix: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets source address prefix. CIDR or source IP range. A
+        “*” can also be used to match all source IPs.  Default tags such as ‘VirtualNetwork’,
+        ‘AzureLoadBalancer’ and ‘Internet’ can also be used. If this is an ingress
+        rule, specifies where network traffic originates from.
+        """
+        source_port_range: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets Source Port or Range. Integer or range between 0 and
+        65535. A “*” can also be used to match all ports.
+        """
+elif False:
+    NsgSecurityRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NsgSecurityRuleArgs:
@@ -1390,6 +1876,51 @@ class NsgSecurityRuleArgs:
         pulumi.set(self, "source_port_range", value)
 
 
+if not MYPY:
+    class PublicIPAddressResourceSettingsArgsDict(TypedDict):
+        """
+        Defines the public IP address resource settings.
+        """
+        resource_type: pulumi.Input[str]
+        """
+        The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+        Expected value is 'Microsoft.Network/publicIPAddresses'.
+        """
+        domain_name_label: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the domain name label.
+        """
+        fqdn: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the fully qualified domain name.
+        """
+        public_ip_allocation_method: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets public IP allocation method.
+        """
+        sku: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets public IP sku.
+        """
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Gets or sets the Resource tags.
+        """
+        target_resource_group_name: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the target resource group name.
+        """
+        target_resource_name: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the target Resource name.
+        """
+        zones: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets public IP zones.
+        """
+elif False:
+    PublicIPAddressResourceSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PublicIPAddressResourceSettingsArgs:
     def __init__(__self__, *,
@@ -1543,6 +2074,18 @@ class PublicIPAddressResourceSettingsArgs:
         pulumi.set(self, "zones", value)
 
 
+if not MYPY:
+    class PublicIpReferenceArgsDict(TypedDict):
+        """
+        Defines reference to a public IP.
+        """
+        source_arm_resource_id: pulumi.Input[str]
+        """
+        Gets the ARM resource ID of the tracked resource being referenced.
+        """
+elif False:
+    PublicIpReferenceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PublicIpReferenceArgs:
     def __init__(__self__, *,
@@ -1565,6 +2108,27 @@ class PublicIpReferenceArgs:
     def source_arm_resource_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "source_arm_resource_id", value)
 
+
+if not MYPY:
+    class ResourceGroupResourceSettingsArgsDict(TypedDict):
+        """
+        Defines the resource group resource settings.
+        """
+        resource_type: pulumi.Input[str]
+        """
+        The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+        Expected value is 'resourceGroups'.
+        """
+        target_resource_group_name: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the target resource group name.
+        """
+        target_resource_name: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the target Resource name.
+        """
+elif False:
+    ResourceGroupResourceSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ResourceGroupResourceSettingsArgs:
@@ -1622,6 +2186,35 @@ class ResourceGroupResourceSettingsArgs:
     def target_resource_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "target_resource_name", value)
 
+
+if not MYPY:
+    class SqlDatabaseResourceSettingsArgsDict(TypedDict):
+        """
+        Defines the Sql Database resource settings.
+        """
+        resource_type: pulumi.Input[str]
+        """
+        The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+        Expected value is 'Microsoft.Sql/servers/databases'.
+        """
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Gets or sets the Resource tags.
+        """
+        target_resource_group_name: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the target resource group name.
+        """
+        target_resource_name: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the target Resource name.
+        """
+        zone_redundant: NotRequired[pulumi.Input[Union[str, 'ZoneRedundant']]]
+        """
+        Defines the zone redundant resource setting.
+        """
+elif False:
+    SqlDatabaseResourceSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SqlDatabaseResourceSettingsArgs:
@@ -1712,6 +2305,35 @@ class SqlDatabaseResourceSettingsArgs:
         pulumi.set(self, "zone_redundant", value)
 
 
+if not MYPY:
+    class SqlElasticPoolResourceSettingsArgsDict(TypedDict):
+        """
+        Defines the Sql ElasticPool resource settings.
+        """
+        resource_type: pulumi.Input[str]
+        """
+        The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+        Expected value is 'Microsoft.Sql/servers/elasticPools'.
+        """
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Gets or sets the Resource tags.
+        """
+        target_resource_group_name: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the target resource group name.
+        """
+        target_resource_name: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the target Resource name.
+        """
+        zone_redundant: NotRequired[pulumi.Input[Union[str, 'ZoneRedundant']]]
+        """
+        Defines the zone redundant resource setting.
+        """
+elif False:
+    SqlElasticPoolResourceSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SqlElasticPoolResourceSettingsArgs:
     def __init__(__self__, *,
@@ -1801,6 +2423,27 @@ class SqlElasticPoolResourceSettingsArgs:
         pulumi.set(self, "zone_redundant", value)
 
 
+if not MYPY:
+    class SqlServerResourceSettingsArgsDict(TypedDict):
+        """
+        Defines the SQL Server resource settings.
+        """
+        resource_type: pulumi.Input[str]
+        """
+        The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+        Expected value is 'Microsoft.Sql/servers'.
+        """
+        target_resource_group_name: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the target resource group name.
+        """
+        target_resource_name: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the target Resource name.
+        """
+elif False:
+    SqlServerResourceSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SqlServerResourceSettingsArgs:
     def __init__(__self__, *,
@@ -1858,6 +2501,22 @@ class SqlServerResourceSettingsArgs:
         pulumi.set(self, "target_resource_name", value)
 
 
+if not MYPY:
+    class SubnetReferenceArgsDict(TypedDict):
+        """
+        Defines reference to subnet.
+        """
+        source_arm_resource_id: pulumi.Input[str]
+        """
+        Gets the ARM resource ID of the tracked resource being referenced.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Gets the name of the proxy resource on the target side.
+        """
+elif False:
+    SubnetReferenceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SubnetReferenceArgs:
     def __init__(__self__, *,
@@ -1896,6 +2555,26 @@ class SubnetReferenceArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class SubnetResourceSettingsArgsDict(TypedDict):
+        """
+        Defines the virtual network subnets resource settings.
+        """
+        address_prefix: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets address prefix for the subnet.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the Subnet name.
+        """
+        network_security_group: NotRequired[pulumi.Input['NsgReferenceArgsDict']]
+        """
+        Defines reference to NSG.
+        """
+elif False:
+    SubnetResourceSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SubnetResourceSettingsArgs:
@@ -1952,6 +2631,47 @@ class SubnetResourceSettingsArgs:
     def network_security_group(self, value: Optional[pulumi.Input['NsgReferenceArgs']]):
         pulumi.set(self, "network_security_group", value)
 
+
+if not MYPY:
+    class VirtualMachineResourceSettingsArgsDict(TypedDict):
+        """
+        Gets or sets the virtual machine resource settings.
+        """
+        resource_type: pulumi.Input[str]
+        """
+        The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+        Expected value is 'Microsoft.Compute/virtualMachines'.
+        """
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Gets or sets the Resource tags.
+        """
+        target_availability_set_id: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the target availability set id for virtual machines not in an availability set at source.
+        """
+        target_availability_zone: NotRequired[pulumi.Input[Union[str, 'TargetAvailabilityZone']]]
+        """
+        Gets or sets the target availability zone.
+        """
+        target_resource_group_name: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the target resource group name.
+        """
+        target_resource_name: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the target Resource name.
+        """
+        target_vm_size: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the target virtual machine size.
+        """
+        user_managed_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Gets or sets user-managed identities
+        """
+elif False:
+    VirtualMachineResourceSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VirtualMachineResourceSettingsArgs:
@@ -2089,6 +2809,49 @@ class VirtualMachineResourceSettingsArgs:
     def user_managed_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "user_managed_identities", value)
 
+
+if not MYPY:
+    class VirtualNetworkResourceSettingsArgsDict(TypedDict):
+        """
+        Defines the virtual network resource settings.
+        """
+        resource_type: pulumi.Input[str]
+        """
+        The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+        Expected value is 'Microsoft.Network/virtualNetworks'.
+        """
+        address_space: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Gets or sets the address prefixes for the virtual network.
+        """
+        dns_servers: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Gets or sets DHCPOptions that contains an array of DNS servers available to VMs
+        deployed in the virtual network.
+        """
+        enable_ddos_protection: NotRequired[pulumi.Input[bool]]
+        """
+        Gets or sets a value indicating whether gets or sets whether the
+        DDOS protection should be switched on.
+        """
+        subnets: NotRequired[pulumi.Input[Sequence[pulumi.Input['SubnetResourceSettingsArgsDict']]]]
+        """
+        Gets or sets List of subnets in a VirtualNetwork.
+        """
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Gets or sets the Resource tags.
+        """
+        target_resource_group_name: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the target resource group name.
+        """
+        target_resource_name: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the target Resource name.
+        """
+elif False:
+    VirtualNetworkResourceSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VirtualNetworkResourceSettingsArgs:

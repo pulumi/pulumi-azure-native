@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -216,14 +221,14 @@ class FlowLog(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 flow_analytics_configuration: Optional[pulumi.Input[pulumi.InputType['TrafficAnalyticsPropertiesArgs']]] = None,
+                 flow_analytics_configuration: Optional[pulumi.Input[Union['TrafficAnalyticsPropertiesArgs', 'TrafficAnalyticsPropertiesArgsDict']]] = None,
                  flow_log_name: Optional[pulumi.Input[str]] = None,
-                 format: Optional[pulumi.Input[pulumi.InputType['FlowLogFormatParametersArgs']]] = None,
+                 format: Optional[pulumi.Input[Union['FlowLogFormatParametersArgs', 'FlowLogFormatParametersArgsDict']]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  network_watcher_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 retention_policy: Optional[pulumi.Input[pulumi.InputType['RetentionPolicyParametersArgs']]] = None,
+                 retention_policy: Optional[pulumi.Input[Union['RetentionPolicyParametersArgs', 'RetentionPolicyParametersArgsDict']]] = None,
                  storage_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_resource_id: Optional[pulumi.Input[str]] = None,
@@ -237,14 +242,14 @@ class FlowLog(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enabled: Flag to enable/disable flow logging.
-        :param pulumi.Input[pulumi.InputType['TrafficAnalyticsPropertiesArgs']] flow_analytics_configuration: Parameters that define the configuration of traffic analytics.
+        :param pulumi.Input[Union['TrafficAnalyticsPropertiesArgs', 'TrafficAnalyticsPropertiesArgsDict']] flow_analytics_configuration: Parameters that define the configuration of traffic analytics.
         :param pulumi.Input[str] flow_log_name: The name of the flow log.
-        :param pulumi.Input[pulumi.InputType['FlowLogFormatParametersArgs']] format: Parameters that define the flow log format.
+        :param pulumi.Input[Union['FlowLogFormatParametersArgs', 'FlowLogFormatParametersArgsDict']] format: Parameters that define the flow log format.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] network_watcher_name: The name of the network watcher.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[pulumi.InputType['RetentionPolicyParametersArgs']] retention_policy: Parameters that define the retention policy for flow log.
+        :param pulumi.Input[Union['RetentionPolicyParametersArgs', 'RetentionPolicyParametersArgsDict']] retention_policy: Parameters that define the retention policy for flow log.
         :param pulumi.Input[str] storage_id: ID of the storage account which is used to store the flow log.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] target_resource_id: ID of network security group to which flow log will be applied.
@@ -277,14 +282,14 @@ class FlowLog(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 flow_analytics_configuration: Optional[pulumi.Input[pulumi.InputType['TrafficAnalyticsPropertiesArgs']]] = None,
+                 flow_analytics_configuration: Optional[pulumi.Input[Union['TrafficAnalyticsPropertiesArgs', 'TrafficAnalyticsPropertiesArgsDict']]] = None,
                  flow_log_name: Optional[pulumi.Input[str]] = None,
-                 format: Optional[pulumi.Input[pulumi.InputType['FlowLogFormatParametersArgs']]] = None,
+                 format: Optional[pulumi.Input[Union['FlowLogFormatParametersArgs', 'FlowLogFormatParametersArgsDict']]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  network_watcher_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 retention_policy: Optional[pulumi.Input[pulumi.InputType['RetentionPolicyParametersArgs']]] = None,
+                 retention_policy: Optional[pulumi.Input[Union['RetentionPolicyParametersArgs', 'RetentionPolicyParametersArgsDict']]] = None,
                  storage_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_resource_id: Optional[pulumi.Input[str]] = None,

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -314,14 +319,14 @@ class AttachedDataNetwork(pulumi.CustomResource):
                  last_modified_by: Optional[pulumi.Input[str]] = None,
                  last_modified_by_type: Optional[pulumi.Input[Union[str, 'CreatedByType']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 napt_configuration: Optional[pulumi.Input[pulumi.InputType['NaptConfigurationArgs']]] = None,
+                 napt_configuration: Optional[pulumi.Input[Union['NaptConfigurationArgs', 'NaptConfigurationArgsDict']]] = None,
                  packet_core_control_plane_name: Optional[pulumi.Input[str]] = None,
                  packet_core_data_plane_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  user_equipment_address_pool_prefix: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  user_equipment_static_address_pool_prefix: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 user_plane_data_interface: Optional[pulumi.Input[pulumi.InputType['InterfacePropertiesArgs']]] = None,
+                 user_plane_data_interface: Optional[pulumi.Input[Union['InterfacePropertiesArgs', 'InterfacePropertiesArgsDict']]] = None,
                  __props__=None):
         """
         Attached data network resource.
@@ -337,7 +342,7 @@ class AttachedDataNetwork(pulumi.CustomResource):
         :param pulumi.Input[str] last_modified_by: The identity that last modified the resource.
         :param pulumi.Input[Union[str, 'CreatedByType']] last_modified_by_type: The type of identity that last modified the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[pulumi.InputType['NaptConfigurationArgs']] napt_configuration: The network address and port translation (NAPT) configuration.
+        :param pulumi.Input[Union['NaptConfigurationArgs', 'NaptConfigurationArgsDict']] napt_configuration: The network address and port translation (NAPT) configuration.
                If this is not specified, the attached data network will use a default NAPT configuration with NAPT enabled.
         :param pulumi.Input[str] packet_core_control_plane_name: The name of the packet core control plane.
         :param pulumi.Input[str] packet_core_data_plane_name: The name of the packet core data plane.
@@ -349,7 +354,7 @@ class AttachedDataNetwork(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_equipment_static_address_pool_prefix: The user equipment (UE) address pool prefixes for the attached data network from which the packet core instance will assign static IP addresses to UEs.
                The packet core instance assigns an IP address to a UE when the UE sets up a PDU session. The static IP address for a specific UE is set in StaticIPConfiguration on the corresponding SIM resource.
                At least one of userEquipmentAddressPoolPrefix and userEquipmentStaticAddressPoolPrefix must be defined. If both are defined, they must be of the same size.
-        :param pulumi.Input[pulumi.InputType['InterfacePropertiesArgs']] user_plane_data_interface: The user plane interface on the data network. For 5G networks, this is the N6 interface. For 4G networks, this is the SGi interface.
+        :param pulumi.Input[Union['InterfacePropertiesArgs', 'InterfacePropertiesArgsDict']] user_plane_data_interface: The user plane interface on the data network. For 5G networks, this is the N6 interface. For 4G networks, this is the SGi interface.
         """
         ...
     @overload
@@ -384,14 +389,14 @@ class AttachedDataNetwork(pulumi.CustomResource):
                  last_modified_by: Optional[pulumi.Input[str]] = None,
                  last_modified_by_type: Optional[pulumi.Input[Union[str, 'CreatedByType']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 napt_configuration: Optional[pulumi.Input[pulumi.InputType['NaptConfigurationArgs']]] = None,
+                 napt_configuration: Optional[pulumi.Input[Union['NaptConfigurationArgs', 'NaptConfigurationArgsDict']]] = None,
                  packet_core_control_plane_name: Optional[pulumi.Input[str]] = None,
                  packet_core_data_plane_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  user_equipment_address_pool_prefix: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  user_equipment_static_address_pool_prefix: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 user_plane_data_interface: Optional[pulumi.Input[pulumi.InputType['InterfacePropertiesArgs']]] = None,
+                 user_plane_data_interface: Optional[pulumi.Input[Union['InterfacePropertiesArgs', 'InterfacePropertiesArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

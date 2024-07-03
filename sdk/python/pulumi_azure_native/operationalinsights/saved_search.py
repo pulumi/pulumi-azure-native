@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -188,7 +193,7 @@ class SavedSearch(pulumi.CustomResource):
                  query: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  saved_search_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TagArgs', 'TagArgsDict']]]]] = None,
                  version: Optional[pulumi.Input[float]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -207,7 +212,7 @@ class SavedSearch(pulumi.CustomResource):
         :param pulumi.Input[str] query: The query expression for the saved search.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] saved_search_id: The id of the saved search.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TagArgs']]]] tags: The tags attached to the saved search.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TagArgs', 'TagArgsDict']]]] tags: The tags attached to the saved search.
         :param pulumi.Input[float] version: The version number of the query language. The current version is 2 and is the default.
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         """
@@ -245,7 +250,7 @@ class SavedSearch(pulumi.CustomResource):
                  query: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  saved_search_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TagArgs', 'TagArgsDict']]]]] = None,
                  version: Optional[pulumi.Input[float]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):

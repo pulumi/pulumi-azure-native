@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -189,7 +194,7 @@ class LicenseProfile(pulumi.CustomResource):
                  license_profile_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  machine_name: Optional[pulumi.Input[str]] = None,
-                 product_features: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProductFeatureArgs']]]]] = None,
+                 product_features: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProductFeatureArgs', 'ProductFeatureArgsDict']]]]] = None,
                  product_type: Optional[pulumi.Input[Union[str, 'LicenseProfileProductType']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  software_assurance_customer: Optional[pulumi.Input[bool]] = None,
@@ -205,7 +210,7 @@ class LicenseProfile(pulumi.CustomResource):
         :param pulumi.Input[str] license_profile_name: The name of the license profile.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] machine_name: The name of the hybrid machine.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProductFeatureArgs']]]] product_features: The list of product features.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ProductFeatureArgs', 'ProductFeatureArgsDict']]]] product_features: The list of product features.
         :param pulumi.Input[Union[str, 'LicenseProfileProductType']] product_type: Indicates the product type of the license.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[bool] software_assurance_customer: Specifies if this machine is licensed as part of a Software Assurance agreement.
@@ -240,7 +245,7 @@ class LicenseProfile(pulumi.CustomResource):
                  license_profile_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  machine_name: Optional[pulumi.Input[str]] = None,
-                 product_features: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProductFeatureArgs']]]]] = None,
+                 product_features: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProductFeatureArgs', 'ProductFeatureArgsDict']]]]] = None,
                  product_type: Optional[pulumi.Input[Union[str, 'LicenseProfileProductType']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  software_assurance_customer: Optional[pulumi.Input[bool]] = None,

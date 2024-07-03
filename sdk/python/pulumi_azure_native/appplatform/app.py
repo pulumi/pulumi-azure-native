@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -122,9 +127,9 @@ class App(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_name: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedIdentityPropertiesArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedIdentityPropertiesArgs', 'ManagedIdentityPropertiesArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['AppResourcePropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['AppResourcePropertiesArgs', 'AppResourcePropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -137,9 +142,9 @@ class App(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_name: The name of the App resource.
-        :param pulumi.Input[pulumi.InputType['ManagedIdentityPropertiesArgs']] identity: The Managed Identity type of the app resource
+        :param pulumi.Input[Union['ManagedIdentityPropertiesArgs', 'ManagedIdentityPropertiesArgsDict']] identity: The Managed Identity type of the app resource
         :param pulumi.Input[str] location: The GEO location of the application, always the same with its parent resource
-        :param pulumi.Input[pulumi.InputType['AppResourcePropertiesArgs']] properties: Properties of the App resource
+        :param pulumi.Input[Union['AppResourcePropertiesArgs', 'AppResourcePropertiesArgsDict']] properties: Properties of the App resource
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] service_name: The name of the Service resource.
         """
@@ -171,9 +176,9 @@ class App(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_name: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedIdentityPropertiesArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedIdentityPropertiesArgs', 'ManagedIdentityPropertiesArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['AppResourcePropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['AppResourcePropertiesArgs', 'AppResourcePropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):

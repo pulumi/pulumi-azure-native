@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -125,8 +130,8 @@ class SecurityContact(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  emails: Optional[pulumi.Input[str]] = None,
                  is_enabled: Optional[pulumi.Input[bool]] = None,
-                 notifications_by_role: Optional[pulumi.Input[pulumi.InputType['SecurityContactPropertiesNotificationsByRoleArgs']]] = None,
-                 notifications_sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union[pulumi.InputType['NotificationsSourceAlertArgs'], pulumi.InputType['NotificationsSourceAttackPathArgs']]]]]] = None,
+                 notifications_by_role: Optional[pulumi.Input[Union['SecurityContactPropertiesNotificationsByRoleArgs', 'SecurityContactPropertiesNotificationsByRoleArgsDict']]] = None,
+                 notifications_sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union[Union['NotificationsSourceAlertArgs', 'NotificationsSourceAlertArgsDict'], Union['NotificationsSourceAttackPathArgs', 'NotificationsSourceAttackPathArgsDict']]]]]] = None,
                  phone: Optional[pulumi.Input[str]] = None,
                  security_contact_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -137,8 +142,8 @@ class SecurityContact(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] emails: List of email addresses which will get notifications from Microsoft Defender for Cloud by the configurations defined in this security contact.
         :param pulumi.Input[bool] is_enabled: Indicates whether the security contact is enabled.
-        :param pulumi.Input[pulumi.InputType['SecurityContactPropertiesNotificationsByRoleArgs']] notifications_by_role: Defines whether to send email notifications from Microsoft Defender for Cloud to persons with specific RBAC roles on the subscription.
-        :param pulumi.Input[Sequence[pulumi.Input[Union[pulumi.InputType['NotificationsSourceAlertArgs'], pulumi.InputType['NotificationsSourceAttackPathArgs']]]]] notifications_sources: A collection of sources types which evaluate the email notification.
+        :param pulumi.Input[Union['SecurityContactPropertiesNotificationsByRoleArgs', 'SecurityContactPropertiesNotificationsByRoleArgsDict']] notifications_by_role: Defines whether to send email notifications from Microsoft Defender for Cloud to persons with specific RBAC roles on the subscription.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[Union['NotificationsSourceAlertArgs', 'NotificationsSourceAlertArgsDict'], Union['NotificationsSourceAttackPathArgs', 'NotificationsSourceAttackPathArgsDict']]]]] notifications_sources: A collection of sources types which evaluate the email notification.
         :param pulumi.Input[str] phone: The security contact's phone number
         :param pulumi.Input[str] security_contact_name: Name of the security contact object
         """
@@ -168,8 +173,8 @@ class SecurityContact(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  emails: Optional[pulumi.Input[str]] = None,
                  is_enabled: Optional[pulumi.Input[bool]] = None,
-                 notifications_by_role: Optional[pulumi.Input[pulumi.InputType['SecurityContactPropertiesNotificationsByRoleArgs']]] = None,
-                 notifications_sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union[pulumi.InputType['NotificationsSourceAlertArgs'], pulumi.InputType['NotificationsSourceAttackPathArgs']]]]]] = None,
+                 notifications_by_role: Optional[pulumi.Input[Union['SecurityContactPropertiesNotificationsByRoleArgs', 'SecurityContactPropertiesNotificationsByRoleArgsDict']]] = None,
+                 notifications_sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union[Union['NotificationsSourceAlertArgs', 'NotificationsSourceAlertArgsDict'], Union['NotificationsSourceAttackPathArgs', 'NotificationsSourceAttackPathArgsDict']]]]]] = None,
                  phone: Optional[pulumi.Input[str]] = None,
                  security_contact_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):

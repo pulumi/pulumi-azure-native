@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -172,11 +177,11 @@ class Gen2Environment(pulumi.CustomResource):
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
-                 storage_configuration: Optional[pulumi.Input[pulumi.InputType['Gen2StorageConfigurationInputArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
+                 storage_configuration: Optional[pulumi.Input[Union['Gen2StorageConfigurationInputArgs', 'Gen2StorageConfigurationInputArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 time_series_id_properties: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TimeSeriesIdPropertyArgs']]]]] = None,
-                 warm_store_configuration: Optional[pulumi.Input[pulumi.InputType['WarmStoreConfigurationPropertiesArgs']]] = None,
+                 time_series_id_properties: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TimeSeriesIdPropertyArgs', 'TimeSeriesIdPropertyArgsDict']]]]] = None,
+                 warm_store_configuration: Optional[pulumi.Input[Union['WarmStoreConfigurationPropertiesArgs', 'WarmStoreConfigurationPropertiesArgsDict']]] = None,
                  __props__=None):
         """
         An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource. Gen2 environments do not have set data retention limits.
@@ -188,11 +193,11 @@ class Gen2Environment(pulumi.CustomResource):
                Expected value is 'Gen2'.
         :param pulumi.Input[str] location: The location of the resource.
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
-        :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The sku determines the type of environment, either Gen1 (S1 or S2) or Gen2 (L1). For Gen1 environments the sku determines the capacity of the environment, the ingress rate, and the billing rate.
-        :param pulumi.Input[pulumi.InputType['Gen2StorageConfigurationInputArgs']] storage_configuration: The storage configuration provides the connection details that allows the Time Series Insights service to connect to the customer storage account that is used to store the environment's data.
+        :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: The sku determines the type of environment, either Gen1 (S1 or S2) or Gen2 (L1). For Gen1 environments the sku determines the capacity of the environment, the ingress rate, and the billing rate.
+        :param pulumi.Input[Union['Gen2StorageConfigurationInputArgs', 'Gen2StorageConfigurationInputArgsDict']] storage_configuration: The storage configuration provides the connection details that allows the Time Series Insights service to connect to the customer storage account that is used to store the environment's data.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pairs of additional properties for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TimeSeriesIdPropertyArgs']]]] time_series_id_properties: The list of event properties which will be used to define the environment's time series id.
-        :param pulumi.Input[pulumi.InputType['WarmStoreConfigurationPropertiesArgs']] warm_store_configuration: The warm store configuration provides the details to create a warm store cache that will retain a copy of the environment's data available for faster query.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TimeSeriesIdPropertyArgs', 'TimeSeriesIdPropertyArgsDict']]]] time_series_id_properties: The list of event properties which will be used to define the environment's time series id.
+        :param pulumi.Input[Union['WarmStoreConfigurationPropertiesArgs', 'WarmStoreConfigurationPropertiesArgsDict']] warm_store_configuration: The warm store configuration provides the details to create a warm store cache that will retain a copy of the environment's data available for faster query.
         """
         ...
     @overload
@@ -222,11 +227,11 @@ class Gen2Environment(pulumi.CustomResource):
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
-                 storage_configuration: Optional[pulumi.Input[pulumi.InputType['Gen2StorageConfigurationInputArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
+                 storage_configuration: Optional[pulumi.Input[Union['Gen2StorageConfigurationInputArgs', 'Gen2StorageConfigurationInputArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 time_series_id_properties: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TimeSeriesIdPropertyArgs']]]]] = None,
-                 warm_store_configuration: Optional[pulumi.Input[pulumi.InputType['WarmStoreConfigurationPropertiesArgs']]] = None,
+                 time_series_id_properties: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TimeSeriesIdPropertyArgs', 'TimeSeriesIdPropertyArgsDict']]]]] = None,
+                 warm_store_configuration: Optional[pulumi.Input[Union['WarmStoreConfigurationPropertiesArgs', 'WarmStoreConfigurationPropertiesArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

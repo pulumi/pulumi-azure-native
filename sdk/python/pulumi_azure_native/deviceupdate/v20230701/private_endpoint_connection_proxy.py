@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -107,7 +112,7 @@ class PrivateEndpointConnectionProxy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  private_endpoint_connection_proxy_id: Optional[pulumi.Input[str]] = None,
-                 remote_private_endpoint: Optional[pulumi.Input[pulumi.InputType['RemotePrivateEndpointArgs']]] = None,
+                 remote_private_endpoint: Optional[pulumi.Input[Union['RemotePrivateEndpointArgs', 'RemotePrivateEndpointArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -118,7 +123,7 @@ class PrivateEndpointConnectionProxy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: Account name.
         :param pulumi.Input[str] private_endpoint_connection_proxy_id: The ID of the private endpoint connection proxy object.
-        :param pulumi.Input[pulumi.InputType['RemotePrivateEndpointArgs']] remote_private_endpoint: Remote private endpoint details.
+        :param pulumi.Input[Union['RemotePrivateEndpointArgs', 'RemotePrivateEndpointArgsDict']] remote_private_endpoint: Remote private endpoint details.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[str] status: Operation status.
         """
@@ -148,7 +153,7 @@ class PrivateEndpointConnectionProxy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  private_endpoint_connection_proxy_id: Optional[pulumi.Input[str]] = None,
-                 remote_private_endpoint: Optional[pulumi.Input[pulumi.InputType['RemotePrivateEndpointArgs']]] = None,
+                 remote_private_endpoint: Optional[pulumi.Input[Union['RemotePrivateEndpointArgs', 'RemotePrivateEndpointArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  __props__=None):

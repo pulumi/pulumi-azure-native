@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -288,7 +293,7 @@ class SourceControl(pulumi.CustomResource):
                  last_modified_by_type: Optional[pulumi.Input[Union[str, 'CreatedByType']]] = None,
                  operational_insights_resource_provider: Optional[pulumi.Input[str]] = None,
                  repo_type: Optional[pulumi.Input[Union[str, 'RepoType']]] = None,
-                 repository: Optional[pulumi.Input[pulumi.InputType['RepositoryArgs']]] = None,
+                 repository: Optional[pulumi.Input[Union['RepositoryArgs', 'RepositoryArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  source_control_id: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
@@ -310,7 +315,7 @@ class SourceControl(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'CreatedByType']] last_modified_by_type: The type of identity that last modified the resource.
         :param pulumi.Input[str] operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
         :param pulumi.Input[Union[str, 'RepoType']] repo_type: The repository type of the source control
-        :param pulumi.Input[pulumi.InputType['RepositoryArgs']] repository: Repository metadata.
+        :param pulumi.Input[Union['RepositoryArgs', 'RepositoryArgsDict']] repository: Repository metadata.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] source_control_id: Source control Id
         :param pulumi.Input[str] workspace_name: The name of the workspace.
@@ -351,7 +356,7 @@ class SourceControl(pulumi.CustomResource):
                  last_modified_by_type: Optional[pulumi.Input[Union[str, 'CreatedByType']]] = None,
                  operational_insights_resource_provider: Optional[pulumi.Input[str]] = None,
                  repo_type: Optional[pulumi.Input[Union[str, 'RepoType']]] = None,
-                 repository: Optional[pulumi.Input[pulumi.InputType['RepositoryArgs']]] = None,
+                 repository: Optional[pulumi.Input[Union['RepositoryArgs', 'RepositoryArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  source_control_id: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -184,12 +189,12 @@ class BmcKeySet(pulumi.CustomResource):
                  bmc_key_set_name: Optional[pulumi.Input[str]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  expiration: Optional[pulumi.Input[str]] = None,
-                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  privilege_level: Optional[pulumi.Input[Union[str, 'BmcKeySetPrivilegeLevel']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 user_list: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KeySetUserArgs']]]]] = None,
+                 user_list: Optional[pulumi.Input[Sequence[pulumi.Input[Union['KeySetUserArgs', 'KeySetUserArgsDict']]]]] = None,
                  __props__=None):
         """
         Create a BmcKeySet resource with the given unique name, props, and options.
@@ -199,12 +204,12 @@ class BmcKeySet(pulumi.CustomResource):
         :param pulumi.Input[str] bmc_key_set_name: The name of the baseboard management controller key set.
         :param pulumi.Input[str] cluster_name: The name of the cluster.
         :param pulumi.Input[str] expiration: The date and time after which the users in this key set will be removed from the baseboard management controllers.
-        :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: The extended location of the cluster associated with the resource.
+        :param pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']] extended_location: The extended location of the cluster associated with the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Union[str, 'BmcKeySetPrivilegeLevel']] privilege_level: The access level allowed for the users in this key set.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KeySetUserArgs']]]] user_list: The unique list of permitted users.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['KeySetUserArgs', 'KeySetUserArgsDict']]]] user_list: The unique list of permitted users.
         """
         ...
     @overload
@@ -233,12 +238,12 @@ class BmcKeySet(pulumi.CustomResource):
                  bmc_key_set_name: Optional[pulumi.Input[str]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  expiration: Optional[pulumi.Input[str]] = None,
-                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  privilege_level: Optional[pulumi.Input[Union[str, 'BmcKeySetPrivilegeLevel']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 user_list: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KeySetUserArgs']]]]] = None,
+                 user_list: Optional[pulumi.Input[Sequence[pulumi.Input[Union['KeySetUserArgs', 'KeySetUserArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -4,38 +4,81 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'ContainerConfigurationArgs',
+    'ContainerConfigurationArgsDict',
     'DebugSettingArgs',
+    'DebugSettingArgsDict',
     'DenySettingsArgs',
+    'DenySettingsArgsDict',
     'DeploymentParameterArgs',
+    'DeploymentParameterArgsDict',
     'DeploymentPropertiesArgs',
+    'DeploymentPropertiesArgsDict',
     'DeploymentStackPropertiesActionOnUnmanageArgs',
+    'DeploymentStackPropertiesActionOnUnmanageArgsDict',
     'DeploymentStacksDebugSettingArgs',
+    'DeploymentStacksDebugSettingArgsDict',
     'DeploymentStacksParametersLinkArgs',
+    'DeploymentStacksParametersLinkArgsDict',
     'DeploymentStacksTemplateLinkArgs',
+    'DeploymentStacksTemplateLinkArgsDict',
     'EnvironmentVariableArgs',
+    'EnvironmentVariableArgsDict',
     'ExpressionEvaluationOptionsArgs',
+    'ExpressionEvaluationOptionsArgsDict',
     'ExtendedLocationArgs',
+    'ExtendedLocationArgsDict',
     'IdentityArgs',
+    'IdentityArgsDict',
     'KeyVaultParameterReferenceArgs',
+    'KeyVaultParameterReferenceArgsDict',
     'KeyVaultReferenceArgs',
+    'KeyVaultReferenceArgsDict',
     'LinkedTemplateArtifactArgs',
+    'LinkedTemplateArtifactArgsDict',
     'ManagedServiceIdentityArgs',
+    'ManagedServiceIdentityArgsDict',
     'OnErrorDeploymentArgs',
+    'OnErrorDeploymentArgsDict',
     'ParametersLinkArgs',
+    'ParametersLinkArgsDict',
     'PlanArgs',
+    'PlanArgsDict',
     'SkuArgs',
+    'SkuArgsDict',
     'StorageAccountConfigurationArgs',
+    'StorageAccountConfigurationArgsDict',
     'TagsArgs',
+    'TagsArgsDict',
     'TemplateLinkArgs',
+    'TemplateLinkArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ContainerConfigurationArgsDict(TypedDict):
+        """
+        Settings to customize ACI container instance.
+        """
+        container_group_name: NotRequired[pulumi.Input[str]]
+        """
+        Container group name, if not specified then the name will get auto-generated. Not specifying a 'containerGroupName' indicates the system to generate a unique name which might end up flagging an Azure Policy as non-compliant. Use 'containerGroupName' when you have an Azure Policy that expects a specific naming convention or when you want to fully control the name. 'containerGroupName' property must be between 1 and 63 characters long, must contain only lowercase letters, numbers, and dashes and it cannot start or end with a dash and consecutive dashes are not allowed. To specify a 'containerGroupName', add the following object to properties: { "containerSettings": { "containerGroupName": "contoso-container" } }. If you do not want to specify a 'containerGroupName' then do not add 'containerSettings' property.
+        """
+elif False:
+    ContainerConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ContainerConfigurationArgs:
@@ -61,6 +104,18 @@ class ContainerConfigurationArgs:
         pulumi.set(self, "container_group_name", value)
 
 
+if not MYPY:
+    class DebugSettingArgsDict(TypedDict):
+        """
+        The debug setting.
+        """
+        detail_level: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the type of information to log for debugging. The permitted values are none, requestContent, responseContent, or both requestContent and responseContent separated by a comma. The default is none. When setting this value, carefully consider the type of information you are passing in during deployment. By logging information about the request or response, you could potentially expose sensitive data that is retrieved through the deployment operations.
+        """
+elif False:
+    DebugSettingArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DebugSettingArgs:
     def __init__(__self__, *,
@@ -84,6 +139,30 @@ class DebugSettingArgs:
     def detail_level(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "detail_level", value)
 
+
+if not MYPY:
+    class DenySettingsArgsDict(TypedDict):
+        """
+        Defines how resources deployed by the deployment stack are locked.
+        """
+        mode: pulumi.Input[Union[str, 'DenySettingsMode']]
+        """
+        denySettings Mode.
+        """
+        apply_to_child_scopes: NotRequired[pulumi.Input[bool]]
+        """
+        DenySettings will be applied to child scopes.
+        """
+        excluded_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of role-based management operations that are excluded from the denySettings. Up to 200 actions are permitted. If the denySetting mode is set to 'denyWriteAndDelete', then the following actions are automatically appended to 'excludedActions': '*\\/read' and 'Microsoft.Authorization/locks/delete'. If the denySetting mode is set to 'denyDelete', then the following actions are automatically appended to 'excludedActions': 'Microsoft.Authorization/locks/delete'. Duplicate actions will be removed.
+        """
+        excluded_principals: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of AAD principal IDs excluded from the lock. Up to 5 principals are permitted.
+        """
+elif False:
+    DenySettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DenySettingsArgs:
@@ -156,6 +235,22 @@ class DenySettingsArgs:
         pulumi.set(self, "excluded_principals", value)
 
 
+if not MYPY:
+    class DeploymentParameterArgsDict(TypedDict):
+        """
+        Deployment parameter for the template.
+        """
+        reference: NotRequired[pulumi.Input['KeyVaultParameterReferenceArgsDict']]
+        """
+        Azure Key Vault parameter reference.
+        """
+        value: NotRequired[Any]
+        """
+        Input value to the parameter .
+        """
+elif False:
+    DeploymentParameterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DeploymentParameterArgs:
     def __init__(__self__, *,
@@ -195,6 +290,46 @@ class DeploymentParameterArgs:
     def value(self, value: Optional[Any]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class DeploymentPropertiesArgsDict(TypedDict):
+        """
+        Deployment properties.
+        """
+        mode: pulumi.Input['DeploymentMode']
+        """
+        The mode that is used to deploy resources. This value can be either Incremental or Complete. In Incremental mode, resources are deployed without deleting existing resources that are not included in the template. In Complete mode, resources are deployed and existing resources in the resource group that are not included in the template are deleted. Be careful when using Complete mode as you may unintentionally delete resources.
+        """
+        debug_setting: NotRequired[pulumi.Input['DebugSettingArgsDict']]
+        """
+        The debug setting of the deployment.
+        """
+        expression_evaluation_options: NotRequired[pulumi.Input['ExpressionEvaluationOptionsArgsDict']]
+        """
+        Specifies whether template expressions are evaluated within the scope of the parent template or nested template. Only applicable to nested templates. If not specified, default value is outer.
+        """
+        on_error_deployment: NotRequired[pulumi.Input['OnErrorDeploymentArgsDict']]
+        """
+        The deployment on error behavior.
+        """
+        parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['DeploymentParameterArgsDict']]]]
+        """
+        Name and value pairs that define the deployment parameters for the template. You use this element when you want to provide the parameter values directly in the request rather than link to an existing parameter file. Use either the parametersLink property or the parameters property, but not both. It can be a JObject or a well formed JSON string.
+        """
+        parameters_link: NotRequired[pulumi.Input['ParametersLinkArgsDict']]
+        """
+        The URI of parameters file. You use this element to link to an existing parameters file. Use either the parametersLink property or the parameters property, but not both.
+        """
+        template: NotRequired[Any]
+        """
+        The template content. You use this element when you want to pass the template syntax directly in the request rather than link to an existing template. It can be a JObject or well-formed JSON string. Use either the templateLink property or the template property, but not both.
+        """
+        template_link: NotRequired[pulumi.Input['TemplateLinkArgsDict']]
+        """
+        The URI of the template. Use either the templateLink property or the template property, but not both.
+        """
+elif False:
+    DeploymentPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DeploymentPropertiesArgs:
@@ -331,6 +466,26 @@ class DeploymentPropertiesArgs:
         pulumi.set(self, "template_link", value)
 
 
+if not MYPY:
+    class DeploymentStackPropertiesActionOnUnmanageArgsDict(TypedDict):
+        """
+        Defines the behavior of resources that are not managed immediately after the stack is updated.
+        """
+        resources: pulumi.Input[Union[str, 'DeploymentStacksDeleteDetachEnum']]
+        """
+        Specifies the action that should be taken on the resource when the deployment stack is deleted. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
+        """
+        management_groups: NotRequired[pulumi.Input[Union[str, 'DeploymentStacksDeleteDetachEnum']]]
+        """
+        Specifies the action that should be taken on the resource when the deployment stack is deleted. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
+        """
+        resource_groups: NotRequired[pulumi.Input[Union[str, 'DeploymentStacksDeleteDetachEnum']]]
+        """
+        Specifies the action that should be taken on the resource when the deployment stack is deleted. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
+        """
+elif False:
+    DeploymentStackPropertiesActionOnUnmanageArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DeploymentStackPropertiesActionOnUnmanageArgs:
     def __init__(__self__, *,
@@ -386,6 +541,18 @@ class DeploymentStackPropertiesActionOnUnmanageArgs:
         pulumi.set(self, "resource_groups", value)
 
 
+if not MYPY:
+    class DeploymentStacksDebugSettingArgsDict(TypedDict):
+        """
+        The debug setting.
+        """
+        detail_level: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the type of information to log for debugging. The permitted values are none, requestContent, responseContent, or both requestContent and responseContent separated by a comma. The default is none. When setting this value, carefully consider the type of information that is being passed in during deployment. By logging information about the request or response, sensitive data that is retrieved through the deployment operations could potentially be exposed.
+        """
+elif False:
+    DeploymentStacksDebugSettingArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DeploymentStacksDebugSettingArgs:
     def __init__(__self__, *,
@@ -409,6 +576,22 @@ class DeploymentStacksDebugSettingArgs:
     def detail_level(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "detail_level", value)
 
+
+if not MYPY:
+    class DeploymentStacksParametersLinkArgsDict(TypedDict):
+        """
+        Entity representing the reference to the deployment parameters.
+        """
+        uri: pulumi.Input[str]
+        """
+        The URI of the parameters file.
+        """
+        content_version: NotRequired[pulumi.Input[str]]
+        """
+        If included, must match the ContentVersion in the template.
+        """
+elif False:
+    DeploymentStacksParametersLinkArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DeploymentStacksParametersLinkArgs:
@@ -448,6 +631,34 @@ class DeploymentStacksParametersLinkArgs:
     def content_version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "content_version", value)
 
+
+if not MYPY:
+    class DeploymentStacksTemplateLinkArgsDict(TypedDict):
+        """
+        Entity representing the reference to the template.
+        """
+        content_version: NotRequired[pulumi.Input[str]]
+        """
+        If included, must match the ContentVersion in the template.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The resource id of a Template Spec. Use either the id or uri property, but not both.
+        """
+        query_string: NotRequired[pulumi.Input[str]]
+        """
+        The query string (for example, a SAS token) to be used with the templateLink URI.
+        """
+        relative_path: NotRequired[pulumi.Input[str]]
+        """
+        The relativePath property can be used to deploy a linked template at a location relative to the parent. If the parent template was linked with a TemplateSpec, this will reference an artifact in the TemplateSpec.  If the parent was linked with a URI, the child deployment will be a combination of the parent and relativePath URIs
+        """
+        uri: NotRequired[pulumi.Input[str]]
+        """
+        The URI of the template to deploy. Use either the uri or id property, but not both.
+        """
+elif False:
+    DeploymentStacksTemplateLinkArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DeploymentStacksTemplateLinkArgs:
@@ -537,6 +748,26 @@ class DeploymentStacksTemplateLinkArgs:
         pulumi.set(self, "uri", value)
 
 
+if not MYPY:
+    class EnvironmentVariableArgsDict(TypedDict):
+        """
+        The environment variable to pass to the script in the container instance.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the environment variable.
+        """
+        secure_value: NotRequired[pulumi.Input[str]]
+        """
+        The value of the secure environment variable.
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        The value of the environment variable.
+        """
+elif False:
+    EnvironmentVariableArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EnvironmentVariableArgs:
     def __init__(__self__, *,
@@ -592,6 +823,18 @@ class EnvironmentVariableArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class ExpressionEvaluationOptionsArgsDict(TypedDict):
+        """
+        Specifies whether template expressions are evaluated within the scope of the parent template or nested template.
+        """
+        scope: NotRequired[pulumi.Input[Union[str, 'ExpressionEvaluationOptionsScopeType']]]
+        """
+        The scope to be used for evaluation of parameters, variables and functions in a nested template.
+        """
+elif False:
+    ExpressionEvaluationOptionsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ExpressionEvaluationOptionsArgs:
     def __init__(__self__, *,
@@ -615,6 +858,22 @@ class ExpressionEvaluationOptionsArgs:
     def scope(self, value: Optional[pulumi.Input[Union[str, 'ExpressionEvaluationOptionsScopeType']]]):
         pulumi.set(self, "scope", value)
 
+
+if not MYPY:
+    class ExtendedLocationArgsDict(TypedDict):
+        """
+        Resource extended location.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The extended location name.
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'ExtendedLocationType']]]
+        """
+        The extended location type.
+        """
+elif False:
+    ExtendedLocationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ExtendedLocationArgs:
@@ -656,6 +915,22 @@ class ExtendedLocationArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class IdentityArgsDict(TypedDict):
+        """
+        Identity for the resource.
+        """
+        type: NotRequired[pulumi.Input['ResourceIdentityType']]
+        """
+        The identity type.
+        """
+        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+elif False:
+    IdentityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IdentityArgs:
     def __init__(__self__, *,
@@ -695,6 +970,26 @@ class IdentityArgs:
     def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
+
+if not MYPY:
+    class KeyVaultParameterReferenceArgsDict(TypedDict):
+        """
+        Azure Key Vault parameter reference.
+        """
+        key_vault: pulumi.Input['KeyVaultReferenceArgsDict']
+        """
+        Azure Key Vault reference.
+        """
+        secret_name: pulumi.Input[str]
+        """
+        Azure Key Vault secret name.
+        """
+        secret_version: NotRequired[pulumi.Input[str]]
+        """
+        Azure Key Vault secret version.
+        """
+elif False:
+    KeyVaultParameterReferenceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class KeyVaultParameterReferenceArgs:
@@ -750,6 +1045,18 @@ class KeyVaultParameterReferenceArgs:
         pulumi.set(self, "secret_version", value)
 
 
+if not MYPY:
+    class KeyVaultReferenceArgsDict(TypedDict):
+        """
+        Azure Key Vault reference.
+        """
+        id: pulumi.Input[str]
+        """
+        Azure Key Vault resource id.
+        """
+elif False:
+    KeyVaultReferenceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class KeyVaultReferenceArgs:
     def __init__(__self__, *,
@@ -772,6 +1079,22 @@ class KeyVaultReferenceArgs:
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class LinkedTemplateArtifactArgsDict(TypedDict):
+        """
+        Represents a Template Spec artifact containing an embedded Azure Resource Manager template for use as a linked template.
+        """
+        path: pulumi.Input[str]
+        """
+        A filesystem safe relative path of the artifact.
+        """
+        template: Any
+        """
+        The Azure Resource Manager template.
+        """
+elif False:
+    LinkedTemplateArtifactArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LinkedTemplateArtifactArgs:
@@ -810,6 +1133,22 @@ class LinkedTemplateArtifactArgs:
     def template(self, value: Any):
         pulumi.set(self, "template", value)
 
+
+if not MYPY:
+    class ManagedServiceIdentityArgsDict(TypedDict):
+        """
+        Managed identity generic object.
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'ManagedServiceIdentityType']]]
+        """
+        Type of the managed identity.
+        """
+        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of user-assigned managed identities associated with the resource. Key is the Azure resource Id of the managed identity.
+        """
+elif False:
+    ManagedServiceIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ManagedServiceIdentityArgs:
@@ -851,6 +1190,22 @@ class ManagedServiceIdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
+if not MYPY:
+    class OnErrorDeploymentArgsDict(TypedDict):
+        """
+        Deployment on error behavior.
+        """
+        deployment_name: NotRequired[pulumi.Input[str]]
+        """
+        The deployment to be used on error case.
+        """
+        type: NotRequired[pulumi.Input['OnErrorDeploymentType']]
+        """
+        The deployment on error behavior type. Possible values are LastSuccessful and SpecificDeployment.
+        """
+elif False:
+    OnErrorDeploymentArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OnErrorDeploymentArgs:
     def __init__(__self__, *,
@@ -891,6 +1246,22 @@ class OnErrorDeploymentArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class ParametersLinkArgsDict(TypedDict):
+        """
+        Entity representing the reference to the deployment parameters.
+        """
+        uri: pulumi.Input[str]
+        """
+        The URI of the parameters file.
+        """
+        content_version: NotRequired[pulumi.Input[str]]
+        """
+        If included, must match the ContentVersion in the template.
+        """
+elif False:
+    ParametersLinkArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ParametersLinkArgs:
     def __init__(__self__, *,
@@ -929,6 +1300,34 @@ class ParametersLinkArgs:
     def content_version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "content_version", value)
 
+
+if not MYPY:
+    class PlanArgsDict(TypedDict):
+        """
+        Plan for the resource.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The plan ID.
+        """
+        product: NotRequired[pulumi.Input[str]]
+        """
+        The offer ID.
+        """
+        promotion_code: NotRequired[pulumi.Input[str]]
+        """
+        The promotion code.
+        """
+        publisher: NotRequired[pulumi.Input[str]]
+        """
+        The publisher ID.
+        """
+        version: NotRequired[pulumi.Input[str]]
+        """
+        The plan's version.
+        """
+elif False:
+    PlanArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PlanArgs:
@@ -1017,6 +1416,38 @@ class PlanArgs:
     def version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "version", value)
 
+
+if not MYPY:
+    class SkuArgsDict(TypedDict):
+        """
+        SKU for the resource.
+        """
+        capacity: NotRequired[pulumi.Input[int]]
+        """
+        The SKU capacity.
+        """
+        family: NotRequired[pulumi.Input[str]]
+        """
+        The SKU family.
+        """
+        model: NotRequired[pulumi.Input[str]]
+        """
+        The SKU model.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The SKU name.
+        """
+        size: NotRequired[pulumi.Input[str]]
+        """
+        The SKU size.
+        """
+        tier: NotRequired[pulumi.Input[str]]
+        """
+        The SKU tier.
+        """
+elif False:
+    SkuArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SkuArgs:
@@ -1122,6 +1553,22 @@ class SkuArgs:
         pulumi.set(self, "tier", value)
 
 
+if not MYPY:
+    class StorageAccountConfigurationArgsDict(TypedDict):
+        """
+        Settings to use an existing storage account. Valid storage account kinds are: Storage, StorageV2 and FileStorage
+        """
+        storage_account_key: NotRequired[pulumi.Input[str]]
+        """
+        The storage account access key.
+        """
+        storage_account_name: NotRequired[pulumi.Input[str]]
+        """
+        The storage account name.
+        """
+elif False:
+    StorageAccountConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class StorageAccountConfigurationArgs:
     def __init__(__self__, *,
@@ -1162,6 +1609,15 @@ class StorageAccountConfigurationArgs:
         pulumi.set(self, "storage_account_name", value)
 
 
+if not MYPY:
+    class TagsArgsDict(TypedDict):
+        """
+        A dictionary of name and value pairs.
+        """
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+elif False:
+    TagsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TagsArgs:
     def __init__(__self__, *,
@@ -1181,6 +1637,34 @@ class TagsArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+
+if not MYPY:
+    class TemplateLinkArgsDict(TypedDict):
+        """
+        Entity representing the reference to the template.
+        """
+        content_version: NotRequired[pulumi.Input[str]]
+        """
+        If included, must match the ContentVersion in the template.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The resource id of a Template Spec. Use either the id or uri property, but not both.
+        """
+        query_string: NotRequired[pulumi.Input[str]]
+        """
+        The query string (for example, a SAS token) to be used with the templateLink URI.
+        """
+        relative_path: NotRequired[pulumi.Input[str]]
+        """
+        The relativePath property can be used to deploy a linked template at a location relative to the parent. If the parent template was linked with a TemplateSpec, this will reference an artifact in the TemplateSpec.  If the parent was linked with a URI, the child deployment will be a combination of the parent and relativePath URIs
+        """
+        uri: NotRequired[pulumi.Input[str]]
+        """
+        The URI of the template to deploy. Use either the uri or id property, but not both.
+        """
+elif False:
+    TemplateLinkArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TemplateLinkArgs:

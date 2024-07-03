@@ -4,25 +4,55 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'IdentityArgs',
+    'IdentityArgsDict',
     'LocationDataArgs',
+    'LocationDataArgsDict',
     'MachineExtensionInstanceViewStatusArgs',
+    'MachineExtensionInstanceViewStatusArgsDict',
     'MachineExtensionInstanceViewArgs',
+    'MachineExtensionInstanceViewArgsDict',
     'MachineExtensionPropertiesArgs',
+    'MachineExtensionPropertiesArgsDict',
     'MachinePropertiesArgs',
+    'MachinePropertiesArgsDict',
     'OSProfileLinuxConfigurationArgs',
+    'OSProfileLinuxConfigurationArgsDict',
     'OSProfileWindowsConfigurationArgs',
+    'OSProfileWindowsConfigurationArgsDict',
     'OSProfileArgs',
+    'OSProfileArgsDict',
     'ServiceStatusesArgs',
+    'ServiceStatusesArgsDict',
     'ServiceStatusArgs',
+    'ServiceStatusArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class IdentityArgsDict(TypedDict):
+        """
+        Identity for the resource.
+        """
+        type: NotRequired[pulumi.Input['ResourceIdentityType']]
+        """
+        The identity type.
+        """
+elif False:
+    IdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IdentityArgs:
@@ -47,6 +77,30 @@ class IdentityArgs:
     def type(self, value: Optional[pulumi.Input['ResourceIdentityType']]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class LocationDataArgsDict(TypedDict):
+        """
+        Metadata pertaining to the geographic location of the resource.
+        """
+        name: pulumi.Input[str]
+        """
+        A canonical name for the geographic or physical location.
+        """
+        city: NotRequired[pulumi.Input[str]]
+        """
+        The city or locality where the resource is located.
+        """
+        country_or_region: NotRequired[pulumi.Input[str]]
+        """
+        The country or region where the resource is located
+        """
+        district: NotRequired[pulumi.Input[str]]
+        """
+        The district, state, or province where the resource is located.
+        """
+elif False:
+    LocationDataArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LocationDataArgs:
@@ -118,6 +172,34 @@ class LocationDataArgs:
     def district(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "district", value)
 
+
+if not MYPY:
+    class MachineExtensionInstanceViewStatusArgsDict(TypedDict):
+        """
+        Instance view status.
+        """
+        code: NotRequired[pulumi.Input[str]]
+        """
+        The status code.
+        """
+        display_status: NotRequired[pulumi.Input[str]]
+        """
+        The short localizable label for the status.
+        """
+        level: NotRequired[pulumi.Input[Union[str, 'StatusLevelTypes']]]
+        """
+        The level code.
+        """
+        message: NotRequired[pulumi.Input[str]]
+        """
+        The detailed status message, including for alerts and error messages.
+        """
+        time: NotRequired[pulumi.Input[str]]
+        """
+        The time of the status.
+        """
+elif False:
+    MachineExtensionInstanceViewStatusArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MachineExtensionInstanceViewStatusArgs:
@@ -207,6 +289,30 @@ class MachineExtensionInstanceViewStatusArgs:
         pulumi.set(self, "time", value)
 
 
+if not MYPY:
+    class MachineExtensionInstanceViewArgsDict(TypedDict):
+        """
+        Describes the Machine Extension Instance View.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The machine extension name.
+        """
+        status: NotRequired[pulumi.Input['MachineExtensionInstanceViewStatusArgsDict']]
+        """
+        Instance view status.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the type of the extension; an example is "CustomScriptExtension".
+        """
+        type_handler_version: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the version of the script handler.
+        """
+elif False:
+    MachineExtensionInstanceViewArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MachineExtensionInstanceViewArgs:
     def __init__(__self__, *,
@@ -278,6 +384,50 @@ class MachineExtensionInstanceViewArgs:
     def type_handler_version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type_handler_version", value)
 
+
+if not MYPY:
+    class MachineExtensionPropertiesArgsDict(TypedDict):
+        """
+        Describes the properties of a Machine Extension.
+        """
+        auto_upgrade_minor_version: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
+        """
+        enable_automatic_upgrade: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available.
+        """
+        force_update_tag: NotRequired[pulumi.Input[str]]
+        """
+        How the extension handler should be forced to update even if the extension configuration has not changed.
+        """
+        instance_view: NotRequired[pulumi.Input['MachineExtensionInstanceViewArgsDict']]
+        """
+        The machine extension instance view.
+        """
+        protected_settings: NotRequired[Any]
+        """
+        The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
+        """
+        publisher: NotRequired[pulumi.Input[str]]
+        """
+        The name of the extension handler publisher.
+        """
+        settings: NotRequired[Any]
+        """
+        Json formatted public settings for the extension.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the type of the extension; an example is "CustomScriptExtension".
+        """
+        type_handler_version: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the version of the script handler.
+        """
+elif False:
+    MachineExtensionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MachineExtensionPropertiesArgs:
@@ -431,6 +581,50 @@ class MachineExtensionPropertiesArgs:
         pulumi.set(self, "type_handler_version", value)
 
 
+if not MYPY:
+    class MachinePropertiesArgsDict(TypedDict):
+        """
+        Describes the properties of a hybrid machine.
+        """
+        client_public_key: NotRequired[pulumi.Input[str]]
+        """
+        Public Key that the client provides to be used during initial resource onboarding
+        """
+        location_data: NotRequired[pulumi.Input['LocationDataArgsDict']]
+        """
+        Metadata pertaining to the geographic location of the resource.
+        """
+        mssql_discovered: NotRequired[pulumi.Input[str]]
+        """
+        Specifies whether any MS SQL instance is discovered on the machine.
+        """
+        os_profile: NotRequired[pulumi.Input['OSProfileArgsDict']]
+        """
+        Specifies the operating system settings for the hybrid machine.
+        """
+        os_type: NotRequired[pulumi.Input[str]]
+        """
+        The type of Operating System (windows/linux).
+        """
+        parent_cluster_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        The resource id of the parent cluster (Azure HCI) this machine is assigned to, if any.
+        """
+        private_link_scope_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        The resource id of the private link scope this machine is assigned to, if any.
+        """
+        service_statuses: NotRequired[pulumi.Input['ServiceStatusesArgsDict']]
+        """
+        Statuses of dependent services that are reported back to ARM.
+        """
+        vm_id: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the hybrid machine unique ID.
+        """
+elif False:
+    MachinePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MachinePropertiesArgs:
     def __init__(__self__, *,
@@ -583,6 +777,22 @@ class MachinePropertiesArgs:
         pulumi.set(self, "vm_id", value)
 
 
+if not MYPY:
+    class OSProfileLinuxConfigurationArgsDict(TypedDict):
+        """
+        Specifies the linux configuration for update management.
+        """
+        assessment_mode: NotRequired[pulumi.Input[Union[str, 'AssessmentModeTypes']]]
+        """
+        Specifies the assessment mode.
+        """
+        patch_mode: NotRequired[pulumi.Input[Union[str, 'PatchModeTypes']]]
+        """
+        Specifies the patch mode.
+        """
+elif False:
+    OSProfileLinuxConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OSProfileLinuxConfigurationArgs:
     def __init__(__self__, *,
@@ -622,6 +832,22 @@ class OSProfileLinuxConfigurationArgs:
     def patch_mode(self, value: Optional[pulumi.Input[Union[str, 'PatchModeTypes']]]):
         pulumi.set(self, "patch_mode", value)
 
+
+if not MYPY:
+    class OSProfileWindowsConfigurationArgsDict(TypedDict):
+        """
+        Specifies the windows configuration for update management.
+        """
+        assessment_mode: NotRequired[pulumi.Input[Union[str, 'AssessmentModeTypes']]]
+        """
+        Specifies the assessment mode.
+        """
+        patch_mode: NotRequired[pulumi.Input[Union[str, 'PatchModeTypes']]]
+        """
+        Specifies the patch mode.
+        """
+elif False:
+    OSProfileWindowsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OSProfileWindowsConfigurationArgs:
@@ -663,6 +889,22 @@ class OSProfileWindowsConfigurationArgs:
         pulumi.set(self, "patch_mode", value)
 
 
+if not MYPY:
+    class OSProfileArgsDict(TypedDict):
+        """
+        Specifies the operating system settings for the hybrid machine.
+        """
+        linux_configuration: NotRequired[pulumi.Input['OSProfileLinuxConfigurationArgsDict']]
+        """
+        Specifies the linux configuration for update management.
+        """
+        windows_configuration: NotRequired[pulumi.Input['OSProfileWindowsConfigurationArgsDict']]
+        """
+        Specifies the windows configuration for update management.
+        """
+elif False:
+    OSProfileArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OSProfileArgs:
     def __init__(__self__, *,
@@ -703,6 +945,22 @@ class OSProfileArgs:
         pulumi.set(self, "windows_configuration", value)
 
 
+if not MYPY:
+    class ServiceStatusesArgsDict(TypedDict):
+        """
+        Reports the state and behavior of dependent services.
+        """
+        extension_service: NotRequired[pulumi.Input['ServiceStatusArgsDict']]
+        """
+        The state of the extension service on the Arc-enabled machine.
+        """
+        guest_configuration_service: NotRequired[pulumi.Input['ServiceStatusArgsDict']]
+        """
+        The state of the guest configuration service on the Arc-enabled machine.
+        """
+elif False:
+    ServiceStatusesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ServiceStatusesArgs:
     def __init__(__self__, *,
@@ -742,6 +1000,22 @@ class ServiceStatusesArgs:
     def guest_configuration_service(self, value: Optional[pulumi.Input['ServiceStatusArgs']]):
         pulumi.set(self, "guest_configuration_service", value)
 
+
+if not MYPY:
+    class ServiceStatusArgsDict(TypedDict):
+        """
+        Describes the status and behavior of a service.
+        """
+        startup_type: NotRequired[pulumi.Input[str]]
+        """
+        The behavior of the service when the Arc-enabled machine starts up.
+        """
+        status: NotRequired[pulumi.Input[str]]
+        """
+        The current status of the service.
+        """
+elif False:
+    ServiceStatusArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ServiceStatusArgs:

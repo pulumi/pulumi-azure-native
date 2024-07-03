@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -123,7 +128,7 @@ class OutboundEndpoint(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  outbound_endpoint_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 subnet: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
+                 subnet: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -135,7 +140,7 @@ class OutboundEndpoint(pulumi.CustomResource):
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] outbound_endpoint_name: The name of the outbound endpoint for the DNS resolver.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[pulumi.InputType['SubResourceArgs']] subnet: The reference to the subnet used for the outbound endpoint.
+        :param pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']] subnet: The reference to the subnet used for the outbound endpoint.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         ...
@@ -166,7 +171,7 @@ class OutboundEndpoint(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  outbound_endpoint_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 subnet: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
+                 subnet: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

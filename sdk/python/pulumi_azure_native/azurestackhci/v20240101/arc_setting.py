@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -176,7 +181,7 @@ class ArcSetting(pulumi.CustomResource):
                  arc_service_principal_object_id: Optional[pulumi.Input[str]] = None,
                  arc_setting_name: Optional[pulumi.Input[str]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
-                 connectivity_properties: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ArcConnectivityPropertiesArgs']]]]] = None,
+                 connectivity_properties: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ArcConnectivityPropertiesArgs', 'ArcConnectivityPropertiesArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -191,7 +196,7 @@ class ArcSetting(pulumi.CustomResource):
         :param pulumi.Input[str] arc_service_principal_object_id: Object id of arc AAD service principal.
         :param pulumi.Input[str] arc_setting_name: The name of the proxy resource holding details of HCI ArcSetting information.
         :param pulumi.Input[str] cluster_name: The name of the cluster.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ArcConnectivityPropertiesArgs']]]] connectivity_properties: contains connectivity related configuration for ARC resources
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ArcConnectivityPropertiesArgs', 'ArcConnectivityPropertiesArgsDict']]]] connectivity_properties: contains connectivity related configuration for ARC resources
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         """
         ...
@@ -225,7 +230,7 @@ class ArcSetting(pulumi.CustomResource):
                  arc_service_principal_object_id: Optional[pulumi.Input[str]] = None,
                  arc_setting_name: Optional[pulumi.Input[str]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
-                 connectivity_properties: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ArcConnectivityPropertiesArgs']]]]] = None,
+                 connectivity_properties: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ArcConnectivityPropertiesArgs', 'ArcConnectivityPropertiesArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

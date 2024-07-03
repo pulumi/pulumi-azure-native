@@ -4,25 +4,71 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'CompanyInfoArgs',
+    'CompanyInfoArgsDict',
     'FilteringTagArgs',
+    'FilteringTagArgsDict',
     'IdentityPropertiesArgs',
+    'IdentityPropertiesArgsDict',
     'LogRulesArgs',
+    'LogRulesArgsDict',
     'MonitorPropertiesArgs',
+    'MonitorPropertiesArgsDict',
     'MonitoredSubscriptionArgs',
+    'MonitoredSubscriptionArgsDict',
     'MonitoringTagRulesPropertiesArgs',
+    'MonitoringTagRulesPropertiesArgsDict',
     'OpenAIIntegrationPropertiesArgs',
+    'OpenAIIntegrationPropertiesArgsDict',
     'ResourceSkuArgs',
+    'ResourceSkuArgsDict',
     'SubscriptionListArgs',
+    'SubscriptionListArgsDict',
     'UserInfoArgs',
+    'UserInfoArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class CompanyInfoArgsDict(TypedDict):
+        """
+        Company information of the user to be passed to partners.
+        """
+        business: NotRequired[pulumi.Input[str]]
+        """
+        Business of the company
+        """
+        country: NotRequired[pulumi.Input[str]]
+        """
+        Country of the company location.
+        """
+        domain: NotRequired[pulumi.Input[str]]
+        """
+        Domain of the company
+        """
+        employees_number: NotRequired[pulumi.Input[str]]
+        """
+        Number of employees in the company
+        """
+        state: NotRequired[pulumi.Input[str]]
+        """
+        State of the company location.
+        """
+elif False:
+    CompanyInfoArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CompanyInfoArgs:
@@ -112,6 +158,26 @@ class CompanyInfoArgs:
         pulumi.set(self, "state", value)
 
 
+if not MYPY:
+    class FilteringTagArgsDict(TypedDict):
+        """
+        The definition of a filtering tag. Filtering tags are used for capturing resources and include/exclude them from being monitored.
+        """
+        action: NotRequired[pulumi.Input[Union[str, 'TagAction']]]
+        """
+        Valid actions for a filtering tag.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name (also known as the key) of the tag.
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        The value of the tag.
+        """
+elif False:
+    FilteringTagArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FilteringTagArgs:
     def __init__(__self__, *,
@@ -168,6 +234,18 @@ class FilteringTagArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class IdentityPropertiesArgsDict(TypedDict):
+        """
+        Identity properties.
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'ManagedIdentityTypes']]]
+        """
+        Managed identity type.
+        """
+elif False:
+    IdentityPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IdentityPropertiesArgs:
     def __init__(__self__, *,
@@ -191,6 +269,30 @@ class IdentityPropertiesArgs:
     def type(self, value: Optional[pulumi.Input[Union[str, 'ManagedIdentityTypes']]]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class LogRulesArgsDict(TypedDict):
+        """
+        Set of rules for sending logs for the Monitor resource.
+        """
+        filtering_tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilteringTagArgsDict']]]]
+        """
+        List of filtering tags to be used for capturing logs. This only takes effect if SendActivityLogs flag is enabled. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.
+        """
+        send_aad_logs: NotRequired[pulumi.Input[bool]]
+        """
+        Flag specifying if AAD logs should be sent for the Monitor resource.
+        """
+        send_activity_logs: NotRequired[pulumi.Input[bool]]
+        """
+        Flag specifying if activity logs from Azure resources should be sent for the Monitor resource.
+        """
+        send_subscription_logs: NotRequired[pulumi.Input[bool]]
+        """
+        Flag specifying if subscription logs should be sent for the Monitor resource.
+        """
+elif False:
+    LogRulesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LogRulesArgs:
@@ -263,6 +365,34 @@ class LogRulesArgs:
     def send_subscription_logs(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "send_subscription_logs", value)
 
+
+if not MYPY:
+    class MonitorPropertiesArgsDict(TypedDict):
+        """
+        Properties specific to the monitor resource.
+        """
+        generate_api_key: NotRequired[pulumi.Input[bool]]
+        """
+        Flag to determine if User API Key has to be generated and shared.
+        """
+        monitoring_status: NotRequired[pulumi.Input[Union[str, 'MonitoringStatus']]]
+        """
+        Flag specifying if the resource monitoring is enabled or disabled.
+        """
+        provisioning_state: NotRequired[pulumi.Input[Union[str, 'ProvisioningState']]]
+        """
+        Provisioning state of the monitor resource.
+        """
+        user_info: NotRequired[pulumi.Input['UserInfoArgsDict']]
+        """
+        User information.
+        """
+        version: NotRequired[pulumi.Input[str]]
+        """
+        Version of elastic of the monitor resource
+        """
+elif False:
+    MonitorPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MonitorPropertiesArgs:
@@ -352,6 +482,30 @@ class MonitorPropertiesArgs:
         pulumi.set(self, "version", value)
 
 
+if not MYPY:
+    class MonitoredSubscriptionArgsDict(TypedDict):
+        """
+        The list of subscriptions and it's monitoring status by current Elastic monitor.
+        """
+        error: NotRequired[pulumi.Input[str]]
+        """
+        The reason of not monitoring the subscription.
+        """
+        status: NotRequired[pulumi.Input[Union[str, 'Status']]]
+        """
+        The state of monitoring.
+        """
+        subscription_id: NotRequired[pulumi.Input[str]]
+        """
+        The subscriptionId to be monitored.
+        """
+        tag_rules: NotRequired[pulumi.Input['MonitoringTagRulesPropertiesArgsDict']]
+        """
+        Definition of the properties for a TagRules resource.
+        """
+elif False:
+    MonitoredSubscriptionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MonitoredSubscriptionArgs:
     def __init__(__self__, *,
@@ -424,6 +578,22 @@ class MonitoredSubscriptionArgs:
         pulumi.set(self, "tag_rules", value)
 
 
+if not MYPY:
+    class MonitoringTagRulesPropertiesArgsDict(TypedDict):
+        """
+        Definition of the properties for a TagRules resource.
+        """
+        log_rules: NotRequired[pulumi.Input['LogRulesArgsDict']]
+        """
+        Rules for sending logs.
+        """
+        provisioning_state: NotRequired[pulumi.Input[Union[str, 'ProvisioningState']]]
+        """
+        Provisioning state of the monitoring tag rules.
+        """
+elif False:
+    MonitoringTagRulesPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MonitoringTagRulesPropertiesArgs:
     def __init__(__self__, *,
@@ -463,6 +633,26 @@ class MonitoringTagRulesPropertiesArgs:
     def provisioning_state(self, value: Optional[pulumi.Input[Union[str, 'ProvisioningState']]]):
         pulumi.set(self, "provisioning_state", value)
 
+
+if not MYPY:
+    class OpenAIIntegrationPropertiesArgsDict(TypedDict):
+        """
+        Open AI Integration details.
+        """
+        key: NotRequired[pulumi.Input[str]]
+        """
+        Value of API key for Open AI resource
+        """
+        open_ai_resource_endpoint: NotRequired[pulumi.Input[str]]
+        """
+        The API endpoint for Open AI resource
+        """
+        open_ai_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        The resource id of Open AI resource
+        """
+elif False:
+    OpenAIIntegrationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OpenAIIntegrationPropertiesArgs:
@@ -520,6 +710,18 @@ class OpenAIIntegrationPropertiesArgs:
         pulumi.set(self, "open_ai_resource_id", value)
 
 
+if not MYPY:
+    class ResourceSkuArgsDict(TypedDict):
+        """
+        Microsoft.Elastic SKU.
+        """
+        name: pulumi.Input[str]
+        """
+        Name of the SKU.
+        """
+elif False:
+    ResourceSkuArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ResourceSkuArgs:
     def __init__(__self__, *,
@@ -542,6 +744,22 @@ class ResourceSkuArgs:
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class SubscriptionListArgsDict(TypedDict):
+        """
+        The request to update subscriptions needed to be monitored by the Elastic monitor resource.
+        """
+        monitored_subscription_list: NotRequired[pulumi.Input[Sequence[pulumi.Input['MonitoredSubscriptionArgsDict']]]]
+        """
+        List of subscriptions and the state of the monitoring.
+        """
+        operation: NotRequired[pulumi.Input[Union[str, 'Operation']]]
+        """
+        The operation for the patch on the resource.
+        """
+elif False:
+    SubscriptionListArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SubscriptionListArgs:
@@ -582,6 +800,34 @@ class SubscriptionListArgs:
     def operation(self, value: Optional[pulumi.Input[Union[str, 'Operation']]]):
         pulumi.set(self, "operation", value)
 
+
+if not MYPY:
+    class UserInfoArgsDict(TypedDict):
+        """
+        User Information to be passed to partners.
+        """
+        company_info: NotRequired[pulumi.Input['CompanyInfoArgsDict']]
+        """
+        Company information of the user to be passed to partners.
+        """
+        company_name: NotRequired[pulumi.Input[str]]
+        """
+        Company name of the user
+        """
+        email_address: NotRequired[pulumi.Input[str]]
+        """
+        Email of the user used by Elastic for contacting them if needed
+        """
+        first_name: NotRequired[pulumi.Input[str]]
+        """
+        First name of the user
+        """
+        last_name: NotRequired[pulumi.Input[str]]
+        """
+        Last name of the user
+        """
+elif False:
+    UserInfoArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserInfoArgs:

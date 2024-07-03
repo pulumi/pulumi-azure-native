@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -166,9 +171,9 @@ class NetworkinterfaceRetrieve(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dns_settings: Optional[pulumi.Input[pulumi.InputType['InterfaceDNSSettingsArgs']]] = None,
-                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
-                 ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpConfigurationArgs']]]]] = None,
+                 dns_settings: Optional[pulumi.Input[Union['InterfaceDNSSettingsArgs', 'InterfaceDNSSettingsArgsDict']]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IpConfigurationArgs', 'IpConfigurationArgsDict']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  mac_address: Optional[pulumi.Input[str]] = None,
                  networkinterfaces_name: Optional[pulumi.Input[str]] = None,
@@ -181,9 +186,9 @@ class NetworkinterfaceRetrieve(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['InterfaceDNSSettingsArgs']] dns_settings: DNS Settings for the interface
-        :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: The extendedLocation of the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpConfigurationArgs']]]] ip_configurations: IPConfigurations - A list of IPConfigurations of the network interface.
+        :param pulumi.Input[Union['InterfaceDNSSettingsArgs', 'InterfaceDNSSettingsArgsDict']] dns_settings: DNS Settings for the interface
+        :param pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']] extended_location: The extendedLocation of the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IpConfigurationArgs', 'IpConfigurationArgsDict']]]] ip_configurations: IPConfigurations - A list of IPConfigurations of the network interface.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] mac_address: MacAddress - The MAC address of the network interface.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -214,9 +219,9 @@ class NetworkinterfaceRetrieve(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dns_settings: Optional[pulumi.Input[pulumi.InputType['InterfaceDNSSettingsArgs']]] = None,
-                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
-                 ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpConfigurationArgs']]]]] = None,
+                 dns_settings: Optional[pulumi.Input[Union['InterfaceDNSSettingsArgs', 'InterfaceDNSSettingsArgsDict']]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IpConfigurationArgs', 'IpConfigurationArgsDict']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  mac_address: Optional[pulumi.Input[str]] = None,
                  networkinterfaces_name: Optional[pulumi.Input[str]] = None,

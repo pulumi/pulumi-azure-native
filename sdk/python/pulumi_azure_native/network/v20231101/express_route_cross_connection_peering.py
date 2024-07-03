@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -268,8 +273,8 @@ class ExpressRouteCrossConnectionPeering(pulumi.CustomResource):
                  cross_connection_name: Optional[pulumi.Input[str]] = None,
                  gateway_manager_etag: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
-                 ipv6_peering_config: Optional[pulumi.Input[pulumi.InputType['Ipv6ExpressRouteCircuitPeeringConfigArgs']]] = None,
-                 microsoft_peering_config: Optional[pulumi.Input[pulumi.InputType['ExpressRouteCircuitPeeringConfigArgs']]] = None,
+                 ipv6_peering_config: Optional[pulumi.Input[Union['Ipv6ExpressRouteCircuitPeeringConfigArgs', 'Ipv6ExpressRouteCircuitPeeringConfigArgsDict']]] = None,
+                 microsoft_peering_config: Optional[pulumi.Input[Union['ExpressRouteCircuitPeeringConfigArgs', 'ExpressRouteCircuitPeeringConfigArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  peer_asn: Optional[pulumi.Input[float]] = None,
                  peering_name: Optional[pulumi.Input[str]] = None,
@@ -289,8 +294,8 @@ class ExpressRouteCrossConnectionPeering(pulumi.CustomResource):
         :param pulumi.Input[str] cross_connection_name: The name of the ExpressRouteCrossConnection.
         :param pulumi.Input[str] gateway_manager_etag: The GatewayManager Etag.
         :param pulumi.Input[str] id: Resource ID.
-        :param pulumi.Input[pulumi.InputType['Ipv6ExpressRouteCircuitPeeringConfigArgs']] ipv6_peering_config: The IPv6 peering configuration.
-        :param pulumi.Input[pulumi.InputType['ExpressRouteCircuitPeeringConfigArgs']] microsoft_peering_config: The Microsoft peering configuration.
+        :param pulumi.Input[Union['Ipv6ExpressRouteCircuitPeeringConfigArgs', 'Ipv6ExpressRouteCircuitPeeringConfigArgsDict']] ipv6_peering_config: The IPv6 peering configuration.
+        :param pulumi.Input[Union['ExpressRouteCircuitPeeringConfigArgs', 'ExpressRouteCircuitPeeringConfigArgsDict']] microsoft_peering_config: The Microsoft peering configuration.
         :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param pulumi.Input[float] peer_asn: The peer ASN.
         :param pulumi.Input[str] peering_name: The name of the peering.
@@ -329,8 +334,8 @@ class ExpressRouteCrossConnectionPeering(pulumi.CustomResource):
                  cross_connection_name: Optional[pulumi.Input[str]] = None,
                  gateway_manager_etag: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
-                 ipv6_peering_config: Optional[pulumi.Input[pulumi.InputType['Ipv6ExpressRouteCircuitPeeringConfigArgs']]] = None,
-                 microsoft_peering_config: Optional[pulumi.Input[pulumi.InputType['ExpressRouteCircuitPeeringConfigArgs']]] = None,
+                 ipv6_peering_config: Optional[pulumi.Input[Union['Ipv6ExpressRouteCircuitPeeringConfigArgs', 'Ipv6ExpressRouteCircuitPeeringConfigArgsDict']]] = None,
+                 microsoft_peering_config: Optional[pulumi.Input[Union['ExpressRouteCircuitPeeringConfigArgs', 'ExpressRouteCircuitPeeringConfigArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  peer_asn: Optional[pulumi.Input[float]] = None,
                  peering_name: Optional[pulumi.Input[str]] = None,

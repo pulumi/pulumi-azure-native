@@ -4,16 +4,42 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 
 __all__ = [
     'PrometheusRuleGroupActionArgs',
+    'PrometheusRuleGroupActionArgsDict',
     'PrometheusRuleResolveConfigurationArgs',
+    'PrometheusRuleResolveConfigurationArgsDict',
     'PrometheusRuleArgs',
+    'PrometheusRuleArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class PrometheusRuleGroupActionArgsDict(TypedDict):
+        """
+        An alert action. Only relevant for alerts.
+        """
+        action_group_id: NotRequired[pulumi.Input[str]]
+        """
+        The resource id of the action group to use.
+        """
+        action_properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        The properties of an action group object.
+        """
+elif False:
+    PrometheusRuleGroupActionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PrometheusRuleGroupActionArgs:
@@ -55,6 +81,22 @@ class PrometheusRuleGroupActionArgs:
         pulumi.set(self, "action_properties", value)
 
 
+if not MYPY:
+    class PrometheusRuleResolveConfigurationArgsDict(TypedDict):
+        """
+        Specifies the Prometheus alert rule configuration.
+        """
+        auto_resolved: NotRequired[pulumi.Input[bool]]
+        """
+        Enable alert auto-resolution.
+        """
+        time_to_resolve: NotRequired[pulumi.Input[str]]
+        """
+        Alert auto-resolution timeout.
+        """
+elif False:
+    PrometheusRuleResolveConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PrometheusRuleResolveConfigurationArgs:
     def __init__(__self__, *,
@@ -94,6 +136,54 @@ class PrometheusRuleResolveConfigurationArgs:
     def time_to_resolve(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "time_to_resolve", value)
 
+
+if not MYPY:
+    class PrometheusRuleArgsDict(TypedDict):
+        """
+        An Azure Prometheus alerting or recording rule.
+        """
+        expression: pulumi.Input[str]
+        """
+        The PromQL expression to evaluate. https://prometheus.io/docs/prometheus/latest/querying/basics/. Evaluated periodically as given by 'interval', and the result recorded as a new set of time series with the metric name as given by 'record'.
+        """
+        actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['PrometheusRuleGroupActionArgsDict']]]]
+        """
+        Actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
+        """
+        alert: NotRequired[pulumi.Input[str]]
+        """
+        Alert rule name.
+        """
+        annotations: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        The annotations clause specifies a set of informational labels that can be used to store longer additional information such as alert descriptions or runbook links. The annotation values can be templated.
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Enable/disable rule.
+        """
+        for_: NotRequired[pulumi.Input[str]]
+        """
+        The amount of time alert must be active before firing.
+        """
+        labels: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Labels to add or overwrite before storing the result.
+        """
+        record: NotRequired[pulumi.Input[str]]
+        """
+        Recorded metrics name.
+        """
+        resolve_configuration: NotRequired[pulumi.Input['PrometheusRuleResolveConfigurationArgsDict']]
+        """
+        Defines the configuration for resolving fired alerts. Only relevant for alerts.
+        """
+        severity: NotRequired[pulumi.Input[int]]
+        """
+        The severity of the alerts fired by the rule. Must be between 0 and 4.
+        """
+elif False:
+    PrometheusRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PrometheusRuleArgs:

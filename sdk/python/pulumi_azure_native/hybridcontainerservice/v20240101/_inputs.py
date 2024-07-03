@@ -4,40 +4,86 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'AgentPoolProvisioningStatusStatusArgs',
+    'AgentPoolProvisioningStatusStatusArgsDict',
     'AgentPoolUpdateProfileArgs',
+    'AgentPoolUpdateProfileArgsDict',
     'CloudProviderProfileInfraNetworkProfileArgs',
+    'CloudProviderProfileInfraNetworkProfileArgsDict',
     'CloudProviderProfileArgs',
+    'CloudProviderProfileArgsDict',
     'ClusterVMAccessProfileArgs',
+    'ClusterVMAccessProfileArgsDict',
     'ControlPlaneProfileControlPlaneEndpointArgs',
+    'ControlPlaneProfileControlPlaneEndpointArgsDict',
     'ControlPlaneProfileArgs',
+    'ControlPlaneProfileArgsDict',
     'ExtendedLocationArgs',
+    'ExtendedLocationArgsDict',
     'LinuxProfilePropertiesPublicKeysArgs',
+    'LinuxProfilePropertiesPublicKeysArgsDict',
     'LinuxProfilePropertiesSshArgs',
+    'LinuxProfilePropertiesSshArgsDict',
     'LinuxProfilePropertiesArgs',
+    'LinuxProfilePropertiesArgsDict',
     'NamedAgentPoolProfileArgs',
+    'NamedAgentPoolProfileArgsDict',
     'NetworkProfileLoadBalancerProfileArgs',
+    'NetworkProfileLoadBalancerProfileArgsDict',
     'NetworkProfileArgs',
+    'NetworkProfileArgsDict',
     'ProvisionedClusterLicenseProfileArgs',
+    'ProvisionedClusterLicenseProfileArgsDict',
     'ProvisionedClusterPropertiesAutoScalerProfileArgs',
+    'ProvisionedClusterPropertiesAutoScalerProfileArgsDict',
     'ProvisionedClusterPropertiesArgs',
+    'ProvisionedClusterPropertiesArgsDict',
     'StorageProfileNfsCSIDriverArgs',
+    'StorageProfileNfsCSIDriverArgsDict',
     'StorageProfileSmbCSIDriverArgs',
+    'StorageProfileSmbCSIDriverArgsDict',
     'StorageProfileArgs',
+    'StorageProfileArgsDict',
     'VirtualNetworkExtendedLocationArgs',
+    'VirtualNetworkExtendedLocationArgsDict',
     'VirtualNetworkPropertiesHciArgs',
+    'VirtualNetworkPropertiesHciArgsDict',
     'VirtualNetworkPropertiesInfraVnetProfileArgs',
+    'VirtualNetworkPropertiesInfraVnetProfileArgsDict',
     'VirtualNetworkPropertiesVipPoolArgs',
+    'VirtualNetworkPropertiesVipPoolArgsDict',
     'VirtualNetworkPropertiesVmipPoolArgs',
+    'VirtualNetworkPropertiesVmipPoolArgsDict',
     'VirtualNetworkPropertiesArgs',
+    'VirtualNetworkPropertiesArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AgentPoolProvisioningStatusStatusArgsDict(TypedDict):
+        """
+        The observed status of the agent pool.
+        """
+        error_message: NotRequired[pulumi.Input[str]]
+        """
+        Error messages during an agent pool operation or steady state.
+        """
+        ready_replicas: NotRequired[pulumi.Input[Sequence[pulumi.Input['AgentPoolUpdateProfileArgsDict']]]]
+elif False:
+    AgentPoolProvisioningStatusStatusArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AgentPoolProvisioningStatusStatusArgs:
@@ -74,6 +120,22 @@ class AgentPoolProvisioningStatusStatusArgs:
     def ready_replicas(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AgentPoolUpdateProfileArgs']]]]):
         pulumi.set(self, "ready_replicas", value)
 
+
+if not MYPY:
+    class AgentPoolUpdateProfileArgsDict(TypedDict):
+        """
+        Profile for agent pool properties that can be updated
+        """
+        count: NotRequired[pulumi.Input[int]]
+        """
+        Number of nodes in the agent pool. The default value is 1.
+        """
+        vm_size: NotRequired[pulumi.Input[str]]
+        """
+        The VM sku size of the agent pool node VMs.
+        """
+elif False:
+    AgentPoolUpdateProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AgentPoolUpdateProfileArgs:
@@ -117,6 +179,18 @@ class AgentPoolUpdateProfileArgs:
         pulumi.set(self, "vm_size", value)
 
 
+if not MYPY:
+    class CloudProviderProfileInfraNetworkProfileArgsDict(TypedDict):
+        """
+        The profile for the infrastructure networks used by the provisioned cluster
+        """
+        vnet_subnet_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of ARM resource Ids (maximum 1) for the infrastructure network object e.g. /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureStackHCI/logicalNetworks/{logicalNetworkName}
+        """
+elif False:
+    CloudProviderProfileInfraNetworkProfileArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CloudProviderProfileInfraNetworkProfileArgs:
     def __init__(__self__, *,
@@ -140,6 +214,18 @@ class CloudProviderProfileInfraNetworkProfileArgs:
     def vnet_subnet_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "vnet_subnet_ids", value)
 
+
+if not MYPY:
+    class CloudProviderProfileArgsDict(TypedDict):
+        """
+        The profile for the underlying cloud infrastructure provider for the provisioned cluster.
+        """
+        infra_network_profile: NotRequired[pulumi.Input['CloudProviderProfileInfraNetworkProfileArgsDict']]
+        """
+        The profile for the infrastructure networks used by the provisioned cluster
+        """
+elif False:
+    CloudProviderProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CloudProviderProfileArgs:
@@ -165,6 +251,18 @@ class CloudProviderProfileArgs:
         pulumi.set(self, "infra_network_profile", value)
 
 
+if not MYPY:
+    class ClusterVMAccessProfileArgsDict(TypedDict):
+        """
+        The SSH restricted access profile for the VMs in the provisioned cluster.
+        """
+        authorized_ip_ranges: NotRequired[pulumi.Input[str]]
+        """
+        IP Address or CIDR for SSH access to VMs in the provisioned cluster
+        """
+elif False:
+    ClusterVMAccessProfileArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ClusterVMAccessProfileArgs:
     def __init__(__self__, *,
@@ -189,6 +287,18 @@ class ClusterVMAccessProfileArgs:
         pulumi.set(self, "authorized_ip_ranges", value)
 
 
+if not MYPY:
+    class ControlPlaneProfileControlPlaneEndpointArgsDict(TypedDict):
+        """
+        IP Address of the Kubernetes API server
+        """
+        host_ip: NotRequired[pulumi.Input[str]]
+        """
+        IP address of the Kubernetes API server
+        """
+elif False:
+    ControlPlaneProfileControlPlaneEndpointArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ControlPlaneProfileControlPlaneEndpointArgs:
     def __init__(__self__, *,
@@ -212,6 +322,26 @@ class ControlPlaneProfileControlPlaneEndpointArgs:
     def host_ip(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "host_ip", value)
 
+
+if not MYPY:
+    class ControlPlaneProfileArgsDict(TypedDict):
+        """
+        The properties of the control plane nodes of the provisioned cluster
+        """
+        control_plane_endpoint: NotRequired[pulumi.Input['ControlPlaneProfileControlPlaneEndpointArgsDict']]
+        """
+        IP Address of the Kubernetes API server
+        """
+        count: NotRequired[pulumi.Input[int]]
+        """
+        Number of control plane nodes. The default value is 1, and the count should be an odd number
+        """
+        vm_size: NotRequired[pulumi.Input[str]]
+        """
+        VM sku size of the control plane nodes
+        """
+elif False:
+    ControlPlaneProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ControlPlaneProfileArgs:
@@ -271,6 +401,22 @@ class ControlPlaneProfileArgs:
         pulumi.set(self, "vm_size", value)
 
 
+if not MYPY:
+    class ExtendedLocationArgsDict(TypedDict):
+        """
+        Extended location pointing to the underlying infrastructure
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        ARM Id of the extended location.
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'ExtendedLocationTypes']]]
+        """
+        The extended location type. Allowed value: 'CustomLocation'
+        """
+elif False:
+    ExtendedLocationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ExtendedLocationArgs:
     def __init__(__self__, *,
@@ -311,6 +457,15 @@ class ExtendedLocationArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class LinuxProfilePropertiesPublicKeysArgsDict(TypedDict):
+        key_data: NotRequired[pulumi.Input[str]]
+        """
+        Certificate public key used to authenticate with VMs through SSH. The certificate must be in PEM format with or without headers.
+        """
+elif False:
+    LinuxProfilePropertiesPublicKeysArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinuxProfilePropertiesPublicKeysArgs:
     def __init__(__self__, *,
@@ -333,6 +488,18 @@ class LinuxProfilePropertiesPublicKeysArgs:
     def key_data(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "key_data", value)
 
+
+if not MYPY:
+    class LinuxProfilePropertiesSshArgsDict(TypedDict):
+        """
+        SSH configuration for VMs of the provisioned cluster.
+        """
+        public_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input['LinuxProfilePropertiesPublicKeysArgsDict']]]]
+        """
+        The list of SSH public keys used to authenticate with VMs. A maximum of 1 key may be specified.
+        """
+elif False:
+    LinuxProfilePropertiesSshArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LinuxProfilePropertiesSshArgs:
@@ -358,6 +525,18 @@ class LinuxProfilePropertiesSshArgs:
         pulumi.set(self, "public_keys", value)
 
 
+if not MYPY:
+    class LinuxProfilePropertiesArgsDict(TypedDict):
+        """
+        SSH profile for control plane and nodepool VMs of the provisioned cluster.
+        """
+        ssh: NotRequired[pulumi.Input['LinuxProfilePropertiesSshArgsDict']]
+        """
+        SSH configuration for VMs of the provisioned cluster.
+        """
+elif False:
+    LinuxProfilePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinuxProfilePropertiesArgs:
     def __init__(__self__, *,
@@ -381,6 +560,58 @@ class LinuxProfilePropertiesArgs:
     def ssh(self, value: Optional[pulumi.Input['LinuxProfilePropertiesSshArgs']]):
         pulumi.set(self, "ssh", value)
 
+
+if not MYPY:
+    class NamedAgentPoolProfileArgsDict(TypedDict):
+        """
+        Profile of the default agent pool along with a name parameter
+        """
+        count: NotRequired[pulumi.Input[int]]
+        """
+        Number of nodes in the agent pool. The default value is 1.
+        """
+        enable_auto_scaling: NotRequired[pulumi.Input[bool]]
+        """
+        Whether to enable auto-scaler. Default value is false
+        """
+        max_count: NotRequired[pulumi.Input[int]]
+        """
+        The maximum number of nodes for auto-scaling
+        """
+        max_pods: NotRequired[pulumi.Input[int]]
+        """
+        The maximum number of pods that can run on a node.
+        """
+        min_count: NotRequired[pulumi.Input[int]]
+        """
+        The minimum number of nodes for auto-scaling
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Unique name of the default agent pool in the context of the provisioned cluster. Default value is <clusterName>-nodepool1
+        """
+        node_labels: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        The node labels to be persisted across all nodes in agent pool.
+        """
+        node_taints: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
+        """
+        os_sku: NotRequired[pulumi.Input[Union[str, 'OSSKU']]]
+        """
+        Specifies the OS SKU used by the agent pool. The default is CBLMariner if OSType is Linux. The default is Windows2019 when OSType is Windows.
+        """
+        os_type: NotRequired[pulumi.Input[Union[str, 'OsType']]]
+        """
+        OSType to be used to specify OS type for the VMs. Choose from Linux and Windows. Default to Linux. Possible values include: 'Linux', 'Windows'
+        """
+        vm_size: NotRequired[pulumi.Input[str]]
+        """
+        The VM sku size of the agent pool node VMs.
+        """
+elif False:
+    NamedAgentPoolProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NamedAgentPoolProfileArgs:
@@ -570,6 +801,18 @@ class NamedAgentPoolProfileArgs:
         pulumi.set(self, "vm_size", value)
 
 
+if not MYPY:
+    class NetworkProfileLoadBalancerProfileArgsDict(TypedDict):
+        """
+        Profile of the HA Proxy load balancer.
+        """
+        count: NotRequired[pulumi.Input[int]]
+        """
+        Number of HA Proxy load balancer VMs. The default value is 0.
+        """
+elif False:
+    NetworkProfileLoadBalancerProfileArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NetworkProfileLoadBalancerProfileArgs:
     def __init__(__self__, *,
@@ -595,6 +838,26 @@ class NetworkProfileLoadBalancerProfileArgs:
     def count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "count", value)
 
+
+if not MYPY:
+    class NetworkProfileArgsDict(TypedDict):
+        """
+        The network configuration profile for the provisioned cluster.
+        """
+        load_balancer_profile: NotRequired[pulumi.Input['NetworkProfileLoadBalancerProfileArgsDict']]
+        """
+        Profile of the HA Proxy load balancer.
+        """
+        network_policy: NotRequired[pulumi.Input[Union[str, 'NetworkPolicy']]]
+        """
+        Network policy used for building Kubernetes network. Possible values include: 'calico'.
+        """
+        pod_cidr: NotRequired[pulumi.Input[str]]
+        """
+        A CIDR notation IP Address range from which to assign pod IPs.
+        """
+elif False:
+    NetworkProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NetworkProfileArgs:
@@ -654,6 +917,18 @@ class NetworkProfileArgs:
         pulumi.set(self, "pod_cidr", value)
 
 
+if not MYPY:
+    class ProvisionedClusterLicenseProfileArgsDict(TypedDict):
+        """
+        The license profile of the provisioned cluster.
+        """
+        azure_hybrid_benefit: NotRequired[pulumi.Input[Union[str, 'AzureHybridBenefit']]]
+        """
+        Indicates whether Azure Hybrid Benefit is opted in. Default value is false
+        """
+elif False:
+    ProvisionedClusterLicenseProfileArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ProvisionedClusterLicenseProfileArgs:
     def __init__(__self__, *,
@@ -679,6 +954,82 @@ class ProvisionedClusterLicenseProfileArgs:
     def azure_hybrid_benefit(self, value: Optional[pulumi.Input[Union[str, 'AzureHybridBenefit']]]):
         pulumi.set(self, "azure_hybrid_benefit", value)
 
+
+if not MYPY:
+    class ProvisionedClusterPropertiesAutoScalerProfileArgsDict(TypedDict):
+        """
+        Parameters to be applied to the cluster-autoscaler when auto scaling is enabled for the provisioned cluster.
+        """
+        balance_similar_node_groups: NotRequired[pulumi.Input[str]]
+        """
+        Valid values are 'true' and 'false'
+        """
+        expander: NotRequired[pulumi.Input[Union[str, 'Expander']]]
+        """
+        If not specified, the default is 'random'. See [expanders](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#what-are-expanders) for more information.
+        """
+        max_empty_bulk_delete: NotRequired[pulumi.Input[str]]
+        """
+        The default is 10.
+        """
+        max_graceful_termination_sec: NotRequired[pulumi.Input[str]]
+        """
+        The default is 600.
+        """
+        max_node_provision_time: NotRequired[pulumi.Input[str]]
+        """
+        The default is '15m'. Values must be an integer followed by an 'm'. No unit of time other than minutes (m) is supported.
+        """
+        max_total_unready_percentage: NotRequired[pulumi.Input[str]]
+        """
+        The default is 45. The maximum is 100 and the minimum is 0.
+        """
+        new_pod_scale_up_delay: NotRequired[pulumi.Input[str]]
+        """
+        For scenarios like burst/batch scale where you don't want CA to act before the kubernetes scheduler could schedule all the pods, you can tell CA to ignore unscheduled pods before they're a certain age. The default is '0s'. Values must be an integer followed by a unit ('s' for seconds, 'm' for minutes, 'h' for hours, etc).
+        """
+        ok_total_unready_count: NotRequired[pulumi.Input[str]]
+        """
+        This must be an integer. The default is 3.
+        """
+        scale_down_delay_after_add: NotRequired[pulumi.Input[str]]
+        """
+        The default is '10m'. Values must be an integer followed by an 'm'. No unit of time other than minutes (m) is supported.
+        """
+        scale_down_delay_after_delete: NotRequired[pulumi.Input[str]]
+        """
+        The default is the scan-interval. Values must be an integer followed by an 'm'. No unit of time other than minutes (m) is supported.
+        """
+        scale_down_delay_after_failure: NotRequired[pulumi.Input[str]]
+        """
+        The default is '3m'. Values must be an integer followed by an 'm'. No unit of time other than minutes (m) is supported.
+        """
+        scale_down_unneeded_time: NotRequired[pulumi.Input[str]]
+        """
+        The default is '10m'. Values must be an integer followed by an 'm'. No unit of time other than minutes (m) is supported.
+        """
+        scale_down_unready_time: NotRequired[pulumi.Input[str]]
+        """
+        The default is '20m'. Values must be an integer followed by an 'm'. No unit of time other than minutes (m) is supported.
+        """
+        scale_down_utilization_threshold: NotRequired[pulumi.Input[str]]
+        """
+        The default is '0.5'.
+        """
+        scan_interval: NotRequired[pulumi.Input[str]]
+        """
+        The default is '10'. Values must be an integer number of seconds.
+        """
+        skip_nodes_with_local_storage: NotRequired[pulumi.Input[str]]
+        """
+        The default is true.
+        """
+        skip_nodes_with_system_pods: NotRequired[pulumi.Input[str]]
+        """
+        The default is true.
+        """
+elif False:
+    ProvisionedClusterPropertiesAutoScalerProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ProvisionedClusterPropertiesAutoScalerProfileArgs:
@@ -960,6 +1311,54 @@ class ProvisionedClusterPropertiesAutoScalerProfileArgs:
         pulumi.set(self, "skip_nodes_with_system_pods", value)
 
 
+if not MYPY:
+    class ProvisionedClusterPropertiesArgsDict(TypedDict):
+        """
+        Properties of the provisioned cluster.
+        """
+        agent_pool_profiles: NotRequired[pulumi.Input[Sequence[pulumi.Input['NamedAgentPoolProfileArgsDict']]]]
+        """
+        The agent pool properties for the provisioned cluster.
+        """
+        auto_scaler_profile: NotRequired[pulumi.Input['ProvisionedClusterPropertiesAutoScalerProfileArgsDict']]
+        """
+        Parameters to be applied to the cluster-autoscaler when auto scaling is enabled for the provisioned cluster.
+        """
+        cloud_provider_profile: NotRequired[pulumi.Input['CloudProviderProfileArgsDict']]
+        """
+        The profile for the underlying cloud infrastructure provider for the provisioned cluster.
+        """
+        cluster_vm_access_profile: NotRequired[pulumi.Input['ClusterVMAccessProfileArgsDict']]
+        """
+        The SSH restricted access profile for the VMs in the provisioned cluster.
+        """
+        control_plane: NotRequired[pulumi.Input['ControlPlaneProfileArgsDict']]
+        """
+        The profile for control plane of the provisioned cluster.
+        """
+        kubernetes_version: NotRequired[pulumi.Input[str]]
+        """
+        The version of Kubernetes in use by the provisioned cluster.
+        """
+        license_profile: NotRequired[pulumi.Input['ProvisionedClusterLicenseProfileArgsDict']]
+        """
+        The license profile of the provisioned cluster.
+        """
+        linux_profile: NotRequired[pulumi.Input['LinuxProfilePropertiesArgsDict']]
+        """
+        The profile for Linux VMs in the provisioned cluster.
+        """
+        network_profile: NotRequired[pulumi.Input['NetworkProfileArgsDict']]
+        """
+        The network configuration profile for the provisioned cluster.
+        """
+        storage_profile: NotRequired[pulumi.Input['StorageProfileArgsDict']]
+        """
+        The storage configuration profile for the provisioned cluster.
+        """
+elif False:
+    ProvisionedClusterPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ProvisionedClusterPropertiesArgs:
     def __init__(__self__, *,
@@ -1128,6 +1527,18 @@ class ProvisionedClusterPropertiesArgs:
         pulumi.set(self, "storage_profile", value)
 
 
+if not MYPY:
+    class StorageProfileNfsCSIDriverArgsDict(TypedDict):
+        """
+        NFS CSI Driver settings for the storage profile.
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether to enable NFS CSI Driver. The default value is true.
+        """
+elif False:
+    StorageProfileNfsCSIDriverArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class StorageProfileNfsCSIDriverArgs:
     def __init__(__self__, *,
@@ -1154,6 +1565,18 @@ class StorageProfileNfsCSIDriverArgs:
         pulumi.set(self, "enabled", value)
 
 
+if not MYPY:
+    class StorageProfileSmbCSIDriverArgsDict(TypedDict):
+        """
+        SMB CSI Driver settings for the storage profile.
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether to enable SMB CSI Driver. The default value is true.
+        """
+elif False:
+    StorageProfileSmbCSIDriverArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class StorageProfileSmbCSIDriverArgs:
     def __init__(__self__, *,
@@ -1179,6 +1602,22 @@ class StorageProfileSmbCSIDriverArgs:
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
 
+
+if not MYPY:
+    class StorageProfileArgsDict(TypedDict):
+        """
+        The storage configuration profile for the provisioned cluster.
+        """
+        nfs_csi_driver: NotRequired[pulumi.Input['StorageProfileNfsCSIDriverArgsDict']]
+        """
+        NFS CSI Driver settings for the storage profile.
+        """
+        smb_csi_driver: NotRequired[pulumi.Input['StorageProfileSmbCSIDriverArgsDict']]
+        """
+        SMB CSI Driver settings for the storage profile.
+        """
+elif False:
+    StorageProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class StorageProfileArgs:
@@ -1220,6 +1659,22 @@ class StorageProfileArgs:
         pulumi.set(self, "smb_csi_driver", value)
 
 
+if not MYPY:
+    class VirtualNetworkExtendedLocationArgsDict(TypedDict):
+        """
+        Extended location pointing to the underlying infrastructure
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        ARM Id of the extended location.
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'ExtendedLocationTypes']]]
+        """
+        The extended location type. Allowed value: 'CustomLocation'
+        """
+elif False:
+    VirtualNetworkExtendedLocationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class VirtualNetworkExtendedLocationArgs:
     def __init__(__self__, *,
@@ -1259,6 +1714,26 @@ class VirtualNetworkExtendedLocationArgs:
     def type(self, value: Optional[pulumi.Input[Union[str, 'ExtendedLocationTypes']]]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class VirtualNetworkPropertiesHciArgsDict(TypedDict):
+        """
+        Infrastructure network profile for HCI platform
+        """
+        moc_group: NotRequired[pulumi.Input[str]]
+        """
+        Group in MOC(Microsoft On-premises Cloud)
+        """
+        moc_location: NotRequired[pulumi.Input[str]]
+        """
+        Location in MOC(Microsoft On-premises Cloud)
+        """
+        moc_vnet_name: NotRequired[pulumi.Input[str]]
+        """
+        Virtual Network name in MOC(Microsoft On-premises Cloud)
+        """
+elif False:
+    VirtualNetworkPropertiesHciArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VirtualNetworkPropertiesHciArgs:
@@ -1316,6 +1791,15 @@ class VirtualNetworkPropertiesHciArgs:
         pulumi.set(self, "moc_vnet_name", value)
 
 
+if not MYPY:
+    class VirtualNetworkPropertiesInfraVnetProfileArgsDict(TypedDict):
+        hci: NotRequired[pulumi.Input['VirtualNetworkPropertiesHciArgsDict']]
+        """
+        Infrastructure network profile for HCI platform
+        """
+elif False:
+    VirtualNetworkPropertiesInfraVnetProfileArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class VirtualNetworkPropertiesInfraVnetProfileArgs:
     def __init__(__self__, *,
@@ -1338,6 +1822,19 @@ class VirtualNetworkPropertiesInfraVnetProfileArgs:
     def hci(self, value: Optional[pulumi.Input['VirtualNetworkPropertiesHciArgs']]):
         pulumi.set(self, "hci", value)
 
+
+if not MYPY:
+    class VirtualNetworkPropertiesVipPoolArgsDict(TypedDict):
+        end_ip: NotRequired[pulumi.Input[str]]
+        """
+        Ending IP address for the IP Pool
+        """
+        start_ip: NotRequired[pulumi.Input[str]]
+        """
+        Starting IP address for the IP Pool
+        """
+elif False:
+    VirtualNetworkPropertiesVipPoolArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VirtualNetworkPropertiesVipPoolArgs:
@@ -1378,6 +1875,19 @@ class VirtualNetworkPropertiesVipPoolArgs:
         pulumi.set(self, "start_ip", value)
 
 
+if not MYPY:
+    class VirtualNetworkPropertiesVmipPoolArgsDict(TypedDict):
+        end_ip: NotRequired[pulumi.Input[str]]
+        """
+        Ending IP address for the IP Pool
+        """
+        start_ip: NotRequired[pulumi.Input[str]]
+        """
+        Starting IP address for the IP Pool
+        """
+elif False:
+    VirtualNetworkPropertiesVmipPoolArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class VirtualNetworkPropertiesVmipPoolArgs:
     def __init__(__self__, *,
@@ -1416,6 +1926,39 @@ class VirtualNetworkPropertiesVmipPoolArgs:
     def start_ip(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "start_ip", value)
 
+
+if not MYPY:
+    class VirtualNetworkPropertiesArgsDict(TypedDict):
+        """
+        Properties of the virtual network resource
+        """
+        dns_servers: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of DNS server IP Addresses associated with the network
+        """
+        gateway: NotRequired[pulumi.Input[str]]
+        """
+        IP Address of the Gateway associated with the network
+        """
+        infra_vnet_profile: NotRequired[pulumi.Input['VirtualNetworkPropertiesInfraVnetProfileArgsDict']]
+        ip_address_prefix: NotRequired[pulumi.Input[str]]
+        """
+        IP Address Prefix of the network
+        """
+        vip_pool: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkPropertiesVipPoolArgsDict']]]]
+        """
+        Range of IP Addresses for Kubernetes API Server and services if using HA Proxy load balancer
+        """
+        vlan_id: NotRequired[pulumi.Input[int]]
+        """
+        VLAN Id used by the network
+        """
+        vmip_pool: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkPropertiesVmipPoolArgsDict']]]]
+        """
+        Range of IP Addresses for Kubernetes node VMs
+        """
+elif False:
+    VirtualNetworkPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VirtualNetworkPropertiesArgs:

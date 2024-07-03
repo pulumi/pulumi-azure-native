@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -122,7 +127,7 @@ class ObjectReplicationPolicy(pulumi.CustomResource):
                  destination_account: Optional[pulumi.Input[str]] = None,
                  object_replication_policy_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ObjectReplicationPolicyRuleArgs']]]]] = None,
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ObjectReplicationPolicyRuleArgs', 'ObjectReplicationPolicyRuleArgsDict']]]]] = None,
                  source_account: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -134,7 +139,7 @@ class ObjectReplicationPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] destination_account: Required. Destination account name. It should be full resource id if allowCrossTenantReplication set to false.
         :param pulumi.Input[str] object_replication_policy_id: For the destination account, provide the value 'default'. Configure the policy on the destination account first. For the source account, provide the value of the policy ID that is returned when you download the policy that was defined on the destination account. The policy is downloaded as a JSON file.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ObjectReplicationPolicyRuleArgs']]]] rules: The storage account object replication rules.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ObjectReplicationPolicyRuleArgs', 'ObjectReplicationPolicyRuleArgsDict']]]] rules: The storage account object replication rules.
         :param pulumi.Input[str] source_account: Required. Source account name. It should be full resource id if allowCrossTenantReplication set to false.
         """
         ...
@@ -165,7 +170,7 @@ class ObjectReplicationPolicy(pulumi.CustomResource):
                  destination_account: Optional[pulumi.Input[str]] = None,
                  object_replication_policy_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ObjectReplicationPolicyRuleArgs']]]]] = None,
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ObjectReplicationPolicyRuleArgs', 'ObjectReplicationPolicyRuleArgsDict']]]]] = None,
                  source_account: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

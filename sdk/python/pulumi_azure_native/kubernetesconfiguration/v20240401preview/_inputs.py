@@ -4,29 +4,95 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'AzureBlobDefinitionArgs',
+    'AzureBlobDefinitionArgsDict',
     'BucketDefinitionArgs',
+    'BucketDefinitionArgsDict',
     'GitRepositoryDefinitionArgs',
+    'GitRepositoryDefinitionArgsDict',
     'KustomizationDefinitionArgs',
+    'KustomizationDefinitionArgsDict',
     'LayerSelectorDefinitionArgs',
+    'LayerSelectorDefinitionArgsDict',
     'ManagedIdentityDefinitionArgs',
+    'ManagedIdentityDefinitionArgsDict',
     'MatchOidcIdentityDefinitionArgs',
+    'MatchOidcIdentityDefinitionArgsDict',
     'OCIRepositoryDefinitionArgs',
+    'OCIRepositoryDefinitionArgsDict',
     'OCIRepositoryRefDefinitionArgs',
+    'OCIRepositoryRefDefinitionArgsDict',
     'PostBuildDefinitionArgs',
+    'PostBuildDefinitionArgsDict',
     'RepositoryRefDefinitionArgs',
+    'RepositoryRefDefinitionArgsDict',
     'ServicePrincipalDefinitionArgs',
+    'ServicePrincipalDefinitionArgsDict',
     'SubstituteFromDefinitionArgs',
+    'SubstituteFromDefinitionArgsDict',
     'TlsConfigDefinitionArgs',
+    'TlsConfigDefinitionArgsDict',
     'VerifyDefinitionArgs',
+    'VerifyDefinitionArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AzureBlobDefinitionArgsDict(TypedDict):
+        """
+        Parameters to reconcile to the AzureBlob source kind type.
+        """
+        account_key: NotRequired[pulumi.Input[str]]
+        """
+        The account key (shared key) to access the storage account
+        """
+        container_name: NotRequired[pulumi.Input[str]]
+        """
+        The Azure Blob container name to sync from the url endpoint for the flux configuration.
+        """
+        local_auth_ref: NotRequired[pulumi.Input[str]]
+        """
+        Name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets.
+        """
+        managed_identity: NotRequired[pulumi.Input['ManagedIdentityDefinitionArgsDict']]
+        """
+        Parameters to authenticate using a Managed Identity.
+        """
+        sas_token: NotRequired[pulumi.Input[str]]
+        """
+        The Shared Access token to access the storage container
+        """
+        service_principal: NotRequired[pulumi.Input['ServicePrincipalDefinitionArgsDict']]
+        """
+        Parameters to authenticate using Service Principal.
+        """
+        sync_interval_in_seconds: NotRequired[pulumi.Input[float]]
+        """
+        The interval at which to re-reconcile the cluster Azure Blob source with the remote.
+        """
+        timeout_in_seconds: NotRequired[pulumi.Input[float]]
+        """
+        The maximum time to attempt to reconcile the cluster Azure Blob source with the remote.
+        """
+        url: NotRequired[pulumi.Input[str]]
+        """
+        The URL to sync for the flux configuration Azure Blob storage account.
+        """
+elif False:
+    AzureBlobDefinitionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AzureBlobDefinitionArgs:
@@ -184,6 +250,42 @@ class AzureBlobDefinitionArgs:
         pulumi.set(self, "url", value)
 
 
+if not MYPY:
+    class BucketDefinitionArgsDict(TypedDict):
+        """
+        Parameters to reconcile to the Bucket source kind type.
+        """
+        access_key: NotRequired[pulumi.Input[str]]
+        """
+        Plaintext access key used to securely access the S3 bucket
+        """
+        bucket_name: NotRequired[pulumi.Input[str]]
+        """
+        The bucket name to sync from the url endpoint for the flux configuration.
+        """
+        insecure: NotRequired[pulumi.Input[bool]]
+        """
+        Specify whether to use insecure communication when puling data from the S3 bucket.
+        """
+        local_auth_ref: NotRequired[pulumi.Input[str]]
+        """
+        Name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets.
+        """
+        sync_interval_in_seconds: NotRequired[pulumi.Input[float]]
+        """
+        The interval at which to re-reconcile the cluster bucket source with the remote.
+        """
+        timeout_in_seconds: NotRequired[pulumi.Input[float]]
+        """
+        The maximum time to attempt to reconcile the cluster bucket source with the remote.
+        """
+        url: NotRequired[pulumi.Input[str]]
+        """
+        The URL to sync for the flux configuration S3 bucket.
+        """
+elif False:
+    BucketDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class BucketDefinitionArgs:
     def __init__(__self__, *,
@@ -309,6 +411,46 @@ class BucketDefinitionArgs:
     def url(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "url", value)
 
+
+if not MYPY:
+    class GitRepositoryDefinitionArgsDict(TypedDict):
+        """
+        Parameters to reconcile to the GitRepository source kind type.
+        """
+        https_ca_cert: NotRequired[pulumi.Input[str]]
+        """
+        Base64-encoded HTTPS certificate authority contents used to access git private git repositories over HTTPS
+        """
+        https_user: NotRequired[pulumi.Input[str]]
+        """
+        Plaintext HTTPS username used to access private git repositories over HTTPS
+        """
+        local_auth_ref: NotRequired[pulumi.Input[str]]
+        """
+        Name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets.
+        """
+        repository_ref: NotRequired[pulumi.Input['RepositoryRefDefinitionArgsDict']]
+        """
+        The source reference for the GitRepository object.
+        """
+        ssh_known_hosts: NotRequired[pulumi.Input[str]]
+        """
+        Base64-encoded known_hosts value containing public SSH keys required to access private git repositories over SSH
+        """
+        sync_interval_in_seconds: NotRequired[pulumi.Input[float]]
+        """
+        The interval at which to re-reconcile the cluster git repository source with the remote.
+        """
+        timeout_in_seconds: NotRequired[pulumi.Input[float]]
+        """
+        The maximum time to attempt to reconcile the cluster git repository source with the remote.
+        """
+        url: NotRequired[pulumi.Input[str]]
+        """
+        The URL to sync for the flux configuration git repository.
+        """
+elif False:
+    GitRepositoryDefinitionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GitRepositoryDefinitionArgs:
@@ -449,6 +591,50 @@ class GitRepositoryDefinitionArgs:
     def url(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "url", value)
 
+
+if not MYPY:
+    class KustomizationDefinitionArgsDict(TypedDict):
+        """
+        The Kustomization defining how to reconcile the artifact pulled by the source type on the cluster.
+        """
+        depends_on: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies other Kustomizations that this Kustomization depends on. This Kustomization will not reconcile until all dependencies have completed their reconciliation.
+        """
+        force: NotRequired[pulumi.Input[bool]]
+        """
+        Enable/disable re-creating Kubernetes resources on the cluster when patching fails due to an immutable field change.
+        """
+        path: NotRequired[pulumi.Input[str]]
+        """
+        The path in the source reference to reconcile on the cluster.
+        """
+        post_build: NotRequired[pulumi.Input['PostBuildDefinitionArgsDict']]
+        """
+        Used for variable substitution for this Kustomization after kustomize build.
+        """
+        prune: NotRequired[pulumi.Input[bool]]
+        """
+        Enable/disable garbage collections of Kubernetes objects created by this Kustomization.
+        """
+        retry_interval_in_seconds: NotRequired[pulumi.Input[float]]
+        """
+        The interval at which to re-reconcile the Kustomization on the cluster in the event of failure on reconciliation.
+        """
+        sync_interval_in_seconds: NotRequired[pulumi.Input[float]]
+        """
+        The interval at which to re-reconcile the Kustomization on the cluster.
+        """
+        timeout_in_seconds: NotRequired[pulumi.Input[float]]
+        """
+        The maximum time to attempt to reconcile the Kustomization on the cluster.
+        """
+        wait: NotRequired[pulumi.Input[bool]]
+        """
+        Enable/disable health check for all Kubernetes objects created by this Kustomization.
+        """
+elif False:
+    KustomizationDefinitionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class KustomizationDefinitionArgs:
@@ -614,6 +800,22 @@ class KustomizationDefinitionArgs:
         pulumi.set(self, "wait", value)
 
 
+if not MYPY:
+    class LayerSelectorDefinitionArgsDict(TypedDict):
+        """
+        Parameters to specify which layer to pull from the OCI artifact. By default, the first layer in the artifact is pulled.
+        """
+        media_type: NotRequired[pulumi.Input[str]]
+        """
+        The first layer matching the specified media type will be used.
+        """
+        operation: NotRequired[pulumi.Input[Union[str, 'OperationType']]]
+        """
+        The operation to be performed on the selected layer. The default value is 'extract', but it can be set to 'copy'.
+        """
+elif False:
+    LayerSelectorDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LayerSelectorDefinitionArgs:
     def __init__(__self__, *,
@@ -654,6 +856,18 @@ class LayerSelectorDefinitionArgs:
         pulumi.set(self, "operation", value)
 
 
+if not MYPY:
+    class ManagedIdentityDefinitionArgsDict(TypedDict):
+        """
+        Parameters to authenticate using a Managed Identity.
+        """
+        client_id: NotRequired[pulumi.Input[str]]
+        """
+        The client Id for authenticating a Managed Identity.
+        """
+elif False:
+    ManagedIdentityDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ManagedIdentityDefinitionArgs:
     def __init__(__self__, *,
@@ -677,6 +891,22 @@ class ManagedIdentityDefinitionArgs:
     def client_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "client_id", value)
 
+
+if not MYPY:
+    class MatchOidcIdentityDefinitionArgsDict(TypedDict):
+        """
+        MatchOIDCIdentity defines the criteria for matching the identity while verifying an OCI artifact.
+        """
+        issuer: NotRequired[pulumi.Input[str]]
+        """
+        The regex pattern to match against to verify the OIDC issuer.
+        """
+        subject: NotRequired[pulumi.Input[str]]
+        """
+        The regex pattern to match against to verify the identity subject.
+        """
+elif False:
+    MatchOidcIdentityDefinitionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MatchOidcIdentityDefinitionArgs:
@@ -717,6 +947,58 @@ class MatchOidcIdentityDefinitionArgs:
     def subject(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "subject", value)
 
+
+if not MYPY:
+    class OCIRepositoryDefinitionArgsDict(TypedDict):
+        """
+        Parameters to reconcile to the OCIRepository source kind type.
+        """
+        insecure: NotRequired[pulumi.Input[bool]]
+        """
+        Specify whether to allow connecting to a non-TLS HTTP container registry.
+        """
+        layer_selector: NotRequired[pulumi.Input['LayerSelectorDefinitionArgsDict']]
+        """
+        The layer to be pulled from the OCI artifact.
+        """
+        local_auth_ref: NotRequired[pulumi.Input[str]]
+        """
+        Name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets.
+        """
+        repository_ref: NotRequired[pulumi.Input['OCIRepositoryRefDefinitionArgsDict']]
+        """
+        The source reference for the OCIRepository object.
+        """
+        service_account_name: NotRequired[pulumi.Input[str]]
+        """
+        The service account name to authenticate with the OCI repository.
+        """
+        sync_interval_in_seconds: NotRequired[pulumi.Input[float]]
+        """
+        The interval at which to re-reconcile the cluster OCI repository source with the remote.
+        """
+        timeout_in_seconds: NotRequired[pulumi.Input[float]]
+        """
+        The maximum time to attempt to reconcile the cluster OCI repository source with the remote.
+        """
+        tls_config: NotRequired[pulumi.Input['TlsConfigDefinitionArgsDict']]
+        """
+        Parameters to authenticate using TLS config for OCI repository.
+        """
+        url: NotRequired[pulumi.Input[str]]
+        """
+        The URL to sync for the flux configuration OCI repository.
+        """
+        use_workload_identity: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies whether to use Workload Identity to authenticate with the OCI repository.
+        """
+        verify: NotRequired[pulumi.Input['VerifyDefinitionArgsDict']]
+        """
+        Verification of the authenticity of an OCI Artifact.
+        """
+elif False:
+    OCIRepositoryDefinitionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OCIRepositoryDefinitionArgs:
@@ -910,6 +1192,26 @@ class OCIRepositoryDefinitionArgs:
         pulumi.set(self, "verify", value)
 
 
+if not MYPY:
+    class OCIRepositoryRefDefinitionArgsDict(TypedDict):
+        """
+        The source reference for the OCIRepository object.
+        """
+        digest: NotRequired[pulumi.Input[str]]
+        """
+        The image digest to pull from OCI repository, the value should be in the format ‘sha256:’. This takes precedence over semver.
+        """
+        semver: NotRequired[pulumi.Input[str]]
+        """
+        The semver range used to match against OCI repository tags. This takes precedence over tag.
+        """
+        tag: NotRequired[pulumi.Input[str]]
+        """
+        The OCI repository image tag name to pull. This defaults to 'latest'.
+        """
+elif False:
+    OCIRepositoryRefDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OCIRepositoryRefDefinitionArgs:
     def __init__(__self__, *,
@@ -966,6 +1268,22 @@ class OCIRepositoryRefDefinitionArgs:
         pulumi.set(self, "tag", value)
 
 
+if not MYPY:
+    class PostBuildDefinitionArgsDict(TypedDict):
+        """
+        The postBuild definitions defining variable substitutions for this Kustomization after kustomize build.
+        """
+        substitute: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Key/value pairs holding the variables to be substituted in this Kustomization.
+        """
+        substitute_from: NotRequired[pulumi.Input[Sequence[pulumi.Input['SubstituteFromDefinitionArgsDict']]]]
+        """
+        Array of ConfigMaps/Secrets from which the variables are substituted for this Kustomization.
+        """
+elif False:
+    PostBuildDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PostBuildDefinitionArgs:
     def __init__(__self__, *,
@@ -1005,6 +1323,30 @@ class PostBuildDefinitionArgs:
     def substitute_from(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SubstituteFromDefinitionArgs']]]]):
         pulumi.set(self, "substitute_from", value)
 
+
+if not MYPY:
+    class RepositoryRefDefinitionArgsDict(TypedDict):
+        """
+        The source reference for the GitRepository object.
+        """
+        branch: NotRequired[pulumi.Input[str]]
+        """
+        The git repository branch name to checkout.
+        """
+        commit: NotRequired[pulumi.Input[str]]
+        """
+        The commit SHA to checkout. This value must be combined with the branch name to be valid. This takes precedence over semver.
+        """
+        semver: NotRequired[pulumi.Input[str]]
+        """
+        The semver range used to match against git repository tags. This takes precedence over tag.
+        """
+        tag: NotRequired[pulumi.Input[str]]
+        """
+        The git repository tag name to checkout. This takes precedence over branch.
+        """
+elif False:
+    RepositoryRefDefinitionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RepositoryRefDefinitionArgs:
@@ -1077,6 +1419,38 @@ class RepositoryRefDefinitionArgs:
     def tag(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tag", value)
 
+
+if not MYPY:
+    class ServicePrincipalDefinitionArgsDict(TypedDict):
+        """
+        Parameters to authenticate using Service Principal.
+        """
+        client_certificate: NotRequired[pulumi.Input[str]]
+        """
+        Base64-encoded certificate used to authenticate a Service Principal 
+        """
+        client_certificate_password: NotRequired[pulumi.Input[str]]
+        """
+        The password for the certificate used to authenticate a Service Principal 
+        """
+        client_certificate_send_chain: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies whether to include x5c header in client claims when acquiring a token to enable subject name / issuer based authentication for the Client Certificate
+        """
+        client_id: NotRequired[pulumi.Input[str]]
+        """
+        The client Id for authenticating a Service Principal.
+        """
+        client_secret: NotRequired[pulumi.Input[str]]
+        """
+        The client secret for authenticating a Service Principal
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        The tenant Id for authenticating a Service Principal
+        """
+elif False:
+    ServicePrincipalDefinitionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ServicePrincipalDefinitionArgs:
@@ -1184,6 +1558,26 @@ class ServicePrincipalDefinitionArgs:
         pulumi.set(self, "tenant_id", value)
 
 
+if not MYPY:
+    class SubstituteFromDefinitionArgsDict(TypedDict):
+        """
+        Array of ConfigMaps/Secrets from which the variables are substituted for this Kustomization.
+        """
+        kind: NotRequired[pulumi.Input[str]]
+        """
+        Define whether it is ConfigMap or Secret that holds the variables to be used in substitution.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the ConfigMap/Secret that holds the variables to be used in substitution.
+        """
+        optional: NotRequired[pulumi.Input[bool]]
+        """
+        Set to True to proceed without ConfigMap/Secret, if it is not present.
+        """
+elif False:
+    SubstituteFromDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SubstituteFromDefinitionArgs:
     def __init__(__self__, *,
@@ -1242,6 +1636,26 @@ class SubstituteFromDefinitionArgs:
         pulumi.set(self, "optional", value)
 
 
+if not MYPY:
+    class TlsConfigDefinitionArgsDict(TypedDict):
+        """
+        Parameters to authenticate using TLS config for OCI repository.
+        """
+        ca_certificate: NotRequired[pulumi.Input[str]]
+        """
+        Base64-encoded CA certificate used to verify the server.
+        """
+        client_certificate: NotRequired[pulumi.Input[str]]
+        """
+        Base64-encoded certificate used to authenticate a client with the OCI repository.
+        """
+        private_key: NotRequired[pulumi.Input[str]]
+        """
+        Base64-encoded private key used to authenticate a client with the OCI repository.
+        """
+elif False:
+    TlsConfigDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TlsConfigDefinitionArgs:
     def __init__(__self__, *,
@@ -1297,6 +1711,26 @@ class TlsConfigDefinitionArgs:
     def private_key(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "private_key", value)
 
+
+if not MYPY:
+    class VerifyDefinitionArgsDict(TypedDict):
+        """
+        Parameters to verify the authenticity of an OCI Artifact.
+        """
+        match_oidc_identity: NotRequired[pulumi.Input[Sequence[pulumi.Input['MatchOidcIdentityDefinitionArgsDict']]]]
+        """
+        Array defining the criteria for matching the identity while verifying an OCI artifact.
+        """
+        provider: NotRequired[pulumi.Input[str]]
+        """
+        Verification provider name.
+        """
+        verification_config: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        An object containing trusted public keys of trusted authors.
+        """
+elif False:
+    VerifyDefinitionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VerifyDefinitionArgs:

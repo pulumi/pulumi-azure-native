@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -138,12 +143,12 @@ class Manager(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cis_intrinsic_settings: Optional[pulumi.Input[pulumi.InputType['ManagerIntrinsicSettingsArgs']]] = None,
+                 cis_intrinsic_settings: Optional[pulumi.Input[Union['ManagerIntrinsicSettingsArgs', 'ManagerIntrinsicSettingsArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  manager_name: Optional[pulumi.Input[str]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['ManagerSkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['ManagerSkuArgs', 'ManagerSkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -151,12 +156,12 @@ class Manager(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ManagerIntrinsicSettingsArgs']] cis_intrinsic_settings: Represents the type of StorSimple Manager.
+        :param pulumi.Input[Union['ManagerIntrinsicSettingsArgs', 'ManagerIntrinsicSettingsArgsDict']] cis_intrinsic_settings: Represents the type of StorSimple Manager.
         :param pulumi.Input[str] location: The geo location of the resource.
         :param pulumi.Input[str] manager_name: The manager name
         :param pulumi.Input[str] provisioning_state: Specifies the state of the resource as it is getting provisioned. Value of "Succeeded" means the Manager was successfully created.
         :param pulumi.Input[str] resource_group_name: The resource group name
-        :param pulumi.Input[pulumi.InputType['ManagerSkuArgs']] sku: Specifies the Sku.
+        :param pulumi.Input[Union['ManagerSkuArgs', 'ManagerSkuArgsDict']] sku: Specifies the Sku.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags attached to the resource.
         """
         ...
@@ -183,12 +188,12 @@ class Manager(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cis_intrinsic_settings: Optional[pulumi.Input[pulumi.InputType['ManagerIntrinsicSettingsArgs']]] = None,
+                 cis_intrinsic_settings: Optional[pulumi.Input[Union['ManagerIntrinsicSettingsArgs', 'ManagerIntrinsicSettingsArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  manager_name: Optional[pulumi.Input[str]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['ManagerSkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['ManagerSkuArgs', 'ManagerSkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

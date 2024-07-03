@@ -4,19 +4,47 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'Gen2StorageConfigurationInputArgs',
+    'Gen2StorageConfigurationInputArgsDict',
     'PrivateLinkServiceConnectionStateArgs',
+    'PrivateLinkServiceConnectionStateArgsDict',
     'SkuArgs',
+    'SkuArgsDict',
     'TimeSeriesIdPropertyArgs',
+    'TimeSeriesIdPropertyArgsDict',
     'WarmStoreConfigurationPropertiesArgs',
+    'WarmStoreConfigurationPropertiesArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class Gen2StorageConfigurationInputArgsDict(TypedDict):
+        """
+        The storage configuration provides the connection details that allows the Time Series Insights service to connect to the customer storage account that is used to store the environment's data.
+        """
+        account_name: pulumi.Input[str]
+        """
+        The name of the storage account that will hold the environment's Gen2 data.
+        """
+        management_key: pulumi.Input[str]
+        """
+        The value of the management key that grants the Time Series Insights service write access to the storage account. This property is not shown in environment responses.
+        """
+elif False:
+    Gen2StorageConfigurationInputArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class Gen2StorageConfigurationInputArgs:
@@ -55,6 +83,26 @@ class Gen2StorageConfigurationInputArgs:
     def management_key(self, value: pulumi.Input[str]):
         pulumi.set(self, "management_key", value)
 
+
+if not MYPY:
+    class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
+        """
+        A collection of information about the state of the connection between service consumer and provider.
+        """
+        actions_required: NotRequired[pulumi.Input[str]]
+        """
+        A message indicating if changes on the service provider require any updates on the consumer.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The reason for approval/rejection of the connection.
+        """
+        status: NotRequired[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]]
+        """
+        Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+        """
+elif False:
+    PrivateLinkServiceConnectionStateArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:
@@ -112,6 +160,22 @@ class PrivateLinkServiceConnectionStateArgs:
         pulumi.set(self, "status", value)
 
 
+if not MYPY:
+    class SkuArgsDict(TypedDict):
+        """
+        The sku determines the type of environment, either Gen1 (S1 or S2) or Gen2 (L1). For Gen1 environments the sku determines the capacity of the environment, the ingress rate, and the billing rate.
+        """
+        capacity: pulumi.Input[int]
+        """
+        The capacity of the sku. For Gen1 environments, this value can be changed to support scale out of environments after they have been created.
+        """
+        name: pulumi.Input[Union[str, 'SkuName']]
+        """
+        The name of this SKU.
+        """
+elif False:
+    SkuArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SkuArgs:
     def __init__(__self__, *,
@@ -149,6 +213,22 @@ class SkuArgs:
     def name(self, value: pulumi.Input[Union[str, 'SkuName']]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class TimeSeriesIdPropertyArgsDict(TypedDict):
+        """
+        The structure of the property that a time series id can have. An environment can have multiple such properties.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the property.
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'PropertyType']]]
+        """
+        The type of the property.
+        """
+elif False:
+    TimeSeriesIdPropertyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TimeSeriesIdPropertyArgs:
@@ -189,6 +269,18 @@ class TimeSeriesIdPropertyArgs:
     def type(self, value: Optional[pulumi.Input[Union[str, 'PropertyType']]]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class WarmStoreConfigurationPropertiesArgsDict(TypedDict):
+        """
+        The warm store configuration provides the details to create a warm store cache that will retain a copy of the environment's data available for faster query.
+        """
+        data_retention: pulumi.Input[str]
+        """
+        ISO8601 timespan specifying the number of days the environment's events will be available for query from the warm store.
+        """
+elif False:
+    WarmStoreConfigurationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WarmStoreConfigurationPropertiesArgs:

@@ -4,17 +4,51 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'EnterpriseChannelNodeArgs',
+    'EnterpriseChannelNodeArgsDict',
     'EnterpriseChannelPropertiesArgs',
+    'EnterpriseChannelPropertiesArgsDict',
     'SkuArgs',
+    'SkuArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class EnterpriseChannelNodeArgsDict(TypedDict):
+        """
+        The properties specific to an Enterprise Channel Node.
+        """
+        azure_location: pulumi.Input[str]
+        """
+        The location of the Enterprise Channel Node.
+        """
+        azure_sku: pulumi.Input[str]
+        """
+        The sku of the Enterprise Channel Node.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the Enterprise Channel Node.
+        """
+        state: NotRequired[pulumi.Input[Union[str, 'EnterpriseChannelNodeState']]]
+        """
+        The current state of the Enterprise Channel Node.
+        """
+elif False:
+    EnterpriseChannelNodeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EnterpriseChannelNodeArgs:
@@ -85,6 +119,22 @@ class EnterpriseChannelNodeArgs:
         pulumi.set(self, "state", value)
 
 
+if not MYPY:
+    class EnterpriseChannelPropertiesArgsDict(TypedDict):
+        """
+        The parameters to provide for the Enterprise Channel.
+        """
+        nodes: pulumi.Input[Sequence[pulumi.Input['EnterpriseChannelNodeArgsDict']]]
+        """
+        The nodes associated with the Enterprise Channel.
+        """
+        state: NotRequired[pulumi.Input[Union[str, 'EnterpriseChannelState']]]
+        """
+        The current state of the Enterprise Channel.
+        """
+elif False:
+    EnterpriseChannelPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EnterpriseChannelPropertiesArgs:
     def __init__(__self__, *,
@@ -123,6 +173,18 @@ class EnterpriseChannelPropertiesArgs:
     def state(self, value: Optional[pulumi.Input[Union[str, 'EnterpriseChannelState']]]):
         pulumi.set(self, "state", value)
 
+
+if not MYPY:
+    class SkuArgsDict(TypedDict):
+        """
+        The SKU of the cognitive services account.
+        """
+        name: pulumi.Input[Union[str, 'SkuName']]
+        """
+        The sku name
+        """
+elif False:
+    SkuArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SkuArgs:

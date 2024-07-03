@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -122,10 +127,10 @@ class Address(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  address_name: Optional[pulumi.Input[str]] = None,
-                 contact_details: Optional[pulumi.Input[pulumi.InputType['ContactDetailsArgs']]] = None,
+                 contact_details: Optional[pulumi.Input[Union['ContactDetailsArgs', 'ContactDetailsArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 shipping_address: Optional[pulumi.Input[pulumi.InputType['ShippingAddressArgs']]] = None,
+                 shipping_address: Optional[pulumi.Input[Union['ShippingAddressArgs', 'ShippingAddressArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -137,10 +142,10 @@ class Address(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] address_name: The name of the address Resource within the specified resource group. address names must be between 3 and 24 characters in length and use any alphanumeric and underscore only.
-        :param pulumi.Input[pulumi.InputType['ContactDetailsArgs']] contact_details: Contact details for the address.
+        :param pulumi.Input[Union['ContactDetailsArgs', 'ContactDetailsArgsDict']] contact_details: Contact details for the address.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[pulumi.InputType['ShippingAddressArgs']] shipping_address: Shipping details for the address.
+        :param pulumi.Input[Union['ShippingAddressArgs', 'ShippingAddressArgsDict']] shipping_address: Shipping details for the address.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         ...
@@ -171,10 +176,10 @@ class Address(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  address_name: Optional[pulumi.Input[str]] = None,
-                 contact_details: Optional[pulumi.Input[pulumi.InputType['ContactDetailsArgs']]] = None,
+                 contact_details: Optional[pulumi.Input[Union['ContactDetailsArgs', 'ContactDetailsArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 shipping_address: Optional[pulumi.Input[pulumi.InputType['ShippingAddressArgs']]] = None,
+                 shipping_address: Optional[pulumi.Input[Union['ShippingAddressArgs', 'ShippingAddressArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

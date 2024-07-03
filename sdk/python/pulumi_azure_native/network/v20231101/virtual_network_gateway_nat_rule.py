@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -185,9 +190,9 @@ class VirtualNetworkGatewayNatRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 external_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnNatRuleMappingArgs']]]]] = None,
+                 external_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VpnNatRuleMappingArgs', 'VpnNatRuleMappingArgsDict']]]]] = None,
                  id: Optional[pulumi.Input[str]] = None,
-                 internal_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnNatRuleMappingArgs']]]]] = None,
+                 internal_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VpnNatRuleMappingArgs', 'VpnNatRuleMappingArgsDict']]]]] = None,
                  ip_configuration_id: Optional[pulumi.Input[str]] = None,
                  mode: Optional[pulumi.Input[Union[str, 'VpnNatRuleMode']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -201,9 +206,9 @@ class VirtualNetworkGatewayNatRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnNatRuleMappingArgs']]]] external_mappings: The private IP address external mapping for NAT.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['VpnNatRuleMappingArgs', 'VpnNatRuleMappingArgsDict']]]] external_mappings: The private IP address external mapping for NAT.
         :param pulumi.Input[str] id: Resource ID.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnNatRuleMappingArgs']]]] internal_mappings: The private IP address internal mapping for NAT.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['VpnNatRuleMappingArgs', 'VpnNatRuleMappingArgsDict']]]] internal_mappings: The private IP address internal mapping for NAT.
         :param pulumi.Input[str] ip_configuration_id: The IP Configuration ID this NAT rule applies to.
         :param pulumi.Input[Union[str, 'VpnNatRuleMode']] mode: The Source NAT direction of a VPN NAT.
         :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
@@ -236,9 +241,9 @@ class VirtualNetworkGatewayNatRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 external_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnNatRuleMappingArgs']]]]] = None,
+                 external_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VpnNatRuleMappingArgs', 'VpnNatRuleMappingArgsDict']]]]] = None,
                  id: Optional[pulumi.Input[str]] = None,
-                 internal_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnNatRuleMappingArgs']]]]] = None,
+                 internal_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VpnNatRuleMappingArgs', 'VpnNatRuleMappingArgsDict']]]]] = None,
                  ip_configuration_id: Optional[pulumi.Input[str]] = None,
                  mode: Optional[pulumi.Input[Union[str, 'VpnNatRuleMode']]] = None,
                  name: Optional[pulumi.Input[str]] = None,

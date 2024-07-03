@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -203,14 +208,14 @@ class ContactProfile(pulumi.CustomResource):
                  auto_tracking_configuration: Optional[pulumi.Input['AutoTrackingConfiguration']] = None,
                  contact_profile_name: Optional[pulumi.Input[str]] = None,
                  event_hub_uri: Optional[pulumi.Input[str]] = None,
-                 links: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContactProfileLinkArgs']]]]] = None,
+                 links: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ContactProfileLinkArgs', 'ContactProfileLinkArgsDict']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  minimum_elevation_degrees: Optional[pulumi.Input[float]] = None,
                  minimum_viable_contact_duration: Optional[pulumi.Input[str]] = None,
-                 network_configuration: Optional[pulumi.Input[pulumi.InputType['ContactProfilesPropertiesNetworkConfigurationArgs']]] = None,
+                 network_configuration: Optional[pulumi.Input[Union['ContactProfilesPropertiesNetworkConfigurationArgs', 'ContactProfilesPropertiesNetworkConfigurationArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 third_party_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContactProfileThirdPartyConfigurationArgs']]]]] = None,
+                 third_party_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ContactProfileThirdPartyConfigurationArgs', 'ContactProfileThirdPartyConfigurationArgsDict']]]]] = None,
                  __props__=None):
         """
         Customer creates a Contact Profile Resource, which will contain all of the configurations required for scheduling a contact.
@@ -220,14 +225,14 @@ class ContactProfile(pulumi.CustomResource):
         :param pulumi.Input['AutoTrackingConfiguration'] auto_tracking_configuration: Auto-tracking configuration.
         :param pulumi.Input[str] contact_profile_name: Contact Profile name.
         :param pulumi.Input[str] event_hub_uri: ARM resource identifier of the Event Hub used for telemetry. Requires granting Orbital Resource Provider the rights to send telemetry into the hub.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContactProfileLinkArgs']]]] links: Links of the Contact Profile. Describes RF links, modem processing, and IP endpoints.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ContactProfileLinkArgs', 'ContactProfileLinkArgsDict']]]] links: Links of the Contact Profile. Describes RF links, modem processing, and IP endpoints.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[float] minimum_elevation_degrees: Minimum viable elevation for the contact in decimal degrees. Used for listing the available contacts with a spacecraft at a given ground station.
         :param pulumi.Input[str] minimum_viable_contact_duration: Minimum viable contact duration in ISO 8601 format. Used for listing the available contacts with a spacecraft at a given ground station.
-        :param pulumi.Input[pulumi.InputType['ContactProfilesPropertiesNetworkConfigurationArgs']] network_configuration: Network configuration of customer virtual network.
+        :param pulumi.Input[Union['ContactProfilesPropertiesNetworkConfigurationArgs', 'ContactProfilesPropertiesNetworkConfigurationArgsDict']] network_configuration: Network configuration of customer virtual network.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContactProfileThirdPartyConfigurationArgs']]]] third_party_configurations: Third-party mission configuration of the Contact Profile. Describes RF links, modem processing, and IP endpoints.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ContactProfileThirdPartyConfigurationArgs', 'ContactProfileThirdPartyConfigurationArgsDict']]]] third_party_configurations: Third-party mission configuration of the Contact Profile. Describes RF links, modem processing, and IP endpoints.
         """
         ...
     @overload
@@ -256,14 +261,14 @@ class ContactProfile(pulumi.CustomResource):
                  auto_tracking_configuration: Optional[pulumi.Input['AutoTrackingConfiguration']] = None,
                  contact_profile_name: Optional[pulumi.Input[str]] = None,
                  event_hub_uri: Optional[pulumi.Input[str]] = None,
-                 links: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContactProfileLinkArgs']]]]] = None,
+                 links: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ContactProfileLinkArgs', 'ContactProfileLinkArgsDict']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  minimum_elevation_degrees: Optional[pulumi.Input[float]] = None,
                  minimum_viable_contact_duration: Optional[pulumi.Input[str]] = None,
-                 network_configuration: Optional[pulumi.Input[pulumi.InputType['ContactProfilesPropertiesNetworkConfigurationArgs']]] = None,
+                 network_configuration: Optional[pulumi.Input[Union['ContactProfilesPropertiesNetworkConfigurationArgs', 'ContactProfilesPropertiesNetworkConfigurationArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 third_party_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContactProfileThirdPartyConfigurationArgs']]]]] = None,
+                 third_party_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ContactProfileThirdPartyConfigurationArgs', 'ContactProfileThirdPartyConfigurationArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

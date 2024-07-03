@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -239,11 +244,11 @@ class KubeEnvironment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aks_resource_id: Optional[pulumi.Input[str]] = None,
-                 app_logs_configuration: Optional[pulumi.Input[pulumi.InputType['AppLogsConfigurationArgs']]] = None,
-                 arc_configuration: Optional[pulumi.Input[pulumi.InputType['ArcConfigurationArgs']]] = None,
-                 container_apps_configuration: Optional[pulumi.Input[pulumi.InputType['ContainerAppsConfigurationArgs']]] = None,
+                 app_logs_configuration: Optional[pulumi.Input[Union['AppLogsConfigurationArgs', 'AppLogsConfigurationArgsDict']]] = None,
+                 arc_configuration: Optional[pulumi.Input[Union['ArcConfigurationArgs', 'ArcConfigurationArgsDict']]] = None,
+                 container_apps_configuration: Optional[pulumi.Input[Union['ContainerAppsConfigurationArgs', 'ContainerAppsConfigurationArgsDict']]] = None,
                  environment_type: Optional[pulumi.Input[str]] = None,
-                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
                  internal_load_balancer_enabled: Optional[pulumi.Input[bool]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -257,15 +262,15 @@ class KubeEnvironment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['AppLogsConfigurationArgs']] app_logs_configuration: Cluster configuration which enables the log daemon to export
+        :param pulumi.Input[Union['AppLogsConfigurationArgs', 'AppLogsConfigurationArgsDict']] app_logs_configuration: Cluster configuration which enables the log daemon to export
                app logs to a destination. Currently only "log-analytics" is
                supported
-        :param pulumi.Input[pulumi.InputType['ArcConfigurationArgs']] arc_configuration: Cluster configuration which determines the ARC cluster
+        :param pulumi.Input[Union['ArcConfigurationArgs', 'ArcConfigurationArgsDict']] arc_configuration: Cluster configuration which determines the ARC cluster
                components types. Eg: Choosing between BuildService kind,
                FrontEnd Service ArtifactsStorageType etc.
-        :param pulumi.Input[pulumi.InputType['ContainerAppsConfigurationArgs']] container_apps_configuration: Cluster configuration for Container Apps Environments to configure Dapr Instrumentation Key and VNET Configuration
+        :param pulumi.Input[Union['ContainerAppsConfigurationArgs', 'ContainerAppsConfigurationArgsDict']] container_apps_configuration: Cluster configuration for Container Apps Environments to configure Dapr Instrumentation Key and VNET Configuration
         :param pulumi.Input[str] environment_type: Type of Kubernetes Environment. Only supported for Container App Environments with value as Managed
-        :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: Extended Location.
+        :param pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']] extended_location: Extended Location.
         :param pulumi.Input[bool] internal_load_balancer_enabled: Only visible within Vnet/Subnet
         :param pulumi.Input[str] kind: Kind of resource.
         :param pulumi.Input[str] location: Resource Location.
@@ -299,11 +304,11 @@ class KubeEnvironment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aks_resource_id: Optional[pulumi.Input[str]] = None,
-                 app_logs_configuration: Optional[pulumi.Input[pulumi.InputType['AppLogsConfigurationArgs']]] = None,
-                 arc_configuration: Optional[pulumi.Input[pulumi.InputType['ArcConfigurationArgs']]] = None,
-                 container_apps_configuration: Optional[pulumi.Input[pulumi.InputType['ContainerAppsConfigurationArgs']]] = None,
+                 app_logs_configuration: Optional[pulumi.Input[Union['AppLogsConfigurationArgs', 'AppLogsConfigurationArgsDict']]] = None,
+                 arc_configuration: Optional[pulumi.Input[Union['ArcConfigurationArgs', 'ArcConfigurationArgsDict']]] = None,
+                 container_apps_configuration: Optional[pulumi.Input[Union['ContainerAppsConfigurationArgs', 'ContainerAppsConfigurationArgsDict']]] = None,
                  environment_type: Optional[pulumi.Input[str]] = None,
-                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
                  internal_load_balancer_enabled: Optional[pulumi.Input[bool]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,

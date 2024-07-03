@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -185,9 +190,9 @@ class RelationshipLink(pulumi.CustomResource):
                  display_name: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  hub_name: Optional[pulumi.Input[str]] = None,
                  interaction_type: Optional[pulumi.Input[str]] = None,
-                 mappings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RelationshipLinkFieldMappingArgs']]]]] = None,
-                 profile_property_references: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ParticipantProfilePropertyReferenceArgs']]]]] = None,
-                 related_profile_property_references: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ParticipantProfilePropertyReferenceArgs']]]]] = None,
+                 mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RelationshipLinkFieldMappingArgs', 'RelationshipLinkFieldMappingArgsDict']]]]] = None,
+                 profile_property_references: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ParticipantProfilePropertyReferenceArgs', 'ParticipantProfilePropertyReferenceArgsDict']]]]] = None,
+                 related_profile_property_references: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ParticipantProfilePropertyReferenceArgs', 'ParticipantProfilePropertyReferenceArgsDict']]]]] = None,
                  relationship_link_name: Optional[pulumi.Input[str]] = None,
                  relationship_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -201,9 +206,9 @@ class RelationshipLink(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] display_name: Localized display name for the Relationship Link.
         :param pulumi.Input[str] hub_name: The name of the hub.
         :param pulumi.Input[str] interaction_type: The InteractionType associated with the Relationship Link.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RelationshipLinkFieldMappingArgs']]]] mappings: The mappings between Interaction and Relationship fields.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ParticipantProfilePropertyReferenceArgs']]]] profile_property_references: The property references for the Profile of the Relationship.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ParticipantProfilePropertyReferenceArgs']]]] related_profile_property_references: The property references for the Related Profile of the Relationship.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RelationshipLinkFieldMappingArgs', 'RelationshipLinkFieldMappingArgsDict']]]] mappings: The mappings between Interaction and Relationship fields.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ParticipantProfilePropertyReferenceArgs', 'ParticipantProfilePropertyReferenceArgsDict']]]] profile_property_references: The property references for the Profile of the Relationship.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ParticipantProfilePropertyReferenceArgs', 'ParticipantProfilePropertyReferenceArgsDict']]]] related_profile_property_references: The property references for the Related Profile of the Relationship.
         :param pulumi.Input[str] relationship_link_name: The name of the relationship link.
         :param pulumi.Input[str] relationship_name: The Relationship associated with the Link.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
@@ -236,9 +241,9 @@ class RelationshipLink(pulumi.CustomResource):
                  display_name: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  hub_name: Optional[pulumi.Input[str]] = None,
                  interaction_type: Optional[pulumi.Input[str]] = None,
-                 mappings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RelationshipLinkFieldMappingArgs']]]]] = None,
-                 profile_property_references: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ParticipantProfilePropertyReferenceArgs']]]]] = None,
-                 related_profile_property_references: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ParticipantProfilePropertyReferenceArgs']]]]] = None,
+                 mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RelationshipLinkFieldMappingArgs', 'RelationshipLinkFieldMappingArgsDict']]]]] = None,
+                 profile_property_references: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ParticipantProfilePropertyReferenceArgs', 'ParticipantProfilePropertyReferenceArgsDict']]]]] = None,
+                 related_profile_property_references: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ParticipantProfilePropertyReferenceArgs', 'ParticipantProfilePropertyReferenceArgsDict']]]]] = None,
                  relationship_link_name: Optional[pulumi.Input[str]] = None,
                  relationship_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,

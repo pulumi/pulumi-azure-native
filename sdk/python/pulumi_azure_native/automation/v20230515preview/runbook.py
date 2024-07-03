@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -250,13 +255,13 @@ class Runbook(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  automation_account_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 draft: Optional[pulumi.Input[pulumi.InputType['RunbookDraftArgs']]] = None,
+                 draft: Optional[pulumi.Input[Union['RunbookDraftArgs', 'RunbookDraftArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  log_activity_trace: Optional[pulumi.Input[int]] = None,
                  log_progress: Optional[pulumi.Input[bool]] = None,
                  log_verbose: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 publish_content_link: Optional[pulumi.Input[pulumi.InputType['ContentLinkArgs']]] = None,
+                 publish_content_link: Optional[pulumi.Input[Union['ContentLinkArgs', 'ContentLinkArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  runbook_name: Optional[pulumi.Input[str]] = None,
                  runbook_type: Optional[pulumi.Input[Union[str, 'RunbookTypeEnum']]] = None,
@@ -270,13 +275,13 @@ class Runbook(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] automation_account_name: The name of the automation account.
         :param pulumi.Input[str] description: Gets or sets the description of the runbook.
-        :param pulumi.Input[pulumi.InputType['RunbookDraftArgs']] draft: Gets or sets the draft runbook properties.
+        :param pulumi.Input[Union['RunbookDraftArgs', 'RunbookDraftArgsDict']] draft: Gets or sets the draft runbook properties.
         :param pulumi.Input[str] location: Gets or sets the location of the resource.
         :param pulumi.Input[int] log_activity_trace: Gets or sets the activity-level tracing options of the runbook.
         :param pulumi.Input[bool] log_progress: Gets or sets progress log option.
         :param pulumi.Input[bool] log_verbose: Gets or sets verbose log option.
         :param pulumi.Input[str] name: Gets or sets the name of the resource.
-        :param pulumi.Input[pulumi.InputType['ContentLinkArgs']] publish_content_link: Gets or sets the published runbook content link.
+        :param pulumi.Input[Union['ContentLinkArgs', 'ContentLinkArgsDict']] publish_content_link: Gets or sets the published runbook content link.
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
         :param pulumi.Input[str] runbook_name: The runbook name.
         :param pulumi.Input[Union[str, 'RunbookTypeEnum']] runbook_type: Gets or sets the type of the runbook.
@@ -309,13 +314,13 @@ class Runbook(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  automation_account_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 draft: Optional[pulumi.Input[pulumi.InputType['RunbookDraftArgs']]] = None,
+                 draft: Optional[pulumi.Input[Union['RunbookDraftArgs', 'RunbookDraftArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  log_activity_trace: Optional[pulumi.Input[int]] = None,
                  log_progress: Optional[pulumi.Input[bool]] = None,
                  log_verbose: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 publish_content_link: Optional[pulumi.Input[pulumi.InputType['ContentLinkArgs']]] = None,
+                 publish_content_link: Optional[pulumi.Input[Union['ContentLinkArgs', 'ContentLinkArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  runbook_name: Optional[pulumi.Input[str]] = None,
                  runbook_type: Optional[pulumi.Input[Union[str, 'RunbookTypeEnum']]] = None,

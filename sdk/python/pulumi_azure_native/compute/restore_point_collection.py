@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -108,7 +113,7 @@ class RestorePointCollection(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  restore_point_collection_name: Optional[pulumi.Input[str]] = None,
-                 source: Optional[pulumi.Input[pulumi.InputType['RestorePointCollectionSourcePropertiesArgs']]] = None,
+                 source: Optional[pulumi.Input[Union['RestorePointCollectionSourcePropertiesArgs', 'RestorePointCollectionSourcePropertiesArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -122,7 +127,7 @@ class RestorePointCollection(pulumi.CustomResource):
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] restore_point_collection_name: The name of the restore point collection.
-        :param pulumi.Input[pulumi.InputType['RestorePointCollectionSourcePropertiesArgs']] source: The properties of the source resource that this restore point collection is created from.
+        :param pulumi.Input[Union['RestorePointCollectionSourcePropertiesArgs', 'RestorePointCollectionSourcePropertiesArgsDict']] source: The properties of the source resource that this restore point collection is created from.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
         ...
@@ -155,7 +160,7 @@ class RestorePointCollection(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  restore_point_collection_name: Optional[pulumi.Input[str]] = None,
-                 source: Optional[pulumi.Input[pulumi.InputType['RestorePointCollectionSourcePropertiesArgs']]] = None,
+                 source: Optional[pulumi.Input[Union['RestorePointCollectionSourcePropertiesArgs', 'RestorePointCollectionSourcePropertiesArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

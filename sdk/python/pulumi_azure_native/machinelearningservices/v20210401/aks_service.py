@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -445,17 +450,17 @@ class AKSService(pulumi.CustomResource):
                  aad_auth_enabled: Optional[pulumi.Input[bool]] = None,
                  app_insights_enabled: Optional[pulumi.Input[bool]] = None,
                  auth_enabled: Optional[pulumi.Input[bool]] = None,
-                 auto_scaler: Optional[pulumi.Input[pulumi.InputType['AKSServiceCreateRequestAutoScalerArgs']]] = None,
+                 auto_scaler: Optional[pulumi.Input[Union['AKSServiceCreateRequestAutoScalerArgs', 'AKSServiceCreateRequestAutoScalerArgsDict']]] = None,
                  compute_name: Optional[pulumi.Input[str]] = None,
                  compute_type: Optional[pulumi.Input[str]] = None,
-                 container_resource_requirements: Optional[pulumi.Input[pulumi.InputType['ContainerResourceRequirementsArgs']]] = None,
-                 data_collection: Optional[pulumi.Input[pulumi.InputType['AKSServiceCreateRequestDataCollectionArgs']]] = None,
+                 container_resource_requirements: Optional[pulumi.Input[Union['ContainerResourceRequirementsArgs', 'ContainerResourceRequirementsArgsDict']]] = None,
+                 data_collection: Optional[pulumi.Input[Union['AKSServiceCreateRequestDataCollectionArgs', 'AKSServiceCreateRequestDataCollectionArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 environment_image_request: Optional[pulumi.Input[pulumi.InputType['CreateServiceRequestEnvironmentImageRequestArgs']]] = None,
+                 environment_image_request: Optional[pulumi.Input[Union['CreateServiceRequestEnvironmentImageRequestArgs', 'CreateServiceRequestEnvironmentImageRequestArgsDict']]] = None,
                  is_default: Optional[pulumi.Input[bool]] = None,
-                 keys: Optional[pulumi.Input[pulumi.InputType['CreateServiceRequestKeysArgs']]] = None,
+                 keys: Optional[pulumi.Input[Union['CreateServiceRequestKeysArgs', 'CreateServiceRequestKeysArgsDict']]] = None,
                  kv_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 liveness_probe_requirements: Optional[pulumi.Input[pulumi.InputType['AKSServiceCreateRequestLivenessProbeRequirementsArgs']]] = None,
+                 liveness_probe_requirements: Optional[pulumi.Input[Union['AKSServiceCreateRequestLivenessProbeRequirementsArgs', 'AKSServiceCreateRequestLivenessProbeRequirementsArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  max_concurrent_requests_per_container: Optional[pulumi.Input[int]] = None,
                  max_queue_wait_ms: Optional[pulumi.Input[int]] = None,
@@ -477,18 +482,18 @@ class AKSService(pulumi.CustomResource):
         :param pulumi.Input[bool] aad_auth_enabled: Whether or not AAD authentication is enabled.
         :param pulumi.Input[bool] app_insights_enabled: Whether or not Application Insights is enabled.
         :param pulumi.Input[bool] auth_enabled: Whether or not authentication is enabled.
-        :param pulumi.Input[pulumi.InputType['AKSServiceCreateRequestAutoScalerArgs']] auto_scaler: The auto scaler properties.
+        :param pulumi.Input[Union['AKSServiceCreateRequestAutoScalerArgs', 'AKSServiceCreateRequestAutoScalerArgsDict']] auto_scaler: The auto scaler properties.
         :param pulumi.Input[str] compute_name: The name of the compute resource.
         :param pulumi.Input[str] compute_type: The compute environment type for the service.
                Expected value is 'AKS'.
-        :param pulumi.Input[pulumi.InputType['ContainerResourceRequirementsArgs']] container_resource_requirements: The container resource requirements.
-        :param pulumi.Input[pulumi.InputType['AKSServiceCreateRequestDataCollectionArgs']] data_collection: Details of the data collection options specified.
+        :param pulumi.Input[Union['ContainerResourceRequirementsArgs', 'ContainerResourceRequirementsArgsDict']] container_resource_requirements: The container resource requirements.
+        :param pulumi.Input[Union['AKSServiceCreateRequestDataCollectionArgs', 'AKSServiceCreateRequestDataCollectionArgsDict']] data_collection: Details of the data collection options specified.
         :param pulumi.Input[str] description: The description of the service.
-        :param pulumi.Input[pulumi.InputType['CreateServiceRequestEnvironmentImageRequestArgs']] environment_image_request: The Environment, models and assets needed for inferencing.
+        :param pulumi.Input[Union['CreateServiceRequestEnvironmentImageRequestArgs', 'CreateServiceRequestEnvironmentImageRequestArgsDict']] environment_image_request: The Environment, models and assets needed for inferencing.
         :param pulumi.Input[bool] is_default: Is this the default variant.
-        :param pulumi.Input[pulumi.InputType['CreateServiceRequestKeysArgs']] keys: The authentication keys.
+        :param pulumi.Input[Union['CreateServiceRequestKeysArgs', 'CreateServiceRequestKeysArgsDict']] keys: The authentication keys.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] kv_tags: The service tag dictionary. Tags are mutable.
-        :param pulumi.Input[pulumi.InputType['AKSServiceCreateRequestLivenessProbeRequirementsArgs']] liveness_probe_requirements: The liveness probe requirements.
+        :param pulumi.Input[Union['AKSServiceCreateRequestLivenessProbeRequirementsArgs', 'AKSServiceCreateRequestLivenessProbeRequirementsArgsDict']] liveness_probe_requirements: The liveness probe requirements.
         :param pulumi.Input[str] location: The name of the Azure location/region.
         :param pulumi.Input[int] max_concurrent_requests_per_container: The maximum number of concurrent requests per container.
         :param pulumi.Input[int] max_queue_wait_ms: Maximum time a request will wait in the queue (in milliseconds). After this time, the service will return 503 (Service Unavailable)
@@ -529,17 +534,17 @@ class AKSService(pulumi.CustomResource):
                  aad_auth_enabled: Optional[pulumi.Input[bool]] = None,
                  app_insights_enabled: Optional[pulumi.Input[bool]] = None,
                  auth_enabled: Optional[pulumi.Input[bool]] = None,
-                 auto_scaler: Optional[pulumi.Input[pulumi.InputType['AKSServiceCreateRequestAutoScalerArgs']]] = None,
+                 auto_scaler: Optional[pulumi.Input[Union['AKSServiceCreateRequestAutoScalerArgs', 'AKSServiceCreateRequestAutoScalerArgsDict']]] = None,
                  compute_name: Optional[pulumi.Input[str]] = None,
                  compute_type: Optional[pulumi.Input[str]] = None,
-                 container_resource_requirements: Optional[pulumi.Input[pulumi.InputType['ContainerResourceRequirementsArgs']]] = None,
-                 data_collection: Optional[pulumi.Input[pulumi.InputType['AKSServiceCreateRequestDataCollectionArgs']]] = None,
+                 container_resource_requirements: Optional[pulumi.Input[Union['ContainerResourceRequirementsArgs', 'ContainerResourceRequirementsArgsDict']]] = None,
+                 data_collection: Optional[pulumi.Input[Union['AKSServiceCreateRequestDataCollectionArgs', 'AKSServiceCreateRequestDataCollectionArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 environment_image_request: Optional[pulumi.Input[pulumi.InputType['CreateServiceRequestEnvironmentImageRequestArgs']]] = None,
+                 environment_image_request: Optional[pulumi.Input[Union['CreateServiceRequestEnvironmentImageRequestArgs', 'CreateServiceRequestEnvironmentImageRequestArgsDict']]] = None,
                  is_default: Optional[pulumi.Input[bool]] = None,
-                 keys: Optional[pulumi.Input[pulumi.InputType['CreateServiceRequestKeysArgs']]] = None,
+                 keys: Optional[pulumi.Input[Union['CreateServiceRequestKeysArgs', 'CreateServiceRequestKeysArgsDict']]] = None,
                  kv_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 liveness_probe_requirements: Optional[pulumi.Input[pulumi.InputType['AKSServiceCreateRequestLivenessProbeRequirementsArgs']]] = None,
+                 liveness_probe_requirements: Optional[pulumi.Input[Union['AKSServiceCreateRequestLivenessProbeRequirementsArgs', 'AKSServiceCreateRequestLivenessProbeRequirementsArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  max_concurrent_requests_per_container: Optional[pulumi.Input[int]] = None,
                  max_queue_wait_ms: Optional[pulumi.Input[int]] = None,

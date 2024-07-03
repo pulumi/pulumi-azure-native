@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -125,7 +130,7 @@ class RoutePolicy(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  route_policy_name: Optional[pulumi.Input[str]] = None,
-                 statements: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RoutePolicyStatementPropertiesArgs']]]]] = None,
+                 statements: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RoutePolicyStatementPropertiesArgs', 'RoutePolicyStatementPropertiesArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -137,7 +142,7 @@ class RoutePolicy(pulumi.CustomResource):
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] route_policy_name: Name of the Route Policy
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RoutePolicyStatementPropertiesArgs']]]] statements: Route Policy statements.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RoutePolicyStatementPropertiesArgs', 'RoutePolicyStatementPropertiesArgsDict']]]] statements: Route Policy statements.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         ...
@@ -168,7 +173,7 @@ class RoutePolicy(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  route_policy_name: Optional[pulumi.Input[str]] = None,
-                 statements: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RoutePolicyStatementPropertiesArgs']]]]] = None,
+                 statements: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RoutePolicyStatementPropertiesArgs', 'RoutePolicyStatementPropertiesArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

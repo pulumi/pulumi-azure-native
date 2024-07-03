@@ -4,65 +4,135 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'AgentPropertiesArgs',
+    'AgentPropertiesArgsDict',
     'ArchivePackageSourcePropertiesArgs',
+    'ArchivePackageSourcePropertiesArgsDict',
     'ArgumentArgs',
+    'ArgumentArgsDict',
     'AuthCredentialArgs',
+    'AuthCredentialArgsDict',
     'AuthInfoArgs',
+    'AuthInfoArgsDict',
     'BaseImageTriggerArgs',
+    'BaseImageTriggerArgsDict',
     'CredentialsArgs',
+    'CredentialsArgsDict',
     'CustomRegistryCredentialsArgs',
+    'CustomRegistryCredentialsArgsDict',
     'DockerBuildRequestArgs',
+    'DockerBuildRequestArgsDict',
     'DockerBuildStepArgs',
+    'DockerBuildStepArgsDict',
     'EncodedTaskRunRequestArgs',
+    'EncodedTaskRunRequestArgsDict',
     'EncodedTaskStepArgs',
+    'EncodedTaskStepArgsDict',
     'EncryptionPropertyArgs',
+    'EncryptionPropertyArgsDict',
     'ExportPipelineTargetPropertiesArgs',
+    'ExportPipelineTargetPropertiesArgsDict',
     'ExportPolicyArgs',
+    'ExportPolicyArgsDict',
     'FileTaskRunRequestArgs',
+    'FileTaskRunRequestArgsDict',
     'FileTaskStepArgs',
+    'FileTaskStepArgsDict',
     'IPRuleArgs',
+    'IPRuleArgsDict',
     'IdentityPropertiesArgs',
+    'IdentityPropertiesArgsDict',
     'ImportPipelineSourcePropertiesArgs',
+    'ImportPipelineSourcePropertiesArgsDict',
     'KeyVaultPropertiesArgs',
+    'KeyVaultPropertiesArgsDict',
     'LoggingPropertiesArgs',
+    'LoggingPropertiesArgsDict',
     'NetworkRuleSetArgs',
+    'NetworkRuleSetArgsDict',
     'OverrideTaskStepPropertiesArgs',
+    'OverrideTaskStepPropertiesArgsDict',
     'ParentPropertiesArgs',
+    'ParentPropertiesArgsDict',
     'PipelineRunRequestArgs',
+    'PipelineRunRequestArgsDict',
     'PipelineRunSourcePropertiesArgs',
+    'PipelineRunSourcePropertiesArgsDict',
     'PipelineRunTargetPropertiesArgs',
+    'PipelineRunTargetPropertiesArgsDict',
     'PipelineSourceTriggerPropertiesArgs',
+    'PipelineSourceTriggerPropertiesArgsDict',
     'PipelineTriggerPropertiesArgs',
+    'PipelineTriggerPropertiesArgsDict',
     'PlatformPropertiesArgs',
+    'PlatformPropertiesArgsDict',
     'PoliciesArgs',
+    'PoliciesArgsDict',
     'PrivateEndpointArgs',
+    'PrivateEndpointArgsDict',
     'PrivateLinkServiceConnectionStateArgs',
+    'PrivateLinkServiceConnectionStateArgsDict',
     'QuarantinePolicyArgs',
+    'QuarantinePolicyArgsDict',
     'RetentionPolicyArgs',
+    'RetentionPolicyArgsDict',
     'SecretObjectArgs',
+    'SecretObjectArgsDict',
     'SetValueArgs',
+    'SetValueArgsDict',
     'SkuArgs',
+    'SkuArgsDict',
     'SourcePropertiesArgs',
+    'SourcePropertiesArgsDict',
     'SourceRegistryCredentialsArgs',
+    'SourceRegistryCredentialsArgsDict',
     'SourceTriggerArgs',
+    'SourceTriggerArgsDict',
     'SyncPropertiesArgs',
+    'SyncPropertiesArgsDict',
     'TaskRunRequestArgs',
+    'TaskRunRequestArgsDict',
     'TimerTriggerArgs',
+    'TimerTriggerArgsDict',
     'TokenCertificateArgs',
+    'TokenCertificateArgsDict',
     'TokenCredentialsPropertiesArgs',
+    'TokenCredentialsPropertiesArgsDict',
     'TokenPasswordArgs',
+    'TokenPasswordArgsDict',
     'TriggerPropertiesArgs',
+    'TriggerPropertiesArgsDict',
     'TrustPolicyArgs',
+    'TrustPolicyArgsDict',
     'UserIdentityPropertiesArgs',
+    'UserIdentityPropertiesArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AgentPropertiesArgsDict(TypedDict):
+        """
+        The properties that determine the run agent configuration.
+        """
+        cpu: NotRequired[pulumi.Input[int]]
+        """
+        The CPU configuration in terms of number of cores required for the run.
+        """
+elif False:
+    AgentPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AgentPropertiesArgs:
@@ -87,6 +157,22 @@ class AgentPropertiesArgs:
     def cpu(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "cpu", value)
 
+
+if not MYPY:
+    class ArchivePackageSourcePropertiesArgsDict(TypedDict):
+        """
+        The properties of the archive package source.
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'PackageSourceType']]]
+        """
+        The type of package source for a archive.
+        """
+        url: NotRequired[pulumi.Input[str]]
+        """
+        The external repository url.
+        """
+elif False:
+    ArchivePackageSourcePropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ArchivePackageSourcePropertiesArgs:
@@ -127,6 +213,26 @@ class ArchivePackageSourcePropertiesArgs:
     def url(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "url", value)
 
+
+if not MYPY:
+    class ArgumentArgsDict(TypedDict):
+        """
+        The properties of a run argument.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the argument.
+        """
+        value: pulumi.Input[str]
+        """
+        The value of the argument.
+        """
+        is_secret: NotRequired[pulumi.Input[bool]]
+        """
+        Flag to indicate whether the argument represents a secret and want to be removed from build logs.
+        """
+elif False:
+    ArgumentArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ArgumentArgs:
@@ -184,6 +290,26 @@ class ArgumentArgs:
         pulumi.set(self, "is_secret", value)
 
 
+if not MYPY:
+    class AuthCredentialArgsDict(TypedDict):
+        """
+        Authentication credential stored for an upstream.
+        """
+        name: NotRequired[pulumi.Input[Union[str, 'CredentialName']]]
+        """
+        The name of the credential.
+        """
+        password_secret_identifier: NotRequired[pulumi.Input[str]]
+        """
+        KeyVault Secret URI for accessing the password.
+        """
+        username_secret_identifier: NotRequired[pulumi.Input[str]]
+        """
+        KeyVault Secret URI for accessing the username.
+        """
+elif False:
+    AuthCredentialArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AuthCredentialArgs:
     def __init__(__self__, *,
@@ -239,6 +365,34 @@ class AuthCredentialArgs:
     def username_secret_identifier(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "username_secret_identifier", value)
 
+
+if not MYPY:
+    class AuthInfoArgsDict(TypedDict):
+        """
+        The authorization properties for accessing the source code repository.
+        """
+        token: pulumi.Input[str]
+        """
+        The access token used to access the source control provider.
+        """
+        token_type: pulumi.Input[Union[str, 'TokenType']]
+        """
+        The type of Auth token.
+        """
+        expires_in: NotRequired[pulumi.Input[int]]
+        """
+        Time in seconds that the token remains valid
+        """
+        refresh_token: NotRequired[pulumi.Input[str]]
+        """
+        The refresh token used to refresh the access token.
+        """
+        scope: NotRequired[pulumi.Input[str]]
+        """
+        The scope of the access token.
+        """
+elif False:
+    AuthInfoArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AuthInfoArgs:
@@ -325,6 +479,34 @@ class AuthInfoArgs:
     def scope(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "scope", value)
 
+
+if not MYPY:
+    class BaseImageTriggerArgsDict(TypedDict):
+        """
+        The trigger based on base image dependency.
+        """
+        base_image_trigger_type: pulumi.Input[Union[str, 'BaseImageTriggerType']]
+        """
+        The type of the auto trigger for base image dependency updates.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the trigger.
+        """
+        status: NotRequired[pulumi.Input[Union[str, 'TriggerStatus']]]
+        """
+        The current status of trigger.
+        """
+        update_trigger_endpoint: NotRequired[pulumi.Input[str]]
+        """
+        The endpoint URL for receiving update triggers.
+        """
+        update_trigger_payload_type: NotRequired[pulumi.Input[Union[str, 'UpdateTriggerPayloadType']]]
+        """
+        Type of Payload body for Base image update triggers.
+        """
+elif False:
+    BaseImageTriggerArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class BaseImageTriggerArgs:
@@ -414,6 +596,24 @@ class BaseImageTriggerArgs:
         pulumi.set(self, "update_trigger_payload_type", value)
 
 
+if not MYPY:
+    class CredentialsArgsDict(TypedDict):
+        """
+        The parameters that describes a set of credentials that will be used when a run is invoked.
+        """
+        custom_registries: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['CustomRegistryCredentialsArgsDict']]]]
+        """
+        Describes the credential parameters for accessing other custom registries. The key
+        for the dictionary item will be the registry login server (myregistry.azurecr.io) and
+        the value of the item will be the registry credentials for accessing the registry.
+        """
+        source_registry: NotRequired[pulumi.Input['SourceRegistryCredentialsArgsDict']]
+        """
+        Describes the credential parameters for accessing the source registry.
+        """
+elif False:
+    CredentialsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CredentialsArgs:
     def __init__(__self__, *,
@@ -457,6 +657,31 @@ class CredentialsArgs:
     def source_registry(self, value: Optional[pulumi.Input['SourceRegistryCredentialsArgs']]):
         pulumi.set(self, "source_registry", value)
 
+
+if not MYPY:
+    class CustomRegistryCredentialsArgsDict(TypedDict):
+        """
+        Describes the credentials that will be used to access a custom registry during a run.
+        """
+        identity: NotRequired[pulumi.Input[str]]
+        """
+        Indicates the managed identity assigned to the custom credential. If a user-assigned identity
+        this value is the Client ID. If a system-assigned identity, the value will be `system`. In
+        the case of a system-assigned identity, the Client ID will be determined by the runner. This
+        identity may be used to authenticate to key vault to retrieve credentials or it may be the only 
+        source of authentication used for accessing the registry.
+        """
+        password: NotRequired[pulumi.Input['SecretObjectArgsDict']]
+        """
+        The password for logging into the custom registry. The password is a secret 
+        object that allows multiple ways of providing the value for it.
+        """
+        user_name: NotRequired[pulumi.Input['SecretObjectArgsDict']]
+        """
+        The username for logging into the custom registry.
+        """
+elif False:
+    CustomRegistryCredentialsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CustomRegistryCredentialsArgs:
@@ -523,6 +748,76 @@ class CustomRegistryCredentialsArgs:
     def user_name(self, value: Optional[pulumi.Input['SecretObjectArgs']]):
         pulumi.set(self, "user_name", value)
 
+
+if not MYPY:
+    class DockerBuildRequestArgsDict(TypedDict):
+        """
+        The parameters for a docker quick build.
+        """
+        docker_file_path: pulumi.Input[str]
+        """
+        The Docker file path relative to the source location.
+        """
+        platform: pulumi.Input['PlatformPropertiesArgsDict']
+        """
+        The platform properties against which the run has to happen.
+        """
+        type: pulumi.Input[str]
+        """
+        The type of the run request.
+        Expected value is 'DockerBuildRequest'.
+        """
+        agent_configuration: NotRequired[pulumi.Input['AgentPropertiesArgsDict']]
+        """
+        The machine configuration of the run agent.
+        """
+        agent_pool_name: NotRequired[pulumi.Input[str]]
+        """
+        The dedicated agent pool for the run.
+        """
+        arguments: NotRequired[pulumi.Input[Sequence[pulumi.Input['ArgumentArgsDict']]]]
+        """
+        The collection of override arguments to be used when executing the run.
+        """
+        credentials: NotRequired[pulumi.Input['CredentialsArgsDict']]
+        """
+        The properties that describes a set of credentials that will be used when this run is invoked.
+        """
+        image_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The fully qualified image names including the repository and tag.
+        """
+        is_archive_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        The value that indicates whether archiving is enabled for the run or not.
+        """
+        is_push_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        The value of this property indicates whether the image built should be pushed to the registry or not.
+        """
+        log_template: NotRequired[pulumi.Input[str]]
+        """
+        The template that describes the repository and tag information for run log artifact.
+        """
+        no_cache: NotRequired[pulumi.Input[bool]]
+        """
+        The value of this property indicates whether the image cache is enabled or not.
+        """
+        source_location: NotRequired[pulumi.Input[str]]
+        """
+        The URL(absolute or relative) of the source context. It can be an URL to a tar or git repository.
+        If it is relative URL, the relative path should be obtained from calling listBuildSourceUploadUrl API.
+        """
+        target: NotRequired[pulumi.Input[str]]
+        """
+        The name of the target build stage for the docker build.
+        """
+        timeout: NotRequired[pulumi.Input[int]]
+        """
+        Run timeout in seconds.
+        """
+elif False:
+    DockerBuildRequestArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DockerBuildRequestArgs:
@@ -781,6 +1076,51 @@ class DockerBuildRequestArgs:
         pulumi.set(self, "timeout", value)
 
 
+if not MYPY:
+    class DockerBuildStepArgsDict(TypedDict):
+        """
+        The Docker build step.
+        """
+        docker_file_path: pulumi.Input[str]
+        """
+        The Docker file path relative to the source context.
+        """
+        type: pulumi.Input[str]
+        """
+        The type of the step.
+        Expected value is 'Docker'.
+        """
+        arguments: NotRequired[pulumi.Input[Sequence[pulumi.Input['ArgumentArgsDict']]]]
+        """
+        The collection of override arguments to be used when executing this build step.
+        """
+        context_access_token: NotRequired[pulumi.Input[str]]
+        """
+        The token (git PAT or SAS token of storage account blob) associated with the context for a step.
+        """
+        context_path: NotRequired[pulumi.Input[str]]
+        """
+        The URL(absolute or relative) of the source context for the task step.
+        """
+        image_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The fully qualified image names including the repository and tag.
+        """
+        is_push_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        The value of this property indicates whether the image built should be pushed to the registry or not.
+        """
+        no_cache: NotRequired[pulumi.Input[bool]]
+        """
+        The value of this property indicates whether the image cache is enabled or not.
+        """
+        target: NotRequired[pulumi.Input[str]]
+        """
+        The name of the target build stage for the docker build.
+        """
+elif False:
+    DockerBuildStepArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DockerBuildStepArgs:
     def __init__(__self__, *,
@@ -936,6 +1276,64 @@ class DockerBuildStepArgs:
     def target(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "target", value)
 
+
+if not MYPY:
+    class EncodedTaskRunRequestArgsDict(TypedDict):
+        """
+        The parameters for a quick task run request.
+        """
+        encoded_task_content: pulumi.Input[str]
+        """
+        Base64 encoded value of the template/definition file content.
+        """
+        platform: pulumi.Input['PlatformPropertiesArgsDict']
+        """
+        The platform properties against which the run has to happen.
+        """
+        type: pulumi.Input[str]
+        """
+        The type of the run request.
+        Expected value is 'EncodedTaskRunRequest'.
+        """
+        agent_configuration: NotRequired[pulumi.Input['AgentPropertiesArgsDict']]
+        """
+        The machine configuration of the run agent.
+        """
+        agent_pool_name: NotRequired[pulumi.Input[str]]
+        """
+        The dedicated agent pool for the run.
+        """
+        credentials: NotRequired[pulumi.Input['CredentialsArgsDict']]
+        """
+        The properties that describes a set of credentials that will be used when this run is invoked.
+        """
+        encoded_values_content: NotRequired[pulumi.Input[str]]
+        """
+        Base64 encoded value of the parameters/values file content.
+        """
+        is_archive_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        The value that indicates whether archiving is enabled for the run or not.
+        """
+        log_template: NotRequired[pulumi.Input[str]]
+        """
+        The template that describes the repository and tag information for run log artifact.
+        """
+        source_location: NotRequired[pulumi.Input[str]]
+        """
+        The URL(absolute or relative) of the source context. It can be an URL to a tar or git repository.
+        If it is relative URL, the relative path should be obtained from calling listBuildSourceUploadUrl API.
+        """
+        timeout: NotRequired[pulumi.Input[int]]
+        """
+        Run timeout in seconds.
+        """
+        values: NotRequired[pulumi.Input[Sequence[pulumi.Input['SetValueArgsDict']]]]
+        """
+        The collection of overridable values that can be passed when running a task.
+        """
+elif False:
+    EncodedTaskRunRequestArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EncodedTaskRunRequestArgs:
@@ -1142,6 +1540,39 @@ class EncodedTaskRunRequestArgs:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class EncodedTaskStepArgsDict(TypedDict):
+        """
+        The properties of a encoded task step.
+        """
+        encoded_task_content: pulumi.Input[str]
+        """
+        Base64 encoded value of the template/definition file content.
+        """
+        type: pulumi.Input[str]
+        """
+        The type of the step.
+        Expected value is 'EncodedTask'.
+        """
+        context_access_token: NotRequired[pulumi.Input[str]]
+        """
+        The token (git PAT or SAS token of storage account blob) associated with the context for a step.
+        """
+        context_path: NotRequired[pulumi.Input[str]]
+        """
+        The URL(absolute or relative) of the source context for the task step.
+        """
+        encoded_values_content: NotRequired[pulumi.Input[str]]
+        """
+        Base64 encoded value of the parameters/values file content.
+        """
+        values: NotRequired[pulumi.Input[Sequence[pulumi.Input['SetValueArgsDict']]]]
+        """
+        The collection of overridable values that can be passed when running a task.
+        """
+elif False:
+    EncodedTaskStepArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EncodedTaskStepArgs:
     def __init__(__self__, *,
@@ -1246,6 +1677,19 @@ class EncodedTaskStepArgs:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class EncryptionPropertyArgsDict(TypedDict):
+        key_vault_properties: NotRequired[pulumi.Input['KeyVaultPropertiesArgsDict']]
+        """
+        Key vault properties.
+        """
+        status: NotRequired[pulumi.Input[Union[str, 'EncryptionStatus']]]
+        """
+        Indicates whether or not the encryption is enabled for container registry.
+        """
+elif False:
+    EncryptionPropertyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EncryptionPropertyArgs:
     def __init__(__self__, *,
@@ -1284,6 +1728,28 @@ class EncryptionPropertyArgs:
     def status(self, value: Optional[pulumi.Input[Union[str, 'EncryptionStatus']]]):
         pulumi.set(self, "status", value)
 
+
+if not MYPY:
+    class ExportPipelineTargetPropertiesArgsDict(TypedDict):
+        """
+        The properties of the export pipeline target.
+        """
+        key_vault_uri: pulumi.Input[str]
+        """
+        They key vault secret uri to obtain the target storage SAS token.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        The type of target for the export pipeline.
+        """
+        uri: NotRequired[pulumi.Input[str]]
+        """
+        The target uri of the export pipeline.
+        When 'AzureStorageBlob': "https://accountName.blob.core.windows.net/containerName/blobName"
+        When 'AzureStorageBlobContainer':  "https://accountName.blob.core.windows.net/containerName"
+        """
+elif False:
+    ExportPipelineTargetPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ExportPipelineTargetPropertiesArgs:
@@ -1344,6 +1810,18 @@ class ExportPipelineTargetPropertiesArgs:
         pulumi.set(self, "uri", value)
 
 
+if not MYPY:
+    class ExportPolicyArgsDict(TypedDict):
+        """
+        The export policy for a container registry.
+        """
+        status: NotRequired[pulumi.Input[Union[str, 'ExportPolicyStatus']]]
+        """
+        The value that indicates whether the policy is enabled or not.
+        """
+elif False:
+    ExportPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ExportPolicyArgs:
     def __init__(__self__, *,
@@ -1369,6 +1847,64 @@ class ExportPolicyArgs:
     def status(self, value: Optional[pulumi.Input[Union[str, 'ExportPolicyStatus']]]):
         pulumi.set(self, "status", value)
 
+
+if not MYPY:
+    class FileTaskRunRequestArgsDict(TypedDict):
+        """
+        The request parameters for a scheduling run against a task file.
+        """
+        platform: pulumi.Input['PlatformPropertiesArgsDict']
+        """
+        The platform properties against which the run has to happen.
+        """
+        task_file_path: pulumi.Input[str]
+        """
+        The template/definition file path relative to the source.
+        """
+        type: pulumi.Input[str]
+        """
+        The type of the run request.
+        Expected value is 'FileTaskRunRequest'.
+        """
+        agent_configuration: NotRequired[pulumi.Input['AgentPropertiesArgsDict']]
+        """
+        The machine configuration of the run agent.
+        """
+        agent_pool_name: NotRequired[pulumi.Input[str]]
+        """
+        The dedicated agent pool for the run.
+        """
+        credentials: NotRequired[pulumi.Input['CredentialsArgsDict']]
+        """
+        The properties that describes a set of credentials that will be used when this run is invoked.
+        """
+        is_archive_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        The value that indicates whether archiving is enabled for the run or not.
+        """
+        log_template: NotRequired[pulumi.Input[str]]
+        """
+        The template that describes the repository and tag information for run log artifact.
+        """
+        source_location: NotRequired[pulumi.Input[str]]
+        """
+        The URL(absolute or relative) of the source context. It can be an URL to a tar or git repository.
+        If it is relative URL, the relative path should be obtained from calling listBuildSourceUploadUrl API.
+        """
+        timeout: NotRequired[pulumi.Input[int]]
+        """
+        Run timeout in seconds.
+        """
+        values: NotRequired[pulumi.Input[Sequence[pulumi.Input['SetValueArgsDict']]]]
+        """
+        The collection of overridable values that can be passed when running a task.
+        """
+        values_file_path: NotRequired[pulumi.Input[str]]
+        """
+        The values/parameters file path relative to the source.
+        """
+elif False:
+    FileTaskRunRequestArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FileTaskRunRequestArgs:
@@ -1575,6 +2111,39 @@ class FileTaskRunRequestArgs:
         pulumi.set(self, "values_file_path", value)
 
 
+if not MYPY:
+    class FileTaskStepArgsDict(TypedDict):
+        """
+        The properties of a task step.
+        """
+        task_file_path: pulumi.Input[str]
+        """
+        The task template/definition file path relative to the source context.
+        """
+        type: pulumi.Input[str]
+        """
+        The type of the step.
+        Expected value is 'FileTask'.
+        """
+        context_access_token: NotRequired[pulumi.Input[str]]
+        """
+        The token (git PAT or SAS token of storage account blob) associated with the context for a step.
+        """
+        context_path: NotRequired[pulumi.Input[str]]
+        """
+        The URL(absolute or relative) of the source context for the task step.
+        """
+        values: NotRequired[pulumi.Input[Sequence[pulumi.Input['SetValueArgsDict']]]]
+        """
+        The collection of overridable values that can be passed when running a task.
+        """
+        values_file_path: NotRequired[pulumi.Input[str]]
+        """
+        The task values/parameters file path relative to the source context.
+        """
+elif False:
+    FileTaskStepArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FileTaskStepArgs:
     def __init__(__self__, *,
@@ -1679,6 +2248,22 @@ class FileTaskStepArgs:
         pulumi.set(self, "values_file_path", value)
 
 
+if not MYPY:
+    class IPRuleArgsDict(TypedDict):
+        """
+        IP rule with specific IP or IP range in CIDR format.
+        """
+        i_p_address_or_range: pulumi.Input[str]
+        """
+        Specifies the IP or IP range in CIDR format. Only IPV4 address is allowed.
+        """
+        action: NotRequired[pulumi.Input[Union[str, 'Action']]]
+        """
+        The action of IP ACL rule.
+        """
+elif False:
+    IPRuleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IPRuleArgs:
     def __init__(__self__, *,
@@ -1719,6 +2304,33 @@ class IPRuleArgs:
     def action(self, value: Optional[pulumi.Input[Union[str, 'Action']]]):
         pulumi.set(self, "action", value)
 
+
+if not MYPY:
+    class IdentityPropertiesArgsDict(TypedDict):
+        """
+        Managed identity for the resource.
+        """
+        principal_id: NotRequired[pulumi.Input[str]]
+        """
+        The principal ID of resource identity.
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        The tenant ID of resource.
+        """
+        type: NotRequired[pulumi.Input['ResourceIdentityType']]
+        """
+        The identity type.
+        """
+        user_assigned_identities: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['UserIdentityPropertiesArgsDict']]]]
+        """
+        The list of user identities associated with the resource. The user identity 
+        dictionary key references will be ARM resource ids in the form: 
+        '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/
+            providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+elif False:
+    IdentityPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IdentityPropertiesArgs:
@@ -1798,6 +2410,28 @@ class IdentityPropertiesArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
+if not MYPY:
+    class ImportPipelineSourcePropertiesArgsDict(TypedDict):
+        """
+        The properties of the import pipeline source.
+        """
+        key_vault_uri: pulumi.Input[str]
+        """
+        They key vault secret uri to obtain the source storage SAS token.
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'PipelineSourceType']]]
+        """
+        The type of source for the import pipeline.
+        """
+        uri: NotRequired[pulumi.Input[str]]
+        """
+        The source uri of the import pipeline.
+        When 'AzureStorageBlob': "https://accountName.blob.core.windows.net/containerName/blobName"
+        When 'AzureStorageBlobContainer': "https://accountName.blob.core.windows.net/containerName"
+        """
+elif False:
+    ImportPipelineSourcePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ImportPipelineSourcePropertiesArgs:
     def __init__(__self__, *,
@@ -1859,6 +2493,19 @@ class ImportPipelineSourcePropertiesArgs:
         pulumi.set(self, "uri", value)
 
 
+if not MYPY:
+    class KeyVaultPropertiesArgsDict(TypedDict):
+        identity: NotRequired[pulumi.Input[str]]
+        """
+        The client id of the identity which will be used to access key vault.
+        """
+        key_identifier: NotRequired[pulumi.Input[str]]
+        """
+        Key vault uri to access the encryption key.
+        """
+elif False:
+    KeyVaultPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class KeyVaultPropertiesArgs:
     def __init__(__self__, *,
@@ -1897,6 +2544,22 @@ class KeyVaultPropertiesArgs:
     def key_identifier(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "key_identifier", value)
 
+
+if not MYPY:
+    class LoggingPropertiesArgsDict(TypedDict):
+        """
+        The logging properties of the connected registry.
+        """
+        audit_log_status: NotRequired[pulumi.Input[Union[str, 'AuditLogStatus']]]
+        """
+        Indicates whether audit logs are enabled on the connected registry.
+        """
+        log_level: NotRequired[pulumi.Input[Union[str, 'LogLevel']]]
+        """
+        The verbosity of logs persisted on the connected registry.
+        """
+elif False:
+    LoggingPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LoggingPropertiesArgs:
@@ -1942,6 +2605,22 @@ class LoggingPropertiesArgs:
         pulumi.set(self, "log_level", value)
 
 
+if not MYPY:
+    class NetworkRuleSetArgsDict(TypedDict):
+        """
+        The network rule set for a container registry.
+        """
+        default_action: pulumi.Input[Union[str, 'DefaultAction']]
+        """
+        The default action of allow or deny when no other rules match.
+        """
+        ip_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['IPRuleArgsDict']]]]
+        """
+        The IP ACL rules.
+        """
+elif False:
+    NetworkRuleSetArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NetworkRuleSetArgs:
     def __init__(__self__, *,
@@ -1982,6 +2661,36 @@ class NetworkRuleSetArgs:
     def ip_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IPRuleArgs']]]]):
         pulumi.set(self, "ip_rules", value)
 
+
+if not MYPY:
+    class OverrideTaskStepPropertiesArgsDict(TypedDict):
+        arguments: NotRequired[pulumi.Input[Sequence[pulumi.Input['ArgumentArgsDict']]]]
+        """
+        Gets or sets the collection of override arguments to be used when
+        executing a build step.
+        """
+        context_path: NotRequired[pulumi.Input[str]]
+        """
+        The source context against which run has to be queued.
+        """
+        file: NotRequired[pulumi.Input[str]]
+        """
+        The file against which run has to be queued.
+        """
+        target: NotRequired[pulumi.Input[str]]
+        """
+        The name of the target build stage for the docker build.
+        """
+        update_trigger_token: NotRequired[pulumi.Input[str]]
+        """
+        Base64 encoded update trigger token that will be attached with the base image trigger webhook.
+        """
+        values: NotRequired[pulumi.Input[Sequence[pulumi.Input['SetValueArgsDict']]]]
+        """
+        The collection of overridable values that can be passed when running a Task.
+        """
+elif False:
+    OverrideTaskStepPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OverrideTaskStepPropertiesArgs:
@@ -2088,6 +2797,22 @@ class OverrideTaskStepPropertiesArgs:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class ParentPropertiesArgsDict(TypedDict):
+        """
+        The properties of the connected registry parent.
+        """
+        sync_properties: pulumi.Input['SyncPropertiesArgsDict']
+        """
+        The sync properties of the connected registry with its parent.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The resource ID of the parent to which the connected registry will be associated.
+        """
+elif False:
+    ParentPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ParentPropertiesArgs:
     def __init__(__self__, *,
@@ -2126,6 +2851,37 @@ class ParentPropertiesArgs:
     def id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class PipelineRunRequestArgsDict(TypedDict):
+        """
+        The request properties provided for a pipeline run.
+        """
+        artifacts: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of source artifacts to be transferred by the pipeline. 
+        Specify an image by repository ('hello-world'). This will use the 'latest' tag.
+        Specify an image by tag ('hello-world:latest').
+        Specify an image by sha256-based manifest digest ('hello-world@sha256:abc123').
+        """
+        catalog_digest: NotRequired[pulumi.Input[str]]
+        """
+        The digest of the tar used to transfer the artifacts.
+        """
+        pipeline_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        The resource ID of the pipeline to run.
+        """
+        source: NotRequired[pulumi.Input['PipelineRunSourcePropertiesArgsDict']]
+        """
+        The source properties of the pipeline run.
+        """
+        target: NotRequired[pulumi.Input['PipelineRunTargetPropertiesArgsDict']]
+        """
+        The target properties of the pipeline run.
+        """
+elif False:
+    PipelineRunRequestArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PipelineRunRequestArgs:
@@ -2221,6 +2977,19 @@ class PipelineRunRequestArgs:
         pulumi.set(self, "target", value)
 
 
+if not MYPY:
+    class PipelineRunSourcePropertiesArgsDict(TypedDict):
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the source.
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'PipelineRunSourceType']]]
+        """
+        The type of the source.
+        """
+elif False:
+    PipelineRunSourcePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PipelineRunSourcePropertiesArgs:
     def __init__(__self__, *,
@@ -2261,6 +3030,19 @@ class PipelineRunSourcePropertiesArgs:
     def type(self, value: Optional[pulumi.Input[Union[str, 'PipelineRunSourceType']]]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class PipelineRunTargetPropertiesArgsDict(TypedDict):
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the target.
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'PipelineRunTargetType']]]
+        """
+        The type of the target.
+        """
+elif False:
+    PipelineRunTargetPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PipelineRunTargetPropertiesArgs:
@@ -2303,6 +3085,15 @@ class PipelineRunTargetPropertiesArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class PipelineSourceTriggerPropertiesArgsDict(TypedDict):
+        status: pulumi.Input[Union[str, 'TriggerStatus']]
+        """
+        The current status of the source trigger.
+        """
+elif False:
+    PipelineSourceTriggerPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PipelineSourceTriggerPropertiesArgs:
     def __init__(__self__, *,
@@ -2327,6 +3118,15 @@ class PipelineSourceTriggerPropertiesArgs:
         pulumi.set(self, "status", value)
 
 
+if not MYPY:
+    class PipelineTriggerPropertiesArgsDict(TypedDict):
+        source_trigger: NotRequired[pulumi.Input['PipelineSourceTriggerPropertiesArgsDict']]
+        """
+        The source trigger properties of the pipeline.
+        """
+elif False:
+    PipelineTriggerPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PipelineTriggerPropertiesArgs:
     def __init__(__self__, *,
@@ -2349,6 +3149,26 @@ class PipelineTriggerPropertiesArgs:
     def source_trigger(self, value: Optional[pulumi.Input['PipelineSourceTriggerPropertiesArgs']]):
         pulumi.set(self, "source_trigger", value)
 
+
+if not MYPY:
+    class PlatformPropertiesArgsDict(TypedDict):
+        """
+        The platform properties against which the run has to happen.
+        """
+        os: pulumi.Input[Union[str, 'OS']]
+        """
+        The operating system type required for the run.
+        """
+        architecture: NotRequired[pulumi.Input[Union[str, 'Architecture']]]
+        """
+        The OS architecture.
+        """
+        variant: NotRequired[pulumi.Input[Union[str, 'Variant']]]
+        """
+        Variant of the CPU.
+        """
+elif False:
+    PlatformPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PlatformPropertiesArgs:
@@ -2404,6 +3224,30 @@ class PlatformPropertiesArgs:
     def variant(self, value: Optional[pulumi.Input[Union[str, 'Variant']]]):
         pulumi.set(self, "variant", value)
 
+
+if not MYPY:
+    class PoliciesArgsDict(TypedDict):
+        """
+        The policies for a container registry.
+        """
+        export_policy: NotRequired[pulumi.Input['ExportPolicyArgsDict']]
+        """
+        The export policy for a container registry.
+        """
+        quarantine_policy: NotRequired[pulumi.Input['QuarantinePolicyArgsDict']]
+        """
+        The quarantine policy for a container registry.
+        """
+        retention_policy: NotRequired[pulumi.Input['RetentionPolicyArgsDict']]
+        """
+        The retention policy for a container registry.
+        """
+        trust_policy: NotRequired[pulumi.Input['TrustPolicyArgsDict']]
+        """
+        The content trust policy for a container registry.
+        """
+elif False:
+    PoliciesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PoliciesArgs:
@@ -2477,6 +3321,18 @@ class PoliciesArgs:
         pulumi.set(self, "trust_policy", value)
 
 
+if not MYPY:
+    class PrivateEndpointArgsDict(TypedDict):
+        """
+        The Private Endpoint resource.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        This is private endpoint resource created with Microsoft.Network resource provider.
+        """
+elif False:
+    PrivateEndpointArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PrivateEndpointArgs:
     def __init__(__self__, *,
@@ -2500,6 +3356,26 @@ class PrivateEndpointArgs:
     def id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
+        """
+        The state of a private link service connection.
+        """
+        actions_required: NotRequired[pulumi.Input[Union[str, 'ActionsRequired']]]
+        """
+        A message indicating if changes on the service provider require any updates on the consumer.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The description for connection status. For example if connection is rejected it can indicate reason for rejection.
+        """
+        status: NotRequired[pulumi.Input[Union[str, 'ConnectionStatus']]]
+        """
+        The private link service connection status.
+        """
+elif False:
+    PrivateLinkServiceConnectionStateArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:
@@ -2557,6 +3433,18 @@ class PrivateLinkServiceConnectionStateArgs:
         pulumi.set(self, "status", value)
 
 
+if not MYPY:
+    class QuarantinePolicyArgsDict(TypedDict):
+        """
+        The quarantine policy for a container registry.
+        """
+        status: NotRequired[pulumi.Input[Union[str, 'PolicyStatus']]]
+        """
+        The value that indicates whether the policy is enabled or not.
+        """
+elif False:
+    QuarantinePolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class QuarantinePolicyArgs:
     def __init__(__self__, *,
@@ -2582,6 +3470,22 @@ class QuarantinePolicyArgs:
     def status(self, value: Optional[pulumi.Input[Union[str, 'PolicyStatus']]]):
         pulumi.set(self, "status", value)
 
+
+if not MYPY:
+    class RetentionPolicyArgsDict(TypedDict):
+        """
+        The retention policy for a container registry.
+        """
+        days: NotRequired[pulumi.Input[int]]
+        """
+        The number of days to retain an untagged manifest after which it gets purged.
+        """
+        status: NotRequired[pulumi.Input[Union[str, 'PolicyStatus']]]
+        """
+        The value that indicates whether the policy is enabled or not.
+        """
+elif False:
+    RetentionPolicyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RetentionPolicyArgs:
@@ -2626,6 +3530,25 @@ class RetentionPolicyArgs:
     def status(self, value: Optional[pulumi.Input[Union[str, 'PolicyStatus']]]):
         pulumi.set(self, "status", value)
 
+
+if not MYPY:
+    class SecretObjectArgsDict(TypedDict):
+        """
+        Describes the properties of a secret object value.
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'SecretObjectType']]]
+        """
+        The type of the secret object which determines how the value of the secret object has to be
+        interpreted.
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        The value of the secret. The format of this value will be determined
+        based on the type of the secret object. If the type is Opaque, the value will be
+        used as is without any modification.
+        """
+elif False:
+    SecretObjectArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SecretObjectArgs:
@@ -2672,6 +3595,26 @@ class SecretObjectArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class SetValueArgsDict(TypedDict):
+        """
+        The properties of a overridable value that can be passed to a task template.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the overridable value.
+        """
+        value: pulumi.Input[str]
+        """
+        The overridable value.
+        """
+        is_secret: NotRequired[pulumi.Input[bool]]
+        """
+        Flag to indicate whether the value represents a secret or not.
+        """
+elif False:
+    SetValueArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SetValueArgs:
@@ -2729,6 +3672,18 @@ class SetValueArgs:
         pulumi.set(self, "is_secret", value)
 
 
+if not MYPY:
+    class SkuArgsDict(TypedDict):
+        """
+        The SKU of a container registry.
+        """
+        name: pulumi.Input[Union[str, 'SkuName']]
+        """
+        The SKU name of the container registry. Required for registry creation.
+        """
+elif False:
+    SkuArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SkuArgs:
     def __init__(__self__, *,
@@ -2751,6 +3706,31 @@ class SkuArgs:
     def name(self, value: pulumi.Input[Union[str, 'SkuName']]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class SourcePropertiesArgsDict(TypedDict):
+        """
+        The properties of the source code repository.
+        """
+        repository_url: pulumi.Input[str]
+        """
+        The full URL to the source code repository
+        """
+        source_control_type: pulumi.Input[Union[str, 'SourceControlType']]
+        """
+        The type of source control service.
+        """
+        branch: NotRequired[pulumi.Input[str]]
+        """
+        The branch name of the source code.
+        """
+        source_control_auth_properties: NotRequired[pulumi.Input['AuthInfoArgsDict']]
+        """
+        The authorization properties for accessing the source code repository and to set up
+        webhooks for notifications.
+        """
+elif False:
+    SourcePropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SourcePropertiesArgs:
@@ -2824,6 +3804,20 @@ class SourcePropertiesArgs:
         pulumi.set(self, "source_control_auth_properties", value)
 
 
+if not MYPY:
+    class SourceRegistryCredentialsArgsDict(TypedDict):
+        """
+        Describes the credential parameters for accessing the source registry.
+        """
+        login_mode: NotRequired[pulumi.Input[Union[str, 'SourceRegistryLoginMode']]]
+        """
+        The authentication mode which determines the source registry login scope. The credentials for the source registry
+        will be generated using the given scope. These credentials will be used to login to
+        the source registry during the run.
+        """
+elif False:
+    SourceRegistryCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SourceRegistryCredentialsArgs:
     def __init__(__self__, *,
@@ -2851,6 +3845,30 @@ class SourceRegistryCredentialsArgs:
     def login_mode(self, value: Optional[pulumi.Input[Union[str, 'SourceRegistryLoginMode']]]):
         pulumi.set(self, "login_mode", value)
 
+
+if not MYPY:
+    class SourceTriggerArgsDict(TypedDict):
+        """
+        The properties of a source based trigger.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the trigger.
+        """
+        source_repository: pulumi.Input['SourcePropertiesArgsDict']
+        """
+        The properties that describes the source(code) for the task.
+        """
+        source_trigger_events: pulumi.Input[Sequence[pulumi.Input[Union[str, 'SourceTriggerEvent']]]]
+        """
+        The source event corresponding to the trigger.
+        """
+        status: NotRequired[pulumi.Input[Union[str, 'TriggerStatus']]]
+        """
+        The current status of trigger.
+        """
+elif False:
+    SourceTriggerArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SourceTriggerArgs:
@@ -2923,6 +3941,30 @@ class SourceTriggerArgs:
         pulumi.set(self, "status", value)
 
 
+if not MYPY:
+    class SyncPropertiesArgsDict(TypedDict):
+        """
+        The sync properties of the connected registry with its parent.
+        """
+        message_ttl: pulumi.Input[str]
+        """
+        The period of time for which a message is available to sync before it is expired. Specify the duration using the format P[n]Y[n]M[n]DT[n]H[n]M[n]S as per ISO8601.
+        """
+        token_id: pulumi.Input[str]
+        """
+        The resource ID of the ACR token used to authenticate the connected registry to its parent during sync.
+        """
+        schedule: NotRequired[pulumi.Input[str]]
+        """
+        The cron expression indicating the schedule that the connected registry will sync with its parent.
+        """
+        sync_window: NotRequired[pulumi.Input[str]]
+        """
+        The time window during which sync is enabled for each schedule occurrence. Specify the duration using the format P[n]Y[n]M[n]DT[n]H[n]M[n]S as per ISO8601.
+        """
+elif False:
+    SyncPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SyncPropertiesArgs:
     def __init__(__self__, *,
@@ -2992,6 +4034,39 @@ class SyncPropertiesArgs:
     def sync_window(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "sync_window", value)
 
+
+if not MYPY:
+    class TaskRunRequestArgsDict(TypedDict):
+        """
+        The parameters for a task run request.
+        """
+        task_id: pulumi.Input[str]
+        """
+        The resource ID of task against which run has to be queued.
+        """
+        type: pulumi.Input[str]
+        """
+        The type of the run request.
+        Expected value is 'TaskRunRequest'.
+        """
+        agent_pool_name: NotRequired[pulumi.Input[str]]
+        """
+        The dedicated agent pool for the run.
+        """
+        is_archive_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        The value that indicates whether archiving is enabled for the run or not.
+        """
+        log_template: NotRequired[pulumi.Input[str]]
+        """
+        The template that describes the repository and tag information for run log artifact.
+        """
+        override_task_step_properties: NotRequired[pulumi.Input['OverrideTaskStepPropertiesArgsDict']]
+        """
+        Set of overridable parameters that can be passed when running a Task.
+        """
+elif False:
+    TaskRunRequestArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TaskRunRequestArgs:
@@ -3099,6 +4174,26 @@ class TaskRunRequestArgs:
         pulumi.set(self, "override_task_step_properties", value)
 
 
+if not MYPY:
+    class TimerTriggerArgsDict(TypedDict):
+        """
+        The properties of a timer trigger.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the trigger.
+        """
+        schedule: pulumi.Input[str]
+        """
+        The CRON expression for the task schedule
+        """
+        status: NotRequired[pulumi.Input[Union[str, 'TriggerStatus']]]
+        """
+        The current status of trigger.
+        """
+elif False:
+    TimerTriggerArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TimerTriggerArgs:
     def __init__(__self__, *,
@@ -3154,6 +4249,27 @@ class TimerTriggerArgs:
     def status(self, value: Optional[pulumi.Input[Union[str, 'TriggerStatus']]]):
         pulumi.set(self, "status", value)
 
+
+if not MYPY:
+    class TokenCertificateArgsDict(TypedDict):
+        """
+        The properties of a certificate used for authenticating a token.
+        """
+        encoded_pem_certificate: NotRequired[pulumi.Input[str]]
+        """
+        Base 64 encoded string of the public certificate1 in PEM format that will be used for authenticating the token.
+        """
+        expiry: NotRequired[pulumi.Input[str]]
+        """
+        The expiry datetime of the certificate.
+        """
+        name: NotRequired[pulumi.Input[Union[str, 'TokenCertificateName']]]
+        thumbprint: NotRequired[pulumi.Input[str]]
+        """
+        The thumbprint of the certificate.
+        """
+elif False:
+    TokenCertificateArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TokenCertificateArgs:
@@ -3223,6 +4339,16 @@ class TokenCertificateArgs:
         pulumi.set(self, "thumbprint", value)
 
 
+if not MYPY:
+    class TokenCredentialsPropertiesArgsDict(TypedDict):
+        """
+        The properties of the credentials that can be used for authenticating the token.
+        """
+        certificates: NotRequired[pulumi.Input[Sequence[pulumi.Input['TokenCertificateArgsDict']]]]
+        passwords: NotRequired[pulumi.Input[Sequence[pulumi.Input['TokenPasswordArgsDict']]]]
+elif False:
+    TokenCredentialsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TokenCredentialsPropertiesArgs:
     def __init__(__self__, *,
@@ -3254,6 +4380,26 @@ class TokenCredentialsPropertiesArgs:
     def passwords(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TokenPasswordArgs']]]]):
         pulumi.set(self, "passwords", value)
 
+
+if not MYPY:
+    class TokenPasswordArgsDict(TypedDict):
+        """
+        The password that will be used for authenticating the token of a container registry.
+        """
+        creation_time: NotRequired[pulumi.Input[str]]
+        """
+        The creation datetime of the password.
+        """
+        expiry: NotRequired[pulumi.Input[str]]
+        """
+        The expiry datetime of the password.
+        """
+        name: NotRequired[pulumi.Input[Union[str, 'TokenPasswordName']]]
+        """
+        The password name "password1" or "password2"
+        """
+elif False:
+    TokenPasswordArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TokenPasswordArgs:
@@ -3311,6 +4457,26 @@ class TokenPasswordArgs:
         pulumi.set(self, "name", value)
 
 
+if not MYPY:
+    class TriggerPropertiesArgsDict(TypedDict):
+        """
+        The properties of a trigger.
+        """
+        base_image_trigger: NotRequired[pulumi.Input['BaseImageTriggerArgsDict']]
+        """
+        The trigger based on base image dependencies.
+        """
+        source_triggers: NotRequired[pulumi.Input[Sequence[pulumi.Input['SourceTriggerArgsDict']]]]
+        """
+        The collection of triggers based on source code repository.
+        """
+        timer_triggers: NotRequired[pulumi.Input[Sequence[pulumi.Input['TimerTriggerArgsDict']]]]
+        """
+        The collection of timer triggers.
+        """
+elif False:
+    TriggerPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TriggerPropertiesArgs:
     def __init__(__self__, *,
@@ -3367,6 +4533,22 @@ class TriggerPropertiesArgs:
         pulumi.set(self, "timer_triggers", value)
 
 
+if not MYPY:
+    class TrustPolicyArgsDict(TypedDict):
+        """
+        The content trust policy for a container registry.
+        """
+        status: NotRequired[pulumi.Input[Union[str, 'PolicyStatus']]]
+        """
+        The value that indicates whether the policy is enabled or not.
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'TrustPolicyType']]]
+        """
+        The type of trust policy.
+        """
+elif False:
+    TrustPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TrustPolicyArgs:
     def __init__(__self__, *,
@@ -3410,6 +4592,19 @@ class TrustPolicyArgs:
     def type(self, value: Optional[pulumi.Input[Union[str, 'TrustPolicyType']]]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class UserIdentityPropertiesArgsDict(TypedDict):
+        client_id: NotRequired[pulumi.Input[str]]
+        """
+        The client id of user assigned identity.
+        """
+        principal_id: NotRequired[pulumi.Input[str]]
+        """
+        The principal id of user assigned identity.
+        """
+elif False:
+    UserIdentityPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserIdentityPropertiesArgs:

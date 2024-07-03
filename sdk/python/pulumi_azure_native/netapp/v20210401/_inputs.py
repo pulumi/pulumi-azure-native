@@ -4,14 +4,42 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 
 __all__ = [
     'VolumeBackupsArgs',
+    'VolumeBackupsArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class VolumeBackupsArgsDict(TypedDict):
+        """
+        Volume details using the backup policy
+        """
+        backups_count: NotRequired[pulumi.Input[int]]
+        """
+        Total count of backups for volume
+        """
+        policy_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Policy enabled
+        """
+        volume_name: NotRequired[pulumi.Input[str]]
+        """
+        Volume name
+        """
+elif False:
+    VolumeBackupsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VolumeBackupsArgs:

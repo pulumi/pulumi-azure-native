@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -206,11 +211,11 @@ class ScopeAccessReviewHistoryDefinitionById(pulumi.CustomResource):
                  display_name: Optional[pulumi.Input[str]] = None,
                  end_date: Optional[pulumi.Input[str]] = None,
                  history_definition_id: Optional[pulumi.Input[str]] = None,
-                 instances: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccessReviewHistoryInstanceArgs']]]]] = None,
+                 instances: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AccessReviewHistoryInstanceArgs', 'AccessReviewHistoryInstanceArgsDict']]]]] = None,
                  interval: Optional[pulumi.Input[int]] = None,
                  number_of_occurrences: Optional[pulumi.Input[int]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
-                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccessReviewScopeArgs']]]]] = None,
+                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AccessReviewScopeArgs', 'AccessReviewScopeArgsDict']]]]] = None,
                  start_date: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[Union[str, 'AccessReviewRecurrenceRangeType']]] = None,
                  __props__=None):
@@ -224,11 +229,11 @@ class ScopeAccessReviewHistoryDefinitionById(pulumi.CustomResource):
         :param pulumi.Input[str] display_name: The display name for the history definition.
         :param pulumi.Input[str] end_date: The DateTime when the review is scheduled to end. Required if type is endDate
         :param pulumi.Input[str] history_definition_id: The id of the access review history definition.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccessReviewHistoryInstanceArgs']]]] instances: Set of access review history instances for this history definition.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AccessReviewHistoryInstanceArgs', 'AccessReviewHistoryInstanceArgsDict']]]] instances: Set of access review history instances for this history definition.
         :param pulumi.Input[int] interval: The interval for recurrence. For a quarterly review, the interval is 3 for type : absoluteMonthly.
         :param pulumi.Input[int] number_of_occurrences: The number of times to repeat the access review. Required and must be positive if type is numbered.
         :param pulumi.Input[str] scope: The scope of the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccessReviewScopeArgs']]]] scopes: A collection of scopes used when selecting review history data
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AccessReviewScopeArgs', 'AccessReviewScopeArgsDict']]]] scopes: A collection of scopes used when selecting review history data
         :param pulumi.Input[str] start_date: The DateTime when the review is scheduled to be start. This could be a date in the future. Required on create.
         :param pulumi.Input[Union[str, 'AccessReviewRecurrenceRangeType']] type: The recurrence range type. The possible values are: endDate, noEnd, numbered.
         """
@@ -261,11 +266,11 @@ class ScopeAccessReviewHistoryDefinitionById(pulumi.CustomResource):
                  display_name: Optional[pulumi.Input[str]] = None,
                  end_date: Optional[pulumi.Input[str]] = None,
                  history_definition_id: Optional[pulumi.Input[str]] = None,
-                 instances: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccessReviewHistoryInstanceArgs']]]]] = None,
+                 instances: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AccessReviewHistoryInstanceArgs', 'AccessReviewHistoryInstanceArgsDict']]]]] = None,
                  interval: Optional[pulumi.Input[int]] = None,
                  number_of_occurrences: Optional[pulumi.Input[int]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
-                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccessReviewScopeArgs']]]]] = None,
+                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AccessReviewScopeArgs', 'AccessReviewScopeArgsDict']]]]] = None,
                  start_date: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[Union[str, 'AccessReviewRecurrenceRangeType']]] = None,
                  __props__=None):

@@ -4,36 +4,86 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'BoolEqualsAdvancedFilterArgs',
+    'BoolEqualsAdvancedFilterArgsDict',
     'EventChannelDestinationArgs',
+    'EventChannelDestinationArgsDict',
     'EventChannelFilterArgs',
+    'EventChannelFilterArgsDict',
     'EventChannelSourceArgs',
+    'EventChannelSourceArgsDict',
     'IsNotNullAdvancedFilterArgs',
+    'IsNotNullAdvancedFilterArgsDict',
     'IsNullOrUndefinedAdvancedFilterArgs',
+    'IsNullOrUndefinedAdvancedFilterArgsDict',
     'NumberGreaterThanAdvancedFilterArgs',
+    'NumberGreaterThanAdvancedFilterArgsDict',
     'NumberGreaterThanOrEqualsAdvancedFilterArgs',
+    'NumberGreaterThanOrEqualsAdvancedFilterArgsDict',
     'NumberInAdvancedFilterArgs',
+    'NumberInAdvancedFilterArgsDict',
     'NumberInRangeAdvancedFilterArgs',
+    'NumberInRangeAdvancedFilterArgsDict',
     'NumberLessThanAdvancedFilterArgs',
+    'NumberLessThanAdvancedFilterArgsDict',
     'NumberLessThanOrEqualsAdvancedFilterArgs',
+    'NumberLessThanOrEqualsAdvancedFilterArgsDict',
     'NumberNotInAdvancedFilterArgs',
+    'NumberNotInAdvancedFilterArgsDict',
     'NumberNotInRangeAdvancedFilterArgs',
+    'NumberNotInRangeAdvancedFilterArgsDict',
     'StringBeginsWithAdvancedFilterArgs',
+    'StringBeginsWithAdvancedFilterArgsDict',
     'StringContainsAdvancedFilterArgs',
+    'StringContainsAdvancedFilterArgsDict',
     'StringEndsWithAdvancedFilterArgs',
+    'StringEndsWithAdvancedFilterArgsDict',
     'StringInAdvancedFilterArgs',
+    'StringInAdvancedFilterArgsDict',
     'StringNotBeginsWithAdvancedFilterArgs',
+    'StringNotBeginsWithAdvancedFilterArgsDict',
     'StringNotContainsAdvancedFilterArgs',
+    'StringNotContainsAdvancedFilterArgsDict',
     'StringNotEndsWithAdvancedFilterArgs',
+    'StringNotEndsWithAdvancedFilterArgsDict',
     'StringNotInAdvancedFilterArgs',
+    'StringNotInAdvancedFilterArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class BoolEqualsAdvancedFilterArgsDict(TypedDict):
+        """
+        BoolEquals Advanced Filter.
+        """
+        operator_type: pulumi.Input[str]
+        """
+        The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        Expected value is 'BoolEquals'.
+        """
+        key: NotRequired[pulumi.Input[str]]
+        """
+        The field/property in the event based on which you want to filter.
+        """
+        value: NotRequired[pulumi.Input[bool]]
+        """
+        The boolean filter value.
+        """
+elif False:
+    BoolEqualsAdvancedFilterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class BoolEqualsAdvancedFilterArgs:
@@ -91,6 +141,28 @@ class BoolEqualsAdvancedFilterArgs:
     def value(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class EventChannelDestinationArgsDict(TypedDict):
+        """
+        Properties of the destination of an event channel.
+        """
+        azure_subscription_id: NotRequired[pulumi.Input[str]]
+        """
+        Azure subscription ID of the customer creating the event channel. The partner topic
+        associated with the event channel will be created under this Azure subscription.
+        """
+        partner_topic_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the partner topic associated with the event channel.
+        """
+        resource_group: NotRequired[pulumi.Input[str]]
+        """
+        Azure Resource Group of the customer creating the event channel. The partner topic
+        associated with the event channel will be created under this resource group.
+        """
+elif False:
+    EventChannelDestinationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EventChannelDestinationArgs:
@@ -152,6 +224,22 @@ class EventChannelDestinationArgs:
         pulumi.set(self, "resource_group", value)
 
 
+if not MYPY:
+    class EventChannelFilterArgsDict(TypedDict):
+        """
+        Filter for the Event Channel.
+        """
+        advanced_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union['BoolEqualsAdvancedFilterArgsDict', 'IsNotNullAdvancedFilterArgsDict', 'IsNullOrUndefinedAdvancedFilterArgsDict', 'NumberGreaterThanAdvancedFilterArgsDict', 'NumberGreaterThanOrEqualsAdvancedFilterArgsDict', 'NumberInAdvancedFilterArgsDict', 'NumberInRangeAdvancedFilterArgsDict', 'NumberLessThanAdvancedFilterArgsDict', 'NumberLessThanOrEqualsAdvancedFilterArgsDict', 'NumberNotInAdvancedFilterArgsDict', 'NumberNotInRangeAdvancedFilterArgsDict', 'StringBeginsWithAdvancedFilterArgsDict', 'StringContainsAdvancedFilterArgsDict', 'StringEndsWithAdvancedFilterArgsDict', 'StringInAdvancedFilterArgsDict', 'StringNotBeginsWithAdvancedFilterArgsDict', 'StringNotContainsAdvancedFilterArgsDict', 'StringNotEndsWithAdvancedFilterArgsDict', 'StringNotInAdvancedFilterArgsDict']]]]]
+        """
+        An array of advanced filters that are used for filtering event channels.
+        """
+        enable_advanced_filtering_on_arrays: NotRequired[pulumi.Input[bool]]
+        """
+        Allows advanced filters to be evaluated against an array of values instead of expecting a singular value. The default value is either false or null.
+        """
+elif False:
+    EventChannelFilterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EventChannelFilterArgs:
     def __init__(__self__, *,
@@ -194,6 +282,19 @@ class EventChannelFilterArgs:
         pulumi.set(self, "enable_advanced_filtering_on_arrays", value)
 
 
+if not MYPY:
+    class EventChannelSourceArgsDict(TypedDict):
+        """
+        Properties of the source of an event channel.
+        """
+        source: NotRequired[pulumi.Input[str]]
+        """
+        The identifier of the resource that's the source of the events.
+        This represents a unique resource in the partner's resource model.
+        """
+elif False:
+    EventChannelSourceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EventChannelSourceArgs:
     def __init__(__self__, *,
@@ -219,6 +320,23 @@ class EventChannelSourceArgs:
     def source(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "source", value)
 
+
+if not MYPY:
+    class IsNotNullAdvancedFilterArgsDict(TypedDict):
+        """
+        IsNotNull Advanced Filter.
+        """
+        operator_type: pulumi.Input[str]
+        """
+        The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        Expected value is 'IsNotNull'.
+        """
+        key: NotRequired[pulumi.Input[str]]
+        """
+        The field/property in the event based on which you want to filter.
+        """
+elif False:
+    IsNotNullAdvancedFilterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IsNotNullAdvancedFilterArgs:
@@ -261,6 +379,23 @@ class IsNotNullAdvancedFilterArgs:
         pulumi.set(self, "key", value)
 
 
+if not MYPY:
+    class IsNullOrUndefinedAdvancedFilterArgsDict(TypedDict):
+        """
+        IsNullOrUndefined Advanced Filter.
+        """
+        operator_type: pulumi.Input[str]
+        """
+        The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        Expected value is 'IsNullOrUndefined'.
+        """
+        key: NotRequired[pulumi.Input[str]]
+        """
+        The field/property in the event based on which you want to filter.
+        """
+elif False:
+    IsNullOrUndefinedAdvancedFilterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IsNullOrUndefinedAdvancedFilterArgs:
     def __init__(__self__, *,
@@ -301,6 +436,27 @@ class IsNullOrUndefinedAdvancedFilterArgs:
     def key(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "key", value)
 
+
+if not MYPY:
+    class NumberGreaterThanAdvancedFilterArgsDict(TypedDict):
+        """
+        NumberGreaterThan Advanced Filter.
+        """
+        operator_type: pulumi.Input[str]
+        """
+        The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        Expected value is 'NumberGreaterThan'.
+        """
+        key: NotRequired[pulumi.Input[str]]
+        """
+        The field/property in the event based on which you want to filter.
+        """
+        value: NotRequired[pulumi.Input[float]]
+        """
+        The filter value.
+        """
+elif False:
+    NumberGreaterThanAdvancedFilterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NumberGreaterThanAdvancedFilterArgs:
@@ -359,6 +515,27 @@ class NumberGreaterThanAdvancedFilterArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class NumberGreaterThanOrEqualsAdvancedFilterArgsDict(TypedDict):
+        """
+        NumberGreaterThanOrEquals Advanced Filter.
+        """
+        operator_type: pulumi.Input[str]
+        """
+        The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        Expected value is 'NumberGreaterThanOrEquals'.
+        """
+        key: NotRequired[pulumi.Input[str]]
+        """
+        The field/property in the event based on which you want to filter.
+        """
+        value: NotRequired[pulumi.Input[float]]
+        """
+        The filter value.
+        """
+elif False:
+    NumberGreaterThanOrEqualsAdvancedFilterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NumberGreaterThanOrEqualsAdvancedFilterArgs:
     def __init__(__self__, *,
@@ -415,6 +592,27 @@ class NumberGreaterThanOrEqualsAdvancedFilterArgs:
     def value(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class NumberInAdvancedFilterArgsDict(TypedDict):
+        """
+        NumberIn Advanced Filter.
+        """
+        operator_type: pulumi.Input[str]
+        """
+        The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        Expected value is 'NumberIn'.
+        """
+        key: NotRequired[pulumi.Input[str]]
+        """
+        The field/property in the event based on which you want to filter.
+        """
+        values: NotRequired[pulumi.Input[Sequence[pulumi.Input[float]]]]
+        """
+        The set of filter values.
+        """
+elif False:
+    NumberInAdvancedFilterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NumberInAdvancedFilterArgs:
@@ -473,6 +671,27 @@ class NumberInAdvancedFilterArgs:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class NumberInRangeAdvancedFilterArgsDict(TypedDict):
+        """
+        NumberInRange Advanced Filter.
+        """
+        operator_type: pulumi.Input[str]
+        """
+        The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        Expected value is 'NumberInRange'.
+        """
+        key: NotRequired[pulumi.Input[str]]
+        """
+        The field/property in the event based on which you want to filter.
+        """
+        values: NotRequired[pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[float]]]]]]
+        """
+        The set of filter values.
+        """
+elif False:
+    NumberInRangeAdvancedFilterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NumberInRangeAdvancedFilterArgs:
     def __init__(__self__, *,
@@ -529,6 +748,27 @@ class NumberInRangeAdvancedFilterArgs:
     def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[float]]]]]]):
         pulumi.set(self, "values", value)
 
+
+if not MYPY:
+    class NumberLessThanAdvancedFilterArgsDict(TypedDict):
+        """
+        NumberLessThan Advanced Filter.
+        """
+        operator_type: pulumi.Input[str]
+        """
+        The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        Expected value is 'NumberLessThan'.
+        """
+        key: NotRequired[pulumi.Input[str]]
+        """
+        The field/property in the event based on which you want to filter.
+        """
+        value: NotRequired[pulumi.Input[float]]
+        """
+        The filter value.
+        """
+elif False:
+    NumberLessThanAdvancedFilterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NumberLessThanAdvancedFilterArgs:
@@ -587,6 +827,27 @@ class NumberLessThanAdvancedFilterArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class NumberLessThanOrEqualsAdvancedFilterArgsDict(TypedDict):
+        """
+        NumberLessThanOrEquals Advanced Filter.
+        """
+        operator_type: pulumi.Input[str]
+        """
+        The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        Expected value is 'NumberLessThanOrEquals'.
+        """
+        key: NotRequired[pulumi.Input[str]]
+        """
+        The field/property in the event based on which you want to filter.
+        """
+        value: NotRequired[pulumi.Input[float]]
+        """
+        The filter value.
+        """
+elif False:
+    NumberLessThanOrEqualsAdvancedFilterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NumberLessThanOrEqualsAdvancedFilterArgs:
     def __init__(__self__, *,
@@ -643,6 +904,27 @@ class NumberLessThanOrEqualsAdvancedFilterArgs:
     def value(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class NumberNotInAdvancedFilterArgsDict(TypedDict):
+        """
+        NumberNotIn Advanced Filter.
+        """
+        operator_type: pulumi.Input[str]
+        """
+        The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        Expected value is 'NumberNotIn'.
+        """
+        key: NotRequired[pulumi.Input[str]]
+        """
+        The field/property in the event based on which you want to filter.
+        """
+        values: NotRequired[pulumi.Input[Sequence[pulumi.Input[float]]]]
+        """
+        The set of filter values.
+        """
+elif False:
+    NumberNotInAdvancedFilterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NumberNotInAdvancedFilterArgs:
@@ -701,6 +983,27 @@ class NumberNotInAdvancedFilterArgs:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class NumberNotInRangeAdvancedFilterArgsDict(TypedDict):
+        """
+        NumberNotInRange Advanced Filter.
+        """
+        operator_type: pulumi.Input[str]
+        """
+        The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        Expected value is 'NumberNotInRange'.
+        """
+        key: NotRequired[pulumi.Input[str]]
+        """
+        The field/property in the event based on which you want to filter.
+        """
+        values: NotRequired[pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[float]]]]]]
+        """
+        The set of filter values.
+        """
+elif False:
+    NumberNotInRangeAdvancedFilterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NumberNotInRangeAdvancedFilterArgs:
     def __init__(__self__, *,
@@ -757,6 +1060,27 @@ class NumberNotInRangeAdvancedFilterArgs:
     def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[float]]]]]]):
         pulumi.set(self, "values", value)
 
+
+if not MYPY:
+    class StringBeginsWithAdvancedFilterArgsDict(TypedDict):
+        """
+        StringBeginsWith Advanced Filter.
+        """
+        operator_type: pulumi.Input[str]
+        """
+        The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        Expected value is 'StringBeginsWith'.
+        """
+        key: NotRequired[pulumi.Input[str]]
+        """
+        The field/property in the event based on which you want to filter.
+        """
+        values: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The set of filter values.
+        """
+elif False:
+    StringBeginsWithAdvancedFilterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class StringBeginsWithAdvancedFilterArgs:
@@ -815,6 +1139,27 @@ class StringBeginsWithAdvancedFilterArgs:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class StringContainsAdvancedFilterArgsDict(TypedDict):
+        """
+        StringContains Advanced Filter.
+        """
+        operator_type: pulumi.Input[str]
+        """
+        The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        Expected value is 'StringContains'.
+        """
+        key: NotRequired[pulumi.Input[str]]
+        """
+        The field/property in the event based on which you want to filter.
+        """
+        values: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The set of filter values.
+        """
+elif False:
+    StringContainsAdvancedFilterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class StringContainsAdvancedFilterArgs:
     def __init__(__self__, *,
@@ -871,6 +1216,27 @@ class StringContainsAdvancedFilterArgs:
     def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "values", value)
 
+
+if not MYPY:
+    class StringEndsWithAdvancedFilterArgsDict(TypedDict):
+        """
+        StringEndsWith Advanced Filter.
+        """
+        operator_type: pulumi.Input[str]
+        """
+        The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        Expected value is 'StringEndsWith'.
+        """
+        key: NotRequired[pulumi.Input[str]]
+        """
+        The field/property in the event based on which you want to filter.
+        """
+        values: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The set of filter values.
+        """
+elif False:
+    StringEndsWithAdvancedFilterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class StringEndsWithAdvancedFilterArgs:
@@ -929,6 +1295,27 @@ class StringEndsWithAdvancedFilterArgs:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class StringInAdvancedFilterArgsDict(TypedDict):
+        """
+        StringIn Advanced Filter.
+        """
+        operator_type: pulumi.Input[str]
+        """
+        The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        Expected value is 'StringIn'.
+        """
+        key: NotRequired[pulumi.Input[str]]
+        """
+        The field/property in the event based on which you want to filter.
+        """
+        values: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The set of filter values.
+        """
+elif False:
+    StringInAdvancedFilterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class StringInAdvancedFilterArgs:
     def __init__(__self__, *,
@@ -985,6 +1372,27 @@ class StringInAdvancedFilterArgs:
     def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "values", value)
 
+
+if not MYPY:
+    class StringNotBeginsWithAdvancedFilterArgsDict(TypedDict):
+        """
+        StringNotBeginsWith Advanced Filter.
+        """
+        operator_type: pulumi.Input[str]
+        """
+        The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        Expected value is 'StringNotBeginsWith'.
+        """
+        key: NotRequired[pulumi.Input[str]]
+        """
+        The field/property in the event based on which you want to filter.
+        """
+        values: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The set of filter values.
+        """
+elif False:
+    StringNotBeginsWithAdvancedFilterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class StringNotBeginsWithAdvancedFilterArgs:
@@ -1043,6 +1451,27 @@ class StringNotBeginsWithAdvancedFilterArgs:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class StringNotContainsAdvancedFilterArgsDict(TypedDict):
+        """
+        StringNotContains Advanced Filter.
+        """
+        operator_type: pulumi.Input[str]
+        """
+        The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        Expected value is 'StringNotContains'.
+        """
+        key: NotRequired[pulumi.Input[str]]
+        """
+        The field/property in the event based on which you want to filter.
+        """
+        values: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The set of filter values.
+        """
+elif False:
+    StringNotContainsAdvancedFilterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class StringNotContainsAdvancedFilterArgs:
     def __init__(__self__, *,
@@ -1100,6 +1529,27 @@ class StringNotContainsAdvancedFilterArgs:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class StringNotEndsWithAdvancedFilterArgsDict(TypedDict):
+        """
+        StringNotEndsWith Advanced Filter.
+        """
+        operator_type: pulumi.Input[str]
+        """
+        The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        Expected value is 'StringNotEndsWith'.
+        """
+        key: NotRequired[pulumi.Input[str]]
+        """
+        The field/property in the event based on which you want to filter.
+        """
+        values: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The set of filter values.
+        """
+elif False:
+    StringNotEndsWithAdvancedFilterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class StringNotEndsWithAdvancedFilterArgs:
     def __init__(__self__, *,
@@ -1156,6 +1606,27 @@ class StringNotEndsWithAdvancedFilterArgs:
     def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "values", value)
 
+
+if not MYPY:
+    class StringNotInAdvancedFilterArgsDict(TypedDict):
+        """
+        StringNotIn Advanced Filter.
+        """
+        operator_type: pulumi.Input[str]
+        """
+        The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        Expected value is 'StringNotIn'.
+        """
+        key: NotRequired[pulumi.Input[str]]
+        """
+        The field/property in the event based on which you want to filter.
+        """
+        values: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The set of filter values.
+        """
+elif False:
+    StringNotInAdvancedFilterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class StringNotInAdvancedFilterArgs:

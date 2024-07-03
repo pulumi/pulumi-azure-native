@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -253,18 +258,18 @@ class CloudHsmCluster(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_generated_domain_name_label_scope: Optional[pulumi.Input[str]] = None,
-                 backup_properties: Optional[pulumi.Input[pulumi.InputType['BackupPropertiesArgs']]] = None,
+                 backup_properties: Optional[pulumi.Input[Union['BackupPropertiesArgs', 'BackupPropertiesArgsDict']]] = None,
                  cloud_hsm_cluster_name: Optional[pulumi.Input[str]] = None,
-                 hsms: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CloudHsmPropertiesArgs']]]]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
+                 hsms: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CloudHsmPropertiesArgs', 'CloudHsmPropertiesArgsDict']]]]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 private_endpoint_connections: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrivateEndpointConnectionArgs']]]]] = None,
+                 private_endpoint_connections: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PrivateEndpointConnectionArgs', 'PrivateEndpointConnectionArgsDict']]]]] = None,
                  provisioning_state: Optional[pulumi.Input[Union[str, 'ProvisioningState']]] = None,
                  public_network_access: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 restore_properties: Optional[pulumi.Input[pulumi.InputType['RestorePropertiesArgs']]] = None,
-                 security_domain: Optional[pulumi.Input[pulumi.InputType['CloudHsmClusterSecurityDomainPropertiesArgs']]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['CloudHsmClusterSkuArgs']]] = None,
+                 restore_properties: Optional[pulumi.Input[Union['RestorePropertiesArgs', 'RestorePropertiesArgsDict']]] = None,
+                 security_domain: Optional[pulumi.Input[Union['CloudHsmClusterSecurityDomainPropertiesArgs', 'CloudHsmClusterSecurityDomainPropertiesArgsDict']]] = None,
+                 sku: Optional[pulumi.Input[Union['CloudHsmClusterSkuArgs', 'CloudHsmClusterSkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -273,19 +278,19 @@ class CloudHsmCluster(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] auto_generated_domain_name_label_scope: The Cloud HSM Cluster's auto-generated Domain Name Label Scope
-        :param pulumi.Input[pulumi.InputType['BackupPropertiesArgs']] backup_properties: Cloud Hsm Cluster backup information
+        :param pulumi.Input[Union['BackupPropertiesArgs', 'BackupPropertiesArgsDict']] backup_properties: Cloud Hsm Cluster backup information
         :param pulumi.Input[str] cloud_hsm_cluster_name: The name of the Cloud HSM Cluster within the specified resource group. Cloud HSM Cluster names must be between 3 and 24 characters in length.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CloudHsmPropertiesArgs']]]] hsms: An array of Cloud HSM Cluster's HSMs
-        :param pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']] identity: Managed service identity (system assigned and/or user assigned identities)
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CloudHsmPropertiesArgs', 'CloudHsmPropertiesArgsDict']]]] hsms: An array of Cloud HSM Cluster's HSMs
+        :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: Managed service identity (system assigned and/or user assigned identities)
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrivateEndpointConnectionArgs']]]] private_endpoint_connections: List of private endpoint connection resources
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PrivateEndpointConnectionArgs', 'PrivateEndpointConnectionArgsDict']]]] private_endpoint_connections: List of private endpoint connection resources
                These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
         :param pulumi.Input[Union[str, 'ProvisioningState']] provisioning_state: The Cloud HSM Cluster's provisioningState
         :param pulumi.Input[str] public_network_access: The Cloud HSM Cluster public network access
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[pulumi.InputType['RestorePropertiesArgs']] restore_properties: Cloud Hsm Cluster restore information
-        :param pulumi.Input[pulumi.InputType['CloudHsmClusterSecurityDomainPropertiesArgs']] security_domain: Security domain properties information for Cloud HSM cluster
-        :param pulumi.Input[pulumi.InputType['CloudHsmClusterSkuArgs']] sku: SKU details
+        :param pulumi.Input[Union['RestorePropertiesArgs', 'RestorePropertiesArgsDict']] restore_properties: Cloud Hsm Cluster restore information
+        :param pulumi.Input[Union['CloudHsmClusterSecurityDomainPropertiesArgs', 'CloudHsmClusterSecurityDomainPropertiesArgsDict']] security_domain: Security domain properties information for Cloud HSM cluster
+        :param pulumi.Input[Union['CloudHsmClusterSkuArgs', 'CloudHsmClusterSkuArgsDict']] sku: SKU details
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         ...
@@ -313,18 +318,18 @@ class CloudHsmCluster(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_generated_domain_name_label_scope: Optional[pulumi.Input[str]] = None,
-                 backup_properties: Optional[pulumi.Input[pulumi.InputType['BackupPropertiesArgs']]] = None,
+                 backup_properties: Optional[pulumi.Input[Union['BackupPropertiesArgs', 'BackupPropertiesArgsDict']]] = None,
                  cloud_hsm_cluster_name: Optional[pulumi.Input[str]] = None,
-                 hsms: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CloudHsmPropertiesArgs']]]]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
+                 hsms: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CloudHsmPropertiesArgs', 'CloudHsmPropertiesArgsDict']]]]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 private_endpoint_connections: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrivateEndpointConnectionArgs']]]]] = None,
+                 private_endpoint_connections: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PrivateEndpointConnectionArgs', 'PrivateEndpointConnectionArgsDict']]]]] = None,
                  provisioning_state: Optional[pulumi.Input[Union[str, 'ProvisioningState']]] = None,
                  public_network_access: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 restore_properties: Optional[pulumi.Input[pulumi.InputType['RestorePropertiesArgs']]] = None,
-                 security_domain: Optional[pulumi.Input[pulumi.InputType['CloudHsmClusterSecurityDomainPropertiesArgs']]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['CloudHsmClusterSkuArgs']]] = None,
+                 restore_properties: Optional[pulumi.Input[Union['RestorePropertiesArgs', 'RestorePropertiesArgsDict']]] = None,
+                 security_domain: Optional[pulumi.Input[Union['CloudHsmClusterSecurityDomainPropertiesArgs', 'CloudHsmClusterSecurityDomainPropertiesArgsDict']]] = None,
+                 sku: Optional[pulumi.Input[Union['CloudHsmClusterSkuArgs', 'CloudHsmClusterSkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

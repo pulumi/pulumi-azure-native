@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -173,7 +178,7 @@ class VendorSkus(pulumi.CustomResource):
                  deployment_mode: Optional[pulumi.Input[Union[str, 'SkuDeploymentMode']]] = None,
                  managed_application_parameters: Optional[Any] = None,
                  managed_application_template: Optional[Any] = None,
-                 network_function_template: Optional[pulumi.Input[pulumi.InputType['NetworkFunctionTemplateArgs']]] = None,
+                 network_function_template: Optional[pulumi.Input[Union['NetworkFunctionTemplateArgs', 'NetworkFunctionTemplateArgsDict']]] = None,
                  network_function_type: Optional[pulumi.Input[Union[str, 'NetworkFunctionType']]] = None,
                  preview: Optional[pulumi.Input[bool]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
@@ -189,7 +194,7 @@ class VendorSkus(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'SkuDeploymentMode']] deployment_mode: The sku deployment mode.
         :param Any managed_application_parameters: The parameters for the managed application to be supplied by the vendor.
         :param Any managed_application_template: The template for the managed application deployment.
-        :param pulumi.Input[pulumi.InputType['NetworkFunctionTemplateArgs']] network_function_template: The template definition of the network function.
+        :param pulumi.Input[Union['NetworkFunctionTemplateArgs', 'NetworkFunctionTemplateArgsDict']] network_function_template: The template definition of the network function.
         :param pulumi.Input[Union[str, 'NetworkFunctionType']] network_function_type: The network function type.
         :param pulumi.Input[bool] preview: Indicates if the vendor sku is in preview mode.
         :param pulumi.Input[str] sku_name: The name of the sku.
@@ -224,7 +229,7 @@ class VendorSkus(pulumi.CustomResource):
                  deployment_mode: Optional[pulumi.Input[Union[str, 'SkuDeploymentMode']]] = None,
                  managed_application_parameters: Optional[Any] = None,
                  managed_application_template: Optional[Any] = None,
-                 network_function_template: Optional[pulumi.Input[pulumi.InputType['NetworkFunctionTemplateArgs']]] = None,
+                 network_function_template: Optional[pulumi.Input[Union['NetworkFunctionTemplateArgs', 'NetworkFunctionTemplateArgsDict']]] = None,
                  network_function_type: Optional[pulumi.Input[Union[str, 'NetworkFunctionType']]] = None,
                  preview: Optional[pulumi.Input[bool]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -170,11 +175,11 @@ class DevBoxDefinition(pulumi.CustomResource):
                  dev_box_definition_name: Optional[pulumi.Input[str]] = None,
                  dev_center_name: Optional[pulumi.Input[str]] = None,
                  hibernate_support: Optional[pulumi.Input[Union[str, 'HibernateSupport']]] = None,
-                 image_reference: Optional[pulumi.Input[pulumi.InputType['ImageReferenceArgs']]] = None,
+                 image_reference: Optional[pulumi.Input[Union['ImageReferenceArgs', 'ImageReferenceArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  os_storage_type: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -185,11 +190,11 @@ class DevBoxDefinition(pulumi.CustomResource):
         :param pulumi.Input[str] dev_box_definition_name: The name of the Dev Box definition.
         :param pulumi.Input[str] dev_center_name: The name of the devcenter.
         :param pulumi.Input[Union[str, 'HibernateSupport']] hibernate_support: Indicates whether Dev Boxes created with this definition are capable of hibernation. Not all images are capable of supporting hibernation. To find out more see https://aka.ms/devbox/hibernate
-        :param pulumi.Input[pulumi.InputType['ImageReferenceArgs']] image_reference: Image reference information.
+        :param pulumi.Input[Union['ImageReferenceArgs', 'ImageReferenceArgsDict']] image_reference: Image reference information.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] os_storage_type: The storage type used for the Operating System disk of Dev Boxes created using this definition.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The SKU for Dev Boxes created using this definition.
+        :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: The SKU for Dev Boxes created using this definition.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         ...
@@ -219,11 +224,11 @@ class DevBoxDefinition(pulumi.CustomResource):
                  dev_box_definition_name: Optional[pulumi.Input[str]] = None,
                  dev_center_name: Optional[pulumi.Input[str]] = None,
                  hibernate_support: Optional[pulumi.Input[Union[str, 'HibernateSupport']]] = None,
-                 image_reference: Optional[pulumi.Input[pulumi.InputType['ImageReferenceArgs']]] = None,
+                 image_reference: Optional[pulumi.Input[Union['ImageReferenceArgs', 'ImageReferenceArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  os_storage_type: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -140,12 +145,12 @@ class NamespaceNetworkRuleSet(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  default_action: Optional[pulumi.Input[Union[str, 'DefaultAction']]] = None,
-                 ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NWRuleSetIpRulesArgs']]]]] = None,
+                 ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NWRuleSetIpRulesArgs', 'NWRuleSetIpRulesArgsDict']]]]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
                  public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccessFlag']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  trusted_service_access_enabled: Optional[pulumi.Input[bool]] = None,
-                 virtual_network_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NWRuleSetVirtualNetworkRulesArgs']]]]] = None,
+                 virtual_network_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NWRuleSetVirtualNetworkRulesArgs', 'NWRuleSetVirtualNetworkRulesArgsDict']]]]] = None,
                  __props__=None):
         """
         Description of topic resource.
@@ -156,12 +161,12 @@ class NamespaceNetworkRuleSet(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[str, 'DefaultAction']] default_action: Default Action for Network Rule Set
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NWRuleSetIpRulesArgs']]]] ip_rules: List of IpRules
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NWRuleSetIpRulesArgs', 'NWRuleSetIpRulesArgsDict']]]] ip_rules: List of IpRules
         :param pulumi.Input[str] namespace_name: The Namespace name
         :param pulumi.Input[Union[str, 'PublicNetworkAccessFlag']] public_network_access: This determines if traffic is allowed over public network. By default it is enabled. If value is SecuredByPerimeter then Inbound and Outbound communication is controlled by the network security perimeter and profile's access rules. 
         :param pulumi.Input[str] resource_group_name: Name of the resource group within the azure subscription.
         :param pulumi.Input[bool] trusted_service_access_enabled: Value that indicates whether Trusted Service Access is Enabled or not.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NWRuleSetVirtualNetworkRulesArgs']]]] virtual_network_rules: List VirtualNetwork Rules
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NWRuleSetVirtualNetworkRulesArgs', 'NWRuleSetVirtualNetworkRulesArgsDict']]]] virtual_network_rules: List VirtualNetwork Rules
         """
         ...
     @overload
@@ -191,12 +196,12 @@ class NamespaceNetworkRuleSet(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  default_action: Optional[pulumi.Input[Union[str, 'DefaultAction']]] = None,
-                 ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NWRuleSetIpRulesArgs']]]]] = None,
+                 ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NWRuleSetIpRulesArgs', 'NWRuleSetIpRulesArgsDict']]]]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
                  public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccessFlag']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  trusted_service_access_enabled: Optional[pulumi.Input[bool]] = None,
-                 virtual_network_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NWRuleSetVirtualNetworkRulesArgs']]]]] = None,
+                 virtual_network_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NWRuleSetVirtualNetworkRulesArgs', 'NWRuleSetVirtualNetworkRulesArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

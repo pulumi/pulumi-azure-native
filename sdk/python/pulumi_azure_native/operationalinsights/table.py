@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -171,10 +176,10 @@ class Table(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  plan: Optional[pulumi.Input[Union[str, 'TablePlanEnum']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 restored_logs: Optional[pulumi.Input[pulumi.InputType['RestoredLogsArgs']]] = None,
+                 restored_logs: Optional[pulumi.Input[Union['RestoredLogsArgs', 'RestoredLogsArgsDict']]] = None,
                  retention_in_days: Optional[pulumi.Input[int]] = None,
-                 schema: Optional[pulumi.Input[pulumi.InputType['SchemaArgs']]] = None,
-                 search_results: Optional[pulumi.Input[pulumi.InputType['SearchResultsArgs']]] = None,
+                 schema: Optional[pulumi.Input[Union['SchemaArgs', 'SchemaArgsDict']]] = None,
+                 search_results: Optional[pulumi.Input[Union['SearchResultsArgs', 'SearchResultsArgsDict']]] = None,
                  table_name: Optional[pulumi.Input[str]] = None,
                  total_retention_in_days: Optional[pulumi.Input[int]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
@@ -187,10 +192,10 @@ class Table(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[str, 'TablePlanEnum']] plan: Instruct the system how to handle and charge the logs ingested to this table.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[pulumi.InputType['RestoredLogsArgs']] restored_logs: Parameters of the restore operation that initiated this table.
+        :param pulumi.Input[Union['RestoredLogsArgs', 'RestoredLogsArgsDict']] restored_logs: Parameters of the restore operation that initiated this table.
         :param pulumi.Input[int] retention_in_days: The table retention in days, between 4 and 730. Setting this property to -1 will default to the workspace retention.
-        :param pulumi.Input[pulumi.InputType['SchemaArgs']] schema: Table schema.
-        :param pulumi.Input[pulumi.InputType['SearchResultsArgs']] search_results: Parameters of the search job that initiated this table.
+        :param pulumi.Input[Union['SchemaArgs', 'SchemaArgsDict']] schema: Table schema.
+        :param pulumi.Input[Union['SearchResultsArgs', 'SearchResultsArgsDict']] search_results: Parameters of the search job that initiated this table.
         :param pulumi.Input[str] table_name: The name of the table.
         :param pulumi.Input[int] total_retention_in_days: The table total retention in days, between 4 and 4383. Setting this property to -1 will default to table retention.
         :param pulumi.Input[str] workspace_name: The name of the workspace.
@@ -222,10 +227,10 @@ class Table(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  plan: Optional[pulumi.Input[Union[str, 'TablePlanEnum']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 restored_logs: Optional[pulumi.Input[pulumi.InputType['RestoredLogsArgs']]] = None,
+                 restored_logs: Optional[pulumi.Input[Union['RestoredLogsArgs', 'RestoredLogsArgsDict']]] = None,
                  retention_in_days: Optional[pulumi.Input[int]] = None,
-                 schema: Optional[pulumi.Input[pulumi.InputType['SchemaArgs']]] = None,
-                 search_results: Optional[pulumi.Input[pulumi.InputType['SearchResultsArgs']]] = None,
+                 schema: Optional[pulumi.Input[Union['SchemaArgs', 'SchemaArgsDict']]] = None,
+                 search_results: Optional[pulumi.Input[Union['SearchResultsArgs', 'SearchResultsArgsDict']]] = None,
                  table_name: Optional[pulumi.Input[str]] = None,
                  total_retention_in_days: Optional[pulumi.Input[int]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,

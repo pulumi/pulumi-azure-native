@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -107,7 +112,7 @@ class IscsiTarget(pulumi.CustomResource):
                  iscsi_target_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  target_iqn: Optional[pulumi.Input[str]] = None,
-                 tpgs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TargetPortalGroupCreateArgs']]]]] = None,
+                 tpgs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TargetPortalGroupCreateArgs', 'TargetPortalGroupCreateArgsDict']]]]] = None,
                  __props__=None):
         """
         Response for iSCSI target requests.
@@ -118,7 +123,7 @@ class IscsiTarget(pulumi.CustomResource):
         :param pulumi.Input[str] iscsi_target_name: The name of the iSCSI target.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] target_iqn: iSCSI target IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:server".
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TargetPortalGroupCreateArgs']]]] tpgs: List of iSCSI target portal groups. Can have 1 portal group at most.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TargetPortalGroupCreateArgs', 'TargetPortalGroupCreateArgsDict']]]] tpgs: List of iSCSI target portal groups. Can have 1 portal group at most.
         """
         ...
     @overload
@@ -148,7 +153,7 @@ class IscsiTarget(pulumi.CustomResource):
                  iscsi_target_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  target_iqn: Optional[pulumi.Input[str]] = None,
-                 tpgs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TargetPortalGroupCreateArgs']]]]] = None,
+                 tpgs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TargetPortalGroupCreateArgs', 'TargetPortalGroupCreateArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

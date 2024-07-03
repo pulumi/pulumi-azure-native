@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -170,13 +175,13 @@ class AssetEndpointProfile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  additional_configuration: Optional[pulumi.Input[str]] = None,
                  asset_endpoint_profile_name: Optional[pulumi.Input[str]] = None,
-                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_address: Optional[pulumi.Input[str]] = None,
-                 transport_authentication: Optional[pulumi.Input[pulumi.InputType['TransportAuthenticationArgs']]] = None,
-                 user_authentication: Optional[pulumi.Input[pulumi.InputType['UserAuthenticationArgs']]] = None,
+                 transport_authentication: Optional[pulumi.Input[Union['TransportAuthenticationArgs', 'TransportAuthenticationArgsDict']]] = None,
+                 user_authentication: Optional[pulumi.Input[Union['UserAuthenticationArgs', 'UserAuthenticationArgsDict']]] = None,
                  __props__=None):
         """
         Asset Endpoint Profile definition.
@@ -186,13 +191,13 @@ class AssetEndpointProfile(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] additional_configuration: Contains connectivity type specific further configuration (e.g. OPC UA, Modbus, ONVIF).
         :param pulumi.Input[str] asset_endpoint_profile_name: Asset Endpoint Profile name parameter.
-        :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: The extended location.
+        :param pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']] extended_location: The extended location.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] target_address: The local valid URI specifying the network address/DNS name of a southbound device. The scheme part of the targetAddress URI specifies the type of the device. The additionalConfiguration field holds further connector type specific configuration.
-        :param pulumi.Input[pulumi.InputType['TransportAuthenticationArgs']] transport_authentication: Defines the authentication mechanism for the southbound connector connecting to the shop floor/OT device.
-        :param pulumi.Input[pulumi.InputType['UserAuthenticationArgs']] user_authentication: Defines the client authentication mechanism to the server.
+        :param pulumi.Input[Union['TransportAuthenticationArgs', 'TransportAuthenticationArgsDict']] transport_authentication: Defines the authentication mechanism for the southbound connector connecting to the shop floor/OT device.
+        :param pulumi.Input[Union['UserAuthenticationArgs', 'UserAuthenticationArgsDict']] user_authentication: Defines the client authentication mechanism to the server.
         """
         ...
     @overload
@@ -221,13 +226,13 @@ class AssetEndpointProfile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  additional_configuration: Optional[pulumi.Input[str]] = None,
                  asset_endpoint_profile_name: Optional[pulumi.Input[str]] = None,
-                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_address: Optional[pulumi.Input[str]] = None,
-                 transport_authentication: Optional[pulumi.Input[pulumi.InputType['TransportAuthenticationArgs']]] = None,
-                 user_authentication: Optional[pulumi.Input[pulumi.InputType['UserAuthenticationArgs']]] = None,
+                 transport_authentication: Optional[pulumi.Input[Union['TransportAuthenticationArgs', 'TransportAuthenticationArgsDict']]] = None,
+                 user_authentication: Optional[pulumi.Input[Union['UserAuthenticationArgs', 'UserAuthenticationArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

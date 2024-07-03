@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -330,23 +335,23 @@ class Machine(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 agent_upgrade: Optional[pulumi.Input[pulumi.InputType['AgentUpgradeArgs']]] = None,
+                 agent_upgrade: Optional[pulumi.Input[Union['AgentUpgradeArgs', 'AgentUpgradeArgsDict']]] = None,
                  client_public_key: Optional[pulumi.Input[str]] = None,
                  expand: Optional[pulumi.Input[str]] = None,
-                 extensions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MachineExtensionInstanceViewArgs']]]]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
+                 extensions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MachineExtensionInstanceViewArgs', 'MachineExtensionInstanceViewArgsDict']]]]] = None,
+                 identity: Optional[pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']]] = None,
                  kind: Optional[pulumi.Input[Union[str, 'ArcKindEnum']]] = None,
-                 license_profile: Optional[pulumi.Input[pulumi.InputType['LicenseProfileMachineInstanceViewArgs']]] = None,
+                 license_profile: Optional[pulumi.Input[Union['LicenseProfileMachineInstanceViewArgs', 'LicenseProfileMachineInstanceViewArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 location_data: Optional[pulumi.Input[pulumi.InputType['LocationDataArgs']]] = None,
+                 location_data: Optional[pulumi.Input[Union['LocationDataArgs', 'LocationDataArgsDict']]] = None,
                  machine_name: Optional[pulumi.Input[str]] = None,
                  mssql_discovered: Optional[pulumi.Input[str]] = None,
-                 os_profile: Optional[pulumi.Input[pulumi.InputType['OSProfileArgs']]] = None,
+                 os_profile: Optional[pulumi.Input[Union['OSProfileArgs', 'OSProfileArgsDict']]] = None,
                  os_type: Optional[pulumi.Input[str]] = None,
                  parent_cluster_resource_id: Optional[pulumi.Input[str]] = None,
                  private_link_scope_resource_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 service_statuses: Optional[pulumi.Input[pulumi.InputType['ServiceStatusesArgs']]] = None,
+                 service_statuses: Optional[pulumi.Input[Union['ServiceStatusesArgs', 'ServiceStatusesArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vm_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -355,23 +360,23 @@ class Machine(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['AgentUpgradeArgs']] agent_upgrade: The info of the machine w.r.t Agent Upgrade
+        :param pulumi.Input[Union['AgentUpgradeArgs', 'AgentUpgradeArgsDict']] agent_upgrade: The info of the machine w.r.t Agent Upgrade
         :param pulumi.Input[str] client_public_key: Public Key that the client provides to be used during initial resource onboarding
         :param pulumi.Input[str] expand: Expands referenced resources.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MachineExtensionInstanceViewArgs']]]] extensions: Machine Extensions information (deprecated field)
-        :param pulumi.Input[pulumi.InputType['IdentityArgs']] identity: Identity for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MachineExtensionInstanceViewArgs', 'MachineExtensionInstanceViewArgsDict']]]] extensions: Machine Extensions information (deprecated field)
+        :param pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']] identity: Identity for the resource.
         :param pulumi.Input[Union[str, 'ArcKindEnum']] kind: Indicates which kind of Arc machine placement on-premises, such as HCI, SCVMM or VMware etc.
-        :param pulumi.Input[pulumi.InputType['LicenseProfileMachineInstanceViewArgs']] license_profile: Specifies the License related properties for a machine.
+        :param pulumi.Input[Union['LicenseProfileMachineInstanceViewArgs', 'LicenseProfileMachineInstanceViewArgsDict']] license_profile: Specifies the License related properties for a machine.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[pulumi.InputType['LocationDataArgs']] location_data: Metadata pertaining to the geographic location of the resource.
+        :param pulumi.Input[Union['LocationDataArgs', 'LocationDataArgsDict']] location_data: Metadata pertaining to the geographic location of the resource.
         :param pulumi.Input[str] machine_name: The name of the hybrid machine.
         :param pulumi.Input[str] mssql_discovered: Specifies whether any MS SQL instance is discovered on the machine.
-        :param pulumi.Input[pulumi.InputType['OSProfileArgs']] os_profile: Specifies the operating system settings for the hybrid machine.
+        :param pulumi.Input[Union['OSProfileArgs', 'OSProfileArgsDict']] os_profile: Specifies the operating system settings for the hybrid machine.
         :param pulumi.Input[str] os_type: The type of Operating System (windows/linux).
         :param pulumi.Input[str] parent_cluster_resource_id: The resource id of the parent cluster (Azure HCI) this machine is assigned to, if any.
         :param pulumi.Input[str] private_link_scope_resource_id: The resource id of the private link scope this machine is assigned to, if any.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[pulumi.InputType['ServiceStatusesArgs']] service_statuses: Statuses of dependent services that are reported back to ARM.
+        :param pulumi.Input[Union['ServiceStatusesArgs', 'ServiceStatusesArgsDict']] service_statuses: Statuses of dependent services that are reported back to ARM.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] vm_id: Specifies the hybrid machine unique ID.
         """
@@ -399,23 +404,23 @@ class Machine(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 agent_upgrade: Optional[pulumi.Input[pulumi.InputType['AgentUpgradeArgs']]] = None,
+                 agent_upgrade: Optional[pulumi.Input[Union['AgentUpgradeArgs', 'AgentUpgradeArgsDict']]] = None,
                  client_public_key: Optional[pulumi.Input[str]] = None,
                  expand: Optional[pulumi.Input[str]] = None,
-                 extensions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MachineExtensionInstanceViewArgs']]]]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
+                 extensions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MachineExtensionInstanceViewArgs', 'MachineExtensionInstanceViewArgsDict']]]]] = None,
+                 identity: Optional[pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']]] = None,
                  kind: Optional[pulumi.Input[Union[str, 'ArcKindEnum']]] = None,
-                 license_profile: Optional[pulumi.Input[pulumi.InputType['LicenseProfileMachineInstanceViewArgs']]] = None,
+                 license_profile: Optional[pulumi.Input[Union['LicenseProfileMachineInstanceViewArgs', 'LicenseProfileMachineInstanceViewArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 location_data: Optional[pulumi.Input[pulumi.InputType['LocationDataArgs']]] = None,
+                 location_data: Optional[pulumi.Input[Union['LocationDataArgs', 'LocationDataArgsDict']]] = None,
                  machine_name: Optional[pulumi.Input[str]] = None,
                  mssql_discovered: Optional[pulumi.Input[str]] = None,
-                 os_profile: Optional[pulumi.Input[pulumi.InputType['OSProfileArgs']]] = None,
+                 os_profile: Optional[pulumi.Input[Union['OSProfileArgs', 'OSProfileArgsDict']]] = None,
                  os_type: Optional[pulumi.Input[str]] = None,
                  parent_cluster_resource_id: Optional[pulumi.Input[str]] = None,
                  private_link_scope_resource_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 service_statuses: Optional[pulumi.Input[pulumi.InputType['ServiceStatusesArgs']]] = None,
+                 service_statuses: Optional[pulumi.Input[Union['ServiceStatusesArgs', 'ServiceStatusesArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vm_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):

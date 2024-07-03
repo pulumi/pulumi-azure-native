@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -252,19 +257,19 @@ class IotSecuritySolution(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_workspaces: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AdditionalWorkspacesPropertiesArgs']]]]] = None,
+                 additional_workspaces: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AdditionalWorkspacesPropertiesArgs', 'AdditionalWorkspacesPropertiesArgsDict']]]]] = None,
                  disabled_data_sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'DataSource']]]]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  export: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'ExportData']]]]] = None,
                  iot_hubs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 recommendations_configuration: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecommendationConfigurationPropertiesArgs']]]]] = None,
+                 recommendations_configuration: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RecommendationConfigurationPropertiesArgs', 'RecommendationConfigurationPropertiesArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  solution_name: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[Union[str, 'SecuritySolutionStatus']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  unmasked_ip_logging_status: Optional[pulumi.Input[Union[str, 'UnmaskedIpLoggingStatus']]] = None,
-                 user_defined_resources: Optional[pulumi.Input[pulumi.InputType['UserDefinedResourcesPropertiesArgs']]] = None,
+                 user_defined_resources: Optional[pulumi.Input[Union['UserDefinedResourcesPropertiesArgs', 'UserDefinedResourcesPropertiesArgsDict']]] = None,
                  workspace: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -272,19 +277,19 @@ class IotSecuritySolution(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AdditionalWorkspacesPropertiesArgs']]]] additional_workspaces: List of additional workspaces
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AdditionalWorkspacesPropertiesArgs', 'AdditionalWorkspacesPropertiesArgsDict']]]] additional_workspaces: List of additional workspaces
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'DataSource']]]] disabled_data_sources: Disabled data sources. Disabling these data sources compromises the system.
         :param pulumi.Input[str] display_name: Resource display name.
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'ExportData']]]] export: List of additional options for exporting to workspace data.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] iot_hubs: IoT Hub resource IDs
         :param pulumi.Input[str] location: The resource location.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecommendationConfigurationPropertiesArgs']]]] recommendations_configuration: List of the configuration status for each recommendation type.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RecommendationConfigurationPropertiesArgs', 'RecommendationConfigurationPropertiesArgsDict']]]] recommendations_configuration: List of the configuration status for each recommendation type.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         :param pulumi.Input[str] solution_name: The name of the IoT Security solution.
         :param pulumi.Input[Union[str, 'SecuritySolutionStatus']] status: Status of the IoT Security solution.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[Union[str, 'UnmaskedIpLoggingStatus']] unmasked_ip_logging_status: Unmasked IP address logging status
-        :param pulumi.Input[pulumi.InputType['UserDefinedResourcesPropertiesArgs']] user_defined_resources: Properties of the IoT Security solution's user defined resources.
+        :param pulumi.Input[Union['UserDefinedResourcesPropertiesArgs', 'UserDefinedResourcesPropertiesArgsDict']] user_defined_resources: Properties of the IoT Security solution's user defined resources.
         :param pulumi.Input[str] workspace: Workspace resource ID
         """
         ...
@@ -311,19 +316,19 @@ class IotSecuritySolution(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_workspaces: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AdditionalWorkspacesPropertiesArgs']]]]] = None,
+                 additional_workspaces: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AdditionalWorkspacesPropertiesArgs', 'AdditionalWorkspacesPropertiesArgsDict']]]]] = None,
                  disabled_data_sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'DataSource']]]]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  export: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'ExportData']]]]] = None,
                  iot_hubs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 recommendations_configuration: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecommendationConfigurationPropertiesArgs']]]]] = None,
+                 recommendations_configuration: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RecommendationConfigurationPropertiesArgs', 'RecommendationConfigurationPropertiesArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  solution_name: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[Union[str, 'SecuritySolutionStatus']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  unmasked_ip_logging_status: Optional[pulumi.Input[Union[str, 'UnmaskedIpLoggingStatus']]] = None,
-                 user_defined_resources: Optional[pulumi.Input[pulumi.InputType['UserDefinedResourcesPropertiesArgs']]] = None,
+                 user_defined_resources: Optional[pulumi.Input[Union['UserDefinedResourcesPropertiesArgs', 'UserDefinedResourcesPropertiesArgsDict']]] = None,
                  workspace: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -139,7 +144,7 @@ class ArtifactManifest(pulumi.CustomResource):
                  artifact_manifest_name: Optional[pulumi.Input[str]] = None,
                  artifact_store_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['ArtifactManifestPropertiesFormatArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['ArtifactManifestPropertiesFormatArgs', 'ArtifactManifestPropertiesFormatArgsDict']]] = None,
                  publisher_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -153,7 +158,7 @@ class ArtifactManifest(pulumi.CustomResource):
         :param pulumi.Input[str] artifact_manifest_name: The name of the artifact manifest.
         :param pulumi.Input[str] artifact_store_name: The name of the artifact store.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[pulumi.InputType['ArtifactManifestPropertiesFormatArgs']] properties: Artifact manifest properties.
+        :param pulumi.Input[Union['ArtifactManifestPropertiesFormatArgs', 'ArtifactManifestPropertiesFormatArgsDict']] properties: Artifact manifest properties.
         :param pulumi.Input[str] publisher_name: The name of the publisher.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -186,7 +191,7 @@ class ArtifactManifest(pulumi.CustomResource):
                  artifact_manifest_name: Optional[pulumi.Input[str]] = None,
                  artifact_store_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['ArtifactManifestPropertiesFormatArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['ArtifactManifestPropertiesFormatArgs', 'ArtifactManifestPropertiesFormatArgsDict']]] = None,
                  publisher_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,

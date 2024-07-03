@@ -4,22 +4,90 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'DynamicMetricCriteriaArgs',
+    'DynamicMetricCriteriaArgsDict',
     'DynamicThresholdFailingPeriodsArgs',
+    'DynamicThresholdFailingPeriodsArgsDict',
     'MetricAlertActionArgs',
+    'MetricAlertActionArgsDict',
     'MetricAlertMultipleResourceMultipleMetricCriteriaArgs',
+    'MetricAlertMultipleResourceMultipleMetricCriteriaArgsDict',
     'MetricAlertSingleResourceMultipleMetricCriteriaArgs',
+    'MetricAlertSingleResourceMultipleMetricCriteriaArgsDict',
     'MetricCriteriaArgs',
+    'MetricCriteriaArgsDict',
     'MetricDimensionArgs',
+    'MetricDimensionArgsDict',
     'WebtestLocationAvailabilityCriteriaArgs',
+    'WebtestLocationAvailabilityCriteriaArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class DynamicMetricCriteriaArgsDict(TypedDict):
+        """
+        Criterion for dynamic threshold.
+        """
+        alert_sensitivity: pulumi.Input[Union[str, 'DynamicThresholdSensitivity']]
+        """
+        The extent of deviation required to trigger an alert. This will affect how tight the threshold is to the metric series pattern.
+        """
+        criterion_type: pulumi.Input[str]
+        """
+        Specifies the type of threshold criteria
+        Expected value is 'DynamicThresholdCriterion'.
+        """
+        failing_periods: pulumi.Input['DynamicThresholdFailingPeriodsArgsDict']
+        """
+        The minimum number of violations required within the selected lookback time window required to raise an alert.
+        """
+        metric_name: pulumi.Input[str]
+        """
+        Name of the metric.
+        """
+        name: pulumi.Input[str]
+        """
+        Name of the criteria.
+        """
+        operator: pulumi.Input[Union[str, 'DynamicThresholdOperator']]
+        """
+        The operator used to compare the metric value against the threshold.
+        """
+        time_aggregation: pulumi.Input[Union[str, 'AggregationTypeEnum']]
+        """
+        the criteria time aggregation types.
+        """
+        dimensions: NotRequired[pulumi.Input[Sequence[pulumi.Input['MetricDimensionArgsDict']]]]
+        """
+        List of dimension conditions.
+        """
+        ignore_data_before: NotRequired[pulumi.Input[str]]
+        """
+        Use this option to set the date from which to start learning the metric historical data and calculate the dynamic thresholds (in ISO8601 format)
+        """
+        metric_namespace: NotRequired[pulumi.Input[str]]
+        """
+        Namespace of the metric.
+        """
+        skip_metric_validation: NotRequired[pulumi.Input[bool]]
+        """
+        Allows creating an alert rule on a custom metric that isn't yet emitted, by causing the metric validation to be skipped.
+        """
+elif False:
+    DynamicMetricCriteriaArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DynamicMetricCriteriaArgs:
@@ -200,6 +268,22 @@ class DynamicMetricCriteriaArgs:
         pulumi.set(self, "skip_metric_validation", value)
 
 
+if not MYPY:
+    class DynamicThresholdFailingPeriodsArgsDict(TypedDict):
+        """
+        The minimum number of violations required within the selected lookback time window required to raise an alert.
+        """
+        min_failing_periods_to_alert: pulumi.Input[float]
+        """
+        The number of violations to trigger an alert. Should be smaller or equal to numberOfEvaluationPeriods.
+        """
+        number_of_evaluation_periods: pulumi.Input[float]
+        """
+        The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (windowSize) and the selected number of aggregated points.
+        """
+elif False:
+    DynamicThresholdFailingPeriodsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DynamicThresholdFailingPeriodsArgs:
     def __init__(__self__, *,
@@ -237,6 +321,22 @@ class DynamicThresholdFailingPeriodsArgs:
     def number_of_evaluation_periods(self, value: pulumi.Input[float]):
         pulumi.set(self, "number_of_evaluation_periods", value)
 
+
+if not MYPY:
+    class MetricAlertActionArgsDict(TypedDict):
+        """
+        An alert action.
+        """
+        action_group_id: NotRequired[pulumi.Input[str]]
+        """
+        the id of the action group to use.
+        """
+        web_hook_properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        This field allows specifying custom properties, which would be appended to the alert payload sent as input to the webhook.
+        """
+elif False:
+    MetricAlertActionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MetricAlertActionArgs:
@@ -277,6 +377,23 @@ class MetricAlertActionArgs:
     def web_hook_properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "web_hook_properties", value)
 
+
+if not MYPY:
+    class MetricAlertMultipleResourceMultipleMetricCriteriaArgsDict(TypedDict):
+        """
+        Specifies the metric alert criteria for multiple resource that has multiple metric criteria.
+        """
+        odata_type: pulumi.Input[str]
+        """
+        specifies the type of the alert criteria.
+        Expected value is 'Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria'.
+        """
+        all_of: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union['DynamicMetricCriteriaArgsDict', 'MetricCriteriaArgsDict']]]]]
+        """
+        the list of multiple metric criteria for this 'all of' operation. 
+        """
+elif False:
+    MetricAlertMultipleResourceMultipleMetricCriteriaArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MetricAlertMultipleResourceMultipleMetricCriteriaArgs:
@@ -319,6 +436,23 @@ class MetricAlertMultipleResourceMultipleMetricCriteriaArgs:
         pulumi.set(self, "all_of", value)
 
 
+if not MYPY:
+    class MetricAlertSingleResourceMultipleMetricCriteriaArgsDict(TypedDict):
+        """
+        Specifies the metric alert criteria for a single resource that has multiple metric criteria.
+        """
+        odata_type: pulumi.Input[str]
+        """
+        specifies the type of the alert criteria.
+        Expected value is 'Microsoft.Azure.Monitor.SingleResourceMultipleMetricCriteria'.
+        """
+        all_of: NotRequired[pulumi.Input[Sequence[pulumi.Input['MetricCriteriaArgsDict']]]]
+        """
+        The list of metric criteria for this 'all of' operation. 
+        """
+elif False:
+    MetricAlertSingleResourceMultipleMetricCriteriaArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MetricAlertSingleResourceMultipleMetricCriteriaArgs:
     def __init__(__self__, *,
@@ -359,6 +493,51 @@ class MetricAlertSingleResourceMultipleMetricCriteriaArgs:
     def all_of(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MetricCriteriaArgs']]]]):
         pulumi.set(self, "all_of", value)
 
+
+if not MYPY:
+    class MetricCriteriaArgsDict(TypedDict):
+        """
+        Criterion to filter metrics.
+        """
+        criterion_type: pulumi.Input[str]
+        """
+        Specifies the type of threshold criteria
+        Expected value is 'StaticThresholdCriterion'.
+        """
+        metric_name: pulumi.Input[str]
+        """
+        Name of the metric.
+        """
+        name: pulumi.Input[str]
+        """
+        Name of the criteria.
+        """
+        operator: pulumi.Input[Union[str, 'Operator']]
+        """
+        the criteria operator.
+        """
+        threshold: pulumi.Input[float]
+        """
+        the criteria threshold value that activates the alert.
+        """
+        time_aggregation: pulumi.Input[Union[str, 'AggregationTypeEnum']]
+        """
+        the criteria time aggregation types.
+        """
+        dimensions: NotRequired[pulumi.Input[Sequence[pulumi.Input['MetricDimensionArgsDict']]]]
+        """
+        List of dimension conditions.
+        """
+        metric_namespace: NotRequired[pulumi.Input[str]]
+        """
+        Namespace of the metric.
+        """
+        skip_metric_validation: NotRequired[pulumi.Input[bool]]
+        """
+        Allows creating an alert rule on a custom metric that isn't yet emitted, by causing the metric validation to be skipped.
+        """
+elif False:
+    MetricCriteriaArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MetricCriteriaArgs:
@@ -508,6 +687,26 @@ class MetricCriteriaArgs:
         pulumi.set(self, "skip_metric_validation", value)
 
 
+if not MYPY:
+    class MetricDimensionArgsDict(TypedDict):
+        """
+        Specifies a metric dimension.
+        """
+        name: pulumi.Input[str]
+        """
+        Name of the dimension.
+        """
+        operator: pulumi.Input[str]
+        """
+        the dimension operator. Only 'Include' and 'Exclude' are supported
+        """
+        values: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        list of dimension values.
+        """
+elif False:
+    MetricDimensionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MetricDimensionArgs:
     def __init__(__self__, *,
@@ -560,6 +759,31 @@ class MetricDimensionArgs:
     def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "values", value)
 
+
+if not MYPY:
+    class WebtestLocationAvailabilityCriteriaArgsDict(TypedDict):
+        """
+        Specifies the metric alert rule criteria for a web test resource.
+        """
+        component_id: pulumi.Input[str]
+        """
+        The Application Insights resource Id.
+        """
+        failed_location_count: pulumi.Input[float]
+        """
+        The number of failed locations.
+        """
+        odata_type: pulumi.Input[str]
+        """
+        specifies the type of the alert criteria.
+        Expected value is 'Microsoft.Azure.Monitor.WebtestLocationAvailabilityCriteria'.
+        """
+        web_test_id: pulumi.Input[str]
+        """
+        The Application Insights web test Id.
+        """
+elif False:
+    WebtestLocationAvailabilityCriteriaArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WebtestLocationAvailabilityCriteriaArgs:

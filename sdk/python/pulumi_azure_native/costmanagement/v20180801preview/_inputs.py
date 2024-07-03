@@ -4,26 +4,61 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'ReportAggregationArgs',
+    'ReportAggregationArgsDict',
     'ReportComparisonExpressionArgs',
+    'ReportComparisonExpressionArgsDict',
     'ReportDatasetConfigurationArgs',
+    'ReportDatasetConfigurationArgsDict',
     'ReportDatasetArgs',
+    'ReportDatasetArgsDict',
     'ReportDefinitionArgs',
+    'ReportDefinitionArgsDict',
     'ReportDeliveryDestinationArgs',
+    'ReportDeliveryDestinationArgsDict',
     'ReportDeliveryInfoArgs',
+    'ReportDeliveryInfoArgsDict',
     'ReportFilterArgs',
+    'ReportFilterArgsDict',
     'ReportGroupingArgs',
+    'ReportGroupingArgsDict',
     'ReportRecurrencePeriodArgs',
+    'ReportRecurrencePeriodArgsDict',
     'ReportScheduleArgs',
+    'ReportScheduleArgsDict',
     'ReportTimePeriodArgs',
+    'ReportTimePeriodArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ReportAggregationArgsDict(TypedDict):
+        """
+        The aggregation expression to be used in the report.
+        """
+        function: pulumi.Input[Union[str, 'FunctionType']]
+        """
+        The name of the aggregation function to use.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the column to aggregate.
+        """
+elif False:
+    ReportAggregationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ReportAggregationArgs:
@@ -62,6 +97,26 @@ class ReportAggregationArgs:
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class ReportComparisonExpressionArgsDict(TypedDict):
+        """
+        The comparison expression to be used in the report.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the column to use in comparison.
+        """
+        operator: pulumi.Input[Union[str, 'OperatorType']]
+        """
+        The operator to use for comparison.
+        """
+        values: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Array of values to use for comparison
+        """
+elif False:
+    ReportComparisonExpressionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ReportComparisonExpressionArgs:
@@ -116,6 +171,18 @@ class ReportComparisonExpressionArgs:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class ReportDatasetConfigurationArgsDict(TypedDict):
+        """
+        The configuration of dataset in the report.
+        """
+        columns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Array of column names to be included in the report. Any valid report column name is allowed. If not provided, then report includes all columns.
+        """
+elif False:
+    ReportDatasetConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ReportDatasetConfigurationArgs:
     def __init__(__self__, *,
@@ -139,6 +206,34 @@ class ReportDatasetConfigurationArgs:
     def columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "columns", value)
 
+
+if not MYPY:
+    class ReportDatasetArgsDict(TypedDict):
+        """
+        The definition of data present in the report.
+        """
+        aggregation: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['ReportAggregationArgsDict']]]]
+        """
+        Dictionary of aggregation expression to use in the report. The key of each item in the dictionary is the alias for the aggregated column. Report can have up to 2 aggregation clauses.
+        """
+        configuration: NotRequired[pulumi.Input['ReportDatasetConfigurationArgsDict']]
+        """
+        Has configuration information for the data in the report. The configuration will be ignored if aggregation and grouping are provided.
+        """
+        filter: NotRequired[pulumi.Input['ReportFilterArgsDict']]
+        """
+        Has filter expression to use in the report.
+        """
+        granularity: NotRequired[pulumi.Input[Union[str, 'GranularityType']]]
+        """
+        The granularity of rows in the report.
+        """
+        grouping: NotRequired[pulumi.Input[Sequence[pulumi.Input['ReportGroupingArgsDict']]]]
+        """
+        Array of group by expression to use in the report. Report can have up to 2 group by clauses.
+        """
+elif False:
+    ReportDatasetArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ReportDatasetArgs:
@@ -228,6 +323,30 @@ class ReportDatasetArgs:
         pulumi.set(self, "grouping", value)
 
 
+if not MYPY:
+    class ReportDefinitionArgsDict(TypedDict):
+        """
+        The definition of a report.
+        """
+        timeframe: pulumi.Input[Union[str, 'TimeframeType']]
+        """
+        The time frame for pulling data for the report. If custom, then a specific time period must be provided.
+        """
+        type: pulumi.Input[Union[str, 'ReportType']]
+        """
+        The type of the report.
+        """
+        dataset: NotRequired[pulumi.Input['ReportDatasetArgsDict']]
+        """
+        Has definition for data in this report.
+        """
+        time_period: NotRequired[pulumi.Input['ReportTimePeriodArgsDict']]
+        """
+        Has time period for pulling data for the report.
+        """
+elif False:
+    ReportDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ReportDefinitionArgs:
     def __init__(__self__, *,
@@ -298,6 +417,26 @@ class ReportDefinitionArgs:
         pulumi.set(self, "time_period", value)
 
 
+if not MYPY:
+    class ReportDeliveryDestinationArgsDict(TypedDict):
+        """
+        The destination information for the delivery of the report.
+        """
+        container: pulumi.Input[str]
+        """
+        The name of the container where reports will be uploaded.
+        """
+        resource_id: pulumi.Input[str]
+        """
+        The resource id of the storage account where reports will be delivered.
+        """
+        root_folder_path: NotRequired[pulumi.Input[str]]
+        """
+        The name of the directory where reports will be uploaded.
+        """
+elif False:
+    ReportDeliveryDestinationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ReportDeliveryDestinationArgs:
     def __init__(__self__, *,
@@ -352,6 +491,18 @@ class ReportDeliveryDestinationArgs:
         pulumi.set(self, "root_folder_path", value)
 
 
+if not MYPY:
+    class ReportDeliveryInfoArgsDict(TypedDict):
+        """
+        The delivery information associated with a report.
+        """
+        destination: pulumi.Input['ReportDeliveryDestinationArgsDict']
+        """
+        Has destination for the report being delivered.
+        """
+elif False:
+    ReportDeliveryInfoArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ReportDeliveryInfoArgs:
     def __init__(__self__, *,
@@ -374,6 +525,34 @@ class ReportDeliveryInfoArgs:
     def destination(self, value: pulumi.Input['ReportDeliveryDestinationArgs']):
         pulumi.set(self, "destination", value)
 
+
+if not MYPY:
+    class ReportFilterArgsDict(TypedDict):
+        """
+        The filter expression to be used in the report.
+        """
+        and_: NotRequired[pulumi.Input[Sequence[pulumi.Input['ReportFilterArgsDict']]]]
+        """
+        The logical "AND" expression. Must have at least 2 items.
+        """
+        dimension: NotRequired[pulumi.Input['ReportComparisonExpressionArgsDict']]
+        """
+        Has comparison expression for a dimension
+        """
+        not_: NotRequired[pulumi.Input['ReportFilterArgsDict']]
+        """
+        The logical "NOT" expression.
+        """
+        or_: NotRequired[pulumi.Input[Sequence[pulumi.Input['ReportFilterArgsDict']]]]
+        """
+        The logical "OR" expression. Must have at least 2 items.
+        """
+        tag: NotRequired[pulumi.Input['ReportComparisonExpressionArgsDict']]
+        """
+        Has comparison expression for a tag
+        """
+elif False:
+    ReportFilterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ReportFilterArgs:
@@ -463,6 +642,22 @@ class ReportFilterArgs:
         pulumi.set(self, "tag", value)
 
 
+if not MYPY:
+    class ReportGroupingArgsDict(TypedDict):
+        """
+        The group by expression to be used in the report.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the column to group.
+        """
+        type: pulumi.Input[Union[str, 'ReportColumnType']]
+        """
+        Has type of the column to group.
+        """
+elif False:
+    ReportGroupingArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ReportGroupingArgs:
     def __init__(__self__, *,
@@ -500,6 +695,22 @@ class ReportGroupingArgs:
     def type(self, value: pulumi.Input[Union[str, 'ReportColumnType']]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class ReportRecurrencePeriodArgsDict(TypedDict):
+        """
+        The start and end date for recurrence schedule.
+        """
+        from_: pulumi.Input[str]
+        """
+        The start date of recurrence.
+        """
+        to: NotRequired[pulumi.Input[str]]
+        """
+        The end date of recurrence.
+        """
+elif False:
+    ReportRecurrencePeriodArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ReportRecurrencePeriodArgs:
@@ -539,6 +750,26 @@ class ReportRecurrencePeriodArgs:
     def to(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "to", value)
 
+
+if not MYPY:
+    class ReportScheduleArgsDict(TypedDict):
+        """
+        The schedule associated with a report.
+        """
+        recurrence: pulumi.Input[Union[str, 'RecurrenceType']]
+        """
+        The schedule recurrence.
+        """
+        recurrence_period: NotRequired[pulumi.Input['ReportRecurrencePeriodArgsDict']]
+        """
+        Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
+        """
+        status: NotRequired[pulumi.Input[Union[str, 'StatusType']]]
+        """
+        The status of the schedule. Whether active or not. If inactive, the report's scheduled execution is paused.
+        """
+elif False:
+    ReportScheduleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ReportScheduleArgs:
@@ -594,6 +825,22 @@ class ReportScheduleArgs:
     def status(self, value: Optional[pulumi.Input[Union[str, 'StatusType']]]):
         pulumi.set(self, "status", value)
 
+
+if not MYPY:
+    class ReportTimePeriodArgsDict(TypedDict):
+        """
+        The start and end date for pulling data for the report.
+        """
+        from_: pulumi.Input[str]
+        """
+        The start date to pull data from.
+        """
+        to: pulumi.Input[str]
+        """
+        The end date to pull data to.
+        """
+elif False:
+    ReportTimePeriodArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ReportTimePeriodArgs:

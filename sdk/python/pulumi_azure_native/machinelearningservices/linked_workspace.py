@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -106,7 +111,7 @@ class LinkedWorkspace(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  link_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['LinkedWorkspacePropsArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['LinkedWorkspacePropsArgs', 'LinkedWorkspacePropsArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -118,7 +123,7 @@ class LinkedWorkspace(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] link_name: Friendly name of the linked workspace
         :param pulumi.Input[str] name: Friendly name of the linked workspace
-        :param pulumi.Input[pulumi.InputType['LinkedWorkspacePropsArgs']] properties: LinkedWorkspace specific properties.
+        :param pulumi.Input[Union['LinkedWorkspacePropsArgs', 'LinkedWorkspacePropsArgsDict']] properties: LinkedWorkspace specific properties.
         :param pulumi.Input[str] resource_group_name: Name of the resource group in which workspace is located.
         :param pulumi.Input[str] workspace_name: Name of Azure Machine Learning workspace.
         """
@@ -149,7 +154,7 @@ class LinkedWorkspace(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  link_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['LinkedWorkspacePropsArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['LinkedWorkspacePropsArgs', 'LinkedWorkspacePropsArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):

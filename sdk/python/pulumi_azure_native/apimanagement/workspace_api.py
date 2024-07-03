@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -501,15 +506,15 @@ class WorkspaceApi(pulumi.CustomResource):
                  api_type: Optional[pulumi.Input[Union[str, 'ApiType']]] = None,
                  api_version: Optional[pulumi.Input[str]] = None,
                  api_version_description: Optional[pulumi.Input[str]] = None,
-                 api_version_set: Optional[pulumi.Input[pulumi.InputType['ApiVersionSetContractDetailsArgs']]] = None,
+                 api_version_set: Optional[pulumi.Input[Union['ApiVersionSetContractDetailsArgs', 'ApiVersionSetContractDetailsArgsDict']]] = None,
                  api_version_set_id: Optional[pulumi.Input[str]] = None,
-                 authentication_settings: Optional[pulumi.Input[pulumi.InputType['AuthenticationSettingsContractArgs']]] = None,
-                 contact: Optional[pulumi.Input[pulumi.InputType['ApiContactInformationArgs']]] = None,
+                 authentication_settings: Optional[pulumi.Input[Union['AuthenticationSettingsContractArgs', 'AuthenticationSettingsContractArgsDict']]] = None,
+                 contact: Optional[pulumi.Input[Union['ApiContactInformationArgs', 'ApiContactInformationArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  format: Optional[pulumi.Input[Union[str, 'ContentFormat']]] = None,
                  is_current: Optional[pulumi.Input[bool]] = None,
-                 license: Optional[pulumi.Input[pulumi.InputType['ApiLicenseInformationArgs']]] = None,
+                 license: Optional[pulumi.Input[Union['ApiLicenseInformationArgs', 'ApiLicenseInformationArgsDict']]] = None,
                  path: Optional[pulumi.Input[str]] = None,
                  protocols: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Protocol']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -517,13 +522,13 @@ class WorkspaceApi(pulumi.CustomResource):
                  service_url: Optional[pulumi.Input[str]] = None,
                  soap_api_type: Optional[pulumi.Input[Union[str, 'SoapApiType']]] = None,
                  source_api_id: Optional[pulumi.Input[str]] = None,
-                 subscription_key_parameter_names: Optional[pulumi.Input[pulumi.InputType['SubscriptionKeyParameterNamesContractArgs']]] = None,
+                 subscription_key_parameter_names: Optional[pulumi.Input[Union['SubscriptionKeyParameterNamesContractArgs', 'SubscriptionKeyParameterNamesContractArgsDict']]] = None,
                  subscription_required: Optional[pulumi.Input[bool]] = None,
                  terms_of_service_url: Optional[pulumi.Input[str]] = None,
                  translate_required_query_parameters_conduct: Optional[pulumi.Input[Union[str, 'TranslateRequiredQueryParametersConduct']]] = None,
                  value: Optional[pulumi.Input[str]] = None,
                  workspace_id: Optional[pulumi.Input[str]] = None,
-                 wsdl_selector: Optional[pulumi.Input[pulumi.InputType['ApiCreateOrUpdatePropertiesWsdlSelectorArgs']]] = None,
+                 wsdl_selector: Optional[pulumi.Input[Union['ApiCreateOrUpdatePropertiesWsdlSelectorArgs', 'ApiCreateOrUpdatePropertiesWsdlSelectorArgsDict']]] = None,
                  __props__=None):
         """
         API details.
@@ -539,15 +544,15 @@ class WorkspaceApi(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'ApiType']] api_type: Type of API.
         :param pulumi.Input[str] api_version: Indicates the version identifier of the API if the API is versioned
         :param pulumi.Input[str] api_version_description: Description of the API Version.
-        :param pulumi.Input[pulumi.InputType['ApiVersionSetContractDetailsArgs']] api_version_set: Version set details
+        :param pulumi.Input[Union['ApiVersionSetContractDetailsArgs', 'ApiVersionSetContractDetailsArgsDict']] api_version_set: Version set details
         :param pulumi.Input[str] api_version_set_id: A resource identifier for the related ApiVersionSet.
-        :param pulumi.Input[pulumi.InputType['AuthenticationSettingsContractArgs']] authentication_settings: Collection of authentication settings included into this API.
-        :param pulumi.Input[pulumi.InputType['ApiContactInformationArgs']] contact: Contact information for the API.
+        :param pulumi.Input[Union['AuthenticationSettingsContractArgs', 'AuthenticationSettingsContractArgsDict']] authentication_settings: Collection of authentication settings included into this API.
+        :param pulumi.Input[Union['ApiContactInformationArgs', 'ApiContactInformationArgsDict']] contact: Contact information for the API.
         :param pulumi.Input[str] description: Description of the API. May include HTML formatting tags.
         :param pulumi.Input[str] display_name: API name. Must be 1 to 300 characters long.
         :param pulumi.Input[Union[str, 'ContentFormat']] format: Format of the Content in which the API is getting imported.
         :param pulumi.Input[bool] is_current: Indicates if API revision is current api revision.
-        :param pulumi.Input[pulumi.InputType['ApiLicenseInformationArgs']] license: License information for the API.
+        :param pulumi.Input[Union['ApiLicenseInformationArgs', 'ApiLicenseInformationArgsDict']] license: License information for the API.
         :param pulumi.Input[str] path: Relative URL uniquely identifying this API and all of its resource paths within the API Management service instance. It is appended to the API endpoint base URL specified during the service instance creation to form a public URL for this API.
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'Protocol']]]] protocols: Describes on which protocols the operations in this API can be invoked.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -559,13 +564,13 @@ class WorkspaceApi(pulumi.CustomResource):
                 * `websocket` creates websocket API 
                 * `graphql` creates GraphQL API.
         :param pulumi.Input[str] source_api_id: API identifier of the source API.
-        :param pulumi.Input[pulumi.InputType['SubscriptionKeyParameterNamesContractArgs']] subscription_key_parameter_names: Protocols over which API is made available.
+        :param pulumi.Input[Union['SubscriptionKeyParameterNamesContractArgs', 'SubscriptionKeyParameterNamesContractArgsDict']] subscription_key_parameter_names: Protocols over which API is made available.
         :param pulumi.Input[bool] subscription_required: Specifies whether an API or Product subscription is required for accessing the API.
         :param pulumi.Input[str] terms_of_service_url:  A URL to the Terms of Service for the API. MUST be in the format of a URL.
         :param pulumi.Input[Union[str, 'TranslateRequiredQueryParametersConduct']] translate_required_query_parameters_conduct: Strategy of translating required query parameters to template ones. By default has value 'template'. Possible values: 'template', 'query'
         :param pulumi.Input[str] value: Content value when Importing an API.
         :param pulumi.Input[str] workspace_id: Workspace identifier. Must be unique in the current API Management service instance.
-        :param pulumi.Input[pulumi.InputType['ApiCreateOrUpdatePropertiesWsdlSelectorArgs']] wsdl_selector: Criteria to limit import of WSDL to a subset of the document.
+        :param pulumi.Input[Union['ApiCreateOrUpdatePropertiesWsdlSelectorArgs', 'ApiCreateOrUpdatePropertiesWsdlSelectorArgsDict']] wsdl_selector: Criteria to limit import of WSDL to a subset of the document.
         """
         ...
     @overload
@@ -600,15 +605,15 @@ class WorkspaceApi(pulumi.CustomResource):
                  api_type: Optional[pulumi.Input[Union[str, 'ApiType']]] = None,
                  api_version: Optional[pulumi.Input[str]] = None,
                  api_version_description: Optional[pulumi.Input[str]] = None,
-                 api_version_set: Optional[pulumi.Input[pulumi.InputType['ApiVersionSetContractDetailsArgs']]] = None,
+                 api_version_set: Optional[pulumi.Input[Union['ApiVersionSetContractDetailsArgs', 'ApiVersionSetContractDetailsArgsDict']]] = None,
                  api_version_set_id: Optional[pulumi.Input[str]] = None,
-                 authentication_settings: Optional[pulumi.Input[pulumi.InputType['AuthenticationSettingsContractArgs']]] = None,
-                 contact: Optional[pulumi.Input[pulumi.InputType['ApiContactInformationArgs']]] = None,
+                 authentication_settings: Optional[pulumi.Input[Union['AuthenticationSettingsContractArgs', 'AuthenticationSettingsContractArgsDict']]] = None,
+                 contact: Optional[pulumi.Input[Union['ApiContactInformationArgs', 'ApiContactInformationArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  format: Optional[pulumi.Input[Union[str, 'ContentFormat']]] = None,
                  is_current: Optional[pulumi.Input[bool]] = None,
-                 license: Optional[pulumi.Input[pulumi.InputType['ApiLicenseInformationArgs']]] = None,
+                 license: Optional[pulumi.Input[Union['ApiLicenseInformationArgs', 'ApiLicenseInformationArgsDict']]] = None,
                  path: Optional[pulumi.Input[str]] = None,
                  protocols: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Protocol']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -616,13 +621,13 @@ class WorkspaceApi(pulumi.CustomResource):
                  service_url: Optional[pulumi.Input[str]] = None,
                  soap_api_type: Optional[pulumi.Input[Union[str, 'SoapApiType']]] = None,
                  source_api_id: Optional[pulumi.Input[str]] = None,
-                 subscription_key_parameter_names: Optional[pulumi.Input[pulumi.InputType['SubscriptionKeyParameterNamesContractArgs']]] = None,
+                 subscription_key_parameter_names: Optional[pulumi.Input[Union['SubscriptionKeyParameterNamesContractArgs', 'SubscriptionKeyParameterNamesContractArgsDict']]] = None,
                  subscription_required: Optional[pulumi.Input[bool]] = None,
                  terms_of_service_url: Optional[pulumi.Input[str]] = None,
                  translate_required_query_parameters_conduct: Optional[pulumi.Input[Union[str, 'TranslateRequiredQueryParametersConduct']]] = None,
                  value: Optional[pulumi.Input[str]] = None,
                  workspace_id: Optional[pulumi.Input[str]] = None,
-                 wsdl_selector: Optional[pulumi.Input[pulumi.InputType['ApiCreateOrUpdatePropertiesWsdlSelectorArgs']]] = None,
+                 wsdl_selector: Optional[pulumi.Input[Union['ApiCreateOrUpdatePropertiesWsdlSelectorArgs', 'ApiCreateOrUpdatePropertiesWsdlSelectorArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

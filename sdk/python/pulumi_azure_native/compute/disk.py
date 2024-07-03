@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -507,7 +512,7 @@ class Disk(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bursting_enabled: Optional[pulumi.Input[bool]] = None,
                  completion_percent: Optional[pulumi.Input[float]] = None,
-                 creation_data: Optional[pulumi.Input[pulumi.InputType['CreationDataArgs']]] = None,
+                 creation_data: Optional[pulumi.Input[Union['CreationDataArgs', 'CreationDataArgsDict']]] = None,
                  data_access_auth_mode: Optional[pulumi.Input[Union[str, 'DataAccessAuthMode']]] = None,
                  disk_access_id: Optional[pulumi.Input[str]] = None,
                  disk_iops_read_only: Optional[pulumi.Input[float]] = None,
@@ -516,9 +521,9 @@ class Disk(pulumi.CustomResource):
                  disk_m_bps_read_write: Optional[pulumi.Input[float]] = None,
                  disk_name: Optional[pulumi.Input[str]] = None,
                  disk_size_gb: Optional[pulumi.Input[int]] = None,
-                 encryption: Optional[pulumi.Input[pulumi.InputType['EncryptionArgs']]] = None,
-                 encryption_settings_collection: Optional[pulumi.Input[pulumi.InputType['EncryptionSettingsCollectionArgs']]] = None,
-                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
+                 encryption: Optional[pulumi.Input[Union['EncryptionArgs', 'EncryptionArgsDict']]] = None,
+                 encryption_settings_collection: Optional[pulumi.Input[Union['EncryptionSettingsCollectionArgs', 'EncryptionSettingsCollectionArgsDict']]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
                  hyper_v_generation: Optional[pulumi.Input[Union[str, 'HyperVGeneration']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  max_shares: Optional[pulumi.Input[int]] = None,
@@ -526,11 +531,11 @@ class Disk(pulumi.CustomResource):
                  optimized_for_frequent_attach: Optional[pulumi.Input[bool]] = None,
                  os_type: Optional[pulumi.Input['OperatingSystemTypes']] = None,
                  public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
-                 purchase_plan: Optional[pulumi.Input[pulumi.InputType['PurchasePlanArgs']]] = None,
+                 purchase_plan: Optional[pulumi.Input[Union['PurchasePlanArgs', 'PurchasePlanArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 security_profile: Optional[pulumi.Input[pulumi.InputType['DiskSecurityProfileArgs']]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['DiskSkuArgs']]] = None,
-                 supported_capabilities: Optional[pulumi.Input[pulumi.InputType['SupportedCapabilitiesArgs']]] = None,
+                 security_profile: Optional[pulumi.Input[Union['DiskSecurityProfileArgs', 'DiskSecurityProfileArgsDict']]] = None,
+                 sku: Optional[pulumi.Input[Union['DiskSkuArgs', 'DiskSkuArgsDict']]] = None,
+                 supported_capabilities: Optional[pulumi.Input[Union['SupportedCapabilitiesArgs', 'SupportedCapabilitiesArgsDict']]] = None,
                  supports_hibernation: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tier: Optional[pulumi.Input[str]] = None,
@@ -546,7 +551,7 @@ class Disk(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] bursting_enabled: Set to true to enable bursting beyond the provisioned performance target of the disk. Bursting is disabled by default. Does not apply to Ultra disks.
         :param pulumi.Input[float] completion_percent: Percentage complete for the background copy when a resource is created via the CopyStart operation.
-        :param pulumi.Input[pulumi.InputType['CreationDataArgs']] creation_data: Disk source information. CreationData information cannot be changed after the disk has been created.
+        :param pulumi.Input[Union['CreationDataArgs', 'CreationDataArgsDict']] creation_data: Disk source information. CreationData information cannot be changed after the disk has been created.
         :param pulumi.Input[Union[str, 'DataAccessAuthMode']] data_access_auth_mode: Additional authentication requirements when exporting or uploading to a disk or snapshot.
         :param pulumi.Input[str] disk_access_id: ARM id of the DiskAccess resource for using private endpoints on disks.
         :param pulumi.Input[float] disk_iops_read_only: The total number of IOPS that will be allowed across all VMs mounting the shared disk as ReadOnly. One operation can transfer between 4k and 256k bytes.
@@ -555,9 +560,9 @@ class Disk(pulumi.CustomResource):
         :param pulumi.Input[float] disk_m_bps_read_write: The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10.
         :param pulumi.Input[str] disk_name: The name of the managed disk that is being created. The name can't be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
         :param pulumi.Input[int] disk_size_gb: If creationData.createOption is Empty, this field is mandatory and it indicates the size of the disk to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
-        :param pulumi.Input[pulumi.InputType['EncryptionArgs']] encryption: Encryption property can be used to encrypt data at rest with customer managed keys or platform managed keys.
-        :param pulumi.Input[pulumi.InputType['EncryptionSettingsCollectionArgs']] encryption_settings_collection: Encryption settings collection used for Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
-        :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: The extended location where the disk will be created. Extended location cannot be changed.
+        :param pulumi.Input[Union['EncryptionArgs', 'EncryptionArgsDict']] encryption: Encryption property can be used to encrypt data at rest with customer managed keys or platform managed keys.
+        :param pulumi.Input[Union['EncryptionSettingsCollectionArgs', 'EncryptionSettingsCollectionArgsDict']] encryption_settings_collection: Encryption settings collection used for Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
+        :param pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']] extended_location: The extended location where the disk will be created. Extended location cannot be changed.
         :param pulumi.Input[Union[str, 'HyperVGeneration']] hyper_v_generation: The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[int] max_shares: The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time.
@@ -565,11 +570,11 @@ class Disk(pulumi.CustomResource):
         :param pulumi.Input[bool] optimized_for_frequent_attach: Setting this property to true improves reliability and performance of data disks that are frequently (more than 5 times a day) by detached from one virtual machine and attached to another. This property should not be set for disks that are not detached and attached frequently as it causes the disks to not align with the fault domain of the virtual machine.
         :param pulumi.Input['OperatingSystemTypes'] os_type: The Operating System type.
         :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: Policy for controlling export on the disk.
-        :param pulumi.Input[pulumi.InputType['PurchasePlanArgs']] purchase_plan: Purchase plan information for the the image from which the OS disk was created. E.g. - {name: 2019-Datacenter, publisher: MicrosoftWindowsServer, product: WindowsServer}
+        :param pulumi.Input[Union['PurchasePlanArgs', 'PurchasePlanArgsDict']] purchase_plan: Purchase plan information for the the image from which the OS disk was created. E.g. - {name: 2019-Datacenter, publisher: MicrosoftWindowsServer, product: WindowsServer}
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[pulumi.InputType['DiskSecurityProfileArgs']] security_profile: Contains the security related information for the resource.
-        :param pulumi.Input[pulumi.InputType['DiskSkuArgs']] sku: The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, UltraSSD_LRS, Premium_ZRS, StandardSSD_ZRS, or PremiumV2_LRS.
-        :param pulumi.Input[pulumi.InputType['SupportedCapabilitiesArgs']] supported_capabilities: List of supported capabilities for the image from which the OS disk was created.
+        :param pulumi.Input[Union['DiskSecurityProfileArgs', 'DiskSecurityProfileArgsDict']] security_profile: Contains the security related information for the resource.
+        :param pulumi.Input[Union['DiskSkuArgs', 'DiskSkuArgsDict']] sku: The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, UltraSSD_LRS, Premium_ZRS, StandardSSD_ZRS, or PremiumV2_LRS.
+        :param pulumi.Input[Union['SupportedCapabilitiesArgs', 'SupportedCapabilitiesArgsDict']] supported_capabilities: List of supported capabilities for the image from which the OS disk was created.
         :param pulumi.Input[bool] supports_hibernation: Indicates the OS on a disk supports hibernation.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[str] tier: Performance tier of the disk (e.g, P4, S10) as described here: https://azure.microsoft.com/en-us/pricing/details/managed-disks/. Does not apply to Ultra disks.
@@ -604,7 +609,7 @@ class Disk(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bursting_enabled: Optional[pulumi.Input[bool]] = None,
                  completion_percent: Optional[pulumi.Input[float]] = None,
-                 creation_data: Optional[pulumi.Input[pulumi.InputType['CreationDataArgs']]] = None,
+                 creation_data: Optional[pulumi.Input[Union['CreationDataArgs', 'CreationDataArgsDict']]] = None,
                  data_access_auth_mode: Optional[pulumi.Input[Union[str, 'DataAccessAuthMode']]] = None,
                  disk_access_id: Optional[pulumi.Input[str]] = None,
                  disk_iops_read_only: Optional[pulumi.Input[float]] = None,
@@ -613,9 +618,9 @@ class Disk(pulumi.CustomResource):
                  disk_m_bps_read_write: Optional[pulumi.Input[float]] = None,
                  disk_name: Optional[pulumi.Input[str]] = None,
                  disk_size_gb: Optional[pulumi.Input[int]] = None,
-                 encryption: Optional[pulumi.Input[pulumi.InputType['EncryptionArgs']]] = None,
-                 encryption_settings_collection: Optional[pulumi.Input[pulumi.InputType['EncryptionSettingsCollectionArgs']]] = None,
-                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
+                 encryption: Optional[pulumi.Input[Union['EncryptionArgs', 'EncryptionArgsDict']]] = None,
+                 encryption_settings_collection: Optional[pulumi.Input[Union['EncryptionSettingsCollectionArgs', 'EncryptionSettingsCollectionArgsDict']]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
                  hyper_v_generation: Optional[pulumi.Input[Union[str, 'HyperVGeneration']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  max_shares: Optional[pulumi.Input[int]] = None,
@@ -623,11 +628,11 @@ class Disk(pulumi.CustomResource):
                  optimized_for_frequent_attach: Optional[pulumi.Input[bool]] = None,
                  os_type: Optional[pulumi.Input['OperatingSystemTypes']] = None,
                  public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
-                 purchase_plan: Optional[pulumi.Input[pulumi.InputType['PurchasePlanArgs']]] = None,
+                 purchase_plan: Optional[pulumi.Input[Union['PurchasePlanArgs', 'PurchasePlanArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 security_profile: Optional[pulumi.Input[pulumi.InputType['DiskSecurityProfileArgs']]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['DiskSkuArgs']]] = None,
-                 supported_capabilities: Optional[pulumi.Input[pulumi.InputType['SupportedCapabilitiesArgs']]] = None,
+                 security_profile: Optional[pulumi.Input[Union['DiskSecurityProfileArgs', 'DiskSecurityProfileArgsDict']]] = None,
+                 sku: Optional[pulumi.Input[Union['DiskSkuArgs', 'DiskSkuArgsDict']]] = None,
+                 supported_capabilities: Optional[pulumi.Input[Union['SupportedCapabilitiesArgs', 'SupportedCapabilitiesArgsDict']]] = None,
                  supports_hibernation: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tier: Optional[pulumi.Input[str]] = None,

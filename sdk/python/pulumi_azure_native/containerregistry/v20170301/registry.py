@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -141,8 +146,8 @@ class Registry(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  registry_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
-                 storage_account: Optional[pulumi.Input[pulumi.InputType['StorageAccountParametersArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
+                 storage_account: Optional[pulumi.Input[Union['StorageAccountParametersArgs', 'StorageAccountParametersArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -154,8 +159,8 @@ class Registry(pulumi.CustomResource):
         :param pulumi.Input[str] location: The location of the container registry. This cannot be changed after the resource is created.
         :param pulumi.Input[str] registry_name: The name of the container registry.
         :param pulumi.Input[str] resource_group_name: The name of the resource group to which the container registry belongs.
-        :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The SKU of the container registry.
-        :param pulumi.Input[pulumi.InputType['StorageAccountParametersArgs']] storage_account: The parameters of a storage account for the container registry. If specified, the storage account must be in the same physical location as the container registry.
+        :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: The SKU of the container registry.
+        :param pulumi.Input[Union['StorageAccountParametersArgs', 'StorageAccountParametersArgsDict']] storage_account: The parameters of a storage account for the container registry. If specified, the storage account must be in the same physical location as the container registry.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags for the container registry.
         """
         ...
@@ -186,8 +191,8 @@ class Registry(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  registry_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
-                 storage_account: Optional[pulumi.Input[pulumi.InputType['StorageAccountParametersArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
+                 storage_account: Optional[pulumi.Input[Union['StorageAccountParametersArgs', 'StorageAccountParametersArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

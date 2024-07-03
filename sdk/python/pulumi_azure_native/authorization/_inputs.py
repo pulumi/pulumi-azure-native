@@ -4,33 +4,91 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'AccessReviewHistoryInstanceArgs',
+    'AccessReviewHistoryInstanceArgsDict',
     'AccessReviewInstanceArgs',
+    'AccessReviewInstanceArgsDict',
     'AccessReviewReviewerArgs',
+    'AccessReviewReviewerArgsDict',
     'AccessReviewScopeArgs',
+    'AccessReviewScopeArgsDict',
     'IdentityArgs',
+    'IdentityArgsDict',
     'ManagementLockOwnerArgs',
+    'ManagementLockOwnerArgsDict',
     'NonComplianceMessageArgs',
+    'NonComplianceMessageArgsDict',
     'OverrideArgs',
+    'OverrideArgsDict',
     'ParameterDefinitionsValueMetadataArgs',
+    'ParameterDefinitionsValueMetadataArgsDict',
     'ParameterDefinitionsValueArgs',
+    'ParameterDefinitionsValueArgsDict',
     'ParameterValuesValueArgs',
+    'ParameterValuesValueArgsDict',
     'PermissionArgs',
+    'PermissionArgsDict',
     'PolicyDefinitionGroupArgs',
+    'PolicyDefinitionGroupArgsDict',
     'PolicyDefinitionReferenceArgs',
+    'PolicyDefinitionReferenceArgsDict',
     'PolicyVariableColumnArgs',
+    'PolicyVariableColumnArgsDict',
     'PolicyVariableValueColumnValueArgs',
+    'PolicyVariableValueColumnValueArgsDict',
     'PrivateLinkAssociationPropertiesArgs',
+    'PrivateLinkAssociationPropertiesArgsDict',
     'ResourceSelectorArgs',
+    'ResourceSelectorArgsDict',
     'SelectorArgs',
+    'SelectorArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AccessReviewHistoryInstanceArgsDict(TypedDict):
+        """
+        Access Review History Definition Instance.
+        """
+        display_name: NotRequired[pulumi.Input[str]]
+        """
+        The display name for the parent history definition.
+        """
+        expiration: NotRequired[pulumi.Input[str]]
+        """
+        Date time when history data report expires and the associated data is deleted.
+        """
+        fulfilled_date_time: NotRequired[pulumi.Input[str]]
+        """
+        Date time when the history data report is scheduled to be generated.
+        """
+        review_history_period_end_date_time: NotRequired[pulumi.Input[str]]
+        """
+        Date time used when selecting review data, all reviews included in data end on or before this date. For use only with one-time/non-recurring reports.
+        """
+        review_history_period_start_date_time: NotRequired[pulumi.Input[str]]
+        """
+        Date time used when selecting review data, all reviews included in data start on or after this date. For use only with one-time/non-recurring reports.
+        """
+        run_date_time: NotRequired[pulumi.Input[str]]
+        """
+        Date time when the history data report is scheduled to be generated.
+        """
+elif False:
+    AccessReviewHistoryInstanceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AccessReviewHistoryInstanceArgs:
@@ -136,6 +194,30 @@ class AccessReviewHistoryInstanceArgs:
         pulumi.set(self, "run_date_time", value)
 
 
+if not MYPY:
+    class AccessReviewInstanceArgsDict(TypedDict):
+        """
+        Access Review Instance.
+        """
+        backup_reviewers: NotRequired[pulumi.Input[Sequence[pulumi.Input['AccessReviewReviewerArgsDict']]]]
+        """
+        This is the collection of backup reviewers.
+        """
+        end_date_time: NotRequired[pulumi.Input[str]]
+        """
+        The DateTime when the review instance is scheduled to end.
+        """
+        reviewers: NotRequired[pulumi.Input[Sequence[pulumi.Input['AccessReviewReviewerArgsDict']]]]
+        """
+        This is the collection of reviewers.
+        """
+        start_date_time: NotRequired[pulumi.Input[str]]
+        """
+        The DateTime when the review instance is scheduled to be start.
+        """
+elif False:
+    AccessReviewInstanceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AccessReviewInstanceArgs:
     def __init__(__self__, *,
@@ -208,6 +290,18 @@ class AccessReviewInstanceArgs:
         pulumi.set(self, "start_date_time", value)
 
 
+if not MYPY:
+    class AccessReviewReviewerArgsDict(TypedDict):
+        """
+        Descriptor for what needs to be reviewed
+        """
+        principal_id: NotRequired[pulumi.Input[str]]
+        """
+        The id of the reviewer(user/servicePrincipal)
+        """
+elif False:
+    AccessReviewReviewerArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AccessReviewReviewerArgs:
     def __init__(__self__, *,
@@ -231,6 +325,38 @@ class AccessReviewReviewerArgs:
     def principal_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "principal_id", value)
 
+
+if not MYPY:
+    class AccessReviewScopeArgsDict(TypedDict):
+        """
+        Descriptor for what needs to be reviewed
+        """
+        exclude_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        This is used to indicate the resource id(s) to exclude
+        """
+        exclude_role_definition_id: NotRequired[pulumi.Input[str]]
+        """
+        This is used to indicate the role definition id(s) to exclude
+        """
+        expand_nested_memberships: NotRequired[pulumi.Input[bool]]
+        """
+        Flag to indicate whether to expand nested memberships or not.
+        """
+        inactive_duration: NotRequired[pulumi.Input[str]]
+        """
+        Duration users are inactive for. The value should be in ISO  8601 format (http://en.wikipedia.org/wiki/ISO_8601#Durations).This code can be used to convert TimeSpan to a valid interval string: XmlConvert.ToString(new TimeSpan(hours, minutes, seconds))
+        """
+        include_access_below_resource: NotRequired[pulumi.Input[bool]]
+        """
+        Flag to indicate whether to expand nested memberships or not.
+        """
+        include_inherited_access: NotRequired[pulumi.Input[bool]]
+        """
+        Flag to indicate whether to expand nested memberships or not.
+        """
+elif False:
+    AccessReviewScopeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AccessReviewScopeArgs:
@@ -336,6 +462,22 @@ class AccessReviewScopeArgs:
         pulumi.set(self, "include_inherited_access", value)
 
 
+if not MYPY:
+    class IdentityArgsDict(TypedDict):
+        """
+        Identity for the resource.  Policy assignments support a maximum of one identity.  That is either a system assigned identity or a single user assigned identity.
+        """
+        type: NotRequired[pulumi.Input['ResourceIdentityType']]
+        """
+        The identity type. This is the only required field when adding a system or user assigned identity to a resource.
+        """
+        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The user identity associated with the policy. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+elif False:
+    IdentityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IdentityArgs:
     def __init__(__self__, *,
@@ -376,6 +518,18 @@ class IdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
+if not MYPY:
+    class ManagementLockOwnerArgsDict(TypedDict):
+        """
+        Lock owner properties.
+        """
+        application_id: NotRequired[pulumi.Input[str]]
+        """
+        The application ID of the lock owner.
+        """
+elif False:
+    ManagementLockOwnerArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ManagementLockOwnerArgs:
     def __init__(__self__, *,
@@ -399,6 +553,22 @@ class ManagementLockOwnerArgs:
     def application_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "application_id", value)
 
+
+if not MYPY:
+    class NonComplianceMessageArgsDict(TypedDict):
+        """
+        A message that describes why a resource is non-compliant with the policy. This is shown in 'deny' error messages and on resource's non-compliant compliance results.
+        """
+        message: pulumi.Input[str]
+        """
+        A message that describes why a resource is non-compliant with the policy. This is shown in 'deny' error messages and on resource's non-compliant compliance results.
+        """
+        policy_definition_reference_id: NotRequired[pulumi.Input[str]]
+        """
+        The policy definition reference ID within a policy set definition the message is intended for. This is only applicable if the policy assignment assigns a policy set definition. If this is not provided the message applies to all policies assigned by this policy assignment.
+        """
+elif False:
+    NonComplianceMessageArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NonComplianceMessageArgs:
@@ -438,6 +608,26 @@ class NonComplianceMessageArgs:
     def policy_definition_reference_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "policy_definition_reference_id", value)
 
+
+if not MYPY:
+    class OverrideArgsDict(TypedDict):
+        """
+        The policy property value override.
+        """
+        kind: NotRequired[pulumi.Input[Union[str, 'OverrideKind']]]
+        """
+        The override kind.
+        """
+        selectors: NotRequired[pulumi.Input[Sequence[pulumi.Input['SelectorArgsDict']]]]
+        """
+        The list of the selector expressions.
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        The value to override the policy property.
+        """
+elif False:
+    OverrideArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OverrideArgs:
@@ -494,6 +684,30 @@ class OverrideArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class ParameterDefinitionsValueMetadataArgsDict(TypedDict):
+        """
+        General metadata for the parameter.
+        """
+        assign_permissions: NotRequired[pulumi.Input[bool]]
+        """
+        Set to true to have Azure portal create role assignments on the resource ID or resource scope value of this parameter during policy assignment. This property is useful in case you wish to assign permissions outside the assignment scope.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The description of the parameter.
+        """
+        display_name: NotRequired[pulumi.Input[str]]
+        """
+        The display name for the parameter.
+        """
+        strong_type: NotRequired[pulumi.Input[str]]
+        """
+        Used when assigning the policy definition through the portal. Provides a context aware list of values for the user to choose from.
+        """
+elif False:
+    ParameterDefinitionsValueMetadataArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ParameterDefinitionsValueMetadataArgs:
@@ -566,6 +780,34 @@ class ParameterDefinitionsValueMetadataArgs:
     def strong_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "strong_type", value)
 
+
+if not MYPY:
+    class ParameterDefinitionsValueArgsDict(TypedDict):
+        """
+        The definition of a parameter that can be provided to the policy.
+        """
+        allowed_values: NotRequired[pulumi.Input[Sequence[Any]]]
+        """
+        The allowed values for the parameter.
+        """
+        default_value: NotRequired[Any]
+        """
+        The default value for the parameter if no value is provided.
+        """
+        metadata: NotRequired[pulumi.Input['ParameterDefinitionsValueMetadataArgsDict']]
+        """
+        General metadata for the parameter.
+        """
+        schema: NotRequired[Any]
+        """
+        Provides validation of parameter inputs during assignment using a self-defined JSON schema. This property is only supported for object-type parameters and follows the Json.NET Schema 2019-09 implementation. You can learn more about using schemas at https://json-schema.org/ and test draft schemas at https://www.jsonschemavalidator.net/.
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'ParameterType']]]
+        """
+        The data type of the parameter.
+        """
+elif False:
+    ParameterDefinitionsValueArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ParameterDefinitionsValueArgs:
@@ -655,6 +897,18 @@ class ParameterDefinitionsValueArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class ParameterValuesValueArgsDict(TypedDict):
+        """
+        The value of a parameter.
+        """
+        value: NotRequired[Any]
+        """
+        The value of the parameter.
+        """
+elif False:
+    ParameterValuesValueArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ParameterValuesValueArgs:
     def __init__(__self__, *,
@@ -678,6 +932,30 @@ class ParameterValuesValueArgs:
     def value(self, value: Optional[Any]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class PermissionArgsDict(TypedDict):
+        """
+        Role definition permissions.
+        """
+        actions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Allowed actions.
+        """
+        data_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Allowed Data actions.
+        """
+        not_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Denied actions.
+        """
+        not_data_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Denied Data actions.
+        """
+elif False:
+    PermissionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PermissionArgs:
@@ -750,6 +1028,34 @@ class PermissionArgs:
     def not_data_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "not_data_actions", value)
 
+
+if not MYPY:
+    class PolicyDefinitionGroupArgsDict(TypedDict):
+        """
+        The policy definition group.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the group.
+        """
+        additional_metadata_id: NotRequired[pulumi.Input[str]]
+        """
+        A resource ID of a resource that contains additional metadata about the group.
+        """
+        category: NotRequired[pulumi.Input[str]]
+        """
+        The group's category.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The group's description.
+        """
+        display_name: NotRequired[pulumi.Input[str]]
+        """
+        The group's display name.
+        """
+elif False:
+    PolicyDefinitionGroupArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PolicyDefinitionGroupArgs:
@@ -838,6 +1144,34 @@ class PolicyDefinitionGroupArgs:
         pulumi.set(self, "display_name", value)
 
 
+if not MYPY:
+    class PolicyDefinitionReferenceArgsDict(TypedDict):
+        """
+        The policy definition reference.
+        """
+        policy_definition_id: pulumi.Input[str]
+        """
+        The ID of the policy definition or policy set definition.
+        """
+        definition_version: NotRequired[pulumi.Input[str]]
+        """
+        The version of the policy definition to use.
+        """
+        group_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The name of the groups that this policy definition reference belongs to.
+        """
+        parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['ParameterValuesValueArgsDict']]]]
+        """
+        The parameter values for the referenced policy rule. The keys are the parameter names.
+        """
+        policy_definition_reference_id: NotRequired[pulumi.Input[str]]
+        """
+        A unique id (within the policy set definition) for this policy definition reference.
+        """
+elif False:
+    PolicyDefinitionReferenceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PolicyDefinitionReferenceArgs:
     def __init__(__self__, *,
@@ -925,6 +1259,18 @@ class PolicyDefinitionReferenceArgs:
         pulumi.set(self, "policy_definition_reference_id", value)
 
 
+if not MYPY:
+    class PolicyVariableColumnArgsDict(TypedDict):
+        """
+        The variable column.
+        """
+        column_name: pulumi.Input[str]
+        """
+        The name of this policy variable column.
+        """
+elif False:
+    PolicyVariableColumnArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PolicyVariableColumnArgs:
     def __init__(__self__, *,
@@ -947,6 +1293,22 @@ class PolicyVariableColumnArgs:
     def column_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "column_name", value)
 
+
+if not MYPY:
+    class PolicyVariableValueColumnValueArgsDict(TypedDict):
+        """
+        The name value tuple for this variable value column.
+        """
+        column_name: pulumi.Input[str]
+        """
+        Column name for the variable value
+        """
+        column_value: Any
+        """
+        Column value for the variable value; this can be an integer, double, boolean, null or a string.
+        """
+elif False:
+    PolicyVariableValueColumnValueArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PolicyVariableValueColumnValueArgs:
@@ -986,6 +1348,16 @@ class PolicyVariableValueColumnValueArgs:
         pulumi.set(self, "column_value", value)
 
 
+if not MYPY:
+    class PrivateLinkAssociationPropertiesArgsDict(TypedDict):
+        private_link: NotRequired[pulumi.Input[str]]
+        """
+        The rmpl Resource ID.
+        """
+        public_network_access: NotRequired[pulumi.Input[Union[str, 'PublicNetworkAccessOptions']]]
+elif False:
+    PrivateLinkAssociationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PrivateLinkAssociationPropertiesArgs:
     def __init__(__self__, *,
@@ -1020,6 +1392,22 @@ class PrivateLinkAssociationPropertiesArgs:
     def public_network_access(self, value: Optional[pulumi.Input[Union[str, 'PublicNetworkAccessOptions']]]):
         pulumi.set(self, "public_network_access", value)
 
+
+if not MYPY:
+    class ResourceSelectorArgsDict(TypedDict):
+        """
+        The resource selector to filter policies by resource properties.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the resource selector.
+        """
+        selectors: NotRequired[pulumi.Input[Sequence[pulumi.Input['SelectorArgsDict']]]]
+        """
+        The list of the selector expressions.
+        """
+elif False:
+    ResourceSelectorArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ResourceSelectorArgs:
@@ -1060,6 +1448,26 @@ class ResourceSelectorArgs:
     def selectors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SelectorArgs']]]]):
         pulumi.set(self, "selectors", value)
 
+
+if not MYPY:
+    class SelectorArgsDict(TypedDict):
+        """
+        The selector expression.
+        """
+        in_: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of values to filter in.
+        """
+        kind: NotRequired[pulumi.Input[Union[str, 'SelectorKind']]]
+        """
+        The selector kind.
+        """
+        not_in: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of values to filter out.
+        """
+elif False:
+    SelectorArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SelectorArgs:

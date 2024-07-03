@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -255,11 +260,11 @@ class Extension(pulumi.CustomResource):
                  configuration_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  extension_instance_name: Optional[pulumi.Input[str]] = None,
                  extension_type: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ConfigurationIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['ConfigurationIdentityArgs', 'ConfigurationIdentityArgsDict']]] = None,
                  release_train: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 scope: Optional[pulumi.Input[pulumi.InputType['ScopeArgs']]] = None,
-                 statuses: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExtensionStatusArgs']]]]] = None,
+                 scope: Optional[pulumi.Input[Union['ScopeArgs', 'ScopeArgsDict']]] = None,
+                 statuses: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ExtensionStatusArgs', 'ExtensionStatusArgsDict']]]]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -275,11 +280,11 @@ class Extension(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] configuration_settings: Configuration settings, as name-value pairs for configuring this instance of the extension.
         :param pulumi.Input[str] extension_instance_name: Name of an instance of the Extension.
         :param pulumi.Input[str] extension_type: Type of the Extension, of which this resource is an instance of.  It must be one of the Extension Types registered with Microsoft.KubernetesConfiguration by the Extension publisher.
-        :param pulumi.Input[pulumi.InputType['ConfigurationIdentityArgs']] identity: The identity of the configuration.
+        :param pulumi.Input[Union['ConfigurationIdentityArgs', 'ConfigurationIdentityArgsDict']] identity: The identity of the configuration.
         :param pulumi.Input[str] release_train: ReleaseTrain this extension instance participates in for auto-upgrade (e.g. Stable, Preview, etc.) - only if autoUpgradeMinorVersion is 'true'.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[pulumi.InputType['ScopeArgs']] scope: Scope at which the extension instance is installed.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExtensionStatusArgs']]]] statuses: Status from this instance of the extension.
+        :param pulumi.Input[Union['ScopeArgs', 'ScopeArgsDict']] scope: Scope at which the extension instance is installed.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ExtensionStatusArgs', 'ExtensionStatusArgsDict']]]] statuses: Status from this instance of the extension.
         :param pulumi.Input[str] version: Version of the extension for this extension instance, if it is 'pinned' to a specific version. autoUpgradeMinorVersion must be 'false'.
         """
         ...
@@ -314,11 +319,11 @@ class Extension(pulumi.CustomResource):
                  configuration_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  extension_instance_name: Optional[pulumi.Input[str]] = None,
                  extension_type: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ConfigurationIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['ConfigurationIdentityArgs', 'ConfigurationIdentityArgsDict']]] = None,
                  release_train: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 scope: Optional[pulumi.Input[pulumi.InputType['ScopeArgs']]] = None,
-                 statuses: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExtensionStatusArgs']]]]] = None,
+                 scope: Optional[pulumi.Input[Union['ScopeArgs', 'ScopeArgsDict']]] = None,
+                 statuses: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ExtensionStatusArgs', 'ExtensionStatusArgsDict']]]]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -106,10 +111,10 @@ class MaintenanceConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  config_name: Optional[pulumi.Input[str]] = None,
-                 not_allowed_time: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TimeSpanArgs']]]]] = None,
+                 not_allowed_time: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TimeSpanArgs', 'TimeSpanArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
-                 time_in_week: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TimeInWeekArgs']]]]] = None,
+                 time_in_week: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TimeInWeekArgs', 'TimeInWeekArgsDict']]]]] = None,
                  __props__=None):
         """
         See [planned maintenance](https://docs.microsoft.com/azure/aks/planned-maintenance) for more information about planned maintenance.
@@ -117,10 +122,10 @@ class MaintenanceConfiguration(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] config_name: The name of the maintenance configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TimeSpanArgs']]]] not_allowed_time: Time slots on which upgrade is not allowed.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TimeSpanArgs', 'TimeSpanArgsDict']]]] not_allowed_time: Time slots on which upgrade is not allowed.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] resource_name_: The name of the managed cluster resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TimeInWeekArgs']]]] time_in_week: If two array entries specify the same day of the week, the applied configuration is the union of times in both entries.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TimeInWeekArgs', 'TimeInWeekArgsDict']]]] time_in_week: If two array entries specify the same day of the week, the applied configuration is the union of times in both entries.
         """
         ...
     @overload
@@ -147,10 +152,10 @@ class MaintenanceConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  config_name: Optional[pulumi.Input[str]] = None,
-                 not_allowed_time: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TimeSpanArgs']]]]] = None,
+                 not_allowed_time: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TimeSpanArgs', 'TimeSpanArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
-                 time_in_week: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TimeInWeekArgs']]]]] = None,
+                 time_in_week: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TimeInWeekArgs', 'TimeInWeekArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -227,17 +232,17 @@ class NetworkFabricController(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  annotation: Optional[pulumi.Input[str]] = None,
-                 infrastructure_express_route_connections: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExpressRouteConnectionInformationArgs']]]]] = None,
+                 infrastructure_express_route_connections: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ExpressRouteConnectionInformationArgs', 'ExpressRouteConnectionInformationArgsDict']]]]] = None,
                  ipv4_address_space: Optional[pulumi.Input[str]] = None,
                  ipv6_address_space: Optional[pulumi.Input[str]] = None,
                  is_workload_management_network_enabled: Optional[pulumi.Input[Union[str, 'IsWorkloadManagementNetworkEnabled']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 managed_resource_group_configuration: Optional[pulumi.Input[pulumi.InputType['ManagedResourceGroupConfigurationArgs']]] = None,
+                 managed_resource_group_configuration: Optional[pulumi.Input[Union['ManagedResourceGroupConfigurationArgs', 'ManagedResourceGroupConfigurationArgsDict']]] = None,
                  network_fabric_controller_name: Optional[pulumi.Input[str]] = None,
                  nfc_sku: Optional[pulumi.Input[Union[str, 'NfcSku']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 workload_express_route_connections: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExpressRouteConnectionInformationArgs']]]]] = None,
+                 workload_express_route_connections: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ExpressRouteConnectionInformationArgs', 'ExpressRouteConnectionInformationArgsDict']]]]] = None,
                  __props__=None):
         """
         The Network Fabric Controller resource definition.
@@ -245,17 +250,17 @@ class NetworkFabricController(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] annotation: Switch configuration description.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExpressRouteConnectionInformationArgs']]]] infrastructure_express_route_connections: As part of an update, the Infrastructure ExpressRoute CircuitID should be provided to create and Provision a NFC. This Express route is dedicated for Infrastructure services. (This is a Mandatory attribute)
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ExpressRouteConnectionInformationArgs', 'ExpressRouteConnectionInformationArgsDict']]]] infrastructure_express_route_connections: As part of an update, the Infrastructure ExpressRoute CircuitID should be provided to create and Provision a NFC. This Express route is dedicated for Infrastructure services. (This is a Mandatory attribute)
         :param pulumi.Input[str] ipv4_address_space: IPv4 Network Fabric Controller Address Space.
         :param pulumi.Input[str] ipv6_address_space: IPv6 Network Fabric Controller Address Space.
         :param pulumi.Input[Union[str, 'IsWorkloadManagementNetworkEnabled']] is_workload_management_network_enabled: A workload management network is required for all the tenant (workload) traffic. This traffic is only dedicated for Tenant workloads which are required to access internet or any other MSFT/Public endpoints.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[pulumi.InputType['ManagedResourceGroupConfigurationArgs']] managed_resource_group_configuration: Managed Resource Group configuration properties.
+        :param pulumi.Input[Union['ManagedResourceGroupConfigurationArgs', 'ManagedResourceGroupConfigurationArgsDict']] managed_resource_group_configuration: Managed Resource Group configuration properties.
         :param pulumi.Input[str] network_fabric_controller_name: Name of the Network Fabric Controller.
         :param pulumi.Input[Union[str, 'NfcSku']] nfc_sku: Network Fabric Controller SKU.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExpressRouteConnectionInformationArgs']]]] workload_express_route_connections: As part of an update, the workload ExpressRoute CircuitID should be provided to create and Provision a NFC. This Express route is dedicated for Workload services. (This is a Mandatory attribute).
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ExpressRouteConnectionInformationArgs', 'ExpressRouteConnectionInformationArgsDict']]]] workload_express_route_connections: As part of an update, the workload ExpressRoute CircuitID should be provided to create and Provision a NFC. This Express route is dedicated for Workload services. (This is a Mandatory attribute).
         """
         ...
     @overload
@@ -282,17 +287,17 @@ class NetworkFabricController(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  annotation: Optional[pulumi.Input[str]] = None,
-                 infrastructure_express_route_connections: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExpressRouteConnectionInformationArgs']]]]] = None,
+                 infrastructure_express_route_connections: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ExpressRouteConnectionInformationArgs', 'ExpressRouteConnectionInformationArgsDict']]]]] = None,
                  ipv4_address_space: Optional[pulumi.Input[str]] = None,
                  ipv6_address_space: Optional[pulumi.Input[str]] = None,
                  is_workload_management_network_enabled: Optional[pulumi.Input[Union[str, 'IsWorkloadManagementNetworkEnabled']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 managed_resource_group_configuration: Optional[pulumi.Input[pulumi.InputType['ManagedResourceGroupConfigurationArgs']]] = None,
+                 managed_resource_group_configuration: Optional[pulumi.Input[Union['ManagedResourceGroupConfigurationArgs', 'ManagedResourceGroupConfigurationArgsDict']]] = None,
                  network_fabric_controller_name: Optional[pulumi.Input[str]] = None,
                  nfc_sku: Optional[pulumi.Input[Union[str, 'NfcSku']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 workload_express_route_connections: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExpressRouteConnectionInformationArgs']]]]] = None,
+                 workload_express_route_connections: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ExpressRouteConnectionInformationArgs', 'ExpressRouteConnectionInformationArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

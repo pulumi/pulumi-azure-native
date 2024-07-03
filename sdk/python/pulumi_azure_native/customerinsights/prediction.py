@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -276,12 +281,12 @@ class Prediction(pulumi.CustomResource):
                  auto_analyze: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  display_name: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 grades: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PredictionGradesArgs']]]]] = None,
+                 grades: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PredictionGradesArgs', 'PredictionGradesArgsDict']]]]] = None,
                  hub_name: Optional[pulumi.Input[str]] = None,
                  involved_interaction_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  involved_kpi_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  involved_relationships: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 mappings: Optional[pulumi.Input[pulumi.InputType['PredictionMappingsArgs']]] = None,
+                 mappings: Optional[pulumi.Input[Union['PredictionMappingsArgs', 'PredictionMappingsArgsDict']]] = None,
                  negative_outcome_expression: Optional[pulumi.Input[str]] = None,
                  positive_outcome_expression: Optional[pulumi.Input[str]] = None,
                  prediction_name: Optional[pulumi.Input[str]] = None,
@@ -299,12 +304,12 @@ class Prediction(pulumi.CustomResource):
         :param pulumi.Input[bool] auto_analyze: Whether do auto analyze.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] description: Description of the prediction.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] display_name: Display name of the prediction.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PredictionGradesArgs']]]] grades: The prediction grades.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PredictionGradesArgs', 'PredictionGradesArgsDict']]]] grades: The prediction grades.
         :param pulumi.Input[str] hub_name: The name of the hub.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] involved_interaction_types: Interaction types involved in the prediction.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] involved_kpi_types: KPI types involved in the prediction.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] involved_relationships: Relationships involved in the prediction.
-        :param pulumi.Input[pulumi.InputType['PredictionMappingsArgs']] mappings: Definition of the link mapping of prediction.
+        :param pulumi.Input[Union['PredictionMappingsArgs', 'PredictionMappingsArgsDict']] mappings: Definition of the link mapping of prediction.
         :param pulumi.Input[str] negative_outcome_expression: Negative outcome expression.
         :param pulumi.Input[str] positive_outcome_expression: Positive outcome expression.
         :param pulumi.Input[str] prediction_name: Name of the prediction.
@@ -341,12 +346,12 @@ class Prediction(pulumi.CustomResource):
                  auto_analyze: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  display_name: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 grades: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PredictionGradesArgs']]]]] = None,
+                 grades: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PredictionGradesArgs', 'PredictionGradesArgsDict']]]]] = None,
                  hub_name: Optional[pulumi.Input[str]] = None,
                  involved_interaction_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  involved_kpi_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  involved_relationships: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 mappings: Optional[pulumi.Input[pulumi.InputType['PredictionMappingsArgs']]] = None,
+                 mappings: Optional[pulumi.Input[Union['PredictionMappingsArgs', 'PredictionMappingsArgsDict']]] = None,
                  negative_outcome_expression: Optional[pulumi.Input[str]] = None,
                  positive_outcome_expression: Optional[pulumi.Input[str]] = None,
                  prediction_name: Optional[pulumi.Input[str]] = None,

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -193,8 +198,8 @@ class Account(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
-                 ingestion_storage: Optional[pulumi.Input[pulumi.InputType['IngestionStorageArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']]] = None,
+                 ingestion_storage: Optional[pulumi.Input[Union['IngestionStorageArgs', 'IngestionStorageArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  managed_event_hub_state: Optional[pulumi.Input[Union[str, 'ManagedEventHubState']]] = None,
                  managed_resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -209,8 +214,8 @@ class Account(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the account.
-        :param pulumi.Input[pulumi.InputType['IdentityArgs']] identity: The Managed Identity of the resource
-        :param pulumi.Input[pulumi.InputType['IngestionStorageArgs']] ingestion_storage: Ingestion Storage Account Info
+        :param pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']] identity: The Managed Identity of the resource
+        :param pulumi.Input[Union['IngestionStorageArgs', 'IngestionStorageArgsDict']] ingestion_storage: Ingestion Storage Account Info
         :param pulumi.Input[str] location: Gets or sets the location.
         :param pulumi.Input[Union[str, 'ManagedEventHubState']] managed_event_hub_state: Gets or sets the state of managed eventhub. If enabled managed eventhub will be created, if disabled the managed eventhub will be removed.
         :param pulumi.Input[str] managed_resource_group_name: Gets or sets the managed resource group name
@@ -244,8 +249,8 @@ class Account(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
-                 ingestion_storage: Optional[pulumi.Input[pulumi.InputType['IngestionStorageArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']]] = None,
+                 ingestion_storage: Optional[pulumi.Input[Union['IngestionStorageArgs', 'IngestionStorageArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  managed_event_hub_state: Optional[pulumi.Input[Union[str, 'ManagedEventHubState']]] = None,
                  managed_resource_group_name: Optional[pulumi.Input[str]] = None,

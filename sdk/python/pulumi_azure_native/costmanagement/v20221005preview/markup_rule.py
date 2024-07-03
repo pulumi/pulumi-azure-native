@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -167,7 +172,7 @@ class MarkupRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  billing_account_id: Optional[pulumi.Input[str]] = None,
                  billing_profile_id: Optional[pulumi.Input[str]] = None,
-                 customer_details: Optional[pulumi.Input[pulumi.InputType['CustomerMetadataArgs']]] = None,
+                 customer_details: Optional[pulumi.Input[Union['CustomerMetadataArgs', 'CustomerMetadataArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  e_tag: Optional[pulumi.Input[str]] = None,
                  end_date: Optional[pulumi.Input[str]] = None,
@@ -182,7 +187,7 @@ class MarkupRule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] billing_account_id: BillingAccount ID
         :param pulumi.Input[str] billing_profile_id: BillingProfile ID
-        :param pulumi.Input[pulumi.InputType['CustomerMetadataArgs']] customer_details: Customer information for the markup rule.
+        :param pulumi.Input[Union['CustomerMetadataArgs', 'CustomerMetadataArgsDict']] customer_details: Customer information for the markup rule.
         :param pulumi.Input[str] description: The description of the markup rule.
         :param pulumi.Input[str] e_tag: eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
         :param pulumi.Input[str] end_date: Ending date of the markup rule.
@@ -216,7 +221,7 @@ class MarkupRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  billing_account_id: Optional[pulumi.Input[str]] = None,
                  billing_profile_id: Optional[pulumi.Input[str]] = None,
-                 customer_details: Optional[pulumi.Input[pulumi.InputType['CustomerMetadataArgs']]] = None,
+                 customer_details: Optional[pulumi.Input[Union['CustomerMetadataArgs', 'CustomerMetadataArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  e_tag: Optional[pulumi.Input[str]] = None,
                  end_date: Optional[pulumi.Input[str]] = None,

@@ -4,16 +4,49 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'MaintenanceWindowArgs',
+    'MaintenanceWindowArgsDict',
     'PrivateLinkServiceConnectionStateArgs',
+    'PrivateLinkServiceConnectionStateArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class MaintenanceWindowArgsDict(TypedDict):
+        """
+        Schedule settings for regular cluster updates.
+        """
+        custom_window: NotRequired[pulumi.Input[str]]
+        """
+        Indicates whether custom maintenance window is enabled or not.
+        """
+        day_of_week: NotRequired[pulumi.Input[int]]
+        """
+        Preferred day of the week for maintenance window.
+        """
+        start_hour: NotRequired[pulumi.Input[int]]
+        """
+        Start hour within preferred day of the week for maintenance window.
+        """
+        start_minute: NotRequired[pulumi.Input[int]]
+        """
+        Start minute within the start hour for maintenance window.
+        """
+elif False:
+    MaintenanceWindowArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MaintenanceWindowArgs:
@@ -86,6 +119,26 @@ class MaintenanceWindowArgs:
     def start_minute(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "start_minute", value)
 
+
+if not MYPY:
+    class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
+        """
+        A collection of information about the state of the connection between service consumer and provider.
+        """
+        actions_required: NotRequired[pulumi.Input[str]]
+        """
+        A message indicating if changes on the service provider require any updates on the consumer.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The reason for approval/rejection of the connection.
+        """
+        status: NotRequired[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]]
+        """
+        Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+        """
+elif False:
+    PrivateLinkServiceConnectionStateArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:

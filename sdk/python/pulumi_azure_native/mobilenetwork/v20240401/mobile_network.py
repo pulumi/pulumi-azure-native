@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -137,11 +142,11 @@ class MobileNetwork(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  mobile_network_name: Optional[pulumi.Input[str]] = None,
-                 public_land_mobile_network_identifier: Optional[pulumi.Input[pulumi.InputType['PlmnIdArgs']]] = None,
-                 public_land_mobile_networks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PublicLandMobileNetworkArgs']]]]] = None,
+                 public_land_mobile_network_identifier: Optional[pulumi.Input[Union['PlmnIdArgs', 'PlmnIdArgsDict']]] = None,
+                 public_land_mobile_networks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PublicLandMobileNetworkArgs', 'PublicLandMobileNetworkArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -150,11 +155,11 @@ class MobileNetwork(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']] identity: The identity used to retrieve any private keys used for SUPI concealment from Azure key vault.
+        :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: The identity used to retrieve any private keys used for SUPI concealment from Azure key vault.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] mobile_network_name: The name of the mobile network.
-        :param pulumi.Input[pulumi.InputType['PlmnIdArgs']] public_land_mobile_network_identifier: The unique public land mobile network identifier for the network. If both 'publicLandMobileNetworks' and 'publicLandMobileNetworkIdentifier' are specified, then the 'publicLandMobileNetworks' will take precedence.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PublicLandMobileNetworkArgs']]]] public_land_mobile_networks: A list of public land mobile networks including their identifiers. If both 'publicLandMobileNetworks' and 'publicLandMobileNetworkIdentifier' are specified, then the 'publicLandMobileNetworks' will take precedence.
+        :param pulumi.Input[Union['PlmnIdArgs', 'PlmnIdArgsDict']] public_land_mobile_network_identifier: The unique public land mobile network identifier for the network. If both 'publicLandMobileNetworks' and 'publicLandMobileNetworkIdentifier' are specified, then the 'publicLandMobileNetworks' will take precedence.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PublicLandMobileNetworkArgs', 'PublicLandMobileNetworkArgsDict']]]] public_land_mobile_networks: A list of public land mobile networks including their identifiers. If both 'publicLandMobileNetworks' and 'publicLandMobileNetworkIdentifier' are specified, then the 'publicLandMobileNetworks' will take precedence.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -182,11 +187,11 @@ class MobileNetwork(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  mobile_network_name: Optional[pulumi.Input[str]] = None,
-                 public_land_mobile_network_identifier: Optional[pulumi.Input[pulumi.InputType['PlmnIdArgs']]] = None,
-                 public_land_mobile_networks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PublicLandMobileNetworkArgs']]]]] = None,
+                 public_land_mobile_network_identifier: Optional[pulumi.Input[Union['PlmnIdArgs', 'PlmnIdArgsDict']]] = None,
+                 public_land_mobile_networks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PublicLandMobileNetworkArgs', 'PublicLandMobileNetworkArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):

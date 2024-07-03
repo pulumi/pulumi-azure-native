@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -107,8 +112,8 @@ class CollectorPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  azure_traffic_collector_name: Optional[pulumi.Input[str]] = None,
                  collector_policy_name: Optional[pulumi.Input[str]] = None,
-                 emission_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EmissionPoliciesPropertiesFormatArgs']]]]] = None,
-                 ingestion_policy: Optional[pulumi.Input[pulumi.InputType['IngestionPolicyPropertiesFormatArgs']]] = None,
+                 emission_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EmissionPoliciesPropertiesFormatArgs', 'EmissionPoliciesPropertiesFormatArgsDict']]]]] = None,
+                 ingestion_policy: Optional[pulumi.Input[Union['IngestionPolicyPropertiesFormatArgs', 'IngestionPolicyPropertiesFormatArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -118,8 +123,8 @@ class CollectorPolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] azure_traffic_collector_name: Azure Traffic Collector name
         :param pulumi.Input[str] collector_policy_name: Collector Policy Name
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EmissionPoliciesPropertiesFormatArgs']]]] emission_policies: Emission policies.
-        :param pulumi.Input[pulumi.InputType['IngestionPolicyPropertiesFormatArgs']] ingestion_policy: Ingestion policies.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EmissionPoliciesPropertiesFormatArgs', 'EmissionPoliciesPropertiesFormatArgsDict']]]] emission_policies: Emission policies.
+        :param pulumi.Input[Union['IngestionPolicyPropertiesFormatArgs', 'IngestionPolicyPropertiesFormatArgsDict']] ingestion_policy: Ingestion policies.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         """
         ...
@@ -148,8 +153,8 @@ class CollectorPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  azure_traffic_collector_name: Optional[pulumi.Input[str]] = None,
                  collector_policy_name: Optional[pulumi.Input[str]] = None,
-                 emission_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EmissionPoliciesPropertiesFormatArgs']]]]] = None,
-                 ingestion_policy: Optional[pulumi.Input[pulumi.InputType['IngestionPolicyPropertiesFormatArgs']]] = None,
+                 emission_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EmissionPoliciesPropertiesFormatArgs', 'EmissionPoliciesPropertiesFormatArgsDict']]]]] = None,
+                 ingestion_policy: Optional[pulumi.Input[Union['IngestionPolicyPropertiesFormatArgs', 'IngestionPolicyPropertiesFormatArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

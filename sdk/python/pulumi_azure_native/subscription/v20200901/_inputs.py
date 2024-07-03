@@ -4,15 +4,51 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'PutAliasRequestPropertiesArgs',
+    'PutAliasRequestPropertiesArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class PutAliasRequestPropertiesArgsDict(TypedDict):
+        """
+        Put subscription properties.
+        """
+        billing_scope: NotRequired[pulumi.Input[str]]
+        """
+        Determines whether subscription is fieldLed, partnerLed or LegacyEA
+        """
+        display_name: NotRequired[pulumi.Input[str]]
+        """
+        The friendly name of the subscription.
+        """
+        reseller_id: NotRequired[pulumi.Input[str]]
+        """
+        Reseller ID, basically MPN Id
+        """
+        subscription_id: NotRequired[pulumi.Input[str]]
+        """
+        This parameter can be used to create alias for existing subscription Id
+        """
+        workload: NotRequired[pulumi.Input[Union[str, 'Workload']]]
+        """
+        The workload type of the subscription. It can be either Production or DevTest.
+        """
+elif False:
+    PutAliasRequestPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PutAliasRequestPropertiesArgs:

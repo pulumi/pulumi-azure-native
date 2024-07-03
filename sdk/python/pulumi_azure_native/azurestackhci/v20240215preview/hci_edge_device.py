@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -92,7 +97,7 @@ class HciEdgeDevice(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  edge_device_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['HciEdgeDevicePropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['HciEdgeDevicePropertiesArgs', 'HciEdgeDevicePropertiesArgsDict']]] = None,
                  resource_uri: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -103,7 +108,7 @@ class HciEdgeDevice(pulumi.CustomResource):
         :param pulumi.Input[str] edge_device_name: Name of Device
         :param pulumi.Input[str] kind: Edge device kind.
                Expected value is 'HCI'.
-        :param pulumi.Input[pulumi.InputType['HciEdgeDevicePropertiesArgs']] properties: properties for Arc-enabled edge device with HCI OS.
+        :param pulumi.Input[Union['HciEdgeDevicePropertiesArgs', 'HciEdgeDevicePropertiesArgsDict']] properties: properties for Arc-enabled edge device with HCI OS.
         :param pulumi.Input[str] resource_uri: The fully qualified Azure Resource manager identifier of the resource.
         """
         ...
@@ -132,7 +137,7 @@ class HciEdgeDevice(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  edge_device_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['HciEdgeDevicePropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['HciEdgeDevicePropertiesArgs', 'HciEdgeDevicePropertiesArgsDict']]] = None,
                  resource_uri: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
