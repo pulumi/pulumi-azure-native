@@ -38,7 +38,7 @@ func NewAzCoreClient(tenantId, userAgent string) AzureClient {
 	}
 }
 
-func (c *azCoreClient) Get(ctx context.Context, id string, apiVersion string) (map[string]interface{}, error) {
+func (c *azCoreClient) Get(ctx context.Context, id string, apiVersion string) (any, error) {
 	req, err := runtime.NewRequest(ctx, http.MethodGet, runtime.JoinPaths(c.host, id))
 	if err != nil {
 		return nil, err
@@ -124,7 +124,7 @@ func (c *azCoreClient) Put(ctx context.Context, id string, bodyProps map[string]
 }
 
 func (c *azCoreClient) Post(ctx context.Context, id string, bodyProps map[string]interface{},
-	queryParameters map[string]interface{}) (map[string]interface{}, error) {
+	queryParameters map[string]interface{}) (any, error) {
 	panic("Post not implemented")
 }
 
