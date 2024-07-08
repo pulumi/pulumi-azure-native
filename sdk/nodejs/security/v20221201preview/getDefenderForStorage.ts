@@ -39,25 +39,13 @@ export interface GetDefenderForStorageResult {
      */
     readonly id: string;
     /**
-     * Indicates whether Defender for Storage is enabled on this storage account.
-     */
-    readonly isEnabled?: boolean;
-    /**
-     * Properties of Malware Scanning.
-     */
-    readonly malwareScanning?: outputs.security.v20221201preview.MalwareScanningPropertiesResponse;
-    /**
      * Resource name
      */
     readonly name: string;
     /**
-     * Indicates whether the settings defined for this storage account should override the settings defined for the subscription.
+     * Defender for Storage resource properties.
      */
-    readonly overrideSubscriptionLevelSettings?: boolean;
-    /**
-     * Properties of Sensitive Data Discovery.
-     */
-    readonly sensitiveDataDiscovery?: outputs.security.v20221201preview.SensitiveDataDiscoveryPropertiesResponse;
+    readonly properties: outputs.security.v20221201preview.DefenderForStorageSettingPropertiesResponse;
     /**
      * Resource type
      */

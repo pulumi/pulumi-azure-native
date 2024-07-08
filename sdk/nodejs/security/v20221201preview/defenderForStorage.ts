@@ -38,25 +38,13 @@ export class DefenderForStorage extends pulumi.CustomResource {
     }
 
     /**
-     * Indicates whether Defender for Storage is enabled on this storage account.
-     */
-    public readonly isEnabled!: pulumi.Output<boolean | undefined>;
-    /**
-     * Properties of Malware Scanning.
-     */
-    public readonly malwareScanning!: pulumi.Output<outputs.security.v20221201preview.MalwareScanningPropertiesResponse | undefined>;
-    /**
      * Resource name
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Indicates whether the settings defined for this storage account should override the settings defined for the subscription.
+     * Defender for Storage resource properties.
      */
-    public readonly overrideSubscriptionLevelSettings!: pulumi.Output<boolean | undefined>;
-    /**
-     * Properties of Sensitive Data Discovery.
-     */
-    public readonly sensitiveDataDiscovery!: pulumi.Output<outputs.security.v20221201preview.SensitiveDataDiscoveryPropertiesResponse | undefined>;
+    public readonly properties!: pulumi.Output<outputs.security.v20221201preview.DefenderForStorageSettingPropertiesResponse>;
     /**
      * Resource type
      */
@@ -76,20 +64,14 @@ export class DefenderForStorage extends pulumi.CustomResource {
             if ((!args || args.resourceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceId'");
             }
-            resourceInputs["isEnabled"] = args ? args.isEnabled : undefined;
-            resourceInputs["malwareScanning"] = args ? args.malwareScanning : undefined;
-            resourceInputs["overrideSubscriptionLevelSettings"] = args ? args.overrideSubscriptionLevelSettings : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceId"] = args ? args.resourceId : undefined;
-            resourceInputs["sensitiveDataDiscovery"] = args ? args.sensitiveDataDiscovery : undefined;
             resourceInputs["settingName"] = args ? args.settingName : undefined;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["isEnabled"] = undefined /*out*/;
-            resourceInputs["malwareScanning"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["overrideSubscriptionLevelSettings"] = undefined /*out*/;
-            resourceInputs["sensitiveDataDiscovery"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -104,25 +86,13 @@ export class DefenderForStorage extends pulumi.CustomResource {
  */
 export interface DefenderForStorageArgs {
     /**
-     * Indicates whether Defender for Storage is enabled on this storage account.
+     * Defender for Storage resource properties.
      */
-    isEnabled?: pulumi.Input<boolean>;
-    /**
-     * Properties of Malware Scanning.
-     */
-    malwareScanning?: pulumi.Input<inputs.security.v20221201preview.MalwareScanningPropertiesArgs>;
-    /**
-     * Indicates whether the settings defined for this storage account should override the settings defined for the subscription.
-     */
-    overrideSubscriptionLevelSettings?: pulumi.Input<boolean>;
+    properties?: pulumi.Input<inputs.security.v20221201preview.DefenderForStorageSettingPropertiesArgs>;
     /**
      * The identifier of the resource.
      */
     resourceId: pulumi.Input<string>;
-    /**
-     * Properties of Sensitive Data Discovery.
-     */
-    sensitiveDataDiscovery?: pulumi.Input<inputs.security.v20221201preview.SensitiveDataDiscoveryPropertiesArgs>;
     /**
      * Defender for Storage setting name.
      */

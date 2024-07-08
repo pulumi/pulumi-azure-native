@@ -27,25 +27,16 @@ class GetDefenderForStorageResult:
     """
     The Defender for Storage resource.
     """
-    def __init__(__self__, id=None, is_enabled=None, malware_scanning=None, name=None, override_subscription_level_settings=None, sensitive_data_discovery=None, type=None):
+    def __init__(__self__, id=None, name=None, properties=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if is_enabled and not isinstance(is_enabled, bool):
-            raise TypeError("Expected argument 'is_enabled' to be a bool")
-        pulumi.set(__self__, "is_enabled", is_enabled)
-        if malware_scanning and not isinstance(malware_scanning, dict):
-            raise TypeError("Expected argument 'malware_scanning' to be a dict")
-        pulumi.set(__self__, "malware_scanning", malware_scanning)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if override_subscription_level_settings and not isinstance(override_subscription_level_settings, bool):
-            raise TypeError("Expected argument 'override_subscription_level_settings' to be a bool")
-        pulumi.set(__self__, "override_subscription_level_settings", override_subscription_level_settings)
-        if sensitive_data_discovery and not isinstance(sensitive_data_discovery, dict):
-            raise TypeError("Expected argument 'sensitive_data_discovery' to be a dict")
-        pulumi.set(__self__, "sensitive_data_discovery", sensitive_data_discovery)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -59,22 +50,6 @@ class GetDefenderForStorageResult:
         return pulumi.get(self, "id")
 
     @property
-    @pulumi.getter(name="isEnabled")
-    def is_enabled(self) -> Optional[bool]:
-        """
-        Indicates whether Defender for Storage is enabled on this storage account.
-        """
-        return pulumi.get(self, "is_enabled")
-
-    @property
-    @pulumi.getter(name="malwareScanning")
-    def malware_scanning(self) -> Optional['outputs.MalwareScanningPropertiesResponse']:
-        """
-        Properties of Malware Scanning.
-        """
-        return pulumi.get(self, "malware_scanning")
-
-    @property
     @pulumi.getter
     def name(self) -> str:
         """
@@ -83,20 +58,12 @@ class GetDefenderForStorageResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="overrideSubscriptionLevelSettings")
-    def override_subscription_level_settings(self) -> Optional[bool]:
+    @pulumi.getter
+    def properties(self) -> 'outputs.DefenderForStorageSettingPropertiesResponse':
         """
-        Indicates whether the settings defined for this storage account should override the settings defined for the subscription.
+        Defender for Storage resource properties.
         """
-        return pulumi.get(self, "override_subscription_level_settings")
-
-    @property
-    @pulumi.getter(name="sensitiveDataDiscovery")
-    def sensitive_data_discovery(self) -> Optional['outputs.SensitiveDataDiscoveryPropertiesResponse']:
-        """
-        Properties of Sensitive Data Discovery.
-        """
-        return pulumi.get(self, "sensitive_data_discovery")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter
@@ -114,11 +81,8 @@ class AwaitableGetDefenderForStorageResult(GetDefenderForStorageResult):
             yield self
         return GetDefenderForStorageResult(
             id=self.id,
-            is_enabled=self.is_enabled,
-            malware_scanning=self.malware_scanning,
             name=self.name,
-            override_subscription_level_settings=self.override_subscription_level_settings,
-            sensitive_data_discovery=self.sensitive_data_discovery,
+            properties=self.properties,
             type=self.type)
 
 
@@ -140,11 +104,8 @@ def get_defender_for_storage(resource_id: Optional[str] = None,
 
     return AwaitableGetDefenderForStorageResult(
         id=pulumi.get(__ret__, 'id'),
-        is_enabled=pulumi.get(__ret__, 'is_enabled'),
-        malware_scanning=pulumi.get(__ret__, 'malware_scanning'),
         name=pulumi.get(__ret__, 'name'),
-        override_subscription_level_settings=pulumi.get(__ret__, 'override_subscription_level_settings'),
-        sensitive_data_discovery=pulumi.get(__ret__, 'sensitive_data_discovery'),
+        properties=pulumi.get(__ret__, 'properties'),
         type=pulumi.get(__ret__, 'type'))
 
 

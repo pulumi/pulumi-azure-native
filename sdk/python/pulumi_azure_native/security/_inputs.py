@@ -168,6 +168,8 @@ __all__ = [
     'DefenderForServersGcpOfferingVmScannersArgsDict',
     'DefenderForServersGcpOfferingArgs',
     'DefenderForServersGcpOfferingArgsDict',
+    'DefenderForStorageSettingPropertiesArgs',
+    'DefenderForStorageSettingPropertiesArgsDict',
     'DenylistCustomAlertRuleArgs',
     'DenylistCustomAlertRuleArgsDict',
     'DevOpsConfigurationPropertiesArgs',
@@ -222,6 +224,8 @@ __all__ = [
     'OnPremiseResourceDetailsArgsDict',
     'OnPremiseSqlResourceDetailsArgs',
     'OnPremiseSqlResourceDetailsArgsDict',
+    'OnUploadPropertiesArgs',
+    'OnUploadPropertiesArgsDict',
     'PathRecommendationArgs',
     'PathRecommendationArgsDict',
     'ProtectionModeArgs',
@@ -4915,6 +4919,102 @@ class DefenderForServersGcpOfferingArgs:
 
 
 if not MYPY:
+    class DefenderForStorageSettingPropertiesArgsDict(TypedDict):
+        """
+        Defender for Storage resource properties.
+        """
+        is_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether Defender for Storage is enabled on this storage account.
+        """
+        malware_scanning: NotRequired[pulumi.Input['MalwareScanningPropertiesArgsDict']]
+        """
+        Properties of Malware Scanning.
+        """
+        override_subscription_level_settings: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether the settings defined for this storage account should override the settings defined for the subscription.
+        """
+        sensitive_data_discovery: NotRequired[pulumi.Input['SensitiveDataDiscoveryPropertiesArgsDict']]
+        """
+        Properties of Sensitive Data Discovery.
+        """
+elif False:
+    DefenderForStorageSettingPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DefenderForStorageSettingPropertiesArgs:
+    def __init__(__self__, *,
+                 is_enabled: Optional[pulumi.Input[bool]] = None,
+                 malware_scanning: Optional[pulumi.Input['MalwareScanningPropertiesArgs']] = None,
+                 override_subscription_level_settings: Optional[pulumi.Input[bool]] = None,
+                 sensitive_data_discovery: Optional[pulumi.Input['SensitiveDataDiscoveryPropertiesArgs']] = None):
+        """
+        Defender for Storage resource properties.
+        :param pulumi.Input[bool] is_enabled: Indicates whether Defender for Storage is enabled on this storage account.
+        :param pulumi.Input['MalwareScanningPropertiesArgs'] malware_scanning: Properties of Malware Scanning.
+        :param pulumi.Input[bool] override_subscription_level_settings: Indicates whether the settings defined for this storage account should override the settings defined for the subscription.
+        :param pulumi.Input['SensitiveDataDiscoveryPropertiesArgs'] sensitive_data_discovery: Properties of Sensitive Data Discovery.
+        """
+        if is_enabled is not None:
+            pulumi.set(__self__, "is_enabled", is_enabled)
+        if malware_scanning is not None:
+            pulumi.set(__self__, "malware_scanning", malware_scanning)
+        if override_subscription_level_settings is not None:
+            pulumi.set(__self__, "override_subscription_level_settings", override_subscription_level_settings)
+        if sensitive_data_discovery is not None:
+            pulumi.set(__self__, "sensitive_data_discovery", sensitive_data_discovery)
+
+    @property
+    @pulumi.getter(name="isEnabled")
+    def is_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether Defender for Storage is enabled on this storage account.
+        """
+        return pulumi.get(self, "is_enabled")
+
+    @is_enabled.setter
+    def is_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_enabled", value)
+
+    @property
+    @pulumi.getter(name="malwareScanning")
+    def malware_scanning(self) -> Optional[pulumi.Input['MalwareScanningPropertiesArgs']]:
+        """
+        Properties of Malware Scanning.
+        """
+        return pulumi.get(self, "malware_scanning")
+
+    @malware_scanning.setter
+    def malware_scanning(self, value: Optional[pulumi.Input['MalwareScanningPropertiesArgs']]):
+        pulumi.set(self, "malware_scanning", value)
+
+    @property
+    @pulumi.getter(name="overrideSubscriptionLevelSettings")
+    def override_subscription_level_settings(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether the settings defined for this storage account should override the settings defined for the subscription.
+        """
+        return pulumi.get(self, "override_subscription_level_settings")
+
+    @override_subscription_level_settings.setter
+    def override_subscription_level_settings(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "override_subscription_level_settings", value)
+
+    @property
+    @pulumi.getter(name="sensitiveDataDiscovery")
+    def sensitive_data_discovery(self) -> Optional[pulumi.Input['SensitiveDataDiscoveryPropertiesArgs']]:
+        """
+        Properties of Sensitive Data Discovery.
+        """
+        return pulumi.get(self, "sensitive_data_discovery")
+
+    @sensitive_data_discovery.setter
+    def sensitive_data_discovery(self, value: Optional[pulumi.Input['SensitiveDataDiscoveryPropertiesArgs']]):
+        pulumi.set(self, "sensitive_data_discovery", value)
+
+
+if not MYPY:
     class DenylistCustomAlertRuleArgsDict(TypedDict):
         """
         A custom alert rule that checks if a value (depends on the custom alert type) is denied.
@@ -6920,13 +7020,9 @@ if not MYPY:
         """
         Properties of Malware Scanning.
         """
-        cap_gb_per_month: NotRequired[pulumi.Input[int]]
+        on_upload: NotRequired[pulumi.Input['OnUploadPropertiesArgsDict']]
         """
-        Defines the max GB to be scanned per Month. Set to -1 if no capping is needed.
-        """
-        is_enabled: NotRequired[pulumi.Input[bool]]
-        """
-        Indicates whether On Upload malware scanning should be enabled.
+        Properties of On Upload malware scanning.
         """
         scan_results_event_grid_topic_resource_id: NotRequired[pulumi.Input[str]]
         """
@@ -6938,45 +7034,29 @@ elif False:
 @pulumi.input_type
 class MalwareScanningPropertiesArgs:
     def __init__(__self__, *,
-                 cap_gb_per_month: Optional[pulumi.Input[int]] = None,
-                 is_enabled: Optional[pulumi.Input[bool]] = None,
+                 on_upload: Optional[pulumi.Input['OnUploadPropertiesArgs']] = None,
                  scan_results_event_grid_topic_resource_id: Optional[pulumi.Input[str]] = None):
         """
         Properties of Malware Scanning.
-        :param pulumi.Input[int] cap_gb_per_month: Defines the max GB to be scanned per Month. Set to -1 if no capping is needed.
-        :param pulumi.Input[bool] is_enabled: Indicates whether On Upload malware scanning should be enabled.
+        :param pulumi.Input['OnUploadPropertiesArgs'] on_upload: Properties of On Upload malware scanning.
         :param pulumi.Input[str] scan_results_event_grid_topic_resource_id: Optional. Resource id of an Event Grid Topic to send scan results to.
         """
-        if cap_gb_per_month is not None:
-            pulumi.set(__self__, "cap_gb_per_month", cap_gb_per_month)
-        if is_enabled is not None:
-            pulumi.set(__self__, "is_enabled", is_enabled)
+        if on_upload is not None:
+            pulumi.set(__self__, "on_upload", on_upload)
         if scan_results_event_grid_topic_resource_id is not None:
             pulumi.set(__self__, "scan_results_event_grid_topic_resource_id", scan_results_event_grid_topic_resource_id)
 
     @property
-    @pulumi.getter(name="capGBPerMonth")
-    def cap_gb_per_month(self) -> Optional[pulumi.Input[int]]:
+    @pulumi.getter(name="onUpload")
+    def on_upload(self) -> Optional[pulumi.Input['OnUploadPropertiesArgs']]:
         """
-        Defines the max GB to be scanned per Month. Set to -1 if no capping is needed.
+        Properties of On Upload malware scanning.
         """
-        return pulumi.get(self, "cap_gb_per_month")
+        return pulumi.get(self, "on_upload")
 
-    @cap_gb_per_month.setter
-    def cap_gb_per_month(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "cap_gb_per_month", value)
-
-    @property
-    @pulumi.getter(name="isEnabled")
-    def is_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicates whether On Upload malware scanning should be enabled.
-        """
-        return pulumi.get(self, "is_enabled")
-
-    @is_enabled.setter
-    def is_enabled(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "is_enabled", value)
+    @on_upload.setter
+    def on_upload(self, value: Optional[pulumi.Input['OnUploadPropertiesArgs']]):
+        pulumi.set(self, "on_upload", value)
 
     @property
     @pulumi.getter(name="scanResultsEventGridTopicResourceId")
@@ -7255,6 +7335,62 @@ class OnPremiseSqlResourceDetailsArgs:
     @workspace_id.setter
     def workspace_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "workspace_id", value)
+
+
+if not MYPY:
+    class OnUploadPropertiesArgsDict(TypedDict):
+        """
+        Properties of On Upload malware scanning.
+        """
+        cap_gb_per_month: NotRequired[pulumi.Input[int]]
+        """
+        Defines the max GB to be scanned per Month. Set to -1 if no capping is needed.
+        """
+        is_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether On Upload malware scanning should be enabled.
+        """
+elif False:
+    OnUploadPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class OnUploadPropertiesArgs:
+    def __init__(__self__, *,
+                 cap_gb_per_month: Optional[pulumi.Input[int]] = None,
+                 is_enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        Properties of On Upload malware scanning.
+        :param pulumi.Input[int] cap_gb_per_month: Defines the max GB to be scanned per Month. Set to -1 if no capping is needed.
+        :param pulumi.Input[bool] is_enabled: Indicates whether On Upload malware scanning should be enabled.
+        """
+        if cap_gb_per_month is not None:
+            pulumi.set(__self__, "cap_gb_per_month", cap_gb_per_month)
+        if is_enabled is not None:
+            pulumi.set(__self__, "is_enabled", is_enabled)
+
+    @property
+    @pulumi.getter(name="capGBPerMonth")
+    def cap_gb_per_month(self) -> Optional[pulumi.Input[int]]:
+        """
+        Defines the max GB to be scanned per Month. Set to -1 if no capping is needed.
+        """
+        return pulumi.get(self, "cap_gb_per_month")
+
+    @cap_gb_per_month.setter
+    def cap_gb_per_month(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "cap_gb_per_month", value)
+
+    @property
+    @pulumi.getter(name="isEnabled")
+    def is_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether On Upload malware scanning should be enabled.
+        """
+        return pulumi.get(self, "is_enabled")
+
+    @is_enabled.setter
+    def is_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_enabled", value)
 
 
 if not MYPY:

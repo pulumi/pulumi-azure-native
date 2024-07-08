@@ -74,25 +74,13 @@ namespace Pulumi.AzureNative.Security.V20221201Preview
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Indicates whether Defender for Storage is enabled on this storage account.
-        /// </summary>
-        public readonly bool? IsEnabled;
-        /// <summary>
-        /// Properties of Malware Scanning.
-        /// </summary>
-        public readonly Outputs.MalwareScanningPropertiesResponse? MalwareScanning;
-        /// <summary>
         /// Resource name
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Indicates whether the settings defined for this storage account should override the settings defined for the subscription.
+        /// Defender for Storage resource properties.
         /// </summary>
-        public readonly bool? OverrideSubscriptionLevelSettings;
-        /// <summary>
-        /// Properties of Sensitive Data Discovery.
-        /// </summary>
-        public readonly Outputs.SensitiveDataDiscoveryPropertiesResponse? SensitiveDataDiscovery;
+        public readonly Outputs.DefenderForStorageSettingPropertiesResponse Properties;
         /// <summary>
         /// Resource type
         /// </summary>
@@ -102,24 +90,15 @@ namespace Pulumi.AzureNative.Security.V20221201Preview
         private GetDefenderForStorageResult(
             string id,
 
-            bool? isEnabled,
-
-            Outputs.MalwareScanningPropertiesResponse? malwareScanning,
-
             string name,
 
-            bool? overrideSubscriptionLevelSettings,
-
-            Outputs.SensitiveDataDiscoveryPropertiesResponse? sensitiveDataDiscovery,
+            Outputs.DefenderForStorageSettingPropertiesResponse properties,
 
             string type)
         {
             Id = id;
-            IsEnabled = isEnabled;
-            MalwareScanning = malwareScanning;
             Name = name;
-            OverrideSubscriptionLevelSettings = overrideSubscriptionLevelSettings;
-            SensitiveDataDiscovery = sensitiveDataDiscovery;
+            Properties = properties;
             Type = type;
         }
     }
