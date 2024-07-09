@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Manages a Blob within a Storage Container.
+ * Manages a Blob within a Storage Container. For the supported combinations of properties and features please see [here](https://learn.microsoft.com/en-us/azure/storage/blobs/storage-feature-support-in-storage-accounts).
  */
 export class Blob extends pulumi.CustomResource {
     /**
@@ -38,7 +38,7 @@ export class Blob extends pulumi.CustomResource {
     }
 
     /**
-     * The access tier of the storage blob.
+     * The access tier of the storage blob. Only supported for standard storage accounts, not premium.
      */
     public readonly accessTier!: pulumi.Output<enums.storage.BlobAccessTier | undefined>;
     /**
@@ -117,7 +117,7 @@ export class Blob extends pulumi.CustomResource {
  */
 export interface BlobArgs {
     /**
-     * The access tier of the storage blob.
+     * The access tier of the storage blob. Only supported for standard storage accounts, not premium.
      */
     accessTier?: pulumi.Input<enums.storage.BlobAccessTier>;
     /**

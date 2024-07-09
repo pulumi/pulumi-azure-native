@@ -10,13 +10,13 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Storage
 {
     /// <summary>
-    /// Manages a Blob within a Storage Container.
+    /// Manages a Blob within a Storage Container. For the supported combinations of properties and features please see [here](https://learn.microsoft.com/en-us/azure/storage/blobs/storage-feature-support-in-storage-accounts).
     /// </summary>
     [AzureNativeResourceType("azure-native:storage:Blob")]
     public partial class Blob : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The access tier of the storage blob.
+        /// The access tier of the storage blob. Only supported for standard storage accounts, not premium.
         /// </summary>
         [Output("accessTier")]
         public Output<Pulumi.AzureNative.Storage.BlobAccessTier?> AccessTier { get; private set; } = null!;
@@ -103,7 +103,7 @@ namespace Pulumi.AzureNative.Storage
     public sealed class BlobArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The access tier of the storage blob.
+        /// The access tier of the storage blob. Only supported for standard storage accounts, not premium.
         /// </summary>
         [Input("accessTier")]
         public Input<Pulumi.AzureNative.Storage.BlobAccessTier>? AccessTier { get; set; }

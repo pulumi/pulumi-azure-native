@@ -278,11 +278,11 @@ func newBlob(env *azure.Environment, accountsClient *storage.AccountsClient) *Cu
 		},
 		Schema: &schema.ResourceSpec{
 			ObjectTypeSpec: schema.ObjectTypeSpec{
-				Description: "Manages a Blob within a Storage Container.",
+				Description: "Manages a Blob within a Storage Container. For the supported combinations of properties and features please see [here](https://learn.microsoft.com/en-us/azure/storage/blobs/storage-feature-support-in-storage-accounts).",
 				Type:        "object",
 				Properties: map[string]schema.PropertySpec{
 					accessTier: {
-						Description: "The access tier of the storage blob.",
+						Description: "The access tier of the storage blob. Only supported for standard storage accounts, not premium.",
 						TypeSpec:    schema.TypeSpec{Ref: "#/types/azure-native:storage:BlobAccessTier"},
 					},
 					contentMd5: {
@@ -314,7 +314,7 @@ func newBlob(env *azure.Environment, accountsClient *storage.AccountsClient) *Cu
 			},
 			InputProperties: map[string]schema.PropertySpec{
 				accessTier: {
-					Description: "The access tier of the storage blob.",
+					Description: "The access tier of the storage blob. Only supported for standard storage accounts, not premium.",
 					TypeSpec:    schema.TypeSpec{Ref: "#/types/azure-native:storage:BlobAccessTier"},
 				},
 				accountName: {
