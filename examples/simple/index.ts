@@ -146,7 +146,9 @@ new web.WebAppSwiftVirtualNetworkConnection("swiftconn", {
 const slot = new web.WebAppSlot("slot", {
     resourceGroupName: resourceGroup.name,
     name: appService.name,
-});
+// Subnet is associated by WebAppSwiftVirtualNetworkConnection, so it should be ignored here to avoid
+// overrides on refresh-update cycles.
+}, { ignoreChanges: ["virtualNetworkSubnetId"] });
 
 new web.WebAppSwiftVirtualNetworkConnectionSlot("swiftconnslot", {
     subnetResourceId: subnet.id,
