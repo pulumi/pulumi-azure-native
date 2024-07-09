@@ -312,7 +312,7 @@ class Blob(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accessTier")
-    def access_tier(self) -> pulumi.Output['BlobAccessTier']:
+    def access_tier(self) -> pulumi.Output[Optional['BlobAccessTier']]:
         """
         The access tier of the storage blob.
         """

@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.Storage
         /// The access tier of the storage blob.
         /// </summary>
         [Output("accessTier")]
-        public Output<Pulumi.AzureNative.Storage.BlobAccessTier> AccessTier { get; private set; } = null!;
+        public Output<Pulumi.AzureNative.Storage.BlobAccessTier?> AccessTier { get; private set; } = null!;
 
         /// <summary>
         /// The MD5 sum of the blob contents.

@@ -40,7 +40,7 @@ export class Blob extends pulumi.CustomResource {
     /**
      * The access tier of the storage blob.
      */
-    public readonly accessTier!: pulumi.Output<enums.storage.BlobAccessTier>;
+    public readonly accessTier!: pulumi.Output<enums.storage.BlobAccessTier | undefined>;
     /**
      * The MD5 sum of the blob contents.
      */
