@@ -35,7 +35,7 @@ class BlobArgs:
         :param pulumi.Input[str] account_name: Specifies the storage account in which to create the storage container.
         :param pulumi.Input[str] container_name: The name of the storage container in which this blob should be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription.
-        :param pulumi.Input['BlobAccessTier'] access_tier: The access tier of the storage blob.
+        :param pulumi.Input['BlobAccessTier'] access_tier: The access tier of the storage blob. Only supported for standard storage accounts, not premium.
         :param pulumi.Input[str] blob_name: The name of the storage blob. Must be unique within the storage container the blob is located.
         :param pulumi.Input[str] content_md5: The MD5 sum of the blob contents. Cannot be defined if blob type is Append.
         :param pulumi.Input[str] content_type: The content type of the storage blob. Defaults to `application/octet-stream`.
@@ -103,7 +103,7 @@ class BlobArgs:
     @pulumi.getter(name="accessTier")
     def access_tier(self) -> Optional[pulumi.Input['BlobAccessTier']]:
         """
-        The access tier of the storage blob.
+        The access tier of the storage blob. Only supported for standard storage accounts, not premium.
         """
         return pulumi.get(self, "access_tier")
 
@@ -201,11 +201,11 @@ class Blob(pulumi.CustomResource):
                  type: Optional[pulumi.Input['BlobType']] = None,
                  __props__=None):
         """
-        Manages a Blob within a Storage Container.
+        Manages a Blob within a Storage Container. For the supported combinations of properties and features please see [here](https://learn.microsoft.com/en-us/azure/storage/blobs/storage-feature-support-in-storage-accounts).
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input['BlobAccessTier'] access_tier: The access tier of the storage blob.
+        :param pulumi.Input['BlobAccessTier'] access_tier: The access tier of the storage blob. Only supported for standard storage accounts, not premium.
         :param pulumi.Input[str] account_name: Specifies the storage account in which to create the storage container.
         :param pulumi.Input[str] blob_name: The name of the storage blob. Must be unique within the storage container the blob is located.
         :param pulumi.Input[str] container_name: The name of the storage container in which this blob should be created.
@@ -223,7 +223,7 @@ class Blob(pulumi.CustomResource):
                  args: BlobArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a Blob within a Storage Container.
+        Manages a Blob within a Storage Container. For the supported combinations of properties and features please see [here](https://learn.microsoft.com/en-us/azure/storage/blobs/storage-feature-support-in-storage-accounts).
 
         :param str resource_name: The name of the resource.
         :param BlobArgs args: The arguments to use to populate this resource's properties.
@@ -312,9 +312,9 @@ class Blob(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accessTier")
-    def access_tier(self) -> pulumi.Output['BlobAccessTier']:
+    def access_tier(self) -> pulumi.Output[Optional['BlobAccessTier']]:
         """
-        The access tier of the storage blob.
+        The access tier of the storage blob. Only supported for standard storage accounts, not premium.
         """
         return pulumi.get(self, "access_tier")
 

@@ -278,11 +278,11 @@ func newBlob(env *azure.Environment, accountsClient *storage.AccountsClient) *Cu
 		},
 		Schema: &schema.ResourceSpec{
 			ObjectTypeSpec: schema.ObjectTypeSpec{
-				Description: "Manages a Blob within a Storage Container.",
+				Description: "Manages a Blob within a Storage Container. For the supported combinations of properties and features please see [here](https://learn.microsoft.com/en-us/azure/storage/blobs/storage-feature-support-in-storage-accounts).",
 				Type:        "object",
 				Properties: map[string]schema.PropertySpec{
 					accessTier: {
-						Description: "The access tier of the storage blob.",
+						Description: "The access tier of the storage blob. Only supported for standard storage accounts, not premium.",
 						TypeSpec:    schema.TypeSpec{Ref: "#/types/azure-native:storage:BlobAccessTier"},
 					},
 					contentMd5: {
@@ -310,11 +310,11 @@ func newBlob(env *azure.Environment, accountsClient *storage.AccountsClient) *Cu
 						TypeSpec:    schema.TypeSpec{Type: "string"},
 					},
 				},
-				Required: []string{accessTier, metadata, nameProp, typeProp, url},
+				Required: []string{metadata, nameProp, typeProp, url},
 			},
 			InputProperties: map[string]schema.PropertySpec{
 				accessTier: {
-					Description: "The access tier of the storage blob.",
+					Description: "The access tier of the storage blob. Only supported for standard storage accounts, not premium.",
 					TypeSpec:    schema.TypeSpec{Ref: "#/types/azure-native:storage:BlobAccessTier"},
 				},
 				accountName: {
@@ -585,19 +585,33 @@ func (r *blob) read(ctx context.Context, id string, properties resource.Property
 		return nil, false, errors.Wrapf(err, "retrieving blob properties %q (container %q / account %q)", name, container, acc)
 	}
 
-	return map[string]interface{}{
-		resourceGroupName: properties[resourceGroupName].StringValue(),
-		accountName:       acc,
+	return sdkBlobToPulumiProperties(name,
+			properties[resourceGroupName].StringValue(),
+			acc,
+			container,
+			blobsClient.GetResourceID(acc, container, name),
+			props),
+		true, nil
+}
+
+func sdkBlobToPulumiProperties(name, rg, account, container, azureResourceId string, props blobs.GetPropertiesResult) map[string]any {
+	result := map[string]interface{}{
+		resourceGroupName: rg,
+		accountName:       account,
 		containerName:     container,
 		blobName:          name,
 		nameProp:          name,
-		accessTier:        string(props.AccessTier),
 		contentMd5:        props.ContentMD5,
 		contentType:       props.ContentType,
 		metadata:          props.MetaData,
 		typeProp:          strings.TrimSuffix(string(props.BlobType), "Blob"),
-		url:               blobsClient.GetResourceID(acc, container, name),
-	}, true, nil
+		url:               azureResourceId,
+	}
+	// We can't serialize an empty string as that would be an invalid enum value.
+	if props.AccessTier != "" {
+		result[accessTier] = string(props.AccessTier)
+	}
+	return result
 }
 
 var blobIDPattern = regexp.MustCompile(`(?i)^/subscriptions/(.+)/resourceGroups/(.+)/providers/Microsoft.Storage/storageAccounts/(.+)/blobServices/default/containers/(.+)/blobs/(.+)$`)
