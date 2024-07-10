@@ -26152,6 +26152,7 @@
       {
         "resourceType": "Operations",
         "apiVersions": [
+          "2024-07-01-preview",
           "2024-06-01-preview",
           "2024-02-01-preview",
           "2024-01-01",
@@ -26169,6 +26170,7 @@
       {
         "resourceType": "connectedClusters",
         "apiVersions": [
+          "2024-07-01-preview",
           "2024-06-01-preview",
           "2024-02-01-preview",
           "2024-01-01",
@@ -26184,6 +26186,7 @@
       {
         "resourceType": "locations",
         "apiVersions": [
+          "2024-07-01-preview",
           "2024-06-01-preview",
           "2024-02-01-preview",
           "2024-01-01",
@@ -26199,6 +26202,7 @@
       {
         "resourceType": "locations/operationStatuses",
         "apiVersions": [
+          "2024-07-01-preview",
           "2024-06-01-preview",
           "2024-02-01-preview",
           "2024-01-01",
@@ -26214,6 +26218,7 @@
       {
         "resourceType": "registeredSubscriptions",
         "apiVersions": [
+          "2024-07-01-preview",
           "2024-06-01-preview",
           "2024-02-01-preview",
           "2024-01-01",
@@ -52899,6 +52904,14 @@
         ]
       },
       {
+        "resourceType": "locations/notifyNetworkSecurityPerimeterUpdatesAvailable",
+        "apiVersions": [
+          "2023-12-01",
+          "2023-01-01",
+          "2022-03-01"
+        ]
+      },
+      {
         "resourceType": "locations/operationResults",
         "apiVersions": [
           "2023-12-01",
@@ -54079,6 +54092,7 @@
       {
         "resourceType": "locations",
         "apiVersions": [
+          "2024-06-01-preview",
           "2024-01-01-preview",
           "2023-09-01",
           "2023-04-01",
@@ -54090,6 +54104,7 @@
       {
         "resourceType": "locations/operationStatuses",
         "apiVersions": [
+          "2024-06-01-preview",
           "2024-01-01-preview",
           "2023-09-01",
           "2023-04-01",
@@ -54101,6 +54116,7 @@
       {
         "resourceType": "nginxDeployments",
         "apiVersions": [
+          "2024-06-01-preview",
           "2024-01-01-preview",
           "2023-09-01",
           "2023-04-01",
@@ -54112,6 +54128,7 @@
       {
         "resourceType": "nginxDeployments/certificates",
         "apiVersions": [
+          "2024-06-01-preview",
           "2024-01-01-preview",
           "2023-09-01",
           "2023-04-01",
@@ -54123,6 +54140,7 @@
       {
         "resourceType": "nginxDeployments/configurations",
         "apiVersions": [
+          "2024-06-01-preview",
           "2024-01-01-preview",
           "2023-09-01",
           "2023-04-01",
@@ -54134,6 +54152,7 @@
       {
         "resourceType": "operations",
         "apiVersions": [
+          "2024-06-01-preview",
           "2024-01-01-preview",
           "2023-09-01",
           "2023-04-01",
@@ -55148,6 +55167,7 @@
       {
         "resourceType": "autoscalesettings",
         "apiVersions": [
+          "2024-01-01-preview",
           "2023-01-01-preview",
           "2022-10-01",
           "2021-05-01-preview",
