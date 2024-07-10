@@ -1,0 +1,7 @@
+name: go-azure-in-azure
+runtime: go
+description: A Pulumi program deploying another Pulumi program to Azure
+config:
+  pulumi:tags:
+    value:
+      pulumi:template: azure-go
