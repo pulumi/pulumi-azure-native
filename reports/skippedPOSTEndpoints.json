@@ -2155,6 +2155,7 @@
     "MigrationConfigs_Revert": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}/migrationConfigurations/{configName}/revert",
     "Namespaces_CheckNameAvailability": "/subscriptions/{subscriptionId}/providers/Microsoft.ServiceBus/CheckNameAvailability",
     "Namespaces_CheckNameSpaceAvailability": "/subscriptions/{subscriptionId}/providers/Microsoft.ServiceBus/CheckNameSpaceAvailability",
+    "Namespaces_Failover": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}/failover",
     "Namespaces_ListPostAuthorizationRules": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}/AuthorizationRules",
     "Namespaces_Migrate": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}/migrate",
     "Namespaces_PostAuthorizationRule": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}/AuthorizationRules/{authorizationRuleName}",

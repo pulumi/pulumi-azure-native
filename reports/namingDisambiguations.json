@@ -126,6 +126,20 @@
     "DisambiguatedName": "PrivateRecordSet"
   },
   {
+    "FileLocation": "specification/privatedns/resource-manager/Microsoft.Network/stable/2024-06-01/privatedns.json",
+    "OperationID": "RecordSets_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/privateDnsZones/{privateZoneName}/{recordType}/{relativeRecordSetName}",
+    "GeneratedName": "RecordSet",
+    "DisambiguatedName": "PrivateRecordSet"
+  },
+  {
+    "FileLocation": "specification/privatedns/resource-manager/Microsoft.Network/stable/2024-06-01/privatedns.json",
+    "OperationID": "RecordSets_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/privateDnsZones/{privateZoneName}/{recordType}/{relativeRecordSetName}",
+    "GeneratedName": "RecordSet",
+    "DisambiguatedName": "PrivateRecordSet"
+  },
+  {
     "FileLocation": "specification/redisenterprise/resource-manager/Microsoft.Cache/preview/2020-10-01-preview/redisenterprise.json",
     "OperationID": "PrivateEndpointConnections_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cache/redisEnterprise/{clusterName}/privateEndpointConnections/{privateEndpointConnectionName}",

@@ -6435,6 +6435,17 @@
       "listManagedClusterAdminCredentials",
       "listManagedClusterMonitoringUserCredentials",
       "listManagedClusterUserCredentials"
+    ],
+    "2024-05-01": [
+      "AgentPool",
+      "MaintenanceConfiguration",
+      "ManagedCluster",
+      "PrivateEndpointConnection",
+      "Snapshot",
+      "TrustedAccessRoleBinding",
+      "listManagedClusterAdminCredentials",
+      "listManagedClusterMonitoringUserCredentials",
+      "listManagedClusterUserCredentials"
     ]
   },
   "ContainerStorage": {
@@ -10729,6 +10740,12 @@
       "GuestConfigurationHCRPAssignment"
     ],
     "2022-01-25": [
+      "GuestConfigurationAssignment",
+      "GuestConfigurationAssignmentsVMSS",
+      "GuestConfigurationConnectedVMwarevSphereAssignment",
+      "GuestConfigurationHCRPAssignment"
+    ],
+    "2024-04-05": [
       "GuestConfigurationAssignment",
       "GuestConfigurationAssignmentsVMSS",
       "GuestConfigurationConnectedVMwarevSphereAssignment",
@@ -17943,6 +17960,11 @@
     ],
     "2024-02-01": [
       "Policy"
+    ],
+    "2024-06-01": [
+      "PrivateRecordSet",
+      "PrivateZone",
+      "VirtualNetworkLink"
     ]
   },
   "NetworkAnalytics": {
@@ -20711,6 +20733,24 @@
       "listTopicKeys"
     ],
     "2022-10-01-preview": [
+      "DisasterRecoveryConfig",
+      "MigrationConfig",
+      "Namespace",
+      "NamespaceAuthorizationRule",
+      "NamespaceNetworkRuleSet",
+      "PrivateEndpointConnection",
+      "Queue",
+      "QueueAuthorizationRule",
+      "Rule",
+      "Subscription",
+      "Topic",
+      "TopicAuthorizationRule",
+      "listDisasterRecoveryConfigKeys",
+      "listNamespaceKeys",
+      "listQueueKeys",
+      "listTopicKeys"
+    ],
+    "2023-01-01-preview": [
       "DisasterRecoveryConfig",
       "MigrationConfig",
       "Namespace",

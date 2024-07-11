@@ -20438,6 +20438,7 @@
       "2023-08-01-preview",
       "2023-09-01-preview",
       "2023-10-01",
+      "2024-01-01-preview",
       "2024-02-01",
       "2024-02-01-preview"
     ],
@@ -20475,7 +20476,8 @@
       "2015-04-01",
       "2021-05-01-preview",
       "2022-10-01",
-      "2023-01-01-preview"
+      "2023-01-01-preview",
+      "2024-01-01-preview"
     ],
     "components": [
       "2014-04-01",
@@ -21639,7 +21641,8 @@
       "2023-11-01-preview",
       "2024-01-01",
       "2024-02-01-preview",
-      "2024-06-01-preview"
+      "2024-06-01-preview",
+      "2024-07-01-preview"
     ],
     "connectedclusters": [
       "2020-01-01-preview",
@@ -21651,7 +21654,8 @@
       "2023-11-01-preview",
       "2024-01-01",
       "2024-02-01-preview",
-      "2024-06-01-preview"
+      "2024-06-01-preview",
+      "2024-07-01-preview"
     ],
     "locations": [
       "2020-01-01-preview",
@@ -21663,7 +21667,8 @@
       "2023-11-01-preview",
       "2024-01-01",
       "2024-02-01-preview",
-      "2024-06-01-preview"
+      "2024-06-01-preview",
+      "2024-07-01-preview"
     ],
     "locations/operationstatuses": [
       "2020-01-01-preview",
@@ -21675,7 +21680,8 @@
       "2023-11-01-preview",
       "2024-01-01",
       "2024-02-01-preview",
-      "2024-06-01-preview"
+      "2024-06-01-preview",
+      "2024-07-01-preview"
     ],
     "operations": [
       "2019-09-01-privatepreview",
@@ -21689,7 +21695,8 @@
       "2023-11-01-preview",
       "2024-01-01",
       "2024-02-01-preview",
-      "2024-06-01-preview"
+      "2024-06-01-preview",
+      "2024-07-01-preview"
     ],
     "registeredsubscriptions": [
       "2020-01-01-preview",
@@ -21701,7 +21708,8 @@
       "2023-11-01-preview",
       "2024-01-01",
       "2024-02-01-preview",
-      "2024-06-01-preview"
+      "2024-06-01-preview",
+      "2024-07-01-preview"
     ]
   },
   "kubernetesconfiguration": {
@@ -44552,6 +44560,11 @@
       "2018-03-01-preview",
       "2018-07-01-preview",
       "2022-09-01-preview"
+    ],
+    "locations/notifynetworksecurityperimeterupdatesavailable": [
+      "2022-03-01",
+      "2023-01-01",
+      "2023-12-01"
     ],
     "locations/operationresults": [
       "2016-08-01",
