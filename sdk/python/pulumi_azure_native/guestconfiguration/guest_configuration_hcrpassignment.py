@@ -137,6 +137,8 @@ class GuestConfigurationHCRPAssignment(pulumi.CustomResource):
         Guest configuration assignment is an association between a machine and guest configuration.
         Azure REST API version: 2022-01-25. Prior API version in Azure Native 1.x: 2020-06-25.
 
+        Other available API versions: 2024-04-05.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] guest_configuration_assignment_name: Name of the guest configuration assignment.
@@ -155,6 +157,8 @@ class GuestConfigurationHCRPAssignment(pulumi.CustomResource):
         """
         Guest configuration assignment is an association between a machine and guest configuration.
         Azure REST API version: 2022-01-25. Prior API version in Azure Native 1.x: 2020-06-25.
+
+        Other available API versions: 2024-04-05.
 
         :param str resource_name: The name of the resource.
         :param GuestConfigurationHCRPAssignmentArgs args: The arguments to use to populate this resource's properties.
@@ -198,7 +202,7 @@ class GuestConfigurationHCRPAssignment(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:guestconfiguration/v20181120:GuestConfigurationHCRPAssignment"), pulumi.Alias(type_="azure-native:guestconfiguration/v20200625:GuestConfigurationHCRPAssignment"), pulumi.Alias(type_="azure-native:guestconfiguration/v20210125:GuestConfigurationHCRPAssignment"), pulumi.Alias(type_="azure-native:guestconfiguration/v20220125:GuestConfigurationHCRPAssignment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:guestconfiguration/v20181120:GuestConfigurationHCRPAssignment"), pulumi.Alias(type_="azure-native:guestconfiguration/v20200625:GuestConfigurationHCRPAssignment"), pulumi.Alias(type_="azure-native:guestconfiguration/v20210125:GuestConfigurationHCRPAssignment"), pulumi.Alias(type_="azure-native:guestconfiguration/v20220125:GuestConfigurationHCRPAssignment"), pulumi.Alias(type_="azure-native:guestconfiguration/v20240405:GuestConfigurationHCRPAssignment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(GuestConfigurationHCRPAssignment, __self__).__init__(
             'azure-native:guestconfiguration:GuestConfigurationHCRPAssignment',

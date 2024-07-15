@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Guest configuration assignment is an association between a machine and guest configuration.
  * Azure REST API version: 2022-01-25.
+ *
+ * Other available API versions: 2024-04-05.
  */
 export class GuestConfigurationAssignmentsVMSS extends pulumi.CustomResource {
     /**
@@ -91,7 +93,7 @@ export class GuestConfigurationAssignmentsVMSS extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:guestconfiguration/v20220125:GuestConfigurationAssignmentsVMSS" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:guestconfiguration/v20220125:GuestConfigurationAssignmentsVMSS" }, { type: "azure-native:guestconfiguration/v20240405:GuestConfigurationAssignmentsVMSS" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(GuestConfigurationAssignmentsVMSS.__pulumiType, name, resourceInputs, opts);
     }

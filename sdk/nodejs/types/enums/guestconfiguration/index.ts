@@ -3,9 +3,11 @@
 
 // Export sub-modules:
 import * as v20220125 from "./v20220125";
+import * as v20240405 from "./v20240405";
 
 export {
     v20220125,
+    v20240405,
 };
 
 export const AssignmentType = {

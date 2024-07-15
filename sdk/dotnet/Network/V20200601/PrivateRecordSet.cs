@@ -133,6 +133,7 @@ namespace Pulumi.AzureNative.Network.V20200601
                     new global::Pulumi.Alias { Type = "azure-native:network:PrivateRecordSet" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20180901:PrivateRecordSet" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20200101:PrivateRecordSet" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20240601:PrivateRecordSet" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

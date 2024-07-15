@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.ServiceBus
         /// Gets the primary and secondary connection strings for the namespace.
         /// Azure REST API version: 2022-01-01-preview.
         /// 
-        /// Other available API versions: 2015-08-01, 2022-10-01-preview.
+        /// Other available API versions: 2015-08-01, 2022-10-01-preview, 2023-01-01-preview.
         /// </summary>
         public static Task<ListNamespaceKeysResult> InvokeAsync(ListNamespaceKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListNamespaceKeysResult>("azure-native:servicebus:listNamespaceKeys", args ?? new ListNamespaceKeysArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.ServiceBus
         /// Gets the primary and secondary connection strings for the namespace.
         /// Azure REST API version: 2022-01-01-preview.
         /// 
-        /// Other available API versions: 2015-08-01, 2022-10-01-preview.
+        /// Other available API versions: 2015-08-01, 2022-10-01-preview, 2023-01-01-preview.
         /// </summary>
         public static Output<ListNamespaceKeysResult> Invoke(ListNamespaceKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListNamespaceKeysResult>("azure-native:servicebus:listNamespaceKeys", args ?? new ListNamespaceKeysInvokeArgs(), options.WithDefaults());

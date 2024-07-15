@@ -5310,6 +5310,19 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "containerservice/v20240501",
+  "fqn": "pulumi_azure_native.containerservice.v20240501",
+  "classes": {
+   "azure-native:containerservice/v20240501:AgentPool": "AgentPool",
+   "azure-native:containerservice/v20240501:MaintenanceConfiguration": "MaintenanceConfiguration",
+   "azure-native:containerservice/v20240501:ManagedCluster": "ManagedCluster",
+   "azure-native:containerservice/v20240501:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:containerservice/v20240501:Snapshot": "Snapshot",
+   "azure-native:containerservice/v20240501:TrustedAccessRoleBinding": "TrustedAccessRoleBinding"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "containerstorage",
   "fqn": "pulumi_azure_native.containerstorage",
   "classes": {
@@ -8513,6 +8526,17 @@ _utilities.register(
    "azure-native:guestconfiguration/v20220125:GuestConfigurationAssignmentsVMSS": "GuestConfigurationAssignmentsVMSS",
    "azure-native:guestconfiguration/v20220125:GuestConfigurationConnectedVMwarevSphereAssignment": "GuestConfigurationConnectedVMwarevSphereAssignment",
    "azure-native:guestconfiguration/v20220125:GuestConfigurationHCRPAssignment": "GuestConfigurationHCRPAssignment"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "guestconfiguration/v20240405",
+  "fqn": "pulumi_azure_native.guestconfiguration.v20240405",
+  "classes": {
+   "azure-native:guestconfiguration/v20240405:GuestConfigurationAssignment": "GuestConfigurationAssignment",
+   "azure-native:guestconfiguration/v20240405:GuestConfigurationAssignmentsVMSS": "GuestConfigurationAssignmentsVMSS",
+   "azure-native:guestconfiguration/v20240405:GuestConfigurationConnectedVMwarevSphereAssignment": "GuestConfigurationConnectedVMwarevSphereAssignment",
+   "azure-native:guestconfiguration/v20240405:GuestConfigurationHCRPAssignment": "GuestConfigurationHCRPAssignment"
   }
  },
  {
@@ -12938,6 +12962,16 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "network/v20240601",
+  "fqn": "pulumi_azure_native.network.v20240601",
+  "classes": {
+   "azure-native:network/v20240601:PrivateRecordSet": "PrivateRecordSet",
+   "azure-native:network/v20240601:PrivateZone": "PrivateZone",
+   "azure-native:network/v20240601:VirtualNetworkLink": "VirtualNetworkLink"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "networkanalytics",
   "fqn": "pulumi_azure_native.networkanalytics",
   "classes": {
@@ -15575,6 +15609,25 @@ _utilities.register(
    "azure-native:servicebus/v20221001preview:Subscription": "Subscription",
    "azure-native:servicebus/v20221001preview:Topic": "Topic",
    "azure-native:servicebus/v20221001preview:TopicAuthorizationRule": "TopicAuthorizationRule"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "servicebus/v20230101preview",
+  "fqn": "pulumi_azure_native.servicebus.v20230101preview",
+  "classes": {
+   "azure-native:servicebus/v20230101preview:DisasterRecoveryConfig": "DisasterRecoveryConfig",
+   "azure-native:servicebus/v20230101preview:MigrationConfig": "MigrationConfig",
+   "azure-native:servicebus/v20230101preview:Namespace": "Namespace",
+   "azure-native:servicebus/v20230101preview:NamespaceAuthorizationRule": "NamespaceAuthorizationRule",
+   "azure-native:servicebus/v20230101preview:NamespaceNetworkRuleSet": "NamespaceNetworkRuleSet",
+   "azure-native:servicebus/v20230101preview:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:servicebus/v20230101preview:Queue": "Queue",
+   "azure-native:servicebus/v20230101preview:QueueAuthorizationRule": "QueueAuthorizationRule",
+   "azure-native:servicebus/v20230101preview:Rule": "Rule",
+   "azure-native:servicebus/v20230101preview:Subscription": "Subscription",
+   "azure-native:servicebus/v20230101preview:Topic": "Topic",
+   "azure-native:servicebus/v20230101preview:TopicAuthorizationRule": "TopicAuthorizationRule"
   }
  },
  {

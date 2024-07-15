@@ -357,7 +357,7 @@ class Queue(pulumi.CustomResource):
         Description of queue Resource.
         Azure REST API version: 2022-01-01-preview. Prior API version in Azure Native 1.x: 2017-04-01.
 
-        Other available API versions: 2015-08-01, 2022-10-01-preview.
+        Other available API versions: 2015-08-01, 2022-10-01-preview, 2023-01-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -391,7 +391,7 @@ class Queue(pulumi.CustomResource):
         Description of queue Resource.
         Azure REST API version: 2022-01-01-preview. Prior API version in Azure Native 1.x: 2017-04-01.
 
-        Other available API versions: 2015-08-01, 2022-10-01-preview.
+        Other available API versions: 2015-08-01, 2022-10-01-preview, 2023-01-01-preview.
 
         :param str resource_name: The name of the resource.
         :param QueueArgs args: The arguments to use to populate this resource's properties.
@@ -469,7 +469,7 @@ class Queue(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["updated_at"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:servicebus/v20140901:Queue"), pulumi.Alias(type_="azure-native:servicebus/v20150801:Queue"), pulumi.Alias(type_="azure-native:servicebus/v20170401:Queue"), pulumi.Alias(type_="azure-native:servicebus/v20180101preview:Queue"), pulumi.Alias(type_="azure-native:servicebus/v20210101preview:Queue"), pulumi.Alias(type_="azure-native:servicebus/v20210601preview:Queue"), pulumi.Alias(type_="azure-native:servicebus/v20211101:Queue"), pulumi.Alias(type_="azure-native:servicebus/v20220101preview:Queue"), pulumi.Alias(type_="azure-native:servicebus/v20221001preview:Queue")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:servicebus/v20140901:Queue"), pulumi.Alias(type_="azure-native:servicebus/v20150801:Queue"), pulumi.Alias(type_="azure-native:servicebus/v20170401:Queue"), pulumi.Alias(type_="azure-native:servicebus/v20180101preview:Queue"), pulumi.Alias(type_="azure-native:servicebus/v20210101preview:Queue"), pulumi.Alias(type_="azure-native:servicebus/v20210601preview:Queue"), pulumi.Alias(type_="azure-native:servicebus/v20211101:Queue"), pulumi.Alias(type_="azure-native:servicebus/v20220101preview:Queue"), pulumi.Alias(type_="azure-native:servicebus/v20221001preview:Queue"), pulumi.Alias(type_="azure-native:servicebus/v20230101preview:Queue")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Queue, __self__).__init__(
             'azure-native:servicebus:Queue',

@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Describes a link to virtual network for a Private DNS zone.
  * Azure REST API version: 2020-06-01. Prior API version in Azure Native 1.x: 2020-06-01.
+ *
+ * Other available API versions: 2024-06-01.
  */
 export class VirtualNetworkLink extends pulumi.CustomResource {
     /**
@@ -116,7 +118,7 @@ export class VirtualNetworkLink extends pulumi.CustomResource {
             resourceInputs["virtualNetworkLinkState"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20180901:VirtualNetworkLink" }, { type: "azure-native:network/v20200101:VirtualNetworkLink" }, { type: "azure-native:network/v20200601:VirtualNetworkLink" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20180901:VirtualNetworkLink" }, { type: "azure-native:network/v20200101:VirtualNetworkLink" }, { type: "azure-native:network/v20200601:VirtualNetworkLink" }, { type: "azure-native:network/v20240601:VirtualNetworkLink" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VirtualNetworkLink.__pulumiType, name, resourceInputs, opts);
     }

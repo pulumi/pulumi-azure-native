@@ -161,7 +161,7 @@ class PrivateZone(pulumi.CustomResource):
             __props__.__dict__["number_of_virtual_network_links_with_registration"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network:PrivateZone"), pulumi.Alias(type_="azure-native:network/v20180901:PrivateZone"), pulumi.Alias(type_="azure-native:network/v20200101:PrivateZone")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network:PrivateZone"), pulumi.Alias(type_="azure-native:network/v20180901:PrivateZone"), pulumi.Alias(type_="azure-native:network/v20200101:PrivateZone"), pulumi.Alias(type_="azure-native:network/v20240601:PrivateZone")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateZone, __self__).__init__(
             'azure-native:network/v20200601:PrivateZone',

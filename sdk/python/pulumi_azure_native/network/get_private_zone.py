@@ -212,6 +212,8 @@ def get_private_zone(private_zone_name: Optional[str] = None,
     Gets a Private DNS zone. Retrieves the zone properties, but not the virtual networks links or the record sets within the zone.
     Azure REST API version: 2020-06-01.
 
+    Other available API versions: 2024-06-01.
+
 
     :param str private_zone_name: The name of the Private DNS zone (without a terminating dot).
     :param str resource_group_name: The name of the resource group.
@@ -246,6 +248,8 @@ def get_private_zone_output(private_zone_name: Optional[pulumi.Input[str]] = Non
     """
     Gets a Private DNS zone. Retrieves the zone properties, but not the virtual networks links or the record sets within the zone.
     Azure REST API version: 2020-06-01.
+
+    Other available API versions: 2024-06-01.
 
 
     :param str private_zone_name: The name of the Private DNS zone (without a terminating dot).

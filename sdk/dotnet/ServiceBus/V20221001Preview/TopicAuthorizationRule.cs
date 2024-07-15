@@ -79,6 +79,7 @@ namespace Pulumi.AzureNative.ServiceBus.V20221001Preview
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20210601preview:TopicAuthorizationRule" },
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20211101:TopicAuthorizationRule" },
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20220101preview:TopicAuthorizationRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20230101preview:TopicAuthorizationRule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

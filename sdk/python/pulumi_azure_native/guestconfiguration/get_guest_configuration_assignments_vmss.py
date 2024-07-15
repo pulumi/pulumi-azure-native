@@ -118,6 +118,8 @@ def get_guest_configuration_assignments_vmss(name: Optional[str] = None,
     Get information about a guest configuration assignment for VMSS
     Azure REST API version: 2022-01-25.
 
+    Other available API versions: 2024-04-05.
+
 
     :param str name: The guest configuration assignment name.
     :param str resource_group_name: The resource group name.
@@ -147,6 +149,8 @@ def get_guest_configuration_assignments_vmss_output(name: Optional[pulumi.Input[
     """
     Get information about a guest configuration assignment for VMSS
     Azure REST API version: 2022-01-25.
+
+    Other available API versions: 2024-04-05.
 
 
     :param str name: The guest configuration assignment name.

@@ -12,6 +12,8 @@ namespace Pulumi.AzureNative.GuestConfiguration
     /// <summary>
     /// Guest configuration assignment is an association between a machine and guest configuration.
     /// Azure REST API version: 2022-01-25.
+    /// 
+    /// Other available API versions: 2024-04-05.
     /// </summary>
     [AzureNativeResourceType("azure-native:guestconfiguration:GuestConfigurationAssignmentsVMSS")]
     public partial class GuestConfigurationAssignmentsVMSS : global::Pulumi.CustomResource
@@ -72,6 +74,7 @@ namespace Pulumi.AzureNative.GuestConfiguration
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:guestconfiguration/v20220125:GuestConfigurationAssignmentsVMSS" },
+                    new global::Pulumi.Alias { Type = "azure-native:guestconfiguration/v20240405:GuestConfigurationAssignmentsVMSS" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

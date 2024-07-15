@@ -166,7 +166,7 @@ def get_disaster_recovery_config(alias: Optional[str] = None,
     Retrieves Alias(Disaster Recovery configuration) for primary or secondary namespace
     Azure REST API version: 2022-01-01-preview.
 
-    Other available API versions: 2022-10-01-preview.
+    Other available API versions: 2022-10-01-preview, 2023-01-01-preview.
 
 
     :param str alias: The Disaster Recovery configuration name
@@ -202,7 +202,7 @@ def get_disaster_recovery_config_output(alias: Optional[pulumi.Input[str]] = Non
     Retrieves Alias(Disaster Recovery configuration) for primary or secondary namespace
     Azure REST API version: 2022-01-01-preview.
 
-    Other available API versions: 2022-10-01-preview.
+    Other available API versions: 2022-10-01-preview, 2023-01-01-preview.
 
 
     :param str alias: The Disaster Recovery configuration name

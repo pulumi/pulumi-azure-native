@@ -239,6 +239,8 @@ def get_private_record_set(private_zone_name: Optional[str] = None,
     Gets a record set.
     Azure REST API version: 2020-06-01.
 
+    Other available API versions: 2024-06-01.
+
 
     :param str private_zone_name: The name of the Private DNS zone (without a terminating dot).
     :param str record_type: The type of DNS record in this record set.
@@ -281,6 +283,8 @@ def get_private_record_set_output(private_zone_name: Optional[pulumi.Input[str]]
     """
     Gets a record set.
     Azure REST API version: 2020-06-01.
+
+    Other available API versions: 2024-06-01.
 
 
     :param str private_zone_name: The name of the Private DNS zone (without a terminating dot).

@@ -118,6 +118,8 @@ def get_guest_configuration_hcrpassignment(guest_configuration_assignment_name: 
     Get information about a guest configuration assignment
     Azure REST API version: 2022-01-25.
 
+    Other available API versions: 2024-04-05.
+
 
     :param str guest_configuration_assignment_name: The guest configuration assignment name.
     :param str machine_name: The name of the ARC machine.
@@ -147,6 +149,8 @@ def get_guest_configuration_hcrpassignment_output(guest_configuration_assignment
     """
     Get information about a guest configuration assignment
     Azure REST API version: 2022-01-25.
+
+    Other available API versions: 2024-04-05.
 
 
     :param str guest_configuration_assignment_name: The guest configuration assignment name.

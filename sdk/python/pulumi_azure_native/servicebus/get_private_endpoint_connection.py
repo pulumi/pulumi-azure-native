@@ -142,7 +142,7 @@ def get_private_endpoint_connection(namespace_name: Optional[str] = None,
     Gets a description for the specified Private Endpoint Connection.
     Azure REST API version: 2022-01-01-preview.
 
-    Other available API versions: 2022-10-01-preview.
+    Other available API versions: 2022-10-01-preview, 2023-01-01-preview.
 
 
     :param str namespace_name: The namespace name
@@ -176,7 +176,7 @@ def get_private_endpoint_connection_output(namespace_name: Optional[pulumi.Input
     Gets a description for the specified Private Endpoint Connection.
     Azure REST API version: 2022-01-01-preview.
 
-    Other available API versions: 2022-10-01-preview.
+    Other available API versions: 2022-10-01-preview, 2023-01-01-preview.
 
 
     :param str namespace_name: The namespace name

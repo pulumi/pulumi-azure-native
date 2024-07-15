@@ -2818,7 +2818,7 @@ class MsTeamsChannelPropertiesResponse(dict):
         if calling_webhook is not None:
             pulumi.set(__self__, "calling_webhook", calling_webhook)
         if deployment_environment is None:
-            deployment_environment = 'FallbackDeploymentEnvironment'
+            deployment_environment = 'CommercialDeployment'
         if deployment_environment is not None:
             pulumi.set(__self__, "deployment_environment", deployment_environment)
         if enable_calling is None:

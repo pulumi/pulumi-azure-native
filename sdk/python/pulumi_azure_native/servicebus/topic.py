@@ -272,7 +272,7 @@ class Topic(pulumi.CustomResource):
         Description of topic resource.
         Azure REST API version: 2022-01-01-preview. Prior API version in Azure Native 1.x: 2017-04-01.
 
-        Other available API versions: 2015-08-01, 2022-10-01-preview.
+        Other available API versions: 2015-08-01, 2022-10-01-preview, 2023-01-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -301,7 +301,7 @@ class Topic(pulumi.CustomResource):
         Description of topic resource.
         Azure REST API version: 2022-01-01-preview. Prior API version in Azure Native 1.x: 2017-04-01.
 
-        Other available API versions: 2015-08-01, 2022-10-01-preview.
+        Other available API versions: 2015-08-01, 2022-10-01-preview, 2023-01-01-preview.
 
         :param str resource_name: The name of the resource.
         :param TopicArgs args: The arguments to use to populate this resource's properties.
@@ -369,7 +369,7 @@ class Topic(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["updated_at"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:servicebus/v20140901:Topic"), pulumi.Alias(type_="azure-native:servicebus/v20150801:Topic"), pulumi.Alias(type_="azure-native:servicebus/v20170401:Topic"), pulumi.Alias(type_="azure-native:servicebus/v20180101preview:Topic"), pulumi.Alias(type_="azure-native:servicebus/v20210101preview:Topic"), pulumi.Alias(type_="azure-native:servicebus/v20210601preview:Topic"), pulumi.Alias(type_="azure-native:servicebus/v20211101:Topic"), pulumi.Alias(type_="azure-native:servicebus/v20220101preview:Topic"), pulumi.Alias(type_="azure-native:servicebus/v20221001preview:Topic")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:servicebus/v20140901:Topic"), pulumi.Alias(type_="azure-native:servicebus/v20150801:Topic"), pulumi.Alias(type_="azure-native:servicebus/v20170401:Topic"), pulumi.Alias(type_="azure-native:servicebus/v20180101preview:Topic"), pulumi.Alias(type_="azure-native:servicebus/v20210101preview:Topic"), pulumi.Alias(type_="azure-native:servicebus/v20210601preview:Topic"), pulumi.Alias(type_="azure-native:servicebus/v20211101:Topic"), pulumi.Alias(type_="azure-native:servicebus/v20220101preview:Topic"), pulumi.Alias(type_="azure-native:servicebus/v20221001preview:Topic"), pulumi.Alias(type_="azure-native:servicebus/v20230101preview:Topic")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Topic, __self__).__init__(
             'azure-native:servicebus:Topic',

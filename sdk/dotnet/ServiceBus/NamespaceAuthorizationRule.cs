@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceBus
     /// Description of a namespace authorization rule.
     /// Azure REST API version: 2022-01-01-preview. Prior API version in Azure Native 1.x: 2017-04-01.
     /// 
-    /// Other available API versions: 2014-09-01, 2015-08-01, 2022-10-01-preview.
+    /// Other available API versions: 2014-09-01, 2015-08-01, 2022-10-01-preview, 2023-01-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:servicebus:NamespaceAuthorizationRule")]
     public partial class NamespaceAuthorizationRule : global::Pulumi.CustomResource
@@ -82,6 +82,7 @@ namespace Pulumi.AzureNative.ServiceBus
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20211101:NamespaceAuthorizationRule" },
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20220101preview:NamespaceAuthorizationRule" },
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20221001preview:NamespaceAuthorizationRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20230101preview:NamespaceAuthorizationRule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

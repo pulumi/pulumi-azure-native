@@ -271,6 +271,8 @@ class PrivateRecordSet(pulumi.CustomResource):
         Describes a DNS record set (a collection of DNS records with the same name and type) in a Private DNS zone.
         Azure REST API version: 2020-06-01. Prior API version in Azure Native 1.x: 2020-06-01.
 
+        Other available API versions: 2024-06-01.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ARecordArgs', 'ARecordArgsDict']]]] a_records: The list of A records in the record set.
@@ -297,6 +299,8 @@ class PrivateRecordSet(pulumi.CustomResource):
         """
         Describes a DNS record set (a collection of DNS records with the same name and type) in a Private DNS zone.
         Azure REST API version: 2020-06-01. Prior API version in Azure Native 1.x: 2020-06-01.
+
+        Other available API versions: 2024-06-01.
 
         :param str resource_name: The name of the resource.
         :param PrivateRecordSetArgs args: The arguments to use to populate this resource's properties.
@@ -361,7 +365,7 @@ class PrivateRecordSet(pulumi.CustomResource):
             __props__.__dict__["is_auto_registered"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20180901:PrivateRecordSet"), pulumi.Alias(type_="azure-native:network/v20200101:PrivateRecordSet"), pulumi.Alias(type_="azure-native:network/v20200601:PrivateRecordSet")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20180901:PrivateRecordSet"), pulumi.Alias(type_="azure-native:network/v20200101:PrivateRecordSet"), pulumi.Alias(type_="azure-native:network/v20200601:PrivateRecordSet"), pulumi.Alias(type_="azure-native:network/v20240601:PrivateRecordSet")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateRecordSet, __self__).__init__(
             'azure-native:network:PrivateRecordSet',

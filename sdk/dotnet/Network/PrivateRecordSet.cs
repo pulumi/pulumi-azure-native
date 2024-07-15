@@ -12,6 +12,8 @@ namespace Pulumi.AzureNative.Network
     /// <summary>
     /// Describes a DNS record set (a collection of DNS records with the same name and type) in a Private DNS zone.
     /// Azure REST API version: 2020-06-01. Prior API version in Azure Native 1.x: 2020-06-01.
+    /// 
+    /// Other available API versions: 2024-06-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:PrivateRecordSet")]
     public partial class PrivateRecordSet : global::Pulumi.CustomResource
@@ -134,6 +136,7 @@ namespace Pulumi.AzureNative.Network
                     new global::Pulumi.Alias { Type = "azure-native:network/v20180901:PrivateRecordSet" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20200101:PrivateRecordSet" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20200601:PrivateRecordSet" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20240601:PrivateRecordSet" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

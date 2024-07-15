@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Get information about a guest configuration assignment
  * Azure REST API version: 2022-01-25.
+ *
+ * Other available API versions: 2024-04-05.
  */
 export function getGuestConfigurationHCRPAssignment(args: GetGuestConfigurationHCRPAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetGuestConfigurationHCRPAssignmentResult> {
 
@@ -68,6 +70,8 @@ export interface GetGuestConfigurationHCRPAssignmentResult {
 /**
  * Get information about a guest configuration assignment
  * Azure REST API version: 2022-01-25.
+ *
+ * Other available API versions: 2024-04-05.
  */
 export function getGuestConfigurationHCRPAssignmentOutput(args: GetGuestConfigurationHCRPAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGuestConfigurationHCRPAssignmentResult> {
     return pulumi.output(args).apply((a: any) => getGuestConfigurationHCRPAssignment(a, opts))

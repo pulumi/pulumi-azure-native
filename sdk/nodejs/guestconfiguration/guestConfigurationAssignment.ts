@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Guest configuration assignment is an association between a machine and guest configuration.
  * Azure REST API version: 2022-01-25. Prior API version in Azure Native 1.x: 2020-06-25.
+ *
+ * Other available API versions: 2024-04-05.
  */
 export class GuestConfigurationAssignment extends pulumi.CustomResource {
     /**
@@ -92,7 +94,7 @@ export class GuestConfigurationAssignment extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:guestconfiguration/v20180630preview:GuestConfigurationAssignment" }, { type: "azure-native:guestconfiguration/v20181120:GuestConfigurationAssignment" }, { type: "azure-native:guestconfiguration/v20200625:GuestConfigurationAssignment" }, { type: "azure-native:guestconfiguration/v20210125:GuestConfigurationAssignment" }, { type: "azure-native:guestconfiguration/v20220125:GuestConfigurationAssignment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:guestconfiguration/v20180630preview:GuestConfigurationAssignment" }, { type: "azure-native:guestconfiguration/v20181120:GuestConfigurationAssignment" }, { type: "azure-native:guestconfiguration/v20200625:GuestConfigurationAssignment" }, { type: "azure-native:guestconfiguration/v20210125:GuestConfigurationAssignment" }, { type: "azure-native:guestconfiguration/v20220125:GuestConfigurationAssignment" }, { type: "azure-native:guestconfiguration/v20240405:GuestConfigurationAssignment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(GuestConfigurationAssignment.__pulumiType, name, resourceInputs, opts);
     }

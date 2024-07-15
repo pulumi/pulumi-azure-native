@@ -21,6 +21,9 @@ from . import outputs
 if typing.TYPE_CHECKING:
     import pulumi_azure_native.guestconfiguration.v20220125 as __v20220125
     v20220125 = __v20220125
+    import pulumi_azure_native.guestconfiguration.v20240405 as __v20240405
+    v20240405 = __v20240405
 else:
     v20220125 = _utilities.lazy_import('pulumi_azure_native.guestconfiguration.v20220125')
+    v20240405 = _utilities.lazy_import('pulumi_azure_native.guestconfiguration.v20240405')
 

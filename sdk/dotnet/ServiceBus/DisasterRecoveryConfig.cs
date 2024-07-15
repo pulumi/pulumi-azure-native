@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceBus
     /// Single item in List or Get Alias(Disaster Recovery configuration) operation
     /// Azure REST API version: 2022-01-01-preview. Prior API version in Azure Native 1.x: 2017-04-01.
     /// 
-    /// Other available API versions: 2022-10-01-preview.
+    /// Other available API versions: 2022-10-01-preview, 2023-01-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:servicebus:DisasterRecoveryConfig")]
     public partial class DisasterRecoveryConfig : global::Pulumi.CustomResource
@@ -104,6 +104,7 @@ namespace Pulumi.AzureNative.ServiceBus
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20211101:DisasterRecoveryConfig" },
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20220101preview:DisasterRecoveryConfig" },
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20221001preview:DisasterRecoveryConfig" },
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20230101preview:DisasterRecoveryConfig" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

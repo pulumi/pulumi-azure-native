@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Get information about a guest configuration assignment
  * Azure REST API version: 2022-01-25.
+ *
+ * Other available API versions: 2024-04-05.
  */
 export function getGuestConfigurationConnectedVMwarevSphereAssignment(args: GetGuestConfigurationConnectedVMwarevSphereAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetGuestConfigurationConnectedVMwarevSphereAssignmentResult> {
 
@@ -68,6 +70,8 @@ export interface GetGuestConfigurationConnectedVMwarevSphereAssignmentResult {
 /**
  * Get information about a guest configuration assignment
  * Azure REST API version: 2022-01-25.
+ *
+ * Other available API versions: 2024-04-05.
  */
 export function getGuestConfigurationConnectedVMwarevSphereAssignmentOutput(args: GetGuestConfigurationConnectedVMwarevSphereAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGuestConfigurationConnectedVMwarevSphereAssignmentResult> {
     return pulumi.output(args).apply((a: any) => getGuestConfigurationConnectedVMwarevSphereAssignment(a, opts))

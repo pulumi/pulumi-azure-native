@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Description of topic resource.
  * Azure REST API version: 2022-01-01-preview. Prior API version in Azure Native 1.x: 2017-04-01.
  *
- * Other available API versions: 2015-08-01, 2022-10-01-preview.
+ * Other available API versions: 2015-08-01, 2022-10-01-preview, 2023-01-01-preview.
  */
 export class Topic extends pulumi.CustomResource {
     /**
@@ -190,7 +190,7 @@ export class Topic extends pulumi.CustomResource {
             resourceInputs["updatedAt"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:servicebus/v20140901:Topic" }, { type: "azure-native:servicebus/v20150801:Topic" }, { type: "azure-native:servicebus/v20170401:Topic" }, { type: "azure-native:servicebus/v20180101preview:Topic" }, { type: "azure-native:servicebus/v20210101preview:Topic" }, { type: "azure-native:servicebus/v20210601preview:Topic" }, { type: "azure-native:servicebus/v20211101:Topic" }, { type: "azure-native:servicebus/v20220101preview:Topic" }, { type: "azure-native:servicebus/v20221001preview:Topic" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:servicebus/v20140901:Topic" }, { type: "azure-native:servicebus/v20150801:Topic" }, { type: "azure-native:servicebus/v20170401:Topic" }, { type: "azure-native:servicebus/v20180101preview:Topic" }, { type: "azure-native:servicebus/v20210101preview:Topic" }, { type: "azure-native:servicebus/v20210601preview:Topic" }, { type: "azure-native:servicebus/v20211101:Topic" }, { type: "azure-native:servicebus/v20220101preview:Topic" }, { type: "azure-native:servicebus/v20221001preview:Topic" }, { type: "azure-native:servicebus/v20230101preview:Topic" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Topic.__pulumiType, name, resourceInputs, opts);
     }

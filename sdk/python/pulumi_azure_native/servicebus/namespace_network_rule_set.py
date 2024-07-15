@@ -156,7 +156,7 @@ class NamespaceNetworkRuleSet(pulumi.CustomResource):
         Description of NetworkRuleSet resource.
         Azure REST API version: 2022-01-01-preview. Prior API version in Azure Native 1.x: 2017-04-01.
 
-        Other available API versions: 2022-10-01-preview.
+        Other available API versions: 2022-10-01-preview, 2023-01-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -178,7 +178,7 @@ class NamespaceNetworkRuleSet(pulumi.CustomResource):
         Description of NetworkRuleSet resource.
         Azure REST API version: 2022-01-01-preview. Prior API version in Azure Native 1.x: 2017-04-01.
 
-        Other available API versions: 2022-10-01-preview.
+        Other available API versions: 2022-10-01-preview, 2023-01-01-preview.
 
         :param str resource_name: The name of the resource.
         :param NamespaceNetworkRuleSetArgs args: The arguments to use to populate this resource's properties.
@@ -228,7 +228,7 @@ class NamespaceNetworkRuleSet(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:servicebus/v20170401:NamespaceNetworkRuleSet"), pulumi.Alias(type_="azure-native:servicebus/v20180101preview:NamespaceNetworkRuleSet"), pulumi.Alias(type_="azure-native:servicebus/v20210101preview:NamespaceNetworkRuleSet"), pulumi.Alias(type_="azure-native:servicebus/v20210601preview:NamespaceNetworkRuleSet"), pulumi.Alias(type_="azure-native:servicebus/v20211101:NamespaceNetworkRuleSet"), pulumi.Alias(type_="azure-native:servicebus/v20220101preview:NamespaceNetworkRuleSet"), pulumi.Alias(type_="azure-native:servicebus/v20221001preview:NamespaceNetworkRuleSet")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:servicebus/v20170401:NamespaceNetworkRuleSet"), pulumi.Alias(type_="azure-native:servicebus/v20180101preview:NamespaceNetworkRuleSet"), pulumi.Alias(type_="azure-native:servicebus/v20210101preview:NamespaceNetworkRuleSet"), pulumi.Alias(type_="azure-native:servicebus/v20210601preview:NamespaceNetworkRuleSet"), pulumi.Alias(type_="azure-native:servicebus/v20211101:NamespaceNetworkRuleSet"), pulumi.Alias(type_="azure-native:servicebus/v20220101preview:NamespaceNetworkRuleSet"), pulumi.Alias(type_="azure-native:servicebus/v20221001preview:NamespaceNetworkRuleSet"), pulumi.Alias(type_="azure-native:servicebus/v20230101preview:NamespaceNetworkRuleSet")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(NamespaceNetworkRuleSet, __self__).__init__(
             'azure-native:servicebus:NamespaceNetworkRuleSet',
