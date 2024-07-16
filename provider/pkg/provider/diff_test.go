@@ -36,7 +36,8 @@ func TestCalculateDiffBodyProperties(t *testing.T) {
 						"p6": {Type: "array", Items: &resources.AzureAPIProperty{
 							Ref: "#/types/azure-native:foobar/v20200101:SomeType",
 						}},
-						"location": {Type: "string"},
+						"has.period": {Type: "string"},
+						"location":   {Type: "string"},
 					},
 				},
 			},
@@ -67,7 +68,8 @@ func TestCalculateDiffBodyProperties(t *testing.T) {
 						},
 					},
 					Adds: map[resource.PropertyKey]resource.PropertyValue{
-						"p42": {V: 123},
+						"p42":        {V: 123},
+						"p45.period": {V: "yes"},
 					},
 					Deletes: map[resource.PropertyKey]resource.PropertyValue{
 						"p43": {V: true},
@@ -109,13 +111,15 @@ func TestCalculateDiffBodyProperties(t *testing.T) {
 					},
 				},
 			},
+			"has.period": {},
 			"location": {
 				Old: resource.PropertyValue{V: "East US"},
 				New: resource.PropertyValue{V: "East US 2"},
 			},
 		},
 		Adds: map[resource.PropertyKey]resource.PropertyValue{
-			"p2": {V: 123},
+			"p2":         {V: 123},
+			"has.period": {V: "yes"},
 		},
 		Deletes: map[resource.PropertyKey]resource.PropertyValue{
 			"p3": {V: true},
@@ -123,19 +127,21 @@ func TestCalculateDiffBodyProperties(t *testing.T) {
 	}
 	actual := calculateDetailedDiff(&res, emptyTypes, &diff)
 	expected := map[string]*rpc.PropertyDiff{
-		"p1":          {Kind: rpc.PropertyDiff_UPDATE},
-		"p2":          {Kind: rpc.PropertyDiff_ADD},
-		"p3":          {Kind: rpc.PropertyDiff_DELETE},
-		"p4.p41":      {Kind: rpc.PropertyDiff_UPDATE},
-		"p4.p42":      {Kind: rpc.PropertyDiff_ADD},
-		"p4.p43":      {Kind: rpc.PropertyDiff_DELETE},
-		"p4.p44.p441": {Kind: rpc.PropertyDiff_UPDATE},
-		"p5[0]":       {Kind: rpc.PropertyDiff_UPDATE},
-		"p5[1]":       {Kind: rpc.PropertyDiff_ADD},
-		"p5[2]":       {Kind: rpc.PropertyDiff_DELETE},
-		"p6[0].p61":   {Kind: rpc.PropertyDiff_UPDATE},
-		"p6[0].p62":   {Kind: rpc.PropertyDiff_ADD},
-		"location":    {Kind: rpc.PropertyDiff_UPDATE},
+		"p1":                  {Kind: rpc.PropertyDiff_UPDATE},
+		"p2":                  {Kind: rpc.PropertyDiff_ADD},
+		"p3":                  {Kind: rpc.PropertyDiff_DELETE},
+		"p4.p41":              {Kind: rpc.PropertyDiff_UPDATE},
+		"p4.p42":              {Kind: rpc.PropertyDiff_ADD},
+		"p4.p43":              {Kind: rpc.PropertyDiff_DELETE},
+		"p4.[\"p45.period\"]": {Kind: rpc.PropertyDiff_ADD},
+		"p4.p44.p441":         {Kind: rpc.PropertyDiff_UPDATE},
+		"p5[0]":               {Kind: rpc.PropertyDiff_UPDATE},
+		"p5[1]":               {Kind: rpc.PropertyDiff_ADD},
+		"p5[2]":               {Kind: rpc.PropertyDiff_DELETE},
+		"p6[0].p61":           {Kind: rpc.PropertyDiff_UPDATE},
+		"p6[0].p62":           {Kind: rpc.PropertyDiff_ADD},
+		"[\"has.period\"]":    {Kind: rpc.PropertyDiff_ADD},
+		"location":            {Kind: rpc.PropertyDiff_UPDATE},
 	}
 	assert.Equal(t, expected, actual)
 }

@@ -301,17 +301,25 @@ type differ struct {
 	replaceKeys codegen.StringSet
 }
 
+func quotePropertyKeyForDetailedDiff(key resource.PropertyKey) string {
+	str := string(key)
+	if strings.Contains(str, ".") {
+		return "[\"" + str + "\"]"
+	}
+	return str
+}
+
 func (d *differ) calculateObjectDiff(diff *resource.ObjectDiff, diffBase, replaceBase string) map[string]*rpc.PropertyDiff {
 	detailedDiff := map[string]*rpc.PropertyDiff{}
 	for k, v := range diff.Updates {
-		key := diffBase + string(k)
+		key := diffBase + quotePropertyKeyForDetailedDiff(k)
 		subDiff := d.calculateValueDiff(&v, key, replaceBase+string(k))
 		for sk, sv := range subDiff {
 			detailedDiff[sk] = sv
 		}
 	}
 	for k := range diff.Adds {
-		diffKey := diffBase + string(k)
+		diffKey := diffBase + quotePropertyKeyForDetailedDiff(k)
 		replaceKey := replaceBase + string(k)
 		kind := rpc.PropertyDiff_ADD
 		if d.replaceKeys.Has(replaceKey) {
@@ -320,7 +328,7 @@ func (d *differ) calculateObjectDiff(diff *resource.ObjectDiff, diffBase, replac
 		detailedDiff[diffKey] = &rpc.PropertyDiff{Kind: kind}
 	}
 	for k := range diff.Deletes {
-		diffKey := diffBase + string(k)
+		diffKey := diffBase + quotePropertyKeyForDetailedDiff(k)
 		replaceKey := replaceBase + string(k)
 		kind := rpc.PropertyDiff_DELETE
 		if d.replaceKeys.Has(replaceKey) {
