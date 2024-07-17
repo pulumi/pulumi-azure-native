@@ -10624,7 +10624,16 @@
       "2022-10-01-preview",
       "2023-02-01-preview",
       "2023-05-01",
-      "2023-05-15-preview"
+      "2023-05-15-preview",
+      "2024-05-01-preview"
+    ],
+    "containergroupprofiles": [
+      "2022-04-01-preview",
+      "2022-10-01-preview",
+      "2023-02-01-preview",
+      "2023-05-01",
+      "2023-05-15-preview",
+      "2024-05-01-preview"
     ],
     "containergroups": [
       "2017-08-01-preview",
@@ -10647,7 +10656,8 @@
       "2022-10-01-preview",
       "2023-02-01-preview",
       "2023-05-01",
-      "2023-05-15-preview"
+      "2023-05-15-preview",
+      "2024-05-01-preview"
     ],
     "locations": [
       "2017-08-01-preview",
@@ -10670,7 +10680,8 @@
       "2022-10-01-preview",
       "2023-02-01-preview",
       "2023-05-01",
-      "2023-05-15-preview"
+      "2023-05-15-preview",
+      "2024-05-01-preview"
     ],
     "locations/cachedimages": [
       "2017-08-01-preview",
@@ -10693,7 +10704,8 @@
       "2022-10-01-preview",
       "2023-02-01-preview",
       "2023-05-01",
-      "2023-05-15-preview"
+      "2023-05-15-preview",
+      "2024-05-01-preview"
     ],
     "locations/capabilities": [
       "2017-08-01-preview",
@@ -10716,7 +10728,8 @@
       "2022-10-01-preview",
       "2023-02-01-preview",
       "2023-05-01",
-      "2023-05-15-preview"
+      "2023-05-15-preview",
+      "2024-05-01-preview"
     ],
     "locations/deletevirtualnetworkorsubnets": [
       "2017-08-01-preview",
@@ -10740,7 +10753,8 @@
       "2022-10-01-preview",
       "2023-02-01-preview",
       "2023-05-01",
-      "2023-05-15-preview"
+      "2023-05-15-preview",
+      "2024-05-01-preview"
     ],
     "locations/operationresults": [
       "2017-08-01-preview",
@@ -10763,7 +10777,8 @@
       "2022-10-01-preview",
       "2023-02-01-preview",
       "2023-05-01",
-      "2023-05-15-preview"
+      "2023-05-15-preview",
+      "2024-05-01-preview"
     ],
     "locations/operations": [
       "2017-08-01-preview",
@@ -10786,7 +10801,8 @@
       "2022-10-01-preview",
       "2023-02-01-preview",
       "2023-05-01",
-      "2023-05-15-preview"
+      "2023-05-15-preview",
+      "2024-05-01-preview"
     ],
     "locations/usages": [
       "2017-08-01-preview",
@@ -10809,7 +10825,8 @@
       "2022-10-01-preview",
       "2023-02-01-preview",
       "2023-05-01",
-      "2023-05-15-preview"
+      "2023-05-15-preview",
+      "2024-05-01-preview"
     ],
     "locations/validatedeletevirtualnetworkorsubnets": [
       "2017-08-01-preview",
@@ -10833,7 +10850,8 @@
       "2022-10-01-preview",
       "2023-02-01-preview",
       "2023-05-01",
-      "2023-05-15-preview"
+      "2023-05-15-preview",
+      "2024-05-01-preview"
     ],
     "operations": [
       "2017-08-01-preview",
@@ -10856,7 +10874,8 @@
       "2022-10-01-preview",
       "2023-02-01-preview",
       "2023-05-01",
-      "2023-05-15-preview"
+      "2023-05-15-preview",
+      "2024-05-01-preview"
     ],
     "serviceassociationlinks": [
       "2017-08-01-preview",
@@ -10879,7 +10898,8 @@
       "2022-10-01-preview",
       "2023-02-01-preview",
       "2023-05-01",
-      "2023-05-15-preview"
+      "2023-05-15-preview",
+      "2024-05-01-preview"
     ]
   },
   "containerregistry": {
@@ -18993,11 +19013,13 @@
       "2018-10-31-preview",
       "2021-11-30",
       "2022-08-31-preview",
-      "2023-12-10-preview"
+      "2023-12-10-preview",
+      "2024-06-30-preview"
     ],
     "cloudhsmclusters": [
       "2022-08-31-preview",
-      "2023-12-10-preview"
+      "2023-12-10-preview",
+      "2024-06-30-preview"
     ],
     "locations": [
       "2018-10-31",
@@ -19006,14 +19028,16 @@
     ],
     "locations/cloudhsmoperationresults": [
       "2022-08-31-preview",
-      "2023-12-10-preview"
+      "2023-12-10-preview",
+      "2024-06-30-preview"
     ],
     "operations": [
       "2018-10-31",
       "2018-10-31-preview",
       "2021-11-30",
       "2022-08-31-preview",
-      "2023-12-10-preview"
+      "2023-12-10-preview",
+      "2024-06-30-preview"
     ]
   },
   "hdinsight": {
@@ -21356,14 +21380,16 @@
       "2022-11-01",
       "2023-02-01",
       "2023-07-01",
-      "2023-08-01-PREVIEW"
+      "2023-08-01-PREVIEW",
+      "2024-04-01-preview"
     ],
     "checkmhsmnameavailability": [
       "2022-07-01",
       "2022-11-01",
       "2023-02-01",
       "2023-07-01",
-      "2023-08-01-PREVIEW"
+      "2023-08-01-PREVIEW",
+      "2024-04-01-preview"
     ],
     "checknameavailability": [
       "2015-06-01",
@@ -21381,7 +21407,8 @@
       "2022-11-01",
       "2023-02-01",
       "2023-07-01",
-      "2023-08-01-PREVIEW"
+      "2023-08-01-PREVIEW",
+      "2024-04-01-preview"
     ],
     "deletedmanagedhsms": [
       "2021-04-01-preview",
@@ -21394,7 +21421,8 @@
       "2022-11-01",
       "2023-02-01",
       "2023-07-01",
-      "2023-08-01-PREVIEW"
+      "2023-08-01-PREVIEW",
+      "2024-04-01-preview"
     ],
     "deletedvaults": [
       "2016-10-01",
@@ -21411,7 +21439,8 @@
       "2022-11-01",
       "2023-02-01",
       "2023-07-01",
-      "2023-08-01-PREVIEW"
+      "2023-08-01-PREVIEW",
+      "2024-04-01-preview"
     ],
     "locations": [
       "2016-10-01",
@@ -21428,7 +21457,8 @@
       "2022-11-01",
       "2023-02-01",
       "2023-07-01",
-      "2023-08-01-PREVIEW"
+      "2023-08-01-PREVIEW",
+      "2024-04-01-preview"
     ],
     "locations/deletedmanagedhsms": [
       "2021-04-01-preview",
@@ -21441,7 +21471,8 @@
       "2022-11-01",
       "2023-02-01",
       "2023-07-01",
-      "2023-08-01-PREVIEW"
+      "2023-08-01-PREVIEW",
+      "2024-04-01-preview"
     ],
     "locations/deletedvaults": [
       "2016-10-01",
@@ -21458,7 +21489,8 @@
       "2022-11-01",
       "2023-02-01",
       "2023-07-01",
-      "2023-08-01-PREVIEW"
+      "2023-08-01-PREVIEW",
+      "2024-04-01-preview"
     ],
     "locations/deletevirtualnetworkorsubnets": [
       "2016-10-01",
@@ -21475,7 +21507,8 @@
       "2022-11-01",
       "2023-02-01",
       "2023-07-01",
-      "2023-08-01-PREVIEW"
+      "2023-08-01-PREVIEW",
+      "2024-04-01-preview"
     ],
     "locations/managedhsmoperationresults": [
       "2021-04-01-preview",
@@ -21488,7 +21521,8 @@
       "2022-11-01",
       "2023-02-01",
       "2023-07-01",
-      "2023-08-01-PREVIEW"
+      "2023-08-01-PREVIEW",
+      "2024-04-01-preview"
     ],
     "locations/notifynetworksecurityperimeterupdatesavailable": [
       "2022-02-01-preview",
@@ -21496,7 +21530,8 @@
       "2022-11-01",
       "2023-02-01",
       "2023-07-01",
-      "2023-08-01-PREVIEW"
+      "2023-08-01-PREVIEW",
+      "2024-04-01-preview"
     ],
     "locations/operationresults": [
       "2016-10-01",
@@ -21513,7 +21548,8 @@
       "2022-11-01",
       "2023-02-01",
       "2023-07-01",
-      "2023-08-01-PREVIEW"
+      "2023-08-01-PREVIEW",
+      "2024-04-01-preview"
     ],
     "managedhsms": [
       "2020-04-01-preview",
@@ -21527,19 +21563,22 @@
       "2022-11-01",
       "2023-02-01",
       "2023-07-01",
-      "2023-08-01-PREVIEW"
+      "2023-08-01-PREVIEW",
+      "2024-04-01-preview"
     ],
     "managedhsms/keys": [
       "2022-11-01",
       "2023-02-01",
       "2023-07-01",
-      "2023-08-01-PREVIEW"
+      "2023-08-01-PREVIEW",
+      "2024-04-01-preview"
     ],
     "managedhsms/keys/versions": [
       "2022-11-01",
       "2023-02-01",
       "2023-07-01",
-      "2023-08-01-PREVIEW"
+      "2023-08-01-PREVIEW",
+      "2024-04-01-preview"
     ],
     "operations": [
       "2014-12-19-preview",
@@ -21558,7 +21597,8 @@
       "2022-11-01",
       "2023-02-01",
       "2023-07-01",
-      "2023-08-01-PREVIEW"
+      "2023-08-01-PREVIEW",
+      "2024-04-01-preview"
     ],
     "vaults": [
       "2015-06-01",
@@ -21576,7 +21616,8 @@
       "2022-11-01",
       "2023-02-01",
       "2023-07-01",
-      "2023-08-01-PREVIEW"
+      "2023-08-01-PREVIEW",
+      "2024-04-01-preview"
     ],
     "vaults/accesspolicies": [
       "2015-06-01",
@@ -21594,7 +21635,8 @@
       "2022-11-01",
       "2023-02-01",
       "2023-07-01",
-      "2023-08-01-PREVIEW"
+      "2023-08-01-PREVIEW",
+      "2024-04-01-preview"
     ],
     "vaults/eventgridfilters": [
       "2018-02-14",
@@ -21610,7 +21652,8 @@
       "2022-11-01",
       "2023-02-01",
       "2023-07-01",
-      "2023-08-01-PREVIEW"
+      "2023-08-01-PREVIEW",
+      "2024-04-01-preview"
     ],
     "vaults/keys": [
       "2019-09-01",
@@ -21624,7 +21667,8 @@
       "2022-11-01",
       "2023-02-01",
       "2023-07-01",
-      "2023-08-01-PREVIEW"
+      "2023-08-01-PREVIEW",
+      "2024-04-01-preview"
     ],
     "vaults/keys/versions": [
       "2019-09-01",
@@ -21638,7 +21682,8 @@
       "2022-11-01",
       "2023-02-01",
       "2023-07-01",
-      "2023-08-01-PREVIEW"
+      "2023-08-01-PREVIEW",
+      "2024-04-01-preview"
     ],
     "vaults/secrets": [
       "2015-06-01",
@@ -21656,7 +21701,8 @@
       "2022-11-01",
       "2023-02-01",
       "2023-07-01",
-      "2023-08-01-PREVIEW"
+      "2023-08-01-PREVIEW",
+      "2024-04-01-preview"
     ]
   },
   "kubernetes": {
@@ -31849,7 +31895,8 @@
       "2020-03-01-preview",
       "2020-08-01",
       "2021-12-01-preview",
-      "2022-10-01"
+      "2022-10-01",
+      "2023-01-01-preview"
     ]
   },
   "operationsmanagement": {

@@ -5106,6 +5106,13 @@
       "VirtualMachineScaleSetVMRunCommand",
       "getLogAnalyticExportRequestRateByInterval",
       "getLogAnalyticExportThrottledRequests"
+    ],
+    "2024-03-02": [
+      "Disk",
+      "DiskAccess",
+      "DiskAccessAPrivateEndpointConnection",
+      "DiskEncryptionSet",
+      "Snapshot"
     ]
   },
   "ConfidentialLedger": {
@@ -14270,6 +14277,24 @@
       "getAccountChangeKeyVaultInformation",
       "getSubvolumeMetadata",
       "getVolumeGroupIdForLdapUser",
+      "listVolumeReplications"
+    ],
+    "2024-03-01-preview": [
+      "Account",
+      "Backup",
+      "BackupPolicy",
+      "BackupVault",
+      "Pool",
+      "Snapshot",
+      "SnapshotPolicy",
+      "Subvolume",
+      "Volume",
+      "VolumeGroup",
+      "VolumeQuotaRule",
+      "getAccountChangeKeyVaultInformation",
+      "getSubvolumeMetadata",
+      "getVolumeGroupIdForLdapUser",
+      "listVolumeQuotaReport",
       "listVolumeReplications"
     ]
   },
