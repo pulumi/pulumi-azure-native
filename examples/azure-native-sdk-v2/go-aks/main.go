@@ -4,6 +4,7 @@ package main
 
 import (
 	"encoding/base64"
+	"time"
 
 	"github.com/pulumi/pulumi-azure-native-sdk/containerservice/v2"
 	"github.com/pulumi/pulumi-azure-native-sdk/resources/v2"
@@ -64,6 +65,11 @@ func main() {
 		if err != nil {
 			return err
 		}
+
+		// Although Azure returns success on creation of the Service Principal, we would often see
+		// "Searching service principal failed. Details: service principal is not found" errors without this sleep.
+		time.Sleep(10 * time.Second)
+
 		cluster, err := containerservice.NewManagedCluster(ctx, "cluster", &containerservice.ManagedClusterArgs{
 			ResourceName:      randomClusterName.Result,
 			ResourceGroupName: resourceGroup.Name,
