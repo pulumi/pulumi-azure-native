@@ -13566,8 +13566,20 @@
     "namespace": "Microsoft.ContainerInstance",
     "resourceTypes": [
       {
+        "resourceType": "containerGroupProfiles",
+        "apiVersions": [
+          "2024-05-01-preview",
+          "2023-05-15-preview",
+          "2023-05-01",
+          "2023-02-01-preview",
+          "2022-10-01-preview",
+          "2022-04-01-preview"
+        ]
+      },
+      {
         "resourceType": "containerGroups",
         "apiVersions": [
+          "2024-05-01-preview",
           "2023-05-15-preview",
           "2023-05-01",
           "2023-02-01-preview",
@@ -13594,6 +13606,7 @@
       {
         "resourceType": "locations",
         "apiVersions": [
+          "2024-05-01-preview",
           "2023-05-15-preview",
           "2023-05-01",
           "2023-02-01-preview",
@@ -13620,6 +13633,7 @@
       {
         "resourceType": "locations/cachedImages",
         "apiVersions": [
+          "2024-05-01-preview",
           "2023-05-15-preview",
           "2023-05-01",
           "2023-02-01-preview",
@@ -13646,6 +13660,7 @@
       {
         "resourceType": "locations/capabilities",
         "apiVersions": [
+          "2024-05-01-preview",
           "2023-05-15-preview",
           "2023-05-01",
           "2023-02-01-preview",
@@ -13672,6 +13687,7 @@
       {
         "resourceType": "locations/deleteVirtualNetworkOrSubnets",
         "apiVersions": [
+          "2024-05-01-preview",
           "2023-05-15-preview",
           "2023-05-01",
           "2023-02-01-preview",
@@ -13699,6 +13715,7 @@
       {
         "resourceType": "locations/operationresults",
         "apiVersions": [
+          "2024-05-01-preview",
           "2023-05-15-preview",
           "2023-05-01",
           "2023-02-01-preview",
@@ -13725,6 +13742,7 @@
       {
         "resourceType": "locations/operations",
         "apiVersions": [
+          "2024-05-01-preview",
           "2023-05-15-preview",
           "2023-05-01",
           "2023-02-01-preview",
@@ -13751,6 +13769,7 @@
       {
         "resourceType": "locations/usages",
         "apiVersions": [
+          "2024-05-01-preview",
           "2023-05-15-preview",
           "2023-05-01",
           "2023-02-01-preview",
@@ -13777,6 +13796,7 @@
       {
         "resourceType": "locations/validateDeleteVirtualNetworkOrSubnets",
         "apiVersions": [
+          "2024-05-01-preview",
           "2023-05-15-preview",
           "2023-05-01",
           "2023-02-01-preview",
@@ -13804,6 +13824,7 @@
       {
         "resourceType": "operations",
         "apiVersions": [
+          "2024-05-01-preview",
           "2023-05-15-preview",
           "2023-05-01",
           "2023-02-01-preview",
@@ -13830,6 +13851,7 @@
       {
         "resourceType": "serviceAssociationLinks",
         "apiVersions": [
+          "2024-05-01-preview",
           "2023-05-15-preview",
           "2023-05-01",
           "2023-02-01-preview",
@@ -23734,6 +23756,7 @@
       {
         "resourceType": "cloudHsmClusters",
         "apiVersions": [
+          "2024-06-30-preview",
           "2023-12-10-preview",
           "2022-08-31-preview"
         ]
@@ -23749,6 +23772,7 @@
       {
         "resourceType": "locations/cloudHsmOperationResults",
         "apiVersions": [
+          "2024-06-30-preview",
           "2023-12-10-preview",
           "2022-08-31-preview"
         ]
@@ -23756,6 +23780,7 @@
       {
         "resourceType": "operations",
         "apiVersions": [
+          "2024-06-30-preview",
           "2023-12-10-preview",
           "2022-08-31-preview",
           "2021-11-30",
@@ -25844,6 +25869,7 @@
       {
         "resourceType": "checkMhsmNameAvailability",
         "apiVersions": [
+          "2024-04-01-preview",
           "2023-08-01-PREVIEW",
           "2023-07-01",
           "2023-02-01",
@@ -25854,6 +25880,7 @@
       {
         "resourceType": "checkNameAvailability",
         "apiVersions": [
+          "2024-04-01-preview",
           "2023-08-01-PREVIEW",
           "2023-07-01",
           "2023-02-01",
@@ -25875,6 +25902,7 @@
       {
         "resourceType": "deletedManagedHSMs",
         "apiVersions": [
+          "2024-04-01-preview",
           "2023-08-01-PREVIEW",
           "2023-07-01",
           "2023-02-01",
@@ -25891,6 +25919,7 @@
       {
         "resourceType": "deletedVaults",
         "apiVersions": [
+          "2024-04-01-preview",
           "2023-08-01-PREVIEW",
           "2023-07-01",
           "2023-02-01",
@@ -25911,6 +25940,7 @@
       {
         "resourceType": "locations",
         "apiVersions": [
+          "2024-04-01-preview",
           "2023-08-01-PREVIEW",
           "2023-07-01",
           "2023-02-01",
@@ -25931,6 +25961,7 @@
       {
         "resourceType": "locations/deleteVirtualNetworkOrSubnets",
         "apiVersions": [
+          "2024-04-01-preview",
           "2023-08-01-PREVIEW",
           "2023-07-01",
           "2023-02-01",
@@ -25951,6 +25982,7 @@
       {
         "resourceType": "locations/deletedManagedHSMs",
         "apiVersions": [
+          "2024-04-01-preview",
           "2023-08-01-PREVIEW",
           "2023-07-01",
           "2023-02-01",
@@ -25967,6 +25999,7 @@
       {
         "resourceType": "locations/deletedVaults",
         "apiVersions": [
+          "2024-04-01-preview",
           "2023-08-01-PREVIEW",
           "2023-07-01",
           "2023-02-01",
@@ -25987,6 +26020,7 @@
       {
         "resourceType": "locations/managedHsmOperationResults",
         "apiVersions": [
+          "2024-04-01-preview",
           "2023-08-01-PREVIEW",
           "2023-07-01",
           "2023-02-01",
@@ -26003,6 +26037,7 @@
       {
         "resourceType": "locations/notifyNetworkSecurityPerimeterUpdatesAvailable",
         "apiVersions": [
+          "2024-04-01-preview",
           "2023-08-01-PREVIEW",
           "2023-07-01",
           "2023-02-01",
@@ -26014,6 +26049,7 @@
       {
         "resourceType": "locations/operationResults",
         "apiVersions": [
+          "2024-04-01-preview",
           "2023-08-01-PREVIEW",
           "2023-07-01",
           "2023-02-01",
@@ -26034,6 +26070,7 @@
       {
         "resourceType": "managedHSMs",
         "apiVersions": [
+          "2024-04-01-preview",
           "2023-08-01-PREVIEW",
           "2023-07-01",
           "2023-02-01",
@@ -26051,6 +26088,7 @@
       {
         "resourceType": "managedHSMs/keys",
         "apiVersions": [
+          "2024-04-01-preview",
           "2023-08-01-PREVIEW",
           "2023-07-01",
           "2023-02-01",
@@ -26060,6 +26098,7 @@
       {
         "resourceType": "managedHSMs/keys/versions",
         "apiVersions": [
+          "2024-04-01-preview",
           "2023-08-01-PREVIEW",
           "2023-07-01",
           "2023-02-01",
@@ -26069,6 +26108,7 @@
       {
         "resourceType": "operations",
         "apiVersions": [
+          "2024-04-01-preview",
           "2023-08-01-PREVIEW",
           "2023-07-01",
           "2023-02-01",
@@ -26091,6 +26131,7 @@
       {
         "resourceType": "vaults",
         "apiVersions": [
+          "2024-04-01-preview",
           "2023-08-01-PREVIEW",
           "2023-07-01",
           "2023-02-01",
@@ -26112,6 +26153,7 @@
       {
         "resourceType": "vaults/accessPolicies",
         "apiVersions": [
+          "2024-04-01-preview",
           "2023-08-01-PREVIEW",
           "2023-07-01",
           "2023-02-01",
@@ -26133,6 +26175,7 @@
       {
         "resourceType": "vaults/eventGridFilters",
         "apiVersions": [
+          "2024-04-01-preview",
           "2023-08-01-PREVIEW",
           "2023-07-01",
           "2023-02-01",
@@ -26152,6 +26195,7 @@
       {
         "resourceType": "vaults/keys",
         "apiVersions": [
+          "2024-04-01-preview",
           "2023-08-01-PREVIEW",
           "2023-07-01",
           "2023-02-01",
@@ -26169,6 +26213,7 @@
       {
         "resourceType": "vaults/keys/versions",
         "apiVersions": [
+          "2024-04-01-preview",
           "2023-08-01-PREVIEW",
           "2023-07-01",
           "2023-02-01",
@@ -26186,6 +26231,7 @@
       {
         "resourceType": "vaults/secrets",
         "apiVersions": [
+          "2024-04-01-preview",
           "2023-08-01-PREVIEW",
           "2023-07-01",
           "2023-02-01",
@@ -37905,6 +37951,7 @@
       {
         "resourceType": "workspaces/tables",
         "apiVersions": [
+          "2023-01-01-preview",
           "2022-10-01",
           "2021-12-01-preview",
           "2020-08-01",

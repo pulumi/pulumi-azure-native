@@ -5106,6 +5106,13 @@
       "VirtualMachineScaleSetVMRunCommand",
       "getLogAnalyticExportRequestRateByInterval",
       "getLogAnalyticExportThrottledRequests"
+    ],
+    "2024-03-02": [
+      "Disk",
+      "DiskAccess",
+      "DiskAccessAPrivateEndpointConnection",
+      "DiskEncryptionSet",
+      "Snapshot"
     ]
   },
   "ConfidentialLedger": {
@@ -6440,6 +6447,19 @@
       "AgentPool",
       "MaintenanceConfiguration",
       "ManagedCluster",
+      "PrivateEndpointConnection",
+      "Snapshot",
+      "TrustedAccessRoleBinding",
+      "listManagedClusterAdminCredentials",
+      "listManagedClusterMonitoringUserCredentials",
+      "listManagedClusterUserCredentials"
+    ],
+    "2024-05-02-preview": [
+      "AgentPool",
+      "LoadBalancer",
+      "MaintenanceConfiguration",
+      "ManagedCluster",
+      "ManagedClusterSnapshot",
       "PrivateEndpointConnection",
       "Snapshot",
       "TrustedAccessRoleBinding",
@@ -14270,6 +14290,24 @@
       "getAccountChangeKeyVaultInformation",
       "getSubvolumeMetadata",
       "getVolumeGroupIdForLdapUser",
+      "listVolumeReplications"
+    ],
+    "2024-03-01-preview": [
+      "Account",
+      "Backup",
+      "BackupPolicy",
+      "BackupVault",
+      "Pool",
+      "Snapshot",
+      "SnapshotPolicy",
+      "Subvolume",
+      "Volume",
+      "VolumeGroup",
+      "VolumeQuotaRule",
+      "getAccountChangeKeyVaultInformation",
+      "getSubvolumeMetadata",
+      "getVolumeGroupIdForLdapUser",
+      "listVolumeQuotaReport",
       "listVolumeReplications"
     ]
   },

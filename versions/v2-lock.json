@@ -1798,6 +1798,7 @@
     "getAccountChangeKeyVaultInformation": "2023-11-01-preview",
     "getSubvolumeMetadata": "2022-11-01",
     "getVolumeGroupIdForLdapUser": "2022-11-01",
+    "listVolumeQuotaReport": "2024-03-01-preview",
     "listVolumeReplications": "2022-11-01"
   },
   "Network": {

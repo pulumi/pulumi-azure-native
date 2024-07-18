@@ -1233,6 +1233,7 @@ NetApp:
     additions:
         BackupVault: 2022-11-01-preview
         getAccountChangeKeyVaultInformation: 2023-11-01-preview
+        listVolumeQuotaReport: 2024-03-01-preview
 Network:
     additions:
         AdminRule: "2023-02-01"
