@@ -87,7 +87,7 @@ func PulumiSchema(rootDir string, providerMap openapi.AzureProviders, versioning
 				},
 				"clientSecret": {
 					TypeSpec:    pschema.TypeSpec{Type: "string"},
-					Description: "The Client Secret which should be used. For use When authenticating as a Service Principal using a Client Secret.",
+					Description: "The Client Secret which should be used. For use when authenticating as a Service Principal using a Client Secret.",
 					Secret:      true,
 				},
 				"tenantId": {

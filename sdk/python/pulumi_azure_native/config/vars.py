@@ -51,7 +51,7 @@ class _ExportableConfig(types.ModuleType):
     @property
     def client_secret(self) -> Optional[str]:
         """
-        The Client Secret which should be used. For use When authenticating as a Service Principal using a Client Secret.
+        The Client Secret which should be used. For use when authenticating as a Service Principal using a Client Secret.
         """
         return __config__.get('clientSecret')
 
