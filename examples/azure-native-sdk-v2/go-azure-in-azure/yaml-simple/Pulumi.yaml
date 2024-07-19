@@ -1,0 +1,10 @@
+name: yaml-simple
+runtime: yaml
+description: A minimal Azure Native Pulumi YAML program
+config:
+  azure-native:location: westus2
+resources:
+  resourceGroup:
+    type: azure-native:resources:ResourceGroup
+    properties:
+      location: westus2
