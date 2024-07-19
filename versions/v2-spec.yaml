@@ -747,6 +747,7 @@ DesktopVirtualization:
         PrivateEndpointConnectionByHostPool: 2022-10-14-preview
         PrivateEndpointConnectionByWorkspace: 2022-10-14-preview
         ScalingPlanPersonalSchedule: 2023-07-07-preview
+        listHostPoolRegistrationTokens: 2024-04-08-preview
 DevCenter:
     tracking: "2023-04-01"
     additions:
@@ -885,6 +886,8 @@ HardwareSecurityModules:
         CloudHsmClusterPrivateEndpointConnection: 2022-08-31-preview
 HealthBot:
     tracking: "2023-05-01"
+HealthDataAIServices:
+    tracking: 2024-02-28-preview
 HealthcareApis:
     tracking: "2023-02-28"
     additions:
@@ -1233,6 +1236,7 @@ NetApp:
     additions:
         BackupVault: 2022-11-01-preview
         getAccountChangeKeyVaultInformation: 2023-11-01-preview
+        listVolumeQuotaReport: 2024-03-01-preview
 Network:
     additions:
         AdminRule: "2023-02-01"

@@ -930,7 +930,8 @@
     "ScalingPlanPersonalSchedule": "2023-07-07-preview",
     "ScalingPlanPooledSchedule": "2022-09-09",
     "Workspace": "2022-09-09",
-    "getHostPoolRegistrationToken": "2022-09-09"
+    "getHostPoolRegistrationToken": "2022-09-09",
+    "listHostPoolRegistrationTokens": "2024-04-08-preview"
   },
   "DevCenter": {
     "AttachedNetworkByDevCenter": "2023-04-01",
@@ -1234,6 +1235,10 @@
   "HealthBot": {
     "Bot": "2023-05-01",
     "listBotSecrets": "2023-05-01"
+  },
+  "HealthDataAIServices": {
+    "DeidService": "2024-02-28-preview",
+    "PrivateEndpointConnection": "2024-02-28-preview"
   },
   "HealthcareApis": {
     "AnalyticsConnector": "2022-10-01-preview",
@@ -1798,6 +1803,7 @@
     "getAccountChangeKeyVaultInformation": "2023-11-01-preview",
     "getSubvolumeMetadata": "2022-11-01",
     "getVolumeGroupIdForLdapUser": "2022-11-01",
+    "listVolumeQuotaReport": "2024-03-01-preview",
     "listVolumeReplications": "2022-11-01"
   },
   "Network": {
