@@ -51,7 +51,7 @@ func (m *moduleGenerator) genTypeSpec(propertyName string, schema *spec.Schema, 
 		// There are some boolean-, integer-, and number- based definitions but they aren't allowed by the Azure specs.
 		// Ignore both to preserve over-the-wire format even if they say it's an enum to be modelled as a string.
 		primitiveTypeName != "boolean" && primitiveTypeName != "integer" && primitiveTypeName != "number" {
-		return m.genEnumType(schema, context, enumExtension)
+		return m.genEnumType(schema, context, enumExtension, propertyName)
 	}
 
 	switch {
@@ -244,8 +244,11 @@ func (m *moduleGenerator) inlineTypeName(ctx *openapi.ReferenceContext, property
 	return result
 }
 
-// genEnumType generates the enum type.
-func (m *moduleGenerator) genEnumType(schema *spec.Schema, context *openapi.ReferenceContext, enumExtension map[string]interface{}) (*pschema.TypeSpec, error) {
+// genEnumType generates the enum type. The propertyName serves as a fallback for the enum's name
+// if none is given via the `name` attribute.
+func (m *moduleGenerator) genEnumType(schema *spec.Schema, context *openapi.ReferenceContext,
+	enumExtension map[string]interface{}, propertyName string,
+) (*pschema.TypeSpec, error) {
 	resolvedSchema, err := context.ResolveSchema(schema)
 	if err != nil {
 		return nil, err
@@ -258,10 +261,13 @@ func (m *moduleGenerator) genEnumType(schema *spec.Schema, context *openapi.Refe
 
 	var enumName string
 	if name, ok := enumExtension["name"].(string); ok {
-		enumName = m.typeNameOverride(ToUpperCamel(name))
+		enumName = name
+	} else if propertyName != "" {
+		enumName = propertyName
 	} else {
-		return nil, fmt.Errorf("name key missing from enum metadata")
+		return nil, fmt.Errorf("name key missing from enum metadata and no property name available")
 	}
+	enumName = m.typeNameOverride(ToUpperCamel(enumName))
 
 	tok := fmt.Sprintf("%s:%s:%s", m.pkg.Name, m.module, enumName)
 
