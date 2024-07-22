@@ -121,6 +121,7 @@ func TestSecretsTs(t *testing.T) {
 }
 
 func TestTimeSeriesTs(t *testing.T) {
+	t.Skip("Disabled due to server-side issue tracked by #3453")
 	skipIfShort(t)
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
