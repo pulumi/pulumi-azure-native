@@ -21,7 +21,7 @@ const flexibleServer = new postgresql.Server("server", {
     },
     administratorLogin: "cloudsa",
     administratorLoginPassword: `pa$$w0rd`,
-    // version: "14",
+    version: "14",
     storage: {
         storageSizeGB: 64,
     },
