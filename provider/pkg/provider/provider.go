@@ -921,7 +921,7 @@ func (k *azureNativeProvider) defaultCreate(ctx context.Context, req *rpc.Create
 			// to promote this situation to an error.
 			k.host.Log(ctx, diag.Warning, resource.URN(req.GetUrn()), `Failed to read resource after Create. Please report this issue.
 	Verbose logs contain more information, see https://www.pulumi.com/docs/support/troubleshooting/#verbose-logging.`)
-			logging.V(9).Infof("failed read resource %q after creation: %s", id, err.Error())
+			logging.V(9).Infof("failed to read resource %q after creation: %s", id, err.Error())
 		} else if readResponse != nil {
 			response = readResponse
 		}
@@ -1305,7 +1305,7 @@ func (k *azureNativeProvider) defaultUpdate(ctx context.Context, req *rpc.Update
 			// to promote this situation to an error.
 			k.host.Log(ctx, diag.Warning, resource.URN(req.GetUrn()), `Failed to read resource after Update. Please report this issue.
 	Verbose logs contain more information, see https://www.pulumi.com/docs/support/troubleshooting/#verbose-logging.`)
-			logging.V(9).Infof("failed read resource %q after creation: %s", id, err.Error())
+			logging.V(9).Infof("failed to read resource %q after update: %s", id, err.Error())
 		} else if readResponse != nil {
 			response = readResponse
 		}
