@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
 )
 
 func TestEnumExtensionCaseCollapsing(t *testing.T) {
@@ -26,12 +27,12 @@ func TestEnumExtensionCaseCollapsing(t *testing.T) {
 		map[string]interface{}{"value": "Foo", "name": "Foo"},
 		map[string]interface{}{"value": "bar", "name": "Bar"},
 	}}
-	_, err := generator.genEnumType(schema, &openapi.ReferenceContext{}, enumExtensions)
-	if err != nil {
-		t.Fatal(err)
-	}
+	_, err := generator.genEnumType(schema, &openapi.ReferenceContext{}, enumExtensions, "unusedPropertyName")
+	require.NoError(t, err)
+
 	assert.Len(t, generator.pkg.Types, 1)
-	assert.Len(t, generator.pkg.Types["azure-native:MyModule:MyProp"].Enum, 2)
+	require.Contains(t, generator.pkg.Types, "azure-native:MyModule:MyProp")
+	require.Len(t, generator.pkg.Types["azure-native:MyModule:MyProp"].Enum, 2)
 	assert.Equal(t, generator.pkg.Types["azure-native:MyModule:MyProp"].Enum[0].Value, "foo")
 	assert.Equal(t, generator.pkg.Types["azure-native:MyModule:MyProp"].Enum[1].Value, "bar")
 }
@@ -53,15 +54,41 @@ func TestEnumNonExtensionCaseCollapsing(t *testing.T) {
 				"bar",
 			},
 		},
-	}, &openapi.ReferenceContext{}, map[string]interface{}{"name": "myProp"})
-	if err != nil {
-		t.Fatal(err)
-	}
+	}, &openapi.ReferenceContext{}, map[string]interface{}{"name": "myProp"}, "unusedPropertyName")
+	require.NoError(t, err)
+
 	assert.Len(t, generator.pkg.Types, 1)
-	assert.Len(t, generator.pkg.Types["azure-native:MyModule:MyProp"].Enum, 2)
+	require.Contains(t, generator.pkg.Types, "azure-native:MyModule:MyProp")
+	require.Len(t, generator.pkg.Types["azure-native:MyModule:MyProp"].Enum, 2)
 	assert.Equal(t, generator.pkg.Types["azure-native:MyModule:MyProp"].Enum[0].Value, "foo")
 	assert.Equal(t, generator.pkg.Types["azure-native:MyModule:MyProp"].Enum[1].Value, "bar")
 }
+
+func TestEnumNameFallbackToPropertyNames(t *testing.T) {
+	generator := moduleGenerator{
+		pkg: &schema.PackageSpec{
+			Name:  "azure-native",
+			Types: map[string]schema.ComplexTypeSpec{},
+		},
+		module: "MyModule",
+	}
+	schema := &spec.Schema{
+		SchemaProps: spec.SchemaProps{},
+	}
+	enumExtensions := map[string]interface{}{"values": []interface{}{
+		map[string]interface{}{"value": "foo", "name": "Foo"},
+	}}
+
+	const propertyName = "myProp"
+
+	_, err := generator.genEnumType(schema, &openapi.ReferenceContext{}, enumExtensions, propertyName)
+	require.NoError(t, err)
+	assert.Len(t, generator.pkg.Types, 1)
+	require.Contains(t, generator.pkg.Types, "azure-native:MyModule:MyProp")
+	require.Len(t, generator.pkg.Types["azure-native:MyModule:MyProp"].Enum, 1)
+	assert.Equal(t, generator.pkg.Types["azure-native:MyModule:MyProp"].Enum[0].Value, "foo")
+}
+
 func TestVisitPackageSpecTypes(t *testing.T) {
 	pkg := &schema.PackageSpec{
 		Resources: map[string]schema.ResourceSpec{
