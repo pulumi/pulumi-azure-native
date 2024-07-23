@@ -146,6 +146,11 @@ func (k *azureNativeProvider) lookupResourceFromURN(urn resource.URN) (*resource
 	return &res, nil
 }
 
+// newCrudClient implements crud.ResourceCrudClientFactory
+func (p *azureNativeProvider) newCrudClient(res *resources.AzureAPIResource) crud.ResourceCrudClient {
+	return crud.NewResourceCrudClient(p.azureClient, p.lookupType, p.converter, p.subscriptionID, res)
+}
+
 func (p *azureNativeProvider) Attach(context context.Context, req *rpc.PluginAttach) (*emptypb.Empty, error) {
 	host, err := provider.NewHostClient(req.GetAddress())
 	if err != nil {
@@ -213,7 +218,7 @@ func (k *azureNativeProvider) Configure(ctx context.Context,
 	k.azureClient = azure.NewAzureClient(env, resourceManagerAuth, userAgent)
 
 	azCoreTokenCredential := azCoreTokenCredential{p: k}
-	k.customResources, err = customresources.BuildCustomResources(&env, k.azureClient, k.LookupResource, k.subscriptionID,
+	k.customResources, err = customresources.BuildCustomResources(&env, k.azureClient, k.LookupResource, k.newCrudClient, k.subscriptionID,
 		resourceManagerBearerAuth, resourceManagerAuth, keyVaultBearerAuth, userAgent, azCoreTokenCredential)
 	if err != nil {
 		return nil, fmt.Errorf("initializing custom resources: %w", err)

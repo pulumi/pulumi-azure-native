@@ -13,6 +13,7 @@ import (
 	"github.com/Azure/go-autorest/autorest"
 	azureEnv "github.com/Azure/go-autorest/autorest/azure"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/azure"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/provider/crud"
 	. "github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
@@ -55,6 +56,7 @@ type CustomResource struct {
 func BuildCustomResources(env *azureEnv.Environment,
 	azureClient azure.AzureClient,
 	lookupResource ResourceLookupFunc,
+	crudClientFactory crud.ResourceCrudClientFactory,
 	subscriptionID string,
 	bearerAuth autorest.Authorizer,
 	tokenAuth autorest.Authorizer,
@@ -75,6 +77,11 @@ func BuildCustomResources(env *azureEnv.Environment,
 	storageAccountsClient.Authorizer = tokenAuth
 	storageAccountsClient.UserAgent = userAgent
 
+	customWebApp, err := webApp(crudClientFactory, azureClient, lookupResource)
+	if err != nil {
+		return nil, err
+	}
+
 	resources := []*CustomResource{
 		// Azure KeyVault resources.
 		keyVaultSecret(env.KeyVaultDNSSuffix, &kvClient),
@@ -84,9 +91,10 @@ func BuildCustomResources(env *azureEnv.Environment,
 		newStorageAccountStaticWebsite(env, &storageAccountsClient),
 		newBlob(env, &storageAccountsClient),
 		// Customization of regular resources
-		customWebAppDelete(lookupResource, azureClient),
+		// customWebAppDelete(lookupResource, azureClient),
 		blobContainerLegalHold(azureClient),
 		portalDashboard(),
+		customWebApp,
 	}
 
 	result := map[string]*CustomResource{}
@@ -97,7 +105,7 @@ func BuildCustomResources(env *azureEnv.Environment,
 }
 
 // featureLookup is a map of custom resource to lookup their capabilities.
-var featureLookup, _ = BuildCustomResources(&azureEnv.Environment{}, nil, nil, "", nil, nil, nil, "", nil)
+var featureLookup, _ = BuildCustomResources(&azureEnv.Environment{}, nil, nil, nil, "", nil, nil, nil, "", nil)
 
 // HasCustomDelete returns true if a custom DELETE operation is defined for a given API path.
 func HasCustomDelete(path string) bool {
