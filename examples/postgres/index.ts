@@ -6,7 +6,7 @@ import * as resources from "@pulumi/azure-native/resources";
 const resourceGroup = new resources.ResourceGroup("rg", {
     // // westus2 was not available for Postgres Flexible Server at the time of writing, see
     // // https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/overview#azure-regions
-    // location: "uksouth",
+    location: "westus",
 });
 
 const flexibleServer = new postgresql.Server("server", {
