@@ -172,6 +172,10 @@
     "Detail": "expected tracking preview but found stable"
   },
   {
+    "Provider": "HealthDataAIServices",
+    "Detail": "expected tracking stable but found preview"
+  },
+  {
     "Provider": "HealthcareApis",
     "Detail": "expected no additions but found some"
   },
