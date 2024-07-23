@@ -223,6 +223,8 @@ if typing.TYPE_CHECKING:
     healthbot = __healthbot
     import pulumi_azure_native.healthcareapis as __healthcareapis
     healthcareapis = __healthcareapis
+    import pulumi_azure_native.healthdataaiservices as __healthdataaiservices
+    healthdataaiservices = __healthdataaiservices
     import pulumi_azure_native.hybridcloud as __hybridcloud
     hybridcloud = __hybridcloud
     import pulumi_azure_native.hybridcompute as __hybridcompute
@@ -569,6 +571,7 @@ else:
     hdinsight = _utilities.lazy_import('pulumi_azure_native.hdinsight')
     healthbot = _utilities.lazy_import('pulumi_azure_native.healthbot')
     healthcareapis = _utilities.lazy_import('pulumi_azure_native.healthcareapis')
+    healthdataaiservices = _utilities.lazy_import('pulumi_azure_native.healthdataaiservices')
     hybridcloud = _utilities.lazy_import('pulumi_azure_native.hybridcloud')
     hybridcompute = _utilities.lazy_import('pulumi_azure_native.hybridcompute')
     hybridconnectivity = _utilities.lazy_import('pulumi_azure_native.hybridconnectivity')
@@ -4143,6 +4146,23 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "cognitiveservices/v20240601preview",
+  "fqn": "pulumi_azure_native.cognitiveservices.v20240601preview",
+  "classes": {
+   "azure-native:cognitiveservices/v20240601preview:Account": "Account",
+   "azure-native:cognitiveservices/v20240601preview:CommitmentPlan": "CommitmentPlan",
+   "azure-native:cognitiveservices/v20240601preview:CommitmentPlanAssociation": "CommitmentPlanAssociation",
+   "azure-native:cognitiveservices/v20240601preview:Deployment": "Deployment",
+   "azure-native:cognitiveservices/v20240601preview:EncryptionScope": "EncryptionScope",
+   "azure-native:cognitiveservices/v20240601preview:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:cognitiveservices/v20240601preview:RaiBlocklist": "RaiBlocklist",
+   "azure-native:cognitiveservices/v20240601preview:RaiBlocklistItem": "RaiBlocklistItem",
+   "azure-native:cognitiveservices/v20240601preview:RaiPolicy": "RaiPolicy",
+   "azure-native:cognitiveservices/v20240601preview:SharedCommitmentPlan": "SharedCommitmentPlan"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "communication",
   "fqn": "pulumi_azure_native.communication",
   "classes": {
@@ -4469,6 +4489,18 @@ _utilities.register(
    "azure-native:compute/v20240301:VirtualMachineScaleSetVM": "VirtualMachineScaleSetVM",
    "azure-native:compute/v20240301:VirtualMachineScaleSetVMExtension": "VirtualMachineScaleSetVMExtension",
    "azure-native:compute/v20240301:VirtualMachineScaleSetVMRunCommand": "VirtualMachineScaleSetVMRunCommand"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "compute/v20240302",
+  "fqn": "pulumi_azure_native.compute.v20240302",
+  "classes": {
+   "azure-native:compute/v20240302:Disk": "Disk",
+   "azure-native:compute/v20240302:DiskAccess": "DiskAccess",
+   "azure-native:compute/v20240302:DiskAccessAPrivateEndpointConnection": "DiskAccessAPrivateEndpointConnection",
+   "azure-native:compute/v20240302:DiskEncryptionSet": "DiskEncryptionSet",
+   "azure-native:compute/v20240302:Snapshot": "Snapshot"
   }
  },
  {
@@ -5319,6 +5351,21 @@ _utilities.register(
    "azure-native:containerservice/v20240501:PrivateEndpointConnection": "PrivateEndpointConnection",
    "azure-native:containerservice/v20240501:Snapshot": "Snapshot",
    "azure-native:containerservice/v20240501:TrustedAccessRoleBinding": "TrustedAccessRoleBinding"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "containerservice/v20240502preview",
+  "fqn": "pulumi_azure_native.containerservice.v20240502preview",
+  "classes": {
+   "azure-native:containerservice/v20240502preview:AgentPool": "AgentPool",
+   "azure-native:containerservice/v20240502preview:LoadBalancer": "LoadBalancer",
+   "azure-native:containerservice/v20240502preview:MaintenanceConfiguration": "MaintenanceConfiguration",
+   "azure-native:containerservice/v20240502preview:ManagedCluster": "ManagedCluster",
+   "azure-native:containerservice/v20240502preview:ManagedClusterSnapshot": "ManagedClusterSnapshot",
+   "azure-native:containerservice/v20240502preview:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:containerservice/v20240502preview:Snapshot": "Snapshot",
+   "azure-native:containerservice/v20240502preview:TrustedAccessRoleBinding": "TrustedAccessRoleBinding"
   }
  },
  {
@@ -8783,6 +8830,24 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "healthdataaiservices",
+  "fqn": "pulumi_azure_native.healthdataaiservices",
+  "classes": {
+   "azure-native:healthdataaiservices:DeidService": "DeidService",
+   "azure-native:healthdataaiservices:PrivateEndpointConnection": "PrivateEndpointConnection"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "healthdataaiservices/v20240228preview",
+  "fqn": "pulumi_azure_native.healthdataaiservices.v20240228preview",
+  "classes": {
+   "azure-native:healthdataaiservices/v20240228preview:DeidService": "DeidService",
+   "azure-native:healthdataaiservices/v20240228preview:PrivateEndpointConnection": "PrivateEndpointConnection"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "hybridcloud",
   "fqn": "pulumi_azure_native.hybridcloud",
   "classes": {
@@ -11823,6 +11888,24 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "netapp/v20240301preview",
+  "fqn": "pulumi_azure_native.netapp.v20240301preview",
+  "classes": {
+   "azure-native:netapp/v20240301preview:Account": "Account",
+   "azure-native:netapp/v20240301preview:Backup": "Backup",
+   "azure-native:netapp/v20240301preview:BackupPolicy": "BackupPolicy",
+   "azure-native:netapp/v20240301preview:BackupVault": "BackupVault",
+   "azure-native:netapp/v20240301preview:Pool": "Pool",
+   "azure-native:netapp/v20240301preview:Snapshot": "Snapshot",
+   "azure-native:netapp/v20240301preview:SnapshotPolicy": "SnapshotPolicy",
+   "azure-native:netapp/v20240301preview:Subvolume": "Subvolume",
+   "azure-native:netapp/v20240301preview:Volume": "Volume",
+   "azure-native:netapp/v20240301preview:VolumeGroup": "VolumeGroup",
+   "azure-native:netapp/v20240301preview:VolumeQuotaRule": "VolumeQuotaRule"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "network",
   "fqn": "pulumi_azure_native.network",
   "classes": {
@@ -14466,6 +14549,21 @@ _utilities.register(
    "azure-native:scvmm/v20231007:VirtualMachineTemplate": "VirtualMachineTemplate",
    "azure-native:scvmm/v20231007:VirtualNetwork": "VirtualNetwork",
    "azure-native:scvmm/v20231007:VmmServer": "VmmServer"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "scvmm/v20240601",
+  "fqn": "pulumi_azure_native.scvmm.v20240601",
+  "classes": {
+   "azure-native:scvmm/v20240601:AvailabilitySet": "AvailabilitySet",
+   "azure-native:scvmm/v20240601:Cloud": "Cloud",
+   "azure-native:scvmm/v20240601:GuestAgent": "GuestAgent",
+   "azure-native:scvmm/v20240601:InventoryItem": "InventoryItem",
+   "azure-native:scvmm/v20240601:VirtualMachineInstance": "VirtualMachineInstance",
+   "azure-native:scvmm/v20240601:VirtualMachineTemplate": "VirtualMachineTemplate",
+   "azure-native:scvmm/v20240601:VirtualNetwork": "VirtualNetwork",
+   "azure-native:scvmm/v20240601:VmmServer": "VmmServer"
   }
  },
  {

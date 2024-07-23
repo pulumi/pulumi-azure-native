@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.AzureFleet.Outputs
 {
 
     /// <summary>
-    /// Specifies the Managed Identity used by ADE to get access token for keyvault operations.
+    /// Specifies the Managed Identity used by ADE to get access token for keyvault
+    /// operations.
     /// </summary>
     [OutputType]
     public sealed class EncryptionIdentityResponse

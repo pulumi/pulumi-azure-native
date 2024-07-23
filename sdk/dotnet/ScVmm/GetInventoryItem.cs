@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.ScVmm
         /// Shows an inventory item.
         /// Azure REST API version: 2022-05-21-preview.
         /// 
-        /// Other available API versions: 2023-04-01-preview, 2023-10-07.
+        /// Other available API versions: 2023-04-01-preview, 2023-10-07, 2024-06-01.
         /// </summary>
         public static Task<GetInventoryItemResult> InvokeAsync(GetInventoryItemArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetInventoryItemResult>("azure-native:scvmm:getInventoryItem", args ?? new GetInventoryItemArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.ScVmm
         /// Shows an inventory item.
         /// Azure REST API version: 2022-05-21-preview.
         /// 
-        /// Other available API versions: 2023-04-01-preview, 2023-10-07.
+        /// Other available API versions: 2023-04-01-preview, 2023-10-07, 2024-06-01.
         /// </summary>
         public static Output<GetInventoryItemResult> Invoke(GetInventoryItemInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInventoryItemResult>("azure-native:scvmm:getInventoryItem", args ?? new GetInventoryItemInvokeArgs(), options.WithDefaults());

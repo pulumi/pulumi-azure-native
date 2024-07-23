@@ -17,18 +17,6 @@ namespace Pulumi.AzureNative.AzureFleet.V20240501Preview.Outputs
     public sealed class VirtualMachineScaleSetExtensionResponse
     {
         /// <summary>
-        /// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
-        /// </summary>
-        public readonly bool? AutoUpgradeMinorVersion;
-        /// <summary>
-        /// Indicates whether the extension should be automatically upgraded by the platform if there is a newer version of the extension available.
-        /// </summary>
-        public readonly bool? EnableAutomaticUpgrade;
-        /// <summary>
-        /// If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
-        /// </summary>
-        public readonly string? ForceUpdateTag;
-        /// <summary>
         /// Resource Id
         /// </summary>
         public readonly string Id;
@@ -37,86 +25,28 @@ namespace Pulumi.AzureNative.AzureFleet.V20240501Preview.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
+        /// Describes the properties of a Virtual Machine Scale Set Extension.
         /// </summary>
-        public readonly object? ProtectedSettings;
-        /// <summary>
-        /// The extensions protected settings that are passed by reference, and consumed from key vault
-        /// </summary>
-        public readonly Outputs.KeyVaultSecretReferenceResponse? ProtectedSettingsFromKeyVault;
-        /// <summary>
-        /// Collection of extension names after which this extension needs to be provisioned.
-        /// </summary>
-        public readonly ImmutableArray<string> ProvisionAfterExtensions;
-        /// <summary>
-        /// The provisioning state, which only appears in the response.
-        /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// The name of the extension handler publisher.
-        /// </summary>
-        public readonly string? Publisher;
-        /// <summary>
-        /// Json formatted public settings for the extension.
-        /// </summary>
-        public readonly object? Settings;
-        /// <summary>
-        /// Indicates whether failures stemming from the extension will be suppressed (Operational failures such as not connecting to the VM will not be suppressed regardless of this value). The default is false.
-        /// </summary>
-        public readonly bool? SuppressFailures;
+        public readonly Outputs.VirtualMachineScaleSetExtensionPropertiesResponse? Properties;
         /// <summary>
         /// Resource type
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// Specifies the version of the script handler.
-        /// </summary>
-        public readonly string? TypeHandlerVersion;
 
         [OutputConstructor]
         private VirtualMachineScaleSetExtensionResponse(
-            bool? autoUpgradeMinorVersion,
-
-            bool? enableAutomaticUpgrade,
-
-            string? forceUpdateTag,
-
             string id,
 
             string? name,
 
-            object? protectedSettings,
+            Outputs.VirtualMachineScaleSetExtensionPropertiesResponse? properties,
 
-            Outputs.KeyVaultSecretReferenceResponse? protectedSettingsFromKeyVault,
-
-            ImmutableArray<string> provisionAfterExtensions,
-
-            string provisioningState,
-
-            string? publisher,
-
-            object? settings,
-
-            bool? suppressFailures,
-
-            string type,
-
-            string? typeHandlerVersion)
+            string type)
         {
-            AutoUpgradeMinorVersion = autoUpgradeMinorVersion;
-            EnableAutomaticUpgrade = enableAutomaticUpgrade;
-            ForceUpdateTag = forceUpdateTag;
             Id = id;
             Name = name;
-            ProtectedSettings = protectedSettings;
-            ProtectedSettingsFromKeyVault = protectedSettingsFromKeyVault;
-            ProvisionAfterExtensions = provisionAfterExtensions;
-            ProvisioningState = provisioningState;
-            Publisher = publisher;
-            Settings = settings;
-            SuppressFailures = suppressFailures;
+            Properties = properties;
             Type = type;
-            TypeHandlerVersion = typeHandlerVersion;
         }
     }
 }

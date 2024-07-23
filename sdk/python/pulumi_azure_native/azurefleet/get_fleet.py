@@ -27,7 +27,7 @@ class GetFleetResult:
     """
     An Compute Fleet resource
     """
-    def __init__(__self__, compute_profile=None, id=None, identity=None, location=None, name=None, plan=None, provisioning_state=None, regular_priority_profile=None, spot_priority_profile=None, system_data=None, tags=None, type=None, vm_sizes_profile=None, zones=None):
+    def __init__(__self__, compute_profile=None, id=None, identity=None, location=None, name=None, plan=None, provisioning_state=None, regular_priority_profile=None, spot_priority_profile=None, system_data=None, tags=None, time_created=None, type=None, unique_id=None, vm_sizes_profile=None, zones=None):
         if compute_profile and not isinstance(compute_profile, dict):
             raise TypeError("Expected argument 'compute_profile' to be a dict")
         pulumi.set(__self__, "compute_profile", compute_profile)
@@ -61,9 +61,15 @@ class GetFleetResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
+        if time_created and not isinstance(time_created, str):
+            raise TypeError("Expected argument 'time_created' to be a str")
+        pulumi.set(__self__, "time_created", time_created)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+        if unique_id and not isinstance(unique_id, str):
+            raise TypeError("Expected argument 'unique_id' to be a str")
+        pulumi.set(__self__, "unique_id", unique_id)
         if vm_sizes_profile and not isinstance(vm_sizes_profile, list):
             raise TypeError("Expected argument 'vm_sizes_profile' to be a list")
         pulumi.set(__self__, "vm_sizes_profile", vm_sizes_profile)
@@ -160,12 +166,28 @@ class GetFleetResult:
         return pulumi.get(self, "tags")
 
     @property
+    @pulumi.getter(name="timeCreated")
+    def time_created(self) -> str:
+        """
+        Specifies the time at which the Compute Fleet is created.
+        """
+        return pulumi.get(self, "time_created")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
         The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="uniqueId")
+    def unique_id(self) -> str:
+        """
+        Specifies the ID which uniquely identifies a Compute Fleet.
+        """
+        return pulumi.get(self, "unique_id")
 
     @property
     @pulumi.getter(name="vmSizesProfile")
@@ -201,7 +223,9 @@ class AwaitableGetFleetResult(GetFleetResult):
             spot_priority_profile=self.spot_priority_profile,
             system_data=self.system_data,
             tags=self.tags,
+            time_created=self.time_created,
             type=self.type,
+            unique_id=self.unique_id,
             vm_sizes_profile=self.vm_sizes_profile,
             zones=self.zones)
 
@@ -237,7 +261,9 @@ def get_fleet(fleet_name: Optional[str] = None,
         spot_priority_profile=pulumi.get(__ret__, 'spot_priority_profile'),
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
+        time_created=pulumi.get(__ret__, 'time_created'),
         type=pulumi.get(__ret__, 'type'),
+        unique_id=pulumi.get(__ret__, 'unique_id'),
         vm_sizes_profile=pulumi.get(__ret__, 'vm_sizes_profile'),
         zones=pulumi.get(__ret__, 'zones'))
 

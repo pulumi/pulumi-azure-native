@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.AzureFleet.Inputs
 {
 
+    /// <summary>
+    /// Specifies Terminate Scheduled Event related configurations.
+    /// </summary>
     public sealed class TerminateNotificationProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
@@ -19,7 +22,10 @@ namespace Pulumi.AzureNative.AzureFleet.Inputs
         public Input<bool>? Enable { get; set; }
 
         /// <summary>
-        /// Configurable length of time a Virtual Machine being deleted will have to potentially approve the Terminate Scheduled Event before the event is auto approved (timed out). The configuration must be specified in ISO 8601 format, the default value is 5 minutes (PT5M)
+        /// Configurable length of time a Virtual Machine being deleted will have to
+        /// potentially approve the Terminate Scheduled Event before the event is auto
+        /// approved (timed out). The configuration must be specified in ISO 8601 format,
+        /// the default value is 5 minutes (PT5M)
         /// </summary>
         [Input("notBeforeTimeout")]
         public Input<string>? NotBeforeTimeout { get; set; }

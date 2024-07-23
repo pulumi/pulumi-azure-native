@@ -16,19 +16,29 @@ namespace Pulumi.AzureNative.AzureFleet.V20231101Preview.Inputs
     public sealed class LinuxPatchSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the mode of VM Guest Patch Assessment for the IaaS virtual machine.&lt;br /&gt;&lt;br /&gt; Possible values are:&lt;br /&gt;&lt;br /&gt; **ImageDefault** - You control the timing of patch assessments on a virtual machine. &lt;br /&gt;&lt;br /&gt; **AutomaticByPlatform** - The platform will trigger periodic patch assessments. The property provisionVMAgent must be true.
+        /// Specifies the mode of VM Guest Patch Assessment for the IaaS virtual
+        /// machine.&lt;br /&gt;&lt;br /&gt; Possible values are:&lt;br /&gt;&lt;br /&gt; **ImageDefault** - You
+        /// control the timing of patch assessments on a virtual machine. &lt;br /&gt;&lt;br /&gt;
+        /// **AutomaticByPlatform** - The platform will trigger periodic patch assessments.
+        /// The property provisionVMAgent must be true.
         /// </summary>
         [Input("assessmentMode")]
         public InputUnion<string, Pulumi.AzureNative.AzureFleet.V20231101Preview.LinuxPatchAssessmentMode>? AssessmentMode { get; set; }
 
         /// <summary>
-        /// Specifies additional settings for patch mode AutomaticByPlatform in VM Guest Patching on Linux.
+        /// Specifies additional settings for patch mode AutomaticByPlatform in VM Guest
+        /// Patching on Linux.
         /// </summary>
         [Input("automaticByPlatformSettings")]
         public Input<Inputs.LinuxVMGuestPatchAutomaticByPlatformSettingsArgs>? AutomaticByPlatformSettings { get; set; }
 
         /// <summary>
-        /// Specifies the mode of VM Guest Patching to IaaS virtual machine or virtual machines associated to virtual machine scale set with OrchestrationMode as Flexible.&lt;br /&gt;&lt;br /&gt; Possible values are:&lt;br /&gt;&lt;br /&gt; **ImageDefault** - The virtual machine's default patching configuration is used. &lt;br /&gt;&lt;br /&gt; **AutomaticByPlatform** - The virtual machine will be automatically updated by the platform. The property provisionVMAgent must be true
+        /// Specifies the mode of VM Guest Patching to IaaS virtual machine or virtual
+        /// machines associated to virtual machine scale set with OrchestrationMode as
+        /// Flexible.&lt;br /&gt;&lt;br /&gt; Possible values are:&lt;br /&gt;&lt;br /&gt; **ImageDefault** - The
+        /// virtual machine's default patching configuration is used. &lt;br /&gt;&lt;br /&gt;
+        /// **AutomaticByPlatform** - The virtual machine will be automatically updated by
+        /// the platform. The property provisionVMAgent must be true
         /// </summary>
         [Input("patchMode")]
         public InputUnion<string, Pulumi.AzureNative.AzureFleet.V20231101Preview.LinuxVMGuestPatchMode>? PatchMode { get; set; }

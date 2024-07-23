@@ -114,6 +114,7 @@ namespace Pulumi.AzureNative.ScVmm.V20230401Preview
                 {
                     new global::Pulumi.Alias { Type = "azure-native:scvmm:VirtualMachineInstance" },
                     new global::Pulumi.Alias { Type = "azure-native:scvmm/v20231007:VirtualMachineInstance" },
+                    new global::Pulumi.Alias { Type = "azure-native:scvmm/v20240601:VirtualMachineInstance" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

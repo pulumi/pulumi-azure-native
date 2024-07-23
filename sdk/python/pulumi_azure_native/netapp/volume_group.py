@@ -137,7 +137,7 @@ class VolumeGroup(pulumi.CustomResource):
         Volume group resource for create
         Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2021-10-01.
 
-        Other available API versions: 2021-10-01, 2022-11-01-preview, 2023-05-01, 2023-05-01-preview, 2023-07-01, 2023-07-01-preview, 2023-11-01, 2023-11-01-preview.
+        Other available API versions: 2021-10-01, 2022-11-01-preview, 2023-05-01, 2023-05-01-preview, 2023-07-01, 2023-07-01-preview, 2023-11-01, 2023-11-01-preview, 2024-03-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -158,7 +158,7 @@ class VolumeGroup(pulumi.CustomResource):
         Volume group resource for create
         Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2021-10-01.
 
-        Other available API versions: 2021-10-01, 2022-11-01-preview, 2023-05-01, 2023-05-01-preview, 2023-07-01, 2023-07-01-preview, 2023-11-01, 2023-11-01-preview.
+        Other available API versions: 2021-10-01, 2022-11-01-preview, 2023-05-01, 2023-05-01-preview, 2023-07-01, 2023-07-01-preview, 2023-11-01, 2023-11-01-preview, 2024-03-01-preview.
 
         :param str resource_name: The name of the resource.
         :param VolumeGroupArgs args: The arguments to use to populate this resource's properties.
@@ -203,7 +203,7 @@ class VolumeGroup(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:netapp/v20210801:VolumeGroup"), pulumi.Alias(type_="azure-native:netapp/v20211001:VolumeGroup"), pulumi.Alias(type_="azure-native:netapp/v20220101:VolumeGroup"), pulumi.Alias(type_="azure-native:netapp/v20220301:VolumeGroup"), pulumi.Alias(type_="azure-native:netapp/v20220501:VolumeGroup"), pulumi.Alias(type_="azure-native:netapp/v20220901:VolumeGroup"), pulumi.Alias(type_="azure-native:netapp/v20221101:VolumeGroup"), pulumi.Alias(type_="azure-native:netapp/v20221101preview:VolumeGroup"), pulumi.Alias(type_="azure-native:netapp/v20230501:VolumeGroup"), pulumi.Alias(type_="azure-native:netapp/v20230501preview:VolumeGroup"), pulumi.Alias(type_="azure-native:netapp/v20230701:VolumeGroup"), pulumi.Alias(type_="azure-native:netapp/v20230701preview:VolumeGroup"), pulumi.Alias(type_="azure-native:netapp/v20231101:VolumeGroup"), pulumi.Alias(type_="azure-native:netapp/v20231101preview:VolumeGroup")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:netapp/v20210801:VolumeGroup"), pulumi.Alias(type_="azure-native:netapp/v20211001:VolumeGroup"), pulumi.Alias(type_="azure-native:netapp/v20220101:VolumeGroup"), pulumi.Alias(type_="azure-native:netapp/v20220301:VolumeGroup"), pulumi.Alias(type_="azure-native:netapp/v20220501:VolumeGroup"), pulumi.Alias(type_="azure-native:netapp/v20220901:VolumeGroup"), pulumi.Alias(type_="azure-native:netapp/v20221101:VolumeGroup"), pulumi.Alias(type_="azure-native:netapp/v20221101preview:VolumeGroup"), pulumi.Alias(type_="azure-native:netapp/v20230501:VolumeGroup"), pulumi.Alias(type_="azure-native:netapp/v20230501preview:VolumeGroup"), pulumi.Alias(type_="azure-native:netapp/v20230701:VolumeGroup"), pulumi.Alias(type_="azure-native:netapp/v20230701preview:VolumeGroup"), pulumi.Alias(type_="azure-native:netapp/v20231101:VolumeGroup"), pulumi.Alias(type_="azure-native:netapp/v20231101preview:VolumeGroup"), pulumi.Alias(type_="azure-native:netapp/v20240301preview:VolumeGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VolumeGroup, __self__).__init__(
             'azure-native:netapp:VolumeGroup',

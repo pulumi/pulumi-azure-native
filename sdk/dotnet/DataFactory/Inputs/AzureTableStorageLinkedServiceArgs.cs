@@ -46,6 +46,12 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public Input<object>? ConnectionString { get; set; }
 
         /// <summary>
+        /// The credential reference containing authentication information.
+        /// </summary>
+        [Input("credential")]
+        public Input<Inputs.CredentialReferenceArgs>? Credential { get; set; }
+
+        /// <summary>
         /// Linked service description.
         /// </summary>
         [Input("description")]
@@ -80,6 +86,12 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         /// </summary>
         [Input("sasUri")]
         public Input<object>? SasUri { get; set; }
+
+        /// <summary>
+        /// Table service endpoint of the Azure Table Storage resource. It is mutually exclusive with connectionString, sasUri property.
+        /// </summary>
+        [Input("serviceEndpoint")]
+        public Input<object>? ServiceEndpoint { get; set; }
 
         /// <summary>
         /// Type of linked service.

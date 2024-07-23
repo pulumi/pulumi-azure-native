@@ -19,7 +19,10 @@ namespace Pulumi.AzureNative.AzureFleet.V20240501Preview.Inputs
         private InputList<Inputs.VirtualMachineScaleSetDataDiskArgs>? _dataDisks;
 
         /// <summary>
-        /// Specifies the parameters that are used to add data disks to the virtual machines in the scale set. For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview).
+        /// Specifies the parameters that are used to add data disks to the virtual
+        /// machines in the scale set. For more information about disks, see [About disks
+        /// and VHDs for Azure virtual
+        /// machines](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview).
         /// </summary>
         public InputList<Inputs.VirtualMachineScaleSetDataDiskArgs> DataDisks
         {
@@ -27,22 +30,26 @@ namespace Pulumi.AzureNative.AzureFleet.V20240501Preview.Inputs
             set => _dataDisks = value;
         }
 
+        /// <summary>
+        /// Specifies the disk controller type configured for the virtual machines in the scale set. Minimum api-version: 2022-08-01
+        /// </summary>
         [Input("diskControllerType")]
-        private InputList<Union<string, Pulumi.AzureNative.AzureFleet.V20240501Preview.DiskControllerTypes>>? _diskControllerType;
-        public InputList<Union<string, Pulumi.AzureNative.AzureFleet.V20240501Preview.DiskControllerTypes>> DiskControllerType
-        {
-            get => _diskControllerType ?? (_diskControllerType = new InputList<Union<string, Pulumi.AzureNative.AzureFleet.V20240501Preview.DiskControllerTypes>>());
-            set => _diskControllerType = value;
-        }
+        public InputUnion<string, Pulumi.AzureNative.AzureFleet.V20240501Preview.DiskControllerTypes>? DiskControllerType { get; set; }
 
         /// <summary>
-        /// Specifies information about the image to use. You can specify information about platform images, marketplace images, or virtual machine images. This element is required when you want to use a platform image, marketplace image, or virtual machine image, but is not used in other creation operations.
+        /// Specifies information about the image to use. You can specify information about
+        /// platform images, marketplace images, or virtual machine images. This element is
+        /// required when you want to use a platform image, marketplace image, or virtual
+        /// machine image, but is not used in other creation operations.
         /// </summary>
         [Input("imageReference")]
         public Input<Inputs.ImageReferenceArgs>? ImageReference { get; set; }
 
         /// <summary>
-        /// Specifies information about the operating system disk used by the virtual machines in the scale set. For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview).
+        /// Specifies information about the operating system disk used by the virtual
+        /// machines in the scale set. For more information about disks, see [About disks
+        /// and VHDs for Azure virtual
+        /// machines](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview).
         /// </summary>
         [Input("osDisk")]
         public Input<Inputs.VirtualMachineScaleSetOSDiskArgs>? OsDisk { get; set; }

@@ -100,6 +100,7 @@ import * as hardwaresecuritymodules from "./hardwaresecuritymodules";
 import * as hdinsight from "./hdinsight";
 import * as healthbot from "./healthbot";
 import * as healthcareapis from "./healthcareapis";
+import * as healthdataaiservices from "./healthdataaiservices";
 import * as hybridcloud from "./hybridcloud";
 import * as hybridcompute from "./hybridcompute";
 import * as hybridconnectivity from "./hybridconnectivity";
@@ -303,6 +304,7 @@ export {
     hdinsight,
     healthbot,
     healthcareapis,
+    healthdataaiservices,
     hybridcloud,
     hybridcompute,
     hybridconnectivity,

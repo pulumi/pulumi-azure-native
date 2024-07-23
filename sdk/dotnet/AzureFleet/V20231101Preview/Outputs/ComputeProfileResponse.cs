@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.AzureFleet.V20231101Preview.Outputs
         /// <summary>
         /// Base Virtual Machine Profile Properties to be specified according to "specification/compute/resource-manager/Microsoft.Compute/ComputeRP/stable/{computeApiVersion}/virtualMachineScaleSet.json#/definitions/VirtualMachineScaleSetVMProfile"
         /// </summary>
-        public readonly Outputs.VirtualMachineScaleSetVMProfileResponse BaseVirtualMachineProfile;
+        public readonly Outputs.BaseVirtualMachineProfileResponse BaseVirtualMachineProfile;
         /// <summary>
         /// Specifies the Microsoft.Compute API version to use when creating underlying Virtual Machine scale sets and Virtual Machines.
         /// The default value will be the latest supported computeApiVersion by Compute Fleet.
@@ -28,7 +28,7 @@ namespace Pulumi.AzureNative.AzureFleet.V20231101Preview.Outputs
 
         [OutputConstructor]
         private ComputeProfileResponse(
-            Outputs.VirtualMachineScaleSetVMProfileResponse baseVirtualMachineProfile,
+            Outputs.BaseVirtualMachineProfileResponse baseVirtualMachineProfile,
 
             string? computeApiVersion)
         {

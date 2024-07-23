@@ -17,7 +17,8 @@ namespace Pulumi.AzureNative.AzureFleet.Outputs
     public sealed class VaultSecretGroupResponse
     {
         /// <summary>
-        /// The relative URL of the Key Vault containing all of the certificates in VaultCertificates.
+        /// The relative URL of the Key Vault containing all of the certificates in
+        /// VaultCertificates.
         /// </summary>
         public readonly Outputs.SubResourceResponse? SourceVault;
         /// <summary>

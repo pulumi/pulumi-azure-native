@@ -11,7 +11,9 @@ namespace Pulumi.AzureNative.AzureFleet.Inputs
 {
 
     /// <summary>
-    /// Describes the parameters of ephemeral disk settings that can be specified for operating system disk. **Note:** The ephemeral disk settings can only be specified for managed disk.
+    /// Describes the parameters of ephemeral disk settings that can be specified for
+    /// operating system disk. **Note:** The ephemeral disk settings can only be
+    /// specified for managed disk.
     /// </summary>
     public sealed class DiffDiskSettingsArgs : global::Pulumi.ResourceArgs
     {
@@ -22,7 +24,13 @@ namespace Pulumi.AzureNative.AzureFleet.Inputs
         public InputUnion<string, Pulumi.AzureNative.AzureFleet.DiffDiskOptions>? Option { get; set; }
 
         /// <summary>
-        /// Specifies the ephemeral disk placement for operating system disk. Possible values are: **CacheDisk,** **ResourceDisk.** The defaulting behavior is: **CacheDisk** if one is configured for the VM size otherwise **ResourceDisk** is used. Refer to the VM size documentation for Windows VM at https://docs.microsoft.com/azure/virtual-machines/windows/sizes and Linux VM at https://docs.microsoft.com/azure/virtual-machines/linux/sizes to check which VM sizes exposes a cache disk.
+        /// Specifies the ephemeral disk placement for operating system disk. Possible
+        /// values are: **CacheDisk,** **ResourceDisk.** The defaulting behavior is:
+        /// **CacheDisk** if one is configured for the VM size otherwise **ResourceDisk**
+        /// is used. Refer to the VM size documentation for Windows VM at
+        /// https://docs.microsoft.com/azure/virtual-machines/windows/sizes and Linux VM at
+        /// https://docs.microsoft.com/azure/virtual-machines/linux/sizes to check which VM
+        /// sizes exposes a cache disk.
         /// </summary>
         [Input("placement")]
         public InputUnion<string, Pulumi.AzureNative.AzureFleet.DiffDiskPlacement>? Placement { get; set; }

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.AzureFleet.Outputs
 {
 
+    /// <summary>
+    /// Specifies Scheduled Event related configurations.
+    /// </summary>
     [OutputType]
     public sealed class ScheduledEventsProfileResponse
     {

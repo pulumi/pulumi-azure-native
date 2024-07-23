@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * The VirtualMachineTemplates resource definition.
  * Azure REST API version: 2022-05-21-preview. Prior API version in Azure Native 1.x: 2020-06-05-preview.
  *
- * Other available API versions: 2023-04-01-preview, 2023-10-07.
+ * Other available API versions: 2023-04-01-preview, 2023-10-07, 2024-06-01.
  */
 export class VirtualMachineTemplate extends pulumi.CustomResource {
     /**
@@ -207,7 +207,7 @@ export class VirtualMachineTemplate extends pulumi.CustomResource {
             resourceInputs["vmmServerId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:scvmm/v20200605preview:VirtualMachineTemplate" }, { type: "azure-native:scvmm/v20220521preview:VirtualMachineTemplate" }, { type: "azure-native:scvmm/v20230401preview:VirtualMachineTemplate" }, { type: "azure-native:scvmm/v20231007:VirtualMachineTemplate" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:scvmm/v20200605preview:VirtualMachineTemplate" }, { type: "azure-native:scvmm/v20220521preview:VirtualMachineTemplate" }, { type: "azure-native:scvmm/v20230401preview:VirtualMachineTemplate" }, { type: "azure-native:scvmm/v20231007:VirtualMachineTemplate" }, { type: "azure-native:scvmm/v20240601:VirtualMachineTemplate" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VirtualMachineTemplate.__pulumiType, name, resourceInputs, opts);
     }

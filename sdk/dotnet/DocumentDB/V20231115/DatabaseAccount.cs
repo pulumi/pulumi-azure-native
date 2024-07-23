@@ -118,7 +118,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20231115
         public Output<bool?> EnableAutomaticFailover { get; private set; } = null!;
 
         /// <summary>
-        /// Flag to indicate enabling/disabling of Burst Capacity Preview feature on the account
+        /// Flag to indicate enabling/disabling of Burst Capacity feature on the account
         /// </summary>
         [Output("enableBurstCapacity")]
         public Output<bool?> EnableBurstCapacity { get; private set; } = null!;
@@ -494,7 +494,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20231115
         public Input<bool>? EnableAutomaticFailover { get; set; }
 
         /// <summary>
-        /// Flag to indicate enabling/disabling of Burst Capacity Preview feature on the account
+        /// Flag to indicate enabling/disabling of Burst Capacity feature on the account
         /// </summary>
         [Input("enableBurstCapacity")]
         public Input<bool>? EnableBurstCapacity { get; set; }

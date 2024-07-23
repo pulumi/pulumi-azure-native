@@ -310,7 +310,7 @@ class GetDatabaseAccountResult:
     @pulumi.getter(name="enableBurstCapacity")
     def enable_burst_capacity(self) -> Optional[bool]:
         """
-        Flag to indicate enabling/disabling of Burst Capacity Preview feature on the account
+        Flag to indicate enabling/disabling of Burst Capacity feature on the account
         """
         return pulumi.get(self, "enable_burst_capacity")
 

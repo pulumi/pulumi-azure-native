@@ -121,7 +121,7 @@ class DiskAccess(pulumi.CustomResource):
         disk access resource.
         Azure REST API version: 2022-07-02. Prior API version in Azure Native 1.x: 2020-12-01.
 
-        Other available API versions: 2023-01-02, 2023-04-02, 2023-10-02.
+        Other available API versions: 2023-01-02, 2023-04-02, 2023-10-02, 2024-03-02.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -141,7 +141,7 @@ class DiskAccess(pulumi.CustomResource):
         disk access resource.
         Azure REST API version: 2022-07-02. Prior API version in Azure Native 1.x: 2020-12-01.
 
-        Other available API versions: 2023-01-02, 2023-04-02, 2023-10-02.
+        Other available API versions: 2023-01-02, 2023-04-02, 2023-10-02, 2024-03-02.
 
         :param str resource_name: The name of the resource.
         :param DiskAccessArgs args: The arguments to use to populate this resource's properties.
@@ -184,7 +184,7 @@ class DiskAccess(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["time_created"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:compute/v20200501:DiskAccess"), pulumi.Alias(type_="azure-native:compute/v20200630:DiskAccess"), pulumi.Alias(type_="azure-native:compute/v20200930:DiskAccess"), pulumi.Alias(type_="azure-native:compute/v20201201:DiskAccess"), pulumi.Alias(type_="azure-native:compute/v20210401:DiskAccess"), pulumi.Alias(type_="azure-native:compute/v20210801:DiskAccess"), pulumi.Alias(type_="azure-native:compute/v20211201:DiskAccess"), pulumi.Alias(type_="azure-native:compute/v20220302:DiskAccess"), pulumi.Alias(type_="azure-native:compute/v20220702:DiskAccess"), pulumi.Alias(type_="azure-native:compute/v20230102:DiskAccess"), pulumi.Alias(type_="azure-native:compute/v20230402:DiskAccess"), pulumi.Alias(type_="azure-native:compute/v20231002:DiskAccess")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:compute/v20200501:DiskAccess"), pulumi.Alias(type_="azure-native:compute/v20200630:DiskAccess"), pulumi.Alias(type_="azure-native:compute/v20200930:DiskAccess"), pulumi.Alias(type_="azure-native:compute/v20201201:DiskAccess"), pulumi.Alias(type_="azure-native:compute/v20210401:DiskAccess"), pulumi.Alias(type_="azure-native:compute/v20210801:DiskAccess"), pulumi.Alias(type_="azure-native:compute/v20211201:DiskAccess"), pulumi.Alias(type_="azure-native:compute/v20220302:DiskAccess"), pulumi.Alias(type_="azure-native:compute/v20220702:DiskAccess"), pulumi.Alias(type_="azure-native:compute/v20230102:DiskAccess"), pulumi.Alias(type_="azure-native:compute/v20230402:DiskAccess"), pulumi.Alias(type_="azure-native:compute/v20231002:DiskAccess"), pulumi.Alias(type_="azure-native:compute/v20240302:DiskAccess")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DiskAccess, __self__).__init__(
             'azure-native:compute:DiskAccess',

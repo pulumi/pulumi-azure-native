@@ -11,18 +11,21 @@ namespace Pulumi.AzureNative.AzureFleet.V20240501Preview.Inputs
 {
 
     /// <summary>
-    /// Specifies the required information to reference a compute gallery application version
+    /// Specifies the required information to reference a compute gallery application
+    /// version
     /// </summary>
     public sealed class VMGalleryApplicationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Optional, Specifies the uri to an azure blob that will replace the default configuration for the package if provided
+        /// Optional, Specifies the uri to an azure blob that will replace the default
+        /// configuration for the package if provided
         /// </summary>
         [Input("configurationReference")]
         public Input<string>? ConfigurationReference { get; set; }
 
         /// <summary>
-        /// If set to true, when a new Gallery Application version is available in PIR/SIG, it will be automatically updated for the VM/VMSS
+        /// If set to true, when a new Gallery Application version is available in PIR/SIG,
+        /// it will be automatically updated for the VM/VMSS
         /// </summary>
         [Input("enableAutomaticUpgrade")]
         public Input<bool>? EnableAutomaticUpgrade { get; set; }
@@ -34,7 +37,8 @@ namespace Pulumi.AzureNative.AzureFleet.V20240501Preview.Inputs
         public Input<int>? Order { get; set; }
 
         /// <summary>
-        /// Specifies the GalleryApplicationVersion resource id on the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/providers/Microsoft.Compute/galleries/{galleryName}/applications/{application}/versions/{version}
+        /// Specifies the GalleryApplicationVersion resource id on the form of
+        /// /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/providers/Microsoft.Compute/galleries/{galleryName}/applications/{application}/versions/{version}
         /// </summary>
         [Input("packageReferenceId", required: true)]
         public Input<string> PackageReferenceId { get; set; } = null!;
@@ -46,7 +50,8 @@ namespace Pulumi.AzureNative.AzureFleet.V20240501Preview.Inputs
         public Input<string>? Tags { get; set; }
 
         /// <summary>
-        /// Optional, If true, any failure for any operation in the VmApplication will fail the deployment
+        /// Optional, If true, any failure for any operation in the VmApplication will fail
+        /// the deployment
         /// </summary>
         [Input("treatFailureAsDeploymentFailure")]
         public Input<bool>? TreatFailureAsDeploymentFailure { get; set; }

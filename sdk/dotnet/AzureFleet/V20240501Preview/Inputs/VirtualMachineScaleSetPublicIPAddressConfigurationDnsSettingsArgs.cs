@@ -16,13 +16,18 @@ namespace Pulumi.AzureNative.AzureFleet.V20240501Preview.Inputs
     public sealed class VirtualMachineScaleSetPublicIPAddressConfigurationDnsSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Domain name label.The concatenation of the domain name label and vm index will be the domain name labels of the PublicIPAddress resources that will be created
+        /// The Domain name label.The concatenation of the domain name label and vm index
+        /// will be the domain name labels of the PublicIPAddress resources that will be
+        /// created
         /// </summary>
         [Input("domainNameLabel", required: true)]
         public Input<string> DomainNameLabel { get; set; } = null!;
 
         /// <summary>
-        /// The Domain name label scope.The concatenation of the hashed domain name label that generated according to the policy from domain name label scope and vm index will be the domain name labels of the PublicIPAddress resources that will be created
+        /// The Domain name label scope.The concatenation of the hashed domain name label
+        /// that generated according to the policy from domain name label scope and vm
+        /// index will be the domain name labels of the PublicIPAddress resources that will
+        /// be created
         /// </summary>
         [Input("domainNameLabelScope")]
         public InputUnion<string, Pulumi.AzureNative.AzureFleet.V20240501Preview.DomainNameLabelScopeTypes>? DomainNameLabelScope { get; set; }

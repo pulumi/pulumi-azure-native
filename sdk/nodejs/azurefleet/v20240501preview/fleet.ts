@@ -78,9 +78,17 @@ export class Fleet extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
+     * Specifies the time at which the Compute Fleet is created.
+     */
+    public /*out*/ readonly timeCreated!: pulumi.Output<string>;
+    /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * Specifies the ID which uniquely identifies a Compute Fleet.
+     */
+    public /*out*/ readonly uniqueId!: pulumi.Output<string>;
     /**
      * List of VM sizes supported for Compute Fleet
      */
@@ -124,7 +132,9 @@ export class Fleet extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["timeCreated"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["uniqueId"] = undefined /*out*/;
         } else {
             resourceInputs["computeProfile"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
@@ -136,7 +146,9 @@ export class Fleet extends pulumi.CustomResource {
             resourceInputs["spotPriorityProfile"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["timeCreated"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["uniqueId"] = undefined /*out*/;
             resourceInputs["vmSizesProfile"] = undefined /*out*/;
             resourceInputs["zones"] = undefined /*out*/;
         }

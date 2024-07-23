@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Defines the inventory item.
  * Azure REST API version: 2022-05-21-preview. Prior API version in Azure Native 1.x: 2020-06-05-preview.
  *
- * Other available API versions: 2023-04-01-preview, 2023-10-07.
+ * Other available API versions: 2023-04-01-preview, 2023-10-07, 2024-06-01.
  */
 export class InventoryItem extends pulumi.CustomResource {
     /**
@@ -120,7 +120,7 @@ export class InventoryItem extends pulumi.CustomResource {
             resourceInputs["uuid"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:scvmm/v20200605preview:InventoryItem" }, { type: "azure-native:scvmm/v20220521preview:InventoryItem" }, { type: "azure-native:scvmm/v20230401preview:InventoryItem" }, { type: "azure-native:scvmm/v20231007:InventoryItem" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:scvmm/v20200605preview:InventoryItem" }, { type: "azure-native:scvmm/v20220521preview:InventoryItem" }, { type: "azure-native:scvmm/v20230401preview:InventoryItem" }, { type: "azure-native:scvmm/v20231007:InventoryItem" }, { type: "azure-native:scvmm/v20240601:InventoryItem" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(InventoryItem.__pulumiType, name, resourceInputs, opts);
     }

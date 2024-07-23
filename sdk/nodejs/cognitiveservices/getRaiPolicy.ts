@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Gets the specified Content Filters associated with the Azure OpenAI account.
  * Azure REST API version: 2023-10-01-preview.
  *
- * Other available API versions: 2024-04-01-preview.
+ * Other available API versions: 2024-04-01-preview, 2024-06-01-preview.
  */
 export function getRaiPolicy(args: GetRaiPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetRaiPolicyResult> {
 
@@ -75,7 +75,7 @@ export interface GetRaiPolicyResult {
  * Gets the specified Content Filters associated with the Azure OpenAI account.
  * Azure REST API version: 2023-10-01-preview.
  *
- * Other available API versions: 2024-04-01-preview.
+ * Other available API versions: 2024-04-01-preview, 2024-06-01-preview.
  */
 export function getRaiPolicyOutput(args: GetRaiPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRaiPolicyResult> {
     return pulumi.output(args).apply((a: any) => getRaiPolicy(a, opts))

@@ -120,7 +120,7 @@ class RaiPolicy(pulumi.CustomResource):
         Cognitive Services RaiPolicy.
         Azure REST API version: 2023-10-01-preview.
 
-        Other available API versions: 2024-04-01-preview.
+        Other available API versions: 2024-04-01-preview, 2024-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -140,7 +140,7 @@ class RaiPolicy(pulumi.CustomResource):
         Cognitive Services RaiPolicy.
         Azure REST API version: 2023-10-01-preview.
 
-        Other available API versions: 2024-04-01-preview.
+        Other available API versions: 2024-04-01-preview, 2024-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param RaiPolicyArgs args: The arguments to use to populate this resource's properties.
@@ -184,7 +184,7 @@ class RaiPolicy(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cognitiveservices/v20231001preview:RaiPolicy"), pulumi.Alias(type_="azure-native:cognitiveservices/v20240401preview:RaiPolicy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cognitiveservices/v20231001preview:RaiPolicy"), pulumi.Alias(type_="azure-native:cognitiveservices/v20240401preview:RaiPolicy"), pulumi.Alias(type_="azure-native:cognitiveservices/v20240601preview:RaiPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(RaiPolicy, __self__).__init__(
             'azure-native:cognitiveservices:RaiPolicy',

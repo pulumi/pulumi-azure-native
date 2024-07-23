@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.AzureFleet.Inputs
 {
 
+    /// <summary>
+    /// Describes SubResource
+    /// </summary>
     public sealed class SubResourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>

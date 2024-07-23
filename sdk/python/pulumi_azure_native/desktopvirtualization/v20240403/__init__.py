@@ -22,6 +22,7 @@ from .get_scaling_plan_personal_schedule import *
 from .get_scaling_plan_pooled_schedule import *
 from .get_workspace import *
 from .host_pool import *
+from .list_host_pool_registration_tokens import *
 from .msix_package import *
 from .private_endpoint_connection_by_host_pool import *
 from .private_endpoint_connection_by_workspace import *

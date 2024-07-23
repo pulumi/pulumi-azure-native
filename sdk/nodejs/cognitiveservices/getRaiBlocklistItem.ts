@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Gets the specified custom blocklist Item associated with the custom blocklist.
  * Azure REST API version: 2023-10-01-preview.
  *
- * Other available API versions: 2024-04-01-preview.
+ * Other available API versions: 2024-04-01-preview, 2024-06-01-preview.
  */
 export function getRaiBlocklistItem(args: GetRaiBlocklistItemArgs, opts?: pulumi.InvokeOptions): Promise<GetRaiBlocklistItemResult> {
 
@@ -80,7 +80,7 @@ export interface GetRaiBlocklistItemResult {
  * Gets the specified custom blocklist Item associated with the custom blocklist.
  * Azure REST API version: 2023-10-01-preview.
  *
- * Other available API versions: 2024-04-01-preview.
+ * Other available API versions: 2024-04-01-preview, 2024-06-01-preview.
  */
 export function getRaiBlocklistItemOutput(args: GetRaiBlocklistItemOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRaiBlocklistItemResult> {
     return pulumi.output(args).apply((a: any) => getRaiBlocklistItem(a, opts))

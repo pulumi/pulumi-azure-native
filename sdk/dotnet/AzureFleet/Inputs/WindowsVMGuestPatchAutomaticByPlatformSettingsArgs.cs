@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.AzureFleet.Inputs
 {
 
     /// <summary>
-    /// Specifies additional settings to be applied when patch mode AutomaticByPlatform is selected in Windows patch settings.
+    /// Specifies additional settings to be applied when patch mode AutomaticByPlatform
+    /// is selected in Windows patch settings.
     /// </summary>
     public sealed class WindowsVMGuestPatchAutomaticByPlatformSettingsArgs : global::Pulumi.ResourceArgs
     {
@@ -22,7 +23,8 @@ namespace Pulumi.AzureNative.AzureFleet.Inputs
         public Input<bool>? BypassPlatformSafetyChecksOnUserSchedule { get; set; }
 
         /// <summary>
-        /// Specifies the reboot setting for all AutomaticByPlatform patch installation operations.
+        /// Specifies the reboot setting for all AutomaticByPlatform patch installation
+        /// operations.
         /// </summary>
         [Input("rebootSetting")]
         public InputUnion<string, Pulumi.AzureNative.AzureFleet.WindowsVMGuestPatchAutomaticByPlatformRebootSetting>? RebootSetting { get; set; }

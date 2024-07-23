@@ -111,7 +111,7 @@ export class SharedCommitmentPlan extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:cognitiveservices:SharedCommitmentPlan" }, { type: "azure-native:cognitiveservices/v20221201:SharedCommitmentPlan" }, { type: "azure-native:cognitiveservices/v20230501:SharedCommitmentPlan" }, { type: "azure-native:cognitiveservices/v20231001preview:SharedCommitmentPlan" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cognitiveservices:SharedCommitmentPlan" }, { type: "azure-native:cognitiveservices/v20221201:SharedCommitmentPlan" }, { type: "azure-native:cognitiveservices/v20230501:SharedCommitmentPlan" }, { type: "azure-native:cognitiveservices/v20231001preview:SharedCommitmentPlan" }, { type: "azure-native:cognitiveservices/v20240601preview:SharedCommitmentPlan" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SharedCommitmentPlan.__pulumiType, name, resourceInputs, opts);
     }

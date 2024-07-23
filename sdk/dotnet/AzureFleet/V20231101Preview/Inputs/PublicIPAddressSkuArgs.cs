@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.AzureFleet.V20231101Preview.Inputs
 {
 
     /// <summary>
-    /// Describes the public IP Sku. It can only be set with OrchestrationMode as Flexible.
+    /// Describes the public IP Sku. It can only be set with OrchestrationMode as
+    /// Flexible.
     /// </summary>
     public sealed class PublicIPAddressSkuArgs : global::Pulumi.ResourceArgs
     {

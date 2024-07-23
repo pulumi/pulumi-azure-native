@@ -103,7 +103,7 @@ export interface GetDatabaseAccountResult {
      */
     readonly enableAutomaticFailover?: boolean;
     /**
-     * Flag to indicate enabling/disabling of Burst Capacity Preview feature on the account
+     * Flag to indicate enabling/disabling of Burst Capacity feature on the account
      */
     readonly enableBurstCapacity?: boolean;
     /**

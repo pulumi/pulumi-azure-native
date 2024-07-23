@@ -16,7 +16,8 @@ namespace Pulumi.AzureNative.AzureFleet.V20231101Preview.Inputs
     public sealed class VirtualMachineScaleSetManagedDiskParametersArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the customer managed disk encryption set resource id for the managed disk.
+        /// Specifies the customer managed disk encryption set resource id for the managed
+        /// disk.
         /// </summary>
         [Input("diskEncryptionSet")]
         public Input<Inputs.DiskEncryptionSetParametersArgs>? DiskEncryptionSet { get; set; }
@@ -28,7 +29,8 @@ namespace Pulumi.AzureNative.AzureFleet.V20231101Preview.Inputs
         public Input<Inputs.VMDiskSecurityProfileArgs>? SecurityProfile { get; set; }
 
         /// <summary>
-        /// Specifies the storage account type for the managed disk. NOTE: UltraSSD_LRS can only be used with data disks, it cannot be used with OS Disk.
+        /// Specifies the storage account type for the managed disk. NOTE: UltraSSD_LRS can
+        /// only be used with data disks, it cannot be used with OS Disk.
         /// </summary>
         [Input("storageAccountType")]
         public InputUnion<string, Pulumi.AzureNative.AzureFleet.V20231101Preview.StorageAccountTypes>? StorageAccountType { get; set; }

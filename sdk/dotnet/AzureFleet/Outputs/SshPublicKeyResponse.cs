@@ -11,17 +11,23 @@ namespace Pulumi.AzureNative.AzureFleet.Outputs
 {
 
     /// <summary>
-    /// Contains information about SSH certificate public key and the path on the Linux VM where the public key is placed.
+    /// Contains information about SSH certificate public key and the path on the Linux
+    /// VM where the public key is placed.
     /// </summary>
     [OutputType]
     public sealed class SshPublicKeyResponse
     {
         /// <summary>
-        /// SSH public key certificate used to authenticate with the VM through ssh. The key needs to be at least 2048-bit and in ssh-rsa format. For creating ssh keys, see [Create SSH keys on Linux and Mac for Linux VMs in Azure]https://docs.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed).
+        /// SSH public key certificate used to authenticate with the VM through ssh. The
+        /// key needs to be at least 2048-bit and in ssh-rsa format. For creating ssh keys,
+        /// see [Create SSH keys on Linux and Mac for Linux VMs in
+        /// Azure]https://docs.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed).
         /// </summary>
         public readonly string? KeyData;
         /// <summary>
-        /// Specifies the full path on the created VM where ssh public key is stored. If the file already exists, the specified key is appended to the file. Example: /home/user/.ssh/authorized_keys
+        /// Specifies the full path on the created VM where ssh public key is stored. If
+        /// the file already exists, the specified key is appended to the file. Example:
+        /// /home/user/.ssh/authorized_keys
         /// </summary>
         public readonly string? Path;
 

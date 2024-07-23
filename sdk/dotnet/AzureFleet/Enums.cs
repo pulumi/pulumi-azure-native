@@ -8,7 +8,9 @@ using Pulumi;
 namespace Pulumi.AzureNative.AzureFleet
 {
     /// <summary>
-    /// Specifies the caching requirements. Possible values are: **None,** **ReadOnly,** **ReadWrite.** The default values are: **None for Standard storage. ReadOnly for Premium storage.**
+    /// Specifies the caching requirements. Possible values are: **None,**
+    /// **ReadOnly,** **ReadWrite.** The default values are: **None for Standard
+    /// storage. ReadOnly for Premium storage.**
     /// </summary>
     [EnumType]
     public readonly struct CachingTypes : IEquatable<CachingTypes>
@@ -20,8 +22,17 @@ namespace Pulumi.AzureNative.AzureFleet
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// 'None' is default for Standard Storage
+        /// </summary>
         public static CachingTypes None { get; } = new CachingTypes("None");
+        /// <summary>
+        /// 'ReadOnly' is default for Premium Storage
+        /// </summary>
         public static CachingTypes ReadOnly { get; } = new CachingTypes("ReadOnly");
+        /// <summary>
+        /// 'ReadWrite' is default for OS Disk
+        /// </summary>
         public static CachingTypes ReadWrite { get; } = new CachingTypes("ReadWrite");
 
         public static bool operator ==(CachingTypes left, CachingTypes right) => left.Equals(right);
@@ -40,28 +51,29 @@ namespace Pulumi.AzureNative.AzureFleet
     }
 
     /// <summary>
-    /// The component name. Currently, the only allowable value is Microsoft-Windows-Shell-Setup.
+    /// The component name. Currently, the only allowable value is
+    /// Microsoft-Windows-Shell-Setup.
     /// </summary>
     [EnumType]
-    public readonly struct ComponentNames : IEquatable<ComponentNames>
+    public readonly struct ComponentName : IEquatable<ComponentName>
     {
         private readonly string _value;
 
-        private ComponentNames(string value)
+        private ComponentName(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static ComponentNames Microsoft_Windows_Shell_Setup { get; } = new ComponentNames("Microsoft-Windows-Shell-Setup");
+        public static ComponentName Microsoft_Windows_Shell_Setup { get; } = new ComponentName("Microsoft-Windows-Shell-Setup");
 
-        public static bool operator ==(ComponentNames left, ComponentNames right) => left.Equals(right);
-        public static bool operator !=(ComponentNames left, ComponentNames right) => !left.Equals(right);
+        public static bool operator ==(ComponentName left, ComponentName right) => left.Equals(right);
+        public static bool operator !=(ComponentName left, ComponentName right) => !left.Equals(right);
 
-        public static explicit operator string(ComponentNames value) => value._value;
+        public static explicit operator string(ComponentName value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ComponentNames other && Equals(other);
-        public bool Equals(ComponentNames other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is ComponentName other && Equals(other);
+        public bool Equals(ComponentName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -82,7 +94,13 @@ namespace Pulumi.AzureNative.AzureFleet
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Delete Option
+        /// </summary>
         public static DeleteOptions Delete { get; } = new DeleteOptions("Delete");
+        /// <summary>
+        /// Detach Option
+        /// </summary>
         public static DeleteOptions Detach { get; } = new DeleteOptions("Detach");
 
         public static bool operator ==(DeleteOptions left, DeleteOptions right) => left.Equals(right);
@@ -113,6 +131,9 @@ namespace Pulumi.AzureNative.AzureFleet
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Local Option.
+        /// </summary>
         public static DiffDiskOptions Local { get; } = new DiffDiskOptions("Local");
 
         public static bool operator ==(DiffDiskOptions left, DiffDiskOptions right) => left.Equals(right);
@@ -131,7 +152,13 @@ namespace Pulumi.AzureNative.AzureFleet
     }
 
     /// <summary>
-    /// Specifies the ephemeral disk placement for operating system disk. Possible values are: **CacheDisk,** **ResourceDisk.** The defaulting behavior is: **CacheDisk** if one is configured for the VM size otherwise **ResourceDisk** is used. Refer to the VM size documentation for Windows VM at https://docs.microsoft.com/azure/virtual-machines/windows/sizes and Linux VM at https://docs.microsoft.com/azure/virtual-machines/linux/sizes to check which VM sizes exposes a cache disk.
+    /// Specifies the ephemeral disk placement for operating system disk. Possible
+    /// values are: **CacheDisk,** **ResourceDisk.** The defaulting behavior is:
+    /// **CacheDisk** if one is configured for the VM size otherwise **ResourceDisk**
+    /// is used. Refer to the VM size documentation for Windows VM at
+    /// https://docs.microsoft.com/azure/virtual-machines/windows/sizes and Linux VM at
+    /// https://docs.microsoft.com/azure/virtual-machines/linux/sizes to check which VM
+    /// sizes exposes a cache disk.
     /// </summary>
     [EnumType]
     public readonly struct DiffDiskPlacement : IEquatable<DiffDiskPlacement>
@@ -143,8 +170,18 @@ namespace Pulumi.AzureNative.AzureFleet
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// CacheDisk option.
+        /// </summary>
         public static DiffDiskPlacement CacheDisk { get; } = new DiffDiskPlacement("CacheDisk");
+        /// <summary>
+        /// Resource Disk option.
+        /// </summary>
         public static DiffDiskPlacement ResourceDisk { get; } = new DiffDiskPlacement("ResourceDisk");
+        /// <summary>
+        /// NvmeDisk option.
+        /// </summary>
+        public static DiffDiskPlacement NvmeDisk { get; } = new DiffDiskPlacement("NvmeDisk");
 
         public static bool operator ==(DiffDiskPlacement left, DiffDiskPlacement right) => left.Equals(right);
         public static bool operator !=(DiffDiskPlacement left, DiffDiskPlacement right) => !left.Equals(right);
@@ -174,7 +211,13 @@ namespace Pulumi.AzureNative.AzureFleet
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// SCSI disk type
+        /// </summary>
         public static DiskControllerTypes SCSI { get; } = new DiskControllerTypes("SCSI");
+        /// <summary>
+        /// NVMe disk type
+        /// </summary>
         public static DiskControllerTypes NVMe { get; } = new DiskControllerTypes("NVMe");
 
         public static bool operator ==(DiskControllerTypes left, DiskControllerTypes right) => left.Equals(right);
@@ -193,7 +236,11 @@ namespace Pulumi.AzureNative.AzureFleet
     }
 
     /// <summary>
-    /// Specifies how the virtual machines in the scale set should be created. The only allowed value is: **FromImage.** This value is used when you are using an image to create the virtual machine. If you are using a platform image, you also use the imageReference element described above. If you are using a marketplace image, you  also use the plan element previously described.
+    /// Specifies how the virtual machines in the scale set should be created. The only
+    /// allowed value is: **FromImage.** This value is used when you are using an image
+    /// to create the virtual machine. If you are using a platform image, you also use
+    /// the imageReference element described above. If you are using a marketplace
+    /// image, you  also use the plan element previously described.
     /// </summary>
     [EnumType]
     public readonly struct DiskCreateOptionTypes : IEquatable<DiskCreateOptionTypes>
@@ -205,9 +252,29 @@ namespace Pulumi.AzureNative.AzureFleet
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// This value is used when you are using an image to create the virtual machine.
+        /// If you are using a platform image, you also use the imageReference element
+        /// described above. If you are using a marketplace image, you also use the
+        /// plan element previously described.
+        /// </summary>
         public static DiskCreateOptionTypes FromImage { get; } = new DiskCreateOptionTypes("FromImage");
+        /// <summary>
+        /// This value is used when creating an empty data disk.
+        /// </summary>
         public static DiskCreateOptionTypes Empty { get; } = new DiskCreateOptionTypes("Empty");
+        /// <summary>
+        /// This value is used when you are using a specialized disk to create the virtual machine.
+        /// </summary>
         public static DiskCreateOptionTypes Attach { get; } = new DiskCreateOptionTypes("Attach");
+        /// <summary>
+        /// This value is used to create a data disk from a snapshot or another disk.
+        /// </summary>
+        public static DiskCreateOptionTypes Copy { get; } = new DiskCreateOptionTypes("Copy");
+        /// <summary>
+        /// This value is used to create a data disk from a disk restore point.
+        /// </summary>
+        public static DiskCreateOptionTypes Restore { get; } = new DiskCreateOptionTypes("Restore");
 
         public static bool operator ==(DiskCreateOptionTypes left, DiskCreateOptionTypes right) => left.Equals(right);
         public static bool operator !=(DiskCreateOptionTypes left, DiskCreateOptionTypes right) => !left.Equals(right);
@@ -225,7 +292,14 @@ namespace Pulumi.AzureNative.AzureFleet
     }
 
     /// <summary>
-    /// Specifies whether OS Disk should be deleted or detached upon VMSS Flex deletion (This feature is available for VMSS with Flexible OrchestrationMode only). &lt;br&gt;&lt;br&gt; Possible values: &lt;br&gt;&lt;br&gt; **Delete** If this value is used, the OS disk is deleted when VMSS Flex VM is deleted.&lt;br&gt;&lt;br&gt; **Detach** If this value is used, the OS disk is retained after VMSS Flex VM is deleted. &lt;br&gt;&lt;br&gt; The default value is set to **Delete**. For an Ephemeral OS Disk, the default value is set to **Delete**. User cannot change the delete option for Ephemeral OS Disk.
+    /// Specifies whether OS Disk should be deleted or detached upon VMSS Flex deletion
+    /// (This feature is available for VMSS with Flexible OrchestrationMode only).
+    /// &lt;br&gt;&lt;br&gt; Possible values: &lt;br&gt;&lt;br&gt; **Delete** If this value is used, the OS
+    /// disk is deleted when VMSS Flex VM is deleted.&lt;br&gt;&lt;br&gt; **Detach** If this value
+    /// is used, the OS disk is retained after VMSS Flex VM is deleted. &lt;br&gt;&lt;br&gt; The
+    /// default value is set to **Delete**. For an Ephemeral OS Disk, the default value
+    /// is set to **Delete**. User cannot change the delete option for Ephemeral OS
+    /// Disk.
     /// </summary>
     [EnumType]
     public readonly struct DiskDeleteOptionTypes : IEquatable<DiskDeleteOptionTypes>
@@ -237,7 +311,13 @@ namespace Pulumi.AzureNative.AzureFleet
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// If this value is used, the managed disk is deleted when VM gets deleted.
+        /// </summary>
         public static DiskDeleteOptionTypes Delete { get; } = new DiskDeleteOptionTypes("Delete");
+        /// <summary>
+        /// If this value is used, the managed disk is retained after VM gets deleted.
+        /// </summary>
         public static DiskDeleteOptionTypes Detach { get; } = new DiskDeleteOptionTypes("Detach");
 
         public static bool operator ==(DiskDeleteOptionTypes left, DiskDeleteOptionTypes right) => left.Equals(right);
@@ -256,7 +336,10 @@ namespace Pulumi.AzureNative.AzureFleet
     }
 
     /// <summary>
-    /// The Domain name label scope.The concatenation of the hashed domain name label that generated according to the policy from domain name label scope and vm index will be the domain name labels of the PublicIPAddress resources that will be created
+    /// The Domain name label scope.The concatenation of the hashed domain name label
+    /// that generated according to the policy from domain name label scope and vm
+    /// index will be the domain name labels of the PublicIPAddress resources that will
+    /// be created
     /// </summary>
     [EnumType]
     public readonly struct DomainNameLabelScopeTypes : IEquatable<DomainNameLabelScopeTypes>
@@ -268,9 +351,21 @@ namespace Pulumi.AzureNative.AzureFleet
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// TenantReuse type
+        /// </summary>
         public static DomainNameLabelScopeTypes TenantReuse { get; } = new DomainNameLabelScopeTypes("TenantReuse");
+        /// <summary>
+        /// SubscriptionReuse type
+        /// </summary>
         public static DomainNameLabelScopeTypes SubscriptionReuse { get; } = new DomainNameLabelScopeTypes("SubscriptionReuse");
+        /// <summary>
+        /// ResourceGroupReuse type
+        /// </summary>
         public static DomainNameLabelScopeTypes ResourceGroupReuse { get; } = new DomainNameLabelScopeTypes("ResourceGroupReuse");
+        /// <summary>
+        /// NoReuse type
+        /// </summary>
         public static DomainNameLabelScopeTypes NoReuse { get; } = new DomainNameLabelScopeTypes("NoReuse");
 
         public static bool operator ==(DomainNameLabelScopeTypes left, DomainNameLabelScopeTypes right) => left.Equals(right);
@@ -326,7 +421,9 @@ namespace Pulumi.AzureNative.AzureFleet
     }
 
     /// <summary>
-    /// Available from Api-Version 2019-07-01 onwards, it represents whether the specific ipconfiguration is IPv4 or IPv6. Default is taken as IPv4. Possible values are: 'IPv4' and 'IPv6'.
+    /// Available from Api-Version 2019-07-01 onwards, it represents whether the
+    /// specific ipconfiguration is IPv4 or IPv6. Default is taken as IPv4. Possible
+    /// values are: 'IPv4' and 'IPv6'.
     /// </summary>
     [EnumType]
     public readonly struct IPVersion : IEquatable<IPVersion>
@@ -338,7 +435,13 @@ namespace Pulumi.AzureNative.AzureFleet
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// IPv4 version
+        /// </summary>
         public static IPVersion IPv4 { get; } = new IPVersion("IPv4");
+        /// <summary>
+        /// IPv6 version
+        /// </summary>
         public static IPVersion IPv6 { get; } = new IPVersion("IPv6");
 
         public static bool operator ==(IPVersion left, IPVersion right) => left.Equals(right);
@@ -357,7 +460,11 @@ namespace Pulumi.AzureNative.AzureFleet
     }
 
     /// <summary>
-    /// Specifies the mode of VM Guest Patch Assessment for the IaaS virtual machine.&lt;br /&gt;&lt;br /&gt; Possible values are:&lt;br /&gt;&lt;br /&gt; **ImageDefault** - You control the timing of patch assessments on a virtual machine. &lt;br /&gt;&lt;br /&gt; **AutomaticByPlatform** - The platform will trigger periodic patch assessments. The property provisionVMAgent must be true.
+    /// Specifies the mode of VM Guest Patch Assessment for the IaaS virtual
+    /// machine.&lt;br /&gt;&lt;br /&gt; Possible values are:&lt;br /&gt;&lt;br /&gt; **ImageDefault** - You
+    /// control the timing of patch assessments on a virtual machine. &lt;br /&gt;&lt;br /&gt;
+    /// **AutomaticByPlatform** - The platform will trigger periodic patch assessments.
+    /// The property provisionVMAgent must be true.
     /// </summary>
     [EnumType]
     public readonly struct LinuxPatchAssessmentMode : IEquatable<LinuxPatchAssessmentMode>
@@ -369,7 +476,13 @@ namespace Pulumi.AzureNative.AzureFleet
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// You control the timing of patch assessments on a virtual machine.
+        /// </summary>
         public static LinuxPatchAssessmentMode ImageDefault { get; } = new LinuxPatchAssessmentMode("ImageDefault");
+        /// <summary>
+        /// The platform will trigger periodic patch assessments.The property provisionVMAgent must be true.
+        /// </summary>
         public static LinuxPatchAssessmentMode AutomaticByPlatform { get; } = new LinuxPatchAssessmentMode("AutomaticByPlatform");
 
         public static bool operator ==(LinuxPatchAssessmentMode left, LinuxPatchAssessmentMode right) => left.Equals(right);
@@ -388,7 +501,8 @@ namespace Pulumi.AzureNative.AzureFleet
     }
 
     /// <summary>
-    /// Specifies the reboot setting for all AutomaticByPlatform patch installation operations.
+    /// Specifies the reboot setting for all AutomaticByPlatform patch installation
+    /// operations.
     /// </summary>
     [EnumType]
     public readonly struct LinuxVMGuestPatchAutomaticByPlatformRebootSetting : IEquatable<LinuxVMGuestPatchAutomaticByPlatformRebootSetting>
@@ -400,9 +514,21 @@ namespace Pulumi.AzureNative.AzureFleet
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Unknown Reboot setting
+        /// </summary>
         public static LinuxVMGuestPatchAutomaticByPlatformRebootSetting Unknown { get; } = new LinuxVMGuestPatchAutomaticByPlatformRebootSetting("Unknown");
+        /// <summary>
+        /// IfRequired Reboot setting
+        /// </summary>
         public static LinuxVMGuestPatchAutomaticByPlatformRebootSetting IfRequired { get; } = new LinuxVMGuestPatchAutomaticByPlatformRebootSetting("IfRequired");
+        /// <summary>
+        /// Never Reboot setting
+        /// </summary>
         public static LinuxVMGuestPatchAutomaticByPlatformRebootSetting Never { get; } = new LinuxVMGuestPatchAutomaticByPlatformRebootSetting("Never");
+        /// <summary>
+        /// Always Reboot setting
+        /// </summary>
         public static LinuxVMGuestPatchAutomaticByPlatformRebootSetting Always { get; } = new LinuxVMGuestPatchAutomaticByPlatformRebootSetting("Always");
 
         public static bool operator ==(LinuxVMGuestPatchAutomaticByPlatformRebootSetting left, LinuxVMGuestPatchAutomaticByPlatformRebootSetting right) => left.Equals(right);
@@ -421,7 +547,12 @@ namespace Pulumi.AzureNative.AzureFleet
     }
 
     /// <summary>
-    /// Specifies the mode of VM Guest Patching to IaaS virtual machine or virtual machines associated to virtual machine scale set with OrchestrationMode as Flexible.&lt;br /&gt;&lt;br /&gt; Possible values are:&lt;br /&gt;&lt;br /&gt; **ImageDefault** - The virtual machine's default patching configuration is used. &lt;br /&gt;&lt;br /&gt; **AutomaticByPlatform** - The virtual machine will be automatically updated by the platform. The property provisionVMAgent must be true
+    /// Specifies the mode of VM Guest Patching to IaaS virtual machine or virtual
+    /// machines associated to virtual machine scale set with OrchestrationMode as
+    /// Flexible.&lt;br /&gt;&lt;br /&gt; Possible values are:&lt;br /&gt;&lt;br /&gt; **ImageDefault** - The
+    /// virtual machine's default patching configuration is used. &lt;br /&gt;&lt;br /&gt;
+    /// **AutomaticByPlatform** - The virtual machine will be automatically updated by
+    /// the platform. The property provisionVMAgent must be true
     /// </summary>
     [EnumType]
     public readonly struct LinuxVMGuestPatchMode : IEquatable<LinuxVMGuestPatchMode>
@@ -433,7 +564,13 @@ namespace Pulumi.AzureNative.AzureFleet
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// The virtual machine's default patching configuration is used.
+        /// </summary>
         public static LinuxVMGuestPatchMode ImageDefault { get; } = new LinuxVMGuestPatchMode("ImageDefault");
+        /// <summary>
+        /// The virtual machine will be automatically updated by the platform. The property provisionVMAgent must be true.
+        /// </summary>
         public static LinuxVMGuestPatchMode AutomaticByPlatform { get; } = new LinuxVMGuestPatchMode("AutomaticByPlatform");
 
         public static bool operator ==(LinuxVMGuestPatchMode left, LinuxVMGuestPatchMode right) => left.Equals(right);
@@ -485,7 +622,10 @@ namespace Pulumi.AzureNative.AzureFleet
     }
 
     /// <summary>
-    /// Specifies the mode that ProxyAgent will execute on if the feature is enabled. ProxyAgent will start to audit or monitor but not enforce access control over requests to host endpoints in Audit mode, while in Enforce mode it will enforce access control. The default value is Enforce mode.
+    /// Specifies the mode that ProxyAgent will execute on if the feature is enabled.
+    /// ProxyAgent will start to audit or monitor but not enforce access control over
+    /// requests to host endpoints in Audit mode, while in Enforce mode it will enforce
+    /// access control. The default value is Enforce mode.
     /// </summary>
     [EnumType]
     public readonly struct Mode : IEquatable<Mode>
@@ -497,7 +637,13 @@ namespace Pulumi.AzureNative.AzureFleet
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Audit Mode
+        /// </summary>
         public static Mode Audit { get; } = new Mode("Audit");
+        /// <summary>
+        /// Enforce Mode
+        /// </summary>
         public static Mode Enforce { get; } = new Mode("Enforce");
 
         public static bool operator ==(Mode left, Mode right) => left.Equals(right);
@@ -516,7 +662,9 @@ namespace Pulumi.AzureNative.AzureFleet
     }
 
     /// <summary>
-    /// specifies the Microsoft.Network API version used when creating networking resources in the Network Interface Configurations for Virtual Machine Scale Set with orchestration mode 'Flexible'
+    /// specifies the Microsoft.Network API version used when creating networking
+    /// resources in the Network Interface Configurations for Virtual Machine Scale Set
+    /// with orchestration mode 'Flexible'
     /// </summary>
     [EnumType]
     public readonly struct NetworkApiVersion : IEquatable<NetworkApiVersion>
@@ -528,6 +676,9 @@ namespace Pulumi.AzureNative.AzureFleet
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Initial version supported. Later versions are supported as well.
+        /// </summary>
         public static NetworkApiVersion NetworkApiVersion_2020_11_01 { get; } = new NetworkApiVersion("2020-11-01");
 
         public static bool operator ==(NetworkApiVersion left, NetworkApiVersion right) => left.Equals(right);
@@ -546,7 +697,8 @@ namespace Pulumi.AzureNative.AzureFleet
     }
 
     /// <summary>
-    /// Specifies whether the Auxiliary mode is enabled for the Network Interface resource.
+    /// Specifies whether the Auxiliary mode is enabled for the Network Interface
+    /// resource.
     /// </summary>
     [EnumType]
     public readonly struct NetworkInterfaceAuxiliaryMode : IEquatable<NetworkInterfaceAuxiliaryMode>
@@ -558,8 +710,17 @@ namespace Pulumi.AzureNative.AzureFleet
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// None Mode
+        /// </summary>
         public static NetworkInterfaceAuxiliaryMode None { get; } = new NetworkInterfaceAuxiliaryMode("None");
+        /// <summary>
+        /// AcceleratedConnections Mode
+        /// </summary>
         public static NetworkInterfaceAuxiliaryMode AcceleratedConnections { get; } = new NetworkInterfaceAuxiliaryMode("AcceleratedConnections");
+        /// <summary>
+        /// Floating Mode
+        /// </summary>
         public static NetworkInterfaceAuxiliaryMode Floating { get; } = new NetworkInterfaceAuxiliaryMode("Floating");
 
         public static bool operator ==(NetworkInterfaceAuxiliaryMode left, NetworkInterfaceAuxiliaryMode right) => left.Equals(right);
@@ -578,7 +739,8 @@ namespace Pulumi.AzureNative.AzureFleet
     }
 
     /// <summary>
-    /// Specifies whether the Auxiliary sku is enabled for the Network Interface resource.
+    /// Specifies whether the Auxiliary sku is enabled for the Network Interface
+    /// resource.
     /// </summary>
     [EnumType]
     public readonly struct NetworkInterfaceAuxiliarySku : IEquatable<NetworkInterfaceAuxiliarySku>
@@ -590,10 +752,25 @@ namespace Pulumi.AzureNative.AzureFleet
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// no sku
+        /// </summary>
         public static NetworkInterfaceAuxiliarySku None { get; } = new NetworkInterfaceAuxiliarySku("None");
+        /// <summary>
+        /// A1 sku
+        /// </summary>
         public static NetworkInterfaceAuxiliarySku A1 { get; } = new NetworkInterfaceAuxiliarySku("A1");
+        /// <summary>
+        /// A2 sku
+        /// </summary>
         public static NetworkInterfaceAuxiliarySku A2 { get; } = new NetworkInterfaceAuxiliarySku("A2");
+        /// <summary>
+        /// A4 sku
+        /// </summary>
         public static NetworkInterfaceAuxiliarySku A4 { get; } = new NetworkInterfaceAuxiliarySku("A4");
+        /// <summary>
+        /// A8 sku
+        /// </summary>
         public static NetworkInterfaceAuxiliarySku A8 { get; } = new NetworkInterfaceAuxiliarySku("A8");
 
         public static bool operator ==(NetworkInterfaceAuxiliarySku left, NetworkInterfaceAuxiliarySku right) => left.Equals(right);
@@ -612,7 +789,9 @@ namespace Pulumi.AzureNative.AzureFleet
     }
 
     /// <summary>
-    /// This property allows you to specify the type of the OS that is included in the disk if creating a VM from user-image or a specialized VHD. Possible values are: **Windows,** **Linux.**
+    /// This property allows you to specify the type of the OS that is included in the
+    /// disk if creating a VM from user-image or a specialized VHD. Possible values
+    /// are: **Windows,** **Linux.**
     /// </summary>
     [EnumType]
     public readonly struct OperatingSystemTypes : IEquatable<OperatingSystemTypes>
@@ -624,7 +803,13 @@ namespace Pulumi.AzureNative.AzureFleet
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Windows OS type
+        /// </summary>
         public static OperatingSystemTypes Windows { get; } = new OperatingSystemTypes("Windows");
+        /// <summary>
+        /// Linux OS type
+        /// </summary>
         public static OperatingSystemTypes Linux { get; } = new OperatingSystemTypes("Linux");
 
         public static bool operator ==(OperatingSystemTypes left, OperatingSystemTypes right) => left.Equals(right);
@@ -646,25 +831,25 @@ namespace Pulumi.AzureNative.AzureFleet
     /// The pass name. Currently, the only allowable value is OobeSystem.
     /// </summary>
     [EnumType]
-    public readonly struct PassNames : IEquatable<PassNames>
+    public readonly struct PassName : IEquatable<PassName>
     {
         private readonly string _value;
 
-        private PassNames(string value)
+        private PassName(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static PassNames OobeSystem { get; } = new PassNames("OobeSystem");
+        public static PassName OobeSystem { get; } = new PassName("OobeSystem");
 
-        public static bool operator ==(PassNames left, PassNames right) => left.Equals(right);
-        public static bool operator !=(PassNames left, PassNames right) => !left.Equals(right);
+        public static bool operator ==(PassName left, PassName right) => left.Equals(right);
+        public static bool operator !=(PassName left, PassName right) => !left.Equals(right);
 
-        public static explicit operator string(PassNames value) => value._value;
+        public static explicit operator string(PassName value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is PassNames other && Equals(other);
-        public bool Equals(PassNames other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is PassName other && Equals(other);
+        public bool Equals(PassName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -673,7 +858,8 @@ namespace Pulumi.AzureNative.AzureFleet
     }
 
     /// <summary>
-    /// Specifies the protocol of WinRM listener. Possible values are: **http,** **https.**
+    /// Specifies the protocol of WinRM listener. Possible values are: **http,**
+    /// **https.**
     /// </summary>
     [EnumType]
     public readonly struct ProtocolTypes : IEquatable<ProtocolTypes>
@@ -685,7 +871,13 @@ namespace Pulumi.AzureNative.AzureFleet
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Http protocol
+        /// </summary>
         public static ProtocolTypes Http { get; } = new ProtocolTypes("Http");
+        /// <summary>
+        /// Https protocol
+        /// </summary>
         public static ProtocolTypes Https { get; } = new ProtocolTypes("Https");
 
         public static bool operator ==(ProtocolTypes left, ProtocolTypes right) => left.Equals(right);
@@ -716,7 +908,13 @@ namespace Pulumi.AzureNative.AzureFleet
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Basic sku name
+        /// </summary>
         public static PublicIPAddressSkuName Basic { get; } = new PublicIPAddressSkuName("Basic");
+        /// <summary>
+        /// Standard sku name
+        /// </summary>
         public static PublicIPAddressSkuName Standard { get; } = new PublicIPAddressSkuName("Standard");
 
         public static bool operator ==(PublicIPAddressSkuName left, PublicIPAddressSkuName right) => left.Equals(right);
@@ -747,7 +945,13 @@ namespace Pulumi.AzureNative.AzureFleet
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Regional sku tier
+        /// </summary>
         public static PublicIPAddressSkuTier Regional { get; } = new PublicIPAddressSkuTier("Regional");
+        /// <summary>
+        /// Global sku tier
+        /// </summary>
         public static PublicIPAddressSkuTier Global { get; } = new PublicIPAddressSkuTier("Global");
 
         public static bool operator ==(PublicIPAddressSkuTier left, PublicIPAddressSkuTier right) => left.Equals(right);
@@ -803,7 +1007,11 @@ namespace Pulumi.AzureNative.AzureFleet
     }
 
     /// <summary>
-    /// Specifies the EncryptionType of the managed disk. It is set to DiskWithVMGuestState for encryption of the managed disk along with VMGuestState blob, VMGuestStateOnly for encryption of just the VMGuestState blob, and NonPersistedTPM for not persisting firmware state in the VMGuestState blob.. **Note:** It can be set for only Confidential VMs.
+    /// Specifies the EncryptionType of the managed disk. It is set to
+    /// DiskWithVMGuestState for encryption of the managed disk along with VMGuestState
+    /// blob, VMGuestStateOnly for encryption of just the VMGuestState blob, and
+    /// NonPersistedTPM for not persisting firmware state in the VMGuestState blob..
+    /// **Note:** It can be set for only Confidential VMs.
     /// </summary>
     [EnumType]
     public readonly struct SecurityEncryptionTypes : IEquatable<SecurityEncryptionTypes>
@@ -815,8 +1023,20 @@ namespace Pulumi.AzureNative.AzureFleet
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// EncryptionType of the managed disk is set to VMGuestStateOnly for encryption
+        /// of just the VMGuestState blob.
+        /// </summary>
         public static SecurityEncryptionTypes VMGuestStateOnly { get; } = new SecurityEncryptionTypes("VMGuestStateOnly");
+        /// <summary>
+        /// EncryptionType of the managed disk is set to DiskWithVMGuestState for encryption
+        /// of the managed disk along with VMGuestState blob.
+        /// </summary>
         public static SecurityEncryptionTypes DiskWithVMGuestState { get; } = new SecurityEncryptionTypes("DiskWithVMGuestState");
+        /// <summary>
+        /// EncryptionType of the managed disk is set to NonPersistedTPM for not persisting
+        /// firmware state in the VMGuestState blob.
+        /// </summary>
         public static SecurityEncryptionTypes NonPersistedTPM { get; } = new SecurityEncryptionTypes("NonPersistedTPM");
 
         public static bool operator ==(SecurityEncryptionTypes left, SecurityEncryptionTypes right) => left.Equals(right);
@@ -835,7 +1055,9 @@ namespace Pulumi.AzureNative.AzureFleet
     }
 
     /// <summary>
-    /// Specifies the SecurityType of the virtual machine. It has to be set to any specified value to enable UefiSettings. The default behavior is: UefiSettings will not be enabled unless this property is set.
+    /// Specifies the SecurityType of the virtual machine. It has to be set to any
+    /// specified value to enable UefiSettings. The default behavior is: UefiSettings
+    /// will not be enabled unless this property is set.
     /// </summary>
     [EnumType]
     public readonly struct SecurityTypes : IEquatable<SecurityTypes>
@@ -847,7 +1069,13 @@ namespace Pulumi.AzureNative.AzureFleet
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// TrustedLaunch security type
+        /// </summary>
         public static SecurityTypes TrustedLaunch { get; } = new SecurityTypes("TrustedLaunch");
+        /// <summary>
+        /// ConfidentialVM security type
+        /// </summary>
         public static SecurityTypes ConfidentialVM { get; } = new SecurityTypes("ConfidentialVM");
 
         public static bool operator ==(SecurityTypes left, SecurityTypes right) => left.Equals(right);
@@ -866,7 +1094,8 @@ namespace Pulumi.AzureNative.AzureFleet
     }
 
     /// <summary>
-    /// Specifies the name of the setting to which the content applies. Possible values are: FirstLogonCommands and AutoLogon.
+    /// Specifies the name of the setting to which the content applies. Possible values
+    /// are: FirstLogonCommands and AutoLogon.
     /// </summary>
     [EnumType]
     public readonly struct SettingNames : IEquatable<SettingNames>
@@ -878,7 +1107,13 @@ namespace Pulumi.AzureNative.AzureFleet
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// AutoLogon setting
+        /// </summary>
         public static SettingNames AutoLogon { get; } = new SettingNames("AutoLogon");
+        /// <summary>
+        /// FirstLogonCommands setting
+        /// </summary>
         public static SettingNames FirstLogonCommands { get; } = new SettingNames("FirstLogonCommands");
 
         public static bool operator ==(SettingNames left, SettingNames right) => left.Equals(right);
@@ -938,39 +1173,8 @@ namespace Pulumi.AzureNative.AzureFleet
     }
 
     /// <summary>
-    /// The level code.
-    /// </summary>
-    [EnumType]
-    public readonly struct StatusLevelTypes : IEquatable<StatusLevelTypes>
-    {
-        private readonly string _value;
-
-        private StatusLevelTypes(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static StatusLevelTypes Info { get; } = new StatusLevelTypes("Info");
-        public static StatusLevelTypes Warning { get; } = new StatusLevelTypes("Warning");
-        public static StatusLevelTypes Error { get; } = new StatusLevelTypes("Error");
-
-        public static bool operator ==(StatusLevelTypes left, StatusLevelTypes right) => left.Equals(right);
-        public static bool operator !=(StatusLevelTypes left, StatusLevelTypes right) => !left.Equals(right);
-
-        public static explicit operator string(StatusLevelTypes value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is StatusLevelTypes other && Equals(other);
-        public bool Equals(StatusLevelTypes other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Specifies the storage account type for the managed disk. NOTE: UltraSSD_LRS can only be used with data disks, it cannot be used with OS Disk.
+    /// Specifies the storage account type for the managed disk. NOTE: UltraSSD_LRS can
+    /// only be used with data disks, it cannot be used with OS Disk.
     /// </summary>
     [EnumType]
     public readonly struct StorageAccountTypes : IEquatable<StorageAccountTypes>
@@ -982,12 +1186,33 @@ namespace Pulumi.AzureNative.AzureFleet
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Standard_LRS option.
+        /// </summary>
         public static StorageAccountTypes Standard_LRS { get; } = new StorageAccountTypes("Standard_LRS");
+        /// <summary>
+        /// Premium_LRS option.
+        /// </summary>
         public static StorageAccountTypes Premium_LRS { get; } = new StorageAccountTypes("Premium_LRS");
+        /// <summary>
+        /// StandardSSD_LRS option.
+        /// </summary>
         public static StorageAccountTypes StandardSSD_LRS { get; } = new StorageAccountTypes("StandardSSD_LRS");
+        /// <summary>
+        /// UltraSSD_LRS option.
+        /// </summary>
         public static StorageAccountTypes UltraSSD_LRS { get; } = new StorageAccountTypes("UltraSSD_LRS");
+        /// <summary>
+        /// Premium_ZRS option.
+        /// </summary>
         public static StorageAccountTypes Premium_ZRS { get; } = new StorageAccountTypes("Premium_ZRS");
+        /// <summary>
+        /// StandardSSD_ZRS option.
+        /// </summary>
         public static StorageAccountTypes StandardSSD_ZRS { get; } = new StorageAccountTypes("StandardSSD_ZRS");
+        /// <summary>
+        /// PremiumV2_LRS option.
+        /// </summary>
         public static StorageAccountTypes PremiumV2_LRS { get; } = new StorageAccountTypes("PremiumV2_LRS");
 
         public static bool operator ==(StorageAccountTypes left, StorageAccountTypes right) => left.Equals(right);
@@ -1006,70 +1231,11 @@ namespace Pulumi.AzureNative.AzureFleet
     }
 
     /// <summary>
-    /// Specifies the eviction policy for the Azure Spot virtual machine and Azure Spot scale set. For Azure Spot virtual machines, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2019-03-01. For Azure Spot scale sets, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2017-10-30-preview.
-    /// </summary>
-    [EnumType]
-    public readonly struct VirtualMachineEvictionPolicyTypes : IEquatable<VirtualMachineEvictionPolicyTypes>
-    {
-        private readonly string _value;
-
-        private VirtualMachineEvictionPolicyTypes(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static VirtualMachineEvictionPolicyTypes Deallocate { get; } = new VirtualMachineEvictionPolicyTypes("Deallocate");
-        public static VirtualMachineEvictionPolicyTypes Delete { get; } = new VirtualMachineEvictionPolicyTypes("Delete");
-
-        public static bool operator ==(VirtualMachineEvictionPolicyTypes left, VirtualMachineEvictionPolicyTypes right) => left.Equals(right);
-        public static bool operator !=(VirtualMachineEvictionPolicyTypes left, VirtualMachineEvictionPolicyTypes right) => !left.Equals(right);
-
-        public static explicit operator string(VirtualMachineEvictionPolicyTypes value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is VirtualMachineEvictionPolicyTypes other && Equals(other);
-        public bool Equals(VirtualMachineEvictionPolicyTypes other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Specifies the priority for the virtual machines in the scale set. Minimum api-version: 2017-10-30-preview.
-    /// </summary>
-    [EnumType]
-    public readonly struct VirtualMachinePriorityTypes : IEquatable<VirtualMachinePriorityTypes>
-    {
-        private readonly string _value;
-
-        private VirtualMachinePriorityTypes(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static VirtualMachinePriorityTypes Regular { get; } = new VirtualMachinePriorityTypes("Regular");
-        public static VirtualMachinePriorityTypes Low { get; } = new VirtualMachinePriorityTypes("Low");
-        public static VirtualMachinePriorityTypes Spot { get; } = new VirtualMachinePriorityTypes("Spot");
-
-        public static bool operator ==(VirtualMachinePriorityTypes left, VirtualMachinePriorityTypes right) => left.Equals(right);
-        public static bool operator !=(VirtualMachinePriorityTypes left, VirtualMachinePriorityTypes right) => !left.Equals(right);
-
-        public static explicit operator string(VirtualMachinePriorityTypes value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is VirtualMachinePriorityTypes other && Equals(other);
-        public bool Equals(VirtualMachinePriorityTypes other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Specifies the mode of VM Guest patch assessment for the IaaS virtual machine.&lt;br /&gt;&lt;br /&gt; Possible values are:&lt;br /&gt;&lt;br /&gt; **ImageDefault** - You control the timing of patch assessments on a virtual machine.&lt;br /&gt;&lt;br /&gt; **AutomaticByPlatform** - The platform will trigger periodic patch assessments. The property provisionVMAgent must be true. 
+    /// Specifies the mode of VM Guest patch assessment for the IaaS virtual
+    /// machine.&lt;br /&gt;&lt;br /&gt; Possible values are:&lt;br /&gt;&lt;br /&gt; **ImageDefault** - You
+    /// control the timing of patch assessments on a virtual machine.&lt;br /&gt;&lt;br /&gt;
+    /// **AutomaticByPlatform** - The platform will trigger periodic patch assessments.
+    /// The property provisionVMAgent must be true.
     /// </summary>
     [EnumType]
     public readonly struct WindowsPatchAssessmentMode : IEquatable<WindowsPatchAssessmentMode>
@@ -1081,7 +1247,13 @@ namespace Pulumi.AzureNative.AzureFleet
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// You control the timing of patch assessments on a virtual machine.
+        /// </summary>
         public static WindowsPatchAssessmentMode ImageDefault { get; } = new WindowsPatchAssessmentMode("ImageDefault");
+        /// <summary>
+        /// The platform will trigger periodic patch assessments. The property provisionVMAgent must be true.
+        /// </summary>
         public static WindowsPatchAssessmentMode AutomaticByPlatform { get; } = new WindowsPatchAssessmentMode("AutomaticByPlatform");
 
         public static bool operator ==(WindowsPatchAssessmentMode left, WindowsPatchAssessmentMode right) => left.Equals(right);
@@ -1100,7 +1272,8 @@ namespace Pulumi.AzureNative.AzureFleet
     }
 
     /// <summary>
-    /// Specifies the reboot setting for all AutomaticByPlatform patch installation operations.
+    /// Specifies the reboot setting for all AutomaticByPlatform patch installation
+    /// operations.
     /// </summary>
     [EnumType]
     public readonly struct WindowsVMGuestPatchAutomaticByPlatformRebootSetting : IEquatable<WindowsVMGuestPatchAutomaticByPlatformRebootSetting>
@@ -1112,9 +1285,21 @@ namespace Pulumi.AzureNative.AzureFleet
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Unknown Reboot setting
+        /// </summary>
         public static WindowsVMGuestPatchAutomaticByPlatformRebootSetting Unknown { get; } = new WindowsVMGuestPatchAutomaticByPlatformRebootSetting("Unknown");
+        /// <summary>
+        /// IfRequired Reboot setting
+        /// </summary>
         public static WindowsVMGuestPatchAutomaticByPlatformRebootSetting IfRequired { get; } = new WindowsVMGuestPatchAutomaticByPlatformRebootSetting("IfRequired");
+        /// <summary>
+        /// Never Reboot setting
+        /// </summary>
         public static WindowsVMGuestPatchAutomaticByPlatformRebootSetting Never { get; } = new WindowsVMGuestPatchAutomaticByPlatformRebootSetting("Never");
+        /// <summary>
+        /// Always Reboot setting
+        /// </summary>
         public static WindowsVMGuestPatchAutomaticByPlatformRebootSetting Always { get; } = new WindowsVMGuestPatchAutomaticByPlatformRebootSetting("Always");
 
         public static bool operator ==(WindowsVMGuestPatchAutomaticByPlatformRebootSetting left, WindowsVMGuestPatchAutomaticByPlatformRebootSetting right) => left.Equals(right);
@@ -1133,7 +1318,17 @@ namespace Pulumi.AzureNative.AzureFleet
     }
 
     /// <summary>
-    /// Specifies the mode of VM Guest Patching to IaaS virtual machine or virtual machines associated to virtual machine scale set with OrchestrationMode as Flexible.&lt;br /&gt;&lt;br /&gt; Possible values are:&lt;br /&gt;&lt;br /&gt; **Manual** - You  control the application of patches to a virtual machine. You do this by applying patches manually inside the VM. In this mode, automatic updates are disabled; the property WindowsConfiguration.enableAutomaticUpdates must be false&lt;br /&gt;&lt;br /&gt; **AutomaticByOS** - The virtual machine will automatically be updated by the OS. The property WindowsConfiguration.enableAutomaticUpdates must be true. &lt;br /&gt;&lt;br /&gt; **AutomaticByPlatform** - the virtual machine will automatically updated by the platform. The properties provisionVMAgent and WindowsConfiguration.enableAutomaticUpdates must be true 
+    /// Specifies the mode of VM Guest Patching to IaaS virtual machine or virtual
+    /// machines associated to virtual machine scale set with OrchestrationMode as
+    /// Flexible.&lt;br /&gt;&lt;br /&gt; Possible values are:&lt;br /&gt;&lt;br /&gt; **Manual** - You
+    /// control the application of patches to a virtual machine. You do this by
+    /// applying patches manually inside the VM. In this mode, automatic updates are
+    /// disabled; the property WindowsConfiguration.enableAutomaticUpdates must be
+    /// false&lt;br /&gt;&lt;br /&gt; **AutomaticByOS** - The virtual machine will automatically be
+    /// updated by the OS. The property WindowsConfiguration.enableAutomaticUpdates
+    /// must be true. &lt;br /&gt;&lt;br /&gt; **AutomaticByPlatform** - the virtual machine will
+    /// automatically updated by the platform. The properties provisionVMAgent and
+    /// WindowsConfiguration.enableAutomaticUpdates must be true
     /// </summary>
     [EnumType]
     public readonly struct WindowsVMGuestPatchMode : IEquatable<WindowsVMGuestPatchMode>
@@ -1145,8 +1340,22 @@ namespace Pulumi.AzureNative.AzureFleet
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// You control the application of patches to a virtual machine.
+        /// You do this by applying patches manually inside the VM. In this mode,
+        /// automatic updates are disabled; the property WindowsConfiguration.enableAutomaticUpdates
+        /// must be false
+        /// </summary>
         public static WindowsVMGuestPatchMode Manual { get; } = new WindowsVMGuestPatchMode("Manual");
+        /// <summary>
+        /// The virtual machine will automatically be updated by the OS.
+        /// The property WindowsConfiguration.enableAutomaticUpdates must be true.
+        /// </summary>
         public static WindowsVMGuestPatchMode AutomaticByOS { get; } = new WindowsVMGuestPatchMode("AutomaticByOS");
+        /// <summary>
+        /// The virtual machine will automatically updated by the platform. The properties
+        /// provisionVMAgent and WindowsConfiguration.enableAutomaticUpdates must be true.
+        /// </summary>
         public static WindowsVMGuestPatchMode AutomaticByPlatform { get; } = new WindowsVMGuestPatchMode("AutomaticByPlatform");
 
         public static bool operator ==(WindowsVMGuestPatchMode left, WindowsVMGuestPatchMode right) => left.Equals(right);

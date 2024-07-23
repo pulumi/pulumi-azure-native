@@ -4461,6 +4461,19 @@
       "RaiPolicy",
       "SharedCommitmentPlan",
       "listAccountKeys"
+    ],
+    "2024-06-01-preview": [
+      "Account",
+      "CommitmentPlan",
+      "CommitmentPlanAssociation",
+      "Deployment",
+      "EncryptionScope",
+      "PrivateEndpointConnection",
+      "RaiBlocklist",
+      "RaiBlocklistItem",
+      "RaiPolicy",
+      "SharedCommitmentPlan",
+      "listAccountKeys"
     ]
   },
   "Commerce": {
@@ -5106,6 +5119,13 @@
       "VirtualMachineScaleSetVMRunCommand",
       "getLogAnalyticExportRequestRateByInterval",
       "getLogAnalyticExportThrottledRequests"
+    ],
+    "2024-03-02": [
+      "Disk",
+      "DiskAccess",
+      "DiskAccessAPrivateEndpointConnection",
+      "DiskEncryptionSet",
+      "Snapshot"
     ]
   },
   "ConfidentialLedger": {
@@ -6440,6 +6460,19 @@
       "AgentPool",
       "MaintenanceConfiguration",
       "ManagedCluster",
+      "PrivateEndpointConnection",
+      "Snapshot",
+      "TrustedAccessRoleBinding",
+      "listManagedClusterAdminCredentials",
+      "listManagedClusterMonitoringUserCredentials",
+      "listManagedClusterUserCredentials"
+    ],
+    "2024-05-02-preview": [
+      "AgentPool",
+      "LoadBalancer",
+      "MaintenanceConfiguration",
+      "ManagedCluster",
+      "ManagedClusterSnapshot",
       "PrivateEndpointConnection",
       "Snapshot",
       "TrustedAccessRoleBinding",
@@ -8047,7 +8080,8 @@
       "ScalingPlanPersonalSchedule",
       "ScalingPlanPooledSchedule",
       "Workspace",
-      "getHostPoolRegistrationToken"
+      "getHostPoolRegistrationToken",
+      "listHostPoolRegistrationTokens"
     ],
     "2024-04-08-preview": [
       "AppAttachPackage",
@@ -8061,7 +8095,8 @@
       "ScalingPlanPersonalSchedule",
       "ScalingPlanPooledSchedule",
       "Workspace",
-      "getHostPoolRegistrationToken"
+      "getHostPoolRegistrationToken",
+      "listHostPoolRegistrationTokens"
     ]
   },
   "DevCenter": {
@@ -10859,6 +10894,12 @@
     "2023-05-01": [
       "Bot",
       "listBotSecrets"
+    ]
+  },
+  "HealthDataAIServices": {
+    "2024-02-28-preview": [
+      "DeidService",
+      "PrivateEndpointConnection"
     ]
   },
   "HealthcareApis": {
@@ -14270,6 +14311,24 @@
       "getAccountChangeKeyVaultInformation",
       "getSubvolumeMetadata",
       "getVolumeGroupIdForLdapUser",
+      "listVolumeReplications"
+    ],
+    "2024-03-01-preview": [
+      "Account",
+      "Backup",
+      "BackupPolicy",
+      "BackupVault",
+      "Pool",
+      "Snapshot",
+      "SnapshotPolicy",
+      "Subvolume",
+      "Volume",
+      "VolumeGroup",
+      "VolumeQuotaRule",
+      "getAccountChangeKeyVaultInformation",
+      "getSubvolumeMetadata",
+      "getVolumeGroupIdForLdapUser",
+      "listVolumeQuotaReport",
       "listVolumeReplications"
     ]
   },
@@ -19555,6 +19614,16 @@
       "VmmServer"
     ],
     "2023-10-07": [
+      "AvailabilitySet",
+      "Cloud",
+      "GuestAgent",
+      "InventoryItem",
+      "VirtualMachineInstance",
+      "VirtualMachineTemplate",
+      "VirtualNetwork",
+      "VmmServer"
+    ],
+    "2024-06-01": [
       "AvailabilitySet",
       "Cloud",
       "GuestAgent",

@@ -11,17 +11,24 @@ namespace Pulumi.AzureNative.AzureFleet.V20240501Preview.Outputs
 {
 
     /// <summary>
-    /// Specifies the security profile settings for the managed disk. **Note:** It can only be set for Confidential VMs.
+    /// Specifies the security profile settings for the managed disk. **Note:** It can
+    /// only be set for Confidential VMs.
     /// </summary>
     [OutputType]
     public sealed class VMDiskSecurityProfileResponse
     {
         /// <summary>
-        /// Specifies the customer managed disk encryption set resource id for the managed disk that is used for Customer Managed Key encrypted ConfidentialVM OS Disk and VMGuest blob.
+        /// Specifies the customer managed disk encryption set resource id for the managed
+        /// disk that is used for Customer Managed Key encrypted ConfidentialVM OS Disk and
+        /// VMGuest blob.
         /// </summary>
         public readonly Outputs.DiskEncryptionSetParametersResponse? DiskEncryptionSet;
         /// <summary>
-        /// Specifies the EncryptionType of the managed disk. It is set to DiskWithVMGuestState for encryption of the managed disk along with VMGuestState blob, VMGuestStateOnly for encryption of just the VMGuestState blob, and NonPersistedTPM for not persisting firmware state in the VMGuestState blob.. **Note:** It can be set for only Confidential VMs.
+        /// Specifies the EncryptionType of the managed disk. It is set to
+        /// DiskWithVMGuestState for encryption of the managed disk along with VMGuestState
+        /// blob, VMGuestStateOnly for encryption of just the VMGuestState blob, and
+        /// NonPersistedTPM for not persisting firmware state in the VMGuestState blob..
+        /// **Note:** It can be set for only Confidential VMs.
         /// </summary>
         public readonly string? SecurityEncryptionType;
 

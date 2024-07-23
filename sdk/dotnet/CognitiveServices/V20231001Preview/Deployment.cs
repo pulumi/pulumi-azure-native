@@ -89,6 +89,7 @@ namespace Pulumi.AzureNative.CognitiveServices.V20231001Preview
                     new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20221201:Deployment" },
                     new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20230501:Deployment" },
                     new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20240401preview:Deployment" },
+                    new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20240601preview:Deployment" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

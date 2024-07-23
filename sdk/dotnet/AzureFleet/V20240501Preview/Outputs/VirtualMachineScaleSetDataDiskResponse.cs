@@ -17,7 +17,9 @@ namespace Pulumi.AzureNative.AzureFleet.V20240501Preview.Outputs
     public sealed class VirtualMachineScaleSetDataDiskResponse
     {
         /// <summary>
-        /// Specifies the caching requirements. Possible values are: **None,** **ReadOnly,** **ReadWrite.** The default values are: **None for Standard storage. ReadOnly for Premium storage.**
+        /// Specifies the caching requirements. Possible values are: **None,**
+        /// **ReadOnly,** **ReadWrite.** The default values are: **None for Standard
+        /// storage. ReadOnly for Premium storage.**
         /// </summary>
         public readonly string? Caching;
         /// <summary>
@@ -25,23 +27,37 @@ namespace Pulumi.AzureNative.AzureFleet.V20240501Preview.Outputs
         /// </summary>
         public readonly string CreateOption;
         /// <summary>
-        /// Specifies whether data disk should be deleted or detached upon VMSS Flex deletion (This feature is available for VMSS with Flexible OrchestrationMode only).&lt;br&gt;&lt;br&gt; Possible values: &lt;br&gt;&lt;br&gt; **Delete** If this value is used, the data disk is deleted when the VMSS Flex VM is deleted.&lt;br&gt;&lt;br&gt; **Detach** If this value is used, the data disk is retained after VMSS Flex VM is deleted.&lt;br&gt;&lt;br&gt; The default value is set to **Delete**.
+        /// Specifies whether data disk should be deleted or detached upon VMSS Flex
+        /// deletion (This feature is available for VMSS with Flexible OrchestrationMode
+        /// only).&lt;br&gt;&lt;br&gt; Possible values: &lt;br&gt;&lt;br&gt; **Delete** If this value is used, the
+        /// data disk is deleted when the VMSS Flex VM is deleted.&lt;br&gt;&lt;br&gt; **Detach** If
+        /// this value is used, the data disk is retained after VMSS Flex VM is
+        /// deleted.&lt;br&gt;&lt;br&gt; The default value is set to **Delete**.
         /// </summary>
         public readonly string? DeleteOption;
         /// <summary>
-        /// Specifies the Read-Write IOPS for the managed disk. Should be used only when StorageAccountType is UltraSSD_LRS. If not specified, a default value would be assigned based on diskSizeGB.
+        /// Specifies the Read-Write IOPS for the managed disk. Should be used only when
+        /// StorageAccountType is UltraSSD_LRS. If not specified, a default value would be
+        /// assigned based on diskSizeGB.
         /// </summary>
         public readonly double? DiskIOPSReadWrite;
         /// <summary>
-        /// Specifies the bandwidth in MB per second for the managed disk. Should be used only when StorageAccountType is UltraSSD_LRS. If not specified, a default value would be assigned based on diskSizeGB.
+        /// Specifies the bandwidth in MB per second for the managed disk. Should be used
+        /// only when StorageAccountType is UltraSSD_LRS. If not specified, a default value
+        /// would be assigned based on diskSizeGB.
         /// </summary>
         public readonly double? DiskMBpsReadWrite;
         /// <summary>
-        /// Specifies the size of an empty data disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. The property diskSizeGB is the number of bytes x 1024^3 for the disk and the value cannot be larger than 1023.
+        /// Specifies the size of an empty data disk in gigabytes. This element can be used
+        /// to overwrite the size of the disk in a virtual machine image. The property
+        /// diskSizeGB is the number of bytes x 1024^3 for the disk and the value cannot be
+        /// larger than 1023.
         /// </summary>
         public readonly int? DiskSizeGB;
         /// <summary>
-        /// Specifies the logical unit number of the data disk. This value is used to identify data disks within the VM and therefore must be unique for each data disk attached to a VM.
+        /// Specifies the logical unit number of the data disk. This value is used to
+        /// identify data disks within the VM and therefore must be unique for each data
+        /// disk attached to a VM.
         /// </summary>
         public readonly int Lun;
         /// <summary>

@@ -79,9 +79,17 @@ export interface GetFleetResult {
      */
     readonly tags?: {[key: string]: string};
     /**
+     * Specifies the time at which the Compute Fleet is created.
+     */
+    readonly timeCreated: string;
+    /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
+    /**
+     * Specifies the ID which uniquely identifies a Compute Fleet.
+     */
+    readonly uniqueId: string;
     /**
      * List of VM sizes supported for Compute Fleet
      */

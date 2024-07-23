@@ -16,7 +16,10 @@ namespace Pulumi.AzureNative.AzureFleet.Inputs
     public sealed class CapacityReservationProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the capacity reservation group resource id that should be used for allocating the virtual machine or scaleset vm instances provided enough capacity has been reserved. Please refer to https://aka.ms/CapacityReservation for more details.
+        /// Specifies the capacity reservation group resource id that should be used for
+        /// allocating the virtual machine or scaleset vm instances provided enough
+        /// capacity has been reserved. Please refer to https://aka.ms/CapacityReservation
+        /// for more details.
         /// </summary>
         [Input("capacityReservationGroup")]
         public Input<Inputs.SubResourceArgs>? CapacityReservationGroup { get; set; }

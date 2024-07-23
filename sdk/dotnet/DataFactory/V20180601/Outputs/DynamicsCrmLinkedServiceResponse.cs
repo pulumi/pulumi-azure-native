@@ -21,7 +21,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly ImmutableArray<object> Annotations;
         /// <summary>
-        /// The authentication type to connect to Dynamics CRM server. 'Office365' for online scenario, 'Ifd' for on-premises with Ifd scenario, 'AADServicePrincipal' for Server-To-Server authentication in online scenario. Type: string (or Expression with resultType string).
+        /// The authentication type to connect to Dynamics CRM server. 'Office365' for online scenario, 'Ifd' for on-premises with Ifd scenario, 'AADServicePrincipal' for Server-To-Server authentication in online scenario, 'Active Directory' for Dynamics on-premises with IFD. Type: string (or Expression with resultType string).
         /// </summary>
         public readonly object AuthenticationType;
         /// <summary>
@@ -40,6 +40,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// Linked service description.
         /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The Active Directory domain that will verify user credentials. Type: string (or Expression with resultType string).
+        /// </summary>
+        public readonly object? Domain;
         /// <summary>
         /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         /// </summary>
@@ -104,6 +108,8 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             string? description,
 
+            object? domain,
+
             string? encryptedCredential,
 
             object? hostName,
@@ -134,6 +140,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
             Credential = credential;
             DeploymentType = deploymentType;
             Description = description;
+            Domain = domain;
             EncryptedCredential = encryptedCredential;
             HostName = hostName;
             OrganizationName = organizationName;

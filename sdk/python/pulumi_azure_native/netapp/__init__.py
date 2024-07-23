@@ -23,6 +23,7 @@ from .get_volume import *
 from .get_volume_group import *
 from .get_volume_group_id_for_ldap_user import *
 from .get_volume_quota_rule import *
+from .list_volume_quota_report import *
 from .list_volume_replications import *
 from .pool import *
 from .snapshot import *
@@ -60,6 +61,8 @@ if typing.TYPE_CHECKING:
     v20231101 = __v20231101
     import pulumi_azure_native.netapp.v20231101preview as __v20231101preview
     v20231101preview = __v20231101preview
+    import pulumi_azure_native.netapp.v20240301preview as __v20240301preview
+    v20240301preview = __v20240301preview
 else:
     v20210401 = _utilities.lazy_import('pulumi_azure_native.netapp.v20210401')
     v20210401preview = _utilities.lazy_import('pulumi_azure_native.netapp.v20210401preview')
@@ -73,4 +76,5 @@ else:
     v20230701preview = _utilities.lazy_import('pulumi_azure_native.netapp.v20230701preview')
     v20231101 = _utilities.lazy_import('pulumi_azure_native.netapp.v20231101')
     v20231101preview = _utilities.lazy_import('pulumi_azure_native.netapp.v20231101preview')
+    v20240301preview = _utilities.lazy_import('pulumi_azure_native.netapp.v20240301preview')
 

@@ -131,7 +131,7 @@ def get_rai_blocklist_item(account_name: Optional[str] = None,
     Gets the specified custom blocklist Item associated with the custom blocklist.
     Azure REST API version: 2023-10-01-preview.
 
-    Other available API versions: 2024-04-01-preview.
+    Other available API versions: 2024-04-01-preview, 2024-06-01-preview.
 
 
     :param str account_name: The name of Cognitive Services account.
@@ -167,7 +167,7 @@ def get_rai_blocklist_item_output(account_name: Optional[pulumi.Input[str]] = No
     Gets the specified custom blocklist Item associated with the custom blocklist.
     Azure REST API version: 2023-10-01-preview.
 
-    Other available API versions: 2024-04-01-preview.
+    Other available API versions: 2024-04-01-preview, 2024-06-01-preview.
 
 
     :param str account_name: The name of Cognitive Services account.

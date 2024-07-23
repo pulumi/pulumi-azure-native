@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.AzureFleet.V20240501Preview.Outputs
 {
 
+    /// <summary>
+    /// Specifies OS Image Scheduled Event related configurations.
+    /// </summary>
     [OutputType]
     public sealed class OSImageNotificationProfileResponse
     {
@@ -18,7 +21,10 @@ namespace Pulumi.AzureNative.AzureFleet.V20240501Preview.Outputs
         /// </summary>
         public readonly bool? Enable;
         /// <summary>
-        /// Length of time a Virtual Machine being reimaged or having its OS upgraded will have to potentially approve the OS Image Scheduled Event before the event is auto approved (timed out). The configuration is specified in ISO 8601 format, and the value must be 15 minutes (PT15M)
+        /// Length of time a Virtual Machine being reimaged or having its OS upgraded will
+        /// have to potentially approve the OS Image Scheduled Event before the event is
+        /// auto approved (timed out). The configuration is specified in ISO 8601 format,
+        /// and the value must not exceed 15 minutes (PT15M)
         /// </summary>
         public readonly string? NotBeforeTimeout;
 

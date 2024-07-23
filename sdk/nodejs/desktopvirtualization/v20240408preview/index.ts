@@ -85,6 +85,11 @@ export type HostPool = import("./hostPool").HostPool;
 export const HostPool: typeof import("./hostPool").HostPool = null as any;
 utilities.lazyLoad(exports, ["HostPool"], () => require("./hostPool"));
 
+export { ListHostPoolRegistrationTokensArgs, ListHostPoolRegistrationTokensResult, ListHostPoolRegistrationTokensOutputArgs } from "./listHostPoolRegistrationTokens";
+export const listHostPoolRegistrationTokens: typeof import("./listHostPoolRegistrationTokens").listHostPoolRegistrationTokens = null as any;
+export const listHostPoolRegistrationTokensOutput: typeof import("./listHostPoolRegistrationTokens").listHostPoolRegistrationTokensOutput = null as any;
+utilities.lazyLoad(exports, ["listHostPoolRegistrationTokens","listHostPoolRegistrationTokensOutput"], () => require("./listHostPoolRegistrationTokens"));
+
 export { MSIXPackageArgs } from "./msixpackage";
 export type MSIXPackage = import("./msixpackage").MSIXPackage;
 export const MSIXPackage: typeof import("./msixpackage").MSIXPackage = null as any;

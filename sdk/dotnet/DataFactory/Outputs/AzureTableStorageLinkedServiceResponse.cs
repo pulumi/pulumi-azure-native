@@ -33,6 +33,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly object? ConnectionString;
         /// <summary>
+        /// The credential reference containing authentication information.
+        /// </summary>
+        public readonly Outputs.CredentialReferenceResponse? Credential;
+        /// <summary>
         /// Linked service description.
         /// </summary>
         public readonly string? Description;
@@ -53,6 +57,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly object? SasUri;
         /// <summary>
+        /// Table service endpoint of the Azure Table Storage resource. It is mutually exclusive with connectionString, sasUri property.
+        /// </summary>
+        public readonly object? ServiceEndpoint;
+        /// <summary>
         /// Type of linked service.
         /// Expected value is 'AzureTableStorage'.
         /// </summary>
@@ -68,6 +76,8 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             object? connectionString,
 
+            Outputs.CredentialReferenceResponse? credential,
+
             string? description,
 
             string? encryptedCredential,
@@ -78,17 +88,21 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             object? sasUri,
 
+            object? serviceEndpoint,
+
             string type)
         {
             AccountKey = accountKey;
             Annotations = annotations;
             ConnectVia = connectVia;
             ConnectionString = connectionString;
+            Credential = credential;
             Description = description;
             EncryptedCredential = encryptedCredential;
             Parameters = parameters;
             SasToken = sasToken;
             SasUri = sasUri;
+            ServiceEndpoint = serviceEndpoint;
             Type = type;
         }
     }

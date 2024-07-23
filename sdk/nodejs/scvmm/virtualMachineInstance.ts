@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Define the virtualMachineInstance.
  * Azure REST API version: 2023-04-01-preview.
  *
- * Other available API versions: 2023-10-07.
+ * Other available API versions: 2023-10-07, 2024-06-01.
  */
 export class VirtualMachineInstance extends pulumi.CustomResource {
     /**
@@ -134,7 +134,7 @@ export class VirtualMachineInstance extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:scvmm/v20230401preview:VirtualMachineInstance" }, { type: "azure-native:scvmm/v20231007:VirtualMachineInstance" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:scvmm/v20230401preview:VirtualMachineInstance" }, { type: "azure-native:scvmm/v20231007:VirtualMachineInstance" }, { type: "azure-native:scvmm/v20240601:VirtualMachineInstance" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VirtualMachineInstance.__pulumiType, name, resourceInputs, opts);
     }

@@ -11,7 +11,10 @@ namespace Pulumi.AzureNative.AzureFleet.Inputs
 {
 
     /// <summary>
-    /// Boot Diagnostics is a debugging feature which allows you to view Console Output and Screenshot to diagnose VM status. You can easily view the output of your console log. Azure also enables you to see a screenshot of the VM from the hypervisor.
+    /// Boot Diagnostics is a debugging feature which allows you to view Console Output
+    /// and Screenshot to diagnose VM status. You can easily view the output of your
+    /// console log. Azure also enables you to see a screenshot of the VM from the
+    /// hypervisor.
     /// </summary>
     public sealed class BootDiagnosticsArgs : global::Pulumi.ResourceArgs
     {
@@ -22,7 +25,9 @@ namespace Pulumi.AzureNative.AzureFleet.Inputs
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// Uri of the storage account to use for placing the console output and screenshot. If storageUri is not specified while enabling boot diagnostics, managed storage will be used.
+        /// Uri of the storage account to use for placing the console output and
+        /// screenshot. If storageUri is not specified while enabling boot diagnostics,
+        /// managed storage will be used.
         /// </summary>
         [Input("storageUri")]
         public Input<string>? StorageUri { get; set; }

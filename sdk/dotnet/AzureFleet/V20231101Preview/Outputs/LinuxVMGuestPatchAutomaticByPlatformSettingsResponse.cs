@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.AzureFleet.V20231101Preview.Outputs
 {
 
     /// <summary>
-    /// Specifies additional settings to be applied when patch mode AutomaticByPlatform is selected in Linux patch settings.
+    /// Specifies additional settings to be applied when patch mode AutomaticByPlatform
+    /// is selected in Linux patch settings.
     /// </summary>
     [OutputType]
     public sealed class LinuxVMGuestPatchAutomaticByPlatformSettingsResponse
@@ -21,7 +22,8 @@ namespace Pulumi.AzureNative.AzureFleet.V20231101Preview.Outputs
         /// </summary>
         public readonly bool? BypassPlatformSafetyChecksOnUserSchedule;
         /// <summary>
-        /// Specifies the reboot setting for all AutomaticByPlatform patch installation operations.
+        /// Specifies the reboot setting for all AutomaticByPlatform patch installation
+        /// operations.
         /// </summary>
         public readonly string? RebootSetting;
 

@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.AzureFleet.Inputs
 {
 
     /// <summary>
-    /// Contains the list of gallery applications that should be made available to the VM/VMSS
+    /// Contains the list of gallery applications that should be made available to the
+    /// VM/VMSS
     /// </summary>
     public sealed class ApplicationProfileArgs : global::Pulumi.ResourceArgs
     {

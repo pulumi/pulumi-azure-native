@@ -21,7 +21,10 @@ namespace Pulumi.AzureNative.AzureFleet.V20231101Preview.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.VirtualMachineScaleSetExtensionResponse> Extensions;
         /// <summary>
-        /// Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. The default value is 90 minutes (PT1H30M). Minimum api-version: 2020-06-01.
+        /// Specifies the time alloted for all extensions to start. The time duration
+        /// should be between 15 minutes and 120 minutes (inclusive) and should be
+        /// specified in ISO 8601 format. The default value is 90 minutes (PT1H30M).
+        /// Minimum api-version: 2020-06-01.
         /// </summary>
         public readonly string? ExtensionsTimeBudget;
 

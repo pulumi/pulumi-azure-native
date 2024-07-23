@@ -17,7 +17,8 @@ namespace Pulumi.AzureNative.AzureFleet.Outputs
     public sealed class ApiEntityReferenceResponse
     {
         /// <summary>
-        /// The ARM resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
+        /// The ARM resource id in the form of
+        /// /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
         /// </summary>
         public readonly string? Id;
 

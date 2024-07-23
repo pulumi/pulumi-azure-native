@@ -19,7 +19,8 @@ namespace Pulumi.AzureNative.AzureFleet.V20240501Preview.Inputs
         private InputList<Inputs.AdditionalUnattendContentArgs>? _additionalUnattendContent;
 
         /// <summary>
-        /// Specifies additional base-64 encoded XML formatted information that can be included in the Unattend.xml file, which is used by Windows Setup.
+        /// Specifies additional base-64 encoded XML formatted information that can be
+        /// included in the Unattend.xml file, which is used by Windows Setup.
         /// </summary>
         public InputList<Inputs.AdditionalUnattendContentArgs> AdditionalUnattendContent
         {
@@ -28,13 +29,16 @@ namespace Pulumi.AzureNative.AzureFleet.V20240501Preview.Inputs
         }
 
         /// <summary>
-        /// Indicates whether Automatic Updates is enabled for the Windows virtual machine. Default value is true. For virtual machine scale sets, this property can be updated and updates will take effect on OS reprovisioning.
+        /// Indicates whether Automatic Updates is enabled for the Windows virtual machine.
+        /// Default value is true. For virtual machine scale sets, this property can be
+        /// updated and updates will take effect on OS reprovisioning.
         /// </summary>
         [Input("enableAutomaticUpdates")]
         public Input<bool>? EnableAutomaticUpdates { get; set; }
 
         /// <summary>
-        /// Indicates whether VMAgent Platform Updates is enabled for the Windows virtual machine. Default value is false.
+        /// Indicates whether VMAgent Platform Updates is enabled for the Windows virtual
+        /// machine. Default value is false.
         /// </summary>
         [Input("enableVMAgentPlatformUpdates")]
         public Input<bool>? EnableVMAgentPlatformUpdates { get; set; }
@@ -46,19 +50,27 @@ namespace Pulumi.AzureNative.AzureFleet.V20240501Preview.Inputs
         public Input<Inputs.PatchSettingsArgs>? PatchSettings { get; set; }
 
         /// <summary>
-        /// Indicates whether virtual machine agent should be provisioned on the virtual machine. When this property is not specified in the request body, it is set to true by default. This will ensure that VM Agent is installed on the VM so that extensions can be added to the VM later.
+        /// Indicates whether virtual machine agent should be provisioned on the virtual
+        /// machine. When this property is not specified in the request body, it is set to
+        /// true by default. This will ensure that VM Agent is installed on the VM so that
+        /// extensions can be added to the VM later.
         /// </summary>
         [Input("provisionVMAgent")]
         public Input<bool>? ProvisionVMAgent { get; set; }
 
         /// <summary>
-        /// Specifies the time zone of the virtual machine. e.g. "Pacific Standard Time". Possible values can be [TimeZoneInfo.Id](https://docs.microsoft.com/dotnet/api/system.timezoneinfo.id?#System_TimeZoneInfo_Id) value from time zones returned by [TimeZoneInfo.GetSystemTimeZones](https://docs.microsoft.com/dotnet/api/system.timezoneinfo.getsystemtimezones).
+        /// Specifies the time zone of the virtual machine. e.g. "Pacific Standard Time".
+        /// Possible values can be
+        /// [TimeZoneInfo.Id](https://docs.microsoft.com/dotnet/api/system.timezoneinfo.id?#System_TimeZoneInfo_Id)
+        /// value from time zones returned by
+        /// [TimeZoneInfo.GetSystemTimeZones](https://docs.microsoft.com/dotnet/api/system.timezoneinfo.getsystemtimezones).
         /// </summary>
         [Input("timeZone")]
         public Input<string>? TimeZone { get; set; }
 
         /// <summary>
-        /// Specifies the Windows Remote Management listeners. This enables remote Windows PowerShell.
+        /// Specifies the Windows Remote Management listeners. This enables remote Windows
+        /// PowerShell.
         /// </summary>
         [Input("winRM")]
         public Input<Inputs.WinRMConfigurationArgs>? WinRM { get; set; }

@@ -16,7 +16,8 @@ namespace Pulumi.AzureNative.AzureFleet.V20231101Preview.Inputs
     public sealed class VaultSecretGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The relative URL of the Key Vault containing all of the certificates in VaultCertificates.
+        /// The relative URL of the Key Vault containing all of the certificates in
+        /// VaultCertificates.
         /// </summary>
         [Input("sourceVault")]
         public Input<Inputs.SubResourceArgs>? SourceVault { get; set; }

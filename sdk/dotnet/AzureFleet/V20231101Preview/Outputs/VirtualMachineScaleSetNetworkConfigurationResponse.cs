@@ -17,92 +17,22 @@ namespace Pulumi.AzureNative.AzureFleet.V20231101Preview.Outputs
     public sealed class VirtualMachineScaleSetNetworkConfigurationResponse
     {
         /// <summary>
-        /// Specifies whether the Auxiliary mode is enabled for the Network Interface resource.
-        /// </summary>
-        public readonly string? AuxiliaryMode;
-        /// <summary>
-        /// Specifies whether the Auxiliary sku is enabled for the Network Interface resource.
-        /// </summary>
-        public readonly string? AuxiliarySku;
-        /// <summary>
-        /// Specify what happens to the network interface when the VM is deleted
-        /// </summary>
-        public readonly string? DeleteOption;
-        /// <summary>
-        /// Specifies whether the network interface is disabled for tcp state tracking.
-        /// </summary>
-        public readonly bool? DisableTcpStateTracking;
-        /// <summary>
-        /// The dns settings to be applied on the network interfaces.
-        /// </summary>
-        public readonly Outputs.VirtualMachineScaleSetNetworkConfigurationDnsSettingsResponse? DnsSettings;
-        /// <summary>
-        /// Specifies whether the network interface is accelerated networking-enabled.
-        /// </summary>
-        public readonly bool? EnableAcceleratedNetworking;
-        /// <summary>
-        /// Specifies whether the network interface is FPGA networking-enabled.
-        /// </summary>
-        public readonly bool? EnableFpga;
-        /// <summary>
-        /// Whether IP forwarding enabled on this NIC.
-        /// </summary>
-        public readonly bool? EnableIPForwarding;
-        /// <summary>
-        /// Specifies the IP configurations of the network interface.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.VirtualMachineScaleSetIPConfigurationResponse> IpConfigurations;
-        /// <summary>
         /// The network configuration name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The network security group.
+        /// Describes a virtual machine scale set network profile's IP configuration.
         /// </summary>
-        public readonly Outputs.SubResourceResponse? NetworkSecurityGroup;
-        /// <summary>
-        /// Specifies the primary network interface in case the virtual machine has more than 1 network interface.
-        /// </summary>
-        public readonly bool? Primary;
+        public readonly Outputs.VirtualMachineScaleSetNetworkConfigurationPropertiesResponse? Properties;
 
         [OutputConstructor]
         private VirtualMachineScaleSetNetworkConfigurationResponse(
-            string? auxiliaryMode,
-
-            string? auxiliarySku,
-
-            string? deleteOption,
-
-            bool? disableTcpStateTracking,
-
-            Outputs.VirtualMachineScaleSetNetworkConfigurationDnsSettingsResponse? dnsSettings,
-
-            bool? enableAcceleratedNetworking,
-
-            bool? enableFpga,
-
-            bool? enableIPForwarding,
-
-            ImmutableArray<Outputs.VirtualMachineScaleSetIPConfigurationResponse> ipConfigurations,
-
             string name,
 
-            Outputs.SubResourceResponse? networkSecurityGroup,
-
-            bool? primary)
+            Outputs.VirtualMachineScaleSetNetworkConfigurationPropertiesResponse? properties)
         {
-            AuxiliaryMode = auxiliaryMode;
-            AuxiliarySku = auxiliarySku;
-            DeleteOption = deleteOption;
-            DisableTcpStateTracking = disableTcpStateTracking;
-            DnsSettings = dnsSettings;
-            EnableAcceleratedNetworking = enableAcceleratedNetworking;
-            EnableFpga = enableFpga;
-            EnableIPForwarding = enableIPForwarding;
-            IpConfigurations = ipConfigurations;
             Name = name;
-            NetworkSecurityGroup = networkSecurityGroup;
-            Primary = primary;
+            Properties = properties;
         }
     }
 }

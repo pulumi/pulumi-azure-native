@@ -11,18 +11,23 @@ namespace Pulumi.AzureNative.AzureFleet.V20240501Preview.Inputs
 {
 
     /// <summary>
-    /// Specifies additional XML formatted information that can be included in the Unattend.xml file, which is used by Windows Setup. Contents are defined by setting name, component name, and the pass in which the content is applied.
+    /// Specifies additional XML formatted information that can be included in the
+    /// Unattend.xml file, which is used by Windows Setup. Contents are defined by
+    /// setting name, component name, and the pass in which the content is applied.
     /// </summary>
     public sealed class AdditionalUnattendContentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The component name. Currently, the only allowable value is Microsoft-Windows-Shell-Setup.
+        /// The component name. Currently, the only allowable value is
+        /// Microsoft-Windows-Shell-Setup.
         /// </summary>
         [Input("componentName")]
-        public Input<Pulumi.AzureNative.AzureFleet.V20240501Preview.ComponentNames>? ComponentName { get; set; }
+        public Input<Pulumi.AzureNative.AzureFleet.V20240501Preview.ComponentName>? ComponentName { get; set; }
 
         /// <summary>
-        /// Specifies the XML formatted content that is added to the unattend.xml file for the specified path and component. The XML must be less than 4KB and must include the root element for the setting or feature that is being inserted.
+        /// Specifies the XML formatted content that is added to the unattend.xml file for
+        /// the specified path and component. The XML must be less than 4KB and must
+        /// include the root element for the setting or feature that is being inserted.
         /// </summary>
         [Input("content")]
         public Input<string>? Content { get; set; }
@@ -31,13 +36,14 @@ namespace Pulumi.AzureNative.AzureFleet.V20240501Preview.Inputs
         /// The pass name. Currently, the only allowable value is OobeSystem.
         /// </summary>
         [Input("passName")]
-        public Input<Pulumi.AzureNative.AzureFleet.V20240501Preview.PassNames>? PassName { get; set; }
+        public Input<Pulumi.AzureNative.AzureFleet.V20240501Preview.PassName>? PassName { get; set; }
 
         /// <summary>
-        /// Specifies the name of the setting to which the content applies. Possible values are: FirstLogonCommands and AutoLogon.
+        /// Specifies the name of the setting to which the content applies. Possible values
+        /// are: FirstLogonCommands and AutoLogon.
         /// </summary>
         [Input("settingName")]
-        public Input<Pulumi.AzureNative.AzureFleet.V20240501Preview.SettingNames>? SettingName { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.AzureFleet.V20240501Preview.SettingNames>? SettingName { get; set; }
 
         public AdditionalUnattendContentArgs()
         {

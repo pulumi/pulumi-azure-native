@@ -155,7 +155,7 @@ class SharedCommitmentPlan(pulumi.CustomResource):
         Cognitive Services account commitment plan.
         Azure REST API version: 2023-05-01.
 
-        Other available API versions: 2023-10-01-preview, 2024-04-01-preview.
+        Other available API versions: 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -177,7 +177,7 @@ class SharedCommitmentPlan(pulumi.CustomResource):
         Cognitive Services account commitment plan.
         Azure REST API version: 2023-05-01.
 
-        Other available API versions: 2023-10-01-preview, 2024-04-01-preview.
+        Other available API versions: 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param SharedCommitmentPlanArgs args: The arguments to use to populate this resource's properties.
@@ -223,7 +223,7 @@ class SharedCommitmentPlan(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cognitiveservices/v20221201:SharedCommitmentPlan"), pulumi.Alias(type_="azure-native:cognitiveservices/v20230501:SharedCommitmentPlan"), pulumi.Alias(type_="azure-native:cognitiveservices/v20231001preview:SharedCommitmentPlan"), pulumi.Alias(type_="azure-native:cognitiveservices/v20240401preview:SharedCommitmentPlan")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cognitiveservices/v20221201:SharedCommitmentPlan"), pulumi.Alias(type_="azure-native:cognitiveservices/v20230501:SharedCommitmentPlan"), pulumi.Alias(type_="azure-native:cognitiveservices/v20231001preview:SharedCommitmentPlan"), pulumi.Alias(type_="azure-native:cognitiveservices/v20240401preview:SharedCommitmentPlan"), pulumi.Alias(type_="azure-native:cognitiveservices/v20240601preview:SharedCommitmentPlan")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SharedCommitmentPlan, __self__).__init__(
             'azure-native:cognitiveservices:SharedCommitmentPlan',

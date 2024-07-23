@@ -11,25 +11,25 @@ namespace Pulumi.AzureNative.AzureFleet.Outputs
 {
 
     /// <summary>
-    /// Specifies additional XML formatted information that can be included in the Unattend.xml file, which is used by Windows Setup. Contents are defined by setting name, component name, and the pass in which the content is applied.
+    /// Specifies additional XML formatted information that can be included in the
+    /// Unattend.xml file, which is used by Windows Setup. Contents are defined by
+    /// setting name, component name, and the pass in which the content is applied.
     /// </summary>
     [OutputType]
     public sealed class AdditionalUnattendContentResponse
     {
         /// <summary>
-        /// The component name. Currently, the only allowable value is Microsoft-Windows-Shell-Setup.
+        /// The component name. Currently, the only allowable value is
+        /// Microsoft-Windows-Shell-Setup.
         /// </summary>
         public readonly string? ComponentName;
-        /// <summary>
-        /// Specifies the XML formatted content that is added to the unattend.xml file for the specified path and component. The XML must be less than 4KB and must include the root element for the setting or feature that is being inserted.
-        /// </summary>
-        public readonly string? Content;
         /// <summary>
         /// The pass name. Currently, the only allowable value is OobeSystem.
         /// </summary>
         public readonly string? PassName;
         /// <summary>
-        /// Specifies the name of the setting to which the content applies. Possible values are: FirstLogonCommands and AutoLogon.
+        /// Specifies the name of the setting to which the content applies. Possible values
+        /// are: FirstLogonCommands and AutoLogon.
         /// </summary>
         public readonly string? SettingName;
 
@@ -37,14 +37,11 @@ namespace Pulumi.AzureNative.AzureFleet.Outputs
         private AdditionalUnattendContentResponse(
             string? componentName,
 
-            string? content,
-
             string? passName,
 
             string? settingName)
         {
             ComponentName = componentName;
-            Content = content;
             PassName = passName;
             SettingName = settingName;
         }

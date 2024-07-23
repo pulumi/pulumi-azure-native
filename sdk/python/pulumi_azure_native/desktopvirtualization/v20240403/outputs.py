@@ -27,6 +27,7 @@ __all__ = [
     'PrivateEndpointResponse',
     'PrivateLinkServiceConnectionStateResponse',
     'RegistrationInfoResponse',
+    'RegistrationTokenMinimalResponse',
     'ResourceModelWithAllowedPropertySetResponseIdentity',
     'ResourceModelWithAllowedPropertySetResponsePlan',
     'ResourceModelWithAllowedPropertySetResponseSku',
@@ -964,6 +965,41 @@ class RegistrationInfoResponse(dict):
         The type of resetting the token.
         """
         return pulumi.get(self, "registration_token_operation")
+
+    @property
+    @pulumi.getter
+    def token(self) -> Optional[str]:
+        """
+        The registration token base64 encoded string.
+        """
+        return pulumi.get(self, "token")
+
+
+@pulumi.output_type
+class RegistrationTokenMinimalResponse(dict):
+    """
+    Represents a Minimal set of properties for RegistrationToken definition.
+    """
+    def __init__(__self__, *,
+                 expiration_time: Optional[str] = None,
+                 token: Optional[str] = None):
+        """
+        Represents a Minimal set of properties for RegistrationToken definition.
+        :param str expiration_time: Expiration time of registration token.
+        :param str token: The registration token base64 encoded string.
+        """
+        if expiration_time is not None:
+            pulumi.set(__self__, "expiration_time", expiration_time)
+        if token is not None:
+            pulumi.set(__self__, "token", token)
+
+    @property
+    @pulumi.getter(name="expirationTime")
+    def expiration_time(self) -> Optional[str]:
+        """
+        Expiration time of registration token.
+        """
+        return pulumi.get(self, "expiration_time")
 
     @property
     @pulumi.getter

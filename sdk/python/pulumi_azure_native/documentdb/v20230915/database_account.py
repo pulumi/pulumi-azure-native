@@ -80,7 +80,7 @@ class DatabaseAccountArgs:
         :param pulumi.Input[bool] disable_local_auth: Opt-out of local authentication and ensure only MSI and AAD can be used exclusively for authentication.
         :param pulumi.Input[bool] enable_analytical_storage: Flag to indicate whether to enable storage analytics.
         :param pulumi.Input[bool] enable_automatic_failover: Enables automatic failover of the write region in the rare event that the region is unavailable due to an outage. Automatic failover will result in a new write region for the account and is chosen based on the failover priorities configured for the account.
-        :param pulumi.Input[bool] enable_burst_capacity: Flag to indicate enabling/disabling of Burst Capacity Preview feature on the account
+        :param pulumi.Input[bool] enable_burst_capacity: Flag to indicate enabling/disabling of Burst Capacity feature on the account
         :param pulumi.Input[bool] enable_cassandra_connector: Enables the cassandra connector on the Cosmos DB C* account
         :param pulumi.Input[bool] enable_free_tier: Flag to indicate whether Free Tier is enabled.
         :param pulumi.Input[bool] enable_multiple_write_locations: Enables the account to write in multiple locations
@@ -407,7 +407,7 @@ class DatabaseAccountArgs:
     @pulumi.getter(name="enableBurstCapacity")
     def enable_burst_capacity(self) -> Optional[pulumi.Input[bool]]:
         """
-        Flag to indicate enabling/disabling of Burst Capacity Preview feature on the account
+        Flag to indicate enabling/disabling of Burst Capacity feature on the account
         """
         return pulumi.get(self, "enable_burst_capacity")
 
@@ -685,7 +685,7 @@ class DatabaseAccount(pulumi.CustomResource):
         :param pulumi.Input[bool] disable_local_auth: Opt-out of local authentication and ensure only MSI and AAD can be used exclusively for authentication.
         :param pulumi.Input[bool] enable_analytical_storage: Flag to indicate whether to enable storage analytics.
         :param pulumi.Input[bool] enable_automatic_failover: Enables automatic failover of the write region in the rare event that the region is unavailable due to an outage. Automatic failover will result in a new write region for the account and is chosen based on the failover priorities configured for the account.
-        :param pulumi.Input[bool] enable_burst_capacity: Flag to indicate enabling/disabling of Burst Capacity Preview feature on the account
+        :param pulumi.Input[bool] enable_burst_capacity: Flag to indicate enabling/disabling of Burst Capacity feature on the account
         :param pulumi.Input[bool] enable_cassandra_connector: Enables the cassandra connector on the Cosmos DB C* account
         :param pulumi.Input[bool] enable_free_tier: Flag to indicate whether Free Tier is enabled.
         :param pulumi.Input[bool] enable_multiple_write_locations: Enables the account to write in multiple locations
@@ -1046,7 +1046,7 @@ class DatabaseAccount(pulumi.CustomResource):
     @pulumi.getter(name="enableBurstCapacity")
     def enable_burst_capacity(self) -> pulumi.Output[Optional[bool]]:
         """
-        Flag to indicate enabling/disabling of Burst Capacity Preview feature on the account
+        Flag to indicate enabling/disabling of Burst Capacity feature on the account
         """
         return pulumi.get(self, "enable_burst_capacity")
 

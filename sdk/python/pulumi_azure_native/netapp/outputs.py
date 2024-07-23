@@ -29,6 +29,7 @@ __all__ = [
     'MonthlyScheduleResponse',
     'MountTargetPropertiesResponse',
     'PlacementKeyValuePairsResponse',
+    'QuotaReportResponse',
     'ReplicationObjectResponse',
     'ReplicationResponse',
     'SystemDataResponse',
@@ -1325,6 +1326,89 @@ class PlacementKeyValuePairsResponse(dict):
         Value for an application specific parameter for the placement of volumes in the volume group
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class QuotaReportResponse(dict):
+    """
+    Quota report record properties
+    """
+    def __init__(__self__, *,
+                 is_derived_quota: Optional[bool] = None,
+                 percentage_used: Optional[float] = None,
+                 quota_limit_total_in_ki_bs: Optional[float] = None,
+                 quota_limit_used_in_ki_bs: Optional[float] = None,
+                 quota_target: Optional[str] = None,
+                 quota_type: Optional[str] = None):
+        """
+        Quota report record properties
+        :param bool is_derived_quota: Flag to indicate whether the quota is derived from default quota.
+        :param float percentage_used: Percentage of used size compared to total size.
+        :param float quota_limit_total_in_ki_bs: Specifies the total size limit in kibibytes for the user/group quota.
+        :param float quota_limit_used_in_ki_bs: Specifies the current usage in kibibytes for the user/group quota.
+        :param str quota_target: UserID/GroupID/SID based on the quota target type. UserID and groupID can be found by running ‘id’ or ‘getent’ command for the user or group and SID can be found by running <wmic useraccount where name='user-name' get sid>
+        :param str quota_type: Type of quota
+        """
+        if is_derived_quota is not None:
+            pulumi.set(__self__, "is_derived_quota", is_derived_quota)
+        if percentage_used is not None:
+            pulumi.set(__self__, "percentage_used", percentage_used)
+        if quota_limit_total_in_ki_bs is not None:
+            pulumi.set(__self__, "quota_limit_total_in_ki_bs", quota_limit_total_in_ki_bs)
+        if quota_limit_used_in_ki_bs is not None:
+            pulumi.set(__self__, "quota_limit_used_in_ki_bs", quota_limit_used_in_ki_bs)
+        if quota_target is not None:
+            pulumi.set(__self__, "quota_target", quota_target)
+        if quota_type is not None:
+            pulumi.set(__self__, "quota_type", quota_type)
+
+    @property
+    @pulumi.getter(name="isDerivedQuota")
+    def is_derived_quota(self) -> Optional[bool]:
+        """
+        Flag to indicate whether the quota is derived from default quota.
+        """
+        return pulumi.get(self, "is_derived_quota")
+
+    @property
+    @pulumi.getter(name="percentageUsed")
+    def percentage_used(self) -> Optional[float]:
+        """
+        Percentage of used size compared to total size.
+        """
+        return pulumi.get(self, "percentage_used")
+
+    @property
+    @pulumi.getter(name="quotaLimitTotalInKiBs")
+    def quota_limit_total_in_ki_bs(self) -> Optional[float]:
+        """
+        Specifies the total size limit in kibibytes for the user/group quota.
+        """
+        return pulumi.get(self, "quota_limit_total_in_ki_bs")
+
+    @property
+    @pulumi.getter(name="quotaLimitUsedInKiBs")
+    def quota_limit_used_in_ki_bs(self) -> Optional[float]:
+        """
+        Specifies the current usage in kibibytes for the user/group quota.
+        """
+        return pulumi.get(self, "quota_limit_used_in_ki_bs")
+
+    @property
+    @pulumi.getter(name="quotaTarget")
+    def quota_target(self) -> Optional[str]:
+        """
+        UserID/GroupID/SID based on the quota target type. UserID and groupID can be found by running ‘id’ or ‘getent’ command for the user or group and SID can be found by running <wmic useraccount where name='user-name' get sid>
+        """
+        return pulumi.get(self, "quota_target")
+
+    @property
+    @pulumi.getter(name="quotaType")
+    def quota_type(self) -> Optional[str]:
+        """
+        Type of quota
+        """
+        return pulumi.get(self, "quota_type")
 
 
 @pulumi.output_type

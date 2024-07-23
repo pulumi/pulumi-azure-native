@@ -138,7 +138,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20240515
         /// </summary>
         public readonly bool? EnableAutomaticFailover;
         /// <summary>
-        /// Flag to indicate enabling/disabling of Burst Capacity Preview feature on the account
+        /// Flag to indicate enabling/disabling of Burst Capacity feature on the account
         /// </summary>
         public readonly bool? EnableBurstCapacity;
         /// <summary>

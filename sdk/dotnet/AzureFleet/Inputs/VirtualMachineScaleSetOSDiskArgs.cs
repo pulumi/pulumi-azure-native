@@ -16,31 +16,48 @@ namespace Pulumi.AzureNative.AzureFleet.Inputs
     public sealed class VirtualMachineScaleSetOSDiskArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the caching requirements. Possible values are: **None,** **ReadOnly,** **ReadWrite.** The default values are: **None for Standard storage. ReadOnly for Premium storage.**
+        /// Specifies the caching requirements. Possible values are: **None,**
+        /// **ReadOnly,** **ReadWrite.** The default values are: **None for Standard
+        /// storage. ReadOnly for Premium storage.**
         /// </summary>
         [Input("caching")]
-        public Input<Pulumi.AzureNative.AzureFleet.CachingTypes>? Caching { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.AzureFleet.CachingTypes>? Caching { get; set; }
 
         /// <summary>
-        /// Specifies how the virtual machines in the scale set should be created. The only allowed value is: **FromImage.** This value is used when you are using an image to create the virtual machine. If you are using a platform image, you also use the imageReference element described above. If you are using a marketplace image, you  also use the plan element previously described.
+        /// Specifies how the virtual machines in the scale set should be created. The only
+        /// allowed value is: **FromImage.** This value is used when you are using an image
+        /// to create the virtual machine. If you are using a platform image, you also use
+        /// the imageReference element described above. If you are using a marketplace
+        /// image, you  also use the plan element previously described.
         /// </summary>
         [Input("createOption", required: true)]
         public InputUnion<string, Pulumi.AzureNative.AzureFleet.DiskCreateOptionTypes> CreateOption { get; set; } = null!;
 
         /// <summary>
-        /// Specifies whether OS Disk should be deleted or detached upon VMSS Flex deletion (This feature is available for VMSS with Flexible OrchestrationMode only). &lt;br&gt;&lt;br&gt; Possible values: &lt;br&gt;&lt;br&gt; **Delete** If this value is used, the OS disk is deleted when VMSS Flex VM is deleted.&lt;br&gt;&lt;br&gt; **Detach** If this value is used, the OS disk is retained after VMSS Flex VM is deleted. &lt;br&gt;&lt;br&gt; The default value is set to **Delete**. For an Ephemeral OS Disk, the default value is set to **Delete**. User cannot change the delete option for Ephemeral OS Disk.
+        /// Specifies whether OS Disk should be deleted or detached upon VMSS Flex deletion
+        /// (This feature is available for VMSS with Flexible OrchestrationMode only).
+        /// &lt;br&gt;&lt;br&gt; Possible values: &lt;br&gt;&lt;br&gt; **Delete** If this value is used, the OS
+        /// disk is deleted when VMSS Flex VM is deleted.&lt;br&gt;&lt;br&gt; **Detach** If this value
+        /// is used, the OS disk is retained after VMSS Flex VM is deleted. &lt;br&gt;&lt;br&gt; The
+        /// default value is set to **Delete**. For an Ephemeral OS Disk, the default value
+        /// is set to **Delete**. User cannot change the delete option for Ephemeral OS
+        /// Disk.
         /// </summary>
         [Input("deleteOption")]
         public InputUnion<string, Pulumi.AzureNative.AzureFleet.DiskDeleteOptionTypes>? DeleteOption { get; set; }
 
         /// <summary>
-        /// Specifies the ephemeral disk Settings for the operating system disk used by the virtual machine scale set.
+        /// Specifies the ephemeral disk Settings for the operating system disk used by the
+        /// virtual machine scale set.
         /// </summary>
         [Input("diffDiskSettings")]
         public Input<Inputs.DiffDiskSettingsArgs>? DiffDiskSettings { get; set; }
 
         /// <summary>
-        /// Specifies the size of an empty data disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. The property 'diskSizeGB' is the number of bytes x 1024^3 for the disk and the value cannot be larger than 1023.
+        /// Specifies the size of an empty data disk in gigabytes. This element can be used
+        /// to overwrite the size of the disk in a virtual machine image. The property 'diskSizeGB'
+        /// is the number of bytes x 1024^3 for the disk and the value cannot
+        /// be larger than 1023.
         /// </summary>
         [Input("diskSizeGB")]
         public Input<int>? DiskSizeGB { get; set; }
@@ -64,16 +81,19 @@ namespace Pulumi.AzureNative.AzureFleet.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// This property allows you to specify the type of the OS that is included in the disk if creating a VM from user-image or a specialized VHD. Possible values are: **Windows,** **Linux.**
+        /// This property allows you to specify the type of the OS that is included in the
+        /// disk if creating a VM from user-image or a specialized VHD. Possible values
+        /// are: **Windows,** **Linux.**
         /// </summary>
         [Input("osType")]
-        public Input<Pulumi.AzureNative.AzureFleet.OperatingSystemTypes>? OsType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.AzureFleet.OperatingSystemTypes>? OsType { get; set; }
 
         [Input("vhdContainers")]
         private InputList<string>? _vhdContainers;
 
         /// <summary>
-        /// Specifies the container urls that are used to store operating system disks for the scale set.
+        /// Specifies the container urls that are used to store operating system disks for
+        /// the scale set.
         /// </summary>
         public InputList<string> VhdContainers
         {

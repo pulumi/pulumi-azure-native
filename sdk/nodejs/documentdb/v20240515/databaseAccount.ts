@@ -106,7 +106,7 @@ export class DatabaseAccount extends pulumi.CustomResource {
      */
     public readonly enableAutomaticFailover!: pulumi.Output<boolean | undefined>;
     /**
-     * Flag to indicate enabling/disabling of Burst Capacity Preview feature on the account
+     * Flag to indicate enabling/disabling of Burst Capacity feature on the account
      */
     public readonly enableBurstCapacity!: pulumi.Output<boolean | undefined>;
     /**
@@ -418,7 +418,7 @@ export interface DatabaseAccountArgs {
      */
     enableAutomaticFailover?: pulumi.Input<boolean>;
     /**
-     * Flag to indicate enabling/disabling of Burst Capacity Preview feature on the account
+     * Flag to indicate enabling/disabling of Burst Capacity feature on the account
      */
     enableBurstCapacity?: pulumi.Input<boolean>;
     /**

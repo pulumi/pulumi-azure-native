@@ -11,27 +11,36 @@ namespace Pulumi.AzureNative.AzureFleet.V20240501Preview.Inputs
 {
 
     /// <summary>
-    /// Specifies the security posture to be used for all virtual machines in the scale set. Minimum api-version: 2023-03-01
+    /// Specifies the security posture to be used for all virtual machines in the scale
+    /// set. Minimum api-version: 2023-03-01
     /// </summary>
     public sealed class SecurityPostureReferenceArgs : global::Pulumi.ResourceArgs
     {
         [Input("excludeExtensions")]
-        private InputList<Inputs.VirtualMachineExtensionArgs>? _excludeExtensions;
+        private InputList<string>? _excludeExtensions;
 
         /// <summary>
-        /// List of virtual machine extensions to exclude when applying the Security Posture.
+        /// List of virtual machine extension names to exclude when applying the security
+        /// posture.
         /// </summary>
-        public InputList<Inputs.VirtualMachineExtensionArgs> ExcludeExtensions
+        public InputList<string> ExcludeExtensions
         {
-            get => _excludeExtensions ?? (_excludeExtensions = new InputList<Inputs.VirtualMachineExtensionArgs>());
+            get => _excludeExtensions ?? (_excludeExtensions = new InputList<string>());
             set => _excludeExtensions = value;
         }
 
         /// <summary>
-        /// The security posture reference id in the form of /CommunityGalleries/{communityGalleryName}/securityPostures/{securityPostureName}/versions/{major.minor.patch}|{major.*}|latest
+        /// The security posture reference id in the form of
+        /// /CommunityGalleries/{communityGalleryName}/securityPostures/{securityPostureName}/versions/{major.minor.patch}|{major.*}|latest
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
+
+        /// <summary>
+        /// Whether the security posture can be overridden by the user.
+        /// </summary>
+        [Input("isOverridable")]
+        public Input<bool>? IsOverridable { get; set; }
 
         public SecurityPostureReferenceArgs()
         {

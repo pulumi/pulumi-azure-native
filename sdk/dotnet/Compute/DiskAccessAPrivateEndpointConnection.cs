@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute
     /// The Private Endpoint Connection resource.
     /// Azure REST API version: 2022-07-02. Prior API version in Azure Native 1.x: 2020-12-01.
     /// 
-    /// Other available API versions: 2023-01-02, 2023-04-02, 2023-10-02.
+    /// Other available API versions: 2023-01-02, 2023-04-02, 2023-10-02, 2024-03-02.
     /// </summary>
     [AzureNativeResourceType("azure-native:compute:DiskAccessAPrivateEndpointConnection")]
     public partial class DiskAccessAPrivateEndpointConnection : global::Pulumi.CustomResource
@@ -83,6 +83,7 @@ namespace Pulumi.AzureNative.Compute
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20230102:DiskAccessAPrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20230402:DiskAccessAPrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20231002:DiskAccessAPrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20240302:DiskAccessAPrivateEndpointConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

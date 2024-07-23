@@ -16,13 +16,17 @@ namespace Pulumi.AzureNative.AzureFleet.V20231101Preview.Inputs
     public sealed class VirtualMachineScaleSetNetworkProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A reference to a load balancer probe used to determine the health of an instance in the virtual machine scale set. The reference will be in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/loadBalancers/{loadBalancerName}/probes/{probeName}'.
+        /// A reference to a load balancer probe used to determine the health of an
+        /// instance in the virtual machine scale set. The reference will be in the form:
+        /// '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/loadBalancers/{loadBalancerName}/probes/{probeName}'.
         /// </summary>
         [Input("healthProbe")]
         public Input<Inputs.ApiEntityReferenceArgs>? HealthProbe { get; set; }
 
         /// <summary>
-        /// specifies the Microsoft.Network API version used when creating networking resources in the Network Interface Configurations for Virtual Machine Scale Set with orchestration mode 'Flexible'
+        /// specifies the Microsoft.Network API version used when creating networking
+        /// resources in the Network Interface Configurations for Virtual Machine Scale Set
+        /// with orchestration mode 'Flexible'
         /// </summary>
         [Input("networkApiVersion")]
         public InputUnion<string, Pulumi.AzureNative.AzureFleet.V20231101Preview.NetworkApiVersion>? NetworkApiVersion { get; set; }

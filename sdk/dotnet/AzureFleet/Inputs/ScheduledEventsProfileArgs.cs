@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.AzureFleet.Inputs
 {
 
+    /// <summary>
+    /// Specifies Scheduled Event related configurations.
+    /// </summary>
     public sealed class ScheduledEventsProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>

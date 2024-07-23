@@ -17934,6 +17934,8 @@ class AzureTableStorageLinkedServiceResponse(dict):
             suggest = "sas_token"
         elif key == "sasUri":
             suggest = "sas_uri"
+        elif key == "serviceEndpoint":
+            suggest = "service_endpoint"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AzureTableStorageLinkedServiceResponse. Access the value via the '{suggest}' property getter instead.")
@@ -17952,11 +17954,13 @@ class AzureTableStorageLinkedServiceResponse(dict):
                  annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  connection_string: Optional[Any] = None,
+                 credential: Optional['outputs.CredentialReferenceResponse'] = None,
                  description: Optional[str] = None,
                  encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  sas_token: Optional['outputs.AzureKeyVaultSecretReferenceResponse'] = None,
-                 sas_uri: Optional[Any] = None):
+                 sas_uri: Optional[Any] = None,
+                 service_endpoint: Optional[Any] = None):
         """
         The azure table storage linked service.
         :param str type: Type of linked service.
@@ -17965,11 +17969,13 @@ class AzureTableStorageLinkedServiceResponse(dict):
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param Any connection_string: The connection string. It is mutually exclusive with sasUri property. Type: string, SecureString or AzureKeyVaultSecretReference.
+        :param 'CredentialReferenceResponse' credential: The credential reference containing authentication information.
         :param str description: Linked service description.
         :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param 'AzureKeyVaultSecretReferenceResponse' sas_token: The Azure key vault secret reference of sasToken in sas uri.
         :param Any sas_uri: SAS URI of the Azure Storage resource. It is mutually exclusive with connectionString property. Type: string, SecureString or AzureKeyVaultSecretReference.
+        :param Any service_endpoint: Table service endpoint of the Azure Table Storage resource. It is mutually exclusive with connectionString, sasUri property.
         """
         pulumi.set(__self__, "type", 'AzureTableStorage')
         if account_key is not None:
@@ -17980,6 +17986,8 @@ class AzureTableStorageLinkedServiceResponse(dict):
             pulumi.set(__self__, "connect_via", connect_via)
         if connection_string is not None:
             pulumi.set(__self__, "connection_string", connection_string)
+        if credential is not None:
+            pulumi.set(__self__, "credential", credential)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if encrypted_credential is not None:
@@ -17990,6 +17998,8 @@ class AzureTableStorageLinkedServiceResponse(dict):
             pulumi.set(__self__, "sas_token", sas_token)
         if sas_uri is not None:
             pulumi.set(__self__, "sas_uri", sas_uri)
+        if service_endpoint is not None:
+            pulumi.set(__self__, "service_endpoint", service_endpoint)
 
     @property
     @pulumi.getter
@@ -18034,6 +18044,14 @@ class AzureTableStorageLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
+    def credential(self) -> Optional['outputs.CredentialReferenceResponse']:
+        """
+        The credential reference containing authentication information.
+        """
+        return pulumi.get(self, "credential")
+
+    @property
+    @pulumi.getter
     def description(self) -> Optional[str]:
         """
         Linked service description.
@@ -18071,6 +18089,14 @@ class AzureTableStorageLinkedServiceResponse(dict):
         SAS URI of the Azure Storage resource. It is mutually exclusive with connectionString property. Type: string, SecureString or AzureKeyVaultSecretReference.
         """
         return pulumi.get(self, "sas_uri")
+
+    @property
+    @pulumi.getter(name="serviceEndpoint")
+    def service_endpoint(self) -> Optional[Any]:
+        """
+        Table service endpoint of the Azure Table Storage resource. It is mutually exclusive with connectionString, sasUri property.
+        """
+        return pulumi.get(self, "service_endpoint")
 
 
 @pulumi.output_type
@@ -20088,6 +20114,7 @@ class CommonDataServiceForAppsLinkedServiceResponse(dict):
                  annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
+                 domain: Optional[Any] = None,
                  encrypted_credential: Optional[str] = None,
                  host_name: Optional[Any] = None,
                  organization_name: Optional[Any] = None,
@@ -20101,13 +20128,14 @@ class CommonDataServiceForAppsLinkedServiceResponse(dict):
                  username: Optional[Any] = None):
         """
         Common Data Service for Apps linked service.
-        :param Any authentication_type: The authentication type to connect to Common Data Service for Apps server. 'Office365' for online scenario, 'Ifd' for on-premises with Ifd scenario. 'AADServicePrincipal' for Server-To-Server authentication in online scenario. Type: string (or Expression with resultType string).
+        :param Any authentication_type: The authentication type to connect to Common Data Service for Apps server. 'Office365' for online scenario, 'Ifd' for on-premises with Ifd scenario. 'AADServicePrincipal' for Server-To-Server authentication in online scenario, 'Active Directory' for Dynamics on-premises with IFD. Type: string (or Expression with resultType string).
         :param Any deployment_type: The deployment type of the Common Data Service for Apps instance. 'Online' for Common Data Service for Apps Online and 'OnPremisesWithIfd' for Common Data Service for Apps on-premises with Ifd. Type: string (or Expression with resultType string).
         :param str type: Type of linked service.
                Expected value is 'CommonDataServiceForApps'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
+        :param Any domain: The Active Directory domain that will verify user credentials. Type: string (or Expression with resultType string).
         :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Any host_name: The host name of the on-premises Common Data Service for Apps server. The property is required for on-prem and not allowed for online. Type: string (or Expression with resultType string).
         :param Any organization_name: The organization name of the Common Data Service for Apps instance. The property is required for on-prem and required for online when there are more than one Common Data Service for Apps instances associated with the user. Type: string (or Expression with resultType string).
@@ -20129,6 +20157,8 @@ class CommonDataServiceForAppsLinkedServiceResponse(dict):
             pulumi.set(__self__, "connect_via", connect_via)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if domain is not None:
+            pulumi.set(__self__, "domain", domain)
         if encrypted_credential is not None:
             pulumi.set(__self__, "encrypted_credential", encrypted_credential)
         if host_name is not None:
@@ -20156,7 +20186,7 @@ class CommonDataServiceForAppsLinkedServiceResponse(dict):
     @pulumi.getter(name="authenticationType")
     def authentication_type(self) -> Any:
         """
-        The authentication type to connect to Common Data Service for Apps server. 'Office365' for online scenario, 'Ifd' for on-premises with Ifd scenario. 'AADServicePrincipal' for Server-To-Server authentication in online scenario. Type: string (or Expression with resultType string).
+        The authentication type to connect to Common Data Service for Apps server. 'Office365' for online scenario, 'Ifd' for on-premises with Ifd scenario. 'AADServicePrincipal' for Server-To-Server authentication in online scenario, 'Active Directory' for Dynamics on-premises with IFD. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "authentication_type")
 
@@ -20200,6 +20230,14 @@ class CommonDataServiceForAppsLinkedServiceResponse(dict):
         Linked service description.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def domain(self) -> Optional[Any]:
+        """
+        The Active Directory domain that will verify user credentials. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "domain")
 
     @property
     @pulumi.getter(name="encryptedCredential")
@@ -28727,6 +28765,7 @@ class DynamicsCrmLinkedServiceResponse(dict):
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  credential: Optional['outputs.CredentialReferenceResponse'] = None,
                  description: Optional[str] = None,
+                 domain: Optional[Any] = None,
                  encrypted_credential: Optional[str] = None,
                  host_name: Optional[Any] = None,
                  organization_name: Optional[Any] = None,
@@ -28740,7 +28779,7 @@ class DynamicsCrmLinkedServiceResponse(dict):
                  username: Optional[Any] = None):
         """
         Dynamics CRM linked service.
-        :param Any authentication_type: The authentication type to connect to Dynamics CRM server. 'Office365' for online scenario, 'Ifd' for on-premises with Ifd scenario, 'AADServicePrincipal' for Server-To-Server authentication in online scenario. Type: string (or Expression with resultType string).
+        :param Any authentication_type: The authentication type to connect to Dynamics CRM server. 'Office365' for online scenario, 'Ifd' for on-premises with Ifd scenario, 'AADServicePrincipal' for Server-To-Server authentication in online scenario, 'Active Directory' for Dynamics on-premises with IFD. Type: string (or Expression with resultType string).
         :param Any deployment_type: The deployment type of the Dynamics CRM instance. 'Online' for Dynamics CRM Online and 'OnPremisesWithIfd' for Dynamics CRM on-premises with Ifd. Type: string (or Expression with resultType string).
         :param str type: Type of linked service.
                Expected value is 'DynamicsCrm'.
@@ -28748,6 +28787,7 @@ class DynamicsCrmLinkedServiceResponse(dict):
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param 'CredentialReferenceResponse' credential: The credential reference containing authentication information.
         :param str description: Linked service description.
+        :param Any domain: The Active Directory domain that will verify user credentials. Type: string (or Expression with resultType string).
         :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Any host_name: The host name of the on-premises Dynamics CRM server. The property is required for on-prem and not allowed for online. Type: string (or Expression with resultType string).
         :param Any organization_name: The organization name of the Dynamics CRM instance. The property is required for on-prem and required for online when there are more than one Dynamics CRM instances associated with the user. Type: string (or Expression with resultType string).
@@ -28771,6 +28811,8 @@ class DynamicsCrmLinkedServiceResponse(dict):
             pulumi.set(__self__, "credential", credential)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if domain is not None:
+            pulumi.set(__self__, "domain", domain)
         if encrypted_credential is not None:
             pulumi.set(__self__, "encrypted_credential", encrypted_credential)
         if host_name is not None:
@@ -28798,7 +28840,7 @@ class DynamicsCrmLinkedServiceResponse(dict):
     @pulumi.getter(name="authenticationType")
     def authentication_type(self) -> Any:
         """
-        The authentication type to connect to Dynamics CRM server. 'Office365' for online scenario, 'Ifd' for on-premises with Ifd scenario, 'AADServicePrincipal' for Server-To-Server authentication in online scenario. Type: string (or Expression with resultType string).
+        The authentication type to connect to Dynamics CRM server. 'Office365' for online scenario, 'Ifd' for on-premises with Ifd scenario, 'AADServicePrincipal' for Server-To-Server authentication in online scenario, 'Active Directory' for Dynamics on-premises with IFD. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "authentication_type")
 
@@ -28850,6 +28892,14 @@ class DynamicsCrmLinkedServiceResponse(dict):
         Linked service description.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def domain(self) -> Optional[Any]:
+        """
+        The Active Directory domain that will verify user credentials. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "domain")
 
     @property
     @pulumi.getter(name="encryptedCredential")
@@ -29411,6 +29461,7 @@ class DynamicsLinkedServiceResponse(dict):
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  credential: Optional['outputs.CredentialReferenceResponse'] = None,
                  description: Optional[str] = None,
+                 domain: Optional[Any] = None,
                  encrypted_credential: Optional[str] = None,
                  host_name: Optional[Any] = None,
                  organization_name: Optional[Any] = None,
@@ -29424,7 +29475,7 @@ class DynamicsLinkedServiceResponse(dict):
                  username: Optional[Any] = None):
         """
         Dynamics linked service.
-        :param Any authentication_type: The authentication type to connect to Dynamics server. 'Office365' for online scenario, 'Ifd' for on-premises with Ifd scenario, 'AADServicePrincipal' for Server-To-Server authentication in online scenario. Type: string (or Expression with resultType string).
+        :param Any authentication_type: The authentication type to connect to Dynamics server. 'Office365' for online scenario, 'Ifd' for on-premises with Ifd scenario, 'AADServicePrincipal' for Server-To-Server authentication in online scenario, 'Active Directory' for Dynamics on-premises with IFD. Type: string (or Expression with resultType string).
         :param Any deployment_type: The deployment type of the Dynamics instance. 'Online' for Dynamics Online and 'OnPremisesWithIfd' for Dynamics on-premises with Ifd. Type: string (or Expression with resultType string).
         :param str type: Type of linked service.
                Expected value is 'Dynamics'.
@@ -29432,6 +29483,7 @@ class DynamicsLinkedServiceResponse(dict):
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param 'CredentialReferenceResponse' credential: The credential reference containing authentication information.
         :param str description: Linked service description.
+        :param Any domain: The Active Directory domain that will verify user credentials. Type: string (or Expression with resultType string).
         :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Any host_name: The host name of the on-premises Dynamics server. The property is required for on-prem and not allowed for online. Type: string (or Expression with resultType string).
         :param Any organization_name: The organization name of the Dynamics instance. The property is required for on-prem and required for online when there are more than one Dynamics instances associated with the user. Type: string (or Expression with resultType string).
@@ -29455,6 +29507,8 @@ class DynamicsLinkedServiceResponse(dict):
             pulumi.set(__self__, "credential", credential)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if domain is not None:
+            pulumi.set(__self__, "domain", domain)
         if encrypted_credential is not None:
             pulumi.set(__self__, "encrypted_credential", encrypted_credential)
         if host_name is not None:
@@ -29482,7 +29536,7 @@ class DynamicsLinkedServiceResponse(dict):
     @pulumi.getter(name="authenticationType")
     def authentication_type(self) -> Any:
         """
-        The authentication type to connect to Dynamics server. 'Office365' for online scenario, 'Ifd' for on-premises with Ifd scenario, 'AADServicePrincipal' for Server-To-Server authentication in online scenario. Type: string (or Expression with resultType string).
+        The authentication type to connect to Dynamics server. 'Office365' for online scenario, 'Ifd' for on-premises with Ifd scenario, 'AADServicePrincipal' for Server-To-Server authentication in online scenario, 'Active Directory' for Dynamics on-premises with IFD. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "authentication_type")
 
@@ -29534,6 +29588,14 @@ class DynamicsLinkedServiceResponse(dict):
         Linked service description.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def domain(self) -> Optional[Any]:
+        """
+        The Active Directory domain that will verify user credentials. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "domain")
 
     @property
     @pulumi.getter(name="encryptedCredential")

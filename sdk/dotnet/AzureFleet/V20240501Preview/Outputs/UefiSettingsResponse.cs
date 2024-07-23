@@ -11,17 +11,20 @@ namespace Pulumi.AzureNative.AzureFleet.V20240501Preview.Outputs
 {
 
     /// <summary>
-    /// Specifies the security settings like secure boot and vTPM used while creating the virtual machine. Minimum api-version: 2020-12-01.
+    /// Specifies the security settings like secure boot and vTPM used while creating
+    /// the virtual machine. Minimum api-version: 2020-12-01.
     /// </summary>
     [OutputType]
     public sealed class UefiSettingsResponse
     {
         /// <summary>
-        /// Specifies whether secure boot should be enabled on the virtual machine. Minimum api-version: 2020-12-01.
+        /// Specifies whether secure boot should be enabled on the virtual machine. Minimum
+        /// api-version: 2020-12-01.
         /// </summary>
         public readonly bool? SecureBootEnabled;
         /// <summary>
-        /// Specifies whether vTPM should be enabled on the virtual machine. Minimum api-version: 2020-12-01.
+        /// Specifies whether vTPM should be enabled on the virtual machine. Minimum
+        /// api-version: 2020-12-01.
         /// </summary>
         public readonly bool? VTpmEnabled;
 

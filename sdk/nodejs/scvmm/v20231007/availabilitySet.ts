@@ -114,7 +114,7 @@ export class AvailabilitySet extends pulumi.CustomResource {
             resourceInputs["vmmServerId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:scvmm:AvailabilitySet" }, { type: "azure-native:scvmm/v20200605preview:AvailabilitySet" }, { type: "azure-native:scvmm/v20220521preview:AvailabilitySet" }, { type: "azure-native:scvmm/v20230401preview:AvailabilitySet" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:scvmm:AvailabilitySet" }, { type: "azure-native:scvmm/v20200605preview:AvailabilitySet" }, { type: "azure-native:scvmm/v20220521preview:AvailabilitySet" }, { type: "azure-native:scvmm/v20230401preview:AvailabilitySet" }, { type: "azure-native:scvmm/v20240601:AvailabilitySet" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AvailabilitySet.__pulumiType, name, resourceInputs, opts);
     }

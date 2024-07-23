@@ -304,7 +304,9 @@ class Fleet(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
+            __props__.__dict__["time_created"] = None
             __props__.__dict__["type"] = None
+            __props__.__dict__["unique_id"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurefleet/v20231101preview:Fleet"), pulumi.Alias(type_="azure-native:azurefleet/v20240501preview:Fleet")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Fleet, __self__).__init__(
@@ -339,7 +341,9 @@ class Fleet(pulumi.CustomResource):
         __props__.__dict__["spot_priority_profile"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
+        __props__.__dict__["time_created"] = None
         __props__.__dict__["type"] = None
+        __props__.__dict__["unique_id"] = None
         __props__.__dict__["vm_sizes_profile"] = None
         __props__.__dict__["zones"] = None
         return Fleet(resource_name, opts=opts, __props__=__props__)
@@ -425,12 +429,28 @@ class Fleet(pulumi.CustomResource):
         return pulumi.get(self, "tags")
 
     @property
+    @pulumi.getter(name="timeCreated")
+    def time_created(self) -> pulumi.Output[str]:
+        """
+        Specifies the time at which the Compute Fleet is created.
+        """
+        return pulumi.get(self, "time_created")
+
+    @property
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
         The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="uniqueId")
+    def unique_id(self) -> pulumi.Output[str]:
+        """
+        Specifies the ID which uniquely identifies a Compute Fleet.
+        """
+        return pulumi.get(self, "unique_id")
 
     @property
     @pulumi.getter(name="vmSizesProfile")

@@ -201,7 +201,8 @@
   "CodeSigning": [],
   "CognitiveServices": [
     "2023-10-01-preview",
-    "2024-04-01-preview"
+    "2024-04-01-preview",
+    "2024-06-01-preview"
   ],
   "Commerce": [],
   "Communication": [
@@ -224,7 +225,8 @@
     "2023-07-03",
     "2023-09-01",
     "2023-10-02",
-    "2024-03-01"
+    "2024-03-01",
+    "2024-03-02"
   ],
   "ConfidentialLedger": [
     "2022-09-08-preview",
@@ -333,7 +335,8 @@
     "2024-03-02-preview",
     "2024-04-01",
     "2024-04-02-preview",
-    "2024-05-01"
+    "2024-05-01",
+    "2024-05-02-preview"
   ],
   "ContainerStorage": [],
   "CostManagement": [
@@ -561,6 +564,7 @@
     "2023-12-10-preview"
   ],
   "HealthBot": [],
+  "HealthDataAIServices": [],
   "HealthcareApis": [
     "2022-12-01",
     "2023-02-28",
@@ -835,7 +839,8 @@
     "2023-07-01",
     "2023-07-01-preview",
     "2023-11-01",
-    "2023-11-01-preview"
+    "2023-11-01-preview",
+    "2024-03-01-preview"
   ],
   "Network": [
     "2018-06-01",
@@ -998,7 +1003,8 @@
   "SaaS": [],
   "ScVmm": [
     "2023-04-01-preview",
-    "2023-10-07"
+    "2023-10-07",
+    "2024-06-01"
   ],
   "Scheduler": [],
   "Scom": [],

@@ -11,17 +11,20 @@ namespace Pulumi.AzureNative.AzureFleet.V20240501Preview.Outputs
 {
 
     /// <summary>
-    /// Specifies the required information to reference a compute gallery application version
+    /// Specifies the required information to reference a compute gallery application
+    /// version
     /// </summary>
     [OutputType]
     public sealed class VMGalleryApplicationResponse
     {
         /// <summary>
-        /// Optional, Specifies the uri to an azure blob that will replace the default configuration for the package if provided
+        /// Optional, Specifies the uri to an azure blob that will replace the default
+        /// configuration for the package if provided
         /// </summary>
         public readonly string? ConfigurationReference;
         /// <summary>
-        /// If set to true, when a new Gallery Application version is available in PIR/SIG, it will be automatically updated for the VM/VMSS
+        /// If set to true, when a new Gallery Application version is available in PIR/SIG,
+        /// it will be automatically updated for the VM/VMSS
         /// </summary>
         public readonly bool? EnableAutomaticUpgrade;
         /// <summary>
@@ -29,7 +32,8 @@ namespace Pulumi.AzureNative.AzureFleet.V20240501Preview.Outputs
         /// </summary>
         public readonly int? Order;
         /// <summary>
-        /// Specifies the GalleryApplicationVersion resource id on the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/providers/Microsoft.Compute/galleries/{galleryName}/applications/{application}/versions/{version}
+        /// Specifies the GalleryApplicationVersion resource id on the form of
+        /// /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/providers/Microsoft.Compute/galleries/{galleryName}/applications/{application}/versions/{version}
         /// </summary>
         public readonly string PackageReferenceId;
         /// <summary>
@@ -37,7 +41,8 @@ namespace Pulumi.AzureNative.AzureFleet.V20240501Preview.Outputs
         /// </summary>
         public readonly string? Tags;
         /// <summary>
-        /// Optional, If true, any failure for any operation in the VmApplication will fail the deployment
+        /// Optional, If true, any failure for any operation in the VmApplication will fail
+        /// the deployment
         /// </summary>
         public readonly bool? TreatFailureAsDeploymentFailure;
 

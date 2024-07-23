@@ -114,9 +114,17 @@ namespace Pulumi.AzureNative.AzureFleet.V20231101Preview
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
+        /// Specifies the time at which the Compute Fleet is created.
+        /// </summary>
+        public readonly string TimeCreated;
+        /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Specifies the ID which uniquely identifies a Compute Fleet.
+        /// </summary>
+        public readonly string UniqueId;
         /// <summary>
         /// List of VM sizes supported for Compute Fleet
         /// </summary>
@@ -150,7 +158,11 @@ namespace Pulumi.AzureNative.AzureFleet.V20231101Preview
 
             ImmutableDictionary<string, string>? tags,
 
+            string timeCreated,
+
             string type,
+
+            string uniqueId,
 
             ImmutableArray<Outputs.VmSizeProfileResponse> vmSizesProfile,
 
@@ -167,7 +179,9 @@ namespace Pulumi.AzureNative.AzureFleet.V20231101Preview
             SpotPriorityProfile = spotPriorityProfile;
             SystemData = systemData;
             Tags = tags;
+            TimeCreated = timeCreated;
             Type = type;
+            UniqueId = uniqueId;
             VmSizesProfile = vmSizesProfile;
             Zones = zones;
         }
