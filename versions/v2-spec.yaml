@@ -318,6 +318,7 @@ Compute:
         VirtualMachineScaleSetVMRunCommand: "2023-03-01"
         getLogAnalyticExportRequestRateByInterval: "2023-03-01"
         getLogAnalyticExportThrottledRequests: "2023-03-01"
+ComputeSchedule: {}
 ConfidentialLedger:
     tracking: "2022-05-13"
     additions:

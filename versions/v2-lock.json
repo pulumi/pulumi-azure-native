@@ -624,6 +624,7 @@
     "getLogAnalyticExportRequestRateByInterval": "2023-03-01",
     "getLogAnalyticExportThrottledRequests": "2023-03-01"
   },
+  "ComputeSchedule": {},
   "ConfidentialLedger": {
     "Ledger": "2022-05-13",
     "ManagedCCF": "2023-01-26-preview"

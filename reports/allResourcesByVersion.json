@@ -5128,6 +5128,9 @@
       "Snapshot"
     ]
   },
+  "ComputeSchedule": {
+    "": []
+  },
   "ConfidentialLedger": {
     "2020-12-01-preview": [
       "Ledger"
@@ -14309,6 +14312,22 @@
       "VolumeGroup",
       "VolumeQuotaRule",
       "getAccountChangeKeyVaultInformation",
+      "getSubvolumeMetadata",
+      "getVolumeGroupIdForLdapUser",
+      "listVolumeReplications"
+    ],
+    "2024-03-01": [
+      "Account",
+      "Backup",
+      "BackupPolicy",
+      "BackupVault",
+      "Pool",
+      "Snapshot",
+      "SnapshotPolicy",
+      "Subvolume",
+      "Volume",
+      "VolumeGroup",
+      "VolumeQuotaRule",
       "getSubvolumeMetadata",
       "getVolumeGroupIdForLdapUser",
       "listVolumeReplications"
