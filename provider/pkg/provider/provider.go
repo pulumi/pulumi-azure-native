@@ -919,29 +919,8 @@ func (k *azureNativeProvider) defaultCreate(ctx context.Context, req *rpc.Create
 		id = azureId
 	}
 
-	// Read the state of the resource from its Read endpoint. While we already have resource state from
-	// the PUT reponse, it may not match precisely the shape of Read reponses that we also use for Refresh
-	// operations. That discrepancy may cause noisy diffs that are hard for users to reconcile.
-	if !k.skipReadOnUpdate {
-		var readErr error
-		var readResponse map[string]any
-
-		if customRead != nil {
-			readResponse, _, readErr = customRead(ctx, id, inputs)
-		} else {
-			readResponse, readErr = crudClient.Read(ctx, id)
-		}
-
-		if readErr != nil {
-			// Since this read operation was introduced in a minor version of the provider, we choose to ignore
-			// any errors here to avoid user-facing regressions. If no warnings are reported, we should be able
-			// to promote this situation to an error.
-			k.host.Log(ctx, diag.Warning, resource.URN(req.GetUrn()), `Failed to read resource after Create. Please report this issue.
-	Verbose logs contain more information, see https://www.pulumi.com/docs/support/troubleshooting/#verbose-logging.`)
-			logging.V(9).Infof("failed to read resource %q after creation: %s", id, readErr.Error())
-		} else if readResponse != nil {
-			response = readResponse
-		}
+	if readResponse := k.readAfterWrite(ctx, id, req.GetUrn(), "Create", inputs, crudClient, customRead); readResponse != nil {
+		response = readResponse
 	}
 
 	// Custom resources take care of SDK conversion themselves.
@@ -950,6 +929,38 @@ func (k *azureNativeProvider) defaultCreate(ctx context.Context, req *rpc.Create
 		response = crudClient.ResponseBodyToSdkOutputs(response)
 	}
 	return id, response, nil
+}
+
+// Read the state of the resource from its Read endpoint. While we already have resource state from
+// the PUT reponse, it may not match precisely the shape of Read reponses that we also use for Refresh
+// operations. That discrepancy may cause noisy diffs that are hard for users to reconcile.
+func (p *azureNativeProvider) readAfterWrite(ctx context.Context, id, urn, opForLogging string,
+	inputs resource.PropertyMap, crudClient crud.ResourceCrudClient, customRead customresources.CustomReadFunc,
+) map[string]any {
+	if p.skipReadOnUpdate {
+		return nil
+	}
+
+	var response map[string]any
+	var err error
+
+	if customRead != nil {
+		response, _, err = customRead(ctx, id, inputs)
+	} else {
+		response, err = crudClient.Read(ctx, id)
+	}
+
+	if err != nil {
+		// Since this read operation was introduced in a minor version of the provider, we choose to ignore
+		// any errors here to avoid user-facing regressions. If no warnings are reported, we should be able
+		// to promote this situation to an error.
+		p.host.Log(ctx, diag.Warning, resource.URN(urn), fmt.Sprintf(`Failed to read resource after %s. Please report this issue.
+Verbose logs contain more information, see https://www.pulumi.com/docs/support/troubleshooting/#verbose-logging.`, opForLogging))
+		logging.V(9).Infof("failed to read resource %q after %s: %s", id, opForLogging, err.Error())
+		return nil
+	}
+
+	return response
 }
 
 // Properties pointing to sub-resources that can be maintained as separate resources might not be
@@ -1318,30 +1329,8 @@ func (k *azureNativeProvider) defaultUpdate(ctx context.Context, req *rpc.Update
 		return nil, azure.AzureError(err)
 	}
 
-	// Read the state of the resource from its Read endpoint. While we already have resource state from
-	// the PUT reponse, it may not match precisely the shape of Read reponses that we also use for Refresh
-	// operations. That discrepancy may cause noisy diffs that are hard for users to reconcile.
-	// TODO,tkappler extract this into a helper function
-	if !k.skipReadOnUpdate {
-		var readErr error
-		var readResponse map[string]any
-
-		if customRead != nil {
-			readResponse, _, readErr = customRead(ctx, id, inputs)
-		} else {
-			readResponse, readErr = crudClient.Read(ctx, id)
-		}
-
-		if readErr != nil {
-			// Since this read operation was introduced in a minor version of the provider, we choose to ignore
-			// any errors here to avoid user-facing regressions. If no warnings are reported, we should be able
-			// to promote this situation to an error.
-			k.host.Log(ctx, diag.Warning, resource.URN(req.GetUrn()), `Failed to read resource after Update. Please report this issue.
-	Verbose logs contain more information, see https://www.pulumi.com/docs/support/troubleshooting/#verbose-logging.`)
-			logging.V(9).Infof("failed to read resource %q after update: %s", id, readErr.Error())
-		} else if readResponse != nil {
-			response = readResponse
-		}
+	if readResponse := k.readAfterWrite(ctx, id, req.GetUrn(), "Update", inputs, crudClient, customRead); readResponse != nil {
+		response = readResponse
 	}
 
 	// Custom resources take care of SDK conversion themselves.
