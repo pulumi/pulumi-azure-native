@@ -91,7 +91,6 @@ func BuildCustomResources(env *azureEnv.Environment,
 		newStorageAccountStaticWebsite(env, &storageAccountsClient),
 		newBlob(env, &storageAccountsClient),
 		// Customization of regular resources
-		// customWebAppDelete(lookupResource, azureClient),
 		blobContainerLegalHold(azureClient),
 		portalDashboard(),
 		customWebApp,
