@@ -15,7 +15,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/logging"
 )
 
-const webAppTok = "azure-native:web:WebApp"
+const webAppResourceType = "azure-native:web:WebApp"
 
 // webApp is a custom resource for web:WebApp. It overrides Read and Delete, for independent reasons.
 func webApp(crudClientFactory crud.ResourceCrudClientFactory, azureClient azure.AzureClient, lookupResource resources.ResourceLookupFunc) (*CustomResource, error) {
@@ -31,7 +31,7 @@ func webApp(crudClientFactory crud.ResourceCrudClientFactory, azureClient azure.
 
 	return &CustomResource{
 		path: "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}",
-		tok:  webAppTok,
+		tok:  webAppResourceType,
 
 		// WebApp.SiteConfig is created and updated via a PUT to the WebApp itself, but a GET of
 		// the WebApp does not return the SiteConfig. We need to make a separate GET request to
@@ -41,7 +41,7 @@ func webApp(crudClientFactory crud.ResourceCrudClientFactory, azureClient azure.
 			if !ok {
 				// default as of 2024-02-16
 				apiVersion = "2022-09-01"
-				logging.V(3).Infof("Warning: could not find default API version for %s. Using %s", webAppTok, apiVersion)
+				logging.V(3).Infof("Warning: could not find default API version for %s. Using %s", webAppResourceType, apiVersion)
 			}
 
 			webAppResponse, err := crudClient.Read(ctx, id)
@@ -93,12 +93,12 @@ func mergeWebAppSiteConfig(webApp, siteConfig map[string]any) error {
 }
 
 func createCrudClient(crudClientFactory crud.ResourceCrudClientFactory, lookupResource resources.ResourceLookupFunc) (crud.ResourceCrudClient, error) {
-	res, ok, err := lookupResource(webAppTok)
+	res, ok, err := lookupResource(webAppResourceType)
 	if err != nil {
 		return nil, err
 	}
 	if !ok {
-		return nil, fmt.Errorf("resource %s not found", webAppTok)
+		return nil, fmt.Errorf("resource %s not found", webAppResourceType)
 	}
 
 	return crudClientFactory(&res), nil
