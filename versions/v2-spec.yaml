@@ -318,6 +318,7 @@ Compute:
         VirtualMachineScaleSetVMRunCommand: "2023-03-01"
         getLogAnalyticExportRequestRateByInterval: "2023-03-01"
         getLogAnalyticExportThrottledRequests: "2023-03-01"
+ComputeSchedule: {}
 ConfidentialLedger:
     tracking: "2022-05-13"
     additions:
@@ -878,6 +879,7 @@ HDInsight:
     tracking: "2021-06-01"
     additions:
         ClusterPool: 2023-06-01-preview
+        ExtensionAzureMonitorAgentStatus: 2024-08-01-preview
 HanaOnAzure: {}
 HardwareSecurityModules:
     tracking: "2021-11-30"

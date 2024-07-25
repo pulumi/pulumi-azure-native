@@ -228,6 +228,7 @@
     "2024-03-01",
     "2024-03-02"
   ],
+  "ComputeSchedule": [],
   "ConfidentialLedger": [
     "2022-09-08-preview",
     "2023-01-26-preview",
@@ -556,7 +557,8 @@
     "2023-06-01-preview",
     "2023-08-15-preview",
     "2023-11-01-preview",
-    "2024-05-01-preview"
+    "2024-05-01-preview",
+    "2024-08-01-preview"
   ],
   "HanaOnAzure": [],
   "HardwareSecurityModules": [
@@ -682,7 +684,8 @@
     "2024-01-01",
     "2024-02-01-preview",
     "2024-06-01-preview",
-    "2024-07-01-preview"
+    "2024-07-01-preview",
+    "2024-07-15-preview"
   ],
   "KubernetesConfiguration": [
     "2022-07-01",
@@ -840,6 +843,7 @@
     "2023-07-01-preview",
     "2023-11-01",
     "2023-11-01-preview",
+    "2024-03-01",
     "2024-03-01-preview"
   ],
   "Network": [
