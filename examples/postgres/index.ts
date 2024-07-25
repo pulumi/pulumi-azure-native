@@ -26,10 +26,3 @@ const flexibleServer = new postgresql.Server("server", {
         storageSizeGB: 64,
     },
 });
-
-new postgresql.Configuration("backslash_quote", {
-    resourceGroupName: resourceGroup.name,
-    serverName: flexibleServer.name,
-    source: "user-override",
-    value: "on",
-});
