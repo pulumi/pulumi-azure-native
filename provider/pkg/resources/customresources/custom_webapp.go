@@ -37,7 +37,7 @@ func webApp(crudClientFactory crud.ResourceCrudClientFactory, azureClient azure.
 		// the WebApp does not return the SiteConfig. We need to make a separate GET request to
 		// /config/web and merge the results. #1468
 		Read: func(ctx context.Context, id string, inputs resource.PropertyMap) (map[string]any, bool, error) {
-			apiVersion, ok := versionLookup.GetDefaultApiVersionForResource("Storage", "BlobContainer")
+			apiVersion, ok := versionLookup.GetDefaultApiVersionForResource("Web", "WebApp")
 			if !ok {
 				apiVersion = "2022-09-01" // default as of 2024-07
 				logging.V(3).Infof("Warning: could not find default API version for %s. Using %s", webAppResourceType, apiVersion)
