@@ -7,6 +7,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/convert"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources/customresources"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
@@ -337,4 +338,8 @@ func TestInvokeResponseToOutputs(t *testing.T) {
 		outputs := p.invokeResponseToOutputs(map[string]any{"key": "value"}, resources.AzureAPIInvoke{})
 		assert.Empty(t, outputs) // the empty converter doesn't know any properties
 	})
+}
+
+func TestReader(t *testing.T) {
+	var customRes *customresources.CustomResource
 }

@@ -23,7 +23,7 @@ func webApp(crudClientFactory crud.ResourceCrudClientFactory, azureClient azure.
 	var crudClient crud.ResourceCrudClient
 	if crudClientFactory != nil && lookupResource != nil {
 		var err error
-		crudClient, err = createCrudClient(crudClientFactory, lookupResource)
+		crudClient, err = createCrudClient(crudClientFactory, lookupResource, webAppResourceType)
 		if err != nil {
 			return nil, err
 		}
@@ -89,16 +89,4 @@ func mergeWebAppSiteConfig(webApp, siteConfig map[string]any) error {
 		return nil
 	}
 	return fmt.Errorf("'properties' not found in response, cannot update siteConfig")
-}
-
-func createCrudClient(crudClientFactory crud.ResourceCrudClientFactory, lookupResource resources.ResourceLookupFunc) (crud.ResourceCrudClient, error) {
-	res, ok, err := lookupResource(webAppResourceType)
-	if err != nil {
-		return nil, err
-	}
-	if !ok {
-		return nil, fmt.Errorf("resource %s not found", webAppResourceType)
-	}
-
-	return crudClientFactory(&res), nil
 }

@@ -866,11 +866,7 @@ func (k *azureNativeProvider) Create(ctx context.Context, req *rpc.CreateRequest
 			return nil, azure.AzureError(err)
 		}
 	default:
-		var customRead customresources.CustomReadFunc
-		if isCustom && customRes.Read != nil {
-			customRead = customRes.Read
-		}
-		id, outputs, err = k.defaultCreate(ctx, req, inputs, id, queryParams, crudClient, customRead)
+		id, outputs, err = k.defaultCreate(ctx, req, inputs, id, queryParams, crudClient, reader(customRes, crudClient))
 		if err != nil {
 			return nil, err
 		}
@@ -894,7 +890,7 @@ func (k *azureNativeProvider) Create(ctx context.Context, req *rpc.CreateRequest
 }
 
 func (k *azureNativeProvider) defaultCreate(ctx context.Context, req *rpc.CreateRequest, inputs resource.PropertyMap, id string,
-	queryParams map[string]any, crudClient crud.ResourceCrudClient, customRead customresources.CustomReadFunc) (string, map[string]any, error) {
+	queryParams map[string]any, crudClient crud.ResourceCrudClient, reader readFunc) (string, map[string]any, error) {
 	bodyParams := crudClient.PrepareAzureRESTBody(id, inputs)
 
 	// First check if the resource already exists - we want to try our best to avoid updating instead of creating here
@@ -919,36 +915,48 @@ func (k *azureNativeProvider) defaultCreate(ctx context.Context, req *rpc.Create
 		id = azureId
 	}
 
-	if readResponse := k.readAfterWrite(ctx, id, req.GetUrn(), "Create", inputs, crudClient, customRead); readResponse != nil {
+	if readResponse := k.readAfterWrite(ctx, id, req.GetUrn(), "Create", inputs, reader); readResponse != nil {
 		response = readResponse
 	}
 
-	// Custom resources take care of SDK conversion themselves.
-	if !(k.skipReadOnUpdate && customRead != nil) {
-		// Map the raw response to the shape of outputs that the SDKs expect.
-		response = crudClient.ResponseBodyToSdkOutputs(response)
-	}
 	return id, response, nil
+}
+
+// readFunc is a function that reads the state of a resource.
+type readFunc func(ctx context.Context, id string, inputs resource.PropertyMap) (map[string]any, error)
+
+// reader returns a function that reads the state of a resource either from a custom Read if it is
+// implemented, or via the standard ResourceCrudClient otherwise. In the latter case, the response
+// will be converted to SDK shape. Custom Reads are expected to do this on their own.
+func reader(customRes *customresources.CustomResource, crudClient crud.ResourceCrudClient) readFunc {
+	if customRes != nil && customRes.Read != nil {
+		return func(ctx context.Context, id string, inputs resource.PropertyMap) (map[string]any, error) {
+			response, _, err := customRes.Read(ctx, id, inputs)
+			return response, err
+		}
+	}
+
+	return func(ctx context.Context, id string, _ resource.PropertyMap) (map[string]any, error) {
+		response, err := crudClient.Read(ctx, id)
+		if err == nil {
+			// Map the raw response to the shape of outputs that the SDKs expect.
+			response = crudClient.ResponseBodyToSdkOutputs(response)
+		}
+		return response, err
+	}
 }
 
 // Read the state of the resource from its Read endpoint. While we already have resource state from
 // the PUT reponse, it may not match precisely the shape of Read reponses that we also use for Refresh
 // operations. That discrepancy may cause noisy diffs that are hard for users to reconcile.
 func (p *azureNativeProvider) readAfterWrite(ctx context.Context, id, urn, opForLogging string,
-	inputs resource.PropertyMap, crudClient crud.ResourceCrudClient, customRead customresources.CustomReadFunc,
+	inputs resource.PropertyMap, reader readFunc,
 ) map[string]any {
 	if p.skipReadOnUpdate {
 		return nil
 	}
 
-	var response map[string]any
-	var err error
-
-	if customRead != nil {
-		response, _, err = customRead(ctx, id, inputs)
-	} else {
-		response, err = crudClient.Read(ctx, id)
-	}
+	response, err := reader(ctx, id, inputs)
 
 	if err != nil {
 		// Since this read operation was introduced in a minor version of the provider, we choose to ignore
@@ -1281,11 +1289,7 @@ func (k *azureNativeProvider) Update(ctx context.Context, req *rpc.UpdateRequest
 			return nil, azure.AzureError(err)
 		}
 	} else {
-		var customRead customresources.CustomReadFunc
-		if isCustom && customRes.Read != nil {
-			customRead = customRes.Read
-		}
-		outputs, err = k.defaultUpdate(ctx, req, inputs, id, queryParams, crudClient, customRead)
+		outputs, err = k.defaultUpdate(ctx, req, inputs, id, queryParams, crudClient, reader(customRes, crudClient))
 		if err != nil {
 			return nil, err
 		}
@@ -1308,7 +1312,7 @@ func (k *azureNativeProvider) Update(ctx context.Context, req *rpc.UpdateRequest
 }
 
 func (k *azureNativeProvider) defaultUpdate(ctx context.Context, req *rpc.UpdateRequest, inputs resource.PropertyMap,
-	id string, queryParams map[string]any, crudClient crud.ResourceCrudClient, customRead customresources.CustomReadFunc,
+	id string, queryParams map[string]any, crudClient crud.ResourceCrudClient, reader readFunc,
 ) (map[string]any, error) {
 
 	bodyParams := crudClient.PrepareAzureRESTBody(id, inputs)
@@ -1329,15 +1333,10 @@ func (k *azureNativeProvider) defaultUpdate(ctx context.Context, req *rpc.Update
 		return nil, azure.AzureError(err)
 	}
 
-	if readResponse := k.readAfterWrite(ctx, id, req.GetUrn(), "Update", inputs, crudClient, customRead); readResponse != nil {
+	if readResponse := k.readAfterWrite(ctx, id, req.GetUrn(), "Update", inputs, reader); readResponse != nil {
 		response = readResponse
 	}
 
-	// Custom resources take care of SDK conversion themselves.
-	if !(k.skipReadOnUpdate && customRead != nil) {
-		// Map the raw response to the shape of outputs that the SDKs expect.
-		return crudClient.ResponseBodyToSdkOutputs(response), nil
-	}
 	return response, nil
 }
 

@@ -4,6 +4,7 @@ package customresources
 
 import (
 	"context"
+	"fmt"
 
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/arm"
@@ -14,6 +15,7 @@ import (
 	azureEnv "github.com/Azure/go-autorest/autorest/azure"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/azure"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/provider/crud"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
 	. "github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
@@ -178,4 +180,20 @@ func MetaTypeOverrides() map[string]AzureAPIType {
 		}
 	}
 	return types
+}
+
+// createCrudClient creates a CRUD client for the given resource type, looking up the fully
+// qualified `resourceToken` like "azure-native:web:WebApp" via `lookupResource`.
+func createCrudClient(
+	crudClientFactory crud.ResourceCrudClientFactory, lookupResource resources.ResourceLookupFunc, resourceToken string,
+) (crud.ResourceCrudClient, error) {
+	res, ok, err := lookupResource(webAppResourceType)
+	if err != nil {
+		return nil, err
+	}
+	if !ok {
+		return nil, fmt.Errorf("resource %s not found", webAppResourceType)
+	}
+
+	return crudClientFactory(&res), nil
 }
