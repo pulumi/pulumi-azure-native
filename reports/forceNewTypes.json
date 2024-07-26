@@ -3227,6 +3227,13 @@
     "Property": "geoRedundantBackup"
   },
   {
+    "Module": "dbforpostgresql/v20240301preview",
+    "Provider": "DBforPostgreSQL",
+    "ResourceName": "Server",
+    "ReferenceName": "Backup",
+    "Property": "geoRedundantBackup"
+  },
+  {
     "Module": "dashboard",
     "Provider": "Dashboard",
     "ResourceName": "Grafana",
@@ -4730,6 +4737,55 @@
     "ResourceName": "ClusterPool",
     "ReferenceName": "ClusterPoolNetworkProfile",
     "Property": "enablePrivateApiServer"
+  },
+  {
+    "Module": "hdinsight/v20240801preview",
+    "Provider": "HDInsight",
+    "ResourceName": "Application",
+    "ReferenceName": "Role",
+    "Property": "VMGroupName"
+  },
+  {
+    "Module": "hdinsight/v20240801preview",
+    "Provider": "HDInsight",
+    "ResourceName": "Application",
+    "ReferenceName": "ApplicationGetHttpsEndpoint",
+    "Property": "privateIPAddress"
+  },
+  {
+    "Module": "hdinsight/v20240801preview",
+    "Provider": "HDInsight",
+    "ResourceName": "Application",
+    "ReferenceName": "ApplicationGetEndpoint",
+    "Property": "privateIPAddress"
+  },
+  {
+    "Module": "hdinsight/v20240801preview",
+    "Provider": "HDInsight",
+    "ResourceName": "Cluster",
+    "ReferenceName": "ClusterDefinition",
+    "Property": "componentVersion"
+  },
+  {
+    "Module": "hdinsight/v20240801preview",
+    "Provider": "HDInsight",
+    "ResourceName": "Cluster",
+    "ReferenceName": "Role",
+    "Property": "VMGroupName"
+  },
+  {
+    "Module": "hdinsight/v20240801preview",
+    "Provider": "HDInsight",
+    "ResourceName": "Cluster",
+    "ReferenceName": "SecurityProfile",
+    "Property": "organizationalUnitDN"
+  },
+  {
+    "Module": "hdinsight/v20240801preview",
+    "Provider": "HDInsight",
+    "ResourceName": "Cluster",
+    "ReferenceName": "ClusterCreateProperties",
+    "Property": "tier"
   },
   {
     "Module": "hybridcompute/v20220510preview",
@@ -45543,6 +45599,34 @@
   },
   {
     "Module": "netapp/v20231101preview",
+    "Provider": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "volumeGroupVolumeProperties",
+    "Property": "zones"
+  },
+  {
+    "Module": "netapp/v20240301",
+    "Provider": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "volumeProperties",
+    "Property": "backupId"
+  },
+  {
+    "Module": "netapp/v20240301",
+    "Provider": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "volumeProperties",
+    "Property": "kerberosEnabled"
+  },
+  {
+    "Module": "netapp/v20240301",
+    "Provider": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "volumeProperties",
+    "Property": "snapshotId"
+  },
+  {
+    "Module": "netapp/v20240301",
     "Provider": "NetApp",
     "ResourceName": "VolumeGroup",
     "ReferenceName": "volumeGroupVolumeProperties",

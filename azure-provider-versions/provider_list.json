@@ -54451,6 +54451,7 @@
         "resourceType": "Locations",
         "apiVersions": [
           "2024-06-01-preview",
+          "2024-06-01",
           "2023-09-01-preview",
           "2023-09-01"
         ]
@@ -54459,6 +54460,7 @@
         "resourceType": "Locations/OperationStatuses",
         "apiVersions": [
           "2024-06-01-preview",
+          "2024-06-01",
           "2023-09-01-preview",
           "2023-09-01"
         ]
@@ -54467,6 +54469,7 @@
         "resourceType": "Locations/autonomousDatabaseCharacterSets",
         "apiVersions": [
           "2024-06-01-preview",
+          "2024-06-01",
           "2023-09-01-preview",
           "2023-09-01"
         ]
@@ -54475,6 +54478,7 @@
         "resourceType": "Locations/autonomousDatabaseNationalCharacterSets",
         "apiVersions": [
           "2024-06-01-preview",
+          "2024-06-01",
           "2023-09-01-preview",
           "2023-09-01"
         ]
@@ -54483,6 +54487,7 @@
         "resourceType": "Locations/autonomousDbVersions",
         "apiVersions": [
           "2024-06-01-preview",
+          "2024-06-01",
           "2023-09-01-preview",
           "2023-09-01"
         ]
@@ -54491,6 +54496,7 @@
         "resourceType": "Locations/dbSystemShapes",
         "apiVersions": [
           "2024-06-01-preview",
+          "2024-06-01",
           "2023-09-01-preview",
           "2023-09-01"
         ]
@@ -54499,6 +54505,7 @@
         "resourceType": "Locations/dnsPrivateViews",
         "apiVersions": [
           "2024-06-01-preview",
+          "2024-06-01",
           "2023-09-01-preview",
           "2023-09-01"
         ]
@@ -54507,6 +54514,7 @@
         "resourceType": "Locations/dnsPrivateZones",
         "apiVersions": [
           "2024-06-01-preview",
+          "2024-06-01",
           "2023-09-01-preview",
           "2023-09-01"
         ]
@@ -54515,6 +54523,7 @@
         "resourceType": "Locations/giVersions",
         "apiVersions": [
           "2024-06-01-preview",
+          "2024-06-01",
           "2023-09-01-preview",
           "2023-09-01"
         ]
@@ -54523,6 +54532,7 @@
         "resourceType": "Locations/systemVersions",
         "apiVersions": [
           "2024-06-01-preview",
+          "2024-06-01",
           "2023-09-01-preview",
           "2023-09-01"
         ]
@@ -54531,6 +54541,7 @@
         "resourceType": "Operations",
         "apiVersions": [
           "2024-06-01-preview",
+          "2024-06-01",
           "2023-09-01-preview",
           "2023-09-01"
         ]
@@ -54539,6 +54550,7 @@
         "resourceType": "autonomousDatabases",
         "apiVersions": [
           "2024-06-01-preview",
+          "2024-06-01",
           "2023-09-01-preview",
           "2023-09-01"
         ]
@@ -54547,6 +54559,7 @@
         "resourceType": "autonomousDatabases/autonomousDatabaseBackups",
         "apiVersions": [
           "2024-06-01-preview",
+          "2024-06-01",
           "2023-09-01-preview",
           "2023-09-01"
         ]
@@ -54555,6 +54568,7 @@
         "resourceType": "cloudExadataInfrastructures",
         "apiVersions": [
           "2024-06-01-preview",
+          "2024-06-01",
           "2023-09-01-preview",
           "2023-09-01"
         ]
@@ -54563,6 +54577,7 @@
         "resourceType": "cloudExadataInfrastructures/dbServers",
         "apiVersions": [
           "2024-06-01-preview",
+          "2024-06-01",
           "2023-09-01-preview",
           "2023-09-01"
         ]
@@ -54571,6 +54586,7 @@
         "resourceType": "cloudVmClusters",
         "apiVersions": [
           "2024-06-01-preview",
+          "2024-06-01",
           "2023-09-01-preview",
           "2023-09-01"
         ]
@@ -54579,6 +54595,7 @@
         "resourceType": "cloudVmClusters/dbNodes",
         "apiVersions": [
           "2024-06-01-preview",
+          "2024-06-01",
           "2023-09-01-preview",
           "2023-09-01"
         ]
@@ -54587,6 +54604,7 @@
         "resourceType": "cloudVmClusters/virtualNetworkAddresses",
         "apiVersions": [
           "2024-06-01-preview",
+          "2024-06-01",
           "2023-09-01-preview",
           "2023-09-01"
         ]
@@ -54595,6 +54613,7 @@
         "resourceType": "oracleSubscriptions",
         "apiVersions": [
           "2024-06-01-preview",
+          "2024-06-01",
           "2023-09-01-preview",
           "2023-09-01"
         ]

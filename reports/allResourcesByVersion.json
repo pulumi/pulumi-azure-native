@@ -5128,6 +5128,9 @@
       "Snapshot"
     ]
   },
+  "ComputeSchedule": {
+    "": []
+  },
   "ConfidentialLedger": {
     "2020-12-01-preview": [
       "Ledger"
@@ -6953,6 +6956,18 @@
     ],
     "2023-12-01-preview": [
       "Administrator",
+      "Configuration",
+      "Database",
+      "FirewallRule",
+      "Migration",
+      "PrivateEndpointConnection",
+      "Server",
+      "VirtualEndpoint",
+      "getGetPrivateDnsZoneSuffixExecute"
+    ],
+    "2024-03-01-preview": [
+      "Administrator",
+      "Backup",
       "Configuration",
       "Database",
       "FirewallRule",
@@ -10847,6 +10862,17 @@
     "2024-05-01-preview": [
       "Cluster",
       "ClusterPool"
+    ],
+    "2024-08-01-preview": [
+      "Application",
+      "Cluster",
+      "Extension",
+      "ExtensionAzureMonitorAgentStatus",
+      "ExtensionAzureMonitorStatus",
+      "ExtensionMonitoringStatus",
+      "PrivateEndpointConnection",
+      "getClusterGatewaySettings",
+      "listVirtualMachineHosts"
     ]
   },
   "HanaOnAzure": {
@@ -11757,6 +11783,10 @@
       "listConnectedClusterUserCredential"
     ],
     "2024-07-01-preview": [
+      "ConnectedCluster",
+      "listConnectedClusterUserCredential"
+    ],
+    "2024-07-15-preview": [
       "ConnectedCluster",
       "listConnectedClusterUserCredential"
     ]
@@ -14309,6 +14339,22 @@
       "VolumeGroup",
       "VolumeQuotaRule",
       "getAccountChangeKeyVaultInformation",
+      "getSubvolumeMetadata",
+      "getVolumeGroupIdForLdapUser",
+      "listVolumeReplications"
+    ],
+    "2024-03-01": [
+      "Account",
+      "Backup",
+      "BackupPolicy",
+      "BackupVault",
+      "Pool",
+      "Snapshot",
+      "SnapshotPolicy",
+      "Subvolume",
+      "Volume",
+      "VolumeGroup",
+      "VolumeQuotaRule",
       "getSubvolumeMetadata",
       "getVolumeGroupIdForLdapUser",
       "listVolumeReplications"
@@ -19346,6 +19392,9 @@
       "GraphQuery"
     ],
     "2022-10-01": [
+      "GraphQuery"
+    ],
+    "2024-04-01": [
       "GraphQuery"
     ]
   },

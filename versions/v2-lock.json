@@ -624,6 +624,7 @@
     "getLogAnalyticExportRequestRateByInterval": "2023-03-01",
     "getLogAnalyticExportThrottledRequests": "2023-03-01"
   },
+  "ComputeSchedule": {},
   "ConfidentialLedger": {
     "Ledger": "2022-05-13",
     "ManagedCCF": "2023-01-26-preview"
@@ -773,6 +774,7 @@
   },
   "DBforPostgreSQL": {
     "Administrator": "2022-12-01",
+    "Backup": "2024-03-01-preview",
     "Cluster": "2022-11-08",
     "Configuration": "2022-12-01",
     "Database": "2022-12-01",
@@ -1220,6 +1222,7 @@
     "Cluster": "2021-06-01",
     "ClusterPool": "2023-06-01-preview",
     "Extension": "2021-06-01",
+    "ExtensionAzureMonitorAgentStatus": "2024-08-01-preview",
     "ExtensionAzureMonitorStatus": "2021-06-01",
     "ExtensionMonitoringStatus": "2021-06-01",
     "PrivateEndpointConnection": "2021-06-01",
