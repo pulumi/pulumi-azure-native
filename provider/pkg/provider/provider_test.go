@@ -6,6 +6,7 @@ import (
 	"testing"
 
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/convert"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/provider/crud"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources/customresources"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
@@ -341,5 +342,85 @@ func TestInvokeResponseToOutputs(t *testing.T) {
 }
 
 func TestReader(t *testing.T) {
-	var customRes *customresources.CustomResource
+	t.Run("custom Read", func(t *testing.T) {
+		var customReads []string
+		customRes := &customresources.CustomResource{
+			Read: func(ctx context.Context, id string, inputs resource.PropertyMap) (map[string]any, bool, error) {
+				customReads = append(customReads, id)
+				return map[string]any{}, true, nil
+			},
+		}
+
+		azureClient := &mockAzureClient{}
+		crudClient := crud.NewResourceCrudClient(azureClient, nil, nil, "123", nil)
+
+		r := reader(customRes, crudClient)
+		_, err := r(context.Background(), "id1", nil)
+		require.NoError(t, err)
+		assert.Equal(t, []string{"id1"}, customReads)
+		assert.Empty(t, azureClient.getIds)
+	})
+
+	t.Run("no custom Read", func(t *testing.T) {
+		resource := &resources.AzureAPIResource{
+			Response: map[string]resources.AzureAPIProperty{},
+		}
+
+		for _, otherCustomRes := range []*customresources.CustomResource{nil, {} /* custom resource that doesn't implement Read */} {
+			azureClient := &mockAzureClient{}
+			crudClient := crud.NewResourceCrudClient(azureClient, nil, nil, "123", resource)
+
+			r := reader(otherCustomRes, crudClient)
+			_, err := r(context.Background(), "id2", nil)
+			require.NoError(t, err)
+			assert.Contains(t, azureClient.getIds, "id2")
+		}
+	})
+}
+
+func TestReadAfterWrite(t *testing.T) {
+	read := false
+	var reader readFunc = func(ctx context.Context, id string, inputs resource.PropertyMap) (map[string]any, error) {
+		read = true
+		return nil, nil
+	}
+
+	for _, skipReadOnUpdate := range []bool{true, false} {
+		p := azureNativeProvider{
+			skipReadOnUpdate: skipReadOnUpdate,
+		}
+		p.readAfterWrite(context.Background(), "id", "urn", "create", resource.PropertyMap{}, reader)
+		assert.Equal(t, !skipReadOnUpdate, read)
+	}
+
+}
+
+type mockAzureClient struct {
+	getIds []string
+}
+
+func (m *mockAzureClient) Delete(ctx context.Context, id, apiVersion, asyncStyle string, queryParams map[string]any) error {
+	return nil
+}
+func (m *mockAzureClient) CanCreate(ctx context.Context, id, path, apiVersion, readMethod string, isSingletonResource, hasDefaultBody bool, isDefaultResponse func(map[string]any) bool) error {
+	return nil
+}
+func (m *mockAzureClient) Get(ctx context.Context, id string, apiVersion string) (any, error) {
+	m.getIds = append(m.getIds, id)
+	return map[string]any{}, nil
+}
+func (m *mockAzureClient) Head(ctx context.Context, id string, apiVersion string) error {
+	return nil
+}
+func (m *mockAzureClient) Patch(ctx context.Context, id string, bodyProps map[string]interface{}, queryParameters map[string]interface{}, asyncStyle string) (map[string]interface{}, bool, error) {
+	return nil, false, nil
+}
+func (m *mockAzureClient) Post(ctx context.Context, id string, bodyProps map[string]interface{}, queryParameters map[string]interface{}) (any, error) {
+	return nil, nil
+}
+func (m *mockAzureClient) Put(ctx context.Context, id string, bodyProps map[string]interface{}, queryParameters map[string]interface{}, asyncStyle string) (map[string]interface{}, bool, error) {
+	return nil, false, nil
+}
+func (m *mockAzureClient) IsNotFound(err error) bool {
+	return false
 }
