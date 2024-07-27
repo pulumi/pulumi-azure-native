@@ -32,6 +32,7 @@ new postgresql.Configuration("backslash_quote", {
     serverName: flexibleServer.name,
     configurationName: "backslash_quote",
     value: "on",
+    source: "user-override",
 });
 
 export const resourceGroupName = resourceGroup.name;
