@@ -27,10 +27,10 @@ const flexibleServer = new postgresql.Server("server", {
     },
 });
 
-new postgresql.Configuration("backslash_quote", {
+new postgresql.Configuration("ssl", {
     resourceGroupName: resourceGroup.name,
     serverName: flexibleServer.name,
-    configurationName: "backslash_quote",
+    configurationName: "ssl",
     value: "on",
     source: "user-override",
 });
