@@ -26,3 +26,13 @@ const flexibleServer = new postgresql.Server("server", {
         storageSizeGB: 64,
     },
 });
+
+new postgresql.Configuration("backslash_quote", {
+    resourceGroupName: resourceGroup.name,
+    serverName: flexibleServer.name,
+    configurationName: "backslash_quote",
+    value: "on",
+});
+
+export const resourceGroupName = resourceGroup.name;
+export const serverName = flexibleServer.name;
