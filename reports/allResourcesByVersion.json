@@ -5128,6 +5128,9 @@
       "Snapshot"
     ]
   },
+  "ComputeSchedule": {
+    "": []
+  },
   "ConfidentialLedger": {
     "2020-12-01-preview": [
       "Ledger"
@@ -6953,6 +6956,18 @@
     ],
     "2023-12-01-preview": [
       "Administrator",
+      "Configuration",
+      "Database",
+      "FirewallRule",
+      "Migration",
+      "PrivateEndpointConnection",
+      "Server",
+      "VirtualEndpoint",
+      "getGetPrivateDnsZoneSuffixExecute"
+    ],
+    "2024-03-01-preview": [
+      "Administrator",
+      "Backup",
       "Configuration",
       "Database",
       "FirewallRule",
@@ -10847,6 +10862,17 @@
     "2024-05-01-preview": [
       "Cluster",
       "ClusterPool"
+    ],
+    "2024-08-01-preview": [
+      "Application",
+      "Cluster",
+      "Extension",
+      "ExtensionAzureMonitorAgentStatus",
+      "ExtensionAzureMonitorStatus",
+      "ExtensionMonitoringStatus",
+      "PrivateEndpointConnection",
+      "getClusterGatewaySettings",
+      "listVirtualMachineHosts"
     ]
   },
   "HanaOnAzure": {
@@ -10892,6 +10918,10 @@
       "listBotSecrets"
     ],
     "2023-05-01": [
+      "Bot",
+      "listBotSecrets"
+    ],
+    "2024-02-01": [
       "Bot",
       "listBotSecrets"
     ]
@@ -11757,6 +11787,10 @@
       "listConnectedClusterUserCredential"
     ],
     "2024-07-01-preview": [
+      "ConnectedCluster",
+      "listConnectedClusterUserCredential"
+    ],
+    "2024-07-15-preview": [
       "ConnectedCluster",
       "listConnectedClusterUserCredential"
     ]
@@ -13175,6 +13209,69 @@
       "listWorkspaceNotebookAccessToken",
       "listWorkspaceNotebookKeys",
       "listWorkspaceStorageAccountKeys"
+    ],
+    "2024-07-01-preview": [
+      "BatchDeployment",
+      "BatchEndpoint",
+      "CodeContainer",
+      "CodeVersion",
+      "ComponentContainer",
+      "ComponentVersion",
+      "Compute",
+      "ConnectionDeployment",
+      "ConnectionRaiBlocklist",
+      "ConnectionRaiBlocklistItem",
+      "ConnectionRaiPolicy",
+      "DataContainer",
+      "DataVersion",
+      "Datastore",
+      "EndpointDeployment",
+      "EnvironmentContainer",
+      "EnvironmentVersion",
+      "FeaturesetContainerEntity",
+      "FeaturesetVersion",
+      "FeaturestoreEntityContainerEntity",
+      "FeaturestoreEntityVersion",
+      "Job",
+      "ManagedNetworkSettingsRule",
+      "MarketplaceSubscription",
+      "ModelContainer",
+      "ModelVersion",
+      "OnlineDeployment",
+      "OnlineEndpoint",
+      "PrivateEndpointConnection",
+      "RaiPolicy",
+      "Registry",
+      "RegistryCodeContainer",
+      "RegistryCodeVersion",
+      "RegistryComponentContainer",
+      "RegistryComponentVersion",
+      "RegistryDataContainer",
+      "RegistryDataVersion",
+      "RegistryEnvironmentContainer",
+      "RegistryEnvironmentVersion",
+      "RegistryModelContainer",
+      "RegistryModelVersion",
+      "Schedule",
+      "ServerlessEndpoint",
+      "Workspace",
+      "WorkspaceConnection",
+      "getComputeAllowedResizeSizes",
+      "getOnlineDeploymentLogs",
+      "getOnlineEndpointToken",
+      "listBatchEndpointKeys",
+      "listComputeKeys",
+      "listComputeNodes",
+      "listConnectionModels",
+      "listDatastoreSecrets",
+      "listEndpointKeys",
+      "listOnlineEndpointKeys",
+      "listServerlessEndpointKeys",
+      "listWorkspaceConnectionSecrets",
+      "listWorkspaceKeys",
+      "listWorkspaceNotebookAccessToken",
+      "listWorkspaceNotebookKeys",
+      "listWorkspaceStorageAccountKeys"
     ]
   },
   "Maintenance": {
@@ -14309,6 +14406,22 @@
       "VolumeGroup",
       "VolumeQuotaRule",
       "getAccountChangeKeyVaultInformation",
+      "getSubvolumeMetadata",
+      "getVolumeGroupIdForLdapUser",
+      "listVolumeReplications"
+    ],
+    "2024-03-01": [
+      "Account",
+      "Backup",
+      "BackupPolicy",
+      "BackupVault",
+      "Pool",
+      "Snapshot",
+      "SnapshotPolicy",
+      "Subvolume",
+      "Volume",
+      "VolumeGroup",
+      "VolumeQuotaRule",
       "getSubvolumeMetadata",
       "getVolumeGroupIdForLdapUser",
       "listVolumeReplications"
@@ -19346,6 +19459,9 @@
       "GraphQuery"
     ],
     "2022-10-01": [
+      "GraphQuery"
+    ],
+    "2024-04-01": [
       "GraphQuery"
     ]
   },
