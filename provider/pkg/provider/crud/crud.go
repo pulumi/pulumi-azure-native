@@ -83,6 +83,10 @@ type resourceCrudClient struct {
 	res *resources.AzureAPIResource
 }
 
+type ResourceCrudClientFactory func(
+	res *resources.AzureAPIResource,
+) ResourceCrudClient
+
 func NewResourceCrudClient(
 	azureClient azure.AzureClient,
 	lookupType resources.TypeLookupFunc,

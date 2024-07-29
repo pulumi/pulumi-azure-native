@@ -146,6 +146,11 @@ func (k *azureNativeProvider) lookupResourceFromURN(urn resource.URN) (*resource
 	return &res, nil
 }
 
+// newCrudClient implements crud.ResourceCrudClientFactory
+func (p *azureNativeProvider) newCrudClient(res *resources.AzureAPIResource) crud.ResourceCrudClient {
+	return crud.NewResourceCrudClient(p.azureClient, p.lookupType, p.converter, p.subscriptionID, res)
+}
+
 func (p *azureNativeProvider) Attach(context context.Context, req *rpc.PluginAttach) (*emptypb.Empty, error) {
 	host, err := provider.NewHostClient(req.GetAddress())
 	if err != nil {
@@ -213,7 +218,7 @@ func (k *azureNativeProvider) Configure(ctx context.Context,
 	k.azureClient = azure.NewAzureClient(env, resourceManagerAuth, userAgent)
 
 	azCoreTokenCredential := azCoreTokenCredential{p: k}
-	k.customResources, err = customresources.BuildCustomResources(&env, k.azureClient, k.LookupResource, k.subscriptionID,
+	k.customResources, err = customresources.BuildCustomResources(&env, k.azureClient, k.LookupResource, k.newCrudClient, k.subscriptionID,
 		resourceManagerBearerAuth, resourceManagerAuth, keyVaultBearerAuth, userAgent, azCoreTokenCredential)
 	if err != nil {
 		return nil, fmt.Errorf("initializing custom resources: %w", err)
@@ -861,7 +866,7 @@ func (k *azureNativeProvider) Create(ctx context.Context, req *rpc.CreateRequest
 			return nil, azure.AzureError(err)
 		}
 	default:
-		id, outputs, err = k.defaultCreate(ctx, req, inputs, id, queryParams, crudClient)
+		id, outputs, err = k.defaultCreate(ctx, req, inputs, id, queryParams, crudClient, reader(customRes, crudClient))
 		if err != nil {
 			return nil, err
 		}
@@ -885,7 +890,7 @@ func (k *azureNativeProvider) Create(ctx context.Context, req *rpc.CreateRequest
 }
 
 func (k *azureNativeProvider) defaultCreate(ctx context.Context, req *rpc.CreateRequest, inputs resource.PropertyMap, id string,
-	queryParams map[string]any, crudClient crud.ResourceCrudClient) (string, map[string]any, error) {
+	queryParams map[string]any, crudClient crud.ResourceCrudClient, reader readFunc) (string, map[string]any, error) {
 	bodyParams := crudClient.PrepareAzureRESTBody(id, inputs)
 
 	// First check if the resource already exists - we want to try our best to avoid updating instead of creating here
@@ -910,26 +915,60 @@ func (k *azureNativeProvider) defaultCreate(ctx context.Context, req *rpc.Create
 		id = azureId
 	}
 
-	// Read the state of the resource from its Read endpoint. While we already have resource state from
-	// the PUT reponse, it may not match precisely the shape of Read reponses that we also use for Refresh
-	// operations. That discrepancy may cause noisy diffs that are hard for users to reconcile.
-	if !k.skipReadOnUpdate {
-		readResponse, err := crudClient.Read(ctx, id)
-		if err != nil {
-			// Since this read operation was introduced in a minor version of the provider, we choose to ignore
-			// any errors here to avoid user-facing regressions. If no warnings are reported, we should be able
-			// to promote this situation to an error.
-			k.host.Log(ctx, diag.Warning, resource.URN(req.GetUrn()), `Failed to read resource after Create. Please report this issue.
-	Verbose logs contain more information, see https://www.pulumi.com/docs/support/troubleshooting/#verbose-logging.`)
-			logging.V(9).Infof("failed read resource %q after creation: %s", id, err.Error())
-		} else if readResponse != nil {
-			response = readResponse
+	if readResponse := k.readAfterWrite(ctx, id, req.GetUrn(), "Create", inputs, reader); readResponse != nil {
+		response = readResponse
+	}
+
+	return id, response, nil
+}
+
+// readFunc is a function that reads the state of a resource.
+type readFunc func(ctx context.Context, id string, inputs resource.PropertyMap) (map[string]any, error)
+
+// reader returns a function that reads the state of a resource either from a custom Read if it is
+// implemented, or via the standard ResourceCrudClient otherwise. In the latter case, the response
+// will be converted to SDK shape. Custom Reads are expected to do this on their own.
+func reader(customRes *customresources.CustomResource, crudClient crud.ResourceCrudClient) readFunc {
+	if customRes != nil && customRes.Read != nil {
+		return func(ctx context.Context, id string, inputs resource.PropertyMap) (map[string]any, error) {
+			response, _, err := customRes.Read(ctx, id, inputs)
+			return response, err
 		}
 	}
 
-	// Map the raw response to the shape of outputs that the SDKs expect.
-	outputs := crudClient.ResponseBodyToSdkOutputs(response)
-	return id, outputs, nil
+	return func(ctx context.Context, id string, _ resource.PropertyMap) (map[string]any, error) {
+		response, err := crudClient.Read(ctx, id)
+		if err == nil {
+			// Map the raw response to the shape of outputs that the SDKs expect.
+			response = crudClient.ResponseBodyToSdkOutputs(response)
+		}
+		return response, err
+	}
+}
+
+// Read the state of the resource from its Read endpoint. While we already have resource state from
+// the PUT reponse, it may not match precisely the shape of Read reponses that we also use for Refresh
+// operations. That discrepancy may cause noisy diffs that are hard for users to reconcile.
+func (p *azureNativeProvider) readAfterWrite(ctx context.Context, id, urn, opForLogging string,
+	inputs resource.PropertyMap, reader readFunc,
+) map[string]any {
+	if p.skipReadOnUpdate {
+		return nil
+	}
+
+	response, err := reader(ctx, id, inputs)
+
+	if err != nil {
+		// Since this read operation was introduced in a minor version of the provider, we choose to ignore
+		// any errors here to avoid user-facing regressions. If no warnings are reported, we should be able
+		// to promote this situation to an error.
+		p.host.Log(ctx, diag.Warning, resource.URN(urn), fmt.Sprintf(`Failed to read resource after %s. Please report this issue.
+Verbose logs contain more information, see https://www.pulumi.com/docs/support/troubleshooting/#verbose-logging.`, opForLogging))
+		logging.V(9).Infof("failed to read resource %q after %s: %s", id, opForLogging, err.Error())
+		return nil
+	}
+
+	return response
 }
 
 // Properties pointing to sub-resources that can be maintained as separate resources might not be
@@ -1250,8 +1289,7 @@ func (k *azureNativeProvider) Update(ctx context.Context, req *rpc.UpdateRequest
 			return nil, azure.AzureError(err)
 		}
 	} else {
-		// Map the raw response to the shape of outputs that the SDKs expect.
-		outputs, err = k.defaultUpdate(ctx, req, inputs, id, queryParams, crudClient)
+		outputs, err = k.defaultUpdate(ctx, req, inputs, id, queryParams, crudClient, reader(customRes, crudClient))
 		if err != nil {
 			return nil, err
 		}
@@ -1274,7 +1312,8 @@ func (k *azureNativeProvider) Update(ctx context.Context, req *rpc.UpdateRequest
 }
 
 func (k *azureNativeProvider) defaultUpdate(ctx context.Context, req *rpc.UpdateRequest, inputs resource.PropertyMap,
-	id string, queryParams map[string]any, crudClient crud.ResourceCrudClient) (map[string]any, error) {
+	id string, queryParams map[string]any, crudClient crud.ResourceCrudClient, reader readFunc,
+) (map[string]any, error) {
 
 	bodyParams := crudClient.PrepareAzureRESTBody(id, inputs)
 
@@ -1294,25 +1333,11 @@ func (k *azureNativeProvider) defaultUpdate(ctx context.Context, req *rpc.Update
 		return nil, azure.AzureError(err)
 	}
 
-	// Read the state of the resource from its Read endpoint. While we already have resource state from
-	// the PUT reponse, it may not match precisely the shape of Read reponses that we also use for Refresh
-	// operations. That discrepancy may cause noisy diffs that are hard for users to reconcile.
-	if !k.skipReadOnUpdate {
-		readResponse, err := crudClient.Read(ctx, id)
-		if err != nil {
-			// Since this read operation was introduced in a minor version of the provider, we choose to ignore
-			// any errors here to avoid user-facing regressions. If no warnings are reported, we should be able
-			// to promote this situation to an error.
-			k.host.Log(ctx, diag.Warning, resource.URN(req.GetUrn()), `Failed to read resource after Update. Please report this issue.
-	Verbose logs contain more information, see https://www.pulumi.com/docs/support/troubleshooting/#verbose-logging.`)
-			logging.V(9).Infof("failed read resource %q after creation: %s", id, err.Error())
-		} else if readResponse != nil {
-			response = readResponse
-		}
+	if readResponse := k.readAfterWrite(ctx, id, req.GetUrn(), "Update", inputs, reader); readResponse != nil {
+		response = readResponse
 	}
 
-	// Map the raw response to the shape of outputs that the SDKs expect.
-	return crudClient.ResponseBodyToSdkOutputs(response), nil
+	return response, nil
 }
 
 func restoreDefaultInputsForRemovedProperties(inputs resource.PropertyMap, res resources.AzureAPIResource, oldState resource.PropertyMap) error {

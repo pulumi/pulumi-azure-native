@@ -4,6 +4,7 @@ package customresources
 
 import (
 	"context"
+	"fmt"
 
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/arm"
@@ -13,10 +14,14 @@ import (
 	"github.com/Azure/go-autorest/autorest"
 	azureEnv "github.com/Azure/go-autorest/autorest/azure"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/azure"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/provider/crud"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
 	. "github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 )
+
+type CustomReadFunc func(ctx context.Context, id string, inputs resource.PropertyMap) (map[string]any, bool, error)
 
 // CustomResource is a manual SDK-based implementation of a (part of) resource when Azure API is missing some
 // crucial operations.
@@ -42,7 +47,7 @@ type CustomResource struct {
 	Create func(ctx context.Context, id string, inputs resource.PropertyMap) (map[string]interface{}, error)
 	// Read the state of an existing resource. Constructs the resource ID based on input values. Returns a map of
 	// resource outputs. If the requested resource does not exist, the second result is false.
-	Read func(ctx context.Context, id string, inputs resource.PropertyMap) (map[string]interface{}, bool, error)
+	Read CustomReadFunc
 	// Update an existing resource with a map of input values. Returns a map of resource outputs that match the schema shape.
 	Update func(ctx context.Context, id string, news, olds resource.PropertyMap) (map[string]interface{}, error)
 	// Delete an existing resource. Constructs the resource ID based on input values.
@@ -53,6 +58,7 @@ type CustomResource struct {
 func BuildCustomResources(env *azureEnv.Environment,
 	azureClient azure.AzureClient,
 	lookupResource ResourceLookupFunc,
+	crudClientFactory crud.ResourceCrudClientFactory,
 	subscriptionID string,
 	bearerAuth autorest.Authorizer,
 	tokenAuth autorest.Authorizer,
@@ -73,6 +79,11 @@ func BuildCustomResources(env *azureEnv.Environment,
 	storageAccountsClient.Authorizer = tokenAuth
 	storageAccountsClient.UserAgent = userAgent
 
+	customWebApp, err := webApp(crudClientFactory, azureClient, lookupResource)
+	if err != nil {
+		return nil, err
+	}
+
 	resources := []*CustomResource{
 		// Azure KeyVault resources.
 		keyVaultSecret(env.KeyVaultDNSSuffix, &kvClient),
@@ -82,9 +93,9 @@ func BuildCustomResources(env *azureEnv.Environment,
 		newStorageAccountStaticWebsite(env, &storageAccountsClient),
 		newBlob(env, &storageAccountsClient),
 		// Customization of regular resources
-		customWebAppDelete(lookupResource, azureClient),
 		blobContainerLegalHold(azureClient),
 		portalDashboard(),
+		customWebApp,
 	}
 
 	result := map[string]*CustomResource{}
@@ -95,7 +106,7 @@ func BuildCustomResources(env *azureEnv.Environment,
 }
 
 // featureLookup is a map of custom resource to lookup their capabilities.
-var featureLookup, _ = BuildCustomResources(&azureEnv.Environment{}, nil, nil, "", nil, nil, nil, "", nil)
+var featureLookup, _ = BuildCustomResources(&azureEnv.Environment{}, nil, nil, nil, "", nil, nil, nil, "", nil)
 
 // HasCustomDelete returns true if a custom DELETE operation is defined for a given API path.
 func HasCustomDelete(path string) bool {
@@ -169,4 +180,20 @@ func MetaTypeOverrides() map[string]AzureAPIType {
 		}
 	}
 	return types
+}
+
+// createCrudClient creates a CRUD client for the given resource type, looking up the fully
+// qualified `resourceToken` like "azure-native:web:WebApp" via `lookupResource`.
+func createCrudClient(
+	crudClientFactory crud.ResourceCrudClientFactory, lookupResource resources.ResourceLookupFunc, resourceToken string,
+) (crud.ResourceCrudClient, error) {
+	res, ok, err := lookupResource(webAppResourceType)
+	if err != nil {
+		return nil, err
+	}
+	if !ok {
+		return nil, fmt.Errorf("resource %s not found", webAppResourceType)
+	}
+
+	return crudClientFactory(&res), nil
 }
