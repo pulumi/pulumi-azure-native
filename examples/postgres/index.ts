@@ -27,13 +27,14 @@ const flexibleServer = new postgresql.Server("server", {
     },
 });
 
-new postgresql.Configuration("ssl", {
-    resourceGroupName: resourceGroup.name,
-    serverName: flexibleServer.name,
-    configurationName: "ssl",
-    value: "on",
-    source: "user-override",
-});
+// Blocked tu to #898
+// new postgresql.Configuration("ssl", {
+//     resourceGroupName: resourceGroup.name,
+//     serverName: flexibleServer.name,
+//     configurationName: "ssl",
+//     value: "on",
+//     source: "user-override",
+// });
 
 export const resourceGroupName = resourceGroup.name;
 export const serverName = flexibleServer.name;
