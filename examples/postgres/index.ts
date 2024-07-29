@@ -6,7 +6,7 @@ import * as resources from "@pulumi/azure-native/resources";
 const resourceGroup = new resources.ResourceGroup("rg", {
     // westus2 was not available for Postgres Flexible Server at the time of writing, see
     // https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/overview#azure-regions
-    location: "uksouth",
+    location: "westus",
 });
 
 const flexibleServer = new postgresql.Server("server", {
@@ -17,19 +17,24 @@ const flexibleServer = new postgresql.Server("server", {
         name: "Standard_D2s_v3",
     },
     highAvailability: {
-        mode: postgresql.HighAvailabilityMode.Disabled,
+        mode: postgresql.HighAvailabilityMode.SameZone,
     },
     administratorLogin: "cloudsa",
     administratorLoginPassword: `pa$$w0rd`,
-    version: "12",
+    version: "14",
     storage: {
-        storageSizeGB: 32,
+        storageSizeGB: 64,
     },
 });
 
-new postgresql.Configuration("backslash_quote", {
-    resourceGroupName: resourceGroup.name,
-    serverName: flexibleServer.name,
-    source: "user-override",
-    value: "on",
-});
+// Blocked tu to #898
+// new postgresql.Configuration("ssl", {
+//     resourceGroupName: resourceGroup.name,
+//     serverName: flexibleServer.name,
+//     configurationName: "ssl",
+//     value: "on",
+//     source: "user-override",
+// });
+
+export const resourceGroupName = resourceGroup.name;
+export const serverName = flexibleServer.name;
