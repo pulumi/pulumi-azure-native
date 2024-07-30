@@ -206,6 +206,7 @@ func main() {
 		pulumiPreview, err := remote.NewCommand(ctx, "pulumiPreview", &remote.CommandArgs{
 			Connection: sshConn,
 			Create: pulumi.String(fmt.Sprintf(`cd %s && \
+set -euxo pipefail
 export ARM_USE_MSI=true && \
 export PATH=~/.pulumi/bin:$PATH && \
 export PULUMI_CONFIG_PASSPHRASE=pass && \
@@ -213,7 +214,8 @@ rand=$(openssl rand -hex 4) && \
 stackname="%s-$rand" && \
 pulumi login --local && \
 pulumi stack init $stackname && \
-pulumi preview --logtostderr --logflow -v=9 && \
+pulumi up --skip-preview --logtostderr --logflow -v=9 && \
+pulumi down --skip-preview --logtostderr --logflow -v=9 && \
 pulumi stack rm --yes $stackname && \
 pulumi logout --local`, innerProgram, innerProgram)),
 		}, pulumi.DependsOn([]pulumi.Resource{copy, installPulumi}))
