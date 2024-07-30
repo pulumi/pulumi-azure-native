@@ -61,7 +61,9 @@ func webApp(crudClientFactory crud.ResourceCrudClientFactory, azureClient azure.
 				return nil, true, err
 			}
 
-			return crudClient.ResponseBodyToSdkOutputs(webAppResponse), true, nil
+			responseInSdkShape := crudClient.ResponseBodyToSdkOutputs(webAppResponse)
+			filterResponse(responseInSdkShape)
+			return responseInSdkShape, true, nil
 		},
 
 		// https://github.com/pulumi/pulumi-azure-native/issues/1529
@@ -83,6 +85,19 @@ func webApp(crudClientFactory crud.ResourceCrudClientFactory, azureClient azure.
 	}, nil
 }
 
+// A generic hook to modify the response returned after Read() of a WebApp.
+// Removes redacted publishingUsername from siteConfig to avoid meaningless diffs, #1468.
+func filterResponse(response map[string]any) {
+	if siteConfig, ok := util.GetInnerMap(response, "siteConfig"); ok {
+		if username, ok := siteConfig["publishingUsername"]; ok {
+			if usernameStr, ok := username.(string); ok && usernameStr == "REDACTED" {
+				delete(siteConfig, "publishingUsername")
+			}
+		}
+	}
+}
+
+// Add siteConfig, that we got from a separate request, to the webApp response.
 func mergeWebAppSiteConfig(webApp, siteConfig map[string]any) error {
 	if outerProperties, ok := util.GetInnerMap(webApp, "properties"); ok {
 		outerProperties["siteConfig"] = siteConfig["properties"]
