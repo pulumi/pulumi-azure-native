@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.HealthBot
         /// Get a HealthBot.
         /// Azure REST API version: 2023-05-01.
         /// 
-        /// Other available API versions: 2020-12-08-preview.
+        /// Other available API versions: 2020-12-08-preview, 2024-02-01.
         /// </summary>
         public static Task<GetBotResult> InvokeAsync(GetBotArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBotResult>("azure-native:healthbot:getBot", args ?? new GetBotArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.HealthBot
         /// Get a HealthBot.
         /// Azure REST API version: 2023-05-01.
         /// 
-        /// Other available API versions: 2020-12-08-preview.
+        /// Other available API versions: 2020-12-08-preview, 2024-02-01.
         /// </summary>
         public static Output<GetBotResult> Invoke(GetBotInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBotResult>("azure-native:healthbot:getBot", args ?? new GetBotInvokeArgs(), options.WithDefaults());

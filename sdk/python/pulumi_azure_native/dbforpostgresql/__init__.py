@@ -7,11 +7,13 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .administrator import *
+from .backup import *
 from .cluster import *
 from .configuration import *
 from .database import *
 from .firewall_rule import *
 from .get_administrator import *
+from .get_backup import *
 from .get_cluster import *
 from .get_configuration import *
 from .get_database import *
@@ -72,6 +74,8 @@ if typing.TYPE_CHECKING:
     v20230601preview = __v20230601preview
     import pulumi_azure_native.dbforpostgresql.v20231201preview as __v20231201preview
     v20231201preview = __v20231201preview
+    import pulumi_azure_native.dbforpostgresql.v20240301preview as __v20240301preview
+    v20240301preview = __v20240301preview
 else:
     v20171201 = _utilities.lazy_import('pulumi_azure_native.dbforpostgresql.v20171201')
     v20171201preview = _utilities.lazy_import('pulumi_azure_native.dbforpostgresql.v20171201preview')
@@ -93,4 +97,5 @@ else:
     v20230302preview = _utilities.lazy_import('pulumi_azure_native.dbforpostgresql.v20230302preview')
     v20230601preview = _utilities.lazy_import('pulumi_azure_native.dbforpostgresql.v20230601preview')
     v20231201preview = _utilities.lazy_import('pulumi_azure_native.dbforpostgresql.v20231201preview')
+    v20240301preview = _utilities.lazy_import('pulumi_azure_native.dbforpostgresql.v20240301preview')
 

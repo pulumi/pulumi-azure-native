@@ -144,7 +144,7 @@ export const CustomRuleEnabledState = {
  */
 export type CustomRuleEnabledState = (typeof CustomRuleEnabledState)[keyof typeof CustomRuleEnabledState];
 
-export const DeliveryRuleAction = {
+export const DeliveryRuleActionName = {
     CacheExpiration: "CacheExpiration",
     CacheKeyQueryString: "CacheKeyQueryString",
     ModifyRequestHeader: "ModifyRequestHeader",
@@ -159,7 +159,44 @@ export const DeliveryRuleAction = {
 /**
  * The name of the action for the delivery rule.
  */
-export type DeliveryRuleAction = (typeof DeliveryRuleAction)[keyof typeof DeliveryRuleAction];
+export type DeliveryRuleActionName = (typeof DeliveryRuleActionName)[keyof typeof DeliveryRuleActionName];
+
+export const DeliveryRuleActionParametersType = {
+    DeliveryRuleUrlRedirectActionParameters: "DeliveryRuleUrlRedirectActionParameters",
+    DeliveryRuleUrlSigningActionParameters: "DeliveryRuleUrlSigningActionParameters",
+    DeliveryRuleOriginGroupOverrideActionParameters: "DeliveryRuleOriginGroupOverrideActionParameters",
+    DeliveryRuleUrlRewriteActionParameters: "DeliveryRuleUrlRewriteActionParameters",
+    DeliveryRuleHeaderActionParameters: "DeliveryRuleHeaderActionParameters",
+    DeliveryRuleCacheExpirationActionParameters: "DeliveryRuleCacheExpirationActionParameters",
+    DeliveryRuleCacheKeyQueryStringBehaviorActionParameters: "DeliveryRuleCacheKeyQueryStringBehaviorActionParameters",
+    DeliveryRuleRouteConfigurationOverrideActionParameters: "DeliveryRuleRouteConfigurationOverrideActionParameters",
+} as const;
+
+export type DeliveryRuleActionParametersType = (typeof DeliveryRuleActionParametersType)[keyof typeof DeliveryRuleActionParametersType];
+
+export const DeliveryRuleConditionParametersType = {
+    DeliveryRuleRemoteAddressConditionParameters: "DeliveryRuleRemoteAddressConditionParameters",
+    DeliveryRuleRequestMethodConditionParameters: "DeliveryRuleRequestMethodConditionParameters",
+    DeliveryRuleQueryStringConditionParameters: "DeliveryRuleQueryStringConditionParameters",
+    DeliveryRulePostArgsConditionParameters: "DeliveryRulePostArgsConditionParameters",
+    DeliveryRuleRequestUriConditionParameters: "DeliveryRuleRequestUriConditionParameters",
+    DeliveryRuleRequestHeaderConditionParameters: "DeliveryRuleRequestHeaderConditionParameters",
+    DeliveryRuleRequestBodyConditionParameters: "DeliveryRuleRequestBodyConditionParameters",
+    DeliveryRuleRequestSchemeConditionParameters: "DeliveryRuleRequestSchemeConditionParameters",
+    DeliveryRuleUrlPathMatchConditionParameters: "DeliveryRuleUrlPathMatchConditionParameters",
+    DeliveryRuleUrlFileExtensionMatchConditionParameters: "DeliveryRuleUrlFileExtensionMatchConditionParameters",
+    DeliveryRuleUrlFilenameConditionParameters: "DeliveryRuleUrlFilenameConditionParameters",
+    DeliveryRuleHttpVersionConditionParameters: "DeliveryRuleHttpVersionConditionParameters",
+    DeliveryRuleCookiesConditionParameters: "DeliveryRuleCookiesConditionParameters",
+    DeliveryRuleIsDeviceConditionParameters: "DeliveryRuleIsDeviceConditionParameters",
+    DeliveryRuleSocketAddrConditionParameters: "DeliveryRuleSocketAddrConditionParameters",
+    DeliveryRuleClientPortConditionParameters: "DeliveryRuleClientPortConditionParameters",
+    DeliveryRuleServerPortConditionParameters: "DeliveryRuleServerPortConditionParameters",
+    DeliveryRuleHostNameConditionParameters: "DeliveryRuleHostNameConditionParameters",
+    DeliveryRuleSslProtocolConditionParameters: "DeliveryRuleSslProtocolConditionParameters",
+} as const;
+
+export type DeliveryRuleConditionParametersType = (typeof DeliveryRuleConditionParametersType)[keyof typeof DeliveryRuleConditionParametersType];
 
 export const DestinationProtocol = {
     MatchRequest: "MatchRequest",
@@ -262,6 +299,13 @@ export const HttpsRedirect = {
  */
 export type HttpsRedirect = (typeof HttpsRedirect)[keyof typeof HttpsRedirect];
 
+export const IsDeviceMatchValue = {
+    Mobile: "Mobile",
+    Desktop: "Desktop",
+} as const;
+
+export type IsDeviceMatchValue = (typeof IsDeviceMatchValue)[keyof typeof IsDeviceMatchValue];
+
 export const IsDeviceOperator = {
     Equal: "Equal",
 } as const;
@@ -270,6 +314,12 @@ export const IsDeviceOperator = {
  * Describes operator to be matched
  */
 export type IsDeviceOperator = (typeof IsDeviceOperator)[keyof typeof IsDeviceOperator];
+
+export const KeyVaultSigningKeyParametersType = {
+    KeyVaultSigningKeyParameters: "KeyVaultSigningKeyParameters",
+} as const;
+
+export type KeyVaultSigningKeyParametersType = (typeof KeyVaultSigningKeyParametersType)[keyof typeof KeyVaultSigningKeyParametersType];
 
 export const LinkToDefaultDomain = {
     Enabled: "Enabled",
@@ -544,6 +594,18 @@ export const RequestHeaderOperator = {
  */
 export type RequestHeaderOperator = (typeof RequestHeaderOperator)[keyof typeof RequestHeaderOperator];
 
+export const RequestMethodMatchValue = {
+    GET: "GET",
+    HEAD: "HEAD",
+    POST: "POST",
+    PUT: "PUT",
+    DELETE: "DELETE",
+    OPTIONS: "OPTIONS",
+    TRACE: "TRACE",
+} as const;
+
+export type RequestMethodMatchValue = (typeof RequestMethodMatchValue)[keyof typeof RequestMethodMatchValue];
+
 export const RequestMethodOperator = {
     Equal: "Equal",
 } as const;
@@ -552,6 +614,13 @@ export const RequestMethodOperator = {
  * Describes operator to be matched
  */
 export type RequestMethodOperator = (typeof RequestMethodOperator)[keyof typeof RequestMethodOperator];
+
+export const RequestSchemeMatchValue = {
+    HTTP: "HTTP",
+    HTTPS: "HTTPS",
+} as const;
+
+export type RequestSchemeMatchValue = (typeof RequestSchemeMatchValue)[keyof typeof RequestSchemeMatchValue];
 
 export const RequestUriOperator = {
     Any: "Any",

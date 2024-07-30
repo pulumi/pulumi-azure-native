@@ -57,6 +57,8 @@ def list_bot_secrets(bot_name: Optional[str] = None,
     List all secrets of a HealthBot.
     Azure REST API version: 2023-05-01.
 
+    Other available API versions: 2024-02-01.
+
 
     :param str bot_name: The name of the Bot resource.
     :param str resource_group_name: The name of the Bot resource group in the user subscription.
@@ -78,6 +80,8 @@ def list_bot_secrets_output(bot_name: Optional[pulumi.Input[str]] = None,
     """
     List all secrets of a HealthBot.
     Azure REST API version: 2023-05-01.
+
+    Other available API versions: 2024-02-01.
 
 
     :param str bot_name: The name of the Bot resource.

@@ -51,6 +51,10 @@ namespace Pulumi.AzureNative.Cdn.V20240201.Inputs
             set => _transforms = value;
         }
 
+        /// <summary>
+        /// 
+        /// Expected value is 'DeliveryRuleSslProtocolConditionParameters'.
+        /// </summary>
         [Input("typeName", required: true)]
         public Input<string> TypeName { get; set; } = null!;
 

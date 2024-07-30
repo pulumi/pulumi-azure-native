@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * List all secrets of a HealthBot.
  * Azure REST API version: 2023-05-01.
+ *
+ * Other available API versions: 2024-02-01.
  */
 export function listBotSecrets(args: ListBotSecretsArgs, opts?: pulumi.InvokeOptions): Promise<ListBotSecretsResult> {
 
@@ -43,6 +45,8 @@ export interface ListBotSecretsResult {
 /**
  * List all secrets of a HealthBot.
  * Azure REST API version: 2023-05-01.
+ *
+ * Other available API versions: 2024-02-01.
  */
 export function listBotSecretsOutput(args: ListBotSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListBotSecretsResult> {
     return pulumi.output(args).apply((a: any) => listBotSecrets(a, opts))

@@ -196,7 +196,7 @@ class Administrator(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dbforpostgresql:Administrator"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20220308preview:Administrator"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20230301preview:Administrator"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20230601preview:Administrator"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20231201preview:Administrator")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dbforpostgresql:Administrator"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20220308preview:Administrator"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20230301preview:Administrator"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20230601preview:Administrator"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20231201preview:Administrator"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20240301preview:Administrator")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Administrator, __self__).__init__(
             'azure-native:dbforpostgresql/v20221201:Administrator',

@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.Cdn.V20240201.Inputs
     public sealed class IsDeviceMatchConditionParametersArgs : global::Pulumi.ResourceArgs
     {
         [Input("matchValues")]
-        private InputList<string>? _matchValues;
+        private InputList<Union<string, Pulumi.AzureNative.Cdn.V20240201.IsDeviceMatchValue>>? _matchValues;
 
         /// <summary>
         /// The match value for the condition of the delivery rule
         /// </summary>
-        public InputList<string> MatchValues
+        public InputList<Union<string, Pulumi.AzureNative.Cdn.V20240201.IsDeviceMatchValue>> MatchValues
         {
-            get => _matchValues ?? (_matchValues = new InputList<string>());
+            get => _matchValues ?? (_matchValues = new InputList<Union<string, Pulumi.AzureNative.Cdn.V20240201.IsDeviceMatchValue>>());
             set => _matchValues = value;
         }
 
@@ -51,6 +51,10 @@ namespace Pulumi.AzureNative.Cdn.V20240201.Inputs
             set => _transforms = value;
         }
 
+        /// <summary>
+        /// 
+        /// Expected value is 'DeliveryRuleIsDeviceConditionParameters'.
+        /// </summary>
         [Input("typeName", required: true)]
         public Input<string> TypeName { get; set; } = null!;
 

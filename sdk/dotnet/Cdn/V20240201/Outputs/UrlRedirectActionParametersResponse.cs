@@ -40,6 +40,10 @@ namespace Pulumi.AzureNative.Cdn.V20240201.Outputs
         /// The redirect type the rule will use when redirecting traffic.
         /// </summary>
         public readonly string RedirectType;
+        /// <summary>
+        /// 
+        /// Expected value is 'DeliveryRuleUrlRedirectActionParameters'.
+        /// </summary>
         public readonly string TypeName;
 
         [OutputConstructor]

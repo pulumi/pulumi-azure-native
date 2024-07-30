@@ -480,6 +480,11 @@ export const listComputeNodes: typeof import("./listComputeNodes").listComputeNo
 export const listComputeNodesOutput: typeof import("./listComputeNodes").listComputeNodesOutput = null as any;
 utilities.lazyLoad(exports, ["listComputeNodes","listComputeNodesOutput"], () => require("./listComputeNodes"));
 
+export { ListConnectionModelsArgs, ListConnectionModelsResult, ListConnectionModelsOutputArgs } from "./listConnectionModels";
+export const listConnectionModels: typeof import("./listConnectionModels").listConnectionModels = null as any;
+export const listConnectionModelsOutput: typeof import("./listConnectionModels").listConnectionModelsOutput = null as any;
+utilities.lazyLoad(exports, ["listConnectionModels","listConnectionModelsOutput"], () => require("./listConnectionModels"));
+
 export { ListDatastoreSecretsArgs, ListDatastoreSecretsResult, ListDatastoreSecretsOutputArgs } from "./listDatastoreSecrets";
 export const listDatastoreSecrets: typeof import("./listDatastoreSecrets").listDatastoreSecrets = null as any;
 export const listDatastoreSecretsOutput: typeof import("./listDatastoreSecrets").listDatastoreSecretsOutput = null as any;
@@ -687,6 +692,7 @@ import * as v20231001 from "./v20231001";
 import * as v20240101preview from "./v20240101preview";
 import * as v20240401 from "./v20240401";
 import * as v20240401preview from "./v20240401preview";
+import * as v20240701preview from "./v20240701preview";
 
 export {
     v20200501preview,
@@ -706,6 +712,7 @@ export {
     v20240101preview,
     v20240401,
     v20240401preview,
+    v20240701preview,
 };
 
 const _module = {

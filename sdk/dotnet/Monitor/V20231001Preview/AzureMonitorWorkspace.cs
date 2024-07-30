@@ -28,6 +28,12 @@ namespace Pulumi.AzureNative.Monitor.V20231001Preview
         public Output<Outputs.IngestionSettingsResponse> DefaultIngestionSettings { get; private set; } = null!;
 
         /// <summary>
+        /// Resource entity tag (ETag)
+        /// </summary>
+        [Output("etag")]
+        public Output<string> Etag { get; private set; } = null!;
+
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]

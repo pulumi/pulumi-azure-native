@@ -318,6 +318,7 @@ Compute:
         VirtualMachineScaleSetVMRunCommand: "2023-03-01"
         getLogAnalyticExportRequestRateByInterval: "2023-03-01"
         getLogAnalyticExportThrottledRequests: "2023-03-01"
+ComputeSchedule: {}
 ConfidentialLedger:
     tracking: "2022-05-13"
     additions:
@@ -541,6 +542,7 @@ DBforMySQL:
 DBforPostgreSQL:
     tracking: "2022-12-01"
     additions:
+        Backup: 2024-03-01-preview
         Cluster: "2022-11-08"
         Migration: 2023-03-01-preview
         PrivateEndpointConnection: "2022-11-08"
@@ -694,6 +696,21 @@ DBforPostgreSQL:
         - provider: DBforPostgreSQL
           resourcename: Server
           detail: version 2023-12-01-preview is greater than 2017-12-01
+        - provider: DBforPostgreSQL
+          resourcename: Configuration
+          detail: version 2024-03-01-preview is greater than 2017-12-01
+        - provider: DBforPostgreSQL
+          resourcename: Database
+          detail: version 2024-03-01-preview is greater than 2017-12-01
+        - provider: DBforPostgreSQL
+          resourcename: FirewallRule
+          detail: version 2024-03-01-preview is greater than 2017-12-01
+        - provider: DBforPostgreSQL
+          resourcename: PrivateEndpointConnection
+          detail: version 2024-03-01-preview is greater than 2018-06-01
+        - provider: DBforPostgreSQL
+          resourcename: Server
+          detail: version 2024-03-01-preview is greater than 2017-12-01
 Dashboard:
     tracking: "2022-08-01"
     additions:
@@ -878,6 +895,7 @@ HDInsight:
     tracking: "2021-06-01"
     additions:
         ClusterPool: 2023-06-01-preview
+        ExtensionAzureMonitorAgentStatus: 2024-08-01-preview
 HanaOnAzure: {}
 HardwareSecurityModules:
     tracking: "2021-11-30"
@@ -1083,6 +1101,7 @@ MachineLearningServices:
         getInferenceGroupStatus: 2023-08-01-preview
         getInferencePoolStatus: 2023-08-01-preview
         getServerlessEndpointStatus: 2023-08-01-preview
+        listConnectionModels: 2024-07-01-preview
         listEndpointKeys: 2024-01-01-preview
         listFeaturesetVersionFeatures: 2023-02-01-preview
         listFeaturesetVersionMaterializationJobs: 2023-04-01-preview

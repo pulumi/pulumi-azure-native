@@ -32,6 +32,8 @@ if typing.TYPE_CHECKING:
     v20231101preview = __v20231101preview
     import pulumi_azure_native.hdinsight.v20240501preview as __v20240501preview
     v20240501preview = __v20240501preview
+    import pulumi_azure_native.hdinsight.v20240801preview as __v20240801preview
+    v20240801preview = __v20240801preview
 else:
     v20210601 = _utilities.lazy_import('pulumi_azure_native.hdinsight.v20210601')
     v20230415preview = _utilities.lazy_import('pulumi_azure_native.hdinsight.v20230415preview')
@@ -39,4 +41,5 @@ else:
     v20230815preview = _utilities.lazy_import('pulumi_azure_native.hdinsight.v20230815preview')
     v20231101preview = _utilities.lazy_import('pulumi_azure_native.hdinsight.v20231101preview')
     v20240501preview = _utilities.lazy_import('pulumi_azure_native.hdinsight.v20240501preview')
+    v20240801preview = _utilities.lazy_import('pulumi_azure_native.hdinsight.v20240801preview')
 

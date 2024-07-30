@@ -20,6 +20,10 @@ namespace Pulumi.AzureNative.Cdn.V20240201.Outputs
         /// Type of certificate used
         /// </summary>
         public readonly string CertificateType;
+        /// <summary>
+        /// 
+        /// Expected value is 'CdnCertificateSourceParameters'.
+        /// </summary>
         public readonly string TypeName;
 
         [OutputConstructor]

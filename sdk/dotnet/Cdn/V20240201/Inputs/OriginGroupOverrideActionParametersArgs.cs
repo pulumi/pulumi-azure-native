@@ -21,6 +21,10 @@ namespace Pulumi.AzureNative.Cdn.V20240201.Inputs
         [Input("originGroup", required: true)]
         public Input<Inputs.ResourceReferenceArgs> OriginGroup { get; set; } = null!;
 
+        /// <summary>
+        /// 
+        /// Expected value is 'DeliveryRuleOriginGroupOverrideActionParameters'.
+        /// </summary>
         [Input("typeName", required: true)]
         public Input<string> TypeName { get; set; } = null!;
 

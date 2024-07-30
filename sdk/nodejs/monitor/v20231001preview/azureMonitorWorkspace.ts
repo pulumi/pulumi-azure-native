@@ -46,6 +46,10 @@ export class AzureMonitorWorkspace extends pulumi.CustomResource {
      */
     public /*out*/ readonly defaultIngestionSettings!: pulumi.Output<outputs.monitor.v20231001preview.IngestionSettingsResponse>;
     /**
+     * Resource entity tag (ETag)
+     */
+    public /*out*/ readonly etag!: pulumi.Output<string>;
+    /**
      * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
@@ -102,6 +106,7 @@ export class AzureMonitorWorkspace extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["accountId"] = undefined /*out*/;
             resourceInputs["defaultIngestionSettings"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["metrics"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["privateEndpointConnections"] = undefined /*out*/;
@@ -112,6 +117,7 @@ export class AzureMonitorWorkspace extends pulumi.CustomResource {
         } else {
             resourceInputs["accountId"] = undefined /*out*/;
             resourceInputs["defaultIngestionSettings"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["metrics"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

@@ -101,6 +101,7 @@ from .linked_workspace import *
 from .list_batch_endpoint_keys import *
 from .list_compute_keys import *
 from .list_compute_nodes import *
+from .list_connection_models import *
 from .list_datastore_secrets import *
 from .list_endpoint_keys import *
 from .list_featureset_version_features import *
@@ -177,6 +178,8 @@ if typing.TYPE_CHECKING:
     v20240401 = __v20240401
     import pulumi_azure_native.machinelearningservices.v20240401preview as __v20240401preview
     v20240401preview = __v20240401preview
+    import pulumi_azure_native.machinelearningservices.v20240701preview as __v20240701preview
+    v20240701preview = __v20240701preview
 else:
     v20200501preview = _utilities.lazy_import('pulumi_azure_native.machinelearningservices.v20200501preview')
     v20200515preview = _utilities.lazy_import('pulumi_azure_native.machinelearningservices.v20200515preview')
@@ -195,4 +198,5 @@ else:
     v20240101preview = _utilities.lazy_import('pulumi_azure_native.machinelearningservices.v20240101preview')
     v20240401 = _utilities.lazy_import('pulumi_azure_native.machinelearningservices.v20240401')
     v20240401preview = _utilities.lazy_import('pulumi_azure_native.machinelearningservices.v20240401preview')
+    v20240701preview = _utilities.lazy_import('pulumi_azure_native.machinelearningservices.v20240701preview')
 

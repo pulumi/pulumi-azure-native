@@ -24,6 +24,10 @@ namespace Pulumi.AzureNative.Cdn.V20240201.Outputs
         /// Defines which query string parameters in the url to be considered for expires, key id etc. 
         /// </summary>
         public readonly ImmutableArray<Outputs.UrlSigningParamIdentifierResponse> ParameterNameOverride;
+        /// <summary>
+        /// 
+        /// Expected value is 'DeliveryRuleUrlSigningActionParameters'.
+        /// </summary>
         public readonly string TypeName;
 
         [OutputConstructor]

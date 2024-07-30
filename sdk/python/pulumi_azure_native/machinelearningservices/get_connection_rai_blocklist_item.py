@@ -103,6 +103,8 @@ def get_connection_rai_blocklist_item(connection_name: Optional[str] = None,
     """
     Azure REST API version: 2024-04-01-preview.
 
+    Other available API versions: 2024-07-01-preview.
+
 
     :param str connection_name: Friendly name of the workspace connection
     :param str rai_blocklist_name: The name of the RaiBlocklist.
@@ -133,6 +135,8 @@ def get_connection_rai_blocklist_item_output(connection_name: Optional[pulumi.In
                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectionRaiBlocklistItemResult]:
     """
     Azure REST API version: 2024-04-01-preview.
+
+    Other available API versions: 2024-07-01-preview.
 
 
     :param str connection_name: Friendly name of the workspace connection

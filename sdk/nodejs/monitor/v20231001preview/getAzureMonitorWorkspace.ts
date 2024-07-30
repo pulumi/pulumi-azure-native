@@ -43,6 +43,10 @@ export interface GetAzureMonitorWorkspaceResult {
      */
     readonly defaultIngestionSettings: outputs.monitor.v20231001preview.IngestionSettingsResponse;
     /**
+     * Resource entity tag (ETag)
+     */
+    readonly etag: string;
+    /**
      * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;

@@ -102,7 +102,7 @@ class Job(pulumi.CustomResource):
         Azure Resource Manager resource envelope.
         Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2021-03-01-preview.
 
-        Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview.
+        Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -121,7 +121,7 @@ class Job(pulumi.CustomResource):
         Azure Resource Manager resource envelope.
         Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2021-03-01-preview.
 
-        Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview.
+        Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview.
 
         :param str resource_name: The name of the resource.
         :param JobArgs args: The arguments to use to populate this resource's properties.
@@ -164,7 +164,7 @@ class Job(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:machinelearningservices/v20210301preview:Job"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220201preview:Job"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220501:Job"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220601preview:Job"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221001:Job"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221001preview:Job"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221201preview:Job"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230201preview:Job"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230401:Job"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230401preview:Job"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230601preview:Job"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230801preview:Job"), pulumi.Alias(type_="azure-native:machinelearningservices/v20231001:Job"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240101preview:Job"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240401:Job"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240401preview:Job")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:machinelearningservices/v20210301preview:Job"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220201preview:Job"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220501:Job"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220601preview:Job"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221001:Job"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221001preview:Job"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221201preview:Job"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230201preview:Job"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230401:Job"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230401preview:Job"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230601preview:Job"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230801preview:Job"), pulumi.Alias(type_="azure-native:machinelearningservices/v20231001:Job"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240101preview:Job"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240401:Job"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240401preview:Job"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240701preview:Job")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Job, __self__).__init__(
             'azure-native:machinelearningservices:Job',

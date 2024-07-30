@@ -33,6 +33,10 @@ namespace Pulumi.AzureNative.Cdn.V20240201.Inputs
         [Input("cacheType", required: true)]
         public InputUnion<string, Pulumi.AzureNative.Cdn.V20240201.CacheType> CacheType { get; set; } = null!;
 
+        /// <summary>
+        /// 
+        /// Expected value is 'DeliveryRuleCacheExpirationActionParameters'.
+        /// </summary>
         [Input("typeName", required: true)]
         public Input<string> TypeName { get; set; } = null!;
 

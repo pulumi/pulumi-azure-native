@@ -153,6 +153,7 @@ class AzureMonitorWorkspace(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["account_id"] = None
             __props__.__dict__["default_ingestion_settings"] = None
+            __props__.__dict__["etag"] = None
             __props__.__dict__["metrics"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["private_endpoint_connections"] = None
@@ -186,6 +187,7 @@ class AzureMonitorWorkspace(pulumi.CustomResource):
 
         __props__.__dict__["account_id"] = None
         __props__.__dict__["default_ingestion_settings"] = None
+        __props__.__dict__["etag"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["metrics"] = None
         __props__.__dict__["name"] = None
@@ -212,6 +214,14 @@ class AzureMonitorWorkspace(pulumi.CustomResource):
         The Data Collection Rule and Endpoint used for ingestion by default.
         """
         return pulumi.get(self, "default_ingestion_settings")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> pulumi.Output[str]:
+        """
+        Resource entity tag (ETag)
+        """
+        return pulumi.get(self, "etag")
 
     @property
     @pulumi.getter

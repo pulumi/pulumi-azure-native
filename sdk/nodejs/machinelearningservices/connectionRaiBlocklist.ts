@@ -9,6 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Azure REST API version: 2024-04-01-preview.
+ *
+ * Other available API versions: 2024-07-01-preview.
  */
 export class ConnectionRaiBlocklist extends pulumi.CustomResource {
     /**
@@ -96,7 +98,7 @@ export class ConnectionRaiBlocklist extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20240401preview:ConnectionRaiBlocklist" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20240401preview:ConnectionRaiBlocklist" }, { type: "azure-native:machinelearningservices/v20240701preview:ConnectionRaiBlocklist" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ConnectionRaiBlocklist.__pulumiType, name, resourceInputs, opts);
     }

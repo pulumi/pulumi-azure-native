@@ -90,6 +90,7 @@ namespace Pulumi.AzureNative.NetApp.V20231101Preview
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20230701:VolumeGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20230701preview:VolumeGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20231101:VolumeGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20240301:VolumeGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20240301preview:VolumeGroup" },
                 },
             };

@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
     /// <summary>
     /// Azure REST API version: 2023-08-01-preview.
     /// 
-    /// Other available API versions: 2024-01-01-preview, 2024-04-01, 2024-04-01-preview.
+    /// Other available API versions: 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices:ServerlessEndpoint")]
     public partial class ServerlessEndpoint : global::Pulumi.CustomResource
@@ -100,6 +100,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20240101preview:ServerlessEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20240401:ServerlessEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20240401preview:ServerlessEndpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20240701preview:ServerlessEndpoint" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

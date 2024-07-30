@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Gets properties of the specified application.
  * Azure REST API version: 2021-06-01.
  *
- * Other available API versions: 2023-04-15-preview, 2023-08-15-preview.
+ * Other available API versions: 2023-04-15-preview, 2023-08-15-preview, 2024-08-01-preview.
  */
 export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationResult> {
 
@@ -75,7 +75,7 @@ export interface GetApplicationResult {
  * Gets properties of the specified application.
  * Azure REST API version: 2021-06-01.
  *
- * Other available API versions: 2023-04-15-preview, 2023-08-15-preview.
+ * Other available API versions: 2023-04-15-preview, 2023-08-15-preview, 2024-08-01-preview.
  */
 export function getApplicationOutput(args: GetApplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationResult> {
     return pulumi.output(args).apply((a: any) => getApplication(a, opts))

@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Azure Resource Manager resource envelope.
  * Azure REST API version: 2024-01-01-preview.
  *
- * Other available API versions: 2024-04-01, 2024-04-01-preview.
+ * Other available API versions: 2024-04-01, 2024-04-01-preview, 2024-07-01-preview.
  */
 export function getMarketplaceSubscription(args: GetMarketplaceSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetMarketplaceSubscriptionResult> {
 
@@ -67,7 +67,7 @@ export interface GetMarketplaceSubscriptionResult {
  * Azure Resource Manager resource envelope.
  * Azure REST API version: 2024-01-01-preview.
  *
- * Other available API versions: 2024-04-01, 2024-04-01-preview.
+ * Other available API versions: 2024-04-01, 2024-04-01-preview, 2024-07-01-preview.
  */
 export function getMarketplaceSubscriptionOutput(args: GetMarketplaceSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMarketplaceSubscriptionResult> {
     return pulumi.output(args).apply((a: any) => getMarketplaceSubscription(a, opts))

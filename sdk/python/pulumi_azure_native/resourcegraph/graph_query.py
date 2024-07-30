@@ -118,7 +118,7 @@ class GraphQuery(pulumi.CustomResource):
         Graph Query entity definition.
         Azure REST API version: 2020-04-01-preview. Prior API version in Azure Native 1.x: 2018-09-01-preview.
 
-        Other available API versions: 2018-09-01-preview, 2019-04-01, 2021-03-01, 2022-10-01.
+        Other available API versions: 2018-09-01-preview, 2019-04-01, 2021-03-01, 2022-10-01, 2024-04-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -138,7 +138,7 @@ class GraphQuery(pulumi.CustomResource):
         Graph Query entity definition.
         Azure REST API version: 2020-04-01-preview. Prior API version in Azure Native 1.x: 2018-09-01-preview.
 
-        Other available API versions: 2018-09-01-preview, 2019-04-01, 2021-03-01, 2022-10-01.
+        Other available API versions: 2018-09-01-preview, 2019-04-01, 2021-03-01, 2022-10-01, 2024-04-01.
 
         :param str resource_name: The name of the resource.
         :param GraphQueryArgs args: The arguments to use to populate this resource's properties.
@@ -185,7 +185,7 @@ class GraphQuery(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["time_modified"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:resourcegraph/v20180901preview:GraphQuery"), pulumi.Alias(type_="azure-native:resourcegraph/v20190401:GraphQuery"), pulumi.Alias(type_="azure-native:resourcegraph/v20200401preview:GraphQuery"), pulumi.Alias(type_="azure-native:resourcegraph/v20210301:GraphQuery"), pulumi.Alias(type_="azure-native:resourcegraph/v20221001:GraphQuery")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:resourcegraph/v20180901preview:GraphQuery"), pulumi.Alias(type_="azure-native:resourcegraph/v20190401:GraphQuery"), pulumi.Alias(type_="azure-native:resourcegraph/v20200401preview:GraphQuery"), pulumi.Alias(type_="azure-native:resourcegraph/v20210301:GraphQuery"), pulumi.Alias(type_="azure-native:resourcegraph/v20221001:GraphQuery"), pulumi.Alias(type_="azure-native:resourcegraph/v20240401:GraphQuery")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(GraphQuery, __self__).__init__(
             'azure-native:resourcegraph:GraphQuery',

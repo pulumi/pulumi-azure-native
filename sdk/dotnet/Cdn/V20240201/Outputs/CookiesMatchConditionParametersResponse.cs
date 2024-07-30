@@ -36,6 +36,10 @@ namespace Pulumi.AzureNative.Cdn.V20240201.Outputs
         /// List of transforms
         /// </summary>
         public readonly ImmutableArray<string> Transforms;
+        /// <summary>
+        /// 
+        /// Expected value is 'DeliveryRuleCookiesConditionParameters'.
+        /// </summary>
         public readonly string TypeName;
 
         [OutputConstructor]

@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
  * Gets the gateway settings for the specified cluster.
  * Azure REST API version: 2021-06-01.
  *
- * Other available API versions: 2023-04-15-preview, 2023-08-15-preview.
+ * Other available API versions: 2023-04-15-preview, 2023-08-15-preview, 2024-08-01-preview.
  */
 export function getClusterGatewaySettings(args: GetClusterGatewaySettingsArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterGatewaySettingsResult> {
 
@@ -51,7 +51,7 @@ export interface GetClusterGatewaySettingsResult {
  * Gets the gateway settings for the specified cluster.
  * Azure REST API version: 2021-06-01.
  *
- * Other available API versions: 2023-04-15-preview, 2023-08-15-preview.
+ * Other available API versions: 2023-04-15-preview, 2023-08-15-preview, 2024-08-01-preview.
  */
 export function getClusterGatewaySettingsOutput(args: GetClusterGatewaySettingsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterGatewaySettingsResult> {
     return pulumi.output(args).apply((a: any) => getClusterGatewaySettings(a, opts))

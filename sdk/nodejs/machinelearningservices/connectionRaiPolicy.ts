@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Azure OpenAI Content Filters resource.
  * Azure REST API version: 2024-04-01-preview.
+ *
+ * Other available API versions: 2024-07-01-preview.
  */
 export class ConnectionRaiPolicy extends pulumi.CustomResource {
     /**
@@ -93,7 +95,7 @@ export class ConnectionRaiPolicy extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20240401preview:ConnectionRaiPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20240401preview:ConnectionRaiPolicy" }, { type: "azure-native:machinelearningservices/v20240701preview:ConnectionRaiPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ConnectionRaiPolicy.__pulumiType, name, resourceInputs, opts);
     }

@@ -29,6 +29,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly object? ConnectionString;
         /// <summary>
+        /// Database name for connection. Type: string.
+        /// </summary>
+        public readonly object? Database;
+        /// <summary>
         /// Linked service description.
         /// </summary>
         public readonly string? Description;
@@ -41,14 +45,26 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? Parameters;
         /// <summary>
+        /// The port for the connection. Type: integer.
+        /// </summary>
+        public readonly object? Port;
+        /// <summary>
         /// The Azure key vault secret reference of password in connection string.
         /// </summary>
         public readonly Outputs.AzureKeyVaultSecretReferenceResponse? Pwd;
+        /// <summary>
+        /// Server name for connection. Type: string.
+        /// </summary>
+        public readonly object? Server;
         /// <summary>
         /// Type of linked service.
         /// Expected value is 'Vertica'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Username for authentication. Type: string.
+        /// </summary>
+        public readonly object? Uid;
 
         [OutputConstructor]
         private VerticaLinkedServiceResponse(
@@ -58,24 +74,36 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             object? connectionString,
 
+            object? database,
+
             string? description,
 
             string? encryptedCredential,
 
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
+            object? port,
+
             Outputs.AzureKeyVaultSecretReferenceResponse? pwd,
 
-            string type)
+            object? server,
+
+            string type,
+
+            object? uid)
         {
             Annotations = annotations;
             ConnectVia = connectVia;
             ConnectionString = connectionString;
+            Database = database;
             Description = description;
             EncryptedCredential = encryptedCredential;
             Parameters = parameters;
+            Port = port;
             Pwd = pwd;
+            Server = server;
             Type = type;
+            Uid = uid;
         }
     }
 }

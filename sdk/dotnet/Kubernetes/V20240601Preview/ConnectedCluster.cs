@@ -219,6 +219,7 @@ namespace Pulumi.AzureNative.Kubernetes.V20240601Preview
                     new global::Pulumi.Alias { Type = "azure-native:kubernetes/v20240101:ConnectedCluster" },
                     new global::Pulumi.Alias { Type = "azure-native:kubernetes/v20240201preview:ConnectedCluster" },
                     new global::Pulumi.Alias { Type = "azure-native:kubernetes/v20240701preview:ConnectedCluster" },
+                    new global::Pulumi.Alias { Type = "azure-native:kubernetes/v20240715preview:ConnectedCluster" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -17,7 +17,9 @@ __all__ = [
     'ClientPortOperator',
     'CookiesOperator',
     'CustomRuleEnabledState',
-    'DeliveryRuleAction',
+    'DeliveryRuleActionName',
+    'DeliveryRuleActionParametersType',
+    'DeliveryRuleConditionParametersType',
     'DestinationProtocol',
     'EnabledState',
     'ForwardingProtocol',
@@ -27,7 +29,9 @@ __all__ = [
     'HostNameOperator',
     'HttpVersionOperator',
     'HttpsRedirect',
+    'IsDeviceMatchValue',
     'IsDeviceOperator',
+    'KeyVaultSigningKeyParametersType',
     'LinkToDefaultDomain',
     'ManagedRuleEnabledState',
     'ManagedServiceIdentityType',
@@ -48,7 +52,9 @@ __all__ = [
     'RemoteAddressOperator',
     'RequestBodyOperator',
     'RequestHeaderOperator',
+    'RequestMethodMatchValue',
     'RequestMethodOperator',
+    'RequestSchemeMatchValue',
     'RequestUriOperator',
     'ResponseBasedDetectedErrorTypes',
     'RuleCacheBehavior',
@@ -192,7 +198,7 @@ class CustomRuleEnabledState(str, Enum):
     ENABLED = "Enabled"
 
 
-class DeliveryRuleAction(str, Enum):
+class DeliveryRuleActionName(str, Enum):
     """
     The name of the action for the delivery rule.
     """
@@ -205,6 +211,39 @@ class DeliveryRuleAction(str, Enum):
     URL_SIGNING = "UrlSigning"
     ORIGIN_GROUP_OVERRIDE = "OriginGroupOverride"
     ROUTE_CONFIGURATION_OVERRIDE = "RouteConfigurationOverride"
+
+
+class DeliveryRuleActionParametersType(str, Enum):
+    DELIVERY_RULE_URL_REDIRECT_ACTION_PARAMETERS = "DeliveryRuleUrlRedirectActionParameters"
+    DELIVERY_RULE_URL_SIGNING_ACTION_PARAMETERS = "DeliveryRuleUrlSigningActionParameters"
+    DELIVERY_RULE_ORIGIN_GROUP_OVERRIDE_ACTION_PARAMETERS = "DeliveryRuleOriginGroupOverrideActionParameters"
+    DELIVERY_RULE_URL_REWRITE_ACTION_PARAMETERS = "DeliveryRuleUrlRewriteActionParameters"
+    DELIVERY_RULE_HEADER_ACTION_PARAMETERS = "DeliveryRuleHeaderActionParameters"
+    DELIVERY_RULE_CACHE_EXPIRATION_ACTION_PARAMETERS = "DeliveryRuleCacheExpirationActionParameters"
+    DELIVERY_RULE_CACHE_KEY_QUERY_STRING_BEHAVIOR_ACTION_PARAMETERS = "DeliveryRuleCacheKeyQueryStringBehaviorActionParameters"
+    DELIVERY_RULE_ROUTE_CONFIGURATION_OVERRIDE_ACTION_PARAMETERS = "DeliveryRuleRouteConfigurationOverrideActionParameters"
+
+
+class DeliveryRuleConditionParametersType(str, Enum):
+    DELIVERY_RULE_REMOTE_ADDRESS_CONDITION_PARAMETERS = "DeliveryRuleRemoteAddressConditionParameters"
+    DELIVERY_RULE_REQUEST_METHOD_CONDITION_PARAMETERS = "DeliveryRuleRequestMethodConditionParameters"
+    DELIVERY_RULE_QUERY_STRING_CONDITION_PARAMETERS = "DeliveryRuleQueryStringConditionParameters"
+    DELIVERY_RULE_POST_ARGS_CONDITION_PARAMETERS = "DeliveryRulePostArgsConditionParameters"
+    DELIVERY_RULE_REQUEST_URI_CONDITION_PARAMETERS = "DeliveryRuleRequestUriConditionParameters"
+    DELIVERY_RULE_REQUEST_HEADER_CONDITION_PARAMETERS = "DeliveryRuleRequestHeaderConditionParameters"
+    DELIVERY_RULE_REQUEST_BODY_CONDITION_PARAMETERS = "DeliveryRuleRequestBodyConditionParameters"
+    DELIVERY_RULE_REQUEST_SCHEME_CONDITION_PARAMETERS = "DeliveryRuleRequestSchemeConditionParameters"
+    DELIVERY_RULE_URL_PATH_MATCH_CONDITION_PARAMETERS = "DeliveryRuleUrlPathMatchConditionParameters"
+    DELIVERY_RULE_URL_FILE_EXTENSION_MATCH_CONDITION_PARAMETERS = "DeliveryRuleUrlFileExtensionMatchConditionParameters"
+    DELIVERY_RULE_URL_FILENAME_CONDITION_PARAMETERS = "DeliveryRuleUrlFilenameConditionParameters"
+    DELIVERY_RULE_HTTP_VERSION_CONDITION_PARAMETERS = "DeliveryRuleHttpVersionConditionParameters"
+    DELIVERY_RULE_COOKIES_CONDITION_PARAMETERS = "DeliveryRuleCookiesConditionParameters"
+    DELIVERY_RULE_IS_DEVICE_CONDITION_PARAMETERS = "DeliveryRuleIsDeviceConditionParameters"
+    DELIVERY_RULE_SOCKET_ADDR_CONDITION_PARAMETERS = "DeliveryRuleSocketAddrConditionParameters"
+    DELIVERY_RULE_CLIENT_PORT_CONDITION_PARAMETERS = "DeliveryRuleClientPortConditionParameters"
+    DELIVERY_RULE_SERVER_PORT_CONDITION_PARAMETERS = "DeliveryRuleServerPortConditionParameters"
+    DELIVERY_RULE_HOST_NAME_CONDITION_PARAMETERS = "DeliveryRuleHostNameConditionParameters"
+    DELIVERY_RULE_SSL_PROTOCOL_CONDITION_PARAMETERS = "DeliveryRuleSslProtocolConditionParameters"
 
 
 class DestinationProtocol(str, Enum):
@@ -290,11 +329,20 @@ class HttpsRedirect(str, Enum):
     DISABLED = "Disabled"
 
 
+class IsDeviceMatchValue(str, Enum):
+    MOBILE = "Mobile"
+    DESKTOP = "Desktop"
+
+
 class IsDeviceOperator(str, Enum):
     """
     Describes operator to be matched
     """
     EQUAL = "Equal"
+
+
+class KeyVaultSigningKeyParametersType(str, Enum):
+    KEY_VAULT_SIGNING_KEY_PARAMETERS = "KeyVaultSigningKeyParameters"
 
 
 class LinkToDefaultDomain(str, Enum):
@@ -530,11 +578,26 @@ class RequestHeaderOperator(str, Enum):
     REG_EX = "RegEx"
 
 
+class RequestMethodMatchValue(str, Enum):
+    GET = "GET"
+    HEAD = "HEAD"
+    POST = "POST"
+    PUT = "PUT"
+    DELETE = "DELETE"
+    OPTIONS = "OPTIONS"
+    TRACE = "TRACE"
+
+
 class RequestMethodOperator(str, Enum):
     """
     Describes operator to be matched
     """
     EQUAL = "Equal"
+
+
+class RequestSchemeMatchValue(str, Enum):
+    HTTP = "HTTP"
+    HTTPS = "HTTPS"
 
 
 class RequestUriOperator(str, Enum):

@@ -186,7 +186,7 @@ class ServerlessEndpoint(pulumi.CustomResource):
         """
         Azure REST API version: 2023-08-01-preview.
 
-        Other available API versions: 2024-01-01-preview, 2024-04-01, 2024-04-01-preview.
+        Other available API versions: 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -209,7 +209,7 @@ class ServerlessEndpoint(pulumi.CustomResource):
         """
         Azure REST API version: 2023-08-01-preview.
 
-        Other available API versions: 2024-01-01-preview, 2024-04-01, 2024-04-01-preview.
+        Other available API versions: 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview.
 
         :param str resource_name: The name of the resource.
         :param ServerlessEndpointInitArgs args: The arguments to use to populate this resource's properties.
@@ -261,7 +261,7 @@ class ServerlessEndpoint(pulumi.CustomResource):
             __props__.__dict__["workspace_name"] = workspace_name
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:machinelearningservices/v20230801preview:ServerlessEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240101preview:ServerlessEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240401:ServerlessEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240401preview:ServerlessEndpoint")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:machinelearningservices/v20230801preview:ServerlessEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240101preview:ServerlessEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240401:ServerlessEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240401preview:ServerlessEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240701preview:ServerlessEndpoint")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ServerlessEndpoint, __self__).__init__(
             'azure-native:machinelearningservices:ServerlessEndpoint',

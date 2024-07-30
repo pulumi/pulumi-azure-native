@@ -78,6 +78,10 @@ namespace Pulumi.AzureNative.Monitor.V20231001Preview
         /// </summary>
         public readonly Outputs.IngestionSettingsResponse DefaultIngestionSettings;
         /// <summary>
+        /// Resource entity tag (ETag)
+        /// </summary>
+        public readonly string Etag;
+        /// <summary>
         /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
@@ -124,6 +128,8 @@ namespace Pulumi.AzureNative.Monitor.V20231001Preview
 
             Outputs.IngestionSettingsResponse defaultIngestionSettings,
 
+            string etag,
+
             string id,
 
             string location,
@@ -146,6 +152,7 @@ namespace Pulumi.AzureNative.Monitor.V20231001Preview
         {
             AccountId = accountId;
             DefaultIngestionSettings = defaultIngestionSettings;
+            Etag = etag;
             Id = id;
             Location = location;
             Metrics = metrics;

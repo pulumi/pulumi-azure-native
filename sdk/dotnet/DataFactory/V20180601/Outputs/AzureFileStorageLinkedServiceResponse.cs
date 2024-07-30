@@ -33,6 +33,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly object? ConnectionString;
         /// <summary>
+        /// The credential reference containing authentication information.
+        /// </summary>
+        public readonly Outputs.CredentialReferenceResponse? Credential;
+        /// <summary>
         /// Linked service description.
         /// </summary>
         public readonly string? Description;
@@ -65,6 +69,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly object? SasUri;
         /// <summary>
+        /// File service endpoint of the Azure File Storage resource. It is mutually exclusive with connectionString, sasUri property.
+        /// </summary>
+        public readonly object? ServiceEndpoint;
+        /// <summary>
         /// The azure file share snapshot version. Type: string (or Expression with resultType string).
         /// </summary>
         public readonly object? Snapshot;
@@ -88,6 +96,8 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             object? connectionString,
 
+            Outputs.CredentialReferenceResponse? credential,
+
             string? description,
 
             string? encryptedCredential,
@@ -104,6 +114,8 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             object? sasUri,
 
+            object? serviceEndpoint,
+
             object? snapshot,
 
             string type,
@@ -114,6 +126,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
             Annotations = annotations;
             ConnectVia = connectVia;
             ConnectionString = connectionString;
+            Credential = credential;
             Description = description;
             EncryptedCredential = encryptedCredential;
             FileShare = fileShare;
@@ -122,6 +135,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
             Password = password;
             SasToken = sasToken;
             SasUri = sasUri;
+            ServiceEndpoint = serviceEndpoint;
             Snapshot = snapshot;
             Type = type;
             UserId = userId;

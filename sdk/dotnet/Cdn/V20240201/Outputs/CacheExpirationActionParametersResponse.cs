@@ -28,6 +28,10 @@ namespace Pulumi.AzureNative.Cdn.V20240201.Outputs
         /// The level at which the content needs to be cached.
         /// </summary>
         public readonly string CacheType;
+        /// <summary>
+        /// 
+        /// Expected value is 'DeliveryRuleCacheExpirationActionParameters'.
+        /// </summary>
         public readonly string TypeName;
 
         [OutputConstructor]

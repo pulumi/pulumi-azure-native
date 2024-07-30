@@ -176,7 +176,7 @@ class ConnectionRaiBlocklistItem(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:machinelearningservices:ConnectionRaiBlocklistItem")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:machinelearningservices:ConnectionRaiBlocklistItem"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240701preview:ConnectionRaiBlocklistItem")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ConnectionRaiBlocklistItem, __self__).__init__(
             'azure-native:machinelearningservices/v20240401preview:ConnectionRaiBlocklistItem',

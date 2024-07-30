@@ -10490,6 +10490,8 @@ class AzureFileStorageLinkedServiceResponse(dict):
             suggest = "sas_token"
         elif key == "sasUri":
             suggest = "sas_uri"
+        elif key == "serviceEndpoint":
+            suggest = "service_endpoint"
         elif key == "userId":
             suggest = "user_id"
 
@@ -10510,6 +10512,7 @@ class AzureFileStorageLinkedServiceResponse(dict):
                  annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  connection_string: Optional[Any] = None,
+                 credential: Optional['outputs.CredentialReferenceResponse'] = None,
                  description: Optional[str] = None,
                  encrypted_credential: Optional[str] = None,
                  file_share: Optional[Any] = None,
@@ -10518,6 +10521,7 @@ class AzureFileStorageLinkedServiceResponse(dict):
                  password: Optional[Any] = None,
                  sas_token: Optional['outputs.AzureKeyVaultSecretReferenceResponse'] = None,
                  sas_uri: Optional[Any] = None,
+                 service_endpoint: Optional[Any] = None,
                  snapshot: Optional[Any] = None,
                  user_id: Optional[Any] = None):
         """
@@ -10528,6 +10532,7 @@ class AzureFileStorageLinkedServiceResponse(dict):
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param Any connection_string: The connection string. It is mutually exclusive with sasUri property. Type: string, SecureString or AzureKeyVaultSecretReference.
+        :param 'CredentialReferenceResponse' credential: The credential reference containing authentication information.
         :param str description: Linked service description.
         :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Any file_share: The azure file share name. It is required when auth with accountKey/sasToken. Type: string (or Expression with resultType string).
@@ -10536,6 +10541,7 @@ class AzureFileStorageLinkedServiceResponse(dict):
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: Password to logon the server.
         :param 'AzureKeyVaultSecretReferenceResponse' sas_token: The Azure key vault secret reference of sasToken in sas uri.
         :param Any sas_uri: SAS URI of the Azure File resource. It is mutually exclusive with connectionString property. Type: string, SecureString or AzureKeyVaultSecretReference.
+        :param Any service_endpoint: File service endpoint of the Azure File Storage resource. It is mutually exclusive with connectionString, sasUri property.
         :param Any snapshot: The azure file share snapshot version. Type: string (or Expression with resultType string).
         :param Any user_id: User ID to logon the server. Type: string (or Expression with resultType string).
         """
@@ -10548,6 +10554,8 @@ class AzureFileStorageLinkedServiceResponse(dict):
             pulumi.set(__self__, "connect_via", connect_via)
         if connection_string is not None:
             pulumi.set(__self__, "connection_string", connection_string)
+        if credential is not None:
+            pulumi.set(__self__, "credential", credential)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if encrypted_credential is not None:
@@ -10564,6 +10572,8 @@ class AzureFileStorageLinkedServiceResponse(dict):
             pulumi.set(__self__, "sas_token", sas_token)
         if sas_uri is not None:
             pulumi.set(__self__, "sas_uri", sas_uri)
+        if service_endpoint is not None:
+            pulumi.set(__self__, "service_endpoint", service_endpoint)
         if snapshot is not None:
             pulumi.set(__self__, "snapshot", snapshot)
         if user_id is not None:
@@ -10609,6 +10619,14 @@ class AzureFileStorageLinkedServiceResponse(dict):
         The connection string. It is mutually exclusive with sasUri property. Type: string, SecureString or AzureKeyVaultSecretReference.
         """
         return pulumi.get(self, "connection_string")
+
+    @property
+    @pulumi.getter
+    def credential(self) -> Optional['outputs.CredentialReferenceResponse']:
+        """
+        The credential reference containing authentication information.
+        """
+        return pulumi.get(self, "credential")
 
     @property
     @pulumi.getter
@@ -10673,6 +10691,14 @@ class AzureFileStorageLinkedServiceResponse(dict):
         SAS URI of the Azure File resource. It is mutually exclusive with connectionString property. Type: string, SecureString or AzureKeyVaultSecretReference.
         """
         return pulumi.get(self, "sas_uri")
+
+    @property
+    @pulumi.getter(name="serviceEndpoint")
+    def service_endpoint(self) -> Optional[Any]:
+        """
+        File service endpoint of the Azure File Storage resource. It is mutually exclusive with connectionString, sasUri property.
+        """
+        return pulumi.get(self, "service_endpoint")
 
     @property
     @pulumi.getter
@@ -85118,10 +85144,14 @@ class VerticaLinkedServiceResponse(dict):
                  annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  connection_string: Optional[Any] = None,
+                 database: Optional[Any] = None,
                  description: Optional[str] = None,
                  encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
-                 pwd: Optional['outputs.AzureKeyVaultSecretReferenceResponse'] = None):
+                 port: Optional[Any] = None,
+                 pwd: Optional['outputs.AzureKeyVaultSecretReferenceResponse'] = None,
+                 server: Optional[Any] = None,
+                 uid: Optional[Any] = None):
         """
         Vertica linked service.
         :param str type: Type of linked service.
@@ -85129,10 +85159,14 @@ class VerticaLinkedServiceResponse(dict):
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param Any connection_string: An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
+        :param Any database: Database name for connection. Type: string.
         :param str description: Linked service description.
         :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param Any port: The port for the connection. Type: integer.
         :param 'AzureKeyVaultSecretReferenceResponse' pwd: The Azure key vault secret reference of password in connection string.
+        :param Any server: Server name for connection. Type: string.
+        :param Any uid: Username for authentication. Type: string.
         """
         pulumi.set(__self__, "type", 'Vertica')
         if annotations is not None:
@@ -85141,14 +85175,22 @@ class VerticaLinkedServiceResponse(dict):
             pulumi.set(__self__, "connect_via", connect_via)
         if connection_string is not None:
             pulumi.set(__self__, "connection_string", connection_string)
+        if database is not None:
+            pulumi.set(__self__, "database", database)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if encrypted_credential is not None:
             pulumi.set(__self__, "encrypted_credential", encrypted_credential)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
         if pwd is not None:
             pulumi.set(__self__, "pwd", pwd)
+        if server is not None:
+            pulumi.set(__self__, "server", server)
+        if uid is not None:
+            pulumi.set(__self__, "uid", uid)
 
     @property
     @pulumi.getter
@@ -85185,6 +85227,14 @@ class VerticaLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
+    def database(self) -> Optional[Any]:
+        """
+        Database name for connection. Type: string.
+        """
+        return pulumi.get(self, "database")
+
+    @property
+    @pulumi.getter
     def description(self) -> Optional[str]:
         """
         Linked service description.
@@ -85209,11 +85259,35 @@ class VerticaLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
+    def port(self) -> Optional[Any]:
+        """
+        The port for the connection. Type: integer.
+        """
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter
     def pwd(self) -> Optional['outputs.AzureKeyVaultSecretReferenceResponse']:
         """
         The Azure key vault secret reference of password in connection string.
         """
         return pulumi.get(self, "pwd")
+
+    @property
+    @pulumi.getter
+    def server(self) -> Optional[Any]:
+        """
+        Server name for connection. Type: string.
+        """
+        return pulumi.get(self, "server")
+
+    @property
+    @pulumi.getter
+    def uid(self) -> Optional[Any]:
+        """
+        Username for authentication. Type: string.
+        """
+        return pulumi.get(self, "uid")
 
 
 @pulumi.output_type

@@ -11,6 +11,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
 {
     /// <summary>
     /// Azure REST API version: 2024-04-01-preview.
+    /// 
+    /// Other available API versions: 2024-07-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices:ConnectionRaiBlocklist")]
     public partial class ConnectionRaiBlocklist : global::Pulumi.CustomResource
@@ -65,6 +67,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20240401preview:ConnectionRaiBlocklist" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20240701preview:ConnectionRaiBlocklist" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

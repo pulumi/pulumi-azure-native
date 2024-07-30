@@ -602,7 +602,7 @@ class Migration(pulumi.CustomResource):
             __props__.__dict__["target_db_server_metadata"] = None
             __props__.__dict__["target_db_server_resource_id"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dbforpostgresql:Migration"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20210615privatepreview:Migration"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20220501preview:Migration"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20230301preview:Migration"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20230601preview:Migration")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dbforpostgresql:Migration"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20210615privatepreview:Migration"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20220501preview:Migration"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20230301preview:Migration"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20230601preview:Migration"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20240301preview:Migration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Migration, __self__).__init__(
             'azure-native:dbforpostgresql/v20231201preview:Migration',

@@ -21,10 +21,13 @@ if typing.TYPE_CHECKING:
     v20210301 = __v20210301
     import pulumi_azure_native.resourcegraph.v20221001 as __v20221001
     v20221001 = __v20221001
+    import pulumi_azure_native.resourcegraph.v20240401 as __v20240401
+    v20240401 = __v20240401
 else:
     v20180901preview = _utilities.lazy_import('pulumi_azure_native.resourcegraph.v20180901preview')
     v20190401 = _utilities.lazy_import('pulumi_azure_native.resourcegraph.v20190401')
     v20200401preview = _utilities.lazy_import('pulumi_azure_native.resourcegraph.v20200401preview')
     v20210301 = _utilities.lazy_import('pulumi_azure_native.resourcegraph.v20210301')
     v20221001 = _utilities.lazy_import('pulumi_azure_native.resourcegraph.v20221001')
+    v20240401 = _utilities.lazy_import('pulumi_azure_native.resourcegraph.v20240401')
 

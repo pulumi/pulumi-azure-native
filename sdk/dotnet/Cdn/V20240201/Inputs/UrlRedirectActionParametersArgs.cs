@@ -51,6 +51,10 @@ namespace Pulumi.AzureNative.Cdn.V20240201.Inputs
         [Input("redirectType", required: true)]
         public InputUnion<string, Pulumi.AzureNative.Cdn.V20240201.RedirectType> RedirectType { get; set; } = null!;
 
+        /// <summary>
+        /// 
+        /// Expected value is 'DeliveryRuleUrlRedirectActionParameters'.
+        /// </summary>
         [Input("typeName", required: true)]
         public Input<string> TypeName { get; set; } = null!;
 

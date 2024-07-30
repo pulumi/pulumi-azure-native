@@ -132,6 +132,13 @@ __all__ = [
     'EncryptionPropertyResponse',
     'EndpointDeploymentModelResponse',
     'EndpointDeploymentResourcePropertiesResponse',
+    'EndpointModelDeprecationPropertiesResponse',
+    'EndpointModelPropertiesResponse',
+    'EndpointModelSkuCapacityPropertiesResponse',
+    'EndpointModelSkuPropertiesResponse',
+    'EndpointModelSkuRateLimitPropertiesResponse',
+    'EndpointModelSkuRateLimitRulePatternPropertiesResponse',
+    'EndpointModelSkuRateLimitRulePropertiesResponse',
     'EndpointResponse',
     'EndpointScheduleActionResponse',
     'EnvironmentContainerResponse',
@@ -11640,6 +11647,400 @@ class EndpointDeploymentResourcePropertiesResponse(dict):
         Deployment model version upgrade option.
         """
         return pulumi.get(self, "version_upgrade_option")
+
+
+@pulumi.output_type
+class EndpointModelDeprecationPropertiesResponse(dict):
+    def __init__(__self__, *,
+                 fine_tune: Optional[str] = None,
+                 inference: Optional[str] = None):
+        """
+        :param str fine_tune: The datetime of deprecation of the fineTune Model.
+        :param str inference: The datetime of deprecation of the inference Model.
+        """
+        if fine_tune is not None:
+            pulumi.set(__self__, "fine_tune", fine_tune)
+        if inference is not None:
+            pulumi.set(__self__, "inference", inference)
+
+    @property
+    @pulumi.getter(name="fineTune")
+    def fine_tune(self) -> Optional[str]:
+        """
+        The datetime of deprecation of the fineTune Model.
+        """
+        return pulumi.get(self, "fine_tune")
+
+    @property
+    @pulumi.getter
+    def inference(self) -> Optional[str]:
+        """
+        The datetime of deprecation of the inference Model.
+        """
+        return pulumi.get(self, "inference")
+
+
+@pulumi.output_type
+class EndpointModelPropertiesResponse(dict):
+    """
+    Endpoint Model properties.
+    """
+    def __init__(__self__, *,
+                 system_data: 'outputs.SystemDataResponse',
+                 capabilities: Optional[Mapping[str, str]] = None,
+                 deprecation: Optional['outputs.EndpointModelDeprecationPropertiesResponse'] = None,
+                 finetune_capabilities: Optional[Mapping[str, str]] = None,
+                 format: Optional[str] = None,
+                 is_default_version: Optional[bool] = None,
+                 lifecycle_status: Optional[str] = None,
+                 max_capacity: Optional[int] = None,
+                 name: Optional[str] = None,
+                 skus: Optional[Sequence['outputs.EndpointModelSkuPropertiesResponse']] = None,
+                 version: Optional[str] = None):
+        """
+        Endpoint Model properties.
+        :param 'SystemDataResponse' system_data: Metadata pertaining to creation and last modification of the resource.
+        :param Mapping[str, str] capabilities: The capabilities.
+        :param Mapping[str, str] finetune_capabilities: The capabilities for finetune models.
+        :param str format: Deployment model format.
+        :param bool is_default_version: If the model is default version.
+        :param str lifecycle_status: Model lifecycle status.
+        :param int max_capacity: The max capacity.
+        :param str name: Deployment model name.
+        :param Sequence['EndpointModelSkuPropertiesResponse'] skus: The list of Model Sku.
+        :param str version: Optional. Deployment model version. If version is not specified, a default version will be assigned. The default version is different for different models and might change when there is new version available for a model. Default version for a model could be found from list models API.
+        """
+        pulumi.set(__self__, "system_data", system_data)
+        if capabilities is not None:
+            pulumi.set(__self__, "capabilities", capabilities)
+        if deprecation is not None:
+            pulumi.set(__self__, "deprecation", deprecation)
+        if finetune_capabilities is not None:
+            pulumi.set(__self__, "finetune_capabilities", finetune_capabilities)
+        if format is not None:
+            pulumi.set(__self__, "format", format)
+        if is_default_version is not None:
+            pulumi.set(__self__, "is_default_version", is_default_version)
+        if lifecycle_status is not None:
+            pulumi.set(__self__, "lifecycle_status", lifecycle_status)
+        if max_capacity is not None:
+            pulumi.set(__self__, "max_capacity", max_capacity)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if skus is not None:
+            pulumi.set(__self__, "skus", skus)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
+    @pulumi.getter
+    def capabilities(self) -> Optional[Mapping[str, str]]:
+        """
+        The capabilities.
+        """
+        return pulumi.get(self, "capabilities")
+
+    @property
+    @pulumi.getter
+    def deprecation(self) -> Optional['outputs.EndpointModelDeprecationPropertiesResponse']:
+        return pulumi.get(self, "deprecation")
+
+    @property
+    @pulumi.getter(name="finetuneCapabilities")
+    def finetune_capabilities(self) -> Optional[Mapping[str, str]]:
+        """
+        The capabilities for finetune models.
+        """
+        return pulumi.get(self, "finetune_capabilities")
+
+    @property
+    @pulumi.getter
+    def format(self) -> Optional[str]:
+        """
+        Deployment model format.
+        """
+        return pulumi.get(self, "format")
+
+    @property
+    @pulumi.getter(name="isDefaultVersion")
+    def is_default_version(self) -> Optional[bool]:
+        """
+        If the model is default version.
+        """
+        return pulumi.get(self, "is_default_version")
+
+    @property
+    @pulumi.getter(name="lifecycleStatus")
+    def lifecycle_status(self) -> Optional[str]:
+        """
+        Model lifecycle status.
+        """
+        return pulumi.get(self, "lifecycle_status")
+
+    @property
+    @pulumi.getter(name="maxCapacity")
+    def max_capacity(self) -> Optional[int]:
+        """
+        The max capacity.
+        """
+        return pulumi.get(self, "max_capacity")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Deployment model name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def skus(self) -> Optional[Sequence['outputs.EndpointModelSkuPropertiesResponse']]:
+        """
+        The list of Model Sku.
+        """
+        return pulumi.get(self, "skus")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Optional. Deployment model version. If version is not specified, a default version will be assigned. The default version is different for different models and might change when there is new version available for a model. Default version for a model could be found from list models API.
+        """
+        return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class EndpointModelSkuCapacityPropertiesResponse(dict):
+    def __init__(__self__, *,
+                 default: Optional[int] = None,
+                 maximum: Optional[int] = None):
+        """
+        :param int default: The default capacity.
+        :param int maximum: The maximum capacity.
+        """
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if maximum is not None:
+            pulumi.set(__self__, "maximum", maximum)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[int]:
+        """
+        The default capacity.
+        """
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def maximum(self) -> Optional[int]:
+        """
+        The maximum capacity.
+        """
+        return pulumi.get(self, "maximum")
+
+
+@pulumi.output_type
+class EndpointModelSkuPropertiesResponse(dict):
+    def __init__(__self__, *,
+                 capacity: Optional['outputs.EndpointModelSkuCapacityPropertiesResponse'] = None,
+                 connection_ids: Optional[Sequence[str]] = None,
+                 deprecation_date: Optional[str] = None,
+                 name: Optional[str] = None,
+                 rate_limits: Optional[Sequence['outputs.EndpointModelSkuRateLimitPropertiesResponse']] = None,
+                 usage_name: Optional[str] = None):
+        """
+        :param Sequence[str] connection_ids: The list of ARM id for the connection support this SKU.
+        :param str deprecation_date: The datetime of deprecation of the model SKU.
+        :param str name: The name of the model SKU.
+        :param str usage_name: The usage name of the model SKU.
+        """
+        if capacity is not None:
+            pulumi.set(__self__, "capacity", capacity)
+        if connection_ids is not None:
+            pulumi.set(__self__, "connection_ids", connection_ids)
+        if deprecation_date is not None:
+            pulumi.set(__self__, "deprecation_date", deprecation_date)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if rate_limits is not None:
+            pulumi.set(__self__, "rate_limits", rate_limits)
+        if usage_name is not None:
+            pulumi.set(__self__, "usage_name", usage_name)
+
+    @property
+    @pulumi.getter
+    def capacity(self) -> Optional['outputs.EndpointModelSkuCapacityPropertiesResponse']:
+        return pulumi.get(self, "capacity")
+
+    @property
+    @pulumi.getter(name="connectionIds")
+    def connection_ids(self) -> Optional[Sequence[str]]:
+        """
+        The list of ARM id for the connection support this SKU.
+        """
+        return pulumi.get(self, "connection_ids")
+
+    @property
+    @pulumi.getter(name="deprecationDate")
+    def deprecation_date(self) -> Optional[str]:
+        """
+        The datetime of deprecation of the model SKU.
+        """
+        return pulumi.get(self, "deprecation_date")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the model SKU.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="rateLimits")
+    def rate_limits(self) -> Optional[Sequence['outputs.EndpointModelSkuRateLimitPropertiesResponse']]:
+        return pulumi.get(self, "rate_limits")
+
+    @property
+    @pulumi.getter(name="usageName")
+    def usage_name(self) -> Optional[str]:
+        """
+        The usage name of the model SKU.
+        """
+        return pulumi.get(self, "usage_name")
+
+
+@pulumi.output_type
+class EndpointModelSkuRateLimitPropertiesResponse(dict):
+    def __init__(__self__, *,
+                 count: Optional[float] = None,
+                 renewal_period: Optional[float] = None,
+                 rules: Optional[Sequence['outputs.EndpointModelSkuRateLimitRulePropertiesResponse']] = None):
+        """
+        :param float count: The count value of Call Rate Limit.
+        :param float renewal_period: The renewal period in seconds of Call Rate Limit.
+        :param Sequence['EndpointModelSkuRateLimitRulePropertiesResponse'] rules: The call rate limit for the model.
+        """
+        if count is not None:
+            pulumi.set(__self__, "count", count)
+        if renewal_period is not None:
+            pulumi.set(__self__, "renewal_period", renewal_period)
+        if rules is not None:
+            pulumi.set(__self__, "rules", rules)
+
+    @property
+    @pulumi.getter
+    def count(self) -> Optional[float]:
+        """
+        The count value of Call Rate Limit.
+        """
+        return pulumi.get(self, "count")
+
+    @property
+    @pulumi.getter(name="renewalPeriod")
+    def renewal_period(self) -> Optional[float]:
+        """
+        The renewal period in seconds of Call Rate Limit.
+        """
+        return pulumi.get(self, "renewal_period")
+
+    @property
+    @pulumi.getter
+    def rules(self) -> Optional[Sequence['outputs.EndpointModelSkuRateLimitRulePropertiesResponse']]:
+        """
+        The call rate limit for the model.
+        """
+        return pulumi.get(self, "rules")
+
+
+@pulumi.output_type
+class EndpointModelSkuRateLimitRulePatternPropertiesResponse(dict):
+    def __init__(__self__, *,
+                 method: Optional[str] = None,
+                 path: Optional[str] = None):
+        if method is not None:
+            pulumi.set(__self__, "method", method)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+
+    @property
+    @pulumi.getter
+    def method(self) -> Optional[str]:
+        return pulumi.get(self, "method")
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[str]:
+        return pulumi.get(self, "path")
+
+
+@pulumi.output_type
+class EndpointModelSkuRateLimitRulePropertiesResponse(dict):
+    def __init__(__self__, *,
+                 count: Optional[float] = None,
+                 dynamic_throttling_enabled: Optional[bool] = None,
+                 key: Optional[str] = None,
+                 match_patterns: Optional[Sequence['outputs.EndpointModelSkuRateLimitRulePatternPropertiesResponse']] = None,
+                 min_count: Optional[float] = None,
+                 renewal_period: Optional[float] = None):
+        """
+        :param bool dynamic_throttling_enabled: If the dynamic throttling is enabled.
+        """
+        if count is not None:
+            pulumi.set(__self__, "count", count)
+        if dynamic_throttling_enabled is not None:
+            pulumi.set(__self__, "dynamic_throttling_enabled", dynamic_throttling_enabled)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if match_patterns is not None:
+            pulumi.set(__self__, "match_patterns", match_patterns)
+        if min_count is not None:
+            pulumi.set(__self__, "min_count", min_count)
+        if renewal_period is not None:
+            pulumi.set(__self__, "renewal_period", renewal_period)
+
+    @property
+    @pulumi.getter
+    def count(self) -> Optional[float]:
+        return pulumi.get(self, "count")
+
+    @property
+    @pulumi.getter(name="dynamicThrottlingEnabled")
+    def dynamic_throttling_enabled(self) -> Optional[bool]:
+        """
+        If the dynamic throttling is enabled.
+        """
+        return pulumi.get(self, "dynamic_throttling_enabled")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter(name="matchPatterns")
+    def match_patterns(self) -> Optional[Sequence['outputs.EndpointModelSkuRateLimitRulePatternPropertiesResponse']]:
+        return pulumi.get(self, "match_patterns")
+
+    @property
+    @pulumi.getter(name="minCount")
+    def min_count(self) -> Optional[float]:
+        return pulumi.get(self, "min_count")
+
+    @property
+    @pulumi.getter(name="renewalPeriod")
+    def renewal_period(self) -> Optional[float]:
+        return pulumi.get(self, "renewal_period")
 
 
 @pulumi.output_type

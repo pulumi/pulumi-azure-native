@@ -27,13 +27,16 @@ class GetAzureMonitorWorkspaceResult:
     """
     An Azure Monitor Workspace definition.
     """
-    def __init__(__self__, account_id=None, default_ingestion_settings=None, id=None, location=None, metrics=None, name=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, account_id=None, default_ingestion_settings=None, etag=None, id=None, location=None, metrics=None, name=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, system_data=None, tags=None, type=None):
         if account_id and not isinstance(account_id, str):
             raise TypeError("Expected argument 'account_id' to be a str")
         pulumi.set(__self__, "account_id", account_id)
         if default_ingestion_settings and not isinstance(default_ingestion_settings, dict):
             raise TypeError("Expected argument 'default_ingestion_settings' to be a dict")
         pulumi.set(__self__, "default_ingestion_settings", default_ingestion_settings)
+        if etag and not isinstance(etag, str):
+            raise TypeError("Expected argument 'etag' to be a str")
+        pulumi.set(__self__, "etag", etag)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -80,6 +83,14 @@ class GetAzureMonitorWorkspaceResult:
         The Data Collection Rule and Endpoint used for ingestion by default.
         """
         return pulumi.get(self, "default_ingestion_settings")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        Resource entity tag (ETag)
+        """
+        return pulumi.get(self, "etag")
 
     @property
     @pulumi.getter
@@ -170,6 +181,7 @@ class AwaitableGetAzureMonitorWorkspaceResult(GetAzureMonitorWorkspaceResult):
         return GetAzureMonitorWorkspaceResult(
             account_id=self.account_id,
             default_ingestion_settings=self.default_ingestion_settings,
+            etag=self.etag,
             id=self.id,
             location=self.location,
             metrics=self.metrics,
@@ -201,6 +213,7 @@ def get_azure_monitor_workspace(azure_monitor_workspace_name: Optional[str] = No
     return AwaitableGetAzureMonitorWorkspaceResult(
         account_id=pulumi.get(__ret__, 'account_id'),
         default_ingestion_settings=pulumi.get(__ret__, 'default_ingestion_settings'),
+        etag=pulumi.get(__ret__, 'etag'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
         metrics=pulumi.get(__ret__, 'metrics'),

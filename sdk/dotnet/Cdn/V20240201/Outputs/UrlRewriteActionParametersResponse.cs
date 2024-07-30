@@ -28,6 +28,10 @@ namespace Pulumi.AzureNative.Cdn.V20240201.Outputs
         /// define a request URI pattern that identifies the type of requests that may be rewritten. If value is blank, all strings are matched.
         /// </summary>
         public readonly string SourcePattern;
+        /// <summary>
+        /// 
+        /// Expected value is 'DeliveryRuleUrlRewriteActionParameters'.
+        /// </summary>
         public readonly string TypeName;
 
         [OutputConstructor]
