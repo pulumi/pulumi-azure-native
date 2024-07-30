@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 
+	"github.com/pulumi/pulumi-azure-native-sdk/authorization/v2"
 	"github.com/pulumi/pulumi-azure-native-sdk/compute/v2"
 	"github.com/pulumi/pulumi-azure-native-sdk/network/v2"
 	"github.com/pulumi/pulumi-azure-native-sdk/resources/v2"
@@ -14,6 +15,11 @@ import (
 // The VM parts are mostly based on https://learn.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-template
 func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
+		clientConf, err := authorization.GetClientConfig(ctx)
+		if err != nil {
+			return err
+		}
+
 		rg, err := resources.NewResourceGroup(ctx, "rg", &resources.ResourceGroupArgs{})
 		if err != nil {
 			return err
@@ -141,7 +147,7 @@ func main() {
 				},
 			},
 			VmName:   pulumi.String("myVM"),
-			Identity: &compute.VirtualMachineIdentityArgs{Type: compute.ResourceIdentityTypeNone},
+			Identity: &compute.VirtualMachineIdentityArgs{Type: compute.ResourceIdentityTypeSystemAssigned},
 		})
 		if err != nil {
 			return err
@@ -208,6 +214,7 @@ func main() {
 			Create: pulumi.String(fmt.Sprintf(`cd %s && \
 set -euxo pipefail
 export ARM_USE_MSI=true && \
+export ARM_SUBSCRIPTION_ID=%s && \
 export PATH=~/.pulumi/bin:$PATH && \
 export PULUMI_CONFIG_PASSPHRASE=pass && \
 rand=$(openssl rand -hex 4) && \
@@ -217,7 +224,7 @@ pulumi stack init $stackname && \
 pulumi up --skip-preview --logtostderr --logflow -v=9 && \
 pulumi down --skip-preview --logtostderr --logflow -v=9 && \
 pulumi stack rm --yes $stackname && \
-pulumi logout --local`, innerProgram, innerProgram)),
+pulumi logout --local`, innerProgram, clientConf.SubscriptionId, innerProgram)),
 		}, pulumi.DependsOn([]pulumi.Resource{copy, installPulumi}))
 		if err != nil {
 			return err
