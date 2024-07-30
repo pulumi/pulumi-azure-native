@@ -49,7 +49,7 @@ func main() {
 			PublicIPAllocationMethod: pulumi.String("Dynamic"),
 			PublicIPAddressVersion:   pulumi.String("IPv4"),
 			IdleTimeoutInMinutes:     pulumi.IntPtr(5),
-		})
+		}, pulumi.IgnoreChanges([]string{"ipAddress"}))
 		if err != nil {
 			return err
 		}
@@ -140,40 +140,47 @@ func main() {
 					Name: pulumi.String("myVMosdisk"),
 				},
 			},
-			VmName: pulumi.String("myVM"),
+			VmName:   pulumi.String("myVM"),
+			Identity: &compute.VirtualMachineIdentityArgs{Type: compute.ResourceIdentityTypeNone},
 		})
 		if err != nil {
 			return err
 		}
 
-		sshConn := remote.ConnectionArgs{
-			Host:       publicIp.IpAddress.Elem(),
-			User:       pulumi.String("pulumi"),
-			PrivateKey: privateKey.PrivateKeyOpenssh,
-		}
+		ipLookup := vm.ID().ApplyT(func(_ pulumi.ID) network.LookupPublicIPAddressResultOutput {
+			return network.LookupPublicIPAddressOutput(ctx, network.LookupPublicIPAddressOutputArgs{
+				ResourceGroupName:   rg.Name,
+				PublicIpAddressName: publicIp.Name,
+			})
+		}).(network.LookupPublicIPAddressResultOutput)
 
 		// Poll the server until it responds. Because other commands depend on this command, they
 		// are guaranteed to hit an already booted server.
 		poll, err := remote.NewCommand(ctx, "poll", &remote.CommandArgs{
 			Connection: remote.ConnectionArgs{
-				Host:           publicIp.IpAddress.Elem(),
+				Host:           ipLookup.IpAddress().Elem(),
 				User:           pulumi.String("pulumi"),
 				PrivateKey:     privateKey.PrivateKeyOpenssh,
 				DialErrorLimit: pulumi.IntPtr(-1),
 			},
 			Create: pulumi.String("echo 'Connection established'"),
-		}, pulumi.Timeouts(&pulumi.CustomTimeouts{Create: "10m"}), pulumi.DependsOn([]pulumi.Resource{vm}))
+		}, pulumi.Timeouts(&pulumi.CustomTimeouts{Create: "10m"}), pulumi.DependsOn([]pulumi.Resource{publicIp, vm}))
 		if err != nil {
 			return err
 		}
 
 		const innerProgram = "yaml-simple"
 
+		sshConn := remote.ConnectionArgs{
+			Host:       ipLookup.IpAddress().Elem(),
+			User:       pulumi.String("pulumi"),
+			PrivateKey: privateKey.PrivateKeyOpenssh,
+		}
 		copy, err := remote.NewCopyToRemote(ctx, "copy", &remote.CopyToRemoteArgs{
 			Connection: sshConn,
 			Source:     pulumi.NewFileArchive(innerProgram + "/"),
 			RemotePath: pulumi.String(innerProgram),
-			Triggers:   pulumi.ToArray([]any{publicIp.IpAddress}),
+			Triggers:   pulumi.ToArray([]any{vm.ID()}),
 		}, pulumi.DependsOn([]pulumi.Resource{poll}))
 		if err != nil {
 			return err
@@ -182,7 +189,7 @@ func main() {
 		installPulumi, err := remote.NewCommand(ctx, "installPulumi", &remote.CommandArgs{
 			Connection: sshConn,
 			Create:     pulumi.String("curl -fsSL https://get.pulumi.com | sh"),
-			Triggers:   pulumi.ToArray([]any{publicIp.IpAddress}),
+			Triggers:   pulumi.ToArray([]any{vm.ID()}),
 		}, pulumi.DependsOn([]pulumi.Resource{poll}))
 		if err != nil {
 			return err
@@ -198,15 +205,15 @@ func main() {
 
 		pulumiPreview, err := remote.NewCommand(ctx, "pulumiPreview", &remote.CommandArgs{
 			Connection: sshConn,
-			// export ARM_USE_MSI=true && \
 			Create: pulumi.String(fmt.Sprintf(`cd %s && \
+export ARM_USE_MSI=true && \
 export PATH=~/.pulumi/bin:$PATH && \
 export PULUMI_CONFIG_PASSPHRASE=pass && \
 rand=$(openssl rand -hex 4) && \
 stackname="%s-$rand" && \
 pulumi login --local && \
 pulumi stack init $stackname && \
-pulumi preview && \
+pulumi preview --logtostderr --logflow -v=9 && \
 pulumi stack rm --yes $stackname && \
 pulumi logout --local`, innerProgram, innerProgram)),
 		}, pulumi.DependsOn([]pulumi.Resource{copy, installPulumi}))
@@ -214,7 +221,8 @@ pulumi logout --local`, innerProgram, innerProgram)),
 			return err
 		}
 
-		ctx.Export("publicIpAddress", publicIp.IpAddress)
+		ctx.Export("vm", vm.Name)
+		ctx.Export("publicIpAddress", ipLookup.IpAddress().Elem())
 		ctx.Export("check", check.Stdout)
 		ctx.Export("installPulumi", installPulumi.Stdout)
 		ctx.Export("installPulumiStderr", installPulumi.Stderr)
