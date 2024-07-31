@@ -5126,6 +5126,28 @@
       "DiskAccessAPrivateEndpointConnection",
       "DiskEncryptionSet",
       "Snapshot"
+    ],
+    "2024-07-01": [
+      "AvailabilitySet",
+      "CapacityReservation",
+      "CapacityReservationGroup",
+      "DedicatedHost",
+      "DedicatedHostGroup",
+      "Image",
+      "ProximityPlacementGroup",
+      "RestorePoint",
+      "RestorePointCollection",
+      "SshPublicKey",
+      "VirtualMachine",
+      "VirtualMachineExtension",
+      "VirtualMachineRunCommandByVirtualMachine",
+      "VirtualMachineScaleSet",
+      "VirtualMachineScaleSetExtension",
+      "VirtualMachineScaleSetVM",
+      "VirtualMachineScaleSetVMExtension",
+      "VirtualMachineScaleSetVMRunCommand",
+      "getLogAnalyticExportRequestRateByInterval",
+      "getLogAnalyticExportThrottledRequests"
     ]
   },
   "ComputeSchedule": {
@@ -22473,6 +22495,10 @@
   },
   "StandbyPool": {
     "2023-12-01-preview": [
+      "StandbyContainerGroupPool",
+      "StandbyVirtualMachinePool"
+    ],
+    "2024-03-01-preview": [
       "StandbyContainerGroupPool",
       "StandbyVirtualMachinePool"
     ]

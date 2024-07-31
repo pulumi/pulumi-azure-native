@@ -4457,7 +4457,9 @@
       "2021-10-01",
       "2022-10-01-beta",
       "2022-10-01-privatepreview",
-      "2023-04-01-beta"
+      "2023-04-01-beta",
+      "2024-04-01",
+      "2024-04-01-beta"
     ],
     "billingaccounts": [
       "2018-05-31",
@@ -4467,7 +4469,8 @@
       "2020-05-01",
       "2020-11-01-privatepreview",
       "2020-12-15-privatepreview",
-      "2022-10-01-privatepreview"
+      "2022-10-01-privatepreview",
+      "2024-04-01"
     ],
     "billingaccounts/addresses": [
       "2022-10-01-privatepreview"
@@ -4476,7 +4479,8 @@
       "2018-11-01-preview",
       "2019-10-01-preview",
       "2020-05-01",
-      "2020-11-01-privatepreview"
+      "2020-11-01-privatepreview",
+      "2024-04-01"
     ],
     "billingaccounts/alertpreferences": [
       "2022-10-01-privatepreview"
@@ -4489,16 +4493,19 @@
       "2020-12-15-privatepreview"
     ],
     "billingaccounts/associatedtenants": [
-      "2020-11-01-privatepreview"
+      "2020-11-01-privatepreview",
+      "2024-04-01"
     ],
     "billingaccounts/availablebalance": [
-      "2020-11-01-privatepreview"
+      "2020-11-01-privatepreview",
+      "2024-04-01"
     ],
     "billingaccounts/billingpermissions": [
       "2019-10-01-preview",
       "2020-05-01",
       "2020-12-15-privatepreview",
-      "2022-10-01-privatepreview"
+      "2022-10-01-privatepreview",
+      "2024-04-01"
     ],
     "billingaccounts/billingprofiles": [
       "2018-11-01-preview",
@@ -4506,7 +4513,8 @@
       "2020-05-01",
       "2020-11-01-privatepreview",
       "2020-12-15-privatepreview",
-      "2022-10-01-privatepreview"
+      "2022-10-01-privatepreview",
+      "2024-04-01"
     ],
     "billingaccounts/billingprofiles/alertpreferences": [
       "2022-10-01-privatepreview"
@@ -4518,52 +4526,77 @@
       "2018-11-01-preview",
       "2019-10-01-preview",
       "2020-05-01",
-      "2020-11-01-privatepreview"
+      "2020-11-01-privatepreview",
+      "2024-04-01"
     ],
     "billingaccounts/billingprofiles/billingpermissions": [
       "2019-10-01-preview",
       "2020-05-01",
       "2020-12-15-privatepreview",
-      "2022-10-01-privatepreview"
+      "2022-10-01-privatepreview",
+      "2024-04-01"
+    ],
+    "billingaccounts/billingprofiles/billingrequests": [
+      "2024-04-01"
     ],
     "billingaccounts/billingprofiles/billingroleassignments": [
       "2019-10-01-preview",
       "2020-05-01",
       "2020-12-15-privatepreview",
-      "2022-10-01-privatepreview"
+      "2022-10-01-privatepreview",
+      "2024-04-01"
     ],
     "billingaccounts/billingprofiles/billingroledefinitions": [
       "2019-10-01-preview",
       "2020-05-01",
       "2020-12-15-privatepreview",
-      "2022-10-01-privatepreview"
+      "2022-10-01-privatepreview",
+      "2024-04-01"
     ],
     "billingaccounts/billingprofiles/billingsubscriptions": [
       "2018-11-01-preview",
       "2019-10-01-preview",
       "2020-05-01",
       "2020-12-15-privatepreview",
-      "2022-10-01-privatepreview"
+      "2022-10-01-privatepreview",
+      "2024-04-01"
     ],
     "billingaccounts/billingprofiles/createbillingroleassignment": [
       "2019-10-01-preview",
       "2020-05-01",
       "2020-12-15-privatepreview",
-      "2022-10-01-privatepreview"
+      "2022-10-01-privatepreview",
+      "2024-04-01"
     ],
     "billingaccounts/billingprofiles/customers": [
       "2019-10-01-preview",
       "2020-05-01",
-      "2022-10-01-privatepreview"
+      "2022-10-01-privatepreview",
+      "2024-04-01"
     ],
     "billingaccounts/billingprofiles/customers/billingpermissions": [
-      "2022-10-01-privatepreview"
+      "2022-10-01-privatepreview",
+      "2024-04-01"
+    ],
+    "billingaccounts/billingprofiles/customers/billingrequests": [
+      "2024-04-01"
     ],
     "billingaccounts/billingprofiles/customers/billingroleassignments": [
-      "2022-10-01-privatepreview"
+      "2022-10-01-privatepreview",
+      "2024-04-01"
     ],
     "billingaccounts/billingprofiles/customers/billingroledefinitions": [
-      "2022-10-01-privatepreview"
+      "2022-10-01-privatepreview",
+      "2024-04-01"
+    ],
+    "billingaccounts/billingprofiles/customers/billingsubscriptions": [
+      "2024-04-01"
+    ],
+    "billingaccounts/billingprofiles/customers/policies": [
+      "2024-04-01"
+    ],
+    "billingaccounts/billingprofiles/customers/transactions": [
+      "2024-04-01"
     ],
     "billingaccounts/billingprofiles/departments": [
       "2022-10-01-privatepreview"
@@ -4600,13 +4633,16 @@
       "2018-11-01-preview",
       "2019-10-01-preview",
       "2020-05-01",
-      "2020-11-01-privatepreview"
+      "2020-11-01-privatepreview",
+      "2022-10-01-privatepreview",
+      "2024-04-01"
     ],
     "billingaccounts/billingprofiles/invoices/operationresults": [
       "2018-11-01-preview",
       "2019-10-01-preview",
       "2020-05-01",
-      "2020-11-01-privatepreview"
+      "2020-11-01-privatepreview",
+      "2024-04-01"
     ],
     "billingaccounts/billingprofiles/invoices/pricesheet": [
       "2018-11-01-preview",
@@ -4621,42 +4657,52 @@
       "2020-05-01",
       "2020-11-01-privatepreview",
       "2020-12-15-privatepreview",
-      "2022-10-01-privatepreview"
+      "2022-10-01-privatepreview",
+      "2024-04-01"
     ],
     "billingaccounts/billingprofiles/invoicesections/billingpermissions": [
       "2019-10-01-preview",
       "2020-05-01",
       "2020-12-15-privatepreview",
-      "2022-10-01-privatepreview"
+      "2022-10-01-privatepreview",
+      "2024-04-01"
+    ],
+    "billingaccounts/billingprofiles/invoicesections/billingrequests": [
+      "2024-04-01"
     ],
     "billingaccounts/billingprofiles/invoicesections/billingroleassignments": [
       "2019-10-01-preview",
       "2020-05-01",
       "2020-12-15-privatepreview",
-      "2022-10-01-privatepreview"
+      "2022-10-01-privatepreview",
+      "2024-04-01"
     ],
     "billingaccounts/billingprofiles/invoicesections/billingroledefinitions": [
       "2019-10-01-preview",
       "2020-05-01",
       "2020-12-15-privatepreview",
-      "2022-10-01-privatepreview"
+      "2022-10-01-privatepreview",
+      "2024-04-01"
     ],
     "billingaccounts/billingprofiles/invoicesections/billingsubscriptions": [
       "2019-10-01-preview",
-      "2020-05-01"
+      "2020-05-01",
+      "2024-04-01"
     ],
     "billingaccounts/billingprofiles/invoicesections/createbillingroleassignment": [
       "2019-10-01-preview",
       "2020-05-01",
       "2020-12-15-privatepreview",
-      "2022-10-01-privatepreview"
+      "2022-10-01-privatepreview",
+      "2024-04-01"
     ],
     "billingaccounts/billingprofiles/invoicesections/initiatetransfer": [
       "2019-10-01-preview"
     ],
     "billingaccounts/billingprofiles/invoicesections/products": [
       "2019-10-01-preview",
-      "2020-05-01"
+      "2020-05-01",
+      "2024-04-01"
     ],
     "billingaccounts/billingprofiles/invoicesections/products/transfer": [
       "2019-10-01-preview"
@@ -4666,11 +4712,14 @@
     ],
     "billingaccounts/billingprofiles/invoicesections/transactions": [
       "2019-10-01-preview",
-      "2020-11-01-privatepreview"
+      "2020-11-01-privatepreview",
+      "2024-04-01"
     ],
     "billingaccounts/billingprofiles/invoicesections/transfers": [
       "2019-10-01-preview",
-      "2020-11-01-privatepreview"
+      "2020-05-01",
+      "2020-11-01-privatepreview",
+      "2024-04-01"
     ],
     "billingaccounts/billingprofiles/invoicesections/validatedeleteinvoicesectioneligibility": [
       "2020-11-01-privatepreview"
@@ -4684,7 +4733,8 @@
     "billingaccounts/billingprofiles/paymentmethodlinks": [
       "2020-11-01-privatepreview",
       "2021-10-01",
-      "2022-10-01-privatepreview"
+      "2022-10-01-privatepreview",
+      "2024-04-01"
     ],
     "billingaccounts/billingprofiles/paymentmethods": [
       "2018-11-01-preview",
@@ -4695,7 +4745,8 @@
       "2019-10-01-preview",
       "2020-05-01",
       "2020-11-01-privatepreview",
-      "2022-10-01-privatepreview"
+      "2022-10-01-privatepreview",
+      "2024-04-01"
     ],
     "billingaccounts/billingprofiles/pricesheet": [
       "2018-11-01-preview",
@@ -4708,16 +4759,25 @@
     "billingaccounts/billingprofiles/products": [
       "2018-11-01-preview",
       "2019-10-01-preview",
-      "2020-05-01"
+      "2020-05-01",
+      "2024-04-01"
     ],
     "billingaccounts/billingprofiles/reservations": [
       "2019-10-01-preview",
-      "2020-05-01"
+      "2020-05-01",
+      "2020-11-01-beta",
+      "2020-11-01-privatepreview",
+      "2022-10-01-beta",
+      "2022-10-01-privatepreview",
+      "2023-04-01-beta",
+      "2024-04-01",
+      "2024-04-01-beta"
     ],
     "billingaccounts/billingprofiles/transactions": [
       "2018-11-01-preview",
       "2019-10-01-preview",
-      "2020-11-01-privatepreview"
+      "2020-11-01-privatepreview",
+      "2024-04-01"
     ],
     "billingaccounts/billingprofiles/validatedeletebillingprofileeligibility": [
       "2020-11-01-privatepreview"
@@ -4729,20 +4789,26 @@
     "billingaccounts/billingprofilessummaries": [
       "2022-10-01-privatepreview"
     ],
+    "billingaccounts/billingrequests": [
+      "2024-04-01"
+    ],
     "billingaccounts/billingroleassignments": [
       "2019-10-01-preview",
       "2020-05-01",
       "2020-12-15-privatepreview",
-      "2022-10-01-privatepreview"
+      "2022-10-01-privatepreview",
+      "2024-04-01"
     ],
     "billingaccounts/billingroledefinitions": [
       "2019-10-01-preview",
       "2020-05-01",
       "2020-12-15-privatepreview",
-      "2022-10-01-privatepreview"
+      "2022-10-01-privatepreview",
+      "2024-04-01"
     ],
     "billingaccounts/billingsubscriptionaliases": [
-      "2021-10-01"
+      "2021-10-01",
+      "2024-04-01"
     ],
     "billingaccounts/billingsubscriptions": [
       "2018-11-01-preview",
@@ -4751,7 +4817,8 @@
       "2020-11-01-privatepreview",
       "2020-12-15-privatepreview",
       "2021-10-01",
-      "2022-10-01-privatepreview"
+      "2022-10-01-privatepreview",
+      "2024-04-01"
     ],
     "billingaccounts/billingsubscriptions/elevaterole": [
       "2020-12-15-beta",
@@ -4761,12 +4828,15 @@
     "billingaccounts/billingsubscriptions/invoices": [
       "2019-10-01-preview",
       "2020-05-01",
-      "2020-11-01-privatepreview"
+      "2020-11-01-privatepreview",
+      "2022-10-01-privatepreview",
+      "2024-04-01"
     ],
     "billingaccounts/billingsubscriptions/invoices/operationresults": [
       "2019-10-01-preview",
       "2020-05-01",
-      "2020-11-01-privatepreview"
+      "2020-11-01-privatepreview",
+      "2024-04-01"
     ],
     "billingaccounts/billingsubscriptions/operationresults": [
       "2018-11-01-preview",
@@ -4775,7 +4845,8 @@
       "2020-11-01-privatepreview",
       "2020-12-15-privatepreview",
       "2021-10-01",
-      "2022-10-01-privatepreview"
+      "2022-10-01-privatepreview",
+      "2024-04-01"
     ],
     "billingaccounts/billingsubscriptions/policies": [
       "2022-10-01-privatepreview"
@@ -4784,7 +4855,8 @@
       "2019-10-01-preview",
       "2020-05-01",
       "2020-12-15-privatepreview",
-      "2022-10-01-privatepreview"
+      "2022-10-01-privatepreview",
+      "2024-04-01"
     ],
     "billingaccounts/createinvoicesectionoperations": [
       "2018-11-01-preview"
@@ -4794,12 +4866,14 @@
       "2019-10-01-preview",
       "2020-05-01",
       "2020-12-15-privatepreview",
-      "2022-10-01-privatepreview"
+      "2022-10-01-privatepreview",
+      "2024-04-01"
     ],
     "billingaccounts/customers/billingpermissions": [
       "2019-10-01-preview",
       "2020-05-01",
-      "2020-12-15-privatepreview"
+      "2020-12-15-privatepreview",
+      "2024-04-01"
     ],
     "billingaccounts/customers/billingroleassignments": [
       "2020-12-15-privatepreview"
@@ -4810,7 +4884,8 @@
     "billingaccounts/customers/billingsubscriptions": [
       "2018-11-01-preview",
       "2019-10-01-preview",
-      "2020-05-01"
+      "2020-05-01",
+      "2024-04-01"
     ],
     "billingaccounts/customers/createbillingroleassignment": [
       "2020-12-15-privatepreview"
@@ -4822,11 +4897,13 @@
       "2019-10-01-preview",
       "2020-05-01",
       "2020-11-01-privatepreview",
-      "2022-10-01-privatepreview"
+      "2022-10-01-privatepreview",
+      "2024-04-01"
     ],
     "billingaccounts/customers/products": [
       "2019-10-01-preview",
-      "2020-05-01"
+      "2020-05-01",
+      "2024-04-01"
     ],
     "billingaccounts/customers/transactions": [
       "2019-10-01-preview",
@@ -4842,33 +4919,39 @@
     "billingaccounts/departments": [
       "2018-06-30",
       "2019-10-01-preview",
-      "2020-12-15-privatepreview"
+      "2020-12-15-privatepreview",
+      "2024-04-01"
     ],
     "billingaccounts/departments/billingpermissions": [
       "2019-10-01-preview",
       "2020-05-01",
-      "2020-12-15-privatepreview"
+      "2020-12-15-privatepreview",
+      "2024-04-01"
     ],
     "billingaccounts/departments/billingroleassignments": [
       "2019-10-01-preview",
       "2020-05-01",
-      "2020-12-15-privatepreview"
+      "2020-12-15-privatepreview",
+      "2024-04-01"
     ],
     "billingaccounts/departments/billingroledefinitions": [
       "2019-10-01-preview",
       "2020-05-01",
-      "2020-12-15-privatepreview"
+      "2020-12-15-privatepreview",
+      "2024-04-01"
     ],
     "billingaccounts/departments/billingsubscriptions": [
       "2020-12-15-privatepreview"
     ],
     "billingaccounts/departments/enrollmentaccounts": [
-      "2020-12-15-privatepreview"
+      "2020-12-15-privatepreview",
+      "2024-04-01"
     ],
     "billingaccounts/enrollmentaccounts": [
       "2018-06-30",
       "2019-10-01-preview",
-      "2020-12-15-privatepreview"
+      "2020-12-15-privatepreview",
+      "2024-04-01"
     ],
     "billingaccounts/enrollmentaccounts/activationstatus": [
       "2019-10-01-preview",
@@ -4877,20 +4960,24 @@
     "billingaccounts/enrollmentaccounts/billingpermissions": [
       "2019-10-01-preview",
       "2020-05-01",
-      "2020-12-15-privatepreview"
+      "2020-12-15-privatepreview",
+      "2024-04-01"
     ],
     "billingaccounts/enrollmentaccounts/billingroleassignments": [
       "2019-10-01-preview",
       "2020-05-01",
-      "2020-12-15-privatepreview"
+      "2020-12-15-privatepreview",
+      "2024-04-01"
     ],
     "billingaccounts/enrollmentaccounts/billingroledefinitions": [
       "2019-10-01-preview",
       "2020-05-01",
-      "2020-12-15-privatepreview"
+      "2020-12-15-privatepreview",
+      "2024-04-01"
     ],
     "billingaccounts/enrollmentaccounts/billingsubscriptions": [
-      "2020-12-15-privatepreview"
+      "2020-12-15-privatepreview",
+      "2024-04-01"
     ],
     "billingaccounts/incentiveschedules": [
       "2022-10-01-beta"
@@ -4903,23 +4990,27 @@
       "2019-10-01-preview",
       "2020-05-01",
       "2020-11-01-privatepreview",
-      "2022-10-01-privatepreview"
+      "2022-10-01-privatepreview",
+      "2024-04-01"
     ],
     "billingaccounts/invoices/operationresults": [
       "2018-11-01-preview",
       "2019-10-01-preview",
       "2020-05-01",
-      "2020-11-01-privatepreview"
+      "2020-11-01-privatepreview",
+      "2024-04-01"
     ],
     "billingaccounts/invoices/summary": [
       "2020-11-01-privatepreview"
     ],
     "billingaccounts/invoices/transactions": [
       "2020-05-01",
-      "2020-11-01-privatepreview"
+      "2020-11-01-privatepreview",
+      "2024-04-01"
     ],
     "billingaccounts/invoices/transactionsummary": [
-      "2020-11-01-privatepreview"
+      "2020-11-01-privatepreview",
+      "2024-04-01"
     ],
     "billingaccounts/invoicesections": [
       "2018-11-01-preview"
@@ -4970,7 +5061,8 @@
     "billingaccounts/listinvoicesectionswithcreatesubscriptionpermission": [
       "2018-11-01-preview",
       "2019-10-01-preview",
-      "2020-05-01"
+      "2020-05-01",
+      "2024-04-01"
     ],
     "billingaccounts/listproductrecommendations": [
       "2022-10-01-privatepreview"
@@ -4985,7 +5077,8 @@
       "2020-11-01-privatepreview",
       "2020-12-15-privatepreview",
       "2021-10-01",
-      "2022-10-01-privatepreview"
+      "2022-10-01-privatepreview",
+      "2024-04-01"
     ],
     "billingaccounts/patchoperations": [
       "2018-11-01-preview"
@@ -4996,8 +5089,10 @@
     "billingaccounts/paymentmethods": [
       "2018-11-01-preview",
       "2019-10-01-preview",
+      "2020-05-01",
       "2020-11-01-privatepreview",
-      "2021-10-01"
+      "2021-10-01",
+      "2024-04-01"
     ],
     "billingaccounts/paynow": [
       "2020-12-15-privatepreview"
@@ -5007,7 +5102,8 @@
     ],
     "billingaccounts/policies": [
       "2020-11-01-privatepreview",
-      "2022-10-01-privatepreview"
+      "2022-10-01-privatepreview",
+      "2024-04-01"
     ],
     "billingaccounts/previewagreements": [
       "2022-10-01-privatepreview"
@@ -5015,7 +5111,8 @@
     "billingaccounts/products": [
       "2018-11-01-preview",
       "2019-10-01-preview",
-      "2020-05-01"
+      "2020-05-01",
+      "2024-04-01"
     ],
     "billingaccounts/promotionalcredits": [
       "2020-11-01-privatepreview"
@@ -5025,14 +5122,18 @@
       "2020-11-01-privatepreview",
       "2022-10-01-beta",
       "2022-10-01-privatepreview",
-      "2023-04-01-beta"
+      "2023-04-01-beta",
+      "2024-04-01",
+      "2024-04-01-beta"
     ],
     "billingaccounts/reservationorders/reservations": [
       "2020-11-01-beta",
       "2020-11-01-privatepreview",
       "2022-10-01-beta",
       "2022-10-01-privatepreview",
-      "2023-04-01-beta"
+      "2023-04-01-beta",
+      "2024-04-01",
+      "2024-04-01-beta"
     ],
     "billingaccounts/reservations": [
       "2019-10-01-preview",
@@ -5041,7 +5142,9 @@
       "2020-11-01-privatepreview",
       "2022-10-01-beta",
       "2022-10-01-privatepreview",
-      "2023-04-01-beta"
+      "2023-04-01-beta",
+      "2024-04-01",
+      "2024-04-01-beta"
     ],
     "billingaccounts/savingsplanorders": [
       "2020-11-01-beta",
@@ -5050,7 +5153,9 @@
       "2020-12-15-privatepreview",
       "2022-10-01-beta",
       "2022-10-01-privatepreview",
-      "2023-04-01-beta"
+      "2023-04-01-beta",
+      "2024-04-01",
+      "2024-04-01-beta"
     ],
     "billingaccounts/savingsplanorders/savingsplans": [
       "2020-11-01-beta",
@@ -5059,7 +5164,9 @@
       "2020-12-15-privatepreview",
       "2022-10-01-beta",
       "2022-10-01-privatepreview",
-      "2023-04-01-beta"
+      "2023-04-01-beta",
+      "2024-04-01",
+      "2024-04-01-beta"
     ],
     "billingaccounts/savingsplans": [
       "2020-11-01-beta",
@@ -5068,7 +5175,9 @@
       "2020-12-15-privatepreview",
       "2022-10-01-beta",
       "2022-10-01-privatepreview",
-      "2023-04-01-beta"
+      "2023-04-01-beta",
+      "2024-04-01",
+      "2024-04-01-beta"
     ],
     "billingaccounts/signagreement": [
       "2022-10-01-privatepreview"
@@ -5089,7 +5198,11 @@
       "2018-11-01-preview",
       "2019-10-01-preview",
       "2020-05-01",
-      "2020-11-01-privatepreview"
+      "2020-11-01-privatepreview",
+      "2024-04-01"
+    ],
+    "billingrequests": [
+      "2024-04-01"
     ],
     "billingroleassignments": [
       "2018-11-01-preview"
@@ -5118,7 +5231,8 @@
     "operationresults": [
       "2018-11-01-preview",
       "2019-10-01-preview",
-      "2020-05-01"
+      "2020-05-01",
+      "2024-04-01"
     ],
     "operations": [
       "2017-02-27-preview",
@@ -5130,7 +5244,8 @@
       "2020-05-01",
       "2020-09-01-preview",
       "2020-11-01-privatepreview",
-      "2022-10-01-privatepreview"
+      "2022-10-01-privatepreview",
+      "2024-04-01"
     ],
     "operationstatus": [
       "2018-11-01-preview",
@@ -5140,20 +5255,23 @@
     "paymentmethods": [
       "2020-11-01-privatepreview",
       "2021-10-01",
-      "2022-10-01-privatepreview"
+      "2022-10-01-privatepreview",
+      "2024-04-01"
     ],
     "permissionrequests": [
       "2020-11-01-privatepreview"
     ],
     "policies": [
-      "2022-10-01-privatepreview"
+      "2022-10-01-privatepreview",
+      "2024-04-01"
     ],
     "promotionalcredits": [
       "2020-11-01-privatepreview"
     ],
     "promotionalcredits/operationresults": [
       "2020-11-01-privatepreview",
-      "2022-10-01-privatepreview"
+      "2022-10-01-privatepreview",
+      "2024-04-01"
     ],
     "promotions": [
       "2020-09-01-preview",
@@ -5166,7 +5284,9 @@
     "transfers": [
       "2018-11-01-preview",
       "2019-10-01-preview",
-      "2020-11-01-privatepreview"
+      "2020-05-01",
+      "2020-11-01-privatepreview",
+      "2024-04-01"
     ],
     "transfers/accepttransfer": [
       "2018-11-01-preview",
@@ -5186,7 +5306,8 @@
     "validateaddress": [
       "2018-11-01-preview",
       "2019-10-01-preview",
-      "2020-05-01"
+      "2020-05-01",
+      "2024-04-01"
     ]
   },
   "billingbenefits": {
@@ -19089,6 +19210,24 @@
       "2017-11-03-preview"
     ]
   },
+  "hardware": {
+    "": [
+      "2023-02-22-preview",
+      "2023-07-12-preview"
+    ],
+    "operations": [
+      "2023-02-22-preview"
+    ],
+    "orderpreview": [
+      "2023-07-12-preview"
+    ],
+    "orders": [
+      "2023-07-12-preview"
+    ],
+    "registeredsubscriptions": [
+      "2023-07-12-preview"
+    ]
+  },
   "hardwaresecuritymodules": {
     "": [
       "2018-10-31",
@@ -26242,8 +26381,7 @@
       "2023-06-01",
       "2023-09-01",
       "2023-11-01",
-      "2024-01-01",
-      "2024-03-01"
+      "2024-01-01"
     ],
     "applicationgatewayavailableresponseheaders": [
       "2018-11-01",
@@ -26283,8 +26421,7 @@
       "2023-06-01",
       "2023-09-01",
       "2023-11-01",
-      "2024-01-01",
-      "2024-03-01"
+      "2024-01-01"
     ],
     "applicationgatewayavailableservervariables": [
       "2018-11-01",
@@ -26324,8 +26461,7 @@
       "2023-06-01",
       "2023-09-01",
       "2023-11-01",
-      "2024-01-01",
-      "2024-03-01"
+      "2024-01-01"
     ],
     "applicationgatewayavailablessloptions": [
       "2017-06-01",
@@ -26379,8 +26515,7 @@
       "2023-06-01",
       "2023-09-01",
       "2023-11-01",
-      "2024-01-01",
-      "2024-03-01"
+      "2024-01-01"
     ],
     "applicationgatewayavailablewafrulesets": [
       "2017-03-01",
@@ -26436,8 +26571,7 @@
       "2023-06-01",
       "2023-09-01",
       "2023-11-01",
-      "2024-01-01",
-      "2024-03-01"
+      "2024-01-01"
     ],
     "applicationgateways": [
       "2014-12-01-preview",
@@ -26504,8 +26638,7 @@
       "2023-06-01",
       "2023-09-01",
       "2023-11-01",
-      "2024-01-01",
-      "2024-03-01"
+      "2024-01-01"
     ],
     "applicationgatewaywebapplicationfirewallpolicies": [
       "2018-12-01",
@@ -26544,8 +26677,7 @@
       "2023-06-01",
       "2023-09-01",
       "2023-11-01",
-      "2024-01-01",
-      "2024-03-01"
+      "2024-01-01"
     ],
     "applicationsecuritygroups": [
       "2017-09-01",
@@ -26597,8 +26729,7 @@
       "2023-06-01",
       "2023-09-01",
       "2023-11-01",
-      "2024-01-01",
-      "2024-03-01"
+      "2024-01-01"
     ],
     "azurefirewallfqdntags": [
       "2018-08-01",
@@ -26640,8 +26771,7 @@
       "2023-06-01",
       "2023-09-01",
       "2023-11-01",
-      "2024-01-01",
-      "2024-03-01"
+      "2024-01-01"
     ],
     "azurefirewalls": [
       "2018-04-01",
@@ -26687,8 +26817,7 @@
       "2023-06-01",
       "2023-09-01",
       "2023-11-01",
-      "2024-01-01",
-      "2024-03-01"
+      "2024-01-01"
     ],
     "azurewebcategories": [
       "2020-08-01",
@@ -26755,8 +26884,7 @@
       "2023-06-01",
       "2023-09-01",
       "2023-11-01",
-      "2024-01-01",
-      "2024-03-01"
+      "2024-01-01"
     ],
     "bgpservicecommunities": [
       "2016-12-01",
@@ -26813,8 +26941,7 @@
       "2023-06-01",
       "2023-09-01",
       "2023-11-01",
-      "2024-01-01",
-      "2024-03-01"
+      "2024-01-01"
     ],
     "checkfrontdoornameavailability": [
       "2018-08-01",
@@ -26853,8 +26980,7 @@
       "2023-06-01",
       "2023-09-01",
       "2023-11-01",
-      "2024-01-01",
-      "2024-03-01"
+      "2024-01-01"
     ],
     "connections": [
       "2014-12-01-preview",
@@ -26921,8 +27047,7 @@
       "2023-06-01",
       "2023-09-01",
       "2023-11-01",
-      "2024-01-01",
-      "2024-03-01"
+      "2024-01-01"
     ],
     "customipprefixes": [
       "2020-06-01",
@@ -26948,8 +27073,7 @@
       "2023-06-01",
       "2023-09-01",
       "2023-11-01",
-      "2024-01-01",
-      "2024-03-01"
+      "2024-01-01"
     ],
     "ddosprotectionplans": [
       "2018-02-01",
@@ -26997,8 +27121,7 @@
       "2023-06-01",
       "2023-09-01",
       "2023-11-01",
-      "2024-01-01",
-      "2024-03-01"
+      "2024-01-01"
     ],
     "dnsforwardingrulesets": [
       "2020-04-01-preview",
@@ -27218,8 +27341,7 @@
       "2023-06-01",
       "2023-09-01",
       "2023-11-01",
-      "2024-01-01",
-      "2024-03-01"
+      "2024-01-01"
     ],
     "expressroutecircuits": [
       "2014-12-01-preview",
@@ -27286,8 +27408,7 @@
       "2023-06-01",
       "2023-09-01",
       "2023-11-01",
-      "2024-01-01",
-      "2024-03-01"
+      "2024-01-01"
     ],
     "expressroutegateways": [
       "2018-08-01",
@@ -27329,8 +27450,7 @@
       "2023-06-01",
       "2023-09-01",
       "2023-11-01",
-      "2024-01-01",
-      "2024-03-01"
+      "2024-01-01"
     ],
     "expressrouteports": [
       "2018-07-01",
@@ -27373,8 +27493,7 @@
       "2023-06-01",
       "2023-09-01",
       "2023-11-01",
-      "2024-01-01",
-      "2024-03-01"
+      "2024-01-01"
     ],
     "expressrouteportslocations": [
       "2018-08-01",
@@ -27416,8 +27535,7 @@
       "2023-06-01",
       "2023-09-01",
       "2023-11-01",
-      "2024-01-01",
-      "2024-03-01"
+      "2024-01-01"
     ],
     "expressrouteproviderports": [
       "2019-06-01",
@@ -27522,8 +27640,7 @@
       "2023-06-01",
       "2023-09-01",
       "2023-11-01",
-      "2024-01-01",
-      "2024-03-01"
+      "2024-01-01"
     ],
     "firewallpolicies": [
       "2019-06-01",
@@ -27650,8 +27767,7 @@
       "2023-06-01",
       "2023-09-01",
       "2023-11-01",
-      "2024-01-01",
-      "2024-03-01"
+      "2024-01-01"
     ],
     "ipallocations": [
       "2020-01-01",
@@ -27681,8 +27797,7 @@
       "2023-06-01",
       "2023-09-01",
       "2023-11-01",
-      "2024-01-01",
-      "2024-03-01"
+      "2024-01-01"
     ],
     "ipgroups": [
       "2019-06-01",
@@ -27787,8 +27902,7 @@
       "2023-06-01",
       "2023-09-01",
       "2023-11-01",
-      "2024-01-01",
-      "2024-03-01"
+      "2024-01-01"
     ],
     "localnetworkgateways": [
       "2014-12-01-preview",
@@ -27855,8 +27969,7 @@
       "2023-06-01",
       "2023-09-01",
       "2023-11-01",
-      "2024-01-01",
-      "2024-03-01"
+      "2024-01-01"
     ],
     "locations": [
       "2014-12-01-preview",
@@ -27923,8 +28036,7 @@
       "2023-06-01",
       "2023-09-01",
       "2023-11-01",
-      "2024-01-01",
-      "2024-03-01"
+      "2024-01-01"
     ],
     "locations/applicationgatewaywafdynamicmanifests": [
       "2022-05-01",
@@ -27937,8 +28049,7 @@
       "2023-06-01",
       "2023-09-01",
       "2023-11-01",
-      "2024-01-01",
-      "2024-03-01"
+      "2024-01-01"
     ],
     "locations/autoapprovedprivatelinkservices": [
       "2019-04-01",
@@ -27975,8 +28086,7 @@
       "2023-06-01",
       "2023-09-01",
       "2023-11-01",
-      "2024-01-01",
-      "2024-03-01"
+      "2024-01-01"
     ],
     "locations/availabledelegations": [
       "2018-04-01",
@@ -28022,8 +28132,7 @@
       "2023-06-01",
       "2023-09-01",
       "2023-11-01",
-      "2024-01-01",
-      "2024-03-01"
+      "2024-01-01"
     ],
     "locations/availableprivateendpointtypes": [
       "2019-02-01",
@@ -28061,8 +28170,7 @@
       "2023-06-01",
       "2023-09-01",
       "2023-11-01",
-      "2024-01-01",
-      "2024-03-01"
+      "2024-01-01"
     ],
     "locations/availableservicealiases": [
       "2019-08-01",
@@ -28096,8 +28204,7 @@
       "2023-06-01",
       "2023-09-01",
       "2023-11-01",
-      "2024-01-01",
-      "2024-03-01"
+      "2024-01-01"
     ],
     "locations/baremetaltenants": [
       "2018-07-01",
@@ -28140,8 +28247,7 @@
       "2023-06-01",
       "2023-09-01",
       "2023-11-01",
-      "2024-01-01",
-      "2024-03-01"
+      "2024-01-01"
     ],
     "locations/batchnotifyprivateendpointsforresourcemove": [
       "2020-03-01",
@@ -28170,8 +28276,7 @@
       "2023-06-01",
       "2023-09-01",
       "2023-11-01",
-      "2024-01-01",
-      "2024-03-01"
+      "2024-01-01"
     ],
     "locations/batchvalidateprivateendpointsforresourcemove": [
       "2020-03-01",
@@ -28200,8 +28305,7 @@
       "2023-06-01",
       "2023-09-01",
       "2023-11-01",
-      "2024-01-01",
-      "2024-03-01"
+      "2024-01-01"
     ],
     "locations/checkacceleratednetworkingsupport": [
       "2018-04-01",
@@ -28247,8 +28351,7 @@
       "2023-06-01",
       "2023-09-01",
       "2023-11-01",
-      "2024-01-01",
-      "2024-03-01"
+      "2024-01-01"
     ],
     "locations/checkdnsnameavailability": [
       "2014-12-01-preview",
@@ -28315,8 +28418,7 @@
       "2023-06-01",
       "2023-09-01",
       "2023-11-01",
-      "2024-01-01",
-      "2024-03-01"
+      "2024-01-01"
     ],
     "locations/checkprivatelinkservicevisibility": [
       "2019-04-01",
@@ -28353,8 +28455,7 @@
       "2023-06-01",
       "2023-09-01",
       "2023-11-01",
-      "2024-01-01",
-      "2024-03-01"
+      "2024-01-01"
     ],
     "locations/commitinternalazurenetworkmanagerconfiguration": [
       "2022-01-01",
@@ -28393,8 +28494,7 @@
       "2023-06-01",
       "2023-09-01",
       "2023-11-01",
-      "2024-01-01",
-      "2024-03-01"
+      "2024-01-01"
     ],
     "locations/deletepackettagging": [
       "2022-01-01",
@@ -28408,8 +28508,7 @@
       "2023-06-01",
       "2023-09-01",
       "2023-11-01",
-      "2024-01-01",
-      "2024-03-01"
+      "2024-01-01"
     ],
     "locations/dnsresolveroperationresults": [
       "2020-04-01-preview",
@@ -28473,8 +28572,7 @@
       "2023-06-01",
       "2023-09-01",
       "2023-11-01",
-      "2024-01-01",
-      "2024-03-01"
+      "2024-01-01"
     ],
     "locations/getazurenetworkmanagerconfiguration": [
       "2020-08-01",
@@ -28498,8 +28596,7 @@
       "2023-06-01",
       "2023-09-01",
       "2023-11-01",
-      "2024-01-01",
-      "2024-03-01"
+      "2024-01-01"
     ],
     "locations/getpackettagging": [
       "2022-01-01",
@@ -28513,8 +28610,7 @@
       "2023-06-01",
       "2023-09-01",
       "2023-11-01",
-      "2024-01-01",
-      "2024-03-01"
+      "2024-01-01"
     ],
     "locations/hybridedgezone": [
       "2022-01-01",
@@ -28724,8 +28820,7 @@
       "2023-06-01",
       "2023-09-01",
       "2023-11-01",
-      "2024-01-01",
-      "2024-03-01"
+      "2024-01-01"
     ],
     "locations/operations": [
       "2014-12-01-preview",
@@ -28792,8 +28887,7 @@
       "2023-06-01",
       "2023-09-01",
       "2023-11-01",
-      "2024-01-01",
-      "2024-03-01"
+      "2024-01-01"
     ],
     "locations/perimeterassociableresourcetypes": [
       "2021-02-01-preview",
@@ -28830,8 +28924,7 @@
       "2023-06-01",
       "2023-09-01",
       "2023-11-01",
-      "2024-01-01",
-      "2024-03-01"
+      "2024-01-01"
     ],
     "locations/publishresources": [
       "2022-01-01",
@@ -28845,8 +28938,7 @@
       "2023-06-01",
       "2023-09-01",
       "2023-11-01",
-      "2024-01-01",
-      "2024-03-01"
+      "2024-01-01"
     ],
     "locations/querynetworksecurityperimeter": [
       "2021-02-01-preview",
@@ -28868,8 +28960,7 @@
       "2023-06-01",
       "2023-09-01",
       "2023-11-01",
-      "2024-01-01",
-      "2024-03-01"
+      "2024-01-01"
     ],
     "locations/rnmeffectiveroutetable": [
       "2022-01-01",
@@ -28883,8 +28974,7 @@
       "2023-06-01",
       "2023-09-01",
       "2023-11-01",
-      "2024-01-01",
-      "2024-03-01"
+      "2024-01-01"
     ],
     "locations/servicetagdetails": [
       "2021-03-01",
@@ -28904,8 +28994,7 @@
       "2023-06-01",
       "2023-09-01",
       "2023-11-01",
-      "2024-01-01",
-      "2024-03-01"
+      "2024-01-01"
     ],
     "locations/servicetags": [
       "2019-02-01",
@@ -28943,8 +29032,7 @@
       "2023-06-01",
       "2023-09-01",
       "2023-11-01",
-      "2024-01-01",
-      "2024-03-01"
+      "2024-01-01"
     ],
     "locations/setazurenetworkmanagerconfiguration": [
       "2020-08-01",
@@ -28968,8 +29056,7 @@
       "2023-06-01",
       "2023-09-01",
       "2023-11-01",
-      "2024-01-01",
-      "2024-03-01"
+      "2024-01-01"
     ],
     "locations/setloadbalancerfrontendpublicipaddresses": [
       "2020-05-01",
@@ -28996,8 +29083,7 @@
       "2023-06-01",
       "2023-09-01",
       "2023-11-01",
-      "2024-01-01",
-      "2024-03-01"
+      "2024-01-01"
     ],
     "locations/setresourceownership": [
       "2018-04-01",
@@ -29043,8 +29129,7 @@
       "2023-06-01",
       "2023-09-01",
       "2023-11-01",
-      "2024-01-01",
-      "2024-03-01"
+      "2024-01-01"
     ],
     "locations/startpackettagging": [
       "2022-01-01",
@@ -29058,8 +29143,7 @@
       "2023-06-01",
       "2023-09-01",
       "2023-11-01",
-      "2024-01-01",
-      "2024-03-01"
+      "2024-01-01"
     ],
     "locations/supportedvirtualmachinesizes": [
       "2018-04-01",
@@ -29105,8 +29189,7 @@
       "2023-06-01",
       "2023-09-01",
       "2023-11-01",
-      "2024-01-01",
-      "2024-03-01"
+      "2024-01-01"
     ],
     "locations/usages": [
       "2014-12-01-preview",
@@ -29173,8 +29256,7 @@
       "2023-06-01",
       "2023-09-01",
       "2023-11-01",
-      "2024-01-01",
-      "2024-03-01"
+      "2024-01-01"
     ],
     "locations/validateresourceownership": [
       "2018-04-01",
@@ -29220,8 +29302,7 @@
       "2023-06-01",
       "2023-09-01",
       "2023-11-01",
-      "2024-01-01",
-      "2024-03-01"
+      "2024-01-01"
     ],
     "locations/verifierworkspaceoperationresults": [
       "2024-01-01-preview"
@@ -29279,8 +29360,7 @@
       "2023-06-01",
       "2023-09-01",
       "2023-11-01",
-      "2024-01-01",
-      "2024-03-01"
+      "2024-01-01"
     ],
     "natgateways": [
       "2018-11-01",
@@ -29320,8 +29400,7 @@
       "2023-06-01",
       "2023-09-01",
       "2023-11-01",
-      "2024-01-01",
-      "2024-03-01"
+      "2024-01-01"
     ],
     "networkexperimentprofiles": [
       "2019-11-01"
@@ -29373,8 +29452,7 @@
       "2023-06-01",
       "2023-09-01",
       "2023-11-01",
-      "2024-01-01",
-      "2024-03-01"
+      "2024-01-01"
     ],
     "networkinterfaces": [
       "2014-12-01-preview",
@@ -29441,8 +29519,7 @@
       "2023-06-01",
       "2023-09-01",
       "2023-11-01",
-      "2024-01-01",
-      "2024-03-01"
+      "2024-01-01"
     ],
     "networkmanagerconnections": [
       "2022-01-01",
@@ -29528,8 +29605,7 @@
       "2023-06-01",
       "2023-09-01",
       "2023-11-01",
-      "2024-01-01",
-      "2024-03-01"
+      "2024-01-01"
     ],
     "networksecuritygroups": [
       "2014-12-01-preview",
@@ -29596,8 +29672,7 @@
       "2023-06-01",
       "2023-09-01",
       "2023-11-01",
-      "2024-01-01",
-      "2024-03-01"
+      "2024-01-01"
     ],
     "networkvirtualappliances": [
       "2019-12-01",
@@ -29728,8 +29803,7 @@
       "2023-06-01",
       "2023-09-01",
       "2023-11-01",
-      "2024-01-01",
-      "2024-03-01"
+      "2024-01-01"
     ],
     "networkwatchers/connectionmonitors": [
       "2017-09-01",
@@ -29781,8 +29855,7 @@
       "2023-06-01",
       "2023-09-01",
       "2023-11-01",
-      "2024-01-01",
-      "2024-03-01"
+      "2024-01-01"
     ],
     "networkwatchers/flowlogs": [
       "2017-09-01",
@@ -29834,8 +29907,7 @@
       "2023-06-01",
       "2023-09-01",
       "2023-11-01",
-      "2024-01-01",
-      "2024-03-01"
+      "2024-01-01"
     ],
     "networkwatchers/lenses": [
       "2017-09-01",
@@ -29887,8 +29959,7 @@
       "2023-06-01",
       "2023-09-01",
       "2023-11-01",
-      "2024-01-01",
-      "2024-03-01"
+      "2024-01-01"
     ],
     "networkwatchers/pingmeshes": [
       "2017-09-01",
@@ -29940,8 +30011,7 @@
       "2023-06-01",
       "2023-09-01",
       "2023-11-01",
-      "2024-01-01",
-      "2024-03-01"
+      "2024-01-01"
     ],
     "operations": [
       "2014-12-01-preview",
@@ -30008,8 +30078,7 @@
       "2023-06-01",
       "2023-09-01",
       "2023-11-01",
-      "2024-01-01",
-      "2024-03-01"
+      "2024-01-01"
     ],
     "p2svpngateways": [
       "2018-08-01",
@@ -30051,8 +30120,7 @@
       "2023-06-01",
       "2023-09-01",
       "2023-11-01",
-      "2024-01-01",
-      "2024-03-01"
+      "2024-01-01"
     ],
     "privatednsoperationresults": [
       "2018-09-01",
@@ -30156,8 +30224,7 @@
       "2023-06-01",
       "2023-09-01",
       "2023-11-01",
-      "2024-01-01",
-      "2024-03-01"
+      "2024-01-01"
     ],
     "privateendpoints": [
       "2019-02-01",
@@ -30195,8 +30262,7 @@
       "2023-06-01",
       "2023-09-01",
       "2023-11-01",
-      "2024-01-01",
-      "2024-03-01"
+      "2024-01-01"
     ],
     "privateendpoints/privatelinkserviceproxies": [
       "2019-02-01",
@@ -30234,8 +30300,7 @@
       "2023-06-01",
       "2023-09-01",
       "2023-11-01",
-      "2024-01-01",
-      "2024-03-01"
+      "2024-01-01"
     ],
     "privatelinkservices": [
       "2018-08-01",
@@ -30277,8 +30342,7 @@
       "2023-06-01",
       "2023-09-01",
       "2023-11-01",
-      "2024-01-01",
-      "2024-03-01"
+      "2024-01-01"
     ],
     "publicipaddresses": [
       "2014-12-01-preview",
@@ -30345,8 +30409,7 @@
       "2023-06-01",
       "2023-09-01",
       "2023-11-01",
-      "2024-01-01",
-      "2024-03-01"
+      "2024-01-01"
     ],
     "publicipprefixes": [
       "2018-07-01",
@@ -30389,15 +30452,13 @@
       "2023-06-01",
       "2023-09-01",
       "2023-11-01",
-      "2024-01-01",
-      "2024-03-01"
+      "2024-01-01"
     ],
     "queryexpressrouteportsbandwidth": [
       "2023-06-01",
       "2023-09-01",
       "2023-11-01",
-      "2024-01-01",
-      "2024-03-01"
+      "2024-01-01"
     ],
     "routefilters": [
       "2014-12-01-preview",
@@ -30464,8 +30525,7 @@
       "2023-06-01",
       "2023-09-01",
       "2023-11-01",
-      "2024-01-01",
-      "2024-03-01"
+      "2024-01-01"
     ],
     "routetables": [
       "2014-12-01-preview",
@@ -30532,8 +30592,7 @@
       "2023-06-01",
       "2023-09-01",
       "2023-11-01",
-      "2024-01-01",
-      "2024-03-01"
+      "2024-01-01"
     ],
     "securitypartnerproviders": [
       "2020-01-01",
@@ -30563,8 +30622,7 @@
       "2023-06-01",
       "2023-09-01",
       "2023-11-01",
-      "2024-01-01",
-      "2024-03-01"
+      "2024-01-01"
     ],
     "serviceendpointpolicies": [
       "2018-01-01",
@@ -30613,8 +30671,7 @@
       "2023-06-01",
       "2023-09-01",
       "2023-11-01",
-      "2024-01-01",
-      "2024-03-01"
+      "2024-01-01"
     ],
     "trafficmanagergeographichierarchies": [
       "2017-03-01",
@@ -30740,8 +30797,7 @@
       "2023-06-01",
       "2023-09-01",
       "2023-11-01",
-      "2024-01-01",
-      "2024-03-01"
+      "2024-01-01"
     ],
     "virtualnetworkgateways": [
       "2014-12-01-preview",
@@ -30808,8 +30864,7 @@
       "2023-06-01",
       "2023-09-01",
       "2023-11-01",
-      "2024-01-01",
-      "2024-03-01"
+      "2024-01-01"
     ],
     "virtualnetworks": [
       "2014-12-01-preview",
@@ -30876,8 +30931,7 @@
       "2023-06-01",
       "2023-09-01",
       "2023-11-01",
-      "2024-01-01",
-      "2024-03-01"
+      "2024-01-01"
     ],
     "virtualnetworks/listdnsforwardingrulesets": [
       "2020-04-01-preview",
@@ -30997,8 +31051,7 @@
       "2023-06-01",
       "2023-09-01",
       "2023-11-01",
-      "2024-01-01",
-      "2024-03-01"
+      "2024-01-01"
     ],
     "virtualnetworktaps": [
       "2018-08-01",
@@ -31040,8 +31093,7 @@
       "2023-06-01",
       "2023-09-01",
       "2023-11-01",
-      "2024-01-01",
-      "2024-03-01"
+      "2024-01-01"
     ],
     "virtualrouters": [
       "2019-06-01",
@@ -31131,8 +31183,7 @@
       "2023-06-01",
       "2023-09-01",
       "2023-11-01",
-      "2024-01-01",
-      "2024-03-01"
+      "2024-01-01"
     ],
     "vpngateways": [
       "2017-09-01",
@@ -31184,8 +31235,7 @@
       "2023-06-01",
       "2023-09-01",
       "2023-11-01",
-      "2024-01-01",
-      "2024-03-01"
+      "2024-01-01"
     ],
     "vpnserverconfigurations": [
       "2019-08-01",
@@ -31219,8 +31269,7 @@
       "2023-06-01",
       "2023-09-01",
       "2023-11-01",
-      "2024-01-01",
-      "2024-03-01"
+      "2024-01-01"
     ],
     "vpnsites": [
       "2017-09-01",
@@ -31272,8 +31321,7 @@
       "2023-06-01",
       "2023-09-01",
       "2023-11-01",
-      "2024-01-01",
-      "2024-03-01"
+      "2024-01-01"
     ]
   },
   "networkanalytics": {
@@ -32947,47 +32995,58 @@
       "2021-12-01",
       "2022-11-01-preview",
       "2023-05-01-preview",
-      "2023-06-01-preview"
+      "2023-06-01-preview",
+      "2024-04-01-preview"
     ],
     "accounts": [
       "2020-12-01-preview",
       "2021-07-01",
       "2021-12-01",
-      "2023-05-01-preview"
+      "2023-05-01-preview",
+      "2024-04-01-preview"
     ],
     "accounts/kafkaconfigurations": [
       "2021-12-01",
-      "2023-05-01-preview"
+      "2023-05-01-preview",
+      "2024-04-01-preview"
     ],
     "checknameavailability": [
       "2020-12-01-preview",
       "2021-07-01",
-      "2021-12-01"
+      "2021-12-01",
+      "2023-05-01-preview",
+      "2024-04-01-preview"
     ],
     "getdefaultaccount": [
       "2020-12-01-preview",
       "2021-07-01",
       "2021-12-01",
-      "2023-05-01-preview"
+      "2023-05-01-preview",
+      "2024-04-01-preview"
     ],
     "locations": [
       "2020-12-01-preview",
       "2021-07-01",
-      "2021-12-01"
+      "2021-12-01",
+      "2023-05-01-preview",
+      "2024-04-01-preview"
     ],
     "locations/listfeatures": [
       "2021-12-01",
-      "2023-05-01-preview"
+      "2023-05-01-preview",
+      "2024-04-01-preview"
     ],
     "locations/operationresults": [
       "2020-12-01-preview",
       "2021-07-01",
       "2021-12-01",
-      "2023-05-01-preview"
+      "2023-05-01-preview",
+      "2024-04-01-preview"
     ],
     "locations/usages": [
       "2021-12-01",
-      "2023-05-01-preview"
+      "2023-05-01-preview",
+      "2024-04-01-preview"
     ],
     "operations": [
       "2020-12-01-preview",
@@ -32995,7 +33054,8 @@
       "2021-12-01",
       "2022-11-01-preview",
       "2023-05-01-preview",
-      "2023-06-01-preview"
+      "2023-06-01-preview",
+      "2024-04-01-preview"
     ],
     "policies": [
       "2023-06-01-preview"
@@ -33004,13 +33064,15 @@
       "2020-12-01-preview",
       "2021-07-01",
       "2021-12-01",
-      "2023-05-01-preview"
+      "2023-05-01-preview",
+      "2024-04-01-preview"
     ],
     "setdefaultaccount": [
       "2020-12-01-preview",
       "2021-07-01",
       "2021-12-01",
-      "2023-05-01-preview"
+      "2023-05-01-preview",
+      "2024-04-01-preview"
     ]
   },
   "quantum": {
