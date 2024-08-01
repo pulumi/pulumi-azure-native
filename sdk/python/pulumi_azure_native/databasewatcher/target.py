@@ -151,6 +151,8 @@ class Target(pulumi.CustomResource):
         Concrete proxy resource types can be created by aliasing this type using a specific property type.
         Azure REST API version: 2023-09-01-preview.
 
+        Other available API versions: 2024-07-19-preview.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] connection_server_name: The server name to use in the connection string when connecting to a target. Port number and instance name must be specified separately.
@@ -170,6 +172,8 @@ class Target(pulumi.CustomResource):
         """
         Concrete proxy resource types can be created by aliasing this type using a specific property type.
         Azure REST API version: 2023-09-01-preview.
+
+        Other available API versions: 2024-07-19-preview.
 
         :param str resource_name: The name of the resource.
         :param TargetArgs args: The arguments to use to populate this resource's properties.
@@ -223,7 +227,7 @@ class Target(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:databasewatcher/v20230901preview:Target")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:databasewatcher/v20230901preview:Target"), pulumi.Alias(type_="azure-native:databasewatcher/v20240719preview:Target")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Target, __self__).__init__(
             'azure-native:databasewatcher:Target',

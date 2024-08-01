@@ -118,7 +118,7 @@ export class Target extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:databasewatcher:Target" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:databasewatcher:Target" }, { type: "azure-native:databasewatcher/v20240719preview:Target" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Target.__pulumiType, name, resourceInputs, opts);
     }

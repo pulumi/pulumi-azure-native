@@ -3,9 +3,11 @@
 
 // Export sub-modules:
 import * as v20231201preview from "./v20231201preview";
+import * as v20240301preview from "./v20240301preview";
 
 export {
     v20231201preview,
+    v20240301preview,
 };
 
 export const RefillPolicy = {

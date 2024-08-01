@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.Web.V20231201.Outputs
         /// <summary>
         /// Sets the number of 'Always Ready' instances for a given function group or a specific function. For additional information see https://aka.ms/flexconsumption/alwaysready.
         /// </summary>
-        public readonly double? InstanceCount;
+        public readonly int? InstanceCount;
         /// <summary>
         /// Either a function group or a function name is required. For additional information see https://aka.ms/flexconsumption/alwaysready.
         /// </summary>
@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Web.V20231201.Outputs
 
         [OutputConstructor]
         private FunctionsAlwaysReadyConfigResponse(
-            double? instanceCount,
+            int? instanceCount,
 
             string? name)
         {

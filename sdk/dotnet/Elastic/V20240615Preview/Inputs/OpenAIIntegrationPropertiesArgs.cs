@@ -34,7 +34,7 @@ namespace Pulumi.AzureNative.Elastic.V20240615Preview.Inputs
         public Input<string>? OpenAIResourceEndpoint { get; set; }
 
         /// <summary>
-        /// The resource id of Open AI resource
+        /// The resource name of Open AI resource
         /// </summary>
         [Input("openAIResourceId")]
         public Input<string>? OpenAIResourceId { get; set; }

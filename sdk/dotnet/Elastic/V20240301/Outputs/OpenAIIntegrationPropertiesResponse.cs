@@ -29,7 +29,7 @@ namespace Pulumi.AzureNative.Elastic.V20240301.Outputs
         /// </summary>
         public readonly string? OpenAIResourceEndpoint;
         /// <summary>
-        /// The resource id of Open AI resource
+        /// The resource name of Open AI resource
         /// </summary>
         public readonly string? OpenAIResourceId;
 

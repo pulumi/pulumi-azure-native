@@ -154,6 +154,7 @@ namespace Pulumi.AzureNative.Compute.V20211101
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20230701:VirtualMachineExtension" },
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20230901:VirtualMachineExtension" },
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20240301:VirtualMachineExtension" },
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20240701:VirtualMachineExtension" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Get a SharedPrivateLinkResource
  * Azure REST API version: 2023-09-01-preview.
+ *
+ * Other available API versions: 2024-07-19-preview.
  */
 export function getSharedPrivateLinkResource(args: GetSharedPrivateLinkResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetSharedPrivateLinkResourceResult> {
 
@@ -84,6 +86,8 @@ export interface GetSharedPrivateLinkResourceResult {
 /**
  * Get a SharedPrivateLinkResource
  * Azure REST API version: 2023-09-01-preview.
+ *
+ * Other available API versions: 2024-07-19-preview.
  */
 export function getSharedPrivateLinkResourceOutput(args: GetSharedPrivateLinkResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSharedPrivateLinkResourceResult> {
     return pulumi.output(args).apply((a: any) => getSharedPrivateLinkResource(a, opts))

@@ -1203,7 +1203,7 @@ class OpenAIIntegrationPropertiesResponse(dict):
         :param str last_refresh_at: Last Update Timestamp for key updation
         :param str key: Value of API key for Open AI resource
         :param str open_ai_resource_endpoint: The API endpoint for Open AI resource
-        :param str open_ai_resource_id: The resource id of Open AI resource
+        :param str open_ai_resource_id: The resource name of Open AI resource
         """
         pulumi.set(__self__, "last_refresh_at", last_refresh_at)
         if key is not None:
@@ -1241,7 +1241,7 @@ class OpenAIIntegrationPropertiesResponse(dict):
     @pulumi.getter(name="openAIResourceId")
     def open_ai_resource_id(self) -> Optional[str]:
         """
-        The resource id of Open AI resource
+        The resource name of Open AI resource
         """
         return pulumi.get(self, "open_ai_resource_id")
 

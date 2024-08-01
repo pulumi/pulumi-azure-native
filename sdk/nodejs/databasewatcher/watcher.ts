@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * The DatabaseWatcherProviderHub resource.
  * Azure REST API version: 2023-09-01-preview.
+ *
+ * Other available API versions: 2024-07-19-preview.
  */
 export class Watcher extends pulumi.CustomResource {
     /**
@@ -112,7 +114,7 @@ export class Watcher extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:databasewatcher/v20230901preview:Watcher" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:databasewatcher/v20230901preview:Watcher" }, { type: "azure-native:databasewatcher/v20240719preview:Watcher" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Watcher.__pulumiType, name, resourceInputs, opts);
     }

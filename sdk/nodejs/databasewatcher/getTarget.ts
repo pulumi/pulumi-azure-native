@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Get a Target
  * Azure REST API version: 2023-09-01-preview.
+ *
+ * Other available API versions: 2024-07-19-preview.
  */
 export function getTarget(args: GetTargetArgs, opts?: pulumi.InvokeOptions): Promise<GetTargetResult> {
 
@@ -80,6 +82,8 @@ export interface GetTargetResult {
 /**
  * Get a Target
  * Azure REST API version: 2023-09-01-preview.
+ *
+ * Other available API versions: 2024-07-19-preview.
  */
 export function getTargetOutput(args: GetTargetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTargetResult> {
     return pulumi.output(args).apply((a: any) => getTarget(a, opts))

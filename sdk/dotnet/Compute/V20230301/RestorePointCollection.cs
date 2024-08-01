@@ -99,6 +99,7 @@ namespace Pulumi.AzureNative.Compute.V20230301
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20230701:RestorePointCollection" },
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20230901:RestorePointCollection" },
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20240301:RestorePointCollection" },
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20240701:RestorePointCollection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

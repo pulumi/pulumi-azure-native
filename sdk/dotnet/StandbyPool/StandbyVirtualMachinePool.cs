@@ -12,6 +12,8 @@ namespace Pulumi.AzureNative.StandbyPool
     /// <summary>
     /// A StandbyVirtualMachinePoolResource.
     /// Azure REST API version: 2023-12-01-preview.
+    /// 
+    /// Other available API versions: 2024-03-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:standbypool:StandbyVirtualMachinePool")]
     public partial class StandbyVirtualMachinePool : global::Pulumi.CustomResource
@@ -96,6 +98,7 @@ namespace Pulumi.AzureNative.StandbyPool
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:standbypool/v20231201preview:StandbyVirtualMachinePool" },
+                    new global::Pulumi.Alias { Type = "azure-native:standbypool/v20240301preview:StandbyVirtualMachinePool" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

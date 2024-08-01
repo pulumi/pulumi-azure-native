@@ -154,6 +154,8 @@ class StandbyVirtualMachinePool(pulumi.CustomResource):
         A StandbyVirtualMachinePoolResource.
         Azure REST API version: 2023-12-01-preview.
 
+        Other available API versions: 2024-03-01-preview.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] attached_virtual_machine_scale_set_id: Specifies the fully qualified resource ID of a virtual machine scale set the pool is attached to.
@@ -173,6 +175,8 @@ class StandbyVirtualMachinePool(pulumi.CustomResource):
         """
         A StandbyVirtualMachinePoolResource.
         Azure REST API version: 2023-12-01-preview.
+
+        Other available API versions: 2024-03-01-preview.
 
         :param str resource_name: The name of the resource.
         :param StandbyVirtualMachinePoolArgs args: The arguments to use to populate this resource's properties.
@@ -220,7 +224,7 @@ class StandbyVirtualMachinePool(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:standbypool/v20231201preview:StandbyVirtualMachinePool")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:standbypool/v20231201preview:StandbyVirtualMachinePool"), pulumi.Alias(type_="azure-native:standbypool/v20240301preview:StandbyVirtualMachinePool")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(StandbyVirtualMachinePool, __self__).__init__(
             'azure-native:standbypool:StandbyVirtualMachinePool',

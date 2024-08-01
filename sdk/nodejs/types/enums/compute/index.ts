@@ -23,6 +23,7 @@ import * as v20230901 from "./v20230901";
 import * as v20231002 from "./v20231002";
 import * as v20240301 from "./v20240301";
 import * as v20240302 from "./v20240302";
+import * as v20240701 from "./v20240701";
 
 export {
     v20201201,
@@ -46,6 +47,7 @@ export {
     v20231002,
     v20240301,
     v20240302,
+    v20240701,
 };
 
 export const Architecture = {

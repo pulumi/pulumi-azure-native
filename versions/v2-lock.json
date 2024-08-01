@@ -896,6 +896,7 @@
     "listShareSynchronizations": "2021-08-01"
   },
   "DatabaseWatcher": {
+    "AlertRuleResource": "2024-07-19-preview",
     "SharedPrivateLinkResource": "2023-09-01-preview",
     "Target": "2023-09-01-preview",
     "Watcher": "2023-09-01-preview"

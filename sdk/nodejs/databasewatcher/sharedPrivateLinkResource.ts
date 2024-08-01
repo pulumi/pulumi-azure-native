@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Concrete proxy resource types can be created by aliasing this type using a specific property type.
  * Azure REST API version: 2023-09-01-preview.
+ *
+ * Other available API versions: 2024-07-19-preview.
  */
 export class SharedPrivateLinkResource extends pulumi.CustomResource {
     /**
@@ -125,7 +127,7 @@ export class SharedPrivateLinkResource extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:databasewatcher/v20230901preview:SharedPrivateLinkResource" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:databasewatcher/v20230901preview:SharedPrivateLinkResource" }, { type: "azure-native:databasewatcher/v20240719preview:SharedPrivateLinkResource" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SharedPrivateLinkResource.__pulumiType, name, resourceInputs, opts);
     }

@@ -3393,11 +3393,11 @@ class FunctionsAlwaysReadyConfigResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 instance_count: Optional[float] = None,
+                 instance_count: Optional[int] = None,
                  name: Optional[str] = None):
         """
         Sets the number of 'Always Ready' instances for a function group or a specific function.
-        :param float instance_count: Sets the number of 'Always Ready' instances for a given function group or a specific function. For additional information see https://aka.ms/flexconsumption/alwaysready.
+        :param int instance_count: Sets the number of 'Always Ready' instances for a given function group or a specific function. For additional information see https://aka.ms/flexconsumption/alwaysready.
         :param str name: Either a function group or a function name is required. For additional information see https://aka.ms/flexconsumption/alwaysready.
         """
         if instance_count is not None:
@@ -3407,7 +3407,7 @@ class FunctionsAlwaysReadyConfigResponse(dict):
 
     @property
     @pulumi.getter(name="instanceCount")
-    def instance_count(self) -> Optional[float]:
+    def instance_count(self) -> Optional[int]:
         """
         Sets the number of 'Always Ready' instances for a given function group or a specific function. For additional information see https://aka.ms/flexconsumption/alwaysready.
         """
@@ -3621,14 +3621,14 @@ class FunctionsScaleAndConcurrencyResponse(dict):
 
     def __init__(__self__, *,
                  always_ready: Optional[Sequence['outputs.FunctionsAlwaysReadyConfigResponse']] = None,
-                 instance_memory_mb: Optional[float] = None,
-                 maximum_instance_count: Optional[float] = None,
+                 instance_memory_mb: Optional[int] = None,
+                 maximum_instance_count: Optional[int] = None,
                  triggers: Optional['outputs.FunctionsScaleAndConcurrencyResponseTriggers'] = None):
         """
         Scale and concurrency settings for the function app.
         :param Sequence['FunctionsAlwaysReadyConfigResponse'] always_ready: 'Always Ready' configuration for the function app.
-        :param float instance_memory_mb: Set the amount of memory allocated to each instance of the function app in MB. CPU and network bandwidth are allocated proportionally.
-        :param float maximum_instance_count: The maximum number of instances for the function app.
+        :param int instance_memory_mb: Set the amount of memory allocated to each instance of the function app in MB. CPU and network bandwidth are allocated proportionally.
+        :param int maximum_instance_count: The maximum number of instances for the function app.
         :param 'FunctionsScaleAndConcurrencyResponseTriggers' triggers: Scale and concurrency settings for the function app triggers.
         """
         if always_ready is not None:
@@ -3650,7 +3650,7 @@ class FunctionsScaleAndConcurrencyResponse(dict):
 
     @property
     @pulumi.getter(name="instanceMemoryMB")
-    def instance_memory_mb(self) -> Optional[float]:
+    def instance_memory_mb(self) -> Optional[int]:
         """
         Set the amount of memory allocated to each instance of the function app in MB. CPU and network bandwidth are allocated proportionally.
         """
@@ -3658,7 +3658,7 @@ class FunctionsScaleAndConcurrencyResponse(dict):
 
     @property
     @pulumi.getter(name="maximumInstanceCount")
-    def maximum_instance_count(self) -> Optional[float]:
+    def maximum_instance_count(self) -> Optional[int]:
         """
         The maximum number of instances for the function app.
         """
@@ -3696,17 +3696,17 @@ class FunctionsScaleAndConcurrencyResponseHttp(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 per_instance_concurrency: Optional[float] = None):
+                 per_instance_concurrency: Optional[int] = None):
         """
         Scale and concurrency settings for the HTTP trigger.
-        :param float per_instance_concurrency: The maximum number of concurrent HTTP trigger invocations per instance.
+        :param int per_instance_concurrency: The maximum number of concurrent HTTP trigger invocations per instance.
         """
         if per_instance_concurrency is not None:
             pulumi.set(__self__, "per_instance_concurrency", per_instance_concurrency)
 
     @property
     @pulumi.getter(name="perInstanceConcurrency")
-    def per_instance_concurrency(self) -> Optional[float]:
+    def per_instance_concurrency(self) -> Optional[int]:
         """
         The maximum number of concurrent HTTP trigger invocations per instance.
         """

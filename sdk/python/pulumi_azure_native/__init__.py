@@ -2414,6 +2414,14 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "authorization/v20240201preview",
+  "fqn": "pulumi_azure_native.authorization.v20240201preview",
+  "classes": {
+   "azure-native:authorization/v20240201preview:RoleManagementPolicyAssignment": "RoleManagementPolicyAssignment"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "authorization/v20240401",
   "fqn": "pulumi_azure_native.authorization.v20240401",
   "classes": {
@@ -4505,6 +4513,31 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "compute/v20240701",
+  "fqn": "pulumi_azure_native.compute.v20240701",
+  "classes": {
+   "azure-native:compute/v20240701:AvailabilitySet": "AvailabilitySet",
+   "azure-native:compute/v20240701:CapacityReservation": "CapacityReservation",
+   "azure-native:compute/v20240701:CapacityReservationGroup": "CapacityReservationGroup",
+   "azure-native:compute/v20240701:DedicatedHost": "DedicatedHost",
+   "azure-native:compute/v20240701:DedicatedHostGroup": "DedicatedHostGroup",
+   "azure-native:compute/v20240701:Image": "Image",
+   "azure-native:compute/v20240701:ProximityPlacementGroup": "ProximityPlacementGroup",
+   "azure-native:compute/v20240701:RestorePoint": "RestorePoint",
+   "azure-native:compute/v20240701:RestorePointCollection": "RestorePointCollection",
+   "azure-native:compute/v20240701:SshPublicKey": "SshPublicKey",
+   "azure-native:compute/v20240701:VirtualMachine": "VirtualMachine",
+   "azure-native:compute/v20240701:VirtualMachineExtension": "VirtualMachineExtension",
+   "azure-native:compute/v20240701:VirtualMachineRunCommandByVirtualMachine": "VirtualMachineRunCommandByVirtualMachine",
+   "azure-native:compute/v20240701:VirtualMachineScaleSet": "VirtualMachineScaleSet",
+   "azure-native:compute/v20240701:VirtualMachineScaleSetExtension": "VirtualMachineScaleSetExtension",
+   "azure-native:compute/v20240701:VirtualMachineScaleSetVM": "VirtualMachineScaleSetVM",
+   "azure-native:compute/v20240701:VirtualMachineScaleSetVMExtension": "VirtualMachineScaleSetVMExtension",
+   "azure-native:compute/v20240701:VirtualMachineScaleSetVMRunCommand": "VirtualMachineScaleSetVMRunCommand"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "confidentialledger",
   "fqn": "pulumi_azure_native.confidentialledger",
   "classes": {
@@ -5682,6 +5715,7 @@ _utilities.register(
   "mod": "databasewatcher",
   "fqn": "pulumi_azure_native.databasewatcher",
   "classes": {
+   "azure-native:databasewatcher:AlertRuleResource": "AlertRuleResource",
    "azure-native:databasewatcher:SharedPrivateLinkResource": "SharedPrivateLinkResource",
    "azure-native:databasewatcher:Target": "Target",
    "azure-native:databasewatcher:Watcher": "Watcher"
@@ -5695,6 +5729,17 @@ _utilities.register(
    "azure-native:databasewatcher/v20230901preview:SharedPrivateLinkResource": "SharedPrivateLinkResource",
    "azure-native:databasewatcher/v20230901preview:Target": "Target",
    "azure-native:databasewatcher/v20230901preview:Watcher": "Watcher"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "databasewatcher/v20240719preview",
+  "fqn": "pulumi_azure_native.databasewatcher.v20240719preview",
+  "classes": {
+   "azure-native:databasewatcher/v20240719preview:AlertRuleResource": "AlertRuleResource",
+   "azure-native:databasewatcher/v20240719preview:SharedPrivateLinkResource": "SharedPrivateLinkResource",
+   "azure-native:databasewatcher/v20240719preview:Target": "Target",
+   "azure-native:databasewatcher/v20240719preview:Watcher": "Watcher"
   }
  },
  {
@@ -16826,6 +16871,15 @@ _utilities.register(
   "classes": {
    "azure-native:standbypool/v20231201preview:StandbyContainerGroupPool": "StandbyContainerGroupPool",
    "azure-native:standbypool/v20231201preview:StandbyVirtualMachinePool": "StandbyVirtualMachinePool"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "standbypool/v20240301preview",
+  "fqn": "pulumi_azure_native.standbypool.v20240301preview",
+  "classes": {
+   "azure-native:standbypool/v20240301preview:StandbyContainerGroupPool": "StandbyContainerGroupPool",
+   "azure-native:standbypool/v20240301preview:StandbyVirtualMachinePool": "StandbyVirtualMachinePool"
   }
  },
  {

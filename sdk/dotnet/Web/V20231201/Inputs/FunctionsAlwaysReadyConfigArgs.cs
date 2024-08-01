@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.Web.V20231201.Inputs
         /// Sets the number of 'Always Ready' instances for a given function group or a specific function. For additional information see https://aka.ms/flexconsumption/alwaysready.
         /// </summary>
         [Input("instanceCount")]
-        public Input<double>? InstanceCount { get; set; }
+        public Input<int>? InstanceCount { get; set; }
 
         /// <summary>
         /// Either a function group or a function name is required. For additional information see https://aka.ms/flexconsumption/alwaysready.

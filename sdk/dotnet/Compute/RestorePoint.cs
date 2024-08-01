@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute
     /// Restore Point details.
     /// Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2021-03-01.
     /// 
-    /// Other available API versions: 2021-11-01, 2022-11-01, 2023-07-01, 2023-09-01, 2024-03-01.
+    /// Other available API versions: 2021-11-01, 2022-11-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:compute:RestorePoint")]
     public partial class RestorePoint : global::Pulumi.CustomResource
@@ -108,6 +108,7 @@ namespace Pulumi.AzureNative.Compute
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20230701:RestorePoint" },
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20230901:RestorePoint" },
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20240301:RestorePoint" },
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20240701:RestorePoint" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

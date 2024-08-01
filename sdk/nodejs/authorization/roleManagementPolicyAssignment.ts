@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Role management policy
  * Azure REST API version: 2020-10-01. Prior API version in Azure Native 1.x: 2020-10-01.
  *
- * Other available API versions: 2020-10-01-preview.
+ * Other available API versions: 2020-10-01-preview, 2024-02-01-preview.
  */
 export class RoleManagementPolicyAssignment extends pulumi.CustomResource {
     /**
@@ -101,7 +101,7 @@ export class RoleManagementPolicyAssignment extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:authorization/v20201001:RoleManagementPolicyAssignment" }, { type: "azure-native:authorization/v20201001preview:RoleManagementPolicyAssignment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:authorization/v20201001:RoleManagementPolicyAssignment" }, { type: "azure-native:authorization/v20201001preview:RoleManagementPolicyAssignment" }, { type: "azure-native:authorization/v20240201preview:RoleManagementPolicyAssignment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RoleManagementPolicyAssignment.__pulumiType, name, resourceInputs, opts);
     }

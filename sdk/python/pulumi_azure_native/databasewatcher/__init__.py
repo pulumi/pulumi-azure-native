@@ -6,6 +6,8 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .alert_rule_resource import *
+from .get_alert_rule_resource import *
 from .get_shared_private_link_resource import *
 from .get_target import *
 from .get_watcher import *
@@ -19,6 +21,9 @@ from . import outputs
 if typing.TYPE_CHECKING:
     import pulumi_azure_native.databasewatcher.v20230901preview as __v20230901preview
     v20230901preview = __v20230901preview
+    import pulumi_azure_native.databasewatcher.v20240719preview as __v20240719preview
+    v20240719preview = __v20240719preview
 else:
     v20230901preview = _utilities.lazy_import('pulumi_azure_native.databasewatcher.v20230901preview')
+    v20240719preview = _utilities.lazy_import('pulumi_azure_native.databasewatcher.v20240719preview')
 

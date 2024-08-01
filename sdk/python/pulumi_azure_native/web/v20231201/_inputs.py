@@ -3718,7 +3718,7 @@ if not MYPY:
         """
         Sets the number of 'Always Ready' instances for a function group or a specific function.
         """
-        instance_count: NotRequired[pulumi.Input[float]]
+        instance_count: NotRequired[pulumi.Input[int]]
         """
         Sets the number of 'Always Ready' instances for a given function group or a specific function. For additional information see https://aka.ms/flexconsumption/alwaysready.
         """
@@ -3732,11 +3732,11 @@ elif False:
 @pulumi.input_type
 class FunctionsAlwaysReadyConfigArgs:
     def __init__(__self__, *,
-                 instance_count: Optional[pulumi.Input[float]] = None,
+                 instance_count: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
         Sets the number of 'Always Ready' instances for a function group or a specific function.
-        :param pulumi.Input[float] instance_count: Sets the number of 'Always Ready' instances for a given function group or a specific function. For additional information see https://aka.ms/flexconsumption/alwaysready.
+        :param pulumi.Input[int] instance_count: Sets the number of 'Always Ready' instances for a given function group or a specific function. For additional information see https://aka.ms/flexconsumption/alwaysready.
         :param pulumi.Input[str] name: Either a function group or a function name is required. For additional information see https://aka.ms/flexconsumption/alwaysready.
         """
         if instance_count is not None:
@@ -3746,14 +3746,14 @@ class FunctionsAlwaysReadyConfigArgs:
 
     @property
     @pulumi.getter(name="instanceCount")
-    def instance_count(self) -> Optional[pulumi.Input[float]]:
+    def instance_count(self) -> Optional[pulumi.Input[int]]:
         """
         Sets the number of 'Always Ready' instances for a given function group or a specific function. For additional information see https://aka.ms/flexconsumption/alwaysready.
         """
         return pulumi.get(self, "instance_count")
 
     @instance_count.setter
-    def instance_count(self, value: Optional[pulumi.Input[float]]):
+    def instance_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "instance_count", value)
 
     @property
@@ -4018,7 +4018,7 @@ if not MYPY:
         """
         Scale and concurrency settings for the HTTP trigger.
         """
-        per_instance_concurrency: NotRequired[pulumi.Input[float]]
+        per_instance_concurrency: NotRequired[pulumi.Input[int]]
         """
         The maximum number of concurrent HTTP trigger invocations per instance.
         """
@@ -4028,24 +4028,24 @@ elif False:
 @pulumi.input_type
 class FunctionsScaleAndConcurrencyHttpArgs:
     def __init__(__self__, *,
-                 per_instance_concurrency: Optional[pulumi.Input[float]] = None):
+                 per_instance_concurrency: Optional[pulumi.Input[int]] = None):
         """
         Scale and concurrency settings for the HTTP trigger.
-        :param pulumi.Input[float] per_instance_concurrency: The maximum number of concurrent HTTP trigger invocations per instance.
+        :param pulumi.Input[int] per_instance_concurrency: The maximum number of concurrent HTTP trigger invocations per instance.
         """
         if per_instance_concurrency is not None:
             pulumi.set(__self__, "per_instance_concurrency", per_instance_concurrency)
 
     @property
     @pulumi.getter(name="perInstanceConcurrency")
-    def per_instance_concurrency(self) -> Optional[pulumi.Input[float]]:
+    def per_instance_concurrency(self) -> Optional[pulumi.Input[int]]:
         """
         The maximum number of concurrent HTTP trigger invocations per instance.
         """
         return pulumi.get(self, "per_instance_concurrency")
 
     @per_instance_concurrency.setter
-    def per_instance_concurrency(self, value: Optional[pulumi.Input[float]]):
+    def per_instance_concurrency(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "per_instance_concurrency", value)
 
 
@@ -4094,11 +4094,11 @@ if not MYPY:
         """
         'Always Ready' configuration for the function app.
         """
-        instance_memory_mb: NotRequired[pulumi.Input[float]]
+        instance_memory_mb: NotRequired[pulumi.Input[int]]
         """
         Set the amount of memory allocated to each instance of the function app in MB. CPU and network bandwidth are allocated proportionally.
         """
-        maximum_instance_count: NotRequired[pulumi.Input[float]]
+        maximum_instance_count: NotRequired[pulumi.Input[int]]
         """
         The maximum number of instances for the function app.
         """
@@ -4113,14 +4113,14 @@ elif False:
 class FunctionsScaleAndConcurrencyArgs:
     def __init__(__self__, *,
                  always_ready: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionsAlwaysReadyConfigArgs']]]] = None,
-                 instance_memory_mb: Optional[pulumi.Input[float]] = None,
-                 maximum_instance_count: Optional[pulumi.Input[float]] = None,
+                 instance_memory_mb: Optional[pulumi.Input[int]] = None,
+                 maximum_instance_count: Optional[pulumi.Input[int]] = None,
                  triggers: Optional[pulumi.Input['FunctionsScaleAndConcurrencyTriggersArgs']] = None):
         """
         Scale and concurrency settings for the function app.
         :param pulumi.Input[Sequence[pulumi.Input['FunctionsAlwaysReadyConfigArgs']]] always_ready: 'Always Ready' configuration for the function app.
-        :param pulumi.Input[float] instance_memory_mb: Set the amount of memory allocated to each instance of the function app in MB. CPU and network bandwidth are allocated proportionally.
-        :param pulumi.Input[float] maximum_instance_count: The maximum number of instances for the function app.
+        :param pulumi.Input[int] instance_memory_mb: Set the amount of memory allocated to each instance of the function app in MB. CPU and network bandwidth are allocated proportionally.
+        :param pulumi.Input[int] maximum_instance_count: The maximum number of instances for the function app.
         :param pulumi.Input['FunctionsScaleAndConcurrencyTriggersArgs'] triggers: Scale and concurrency settings for the function app triggers.
         """
         if always_ready is not None:
@@ -4146,26 +4146,26 @@ class FunctionsScaleAndConcurrencyArgs:
 
     @property
     @pulumi.getter(name="instanceMemoryMB")
-    def instance_memory_mb(self) -> Optional[pulumi.Input[float]]:
+    def instance_memory_mb(self) -> Optional[pulumi.Input[int]]:
         """
         Set the amount of memory allocated to each instance of the function app in MB. CPU and network bandwidth are allocated proportionally.
         """
         return pulumi.get(self, "instance_memory_mb")
 
     @instance_memory_mb.setter
-    def instance_memory_mb(self, value: Optional[pulumi.Input[float]]):
+    def instance_memory_mb(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "instance_memory_mb", value)
 
     @property
     @pulumi.getter(name="maximumInstanceCount")
-    def maximum_instance_count(self) -> Optional[pulumi.Input[float]]:
+    def maximum_instance_count(self) -> Optional[pulumi.Input[int]]:
         """
         The maximum number of instances for the function app.
         """
         return pulumi.get(self, "maximum_instance_count")
 
     @maximum_instance_count.setter
-    def maximum_instance_count(self, value: Optional[pulumi.Input[float]]):
+    def maximum_instance_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "maximum_instance_count", value)
 
     @property

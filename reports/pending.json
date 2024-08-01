@@ -87,6 +87,7 @@
     "2022-07-01-preview",
     "2022-08-01-preview",
     "2023-04-01",
+    "2024-02-01-preview",
     "2024-04-01"
   ],
   "Automanage": [
@@ -226,7 +227,8 @@
     "2023-09-01",
     "2023-10-02",
     "2024-03-01",
-    "2024-03-02"
+    "2024-03-02",
+    "2024-07-01"
   ],
   "ComputeSchedule": [],
   "ConfidentialLedger": [
@@ -430,7 +432,9 @@
   ],
   "DataReplication": [],
   "DataShare": [],
-  "DatabaseWatcher": [],
+  "DatabaseWatcher": [
+    "2024-07-19-preview"
+  ],
   "Databricks": [
     "2023-05-01",
     "2023-09-15-preview",
@@ -1135,7 +1139,9 @@
     "2023-01-01-preview",
     "2023-10-01"
   ],
-  "StandbyPool": [],
+  "StandbyPool": [
+    "2024-03-01-preview"
+  ],
   "StorSimple": [],
   "Storage": [
     "2023-01-01",

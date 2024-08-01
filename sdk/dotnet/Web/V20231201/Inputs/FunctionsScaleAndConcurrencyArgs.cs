@@ -31,13 +31,13 @@ namespace Pulumi.AzureNative.Web.V20231201.Inputs
         /// Set the amount of memory allocated to each instance of the function app in MB. CPU and network bandwidth are allocated proportionally.
         /// </summary>
         [Input("instanceMemoryMB")]
-        public Input<double>? InstanceMemoryMB { get; set; }
+        public Input<int>? InstanceMemoryMB { get; set; }
 
         /// <summary>
         /// The maximum number of instances for the function app.
         /// </summary>
         [Input("maximumInstanceCount")]
-        public Input<double>? MaximumInstanceCount { get; set; }
+        public Input<int>? MaximumInstanceCount { get; set; }
 
         /// <summary>
         /// Scale and concurrency settings for the function app triggers.

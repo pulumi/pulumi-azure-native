@@ -153,6 +153,8 @@ def get_standby_container_group_pool(resource_group_name: Optional[str] = None,
     Get a StandbyContainerGroupPoolResource
     Azure REST API version: 2023-12-01-preview.
 
+    Other available API versions: 2024-03-01-preview.
+
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str standby_container_group_pool_name: Name of the standby container group pool
@@ -182,6 +184,8 @@ def get_standby_container_group_pool_output(resource_group_name: Optional[pulumi
     """
     Get a StandbyContainerGroupPoolResource
     Azure REST API version: 2023-12-01-preview.
+
+    Other available API versions: 2024-03-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

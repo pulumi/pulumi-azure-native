@@ -5,6 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { AlertRuleResourceArgs } from "./alertRuleResource";
+export type AlertRuleResource = import("./alertRuleResource").AlertRuleResource;
+export const AlertRuleResource: typeof import("./alertRuleResource").AlertRuleResource = null as any;
+utilities.lazyLoad(exports, ["AlertRuleResource"], () => require("./alertRuleResource"));
+
+export { GetAlertRuleResourceArgs, GetAlertRuleResourceResult, GetAlertRuleResourceOutputArgs } from "./getAlertRuleResource";
+export const getAlertRuleResource: typeof import("./getAlertRuleResource").getAlertRuleResource = null as any;
+export const getAlertRuleResourceOutput: typeof import("./getAlertRuleResource").getAlertRuleResourceOutput = null as any;
+utilities.lazyLoad(exports, ["getAlertRuleResource","getAlertRuleResourceOutput"], () => require("./getAlertRuleResource"));
+
 export { GetSharedPrivateLinkResourceArgs, GetSharedPrivateLinkResourceResult, GetSharedPrivateLinkResourceOutputArgs } from "./getSharedPrivateLinkResource";
 export const getSharedPrivateLinkResource: typeof import("./getSharedPrivateLinkResource").getSharedPrivateLinkResource = null as any;
 export const getSharedPrivateLinkResourceOutput: typeof import("./getSharedPrivateLinkResource").getSharedPrivateLinkResourceOutput = null as any;
@@ -41,15 +51,19 @@ export * from "../types/enums/databasewatcher";
 
 // Export sub-modules:
 import * as v20230901preview from "./v20230901preview";
+import * as v20240719preview from "./v20240719preview";
 
 export {
     v20230901preview,
+    v20240719preview,
 };
 
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:databasewatcher:AlertRuleResource":
+                return new AlertRuleResource(name, <any>undefined, { urn })
             case "azure-native:databasewatcher:SharedPrivateLinkResource":
                 return new SharedPrivateLinkResource(name, <any>undefined, { urn })
             case "azure-native:databasewatcher:Target":

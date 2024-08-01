@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.Web.V20231201.Inputs
         /// The maximum number of concurrent HTTP trigger invocations per instance.
         /// </summary>
         [Input("perInstanceConcurrency")]
-        public Input<double>? PerInstanceConcurrency { get; set; }
+        public Input<int>? PerInstanceConcurrency { get; set; }
 
         public FunctionsScaleAndConcurrencyHttpArgs()
         {

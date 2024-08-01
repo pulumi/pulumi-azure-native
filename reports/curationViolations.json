@@ -112,6 +112,10 @@
     "Detail": "expected tracking stable but found preview"
   },
   {
+    "Provider": "DatabaseWatcher",
+    "Detail": "expected no additions but found some"
+  },
+  {
     "Provider": "Datadog",
     "Detail": "expected no additions but found some"
   },

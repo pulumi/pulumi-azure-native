@@ -394,7 +394,7 @@ def get_virtual_machine_scale_set(expand: Optional[str] = None,
     Display information about a virtual machine scale set.
     Azure REST API version: 2023-03-01.
 
-    Other available API versions: 2015-06-15, 2016-04-30-preview, 2023-07-01, 2023-09-01, 2024-03-01.
+    Other available API versions: 2015-06-15, 2016-04-30-preview, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
 
 
     :param str expand: The expand expression to apply on the operation. 'UserData' retrieves the UserData property of the VM scale set that was provided by the user during the VM scale set Create/Update operation
@@ -449,7 +449,7 @@ def get_virtual_machine_scale_set_output(expand: Optional[pulumi.Input[Optional[
     Display information about a virtual machine scale set.
     Azure REST API version: 2023-03-01.
 
-    Other available API versions: 2015-06-15, 2016-04-30-preview, 2023-07-01, 2023-09-01, 2024-03-01.
+    Other available API versions: 2015-06-15, 2016-04-30-preview, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
 
 
     :param str expand: The expand expression to apply on the operation. 'UserData' retrieves the UserData property of the VM scale set that was provided by the user during the VM scale set Create/Update operation

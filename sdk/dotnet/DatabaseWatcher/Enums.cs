@@ -8,6 +8,43 @@ using Pulumi;
 namespace Pulumi.AzureNative.DatabaseWatcher
 {
     /// <summary>
+    /// The properties with which the alert rule resource was created.
+    /// </summary>
+    [EnumType]
+    public readonly struct AlertRuleCreationProperties : IEquatable<AlertRuleCreationProperties>
+    {
+        private readonly string _value;
+
+        private AlertRuleCreationProperties(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// The alert rule was created with an action group.
+        /// </summary>
+        public static AlertRuleCreationProperties CreatedWithActionGroup { get; } = new AlertRuleCreationProperties("CreatedWithActionGroup");
+        /// <summary>
+        /// The alert rule was created with no properties.
+        /// </summary>
+        public static AlertRuleCreationProperties None { get; } = new AlertRuleCreationProperties("None");
+
+        public static bool operator ==(AlertRuleCreationProperties left, AlertRuleCreationProperties right) => left.Equals(right);
+        public static bool operator !=(AlertRuleCreationProperties left, AlertRuleCreationProperties right) => !left.Equals(right);
+
+        public static explicit operator string(AlertRuleCreationProperties value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AlertRuleCreationProperties other && Equals(other);
+        public bool Equals(AlertRuleCreationProperties other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type of a Kusto offering.
     /// </summary>
     [EnumType]

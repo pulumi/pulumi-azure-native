@@ -111,7 +111,7 @@ export class StandbyContainerGroupPool extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:standbypool:StandbyContainerGroupPool" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:standbypool:StandbyContainerGroupPool" }, { type: "azure-native:standbypool/v20240301preview:StandbyContainerGroupPool" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(StandbyContainerGroupPool.__pulumiType, name, resourceInputs, opts);
     }

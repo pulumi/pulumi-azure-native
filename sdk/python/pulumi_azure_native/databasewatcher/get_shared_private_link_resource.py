@@ -166,6 +166,8 @@ def get_shared_private_link_resource(resource_group_name: Optional[str] = None,
     Get a SharedPrivateLinkResource
     Azure REST API version: 2023-09-01-preview.
 
+    Other available API versions: 2024-07-19-preview.
+
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str shared_private_link_resource_name: The Shared Private Link resource name.
@@ -199,6 +201,8 @@ def get_shared_private_link_resource_output(resource_group_name: Optional[pulumi
     """
     Get a SharedPrivateLinkResource
     Azure REST API version: 2023-09-01-preview.
+
+    Other available API versions: 2024-07-19-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

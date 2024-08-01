@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.DatabaseWatcher
         /// <summary>
         /// Get a SharedPrivateLinkResource
         /// Azure REST API version: 2023-09-01-preview.
+        /// 
+        /// Other available API versions: 2024-07-19-preview.
         /// </summary>
         public static Task<GetSharedPrivateLinkResourceResult> InvokeAsync(GetSharedPrivateLinkResourceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSharedPrivateLinkResourceResult>("azure-native:databasewatcher:getSharedPrivateLinkResource", args ?? new GetSharedPrivateLinkResourceArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.DatabaseWatcher
         /// <summary>
         /// Get a SharedPrivateLinkResource
         /// Azure REST API version: 2023-09-01-preview.
+        /// 
+        /// Other available API versions: 2024-07-19-preview.
         /// </summary>
         public static Output<GetSharedPrivateLinkResourceResult> Invoke(GetSharedPrivateLinkResourceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSharedPrivateLinkResourceResult>("azure-native:databasewatcher:getSharedPrivateLinkResource", args ?? new GetSharedPrivateLinkResourceInvokeArgs(), options.WithDefaults());

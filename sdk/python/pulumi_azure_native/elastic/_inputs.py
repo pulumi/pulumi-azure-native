@@ -649,7 +649,7 @@ if not MYPY:
         """
         open_ai_resource_id: NotRequired[pulumi.Input[str]]
         """
-        The resource id of Open AI resource
+        The resource name of Open AI resource
         """
 elif False:
     OpenAIIntegrationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
@@ -664,7 +664,7 @@ class OpenAIIntegrationPropertiesArgs:
         Open AI Integration details.
         :param pulumi.Input[str] key: Value of API key for Open AI resource
         :param pulumi.Input[str] open_ai_resource_endpoint: The API endpoint for Open AI resource
-        :param pulumi.Input[str] open_ai_resource_id: The resource id of Open AI resource
+        :param pulumi.Input[str] open_ai_resource_id: The resource name of Open AI resource
         """
         if key is not None:
             pulumi.set(__self__, "key", key)
@@ -701,7 +701,7 @@ class OpenAIIntegrationPropertiesArgs:
     @pulumi.getter(name="openAIResourceId")
     def open_ai_resource_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The resource id of Open AI resource
+        The resource name of Open AI resource
         """
         return pulumi.get(self, "open_ai_resource_id")
 

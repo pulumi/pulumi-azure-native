@@ -3,10 +3,28 @@
 
 // Export sub-modules:
 import * as v20230901preview from "./v20230901preview";
+import * as v20240719preview from "./v20240719preview";
 
 export {
     v20230901preview,
+    v20240719preview,
 };
+
+export const AlertRuleCreationProperties = {
+    /**
+     * The alert rule was created with an action group.
+     */
+    CreatedWithActionGroup: "CreatedWithActionGroup",
+    /**
+     * The alert rule was created with no properties.
+     */
+    None: "None",
+} as const;
+
+/**
+ * The properties with which the alert rule resource was created.
+ */
+export type AlertRuleCreationProperties = (typeof AlertRuleCreationProperties)[keyof typeof AlertRuleCreationProperties];
 
 export const KustoOfferingType = {
     /**

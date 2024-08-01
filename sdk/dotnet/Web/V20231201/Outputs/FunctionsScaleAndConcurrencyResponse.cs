@@ -23,11 +23,11 @@ namespace Pulumi.AzureNative.Web.V20231201.Outputs
         /// <summary>
         /// Set the amount of memory allocated to each instance of the function app in MB. CPU and network bandwidth are allocated proportionally.
         /// </summary>
-        public readonly double? InstanceMemoryMB;
+        public readonly int? InstanceMemoryMB;
         /// <summary>
         /// The maximum number of instances for the function app.
         /// </summary>
-        public readonly double? MaximumInstanceCount;
+        public readonly int? MaximumInstanceCount;
         /// <summary>
         /// Scale and concurrency settings for the function app triggers.
         /// </summary>
@@ -37,9 +37,9 @@ namespace Pulumi.AzureNative.Web.V20231201.Outputs
         private FunctionsScaleAndConcurrencyResponse(
             ImmutableArray<Outputs.FunctionsAlwaysReadyConfigResponse> alwaysReady,
 
-            double? instanceMemoryMB,
+            int? instanceMemoryMB,
 
-            double? maximumInstanceCount,
+            int? maximumInstanceCount,
 
             Outputs.FunctionsScaleAndConcurrencyResponseTriggers? triggers)
         {
