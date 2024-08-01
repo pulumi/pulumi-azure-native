@@ -1,8 +1,6 @@
 package main
 
 import (
-	"fmt"
-
 	"github.com/pulumi/pulumi-azure-native-sdk/authorization/v2"
 	"github.com/pulumi/pulumi-azure-native-sdk/compute/v2"
 	"github.com/pulumi/pulumi-azure-native-sdk/network/v2"
@@ -14,7 +12,11 @@ import (
 
 const innerProgram = "yaml-simple"
 
-// The VM parts are mostly based on https://learn.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-template
+// This program creates a VM that's open to SSH connections. It then copies a separate, "inner"
+// Pulumi program to the VM and runs `pulumi up` and `down` on it. The intent is to prove that
+// managed identity authentication, which needs to happen on an Azure resource, works as expected.
+// The VM parts are mostly based on
+// https://learn.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-template.
 func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		clientConf, err := authorization.GetClientConfig(ctx)
@@ -22,13 +24,7 @@ func main() {
 			return err
 		}
 
-		// Create a random name for the RG here so we can pass it into the inner Pulumi program as
-		// a plain string.
-		// rgName := fmt.Sprintf("%s-rg-%d", innerProgram, rand.IntN(9999))
-		rgName := "yaml-simple-rg"
-		rg, err := resources.NewResourceGroup(ctx, "rg", &resources.ResourceGroupArgs{
-			ResourceGroupName: pulumi.String(rgName),
-		})
+		rg, err := resources.NewResourceGroup(ctx, "rg", &resources.ResourceGroupArgs{})
 		if err != nil {
 			return err
 		}
@@ -161,20 +157,6 @@ func main() {
 			return err
 		}
 
-		// roleDef, err := authorization.NewRoleDefinition(ctx, "roleDef", &authorization.RoleDefinitionArgs{
-		// 	RoleName:         pulumi.String("Pulumi limited RG creator"),
-		// 	AssignableScopes: pulumi.StringArray{pulumi.Sprintf("/subscriptions/%s/resourceGroups/%s", clientConf.SubscriptionId, rg.Name)},
-		// 	Scope:            pulumi.Sprintf("/subscriptions/%s", clientConf.SubscriptionId),
-		// 	Permissions: authorization.PermissionArray{
-		// 		&authorization.PermissionArgs{
-		// 			Actions: pulumi.StringArray{
-		// 				pulumi.String(""),
-		// 			},
-		// 		},
-		// 	},
-		// })
-
-		// randomRGName := fmt.Sprintf("%s-%d", innerProgram, rand.IntN(9999))
 		principal := vm.Identity.Elem().PrincipalId()
 
 		// Grant the new VM identity access to the resource group
@@ -235,7 +217,7 @@ func main() {
 			return err
 		}
 
-		check, err := remote.NewCommand(ctx, "check", &remote.CommandArgs{
+		_, err = remote.NewCommand(ctx, "check", &remote.CommandArgs{
 			Connection: sshConn,
 			Create:     pulumi.Sprintf("cat %s/Pulumi.yaml && ls .pulumi/bin/", innerProgram),
 		}, pulumi.DependsOn([]pulumi.Resource{copy, installPulumi}))
@@ -243,10 +225,8 @@ func main() {
 			return err
 		}
 
-		// This is the same as `rg.ID()` but we need it as a plain string since YAML 'import'
-		// doesn't support outputs.
-		rgId := fmt.Sprintf("/subscriptions/%s/resourceGroups/%s", clientConf.SubscriptionId, rgName)
-
+		// We pass the resource group's ID into the inner program via config so the program can
+		// create a resource in the resource group.
 		create := pulumi.Sprintf(`cd %s && \
 set -euxo pipefail && \
 export ARM_USE_MSI=true && \
@@ -262,7 +242,7 @@ pulumi config -s $stackname && \
 pulumi up -s $stackname --skip-preview --logtostderr --logflow -v=9 && \
 pulumi down -s $stackname --skip-preview --logtostderr --logflow -v=9 && \
 pulumi stack rm --yes $stackname && \
-pulumi logout --local`, innerProgram, clientConf.SubscriptionId, innerProgram, rgId)
+pulumi logout --local`, innerProgram, clientConf.SubscriptionId, innerProgram, rg.ID())
 
 		pulumiPreview, err := remote.NewCommand(ctx, "pulumiPreview", &remote.CommandArgs{
 			Connection: sshConn,
@@ -274,11 +254,9 @@ pulumi logout --local`, innerProgram, clientConf.SubscriptionId, innerProgram, r
 		}
 
 		ctx.Export("rg", rg.ID())
-		ctx.Export("create", create)
 		ctx.Export("vm", vm.Name)
 		ctx.Export("principal", vm.Identity.Elem().PrincipalId())
 		ctx.Export("publicIpAddress", ipLookup.IpAddress().Elem())
-		ctx.Export("check", check.Stdout)
 		ctx.Export("installPulumi", installPulumi.Stdout)
 		ctx.Export("installPulumiStderr", installPulumi.Stderr)
 		ctx.Export("pulumiPreview", pulumiPreview.Stdout)

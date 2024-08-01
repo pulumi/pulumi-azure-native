@@ -8,12 +8,8 @@ config:
 resources:
   resourceGroup:
     type: azure-native:resources:ResourceGroup
-    properties:
-      resourceGroupName: yaml-simple-rg
-      #location: westus2
-    options:
-      # import: "${rgId}"
-      import: "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/yaml-simple-rg"
+    get:
+      id: ${rgId}
   storageaccount:
     type: azure-native:storage:StorageAccount
     properties:
