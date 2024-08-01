@@ -1,8 +1,6 @@
 package main
 
 import (
-	"fmt"
-
 	"github.com/pulumi/pulumi-azure-native-sdk/authorization/v2"
 	"github.com/pulumi/pulumi-azure-native-sdk/compute/v2"
 	"github.com/pulumi/pulumi-azure-native-sdk/network/v2"
@@ -22,13 +20,7 @@ func main() {
 			return err
 		}
 
-		// Create a random name for the RG here so we can pass it into the inner Pulumi program as
-		// a plain string.
-		// rgName := fmt.Sprintf("%s-rg-%d", innerProgram, rand.IntN(9999))
-		rgName := "yaml-simple-rg"
-		rg, err := resources.NewResourceGroup(ctx, "rg", &resources.ResourceGroupArgs{
-			ResourceGroupName: pulumi.String(rgName),
-		})
+		rg, err := resources.NewResourceGroup(ctx, "rg", &resources.ResourceGroupArgs{})
 		if err != nil {
 			return err
 		}
@@ -174,7 +166,6 @@ func main() {
 		// 	},
 		// })
 
-		// randomRGName := fmt.Sprintf("%s-%d", innerProgram, rand.IntN(9999))
 		principal := vm.Identity.Elem().PrincipalId()
 
 		// Grant the new VM identity access to the resource group
@@ -183,7 +174,7 @@ func main() {
 				PrincipalId:      principal,
 				PrincipalType:    authorization.PrincipalTypeServicePrincipal,
 				RoleDefinitionId: pulumi.String("/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c"), // Contributor
-				Scope:            rg.ID(),
+				Scope:            pulumi.Sprintf("/subscriptions/%s/", clientConf.SubscriptionId),
 			}, pulumi.DeleteBeforeReplace(true))
 		if err != nil {
 			return err
@@ -243,10 +234,6 @@ func main() {
 			return err
 		}
 
-		// This is the same as `rg.ID()` but we need it as a plain string since YAML 'import'
-		// doesn't support outputs.
-		rgId := fmt.Sprintf("/subscriptions/%s/resourceGroups/%s", clientConf.SubscriptionId, rgName)
-
 		create := pulumi.Sprintf(`cd %s && \
 set -euxo pipefail && \
 export ARM_USE_MSI=true && \
@@ -257,12 +244,11 @@ rand=$(openssl rand -hex 4) && \
 stackname="%s-$rand" && \
 pulumi login --local && \
 pulumi stack init $stackname && \
-pulumi config set rgId "%s" -s $stackname && \
 pulumi config -s $stackname && \
 pulumi up -s $stackname --skip-preview --logtostderr --logflow -v=9 && \
 pulumi down -s $stackname --skip-preview --logtostderr --logflow -v=9 && \
 pulumi stack rm --yes $stackname && \
-pulumi logout --local`, innerProgram, clientConf.SubscriptionId, innerProgram, rgId)
+pulumi logout --local`, innerProgram, clientConf.SubscriptionId, innerProgram)
 
 		pulumiPreview, err := remote.NewCommand(ctx, "pulumiPreview", &remote.CommandArgs{
 			Connection: sshConn,
@@ -274,7 +260,6 @@ pulumi logout --local`, innerProgram, clientConf.SubscriptionId, innerProgram, r
 		}
 
 		ctx.Export("rg", rg.ID())
-		ctx.Export("create", create)
 		ctx.Export("vm", vm.Name)
 		ctx.Export("principal", vm.Identity.Elem().PrincipalId())
 		ctx.Export("publicIpAddress", ipLookup.IpAddress().Elem())
