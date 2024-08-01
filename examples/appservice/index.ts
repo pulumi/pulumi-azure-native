@@ -112,7 +112,7 @@ new sql.EncryptionProtector("current", {
 const app = new web.WebApp("as", {
     resourceGroupName: resourceGroup.name,
     serverFarmId: appServicePlan.id,
-});
+}, { ignoreChanges: [ "siteConfig", "siteConfig.*" ] });
 
 new web.WebAppMetadata("meta", {
     resourceGroupName: resourceGroup.name,

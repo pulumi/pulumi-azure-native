@@ -19,6 +19,8 @@ func TestAccAppServiceTs(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir: filepath.Join(getCwd(t), "appservice"),
+			// due to WebApp.SiteConfig that's modified by other WebApp* resources
+			ExpectRefreshChanges: true,
 		})
 
 	integration.ProgramTest(t, &test)
@@ -40,6 +42,8 @@ func TestAccSimpleTs(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir: filepath.Join(getCwd(t), "simple"),
+			// due to WebApp.SiteConfig that's modified by other WebApp* resources
+			ExpectRefreshChanges: true,
 		})
 
 	integration.ProgramTest(t, &test)
