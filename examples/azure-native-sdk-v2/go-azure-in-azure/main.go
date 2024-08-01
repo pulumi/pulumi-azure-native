@@ -59,6 +59,8 @@ func main() {
 			PublicIPAllocationMethod: pulumi.String("Dynamic"),
 			PublicIPAddressVersion:   pulumi.String("IPv4"),
 			IdleTimeoutInMinutes:     pulumi.IntPtr(5),
+			// The actual IP address is not known until after the resource is created, so we ignore
+			// changes to the property and look the IP up later via LookupPublicIPAddress.
 		}, pulumi.IgnoreChanges([]string{"ipAddress"}))
 		if err != nil {
 			return err
@@ -213,14 +215,6 @@ func main() {
 			Create:     pulumi.String("curl -fsSL https://get.pulumi.com | sh"),
 			Triggers:   pulumi.ToArray([]any{vm.ID()}),
 		}, pulumi.DependsOn([]pulumi.Resource{poll}))
-		if err != nil {
-			return err
-		}
-
-		_, err = remote.NewCommand(ctx, "check", &remote.CommandArgs{
-			Connection: sshConn,
-			Create:     pulumi.Sprintf("cat %s/Pulumi.yaml && ls .pulumi/bin/", innerProgram),
-		}, pulumi.DependsOn([]pulumi.Resource{copy, installPulumi}))
 		if err != nil {
 			return err
 		}
