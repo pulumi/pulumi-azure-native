@@ -12,6 +12,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+const innerProgram = "yaml-simple"
+
 // The VM parts are mostly based on https://learn.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-template
 func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
@@ -20,7 +22,13 @@ func main() {
 			return err
 		}
 
-		rg, err := resources.NewResourceGroup(ctx, "rg", &resources.ResourceGroupArgs{})
+		// Create a random name for the RG here so we can pass it into the inner Pulumi program as
+		// a plain string.
+		// rgName := fmt.Sprintf("%s-rg-%d", innerProgram, rand.IntN(9999))
+		rgName := "yaml-simple-rg"
+		rg, err := resources.NewResourceGroup(ctx, "rg", &resources.ResourceGroupArgs{
+			ResourceGroupName: pulumi.String(rgName),
+		})
 		if err != nil {
 			return err
 		}
@@ -153,6 +161,34 @@ func main() {
 			return err
 		}
 
+		// roleDef, err := authorization.NewRoleDefinition(ctx, "roleDef", &authorization.RoleDefinitionArgs{
+		// 	RoleName:         pulumi.String("Pulumi limited RG creator"),
+		// 	AssignableScopes: pulumi.StringArray{pulumi.Sprintf("/subscriptions/%s/resourceGroups/%s", clientConf.SubscriptionId, rg.Name)},
+		// 	Scope:            pulumi.Sprintf("/subscriptions/%s", clientConf.SubscriptionId),
+		// 	Permissions: authorization.PermissionArray{
+		// 		&authorization.PermissionArgs{
+		// 			Actions: pulumi.StringArray{
+		// 				pulumi.String(""),
+		// 			},
+		// 		},
+		// 	},
+		// })
+
+		// randomRGName := fmt.Sprintf("%s-%d", innerProgram, rand.IntN(9999))
+		principal := vm.Identity.Elem().PrincipalId()
+
+		// Grant the new VM identity access to the resource group
+		roleAssignment, err := authorization.NewRoleAssignment(ctx, "rgAccess",
+			&authorization.RoleAssignmentArgs{
+				PrincipalId:      principal,
+				PrincipalType:    authorization.PrincipalTypeServicePrincipal,
+				RoleDefinitionId: pulumi.String("/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c"), // Contributor
+				Scope:            rg.ID(),
+			}, pulumi.DeleteBeforeReplace(true))
+		if err != nil {
+			return err
+		}
+
 		ipLookup := vm.ID().ApplyT(func(_ pulumi.ID) network.LookupPublicIPAddressResultOutput {
 			return network.LookupPublicIPAddressOutput(ctx, network.LookupPublicIPAddressOutputArgs{
 				ResourceGroupName:   rg.Name,
@@ -174,8 +210,6 @@ func main() {
 		if err != nil {
 			return err
 		}
-
-		const innerProgram = "yaml-simple"
 
 		sshConn := remote.ConnectionArgs{
 			Host:       ipLookup.IpAddress().Elem(),
@@ -203,16 +237,18 @@ func main() {
 
 		check, err := remote.NewCommand(ctx, "check", &remote.CommandArgs{
 			Connection: sshConn,
-			Create:     pulumi.String(fmt.Sprintf("cat %s/Pulumi.yaml && ls .pulumi/bin/", innerProgram)),
+			Create:     pulumi.Sprintf("cat %s/Pulumi.yaml && ls .pulumi/bin/", innerProgram),
 		}, pulumi.DependsOn([]pulumi.Resource{copy, installPulumi}))
 		if err != nil {
 			return err
 		}
 
-		pulumiPreview, err := remote.NewCommand(ctx, "pulumiPreview", &remote.CommandArgs{
-			Connection: sshConn,
-			Create: pulumi.String(fmt.Sprintf(`cd %s && \
-set -euxo pipefail
+		// This is the same as `rg.ID()` but we need it as a plain string since YAML 'import'
+		// doesn't support outputs.
+		rgId := fmt.Sprintf("/subscriptions/%s/resourceGroups/%s", clientConf.SubscriptionId, rgName)
+
+		create := pulumi.Sprintf(`cd %s && \
+set -euxo pipefail && \
 export ARM_USE_MSI=true && \
 export ARM_SUBSCRIPTION_ID=%s && \
 export PATH=~/.pulumi/bin:$PATH && \
@@ -221,16 +257,26 @@ rand=$(openssl rand -hex 4) && \
 stackname="%s-$rand" && \
 pulumi login --local && \
 pulumi stack init $stackname && \
-pulumi up --skip-preview --logtostderr --logflow -v=9 && \
-pulumi down --skip-preview --logtostderr --logflow -v=9 && \
+pulumi config set rgId "%s" -s $stackname && \
+pulumi config -s $stackname && \
+pulumi up -s $stackname --skip-preview --logtostderr --logflow -v=9 && \
+pulumi down -s $stackname --skip-preview --logtostderr --logflow -v=9 && \
 pulumi stack rm --yes $stackname && \
-pulumi logout --local`, innerProgram, clientConf.SubscriptionId, innerProgram)),
-		}, pulumi.DependsOn([]pulumi.Resource{copy, installPulumi}))
+pulumi logout --local`, innerProgram, clientConf.SubscriptionId, innerProgram, rgId)
+
+		pulumiPreview, err := remote.NewCommand(ctx, "pulumiPreview", &remote.CommandArgs{
+			Connection: sshConn,
+			Triggers:   pulumi.ToArray([]any{vm.ID(), principal, roleAssignment.ID()}),
+			Create:     create,
+		}, pulumi.DependsOn([]pulumi.Resource{roleAssignment, copy, installPulumi}))
 		if err != nil {
 			return err
 		}
 
+		ctx.Export("rg", rg.ID())
+		ctx.Export("create", create)
 		ctx.Export("vm", vm.Name)
+		ctx.Export("principal", vm.Identity.Elem().PrincipalId())
 		ctx.Export("publicIpAddress", ipLookup.IpAddress().Elem())
 		ctx.Export("check", check.Stdout)
 		ctx.Export("installPulumi", installPulumi.Stdout)
