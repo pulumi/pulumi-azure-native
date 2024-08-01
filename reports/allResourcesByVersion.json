@@ -2699,6 +2699,9 @@
       "listPolicySetDefinitionVersionAllAtManagementGroup",
       "listPolicySetDefinitionVersionAllBuiltins"
     ],
+    "2024-02-01-preview": [
+      "RoleManagementPolicyAssignment"
+    ],
     "2024-04-01": [
       "PolicyAssignment"
     ]
@@ -5126,6 +5129,28 @@
       "DiskAccessAPrivateEndpointConnection",
       "DiskEncryptionSet",
       "Snapshot"
+    ],
+    "2024-07-01": [
+      "AvailabilitySet",
+      "CapacityReservation",
+      "CapacityReservationGroup",
+      "DedicatedHost",
+      "DedicatedHostGroup",
+      "Image",
+      "ProximityPlacementGroup",
+      "RestorePoint",
+      "RestorePointCollection",
+      "SshPublicKey",
+      "VirtualMachine",
+      "VirtualMachineExtension",
+      "VirtualMachineRunCommandByVirtualMachine",
+      "VirtualMachineScaleSet",
+      "VirtualMachineScaleSetExtension",
+      "VirtualMachineScaleSetVM",
+      "VirtualMachineScaleSetVMExtension",
+      "VirtualMachineScaleSetVMRunCommand",
+      "getLogAnalyticExportRequestRateByInterval",
+      "getLogAnalyticExportThrottledRequests"
     ]
   },
   "ComputeSchedule": {
@@ -7741,6 +7766,12 @@
   },
   "DatabaseWatcher": {
     "2023-09-01-preview": [
+      "SharedPrivateLinkResource",
+      "Target",
+      "Watcher"
+    ],
+    "2024-07-19-preview": [
+      "AlertRuleResource",
       "SharedPrivateLinkResource",
       "Target",
       "Watcher"
@@ -22473,6 +22504,10 @@
   },
   "StandbyPool": {
     "2023-12-01-preview": [
+      "StandbyContainerGroupPool",
+      "StandbyVirtualMachinePool"
+    ],
+    "2024-03-01-preview": [
       "StandbyContainerGroupPool",
       "StandbyVirtualMachinePool"
     ]

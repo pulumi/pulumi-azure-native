@@ -745,6 +745,8 @@ DataShare:
     tracking: "2021-08-01"
 DatabaseWatcher:
     tracking: 2023-09-01-preview
+    additions:
+        AlertRuleResource: 2024-07-19-preview
 Databricks:
     tracking: "2023-05-01"
     additions:
