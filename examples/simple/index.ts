@@ -122,7 +122,8 @@ const appService = new web.WebApp("app", {
     },
 // Subnet is associated by WebAppSwiftVirtualNetworkConnection below, so it should be ignored here to avoid
 // overrides on refresh-update cycles.
-}, { ignoreChanges: ["virtualNetworkSubnetId"] });
+// SiteConfig is modified outside of this resource via the WebApp* resources.
+}, { ignoreChanges: ["virtualNetworkSubnetId", "siteConfig", "siteConfig.*"] });
 
 new web.WebAppAuthSettings("auth", {
     resourceGroupName: resourceGroup.name,

@@ -74,7 +74,8 @@ func main() {
 					},
 				},
 			},
-		})
+			// SiteConfig is modified outside of this resource via the WebApp* resources.
+		}, pulumi.IgnoreChanges([]string{"siteConfig", "siteConfig.*"}))
 		if err != nil {
 			return err
 		}
