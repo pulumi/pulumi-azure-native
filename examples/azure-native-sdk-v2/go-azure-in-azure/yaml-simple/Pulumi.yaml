@@ -1,0 +1,18 @@
+name: yaml-simple
+runtime: yaml
+description: A minimal Azure Native Pulumi YAML program
+config:
+  azure-native:location: northeurope
+  rgId:
+    type: string
+resources:
+  resourceGroup:
+    type: azure-native:resources:ResourceGroup
+    get:
+      id: ${rgId}
+  storageaccount:
+    type: azure-native:storage:StorageAccount
+    properties:
+      resourceGroupName: ${resourceGroup.name}
+      kind: "StorageV2"
+      sku: { name: "Standard_LRS" }

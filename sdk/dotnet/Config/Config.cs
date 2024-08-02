@@ -74,7 +74,7 @@ namespace Pulumi.AzureNative
 
         private static readonly __Value<string?> _clientSecret = new __Value<string?>(() => __config.Get("clientSecret"));
         /// <summary>
-        /// The Client Secret which should be used. For use When authenticating as a Service Principal using a Client Secret.
+        /// The Client Secret which should be used. For use when authenticating as a Service Principal using a Client Secret.
         /// </summary>
         public static string? ClientSecret
         {

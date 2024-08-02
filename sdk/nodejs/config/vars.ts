@@ -52,7 +52,7 @@ Object.defineProperty(exports, "clientId", {
 });
 
 /**
- * The Client Secret which should be used. For use When authenticating as a Service Principal using a Client Secret.
+ * The Client Secret which should be used. For use when authenticating as a Service Principal using a Client Secret.
  */
 export declare const clientSecret: string | undefined;
 Object.defineProperty(exports, "clientSecret", {

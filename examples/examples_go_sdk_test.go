@@ -91,6 +91,11 @@ func TestServicebusRecreateSdk(t *testing.T) {
 	integration.ProgramTest(t, &test)
 }
 
+func TestAzureInAzure(t *testing.T) {
+	test := getGoBaseOptionsSdk(t, testDir(t, "go-azure-in-azure"))
+	integration.ProgramTest(t, &test)
+}
+
 func getGoBaseOptionsSdk(t *testing.T, dir string) integration.ProgramTestOptions {
 	base := getBaseOptions(t)
 
