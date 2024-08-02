@@ -256,7 +256,7 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, variants
 }
 
 func (m *moduleGenerator) genProperty(name string, schema *spec.Schema, context *openapi.ReferenceContext, resolvedProperty *openapi.Schema, variants genPropertiesVariant) (*pschema.PropertySpec, *resources.AzureAPIProperty, error) {
-	// Identify properties which are aso available as standalone resources and mark them to be maintained if not specified inline.
+	// Identify properties which are also available as standalone resources and mark them to be maintained if not specified inline.
 	// Ignore types as we only support top-level resource properties
 	// Ignore outputs as this is only affecting the input args of a resource, not the resource outputs.
 	// We only consider arrays (with Items) because in order for the sub-resource to be a standalone resource it must be able to have many instances.

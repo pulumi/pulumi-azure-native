@@ -174,6 +174,15 @@ Example of a relative ID: $self/frontEndConfigurations/my-frontend.`
 		return &pschema.TypeSpec{Type: primitiveTypeName}, nil
 
 	case resolvedSchema.Items != nil && resolvedSchema.Items.Schema != nil:
+		// Special case for VirtualMachineScaleSet.diskControllerType. The property is erroneously
+		// defined as a string _and_ array in the spec. Primitive string is correct. #2639,
+		// upstream issue Azure/azure-rest-api-specs/issues/25202.
+		// Note: as of 2024-08, going with the primitive type over the array for all such
+		// properties causes a large diff in the azurestackhci SDK, so we opted not to do that.
+		if primitiveTypeName != "array" && m.resourceName == "VirtualMachineScaleSet" && propertyName == "diskControllerType" {
+			return &pschema.TypeSpec{Type: primitiveTypeName}, nil
+		}
+
 		// Resolve the element type for array types.
 		property := resolvedSchema.Properties[propertyName]
 		resolvedProperty, err := resolvedSchema.ResolveSchema(&property)
