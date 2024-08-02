@@ -68,6 +68,8 @@ def list_policy_definition_version_all_at_management_group(management_group_name
     This operation lists all the policy definition versions for all policy definitions at the management group scope.
     Azure REST API version: 2023-04-01.
 
+    Other available API versions: 2024-05-01.
+
 
     :param str management_group_name: The name of the management group. The name is case insensitive.
     """
@@ -87,6 +89,8 @@ def list_policy_definition_version_all_at_management_group_output(management_gro
     """
     This operation lists all the policy definition versions for all policy definitions at the management group scope.
     Azure REST API version: 2023-04-01.
+
+    Other available API versions: 2024-05-01.
 
 
     :param str management_group_name: The name of the management group. The name is case insensitive.

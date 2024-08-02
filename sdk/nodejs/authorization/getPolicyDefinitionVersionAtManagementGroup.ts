@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * This operation retrieves the policy definition version in the given management group with the given name.
  * Azure REST API version: 2023-04-01.
+ *
+ * Other available API versions: 2024-05-01.
  */
 export function getPolicyDefinitionVersionAtManagementGroup(args: GetPolicyDefinitionVersionAtManagementGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyDefinitionVersionAtManagementGroupResult> {
 
@@ -92,6 +94,8 @@ export interface GetPolicyDefinitionVersionAtManagementGroupResult {
 /**
  * This operation retrieves the policy definition version in the given management group with the given name.
  * Azure REST API version: 2023-04-01.
+ *
+ * Other available API versions: 2024-05-01.
  */
 export function getPolicyDefinitionVersionAtManagementGroupOutput(args: GetPolicyDefinitionVersionAtManagementGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyDefinitionVersionAtManagementGroupResult> {
     return pulumi.output(args).apply((a: any) => getPolicyDefinitionVersionAtManagementGroup(a, opts))

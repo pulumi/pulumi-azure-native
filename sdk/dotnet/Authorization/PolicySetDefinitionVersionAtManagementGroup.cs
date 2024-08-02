@@ -12,6 +12,8 @@ namespace Pulumi.AzureNative.Authorization
     /// <summary>
     /// The policy set definition version.
     /// Azure REST API version: 2023-04-01.
+    /// 
+    /// Other available API versions: 2024-05-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:authorization:PolicySetDefinitionVersionAtManagementGroup")]
     public partial class PolicySetDefinitionVersionAtManagementGroup : global::Pulumi.CustomResource
@@ -108,6 +110,7 @@ namespace Pulumi.AzureNative.Authorization
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:authorization/v20230401:PolicySetDefinitionVersionAtManagementGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20240501:PolicySetDefinitionVersionAtManagementGroup" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

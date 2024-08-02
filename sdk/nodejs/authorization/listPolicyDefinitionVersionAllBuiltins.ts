@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * This operation lists all the built-in policy definition versions for all built-in policy definitions.
  * Azure REST API version: 2023-04-01.
+ *
+ * Other available API versions: 2024-05-01.
  */
 export function listPolicyDefinitionVersionAllBuiltins(args?: ListPolicyDefinitionVersionAllBuiltinsArgs, opts?: pulumi.InvokeOptions): Promise<ListPolicyDefinitionVersionAllBuiltinsResult> {
     args = args || {};
@@ -38,6 +40,8 @@ export interface ListPolicyDefinitionVersionAllBuiltinsResult {
 /**
  * This operation lists all the built-in policy definition versions for all built-in policy definitions.
  * Azure REST API version: 2023-04-01.
+ *
+ * Other available API versions: 2024-05-01.
  */
 export function listPolicyDefinitionVersionAllBuiltinsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<ListPolicyDefinitionVersionAllBuiltinsResult> {
     return pulumi.output(listPolicyDefinitionVersionAllBuiltins(opts))

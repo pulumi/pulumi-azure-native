@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.Authorization
         /// <summary>
         /// This operation lists all the policy definition versions for all policy definitions at the management group scope.
         /// Azure REST API version: 2023-04-01.
+        /// 
+        /// Other available API versions: 2024-05-01.
         /// </summary>
         public static Task<ListPolicyDefinitionVersionAllAtManagementGroupResult> InvokeAsync(ListPolicyDefinitionVersionAllAtManagementGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListPolicyDefinitionVersionAllAtManagementGroupResult>("azure-native:authorization:listPolicyDefinitionVersionAllAtManagementGroup", args ?? new ListPolicyDefinitionVersionAllAtManagementGroupArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.Authorization
         /// <summary>
         /// This operation lists all the policy definition versions for all policy definitions at the management group scope.
         /// Azure REST API version: 2023-04-01.
+        /// 
+        /// Other available API versions: 2024-05-01.
         /// </summary>
         public static Output<ListPolicyDefinitionVersionAllAtManagementGroupResult> Invoke(ListPolicyDefinitionVersionAllAtManagementGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListPolicyDefinitionVersionAllAtManagementGroupResult>("azure-native:authorization:listPolicyDefinitionVersionAllAtManagementGroup", args ?? new ListPolicyDefinitionVersionAllAtManagementGroupInvokeArgs(), options.WithDefaults());

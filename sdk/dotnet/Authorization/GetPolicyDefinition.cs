@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Authorization
         /// This operation retrieves the policy definition in the given subscription with the given name.
         /// Azure REST API version: 2021-06-01.
         /// 
-        /// Other available API versions: 2016-04-01, 2018-05-01, 2019-06-01, 2023-04-01.
+        /// Other available API versions: 2016-04-01, 2018-05-01, 2019-06-01, 2023-04-01, 2024-05-01.
         /// </summary>
         public static Task<GetPolicyDefinitionResult> InvokeAsync(GetPolicyDefinitionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPolicyDefinitionResult>("azure-native:authorization:getPolicyDefinition", args ?? new GetPolicyDefinitionArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Authorization
         /// This operation retrieves the policy definition in the given subscription with the given name.
         /// Azure REST API version: 2021-06-01.
         /// 
-        /// Other available API versions: 2016-04-01, 2018-05-01, 2019-06-01, 2023-04-01.
+        /// Other available API versions: 2016-04-01, 2018-05-01, 2019-06-01, 2023-04-01, 2024-05-01.
         /// </summary>
         public static Output<GetPolicyDefinitionResult> Invoke(GetPolicyDefinitionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPolicyDefinitionResult>("azure-native:authorization:getPolicyDefinition", args ?? new GetPolicyDefinitionInvokeArgs(), options.WithDefaults());

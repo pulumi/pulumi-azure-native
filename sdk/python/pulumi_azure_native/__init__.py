@@ -2430,6 +2430,22 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "authorization/v20240501",
+  "fqn": "pulumi_azure_native.authorization.v20240501",
+  "classes": {
+   "azure-native:authorization/v20240501:PolicyAssignment": "PolicyAssignment",
+   "azure-native:authorization/v20240501:PolicyDefinition": "PolicyDefinition",
+   "azure-native:authorization/v20240501:PolicyDefinitionAtManagementGroup": "PolicyDefinitionAtManagementGroup",
+   "azure-native:authorization/v20240501:PolicyDefinitionVersion": "PolicyDefinitionVersion",
+   "azure-native:authorization/v20240501:PolicyDefinitionVersionAtManagementGroup": "PolicyDefinitionVersionAtManagementGroup",
+   "azure-native:authorization/v20240501:PolicySetDefinition": "PolicySetDefinition",
+   "azure-native:authorization/v20240501:PolicySetDefinitionAtManagementGroup": "PolicySetDefinitionAtManagementGroup",
+   "azure-native:authorization/v20240501:PolicySetDefinitionVersion": "PolicySetDefinitionVersion",
+   "azure-native:authorization/v20240501:PolicySetDefinitionVersionAtManagementGroup": "PolicySetDefinitionVersionAtManagementGroup"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "automanage",
   "fqn": "pulumi_azure_native.automanage",
   "classes": {

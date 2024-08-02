@@ -189,6 +189,8 @@ def get_policy_set_definition_version(policy_definition_version: Optional[str] =
     This operation retrieves the policy set definition version in the given subscription with the given name and version.
     Azure REST API version: 2023-04-01.
 
+    Other available API versions: 2024-05-01.
+
 
     :param str policy_definition_version: The policy set definition version.  The format is x.y.z where x is the major version number, y is the minor version number, and z is the patch number
     :param str policy_set_definition_name: The name of the policy set definition.
@@ -221,6 +223,8 @@ def get_policy_set_definition_version_output(policy_definition_version: Optional
     """
     This operation retrieves the policy set definition version in the given subscription with the given name and version.
     Azure REST API version: 2023-04-01.
+
+    Other available API versions: 2024-05-01.
 
 
     :param str policy_definition_version: The policy set definition version.  The format is x.y.z where x is the major version number, y is the minor version number, and z is the patch number

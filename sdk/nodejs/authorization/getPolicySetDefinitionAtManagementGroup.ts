@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * This operation retrieves the policy set definition in the given management group with the given name.
  * Azure REST API version: 2021-06-01.
  *
- * Other available API versions: 2019-06-01, 2023-04-01.
+ * Other available API versions: 2019-06-01, 2023-04-01, 2024-05-01.
  */
 export function getPolicySetDefinitionAtManagementGroup(args: GetPolicySetDefinitionAtManagementGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicySetDefinitionAtManagementGroupResult> {
 
@@ -86,7 +86,7 @@ export interface GetPolicySetDefinitionAtManagementGroupResult {
  * This operation retrieves the policy set definition in the given management group with the given name.
  * Azure REST API version: 2021-06-01.
  *
- * Other available API versions: 2019-06-01, 2023-04-01.
+ * Other available API versions: 2019-06-01, 2023-04-01, 2024-05-01.
  */
 export function getPolicySetDefinitionAtManagementGroupOutput(args: GetPolicySetDefinitionAtManagementGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicySetDefinitionAtManagementGroupResult> {
     return pulumi.output(args).apply((a: any) => getPolicySetDefinitionAtManagementGroup(a, opts))

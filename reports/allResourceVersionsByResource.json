@@ -2832,7 +2832,8 @@
       "2021-06-01",
       "2022-06-01",
       "2023-04-01",
-      "2024-04-01"
+      "2024-04-01",
+      "2024-05-01"
     ],
     "PolicyDefinition": [
       "2015-10-01-preview",
@@ -2846,7 +2847,8 @@
       "2020-03-01",
       "2020-09-01",
       "2021-06-01",
-      "2023-04-01"
+      "2023-04-01",
+      "2024-05-01"
     ],
     "PolicyDefinitionAtManagementGroup": [
       "2016-12-01",
@@ -2858,13 +2860,16 @@
       "2020-03-01",
       "2020-09-01",
       "2021-06-01",
-      "2023-04-01"
+      "2023-04-01",
+      "2024-05-01"
     ],
     "PolicyDefinitionVersion": [
-      "2023-04-01"
+      "2023-04-01",
+      "2024-05-01"
     ],
     "PolicyDefinitionVersionAtManagementGroup": [
-      "2023-04-01"
+      "2023-04-01",
+      "2024-05-01"
     ],
     "PolicyExemption": [
       "2020-07-01-preview",
@@ -2880,7 +2885,8 @@
       "2020-03-01",
       "2020-09-01",
       "2021-06-01",
-      "2023-04-01"
+      "2023-04-01",
+      "2024-05-01"
     ],
     "PolicySetDefinitionAtManagementGroup": [
       "2017-06-01-preview",
@@ -2892,13 +2898,16 @@
       "2020-03-01",
       "2020-09-01",
       "2021-06-01",
-      "2023-04-01"
+      "2023-04-01",
+      "2024-05-01"
     ],
     "PolicySetDefinitionVersion": [
-      "2023-04-01"
+      "2023-04-01",
+      "2024-05-01"
     ],
     "PolicySetDefinitionVersionAtManagementGroup": [
-      "2023-04-01"
+      "2023-04-01",
+      "2024-05-01"
     ],
     "PrivateLinkAssociation": [
       "2020-05-01"
@@ -2947,22 +2956,28 @@
       "2022-08-01-preview"
     ],
     "listPolicyDefinitionVersionAll": [
-      "2023-04-01"
+      "2023-04-01",
+      "2024-05-01"
     ],
     "listPolicyDefinitionVersionAllAtManagementGroup": [
-      "2023-04-01"
+      "2023-04-01",
+      "2024-05-01"
     ],
     "listPolicyDefinitionVersionAllBuiltins": [
-      "2023-04-01"
+      "2023-04-01",
+      "2024-05-01"
     ],
     "listPolicySetDefinitionVersionAll": [
-      "2023-04-01"
+      "2023-04-01",
+      "2024-05-01"
     ],
     "listPolicySetDefinitionVersionAllAtManagementGroup": [
-      "2023-04-01"
+      "2023-04-01",
+      "2024-05-01"
     ],
     "listPolicySetDefinitionVersionAllBuiltins": [
-      "2023-04-01"
+      "2023-04-01",
+      "2024-05-01"
     ]
   },
   "Automanage": {

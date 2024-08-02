@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.Authorization
         /// <summary>
         /// This operation lists all the built-in policy definition versions for all built-in policy definitions.
         /// Azure REST API version: 2023-04-01.
+        /// 
+        /// Other available API versions: 2024-05-01.
         /// </summary>
         public static Task<ListPolicyDefinitionVersionAllBuiltinsResult> InvokeAsync(ListPolicyDefinitionVersionAllBuiltinsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListPolicyDefinitionVersionAllBuiltinsResult>("azure-native:authorization:listPolicyDefinitionVersionAllBuiltins", args ?? new ListPolicyDefinitionVersionAllBuiltinsArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.Authorization
         /// <summary>
         /// This operation lists all the built-in policy definition versions for all built-in policy definitions.
         /// Azure REST API version: 2023-04-01.
+        /// 
+        /// Other available API versions: 2024-05-01.
         /// </summary>
         public static Output<ListPolicyDefinitionVersionAllBuiltinsResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListPolicyDefinitionVersionAllBuiltinsResult>("azure-native:authorization:listPolicyDefinitionVersionAllBuiltins", InvokeArgs.Empty, options.WithDefaults());
