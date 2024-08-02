@@ -2704,6 +2704,23 @@
     ],
     "2024-04-01": [
       "PolicyAssignment"
+    ],
+    "2024-05-01": [
+      "PolicyAssignment",
+      "PolicyDefinition",
+      "PolicyDefinitionAtManagementGroup",
+      "PolicyDefinitionVersion",
+      "PolicyDefinitionVersionAtManagementGroup",
+      "PolicySetDefinition",
+      "PolicySetDefinitionAtManagementGroup",
+      "PolicySetDefinitionVersion",
+      "PolicySetDefinitionVersionAtManagementGroup",
+      "listPolicyDefinitionVersionAll",
+      "listPolicyDefinitionVersionAllAtManagementGroup",
+      "listPolicyDefinitionVersionAllBuiltins",
+      "listPolicySetDefinitionVersionAll",
+      "listPolicySetDefinitionVersionAllAtManagementGroup",
+      "listPolicySetDefinitionVersionAllBuiltins"
     ]
   },
   "Automanage": {

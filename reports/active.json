@@ -16366,7 +16366,8 @@
       "2023-08-01-preview",
       "2023-09-01-preview",
       "2023-10-01-preview",
-      "2023-11-01-preview"
+      "2023-11-01-preview",
+      "2024-07-01-preview"
     ],
     "assetendpointprofiles": [
       "2023-11-01-preview"
@@ -16379,7 +16380,14 @@
       "2023-06-21-preview",
       "2023-08-01-preview",
       "2023-09-01-preview",
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2024-07-01-preview"
+    ],
+    "discoveredassetendpointprofiles": [
+      "2024-07-01-preview"
+    ],
+    "discoveredassets": [
+      "2024-07-01-preview"
     ],
     "locations": [
       "2022-05-21-preview",
@@ -16387,7 +16395,8 @@
       "2023-08-01-preview",
       "2023-09-01-preview",
       "2023-10-01-preview",
-      "2023-11-01-preview"
+      "2023-11-01-preview",
+      "2024-07-01-preview"
     ],
     "locations/operationstatuses": [
       "2023-11-01-preview"
@@ -16398,7 +16407,8 @@
       "2023-08-01-preview",
       "2023-09-01-preview",
       "2023-10-01-preview",
-      "2023-11-01-preview"
+      "2023-11-01-preview",
+      "2024-07-01-preview"
     ],
     "operationstatuses": [
       "2022-05-21-preview",
@@ -16406,7 +16416,17 @@
       "2023-08-01-preview",
       "2023-09-01-preview",
       "2023-10-01-preview",
-      "2023-11-01-preview"
+      "2023-11-01-preview",
+      "2024-07-01-preview"
+    ],
+    "schemaregistries": [
+      "2024-07-01-preview"
+    ],
+    "schemaregistries/schemas": [
+      "2024-07-01-preview"
+    ],
+    "schemaregistries/schemas/schemaversions": [
+      "2024-07-01-preview"
     ]
   },
   "devices": {
@@ -31478,7 +31498,8 @@
       "2023-12-01-preview",
       "2024-03-01-preview",
       "2024-05-01-preview",
-      "2024-06-01-preview"
+      "2024-06-01-preview",
+      "2024-07-01"
     ],
     "baremetalmachines": [
       "2023-07-01",
@@ -31573,7 +31594,8 @@
       "2023-12-01-preview",
       "2024-03-01-preview",
       "2024-05-01-preview",
-      "2024-06-01-preview"
+      "2024-06-01-preview",
+      "2024-07-01"
     ],
     "locations/operationstatuses": [
       "2023-07-01",
@@ -31588,7 +31610,8 @@
       "2023-12-01-preview",
       "2024-03-01-preview",
       "2024-05-01-preview",
-      "2024-06-01-preview"
+      "2024-06-01-preview",
+      "2024-07-01"
     ],
     "racks": [
       "2023-07-01",
@@ -31610,7 +31633,8 @@
       "2023-12-01-preview",
       "2024-03-01-preview",
       "2024-05-01-preview",
-      "2024-06-01-preview"
+      "2024-06-01-preview",
+      "2024-07-01"
     ],
     "registrationhubs/images": [
       "2023-12-01-preview",
