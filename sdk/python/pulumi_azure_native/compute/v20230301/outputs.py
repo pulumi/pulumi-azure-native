@@ -9606,7 +9606,7 @@ class VirtualMachineScaleSetStorageProfileResponse(dict):
 
     def __init__(__self__, *,
                  data_disks: Optional[Sequence['outputs.VirtualMachineScaleSetDataDiskResponse']] = None,
-                 disk_controller_type: Optional[Sequence[str]] = None,
+                 disk_controller_type: Optional[str] = None,
                  image_reference: Optional['outputs.ImageReferenceResponse'] = None,
                  os_disk: Optional['outputs.VirtualMachineScaleSetOSDiskResponse'] = None):
         """
@@ -9634,7 +9634,7 @@ class VirtualMachineScaleSetStorageProfileResponse(dict):
 
     @property
     @pulumi.getter(name="diskControllerType")
-    def disk_controller_type(self) -> Optional[Sequence[str]]:
+    def disk_controller_type(self) -> Optional[str]:
         return pulumi.get(self, "disk_controller_type")
 
     @property

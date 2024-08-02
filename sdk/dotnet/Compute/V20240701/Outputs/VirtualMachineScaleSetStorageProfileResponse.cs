@@ -20,7 +20,7 @@ namespace Pulumi.AzureNative.Compute.V20240701.Outputs
         /// Specifies the parameters that are used to add data disks to the virtual machines in the scale set. For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview).
         /// </summary>
         public readonly ImmutableArray<Outputs.VirtualMachineScaleSetDataDiskResponse> DataDisks;
-        public readonly ImmutableArray<string> DiskControllerType;
+        public readonly string? DiskControllerType;
         /// <summary>
         /// Specifies information about the image to use. You can specify information about platform images, marketplace images, or virtual machine images. This element is required when you want to use a platform image, marketplace image, or virtual machine image, but is not used in other creation operations.
         /// </summary>
@@ -34,7 +34,7 @@ namespace Pulumi.AzureNative.Compute.V20240701.Outputs
         private VirtualMachineScaleSetStorageProfileResponse(
             ImmutableArray<Outputs.VirtualMachineScaleSetDataDiskResponse> dataDisks,
 
-            ImmutableArray<string> diskControllerType,
+            string? diskControllerType,
 
             Outputs.ImageReferenceResponse? imageReference,
 
