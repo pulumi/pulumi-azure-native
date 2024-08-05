@@ -9086,7 +9086,7 @@ if not MYPY:
         """
         Specifies the parameters that are used to add data disks to the virtual machines in the scale set. For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview).
         """
-        disk_controller_type: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'DiskControllerTypes']]]]]
+        disk_controller_type: NotRequired[pulumi.Input[str]]
         image_reference: NotRequired[pulumi.Input['ImageReferenceArgsDict']]
         """
         Specifies information about the image to use. You can specify information about platform images, marketplace images, or virtual machine images. This element is required when you want to use a platform image, marketplace image, or virtual machine image, but is not used in other creation operations.
@@ -9102,7 +9102,7 @@ elif False:
 class VirtualMachineScaleSetStorageProfileArgs:
     def __init__(__self__, *,
                  data_disks: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineScaleSetDataDiskArgs']]]] = None,
-                 disk_controller_type: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'DiskControllerTypes']]]]] = None,
+                 disk_controller_type: Optional[pulumi.Input[str]] = None,
                  image_reference: Optional[pulumi.Input['ImageReferenceArgs']] = None,
                  os_disk: Optional[pulumi.Input['VirtualMachineScaleSetOSDiskArgs']] = None):
         """
@@ -9134,11 +9134,11 @@ class VirtualMachineScaleSetStorageProfileArgs:
 
     @property
     @pulumi.getter(name="diskControllerType")
-    def disk_controller_type(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'DiskControllerTypes']]]]]:
+    def disk_controller_type(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "disk_controller_type")
 
     @disk_controller_type.setter
-    def disk_controller_type(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'DiskControllerTypes']]]]]):
+    def disk_controller_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "disk_controller_type", value)
 
     @property
