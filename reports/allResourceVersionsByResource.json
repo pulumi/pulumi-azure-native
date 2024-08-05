@@ -5970,7 +5970,8 @@
       "2024-03-02-preview",
       "2024-04-02-preview",
       "2024-05-01",
-      "2024-05-02-preview"
+      "2024-05-02-preview",
+      "2024-06-02-preview"
     ],
     "ContainerService": [
       "2015-11-01-preview",
@@ -6009,7 +6010,8 @@
     "LoadBalancer": [
       "2024-03-02-preview",
       "2024-04-02-preview",
-      "2024-05-02-preview"
+      "2024-05-02-preview",
+      "2024-06-02-preview"
     ],
     "MaintenanceConfiguration": [
       "2020-12-01",
@@ -6070,7 +6072,8 @@
       "2024-03-02-preview",
       "2024-04-02-preview",
       "2024-05-01",
-      "2024-05-02-preview"
+      "2024-05-02-preview",
+      "2024-06-02-preview"
     ],
     "ManagedCluster": [
       "2017-08-31",
@@ -6148,7 +6151,8 @@
       "2024-03-02-preview",
       "2024-04-02-preview",
       "2024-05-01",
-      "2024-05-02-preview"
+      "2024-05-02-preview",
+      "2024-06-02-preview"
     ],
     "ManagedClusterSnapshot": [
       "2022-02-02-preview",
@@ -6177,7 +6181,8 @@
       "2024-02-02-preview",
       "2024-03-02-preview",
       "2024-04-02-preview",
-      "2024-05-02-preview"
+      "2024-05-02-preview",
+      "2024-06-02-preview"
     ],
     "OpenShiftManagedCluster": [
       "2018-09-30-preview",
@@ -6248,7 +6253,8 @@
       "2024-03-02-preview",
       "2024-04-02-preview",
       "2024-05-01",
-      "2024-05-02-preview"
+      "2024-05-02-preview",
+      "2024-06-02-preview"
     ],
     "Snapshot": [
       "2021-08-01",
@@ -6304,7 +6310,8 @@
       "2024-03-02-preview",
       "2024-04-02-preview",
       "2024-05-01",
-      "2024-05-02-preview"
+      "2024-05-02-preview",
+      "2024-06-02-preview"
     ],
     "TrustedAccessRoleBinding": [
       "2022-04-02-preview",
@@ -6337,7 +6344,8 @@
       "2024-03-02-preview",
       "2024-04-02-preview",
       "2024-05-01",
-      "2024-05-02-preview"
+      "2024-05-02-preview",
+      "2024-06-02-preview"
     ],
     "UpdateRun": [
       "2023-03-15-preview",
@@ -6447,7 +6455,8 @@
       "2024-03-02-preview",
       "2024-04-02-preview",
       "2024-05-01",
-      "2024-05-02-preview"
+      "2024-05-02-preview",
+      "2024-06-02-preview"
     ],
     "listManagedClusterMonitoringUserCredentials": [
       "2019-10-01",
@@ -6518,7 +6527,8 @@
       "2024-03-02-preview",
       "2024-04-02-preview",
       "2024-05-01",
-      "2024-05-02-preview"
+      "2024-05-02-preview",
+      "2024-06-02-preview"
     ],
     "listManagedClusterUserCredentials": [
       "2018-03-31",
@@ -6595,7 +6605,8 @@
       "2024-03-02-preview",
       "2024-04-02-preview",
       "2024-05-01",
-      "2024-05-02-preview"
+      "2024-05-02-preview",
+      "2024-06-02-preview"
     ]
   },
   "ContainerStorage": {
@@ -6607,6 +6618,11 @@
     ],
     "Volume": [
       "2023-07-01-preview"
+    ]
+  },
+  "Contoso": {
+    "Employee": [
+      "2021-10-01-preview"
     ]
   },
   "CostManagement": {
@@ -8216,7 +8232,8 @@
       "2024-02-01",
       "2024-05-01-preview",
       "2024-06-01-preview",
-      "2024-07-01-preview"
+      "2024-07-01-preview",
+      "2024-08-01-preview"
     ],
     "Catalog": [
       "2022-08-01-preview",
@@ -8230,7 +8247,11 @@
       "2024-02-01",
       "2024-05-01-preview",
       "2024-06-01-preview",
-      "2024-07-01-preview"
+      "2024-07-01-preview",
+      "2024-08-01-preview"
+    ],
+    "CurationProfile": [
+      "2024-08-01-preview"
     ],
     "DevBoxDefinition": [
       "2022-08-01-preview",
@@ -8244,7 +8265,8 @@
       "2024-02-01",
       "2024-05-01-preview",
       "2024-06-01-preview",
-      "2024-07-01-preview"
+      "2024-07-01-preview",
+      "2024-08-01-preview"
     ],
     "DevCenter": [
       "2022-08-01-preview",
@@ -8258,12 +8280,14 @@
       "2024-02-01",
       "2024-05-01-preview",
       "2024-06-01-preview",
-      "2024-07-01-preview"
+      "2024-07-01-preview",
+      "2024-08-01-preview"
     ],
     "EncryptionSet": [
       "2024-05-01-preview",
       "2024-06-01-preview",
-      "2024-07-01-preview"
+      "2024-07-01-preview",
+      "2024-08-01-preview"
     ],
     "EnvironmentType": [
       "2022-08-01-preview",
@@ -8277,7 +8301,8 @@
       "2024-02-01",
       "2024-05-01-preview",
       "2024-06-01-preview",
-      "2024-07-01-preview"
+      "2024-07-01-preview",
+      "2024-08-01-preview"
     ],
     "Gallery": [
       "2022-08-01-preview",
@@ -8291,7 +8316,8 @@
       "2024-02-01",
       "2024-05-01-preview",
       "2024-06-01-preview",
-      "2024-07-01-preview"
+      "2024-07-01-preview",
+      "2024-08-01-preview"
     ],
     "NetworkConnection": [
       "2022-08-01-preview",
@@ -8305,17 +8331,20 @@
       "2024-02-01",
       "2024-05-01-preview",
       "2024-06-01-preview",
-      "2024-07-01-preview"
+      "2024-07-01-preview",
+      "2024-08-01-preview"
     ],
     "Plan": [
       "2024-05-01-preview",
       "2024-06-01-preview",
-      "2024-07-01-preview"
+      "2024-07-01-preview",
+      "2024-08-01-preview"
     ],
     "PlanMember": [
       "2024-05-01-preview",
       "2024-06-01-preview",
-      "2024-07-01-preview"
+      "2024-07-01-preview",
+      "2024-08-01-preview"
     ],
     "Pool": [
       "2022-08-01-preview",
@@ -8329,7 +8358,8 @@
       "2024-02-01",
       "2024-05-01-preview",
       "2024-06-01-preview",
-      "2024-07-01-preview"
+      "2024-07-01-preview",
+      "2024-08-01-preview"
     ],
     "Project": [
       "2022-08-01-preview",
@@ -8343,13 +8373,15 @@
       "2024-02-01",
       "2024-05-01-preview",
       "2024-06-01-preview",
-      "2024-07-01-preview"
+      "2024-07-01-preview",
+      "2024-08-01-preview"
     ],
     "ProjectCatalog": [
       "2024-02-01",
       "2024-05-01-preview",
       "2024-06-01-preview",
-      "2024-07-01-preview"
+      "2024-07-01-preview",
+      "2024-08-01-preview"
     ],
     "ProjectEnvironmentType": [
       "2022-08-01-preview",
@@ -8363,7 +8395,8 @@
       "2024-02-01",
       "2024-05-01-preview",
       "2024-06-01-preview",
-      "2024-07-01-preview"
+      "2024-07-01-preview",
+      "2024-08-01-preview"
     ],
     "Schedule": [
       "2022-08-01-preview",
@@ -8377,7 +8410,8 @@
       "2024-02-01",
       "2024-05-01-preview",
       "2024-06-01-preview",
-      "2024-07-01-preview"
+      "2024-07-01-preview",
+      "2024-08-01-preview"
     ],
     "getCatalogDevBoxDefinitionErrorDetails": [
       "2023-08-01-preview",
@@ -8389,14 +8423,16 @@
       "2024-02-01",
       "2024-05-01-preview",
       "2024-06-01-preview",
-      "2024-07-01-preview"
+      "2024-07-01-preview",
+      "2024-08-01-preview"
     ],
     "getCustomizationTaskErrorDetails": [
       "2023-08-01-preview",
       "2023-10-01-preview",
       "2024-05-01-preview",
       "2024-06-01-preview",
-      "2024-07-01-preview"
+      "2024-07-01-preview",
+      "2024-08-01-preview"
     ],
     "getEnvironmentDefinitionErrorDetails": [
       "2023-08-01-preview",
@@ -8404,31 +8440,37 @@
       "2024-02-01",
       "2024-05-01-preview",
       "2024-06-01-preview",
-      "2024-07-01-preview"
+      "2024-07-01-preview",
+      "2024-08-01-preview"
     ],
     "getProjectCatalogEnvironmentDefinitionErrorDetails": [
       "2024-02-01",
       "2024-05-01-preview",
       "2024-06-01-preview",
-      "2024-07-01-preview"
+      "2024-07-01-preview",
+      "2024-08-01-preview"
     ],
     "getProjectCatalogImageDefinitionBuildDetails": [
-      "2024-07-01-preview"
+      "2024-07-01-preview",
+      "2024-08-01-preview"
     ],
     "getProjectCatalogSyncErrorDetails": [
       "2024-02-01",
       "2024-05-01-preview",
       "2024-06-01-preview",
-      "2024-07-01-preview"
+      "2024-07-01-preview",
+      "2024-08-01-preview"
     ],
     "getProjectInheritedSettings": [
       "2024-05-01-preview",
       "2024-06-01-preview",
-      "2024-07-01-preview"
+      "2024-07-01-preview",
+      "2024-08-01-preview"
     ],
     "listSkusByProject": [
       "2024-06-01-preview",
-      "2024-07-01-preview"
+      "2024-07-01-preview",
+      "2024-08-01-preview"
     ]
   },
   "DevHub": {
@@ -11693,6 +11735,32 @@
     "Workspace": [
       "2023-02-08-preview",
       "2024-01-10"
+    ]
+  },
+  "IoTOperations": {
+    "Broker": [
+      "2024-07-01-preview"
+    ],
+    "BrokerAuthentication": [
+      "2024-07-01-preview"
+    ],
+    "BrokerAuthorization": [
+      "2024-07-01-preview"
+    ],
+    "BrokerListener": [
+      "2024-07-01-preview"
+    ],
+    "DataFlow": [
+      "2024-07-01-preview"
+    ],
+    "DataFlowEndpoint": [
+      "2024-07-01-preview"
+    ],
+    "DataFlowProfile": [
+      "2024-07-01-preview"
+    ],
+    "Instance": [
+      "2024-07-01-preview"
     ]
   },
   "IoTOperationsDataProcessor": {

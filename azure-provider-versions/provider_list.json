@@ -7867,6 +7867,7 @@
       {
         "resourceType": "RedisEnterprise/privateEndpointConnectionProxies",
         "apiVersions": [
+          "2024-06-01-preview",
           "2024-03-01-preview",
           "2024-02-01",
           "2023-11-01",
@@ -7885,6 +7886,7 @@
       {
         "resourceType": "RedisEnterprise/privateEndpointConnectionProxies/operationresults",
         "apiVersions": [
+          "2024-06-01-preview",
           "2024-03-01-preview",
           "2024-02-01",
           "2023-11-01",
@@ -7903,6 +7905,7 @@
       {
         "resourceType": "RedisEnterprise/privateEndpointConnectionProxies/validate",
         "apiVersions": [
+          "2024-06-01-preview",
           "2024-03-01-preview",
           "2024-02-01",
           "2023-11-01",
@@ -7921,6 +7924,7 @@
       {
         "resourceType": "RedisEnterprise/privateEndpointConnections",
         "apiVersions": [
+          "2024-06-01-preview",
           "2024-03-01-preview",
           "2024-02-01",
           "2023-11-01",
@@ -7939,6 +7943,7 @@
       {
         "resourceType": "RedisEnterprise/privateEndpointConnections/operationresults",
         "apiVersions": [
+          "2024-06-01-preview",
           "2024-03-01-preview",
           "2024-02-01",
           "2023-11-01",
@@ -7957,6 +7962,7 @@
       {
         "resourceType": "RedisEnterprise/privateLinkResources",
         "apiVersions": [
+          "2024-06-01-preview",
           "2024-03-01-preview",
           "2024-02-01",
           "2023-11-01",
@@ -8000,6 +8006,7 @@
       {
         "resourceType": "locations",
         "apiVersions": [
+          "2024-06-01-preview",
           "2024-04-01-preview",
           "2024-03-01-preview",
           "2024-03-01",
@@ -8052,6 +8059,7 @@
       {
         "resourceType": "locations/checkNameAvailability",
         "apiVersions": [
+          "2024-06-01-preview",
           "2024-03-01-preview",
           "2024-02-01",
           "2023-11-01",
@@ -8094,6 +8102,7 @@
       {
         "resourceType": "locations/operationsStatus",
         "apiVersions": [
+          "2024-06-01-preview",
           "2024-03-01-preview",
           "2024-02-01",
           "2023-11-01",
@@ -8112,6 +8121,7 @@
       {
         "resourceType": "operations",
         "apiVersions": [
+          "2024-06-01-preview",
           "2024-04-01-preview",
           "2024-03-01-preview",
           "2024-03-01",
@@ -8147,6 +8157,7 @@
       {
         "resourceType": "redisEnterprise",
         "apiVersions": [
+          "2024-06-01-preview",
           "2024-03-01-preview",
           "2024-02-01",
           "2023-11-01",
@@ -8165,6 +8176,7 @@
       {
         "resourceType": "redisEnterprise/databases",
         "apiVersions": [
+          "2024-06-01-preview",
           "2024-03-01-preview",
           "2024-02-01",
           "2023-11-01",
@@ -26838,6 +26850,7 @@
       {
         "resourceType": "clusters",
         "apiVersions": [
+          "2024-04-13",
           "2023-08-15",
           "2023-05-02",
           "2022-12-29",
@@ -26860,6 +26873,7 @@
       {
         "resourceType": "clusters/attacheddatabaseconfigurations",
         "apiVersions": [
+          "2024-04-13",
           "2023-08-15",
           "2023-05-02",
           "2022-12-29",
@@ -26878,6 +26892,7 @@
       {
         "resourceType": "clusters/databases",
         "apiVersions": [
+          "2024-04-13",
           "2023-08-15",
           "2023-05-02",
           "2022-12-29",
@@ -26900,6 +26915,7 @@
       {
         "resourceType": "clusters/databases/dataconnections",
         "apiVersions": [
+          "2024-04-13",
           "2023-08-15",
           "2023-05-02",
           "2022-12-29",
@@ -26937,6 +26953,7 @@
       {
         "resourceType": "clusters/databases/principalassignments",
         "apiVersions": [
+          "2024-04-13",
           "2023-08-15",
           "2023-05-02",
           "2022-12-29",
@@ -26954,6 +26971,7 @@
       {
         "resourceType": "clusters/databases/scripts",
         "apiVersions": [
+          "2024-04-13",
           "2023-08-15",
           "2023-05-02",
           "2022-12-29",
@@ -26967,6 +26985,7 @@
       {
         "resourceType": "clusters/managedPrivateEndpoints",
         "apiVersions": [
+          "2024-04-13",
           "2023-08-15",
           "2023-05-02",
           "2022-12-29",
@@ -26979,6 +26998,7 @@
       {
         "resourceType": "clusters/principalassignments",
         "apiVersions": [
+          "2024-04-13",
           "2023-08-15",
           "2023-05-02",
           "2022-12-29",
@@ -26996,12 +27016,14 @@
       {
         "resourceType": "clusters/sandboxCustomImages",
         "apiVersions": [
+          "2024-04-13",
           "2023-08-15"
         ]
       },
       {
         "resourceType": "locations",
         "apiVersions": [
+          "2024-04-13",
           "2023-08-15",
           "2023-05-02",
           "2022-12-29",
@@ -27024,6 +27046,7 @@
       {
         "resourceType": "locations/checkNameAvailability",
         "apiVersions": [
+          "2024-04-13",
           "2023-08-15",
           "2023-05-02",
           "2022-12-29",
@@ -27046,6 +27069,7 @@
       {
         "resourceType": "locations/operationResults",
         "apiVersions": [
+          "2024-04-13",
           "2023-08-15",
           "2023-05-02",
           "2022-12-29",
@@ -27068,6 +27092,7 @@
       {
         "resourceType": "locations/skus",
         "apiVersions": [
+          "2024-04-13",
           "2023-08-15",
           "2023-05-02",
           "2022-12-29",
@@ -27077,6 +27102,7 @@
       {
         "resourceType": "operations",
         "apiVersions": [
+          "2024-04-13",
           "2023-08-15",
           "2023-05-02",
           "2022-12-29",

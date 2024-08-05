@@ -381,6 +381,8 @@ ContainerStorage:
         Pool: 2023-07-01-preview
         Snapshot: 2023-07-01-preview
         Volume: 2023-07-01-preview
+Contoso:
+    tracking: 2021-10-01-preview
 CostManagement:
     tracking: "2023-03-01"
     additions:
@@ -770,6 +772,7 @@ DesktopVirtualization:
 DevCenter:
     tracking: "2023-04-01"
     additions:
+        CurationProfile: 2024-08-01-preview
         EncryptionSet: 2024-05-01-preview
         Plan: 2024-05-01-preview
         PlanMember: 2024-05-01-preview
@@ -994,6 +997,8 @@ IoTCentral:
         PrivateEndpointConnection: 2021-11-01-preview
 IoTFirmwareDefense:
     tracking: 2023-02-08-preview
+IoTOperations:
+    tracking: 2024-07-01-preview
 IoTOperationsDataProcessor:
     tracking: 2023-10-04-preview
 IoTOperationsMQ:

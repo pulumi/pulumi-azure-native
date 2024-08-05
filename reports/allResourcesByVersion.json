@@ -6524,6 +6524,19 @@
       "listManagedClusterAdminCredentials",
       "listManagedClusterMonitoringUserCredentials",
       "listManagedClusterUserCredentials"
+    ],
+    "2024-06-02-preview": [
+      "AgentPool",
+      "LoadBalancer",
+      "MaintenanceConfiguration",
+      "ManagedCluster",
+      "ManagedClusterSnapshot",
+      "PrivateEndpointConnection",
+      "Snapshot",
+      "TrustedAccessRoleBinding",
+      "listManagedClusterAdminCredentials",
+      "listManagedClusterMonitoringUserCredentials",
+      "listManagedClusterUserCredentials"
     ]
   },
   "ContainerStorage": {
@@ -6531,6 +6544,11 @@
       "Pool",
       "Snapshot",
       "Volume"
+    ]
+  },
+  "Contoso": {
+    "2021-10-01-preview": [
+      "Employee"
     ]
   },
   "CostManagement": {
@@ -8343,6 +8361,32 @@
     "2024-07-01-preview": [
       "AttachedNetworkByDevCenter",
       "Catalog",
+      "DevBoxDefinition",
+      "DevCenter",
+      "EncryptionSet",
+      "EnvironmentType",
+      "Gallery",
+      "NetworkConnection",
+      "Plan",
+      "PlanMember",
+      "Pool",
+      "Project",
+      "ProjectCatalog",
+      "ProjectEnvironmentType",
+      "Schedule",
+      "getCatalogSyncErrorDetails",
+      "getCustomizationTaskErrorDetails",
+      "getEnvironmentDefinitionErrorDetails",
+      "getProjectCatalogEnvironmentDefinitionErrorDetails",
+      "getProjectCatalogImageDefinitionBuildDetails",
+      "getProjectCatalogSyncErrorDetails",
+      "getProjectInheritedSettings",
+      "listSkusByProject"
+    ],
+    "2024-08-01-preview": [
+      "AttachedNetworkByDevCenter",
+      "Catalog",
+      "CurationProfile",
       "DevBoxDefinition",
       "DevCenter",
       "EncryptionSet",
@@ -11651,6 +11695,18 @@
     "2024-01-10": [
       "Firmware",
       "Workspace"
+    ]
+  },
+  "IoTOperations": {
+    "2024-07-01-preview": [
+      "Broker",
+      "BrokerAuthentication",
+      "BrokerAuthorization",
+      "BrokerListener",
+      "DataFlow",
+      "DataFlowEndpoint",
+      "DataFlowProfile",
+      "Instance"
     ]
   },
   "IoTOperationsDataProcessor": {
