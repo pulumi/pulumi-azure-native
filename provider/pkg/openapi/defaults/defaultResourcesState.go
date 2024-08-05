@@ -5,6 +5,7 @@ package defaults
 import (
 	"fmt"
 	"reflect"
+	"sort"
 
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi/paths"
 )
@@ -243,4 +244,13 @@ func SkipDeleteOperation(path string) bool {
 		return false
 	}
 	return defaultState.SkipDelete
+}
+
+func ListPathsWithDefaults() []string {
+	paths := make([]string, 0, len(defaultResourcesStateNormalized))
+	for path := range defaultResourcesStateNormalized {
+		paths = append(paths, path)
+	}
+	sort.Strings(paths)
+	return paths
 }
