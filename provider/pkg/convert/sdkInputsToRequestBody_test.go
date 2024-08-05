@@ -3,6 +3,7 @@
 package convert
 
 import (
+	"fmt"
 	"testing"
 
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
@@ -48,7 +49,8 @@ func TestSdkInputsToRequestBodySubResource(t *testing.T) {
 			Ref: "#/types/azure-native:testing:Structure",
 		},
 	}
-	actualBody := c.SdkInputsToRequestBody(bodyProperties, sdkData, "/sub/456/rg/my/network/abc")
+	actualBody, err := c.SdkInputsToRequestBody(bodyProperties, sdkData, "/sub/456/rg/my/network/abc")
+	assert.Nil(t, err)
 	assert.Equal(t, expectedBody, actualBody)
 }
 
@@ -60,7 +62,7 @@ func TestSdkInputsToRequestBody(t *testing.T) {
 		inputs map[string]interface{}
 	}
 
-	convert := func(args testCaseArgs) map[string]interface{} {
+	convertWithError := func(args testCaseArgs) (map[string]interface{}, error) {
 		types := map[string]resources.AzureAPIType{}
 		if args.types != nil {
 			for typeName, typeProperties := range args.types {
@@ -75,6 +77,12 @@ func TestSdkInputsToRequestBody(t *testing.T) {
 		return c.SdkInputsToRequestBody(args.props, args.inputs, args.id)
 	}
 
+	convert := func(args testCaseArgs) map[string]interface{} {
+		body, err := convertWithError(args)
+		assert.Nil(t, err)
+		return body
+	}
+
 	t.Run("nil inputs", func(t *testing.T) {
 		actual := convert(testCaseArgs{
 			inputs: nil,
@@ -83,6 +91,23 @@ func TestSdkInputsToRequestBody(t *testing.T) {
 		expected := map[string]interface{}{}
 
 		assert.Equal(t, expected, actual)
+	})
+
+	t.Run("unmatched inputs are reported", func(t *testing.T) {
+		actual, err := convertWithError(testCaseArgs{
+			props: map[string]resources.AzureAPIProperty{
+				"propA": {
+					Type: "string",
+				},
+			},
+			inputs: map[string]interface{}{
+				"propA": "a",
+				"propB": "b",
+			},
+		})
+
+		assert.Equal(t, map[string]interface{}{"propA": "a"}, actual)
+		assert.Equal(t, err, fmt.Errorf("unrecognized properties: [propB]"))
 	})
 
 	t.Run("untyped non-empty values remain unchanged", rapid.MakeCheck(func(t *rapid.T) {
@@ -189,7 +214,7 @@ func TestSdkInputsToRequestBody(t *testing.T) {
 	})
 
 	t.Run("mismatched const returns nil", func(t *testing.T) {
-		actual := convert(testCaseArgs{
+		actual, err := convertWithError(testCaseArgs{
 			props: map[string]resources.AzureAPIProperty{
 				"const": {
 					Const: "value",
@@ -200,9 +225,8 @@ func TestSdkInputsToRequestBody(t *testing.T) {
 			},
 		})
 
-		var expected map[string]interface{} = nil
-
-		assert.Equal(t, expected, actual)
+		assert.Nil(t, actual)
+		assert.Equal(t, err, fmt.Errorf("property const is a constant of value \"value\" and cannot be modified to be \"other\""))
 	})
 
 	t.Run("array of empties not changed", func(t *testing.T) {
@@ -469,7 +493,9 @@ func TestSdkInputsToRequestBody(t *testing.T) {
 		c := SdkShapeConverter{
 			Types: types,
 		}
-		return c.SdkInputsToRequestBody(props, inputs, args.id)
+		body, err := c.SdkInputsToRequestBody(props, inputs, args.id)
+		assert.Nil(t, err)
+		return body
 	}
 
 	t.Run("nil inputs", func(t *testing.T) {

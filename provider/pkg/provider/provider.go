@@ -34,6 +34,7 @@ import (
 	"github.com/pulumi/pulumi/pkg/v3/resource/provider"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource/plugin"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/resource/urn"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/logging"
 	rpc "github.com/pulumi/pulumi/sdk/v3/proto/go"
@@ -308,7 +309,14 @@ func (k *azureNativeProvider) Invoke(ctx context.Context, req *rpc.InvokeRequest
 		if err != nil {
 			return nil, err
 		}
-		body := crud.PrepareAzureRESTBody(id, parameters, nil, args.Mappable(), k.converter)
+		body, err := crud.PrepareAzureRESTBody(id, parameters, nil, args.Mappable(), k.converter)
+		if err != nil {
+			if body == nil {
+				return nil, fmt.Errorf("error preparing body for %s: %v", label, err)
+			}
+			// Log the error and continue with whatever was convertible.
+			k.host.Log(ctx, diag.Warning, urn.URN(""), fmt.Sprintf("error preparing body for %s: %v", label, err))
+		}
 
 		var response any
 		if res.GetParameters != nil {
@@ -891,11 +899,18 @@ func (k *azureNativeProvider) Create(ctx context.Context, req *rpc.CreateRequest
 
 func (k *azureNativeProvider) defaultCreate(ctx context.Context, req *rpc.CreateRequest, inputs resource.PropertyMap, id string,
 	queryParams map[string]any, crudClient crud.ResourceCrudClient, reader readFunc) (string, map[string]any, error) {
-	bodyParams := crudClient.PrepareAzureRESTBody(id, inputs)
+	bodyParams, err := crudClient.PrepareAzureRESTBody(id, inputs)
+	if err != nil {
+		bodyError := fmt.Errorf("error preparing body for %s: %v", id, err)
+		if bodyParams == nil {
+			return id, nil, bodyError
+		}
+		k.host.Log(ctx, diag.Warning, resource.URN(req.GetUrn()), bodyError.Error())
+	}
 
 	// First check if the resource already exists - we want to try our best to avoid updating instead of creating here
 	// (though it's technically impossible since the only operation supported is an upsert).
-	err := crudClient.CanCreate(ctx, id)
+	err = crudClient.CanCreate(ctx, id)
 	if err != nil {
 		return id, nil, err
 	}
@@ -1315,12 +1330,19 @@ func (k *azureNativeProvider) defaultUpdate(ctx context.Context, req *rpc.Update
 	id string, queryParams map[string]any, crudClient crud.ResourceCrudClient, reader readFunc,
 ) (map[string]any, error) {
 
-	bodyParams := crudClient.PrepareAzureRESTBody(id, inputs)
+	bodyParams, err := crudClient.PrepareAzureRESTBody(id, inputs)
+	if err != nil {
+		bodyError := fmt.Errorf("error preparing body for %s: %v", id, err)
+		if bodyParams == nil {
+			return nil, bodyError
+		}
+		k.host.Log(ctx, diag.Warning, resource.URN(req.GetUrn()), bodyError.Error())
+	}
 
 	ctx, cancel := azureContext(ctx, req.Timeout)
 	defer cancel()
 
-	err := crudClient.MaintainSubResourcePropertiesIfNotSet(ctx, id, bodyParams)
+	err = crudClient.MaintainSubResourcePropertiesIfNotSet(ctx, id, bodyParams)
 	if err != nil {
 		return nil, fmt.Errorf("failed maintaining unset sub-resource properties: %w", err)
 	}
@@ -1399,7 +1421,11 @@ func (k *azureNativeProvider) Delete(ctx context.Context, req *rpc.DeleteRequest
 				continue
 			}
 			if param.Location == "body" {
-				requestBody := k.converter.SdkInputsToRequestBody(param.Body.Properties, res.DefaultBody, id)
+				requestBody, err := k.converter.SdkInputsToRequestBody(param.Body.Properties, res.DefaultBody, id)
+				if err != nil {
+					// Log conversion errors but continue with the deletion.
+					k.host.Log(ctx, diag.Warning, urn, fmt.Sprintf("error converting inputs to request body: %v", err))
+				}
 
 				queryParams := map[string]interface{}{"api-version": res.APIVersion}
 
@@ -1408,7 +1434,7 @@ func (k *azureNativeProvider) Delete(ctx context.Context, req *rpc.DeleteRequest
 				if res.UpdateMethod == "PATCH" {
 					op = k.azureClient.Patch
 				}
-				_, _, err := op(ctx, id, requestBody, queryParams, res.PutAsyncStyle)
+				_, _, err = op(ctx, id, requestBody, queryParams, res.PutAsyncStyle)
 				if err != nil {
 					return nil, azure.AzureError(err)
 				}
