@@ -16,31 +16,47 @@ import (
 )
 
 const webAppResourceType = "azure-native:web:WebApp"
+const webAppSlotResourceType = "azure-native:web:WebAppSlot"
 
 // webApp is a custom resource for web:WebApp. It overrides Read and Delete, for independent reasons.
 func webApp(crudClientFactory crud.ResourceCrudClientFactory, azureClient azure.AzureClient, lookupResource resources.ResourceLookupFunc) (*CustomResource, error) {
+	return makeWebAppResource(webAppResourceType,
+		"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}",
+		crudClientFactory, azureClient, lookupResource)
+}
+
+// webAppSlot is a custom resource for web:WebAppSlot. It overrides Read and Delete, for independent reasons.
+func webAppSlot(crudClientFactory crud.ResourceCrudClientFactory, azureClient azure.AzureClient, lookupResource resources.ResourceLookupFunc) (*CustomResource, error) {
+	return makeWebAppResource(webAppSlotResourceType,
+		"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}",
+		crudClientFactory, azureClient, lookupResource)
+}
+
+// webApp is a custom resource for web:WebApp. It overrides Read and Delete, for independent reasons.
+func makeWebAppResource(resourceType, path string, crudClientFactory crud.ResourceCrudClientFactory, azureClient azure.AzureClient, lookupResource resources.ResourceLookupFunc) (*CustomResource, error) {
 	// The arguments can be nil when the custom resource is constructed only for feature lookups
 	var crudClient crud.ResourceCrudClient
 	if crudClientFactory != nil && lookupResource != nil {
 		var err error
-		crudClient, err = createCrudClient(crudClientFactory, lookupResource, webAppResourceType)
+		crudClient, err = createCrudClient(crudClientFactory, lookupResource, resourceType)
 		if err != nil {
 			return nil, err
 		}
 	}
 
 	return &CustomResource{
-		path: "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}",
-		tok:  webAppResourceType,
+		path: path,
+		tok:  resourceType,
 
 		// WebApp.SiteConfig is created and updated via a PUT to the WebApp itself, but a GET of
 		// the WebApp does not return the SiteConfig. We need to make a separate GET request to
 		// /config/web and merge the results. #1468
 		Read: func(ctx context.Context, id string, inputs resource.PropertyMap) (map[string]any, bool, error) {
+			// We can reasanably assume that WebApp and WebAppSlot share their API version since they are almost identical.
 			apiVersion, ok := versionLookup.GetDefaultApiVersionForResource("Web", "WebApp")
 			if !ok {
 				apiVersion = "2022-09-01" // default as of 2024-07
-				logging.V(3).Infof("Warning: could not find default API version for %s. Using %s", webAppResourceType, apiVersion)
+				logging.V(3).Infof("Warning: could not find default API version for %s. Using %s", resourceType, apiVersion)
 			}
 
 			webAppResponse, err := crudClient.Read(ctx, id)
