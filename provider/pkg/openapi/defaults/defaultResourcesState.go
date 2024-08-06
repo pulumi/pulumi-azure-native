@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"reflect"
 	"sort"
+	"strings"
 
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi/paths"
 )
@@ -198,11 +199,20 @@ func init() {
 }
 
 func addNormalisedState(path string, state DefaultResourceState) {
-	normalizedPath := paths.NormalizePath(path)
+	// Don't normalise the arguments part - just the path.
+	path, args := splitPathAndArguments(path)
+	normalizedPath := paths.NormalizePath(path) + args
 	if _, exists := defaultResourcesStateNormalized[normalizedPath]; exists {
 		panic(fmt.Errorf("FATAL: default state for %s is already set", normalizedPath))
 	}
 	defaultResourcesStateNormalized[normalizedPath] = state
+}
+
+func splitPathAndArguments(path string) (string, string) {
+	if idx := strings.Index(path, "?"); idx != -1 {
+		return path[:idx], path[idx:]
+	}
+	return path, ""
 }
 
 func containsNonEmptyCollections(value map[string]interface{}) bool {
@@ -231,17 +241,22 @@ type DefaultResourceState struct {
 	HasNonEmptyCollections bool
 }
 
-func GetDefaultResourceState(path string) *DefaultResourceState {
+func GetDefaultResourceState(path, version string) *DefaultResourceState {
 	normalizedPath := paths.NormalizePath(path)
-	defaults, ok := defaultResourcesStateNormalized[normalizedPath]
-	if !ok {
-		return nil
+	versionedPath := fmt.Sprintf("%s?version=%s", normalizedPath, version)
+	defaults, ok := defaultResourcesStateNormalized[versionedPath]
+	if ok {
+		return &defaults
 	}
-	return &defaults
+	defaults, ok = defaultResourcesStateNormalized[normalizedPath]
+	if ok {
+		return &defaults
+	}
+	return nil
 }
 
-func SkipDeleteOperation(path string) bool {
-	defaultState := GetDefaultResourceState(path)
+func SkipDeleteOperation(path, version string) bool {
+	defaultState := GetDefaultResourceState(path, version)
 	if defaultState == nil {
 		return false
 	}

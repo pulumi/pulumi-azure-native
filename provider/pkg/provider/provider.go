@@ -1417,7 +1417,7 @@ func (k *azureNativeProvider) Delete(ctx context.Context, req *rpc.DeleteRequest
 	case res.Singleton:
 		// Singleton resources can't be deleted (or created), set them to the default state.
 		for _, param := range res.PutParameters {
-			if defaults.SkipDeleteOperation(res.Path) {
+			if defaults.SkipDeleteOperation(res.Path, res.APIVersion) {
 				continue
 			}
 			if param.Location == "body" {

@@ -137,7 +137,7 @@ func TestDefaultState(t *testing.T) {
 	t.Run("No default", func(t *testing.T) {
 		path := "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/diagnosticSettingsCategories/{categoryName}"
 
-		def := defaults.GetDefaultResourceState(path)
+		def := defaults.GetDefaultResourceState(path, "2020-01-01")
 		require.Nil(t, def)
 
 		res := parseSwagger(t, path)
@@ -147,7 +147,7 @@ func TestDefaultState(t *testing.T) {
 	t.Run("With default", func(t *testing.T) {
 		path := "/{resourceId}/providers/Microsoft.Security/advancedThreatProtectionSettings/{settingName}"
 
-		def := defaults.GetDefaultResourceState(path)
+		def := defaults.GetDefaultResourceState(path, "2020-01-01")
 		require.NotNil(t, def)
 
 		res := parseSwagger(t, path)

@@ -3,10 +3,12 @@ package defaults_test
 import (
 	"os"
 	"path/filepath"
+	"regexp"
 	"strings"
 	"testing"
 
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/convert"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi/defaults"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi/paths"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/provider"
@@ -25,23 +27,34 @@ func TestAllDefaultStatesConvertable(t *testing.T) {
 		normalisedPath := paths.NormalizePath(resource.Path)
 		resourcesByNormalisedPath[normalisedPath] = append(resourcesByNormalisedPath[normalisedPath], resourceToken)
 	}
+
+	resourceTokenVersionMatcher := regexp.MustCompile(`/(v[^:]+)`)
+
 	for _, path := range defaults.ListPathsWithDefaults() {
 		cleaned := strings.ReplaceAll(path, "/", "_")
+		// Remove version query parameter
+		pathWithoutVersion := path
+		if idx := strings.Index(path, "?"); idx != -1 {
+			pathWithoutVersion = path[:idx]
+		}
 		t.Run(cleaned, func(t *testing.T) {
-			resourceTokens, found := resourcesByNormalisedPath[path]
-			require.Truef(t, found, "Resource not found in test data: %s", path)
-			if !found {
-				t.Errorf("Resource not found in mapping: %s", path)
-			}
-			defaultState := defaults.GetDefaultResourceState(path)
-			if defaultState == nil || defaultState.SkipDelete {
-				return
-			}
+			resourceTokens, found := resourcesByNormalisedPath[pathWithoutVersion]
+			require.Truef(t, found, "Resource not found in test data: %s", pathWithoutVersion)
 			for _, resourceToken := range resourceTokens {
+				var apiVersion string
+				sdkVersionMatch := resourceTokenVersionMatcher.FindStringSubmatch(resourceToken)
+				if len(sdkVersionMatch) > 1 {
+					apiVersion, err = openapi.SdkToApiVersion(sdkVersionMatch[1])
+					require.Nil(t, err, "Failed to convert SDK version to API version: %s", sdkVersionMatch[1])
+				}
+				defaultState := defaults.GetDefaultResourceState(path, apiVersion)
+				if defaultState == nil || defaultState.SkipDelete {
+					return
+				}
 				resource, found := metadata.Resources[resourceToken]
 				require.Truef(t, found, "Resource not found in metadata: %s", resourceToken)
 				converted, err := crud.PrepareAzureRESTBody("", resource.PutParameters, [][]string{}, defaultState.State, &convert.SdkShapeConverter{})
-				require.Nil(t, err, "Failed to prepare body for %s", resourceToken)
+				assert.Nil(t, err, "Failed to prepare body for %s", resourceToken)
 				assert.NotNil(t, converted, "No body returned for %s", resourceToken)
 			}
 		})

@@ -148,3 +148,34 @@ func makeResource(path, description string) *ResourceSpec {
 		},
 	}
 }
+
+func TestSdkToApiVersion(t *testing.T) {
+	testConvert := func(t *testing.T, input, expected string) {
+		t.Helper()
+		actual, err := SdkToApiVersion(input)
+		assert.Nil(t, err)
+		assert.Equal(t, expected, actual)
+	}
+	t.Run("stable", func(t *testing.T) {
+		testConvert(t, "v20200101", "2020-01-01")
+	})
+	t.Run("preview", func(t *testing.T) {
+		testConvert(t, "v20200101preview", "2020-01-01-preview")
+	})
+	t.Run("privatepreview", func(t *testing.T) {
+		testConvert(t, "v20200101privatepreview", "2020-01-01-privatepreview")
+	})
+
+	t.Run("missing leading v", func(t *testing.T) {
+		_, err := SdkToApiVersion("20200101privatepreview")
+		assert.Error(t, err)
+	})
+	t.Run("date too short", func(t *testing.T) {
+		_, err := SdkToApiVersion("v2020011")
+		assert.Error(t, err)
+	})
+	t.Run("unknown suffix", func(t *testing.T) {
+		_, err := SdkToApiVersion("v20200101foo")
+		assert.Error(t, err)
+	})
+}
