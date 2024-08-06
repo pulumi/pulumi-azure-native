@@ -83,6 +83,10 @@ func BuildCustomResources(env *azureEnv.Environment,
 	if err != nil {
 		return nil, err
 	}
+	customWebAppSlot, err := webAppSlot(crudClientFactory, azureClient, lookupResource)
+	if err != nil {
+		return nil, err
+	}
 
 	resources := []*CustomResource{
 		// Azure KeyVault resources.
@@ -96,6 +100,7 @@ func BuildCustomResources(env *azureEnv.Environment,
 		blobContainerLegalHold(azureClient),
 		portalDashboard(),
 		customWebApp,
+		customWebAppSlot,
 	}
 
 	result := map[string]*CustomResource{}
