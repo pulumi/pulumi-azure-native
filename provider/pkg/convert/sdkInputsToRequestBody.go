@@ -70,6 +70,8 @@ func (k *SdkShapeConverter) convertSdkPropToRequestBodyPropValue(id string, prop
 
 		// Otherwise, delegate to the normal map conversion flow.
 		converted, _ := k.SdkInputsToRequestBody(props, values, id)
+		// We ignore the error here as we haven't previously handled these errors recursively through convertTypedSdkInputObjectsToRequestBody.
+		// A difficulty is that the error is treated as a warning if we got a valid result, so should only be thrown if `converted` is nil.
 		return converted
 	})
 }
