@@ -8,12 +8,12 @@ import (
 
 // Test GetDefaultResourceState returns expected values for a given resource type.
 func TestNotFound(t *testing.T) {
-	actual := GetDefaultResourceState("notapath")
+	actual := GetDefaultResourceState("notapath", "2020-01-01")
 	assert.Nil(t, actual)
 }
 
 func TestSkipDelete(t *testing.T) {
-	actual := GetDefaultResourceState("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/databases/{databaseName}/transparentDataEncryption/{tdeName}")
+	actual := GetDefaultResourceState("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/databases/{databaseName}/transparentDataEncryption/{tdeName}", "2020-01-01")
 	expected := DefaultResourceState{
 		SkipDelete: true,
 	}
@@ -22,7 +22,7 @@ func TestSkipDelete(t *testing.T) {
 
 func TestPathNormalisation(t *testing.T) {
 	// Same as TestSkipDelete, but with a different casing and parameter naming.
-	actual := GetDefaultResourceState("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/databases/{databaseName}/transparentDataEncryption/{transparentDataEncryptionName}")
+	actual := GetDefaultResourceState("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/databases/{databaseName}/transparentDataEncryption/{transparentDataEncryptionName}", "2020-01-01")
 	expected := DefaultResourceState{
 		SkipDelete: true,
 	}
@@ -30,7 +30,7 @@ func TestPathNormalisation(t *testing.T) {
 }
 
 func TestEmptyBody(t *testing.T) {
-	actual := GetDefaultResourceState("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/blobServices/{BlobServicesName}")
+	actual := GetDefaultResourceState("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/blobServices/{BlobServicesName}", "2020-01-01")
 	expected := DefaultResourceState{
 		State: map[string]interface{}{},
 	}
@@ -38,7 +38,7 @@ func TestEmptyBody(t *testing.T) {
 }
 
 func TestNonEmptyCollection(t *testing.T) {
-	actual := GetDefaultResourceState("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/components/{resourceName}/currentbillingfeatures")
+	actual := GetDefaultResourceState("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/components/{resourceName}/currentbillingfeatures", "2020-01-01")
 	expected := DefaultResourceState{
 		State: map[string]interface{}{
 			"currentBillingFeatures": []string{"Basic"},

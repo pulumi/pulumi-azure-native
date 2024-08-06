@@ -3,16 +3,26 @@
 package convert
 
 import (
+	"fmt"
 	"reflect"
+	"sort"
 	"strings"
 
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
 )
 
 // SdkInputsToRequestBody converts a map of SDK properties to JSON request body to be sent to an HTTP API.
+// Returns a map of request body properties and a map of unmapped values.
 func (k *SdkShapeConverter) SdkInputsToRequestBody(props map[string]resources.AzureAPIProperty,
-	values map[string]interface{}, id string) map[string]interface{} {
+	values map[string]interface{}, id string) (map[string]interface{}, error) {
 	result := map[string]interface{}{}
+
+	unusedValues := map[string]interface{}{}
+	for name, value := range values {
+		if _, ok := props[name]; !ok {
+			unusedValues[name] = value
+		}
+	}
 
 	for name, prop := range props {
 		p := prop // https://go.dev/wiki/CommonMistakes#using-reference-to-loop-iterator-variable
@@ -21,15 +31,26 @@ func (k *SdkShapeConverter) SdkInputsToRequestBody(props map[string]resources.Az
 			sdkName = prop.SdkName
 		}
 		if value, has := values[sdkName]; has {
+			delete(unusedValues, sdkName)
+
 			if prop.Const != nil && value != prop.Const {
-				return nil
+				return nil, fmt.Errorf("property %s is a constant of value %q and cannot be modified to be %q", name, prop.Const, value)
 			}
 
 			container := k.buildContainer(result, prop.Containers)
 			container[name] = k.convertSdkPropToRequestBodyPropValue(id, &p, value)
 		}
 	}
-	return result
+	var err error
+	if len(unusedValues) > 0 {
+		unusedKeys := make([]string, 0, len(unusedValues))
+		for k := range unusedValues {
+			unusedKeys = append(unusedKeys, k)
+		}
+		sort.Strings(unusedKeys)
+		err = fmt.Errorf("unrecognized properties: %v", unusedKeys)
+	}
+	return result, err
 }
 
 // convertSdkPropToRequestBodyPropValue converts an SDK property to a value to be used in a request body.
@@ -47,8 +68,11 @@ func (k *SdkShapeConverter) convertSdkPropToRequestBodyPropValue(id string, prop
 			}
 		}
 
-		// Otherwise, delegate to the normal map convertion flow.
-		return k.SdkInputsToRequestBody(props, values, id)
+		// Otherwise, delegate to the normal map conversion flow.
+		converted, _ := k.SdkInputsToRequestBody(props, values, id)
+		// We ignore the error here as we haven't previously handled these errors recursively through convertTypedSdkInputObjectsToRequestBody.
+		// A difficulty is that the error is treated as a warning if we got a valid result, so should only be thrown if `converted` is nil.
+		return converted
 	})
 }
 

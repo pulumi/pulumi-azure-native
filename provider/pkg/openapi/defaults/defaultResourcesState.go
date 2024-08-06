@@ -5,6 +5,8 @@ package defaults
 import (
 	"fmt"
 	"reflect"
+	"sort"
+	"strings"
 
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi/paths"
 )
@@ -48,9 +50,11 @@ var defaultResourcesStateRaw = map[string]map[string]interface{}{
 		"enabled": false,
 	},
 	"/{resourceId}/providers/Microsoft.Security/defenderForStorageSettings/{settingName}": {
-		"isEnabled": false,
-		// https://learn.microsoft.com/en-us/azure/storage/common/azure-defender-storage-configure?tabs=enable-subscription#rest-api-1
-		"overrideSubscriptionLevelSettings": true,
+		"properties": map[string]interface{}{
+			"isEnabled": false,
+			// https://learn.microsoft.com/en-us/azure/storage/common/azure-defender-storage-configure?tabs=enable-subscription#rest-api-1
+			"overrideSubscriptionLevelSettings": true,
+		},
 	},
 	"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}/networkRuleSets/default": {
 		"defaultAction": "Deny",
@@ -58,8 +62,14 @@ var defaultResourcesStateRaw = map[string]map[string]interface{}{
 	"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/advisors/{advisorName}": {
 		"autoExecuteStatus": "Default",
 	},
+	"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/advisors/{advisorName}?version=2014-04-01": {
+		"autoExecuteValue": "Default",
+	},
 	"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/azureADOnlyAuthentications/{authenticationName}": {
 		"azureADOnlyAuthentication": false,
+	},
+	"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/databases/{databaseName}/advisors/{advisorName}?version=2014-04-01": {
+		"autoExecuteValue": "Default",
 	},
 	"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/databases/{databaseName}/advisors/{advisorName}": {
 		"autoExecuteStatus": "Default",
@@ -109,7 +119,6 @@ var defaultResourcesStateRaw = map[string]map[string]interface{}{
 	"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/blobServices/{BlobServicesName}": {},
 	"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/blobServices/default/containers/{containerName}/immutabilityPolicies/{immutabilityPolicyName}": {
 		"immutabilityPeriodSinceCreationInDays": 0,
-		"state":                                 "Deleted",
 	},
 	"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/encryptionScopes/{encryptionScopeName}": {
 		"state": "Disabled",
@@ -195,11 +204,20 @@ func init() {
 }
 
 func addNormalisedState(path string, state DefaultResourceState) {
-	normalizedPath := paths.NormalizePath(path)
+	// Don't normalise the arguments part - just the path.
+	path, args := splitPathAndArguments(path)
+	normalizedPath := paths.NormalizePath(path) + args
 	if _, exists := defaultResourcesStateNormalized[normalizedPath]; exists {
 		panic(fmt.Errorf("FATAL: default state for %s is already set", normalizedPath))
 	}
 	defaultResourcesStateNormalized[normalizedPath] = state
+}
+
+func splitPathAndArguments(path string) (string, string) {
+	if idx := strings.Index(path, "?"); idx != -1 {
+		return path[:idx], path[idx:]
+	}
+	return path, ""
 }
 
 func containsNonEmptyCollections(value map[string]interface{}) bool {
@@ -228,19 +246,33 @@ type DefaultResourceState struct {
 	HasNonEmptyCollections bool
 }
 
-func GetDefaultResourceState(path string) *DefaultResourceState {
+func GetDefaultResourceState(path, version string) *DefaultResourceState {
 	normalizedPath := paths.NormalizePath(path)
-	defaults, ok := defaultResourcesStateNormalized[normalizedPath]
-	if !ok {
-		return nil
+	versionedPath := fmt.Sprintf("%s?version=%s", normalizedPath, version)
+	defaults, ok := defaultResourcesStateNormalized[versionedPath]
+	if ok {
+		return &defaults
 	}
-	return &defaults
+	defaults, ok = defaultResourcesStateNormalized[normalizedPath]
+	if ok {
+		return &defaults
+	}
+	return nil
 }
 
-func SkipDeleteOperation(path string) bool {
-	defaultState := GetDefaultResourceState(path)
+func SkipDeleteOperation(path, version string) bool {
+	defaultState := GetDefaultResourceState(path, version)
 	if defaultState == nil {
 		return false
 	}
 	return defaultState.SkipDelete
+}
+
+func ListPathsWithDefaults() []string {
+	paths := make([]string, 0, len(defaultResourcesStateNormalized))
+	for path := range defaultResourcesStateNormalized {
+		paths = append(paths, path)
+	}
+	sort.Strings(paths)
+	return paths
 }

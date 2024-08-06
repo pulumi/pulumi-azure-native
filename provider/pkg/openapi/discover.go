@@ -503,7 +503,7 @@ func (providers AzureProviders) addAPIPath(specsDir, fileLocation, path string, 
 }
 
 func addResourcesAndInvokes(version VersionResources, fileLocation, path, provider string, swagger *Spec) DiscoveryDiagnostics {
-	apiVersion := ApiToSdkVersion(swagger.Info.Version)
+	sdkVersion := ApiToSdkVersion(swagger.Info.Version)
 
 	pathItem := swagger.Paths.Paths[path]
 	pathItemList, hasList := swagger.Paths.Paths[path+"/list"]
@@ -561,7 +561,7 @@ func addResourcesAndInvokes(version VersionResources, fileLocation, path, provid
 
 		switch {
 		case pathItem.Get != nil && !pathItem.Get.Deprecated:
-			defaultState := defaults.GetDefaultResourceState(path)
+			defaultState := defaults.GetDefaultResourceState(path, swagger.Info.Version)
 			if defaultState != nil && hasDelete && defaultState.HasNonEmptyCollections {
 				// See the limitation in `SdkShapeConverter.isDefaultResponse()`
 				panic(fmt.Sprintf("invalid defaultResourcesState '%s': non-empty collections aren't supported for deletable resources", path))
@@ -572,7 +572,7 @@ func addResourcesAndInvokes(version VersionResources, fileLocation, path, provid
 
 			if typeName != "" && (hasDelete || defaultState != nil) {
 				if _, ok := version.Resources[typeName]; ok && version.Resources[typeName].Path != path {
-					fmt.Printf("warning: duplicate resource %s/%s at paths:\n  - %s\n  - %s\n", apiVersion, typeName, path, version.Resources[typeName].Path)
+					fmt.Printf("warning: duplicate resource %s/%s at paths:\n  - %s\n  - %s\n", sdkVersion, typeName, path, version.Resources[typeName].Path)
 				}
 				var defaultBody map[string]any
 				if defaultState != nil {
@@ -586,7 +586,7 @@ func addResourcesAndInvokes(version VersionResources, fileLocation, path, provid
 
 			if typeName != "" && hasDelete {
 				if _, ok := version.Resources[typeName]; ok && version.Resources[typeName].Path != path {
-					fmt.Printf("warning: duplicate resource %s/%s at paths:\n  - %s\n  - %s\n", apiVersion, typeName, path, version.Resources[typeName].Path)
+					fmt.Printf("warning: duplicate resource %s/%s at paths:\n  - %s\n  - %s\n", sdkVersion, typeName, path, version.Resources[typeName].Path)
 				}
 				addResource(typeName, nil /* defaultBody */, nil /* pathItemList */)
 			}
@@ -603,7 +603,7 @@ func addResourcesAndInvokes(version VersionResources, fileLocation, path, provid
 
 			if typeName != "" {
 				var defaultBody map[string]interface{}
-				defaultState := defaults.GetDefaultResourceState(path)
+				defaultState := defaults.GetDefaultResourceState(path, swagger.Info.Version)
 				if defaultState != nil {
 					defaultBody = defaultState.State
 				} else if !hasDelete {
@@ -614,7 +614,7 @@ func addResourcesAndInvokes(version VersionResources, fileLocation, path, provid
 					}
 				}
 				if _, ok := version.Resources[typeName]; ok && version.Resources[typeName].Path != path {
-					fmt.Printf("warning: duplicate resource %s/%s at paths:\n  - %s\n  - %s\n", apiVersion, typeName, path, version.Resources[typeName].Path)
+					fmt.Printf("warning: duplicate resource %s/%s at paths:\n  - %s\n  - %s\n", sdkVersion, typeName, path, version.Resources[typeName].Path)
 				}
 				addResource(typeName, defaultBody, &pathItemList)
 			}
@@ -623,13 +623,13 @@ func addResourcesAndInvokes(version VersionResources, fileLocation, path, provid
 
 	// Add an entry for PATCH-based resources.
 	if pathItem.Patch != nil && !pathItem.Patch.Deprecated && pathItem.Get != nil && !pathItem.Get.Deprecated {
-		defaultState := defaults.GetDefaultResourceState(path)
+		defaultState := defaults.GetDefaultResourceState(path, swagger.Info.Version)
 		typeName, disambiguation := resources.ResourceName(pathItem.Get.ID, path)
 		recordDisambiguation(disambiguation)
 
 		if typeName != "" && defaultState != nil {
 			if _, ok := version.Resources[typeName]; ok && version.Resources[typeName].Path != path {
-				fmt.Printf("warning: duplicate resource %s/%s at paths:\n  - %s\n  - %s\n", apiVersion, typeName, path, version.Resources[typeName].Path)
+				fmt.Printf("warning: duplicate resource %s/%s at paths:\n  - %s\n  - %s\n", sdkVersion, typeName, path, version.Resources[typeName].Path)
 			}
 			addResource(typeName, defaultState.State, nil /* pathItemList */)
 		}

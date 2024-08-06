@@ -81,12 +81,17 @@ func ApiToSdkVersion(apiVersion ApiVersion) SdkVersion {
 
 // v20220202preview -> 2022-02-02-preview
 func SdkToApiVersion(v SdkVersion) (ApiVersion, error) {
-	if !strings.HasPrefix(v, "v") || len(v) < len("v20220202") || len(v) > len("v20220202preview") {
+	if !strings.HasPrefix(v, "v") || len(v) < len("v20220202") || len(v) > len("v20220202privatepreview") {
 		return "", fmt.Errorf("invalid sdk version: %s", v)
 	}
 	res := v[1:5] + "-" + v[5:7] + "-" + v[7:9]
-	if strings.HasSuffix(v, "preview") {
-		res += "-preview"
+	suffix := v[9:]
+	switch suffix {
+	case "preview", "privatepreview":
+		res += "-" + suffix
+	case "":
+	default:
+		return "", fmt.Errorf("invalid sdk version suffix: %s", v)
 	}
 	return res, nil
 }

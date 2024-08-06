@@ -22,9 +22,15 @@ import (
 // AzureRESTConverter is an interface for preparing Azure inputs from Pulumi data and for converting from Azure outputs to Pulumi SDK shape.
 // It operates in the context of a specific kind of Azure resource of type resources.AzureAPIResource.
 type AzureRESTConverter interface {
+	// PrepareAzureRESTIdAndQuery prepares the ID and query parameters for an Azure REST API request.
 	PrepareAzureRESTIdAndQuery(inputs resource.PropertyMap) (string, map[string]any, error)
-	PrepareAzureRESTBody(id string, inputs resource.PropertyMap) map[string]any
 
+	// PrepareAzureRESTBody prepares the body of an Azure REST API request.
+	// It returns the body as a map of strings to any, which can be marshaled to JSON.
+	// An error might be returned instead of or as well as the body. If the body is not nil, the error can be treated as a warning.
+	PrepareAzureRESTBody(id string, inputs resource.PropertyMap) (map[string]any, error)
+
+	// ResponseBodyToSdkOutputs converts an Azure REST API response to Pulumi SDK outputs.
 	ResponseBodyToSdkOutputs(response map[string]any) map[string]any
 }
 
@@ -110,7 +116,7 @@ func (r *resourceCrudClient) PrepareAzureRESTIdAndQuery(inputs resource.Property
 	})
 }
 
-func (r *resourceCrudClient) PrepareAzureRESTBody(id string, inputs resource.PropertyMap) map[string]any {
+func (r *resourceCrudClient) PrepareAzureRESTBody(id string, inputs resource.PropertyMap) (map[string]any, error) {
 	return PrepareAzureRESTBody(id, r.res.PutParameters, r.res.RequiredContainers, inputs.Mappable(), r.converter)
 }
 
@@ -178,14 +184,15 @@ func findInContainer(container map[string]any, path []string) (interface{}, bool
 }
 
 func PrepareAzureRESTBody(id string, parameters []resources.AzureAPIParameter, requiredContainers [][]string,
-	methodInputs map[string]any, converter *convert.SdkShapeConverter) map[string]any {
+	methodInputs map[string]any, converter *convert.SdkShapeConverter) (map[string]any, error) {
 	// Build the body JSON.
 	var body map[string]interface{}
+	var err error
 	for _, param := range parameters {
 		if param.Location != "body" {
 			continue
 		}
-		body = converter.SdkInputsToRequestBody(param.Body.Properties, methodInputs, id)
+		body, err = converter.SdkInputsToRequestBody(param.Body.Properties, methodInputs, id)
 		break
 	}
 
@@ -205,7 +212,7 @@ func PrepareAzureRESTBody(id string, parameters []resources.AzureAPIParameter, r
 		}
 	}
 
-	return body
+	return body, err
 }
 
 // partialError creates an error for resources that did not complete an operation in progress.
