@@ -13,16 +13,18 @@ import (
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/arm"
 	armruntime "github.com/Azure/azure-sdk-for-go/sdk/azcore/arm/runtime"
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/cloud"
+	"github.com/Azure/azure-sdk-for-go/sdk/azcore/policy"
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/runtime"
 	"github.com/Azure/azure-sdk-for-go/sdk/azidentity"
 )
 
 type azCoreClient struct {
-	host     string
-	pipeline runtime.Pipeline
+	host      string
+	pipeline  runtime.Pipeline
+	userAgent string
 }
 
-func NewAzCoreClient(tenantId, userAgent string) AzureClient {
+func NewAzCoreClient(userAgent string) AzureClient {
 	credentials, err := newAzureCredentials()
 	if err != nil {
 		panic(err)
@@ -35,9 +37,15 @@ func NewAzCoreClient(tenantId, userAgent string) AzureClient {
 	}
 
 	return &azCoreClient{
-		host:     cloud.AzurePublic.Services[cloud.ResourceManager].Endpoint, // TODO,tkappler other clouds
-		pipeline: pipeline,
+		host:      cloud.AzurePublic.Services[cloud.ResourceManager].Endpoint, // TODO,tkappler other clouds
+		pipeline:  pipeline,
+		userAgent: userAgent,
 	}
+}
+
+func (c *azCoreClient) setHeaders(req *policy.Request) {
+	req.Raw().Header.Set("Accept", "application/json")
+	req.Raw().Header.Set("User-Agent", c.userAgent)
 }
 
 func (c *azCoreClient) Get(ctx context.Context, id string, apiVersion string) (any, error) {
@@ -48,7 +56,7 @@ func (c *azCoreClient) Get(ctx context.Context, id string, apiVersion string) (a
 	reqQP := req.Raw().URL.Query()
 	reqQP.Set("api-version", apiVersion)
 	req.Raw().URL.RawQuery = reqQP.Encode()
-	req.Raw().Header.Set("Accept", "application/json")
+	c.setHeaders(req)
 	resp, err := c.pipeline.Do(req)
 	if err != nil {
 		return nil, err
@@ -64,6 +72,7 @@ func (c *azCoreClient) Get(ctx context.Context, id string, apiVersion string) (a
 	return responseBody, nil
 }
 
+// TODO,tkappler asyncStyle
 func (c *azCoreClient) Delete(ctx context.Context, id, apiVersion, asyncStyle string,
 	queryParams map[string]any) error {
 	req, err := runtime.NewRequest(ctx, http.MethodDelete, runtime.JoinPaths(c.host, id))
@@ -73,7 +82,7 @@ func (c *azCoreClient) Delete(ctx context.Context, id, apiVersion, asyncStyle st
 	reqQP := req.Raw().URL.Query()
 	reqQP.Set("api-version", apiVersion)
 	req.Raw().URL.RawQuery = reqQP.Encode()
-	req.Raw().Header.Set("Accept", "application/json")
+	c.setHeaders(req)
 	resp, err := c.pipeline.Do(req)
 	if err != nil {
 		return err
@@ -91,6 +100,7 @@ func (c *azCoreClient) Delete(ctx context.Context, id, apiVersion, asyncStyle st
 	return err
 }
 
+// TODO,tkappler asyncStyle
 func (c *azCoreClient) Put(ctx context.Context, id string, bodyProps map[string]interface{},
 	queryParameters map[string]interface{}, asyncStyle string) (map[string]interface{}, bool, error) {
 	req, err := runtime.NewRequest(ctx, http.MethodPut, runtime.JoinPaths(c.host, id))
@@ -100,7 +110,7 @@ func (c *azCoreClient) Put(ctx context.Context, id string, bodyProps map[string]
 	reqQP := req.Raw().URL.Query()
 	reqQP.Set("api-version", queryParameters["api-version"].(string))
 	req.Raw().URL.RawQuery = reqQP.Encode()
-	req.Raw().Header.Set("Accept", "application/json")
+	c.setHeaders(req)
 	err = runtime.MarshalAsJSON(req, bodyProps)
 	if err != nil {
 		return nil, false, err
@@ -127,16 +137,89 @@ func (c *azCoreClient) Put(ctx context.Context, id string, bodyProps map[string]
 
 func (c *azCoreClient) Post(ctx context.Context, id string, bodyProps map[string]interface{},
 	queryParameters map[string]interface{}) (any, error) {
-	panic("Post not implemented")
+	req, err := runtime.NewRequest(ctx, http.MethodPost, runtime.JoinPaths(c.host, id))
+	if err != nil {
+		return nil, err
+	}
+	reqQP := req.Raw().URL.Query()
+	reqQP.Set("api-version", queryParameters["api-version"].(string))
+	req.Raw().URL.RawQuery = reqQP.Encode()
+	c.setHeaders(req)
+
+	err = runtime.MarshalAsJSON(req, bodyProps)
+	if err != nil {
+		return nil, err
+	}
+
+	resp, err := c.pipeline.Do(req)
+	if err != nil {
+		return nil, err
+	}
+
+	if !runtime.HasStatusCode(resp, http.StatusOK, http.StatusCreated) {
+		return nil, runtime.NewResponseError(resp)
+	}
+
+	var responseBody map[string]interface{}
+	err = runtime.UnmarshalAsJSON(resp, &responseBody)
+	return responseBody, err
 }
 
 func (c *azCoreClient) Head(ctx context.Context, id string, apiVersion string) error {
-	panic("Head not implemented")
+	req, err := runtime.NewRequest(ctx, http.MethodHead, runtime.JoinPaths(c.host, id))
+	if err != nil {
+		return err
+	}
+	reqQP := req.Raw().URL.Query()
+	reqQP.Set("api-version", apiVersion)
+	req.Raw().URL.RawQuery = reqQP.Encode()
+	c.setHeaders(req)
+
+	resp, err := c.pipeline.Do(req)
+	if err != nil {
+		return err
+	}
+
+	if !runtime.HasStatusCode(resp, http.StatusOK, http.StatusNoContent) {
+		return runtime.NewResponseError(resp)
+	}
+	return nil
 }
 
+// TODO,tkappler asyncStyle
+// TODO,tkappler almost identical to Put
 func (c *azCoreClient) Patch(ctx context.Context, id string, bodyProps map[string]interface{},
 	queryParameters map[string]interface{}, asyncStyle string) (map[string]interface{}, bool, error) {
-	panic("Patch not implemented")
+	req, err := runtime.NewRequest(ctx, http.MethodPatch, runtime.JoinPaths(c.host, id))
+	if err != nil {
+		return nil, false, err
+	}
+	reqQP := req.Raw().URL.Query()
+	reqQP.Set("api-version", queryParameters["api-version"].(string))
+	req.Raw().URL.RawQuery = reqQP.Encode()
+	c.setHeaders(req)
+	err = runtime.MarshalAsJSON(req, bodyProps)
+	if err != nil {
+		return nil, false, err
+	}
+	resp, err := c.pipeline.Do(req)
+	if err != nil {
+		return nil, false, err
+	}
+	if !runtime.HasStatusCode(resp, http.StatusOK, http.StatusCreated, http.StatusAccepted) {
+		return nil, false, runtime.NewResponseError(resp)
+	}
+	pt, err := runtime.NewPoller[map[string]interface{}](resp, c.pipeline, nil)
+	if err != nil {
+		return nil, false, err
+	}
+	pollResp, err := pt.PollUntilDone(ctx, &runtime.PollUntilDoneOptions{
+		Frequency: 10 * time.Second,
+	})
+	if err != nil {
+		return nil, true, err
+	}
+	return pollResp, true, nil
 }
 
 // CanCreate asserts that a resource with a given ID and API version can be created
@@ -151,7 +234,7 @@ func (c *azCoreClient) CanCreate(ctx context.Context, id, path, apiVersion, read
 	reqQP := req.Raw().URL.Query()
 	reqQP.Set("api-version", apiVersion)
 	req.Raw().URL.RawQuery = reqQP.Encode()
-	req.Raw().Header.Set("Accept", "application/json")
+	c.setHeaders(req)
 	resp, err := c.pipeline.Do(req)
 	if err != nil {
 		return err
