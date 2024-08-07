@@ -1,8 +1,12 @@
 package main
 
 import (
+	"fmt"
+	"os"
+
 	"github.com/pulumi/pulumi-azure-native-sdk/authorization/v2"
 	"github.com/pulumi/pulumi-azure-native-sdk/compute/v2"
+	"github.com/pulumi/pulumi-azure-native-sdk/managedidentity/v2"
 	"github.com/pulumi/pulumi-azure-native-sdk/network/v2"
 	"github.com/pulumi/pulumi-azure-native-sdk/resources/v2"
 	"github.com/pulumi/pulumi-command/sdk/go/command/remote"
@@ -108,6 +112,25 @@ func main() {
 			return err
 		}
 
+		vmIdentity := &compute.VirtualMachineIdentityArgs{Type: compute.ResourceIdentityTypeSystemAssigned}
+
+		var umi *managedidentity.UserAssignedIdentity
+		if os.Getenv("PULUMI_TEST_USER_IDENTITY") == "true" {
+			fmt.Printf("go-azure-in-azure: using user-assigned identity\n")
+
+			umi, err = managedidentity.NewUserAssignedIdentity(ctx, "umi", &managedidentity.UserAssignedIdentityArgs{
+				ResourceGroupName: rg.Name,
+			})
+			if err != nil {
+				return err
+			}
+
+			vmIdentity = &compute.VirtualMachineIdentityArgs{
+				Type:                   compute.ResourceIdentityTypeUserAssigned,
+				UserAssignedIdentities: pulumi.StringArray{umi.ID()},
+			}
+		}
+
 		vm, err := compute.NewVirtualMachine(ctx, "virtualMachine", &compute.VirtualMachineArgs{
 			ResourceGroupName: rg.Name,
 			HardwareProfile: &compute.HardwareProfileArgs{
@@ -153,18 +176,23 @@ func main() {
 				},
 			},
 			VmName:   pulumi.String("myVM"),
-			Identity: &compute.VirtualMachineIdentityArgs{Type: compute.ResourceIdentityTypeSystemAssigned},
+			Identity: vmIdentity,
 		})
 		if err != nil {
 			return err
 		}
 
-		principal := vm.Identity.Elem().PrincipalId()
+		var principalId pulumi.StringOutput
+		if umi != nil {
+			principalId = umi.PrincipalId
+		} else {
+			principalId = vm.Identity.Elem().PrincipalId()
+		}
 
 		// Grant the new VM identity access to the resource group
 		roleAssignment, err := authorization.NewRoleAssignment(ctx, "rgAccess",
 			&authorization.RoleAssignmentArgs{
-				PrincipalId:      principal,
+				PrincipalId:      principalId,
 				PrincipalType:    authorization.PrincipalTypeServicePrincipal,
 				RoleDefinitionId: pulumi.String("/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c"), // Contributor
 				Scope:            rg.ID(),
@@ -240,7 +268,7 @@ pulumi logout --local`, innerProgram, clientConf.SubscriptionId, innerProgram, r
 
 		pulumiPreview, err := remote.NewCommand(ctx, "pulumiPreview", &remote.CommandArgs{
 			Connection: sshConn,
-			Triggers:   pulumi.ToArray([]any{vm.ID(), principal, roleAssignment.ID()}),
+			Triggers:   pulumi.ToArray([]any{vm.ID(), principalId, roleAssignment.ID()}),
 			Create:     create,
 		}, pulumi.DependsOn([]pulumi.Resource{roleAssignment, copy, installPulumi}))
 		if err != nil {
@@ -249,7 +277,7 @@ pulumi logout --local`, innerProgram, clientConf.SubscriptionId, innerProgram, r
 
 		ctx.Export("rg", rg.ID())
 		ctx.Export("vm", vm.Name)
-		ctx.Export("principal", vm.Identity.Elem().PrincipalId())
+		ctx.Export("principal", principalId)
 		ctx.Export("publicIpAddress", ipLookup.IpAddress().Elem())
 		ctx.Export("installPulumi", installPulumi.Stdout)
 		ctx.Export("installPulumiStderr", installPulumi.Stderr)

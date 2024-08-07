@@ -91,8 +91,18 @@ func TestServicebusRecreateSdk(t *testing.T) {
 	integration.ProgramTest(t, &test)
 }
 
-func TestAzureInAzure(t *testing.T) {
+func TestAzureInAzureWithSystemManagedIdentity(t *testing.T) {
 	test := getGoBaseOptionsSdk(t, testDir(t, "go-azure-in-azure"))
+	integration.ProgramTest(t, &test)
+}
+
+func TestAzureInAzureWithUserManagedIdentity(t *testing.T) {
+	skipIfShort(t)
+
+	test := getGoBaseOptionsSdk(t, testDir(t, "go-azure-in-azure")).
+		With(integration.ProgramTestOptions{
+			Env: []string{"PULUMI_TEST_USER_IDENTITY=true"},
+		})
 	integration.ProgramTest(t, &test)
 }
 
