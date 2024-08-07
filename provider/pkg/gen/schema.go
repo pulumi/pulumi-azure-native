@@ -551,23 +551,11 @@ func genMixins(pkg *pschema.PackageSpec, metadata *resources.AzureAPIMetadata) e
 		}
 		pkg.Types[tok] = t
 	}
-	for tok, t := range customresources.SchemaTypeOverrides() {
-		pkg.Types[tok] = t
-	}
 	for tok, r := range customresources.MetaMixins() {
 		if _, has := metadata.Resources[tok]; has {
 			return errors.Errorf("Metadata %q is already defined", tok)
 		}
 		metadata.Resources[tok] = r
-	}
-	for tok, r := range customresources.MetaTypeMixins() {
-		if _, has := metadata.Types[tok]; has {
-			return errors.Errorf("Metadata type %q is already defined", tok)
-		}
-		metadata.Types[tok] = r
-	}
-	for tok, r := range customresources.MetaTypeOverrides() {
-		metadata.Types[tok] = r
 	}
 
 	// Add a note regarding WorkspaceSqlAadAdmin creation.
