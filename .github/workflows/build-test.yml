@@ -33,8 +33,9 @@ env:
   TRAVIS_OS_NAME: linux
   SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
   PULUMI_GO_DEP_ROOT: ${{ github.workspace }}/..
-  ARM_CLIENT_ID: 30e520fa-12b4-4e21-b473-9426c5ac2e1e
+  ARM_CLIENT_ID: 30e520fa-12b4-4e21-b473-9426c5ac2e1e # application id of the "TravisCI" service principal
   ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
+  ARM_CLIENT_CERTIFICATE_PASSWORD_FOR_TEST: ${{ secrets.ARM_CLIENT_CERTIFICATE_PASSWORD }}
   ARM_ENVIRONMENT: public
   ARM_LOCATION: westus2
   ARM_SUBSCRIPTION_ID: 0282681f-7a9e-424b-80b2-96babd57a8a1
@@ -190,11 +191,18 @@ jobs:
         with:
           language: ${{ matrix.language }}
 
+      - name: Write client certificate
+        # The provider wants the cert as a path to a cert file but GH secrets can only be strings.
+        # We store the base64-encoded cert as a secret, decode it here, and write it out to a file.
+        run: |
+          echo "${{ secrets.ARM_CLIENT_CERTIFICATE }}" | base64 -d > "${{ runner.temp }}/azure-client-certificate.pfx"
+
       - name: Run tests
         if: ${{ ! inputs.short_test }}
         env:
           # specifying this id will cause the OIDC test(s) to run against this AD application
           OIDC_ARM_CLIENT_ID: ${{ inputs.oidc_arm_client_id }}
+          ARM_CLIENT_CERTIFICATE_PATH_FOR_TEST: "${{ runner.temp }}/azure-client-certificate.pfx"
         run: |
           set -euo pipefail
           cd examples && go test -v -json -cover -timeout 2h -tags=${{ matrix.language }} -skip TestPulumiExamples -parallel 16 . 2>&1 | tee /tmp/gotest.log | gotestfmt

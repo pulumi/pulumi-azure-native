@@ -90,10 +90,6 @@ func (k *azureNativeProvider) getAuthConfig() (*authConfig, error) {
 		envName = "public"
 	}
 
-	useMsi := k.getConfig("useMsi", "ARM_USE_MSI") == "true"
-	clientSecret := k.getConfig("clientSecret", "ARM_CLIENT_SECRET")
-	clientCertPath := k.getConfig("clientCertificatePath", "ARM_CLIENT_CERTIFICATE_PATH")
-
 	useOIDC := k.getConfig("useOidc", "ARM_USE_OIDC") == "true"
 	oidcConf, err := k.determineOidcConfig()
 	if useOIDC && err != nil {
@@ -101,18 +97,19 @@ func (k *azureNativeProvider) getAuthConfig() (*authConfig, error) {
 	}
 
 	builder := &authentication.Builder{
-		SubscriptionID: k.getConfig("subscriptionId", "ARM_SUBSCRIPTION_ID"),
-		ClientID:       k.getConfig("clientId", "ARM_CLIENT_ID"),
-		ClientSecret:   clientSecret,
-		TenantID:       k.getConfig("tenantId", "ARM_TENANT_ID"),
-		Environment:    envName,
-		ClientCertPath: clientCertPath,
-		ClientCertPassword: k.getConfig("clientCertificatePassword",
-			"ARM_CLIENT_CERTIFICATE_PASSWORD"),
+		SubscriptionID:       k.getConfig("subscriptionId", "ARM_SUBSCRIPTION_ID"),
+		ClientID:             k.getConfig("clientId", "ARM_CLIENT_ID"),
+		TenantID:             k.getConfig("tenantId", "ARM_TENANT_ID"),
+		Environment:          envName,
 		MsiEndpoint:          k.getConfig("msiEndpoint", "ARM_MSI_ENDPOINT"),
 		AuxiliaryTenantIDs:   auxTenants,
 		ClientSecretDocsLink: "https://www.pulumi.com/docs/intro/cloud-providers/azure/setup/#service-principal-authentication",
 		MetadataHost:         k.getConfig("metadataHost", "ARM_METADATA_HOSTNAME"),
+
+		// Service Principal section.
+		ClientCertPath:     k.getConfig("clientCertificatePath", "ARM_CLIENT_CERTIFICATE_PATH"),
+		ClientCertPassword: k.getConfig("clientCertificatePassword", "ARM_CLIENT_CERTIFICATE_PASSWORD"),
+		ClientSecret:       k.getConfig("clientSecret", "ARM_CLIENT_SECRET"),
 
 		// OIDC section.
 		IDTokenRequestToken: oidcConf.oidcRequestToken,
@@ -125,7 +122,7 @@ func (k *azureNativeProvider) getAuthConfig() (*authConfig, error) {
 		SupportsClientSecretAuth:       true,
 		SupportsOIDCAuth:               useOIDC,
 		UseMicrosoftGraph:              useOIDC,
-		SupportsManagedServiceIdentity: useMsi,
+		SupportsManagedServiceIdentity: k.getConfig("useMsi", "ARM_USE_MSI") == "true",
 		SupportsAzureCliToken:          !useOIDC,
 		SupportsAuxiliaryTenants:       len(auxTenants) > 0,
 	}

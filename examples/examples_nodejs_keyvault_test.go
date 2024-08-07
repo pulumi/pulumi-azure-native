@@ -69,3 +69,20 @@ func TestAccKeyVaultTs_OICDExplicit(t *testing.T) {
 
 	integration.ProgramTest(t, &test)
 }
+
+func TestAccKeyVaultTs_ClientCert(t *testing.T) {
+	skipIfShort(t)
+
+	test := getJSBaseOptions(t).
+		With(integration.ProgramTestOptions{
+			Dir: filepath.Join(getCwd(t), "keyvault"),
+			Env: []string{
+				"ARM_CLIENT_CERTIFICATE_PATH=" + os.Getenv("ARM_CLIENT_CERTIFICATE_PATH_FOR_TEST"),
+				"ARM_CLIENT_CERTIFICATE_PASSWORD=" + os.Getenv("ARM_CLIENT_CERTIFICATE_PASSWORD_FOR_TEST"),
+				// Make sure we test the client cert path
+				"ARM_CLIENT_SECRET=",
+			},
+		})
+
+	integration.ProgramTest(t, &test)
+}
