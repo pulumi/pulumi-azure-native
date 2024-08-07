@@ -16,107 +16,110 @@ return await Pulumi.Deployment.RunAsync(() =>
     var dashboard = new Dashboard("dash", new()
     {
         ResourceGroupName = resourceGroup.Name,
-        Lenses = new[]
+        Properties = new()
         {
-            new DashboardLensArgs
+            Lenses = new[]
             {
-                Order = 0,
-                Parts = new[]
+                new DashboardLensArgs
                 {
-                    new DashboardPartsArgs
+                    Order = 0,
+                    Parts = new[]
                     {
-                        Metadata = new DashboardPartMetadataArgs
+                        new DashboardPartsArgs
                         {
-                            Inputs = new InputList<object>(),
-                            Settings = {
-                                ["content"] = new Dictionary<string, object> {
-                                    ["settings"] = new Dictionary<string, object> {
-                                        ["content"] =  @"<div style='line-height:50px;'>
-<span style='font-size:16px;font-weight:bold'>AZURE RESOURCE INVENTORY - </span>
-<span>This section gives you an overview of all your Azure resources across all subscriptions that you can access.</span>
-</div>",
-                                        ["subtitle"] = "",
-                                        ["title"] = "",
-                                    }
-                                }
-                            },
-                            Type = "Extension/HubsExtension/PartType/MarkdownPart",
-                        },
-                        Position = new DashboardPartsPositionArgs
-                        {
-                            ColSpan = 18,
-                            RowSpan = 1,
-                            X = 0,
-                            Y = 0,
-                        },
-                    },
-                    new DashboardPartsArgs
-                    {
-                        Metadata = new DashboardPartMetadataArgs
-                        {
-                            Inputs = new[]
+                            Metadata = new DashboardPartMetadataArgs
                             {
-                                new Dictionary<string, object>
-                                {
-                                    { "name", "partTitle" },
-                                    { "value", "Count of all my Azure resources" },
+                                Inputs = new InputList<object>(),
+                                Settings = {
+                                    ["content"] = new Dictionary<string, object> {
+                                        ["settings"] = new Dictionary<string, object> {
+                                            ["content"] =  @"<div style='line-height:50px;'>
+    <span style='font-size:16px;font-weight:bold'>AZURE RESOURCE INVENTORY - </span>
+    <span>This section gives you an overview of all your Azure resources across all subscriptions that you can access.</span>
+    </div>",
+                                            ["subtitle"] = "",
+                                            ["title"] = "",
+                                        }
+                                    }
                                 },
-                                new Dictionary<string, object>                                
-                                {
-                                    { "name", "query" },
-                                    { "value", "summarize Resources=count()" },
-                                },
-                                new Dictionary<string, object>                                
-                                {
-                                    { "isOptional", true },
-                                    { "name", "chartType" },
-                                },
-                                new Dictionary<string, object>                                
-                                {
-                                    { "isOptional", true },
-                                    { "name", "isShared" },
-                                },
-                                new Dictionary<string, object>                                
-                                {
-                                    { "isOptional", true },
-                                    { "name", "queryId" },
-                                },
-                                new Dictionary<string, object>                                
-                                {
-                                    { "isOptional", true },
-                                    { "name", "formatResults" },
-                                },
-                                new Dictionary<string, object>                                
-                                {
-                                    { "isOptional", true },
-                                    { "name", "queryScope" },
-                                },
+                                Type = "Extension/HubsExtension/PartType/MarkdownPart",
                             },
-                            Settings = new Dictionary<string, object>(),
-                            Type = "Extension/HubsExtension/PartType/ArgQuerySingleValueTile",
+                            Position = new DashboardPartsPositionArgs
+                            {
+                                ColSpan = 18,
+                                RowSpan = 1,
+                                X = 0,
+                                Y = 0,
+                            },
                         },
-                        Position = new DashboardPartsPositionArgs
+                        new DashboardPartsArgs
                         {
-                            ColSpan = 3,
-                            RowSpan = 4,
-                            X = 0,
-                            Y = 1,
+                            Metadata = new DashboardPartMetadataArgs
+                            {
+                                Inputs = new[]
+                                {
+                                    new Dictionary<string, object>
+                                    {
+                                        { "name", "partTitle" },
+                                        { "value", "Count of all my Azure resources" },
+                                    },
+                                    new Dictionary<string, object>                                
+                                    {
+                                        { "name", "query" },
+                                        { "value", "summarize Resources=count()" },
+                                    },
+                                    new Dictionary<string, object>                                
+                                    {
+                                        { "isOptional", true },
+                                        { "name", "chartType" },
+                                    },
+                                    new Dictionary<string, object>                                
+                                    {
+                                        { "isOptional", true },
+                                        { "name", "isShared" },
+                                    },
+                                    new Dictionary<string, object>                                
+                                    {
+                                        { "isOptional", true },
+                                        { "name", "queryId" },
+                                    },
+                                    new Dictionary<string, object>                                
+                                    {
+                                        { "isOptional", true },
+                                        { "name", "formatResults" },
+                                    },
+                                    new Dictionary<string, object>                                
+                                    {
+                                        { "isOptional", true },
+                                        { "name", "queryScope" },
+                                    },
+                                },
+                                Settings = new Dictionary<string, object>(),
+                                Type = "Extension/HubsExtension/PartType/MarkdownPart",
+                            },
+                            Position = new DashboardPartsPositionArgs
+                            {
+                                ColSpan = 3,
+                                RowSpan = 4,
+                                X = 0,
+                                Y = 1,
+                            },
                         },
                     },
                 },
             },
-        },
-        Metadata = new Dictionary<string, object> {
-            ["model"] = new Dictionary<string, object> {
-                ["timeRange"] = new Dictionary<string, object> {
-                    ["type"] = "MsPortalFx.Composition.Configuration.ValueTypes.TimeRange",
-                    ["value"] = new Dictionary<string, object> {
-                        ["relative"] = new Dictionary<string, object> {
-                            ["duration"] = 24,
-                            ["timeUnit"] = 1
+            Metadata = new Dictionary<string, object> {
+                ["model"] = new Dictionary<string, object> {
+                    ["timeRange"] = new Dictionary<string, object> {
+                        ["type"] = "MsPortalFx.Composition.Configuration.ValueTypes.TimeRange",
+                        ["value"] = new Dictionary<string, object> {
+                            ["relative"] = new Dictionary<string, object> {
+                                ["duration"] = 24,
+                                ["timeUnit"] = 1
+                            }
                         }
                     }
-                }
+                },
             },
         },
         Tags = 
